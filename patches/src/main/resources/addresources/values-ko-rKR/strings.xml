@@ -68,6 +68,8 @@ Second \"item\" text"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">GmsCore 설정</string>
+  <string name="microg_settings_summary">알림 수신을 위한 클라우드 메시징을 설정할 수 있습니다</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore가 설치되어 있지 않습니다. 설치하세요.</string>
   <string name="gms_core_dialog_title">필수 조치</string>
@@ -83,6 +85,37 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
 
 앱 배터리 최적화를 비활성화(제한 없음)하려면 '계속하기' 버튼을 탭하세요."</string>
   <string name="gms_core_dialog_continue_text">계속하기</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">동영상 스트림 변경하기</string>
+  <string name="revanced_spoof_video_streams_screen_summary">클라이언트 동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_screen_title">동영상 스트림 변경하기</string>
+  <string name="revanced_spoof_video_streams_screen_summary">클라이언트 동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_title">동영상 스트림 변경하기</string>
+  <string name="revanced_spoof_video_streams_summary_on">"동영상 스트림를 변경합니다
+
+YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니다"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"동영상 스트림을 변경하지 않습니다
+
+재생 문제가 발생할 수 있습니다"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 재생 문제가 발생할 수 있습니다.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">기본 클라이언트</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">디버깅</string>
+  <string name="revanced_debug_screen_summary">디버깅 옵션을 활성화하거나 비활성화할 수 있습니다</string>
+  <string name="revanced_debug_title">디버그 로깅</string>
+  <string name="revanced_debug_summary_on">디버그 로깅을 활성화합니다</string>
+  <string name="revanced_debug_summary_off">디버그 로깅을 비활성화합니다</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">디버그 로그 내보내기</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced 디버그 로그를 클립보드에 복사할 수 있습니다</string>
+  <string name="revanced_debug_logs_disabled">디버그 로깅이 비활성화되어 있습니다</string>
+  <string name="revanced_debug_logs_none_found">디버그 로그를 찾을 수 없습니다</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">디버그 로그를 복사하였습니다</string>
+  <string name="revanced_debug_logs_failed_to_export">디버그 로그를 내보낼 수 없습니다: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">디버그 로그 지우기</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">저장된 모든 ReVanced 디버그 로그를 지울 수 있습니다</string>
+  <string name="revanced_debug_logs_clear_toast">디버그 로그가 지워졌습니다</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts 백그라운드 재생을 활성화합니다\n\n알림: Shorts 백그라운드 재생은 PIP 모드를 통해서만 사용할 수 있습니다</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">디버깅</string>
-  <string name="revanced_debug_screen_summary">디버깅 옵션을 활성화하거나 비활성화할 수 있습니다</string>
-  <string name="revanced_debug_title">디버그 로깅</string>
-  <string name="revanced_debug_summary_on">디버그 로깅을 활성화합니다</string>
-  <string name="revanced_debug_summary_off">디버그 로깅을 비활성화합니다</string>
   <string name="revanced_debug_protobuffer_title">로그 프로토콜 버퍼</string>
   <string name="revanced_debug_protobuffer_summary_on">디버그 로그에 프로토콜 버퍼를 포함합니다</string>
   <string name="revanced_debug_protobuffer_summary_off">디버그 로그에 프로토콜 버퍼를 포함하지 않습니다</string>
@@ -132,15 +160,6 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"오류 메시지를 비활성화하면 모든 ReVanced 오류 알림이 숨겨집니다.
 
 예상되지 않은 이벤트에 대한 알림을 받지 못할 수 있습니다."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">디버그 로그 내보내기</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced 디버그 로그를 클립보드에 복사할 수 있습니다</string>
-  <string name="revanced_debug_logs_disabled">디버그 로깅이 비활성화되어 있습니다</string>
-  <string name="revanced_debug_logs_none_found">디버그 로그를 찾을 수 없습니다</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">디버그 로그를 복사하였습니다</string>
-  <string name="revanced_debug_logs_failed_to_export">디버그 로그를 내보낼 수 없습니다: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">디버그 로그 지우기</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">저장된 모든 ReVanced 디버그 로그를 지울 수 있습니다</string>
-  <string name="revanced_debug_logs_clear_toast">디버그 로그가 지워졌습니다</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">음악 앨범 카드 숨기기</string>
@@ -701,7 +720,7 @@ MicroG 앱 배터리 최적화를 비활성화(제한 없음)하더라도, 배�
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"오디오 트랙 메뉴가 숨겨집니다
 
-\"동영상 스트림 변경하기\"가 활성화된 경우 오디오 트랙 메뉴를 사용할 수 없습니다."</string>
+'동영상 스트림 변경하기'가 활성화된 경우에는 오디오 트랙 메뉴를 사용할 수 없습니다"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">VR로 보기 메뉴 숨기기</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR로 보기 메뉴가 숨겨집니다</string>
@@ -1404,7 +1423,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">경고</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">시청 기록이 저장되지 않습니다.&lt;br&gt;&lt;br&gt; DNS 광고 차단기 또는 네트워크 프록시로 인해 발생한 문제일 가능성이 높습니다.&lt;br&gt;&lt;br&gt; 이 문제를 해결하려면 &lt;b&gt;s.youtube.com&lt;/b&gt;을 허용 목록에서 제외하거나 모든 DNS 차단기 및 프록시를 해제하세요.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">시청 기록이 저장되지 않습니다.&lt;br&gt;&lt;br&gt; DNS 광고 차단기 또는 네트워크 프록시로 인하여 발생한 문제일 가능성이 높습니다.&lt;br&gt;&lt;br&gt; 이 문제를 해결하려면 &lt;b&gt;s.youtube.com&lt;/b&gt;을 허용 목록에서 제외하거나 모든 DNS 차단기 및 프록시를 해제하세요.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">다시 보지 않기</string>
   </patch>
   <patch id="misc.autorepeat.autoRepeatPatch">
@@ -1421,10 +1440,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
 
 이 설정을 활성화하면 더 높은 화질 동영상 값을 잠금 해제할 수 있습니다"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">이 설정을 활성화하면 동영상 재생이 끊기거나 배터리 수명이 단축되고 알려지지 않은 부작용이 발생할 수 있습니다.</string>
-  </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">GmsCore 설정</string>
-  <string name="microg_settings_summary">알림 수신을 위한 클라우드 메시징을 설정할 수 있습니다</string>
   </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">진동 피드백</string>
@@ -1539,27 +1554,51 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_slide_to_seek_summary_off">슬라이드하여 탐색을 비활성화합니다</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">동영상 스트림 변경하기</string>
-  <string name="revanced_spoof_video_streams_screen_summary">클라이언트 동영상 스트림을 변경하여 재생 문제를 방지할 수 있습니다</string>
-  <string name="revanced_spoof_video_streams_title">동영상 스트림 변경하기</string>
-  <string name="revanced_spoof_video_streams_summary_on">"동영상 스트림이 변경되었습니다
-
-YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니다."</string>
-  <string name="revanced_spoof_video_streams_summary_off">"동영상 스트림을 변경하지 않습니다
-동영상 재생 문제가 발생할 수 있습니다"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 동영상 재생 문제가 발생할 수 있습니다.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">기본 클라이언트</string>
   <string name="revanced_spoof_video_streams_about_title">변경에 따른 부작용</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android 변경에 따른 부작용</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 오디오 트랙 메뉴가 표시되지 않습니다
 • 안정적인 볼륨을 사용할 수 없습니다"</string>
-  <string name="revanced_spoof_video_streams_about_experimental">• 실험용 클라이언트이며 언제든지 작동이 중단될 수 있습니다.</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• 실험용 클라이언트이며 언제든지 작동이 중단될 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kids 동영상은 로그인을 하지 않았거나 시크릿 모드에서는 재생되지 않을 수 있습니다</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">동영상 스트림을 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">동영상 스트림을 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시되지 않습니다</string>
   <string name="revanced_spoof_video_streams_language_title">오디오 스트림 언어</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">정보</string>
+  <string name="revanced_settings_music_screen_1_ads_title">광고</string>
+  <string name="revanced_settings_music_screen_2_general_title">일반</string>
+  <string name="revanced_settings_music_screen_3_player_title">플레이어</string>
+  <string name="revanced_settings_music_screen_4_misc_title">기타</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">동영상 광고 숨기기</string>
+  <string name="revanced_music_hide_video_ads_summary_on">동영상 광고가 숨겨집니다</string>
+  <string name="revanced_music_hide_video_ads_summary_off">동영상 광고가 표시됩니다</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">영구적인 반복 활성화하기</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">영구적인 반복을 활성화합니다</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">영구적인 반복을 비활성화합니다</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">카테고리 바 숨기기</string>
+  <string name="revanced_music_hide_category_bar_summary_on">카테고리 바가 숨겨집니다</string>
+  <string name="revanced_music_hide_category_bar_summary_off">카테고리 바가 표시됩니다</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Music Premium 가입 라벨 숨기기</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Music Premium 가입 라벨이 숨겨집니다</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Music Premium 가입 라벨이 표시됩니다</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">업그레이드 버튼 숨기기</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">업그레이드 버튼이 숨겨집니다</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">업그레이드 버튼이 표시됩니다</string>
   </patch>
   </app>
   <app id="twitch">

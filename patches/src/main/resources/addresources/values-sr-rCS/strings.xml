@@ -68,6 +68,8 @@ Da biste preveli nove jezike, posetite translate.revanced.app"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Podešavanja GmsCorea</string>
+  <string name="microg_settings_summary">Podešavanja za GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nije instaliran. Instalirajte ga.</string>
   <string name="gms_core_dialog_title">Neophodna radnja</string>
@@ -83,6 +85,37 @@ Onemogućavanje optimizacije baterije za MicroG neće negativno uticati na potro
 
 Dodirnite dugme „Nastavi” i dozvolite promene optimizacije."</string>
   <string name="gms_core_dialog_continue_text">Nastavi</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Lažirani video strimovi</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Lažiranje klijenta video strimova da bi se sprečili problemi sa reprodukcijom</string>
+  <string name="revanced_spoof_video_streams_screen_title">Lažiranje video tokova</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Lažirajte video tokove klijenta da biste sprečili probleme sa reprodukcijom.</string>
+  <string name="revanced_spoof_video_streams_title">Lažirani video strimovi</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Video strimovi su lažirani
+
+Ako ste korisnik YouTube Premiuma, ovo podešavanje možda neće biti potrebno"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Video tokovi nisu lažirani
+
+Reprodukcija možda neće raditi"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ovog podešavanja može izazvati probleme sa reprodukcijom.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Podrazumevani klijent</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Otklanjanje grešaka</string>
+  <string name="revanced_debug_screen_summary">Omogućite ili onemogućite opcije za otklanjanje grešaka</string>
+  <string name="revanced_debug_title">Evidentiranje otklanjanja grešaka</string>
+  <string name="revanced_debug_summary_on">Evidencije otklanjanja grešaka su omogućene</string>
+  <string name="revanced_debug_summary_off">Evidencije otklanjanja grešaka su onemogućene</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Izvezi evidencije otklanjanja grešaka</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopira evidencije otklanjanja grešaka ReVanceda u privremenu memoriju</string>
+  <string name="revanced_debug_logs_disabled">Evidentiranje otklanjanja grešaka je onemogućeno</string>
+  <string name="revanced_debug_logs_none_found">Nema pronađenih evidencija</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Evidencije su kopirane</string>
+  <string name="revanced_debug_logs_failed_to_export">Neuspešan izvoz evidencija: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Izbriši evidencije otklanjanja grešaka</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Briše sve sačuvane evidencije otklanjanja grešaka ReVanceda</string>
+  <string name="revanced_debug_logs_clear_toast">Evidencije su izbrisane</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Dodirnite dugme „Nastavi” i dozvolite promene optimizacije."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Puštanje Shorts videa u pozadini je omogućeno</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Otklanjanje grešaka</string>
-  <string name="revanced_debug_screen_summary">Omogućite ili onemogućite opcije za otklanjanje grešaka</string>
-  <string name="revanced_debug_title">Evidentiranje otklanjanja grešaka</string>
-  <string name="revanced_debug_summary_on">Evidencije otklanjanja grešaka su omogućene</string>
-  <string name="revanced_debug_summary_off">Evidencije otklanjanja grešaka su onemogućene</string>
   <string name="revanced_debug_protobuffer_title">Evidentiranje bafera protokola</string>
   <string name="revanced_debug_protobuffer_summary_on">Evidencije otklanjanja grešaka sadrže bafer protokola</string>
   <string name="revanced_debug_protobuffer_summary_off">Evidencije otklanjanja grešaka ne sadrže bafer protokola</string>
@@ -132,15 +160,6 @@ Međutim, omogućavanje ovoga će takođe evidentirati neke korisničke podatke,
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Isključivanje iskačućih obaveštenja o greškama sakriva sve obaveštenja o greškama u ReVancedu.
 
 Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Izvezi evidencije otklanjanja grešaka</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopira evidencije otklanjanja grešaka ReVanceda u privremenu memoriju</string>
-  <string name="revanced_debug_logs_disabled">Evidentiranje otklanjanja grešaka je onemogućeno</string>
-  <string name="revanced_debug_logs_none_found">Nema pronađenih evidencija</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Evidencije su kopirane</string>
-  <string name="revanced_debug_logs_failed_to_export">Neuspešan izvoz evidencija: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Izbriši evidencije otklanjanja grešaka</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Briše sve sačuvane evidencije otklanjanja grešaka ReVanceda</string>
-  <string name="revanced_debug_logs_clear_toast">Evidencije su izbrisane</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Sakrij kartice albuma</string>
@@ -700,9 +719,9 @@ Ako se promena ove opcije ne primeni, pokušajte da pređete u režim bez arhivi
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meni „Audio snimak” je skriven</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Meni „Audio snimak” je prikazan</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meni audio zapisa je skriven
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meni „Audio snimak” je skriven
 
-Meni audio zapisa nije dostupan kada je \"Lažiranje video tokova\" omogućeno"</string>
+Meni „Audio snimak” nije dostupan kada je omogućena opcija „Lažirani video strimovi”"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Sakrij dugme „Gledaj u VR”</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Dugme „Gledaj u VR” je skriveno</string>
@@ -1414,10 +1433,6 @@ Viši kvaliteti videa mogu biti otključani, ali može doći do zastoja pri repr
 Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Ako ovo omogućite, može doći do zastoja pri reprodukciji videa, kraćeg trajanja baterije i nepoznatih neželjenih efekata.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">Podešavanja GmsCorea</string>
-  <string name="microg_settings_summary">Podešavanja za GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Vibracija pri dodiru</string>
   <string name="revanced_disable_haptic_feedback_summary">Promeni vibraciju pri dodiru</string>
@@ -1531,28 +1546,51 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_slide_to_seek_summary_off">Prevlaćenje za premotavanje nije omogućeno</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Lažirani video strimovi</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Lažiranje klijenta video strimova da bi se sprečili problemi sa reprodukcijom</string>
-  <string name="revanced_spoof_video_streams_title">Lažirani video strimovi</string>
-  <string name="revanced_spoof_video_streams_summary_on">"Video tokovi su lažirani
-
-Ako ste YouTube Premium korisnik, ovo podešavanje možda neće biti potrebno"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Video strimovi nisu lažirani
-
-Reprodukcija videa možda neće raditi"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ove opcije će možda izazvati probleme sa reprodukcijom videa.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Podrazumevani klijent</string>
-  <string name="revanced_spoof_video_streams_about_title">Nuspojave lažiranja</string>
+  <string name="revanced_spoof_video_streams_about_title">Neželjeni efekti lažiranja</string>
   <string name="revanced_spoof_video_streams_about_android_title">Neželjeni efekti lažiranja na Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Meni audio zapisa nedostaje
-• Stabilna jačina zvuka nije dostupna"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Meni „Audio snimak” nedostaje
+• Opcija „Ujednačena jačina zvuka” nije dostupna"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentalni klijent i može prestati da radi bilo kada</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nema video kodeka AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videi za decu se možda neće puštati kada ste odjavljeni ili u režimu bez arhiviranja</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Prikaži u „Statistici za znalce”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tip klijenta je prikazan u „Statistici za znalce”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Tip klijenta je skriven u „Statistici za znalce”</string>
-  <string name="revanced_spoof_video_streams_language_title">Jezik audio toka</string>
+  <string name="revanced_spoof_video_streams_language_title">Jezik audio strima</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">O</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Oglasi</string>
+  <string name="revanced_settings_music_screen_2_general_title">Opšte</string>
+  <string name="revanced_settings_music_screen_3_player_title">Plejer</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Razno</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Sakrij video oglase</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Video oglasi su skriveni</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Video oglasi su prikazani</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Omogući trajno ponavljanje</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Trajno ponavljanje je omogućeno</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Trajno ponavljanje je onemogućeno</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Sakrij traku kategorija</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Traka kategorija je skrivena</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Traka kategorija je prikazana</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Sakrij oznaku „Preuzmi Music Premium”</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Oznaka je skrivena</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Oznaka je prikazana</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Sakrij dugme za nadogradnju</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Dugme je skriveno</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Dugme je prikazano</string>
   </patch>
   </app>
   <app id="twitch">

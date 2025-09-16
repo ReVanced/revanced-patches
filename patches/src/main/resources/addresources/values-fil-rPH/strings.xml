@@ -68,6 +68,8 @@ Upang magsalin ng mga bagong wika, bisitahin ang translate.revanced.app"</string
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Mga Setting ng GmsCore</string>
+  <string name="microg_settings_summary">Mga setting para sa GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">Hindi naka-install ang MicroG GmsCore. I-install ito.</string>
   <string name="gms_core_dialog_title">Kailangan ng aksyon</string>
@@ -83,6 +85,37 @@ Ang pag-disable ng mga pag-optimize ng baterya para sa MicroG ay hindi makakaape
 
 Tapikin ang pindutan ng pagpapatuloy at payagan ang mga pagbabago sa pag-optimize."</string>
   <string name="gms_core_dialog_continue_text">Magpatuloy</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Spoof ng mga video stream</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Spoof ang mga video stream ng client upang maiwasan ang mga problema sa pag-playback</string>
+  <string name="revanced_spoof_video_streams_screen_title">Pekein ang mga video stream</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Pekein ang mga video stream ng client upang maiwasan ang mga isyu sa pag-playback</string>
+  <string name="revanced_spoof_video_streams_title">Spoof ng mga video stream</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Ang mga video stream ay pinapanggap.
+
+Kung ikaw ay isang user ng YouTube Premium, maaaring hindi kailangan ang setting na ito"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Hindi pinepeke ang mga video stream
+
+Maaaring hindi gumana ang pag-playback"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Ang pag-off sa setting na ito ay maaaring magdulot ng mga isyu sa pag-playback.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Default na kliyente</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Pagde-debug</string>
+  <string name="revanced_debug_screen_summary">Paganahin o huwag paganahin ang mga opsyon sa pag-debug</string>
+  <string name="revanced_debug_title">Pag-log sa pag-debug</string>
+  <string name="revanced_debug_summary_on">Ang mga debug log ay pinagana</string>
+  <string name="revanced_debug_summary_off">Ang mga debug log ay hindi pinagana</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">I-export ang mga debug log</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kinokopya ang mga ReVanced debug log sa clipboard</string>
+  <string name="revanced_debug_logs_disabled">Hindi pinagana ang pag-log ng debug</string>
+  <string name="revanced_debug_logs_none_found">Walang nakitang mga log</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Nakopya ang mga log</string>
+  <string name="revanced_debug_logs_failed_to_export">Nabigo ang pag-export ng mga log: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">I-clear ang mga debug log</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Iki-clear ang lahat ng nakaimbak na ReVanced debug log</string>
+  <string name="revanced_debug_logs_clear_toast">Na-clear ang mga log</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Tapikin ang pindutan ng pagpapatuloy at payagan ang mga pagbabago sa pag-optimiz
   <string name="revanced_shorts_disable_background_playback_summary_off">Ang pag-playback ng Shorts sa background ay pinagana</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Pagde-debug</string>
-  <string name="revanced_debug_screen_summary">Paganahin o huwag paganahin ang mga opsyon sa pag-debug</string>
-  <string name="revanced_debug_title">Pag-log sa pag-debug</string>
-  <string name="revanced_debug_summary_on">Ang mga debug log ay pinagana</string>
-  <string name="revanced_debug_summary_off">Ang mga debug log ay hindi pinagana</string>
   <string name="revanced_debug_protobuffer_title">Mag-log protocol buffer</string>
   <string name="revanced_debug_protobuffer_summary_on">Kasama sa mga debug log ang proto buffer</string>
   <string name="revanced_debug_protobuffer_summary_off">Ang mga debug log ay hindi kasama ang proto buffer</string>
@@ -132,15 +160,6 @@ Gayunpaman, ang pagpapagana nito ay magtatala rin ng ilang data ng user gaya ng 
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Ang pag-off ng mga toast ng error ay nagtatago ng lahat ng mga abiso ng error ng ReVanced.
 
 Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">I-export ang mga debug log</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Kinokopya ang mga ReVanced debug log sa clipboard</string>
-  <string name="revanced_debug_logs_disabled">Hindi pinagana ang pag-log ng debug</string>
-  <string name="revanced_debug_logs_none_found">Walang nakitang mga log</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Nakopya ang mga log</string>
-  <string name="revanced_debug_logs_failed_to_export">Nabigo ang pag-export ng mga log: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">I-clear ang mga debug log</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Iki-clear ang lahat ng nakaimbak na ReVanced debug log</string>
-  <string name="revanced_debug_logs_clear_toast">Na-clear ang mga log</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Itago ang mga album card</string>
@@ -1413,10 +1432,6 @@ Ang mas mataas na kalidad ng video ay maaaring mabuksan ngunit maaari kang makar
 Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Ang pagpapagana nito ay maaaring magdulot ng pagkautal sa pag-playback ng video, mas malala ang buhay ng baterya, at hindi kilalang mga side effect.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">Mga Setting ng GmsCore</string>
-  <string name="microg_settings_summary">Mga setting para sa GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Haptic feedback</string>
   <string name="revanced_disable_haptic_feedback_summary">Baguhin ang haptic feedback</string>
@@ -1530,17 +1545,6 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_slide_to_seek_summary_off">Hindi pinagana ang slide to seek</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Spoof ng mga video stream</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Spoof ang mga video stream ng client upang maiwasan ang mga problema sa pag-playback</string>
-  <string name="revanced_spoof_video_streams_title">Spoof ng mga video stream</string>
-  <string name="revanced_spoof_video_streams_summary_on">"Ang mga video stream ay pinapanggap.
-
-Kung ikaw ay isang user ng YouTube Premium, maaaring hindi kailangan ang setting na ito"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Ang mga stream ng video ay hindi mapapang-ulol
-
-Ang paglalaro ng video ay maaaring hindi gumana"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Ang pag-off sa setting na ito ay maaaring magdulot ng mga isyu sa pag-playback ng video.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Default na kliyente</string>
   <string name="revanced_spoof_video_streams_about_title">Mga epekto ng pagpapanggap</string>
   <string name="revanced_spoof_video_streams_about_android_title">Mga side effect ng Android spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Nawawala ang menu ng audio track
@@ -1552,6 +1556,40 @@ Ang paglalaro ng video ay maaaring hindi gumana"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Ipinapakita ang uri ng kliyente sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Nakatago ang kliyente sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Wika ng audio stream</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Tungkol</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Mga Ad</string>
+  <string name="revanced_settings_music_screen_2_general_title">Pangkalahatan</string>
+  <string name="revanced_settings_music_screen_3_player_title">Manlalaro</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Iba-iba</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Itago ang mga video ad</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Nakatago ang mga video ad</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Ipinapakita ang mga video ad</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Paganahin ang permanenteng pag-ulit</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Pinagana ang permanenteng pag-ulit</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Hindi pinagana ang permanenteng pag-ulit</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Itago ang category bar</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Nakatago ang category bar</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Ipinapakita ang category bar</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Itago ang label na \'Kumuha ng Music Premium\'</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Nakatago ang label</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Ipinapakita ang label</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Itago ang pindutan ng upgrade</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Nakatago ang buton</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Ipinapakita ang buton</string>
   </patch>
   </app>
   <app id="twitch">

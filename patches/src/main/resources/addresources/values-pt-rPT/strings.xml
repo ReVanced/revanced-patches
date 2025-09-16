@@ -68,6 +68,8 @@ Para traduzir novas línguas, visite translate.revanced.app"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Configurações do GmsCore</string>
+  <string name="microg_settings_summary">Configurações para GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore não está instalado. Instala-o.</string>
   <string name="gms_core_dialog_title">Ação necessária</string>
@@ -83,6 +85,37 @@ A desativação das otimizações de bateria para o MicroG não afetará negativ
 
 Toque no botão continuar e permita as alterações de otimização."</string>
   <string name="gms_core_dialog_continue_text">Continuar</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Fluxos de vídeo falsos</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Disfarçar os fluxos de vídeo do cliente para evitar problemas de reprodução</string>
+  <string name="revanced_spoof_video_streams_screen_title">Falsificar fluxos de vídeo</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Falsificar os fluxos de vídeo do cliente para evitar problemas de reprodução</string>
+  <string name="revanced_spoof_video_streams_title">Fluxos de vídeo falsos</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Streams de vídeo falsificados
+
+Se você for um usuário do YouTube Premium, esta configuração pode não ser necessária"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Os fluxos de vídeo não são falsificados
+
+A reprodução pode não funcionar"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Desativar esta configuração pode causar problemas de reprodução.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Cliente predefinido</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Depuração</string>
+  <string name="revanced_debug_screen_summary">Ativar ou desativar opções de depuração</string>
+  <string name="revanced_debug_title">Registo da depuração</string>
+  <string name="revanced_debug_summary_on">Os registos da depuração estão ativados</string>
+  <string name="revanced_debug_summary_off">Os registos da depuração estão desativados</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Exportar registos de depuração</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Copia os registos de depuração do ReVanced para a área de transferência</string>
+  <string name="revanced_debug_logs_disabled">O registo de depuração está desativado</string>
+  <string name="revanced_debug_logs_none_found">Nenhum registo encontrado</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Registos copiados</string>
+  <string name="revanced_debug_logs_failed_to_export">Falha ao exportar registros: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Limpar registos de depuração</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Limpa todos os registos de depuração do ReVanced armazenados</string>
+  <string name="revanced_debug_logs_clear_toast">Registos limpos</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Toque no botão continuar e permita as alterações de otimização."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Reprodução de fundo de Shorts está ativa</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Depuração</string>
-  <string name="revanced_debug_screen_summary">Ativar ou desativar opções de depuração</string>
-  <string name="revanced_debug_title">Registo da depuração</string>
-  <string name="revanced_debug_summary_on">Os registos da depuração estão ativados</string>
-  <string name="revanced_debug_summary_off">Os registos da depuração estão desativados</string>
   <string name="revanced_debug_protobuffer_title">Registo do buffer de protocolo</string>
   <string name="revanced_debug_protobuffer_summary_on">Registos de depuração incluem buffer de sondagem</string>
   <string name="revanced_debug_protobuffer_summary_off">Os registos da depuração não incluem buffer de perfil</string>
@@ -132,15 +160,6 @@ No entanto, ativar isto também irá registar alguns dados do utilizador, como o
   <string name="revanced_debug_toast_on_error_user_dialog_message">"A desativação dos erros toasts oculta todas as notificações de erro do ReVanced.
 
 Não será notificado de quaisquer eventos inesperados."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Exportar registos de depuração</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Copia os registos de depuração do ReVanced para a área de transferência</string>
-  <string name="revanced_debug_logs_disabled">O registo de depuração está desativado</string>
-  <string name="revanced_debug_logs_none_found">Nenhum registo encontrado</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Registos copiados</string>
-  <string name="revanced_debug_logs_failed_to_export">Falha ao exportar registros: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Limpar registos de depuração</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Limpa todos os registos de depuração do ReVanced armazenados</string>
-  <string name="revanced_debug_logs_clear_toast">Registos limpos</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Esconder cartões de álbuns</string>
@@ -1415,10 +1434,6 @@ Chất lượng video cao hơn có thể được mở khóa nhưng bạn có th
 Bật tính năng này có thể mở khóa chất lượng video cao hơn"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Habilitar isto pode causar travamentos na reprodução de vídeo, pior vida na bateria e efeitos colaterais desconhecidos.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">Configurações do GmsCore</string>
-  <string name="microg_settings_summary">Configurações para GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Feedback háptico</string>
   <string name="revanced_disable_haptic_feedback_summary">Alterar feedback háptico</string>
@@ -1532,17 +1547,6 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_slide_to_seek_summary_off">Deslize para procurar não está habilitado</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Fluxos de vídeo falsos</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Disfarçar os fluxos de vídeo do cliente para evitar problemas de reprodução</string>
-  <string name="revanced_spoof_video_streams_title">Fluxos de vídeo falsos</string>
-  <string name="revanced_spoof_video_streams_summary_on">"Streams de vídeo falsificados
-
-Se você for um usuário do YouTube Premium, esta configuração pode não ser necessária"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Luồng video không bị giả mạo
-
-Phát video có thể không hoạt động"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Desativar essa configuração pode causar problemas de reprodução de vídeo.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Cliente predefinido</string>
   <string name="revanced_spoof_video_streams_about_title">Efeitos colaterais da falsificação</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efeitos colaterais da falsificação do Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• O menu da faixa de áudio está faltando
@@ -1554,6 +1558,40 @@ Phát video có thể không hoạt động"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">O tipo de cliente é mostrado em Estatísticas para nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">O cliente está oculto em Estatísticas para nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma do fluxo de áudio</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Sobre</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Anúncios</string>
+  <string name="revanced_settings_music_screen_2_general_title">Geral</string>
+  <string name="revanced_settings_music_screen_3_player_title">Player</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Diversos</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Ocultar anúncios em vídeo</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Anúncios em vídeo estão ocultos</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Anúncios em vídeo estão exibidos</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Ativar repetição permanente</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Repetição permanente está ativada</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Repetição permanente está desativada</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Ocultar barra de categorias</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Barra de categorias está oculta</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Barra de categorias está exibida</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Ocultar o rótulo \"Obter Music Premium\"</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Rótulo está oculto</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Rótulo está exibido</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Ocultar botão de atualização</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Botão está oculto</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Botão está exibido</string>
   </patch>
   </app>
   <app id="twitch">

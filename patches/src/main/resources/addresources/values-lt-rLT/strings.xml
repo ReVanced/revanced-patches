@@ -68,6 +68,8 @@ Norėdami išversti naujomis kalbomis apsilankykite translate.revanced.app"</str
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">„GmsCore“ nustatymai</string>
+  <string name="microg_settings_summary">„GmsCore“ nustatymai</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nėra įdiegta. Įdiekite.</string>
   <string name="gms_core_dialog_title">Reikalingas veiksmas</string>
@@ -83,6 +85,37 @@ Išjungus „MicroG“ akumuliatoriaus optimizavimą, akumuliatoriaus naudojimas
 
 Palieskite mygtuką Tęsti ir leiskite optimizavimo pakeitimus."</string>
   <string name="gms_core_dialog_continue_text">Tęsti</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Susifalsifikuoti vaizdo įrašų srautus</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Susifalsifikuoti kliento vaizdo įrašų srautus, kad būtų išvengta atkūrimo problemų</string>
+  <string name="revanced_spoof_video_streams_screen_title">Klastoti vaizdo srautus</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Klastoti kliento vaizdo srautus, kad būtų išvengta atkūrimo problemų</string>
+  <string name="revanced_spoof_video_streams_title">Susifalsifikuoti vaizdo įrašų srautus</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Vaizdo srautai klastojami
+
+Jei esate YouTube Premium naudotojas, šis nustatymas gali būti nereikalingas"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Vaizdo srautai nėra klastojami
+
+Grojimas gali neveikti"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Išjungus šį nustatymą, gali kilti atkūrimo problemų.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Numatytasis klientas</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Debugavimas</string>
+  <string name="revanced_debug_screen_summary">Įgalinti arba išjungti derinimo parinktis</string>
+  <string name="revanced_debug_title">Debugavimo žurnalas</string>
+  <string name="revanced_debug_summary_on">Debugavimo žurnalai yra įgalinti</string>
+  <string name="revanced_debug_summary_off">Debugavimo žurnalai yra išjungti</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Eksportuoti derinimo žurnalus</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Nukopijuoja „ReVanced“ derinimo žurnalus į mainų sritį</string>
+  <string name="revanced_debug_logs_disabled">Derinimo žurnalų registravimas išjungtas</string>
+  <string name="revanced_debug_logs_none_found">Žurnalų nerasta</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Žurnalai nukopijuoti</string>
+  <string name="revanced_debug_logs_failed_to_export">Nepavyko eksportuoti žurnalų: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Išvalyti derinimo žurnalus</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Išvalo visus išsaugotus „ReVanced“ derinimo žurnalus</string>
+  <string name="revanced_debug_logs_clear_toast">Žurnalai išvalyti</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Palieskite mygtuką Tęsti ir leiskite optimizavimo pakeitimus."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">\"Shorts\" foninis atkūrimas yra įjungtas</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Debugavimas</string>
-  <string name="revanced_debug_screen_summary">Įgalinti arba išjungti derinimo parinktis</string>
-  <string name="revanced_debug_title">Debugavimo žurnalas</string>
-  <string name="revanced_debug_summary_on">Debugavimo žurnalai yra įgalinti</string>
-  <string name="revanced_debug_summary_off">Debugavimo žurnalai yra išjungti</string>
   <string name="revanced_debug_protobuffer_title">Žurnalų protokolo buferis</string>
   <string name="revanced_debug_protobuffer_summary_on">Debugavimo žurnalai apima protokolo buferį</string>
   <string name="revanced_debug_protobuffer_summary_off">Debugavimo žurnalai neapima protokolo buferio</string>
@@ -132,15 +160,6 @@ Tačiau įjungus šį nustatymą taip pat bus registruojami kai kurie vartotojo 
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Klaidos isjungimas paslepia visus „ReVanced“ klaidu pranesimus.
 
 Apie netikėtus įvykius nebus pranešta."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Eksportuoti derinimo žurnalus</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Nukopijuoja „ReVanced“ derinimo žurnalus į mainų sritį</string>
-  <string name="revanced_debug_logs_disabled">Derinimo žurnalų registravimas išjungtas</string>
-  <string name="revanced_debug_logs_none_found">Žurnalų nerasta</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Žurnalai nukopijuoti</string>
-  <string name="revanced_debug_logs_failed_to_export">Nepavyko eksportuoti žurnalų: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Išvalyti derinimo žurnalus</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Išvalo visus išsaugotus „ReVanced“ derinimo žurnalus</string>
-  <string name="revanced_debug_logs_clear_toast">Žurnalai išvalyti</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Slėpti albumo korteles</string>
@@ -1416,10 +1435,6 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
 Įjungus šį nustatymą, gali būti atrakinta aukštesnės vaizdo įrašų kokybės"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Įjungus šią funkciją, gali būti pastebimas vaizdo atkūrimo mikčiojimas, blogesnė baterijos trukmė ir nežinomi šalutiniai poveikiai.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">„GmsCore“ nustatymai</string>
-  <string name="microg_settings_summary">„GmsCore“ nustatymai</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Vibracijos grįžtamasis ryšys</string>
   <string name="revanced_disable_haptic_feedback_summary">Keisti vibracijos grįžtamąjį ryšį</string>
@@ -1533,17 +1548,6 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_slide_to_seek_summary_off">Slinkimas, kad ieškotumėte, neišjungtas</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Susifalsifikuoti vaizdo įrašų srautus</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Susifalsifikuoti kliento vaizdo įrašų srautus, kad būtų išvengta atkūrimo problemų</string>
-  <string name="revanced_spoof_video_streams_title">Susifalsifikuoti vaizdo įrašų srautus</string>
-  <string name="revanced_spoof_video_streams_summary_on">"Vaizdo srautai klastojami
-
-Jei esate YouTube Premium naudotojas, šis nustatymas gali būti nereikalingas"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Vaizdo įrašų srautai nėra padirbti
-
-Vaizdo įrašo atkūrimas gali neveikti"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Išjungus šį nustatymą, gali kilti vaizdo įrašų atkūrimo problemų.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Numatytasis klientas</string>
   <string name="revanced_spoof_video_streams_about_title">Klastojimo šalutiniai efektai</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android apsimetinėjimo šalutiniai poveikiai</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Trūksta garso takelio meniu
@@ -1555,6 +1559,40 @@ Vaizdo įrašo atkūrimas gali neveikti"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Kliento tipas rodomas statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klientas paslėptas statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_video_streams_language_title">Garso srauto kalba</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Apie</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Skelbimai</string>
+  <string name="revanced_settings_music_screen_2_general_title">Bendra</string>
+  <string name="revanced_settings_music_screen_3_player_title">Grotuvas</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Įvairūs</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Slėpti vaizdo įrašų skelbimus</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Vaizdo įrašų skelbimai yra paslėpti</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Vaizdo įrašų skelbimai yra rodomi</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Įjungti nuolatinį kartojimą</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Nuolatinis kartojimas įjungtas</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Nuolatinis kartojimas išjungtas</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Slėpti kategorijų juostą</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Kategorijų juosta paslėpta</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Kategorijų juosta rodoma</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Slėpti „Gauti Music Premium“ etiketę</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Etiketė paslėpta</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Etiketė rodoma</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Slėpti atnaujinimo mygtuką</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Mygtukas paslėptas</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Mygtukas rodomas</string>
   </patch>
   </app>
   <app id="twitch">

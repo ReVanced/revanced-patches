@@ -65,6 +65,15 @@ Second \"item\" text"</string>
   <string name="gms_core_dialog_open_website_text">باز کردن تارنما</string>
   <string name="gms_core_dialog_continue_text">ادامه</string>
   </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">عیب‌یابی</string>
+  <string name="revanced_debug_screen_summary">فعال یا غیرفعال کردن گزینه‌های عیب یابی</string>
+  <string name="revanced_debug_title">گزارش عیب</string>
+  <string name="revanced_debug_summary_on">لاگ عیب فعال است</string>
+  <string name="revanced_debug_summary_off">لاگ عیب غیرفعال است</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -77,11 +86,6 @@ Second \"item\" text"</string>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">عیب‌یابی</string>
-  <string name="revanced_debug_screen_summary">فعال یا غیرفعال کردن گزینه‌های عیب یابی</string>
-  <string name="revanced_debug_title">گزارش عیب</string>
-  <string name="revanced_debug_summary_on">لاگ عیب فعال است</string>
-  <string name="revanced_debug_summary_off">لاگ عیب غیرفعال است</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
@@ -257,8 +261,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   </patch>
   <patch id="misc.gms.accountCredentialsInvalidTextPatch">
@@ -290,6 +292,20 @@ Second \"item\" text"</string>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
   </patch>
   </app>
   <app id="twitch">

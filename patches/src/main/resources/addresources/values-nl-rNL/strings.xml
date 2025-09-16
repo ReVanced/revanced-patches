@@ -68,6 +68,8 @@ Om nieuwe talen te vertalen, gaat u naar translate.revanced.app"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">GmsCore-instellingen</string>
+  <string name="microg_settings_summary">Instellingen voor GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore is niet geïnstalleerd. Installeer het.</string>
   <string name="gms_core_dialog_title">Actie vereist</string>
@@ -83,6 +85,37 @@ Door batterijoptimalisaties voor MicroG uit te schakelen, wordt het batterijgebr
 
 Tik op de knop Doorgaan en sta wijzigingen in de optimalisatie toe."</string>
   <string name="gms_core_dialog_continue_text">Doorgaan</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Videostreams vervalsen</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Vervals de client-videostreams om afspeelproblemen te voorkomen</string>
+  <string name="revanced_spoof_video_streams_screen_title">Videostreams spoofen</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Spoof de client-videostreams om afspeelproblemen te voorkomen</string>
+  <string name="revanced_spoof_video_streams_title">Videostreams vervalsen</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Videostreams worden gespooft
+
+Als je een YouTube Premium-gebruiker bent, is deze instelling mogelijk niet vereist"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Videostreams worden niet gespoofed
+
+Afspeelproblemen kunnen optreden"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Het uitschakelen van deze instelling kan afspeelproblemen veroorzaken.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Standaard client</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Debuggen</string>
+  <string name="revanced_debug_screen_summary">Schakel debugopties in of uit</string>
+  <string name="revanced_debug_title">Debuglogboek</string>
+  <string name="revanced_debug_summary_on">Debuglogboeken zijn ingeschakeld</string>
+  <string name="revanced_debug_summary_off">Debuglogboeken zijn uitgeschakeld</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Foutopsporingslogboeken exporteren</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopieert ReVanced-foutopsporingslogboeken naar het klembord</string>
+  <string name="revanced_debug_logs_disabled">Foutopsporing is uitgeschakeld</string>
+  <string name="revanced_debug_logs_none_found">Geen logboeken gevonden</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Logboeken gekopieerd</string>
+  <string name="revanced_debug_logs_failed_to_export">Mislukt om logboeken te exporteren: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Foutopsporingslogboeken wissen</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Wist alle opgeslagen ReVanced-foutopsporingslogboeken</string>
+  <string name="revanced_debug_logs_clear_toast">Logboeken gewist</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Tik op de knop Doorgaan en sta wijzigingen in de optimalisatie toe."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts-achtergrondafspelen is ingeschakeld</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Debuggen</string>
-  <string name="revanced_debug_screen_summary">Schakel debugopties in of uit</string>
-  <string name="revanced_debug_title">Debuglogboek</string>
-  <string name="revanced_debug_summary_on">Debuglogboeken zijn ingeschakeld</string>
-  <string name="revanced_debug_summary_off">Debuglogboeken zijn uitgeschakeld</string>
   <string name="revanced_debug_protobuffer_title">Stamlogboek</string>
   <string name="revanced_debug_protobuffer_summary_on">Debuglogboeken bevatten stamlogboek</string>
   <string name="revanced_debug_protobuffer_summary_off">Debuglogboeken bevatten geen stamlogboek</string>
@@ -132,15 +160,6 @@ Als u dit inschakelt, worden echter ook bepaalde gebruikersgegevens, zoals uw IP
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Het uitschakelen van foutmeldingen verbergt alle ReVanced-foutmeldingen.
 
 U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Foutopsporingslogboeken exporteren</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopieert ReVanced-foutopsporingslogboeken naar het klembord</string>
-  <string name="revanced_debug_logs_disabled">Foutopsporing is uitgeschakeld</string>
-  <string name="revanced_debug_logs_none_found">Geen logboeken gevonden</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Logboeken gekopieerd</string>
-  <string name="revanced_debug_logs_failed_to_export">Mislukt om logboeken te exporteren: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Foutopsporingslogboeken wissen</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Wist alle opgeslagen ReVanced-foutopsporingslogboeken</string>
-  <string name="revanced_debug_logs_clear_toast">Logboeken gewist</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Verberg albumkaarten</string>
@@ -1413,10 +1432,6 @@ Hogere videokwaliteiten kunnen worden ontgrendeld, maar u kunt video-playback ha
 Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Het inschakelen hiervan kan haperingen tijdens het afspelen van video\'s, een kortere batterijduur en onbekende bijwerkingen veroorzaken.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">GmsCore-instellingen</string>
-  <string name="microg_settings_summary">Instellingen voor GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Haptische feedback</string>
   <string name="revanced_disable_haptic_feedback_summary">Haptische feedback wijzigen</string>
@@ -1530,17 +1545,6 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_slide_to_seek_summary_off">Schuiven om te zoeken is niet ingeschakeld</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Videostreams vervalsen</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Vervals de client-videostreams om afspeelproblemen te voorkomen</string>
-  <string name="revanced_spoof_video_streams_title">Videostreams vervalsen</string>
-  <string name="revanced_spoof_video_streams_summary_on">"Videostreams worden gespooft
-
-Als je een YouTube Premium-gebruiker bent, is deze instelling mogelijk niet vereist"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Videostreams worden niet gespoofed
-
-Video-playback werkt mogelijk niet"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Het uitschakelen van deze instelling kan afspeelproblemen veroorzaken.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Standaard client</string>
   <string name="revanced_spoof_video_streams_about_title">Spoofing-neveneffecten</string>
   <string name="revanced_spoof_video_streams_about_android_title">Bijwerkingen van Android-spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Audiotracks-menu ontbreekt
@@ -1552,6 +1556,40 @@ Video-playback werkt mogelijk niet"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Het clienttype wordt getoond in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is verborgen in Stats for nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Audiostreamtaal</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Over</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Advertenties</string>
+  <string name="revanced_settings_music_screen_2_general_title">Algemeen</string>
+  <string name="revanced_settings_music_screen_3_player_title">Speler</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Overige</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Videoadvertenties verbergen</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Videoadvertenties zijn verborgen</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Videoadvertenties worden weergegeven</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Permanent herhalen inschakelen</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Permanent herhalen is ingeschakeld</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Permanent herhalen is uitgeschakeld</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Categoriebalk verbergen</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Categoriebalk is verborgen</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Categoriebalk wordt weergegeven</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">\'Muziek Premium krijgen\' label verbergen</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Label is verborgen</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Label wordt weergegeven</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Upgrade-knop verbergen</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Knop is verborgen</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Knop wordt weergegeven</string>
   </patch>
   </app>
   <app id="twitch">

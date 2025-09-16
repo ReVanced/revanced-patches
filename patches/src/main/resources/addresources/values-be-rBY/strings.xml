@@ -68,6 +68,8 @@ Second \"item\" text"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Налады GmsCore</string>
+  <string name="microg_settings_summary">Налады для GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore не ўсталяваны. Усталюйце яго.</string>
   <string name="gms_core_dialog_title">Патрабуецца дзеянне</string>
@@ -83,6 +85,37 @@ Second \"item\" text"</string>
 
 Націсніце кнопку \"Працягнуць\" і дазвольце змяніць аптымізацыю."</string>
   <string name="gms_core_dialog_continue_text">Працягнуць</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Подделывать потоки видео</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Имитируйте потоки видео клиентов, чтобы предотвратить проблемы с воспроизведением</string>
+  <string name="revanced_spoof_video_streams_screen_title">Падмена відэапатокаў</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Падмена відэапатокаў кліента для прадухілення праблем з прайграваннем</string>
+  <string name="revanced_spoof_video_streams_title">Подделывать потоки видео</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Відэаструмені падроблены
+
+Калі вы карыстаецеся YouTube Premium, гэтая налада можа не спатрэбіцца"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Відэапатокі не падменены
+
+Прайграванне можа не працаваць"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Адладка</string>
+  <string name="revanced_debug_screen_summary">Уключыць або выключыць параметры адладкі</string>
+  <string name="revanced_debug_title">Запіс адладкі</string>
+  <string name="revanced_debug_summary_on">Журналы адладкі ўключаны</string>
+  <string name="revanced_debug_summary_off">Журналы адладкі адключаны</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Экспартаваць адладачныя лагі</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Капіруе адладачныя лагі ReVanced у буфер абмену</string>
+  <string name="revanced_debug_logs_disabled">Адладачнае лагаванне адключана</string>
+  <string name="revanced_debug_logs_none_found">Лагі не знойдзены</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Лагі скапіяваны</string>
+  <string name="revanced_debug_logs_failed_to_export">Не ўдалося экспартаваць журналы: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Ачысціць адладачныя лагі</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Ачышчае ўсе захаваныя адладачныя лагі ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Лагі ачышчаны</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Фоновый плейлист Shorts включен</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Адладка</string>
-  <string name="revanced_debug_screen_summary">Уключыць або выключыць параметры адладкі</string>
-  <string name="revanced_debug_title">Запіс адладкі</string>
-  <string name="revanced_debug_summary_on">Журналы адладкі ўключаны</string>
-  <string name="revanced_debug_summary_off">Журналы адладкі адключаны</string>
   <string name="revanced_debug_protobuffer_title">Буфер пратаколу часопіса</string>
   <string name="revanced_debug_protobuffer_summary_on">Журналы адладкі ўключаюць пратабуфер</string>
   <string name="revanced_debug_protobuffer_summary_off">Журналы адладкі не ўключаюць пратабуфер</string>
@@ -132,15 +160,6 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Адключэнне паведамленняў пра памылкі схавае ўсе апавяшчэнні ReVanced пра памылкі.
 
 Вы не будзеце атрымліваць апавяшчэнні пра нечаканыя падзеі."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Экспартаваць адладачныя лагі</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Капіруе адладачныя лагі ReVanced у буфер абмену</string>
-  <string name="revanced_debug_logs_disabled">Адладачнае лагаванне адключана</string>
-  <string name="revanced_debug_logs_none_found">Лагі не знойдзены</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Лагі скапіяваны</string>
-  <string name="revanced_debug_logs_failed_to_export">Не ўдалося экспартаваць журналы: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Ачысціць адладачныя лагі</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Ачышчае ўсе захаваныя адладачныя лагі ReVanced</string>
-  <string name="revanced_debug_logs_clear_toast">Лагі ачышчаны</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Схаваць карты альбома</string>
@@ -1416,10 +1435,6 @@ Second \"item\" text"</string>
 Уключэнне гэтага можа разблакаваць больш высокія якасці відэа"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Уключэнне гэтага можа прывесці да прыпынкаў прайгравання відэа, пагаршэння тэрміну службы батарэі і невядомых пабочных эфектаў.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">Налады GmsCore</string>
-  <string name="microg_settings_summary">Налады для GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Тактыльная зваротная сувязь</string>
   <string name="revanced_disable_haptic_feedback_summary">Змяніць тактыльную зваротную сувязь</string>
@@ -1533,17 +1548,6 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">Слайд для пошуку не ўключаны</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Подделывать потоки видео</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Имитируйте потоки видео клиентов, чтобы предотвратить проблемы с воспроизведением</string>
-  <string name="revanced_spoof_video_streams_title">Подделывать потоки видео</string>
-  <string name="revanced_spoof_video_streams_summary_on">"Відэаструмені падроблены
-
-Калі вы карыстаецеся YouTube Premium, гэтая налада можа не спатрэбіцца"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Відэаструм не падроблены
-
-Прайграванне відэа можа не працаваць"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем відэа.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
   <string name="revanced_spoof_video_streams_about_title">Пабочныя эфекты падробкі</string>
   <string name="revanced_spoof_video_streams_about_android_title">Побічныя эфекты падробкі Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Меню гукавой дарожкі адсутнічае
@@ -1555,6 +1559,40 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тып кліента адлюстроўваецца ў статыстыцы для спецыялістаў</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Кліент схаваны ў статыстыцы для спецыялістаў</string>
   <string name="revanced_spoof_video_streams_language_title">Мова аўдыяпатоку</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Пра</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Рэклама</string>
+  <string name="revanced_settings_music_screen_2_general_title">Агульныя</string>
+  <string name="revanced_settings_music_screen_3_player_title">Плэер</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Рознае</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Схаваць відэарэкламу</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Відэарэклама схаваная</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Відэарэклама паказаная</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Уключыць пастаянны паўтор</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Пастаянны паўтор уключаны</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Пастаянны паўтор адключаны</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Схаваць панэль катэгорый</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Панэль катэгорый схаваная</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Панэль катэгорый паказаная</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Схаваць надпіс \"Атрымаць Music Premium\"</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Надпіс схаваны</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Надпіс паказаны</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Схаваць кнопку абнаўлення</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Кнопка схаваная</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Кнопка паказаная</string>
   </patch>
   </app>
   <app id="twitch">
