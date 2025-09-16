@@ -702,7 +702,7 @@ Kui selle sätte muutmine ei avalda mõju, proovige lülituda Inkognito režiimi
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Heliriba menüü on peidetud
 
-Heliriba menüü kuvamiseks muutke valikut „Võltsitud videovoogedastus“ väärtuseks iOS TV"</string>
+Heliriba menüü pole saadaval, kui \"Videovoogude võltsimine\" on lubatud"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Peida Vaata VR-is</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Vaata VR-is menüü on peidetud</string>
@@ -1535,32 +1535,25 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_spoof_video_streams_screen_title">Võltsitud video voogedastused</string>
   <string name="revanced_spoof_video_streams_screen_summary">Võltsitud kliendi video voogedastused, et vältida taasesituse probleeme</string>
   <string name="revanced_spoof_video_streams_title">Võltsitud video voogedastused</string>
-  <string name="revanced_spoof_video_streams_summary_on">Video voogedastused on võltsitud</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Videovood on võltsitud
+
+Kui olete YouTube Premiumi kasutaja, ei pruugi see säte vajalik olla"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Video vooge ei võltsita
 
 Video taasesitus ei pruugi toimida"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Selle seade keelamine võib põhjustada videote taasesituse probleeme.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Vaikimisi klient</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Sunnitud iOS AVC (H.264) kodek</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodek on sunnitud AVC (H.264) kodeki</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodek määratakse automaatselt</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Funktsiooni sisselülitamine võib parandada aku kestvust ja videotaasesituse katkemist.
-
-AVC-l on maksimaalne eraldusvõime 1080p, Opus-i heli kodek pole saadaval ning video taasesitus kasutab rohkem internetiandmeid kui VP9 või AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS-i videovoogude võltsimine</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmid või tasulised videod ei pruugi taasesitada
-• Stabiilne helitugevus pole saadaval
-• Videod lõpevad 1 sekund varem"</string>
+  <string name="revanced_spoof_video_streams_about_title">Võltsimise kõrvalmõjud</string>
   <string name="revanced_spoof_video_streams_about_android_title">Androidi pettuse kõrvalmõjud</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Heliraja menüü puudub
-• Stabiilset helitugevust pole saadaval
-• Sunnitud originaalheli pole saadaval"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Heliriba menüü puudub
+• Stabiilne helitugevus pole saadaval"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentaalne klient ja võib igal ajal töötamast lakata</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Puuduv AV1 videokoodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video lastele ei pruugi taasesitada, kui olete välja logitud või inkognito režiimis</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Kuva statistikas \"Nerdide jaoks\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienditüüp on statistikas \"Nerdide jaoks\" nähtav</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient on statistikas \"Nerdide jaoks\" peidetud</string>
-  <string name="revanced_spoof_video_streams_language_title">VR vaikeväärtus heli voo keelele</string>
+  <string name="revanced_spoof_video_streams_language_title">Helivoo keel</string>
   </patch>
   </app>
   <app id="twitch">

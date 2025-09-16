@@ -702,7 +702,7 @@ Second \"item\" text"</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Пункт меню \"Звукова доріжка\" приховано
 
-Для того, щоб пункт меню \"Звукова доріжка\" показувався, змініть клієнт \"Підробки відеопотоків\" на iOS TV"</string>
+Пункт меню \"Звукова доріжка\" недоступний, коли увімкнено \"Підробку відеопотоків\""</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Приховати \"Дивитись у VR\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Пункт меню \"Дивитись у VR\" приховано</string>
@@ -1534,32 +1534,25 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_screen_title">Підробка відеопотоків</string>
   <string name="revanced_spoof_video_streams_screen_summary">Підробка відеопотоків клієнта для запобігання проблем відтворенням</string>
   <string name="revanced_spoof_video_streams_title">Підробка відеопотоків</string>
-  <string name="revanced_spoof_video_streams_summary_on">Відеопотоки підроблено</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Відеопотоки підроблені
+
+Якщо ви є користувачем YouTube Premium, це налаштування може не знадобитися"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Відеопотоки не підроблено
 
 Відтворення відео може не працювати"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Вимкнення цього параметра може спричинити проблеми відтворення відео.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клієнт за замовчуванням</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Примусово iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Відеокодек примусово встановлено на AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Відеокодек визначається автоматично</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Увімкнення цієї функції може подовжити термін автономної роботи батареї та усунути затримки відтворення. 
-
-AVC має максимальну роздільну здатність 1080p, аудіокодек Opus недоступний, а для відтворення відео використовуватиметься більше Інтернет-даних, ніж VP9 або AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Побічні ефекти підробки iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Фільми та платні відео можуть не відтворюватися
-• Меню стабілізації гучності недоступне
-• Відео закінчуються на 1 секунду раніше"</string>
+  <string name="revanced_spoof_video_streams_about_title">Побічні ефекти підробки</string>
   <string name="revanced_spoof_video_streams_about_android_title">Побічні ефекти підробки Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Меню звукової доріжки відсутнє
-• Меню стабілізації гучності недоступне
-• Примусове використання оригінальний звукової доріжки недоступне"</string>
+• Меню стабілізації гучності недоступне"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Експериментальний клієнт, який може припинити роботу в будь-який час</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Відсутній відеокодек AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Відео для дітей можуть не відтворюватися, якщо вийти з облікового запису або перейти в анонімний режим</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клієнта відображається у вікні \"Статистика для сисадмінів\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клієнта приховано у вікні \"Статистика для сисадмінів\"</string>
-  <string name="revanced_spoof_video_streams_language_title">Звукова доріжка за замовчуванням для VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Мова звукової доріжки</string>
   </patch>
   </app>
   <app id="twitch">

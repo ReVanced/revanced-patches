@@ -697,9 +697,6 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ääniraitavalikko on piilotettu</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Ääniraitavalikko näytetään</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Ääniraitavalikko on piilotettu
-
-Jos haluat nähdä sen, aseta \"Naamioi videovirrat\" iOS TV:ksi"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Piilota Katso VR-tilassa</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Katso VR-tilassa -valinta on piilotettu</string>
@@ -1532,32 +1529,17 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_spoof_video_streams_screen_title">Naamioi videovirrat</string>
   <string name="revanced_spoof_video_streams_screen_summary">Naamioi asiakasohjelman videovirrat toisto-ongelmien estämiseksi</string>
   <string name="revanced_spoof_video_streams_title">Naamioi videovirrat</string>
-  <string name="revanced_spoof_video_streams_summary_on">Videovirrat naamioidaan</string>
   <string name="revanced_spoof_video_streams_summary_off">"Videovirtoja ei naamioida
 
 Videon toisto ei välttämättä toimi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Tämän asetuksen poistaminen käytöstä voi aiheuttaa ongelmia videotoistossa.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Oletusasiakasohjelma</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Pakota iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokoodekiksi pakotetaan AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokoodekki määritetään automaattisesti</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Tämän käyttöönotto voi parantaa akun kestoa ja korjata toiston tökkimisen.
-
-AVC:n maksimiresoluutio on 1080p, Opus-äänikoodekki ei ole käytettävissä, ja videon toisto käyttää enemmän Internet-dataa kuin VP9 tai AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS-naamioinnin haittavaikutukset</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Elokuvat tai maksulliset videot eivät välttämättä toistu
-• Tasainen äänenvoimakkuus ei ole käytettävissä
-• Videot päättyvät 1 sekuntia etuajassa"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android-naamioinnin haittavaikutukset</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Ääniraitavalikko puuttuu
-• Tasainen äänenvoimakkuus ei ole käytettävissä
-• Alkuperäisen äänen pakotus ei ole käytettävissä"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ei AV1-videokoodekkia</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Lasten videot eivät ehkä toistu, kun olet kirjautunut ulos tai incognito-tilassa</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Näytä teknisissä tiedoissa</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Asiakastyyppi näytetään teknisissä tiedoissa</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Asiakastyyppi on piilotettu teknisissä tiedoissa</string>
-  <string name="revanced_spoof_video_streams_language_title">VR-äänivirran oletuskieli</string>
   </patch>
   </app>
   <app id="twitch">

@@ -700,9 +700,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">تم إخفاء قائمة المقطع الصوتي</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">يتم عرض قائمة المقطع الصوتي</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"تم إخفاء قائمة المقطع الصوتي
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"قائمة المسارات الصوتية مخفية
 
-لعرض قائمة المقطع الصوتي، غيّر 'Spoof Video Streams' إلى iOS TV"</string>
+قائمة المسارات الصوتية غير متاحة عندما يكون \"تزوير تدفقات الفيديو\" مُمكَّنًا"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">إخفاء المشاهدة في VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">تم إخفاء قائمة المشاهدة في الوضع الافتراضي</string>
@@ -1535,32 +1535,25 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_screen_title">Spoof Video Streams</string>
   <string name="revanced_spoof_video_streams_screen_summary">تزييف تدفقات الفيديو الخاصة بالعميل لمنع حدوث مشكلات أثناء التشغيل</string>
   <string name="revanced_spoof_video_streams_title">Spoof Video Streams</string>
-  <string name="revanced_spoof_video_streams_summary_on">يتم تزييف تدفقات الفيديو</string>
+  <string name="revanced_spoof_video_streams_summary_on">"تدفقات الفيديو مزورة
+
+إذا كنت مستخدمًا لـ YouTube Premium، فقد لا يكون هذا الإعداد مطلوبًا"</string>
   <string name="revanced_spoof_video_streams_summary_off">"لا يتم تزييف تدفقات الفيديو
 
 قد لا يعمل تشغيل الفيديو"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
   <string name="revanced_spoof_video_streams_client_type_title">العميل الافتراضي</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">فرض iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">يتم فرض ترميز فيديو على AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">يتم تحديد ترميز الفيديو تلقائيًا</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"قد يؤدي تمكين هذا إلى تحسين عمر البطارية وإصلاح تقطيع التشغيل.
-
-AVC لديه حد أقصى للدقة 1080p، لا يتوفر ترميز الصوت Opus، وسوف يستخدم تشغيل الفيديو بيانات إنترنت أكثر من VP9 أو AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">الآثار الجانبية لمحاكاة هوية iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• قد لا يتم تشغيل الأفلام أو الفيديوهات المدفوعة
-• مستوى الصوت الثابت غير متوفر
-• تنتهي الفيديوهات قبل ب 1 ثانية"</string>
+  <string name="revanced_spoof_video_streams_about_title">الآثار الجانبية للتزوير</string>
   <string name="revanced_spoof_video_streams_about_android_title">الآثار الجانبية لمحاكاة هوية Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• قائمة المقطع الصوتي مفقودة
-• مستوى الصوت الثابت غير متاح
-• فرض الصوت الأصلي غير متوفر"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• قائمة المسارات الصوتية مفقودة
+• مستوى الصوت المستقر غير متاح"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• عميل تجريبي وقد يتوقف عن العمل في أي وقت</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• لا يوجد ترميز الفيديو AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو عند استخدام وضع التصفح المتخفي</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">عرض في إحصاءات تقنية</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">يتم عرض نوع العميل في إحصاءات تقنية</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">تم إخفاء نوع العميل في إحصاءات تقنية</string>
-  <string name="revanced_spoof_video_streams_language_title">لغة البث الصوتي الافتراضية للواقع الافتراضي VR</string>
+  <string name="revanced_spoof_video_streams_language_title">لغة بث الصوت</string>
   </patch>
   </app>
   <app id="twitch">

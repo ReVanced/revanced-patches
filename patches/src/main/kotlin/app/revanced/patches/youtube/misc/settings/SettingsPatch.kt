@@ -27,14 +27,12 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
-private const val EXTENSION_CLASS_DESCRIPTOR =
+private const val BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/shared/settings/BaseActivityHook;"
+private const val LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/settings/LicenseActivityHook;"
 
 private val preferences = mutableSetOf<BasePreference>()
-
-fun addSettingPreference(screen: BasePreference) {
-    preferences += screen
-}
 
 private val settingsResourcePatch = resourcePatch {
     dependsOn(
@@ -222,7 +220,9 @@ val settingsPatch = bytecodePatch(
                 """
                     # Some targets have extra instructions before the call to super method.
                     invoke-super { p0, p1 }, $superClass->onCreate(Landroid/os/Bundle;)V
-                    invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->initialize(Landroid/app/Activity;)V
+                    invoke-static {}, $LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->createInstance()Lapp/revanced/extension/youtube/settings/LicenseActivityHook;
+                move-result-object v0
+                invoke-static { v0, p0 }, $BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->initialize(Lapp/revanced/extension/shared/settings/BaseActivityHook;Landroid/app/Activity;)V
                     return-void
                 """
             )
@@ -247,7 +247,7 @@ val settingsPatch = bytecodePatch(
             ).toMutable().apply {
                 addInstructions(
                     """
-                        invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->getAttachBaseContext(Landroid/content/Context;)Landroid/content/Context;
+                        invoke-static { p1 }, $LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->getAttachBaseContext(Landroid/content/Context;)Landroid/content/Context;
                         move-result-object p1
                         invoke-super { p0, p1 }, $superclass->attachBaseContext(Landroid/content/Context;)V
                         return-void
@@ -292,7 +292,7 @@ val settingsPatch = bytecodePatch(
                 addInstructions(
                     """
                         invoke-super { p0, p1 }, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
-                        invoke-static { p0, p1 }, $EXTENSION_CLASS_DESCRIPTOR->handleConfigurationChanged(Landroid/app/Activity;Landroid/content/res/Configuration;)V
+                        invoke-static { p0, p1 }, $LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->handleConfigurationChanged(Landroid/app/Activity;Landroid/content/res/Configuration;)V
                         return-void
                     """
                 )
@@ -307,16 +307,16 @@ val settingsPatch = bytecodePatch(
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
                 addInstructionsAtControlFlowLabel(
                     index,
-                    "invoke-static { v$register }, ${EXTENSION_CLASS_DESCRIPTOR}->updateLightDarkModeStatus(Ljava/lang/Enum;)V",
+                    "invoke-static { v$register }, ${LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR}->updateLightDarkModeStatus(Ljava/lang/Enum;)V",
                 )
             }
         }
 
-        // Add setting to force cairo settings fragment on/off.
+        // Add setting to force Cairo settings fragment on/off.
         cairoFragmentConfigFingerprint.let {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.last().index,
-                    "$EXTENSION_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z"
+                    "$LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z"
                 )
             }
         }

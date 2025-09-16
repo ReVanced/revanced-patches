@@ -702,7 +702,7 @@ Se la modifica di questa impostazione non ha effetto, prova a passare alla modal
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Il menu della traccia audio è nascosto
 
-Per mostrare il menu della traccia audio, cambia \"Spoof video streams\" in iOS TV"</string>
+Il menu della traccia audio non è disponibile quando \"Falsifica flussi video\" è abilitato"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Nascondi Guarda in VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Il menu Guarda in VR è nascosto</string>
@@ -1534,32 +1534,25 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_spoof_video_streams_screen_title">Simula il client del flusso video</string>
   <string name="revanced_spoof_video_streams_screen_summary">Simula il client del flusso video per evitare problemi di riproduzione</string>
   <string name="revanced_spoof_video_streams_title">Simula il client del flusso video</string>
-  <string name="revanced_spoof_video_streams_summary_on">Il client del flusso video è simulato</string>
+  <string name="revanced_spoof_video_streams_summary_on">"I flussi video sono falsificati
+
+Se sei un utente YouTube Premium, questa impostazione potrebbe non essere necessaria"</string>
   <string name="revanced_spoof_video_streams_summary_off">"I flussi video non sono simulati
 
 La riproduzione video potrebbe non funzionare"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Disattivando questa impostazione potrebbe causare problemi di riproduzione video.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client predefinito</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forza iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Il codec video è forzato ad AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Il codec video è determinato automaticamente</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"L'abilitazione di questa opzione potrebbe migliorare la durata della batteria e risolvere i problemi di stuttering durante la riproduzione.
-
-AVC ha una risoluzione massima di 1080p, il codec audio Opus non è disponibile e la riproduzione video utilizzerà più dati Internet rispetto a VP9 o AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Effetti collaterali simulazione iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• I film o i video a pagamento potrebbero non riprodurre
-• Il volume stabile non è disponibile
-• I video terminano 1 secondo prima"</string>
+  <string name="revanced_spoof_video_streams_about_title">Effetti collaterali della falsificazione</string>
   <string name="revanced_spoof_video_streams_about_android_title">Effetti collaterali simulazione Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Il menu traccia audio è mancante
-• Il volume stabile non è disponibile
-• Forza l'audio originale non è disponibile"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Il menu della traccia audio è mancante
+• Il volume stabile non è disponibile"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Client sperimentale e potrebbe smettere di funzionare in qualsiasi momento</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nessun codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• I video dei bambini potrebbero non essere riprodotti quando si è disconnessi o in modalità di navigazione in incognito</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra nelle statistiche per nerd</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Il tipo di client è mostrato nelle statistiche per nerd</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Il client è nascosto nelle statistiche per nerd</string>
-  <string name="revanced_spoof_video_streams_language_title">Lingua predefinita del flusso audio VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Lingua del flusso audio</string>
   </patch>
   </app>
   <app id="twitch">

@@ -2,15 +2,19 @@ package app.revanced.extension.shared.spoof;
 
 import android.os.Build;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.Locale;
 import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.settings.BaseSettings;
 
 public enum ClientType {
+    /**
+     * Video not playable: Kids / Paid / Movie / Private / Age-restricted.
+     * This client can only be used when logged out.
+     */
     // https://dumps.tadiphone.dev/dumps/oculus/eureka
     ANDROID_VR_1_61_48(
             28,
@@ -29,27 +33,30 @@ public enum ClientType {
             false,
             "Android VR 1.61"
     ),
-    // Chromecast with Google TV 4K.
-    // https://dumps.tadiphone.dev/dumps/google/kirkwood
-    ANDROID_UNPLUGGED(
-            29,
-            "ANDROID_UNPLUGGED",
-            "com.google.android.apps.youtube.unplugged",
-            "Google",
-            "Google TV Streamer",
-            "Android",
-            "14",
-            "34",
-            "UTT3.240625.001.K5",
-            "132.0.6808.3",
-            "8.49.0",
-            true,
-            true,
-            "Android TV"
+    /**
+     * Uses non adaptive bitrate, which fixes audio stuttering with YT Music.
+     * Does not use AV1.
+     */
+    ANDROID_VR_1_43_32(
+            ANDROID_VR_1_61_48.id,
+            ANDROID_VR_1_61_48.clientName,
+            Objects.requireNonNull(ANDROID_VR_1_61_48.packageName),
+            ANDROID_VR_1_61_48.deviceMake,
+            ANDROID_VR_1_61_48.deviceModel,
+            ANDROID_VR_1_61_48.osName,
+            ANDROID_VR_1_61_48.osVersion,
+            Objects.requireNonNull(ANDROID_VR_1_61_48.androidSdkVersion),
+            Objects.requireNonNull(ANDROID_VR_1_61_48.buildId),
+            "107.0.5284.2",
+            "1.43.32",
+            ANDROID_VR_1_61_48.requiresAuth,
+            ANDROID_VR_1_61_48.useAuth,
+            "Android VR 1.43"
     ),
-    // Cannot play livestreams and lacks HDR, but can play videos with music and labeled "for children".
-    // Google Pixel 9 Pro Fold
-    // https://dumps.tadiphone.dev/dumps/google/barbet
+    /**
+     * Cannot play livestreams and lacks HDR, but can play videos with music and labeled "for children".
+     * <a href="https://dumps.tadiphone.dev/dumps/google/barbet">Google Pixel 9 Pro Fold</a>
+     */
     ANDROID_CREATOR(
             14,
             "ANDROID_CREATOR",
@@ -66,61 +73,21 @@ public enum ClientType {
             true,
             "Android Creator"
     ),
-    IOS_UNPLUGGED(
-            33,
-            "IOS_UNPLUGGED",
-            "com.google.ios.youtubeunplugged",
-            "Apple",
-            forceAVC()
-                    // 11 Pro Max (last device with iOS 13)
-                    ? "iPhone12,5"
-                    // 15 Pro Max
-                    : "iPhone16,2",
-            "iOS",
-            forceAVC()
-                    // iOS 13 and earlier uses only AVC. 14+ adds VP9 and AV1.
-                    ? "13.7.17H35"
-                    : "18.2.22C152",
-            null,
-            null,
-            null,
-            // Version number should be a valid iOS release.
-            // https://www.ipa4fun.com/history/152043/
-            forceAVC()
-                    // Some newer versions can also force AVC,
-                    // but 6.45 is the last version that supports iOS 13.
-                    ? "6.45"
-                    : "8.49",
-            true,
-            true,
-            forceAVC()
-                    ? "iOS TV Force AVC"
-                    : "iOS TV"
-    ),
     /**
-     * Uses non adaptive bitrate, which fixes audio stuttering with YT Music.
-     * Uses VP9 and not AV1.
+     * Internal YT client for an unreleased YT client. May stop working at any time.
      */
-    ANDROID_VR_1_43_32(
-            ANDROID_VR_1_61_48.id,
-            ANDROID_VR_1_61_48.clientName,
-            ANDROID_VR_1_61_48.packageName,
-            ANDROID_VR_1_61_48.deviceMake,
-            ANDROID_VR_1_61_48.deviceModel,
-            ANDROID_VR_1_61_48.osName,
-            ANDROID_VR_1_61_48.osVersion,
-            ANDROID_VR_1_61_48.androidSdkVersion,
-            ANDROID_VR_1_61_48.buildId,
-            "107.0.5284.2",
-            "1.43.32",
-            ANDROID_VR_1_61_48.requiresAuth,
-            ANDROID_VR_1_61_48.useAuth,
-            "Android VR 1.43"
+    VISIONOS(101,
+            "VISIONOS",
+            "Apple",
+            "RealityDevice14,1",
+            "visionOS",
+            "1.3.21O771",
+            "0.1",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15",
+            false,
+            false,
+            "visionOS"
     );
-
-    private static boolean forceAVC() {
-        return BaseSettings.SPOOF_VIDEO_STREAMS_IOS_FORCE_AVC.get();
-    }
 
     /**
      * YouTube
@@ -133,6 +100,7 @@ public enum ClientType {
     /**
      * App package name.
      */
+    @Nullable
     private final String packageName;
 
     /**
@@ -202,17 +170,20 @@ public enum ClientType {
      */
     public final String friendlyName;
 
+    /**
+     * Android constructor.
+     */
     @SuppressWarnings("ConstantLocale")
     ClientType(int id,
                String clientName,
-               String packageName,
+               @NonNull String packageName,
                String deviceMake,
                String deviceModel,
                String osName,
                String osVersion,
-               @Nullable String androidSdkVersion,
-               @Nullable String buildId,
-               @Nullable String cronetVersion,
+               @NonNull String androidSdkVersion,
+               @NonNull String buildId,
+               @NonNull String cronetVersion,
                String clientVersion,
                boolean requiresAuth,
                boolean useAuth,
@@ -233,31 +204,44 @@ public enum ClientType {
         this.friendlyName = friendlyName;
 
         Locale defaultLocale = Locale.getDefault();
-        if (androidSdkVersion == null) {
-            // Convert version from '18.2.22C152' into '18_2_22'
-            String userAgentOsVersion = osVersion
-                    .replaceAll("(\\d+\\.\\d+\\.\\d+).*", "$1")
-                    .replace(".", "_");
-            // https://github.com/mitmproxy/mitmproxy/issues/4836
-            this.userAgent = String.format("%s/%s (%s; U; CPU iOS %s like Mac OS X; %s)",
-                    packageName,
-                    clientVersion,
-                    deviceModel,
-                    userAgentOsVersion,
-                    defaultLocale
-            );
-        } else {
-            this.userAgent = String.format("%s/%s (Linux; U; Android %s; %s; %s; Build/%s; Cronet/%s)",
-                    packageName,
-                    clientVersion,
-                    osVersion,
-                    defaultLocale,
-                    deviceModel,
-                    Objects.requireNonNull(buildId),
-                    Objects.requireNonNull(cronetVersion)
-            );
-        }
+        this.userAgent = String.format("%s/%s (Linux; U; Android %s; %s; %s; Build/%s; Cronet/%s)",
+                packageName,
+                clientVersion,
+                osVersion,
+                defaultLocale,
+                deviceModel,
+                Objects.requireNonNull(buildId),
+                Objects.requireNonNull(cronetVersion)
+        );
         Logger.printDebug(() -> "userAgent: " + this.userAgent);
     }
 
+    @SuppressWarnings("ConstantLocale")
+    ClientType(int id,
+               String clientName,
+               String deviceMake,
+               String deviceModel,
+               String osName,
+               String osVersion,
+               String clientVersion,
+               String userAgent,
+               boolean requiresAuth,
+               boolean useAuth,
+               String friendlyName) {
+        this.id = id;
+        this.clientName = clientName;
+        this.deviceMake = deviceMake;
+        this.deviceModel = deviceModel;
+        this.osName = osName;
+        this.osVersion = osVersion;
+        this.clientVersion = clientVersion;
+        this.userAgent = userAgent;
+        this.requiresAuth = requiresAuth;
+        this.useAuth = useAuth;
+        this.friendlyName = friendlyName;
+        this.packageName = null;
+        this.androidSdkVersion = null;
+        this.buildId = null;
+        this.cronetVersion = null;
+    }
 }

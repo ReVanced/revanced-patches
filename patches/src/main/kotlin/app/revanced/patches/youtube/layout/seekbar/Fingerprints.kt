@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.layout.seekbar
 
 import app.revanced.patcher.anyInstruction
 import app.revanced.patcher.fingerprint
+import app.revanced.patches.youtube.shared.YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
@@ -117,7 +118,7 @@ internal val launchScreenLayoutTypeFingerprint by fingerprint {
     custom { method, _ ->
         val firstParameter = method.parameterTypes.firstOrNull()
         // 19.25 - 19.45
-        firstParameter == "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
+        firstParameter == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
                 || firstParameter == "Landroid/app/Activity;" // 19.46+
     }
 }

@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.layout.theme
 import app.revanced.patcher.anyInstruction
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.patches.youtube.shared.YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -58,6 +59,6 @@ internal val splashScreenStyleFingerprint by fingerprint {
         )
     )
     custom { method, classDef ->
-        method.name == "onCreate" && classDef.endsWith("/MainActivity;")
+        method.name == "onCreate" && classDef.type == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
     }
 }

@@ -700,9 +700,9 @@ Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó mó
   <string name="revanced_hide_player_flyout_audio_track_summary_on">A hangsáv menü el van rejtve</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">A hangsáv menü megjelenik</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Az audiosáv menü rejtett
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Az hangsáv menü elrejtve
 
-Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítása\" beállítást iOS TV-re"</string>
+Az hangsáv menü nem érhető el, ha a \"Videó adatfolyamok hamisítása\" engedélyezve van"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">\"Megtekintés VR-módban\" elrejtése</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">A megtekintés VR-módban menü el van rejtve</string>
@@ -1532,32 +1532,25 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_spoof_video_streams_screen_title">Hamis videó stream</string>
   <string name="revanced_spoof_video_streams_screen_summary">Hamisítsa meg az ügyfél videó streamet a lejátszási problémák elkerülése érdekében</string>
   <string name="revanced_spoof_video_streams_title">Hamis videó stream</string>
-  <string name="revanced_spoof_video_streams_summary_on">A videó stream hamisítva</string>
+  <string name="revanced_spoof_video_streams_summary_on">"A videó adatfolyamok hamisítva vannak
+
+Ha Ön YouTube Premium felhasználó, ez a beállítás nem feltétlenül szükséges"</string>
   <string name="revanced_spoof_video_streams_summary_off">"A videó streamek nem hamisítva vannak
 
 A videólejátszás nem működhet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Az iOS kényyszerített AVC (H.264) videokodeket használ</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">A videokodek AVC-re kényszerítve (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">A videokodek meghatározása automatikusan történik</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ennek engedélyezése javíthatja az akkumulátor élettartamát és kijavíthatja a lejátszás akadozását.
-
-Az AVC maximális felbontása 1080p, az Opus audiokodek nem érhető el, és a videolejátszás több internetes adatot használ, mint a VP9 vagy az AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS hamisítási mellékhatások</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Előfordulhat, hogy a filmeket és a fizetős videókat nem lehet lejátszani
-• Nem áll rendelkezésre stabil hangerő
-• A videók 1 másodperccel korábban érnek véget"</string>
+  <string name="revanced_spoof_video_streams_about_title">Hamisítás mellékhatásai</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android hamisítási mellékhatások</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Hiányzik a hangsáv menü
-• Nem áll rendelkezésre stabil hangerő
-• Az eredeti hang kényszerítése nem érhető el"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Az hangsáv menü hiányzik
+• Stabil hangerő nem érhető el"</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Kísérleti kliens, és bármikor leállhat</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nincs AV1 videokodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• A gyermekeknek szóló videók nem játszódnak le, ha a felhasználó kijelentkezett, vagy inkognitómódban van.</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Megjelenítés a Statisztikákban</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">A kliens típusa a Statisztikákban látható</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">A kliens el van rejtve a Statisztikákban</string>
-  <string name="revanced_spoof_video_streams_language_title">VR alapértelmezett audio adatfolyam nyelve</string>
+  <string name="revanced_spoof_video_streams_language_title">Hangfolyam nyelve</string>
   </patch>
   </app>
   <app id="twitch">

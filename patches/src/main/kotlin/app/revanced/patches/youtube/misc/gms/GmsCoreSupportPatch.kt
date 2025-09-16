@@ -53,7 +53,7 @@ private fun gmsCoreSupportResourcePatch(
     gmsCoreVendorGroupIdOption = gmsCoreVendorGroupIdOption,
     spoofedPackageSignature = "24bb24c05e47e0aefa68a58a766179d9b613a600",
     executeBlock = {
-        addResources("youtube", "misc.gms.gmsCoreSupportResourcePatch")
+        addResources("shared", "misc.gms.gmsCoreSupportResourcePatch")
 
         val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
@@ -62,10 +62,14 @@ private fun gmsCoreSupportResourcePatch(
                 "microg_settings",
                 intent = IntentPreference.Intent("", "org.microg.gms.ui.SettingsActivity") {
                     "$gmsCoreVendorGroupId.android.gms"
-                },
-            ),
+                }
+            )
         )
-    },
+    }
 ) {
-    dependsOn(settingsPatch, addResourcesPatch, accountCredentialsInvalidTextPatch)
+    dependsOn(
+        addResourcesPatch,
+        settingsPatch,
+        accountCredentialsInvalidTextPatch
+    )
 }
