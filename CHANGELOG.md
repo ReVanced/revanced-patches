@@ -1,3 +1,10 @@
+# [5.38.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.38.0-dev.4...v5.38.0-dev.5) (2025-09-16)
+
+
+### Bug Fixes
+
+* **YouTube Music:** Use correct light/dark mode settings UI ([1475643](https://github.com/ReVanced/revanced-patches/commit/1475643f84e9ee4af2ba360a2274001ff1570dad))
+
 # [5.38.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.38.0-dev.3...v5.38.0-dev.4) (2025-09-16)
 
 
