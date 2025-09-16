@@ -1637,6 +1637,8 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client type is shown in Stats for nerds</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is hidden in Stats for nerds</string>
             <string name="revanced_spoof_video_streams_language_title">Audio stream language</string>
+            <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+            <string name="revanced_spoof_video_streams_language_not_available">To select a specific audio language, turn off \'Force original audio language\'</string>
         </patch>
     </app>
     <app id="music">
