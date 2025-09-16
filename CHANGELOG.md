@@ -1,3 +1,10 @@
+## [5.38.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.38.0...v5.38.1-dev.1) (2025-09-16)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Do not use Android Creator for livestreams ([cbe576b](https://github.com/ReVanced/revanced-patches/commit/cbe576bc384ef5f5ee2fa341147925ed0dff568b))
+
 # [5.38.0](https://github.com/ReVanced/revanced-patches/compare/v5.37.0...v5.38.0) (2025-09-16)
 
 
