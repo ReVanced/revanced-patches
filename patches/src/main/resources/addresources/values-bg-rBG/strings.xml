@@ -68,6 +68,8 @@ Second \"item\" text"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">GmsCore Настройки</string>
+  <string name="microg_settings_summary">Настройки на GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">GmsCore не е инсталиран. Инсталирайте го.</string>
   <string name="gms_core_dialog_title">Нужно е действие</string>
@@ -83,6 +85,37 @@ Second \"item\" text"</string>
 
 Докоснете бутона за продължаване и разрешете промени в оптимизацията."</string>
   <string name="gms_core_dialog_continue_text">Продължи</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Подправяне на видео потоци</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Подправете клиентските видео потоци, за да предотвратите проблеми с възпроизвеждането</string>
+  <string name="revanced_spoof_video_streams_screen_title">Имитиране на видео потоци</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Имитирайте видео потоците на клиента, за да предотвратите проблеми с възпроизвеждането</string>
+  <string name="revanced_spoof_video_streams_title">Подправяне на видео потоци</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Видео потоците са подменени
+
+Ако сте потребител на YouTube Premium, тази настройка може да не е необходима"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Видеопотоците не са подправени
+
+Възпроизвеждането може да не работи"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Изключването на тази настройка може да причини проблеми с възпроизвеждането.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Отстраняване на грешки</string>
+  <string name="revanced_debug_screen_summary">Активиране или деактивиране на отстраняването на грешки</string>
+  <string name="revanced_debug_title">Дневник на отстраняването на грешки</string>
+  <string name="revanced_debug_summary_on">Дневникът за остраняване на грешки е активиран</string>
+  <string name="revanced_debug_summary_off">Дневникът за остраняване на грешки е деактивиран</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Експортиране на логове за отстраняване на грешки</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Копира логовете за отстраняване на грешки на ReVanced в клипборда</string>
+  <string name="revanced_debug_logs_disabled">Отстраняването на грешки е деактивирано</string>
+  <string name="revanced_debug_logs_none_found">Не са намерени логове</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Логовете са копирани</string>
+  <string name="revanced_debug_logs_failed_to_export">Неуспешно експортиране на логове: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Изчистване на логовете за отстраняване на грешки</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Изчиства всички съхранени логове за отстраняване на грешки на ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Логовете са изчистени</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Фоновото възпроизвеждане на Shorts е активирано</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Отстраняване на грешки</string>
-  <string name="revanced_debug_screen_summary">Активиране или деактивиране на отстраняването на грешки</string>
-  <string name="revanced_debug_title">Дневник на отстраняването на грешки</string>
-  <string name="revanced_debug_summary_on">Дневникът за остраняване на грешки е активиран</string>
-  <string name="revanced_debug_summary_off">Дневникът за остраняване на грешки е деактивиран</string>
   <string name="revanced_debug_protobuffer_title">Буфер на протокола за дневника</string>
   <string name="revanced_debug_protobuffer_summary_on">Файлове с дневници за грешки включват буфера</string>
   <string name="revanced_debug_protobuffer_summary_off">Файлове с дневници за грешки не включват буфера</string>
@@ -132,15 +160,6 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Изключването на изскачащи съобщения за грешки крие всички известия за грешки на ReVanced.
 
 Няма да бъдете уведомени за неочаквани събития."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Експортиране на логове за отстраняване на грешки</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Копира логовете за отстраняване на грешки на ReVanced в клипборда</string>
-  <string name="revanced_debug_logs_disabled">Отстраняването на грешки е деактивирано</string>
-  <string name="revanced_debug_logs_none_found">Не са намерени логове</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Логовете са копирани</string>
-  <string name="revanced_debug_logs_failed_to_export">Неуспешно експортиране на логове: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Изчистване на логовете за отстраняване на грешки</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Изчиства всички съхранени логове за отстраняване на грешки на ReVanced</string>
-  <string name="revanced_debug_logs_clear_toast">Логовете са изчистени</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">\"Карти на албумите\"</string>
@@ -700,9 +719,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Менюто за избор на Аудио е скрито</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Менюто за избор на Аудио се показва</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Менюто за аудиозаписи е скрито
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Менюто за аудиозапис е скрито
 
-Менюто за аудиозаписи не е налично, когато „Подменяне на видео потоци“ е активирано"</string>
+За да покажете менюто за аудиозапис, променете „Подправяне на видео потоци“ на iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Гледайте във VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Менюто за гледане в VR е скрито</string>
@@ -1415,10 +1434,6 @@ Second \"item\" text"</string>
 Активирането на това може да отключи по-високи видео качества"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Разрешаването на това може да причини прекъсване на възпроизвеждането на видео, влошен живот на батерията и неизвестни странични ефекти.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">GmsCore Настройки</string>
-  <string name="microg_settings_summary">Настройки на GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Вибрационна обратна връзка</string>
   <string name="revanced_disable_haptic_feedback_summary">Промяна на вибрационната обратна връзка</string>
@@ -1532,21 +1547,11 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">Слайд за превъртане е деактивиран</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Подправяне на видео потоци</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Подправете клиентските видео потоци, за да предотвратите проблеми с възпроизвеждането</string>
-  <string name="revanced_spoof_video_streams_title">Подправяне на видео потоци</string>
-  <string name="revanced_spoof_video_streams_summary_on">"Видео потоците са подменени
-
-Ако сте потребител на YouTube Premium, тази настройка може да не е необходима"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Потоците на видеоклипове не са фалшифицирани
-
-Възпроизвеждането на видеоклипове може да не работи"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Деактивирането на тази настройка ще доведе до проблеми с възпроизвеждането на видео.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
   <string name="revanced_spoof_video_streams_about_title">Странични ефекти от подменянето</string>
   <string name="revanced_spoof_video_streams_about_android_title">Strani4ni efekti na fal6ivoto predstavqne na Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Липсва менюто за аудиозаписи
 • Стабилен звук не е наличен"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Видеото може да спре на 1:00 или може да не е налично в някои региони</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментален клиент и може да спре да работи по всяко време</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Без AV1 видео кодек</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Детските видеоклипове може да не се възпроизвеждат, когато сте излезли от профила си или в режим \"инкогнито\"</string>
@@ -1554,6 +1559,42 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tipът na klienta se poka6va v Statistiki za nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klientът e skriт v Statistiki za nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Език на аудио потока</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">За да изберете конкретен аудио език, изключете \'Принудително оригинален аудио език\'</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Относно</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Реклами</string>
+  <string name="revanced_settings_music_screen_2_general_title">Общи</string>
+  <string name="revanced_settings_music_screen_3_player_title">Плейър</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Разни</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Скриване на видеореклами</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Видеорекламите са скрити</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Видеорекламите са показани</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Активиране на постоянно повтаряне</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Постоянното повтаряне е активирано</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Постоянното повтаряне е деактивирано</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Скриване на лентата с категории</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Лентата с категории е скрита</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Лентата с категории е показана</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Скриване на етикета „Вземете Music Premium“</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Етикетът е скрит</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Етикетът е показан</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Скриване на бутона за надстройка</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Бутонът е скрит</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Бутонът е показан</string>
   </patch>
   </app>
   <app id="twitch">

@@ -68,6 +68,8 @@ Untuk menerjemahkan bahasa baru kunjungi translate.revanced.app"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Pengaturan GmsCore</string>
+  <string name="microg_settings_summary">Pengaturan untuk GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore belum dipasang. Pasang dulu.</string>
   <string name="gms_core_dialog_title">Tindakan diperlukan</string>
@@ -83,6 +85,37 @@ Menonaktifkan pengoptimalan baterai MicroG tidak akan berdampak buruk pada pengg
 
 Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="gms_core_dialog_continue_text">Lanjutkan</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Palsukan aliran video</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Palsukan klien aliran video untuk mencegah masalah pemutaran</string>
+  <string name="revanced_spoof_video_streams_screen_title">Palsukan aliran video</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Palsukan klien aliran video untuk mencegah masalah pemutaran</string>
+  <string name="revanced_spoof_video_streams_title">Palsukan aliran video</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Aliran video dipalsukan
+
+Jika Anda adalah pengguna YouTube Premium, setelan ini mungkin tidak diperlukan"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Aliran video tidak dipalsukan
+
+Pemutaran mungkin tidak berfungsi"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Klien bawaan</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Debug</string>
+  <string name="revanced_debug_screen_summary">Mengaktifkan atau menonaktifkan pilihan debugging</string>
+  <string name="revanced_debug_title">Pencatatan debug</string>
+  <string name="revanced_debug_summary_on">Pencatatan debug diaktifkan</string>
+  <string name="revanced_debug_summary_off">Pencatatan debug dinonaktifkan</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Ekspor catatan debug</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Salin catatan debug ReVanced ke papan klip</string>
+  <string name="revanced_debug_logs_disabled">Pencatatan debug dinonaktifkan</string>
+  <string name="revanced_debug_logs_none_found">Tidak ditemukan catatan</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Catatan disalin</string>
+  <string name="revanced_debug_logs_failed_to_export">Gagal mengekspor catatan: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Bersihkan catatan debug</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Menghapus semua catatan debug ReVanced yang tersimpan</string>
+  <string name="revanced_debug_logs_clear_toast">Catatan dibersihkan</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Pemutaran Shorts di latar belakang diaktifkan</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Debug</string>
-  <string name="revanced_debug_screen_summary">Mengaktifkan atau menonaktifkan pilihan debugging</string>
-  <string name="revanced_debug_title">Pencatatan debug</string>
-  <string name="revanced_debug_summary_on">Pencatatan debug diaktifkan</string>
-  <string name="revanced_debug_summary_off">Pencatatan debug dinonaktifkan</string>
   <string name="revanced_debug_protobuffer_title">Buffer protokol log</string>
   <string name="revanced_debug_protobuffer_summary_on">Pencatatan debug termasuk buffer proto</string>
   <string name="revanced_debug_protobuffer_summary_off">Pencatatan debug tidak menyertakan buffer proto</string>
@@ -132,15 +160,6 @@ Namun, mengaktifkan ini juga akan mencatat beberapa data pengguna seperti alamat
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Mematikan notifikasi kesalahan menyembunyikan semua notifikasi kesalahan ReVanced.
 
 Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Ekspor catatan debug</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Salin catatan debug ReVanced ke papan klip</string>
-  <string name="revanced_debug_logs_disabled">Pencatatan debug dinonaktifkan</string>
-  <string name="revanced_debug_logs_none_found">Tidak ditemukan catatan</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Catatan disalin</string>
-  <string name="revanced_debug_logs_failed_to_export">Gagal mengekspor catatan: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Bersihkan catatan debug</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Menghapus semua catatan debug ReVanced yang tersimpan</string>
-  <string name="revanced_debug_logs_clear_toast">Catatan dibersihkan</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Sembunyikan kartu album</string>
@@ -702,7 +721,7 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Menu trek audio disembunyikan
 
-Menu trek audio tidak tersedia saat 'Spoof stream video' diaktifkan"</string>
+Untuk menampilkan menu trek audio, ubah 'Spoof stream video' ke iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Sembunyikan Tonton di VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu tonton di VR disembunyikan</string>
@@ -1414,10 +1433,6 @@ Kualitas video yang lebih tinggi mungkin tidak terkunci, tetapi Anda mungkin men
 Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Mengaktifkan ini dapat menyebabkan pemutaran video tersendat-sendat, masa pakai baterai yang lebih buruk, dan efek samping yang tidak diketahui.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">Pengaturan GmsCore</string>
-  <string name="microg_settings_summary">Pengaturan untuk GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Umpan balik sentuh getar</string>
   <string name="revanced_disable_haptic_feedback_summary">Ubah umpan balik sentuh getar</string>
@@ -1531,21 +1546,11 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_slide_to_seek_summary_off">Geser untuk mencari tidak diaktifkan</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Palsukan aliran video</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Palsukan klien aliran video untuk mencegah masalah pemutaran</string>
-  <string name="revanced_spoof_video_streams_title">Palsukan aliran video</string>
-  <string name="revanced_spoof_video_streams_summary_on">"Stream video ditiru
-
-Jika Anda adalah pengguna YouTube Premium, setelan ini mungkin tidak diperlukan"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Streaming video tidak dipalsukan
-
-Pemutaran video mungkin tidak berfungsi"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran video.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Klien bawaan</string>
-  <string name="revanced_spoof_video_streams_about_title">Efek samping peniruan</string>
+  <string name="revanced_spoof_video_streams_about_title">Efek samping pemalsuan</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efek samping pemalsuan Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menu trek audio tidak ada
 • Volume stabil tidak tersedia"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video mungkin berhenti pada pukul 1:00, atau mungkin tidak tersedia di beberapa wilayah</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klien eksperimental dan dapat berhenti berfungsi kapan saja</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video anak-anak mungkin tidak dapat diputar saat keluar atau dalam mode penyamaran</string>
@@ -1553,6 +1558,42 @@ Pemutaran video mungkin tidak berfungsi"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Jenis klien ditampilkan di Statistik untuk nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klien disembunyikan di Statistik untuk nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Bahasa aliran audio</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Untuk memilih bahasa audio tertentu, matikan \'Paksa bahasa audio asli\'</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Tentang</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Iklan</string>
+  <string name="revanced_settings_music_screen_2_general_title">Umum</string>
+  <string name="revanced_settings_music_screen_3_player_title">Pemutar</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Lain-lain</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Sembunyikan iklan video</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Iklan video disembunyikan</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Iklan video ditampilkan</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Aktifkan pengulangan permanen</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Pengulangan permanen diaktifkan</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Pengulangan permanen dinonaktifkan</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Sembunyikan bilah kategori</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Bilah kategori disembunyikan</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Bilah kategori ditampilkan</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Sembunyikan label \'Dapatkan Music Premium\'</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Label disembunyikan</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Label ditampilkan</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Sembunyikan tombol upgrade</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Tombol disembunyikan</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Tombol ditampilkan</string>
   </patch>
   </app>
   <app id="twitch">

@@ -68,6 +68,8 @@ Second \"item\" text"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">إعدادات GmsCore</string>
+  <string name="microg_settings_summary">إعدادات لـ GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">لم يتم تثبيت MicroG GmsCore. قم بتثبيته.</string>
   <string name="gms_core_dialog_title">الإجراء مطلوب</string>
@@ -83,6 +85,37 @@ Second \"item\" text"</string>
 
 انقر فوق زر الاستمرار واسمح بتغييرات التحسين."</string>
   <string name="gms_core_dialog_continue_text">متابعة</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Spoof Video Streams</string>
+  <string name="revanced_spoof_video_streams_screen_summary">تزييف تدفقات الفيديو الخاصة بالعميل لمنع حدوث مشكلات أثناء التشغيل</string>
+  <string name="revanced_spoof_video_streams_screen_title">انتحال بثوث الفيديو</string>
+  <string name="revanced_spoof_video_streams_screen_summary">انتحال بثوث الفيديو الخاصة بالعميل لمنع مشكلات التشغيل</string>
+  <string name="revanced_spoof_video_streams_title">Spoof Video Streams</string>
+  <string name="revanced_spoof_video_streams_summary_on">"تدفقات الفيديو مزورة
+
+إذا كنت مستخدمًا لـ YouTube Premium، فقد لا يكون هذا الإعداد مطلوبًا"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"لم يتم انتحال بثوث الفيديو
+
+قد لا يعمل التشغيل"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">قد يؤدي إيقاف تشغيل هذا الإعداد إلى مشكلات في التشغيل.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">العميل الافتراضي</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">تصحيح الأخطاء</string>
+  <string name="revanced_debug_screen_summary">تمكين أو تعطيل خيارات تصحيح الأخطاء</string>
+  <string name="revanced_debug_title">تسجيل تصحيح الأخطاء</string>
+  <string name="revanced_debug_summary_on">تم تمكين تسجيلات تصحيح الأخطاء</string>
+  <string name="revanced_debug_summary_off">تم تعطيل تسجيلات تصحيح الأخطاء</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">تصدير سجلات تصحيح الأخطاء</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">نسخ سجلات تصحيح أخطاء ReVanced إلى الحافظة</string>
+  <string name="revanced_debug_logs_disabled">تم تعطيل تسجيلات تصحيح الأخطاء</string>
+  <string name="revanced_debug_logs_none_found">لم يتم العثور على سجلات</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">تم نسخ السجلات</string>
+  <string name="revanced_debug_logs_failed_to_export">فشل تصدير السجلات: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">مسح سجلات تصحيح الأخطاء</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">يمسح جميع سجلات تصحيح أخطاء ReVanced المخزنة</string>
+  <string name="revanced_debug_logs_clear_toast">تم مسح السجلات</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">تم تمكين تشغيل Shorts بالخلفية</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">تصحيح الأخطاء</string>
-  <string name="revanced_debug_screen_summary">تمكين أو تعطيل خيارات تصحيح الأخطاء</string>
-  <string name="revanced_debug_title">تسجيل تصحيح الأخطاء</string>
-  <string name="revanced_debug_summary_on">تم تمكين تسجيلات تصحيح الأخطاء</string>
-  <string name="revanced_debug_summary_off">تم تعطيل تسجيلات تصحيح الأخطاء</string>
   <string name="revanced_debug_protobuffer_title">سجل بروتوكول التخزين المؤقت</string>
   <string name="revanced_debug_protobuffer_summary_on">تتضمن سجلات التصحيح التخزين المؤقت</string>
   <string name="revanced_debug_protobuffer_summary_off">لا تتضمن سجلات التصحيح التخزين المؤقت</string>
@@ -132,15 +160,6 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"يؤدي إيقاف تشغيل ملاحظات الأخطاء إلى إخفاء كافة إشعارات أخطاء ReVanced.
 
 لن يتم إعلامك بأي أخطاء غير متوقعة."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">تصدير سجلات تصحيح الأخطاء</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">نسخ سجلات تصحيح أخطاء ReVanced إلى الحافظة</string>
-  <string name="revanced_debug_logs_disabled">تم تعطيل تسجيلات تصحيح الأخطاء</string>
-  <string name="revanced_debug_logs_none_found">لم يتم العثور على سجلات</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">تم نسخ السجلات</string>
-  <string name="revanced_debug_logs_failed_to_export">فشل تصدير السجلات: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">مسح سجلات تصحيح الأخطاء</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">يمسح جميع سجلات تصحيح أخطاء ReVanced المخزنة</string>
-  <string name="revanced_debug_logs_clear_toast">تم مسح السجلات</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">إخفاء بطاقات الألبوم</string>
@@ -702,7 +721,7 @@ Second \"item\" text"</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"قائمة المسارات الصوتية مخفية
 
-قائمة المسارات الصوتية غير متاحة عندما يكون \"تزوير تدفقات الفيديو\" مُمكَّنًا"</string>
+لعرض قائمة المسارات الصوتية، غيّر 'تزييف تدفقات الفيديو' إلى iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">إخفاء المشاهدة في VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">تم إخفاء قائمة المشاهدة في الوضع الافتراضي</string>
@@ -1415,10 +1434,6 @@ Second \"item\" text"</string>
 يمكن أن يؤدي تفعيل هذا إلى فتح جودة أعلى للفيديو"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">قد يؤدي تمكين هذا إلى تباطؤ تشغيل الفيديو وتدهور عمر البطارية وآثار جانبية غير معروفة.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">إعدادات GmsCore</string>
-  <string name="microg_settings_summary">إعدادات لـ GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">الاهتزاز عند الضغط</string>
   <string name="revanced_disable_haptic_feedback_summary">تغيير الاهتزاز عند الضغط</string>
@@ -1532,21 +1547,11 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">تم تعطيل التمرير للتقديم أو الترجيع</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Spoof Video Streams</string>
-  <string name="revanced_spoof_video_streams_screen_summary">تزييف تدفقات الفيديو الخاصة بالعميل لمنع حدوث مشكلات أثناء التشغيل</string>
-  <string name="revanced_spoof_video_streams_title">Spoof Video Streams</string>
-  <string name="revanced_spoof_video_streams_summary_on">"تدفقات الفيديو مزورة
-
-إذا كنت مستخدمًا لـ YouTube Premium، فقد لا يكون هذا الإعداد مطلوبًا"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"لا يتم تزييف تدفقات الفيديو
-
-قد لا يعمل تشغيل الفيديو"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">إيقاف تشغيل هذا الإعداد قد يسبب مشاكل في تشغيل الفيديو.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">العميل الافتراضي</string>
   <string name="revanced_spoof_video_streams_about_title">الآثار الجانبية للتزوير</string>
   <string name="revanced_spoof_video_streams_about_android_title">الآثار الجانبية لمحاكاة هوية Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• قائمة المسارات الصوتية مفقودة
 • مستوى الصوت المستقر غير متاح"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• قد يتوقف الفيديو عند 1:00، أو قد لا يكون متاحًا في بعض المناطق</string>
   <string name="revanced_spoof_video_streams_about_experimental">• عميل تجريبي وقد يتوقف عن العمل في أي وقت</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• لا يوجد ترميز الفيديو AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو عند استخدام وضع التصفح المتخفي</string>
@@ -1554,6 +1559,42 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">يتم عرض نوع العميل في إحصاءات تقنية</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">تم إخفاء نوع العميل في إحصاءات تقنية</string>
   <string name="revanced_spoof_video_streams_language_title">لغة بث الصوت</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">لتحديد لغة صوتية معينة، قم بإيقاف تشغيل \"فرض لغة الصوت الأصلية\"</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">حول</string>
+  <string name="revanced_settings_music_screen_1_ads_title">إعلانات</string>
+  <string name="revanced_settings_music_screen_2_general_title">عام</string>
+  <string name="revanced_settings_music_screen_3_player_title">المشغل</string>
+  <string name="revanced_settings_music_screen_4_misc_title">متنوعة</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">إخفاء إعلانات الفيديو</string>
+  <string name="revanced_music_hide_video_ads_summary_on">تم إخفاء إعلانات الفيديو</string>
+  <string name="revanced_music_hide_video_ads_summary_off">تم عرض إعلانات الفيديو</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">تمكين التكرار الدائم</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">تم تمكين التكرار الدائم</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">تم تعطيل التكرار الدائم</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">إخفاء شريط الفئات</string>
+  <string name="revanced_music_hide_category_bar_summary_on">شريط الفئات مخفي</string>
+  <string name="revanced_music_hide_category_bar_summary_off">شريط الفئات معروض</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">إخفاء تسمية \'الحصول على Music Premium\'</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">التسمية مخفية</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">التسمية معروضة</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">إخفاء زر الترقية</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">الزر مخفي</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">الزر معروض</string>
   </patch>
   </app>
   <app id="twitch">

@@ -68,6 +68,8 @@ Second \"item\" text"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">GmsCore 设置</string>
+  <string name="microg_settings_summary">GmsCore 的设置</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore 未安装。请先安装。</string>
   <string name="gms_core_dialog_title">需要采取措施</string>
@@ -83,6 +85,37 @@ Second \"item\" text"</string>
 
 点击继续按钮并允许优化更改。"</string>
   <string name="gms_core_dialog_continue_text">继续</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">伪造视频流</string>
+  <string name="revanced_spoof_video_streams_screen_summary">伪造客户端视频流以防止播放问题</string>
+  <string name="revanced_spoof_video_streams_screen_title">欺骗视频流</string>
+  <string name="revanced_spoof_video_streams_screen_summary">欺骗客户端视频流以防止播放问题</string>
+  <string name="revanced_spoof_video_streams_title">伪造视频流</string>
+  <string name="revanced_spoof_video_streams_summary_on">"视频流已欺骗
+
+如果您是 YouTube Premium 用户，此设置可能不需要"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"未欺骗视频流
+
+播放可能无法正常进行"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">关闭此设置可能会导致播放问题。</string>
+  <string name="revanced_spoof_video_streams_client_type_title">默认客户端</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">调试</string>
+  <string name="revanced_debug_screen_summary">启用或禁用调试选项</string>
+  <string name="revanced_debug_title">调试日志</string>
+  <string name="revanced_debug_summary_on">已启用调试日志记录</string>
+  <string name="revanced_debug_summary_off">已禁用调试日志记录</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">导出调试日志</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">将 ReVanced 调试日志复制到剪贴板</string>
+  <string name="revanced_debug_logs_disabled">调试日志记录已禁用</string>
+  <string name="revanced_debug_logs_none_found">未找到日志</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">日志已复制</string>
+  <string name="revanced_debug_logs_failed_to_export">导出日志失败：%s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">清除调试日志</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">清除所有存储的 ReVanced 调试日志</string>
+  <string name="revanced_debug_logs_clear_toast">日志已清除</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts 后台播放已启用</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">调试</string>
-  <string name="revanced_debug_screen_summary">启用或禁用调试选项</string>
-  <string name="revanced_debug_title">调试日志</string>
-  <string name="revanced_debug_summary_on">已启用调试日志记录</string>
-  <string name="revanced_debug_summary_off">已禁用调试日志记录</string>
   <string name="revanced_debug_protobuffer_title">记录协议缓冲区</string>
   <string name="revanced_debug_protobuffer_summary_on">调试日志包括协议缓冲区</string>
   <string name="revanced_debug_protobuffer_summary_off">调试日志不包括协议缓冲区</string>
@@ -132,15 +160,6 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"关闭错误 Toast 会隐藏所有 ReVanced 错误通知。
 
 您不会收到任何意外事件的通知。"</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">导出调试日志</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">将 ReVanced 调试日志复制到剪贴板</string>
-  <string name="revanced_debug_logs_disabled">调试日志记录已禁用</string>
-  <string name="revanced_debug_logs_none_found">未找到日志</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">日志已复制</string>
-  <string name="revanced_debug_logs_failed_to_export">导出日志失败：%s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">清除调试日志</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">清除所有存储的 ReVanced 调试日志</string>
-  <string name="revanced_debug_logs_clear_toast">日志已清除</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">隐藏专辑卡片</string>
@@ -700,9 +719,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">音轨菜单已隐藏</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">音轨菜单已显示</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"音轨菜单已隐藏
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"已隱藏「音軌」選單
 
-启用“欺骗视频流”时，音轨菜单不可用"</string>
+如要顯示音軌選單，請將「欺騙視訊串流」變更為 iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">隐藏「在 VR 模式下观看」</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">在 VR 模式下观看已隐藏</string>
@@ -1420,10 +1439,6 @@ Second \"item\" text"</string>
 启用此功能可以解锁更高的视频质量"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">启用此选项可能会导致视频播放卡顿、电池续航时间减少以及其他未知的副作用</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">GmsCore 设置</string>
-  <string name="microg_settings_summary">GmsCore 的设置</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">触感反馈</string>
   <string name="revanced_disable_haptic_feedback_summary">更改触感反馈</string>
@@ -1537,21 +1552,11 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">滑动拖动进度条未启用</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">伪造视频流</string>
-  <string name="revanced_spoof_video_streams_screen_summary">伪造客户端视频流以防止播放问题</string>
-  <string name="revanced_spoof_video_streams_title">伪造视频流</string>
-  <string name="revanced_spoof_video_streams_summary_on">"视频流已欺骗
-
-如果您是 YouTube Premium 用户，此设置可能不需要"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"视频流未被欺骗
-
-视频播放可能无法正常工作"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">关闭此选项可能会导致视频不能正常播放。</string>
-  <string name="revanced_spoof_video_streams_client_type_title">默认客户端</string>
   <string name="revanced_spoof_video_streams_about_title">欺骗的副作用</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android 模拟的副作用</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 音轨菜单缺失
 • 稳定音量不可用"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• 视频可能会在 1:00 停止，或者在某些地区可能无法播放</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 实验性客户端，可能随时停止工作</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• 不支持 AV1 视频编解码器</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• 注销或使用无痕模式时，儿童视频可能无法播放</string>
@@ -1559,6 +1564,42 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">客户端类型显示在 Stats for nerds 中</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">客户端隐藏在 Stats for nerds 中</string>
   <string name="revanced_spoof_video_streams_language_title">音频流语言</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">要选择特定的音频语言，请关闭“强制原始音频语言”</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">关于</string>
+  <string name="revanced_settings_music_screen_1_ads_title">广告</string>
+  <string name="revanced_settings_music_screen_2_general_title">通用</string>
+  <string name="revanced_settings_music_screen_3_player_title">播放器</string>
+  <string name="revanced_settings_music_screen_4_misc_title">杂项</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">隐藏视频广告</string>
+  <string name="revanced_music_hide_video_ads_summary_on">视频广告已隐藏</string>
+  <string name="revanced_music_hide_video_ads_summary_off">视频广告已显示</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">启用永久重复播放</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">已启用永久重复播放</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">已禁用永久重复播放</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">隐藏类别栏</string>
+  <string name="revanced_music_hide_category_bar_summary_on">类别栏已隐藏</string>
+  <string name="revanced_music_hide_category_bar_summary_off">类别栏已显示</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">隐藏“获取音乐高级版”标签</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">标签已隐藏</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">标签已显示</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">隐藏升级按钮</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">按钮已隐藏</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">按钮已显示</string>
   </patch>
   </app>
   <app id="twitch">

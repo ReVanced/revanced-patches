@@ -28,6 +28,9 @@ public class GoogleApiActivityHook extends BaseActivityHook {
         // Logging anything under non debug ensures this is set.
         Logger.printInfo(() -> "Permanent repeat enabled: " + Settings.PERMANENT_REPEAT.get());
 
+        // YT Music always uses dark mode.
+        Utils.setIsDarkModeEnabled(true);
+
         return new GoogleApiActivityHook();
     }
 

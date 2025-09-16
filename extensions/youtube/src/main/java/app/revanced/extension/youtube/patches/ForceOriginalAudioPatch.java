@@ -14,12 +14,13 @@ public class ForceOriginalAudioPatch {
      * Injection point.
      */
     public static void setPreferredLanguage() {
-        if (Settings.FORCE_ORIGINAL_AUDIO.get()) {
-            // None of the current spoof clients support audio track menu,
-            // And all are un-authenticated and can request any language code
-            // (authenticated requests ignore the language code and always use the account language).
-            // To still support force original audio, if it's enabled then pick a language
-            // that is not auto-dubbed by YouTube: https://support.google.com/youtube/answer/15569972
+        if (Settings.FORCE_ORIGINAL_AUDIO.get()
+                && SpoofVideoStreamsPatch.spoofingToClientWithNoMultiAudioStreams()) {
+            // If client spoofing does not use authentication and lacks multi-audio streams,
+            // then can use any language code for the request and if that requested language is
+            // not available YT uses the original audio language. Authenticated requests ignore
+            // the language code and always use the account language. Use a language that is
+            // not auto-dubbed by YouTube: https://support.google.com/youtube/answer/15569972
             // but the language is also supported natively by the Meta Quest device that
             // Android VR is spoofing.
             AppLanguage override = AppLanguage.SV;

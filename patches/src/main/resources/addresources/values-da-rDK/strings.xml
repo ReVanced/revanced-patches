@@ -68,6 +68,8 @@ For at oversætte til nye sprog skal du besøge translate.revanced.app"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">GmsCore Indstillinger</string>
+  <string name="microg_settings_summary">Indstillinger for GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore er ikke installeret. Installer det.</string>
   <string name="gms_core_dialog_title">Handling påkrævet</string>
@@ -83,6 +85,37 @@ Deaktivering af batterioptimeringer for MicroG vil ikke påvirke batteriforbruge
 
 Tap på knappen Fortsæt, og tillad optimeringsændringer."</string>
   <string name="gms_core_dialog_continue_text">Fortsæt</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Spoof videostreams</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Spoof klienten video streams for at forhindre afspilning problemer</string>
+  <string name="revanced_spoof_video_streams_screen_title">Simuler videostreams</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Simuler klientens videostreams for at forhindre afspilningsproblemer</string>
+  <string name="revanced_spoof_video_streams_title">Spoof videostreams</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Videostreams er spoofede
+
+Hvis du er en YouTube Premium-bruger, er denne indstilling muligvis ikke påkrævet"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Videostreams simuleres ikke
+
+Afspilning fungerer muligvis ikke"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Deaktivering af denne indstilling kan forårsage afspilningsproblemer.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Fejlfinding</string>
+  <string name="revanced_debug_screen_summary">Aktivér eller deaktiver fejlfindingsindstillinger</string>
+  <string name="revanced_debug_title">Fejlfindingslogning</string>
+  <string name="revanced_debug_summary_on">Fejlfindingslogge er aktiveret</string>
+  <string name="revanced_debug_summary_off">Fejlfindingslogge er deaktiveret</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Eksportér fejlsøgningslogfiler</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopierer ReVanced-fejlsøgningslogfiler til udklipsholderen</string>
+  <string name="revanced_debug_logs_disabled">Fejlsøgningslogning er deaktiveret</string>
+  <string name="revanced_debug_logs_none_found">Ingen logfiler fundet</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Logfiler kopieret</string>
+  <string name="revanced_debug_logs_failed_to_export">Kunne ikke eksportere logfiler: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Ryd fejlsøgningslogfiler</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Rydder alle gemte ReVanced-fejlsøgningslogfiler</string>
+  <string name="revanced_debug_logs_clear_toast">Logfiler ryddet</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Tap på knappen Fortsæt, og tillad optimeringsændringer."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Baggrundsafspilning af Shorts er aktiveret</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Fejlfinding</string>
-  <string name="revanced_debug_screen_summary">Aktivér eller deaktiver fejlfindingsindstillinger</string>
-  <string name="revanced_debug_title">Fejlfindingslogning</string>
-  <string name="revanced_debug_summary_on">Fejlfindingslogge er aktiveret</string>
-  <string name="revanced_debug_summary_off">Fejlfindingslogge er deaktiveret</string>
   <string name="revanced_debug_protobuffer_title">Logprotokolbuffer</string>
   <string name="revanced_debug_protobuffer_summary_on">Fejlfindingslogge inkluderer protobuffer</string>
   <string name="revanced_debug_protobuffer_summary_off">Fejlfindingslogge inkluderer ikke protobuffer</string>
@@ -132,15 +160,6 @@ Aktivering af dette vil dog også logge nogle brugerdata, såsom din IP-adresse.
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Hvis du deaktiverer fejl-toasts, skjules alle ReVanced-fejlmeddelelser.
 
 Du modtager ikke notifikationer om uventede hændelser."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Eksportér fejlsøgningslogfiler</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopierer ReVanced-fejlsøgningslogfiler til udklipsholderen</string>
-  <string name="revanced_debug_logs_disabled">Fejlsøgningslogning er deaktiveret</string>
-  <string name="revanced_debug_logs_none_found">Ingen logfiler fundet</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Logfiler kopieret</string>
-  <string name="revanced_debug_logs_failed_to_export">Kunne ikke eksportere logfiler: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Ryd fejlsøgningslogfiler</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Rydder alle gemte ReVanced-fejlsøgningslogfiler</string>
-  <string name="revanced_debug_logs_clear_toast">Logfiler ryddet</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Skjul albumkort</string>
@@ -702,7 +721,7 @@ Hvis ændring af denne indstilling ikke træder i kraft, kan du prøve at skifte
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Lydsporsmenuen er skjult
 
-Lydsporsmenuen er ikke tilgængelig, når 'Spoof videostreams' er aktiveret"</string>
+For at vise lydsporsmenuen, skift 'Spoof videostreams' til iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skjul vagt i VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Se i VR-menuen er skjult</string>
@@ -1417,10 +1436,6 @@ Højere videokvalitet kan låses op, men du kan opleve videoafspilningshakkethed
 Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Aktivering af dette kan forårsage videoafspilning stuttering, værre batterilevetid og ukendte bivirkninger.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">GmsCore Indstillinger</string>
-  <string name="microg_settings_summary">Indstillinger for GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Haptisk feedback</string>
   <string name="revanced_disable_haptic_feedback_summary">Skift haptisk feedback</string>
@@ -1534,21 +1549,11 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_slide_to_seek_summary_off">Dias til søgning er ikke aktiveret</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Spoof videostreams</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Spoof klienten video streams for at forhindre afspilning problemer</string>
-  <string name="revanced_spoof_video_streams_title">Spoof videostreams</string>
-  <string name="revanced_spoof_video_streams_summary_on">"Videostreams er spoofede
-
-Hvis du er en YouTube Premium-bruger, er denne indstilling muligvis ikke påkrævet"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Videostreams forfalskes ikke
-
-Videoafspilning virker muligvis ikke"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">At slå denne indstilling fra kan forårsage problemer med videoafspilning.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
   <string name="revanced_spoof_video_streams_about_title">Bivirkninger ved spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_title">Bivirkninger ved Android-spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Lydsporsmenuen mangler
 • Stabil lydstyrke er ikke tilgængelig"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Videoen kan stoppe ved 1:00, eller er muligvis ikke tilgængelig i visse regioner</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentel klient og kan stoppe med at fungere når som helst</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Intet AV1-videokodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videoer til børn afspilles muligvis ikke, når du er logget ud eller i inkognitotilstand</string>
@@ -1556,6 +1561,42 @@ Videoafspilning virker muligvis ikke"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttypen vises i Statistik for nørder</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten er skjult i Statistik for nørder</string>
   <string name="revanced_spoof_video_streams_language_title">Lydstreamsprog</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">For at vælge et specifikt lydsprog, slå \'Gennemtving originalt lydsprog\' fra</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Om</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Annoncer</string>
+  <string name="revanced_settings_music_screen_2_general_title">Generelt</string>
+  <string name="revanced_settings_music_screen_3_player_title">Afspiller</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Diverse</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Skjul videoannoncer</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Videoannoncer er skjult</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Videoannoncer vises</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Aktiver permanent gentagelse</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Permanent gentagelse er aktiveret</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Permanent gentagelse er deaktiveret</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Skjul kategorilinje</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Kategorilinjen er skjult</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Kategorilinjen vises</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Skjul \'Få Music Premium\'-etiket</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Etiketten er skjult</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Etiketten vises</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Skjul opgraderingsknap</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Knappen er skjult</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Knappen vises</string>
   </patch>
   </app>
   <app id="twitch">

@@ -67,7 +67,7 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
                         // Language strings are declared in Setting patch.
                         entriesKey = "revanced_language_entries",
                         entryValuesKey = "revanced_language_entry_values",
-                        tag = "app.revanced.extension.shared.settings.preference.SortedListPreference"
+                        tag = "app.revanced.extension.youtube.settings.preference.SpoofAudioSelectorListPreference"
                     ),
                     SwitchPreference("revanced_spoof_streaming_data_stats_for_nerds"),
                 )

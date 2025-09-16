@@ -68,6 +68,8 @@ Second \"item\" text"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">การตั้งค่า GmsCore</string>
+  <string name="microg_settings_summary">การตั้งค่าสำหรับ GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore ไม่ได้ติดตั้ง ติดตั้ง</string>
   <string name="gms_core_dialog_title">ต้องดำเนินการ</string>
@@ -83,6 +85,37 @@ Second \"item\" text"</string>
 
 แตะปุ่มตกลง และอนุญาตการเปลี่ยนแปลงการปรับแต่ง"</string>
   <string name="gms_core_dialog_continue_text">ดำเนินการต่อ</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">วิดีโอปลอม</string>
+  <string name="revanced_spoof_video_streams_screen_summary">ปลอมสตรีมวิดีโอของไคลเอ็นต์เพื่อป้องกันปัญหาการเล่น</string>
+  <string name="revanced_spoof_video_streams_screen_title">ปลอมแปลงสตรีมวิดีโอ</string>
+  <string name="revanced_spoof_video_streams_screen_summary">ปลอมแปลงสตรีมวิดีโอของไคลเอนต์เพื่อป้องกันปัญหาการเล่น</string>
+  <string name="revanced_spoof_video_streams_title">วิดีโอปลอม</string>
+  <string name="revanced_spoof_video_streams_summary_on">"สตรีมวิดีโอถูกปลอมแปลง
+
+หากคุณเป็นผู้ใช้ YouTube Premium การตั้งค่านี้อาจไม่จำเป็น"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"สตรีมวิดีโอไม่ได้ถูกปลอมแปลง
+
+การเล่นอาจไม่ทำงาน"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้อาจทำให้เกิดปัญหาในการเล่น</string>
+  <string name="revanced_spoof_video_streams_client_type_title">ไคลเอ็นต์เริ่มต้น</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">ดีบัก</string>
+  <string name="revanced_debug_screen_summary">เปิดใช้งานหรือปิดใช้งานตัวเลือกการแก้ไขข้อบกพร่อง</string>
+  <string name="revanced_debug_title">การบันทึกการแก้ไขข้อบกพร่อง</string>
+  <string name="revanced_debug_summary_on">การบันทึกการแก้ไขข้อบกพร่องถูกเปิดใช้งาน</string>
+  <string name="revanced_debug_summary_off">การบันทึกการแก้ไขข้อบกพร่องถูกปิดใช้งาน</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">ส่งออกบันทึกการแก้ไขข้อบกพร่อง</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">คัดลอกบันทึกการแก้ไขข้อบกพร่องของ ReVanced ไปยังคลิปบอร์ด</string>
+  <string name="revanced_debug_logs_disabled">ปิดใช้งานการบันทึกการแก้ไขข้อบกพร่อง</string>
+  <string name="revanced_debug_logs_none_found">ไม่พบบันทึก</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">คัดลอกบันทึกแล้ว</string>
+  <string name="revanced_debug_logs_failed_to_export">ส่งออกบันทึกไม่สำเร็จ: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">ล้างบันทึกการแก้ไขข้อบกพร่อง</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">ล้างบันทึกการแก้ไขข้อบกพร่องของ ReVanced ที่จัดเก็บไว้ทั้งหมด</string>
+  <string name="revanced_debug_logs_clear_toast">ล้างบันทึกแล้ว</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">การเล่นพื้นหลัง Shorts ถูกเปิดใช้งาน</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">ดีบัก</string>
-  <string name="revanced_debug_screen_summary">เปิดใช้งานหรือปิดใช้งานตัวเลือกการแก้ไขข้อบกพร่อง</string>
-  <string name="revanced_debug_title">การบันทึกการแก้ไขข้อบกพร่อง</string>
-  <string name="revanced_debug_summary_on">การบันทึกการแก้ไขข้อบกพร่องถูกเปิดใช้งาน</string>
-  <string name="revanced_debug_summary_off">การบันทึกการแก้ไขข้อบกพร่องถูกปิดใช้งาน</string>
   <string name="revanced_debug_protobuffer_title">บันทึกโปรโตคอลบัฟเฟอร์</string>
   <string name="revanced_debug_protobuffer_summary_on">การบันทึกการแก้ไขข้อบกพร่องรวมถึงโปรโตคอลบัฟเฟอร์</string>
   <string name="revanced_debug_protobuffer_summary_off">การบันทึกการแก้ไขข้อบกพร่องไม่รวมโปรโตคอลบัฟเฟอร์</string>
@@ -132,15 +160,6 @@ Second \"item\" text"</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"การปิดการแจ้งเตือนข้อผิดพลาดจะซ่อนการแจ้งเตือนข้อผิดพลาดของ ReVanced ทั้งหมด
 
 คุณจะไม่ได้รับแจ้งเกี่ยวกับเหตุการณ์ที่ไม่คาดคิดใดๆ"</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">ส่งออกบันทึกการแก้ไขข้อบกพร่อง</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">คัดลอกบันทึกการแก้ไขข้อบกพร่องของ ReVanced ไปยังคลิปบอร์ด</string>
-  <string name="revanced_debug_logs_disabled">ปิดใช้งานการบันทึกการแก้ไขข้อบกพร่อง</string>
-  <string name="revanced_debug_logs_none_found">ไม่พบบันทึก</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">คัดลอกบันทึกแล้ว</string>
-  <string name="revanced_debug_logs_failed_to_export">ส่งออกบันทึกไม่สำเร็จ: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">ล้างบันทึกการแก้ไขข้อบกพร่อง</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">ล้างบันทึกการแก้ไขข้อบกพร่องของ ReVanced ที่จัดเก็บไว้ทั้งหมด</string>
-  <string name="revanced_debug_logs_clear_toast">ล้างบันทึกแล้ว</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">ซ่อนการ์ดอัลบั้ม</string>
@@ -698,9 +717,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">เมนูแทร็กเสียงซ่อนอยู่</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">เมนูแทร็กเสียงแสดงอยู่</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"เมนูแทร็กเสียงถูกซ่อนไว้
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"เมนูแทร็กเสียงถูกซ่อน
 
-เมนูแทร็กเสียงไม่พร้อมใช้งานเมื่อเปิดใช้งาน 'ปลอมแปลงสตรีมวิดีโอ'"</string>
+หากต้องการแสดงเมนูแทร็กเสียง ให้เปลี่ยน 'สตรีมวิดีโอปลอม' เป็น iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">ซ่อนดูใน VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">เมนูดูใน VR ซ่อนอยู่</string>
@@ -1417,10 +1436,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
 การเปิดใช้งานสิ่งนี้สามารถปลดล็อกคุณภาพวิดีโอที่สูงขึ้น"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">การเปิดใช้งานนี้สามารถทำให้การเล่นวิดีโอสะดุด อายุการใช้งานแบตเตอรี่แย่ลง และผลข้างเคียงที่ไม่ทราบสาเหตุ</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">การตั้งค่า GmsCore</string>
-  <string name="microg_settings_summary">การตั้งค่าสำหรับ GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">การตอบสนองแบบสัมผัส</string>
   <string name="revanced_disable_haptic_feedback_summary">เปลี่ยนการตอบสนองแบบสัมผัส</string>
@@ -1534,21 +1549,11 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_slide_to_seek_summary_off">เลื่อนเพื่อค้นหาไม่ได้เปิดใช้งาน</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">วิดีโอปลอม</string>
-  <string name="revanced_spoof_video_streams_screen_summary">ปลอมสตรีมวิดีโอของไคลเอ็นต์เพื่อป้องกันปัญหาการเล่น</string>
-  <string name="revanced_spoof_video_streams_title">วิดีโอปลอม</string>
-  <string name="revanced_spoof_video_streams_summary_on">"สตรีมวิดีโอถูกปลอมแปลง
-
-หากคุณเป็นผู้ใช้ YouTube Premium การตั้งค่านี้อาจไม่จำเป็น"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"สตรีมวิดีโอไม่ถูกปลอมแปลง
-
-การเล่นวิดีโออาจไม่ทํางาน"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้ อาจทำให้เกิดปัญหาในการเล่นวิดีโอ</string>
-  <string name="revanced_spoof_video_streams_client_type_title">ไคลเอ็นต์เริ่มต้น</string>
   <string name="revanced_spoof_video_streams_about_title">ผลข้างเคียงของการปลอมแปลง</string>
   <string name="revanced_spoof_video_streams_about_android_title">ผลข้างเคียงของการปลอมแปลง Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• เมนูแทร็กเสียงหายไป
 • ระดับเสียงคงที่ใช้งานไม่ได้"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• วิดีโออาจหยุดที่ 1:00 หรืออาจไม่สามารถรับชมได้ในบางภูมิภาค</string>
   <string name="revanced_spoof_video_streams_about_experimental">• ไคลเอนต์ทดลองและอาจหยุดทำงานได้ตลอดเวลา</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• ไม่มีตัวแปลงสัญญาณวิดีโอ AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• วิดีโอเด็กอาจไม่เล่นเมื่อลงชื่อออกหรืออยู่ในโหมดไม่ระบุตัวตน</string>
@@ -1556,6 +1561,42 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">แสดงชนิดไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">ซ่อนไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_video_streams_language_title">ภาษาของสตรีมเสียง</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">หากต้องการเลือกภาษาเสียงที่ต้องการ ให้ปิด \'บังคับใช้ภาษาเสียงต้นฉบับ\'</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">เกี่ยวกับ</string>
+  <string name="revanced_settings_music_screen_1_ads_title">โฆษณา</string>
+  <string name="revanced_settings_music_screen_2_general_title">ทั่วไป</string>
+  <string name="revanced_settings_music_screen_3_player_title">เครื่องเล่น</string>
+  <string name="revanced_settings_music_screen_4_misc_title">เบ็ดเตล็ด</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">ซ่อนโฆษณาวิดีโอ</string>
+  <string name="revanced_music_hide_video_ads_summary_on">ซ่อนโฆษณาวิดีโอแล้ว</string>
+  <string name="revanced_music_hide_video_ads_summary_off">แสดงโฆษณาวิดีโอแล้ว</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">เปิดใช้งานเล่นซ้ำถาวร</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">เปิดใช้งานเล่นซ้ำถาวรแล้ว</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">ปิดใช้งานเล่นซ้ำถาวรแล้ว</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">ซ่อนแถบหมวดหมู่</string>
+  <string name="revanced_music_hide_category_bar_summary_on">ซ่อนแถบหมวดหมู่แล้ว</string>
+  <string name="revanced_music_hide_category_bar_summary_off">แสดงแถบหมวดหมู่แล้ว</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">ซ่อนป้าย \'รับ Music Premium\'</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">ซ่อนป้ายแล้ว</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">แสดงป้ายแล้ว</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">ซ่อนปุ่มอัปเกรด</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">ซ่อนปุ่มแล้ว</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">แสดงปุ่มแล้ว</string>
   </patch>
   </app>
   <app id="twitch">

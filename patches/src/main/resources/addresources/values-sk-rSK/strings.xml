@@ -68,6 +68,8 @@ Na preklad nových jazykov navštívte translate.revanced.app"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Nastavenia GmsCore</string>
+  <string name="microg_settings_summary">Nastavenia pre GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nie je nainštalovaný. Nainštalujte ho.</string>
   <string name="gms_core_dialog_title">Potrebná akcia</string>
@@ -81,6 +83,37 @@ Vypnutie optimalizácie batérie pre MicroG nebude mať negatívny vplyv na spot
 
 Ťuknite na tlačidlo Pokračovať a povoľte zmeny optimalizácie."</string>
   <string name="gms_core_dialog_continue_text">Ďalej</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Falošné video strémy</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Falošné video strémy klienta, aby sa predišlo problémom s prehrávaním</string>
+  <string name="revanced_spoof_video_streams_screen_title">Falošné videostreamy</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Falošné klientské videostreamy, aby sa predišlo problémom s prehrávaním</string>
+  <string name="revanced_spoof_video_streams_title">Falošné video strémy</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Video streamy sú sfalšované
+
+Ak ste používateľom YouTube Premium, toto nastavenie nemusí byť potrebné"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Videostreamy nie sú falošné
+
+Prehrávanie nemusí fungovať"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutie tohto nastavenia môže spôsobiť problémy s prehrávaním.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Predvolený klient</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Ladenie</string>
+  <string name="revanced_debug_screen_summary">Povoliť alebo zakázať možnosti ladenia</string>
+  <string name="revanced_debug_title">Debug logovanie</string>
+  <string name="revanced_debug_summary_on">Denníky ladenia sú povolené</string>
+  <string name="revanced_debug_summary_off">Denníky ladenia sú zakázané</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Exportovať protokoly ladenia</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Skopíruje protokoly ladenia ReVanced do schránky</string>
+  <string name="revanced_debug_logs_disabled">Protokolovanie ladenia je vypnuté</string>
+  <string name="revanced_debug_logs_none_found">Nenašli sa žiadne protokoly</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Protokoly skopírované</string>
+  <string name="revanced_debug_logs_failed_to_export">Nepodarilo sa exportovať protokoly: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Vymazať protokoly ladenia</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Vymaže všetky uložené protokoly ladenia ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Protokoly vymazané</string>
   </patch>
   </app>
   <app id="youtube">
@@ -108,11 +141,6 @@ Vypnutie optimalizácie batérie pre MicroG nebude mať negatívny vplyv na spot
   <string name="revanced_shorts_disable_background_playback_summary_off">Prehrávanie Shorts na pozadí je povolené</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Ladenie</string>
-  <string name="revanced_debug_screen_summary">Povoliť alebo zakázať možnosti ladenia</string>
-  <string name="revanced_debug_title">Debug logovanie</string>
-  <string name="revanced_debug_summary_on">Denníky ladenia sú povolené</string>
-  <string name="revanced_debug_summary_off">Denníky ladenia sú zakázané</string>
   <string name="revanced_debug_protobuffer_title">Vyrovnávacia pamäť protokolu</string>
   <string name="revanced_debug_protobuffer_summary_on">Protokoly ladenia obsahujú proto buffer</string>
   <string name="revanced_debug_protobuffer_summary_off">Protokoly ladenia neobsahujú proto buffer</string>
@@ -130,15 +158,6 @@ Povolením tejto funkcie sa však budú zaznamenávať aj niektoré používate�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Vypnutie upozornení o chybách skryje všetky upozornenia o chybách v ReVanced.
 
 Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Exportovať protokoly ladenia</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Skopíruje protokoly ladenia ReVanced do schránky</string>
-  <string name="revanced_debug_logs_disabled">Protokolovanie ladenia je vypnuté</string>
-  <string name="revanced_debug_logs_none_found">Nenašli sa žiadne protokoly</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Protokoly skopírované</string>
-  <string name="revanced_debug_logs_failed_to_export">Nepodarilo sa exportovať protokoly: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Vymazať protokoly ladenia</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Vymaže všetky uložené protokoly ladenia ReVanced</string>
-  <string name="revanced_debug_logs_clear_toast">Protokoly vymazané</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Skryť karty albumov</string>
@@ -698,7 +717,9 @@ Ak zmena tohto nastavenia nemá žiadny účinok, skúste prepnúť do režimu i
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ponuka zvukovej stopy je skrytá</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Zobrazí sa ponuka zvukovej stopy</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Ponuka zvukových stôp je skrytá Ponuka zvukových stôp nie je k dispozícii, keď je povolená možnosť \"Podvrhnúť video streamy\""</string>
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menu zvukových stôp je skryté
+
+Ak chcete zobraziť menu zvukových stôp, zmeňte \"Falošné video streamy\" na iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skryť hodinky vo VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Sledovanie v ponuke VR je skryté</string>
@@ -1406,10 +1427,6 @@ Môžu sa odomknúť vyššie kvality videa, ale môže dôjsť k zadrhávaniu p
 Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Povolenie môže spôsobiť zasekávanie prehrávania videa, horšiu výdrž batérie a neznáme vedľajšie účinky.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">Nastavenia GmsCore</string>
-  <string name="microg_settings_summary">Nastavenia pre GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Haptická odozva</string>
   <string name="revanced_disable_haptic_feedback_summary">Zmeniť haptickú odozvu</string>
@@ -1523,18 +1540,11 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_slide_to_seek_summary_off">Nie je povolené posúvanie</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Falošné video strémy</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Falošné video strémy klienta, aby sa predišlo problémom s prehrávaním</string>
-  <string name="revanced_spoof_video_streams_title">Falošné video strémy</string>
-  <string name="revanced_spoof_video_streams_summary_on">"Video streamy sú podvrhnuté Ak ste používateľom YouTube Premium, toto nastavenie nemusí byť potrebné"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Video streamy nie sú falošné
-
-Prehrávanie videa nemusí fungovať"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutie tohto nastavenia môže spôsobiť problémy s prehrávaním videa.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Predvolený klient</string>
   <string name="revanced_spoof_video_streams_about_title">Vedľajšie účinky podvrhnutia</string>
   <string name="revanced_spoof_video_streams_about_android_title">Vedľajšie účinky spoofingu Androidu</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Ponuka zvukových stôp chýba • Stabilná hlasitosť nie je k dispozícii"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Chýba ponuka zvukovej stopy
+• Stabilná hlasitosť nie je k dispozícii"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video sa môže zastaviť o 1:00, alebo nemusí byť dostupné v niektorých regiónoch</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentálny klient a môže kedykoľvek prestať fungovať</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žiadny video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videá pre deti sa nemusia prehrávať, keď ste odhlásení alebo v režime inkognito</string>
@@ -1542,6 +1552,42 @@ Prehrávanie videa nemusí fungovať"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta sa zobrazuje v štatistikách pre expertov</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient je skrytý v štatistikách pre expertov</string>
   <string name="revanced_spoof_video_streams_language_title">Jazyk zvukového streamu</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Ak chcete vybrať konkrétny jazyk zvuku, vypnite „Vynútiť pôvodný jazyk zvuku“</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">O aplikácii</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Reklamy</string>
+  <string name="revanced_settings_music_screen_2_general_title">Všeobecné</string>
+  <string name="revanced_settings_music_screen_3_player_title">Prehrávač</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Rôzne</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Skryť videoreklamy</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Videoreklamy sú skryté</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Videoreklamy sú zobrazené</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Povoliť trvalé opakovanie</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Trvalé opakovanie je povolené</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Trvalé opakovanie je zakázané</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Skryť lištu kategórií</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Lišta kategórií je skrytá</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Lišta kategórií je zobrazená</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Skryť štítok „Získajte Music Premium“</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Štítok je skrytý</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Štítok je zobrazený</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Skryť tlačidlo inovácie</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Tlačidlo je skryté</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Tlačidlo je zobrazené</string>
   </patch>
   </app>
   <app id="twitch">

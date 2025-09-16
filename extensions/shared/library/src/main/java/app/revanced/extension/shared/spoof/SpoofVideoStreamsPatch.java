@@ -48,7 +48,9 @@ public class SpoofVideoStreamsPatch {
     }
 
     public static boolean spoofingToClientWithNoMultiAudioStreams() {
-        return isPatchIncluded() && BaseSettings.SPOOF_VIDEO_STREAMS.get();
+        return isPatchIncluded()
+                && BaseSettings.SPOOF_VIDEO_STREAMS.get()
+                && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() != ClientType.IPADOS;
     }
 
     /**
