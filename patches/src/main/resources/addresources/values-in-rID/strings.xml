@@ -721,7 +721,7 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Menu trek audio disembunyikan
 
-Untuk menampilkan menu trek audio, ubah 'Spoof stream video' ke iPadOS"</string>
+Untuk menampilkan menu trek audio, ubah 'Palsukan aliran video' ke iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Sembunyikan Tonton di VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu tonton di VR disembunyikan</string>
@@ -1548,9 +1548,9 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Efek samping pemalsuan</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efek samping pemalsuan Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Menu trek audio tidak ada
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Menu trek audio hilang
 • Volume stabil tidak tersedia"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video mungkin berhenti pada pukul 1:00, atau mungkin tidak tersedia di beberapa wilayah</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video mungkin berhenti pada menit 1:00, atau mungkin tidak tersedia di beberapa wilayah</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klien eksperimental dan dapat berhenti berfungsi kapan saja</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video anak-anak mungkin tidak dapat diputar saat keluar atau dalam mode penyamaran</string>
