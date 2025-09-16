@@ -68,6 +68,8 @@ Om du vill översätta till nya språk besöker du translate.revanced.app"</stri
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">GmsCore-inställningar</string>
+  <string name="microg_settings_summary">Inställningar för GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore är inte installerat. Installera det.</string>
   <string name="gms_core_dialog_title">Åtgärd krävs</string>
@@ -83,6 +85,37 @@ Inaktivering av batterioptimeringar för MicroG kommer inte att påverka batteri
 
 Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="gms_core_dialog_continue_text">Fortsätt</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Förfalska videoströmmar</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Förfalska klientens videoströmmar för att förhindra uppspelningsproblem</string>
+  <string name="revanced_spoof_video_streams_screen_title">Förfalska videoströmmar</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Förfalska klientens videoströmmar för att förhindra uppspelningsproblem</string>
+  <string name="revanced_spoof_video_streams_title">Förfalska videoströmmar</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Videoströmmar förfalskas
+
+Om du är en YouTube Premium-användare kanske den här inställningen inte behövs"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Videoströmmar maskeras inte
+
+Uppspelning kanske inte fungerar"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Om du stänger av den här inställningen kan det leda till problem med uppspelning.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Standardklient</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Felsökning</string>
+  <string name="revanced_debug_screen_summary">Aktivera eller inaktivera felsökningsalternativ</string>
+  <string name="revanced_debug_title">Felsökningsloggning</string>
+  <string name="revanced_debug_summary_on">Felsökningsloggar är aktiverade</string>
+  <string name="revanced_debug_summary_off">Felsökningsloggar är inaktiverade</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Exportera felsökningsloggar</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopierar ReVanced-felsökningsloggar till urklipp</string>
+  <string name="revanced_debug_logs_disabled">Felsökningsloggar är inaktiverade</string>
+  <string name="revanced_debug_logs_none_found">Inga loggar hittades</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Loggar kopierade</string>
+  <string name="revanced_debug_logs_failed_to_export">Det gick inte att exportera loggar: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Rensa felsökningsloggar</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Rensar alla lagrade ReVanced-felsökningsloggar</string>
+  <string name="revanced_debug_logs_clear_toast">Loggar rensade</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Tryck på Fortsätt-knappen och tillåt optimeringsändringar."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Uppspelning av Shorts-videor i bakgrunden är aktiverad</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Felsökning</string>
-  <string name="revanced_debug_screen_summary">Aktivera eller inaktivera felsökningsalternativ</string>
-  <string name="revanced_debug_title">Felsökningsloggning</string>
-  <string name="revanced_debug_summary_on">Felsökningsloggar är aktiverade</string>
-  <string name="revanced_debug_summary_off">Felsökningsloggar är inaktiverade</string>
   <string name="revanced_debug_protobuffer_title">Logga protokollbuffert</string>
   <string name="revanced_debug_protobuffer_summary_on">Felsökningsloggar inkluderar protokollbuffert</string>
   <string name="revanced_debug_protobuffer_summary_off">Felsökningsloggar inkluderar inte protokollbuffert</string>
@@ -132,15 +160,6 @@ Men om du aktiverar detta kommer även vissa användardata, t.ex. din IP-adress,
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Om du stänger av popup-felmeddelanden döljs alla ReVanced-felmeddelanden.
 
 Du kommer inte att bli meddelad om oväntade händelser."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Exportera felsökningsloggar</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopierar ReVanced-felsökningsloggar till urklipp</string>
-  <string name="revanced_debug_logs_disabled">Felsökningsloggar är inaktiverade</string>
-  <string name="revanced_debug_logs_none_found">Inga loggar hittades</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Loggar kopierade</string>
-  <string name="revanced_debug_logs_failed_to_export">Det gick inte att exportera loggar: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Rensa felsökningsloggar</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Rensar alla lagrade ReVanced-felsökningsloggar</string>
-  <string name="revanced_debug_logs_clear_toast">Loggar rensade</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Dölj albumkort</string>
@@ -702,7 +721,7 @@ Om du ändrar den här inställningen utan att det träder i kraft kan du testa 
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Menyn Ljudspår är dold
 
-För att visa menyn Ljudspår, ändra \"Förfalska videoströmmar\" till iOS TV"</string>
+För att visa menyn Ljudspår, ändra \"Förfalska videoströmmar\" till iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Dölj Titta i VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menyn Titta i VR är dold</string>
@@ -1414,10 +1433,6 @@ Högre videokvaliteter kan låsas upp men du kan uppleva hackig videouppspelning
 Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Om du aktiverar detta kan det leda till hackig videouppspelning, sämre batteritid och okända biverkningar.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">GmsCore-inställningar</string>
-  <string name="microg_settings_summary">Inställningar för GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Haptisk återkoppling</string>
   <string name="revanced_disable_haptic_feedback_summary">Ändra haptisk återkoppling</string>
@@ -1531,35 +1546,54 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   <string name="revanced_slide_to_seek_summary_off">Dra för att söka är inaktiverat</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Förfalska videoströmmar</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Förfalska klientens videoströmmar för att förhindra uppspelningsproblem</string>
-  <string name="revanced_spoof_video_streams_title">Förfalska videoströmmar</string>
-  <string name="revanced_spoof_video_streams_summary_on">Videoströmmar är förfalskade</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Videoströmmar förfalskas inte
-
-Videouppspelning kanske inte fungerar"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Om du stänger av den här inställningen kan det leda till problem med videouppspelning.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Standardklient</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Tvinga iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Videokodek tvingas till AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Videokodeken bestäms automatiskt</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Om du aktiverar detta kan det förbättra batteritiden och åtgärda hackig uppspelning.
-
-AVC har en maximal upplösning på 1080p, Opus-ljudkodek är inte tillgängligt och videouppspelning använder mer internetdata än VP9 eller AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Biverkningar av iOS-förfalskning</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmer eller betalvideor kanske inte spelas upp
-• Jämn volym är inte tillgänglig
-• Videor slutar 1 sekund för tidigt"</string>
+  <string name="revanced_spoof_video_streams_about_title">Biverkningar av förfalskning</string>
   <string name="revanced_spoof_video_streams_about_android_title">Biverkningar av Android-förfalskning</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ljudspårsmenyn saknas
-• Jämn volym är inte tillgänglig
-• Tvinga fram ursprungligt ljud är inte tillgängligt"</string>
+• Jämn volym är inte tillgänglig"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video kan stoppa vid 1:00, eller kanske inte är tillgänglig i vissa regioner</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Experimentell klient och kan sluta fungera när som helst</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ingen AV1-videokodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videor för barn kanske inte spelas upp när du är utloggad eller i inkognitoläge</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Visa i Statistik för nördar</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttypen visas i Statistik för nördar</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten är dold i Statistik för nördar</string>
-  <string name="revanced_spoof_video_streams_language_title">Standardspråk för VR-ljudström</string>
+  <string name="revanced_spoof_video_streams_language_title">Ljudströmmens språk</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">För att välja ett specifikt ljudspråk, inaktivera \"Tvinga originalspråk för ljud\"</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Om</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Annonser</string>
+  <string name="revanced_settings_music_screen_2_general_title">Allmänt</string>
+  <string name="revanced_settings_music_screen_3_player_title">Spelare</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Övrigt</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Dölj videoannonser</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Videoannonser är dolda</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Videoannonser visas</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Aktivera permanent upprepning</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Permanent upprepning är aktiverad</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Permanent upprepning är inaktiverad</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Dölj kategorifält</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Kategorifältet är dolt</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Kategorifältet visas</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Dölj etiketten \"Skaffa Music Premium\"</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Etiketten är dold</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Etiketten visas</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Dölj uppgraderingsknappen</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Knappen är dold</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Knappen visas</string>
   </patch>
   </app>
   <app id="twitch">

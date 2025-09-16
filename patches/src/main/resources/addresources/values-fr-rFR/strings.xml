@@ -68,6 +68,8 @@ Pour traduire dans de nouvelles langues, visitez translate.revanced.app"</string
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Paramètres GmsCore</string>
+  <string name="microg_settings_summary">Paramètres relatifs à GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore n\'est pas installé. Veuillez l’installer.</string>
   <string name="gms_core_dialog_title">Action requise</string>
@@ -83,6 +85,37 @@ Désactiver les optimisations de la batterie pour MicroG n'aura pas d'impact né
 
 Appuyez sur le bouton Continuer et autorisez les modifications."</string>
   <string name="gms_core_dialog_continue_text">Continuer</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Falsifier les flux vidéo</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Falsifiez les flux vidéo client pour prévenir les problèmes de lecture</string>
+  <string name="revanced_spoof_video_streams_screen_title">Falsifier les flux vidéo</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Falsifiez les flux vidéo client pour éviter les problèmes de lecture</string>
+  <string name="revanced_spoof_video_streams_title">Falsifier les flux vidéo</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Les flux vidéo sont falsifiés
+
+Si vous avez YouTube Premium, il est possible que ce paramètre ne soit pas nécessaire"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Les flux vidéo ne sont pas falsifiés
+
+La lecture est susceptible de ne pas fonctionner"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">La désactivation de ce paramètre peut entraîner des problèmes de lecture.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Client par défaut</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Débogage</string>
+  <string name="revanced_debug_screen_summary">Activez ou désactivez les options de débogage</string>
+  <string name="revanced_debug_title">Journalisation de débogage</string>
+  <string name="revanced_debug_summary_on">Les journaux de débogage sont activés</string>
+  <string name="revanced_debug_summary_off">Les journaux de débogage sont désactivés</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Exporter les journaux de débogage</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Copie les journaux de débogage ReVanced dans le presse-papiers</string>
+  <string name="revanced_debug_logs_disabled">La journalisation de débogage est désactivée</string>
+  <string name="revanced_debug_logs_none_found">Aucun journal trouvé</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Journaux copiés</string>
+  <string name="revanced_debug_logs_failed_to_export">Échec de l\'exportation des journaux : %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Effacer les journaux de débogage</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Efface tous les journaux de débogage ReVanced stockés</string>
+  <string name="revanced_debug_logs_clear_toast">Journaux effacés</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Appuyez sur le bouton Continuer et autorisez les modifications."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">La lecture en arrière-plan des Shorts est activée</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Débogage</string>
-  <string name="revanced_debug_screen_summary">Activez ou désactivez les options de débogage</string>
-  <string name="revanced_debug_title">Journalisation de débogage</string>
-  <string name="revanced_debug_summary_on">Les journaux de débogage sont activés</string>
-  <string name="revanced_debug_summary_off">Les journaux de débogage sont désactivés</string>
   <string name="revanced_debug_protobuffer_title">Journaliser les protobufs</string>
   <string name="revanced_debug_protobuffer_summary_on">Les journaux de débogage incluent les protocol buffers</string>
   <string name="revanced_debug_protobuffer_summary_off">Les journaux de débogage n\'incluent pas les protocol buffers</string>
@@ -132,15 +160,6 @@ Toutefois, l'activation de cette option entraînera également l'enregistrement 
   <string name="revanced_debug_toast_on_error_user_dialog_message">"La désactivation des messages toasts d'erreur masque toutes les notifications d'erreur ReVanced.
 
 Vous ne serez pas informé des événements inattendus."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Exporter les journaux de débogage</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Copie les journaux de débogage ReVanced dans le presse-papiers</string>
-  <string name="revanced_debug_logs_disabled">La journalisation de débogage est désactivée</string>
-  <string name="revanced_debug_logs_none_found">Aucun journal trouvé</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Journaux copiés</string>
-  <string name="revanced_debug_logs_failed_to_export">Échec de l\'exportation des journaux : %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Effacer les journaux de débogage</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Efface tous les journaux de débogage ReVanced stockés</string>
-  <string name="revanced_debug_logs_clear_toast">Journaux effacés</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Masquer les fiches d\'album</string>
@@ -702,7 +721,7 @@ Si la modification de ce paramètre ne prend pas effet, essayez de passer en mod
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Le menu Piste audio est masqué
 
-Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur iOS TV"</string>
+Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Masquer \"Regarder en RV\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Le menu Regarder en RV est masqué</string>
@@ -1077,11 +1096,11 @@ Votre ID d'utilisateur est comme un mot de passe et ne doit jamais être partag�
   <string name="revanced_sb_segments_outro">Écrans de fin / Crédits</string>
   <string name="revanced_sb_segments_outro_sum">Crédits ou moment où apparaissent les écrans de fin YouTube. Pas pour les conclusions contenant des informations.</string>
   <string name="revanced_sb_segments_hook">Accroche / Salutations</string>
-  <string name="revanced_sb_segments_hook_sum">Présentation de la vidéo actuelle ou d\'une prochaine vidéo par le créateur, salutations et au revoir. N\'inclut pas les sections qui ajoutent du contenu supplémentaire</string>
+  <string name="revanced_sb_segments_hook_sum">Présentation de la vidéo actuelle ou d\'une prochaine vidéo par le créateur, salutations et au revoir. N\'inclut pas les sections qui ajoutent du contenu supplémentaire.</string>
   <string name="revanced_sb_segments_preview">Aperçu / Résumé</string>
   <string name="revanced_sb_segments_preview_sum">Collection de clips qui présentent ce qui va suivre ou ce qui s\'est passé dans la vidéo ou dans d\'autres vidéos d\'une série, où toutes les informations sont répétées ailleurs</string>
   <string name="revanced_sb_segments_filler">Digression / Blagues</string>
-  <string name="revanced_sb_segments_filler_sum">Digressions ou blagues non nécessaires à la compréhension du contenu principal de la vidéo. Cette catégorie ne devrait pas contenir de segments fournissant du contexte ou des détails secondaires</string>
+  <string name="revanced_sb_segments_filler_sum">Digressions ou blagues non nécessaires à la compréhension du contenu principal de la vidéo. N\'inclut pas les sections fournissant du contexte ou des détails secondaires.</string>
   <string name="revanced_sb_segments_nomusic">Musique : Segment non musical</string>
   <string name="revanced_sb_segments_nomusic_sum">Uniquement pour utilisation dans les vidéos musicales. Sections non musicales dans les clips, qui ne sont pas déjà couvertes par une autre catégorie.</string>
   <string name="revanced_sb_skip_button_compact">Passer</string>
@@ -1416,10 +1435,6 @@ Des qualités vidéo supérieures pourraient être déverrouillées, mais la lec
 Activer cette option peut déverrouiller des qualités vidéo supérieures"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Activer cette option peut engendrer des saccades durant la lecture de vidéos, une dégradation de l\'autonomie de la batterie et des effets secondaires inconnus.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">Paramètres GmsCore</string>
-  <string name="microg_settings_summary">Paramètres relatifs à GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Retour haptique</string>
   <string name="revanced_disable_haptic_feedback_summary">Modifiez les retours haptiques</string>
@@ -1533,35 +1548,54 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_slide_to_seek_summary_off">Glisser pour rechercher est désactivé</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Falsifier les flux vidéo</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Falsifiez les flux vidéo client pour prévenir les problèmes de lecture</string>
-  <string name="revanced_spoof_video_streams_title">Falsifier les flux vidéo</string>
-  <string name="revanced_spoof_video_streams_summary_on">Les flux vidéo sont falsifiés</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Les flux vidéo ne sont pas falsifiés
-
-La lecture des vidéos peut ne pas fonctionner"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Désactiver ce paramètre peut causer des problèmes de lecture vidéo.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Client par défaut</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forcer iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Le codec vidéo est forcé sur AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Le codec vidéo est déterminé automatiquement</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Activer cette option pourrait améliorer l'autonomie de la batterie et corriger les saccades lors de la lecture.
-
-AVC a une résolution maximale de 1080p et ne prend pas en charge le codec audio Opus, et la lecture vidéo utilisera plus de données Internet qu'avec VP9 ou AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Effets secondaires de la falsification iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• La lecture des films ou des vidéos payantes peut ne pas fonctionner
-• Volume stable n'est pas disponible
-• Les vidéos se terminent 1 seconde trop tôt"</string>
+  <string name="revanced_spoof_video_streams_about_title">Effets secondaires de la falsification</string>
   <string name="revanced_spoof_video_streams_about_android_title">Effets secondaires de la falsification Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Le menu Piste audio est absent
-• Volume stable n'est pas disponible
-• Forcer l'audio d'origine n'est pas disponible"</string>
+• Le volume stable n'est pas disponible"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Les vidéos sont susceptibles de s\'arrêter à 1:00, ou de ne pas être disponibles dans certaines régions</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Client expérimental, peut cesser de fonctionner à tout moment</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Codec vidéo AV1 indisponible</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• La lecture des vidéos pour enfants peut ne pas fonctionner lorsque vous êtes déconnecté ou en mode navigation privée</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Afficher dans les Statistiques avancées</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Le type de client est affiché dans les Statistiques avancées</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Le client est caché dans les Statistiques avancées</string>
-  <string name="revanced_spoof_video_streams_language_title">Langue par défaut du flux audio en mode RV</string>
+  <string name="revanced_spoof_video_streams_language_title">Langue du flux audio</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Pour sélectionner une langue audio spécifique, désactivez \"Forcer la langue audio d\'origine\"</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">À propos</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Annonces</string>
+  <string name="revanced_settings_music_screen_2_general_title">Général</string>
+  <string name="revanced_settings_music_screen_3_player_title">Lecteur</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Divers</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Masquer les annonces vidéo</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Les annonces vidéo sont masquées</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Les annonces vidéo sont affichées</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Activer la lecture en boucle permanente</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">La lecture en boucle permanente est activée</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">La lecture en boucle permanente est désactivée</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Masquer la barre des catégories</string>
+  <string name="revanced_music_hide_category_bar_summary_on">La barre des catégories est masquée</string>
+  <string name="revanced_music_hide_category_bar_summary_off">La barre des catégories est affichée</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Masquer le libellé \"S\'abonner à Music Premium\"</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Le libellé est masqué</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Le libellé est affiché</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Masquer le bouton S\'abonner</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Le bouton est masqué</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Le bouton est affiché</string>
   </patch>
   </app>
   <app id="twitch">

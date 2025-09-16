@@ -1,7 +1,7 @@
 package app.revanced.extension.youtube.patches;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -11,16 +11,21 @@ public class ForceOriginalAudioPatch {
     private static final String DEFAULT_AUDIO_TRACKS_SUFFIX = ".4";
 
     /**
-     * If the conditions to use this patch were present when the app launched.
+     * Injection point.
      */
-    public static boolean PATCH_AVAILABLE = SpoofVideoStreamsPatch.notSpoofingToAndroid();
-
-    public static final class ForceOriginalAudioAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            // Check conditions of launch and now. Otherwise if spoofing is changed
-            // without a restart the setting will show as available when it's not.
-            return PATCH_AVAILABLE && SpoofVideoStreamsPatch.notSpoofingToAndroid();
+    public static void setPreferredLanguage() {
+        if (Settings.FORCE_ORIGINAL_AUDIO.get()
+                && SpoofVideoStreamsPatch.spoofingToClientWithNoMultiAudioStreams()) {
+            // If client spoofing does not use authentication and lacks multi-audio streams,
+            // then can use any language code for the request and if that requested language is
+            // not available YT uses the original audio language. Authenticated requests ignore
+            // the language code and always use the account language. Use a language that is
+            // not auto-dubbed by YouTube: https://support.google.com/youtube/answer/15569972
+            // but the language is also supported natively by the Meta Quest device that
+            // Android VR is spoofing.
+            AppLanguage override = AppLanguage.SV;
+            Logger.printDebug(() -> "Setting language override: " + override);
+            SpoofVideoStreamsPatch.setLanguageOverride(override);
         }
     }
 

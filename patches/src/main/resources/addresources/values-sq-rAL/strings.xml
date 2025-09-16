@@ -68,6 +68,8 @@ Për të përkthyer gjuhë të reja vizitoni translate.revanced.app"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Cilësimet e GmsCore</string>
+  <string name="microg_settings_summary">Cilësimet për GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nuk është instaluar. Instalojeni.</string>
   <string name="gms_core_dialog_title">Veprim i nevojshëm</string>
@@ -83,6 +85,37 @@ Kjo është e nevojshme që aplikacioni të funksionojë."</string>
 
 Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
   <string name="gms_core_dialog_continue_text">Vazhdo</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Mashtro rrjedhat e videos</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Mashtro rrjedhat e videos së klientit për të parandaluar problemet e luajtjes</string>
+  <string name="revanced_spoof_video_streams_screen_title">Falsifiko transmetimet video</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Falsifiko transmetimet video të klientit për të parandaluar problemet e riprodhimit</string>
+  <string name="revanced_spoof_video_streams_title">Mashtro rrjedhat e videos</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Transmetimet video janë falsifikuar
+
+Nëse jeni përdorues i YouTube Premium, ky cilësim mund të mos jetë i nevojshëm"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Transmetimet video nuk janë falsifikuar
+
+Riprodhimi mund të mos funksionojë"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Fikja e këtij cilësimi mund të shkaktojë probleme riprodhimi.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Klient i përdoruesit</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Depurimi</string>
+  <string name="revanced_debug_screen_summary">Aktivizo ose çaktivizo opsionet e depurimit</string>
+  <string name="revanced_debug_title">Regjistrimi i depurimit</string>
+  <string name="revanced_debug_summary_on">Regjistrimet e depurimit janë të aktivizuara</string>
+  <string name="revanced_debug_summary_off">Regjistrimet e depurimit janë të çaktivizuara</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Eksporto regjistrat e korrigjimit</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopjon regjistrat e korrigjimit të ReVanced në kujtesën e shkurtër</string>
+  <string name="revanced_debug_logs_disabled">Regjistrimi i korrigjimeve është çaktivizuar</string>
+  <string name="revanced_debug_logs_none_found">Nuk u gjetën regjistra</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Regjistrat u kopjuan</string>
+  <string name="revanced_debug_logs_failed_to_export">Dështoi eksportimi i regjistrave: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Pastro regjistrat e korrigjimit</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Pastro të gjithë regjistrat e ruajtur të korrigjimit të ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Regjistrat u pastruan</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Prekni butonin vazhdo dhe lejoni ndryshimet e optimizimit."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Lujtja në sfond e Shorts është e aktivizuar</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Depurimi</string>
-  <string name="revanced_debug_screen_summary">Aktivizo ose çaktivizo opsionet e depurimit</string>
-  <string name="revanced_debug_title">Regjistrimi i depurimit</string>
-  <string name="revanced_debug_summary_on">Regjistrimet e depurimit janë të aktivizuara</string>
-  <string name="revanced_debug_summary_off">Regjistrimet e depurimit janë të çaktivizuara</string>
   <string name="revanced_debug_protobuffer_title">Regjistro protokol buffer</string>
   <string name="revanced_debug_protobuffer_summary_on">Regjistrimet e depurimit përfshijnë proto buffer</string>
   <string name="revanced_debug_protobuffer_summary_off">Regjistrimet e depurimit nuk përfshijnë proto buffer</string>
@@ -132,15 +160,6 @@ Gjithsesi, aktivizimi i këtij opsioni do të regjistrojë edhe disa të dhëna 
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Fshirja e toast-eve të gabimit fsheh të gjitha njoftimet e gabimeve të ReVanced.
 
 Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Eksporto regjistrat e korrigjimit</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopjon regjistrat e korrigjimit të ReVanced në kujtesën e shkurtër</string>
-  <string name="revanced_debug_logs_disabled">Regjistrimi i korrigjimeve është çaktivizuar</string>
-  <string name="revanced_debug_logs_none_found">Nuk u gjetën regjistra</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Regjistrat u kopjuan</string>
-  <string name="revanced_debug_logs_failed_to_export">Dështoi eksportimi i regjistrave: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Pastro regjistrat e korrigjimit</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Pastro të gjithë regjistrat e ruajtur të korrigjimit të ReVanced</string>
-  <string name="revanced_debug_logs_clear_toast">Regjistrat u pastruan</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Fshih kartat e albumit</string>
@@ -700,9 +719,9 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menyja \"Shina e audios\" është e fshehur</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menyja \"Shina e audios\" është e dukshme</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menyja e pistës audio është e fshehur
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menyja e gjurmës audio është e fshehur
 
-Për të shfaqur menunë e pistës audio, ndryshoni 'Falsifiko transmetimet video' në iOS TV"</string>
+Për të shfaqur menynë e gjurmës audio, ndryshoje 'Falsifiko transmetimet video' në iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Fsheh \"Shikoni në VR\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menyja \"Shikoni në VR\" është e fshehur</string>
@@ -1413,10 +1432,6 @@ Cilësitë e videove më të larta mund të zhbllokohen, por mund të përjetoni
 Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Aktivizimi i kësaj mund të shkaktojë bllokim të luajtjes së videos, jetëgjatësi më të shkurtër të baterisë dhe efekte anësore të panjohura.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">Cilësimet e GmsCore</string>
-  <string name="microg_settings_summary">Cilësimet për GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Reagimi haptik</string>
   <string name="revanced_disable_haptic_feedback_summary">Ndrysho reagimin haptik</string>
@@ -1530,35 +1545,54 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_slide_to_seek_summary_off">Rrëshqitja për kërkim nuk është e aktivizuar</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Mashtro rrjedhat e videos</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Mashtro rrjedhat e videos së klientit për të parandaluar problemet e luajtjes</string>
-  <string name="revanced_spoof_video_streams_title">Mashtro rrjedhat e videos</string>
-  <string name="revanced_spoof_video_streams_summary_on">Rrjedhat e videos janë të mashtruara</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Rrjedhat e videove nuk janë spoofed
-
-Shikimi i videove mund të mos funksionojë"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Çaktivizimi i kësaj cilësimi mund të shkaktojë probleme me luajtjen e videos.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Klient i përdoruesit</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forco AVC (H.264) për iOS</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodiku video është detyruar të jetë AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodiku video është përcaktuar automatikisht</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Aktivizimi i kësaj mund të përmirësojë jetëgjatësinë e baterisë dhe të rregullojë ngecjet gjatë shfaqjes.
-
-AVC ka një rezolucion maksimal prej 1080p, kodeku audio Opus nuk është i disponueshëm dhe shfaqja e videos do të përdorë më shumë të dhëna interneti sesa VP9 ose AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efekte anësore të falsifikimit të iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmat ose videot e paguara s'mund të luhen
-• Volumi i qëndrueshëm nuk është i disponueshëm
-• Videot përfundojnë 1 sekondë më parë"</string>
+  <string name="revanced_spoof_video_streams_about_title">Efektet anësore të falsifikimit</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efekte anësore të spoofinguit të Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Menutë me audiot mungon
-• Vellimi i qëndrueshëm nuk është në dispozicion
-• Zbatimi i audio origjinalit nuk është në dispozicion"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Menyja e gjurmës audio mungon
+• Volumi i qëndrueshëm nuk është i disponueshëm"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Videoja mund të ndalojë në 1:00, ose mund të mos jetë e disponueshme në disa rajone</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Klient eksperimental dhe mund të ndalojë së funksionuari në çdo kohë</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nuk ka codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video për fëmijë mund të mos luajnë kur jeni jashtë llogarisë ose në modalitetin incognito</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Shfaqni në Statistikat për nerdës</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Lloji i klientit shfaqet në Statistikat për nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienti është fshehur në statistikat për nerds</string>
-  <string name="revanced_spoof_video_streams_language_title">Gjuha e rrjedhës audio VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Gjuha e transmetimit audio</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Për të zgjedhur një gjuhë specifike audio, çaktivizoni \"Detyro gjuhën origjinale audio\"</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Rreth</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Reklama</string>
+  <string name="revanced_settings_music_screen_2_general_title">E përgjithshme</string>
+  <string name="revanced_settings_music_screen_3_player_title">Lexuesi</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Të ndryshme</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Fshi reklamat video</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Reklamat video janë të fshehura</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Reklamat video janë të shfaqura</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Aktivizo përsëritjen e përhershme</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Përsëritja e përhershme është aktivizuar</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Përsëritja e përhershme është çaktivizuar</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Fshi shiritin e kategorive</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Shiriti i kategorive është i fshehur</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Shiriti i kategorive është i shfaqur</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Fshi etiketën \'Merr Music Premium\'</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Etiketa është e fshehur</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Etiketa është e shfaqur</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Fshi butonin e përmirësimit</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Butoni është i fshehur</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Butoni është i shfaqur</string>
   </patch>
   </app>
   <app id="twitch">

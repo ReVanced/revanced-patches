@@ -121,20 +121,20 @@
                 <item>ZH</item>
             </string-array>
         </patch>
-    </app>
-    <app id="youtube">
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string-array name="revanced_spoof_video_streams_client_type_entries">
-                <item>Android TV</item>
                 <item>Android VR</item>
-                <item>iOS TV</item>
+                <item>visionOS</item>
+                <item>iPadOS</item>
             </string-array>
             <string-array name="revanced_spoof_video_streams_client_type_entry_values">
-                <item>ANDROID_UNPLUGGED</item>
                 <item>ANDROID_VR_1_61_48</item>
-                <item>IOS_UNPLUGGED</item>
+                <item>VISIONOS</item>
+                <item>IPADOS</item>
             </string-array>
         </patch>
+    </app>
+    <app id="youtube">
         <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
             <string-array name="revanced_swipe_overlay_style_entries">
                 <item>@string/revanced_swipe_overlay_style_entry_1</item>
