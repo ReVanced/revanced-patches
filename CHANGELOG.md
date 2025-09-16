@@ -1,3 +1,10 @@
+# [5.38.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.38.0-dev.2...v5.38.0-dev.3) (2025-09-16)
+
+
+### Features
+
+* **YouTube - Spoof video streams:** Add iPadOS client ([2726231](https://github.com/ReVanced/revanced-patches/commit/2726231404384d87f101d825e10a17c944e8f1bd))
+
 # [5.38.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.38.0-dev.1...v5.38.0-dev.2) (2025-09-16)
 
 
