@@ -21,9 +21,10 @@ public class SpoofVideoStreamsPatch {
     public static void setClientOrderToUse() {
         List<ClientType> availableClients = List.of(
                 ANDROID_VR_1_61_48,
-                ANDROID_CREATOR,
                 VISIONOS,
                 IPADOS,
+                // Creator must be next to last, because livestreams fetch successfully but don't playback.
+                ANDROID_CREATOR,
                 // VR 1.43 must be last as spoof streaming data handles it slightly differently.
                 ANDROID_VR_1_43_32
         );
