@@ -22,6 +22,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/EnableDebuggingPatch;"
 
+// TODO: Refactor this into a shared patch that can be used by both YT and YT Music.
+//       Almost all of the feature flag hooks are the same between both apps.
 val enableDebuggingPatch = bytecodePatch(
     name = "Enable debugging",
     description = "Adds options for debugging and exporting ReVanced logs to the clipboard.",
@@ -45,6 +47,7 @@ val enableDebuggingPatch = bytecodePatch(
     )
 
     execute {
+        addResources("shared", "misc.debugging.enableDebuggingPatch")
         addResources("youtube", "misc.debugging.enableDebuggingPatch")
 
         PreferenceScreen.MISC.addPreferences(
@@ -58,13 +61,13 @@ val enableDebuggingPatch = bytecodePatch(
                     SwitchPreference("revanced_debug_toast_on_error"),
                     NonInteractivePreference(
                         "revanced_debug_export_logs_to_clipboard",
-                        tag = "app.revanced.extension.youtube.settings.preference.ExportLogToClipboardPreference",
-                        selectable = true,
+                        tag = "app.revanced.extension.shared.settings.preference.ExportLogToClipboardPreference",
+                        selectable = true
                     ),
                     NonInteractivePreference(
                         "revanced_debug_logs_clear_buffer",
-                        tag = "app.revanced.extension.youtube.settings.preference.ClearLogBufferPreference",
-                        selectable = true,
+                        tag = "app.revanced.extension.shared.settings.preference.ClearLogBufferPreference",
+                        selectable = true
                     ),
                 ),
             ),

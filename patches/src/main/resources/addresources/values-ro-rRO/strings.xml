@@ -68,6 +68,8 @@ Pentru a traduce noi limbi, vizitați translate.revanced.app"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Setări GmsCore</string>
+  <string name="microg_settings_summary">Setări pentru GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nu este instalat. Instalați-l.</string>
   <string name="gms_core_dialog_title">Acțiune necesară</string>
@@ -83,6 +85,37 @@ Dezactivare optimizărilor bateriei pentru MicroG nu va afecta negativ utilizare
 
 Apăsați butonul continuare și permiteți modificările de optimizare."</string>
   <string name="gms_core_dialog_continue_text">Continuă</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Spoof video stream-uri</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Sporirea canalelor video client pentru a preveni problemele de redare</string>
+  <string name="revanced_spoof_video_streams_screen_title">Falsifică fluxurile video</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Falsifică fluxurile video ale clientului pentru a preveni problemele de redare</string>
+  <string name="revanced_spoof_video_streams_title">Spoof video stream-uri</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Fluxurile video sunt simulate
+
+Dacă ești utilizator YouTube Premium, această setare ar putea să nu fie necesară"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Fluxurile video nu sunt falsificate
+
+Redarea poate să nu funcționeze"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Client implicit</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Depanare</string>
+  <string name="revanced_debug_screen_summary">Activează sau dezactivează opțiunile de depanare</string>
+  <string name="revanced_debug_title">Jurnal depanare</string>
+  <string name="revanced_debug_summary_on">Jurnalele de depanare sunt activate</string>
+  <string name="revanced_debug_summary_off">Jurnalele de depanare sunt dezactivate</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Exportare jurnale de depanare</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Copiază jurnalele de depanare ReVanced în clipboard</string>
+  <string name="revanced_debug_logs_disabled">Înregistrarea în jurnal de depanare este dezactivată</string>
+  <string name="revanced_debug_logs_none_found">Nu au fost găsite jurnale</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Jurnale copiate</string>
+  <string name="revanced_debug_logs_failed_to_export">Eșec la exportarea jurnalelor: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Șterge jurnalele de depanare</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Șterge toate jurnalele de depanare ReVanced stocate</string>
+  <string name="revanced_debug_logs_clear_toast">Jurnale șterse</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Apăsați butonul continuare și permiteți modificările de optimizare."</strin
   <string name="revanced_shorts_disable_background_playback_summary_off">Redarea Shorts în fundal este activată</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Depanare</string>
-  <string name="revanced_debug_screen_summary">Activează sau dezactivează opțiunile de depanare</string>
-  <string name="revanced_debug_title">Jurnal depanare</string>
-  <string name="revanced_debug_summary_on">Jurnalele de depanare sunt activate</string>
-  <string name="revanced_debug_summary_off">Jurnalele de depanare sunt dezactivate</string>
   <string name="revanced_debug_protobuffer_title">Jurnal protocol buffer</string>
   <string name="revanced_debug_protobuffer_summary_on">Jurnalele de depanare includ bufferul de protocol</string>
   <string name="revanced_debug_protobuffer_summary_off">Jurnalele de depanare nu includ memoria tampon</string>
@@ -132,15 +160,6 @@ Cu toate acestea, activarea acestei opțiuni va înregistra și unele date ale u
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Oprirea toasturilor de eroare ascunde toate notificările de eroare ReVanced.
 
 Nu veți fi notificat de niciun eveniment neașteptat."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Exportare jurnale de depanare</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Copiază jurnalele de depanare ReVanced în clipboard</string>
-  <string name="revanced_debug_logs_disabled">Înregistrarea în jurnal de depanare este dezactivată</string>
-  <string name="revanced_debug_logs_none_found">Nu au fost găsite jurnale</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Jurnale copiate</string>
-  <string name="revanced_debug_logs_failed_to_export">Eșec la exportarea jurnalelor: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Șterge jurnalele de depanare</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Șterge toate jurnalele de depanare ReVanced stocate</string>
-  <string name="revanced_debug_logs_clear_toast">Jurnale șterse</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Ascundeți cardurile de album</string>
@@ -700,9 +719,9 @@ Dacă modificarea acestei setări nu are efect, încercați să comutați la mod
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meniul piesei audio este ascuns</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Meniul piesei audio este afișat</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meniul pentru pista audio este ascuns
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meniul de piste audio este ascuns
 
-Pentru a afișa meniul pentru pista audio, schimbați opțiunea „Falsifică fluxurile video” în iOS TV"</string>
+Pentru a afișa meniul de piste audio, modificați „Emulare fluxuri video” la iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ascunde ceas în VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Vizionarea în meniul VR este ascunsă</string>
@@ -1414,10 +1433,6 @@ Calitățile video mai mari ar putea fi deblocate, dar este posibil să întâmp
 Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Activarea acestei opțiuni poate provoca redare video care rulează, o durată de viață mai slabă a bateriei și efecte secundare necunoscute.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">Setări GmsCore</string>
-  <string name="microg_settings_summary">Setări pentru GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Feedback haptic</string>
   <string name="revanced_disable_haptic_feedback_summary">Schimbă feedback-ul haptic</string>
@@ -1531,35 +1546,54 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_slide_to_seek_summary_off">Slide pentru a căuta nu este activat</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Spoof video stream-uri</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Sporirea canalelor video client pentru a preveni problemele de redare</string>
-  <string name="revanced_spoof_video_streams_title">Spoof video stream-uri</string>
-  <string name="revanced_spoof_video_streams_summary_on">Fluxurile video sunt falsificate</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Fluxurile video nu sunt falsificate
-
-Este posibil ca redarea video să nu funcționeze"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare video.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Client implicit</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Forțarea codecului video AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codecul video este forțat la AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codecul video este determinat automat</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Activarea acestei opțiuni ar putea îmbunătăți durata de viață a bateriei și remedia întreruperile redării.
-
-AVC are o rezoluție maximă de 1080p, codecul audio Opus nu este disponibil, iar redarea video va folosi mai multe date de internet decât VP9 sau AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Efecte secundare ale falsificării iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Este posibil ca filmele sau videoclipurile plătite să nu se redea.
-• Volumul stabil nu este disponibil.
-• Videoclipurile se termină cu 1 secundă mai devreme."</string>
+  <string name="revanced_spoof_video_streams_about_title">Efecte secundare ale simulării</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efecte secundare spoofing Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Meniul cu piesele audio lipsește
-• Volumul stabil nu este disponibil
-• Forțarea sunetului original nu este disponibilă"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Meniul piesei audio lipsește
+• Volumul stabil nu este disponibil"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Videoclipul se poate opri la 1:00, sau poate să nu fie disponibil în unele regiuni</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Client experimental și se poate opri din funcționare oricând</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Fara codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Copiii nu pot urmări videoclipuri atunci când sunt deconectați sau în modul incognito</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Afișează în Statistici pentru pasionați</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tipul clientului este afișat în Statistici pentru pasionați</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Clientul este ascuns în Statistici pentru pasionați</string>
-  <string name="revanced_spoof_video_streams_language_title">Limba implicită a fluxului audio VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Limba fluxului audio</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Pentru a selecta o limbă audio specifică, dezactivați „Forțează limba audio originală”</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Despre</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Anunțuri</string>
+  <string name="revanced_settings_music_screen_2_general_title">General</string>
+  <string name="revanced_settings_music_screen_3_player_title">Player</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Diverse</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Ascunde anunțurile video</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Anunțurile video sunt ascunse</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Anunțurile video sunt afișate</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Activează repetarea permanentă</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Repetarea permanentă este activată</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Repetarea permanentă este dezactivată</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Ascunde bara de categorii</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Bara de categorii este ascunsă</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Bara de categorii este afișată</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Ascunde eticheta „Obține Music Premium”</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Eticheta este ascunsă</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Eticheta este afișată</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Ascunde butonul de upgrade</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Butonul este ascuns</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Butonul este afișat</string>
   </patch>
   </app>
   <app id="twitch">

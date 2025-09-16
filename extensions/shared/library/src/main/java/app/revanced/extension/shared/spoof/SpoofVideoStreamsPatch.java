@@ -10,6 +10,7 @@ import java.util.Map;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
@@ -19,13 +20,25 @@ public class SpoofVideoStreamsPatch {
     private static final boolean SPOOF_STREAMING_DATA = BaseSettings.SPOOF_VIDEO_STREAMS.get();
 
     private static final boolean FIX_HLS_CURRENT_TIME = SPOOF_STREAMING_DATA
-            && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
+            && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.VISIONOS;
+
+    @Nullable
+    private static volatile AppLanguage languageOverride;
 
     /**
-     * Any unreachable ip address.  Used to intentionally fail requests.
+     * Domain used for internet connectivity verification.
+     * It has an empty response body and is only used to check for a 204 response code.
+     * <p>
+     * If an unreachable IP address (127.0.0.1) is used, no response code is provided.
+     * <p>
+     * YouTube handles unreachable IP addresses without issue.
+     * YouTube Music has an issue with waiting for the Cronet connect timeout of 30s on mobile networks.
+     * <p>
+     * Using a VPN or DNS can temporarily resolve this issue,
+     * But the ideal workaround is to avoid using an unreachable IP address.
      */
-    private static final String UNREACHABLE_HOST_URI_STRING = "https://127.0.0.0";
-    private static final Uri UNREACHABLE_HOST_URI = Uri.parse(UNREACHABLE_HOST_URI_STRING);
+    private static final String INTERNET_CONNECTION_CHECK_URI_STRING = "https://www.google.com/gen_204";
+    private static final Uri INTERNET_CONNECTION_CHECK_URI = Uri.parse(INTERNET_CONNECTION_CHECK_URI_STRING);
 
     /**
      * @return If this patch was included during patching.
@@ -34,10 +47,21 @@ public class SpoofVideoStreamsPatch {
         return false; // Modified during patching.
     }
 
-    public static boolean notSpoofingToAndroid() {
-        return !isPatchIncluded()
-                || !BaseSettings.SPOOF_VIDEO_STREAMS.get()
-                || BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
+    public static boolean spoofingToClientWithNoMultiAudioStreams() {
+        return isPatchIncluded() && BaseSettings.SPOOF_VIDEO_STREAMS.get();
+    }
+
+    /**
+     * @param language Language override for non-authenticated requests. If this is null then
+     *                 {@link BaseSettings#SPOOF_VIDEO_STREAMS_LANGUAGE} is used.
+     */
+    public static void setLanguageOverride(@Nullable AppLanguage language) {
+        languageOverride = language;
+    }
+
+    @Nullable
+    public static AppLanguage getLanguageOverride() {
+        return languageOverride;
     }
 
     /**
@@ -53,9 +77,9 @@ public class SpoofVideoStreamsPatch {
                 String path = playerRequestUri.getPath();
 
                 if (path != null && path.contains("get_watch")) {
-                    Logger.printDebug(() -> "Blocking 'get_watch' by returning unreachable uri");
+                    Logger.printDebug(() -> "Blocking 'get_watch' by returning internet connection check uri");
 
-                    return UNREACHABLE_HOST_URI;
+                    return INTERNET_CONNECTION_CHECK_URI;
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "blockGetWatchRequest failure", ex);
@@ -77,9 +101,9 @@ public class SpoofVideoStreamsPatch {
                 String path = originalUri.getPath();
 
                 if (path != null && path.contains("initplayback")) {
-                    Logger.printDebug(() -> "Blocking 'initplayback' by clearing query");
+                    Logger.printDebug(() -> "Blocking 'initplayback' by returning internet connection check uri");
 
-                    return originalUri.buildUpon().clearQuery().build().toString();
+                    return INTERNET_CONNECTION_CHECK_URI_STRING;
                 }
             } catch (Exception ex) {
                 Logger.printException(() -> "blockInitPlaybackRequest failure", ex);
@@ -252,17 +276,8 @@ public class SpoofVideoStreamsPatch {
     public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
-            ClientType clientType = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
-            return BaseSettings.SPOOF_VIDEO_STREAMS.get()
-                    && (clientType == ClientType.ANDROID_VR_1_61_48 || clientType == ClientType.ANDROID_VR_1_43_32);
-        }
-    }
-
-    public static final class SpoofiOSAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return BaseSettings.SPOOF_VIDEO_STREAMS.get()
-                    && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.IOS_UNPLUGGED;
+            // Since all current clients are un-authenticated, this works for all spoof clients.
+            return BaseSettings.SPOOF_VIDEO_STREAMS.get();
         }
     }
 }

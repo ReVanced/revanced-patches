@@ -1,50 +1,120 @@
 package app.revanced.extension.youtube.settings;
 
-import static app.revanced.extension.shared.Utils.getResourceIdentifier;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.preference.PreferenceFragment;
-import android.util.TypedValue;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.view.View;
 import android.widget.Toolbar;
 
-import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
+import app.revanced.extension.shared.settings.BaseActivityHook;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 
 /**
- * Hooks LicenseActivity.
- * <p>
- * This class is responsible for injecting our own fragment by replacing the LicenseActivity.
+ * Hooks LicenseActivity to inject a custom ReVancedPreferenceFragment with a toolbar and search functionality.
  */
-@SuppressWarnings("unused")
-public class LicenseActivityHook extends Activity {
+@SuppressWarnings("deprecation")
+public class LicenseActivityHook extends BaseActivityHook {
 
     private static int currentThemeValueOrdinal = -1; // Must initially be a non-valid enum ordinal value.
 
-    private static ViewGroup.LayoutParams toolbarLayoutParams;
-
+    /**
+     * Controller for managing search view components in the toolbar.
+     */
     @SuppressLint("StaticFieldLeak")
     public static SearchViewController searchViewController;
 
-    public static void setToolbarLayoutParams(Toolbar toolbar) {
-        if (toolbarLayoutParams != null) {
-            toolbar.setLayoutParams(toolbarLayoutParams);
+    /**
+     * Injection point
+     * <p>
+     * Creates an instance of LicenseActivityHook for use in static initialization.
+     */
+    @SuppressWarnings("unused")
+    public static LicenseActivityHook createInstance() {
+        return new LicenseActivityHook();
+    }
+
+    /**
+     * Customizes the activity theme based on dark/light mode.
+     */
+    @Override
+    protected void customizeActivityTheme(Activity activity) {
+        final var theme = Utils.isDarkModeEnabled()
+                ? "Theme.YouTube.Settings.Dark"
+                : "Theme.YouTube.Settings";
+        activity.setTheme(Utils.getResourceIdentifier(theme, "style"));
+    }
+
+    /**
+     * Returns the resource ID for the YouTube settings layout.
+     */
+    @Override
+    protected int getContentViewResourceId() {
+        return Utils.getResourceIdentifier("revanced_settings_with_toolbar", "layout");
+    }
+
+    /**
+     * Returns the toolbar background color based on dark/light mode.
+     */
+    @Override
+    protected int getToolbarBackgroundColor() {
+        final String colorName = Utils.isDarkModeEnabled()
+                ? "yt_black3"
+                : "yt_white1";
+        return Utils.getColorFromString(colorName);
+    }
+
+    /**
+     * Returns the navigation icon drawable for the toolbar.
+     */
+    @Override
+    protected Drawable getNavigationIcon() {
+        return ReVancedPreferenceFragment.getBackButtonDrawable();
+    }
+
+    /**
+     * Returns the click listener for the navigation icon.
+     */
+    @Override
+    protected View.OnClickListener getNavigationClickListener(Activity activity) {
+        return null;
+    }
+
+    /**
+     * Adds search view components to the toolbar for ReVancedPreferenceFragment.
+     *
+     * @param activity The activity hosting the toolbar.
+     * @param toolbar  The configured toolbar.
+     * @param fragment The PreferenceFragment associated with the activity.
+     */
+    @Override
+    protected void onPostToolbarSetup(Activity activity, Toolbar toolbar, PreferenceFragment fragment) {
+        if (fragment instanceof ReVancedPreferenceFragment) {
+            searchViewController = SearchViewController.addSearchViewComponents(
+                    activity, toolbar, (ReVancedPreferenceFragment) fragment);
         }
+    }
+
+    /**
+     * Creates a new ReVancedPreferenceFragment for the activity.
+     */
+    @Override
+    protected PreferenceFragment createPreferenceFragment() {
+        return new ReVancedPreferenceFragment();
     }
 
     /**
      * Injection point.
      * Overrides the ReVanced settings language.
      */
+    @SuppressWarnings("unused")
     public static Context getAttachBaseContext(Context original) {
         AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
         if (language == AppLanguage.DEFAULT) {
@@ -57,6 +127,7 @@ public class LicenseActivityHook extends Activity {
     /**
      * Injection point.
      */
+    @SuppressWarnings("unused")
     public static boolean useCairoSettingsFragment(boolean original) {
         // Early targets have layout issues and it's better to always force off.
         if (!VersionCheckPatch.IS_19_34_OR_GREATER) {
@@ -80,87 +151,6 @@ public class LicenseActivityHook extends Activity {
     /**
      * Injection point.
      * <p>
-     * Hooks LicenseActivity#onCreate in order to inject our own fragment.
-     */
-    public static void initialize(Activity licenseActivity) {
-        try {
-            setActivityTheme(licenseActivity);
-            ReVancedPreferenceFragment.setNavigationBarColor(licenseActivity.getWindow());
-            licenseActivity.setContentView(getResourceIdentifier(
-                    "revanced_settings_with_toolbar", "layout"));
-
-            // Sanity check.
-            String dataString = licenseActivity.getIntent().getDataString();
-            if (!"revanced_settings_intent".equals(dataString)) {
-                Logger.printException(() -> "Unknown intent: " + dataString);
-                return;
-            }
-
-            PreferenceFragment fragment = new ReVancedPreferenceFragment();
-            createToolbar(licenseActivity, fragment);
-
-            //noinspection deprecation
-            licenseActivity.getFragmentManager()
-                    .beginTransaction()
-                    .replace(getResourceIdentifier("revanced_settings_fragments", "id"), fragment)
-                    .commit();
-        } catch (Exception ex) {
-            Logger.printException(() -> "initialize failure", ex);
-        }
-    }
-
-    @SuppressLint("UseCompatLoadingForDrawables")
-    private static void createToolbar(Activity activity, PreferenceFragment fragment) {
-        // Replace dummy placeholder toolbar.
-        // This is required to fix submenu title alignment issue with Android ASOP 15+
-        ViewGroup toolBarParent = activity.findViewById(
-                getResourceIdentifier("revanced_toolbar_parent", "id"));
-        ViewGroup dummyToolbar = Utils.getChildViewByResourceName(toolBarParent, "revanced_toolbar");
-        toolbarLayoutParams = dummyToolbar.getLayoutParams();
-        toolBarParent.removeView(dummyToolbar);
-
-        Toolbar toolbar = new Toolbar(toolBarParent.getContext());
-        toolbar.setBackgroundColor(getToolbarBackgroundColor());
-        toolbar.setNavigationIcon(ReVancedPreferenceFragment.getBackButtonDrawable());
-        toolbar.setTitle(getResourceIdentifier("revanced_settings_title", "string"));
-
-        final int margin = Utils.dipToPixels(16);
-        toolbar.setTitleMarginStart(margin);
-        toolbar.setTitleMarginEnd(margin);
-        TextView toolbarTextView = Utils.getChildView(toolbar, false,
-                view -> view instanceof TextView);
-        if (toolbarTextView != null) {
-            toolbarTextView.setTextColor(Utils.getAppForegroundColor());
-            toolbarTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
-        }
-        setToolbarLayoutParams(toolbar);
-
-        // Add Search bar only for ReVancedPreferenceFragment.
-        if (fragment instanceof ReVancedPreferenceFragment) {
-            searchViewController = SearchViewController.addSearchViewComponents(activity, toolbar, (ReVancedPreferenceFragment) fragment);
-        }
-
-        toolBarParent.addView(toolbar, 0);
-    }
-
-    public static void setActivityTheme(Activity activity) {
-        final var theme = Utils.isDarkModeEnabled()
-                ? "Theme.YouTube.Settings.Dark"
-                : "Theme.YouTube.Settings";
-        activity.setTheme(getResourceIdentifier(theme, "style"));
-    }
-
-    public static int getToolbarBackgroundColor() {
-        final String colorName = Utils.isDarkModeEnabled()
-                ? "yt_black3"
-                : "yt_white1";
-
-        return Utils.getColorFromString(colorName);
-    }
-
-    /**
-     * Injection point.
-     *
      * Updates dark/light mode since YT settings can force light/dark mode
      * which can differ from the global device settings.
      */
@@ -173,6 +163,10 @@ public class LicenseActivityHook extends Activity {
         }
     }
 
+    /**
+     * Handles configuration changes, such as orientation, to update the search view.
+     */
+    @SuppressWarnings("unused")
     public static void handleConfigurationChanged(Activity activity, Configuration newConfig) {
         if (searchViewController != null) {
             searchViewController.handleOrientationChange(newConfig.orientation);

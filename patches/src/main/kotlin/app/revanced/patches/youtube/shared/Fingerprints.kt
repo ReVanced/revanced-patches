@@ -4,6 +4,8 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
+internal const val YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE = "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
+
 internal val conversionContextFingerprintToString = fingerprint {
     parameters()
     strings(
@@ -48,7 +50,7 @@ internal val mainActivityConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters()
     custom { _, classDef ->
-        classDef.endsWith("/MainActivity;")
+        classDef.type == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
     }
 }
 
@@ -57,7 +59,7 @@ internal val mainActivityOnBackPressedFingerprint = fingerprint {
     returns("V")
     parameters()
     custom { method, classDef ->
-        method.name == "onBackPressed" && classDef.endsWith("/MainActivity;")
+        method.name == "onBackPressed" && classDef.type == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
     }
 }
 
@@ -65,7 +67,7 @@ internal val mainActivityOnCreateFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
     custom { method, classDef ->
-        method.name == "onCreate" && classDef.endsWith("/MainActivity;")
+        method.name == "onCreate" && classDef.type == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
     }
 }
 

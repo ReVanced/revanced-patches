@@ -78,22 +78,25 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
         Logger.printDebug(() -> "Updating spoof stream side effects preference");
         setEnabled(BaseSettings.SPOOF_VIDEO_STREAMS.get());
 
-        String key = "revanced_spoof_video_streams_about_" +
-                (clientType == ClientType.IOS_UNPLUGGED
-                        ? "ios_tv"
-                        : "android");
-        String title = str(key + "_title");
-        String summary = str(key + "_summary");
+        setTitle(str("revanced_spoof_video_streams_about_title"));
 
-        // Android VR supports AV1 but all other clients do not.
-        if (clientType != ClientType.ANDROID_VR_1_61_48
-                && clientType != ClientType.ANDROID_VR_1_43_32) {
-            summary += '\n' + str("revanced_spoof_video_streams_about_no_av1");
+        String summary = str(clientType == ClientType.IPADOS
+                ? "revanced_spoof_video_streams_about_ipados_summary"
+                // visionOS has same base side effects as Android VR.
+                : "revanced_spoof_video_streams_about_android_summary");
+
+        if (clientType == ClientType.IPADOS) {
+            summary = str("revanced_spoof_video_streams_about_no_av1")
+                    + '\n' + summary;
+        } else if (clientType == ClientType.VISIONOS) {
+            summary = str("revanced_spoof_video_streams_about_experimental")
+                    + '\n' + summary
+                    + '\n' + str("revanced_spoof_video_streams_about_no_av1")
+                    + '\n' + str("revanced_spoof_video_streams_about_kids_videos");
+        } else {
+            summary += '\n' + str("revanced_spoof_video_streams_about_kids_videos");
         }
 
-        summary += '\n' + str("revanced_spoof_video_streams_about_kids_videos");
-
-        setTitle(title);
         setSummary(summary);
     }
 }

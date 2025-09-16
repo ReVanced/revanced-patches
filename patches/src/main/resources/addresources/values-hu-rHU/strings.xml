@@ -68,6 +68,8 @@ Second \"item\" text"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">GmsCore beállítások</string>
+  <string name="microg_settings_summary">A GmsCore beállításai</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nincs telepítve. Telepítse.</string>
   <string name="gms_core_dialog_title">Művelet szükséges</string>
@@ -83,6 +85,37 @@ A MicroG akkumulátor-optimalizálásának letiltása nem befolyásolja negatív
 
 Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosításokat."</string>
   <string name="gms_core_dialog_continue_text">Folytatás</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Hamis videó stream</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Hamisítsa meg az ügyfél videó streamet a lejátszási problémák elkerülése érdekében</string>
+  <string name="revanced_spoof_video_streams_screen_title">Videó streamek hamisítása</string>
+  <string name="revanced_spoof_video_streams_screen_summary">A kliens videó streamek hamisítása a lejátszási problémák elkerülése érdekében</string>
+  <string name="revanced_spoof_video_streams_title">Hamis videó stream</string>
+  <string name="revanced_spoof_video_streams_summary_on">"A videó adatfolyamok hamisítva vannak
+
+Ha Ön YouTube Premium felhasználó, ez a beállítás nem feltétlenül szükséges"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"A videó streamek nincsenek hamisítva
+
+A lejátszás nem működhet"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Ennek a beállításnak a kikapcsolása lejátszási problémákat okozhat.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Hibakeresés</string>
+  <string name="revanced_debug_screen_summary">Hibakeresési beállítások engedélyezése vagy letiltása</string>
+  <string name="revanced_debug_title">Hibakeresési naplózás</string>
+  <string name="revanced_debug_summary_on">A hibakeresési naplók engedélyezve vannak</string>
+  <string name="revanced_debug_summary_off">A hibakeresési naplók le vannak tiltva</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Hibakeresési naplók exportálása</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">A ReVanced hibakeresési naplóit a vágólapra másolja</string>
+  <string name="revanced_debug_logs_disabled">A hibakeresési naplózás ki van kapcsolva</string>
+  <string name="revanced_debug_logs_none_found">Nem találhatók naplók</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Naplók másolva</string>
+  <string name="revanced_debug_logs_failed_to_export">Nem sikerült exportálni a naplókat: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Hibakeresési naplók törlése</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Törli az összes tárolt ReVanced hibakeresési naplót</string>
+  <string name="revanced_debug_logs_clear_toast">Naplók törölve</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Kattintson a folytatás gombra, és engedélyezze az optimalizálási módosít�
   <string name="revanced_shorts_disable_background_playback_summary_off">A Shorts háttérben történő lejátszása engedélyezve van</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Hibakeresés</string>
-  <string name="revanced_debug_screen_summary">Hibakeresési beállítások engedélyezése vagy letiltása</string>
-  <string name="revanced_debug_title">Hibakeresési naplózás</string>
-  <string name="revanced_debug_summary_on">A hibakeresési naplók engedélyezve vannak</string>
-  <string name="revanced_debug_summary_off">A hibakeresési naplók le vannak tiltva</string>
   <string name="revanced_debug_protobuffer_title">Napló protokoll puffer</string>
   <string name="revanced_debug_protobuffer_summary_on">A hibakeresési naplók protopuffert tartalmaznak</string>
   <string name="revanced_debug_protobuffer_summary_off">A hibakeresési naplók nem tartalmaznak protopuffert</string>
@@ -132,15 +160,6 @@ Ez a funkció azonban néhány felhasználói adatot is naplóz, például az IP
   <string name="revanced_debug_toast_on_error_user_dialog_message">"A hibaüzenetek kikapcsolása elrejti az összes ReVanced hibaértesítést.
 
 Nem fog értesülni semmilyen váratlan eseményről."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Hibakeresési naplók exportálása</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">A ReVanced hibakeresési naplóit a vágólapra másolja</string>
-  <string name="revanced_debug_logs_disabled">A hibakeresési naplózás ki van kapcsolva</string>
-  <string name="revanced_debug_logs_none_found">Nem találhatók naplók</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Naplók másolva</string>
-  <string name="revanced_debug_logs_failed_to_export">Nem sikerült exportálni a naplókat: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Hibakeresési naplók törlése</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Törli az összes tárolt ReVanced hibakeresési naplót</string>
-  <string name="revanced_debug_logs_clear_toast">Naplók törölve</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Album kártyák elrejtése</string>
@@ -700,9 +719,9 @@ Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó mó
   <string name="revanced_hide_player_flyout_audio_track_summary_on">A hangsáv menü el van rejtve</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">A hangsáv menü megjelenik</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Az audiosáv menü rejtett
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Az hangsáv menü rejtett
 
-Az audiosáv menü megjelenítéséhez módosítsa a \"Videófolyamok hamisítása\" beállítást iOS TV-re"</string>
+Az hangsáv menü megjelenítéséhez állítsa a 'Videó stream-ek meghamisítása' beállítást iPadOS-re"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">\"Megtekintés VR-módban\" elrejtése</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">A megtekintés VR-módban menü el van rejtve</string>
@@ -1412,10 +1431,6 @@ Lehet, hogy magasabb videóminőségek válnak elérhetővé, de a videólejáts
 Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Ennek engedélyezése a videólejátszás akadozását, rosszabb akkuidőt és ismeretlen hatásokat okozhat.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">GmsCore beállítások</string>
-  <string name="microg_settings_summary">A GmsCore beállításai</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Haptikus visszajelzés</string>
   <string name="revanced_disable_haptic_feedback_summary">Haptikus visszajelzés módosítása</string>
@@ -1529,35 +1544,54 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_slide_to_seek_summary_off">A csúsztatás a kereséshez nincs engedélyezve</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Hamis videó stream</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Hamisítsa meg az ügyfél videó streamet a lejátszási problémák elkerülése érdekében</string>
-  <string name="revanced_spoof_video_streams_title">Hamis videó stream</string>
-  <string name="revanced_spoof_video_streams_summary_on">A videó stream hamisítva</string>
-  <string name="revanced_spoof_video_streams_summary_off">"A videó streamek nem hamisítva vannak
-
-A videólejátszás nem működhet"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">A beállítás kikapcsolása videolejátszási problémákat okozhat.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Az iOS kényyszerített AVC (H.264) videokodeket használ</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">A videokodek AVC-re kényszerítve (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">A videokodek meghatározása automatikusan történik</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Ennek engedélyezése javíthatja az akkumulátor élettartamát és kijavíthatja a lejátszás akadozását.
-
-Az AVC maximális felbontása 1080p, az Opus audiokodek nem érhető el, és a videolejátszás több internetes adatot használ, mint a VP9 vagy az AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS hamisítási mellékhatások</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Előfordulhat, hogy a filmeket és a fizetős videókat nem lehet lejátszani
-• Nem áll rendelkezésre stabil hangerő
-• A videók 1 másodperccel korábban érnek véget"</string>
+  <string name="revanced_spoof_video_streams_about_title">Hamisítás mellékhatásai</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android hamisítási mellékhatások</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Hiányzik a hangsáv menü
-• Nem áll rendelkezésre stabil hangerő
-• Az eredeti hang kényszerítése nem érhető el"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Az hangsáv menü hiányzik
+• Stabil hangerő nem érhető el"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• A videó megállhat 1:00-nál, vagy előfordulhat, hogy egyes régiókban nem elérhető</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Kísérleti kliens, és bármikor leállhat</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nincs AV1 videokodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• A gyermekeknek szóló videók nem játszódnak le, ha a felhasználó kijelentkezett, vagy inkognitómódban van.</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Megjelenítés a Statisztikákban</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">A kliens típusa a Statisztikákban látható</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">A kliens el van rejtve a Statisztikákban</string>
-  <string name="revanced_spoof_video_streams_language_title">VR alapértelmezett audio adatfolyam nyelve</string>
+  <string name="revanced_spoof_video_streams_language_title">Hangfolyam nyelve</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Egy adott hangsáv nyelv kiválasztásához kapcsold ki az \"Eredeti hangsáv nyelv kikényszerítése\" opciót</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Névjegy</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Hirdetések</string>
+  <string name="revanced_settings_music_screen_2_general_title">Általános</string>
+  <string name="revanced_settings_music_screen_3_player_title">Lejátszó</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Egyéb</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Videóhirdetések elrejtése</string>
+  <string name="revanced_music_hide_video_ads_summary_on">A videóhirdetések rejtve vannak</string>
+  <string name="revanced_music_hide_video_ads_summary_off">A videóhirdetések láthatók</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Állandó ismétlés engedélyezése</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Az állandó ismétlés engedélyezve van</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Az állandó ismétlés letiltva van</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Kategóriasáv elrejtése</string>
+  <string name="revanced_music_hide_category_bar_summary_on">A kategóriasáv rejtve van</string>
+  <string name="revanced_music_hide_category_bar_summary_off">A kategóriasáv látható</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">A „Music Premium beszerzése” címke elrejtése</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">A címke rejtve van</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">A címke látható</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Frissítés gomb elrejtése</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">A gomb rejtve van</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">A gomb látható</string>
   </patch>
   </app>
   <app id="twitch">

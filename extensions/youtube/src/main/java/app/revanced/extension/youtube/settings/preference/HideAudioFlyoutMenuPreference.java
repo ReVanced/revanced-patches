@@ -12,8 +12,8 @@ import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 public class HideAudioFlyoutMenuPreference extends SwitchPreference {
 
     {
-        // Audio menu is not available if spoofing to Android client type.
-        if (!SpoofVideoStreamsPatch.notSpoofingToAndroid()) {
+        // Audio menu is not available if spoofing to most client types.
+        if (SpoofVideoStreamsPatch.spoofingToClientWithNoMultiAudioStreams()) {
             String summary = str("revanced_hide_player_flyout_audio_track_not_available");
             setSummary(summary);
             setSummaryOn(summary);

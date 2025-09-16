@@ -68,6 +68,8 @@ Second \"item\" text"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">GmsCore  կարգավորումներ</string>
+  <string name="microg_settings_summary">GmsCore-ի  կարգավորումներ</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore-ը տեղադրված չէ։ Տեղադրեք այն։</string>
   <string name="gms_core_dialog_title">Անհրաժեշտ գործողություն</string>
@@ -83,6 +85,37 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
 
 Սեղմեք շարունակել կոճակը և թույլ տվեք օպտիմալացման փոփոխությունները։"</string>
   <string name="gms_core_dialog_continue_text">Շարունակել</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Հնարավոր է  տեսանյութի  հոսքերը  փոփոխել</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Փոփոխել  տեսանյութի  հոսքերը  համար  խուսափել  վերարտադրման  հետ  կապված  պրոբլեմներից</string>
+  <string name="revanced_spoof_video_streams_screen_title">Տեսահոսքերի կեղծում</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Կեղծել հաճախորդի տեսահոսքերը՝ նվագարկման խնդիրները կանխելու համար</string>
+  <string name="revanced_spoof_video_streams_title">Հնարավոր է  տեսանյութի  հոսքերը  փոփոխել</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Տեսահոսքերը կեղծված են
+
+Եթե դուք YouTube Premium օգտատեր եք, այս կարգավորումը կարող է անհրաժեշտ չլինել"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Տեսահոսքերը կեղծված չեն
+
+Նվագարկումը հնարավոր է՝ չաշխատի"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Այս կարգավորումն անջատելը կարող է նվագարկման խնդիրներ առաջացնել։</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Դեֆոլտ  կլիենտ</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Debug</string>
+  <string name="revanced_debug_screen_summary">Միացնել կամ անջատել առաջնորդման ռեժիմի ֆունկցիաները</string>
+  <string name="revanced_debug_title">Առաջնորդման մատնանշում</string>
+  <string name="revanced_debug_summary_on">Մարմնացման առաջնորդման մատնանշումները ակտիվացված են</string>
+  <string name="revanced_debug_summary_off">Մարմնացման առաջնորդման մատնանշումները անջատված են</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Արտահանել վրեժխնդրության կարգաբերման մատյանները</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Պատճենում է ReVanced-ի կարգաբերման մատյանները սեղմատախտակին</string>
+  <string name="revanced_debug_logs_disabled">Վրեժխնդրության մատյանների գրանցումն անջատված է</string>
+  <string name="revanced_debug_logs_none_found">Մատյաններ չեն գտնվել</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Մատյանները պատճենված են</string>
+  <string name="revanced_debug_logs_failed_to_export">Չհաջողվեց արտահանել տեղեկամատյանները՝ %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Մաքրել վրեժխնդրության մատյանները</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Մաքրում է բոլոր պահված ReVanced կարգաբերման մատյանները</string>
+  <string name="revanced_debug_logs_clear_toast">Մատյանները մաքրվել են</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts-ի  ֆոնային  վերարտադրությունը  հնարավոր  է</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Debug</string>
-  <string name="revanced_debug_screen_summary">Միացնել կամ անջատել առաջնորդման ռեժիմի ֆունկցիաները</string>
-  <string name="revanced_debug_title">Առաջնորդման մատնանշում</string>
-  <string name="revanced_debug_summary_on">Մարմնացման առաջնորդման մատնանշումները ակտիվացված են</string>
-  <string name="revanced_debug_summary_off">Մարմնացման առաջնորդման մատնանշումները անջատված են</string>
   <string name="revanced_debug_protobuffer_title">Բուֆերի արձանագրությունը մտնել</string>
   <string name="revanced_debug_protobuffer_summary_on">Մարմնացման առաջնորդման մատնանշումները պարունակում են բուֆերի տարր</string>
   <string name="revanced_debug_protobuffer_summary_off">Մարմնացման առաջնորդման մատնանշումները ներառում են բուֆերի տարր</string>
@@ -132,15 +160,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Սխալների տոաստի անջատումը թաքցնում է ReVanced-ի բոլոր սխալների ծանուցումները։
 
 Դուք չեք ստանա ան予期した出来事ի մասին ծանուցում։"</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Արտահանել վրեժխնդրության կարգաբերման մատյանները</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Պատճենում է ReVanced-ի կարգաբերման մատյանները սեղմատախտակին</string>
-  <string name="revanced_debug_logs_disabled">Վրեժխնդրության մատյանների գրանցումն անջատված է</string>
-  <string name="revanced_debug_logs_none_found">Մատյաններ չեն գտնվել</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Մատյանները պատճենված են</string>
-  <string name="revanced_debug_logs_failed_to_export">Չհաջողվեց արտահանել տեղեկամատյանները՝ %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Մաքրել վրեժխնդրության մատյանները</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Մաքրում է բոլոր պահված ReVanced կարգաբերման մատյանները</string>
-  <string name="revanced_debug_logs_clear_toast">Մատյանները մաքրվել են</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Թաքցնել  ալբոմի  քարտերը</string>
@@ -700,9 +719,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Աուդիո ձայնագրման մենյուը թաքցված է</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Աուդիո ձայնագրման մենյուը երևում է</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Աուդիո ուղու ընտրացանկը թաքնված է:
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Ձայնաուղու ընտրացանկը թաքնված է
 
-Աուդիո ուղու ընտրացանկը ցուցադրելու համար փոխեք «Կեղծել տեսահոսքերը»-ը iOS TV-ի"</string>
+Ձայնաուղու ընտրացանկը ցուցադրելու համար «Կեղծել տեսահոսքերը» փոխեք iPadOS-ի"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Դիտել VR-ով թաքցնել</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR-ով դիտել մենյուը թաքցված է</string>
@@ -1416,10 +1435,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
 Այս կարգավորման միացումը կարող է բացել տեսանյութի ավելի բարձր որակ։"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Այս  ընտրության  ակտիվացումը  կարող է  առաջացնել  տեսանյութի  վերարտադրման  հետ  կապված  պրոբլեմների,  ավելի  վատ  մարտկոցի  վերջնական  համարձակության  և  անհայտ  կողմնակի  ազդեցությունների</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">GmsCore  կարգավորումներ</string>
-  <string name="microg_settings_summary">GmsCore-ի  կարգավորումներ</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Հպումային արձագանք</string>
   <string name="revanced_disable_haptic_feedback_summary">Փոխել հպումային արձագանքը</string>
@@ -1533,35 +1548,54 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_slide_to_seek_summary_off">Սահելը  համար  ընտրելը  անջատված է</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Հնարավոր է  տեսանյութի  հոսքերը  փոփոխել</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Փոփոխել  տեսանյութի  հոսքերը  համար  խուսափել  վերարտադրման  հետ  կապված  պրոբլեմներից</string>
-  <string name="revanced_spoof_video_streams_title">Հնարավոր է  տեսանյութի  հոսքերը  փոփոխել</string>
-  <string name="revanced_spoof_video_streams_summary_on">Տեսանյութի  հոսքերը  փոփոխված են</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Տեսանյութի հոսքերը չեն կեղծվում
-
-Տեսանյութի վերարտադրումը կարող է չաշխատել։"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Այս  կարգավորման  անջատումը  կարող է  առաջացնել  տեսանյութի  վերարտադրման  հետ  կապված  պրոբլեմներ</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Դեֆոլտ  կլիենտ</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">iOS-ի համար AVC (H.264) պարտադիր ակտիվացում</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Վիդեո կոդեկը պարտադիր կերպով AVC (H.264) է</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Վիդեո կոդեկը որոշվում է ավտոմատ կերպով</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Սա ակտիվացնելը կարող է բարելավել մարտկոցի աշխատանքի տևողությունը և վերացնել վերարտադրման խցկումները։
-
-AVC-ի առավելագույն թույլտվությունը 1080p է, Opus աուդիո կոդեկը հասանելի չէ, իսկ վիդեոյի վերարտադրումը VP9-ից կամ AV1-ից ավելի շատ ինտերնետ տվյալներ կօգտագործի։"</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS խաբեության կողմնակի ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Ֆիլմերը կամ վճարովի տեսանյութերը չեն կարող աշխատել
-• Հասանելի չէ կայուն ձայնի ծավալը
-• Տեսանյութերը վերջանում են 1 վայրկյան վաղ"</string>
+  <string name="revanced_spoof_video_streams_about_title">Կեղծելու կողմնակի ազդեցություններ</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android խաբեության կողմնակի ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Ձայնի գրառման ընտրացանկը բացակայում է
-• Ստաբիլ ձայն չկա
-• Իրական ձայնի ընտրությունը հասանելի չէ"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Ձայնային ուղու մենյուն բացակայում է
+• Կայուն ձայնի մակարդակը հասանելի չէ"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Տեսանյութը կարող է դադարել 1:00-ին կամ հասանելի չլինել որոշ տարածաշրջաններում</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Փորձնական հաճախորդ է և կարող է ցանկացած պահի դադարել աշխատել</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Հեռացված բոլոր AV1 վիդեո կոդեկները</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">Երեխաների տեսանյութերը կարող են չհամապատասխանել հետևյալ պահանջներին՝ եթե արտոնագրման խախտումներ կան։</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Ցուցադրել վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Հաճախորդի տեսակը ցուցադրվում է վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Հաճախորդը թաքնված է վիճակագրության ակնոցներում</string>
-  <string name="revanced_spoof_video_streams_language_title">VR-ի համար նախապես ընտրված ձայնի գրառման լեզու</string>
+  <string name="revanced_spoof_video_streams_language_title">Ձայնային հոսքի լեզուն</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Որոշակի ձայնային լեզու ընտրելու համար անջատեք \'Պարտադրել բնօրինակ ձայնային լեզուն\'</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Մասին</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Գովազդներ</string>
+  <string name="revanced_settings_music_screen_2_general_title">Ընդհանուր</string>
+  <string name="revanced_settings_music_screen_3_player_title">Նվագարկիչ</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Տարբեր</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Թաքցնել տեսագովազդները</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Տեսագովազդները թաքցված են</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Տեսագովազդները ցուցադրվում են</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Միացնել մշտական կրկնություն</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Մշտական կրկնությունը միացված է</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Մշտական կրկնությունը անջատված է</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Թաքցնել կատեգորիաների վահանակը</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Կատեգորիաների վահանակը թաքցված է</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Կատեգորիաների վահանակը ցուցադրվում է</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Թաքցնել «Ստացեք Music Premium» պիտակը</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Պիտակը թաքցված է</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Պիտակը ցուցադրվում է</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Թաքցնել թարմացման կոճակը</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Կոճակը թաքցված է</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Կոճակը ցուցադրվում է</string>
   </patch>
   </app>
   <app id="twitch">
