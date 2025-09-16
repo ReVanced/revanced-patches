@@ -1,6 +1,5 @@
-package app.revanced.extension.youtube;
+package app.revanced.extension.shared;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
@@ -8,8 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Searches for a group of different patterns using a trie (prefix tree).
+/**Searches for a group of different patterns using a trie (prefix tree).
  * Can significantly speed up searching for multiple patterns.
  */
 public abstract class TrieSearch<T> {
@@ -136,7 +134,7 @@ public abstract class TrieSearch<T> {
          * @param patternLength Length of the pattern.
          * @param callback      Callback, where a value of NULL indicates to always accept a pattern match.
          */
-        private void addPattern(@NonNull T pattern, int patternIndex, int patternLength,
+        private void addPattern(T pattern, int patternIndex, int patternLength,
                                 @Nullable TriePatternMatchedCallback<T> callback) {
             if (patternIndex == patternLength) { // Reached the end of the pattern.
                 if (endOfPatternCallback == null) {
@@ -308,13 +306,13 @@ public abstract class TrieSearch<T> {
     private final List<T> patterns = new ArrayList<>();
 
     @SafeVarargs
-    TrieSearch(@NonNull TrieNode<T> root, @NonNull T... patterns) {
+    TrieSearch(TrieNode<T> root, T... patterns) {
         this.root = Objects.requireNonNull(root);
         addPatterns(patterns);
     }
 
     @SafeVarargs
-    public final void addPatterns(@NonNull T... patterns) {
+    public final void addPatterns(T... patterns) {
         for (T pattern : patterns) {
             addPattern(pattern);
         }
@@ -325,7 +323,7 @@ public abstract class TrieSearch<T> {
      *
      * @param pattern Pattern to add. Calling this with a zero length pattern does nothing.
      */
-    public void addPattern(@NonNull T pattern) {
+    public void addPattern(T pattern) {
         addPattern(pattern, root.getTextLength(pattern), null);
     }
 
@@ -333,31 +331,31 @@ public abstract class TrieSearch<T> {
      * @param pattern  Pattern to add. Calling this with a zero length pattern does nothing.
      * @param callback Callback to determine if searching should halt when a match is found.
      */
-    public void addPattern(@NonNull T pattern, @NonNull TriePatternMatchedCallback<T> callback) {
+    public void addPattern(T pattern, TriePatternMatchedCallback<T> callback) {
         addPattern(pattern, root.getTextLength(pattern), Objects.requireNonNull(callback));
     }
 
-    void addPattern(@NonNull T pattern, int patternLength, @Nullable TriePatternMatchedCallback<T> callback) {
+    void addPattern(T pattern, int patternLength, @Nullable TriePatternMatchedCallback<T> callback) {
         if (patternLength == 0) return; // Nothing to match
 
         patterns.add(pattern);
         root.addPattern(pattern, 0, patternLength, callback);
     }
 
-    public final boolean matches(@NonNull T textToSearch) {
+    public final boolean matches(T textToSearch) {
         return matches(textToSearch, 0);
     }
 
-    public boolean matches(@NonNull T textToSearch, @NonNull Object callbackParameter) {
+    public boolean matches(T textToSearch, Object callbackParameter) {
         return matches(textToSearch, 0, root.getTextLength(textToSearch),
                 Objects.requireNonNull(callbackParameter));
     }
 
-    public boolean matches(@NonNull T textToSearch, int startIndex) {
+    public boolean matches(T textToSearch, int startIndex) {
         return matches(textToSearch, startIndex, root.getTextLength(textToSearch));
     }
 
-    public final boolean matches(@NonNull T textToSearch, int startIndex, int endIndex) {
+    public final boolean matches(T textToSearch, int startIndex, int endIndex) {
         return matches(textToSearch, startIndex, endIndex, null);
     }
 
@@ -370,11 +368,11 @@ public abstract class TrieSearch<T> {
      * @param callbackParameter Optional parameter passed to the callbacks.
      * @return If any pattern matched, and it's callback halted searching.
      */
-    public boolean matches(@NonNull T textToSearch, int startIndex, int endIndex, @Nullable Object callbackParameter) {
+    public boolean matches(T textToSearch, int startIndex, int endIndex, @Nullable Object callbackParameter) {
         return matches(textToSearch, root.getTextLength(textToSearch), startIndex, endIndex, callbackParameter);
     }
 
-    private boolean matches(@NonNull T textToSearch, int textToSearchLength, int startIndex, int endIndex,
+    private boolean matches(T textToSearch, int textToSearchLength, int startIndex, int endIndex,
                             @Nullable Object callbackParameter) {
         if (endIndex > textToSearchLength) {
             throw new IllegalArgumentException("endIndex: " + endIndex

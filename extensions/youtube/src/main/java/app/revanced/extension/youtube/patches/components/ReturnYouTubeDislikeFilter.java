@@ -12,7 +12,7 @@ import app.revanced.extension.youtube.patches.ReturnYouTubeDislikePatch;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.youtube.TrieSearch;
+import app.revanced.extension.shared.TrieSearch;
 
 /**
  * Searches for video id's in the proto buffer of Shorts dislike.

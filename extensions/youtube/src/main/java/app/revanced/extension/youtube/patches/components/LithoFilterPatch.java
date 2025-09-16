@@ -8,7 +8,7 @@ import java.util.List;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.youtube.StringTrieSearch;
+import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
