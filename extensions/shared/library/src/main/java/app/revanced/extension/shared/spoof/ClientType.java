@@ -113,23 +113,6 @@ public enum ClientType {
             false,
             false,
             "iPadOS"
-    ),
-    /**
-     * Obsolete and broken client. Here only to migrate data.
-     */
-    @Deprecated
-    IOS_UNPLUGGED(
-            33,
-            "IOS_UNPLUGGED",
-            "Apple",
-            "iPhone16,2",
-            "iOS",
-            "18.2.22C152",
-            "8.49",
-            "dummy user-agent",
-            true,
-            true,
-            "iOS TV"
     );
 
     /**
