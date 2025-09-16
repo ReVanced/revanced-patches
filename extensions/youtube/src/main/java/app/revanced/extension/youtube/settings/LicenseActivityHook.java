@@ -58,7 +58,7 @@ public class LicenseActivityHook extends BaseActivityHook {
      */
     @Override
     protected int getContentViewResourceId() {
-        return Utils.getResourceIdentifier("revanced_settings_with_toolbar", "layout");
+        return LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR;
     }
 
     /**

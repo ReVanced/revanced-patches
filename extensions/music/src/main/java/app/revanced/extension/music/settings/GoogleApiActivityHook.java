@@ -48,6 +48,7 @@ public class GoogleApiActivityHook extends BaseActivityHook {
      */
     @Override
     protected int getContentViewResourceId() {
+        // In the future can use LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR when search will be shared.
         return Utils.getResourceIdentifier("revanced_music_settings_with_toolbar", "layout");
     }
 
