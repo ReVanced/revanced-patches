@@ -3,11 +3,7 @@ package app.revanced.extension.youtube.settings.preference;
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.graphics.Insets;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
@@ -17,11 +13,6 @@ import android.preference.SwitchPreference;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
-import android.util.TypedValue;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowInsets;
-import android.widget.TextView;
 import android.widget.Toolbar;
 
 import androidx.annotation.CallSuper;
@@ -40,16 +31,16 @@ import java.util.regex.Pattern;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
+import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
 import app.revanced.extension.youtube.settings.LicenseActivityHook;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 
 /**
  * Preference fragment for ReVanced settings.
  */
-@SuppressWarnings("deprecation")
-public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
+@SuppressWarnings({"deprecation", "NewApi"})
+public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
 
     /**
      * The main PreferenceScreen used to display the current set of preferences.
@@ -69,31 +60,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
      * but their sub preferences are included.
      */
     private final List<AbstractPreferenceSearchData<?>> allPreferences = new ArrayList<>();
-
-    @SuppressLint("UseCompatLoadingForDrawables")
-    public static Drawable getBackButtonDrawable() {
-        final int backButtonResource = getResourceIdentifier("revanced_settings_toolbar_arrow_left", "drawable");
-        Drawable drawable = Utils.getContext().getResources().getDrawable(backButtonResource);
-        drawable.setTint(Utils.getAppForegroundColor());
-        return drawable;
-    }
-
-    /**
-     * Sets the system navigation bar color for the activity.
-     * Applies the background color obtained from {@link Utils#getAppBackgroundColor()} to the navigation bar.
-     * For Android 10 (API 29) and above, enforces navigation bar contrast to ensure visibility.
-     */
-    public static void setNavigationBarColor(@Nullable Window window) {
-        if (window == null) {
-            Logger.printDebug(() -> "Cannot set navigation bar color, window is null");
-            return;
-        }
-
-        window.setNavigationBarColor(Utils.getAppBackgroundColor());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            window.setNavigationBarContrastEnforced(true);
-        }
-    }
 
     /**
      * Initializes the preference fragment, copying the original screen to allow full restoration.
@@ -140,7 +106,27 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     }
 
     /**
+     * Sets toolbar for all nested preference screens.
+     */
+    @Override
+    protected void customizeToolbar(Toolbar toolbar) {
+        LicenseActivityHook.setToolbarLayoutParams(toolbar);
+    }
+
+    /**
+     * Perform actions after toolbar setup.
+     */
+    @Override
+    protected void onPostToolbarSetup(Toolbar toolbar, Dialog preferenceScreenDialog) {
+        if (LicenseActivityHook.searchViewController != null
+                && LicenseActivityHook.searchViewController.isSearchActive()) {
+            toolbar.post(() -> LicenseActivityHook.searchViewController.closeSearch());
+        }
+    }
+
+    /**
      * Recursively collects all preferences from the screen or group.
+     *
      * @param includeDepth Menu depth to start including preferences.
      *                     A value of 0 adds all preferences.
      */
@@ -220,75 +206,6 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
                     "revanced_preference_with_icon_no_search_result", "layout"));
             noResultsPreference.setIcon(getResourceIdentifier("revanced_settings_search_icon", "drawable"));
             preferenceScreen.addPreference(noResultsPreference);
-        }
-    }
-
-    /**
-     * Sets toolbar for all nested preference screens.
-     */
-    private void setPreferenceScreenToolbar(PreferenceScreen parentScreen) {
-        for (int i = 0, count = parentScreen.getPreferenceCount(); i < count; i++) {
-            Preference childPreference = parentScreen.getPreference(i);
-            if (childPreference instanceof PreferenceScreen) {
-                // Recursively set sub preferences.
-                setPreferenceScreenToolbar((PreferenceScreen) childPreference);
-
-                childPreference.setOnPreferenceClickListener(
-                        childScreen -> {
-                            Dialog preferenceScreenDialog = ((PreferenceScreen) childScreen).getDialog();
-                            ViewGroup rootView = (ViewGroup) preferenceScreenDialog
-                                    .findViewById(android.R.id.content)
-                                    .getParent();
-
-                            // Fix the system navigation bar color for submenus.
-                            setNavigationBarColor(preferenceScreenDialog.getWindow());
-
-                            // Fix edge-to-edge screen with Android 15 and YT 19.45+
-                            // https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                                rootView.setOnApplyWindowInsetsListener((v, insets) -> {
-                                    Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
-                                    Insets navInsets = insets.getInsets(WindowInsets.Type.navigationBars());
-                                    Insets cutoutInsets = insets.getInsets(WindowInsets.Type.displayCutout());
-
-                                    // Apply padding for display cutout in landscape.
-                                    int leftPadding = cutoutInsets.left;
-                                    int rightPadding = cutoutInsets.right;
-                                    int topPadding = statusInsets.top;
-                                    int bottomPadding = navInsets.bottom;
-
-                                    v.setPadding(leftPadding, topPadding, rightPadding, bottomPadding);
-                                    return insets;
-                                });
-                            }
-
-                            Toolbar toolbar = new Toolbar(childScreen.getContext());
-                            toolbar.setTitle(childScreen.getTitle());
-                            toolbar.setNavigationIcon(getBackButtonDrawable());
-                            toolbar.setNavigationOnClickListener(view -> preferenceScreenDialog.dismiss());
-
-                            final int margin = Utils.dipToPixels(16);
-                            toolbar.setTitleMargin(margin, 0, margin, 0);
-
-                            TextView toolbarTextView = Utils.getChildView(toolbar,
-                                    true, TextView.class::isInstance);
-                            if (toolbarTextView != null) {
-                                toolbarTextView.setTextColor(Utils.getAppForegroundColor());
-                                toolbarTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
-                            }
-
-                            LicenseActivityHook.setToolbarLayoutParams(toolbar);
-
-                            if (LicenseActivityHook.searchViewController != null
-                                    && LicenseActivityHook.searchViewController.isSearchActive()) {
-                                toolbar.post(() -> LicenseActivityHook.searchViewController.closeSearch());
-                            }
-
-                            rootView.addView(toolbar, 0);
-                            return false;
-                        }
-                );
-            }
         }
     }
 }
