@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
 
@@ -55,7 +56,7 @@ public abstract class BaseActivityHook extends Activity {
 
             activity.getFragmentManager()
                     .beginTransaction()
-                    .replace(Utils.getResourceIdentifier("revanced_settings_fragments", "id"), fragment)
+                    .replace(Utils.getResourceIdentifier(ResourceType.ID, "revanced_settings_fragments"), fragment)
                     .commit();
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
@@ -70,7 +71,7 @@ public abstract class BaseActivityHook extends Activity {
         // Replace dummy placeholder toolbar.
         // This is required to fix submenu title alignment issue with Android ASOP 15+
         ViewGroup toolBarParent = activity.findViewById(
-                Utils.getResourceIdentifier("revanced_toolbar_parent", "id"));
+                Utils.getResourceIdentifier(ResourceType.ID, "revanced_toolbar_parent"));
         ViewGroup dummyToolbar = Utils.getChildViewByResourceName(toolBarParent, "revanced_toolbar");
         toolbarLayoutParams = dummyToolbar.getLayoutParams();
         toolBarParent.removeView(dummyToolbar);
@@ -82,7 +83,7 @@ public abstract class BaseActivityHook extends Activity {
         toolbar.setBackgroundColor(getToolbarBackgroundColor());
         toolbar.setNavigationIcon(getNavigationIcon());
         toolbar.setNavigationOnClickListener(getNavigationClickListener(activity));
-        toolbar.setTitle(Utils.getResourceIdentifier("revanced_settings_title", "string"));
+        toolbar.setTitle(Utils.getResourceIdentifier(ResourceType.STRING, "revanced_settings_title"));
 
         final int margin = Utils.dipToPixels(16);
         toolbar.setTitleMarginStart(margin);

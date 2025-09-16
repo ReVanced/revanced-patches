@@ -28,11 +28,13 @@ private val settingsResourcePatch = resourcePatch {
     dependsOn(
         resourceMappingPatch,
         settingsPatch(
-            IntentPreference(
-                titleKey = "revanced_settings_title",
-                summaryKey = null,
-                intent = newIntent("revanced_settings_intent"),
-            ) to "settings_headers",
+            listOf(
+                IntentPreference(
+                    titleKey = "revanced_settings_title",
+                    summaryKey = null,
+                    intent = newIntent("revanced_settings_intent"),
+                ) to "settings_headers"
+            ),
             preferences
         )
     )

@@ -8,6 +8,7 @@ import android.view.View;
 
 import app.revanced.extension.music.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseActivityHook;
 
@@ -37,7 +38,7 @@ public class GoogleApiActivityHook extends BaseActivityHook {
     protected void customizeActivityTheme(Activity activity) {
         // Override the default YouTube Music theme to increase start padding of list items.
         // Custom style located in resources/music/values/style.xml
-        activity.setTheme(Utils.getResourceIdentifier("Theme.ReVanced.YouTubeMusic.Settings", "style"));
+        activity.setTheme(Utils.getResourceIdentifier(ResourceType.STYLE, "Theme.ReVanced.YouTubeMusic.Settings"));
     }
 
     /**
@@ -45,7 +46,7 @@ public class GoogleApiActivityHook extends BaseActivityHook {
      */
     @Override
     protected int getContentViewResourceId() {
-        return Utils.getResourceIdentifier("revanced_music_settings_with_toolbar", "layout");
+        return Utils.getResourceIdentifier(ResourceType.LAYOUT, "revanced_music_settings_with_toolbar");
     }
 
     /**

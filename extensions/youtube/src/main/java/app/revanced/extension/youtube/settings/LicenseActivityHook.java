@@ -6,13 +6,10 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.preference.PreferenceFragment;
-import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toolbar;
 
-import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseActivityHook;
@@ -53,7 +50,7 @@ public class LicenseActivityHook extends BaseActivityHook {
         final var theme = Utils.isDarkModeEnabled()
                 ? "Theme.YouTube.Settings.Dark"
                 : "Theme.YouTube.Settings";
-        activity.setTheme(Utils.getResourceIdentifier(theme, "style"));
+        activity.setTheme(Utils.getResourceIdentifier(ResourceType.STYLE, theme));
     }
 
     /**
@@ -61,7 +58,7 @@ public class LicenseActivityHook extends BaseActivityHook {
      */
     @Override
     protected int getContentViewResourceId() {
-        return Utils.getResourceIdentifier("revanced_settings_with_toolbar", "layout");
+        return Utils.getResourceIdentifier(ResourceType.LAYOUT, "revanced_settings_with_toolbar");
     }
 
     /**
