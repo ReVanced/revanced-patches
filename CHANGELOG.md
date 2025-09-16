@@ -1,3 +1,10 @@
+# [5.38.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.38.0-dev.3...v5.38.0-dev.4) (2025-09-16)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Show settings summary if `Force original audio` is enabled ([3776dda](https://github.com/ReVanced/revanced-patches/commit/3776dda710a7780717b7e6f2cdc1333ab67b92fc))
+
 # [5.38.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.38.0-dev.2...v5.38.0-dev.3) (2025-09-16)
 
 
