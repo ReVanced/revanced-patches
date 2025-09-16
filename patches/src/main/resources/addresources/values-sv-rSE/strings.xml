@@ -721,7 +721,7 @@ Om du ändrar den här inställningen utan att det träder i kraft kan du testa 
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Menyn Ljudspår är dold
 
-Menyn Ljudspår är inte tillgänglig när \"Förfalska videoströmmar\" är aktiverad"</string>
+För att visa menyn Ljudspår, ändra \"Förfalska videoströmmar\" till iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Dölj Titta i VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menyn Titta i VR är dold</string>
@@ -1550,6 +1550,7 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Biverkningar av Android-förfalskning</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ljudspårsmenyn saknas
 • Jämn volym är inte tillgänglig"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video kan stoppa vid 1:00, eller kanske inte är tillgänglig i vissa regioner</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentell klient och kan sluta fungera när som helst</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ingen AV1-videokodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videor för barn kanske inte spelas upp när du är utloggad eller i inkognitoläge</string>
@@ -1557,6 +1558,8 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttypen visas i Statistik för nördar</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten är dold i Statistik för nördar</string>
   <string name="revanced_spoof_video_streams_language_title">Ljudströmmens språk</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">För att välja ett specifikt ljudspråk, inaktivera \"Tvinga originalspråk för ljud\"</string>
   </patch>
   </app>
   <app id="music">

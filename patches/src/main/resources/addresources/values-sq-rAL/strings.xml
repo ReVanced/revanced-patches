@@ -721,7 +721,7 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Menyja e gjurmës audio është e fshehur
 
-Menyja e gjurmës audio nuk është e disponueshme kur \"Falsifikoni transmetimet video\" është e aktivizuar"</string>
+Për të shfaqur menynë e gjurmës audio, ndryshoje 'Falsifiko transmetimet video' në iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Fsheh \"Shikoni në VR\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menyja \"Shikoni në VR\" është e fshehur</string>
@@ -1549,6 +1549,7 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efekte anësore të spoofinguit të Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menyja e gjurmës audio mungon
 • Volumi i qëndrueshëm nuk është i disponueshëm"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Videoja mund të ndalojë në 1:00, ose mund të mos jetë e disponueshme në disa rajone</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klient eksperimental dhe mund të ndalojë së funksionuari në çdo kohë</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nuk ka codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video për fëmijë mund të mos luajnë kur jeni jashtë llogarisë ose në modalitetin incognito</string>
@@ -1556,6 +1557,8 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Lloji i klientit shfaqet në Statistikat për nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienti është fshehur në statistikat për nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Gjuha e transmetimit audio</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Për të zgjedhur një gjuhë specifike audio, çaktivizoni \"Detyro gjuhën origjinale audio\"</string>
   </patch>
   </app>
   <app id="music">

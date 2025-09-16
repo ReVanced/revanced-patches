@@ -717,9 +717,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">เมนูแทร็กเสียงซ่อนอยู่</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">เมนูแทร็กเสียงแสดงอยู่</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"เมนูแทร็กเสียงถูกซ่อนไว้
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"เมนูแทร็กเสียงถูกซ่อน
 
-เมนูแทร็กเสียงไม่พร้อมใช้งานเมื่อเปิดใช้งาน 'ปลอมแปลงสตรีมวิดีโอ'"</string>
+หากต้องการแสดงเมนูแทร็กเสียง ให้เปลี่ยน 'สตรีมวิดีโอปลอม' เป็น iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">ซ่อนดูใน VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">เมนูดูใน VR ซ่อนอยู่</string>
@@ -1553,6 +1553,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_spoof_video_streams_about_android_title">ผลข้างเคียงของการปลอมแปลง Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• เมนูแทร็กเสียงหายไป
 • ระดับเสียงคงที่ใช้งานไม่ได้"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• วิดีโออาจหยุดที่ 1:00 หรืออาจไม่สามารถรับชมได้ในบางภูมิภาค</string>
   <string name="revanced_spoof_video_streams_about_experimental">• ไคลเอนต์ทดลองและอาจหยุดทำงานได้ตลอดเวลา</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• ไม่มีตัวแปลงสัญญาณวิดีโอ AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• วิดีโอเด็กอาจไม่เล่นเมื่อลงชื่อออกหรืออยู่ในโหมดไม่ระบุตัวตน</string>
@@ -1560,6 +1561,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">แสดงชนิดไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">ซ่อนไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_video_streams_language_title">ภาษาของสตรีมเสียง</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">หากต้องการเลือกภาษาเสียงที่ต้องการ ให้ปิด \'บังคับใช้ภาษาเสียงต้นฉบับ\'</string>
   </patch>
   </app>
   <app id="music">

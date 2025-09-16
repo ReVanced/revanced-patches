@@ -719,9 +719,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">已隱藏「音軌」選單</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">已顯示「音軌」選單</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"音軌選單已隱藏
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"已隱藏「音軌」選單
 
-當啟用「欺騙視訊串流」時，音軌選單不可用"</string>
+如要顯示音軌選單，請將「欺騙視訊串流」變更為 iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">隱藏「以 VR 模式觀看」</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">已隱藏「以 VR 模式觀看」</string>
@@ -1561,6 +1561,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_android_title">偽裝 Android 的副作用</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 音軌選單遺失
 • 無法使用穩定音量"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• 影片可能會在 1:00 停止，或在某些地區無法播放</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 實驗性用戶端，隨時可能停止運作</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• 沒有 AV1 影片解碼器</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• 在登出或無痕模式下，兒童影片可能無法播放</string>
@@ -1568,6 +1569,8 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">已在統計資料中顯示用戶端類型</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">已在統計資料中隱藏用戶端類型</string>
   <string name="revanced_spoof_video_streams_language_title">音訊串流語言</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">若要選擇特定的音訊語言，請關閉「強制使用原始音訊語言」</string>
   </patch>
   </app>
   <app id="music">
@@ -1594,7 +1597,7 @@ Second \"item\" text"</string>
   <string name="revanced_music_hide_category_bar_summary_off">類別列已顯示</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
-  <string name="revanced_music_hide_get_premium_label_title">隱藏「取得音樂進階版」標籤</string>
+  <string name="revanced_music_hide_get_premium_label_title">隱藏「取得 Music Premium」標籤</string>
   <string name="revanced_music_hide_get_premium_label_summary_on">標籤已隱藏</string>
   <string name="revanced_music_hide_get_premium_label_summary_off">標籤已顯示</string>
   </patch>

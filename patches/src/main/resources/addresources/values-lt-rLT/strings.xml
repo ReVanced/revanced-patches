@@ -721,7 +721,7 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Garso takelio meniu paslėptas
 
-Garso takelio meniu nepasiekiamas, kai įjungta „Klastoti vaizdo srautus“"</string>
+Norėdami parodyti garso takelio meniu, pakeiskite „Klastoti vaizdo srautus“ į „iPadOS“"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Slėpti Žiūrėti VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Žiūrėti VR meniu yra paslėptas</string>
@@ -1552,6 +1552,7 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_spoof_video_streams_about_android_title">Android apsimetinėjimo šalutiniai poveikiai</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Trūksta garso takelio meniu
 • Stabilus garsumas nepasiekiamas"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Vaizdo įrašas gali sustoti ties 1:00 arba gali būti nepasiekiamas kai kuriuose regionuose</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentinis klientas ir bet kada gali nustoti veikti</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nėra AV1 vaizdo kodeko</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Vaikų vaizdo įrašai gali būti neatkuriami, kai atsijungiama arba naudojamas inkognito režimas</string>
@@ -1559,6 +1560,8 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Kliento tipas rodomas statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klientas paslėptas statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_video_streams_language_title">Garso srauto kalba</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Norėdami pasirinkti konkrečią garso kalbą, išjunkite „Priverstinė originali garso kalba“.</string>
   </patch>
   </app>
   <app id="music">

@@ -721,7 +721,7 @@ Als het wijzigen van deze instelling geen effect heeft, probeer dan over te scha
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Audiotracks-menu is verborgen
 
-Het audiotracks-menu is niet beschikbaar wanneer 'Videostreams spoofen' is ingeschakeld"</string>
+Om het audiotracks-menu te tonen, wijzig 'Videostreams spoofen' naar iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Verberg Bekijk in VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu Bekijk in VR is verborgen</string>
@@ -1549,6 +1549,7 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Bijwerkingen van Android-spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Audiotracks-menu ontbreekt
 • Stabiel volume is niet beschikbaar"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video kan stoppen om 1:00, of is mogelijk niet beschikbaar in sommige regio\'s</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentele client en kan elk moment stoppen met werken</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Geen AV1-videocodec</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• \"Kinder\"​-Video’s worden mogelijk niet afgespeeld wanneer u bent uitgelogd of de incognitomodus gebruikt</string>
@@ -1556,6 +1557,8 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Het clienttype wordt getoond in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is verborgen in Stats for nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Audiostreamtaal</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Om een specifieke audiotaal te selecteren, schakel \"Oorspronkelijke audiotaal forceren\" uit</string>
   </patch>
   </app>
   <app id="music">

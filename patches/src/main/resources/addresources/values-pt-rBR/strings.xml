@@ -719,9 +719,7 @@ Se alterar esta configuração não fizer efeito, tente mudar para o modo anôni
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu faixa de áudio está oculto</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menu faixa de áudio não está oculto</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menu de faixas de áudio está oculto
-
-O menu de faixa de áudio não está disponível quando \"Falsificar streams de vídeo\" está ativado"</string>
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"O menu da faixa de áudio está ocultoPara mostrar o menu da faixa de áudio, altere \"Falsificar fluxos de vídeo\" para iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ocultar Assistir no VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu assistir no VR está oculto</string>
@@ -1550,6 +1548,7 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efeitos colaterais da falsificação do Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• O menu de faixa de áudio está faltando
 • Volume estável não está disponível"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• O vídeo pode parar em 1:00, ou pode não estar disponível em algumas regiões</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Cliente experimental e pode parar de funcionar a qualquer momento</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Sem codec de vídeo AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Vídeos infantis podem não ser reproduzidos quando estiver desconectado ou no modo de navegação anônima</string>
@@ -1557,6 +1556,8 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">O tipo de cliente é mostrado em Estatísticas para nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">O cliente está oculto em Estatísticas para nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma do fluxo de áudio</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Para selecionar um idioma de áudio específico, desative \"Forçar idioma de áudio original\"</string>
   </patch>
   </app>
   <app id="music">

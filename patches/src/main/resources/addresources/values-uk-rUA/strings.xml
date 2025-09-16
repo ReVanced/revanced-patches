@@ -721,7 +721,7 @@ Second \"item\" text"</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Пункт меню \"Звукова доріжка\" приховано
 
-Пункт меню \"Звукова доріжка\" недоступний, коли увімкнено \"Підробку відеопотоків\""</string>
+Для того, щоб пункт меню \"Звукова доріжка\" показувався, змініть клієнт \"Підробки відеопотоків\" на iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Приховати \"Дивитись у VR\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Пункт меню \"Дивитись у VR\" приховано</string>
@@ -1550,6 +1550,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Побічні ефекти підробки Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Меню звукової доріжки відсутнє
 • Меню стабілізації гучності недоступне"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Відео може зупинитися на 1:00, або може бути недоступним у деяких регіонах</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментальний клієнт, який може припинити працювати будь-якої миті</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Відсутній відеокодек AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Відео для дітей можуть не відтворюватися, якщо вийти з облікового запису або перейти в анонімний режим</string>
@@ -1557,6 +1558,8 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клієнта відображається у вікні \"Статистика для сисадмінів\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клієнта приховано у вікні \"Статистика для сисадмінів\"</string>
   <string name="revanced_spoof_video_streams_language_title">Мова звукової доріжки</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Щоб вибрати певну аудіомову, вимкніть \"Примусово використовувати оригінальну аудіомову\"</string>
   </patch>
   </app>
   <app id="music">

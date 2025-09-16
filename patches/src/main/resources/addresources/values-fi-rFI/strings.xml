@@ -721,7 +721,7 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Ääniraitavalikko on piilotettu
 
-Ääniraitavalikko ei ole käytettävissä, kun \"Videostriimien väärentäminen\" on käytössä"</string>
+Näyttääksesi ääniraitavalikon, muuta \"Videostriimien väärentäminen\" arvoon iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Piilota Katso VR-tilassa</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Katso VR-tilassa -valinta on piilotettu</string>
@@ -1551,6 +1551,7 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android-naamioinnin haittavaikutukset</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ääniraita-valikko puuttuu
 • Vakaa äänenvoimakkuus ei ole käytettävissä"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video voi pysähtyä ajassa 1:00, tai ei välttämättä ole saatavilla joillakin alueilla</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Kokeellinen asiakasohjelma, joka saattaa lakata toimimasta milloin tahansa</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ei AV1-videokoodekkia</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Lasten videot eivät ehkä toistu, kun olet kirjautunut ulos tai incognito-tilassa</string>
@@ -1558,6 +1559,8 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Asiakastyyppi näytetään teknisissä tiedoissa</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Asiakastyyppi on piilotettu teknisissä tiedoissa</string>
   <string name="revanced_spoof_video_streams_language_title">Äänivirran kieli</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Valitaksesi tietyn äänikielen, poista käytöstä \'Pakota alkuperäinen äänikieli\'</string>
   </patch>
   </app>
   <app id="music">

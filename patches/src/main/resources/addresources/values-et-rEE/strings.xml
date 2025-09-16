@@ -719,9 +719,9 @@ Kui selle sätte muutmine ei avalda mõju, proovige lülituda Inkognito režiimi
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Helitraekide menüü on peidetud</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Helitraekide menüü on nähtav</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Heliriba menüü on peidetud
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Heliraja menüü on peidetud
 
-Heliriba menüü pole saadaval, kui \"Videovoogude võltsimine\" on lubatud"</string>
+Heliraja menüü nägemiseks muutke \"Video voogude võltsimine\" iPadOS-iks"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Peida Vaata VR-is</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Vaata VR-is menüü on peidetud</string>
@@ -1551,6 +1551,7 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Androidi pettuse kõrvalmõjud</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Heliriba menüü puudub
 • Stabiilne helitugevus pole saadaval"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video võib peatuda kell 1:00 või ei pruugi olla teatud piirkondades saadaval</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentaalne klient ja võib igal ajal töötamast lakata</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Puuduv AV1 videokoodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video lastele ei pruugi taasesitada, kui olete välja logitud või inkognito režiimis</string>
@@ -1558,6 +1559,8 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienditüüp on statistikas \"Nerdide jaoks\" nähtav</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient on statistikas \"Nerdide jaoks\" peidetud</string>
   <string name="revanced_spoof_video_streams_language_title">Helivoo keel</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Konkreetse helikeele valimiseks lülita välja \"Sunni algne helikeel\"</string>
   </patch>
   </app>
   <app id="music">

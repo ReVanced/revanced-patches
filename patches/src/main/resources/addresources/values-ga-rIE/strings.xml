@@ -721,7 +721,7 @@ Mura dtagann aon athrú ar an socrú seo, bain triail as mód Incognito a chur a
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Tá roghchlár an rian fuaime i bhfolach
 
-Níl roghchlár an rian fuaime ar fáil nuair atá 'Sruthanna físeáin bhréige' cumasaithe"</string>
+Chun roghchlár an rian fuaime a thaispeáint, athraigh 'Sruthanna físeáin bhréige' go iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Folaigh Watch i VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Tá faire i roghchlár VR i bhfolach</string>
@@ -1551,6 +1551,7 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Éifeachtaí taobh Android a mhalartú</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Tá roghchlár an rian fuaime ar iarraidh
 • Níl an toirt chobhsaí ar fáil"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Is féidir go stopfaidh an físeán ag 1:00, nó b\'fhéidir nach mbeidh sé ar fáil i réigiúin áirithe</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Cliant turgnamhach é seo agus féadfaidh sé stop a chur ag obair ag am ar bith</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Níl aon chóidéir físe AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videos faoi phaistí uaireanta nach imreoidh nuair a bhíonn tú logáilte amach nó i mod incognito</string>
@@ -1558,6 +1559,8 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Taispeántar cineál an chliaint i Staitisticí do nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Tá an cliant curtha i bhfolach i Staitisticí do nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Teanga an tsrutha fuaime</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Chun teanga fuaime shonrach a roghnú, múch \'Cuir iallach ar bhunteanga fuaime\'</string>
   </patch>
   </app>
   <app id="music">

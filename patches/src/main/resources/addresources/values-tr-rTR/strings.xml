@@ -721,7 +721,7 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Ses parçası menüsü gizli
 
-\"Video akışlarını taklit et\" etkinken ses parçası menüsü kullanılamaz"</string>
+Ses parçası menüsünü göstermek için 'Video akışlarını taklit et' ayarını iPadOS olarak değiştirin"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">VR modunda izlemeyi gizle</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR modunda izle menüsü gizli</string>
@@ -1558,6 +1558,7 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android taklidi yan etkileri</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ses parçası menüsü eksik
 • Sabit ses özelliği kullanılamaz"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video 1:00\'da durabilir veya bazı bölgelerde kullanılamayabilir</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Deneysel istemci ve her an çalışmayı durdurabilir</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Çocuk videoları oturum açılmadığında veya gizli modda oynatılamayabilir</string>
@@ -1565,6 +1566,8 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">İstemci tipi meraklısı için istatistiklerde gösterilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">İstemci, meraklısı için istatistiklerde gizli</string>
   <string name="revanced_spoof_video_streams_language_title">Ses akışı dili</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Belirli bir ses dilini seçmek için \'Orijinal ses dilini zorla\' seçeneğini kapatın</string>
   </patch>
   </app>
   <app id="music">

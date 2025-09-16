@@ -242,6 +242,7 @@ Second \"item\" text"</string>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   </patch>
   </app>
   <app id="music">

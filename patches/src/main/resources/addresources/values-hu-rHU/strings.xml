@@ -719,9 +719,9 @@ Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó mó
   <string name="revanced_hide_player_flyout_audio_track_summary_on">A hangsáv menü el van rejtve</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">A hangsáv menü megjelenik</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Az hangsáv menü elrejtve
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Az hangsáv menü rejtett
 
-Az hangsáv menü nem érhető el, ha a \"Videó adatfolyamok hamisítása\" engedélyezve van"</string>
+Az hangsáv menü megjelenítéséhez állítsa a 'Videó stream-ek meghamisítása' beállítást iPadOS-re"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">\"Megtekintés VR-módban\" elrejtése</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">A megtekintés VR-módban menü el van rejtve</string>
@@ -1548,6 +1548,7 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_spoof_video_streams_about_android_title">Android hamisítási mellékhatások</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Az hangsáv menü hiányzik
 • Stabil hangerő nem érhető el"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• A videó megállhat 1:00-nál, vagy előfordulhat, hogy egyes régiókban nem elérhető</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Kísérleti kliens, és bármikor leállhat</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nincs AV1 videokodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• A gyermekeknek szóló videók nem játszódnak le, ha a felhasználó kijelentkezett, vagy inkognitómódban van.</string>
@@ -1555,6 +1556,8 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">A kliens típusa a Statisztikákban látható</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">A kliens el van rejtve a Statisztikákban</string>
   <string name="revanced_spoof_video_streams_language_title">Hangfolyam nyelve</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Egy adott hangsáv nyelv kiválasztásához kapcsold ki az \"Eredeti hangsáv nyelv kikényszerítése\" opciót</string>
   </patch>
   </app>
   <app id="music">
