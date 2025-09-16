@@ -78,18 +78,25 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
         Logger.printDebug(() -> "Updating spoof stream side effects preference");
         setEnabled(BaseSettings.SPOOF_VIDEO_STREAMS.get());
 
-        String title = str("revanced_spoof_video_streams_about_title");
-        // Currently only Android VR and VisionOS are supported, and both have the same base side effects.
-        String summary = str("revanced_spoof_video_streams_about_android_summary");
-        summary += '\n' + str("revanced_spoof_video_streams_about_kids_videos");
+        setTitle(str("revanced_spoof_video_streams_about_title"));
 
-        if (clientType == ClientType.VISIONOS) {
+        String summary = str(clientType == ClientType.IPADOS
+                ? "revanced_spoof_video_streams_about_ipados_summary"
+                // visionOS has same base side effects as Android VR.
+                : "revanced_spoof_video_streams_about_android_summary");
+
+        if (clientType == ClientType.IPADOS) {
+            summary = str("revanced_spoof_video_streams_about_no_av1")
+                    + '\n' + summary;
+        } else if (clientType == ClientType.VISIONOS) {
             summary = str("revanced_spoof_video_streams_about_experimental")
                     + '\n' + summary
-                    + '\n' + str("revanced_spoof_video_streams_about_no_av1");
+                    + '\n' + str("revanced_spoof_video_streams_about_no_av1")
+                    + '\n' + str("revanced_spoof_video_streams_about_kids_videos");
+        } else {
+            summary += '\n' + str("revanced_spoof_video_streams_about_kids_videos");
         }
 
-        setTitle(title);
         setSummary(summary);
     }
 }

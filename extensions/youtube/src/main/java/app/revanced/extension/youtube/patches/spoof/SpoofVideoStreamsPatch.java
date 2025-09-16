@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.patches.spoof;
 import static app.revanced.extension.shared.spoof.ClientType.ANDROID_CREATOR;
 import static app.revanced.extension.shared.spoof.ClientType.ANDROID_VR_1_43_32;
 import static app.revanced.extension.shared.spoof.ClientType.ANDROID_VR_1_61_48;
+import static app.revanced.extension.shared.spoof.ClientType.IPADOS;
 import static app.revanced.extension.shared.spoof.ClientType.VISIONOS;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class SpoofVideoStreamsPatch {
                 ANDROID_VR_1_61_48,
                 ANDROID_CREATOR,
                 VISIONOS,
+                IPADOS,
                 // VR 1.43 must be last as spoof streaming data handles it slightly differently.
                 ANDROID_VR_1_43_32
         );

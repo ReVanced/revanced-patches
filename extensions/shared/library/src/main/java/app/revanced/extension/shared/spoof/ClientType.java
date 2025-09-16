@@ -10,6 +10,7 @@ import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 
+@SuppressWarnings("ConstantLocale")
 public enum ClientType {
     /**
      * Video not playable: Kids / Paid / Movie / Private / Age-restricted.
@@ -87,6 +88,48 @@ public enum ClientType {
             false,
             false,
             "visionOS"
+    ),
+    /**
+     * The device machine id for the iPad 6th Gen (iPad7,6).
+     * AV1 hardware decoding is not supported.
+     * See [this GitHub Gist](https://gist.github.com/adamawolf/3048717) for more information.
+     *
+     * Based on Google's actions to date, PoToken may not be required on devices with very low specs.
+     * For example, suppose the User-Agent for a PlayStation 3 (with 256MB of RAM) is used.
+     * Accessing 'Web' (https://www.youtube.com) will redirect to 'TV' (https://www.youtube.com/tv).
+     * 'TV' target devices with very low specs, such as embedded devices, game consoles, and blu-ray players, so PoToken is not required.
+     *
+     * For this reason, the device machine id for the iPad 6th Gen (with 2GB of RAM),
+     * the lowest spec device capable of running iPadOS 17, was used.
+     */
+    IPADOS(5,
+            "IOS",
+            "Apple",
+            "iPad7,6",
+            "iPadOS",
+            "17.7.10.21H450",
+            "19.22.3",
+            "com.google.ios.youtube/19.22.3 (iPad7,6; U; CPU iPadOS 17_7_10 like Mac OS X; " + Locale.getDefault() + ")",
+            false,
+            false,
+            "iPadOS"
+    ),
+    /**
+     * Obsolete and broken client. Here only to migrate data.
+     */
+    @Deprecated
+    IOS_UNPLUGGED(
+            33,
+            "IOS_UNPLUGGED",
+            "Apple",
+            "iPhone16,2",
+            "iOS",
+            "18.2.22C152",
+            "8.49",
+            "dummy user-agent",
+            true,
+            true,
+            "iOS TV"
     );
 
     /**
@@ -173,7 +216,6 @@ public enum ClientType {
     /**
      * Android constructor.
      */
-    @SuppressWarnings("ConstantLocale")
     ClientType(int id,
                String clientName,
                @NonNull String packageName,
