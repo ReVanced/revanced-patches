@@ -1,12 +1,17 @@
 package app.revanced.patches.music.misc.gms
 
 import app.revanced.patcher.patch.Option
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.Constants.REVANCED_MUSIC_PACKAGE_NAME
-import app.revanced.patches.music.misc.spoof.spoofClientPatch
+import app.revanced.patches.music.misc.settings.PreferenceScreen
+import app.revanced.patches.music.misc.settings.settingsPatch
+import app.revanced.patches.music.misc.spoof.spoofVideoStreamsPatch
 import app.revanced.patches.shared.castContextFetchFingerprint
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
+import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.shared.primeMethodFingerprint
 
 @Suppress("unused")
@@ -21,7 +26,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
-    dependsOn(spoofClientPatch)
+    dependsOn(spoofVideoStreamsPatch)
 
     compatibleWith(MUSIC_PACKAGE_NAME)
 }
@@ -33,4 +38,23 @@ private fun gmsCoreSupportResourcePatch(
     toPackageName = REVANCED_MUSIC_PACKAGE_NAME,
     gmsCoreVendorGroupIdOption = gmsCoreVendorGroupIdOption,
     spoofedPackageSignature = "afb0fed5eeaebdd86f56a97742f4b6b33ef59875",
-)
+    executeBlock = {
+        addResources("shared", "misc.gms.gmsCoreSupportResourcePatch")
+
+        val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
+
+        PreferenceScreen.MISC.addPreferences(
+            IntentPreference(
+                "microg_settings",
+                intent = IntentPreference.Intent("", "org.microg.gms.ui.SettingsActivity") {
+                    "$gmsCoreVendorGroupId.android.gms"
+                }
+            )
+        )
+    }
+) {
+    dependsOn(
+        addResourcesPatch,
+        settingsPatch
+    )
+}

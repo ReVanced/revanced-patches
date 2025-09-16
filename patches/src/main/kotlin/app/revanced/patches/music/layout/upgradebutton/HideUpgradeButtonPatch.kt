@@ -7,20 +7,47 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.newLabel
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.toInstructions
+import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.music.misc.extension.sharedExtensionPatch
+import app.revanced.patches.music.misc.settings.PreferenceScreen
+import app.revanced.patches.music.misc.settings.settingsPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction22t
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideUpgradeButtonPatch;"
+
 @Suppress("unused")
-val removeUpgradeButtonPatch = bytecodePatch(
-    name = "Remove upgrade button",
-    description = "Removes the upgrade tab from the pivot bar.",
+val hideUpgradeButton = bytecodePatch(
+    name = "Hide upgrade button",
+    description = "Hides the upgrade tab from the pivot bar.",
 ) {
-    compatibleWith("com.google.android.apps.youtube.music")
+    dependsOn(
+        sharedExtensionPatch,
+        settingsPatch,
+        addResourcesPatch,
+    )
+
+    compatibleWith(
+        "com.google.android.apps.youtube.music"(
+            "7.29.52"
+        )
+    )
 
     execute {
+        addResources("music", "layout.upgradebutton.hideUpgradeButtonPatch")
+
+        // TODO: Add an extension patch to allow this to be enabled/disabled in app.
+        if (false) {
+            PreferenceScreen.ADS.addPreferences(
+                SwitchPreference("revanced_music_hide_upgrade_button")
+            )
+        }
+
         pivotBarConstructorFingerprint.method.apply {
             val pivotBarElementFieldReference =
                 getInstruction(pivotBarConstructorFingerprint.patternMatch!!.endIndex - 1)
@@ -72,4 +99,10 @@ val removeUpgradeButtonPatch = bytecodePatch(
             )
         }
     }
+}
+
+@Deprecated("Patch was renamed", ReplaceWith("hideUpgradeButton"))
+@Suppress("unused")
+val removeUpgradeButton = bytecodePatch{
+    dependsOn(hideUpgradeButton)
 }

@@ -1,16 +1,22 @@
 package app.revanced.extension.youtube.settings.preference;
 
+import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
-import static app.revanced.extension.youtube.settings.LicenseActivityHook.searchViewController;
-import static app.revanced.extension.youtube.settings.LicenseActivityHook.setToolbarLayoutParams;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.graphics.Insets;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.BackgroundColorSpan;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -18,17 +24,32 @@ import android.view.WindowInsets;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import androidx.annotation.CallSuper;
 import androidx.annotation.Nullable;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
+import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
+import app.revanced.extension.youtube.settings.LicenseActivityHook;
+import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 
 /**
  * Preference fragment for ReVanced settings.
  */
 @SuppressWarnings({"deprecation", "NewApi"})
-public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
+public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
 
     /**
      * The main PreferenceScreen used to display the current set of preferences.
@@ -36,30 +57,18 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
      */
     private PreferenceScreen preferenceScreen;
 
-    @SuppressLint("UseCompatLoadingForDrawables")
-    public static Drawable getBackButtonDrawable() {
-        final int backButtonResource = getResourceIdentifier("revanced_settings_toolbar_arrow_left", "drawable");
-        Drawable drawable = Utils.getContext().getResources().getDrawable(backButtonResource);
-        drawable.setTint(Utils.getAppForegroundColor());
-        return drawable;
-    }
+    /**
+     * A copy of the original PreferenceScreen created during initialization.
+     * Used to restore the preference structure to its initial state after filtering or other modifications.
+     */
+    private PreferenceScreen originalPreferenceScreen;
 
     /**
-     * Sets the system navigation bar color for the activity.
-     * Applies the background color obtained from {@link Utils#getAppBackgroundColor()} to the navigation bar.
-     * For Android 10 (API 29) and above, enforces navigation bar contrast to ensure visibility.
+     * Used for searching preferences. A Collection of all preferences including nested preferences.
+     * Root preferences are excluded (no need to search what's on the root screen),
+     * but their sub preferences are included.
      */
-    public static void setNavigationBarColor(@Nullable Window window) {
-        if (window == null) {
-            Logger.printDebug(() -> "Cannot set navigation bar color, window is null");
-            return;
-        }
-
-        window.setNavigationBarColor(Utils.getAppBackgroundColor());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            window.setNavigationBarContrastEnforced(true);
-        }
-    }
+    private final List<AbstractPreferenceSearchData<?>> allPreferences = new ArrayList<>();
 
     /**
      * Initializes the preference fragment.
@@ -95,79 +104,28 @@ public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
     }
 
     /**
+     * Sets toolbar for all nested preference screens.
+     */
+    @Override
+    protected void customizeToolbar(Toolbar toolbar) {
+        LicenseActivityHook.setToolbarLayoutParams(toolbar);
+    }
+
+    /**
+     * Perform actions after toolbar setup.
+     */
+    @Override
+    protected void onPostToolbarSetup(Toolbar toolbar, Dialog preferenceScreenDialog) {
+        if (LicenseActivityHook.searchViewController != null
+                && LicenseActivityHook.searchViewController.isSearchActive()) {
+            toolbar.post(() -> LicenseActivityHook.searchViewController.closeSearch());
+        }
+    }
+
+    /**
      * Returns the preference screen for external access by SearchViewController.
      */
     public PreferenceScreen getPreferenceScreenForSearch() {
         return preferenceScreen;
-    }
-
-    /**
-     * Sets toolbar for all nested preference screens.
-     */
-    private void setPreferenceScreenToolbar(PreferenceScreen parentScreen) {
-        for (int i = 0, count = parentScreen.getPreferenceCount(); i < count; i++) {
-            Preference childPreference = parentScreen.getPreference(i);
-            if (childPreference instanceof PreferenceScreen) {
-                // Recursively set sub preferences.
-                setPreferenceScreenToolbar((PreferenceScreen) childPreference);
-
-                childPreference.setOnPreferenceClickListener(
-                        childScreen -> {
-                            Dialog preferenceScreenDialog = ((PreferenceScreen) childScreen).getDialog();
-                            ViewGroup rootView = (ViewGroup) preferenceScreenDialog
-                                    .findViewById(android.R.id.content)
-                                    .getParent();
-
-                            // Fix the system navigation bar color for submenus.
-                            setNavigationBarColor(preferenceScreenDialog.getWindow());
-
-                            // Fix edge-to-edge screen with Android 15 and YT 19.45+
-                            // https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                                rootView.setOnApplyWindowInsetsListener((v, insets) -> {
-                                    Insets statusInsets = insets.getInsets(WindowInsets.Type.statusBars());
-                                    Insets navInsets = insets.getInsets(WindowInsets.Type.navigationBars());
-                                    Insets cutoutInsets = insets.getInsets(WindowInsets.Type.displayCutout());
-
-                                    // Apply padding for display cutout in landscape.
-                                    int leftPadding = cutoutInsets.left;
-                                    int rightPadding = cutoutInsets.right;
-                                    int topPadding = statusInsets.top;
-                                    int bottomPadding = navInsets.bottom;
-
-                                    v.setPadding(leftPadding, topPadding, rightPadding, bottomPadding);
-                                    return insets;
-                                });
-                            }
-
-                            Toolbar toolbar = new Toolbar(childScreen.getContext());
-                            toolbar.setTitle(childScreen.getTitle());
-                            toolbar.setNavigationIcon(getBackButtonDrawable());
-                            toolbar.setNavigationOnClickListener(view -> preferenceScreenDialog.dismiss());
-
-                            final int margin = Utils.dipToPixels(16);
-                            toolbar.setTitleMargin(margin, 0, margin, 0);
-
-                            TextView toolbarTextView = Utils.getChildView(toolbar,
-                                    true, TextView.class::isInstance);
-                            if (toolbarTextView != null) {
-                                toolbarTextView.setTextColor(Utils.getAppForegroundColor());
-                                toolbarTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
-                            }
-
-                            setToolbarLayoutParams(toolbar);
-
-                            // Close search overlay if active when opening submenus.
-                            if (searchViewController != null
-                                    && searchViewController.isSearchActive()) {
-                                toolbar.post(() -> searchViewController.closeSearch());
-                            }
-
-                            rootView.addView(toolbar, 0);
-                            return false;
-                        }
-                );
-            }
-        }
     }
 }

@@ -68,6 +68,8 @@ Second \"item\" text"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Cài đặt GmsCore</string>
+  <string name="microg_settings_summary">Các cài đặt cho GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore chưa được cài đặt. Hãy cài đặt ngay.</string>
   <string name="gms_core_dialog_title">Cần thực hiện</string>
@@ -83,6 +85,37 @@ Tắt tối ưu hóa pin cho MicroG sẽ không ảnh hưởng đáng kể đế
 
 Nhấn nút tiếp tục và cho phép thay đổi lựa chọn tối ưu hóa."</string>
   <string name="gms_core_dialog_continue_text">Tiếp tục</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Giả mạo luồng video</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Giả mạo luồng video của thiết bị nhằm ngăn chặn lỗi khi phát</string>
+  <string name="revanced_spoof_video_streams_screen_title">Giả mạo luồng video</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Giả mạo luồng video của thiết bị nhằm ngăn chặn lỗi khi phát</string>
+  <string name="revanced_spoof_video_streams_title">Giả mạo luồng video</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Luồng video đã được giả mạo
+
+Nếu bạn là người dùng YouTube Premium, thì cài đặt này có thể không cần thiết"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Luồng video không được giả mạo
+
+Có thể gặp lỗi khi phát."</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Tắt cài đặt này có thể gây ra lỗi khi phát.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Loại thiết bị mặc định</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Gỡ lỗi</string>
+  <string name="revanced_debug_screen_summary">Bật hoặc tắt tùy chọn gỡ lỗi</string>
+  <string name="revanced_debug_title">Nhật ký gỡ lỗi</string>
+  <string name="revanced_debug_summary_on">Nhật ký gỡ lỗi đã bật</string>
+  <string name="revanced_debug_summary_off">Nhật ký gỡ lỗi đã tắt</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Xuất nhật ký gỡ lỗi</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Sao chép nhật ký gỡ lỗi ReVanced vào bảng nhớ tạm</string>
+  <string name="revanced_debug_logs_disabled">Tính năng ghi nhật ký gỡ lỗi đã tắt</string>
+  <string name="revanced_debug_logs_none_found">Không tìm thấy nhật ký</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Đã sao chép nhật ký</string>
+  <string name="revanced_debug_logs_failed_to_export">Xuất nhật ký thất bại: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Xóa nhật ký gỡ lỗi</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Xóa tất cả nhật ký gỡ lỗi ReVanced đã lưu trữ</string>
+  <string name="revanced_debug_logs_clear_toast">Đã xóa nhật ký</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Nhấn nút tiếp tục và cho phép thay đổi lựa chọn tối ưu hóa."
   <string name="revanced_shorts_disable_background_playback_summary_off">Phát nền cho Shorts được bật</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Gỡ lỗi</string>
-  <string name="revanced_debug_screen_summary">Bật hoặc tắt tùy chọn gỡ lỗi</string>
-  <string name="revanced_debug_title">Nhật ký gỡ lỗi</string>
-  <string name="revanced_debug_summary_on">Nhật ký gỡ lỗi đã bật</string>
-  <string name="revanced_debug_summary_off">Nhật ký gỡ lỗi đã tắt</string>
   <string name="revanced_debug_protobuffer_title">Bộ đệm giao thức nhật ký</string>
   <string name="revanced_debug_protobuffer_summary_on">Ghi nhật ký gỡ lỗi bao gồm thông tin bộ đệm nguyên mẫu</string>
   <string name="revanced_debug_protobuffer_summary_off">Ghi nhật ký gỡ lỗi mà không có thông tin bộ đệm nguyên mẫu</string>
@@ -132,15 +160,6 @@ Tuy nhiên, bật tính năng này cũng sẽ ghi lại một số dữ liệu n
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Tắt thông báo lỗi sẽ ẩn mọi thông báo lỗi từ ReVanced.
 
 Bạn sẽ không được thông báo khi xẩy ra lỗi bất ngờ."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Xuất nhật ký gỡ lỗi</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Sao chép nhật ký gỡ lỗi ReVanced vào bảng nhớ tạm</string>
-  <string name="revanced_debug_logs_disabled">Tính năng ghi nhật ký gỡ lỗi đã tắt</string>
-  <string name="revanced_debug_logs_none_found">Không tìm thấy nhật ký</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Đã sao chép nhật ký</string>
-  <string name="revanced_debug_logs_failed_to_export">Xuất nhật ký thất bại: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Xóa nhật ký gỡ lỗi</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Xóa tất cả nhật ký gỡ lỗi ReVanced đã lưu trữ</string>
-  <string name="revanced_debug_logs_clear_toast">Đã xóa nhật ký</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Ẩn thẻ đĩa nhạc</string>
@@ -702,7 +721,7 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Trình đơn bản âm thanh đã bị ẩn
 
-Để hiển thị bản âm thanh, hãy đổi 'Giả mạo luồng video' thành iOS TV"</string>
+Để hiển thị trình đơn bản âm thanh, hãy đổi 'Giả mạo luồng video' thành iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ẩn Xem ở chế độ thực tế ảo</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Trình đơn xem ở chế độ thực tế ảo đã bị ẩn</string>
@@ -1076,10 +1095,12 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
   <string name="revanced_sb_segments_intro_sum">Một khoảng thời gian không có nội dung thực tế. Có thể là tạm dừng, khung hình tĩnh hoặc hoạt ảnh lặp lại. Không bao gồm các phần chuyển cảnh chứa thông tin</string>
   <string name="revanced_sb_segments_outro">Màn hình kết thúc / Danh đề</string>
   <string name="revanced_sb_segments_outro_sum">Danh đề hoặc khi màn hình kết thúc của YouTube xuất hiện. Không dành cho phần kết có chứa thông tin</string>
-  <string name="revanced_sb_segments_preview">Xem trước / Tóm tắt / Gây chú ý</string>
+  <string name="revanced_sb_segments_hook">Mở đầu / Chào hỏi</string>
+  <string name="revanced_sb_segments_hook_sum">Đoạn giới thiệu có lời dẫn cho video sắp tới, phần chào hỏi và tạm biệt. Không bao gồm các phần bổ sung nội dung khác</string>
+  <string name="revanced_sb_segments_preview">Xem trước / Tóm tắt</string>
   <string name="revanced_sb_segments_preview_sum">Tuyển tập các đoạn cắt cho thấy những gì sắp diễn ra hoặc đã xảy ra trong video hoặc trong các video khác của một sê-ri, trong đó tất cả thông tin được lặp lại ở nơi khác</string>
-  <string name="revanced_sb_segments_filler">Nội dung thừa / Lạc đề / Câu đùa</string>
-  <string name="revanced_sb_segments_filler_sum">Các cảnh phụ chỉ được thêm vào để kéo dài thời lượng hoặc gây hài, không cần thiết để hiểu nội dung chính của video. Không bao gồm các phân đoạn cung cấp bối cảnh hoặc chi tiết nền</string>
+  <string name="revanced_sb_segments_filler">Lạc đề / Câu đùa</string>
+  <string name="revanced_sb_segments_filler_sum">Các cảnh phụ hoặc trò đùa không cần thiết để hiểu nội dung chính của video. Không bao gồm các phần cung cấp bối cảnh hoặc chi tiết nền</string>
   <string name="revanced_sb_segments_nomusic">Âm nhạc: Phần không phải âm nhạc</string>
   <string name="revanced_sb_segments_nomusic_sum">Chỉ dành cho video âm nhạc. Phần của video âm nhạc nhưng không có nhạc, mà cũng không được phân loại vào danh mục khác</string>
   <string name="revanced_sb_skip_button_compact">Bỏ qua</string>
@@ -1092,10 +1113,11 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
   <string name="revanced_sb_skip_button_intro_middle">Bỏ qua phần gián đoạn</string>
   <string name="revanced_sb_skip_button_intro_end">Bỏ qua phần gián đoạn</string>
   <string name="revanced_sb_skip_button_outro">Bỏ qua kết thúc</string>
+  <string name="revanced_sb_skip_button_hook">Bỏ qua đoạn mở đầu</string>
   <string name="revanced_sb_skip_button_preview_beginning">Bỏ qua xem trước</string>
   <string name="revanced_sb_skip_button_preview_middle">Bỏ qua xem trước</string>
   <string name="revanced_sb_skip_button_preview_end">Bỏ qua tóm tắt</string>
-  <string name="revanced_sb_skip_button_filler">Bỏ qua cảnh phụ</string>
+  <string name="revanced_sb_skip_button_filler">Bỏ qua đoạn lạc đề</string>
   <string name="revanced_sb_skip_button_nomusic">Bỏ qua phần không nhạc</string>
   <string name="revanced_sb_skip_button_unsubmitted">Bỏ qua phân đoạn</string>
   <string name="revanced_sb_skipped_sponsor">Đã bỏ qua nhà tài trợ</string>
@@ -1106,6 +1128,7 @@ ID người dùng của bạn giống như mật khẩu và không bao giờ đ�
   <string name="revanced_sb_skipped_intro_middle">Đã bỏ qua phần gián đoạn</string>
   <string name="revanced_sb_skipped_intro_end">Đã bỏ qua phần gián đoạn</string>
   <string name="revanced_sb_skipped_outro">Đã bỏ qua kết thúc</string>
+  <string name="revanced_sb_skipped_hook">Đã bỏ qua đoạn mở đầu</string>
   <string name="revanced_sb_skipped_preview_beginning">Đã bỏ qua xem trước</string>
   <string name="revanced_sb_skipped_preview_middle">Đã bỏ qua xem trước</string>
   <string name="revanced_sb_skipped_preview_end">Đã bỏ qua tóm tắt</string>
@@ -1417,10 +1440,6 @@ Có thể mở khóa chất lượng video cao hơn nhưng bạn có thể gặp
 Bật tính năng này có thể mở khóa chất lượng video cao hơn"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Bật tính năng này có thể làm giật lag khi phát video, hao pin, và các sự cố không xác định.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">Cài đặt GmsCore</string>
-  <string name="microg_settings_summary">Các cài đặt cho GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Phản hồi xúc giác</string>
   <string name="revanced_disable_haptic_feedback_summary">Thay đổi phản hồi xúc giác</string>
@@ -1534,35 +1553,54 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_slide_to_seek_summary_off">Vuốt để tua không được bật</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Giả mạo luồng video</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Giả mạo luồng video của thiết bị nhằm ngăn chặn lỗi khi phát</string>
-  <string name="revanced_spoof_video_streams_title">Giả mạo luồng video</string>
-  <string name="revanced_spoof_video_streams_summary_on">Luồng video đã được giả mạo</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Luồng video không được giả mạo
-
-Có thể gặp lỗi khi phát video"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Tắt cài đặt này có thể gây ra lỗi khi phát video.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Loại thiết bị mặc định</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Bắt buộc iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Codec video bị buộc phải là AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Codec video sẽ được xác định tự động</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Bật tuỳ chọn này có thể giúp tiết kiệm pin và khắc phục tình trạng giật lag khi phát video.
-
-AVC hỗ trợ độ phân giải tối đa là 1080p, codec âm thanh OPUS không khả dụng và phát video sẽ tiêu tốn nhiều dữ liệu di động hơn so với VP9 hoặc AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Hạn chế khi giả mạo iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Phim hoặc video có trả phí có thể không phát được
-• Âm lượng ổn định không khả dụng
-• Video kết thúc sớm hơn 1 giây"</string>
+  <string name="revanced_spoof_video_streams_about_title">Hạn chế khi giả mạo</string>
   <string name="revanced_spoof_video_streams_about_android_title">Hạn chế khi giả mạo Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Trình đơn bản âm thanh bị thiếu
-• Âm lượng ổn định không khả dụng
-• Tùy chọn âm thanh gốc không khả dụng"</string>
+• Âm lượng ổn định không khả dụng"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video có thể dừng ở 1:00, hoặc có thể không khả dụng ở một số khu vực</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Ứng dụng thử nghiệm và có thể ngừng hoạt động bất cứ lúc nào</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Không có codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video dành cho trẻ em có thể không phát được khi đăng xuất hoặc ở chế độ ẩn danh</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiện trong Thống kê chi tiết</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Loại máy khách đã được hiển thị trong Thống kê chi tiết</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Loại thiết bị đã ẩn trong Thống kê chi tiết</string>
-  <string name="revanced_spoof_video_streams_language_title">Ngôn ngữ âm thanh mặc định (VR)</string>
+  <string name="revanced_spoof_video_streams_language_title">Ngôn ngữ luồng âm thanh</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Để chọn ngôn ngữ âm thanh cụ thể, hãy tắt \'Buộc ngôn ngữ âm thanh gốc\'</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Giới thiệu</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Quảng cáo</string>
+  <string name="revanced_settings_music_screen_2_general_title">Chung</string>
+  <string name="revanced_settings_music_screen_3_player_title">Trình phát</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Khác</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Ẩn quảng cáo trên video</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Quảng cáo trên video đã bị ẩn</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Quảng cáo trên video được hiển thị</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Bật lặp lại vĩnh viễn</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Lặp lại vĩnh viễn đã được bật</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Lặp lại vĩnh viễn đã bị tắt</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Ẩn thanh danh mục</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Thanh danh mục đã bị ẩn</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Thanh danh mục được hiển thị</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Ẩn nhãn \'Nhận Music Premium\'</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Nhãn đã bị ẩn</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Nhãn được hiển thị</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Ẩn nút nâng cấp</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Nút đã bị ẩn</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Nút được hiển thị</string>
   </patch>
   </app>
   <app id="twitch">

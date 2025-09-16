@@ -68,6 +68,8 @@ Aby przetłumaczyć nowe języki, odwiedź stronę translate.revanced.app"</stri
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Ustawienia GmsCore</string>
+  <string name="microg_settings_summary">Ustawienia GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nie jest zainstalowany, zainstaluj.</string>
   <string name="gms_core_dialog_title">Wymagane działanie</string>
@@ -83,6 +85,37 @@ Wyłączenie optymalizacji baterii dla MicroG nie wpłynie negatywnie na zużyci
 
 Naciśnij przycisk Kontynuuj i zezwól na zmiany optymalizacji."</string>
   <string name="gms_core_dialog_continue_text">Kontynuuj</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Oszukaj strumienie filmu</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Oszukuje strumienie filmu klienta, aby zapobiec problemom z odtwarzaniem</string>
+  <string name="revanced_spoof_video_streams_screen_title">Fałszuj strumienie wideo</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Fałszuj strumienie wideo klienta, aby zapobiec problemom z odtwarzaniem</string>
+  <string name="revanced_spoof_video_streams_title">Oszukaj strumienie filmu</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Strumienie wideo są fałszowane
+
+Jeśli jesteś użytkownikiem YouTube Premium, to ustawienie może nie być wymagane"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Strumienie wideo nie są fałszowane
+
+Odtwarzanie może nie działać"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Wyłączenie tego ustawienia może spowodować problemy z odtwarzaniem.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Domyślny klient</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Debugowanie</string>
+  <string name="revanced_debug_screen_summary">Włącz lub wyłącz opcje debugowania</string>
+  <string name="revanced_debug_title">Logi do debugowania</string>
+  <string name="revanced_debug_summary_on">Logi debugowania są włączone</string>
+  <string name="revanced_debug_summary_off">Logi debugowania są wyłączone</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Eksportuj dzienniki debugowania</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopiuje dzienniki debugowania ReVanced do schowka</string>
+  <string name="revanced_debug_logs_disabled">Rejestrowanie debugowania jest wyłączone</string>
+  <string name="revanced_debug_logs_none_found">Nie znaleziono dzienników</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Dzienniki skopiowane</string>
+  <string name="revanced_debug_logs_failed_to_export">Nie udało się wyeksportować logów: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Wyczyść dzienniki debugowania</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Czyści wszystkie zapisane dzienniki debugowania ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Dzienniki wyczyszczone</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Naciśnij przycisk Kontynuuj i zezwól na zmiany optymalizacji."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Odtwarzanie w tle Shortsów jest włączone</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Debugowanie</string>
-  <string name="revanced_debug_screen_summary">Włącz lub wyłącz opcje debugowania</string>
-  <string name="revanced_debug_title">Logi do debugowania</string>
-  <string name="revanced_debug_summary_on">Logi debugowania są włączone</string>
-  <string name="revanced_debug_summary_off">Logi debugowania są wyłączone</string>
   <string name="revanced_debug_protobuffer_title">Logi protokołu bufora</string>
   <string name="revanced_debug_protobuffer_summary_on">Logi do debugowania zawierają bufory</string>
   <string name="revanced_debug_protobuffer_summary_off">Logi do debugowania nie zawierają buforów</string>
@@ -128,15 +156,6 @@ Naciśnij przycisk Kontynuuj i zezwól na zmiany optymalizacji."</string>
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Wyłączenie notyfikacji błędów ukrywa wszystkie powiadomienia o błędach ReVanced.
 
 Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Eksportuj dzienniki debugowania</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopiuje dzienniki debugowania ReVanced do schowka</string>
-  <string name="revanced_debug_logs_disabled">Rejestrowanie debugowania jest wyłączone</string>
-  <string name="revanced_debug_logs_none_found">Nie znaleziono dzienników</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Dzienniki skopiowane</string>
-  <string name="revanced_debug_logs_failed_to_export">Nie udało się wyeksportować logów: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Wyczyść dzienniki debugowania</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Czyści wszystkie zapisane dzienniki debugowania ReVanced</string>
-  <string name="revanced_debug_logs_clear_toast">Dzienniki wyczyszczone</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Ukryj karty albumów</string>
@@ -696,9 +715,9 @@ Jeśli zmiana tego ustawienia nie przyniesie efektu, spróbuj przełączyć się
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu ścieżki dźwiękowej jest ukryte</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menu ścieżki dźwiękowej jest widoczne</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menu ścieżki audio jest ukryte
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menu ścieżek audio jest ukryte
 
-Aby pokazać menu ścieżki audio, zmień opcję „Fałszuj strumienie wideo” na iOS TV"</string>
+Aby wyświetlić menu ścieżek audio, zmień „Fałszowanie strumieni wideo” na iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Menu oglądania w VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu oglądania w VR jest ukryte</string>
@@ -1071,10 +1090,12 @@ Twój identyfikator użytkownika jest jak hasło i nigdy nie powinno być udost�
   <string name="revanced_sb_segments_intro_sum">Fragment bez aktualnej zawartości. Może to być pauza, statyczna klatka lub powtarzająca się animacja. Nie dotyczy przejść zawierających informacje</string>
   <string name="revanced_sb_segments_outro">Ekran końcowy / Napisy</string>
   <string name="revanced_sb_segments_outro_sum">Napisy końcowe lub gdy pojawia się ekran końcowy. Nie dotyczy zakończeń zawierających informacje</string>
-  <string name="revanced_sb_segments_preview">Zapowiedź/Podsumowanie/Haczyk</string>
+  <string name="revanced_sb_segments_hook">Wprowadzenie / Pozdrowienia</string>
+  <string name="revanced_sb_segments_hook_sum">Zwiastuny nadchodzącego wideo z narracją, pozdrowienia i pożegnania. Nie obejmuje sekcji, które dodają dodatkową treść</string>
+  <string name="revanced_sb_segments_preview">Zapowiedź / Podsumowanie</string>
   <string name="revanced_sb_segments_preview_sum">Zbiór klipów pokazujących to, co pojawi się lub co pojawiło się w tym filmie, oraz innych fiilmach z tej serii, w którym wszystkie informacje są gdzieś powielane</string>
-  <string name="revanced_sb_segments_filler">Nietematyczny Wypełniacz/Żart</string>
-  <string name="revanced_sb_segments_filler_sum">Sceny nietematyczne dodawane tylko dla wypełniacza lub humoru, które nie są wymagane do zrozumienia głównej treści wideo. Nie obejmuje segmentów zawierających szczegóły kontekstu lub tła</string>
+  <string name="revanced_sb_segments_filler">Dygresja / Żarty</string>
+  <string name="revanced_sb_segments_filler_sum">Sceny poboczne lub żarty, które nie są wymagane do zrozumienia głównej treści filmu. Nie obejmuje sekcji dostarczających kontekstu lub szczegółów tła</string>
   <string name="revanced_sb_segments_nomusic">Muzyka: Sekcja bez muzyki</string>
   <string name="revanced_sb_segments_nomusic_sum">Tylko do użytku w teledyskach. Sekcje teledysków, które nie są uwzględnione w innej kategorii</string>
   <string name="revanced_sb_skip_button_compact">Pomiń</string>
@@ -1087,10 +1108,11 @@ Twój identyfikator użytkownika jest jak hasło i nigdy nie powinno być udost�
   <string name="revanced_sb_skip_button_intro_middle">Pomiń przerywnik</string>
   <string name="revanced_sb_skip_button_intro_end">Pomiń przerywnik</string>
   <string name="revanced_sb_skip_button_outro">Pomiń zakończenie</string>
+  <string name="revanced_sb_skip_button_hook">Pomiń haczyk</string>
   <string name="revanced_sb_skip_button_preview_beginning">Pomiń podgląd</string>
   <string name="revanced_sb_skip_button_preview_middle">Pomiń podgląd</string>
   <string name="revanced_sb_skip_button_preview_end">Pomiń podsumowanie</string>
-  <string name="revanced_sb_skip_button_filler">Pomiń wypełniacz</string>
+  <string name="revanced_sb_skip_button_filler">Pomiń wątek poboczny</string>
   <string name="revanced_sb_skip_button_nomusic">Pomiń fragment bez muzyki</string>
   <string name="revanced_sb_skip_button_unsubmitted">Pomiń segment</string>
   <string name="revanced_sb_skipped_sponsor">Pominięto treści sponsorowane</string>
@@ -1101,10 +1123,11 @@ Twój identyfikator użytkownika jest jak hasło i nigdy nie powinno być udost�
   <string name="revanced_sb_skipped_intro_middle">Pominięto przerywnik</string>
   <string name="revanced_sb_skipped_intro_end">Pominięto przerywnik</string>
   <string name="revanced_sb_skipped_outro">Pominięto zakończenie</string>
+  <string name="revanced_sb_skipped_hook">Pominięto haczyk</string>
   <string name="revanced_sb_skipped_preview_beginning">Pominięto podgląd</string>
   <string name="revanced_sb_skipped_preview_middle">Pominięto podgląd</string>
   <string name="revanced_sb_skipped_preview_end">Pominięto podsumowanie</string>
-  <string name="revanced_sb_skipped_filler">Pominięto wypełniacz</string>
+  <string name="revanced_sb_skipped_filler">Pominięto wątek poboczny</string>
   <string name="revanced_sb_skipped_nomusic">Pominięto fragment bez muzyki</string>
   <string name="revanced_sb_skipped_unsubmitted">Pominięto niezgłoszony segment</string>
   <string name="revanced_sb_skipped_multiple_segments">Pominięto wiele segmentów</string>
@@ -1407,10 +1430,6 @@ Mogą zostać odblokowane wyższe jakości wideo, ale możesz doświadczyć zaci
 Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Włączenie tego może spowodować zacinanie się odtwarzanego filmu, pogorszenie żywotności baterii i nieznane efekty uboczne.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">Ustawienia GmsCore</string>
-  <string name="microg_settings_summary">Ustawienia GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Informacje zwrotne haptyczne</string>
   <string name="revanced_disable_haptic_feedback_summary">Zmień informacje zwrotne haptyczne</string>
@@ -1524,35 +1543,54 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_slide_to_seek_summary_off">Przesuń, aby przeszukiwać nie jest włączony</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Oszukaj strumienie filmu</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Oszukuje strumienie filmu klienta, aby zapobiec problemom z odtwarzaniem</string>
-  <string name="revanced_spoof_video_streams_title">Oszukaj strumienie filmu</string>
-  <string name="revanced_spoof_video_streams_summary_on">Oszukiwanie strumienia jest włączone</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Strumienie wideo nie są sfałszowane
-
-Odtwarzanie wideo może nie działać"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Wyłączenie tej opcji może spowodować problemy z odtwarzaniem filmów.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Domyślny klient</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Wymuszaj iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek wideo jest wymuszany na AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek wideo jest określany automatycznie</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Włączenie tej opcji może poprawić żywotność baterii i naprawić zacinanie się odtwarzania.
-
-AVC ma maksymalną rozdzielczość 1080p, kodek audio Opus nie jest dostępny, a odtwarzanie wideo będzie zużywać więcej danych internetowych niż VP9 lub AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">Skutki uboczne podszywania się pod iOS</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"- Filmy lub płatne wideo mogą nie być odtwarzane
-- Stabilna głośność nie jest dostępna
-- Filmy kończą się o 1 sekundę za wcześnie"</string>
+  <string name="revanced_spoof_video_streams_about_title">Skutki uboczne fałszowania</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efekty uboczne podszywania się pod Androida</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Brakuje menu ścieżki audio
-• Stabilna głośność jest niedostępna
-• Wymuś oryginalny dźwięk jest niedostępny"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Brak menu ścieżek dźwiękowych
+• Stabilna głośność jest niedostępna"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Wideo może zatrzymać się o 1:00 lub może być niedostępne w niektórych regionach</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Eksperymentalny klient i może przestać działać w każdej chwili</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Filmy dla dzieci mogą nie być odtwarzane po wylogowaniu lub w trybie incognito</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Pokaż w statystykach dla nerdów</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta jest wyświetlany w Statystykach dla nerdów</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient jest ukryty w statystykach dla nerdów</string>
-  <string name="revanced_spoof_video_streams_language_title">Język domyślnego strumienia audio VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Język strumienia audio</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Aby wybrać konkretny język audio, wyłącz \"Wymuś oryginalny język audio\"</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">O programie</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Reklamy</string>
+  <string name="revanced_settings_music_screen_2_general_title">Ogólne</string>
+  <string name="revanced_settings_music_screen_3_player_title">Odtwarzacz</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Różne</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Ukryj reklamy wideo</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Reklamy wideo są ukryte</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Reklamy wideo są widoczne</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Włącz stałe powtarzanie</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Stałe powtarzanie jest włączone</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Stałe powtarzanie jest wyłączone</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Ukryj pasek kategorii</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Pasek kategorii jest ukryty</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Pasek kategorii jest widoczny</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Ukryj etykietę „Uzyskaj Music Premium”</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Etykieta jest ukryta</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Etykieta jest widoczna</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Ukryj przycisk uaktualnienia</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Przycisk jest ukryty</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Przycisk jest widoczny</string>
   </patch>
   </app>
   <app id="twitch">

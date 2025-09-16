@@ -68,6 +68,8 @@ Second \"item\" text"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Nastavitve GmsCore</string>
+  <string name="microg_settings_summary">Nastavitve za GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore ni nameščen. Namestite ga.</string>
   <string name="gms_core_dialog_title">Dejanje potrebno</string>
@@ -83,6 +85,37 @@ Onemogočanje optimizacij baterije za MicroG ne bo negativno vplivalo na porabo 
 
 Tapnite gumb za nadaljevanje in dovolite spremembe optimizacij."</string>
   <string name="gms_core_dialog_continue_text">Nadaljuj</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Ponarejanje video tokov</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Ponaredite video tokove odjemalca, da preprečite težave s predvajanjem</string>
+  <string name="revanced_spoof_video_streams_screen_title">Ponaredi video tokove</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Ponaredi video tokove odjemalca, da preprečiš težave z predvajanjem</string>
+  <string name="revanced_spoof_video_streams_title">Ponarejanje video tokov</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Video tokovi so ponarejeni
+
+Če ste uporabnik YouTube Premium, ta nastavitev morda ne bo potrebna"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Video tokovi niso ponarejeni
+
+Predvajanje morda ne bo delovalo"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Izklop te nastavitve lahko povzroči težave z predvajanjem.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Privzeti odjemalec</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Razhroščevanje</string>
+  <string name="revanced_debug_screen_summary">Omogoči ali onemogoči možnosti razhroščevanja</string>
+  <string name="revanced_debug_title">Dnevnik napak</string>
+  <string name="revanced_debug_summary_on">Dnevniki napak so omogočeni</string>
+  <string name="revanced_debug_summary_off">Dnevniki napak so onemogočeni</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Izvozi dnevnike napak</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopira dnevnike napak ReVanced v odložišče</string>
+  <string name="revanced_debug_logs_disabled">Beleženje napak je onemogočeno</string>
+  <string name="revanced_debug_logs_none_found">Dnevnikov ni mogoče najti</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Dnevniki so bili kopirani</string>
+  <string name="revanced_debug_logs_failed_to_export">Izvoz dnevnikov ni uspel: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Počisti dnevnike napak</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Počisti vse shranjene dnevnike napak ReVanced</string>
+  <string name="revanced_debug_logs_clear_toast">Dnevniki so bili izbrisani</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Tapnite gumb za nadaljevanje in dovolite spremembe optimizacij."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Predvajanje Shorts v ozadju je omogočeno</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Razhroščevanje</string>
-  <string name="revanced_debug_screen_summary">Omogoči ali onemogoči možnosti razhroščevanja</string>
-  <string name="revanced_debug_title">Dnevnik napak</string>
-  <string name="revanced_debug_summary_on">Dnevniki napak so omogočeni</string>
-  <string name="revanced_debug_summary_off">Dnevniki napak so onemogočeni</string>
   <string name="revanced_debug_protobuffer_title">Dnevnik protokola pufra</string>
   <string name="revanced_debug_protobuffer_summary_on">Dnevniki napak vključujejo protokol pufra</string>
   <string name="revanced_debug_protobuffer_summary_off">Dnevniki napak ne vključujejo protokola pufra</string>
@@ -132,15 +160,6 @@ Vendar pa bo omogočitev tega beležila tudi nekatere uporabniške podatke, kot 
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Onemogočanje obvestil o napakah skrije vsa obvestila o napakah v ReVancedu.
 
 Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Izvozi dnevnike napak</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopira dnevnike napak ReVanced v odložišče</string>
-  <string name="revanced_debug_logs_disabled">Beleženje napak je onemogočeno</string>
-  <string name="revanced_debug_logs_none_found">Dnevnikov ni mogoče najti</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Dnevniki so bili kopirani</string>
-  <string name="revanced_debug_logs_failed_to_export">Izvoz dnevnikov ni uspel: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Počisti dnevnike napak</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Počisti vse shranjene dnevnike napak ReVanced</string>
-  <string name="revanced_debug_logs_clear_toast">Dnevniki so bili izbrisani</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Skrij kartice albuma</string>
@@ -700,9 +719,9 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meni z zvočnim posnetkom je skrit</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Meni z zvočnim posnetkom je prikazan</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meni zvočnega posnetka je skrit
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meni za zvočno skladbo je skrit
 
-Če želite prikazati meni zvočnega posnetka, spremenite možnost »Prikazovalnik video tokov« v iOS TV"</string>
+Za prikaz menija za zvočno skladbo, spremenite \"Ponarejene video tokove\" na iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skrij gledanje v VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Meni z gledanjem v VR je skrit</string>
@@ -1074,10 +1093,12 @@ Uporabniški ID je, kot je geslo, zato ga nikoli ne delite."</string>
   <string name="revanced_sb_segments_intro_sum">Interval brez dejanske vsebine. Lahko je pavza, statični okvir ali ponavljajoča se animacija. Ne vključuje prehodov, ki vsebujejo informacije</string>
   <string name="revanced_sb_segments_outro">Zaključne kartice / Dobropisi</string>
   <string name="revanced_sb_segments_outro_sum">Zasluge ali prikaz zaključnih kartic YouTuba. Ni namenjeno zaključkom z informacijami</string>
-  <string name="revanced_sb_segments_preview">Predogled/Povzetek/Uvod</string>
+  <string name="revanced_sb_segments_hook">Uvod / Pozdravi</string>
+  <string name="revanced_sb_segments_hook_sum">Pripovedani napovedniki za prihajajoči video, pozdravi in poslavljanja. Ne vključuje odsekov, ki dodajajo dodatno vsebino</string>
+  <string name="revanced_sb_segments_preview">Predogled / Povzetek</string>
   <string name="revanced_sb_segments_preview_sum">Zbirka odsekov, ki prikazujejo, kaj prihaja ali kaj se je zgodilo v videoposnetku ali v drugih videoposnetkih serije, kjer so vse informacije ponovljene drugje</string>
-  <string name="revanced_sb_segments_filler">Polnilo/Tangent/Šale</string>
-  <string name="revanced_sb_segments_filler_sum">Tangentni prizori, dodani samo kot polnilo ali humor, ki niso potrebni za razumevanje glavne vsebine videoposnetka. Ne vključuje segmentov, ki zagotavljajo kontekst ali ozadje</string>
+  <string name="revanced_sb_segments_filler">Digresija / Šale</string>
+  <string name="revanced_sb_segments_filler_sum">Povezane scene ali šale, ki niso potrebne za razumevanje glavne vsebine videa. Ne vključuje odsekov, ki zagotavljajo kontekst ali podrobnosti ozadja</string>
   <string name="revanced_sb_segments_nomusic">Glasba: Odsek brez glasbe</string>
   <string name="revanced_sb_segments_nomusic_sum">Samo za uporabo v glasbenih videoposnetkih. Odseki glasbenih videoposnetkov brez glasbe, ki jih še niso zajeli drugi kategoriji</string>
   <string name="revanced_sb_skip_button_compact">Preskoči</string>
@@ -1090,10 +1111,11 @@ Uporabniški ID je, kot je geslo, zato ga nikoli ne delite."</string>
   <string name="revanced_sb_skip_button_intro_middle">Preskoči premor</string>
   <string name="revanced_sb_skip_button_intro_end">Preskoči premor</string>
   <string name="revanced_sb_skip_button_outro">Preskoči zaključek</string>
+  <string name="revanced_sb_skip_button_hook">Preskoči uvod</string>
   <string name="revanced_sb_skip_button_preview_beginning">Preskoči predogled</string>
   <string name="revanced_sb_skip_button_preview_middle">Preskoči predogled</string>
   <string name="revanced_sb_skip_button_preview_end">Preskoči povzetek</string>
-  <string name="revanced_sb_skip_button_filler">Preskoči polnilo</string>
+  <string name="revanced_sb_skip_button_filler">Preskoči tangento</string>
   <string name="revanced_sb_skip_button_nomusic">Preskoči brez glasbe</string>
   <string name="revanced_sb_skip_button_unsubmitted">Preskoči segment</string>
   <string name="revanced_sb_skipped_sponsor">Preskočen sponzor</string>
@@ -1104,10 +1126,11 @@ Uporabniški ID je, kot je geslo, zato ga nikoli ne delite."</string>
   <string name="revanced_sb_skipped_intro_middle">Preskočen premor</string>
   <string name="revanced_sb_skipped_intro_end">Preskočen premor</string>
   <string name="revanced_sb_skipped_outro">Preskočen zaključek</string>
+  <string name="revanced_sb_skipped_hook">Uvod preskočen</string>
   <string name="revanced_sb_skipped_preview_beginning">Preskočen predogled</string>
   <string name="revanced_sb_skipped_preview_middle">Preskočen predogled</string>
   <string name="revanced_sb_skipped_preview_end">Preskočen povzetek</string>
-  <string name="revanced_sb_skipped_filler">Preskočeno polnilo</string>
+  <string name="revanced_sb_skipped_filler">Tangenta preskočena</string>
   <string name="revanced_sb_skipped_nomusic">Preskočen odsek brez glasbe</string>
   <string name="revanced_sb_skipped_unsubmitted">Preskočen neoddani segment</string>
   <string name="revanced_sb_skipped_multiple_segments">Preskočenih več segmentov</string>
@@ -1411,10 +1434,6 @@ Odklenjene so lahko višje kakovosti videa, vendar se lahko pojavijo trzanje pri
 Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Omogočanje tega lahko povzroči jecljanje pri predvajanju videoposnetkov, slabšo življenjsko dobo baterije in neznane stranske učinke.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">Nastavitve GmsCore</string>
-  <string name="microg_settings_summary">Nastavitve za GmsCore</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Haptični odziv</string>
   <string name="revanced_disable_haptic_feedback_summary">Spremeni haptični odziv</string>
@@ -1528,35 +1547,54 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_slide_to_seek_summary_off">Drsno iskanje ni omogočeno</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Ponarejanje video tokov</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Ponaredite video tokove odjemalca, da preprečite težave s predvajanjem</string>
-  <string name="revanced_spoof_video_streams_title">Ponarejanje video tokov</string>
-  <string name="revanced_spoof_video_streams_summary_on">Video tokovi so ponarejeni</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Videoprenosni tokovi niso posneti
-
-Predvajanje videa morda ne bo delovalo"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Izklop te nastavitve lahko povzroči težave s predvajanjem videoposnetkov.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Privzeti odjemalec</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Sile iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Kodek videa je prisiljen v AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Kodek videa je določen samodejno</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Omogočanje tega bi lahko izboljšalo življenjsko dobo baterije in odpravilo zatikanje predvajanja.
-
-AVC ima največjo ločljivost 1080p, avdio kodek Opus ni na voljo, predvajanje videa pa bo porabilo več internetnih podatkov kot VP9 ali AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS-ov pojav umetnega predvajanja posnetkov</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmi ali plačani videoposnetki se morda ne bodo predvajali
-• Stalna glasnost ni na voljo
-• Videi se končajo 1 sekundo prezgodaj"</string>
+  <string name="revanced_spoof_video_streams_about_title">Stranski učinki ponarejanja</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android Stranski učinki spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Manjka meni za izbiro zvočnega posnetka 
-• Stabilna glasnost ni na voljo
-• Prisilno izvirno zvočno posnetek ni na voljo"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Meni za zvočno skladbo manjka
+• Stabilna glasnost ni na voljo"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video se lahko ustavi ob 1:00, ali pa morda ne bo na voljo v nekaterih regijah</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentalni odjemalec in lahko kadar koli preneha delovati</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Brez kodeka videa AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Posnetki za otroke se mogoče ne bodo predvajali, ko ste odjavljeni ali v načinu brez beleženja zgodovine</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Pokaži v statistiki za piflarje</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Vrsta odjemalca je prikazana v statistiki za piflarje</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Odjemalec je skrit v statistiki za piflarje</string>
-  <string name="revanced_spoof_video_streams_language_title">Privzeti jezik zvočnega posnetka za VR</string>
+  <string name="revanced_spoof_video_streams_language_title">Jezik zvočnega toka</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Za izbiro določenega zvočnega jezika izklopite \'Vsili izvirni zvočni jezik\'</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">O</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Oglasi</string>
+  <string name="revanced_settings_music_screen_2_general_title">Splošno</string>
+  <string name="revanced_settings_music_screen_3_player_title">Predvajalnik</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Razno</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Skrij video oglase</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Video oglasi so skriti</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Video oglasi so prikazani</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Omogoči trajno ponavljanje</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Trajno ponavljanje je omogočeno</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Trajno ponavljanje je onemogočeno</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Skrij vrstico kategorij</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Vrstica kategorij je skrita</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Vrstica kategorij je prikazana</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Skrij oznako \'Pridobi Music Premium\'</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Oznaka je skrita</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Oznaka je prikazana</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Skrij gumb za nadgradnjo</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Gumb je skrit</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Gumb je prikazan</string>
   </patch>
   </app>
   <app id="twitch">

@@ -9,7 +9,11 @@ val permanentShufflePatch = bytecodePatch(
     description = "Permanently remember your shuffle preference " +
         "even if the playlist ends or another track is played."
 ) {
-    compatibleWith("com.google.android.apps.youtube.music")
+    compatibleWith(
+        "com.google.android.apps.youtube.music"(
+            "7.29.52"
+        )
+    )
 
     execute {
         disableShuffleFingerprint.method.addInstruction(0, "return-void")

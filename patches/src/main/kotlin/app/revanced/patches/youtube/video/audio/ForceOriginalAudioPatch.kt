@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.video.audio
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -14,6 +15,7 @@ import app.revanced.patches.youtube.misc.playservice.is_20_07_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.findMethodFromToString
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.insertLiteralOverride
@@ -55,10 +57,12 @@ val forceOriginalAudioPatch = bytecodePatch(
         addResources("youtube", "video.audio.forceOriginalAudioPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference(
-                key = "revanced_force_original_audio",
-                tag = "app.revanced.extension.youtube.settings.preference.ForceOriginalAudioSwitchPreference"
-            )
+            SwitchPreference("revanced_force_original_audio")
+        )
+
+        mainActivityOnCreateFingerprint.method.addInstruction(
+            0,
+            "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setPreferredLanguage()V"
         )
 
         // Disable feature flag that ignores the default track flag

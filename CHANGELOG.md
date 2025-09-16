@@ -1,3 +1,190 @@
+# [5.38.0](https://github.com/ReVanced/revanced-patches/compare/v5.37.0...v5.38.0) (2025-09-16)
+
+
+### Bug Fixes
+
+* **Instagram - Hide navigation buttons:** Support v397.1.0.52.81 ([#5855](https://github.com/ReVanced/revanced-patches/issues/5855)) ([f11d1ef](https://github.com/ReVanced/revanced-patches/commit/f11d1ef9907082512f139d4ab0e2e9f707de7e48))
+* **Spoof video streams:** Remove Android TV and iOS TV clients, add experimental VisionOS, add temporary fix for `Force original audio` to work with any spoof client ([#5861](https://github.com/ReVanced/revanced-patches/issues/5861)) ([abe3943](https://github.com/ReVanced/revanced-patches/commit/abe3943f98fd86dcd74c7e07cf65d3c7fc24fef9))
+* **YouTube - Spoof video streams:** Show settings summary if `Force original audio` is enabled ([3776dda](https://github.com/ReVanced/revanced-patches/commit/3776dda710a7780717b7e6f2cdc1333ab67b92fc))
+* **YouTube Music - Spoof video streams:** Fix playback issues when using a cellular network ([fa04c8e](https://github.com/ReVanced/revanced-patches/commit/fa04c8eecfbdd0b6ed082b464ca9032536d71762))
+* **YouTube Music:** Use correct light/dark mode settings UI ([1475643](https://github.com/ReVanced/revanced-patches/commit/1475643f84e9ee4af2ba360a2274001ff1570dad))
+
+
+### Features
+
+* **Instagram:** Add `Hide explore feed` patch ([#5856](https://github.com/ReVanced/revanced-patches/issues/5856)) ([1d65887](https://github.com/ReVanced/revanced-patches/commit/1d65887e015a067196f5a84db486fff355c96596))
+* **YouTube - Spoof video streams:** Add iPadOS client ([2726231](https://github.com/ReVanced/revanced-patches/commit/2726231404384d87f101d825e10a17c944e8f1bd))
+* **YouTube Music:** Add `Settings` patch ([#5838](https://github.com/ReVanced/revanced-patches/issues/5838)) ([5e20bd8](https://github.com/ReVanced/revanced-patches/commit/5e20bd80f138d7ca94f18857194c46e489c435dc))
+
+# [5.38.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.38.0-dev.4...v5.38.0-dev.5) (2025-09-16)
+
+
+### Bug Fixes
+
+* **YouTube Music:** Use correct light/dark mode settings UI ([1475643](https://github.com/ReVanced/revanced-patches/commit/1475643f84e9ee4af2ba360a2274001ff1570dad))
+
+# [5.38.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.38.0-dev.3...v5.38.0-dev.4) (2025-09-16)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Show settings summary if `Force original audio` is enabled ([3776dda](https://github.com/ReVanced/revanced-patches/commit/3776dda710a7780717b7e6f2cdc1333ab67b92fc))
+
+# [5.38.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.38.0-dev.2...v5.38.0-dev.3) (2025-09-16)
+
+
+### Features
+
+* **YouTube - Spoof video streams:** Add iPadOS client ([2726231](https://github.com/ReVanced/revanced-patches/commit/2726231404384d87f101d825e10a17c944e8f1bd))
+
+# [5.38.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.38.0-dev.1...v5.38.0-dev.2) (2025-09-16)
+
+
+### Features
+
+* **YouTube Music:** Add `Settings` patch ([#5838](https://github.com/ReVanced/revanced-patches/issues/5838)) ([5e20bd8](https://github.com/ReVanced/revanced-patches/commit/5e20bd80f138d7ca94f18857194c46e489c435dc))
+
+# [5.38.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.37.1-dev.3...v5.38.0-dev.1) (2025-09-15)
+
+
+### Features
+
+* **Instagram:** Add `Hide explore feed` patch ([#5856](https://github.com/ReVanced/revanced-patches/issues/5856)) ([1d65887](https://github.com/ReVanced/revanced-patches/commit/1d65887e015a067196f5a84db486fff355c96596))
+
+## [5.37.1-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.37.1-dev.2...v5.37.1-dev.3) (2025-09-15)
+
+
+### Bug Fixes
+
+* **Spoof video streams:** Remove Android TV and iOS TV clients, add experimental VisionOS, add temporary fix for `Force original audio` to work with any spoof client ([#5861](https://github.com/ReVanced/revanced-patches/issues/5861)) ([abe3943](https://github.com/ReVanced/revanced-patches/commit/abe3943f98fd86dcd74c7e07cf65d3c7fc24fef9))
+
+## [5.37.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.37.1-dev.1...v5.37.1-dev.2) (2025-09-15)
+
+
+### Bug Fixes
+
+* **Instagram - Hide navigation buttons:** Support v397.1.0.52.81 ([#5855](https://github.com/ReVanced/revanced-patches/issues/5855)) ([f11d1ef](https://github.com/ReVanced/revanced-patches/commit/f11d1ef9907082512f139d4ab0e2e9f707de7e48))
+
+## [5.37.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.37.0...v5.37.1-dev.1) (2025-09-15)
+
+
+### Bug Fixes
+
+* **YouTube Music - Spoof video streams:** Fix playback issues when using a cellular network ([fa04c8e](https://github.com/ReVanced/revanced-patches/commit/fa04c8eecfbdd0b6ed082b464ca9032536d71762))
+
+# [5.37.0](https://github.com/ReVanced/revanced-patches/compare/v5.36.0...v5.37.0) (2025-09-15)
+
+
+### Bug Fixes
+
+* **Instagram - Hide navigation buttons:** Add constrain to known working version ([e6c79f1](https://github.com/ReVanced/revanced-patches/commit/e6c79f13834c83fef04e4dee5e628cb0b9a27765))
+* Resolve patching with dev branch ([09b941a](https://github.com/ReVanced/revanced-patches/commit/09b941abf0e8029999565082b02a88b5de507ec4))
+* **Spotify:** Remove broken `Spoof client` patch ([#5833](https://github.com/ReVanced/revanced-patches/issues/5833)) ([dcd4245](https://github.com/ReVanced/revanced-patches/commit/dcd42454bd5f87dddd720534f6120c4ef90063a3))
+* **Viber - Hide ads:** Add constrain to known working version ([2db0948](https://github.com/ReVanced/revanced-patches/commit/2db0948beaf2b68391a1fe7f21e92d31c7df61e7))
+* **YouTube Music - Spoof streaming data:** Fix audio playback stuttering ([#5839](https://github.com/ReVanced/revanced-patches/issues/5839)) ([2a85a3b](https://github.com/ReVanced/revanced-patches/commit/2a85a3b29092729ae16d1fd93803634ce5f08e95))
+
+
+### Features
+
+* **Viber:** Add `Hide ads` patch ([#5826](https://github.com/ReVanced/revanced-patches/issues/5826)) ([0abfab7](https://github.com/ReVanced/revanced-patches/commit/0abfab79d7cda15bf17c53679fbfffb021662649))
+
+# [5.37.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.5...v5.37.0-dev.6) (2025-09-15)
+
+
+### Bug Fixes
+
+* **Instagram - Hide navigation buttons:** Add constrain to known working version ([e6c79f1](https://github.com/ReVanced/revanced-patches/commit/e6c79f13834c83fef04e4dee5e628cb0b9a27765))
+
+# [5.37.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.4...v5.37.0-dev.5) (2025-09-15)
+
+
+### Bug Fixes
+
+* **Viber - Hide ads:** Add constrain to known working version ([2db0948](https://github.com/ReVanced/revanced-patches/commit/2db0948beaf2b68391a1fe7f21e92d31c7df61e7))
+
+# [5.37.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.3...v5.37.0-dev.4) (2025-09-14)
+
+
+### Bug Fixes
+
+* **YouTube Music - Spoof streaming data:** Fix audio playback stuttering ([#5839](https://github.com/ReVanced/revanced-patches/issues/5839)) ([2a85a3b](https://github.com/ReVanced/revanced-patches/commit/2a85a3b29092729ae16d1fd93803634ce5f08e95))
+
+# [5.37.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.2...v5.37.0-dev.3) (2025-09-14)
+
+
+### Bug Fixes
+
+* **Spotify:** Remove broken `Spoof client` patch ([#5833](https://github.com/ReVanced/revanced-patches/issues/5833)) ([dcd4245](https://github.com/ReVanced/revanced-patches/commit/dcd42454bd5f87dddd720534f6120c4ef90063a3))
+
+# [5.37.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.37.0-dev.1...v5.37.0-dev.2) (2025-09-14)
+
+
+### Bug Fixes
+
+* Resolve patching with dev branch ([09b941a](https://github.com/ReVanced/revanced-patches/commit/09b941abf0e8029999565082b02a88b5de507ec4))
+
+# [5.37.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.36.0...v5.37.0-dev.1) (2025-09-14)
+
+
+### Features
+
+* **Viber:** Add `Hide ads` patch ([#5826](https://github.com/ReVanced/revanced-patches/issues/5826)) ([0abfab7](https://github.com/ReVanced/revanced-patches/commit/0abfab79d7cda15bf17c53679fbfffb021662649))
+
+# [5.36.0](https://github.com/ReVanced/revanced-patches/compare/v5.35.0...v5.36.0) (2025-09-14)
+
+
+### Bug Fixes
+
+* **Duolingo - Disable ads:** Support latest app target ([#5782](https://github.com/ReVanced/revanced-patches/issues/5782)) ([88b47ef](https://github.com/ReVanced/revanced-patches/commit/88b47ef414cd073ec3800258b32aceb6f383a411))
+* **YouTube - Hide layout components:** Hide new type of Playable shelf ([8cd8e59](https://github.com/ReVanced/revanced-patches/commit/8cd8e59bbc3a878269276b8ae5f627b044d157f0))
+* **YouTube Music:** Resolve playback issues, change recommended app target to `7.29.52` ([#5813](https://github.com/ReVanced/revanced-patches/issues/5813)) ([a53b00d](https://github.com/ReVanced/revanced-patches/commit/a53b00dd514dbe2b3406f3c1013a4f58a7f481c5))
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Add 'Hook' segment category ([#5783](https://github.com/ReVanced/revanced-patches/issues/5783)) ([9d4aa5c](https://github.com/ReVanced/revanced-patches/commit/9d4aa5cd16a6f9e95cf7c626351b46b86ca80efe))
+
+# [5.36.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.35.0...v5.36.0-dev.1) (2025-09-13)
+
+
+### Bug Fixes
+
+* **Duolingo - Disable ads:** Support latest app target ([#5782](https://github.com/ReVanced/revanced-patches/issues/5782)) ([88b47ef](https://github.com/ReVanced/revanced-patches/commit/88b47ef414cd073ec3800258b32aceb6f383a411))
+* **YouTube - Hide layout components:** Hide new type of Playable shelf ([8cd8e59](https://github.com/ReVanced/revanced-patches/commit/8cd8e59bbc3a878269276b8ae5f627b044d157f0))
+* **YouTube Music:** Resolve playback issues, change recommended app target to `7.29.52` ([#5813](https://github.com/ReVanced/revanced-patches/issues/5813)) ([a53b00d](https://github.com/ReVanced/revanced-patches/commit/a53b00dd514dbe2b3406f3c1013a4f58a7f481c5))
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Add 'Hook' segment category ([#5783](https://github.com/ReVanced/revanced-patches/issues/5783)) ([9d4aa5c](https://github.com/ReVanced/revanced-patches/commit/9d4aa5cd16a6f9e95cf7c626351b46b86ca80efe))
+
+# [5.36.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.35.0...v5.36.0-dev.1) (2025-09-13)
+
+
+### Bug Fixes
+
+* **Duolingo - Disable ads:** Support latest app target ([#5782](https://github.com/ReVanced/revanced-patches/issues/5782)) ([88b47ef](https://github.com/ReVanced/revanced-patches/commit/88b47ef414cd073ec3800258b32aceb6f383a411))
+* **YouTube - Hide layout components:** Hide new type of Playable shelf ([8cd8e59](https://github.com/ReVanced/revanced-patches/commit/8cd8e59bbc3a878269276b8ae5f627b044d157f0))
+* **YouTube Music:** Resolve playback issues, change recommended app target to `7.29.52` ([#5813](https://github.com/ReVanced/revanced-patches/issues/5813)) ([a53b00d](https://github.com/ReVanced/revanced-patches/commit/a53b00dd514dbe2b3406f3c1013a4f58a7f481c5))
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Add 'Hook' segment category ([#5783](https://github.com/ReVanced/revanced-patches/issues/5783)) ([9d4aa5c](https://github.com/ReVanced/revanced-patches/commit/9d4aa5cd16a6f9e95cf7c626351b46b86ca80efe))
+
+# [5.36.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.35.0...v5.36.0-dev.1) (2025-09-13)
+
+
+### Bug Fixes
+
+* **Duolingo - Disable ads:** Support latest app target ([#5782](https://github.com/ReVanced/revanced-patches/issues/5782)) ([88b47ef](https://github.com/ReVanced/revanced-patches/commit/88b47ef414cd073ec3800258b32aceb6f383a411))
+* **YouTube - Hide layout components:** Hide new type of Playable shelf ([8cd8e59](https://github.com/ReVanced/revanced-patches/commit/8cd8e59bbc3a878269276b8ae5f627b044d157f0))
+
+
+### Features
+
+* **YouTube - SponsorBlock:** Add 'Hook' segment category ([#5783](https://github.com/ReVanced/revanced-patches/issues/5783)) ([9d4aa5c](https://github.com/ReVanced/revanced-patches/commit/9d4aa5cd16a6f9e95cf7c626351b46b86ca80efe))
+
 # [5.36.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.35.0...v5.36.0-dev.1) (2025-09-12)
 
 

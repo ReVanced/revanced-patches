@@ -187,11 +187,16 @@ val customThemePatch = resourcePatch(
         }
 
         // Login screen gradient.
-        document("res/drawable/start_screen_gradient.xml").use { document ->
-            val gradientNode = document.getElementsByTagName("gradient").item(0) as Element
+        try {
+            document("res/drawable/start_screen_gradient.xml").use { document ->
+                val gradientNode = document.getElementsByTagName("gradient").item(0) as Element
 
-            gradientNode.setAttribute("android:startColor", "@color/gray_7")
-            gradientNode.setAttribute("android:endColor", "@color/gray_7")
+                gradientNode.setAttribute("android:startColor", "@color/gray_7")
+                gradientNode.setAttribute("android:endColor", "@color/gray_7")
+            }
+        } catch (_: Exception) {
+            // Fails for 9.0.66+
+            // printWarn("Failed to locate start_screen_gradient.xml, skipping modification.")
         }
     }
 }

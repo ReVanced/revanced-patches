@@ -264,6 +264,10 @@ public final class app/revanced/patches/instagram/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/instagram/hide/explore/HideExploreFeedKt {
+	public static final fun getHideExportFeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/instagram/hide/navigation/HideNavigationButtonsKt {
 	public static final fun getHideNavigationButtonsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -368,8 +372,9 @@ public final class app/revanced/patches/music/layout/premium/HideGetPremiumPatch
 	public static final fun getHideGetPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/layout/upgradebutton/RemoveUpgradeButtonPatchKt {
-	public static final fun getRemoveUpgradeButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/music/layout/upgradebutton/HideUpgradeButtonPatchKt {
+	public static final fun getHideUpgradeButton ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getRemoveUpgradeButton ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/misc/androidauto/BypassCertificateChecksPatchKt {
@@ -392,12 +397,33 @@ public final class app/revanced/patches/music/misc/gms/GmsCoreSupportPatchKt {
 	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/misc/spoof/SpoofClientPatchKt {
-	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/music/misc/settings/PreferenceScreen : app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen {
+	public static final field INSTANCE Lapp/revanced/patches/music/misc/settings/PreferenceScreen;
+	public fun commit (Lapp/revanced/patches/shared/misc/settings/preference/PreferenceScreenPreference;)V
+	public final fun getADS ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getGENERAL ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getMISC ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+	public final fun getPLAYER ()Lapp/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen$Screen;
+}
+
+public final class app/revanced/patches/music/misc/settings/SettingsPatchKt {
+	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun newIntent (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
+}
+
+public final class app/revanced/patches/music/misc/spoof/SpoofVideoStreamsPatchKt {
+	public static final fun getSpoofVideoStreamsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/misc/spoof/UserAgentClientSpoofPatchKt {
 	public static final fun getUserAgentClientSpoofPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/playservice/VersionCheckPatchKt {
+	public static final fun getVersionCheckPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun is_7_33_or_greater ()Z
+	public static final fun is_8_11_or_greater ()Z
+	public static final fun is_8_15_or_greater ()Z
 }
 
 public final class app/revanced/patches/myexpenses/misc/pro/UnlockProPatchKt {
@@ -1235,6 +1261,10 @@ public final class app/revanced/patches/twitter/misc/links/SanitizeSharingLinksP
 	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/viber/ads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/vsco/misc/pro/UnlockProPatchKt {
 	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1637,7 +1667,6 @@ public final class app/revanced/patches/youtube/misc/settings/PreferenceScreen :
 }
 
 public final class app/revanced/patches/youtube/misc/settings/SettingsPatchKt {
-	public static final fun addSettingPreference (Lapp/revanced/patches/shared/misc/settings/preference/BasePreference;)V
 	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun newIntent (Ljava/lang/String;)Lapp/revanced/patches/shared/misc/settings/preference/IntentPreference$Intent;
 }

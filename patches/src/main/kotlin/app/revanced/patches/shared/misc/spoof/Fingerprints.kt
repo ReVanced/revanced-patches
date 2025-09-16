@@ -1,9 +1,12 @@
 package app.revanced.patches.shared.misc.spoof
 
 import app.revanced.patcher.fingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val buildInitPlaybackRequestFingerprint = fingerprint {
     returns("Lorg/chromium/net/UrlRequest\$Builder;")
@@ -35,8 +38,15 @@ internal val buildPlayerRequestURIFingerprint = fingerprint {
 
 internal val buildRequestFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Lorg/chromium/net/UrlRequest;")
+    returns("Lorg/chromium/net/UrlRequest") // UrlRequest; or UrlRequest$Builder;
     custom { methodDef, _ ->
+        if (methodDef.indexOfFirstInstruction {
+                val reference = getReference<MethodReference>()
+                reference?.name == "newUrlRequestBuilder"
+            } < 0) {
+            return@custom false
+        }
+
         // Different targets have slightly different parameters
 
         // Earlier targets have parameters:
@@ -58,11 +68,21 @@ internal val buildRequestFingerprint = fingerprint {
         // Lorg/chromium/net/UrlRequest\$Callback;
         // L
 
+        // 20.16+ uses a refactored and extracted method:
+        // L
+        // Ljava/util/Map;
+        // [B
+        // L
+        // Lorg/chromium/net/UrlRequest$Callback;
+        // L
+
         val parameterTypes = methodDef.parameterTypes
-        (parameterTypes.size == 7 || parameterTypes.size == 8) &&
-            parameterTypes[1] == "Ljava/util/Map;" // URL headers.
+        val parameterTypesSize = parameterTypes.size
+        (parameterTypesSize == 6 || parameterTypesSize == 7 || parameterTypesSize == 8) &&
+                parameterTypes[1] == "Ljava/util/Map;" // URL headers.
     }
 }
+
 
 internal val protobufClassParseByteBufferFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.STATIC)
@@ -148,7 +168,8 @@ internal val mediaFetchHotConfigFingerprint = fingerprint {
     literal { MEDIA_FETCH_HOT_CONFIG_FEATURE_FLAG }
 }
 
-// 20.10+
+// YT 20.10+, YT Music 8.11 - 8.14.
+// Flag is missing in YT Music 8.15+, and it is not known if a replacement flag/feature exists.
 internal const val MEDIA_FETCH_HOT_CONFIG_ALTERNATIVE_FEATURE_FLAG = 45683169L
 
 internal val mediaFetchHotConfigAlternativeFingerprint = fingerprint {
@@ -162,7 +183,6 @@ internal val mediaFetchHotConfigAlternativeFingerprint = fingerprint {
 internal const val PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG = 45665455L
 
 internal val playbackStartDescriptorFeatureFlagFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     returns("Z")
     literal { PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG }

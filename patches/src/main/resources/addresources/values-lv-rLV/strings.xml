@@ -68,6 +68,8 @@ Lai palīdzētu tulkot jaunās valodās, apmeklējiet vietni translate.revanced.
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">GmsCore iestatījumi</string>
+  <string name="microg_settings_summary">GmsCore iestatījumi</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore nav instalēts. Instalējiet to.</string>
   <string name="gms_core_dialog_title">Nepieciešama darbība</string>
@@ -83,6 +85,37 @@ Akumulatora optimizāciju atspējošana MicroG neietekmēs akumulatora lietojumu
 
 Nospiediet turpināt pogu un atļaujiet optimizācijas izmaiņas."</string>
   <string name="gms_core_dialog_continue_text">Turpināt</string>
+  </patch>
+  <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_title">Viltot video straumes</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Viltot klienta video straumes, lai novērstu atskaņošanas problēmas</string>
+  <string name="revanced_spoof_video_streams_screen_title">Viltot video straumes</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Viltot klienta video straumes, lai novērstu atskaņošanas problēmas</string>
+  <string name="revanced_spoof_video_streams_title">Viltot video straumes</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Video straumes ir viltotas
+
+Ja esat YouTube Premium lietotājs, šis iestatījums, iespējams, nav nepieciešams"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Video straumes nav viltotas
+
+Atskaņošana var nedarboties"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Šī iestatījuma izslēgšana var izraisīt atskaņošanas problēmas.</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Noklusētā klients</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_screen_title">Atkļūdošana</string>
+  <string name="revanced_debug_screen_summary">Iespējot vai atspējot atkļūdošanas opcijas</string>
+  <string name="revanced_debug_title">Atkļūdošanas žurnāls</string>
+  <string name="revanced_debug_summary_on">Atkļūdošanas žurnāli ir iespējoti</string>
+  <string name="revanced_debug_summary_off">Atkļūdošanas žurnāli ir atspējoti</string>
+  <string name="revanced_debug_export_logs_to_clipboard_title">Eksportēt atkļūdošanas žurnālus</string>
+  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopē ReVanced atkļūdošanas žurnālus starpliktuvē</string>
+  <string name="revanced_debug_logs_disabled">Atkļūdošanas žurnālu reģistrēšana ir atspējota</string>
+  <string name="revanced_debug_logs_none_found">Žurnāli nav atrasti</string>
+  <string name="revanced_debug_logs_copied_to_clipboard">Žurnāli ir kopēti</string>
+  <string name="revanced_debug_logs_failed_to_export">Neizdevās eksportēt žurnālus: %s</string>
+  <string name="revanced_debug_logs_clear_buffer_title">Notīrīt atkļūdošanas žurnālus</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">Notīra visus saglabātos ReVanced atkļūdošanas žurnālus</string>
+  <string name="revanced_debug_logs_clear_toast">Žurnāli ir notīrīti</string>
   </patch>
   </app>
   <app id="youtube">
@@ -110,11 +143,6 @@ Nospiediet turpināt pogu un atļaujiet optimizācijas izmaiņas."</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts fonu atskaņošana ir iespējota</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">Atkļūdošana</string>
-  <string name="revanced_debug_screen_summary">Iespējot vai atspējot atkļūdošanas opcijas</string>
-  <string name="revanced_debug_title">Atkļūdošanas žurnāls</string>
-  <string name="revanced_debug_summary_on">Atkļūdošanas žurnāli ir iespējoti</string>
-  <string name="revanced_debug_summary_off">Atkļūdošanas žurnāli ir atspējoti</string>
   <string name="revanced_debug_protobuffer_title">Reģistrēt protokola buferi</string>
   <string name="revanced_debug_protobuffer_summary_on">Atkļūdošanas žurnāli ietver protokola buferi</string>
   <string name="revanced_debug_protobuffer_summary_off">Atkļūdošanas žurnāli neietver protokola buferi</string>
@@ -132,15 +160,6 @@ Tomēr, iespējojot šo iestatījumu, tiks reģistrēti arī daži lietotāja da
   <string name="revanced_debug_toast_on_error_user_dialog_message">"Kļūdu paziņojumu izslēgšana paslēpj visus ReVanced kļūdu paziņojumus.
 
 Jūs netiksit informēts par neparedzētiem notikumiem."</string>
-  <string name="revanced_debug_export_logs_to_clipboard_title">Eksportēt atkļūdošanas žurnālus</string>
-  <string name="revanced_debug_export_logs_to_clipboard_summary">Kopē ReVanced atkļūdošanas žurnālus starpliktuvē</string>
-  <string name="revanced_debug_logs_disabled">Atkļūdošanas žurnālu reģistrēšana ir atspējota</string>
-  <string name="revanced_debug_logs_none_found">Žurnāli nav atrasti</string>
-  <string name="revanced_debug_logs_copied_to_clipboard">Žurnāli ir kopēti</string>
-  <string name="revanced_debug_logs_failed_to_export">Neizdevās eksportēt žurnālus: %s</string>
-  <string name="revanced_debug_logs_clear_buffer_title">Notīrīt atkļūdošanas žurnālus</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">Notīra visus saglabātos ReVanced atkļūdošanas žurnālus</string>
-  <string name="revanced_debug_logs_clear_toast">Žurnāli ir notīrīti</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Paslēpt albumu kartītes</string>
@@ -700,9 +719,9 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio ceļa izvēlne ir paslēpta</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Audio ceļa izvēlne ir redzama</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Audio celiņu izvēlne ir paslēpta.
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Audio celiņa izvēlne ir paslēpta
 
-Lai parādītu audio celiņu izvēlni, mainiet \"Video straumju viltošana\" uz iOS TV"</string>
+Lai parādītu audio celiņa izvēlni, mainiet \"Atdarināt video straumes\" uz iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Paslēpt Skatīties VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Skatīties VR izvēlne ir paslēpta</string>
@@ -1076,10 +1095,12 @@ Jūsu lietotāja ID ir kā parole, un to nekad nedrīkst dalīties."</string>
   <string name="revanced_sb_segments_intro_sum">Intervāls bez faktiska satura. Var būt pauze, statisks kadrs vai atkārtota animācija. Neietver pārejas, kas satur informāciju</string>
   <string name="revanced_sb_segments_outro">Noslēguma kartītes / Titri</string>
   <string name="revanced_sb_segments_outro_sum">Titri vai tad, kad parādās YouTube noslēguma ekrāni. Neietver secinājumus ar informāciju</string>
-  <string name="revanced_sb_segments_preview">Priekšskatījums/Atgriezeniskā saite/Āķis</string>
+  <string name="revanced_sb_segments_hook">Ievads / Sveicieni</string>
+  <string name="revanced_sb_segments_hook_sum">Stāstīti reklāmas rullīši gaidāmajam video, sveicieni un atvadas. Neietver sadaļas, kas pievieno papildu saturu</string>
+  <string name="revanced_sb_segments_preview">Priekšskatījums / Kopsavilkums</string>
   <string name="revanced_sb_segments_preview_sum">Klipu kolekcija, kas parāda, kas notiks tālāk vai kas notika video vai citās sērijas video, kur visa informācija ir atkārtota citur</string>
-  <string name="revanced_sb_segments_filler">Aizpildītājs/Anekdotes</string>
-  <string name="revanced_sb_segments_filler_sum">Tangenciālas ainas, kas pievienotas tikai kā aizpildītājs vai humors, kas nav nepieciešami, lai saprastu video galveno saturu. Neietver segmentus, kas sniedz kontekstu vai pamata informāciju</string>
+  <string name="revanced_sb_segments_filler">Atkāpes / Joki</string>
+  <string name="revanced_sb_segments_filler_sum">Sānu ainas vai joki, kas nav nepieciešami, lai saprastu video galveno saturu. Neietver sadaļas, kas sniedz kontekstu vai fona informāciju</string>
   <string name="revanced_sb_segments_nomusic">Mūzika: Ne-mūzikas sadaļa</string>
   <string name="revanced_sb_segments_nomusic_sum">Lietojams tikai mūzikas video. Mūzikas video sadaļas bez mūzikas, kas jau nav aptvertas citā kategorijā</string>
   <string name="revanced_sb_skip_button_compact">Izlaist</string>
@@ -1092,10 +1113,11 @@ Jūsu lietotāja ID ir kā parole, un to nekad nedrīkst dalīties."</string>
   <string name="revanced_sb_skip_button_intro_middle">Izlaist pārtraukumu</string>
   <string name="revanced_sb_skip_button_intro_end">Izlaist pārtraukumu</string>
   <string name="revanced_sb_skip_button_outro">Izlaist noslēgumu</string>
+  <string name="revanced_sb_skip_button_hook">Izlaist ievadu</string>
   <string name="revanced_sb_skip_button_preview_beginning">Izlaist priekšskatījumu</string>
   <string name="revanced_sb_skip_button_preview_middle">Izlaist priekšskatījumu</string>
   <string name="revanced_sb_skip_button_preview_end">Izlaist atgriezenisko saiti</string>
-  <string name="revanced_sb_skip_button_filler">Izlaist aizpildītāju</string>
+  <string name="revanced_sb_skip_button_filler">Izlaist sānu</string>
   <string name="revanced_sb_skip_button_nomusic">Izlaist ne-mūzikas sadaļu</string>
   <string name="revanced_sb_skip_button_unsubmitted">Izlaist segmentu</string>
   <string name="revanced_sb_skipped_sponsor">Izlaista sponsorēšana</string>
@@ -1106,10 +1128,11 @@ Jūsu lietotāja ID ir kā parole, un to nekad nedrīkst dalīties."</string>
   <string name="revanced_sb_skipped_intro_middle">Izlaists pārtraukums</string>
   <string name="revanced_sb_skipped_intro_end">Izlaists pārtraukums</string>
   <string name="revanced_sb_skipped_outro">Izlaists noslēgums</string>
+  <string name="revanced_sb_skipped_hook">Izlaists ievads</string>
   <string name="revanced_sb_skipped_preview_beginning">Izlaists priekšskatījums</string>
   <string name="revanced_sb_skipped_preview_middle">Izlaists priekšskatījums</string>
   <string name="revanced_sb_skipped_preview_end">Izlaista atgriezeniskā saite</string>
-  <string name="revanced_sb_skipped_filler">Izlaists aizpildītājs</string>
+  <string name="revanced_sb_skipped_filler">Izlaists sānu</string>
   <string name="revanced_sb_skipped_nomusic">Izlaista ne-mūzikas sadaļa</string>
   <string name="revanced_sb_skipped_unsubmitted">Izlaists neiesniegts segments</string>
   <string name="revanced_sb_skipped_multiple_segments">Izlaisti vairāki segmenti</string>
@@ -1412,10 +1435,6 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
 Šī iestatījuma ieslēgšana var atbloķēt augstākas video kvalitātes"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">Šīs iespējošana var izraisīt video atskaņošanas aizķeršanos, īsāku akumulatora darbības laiku un nezināmas blakusparādības.</string>
   </patch>
-  <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">GmsCore iestatījumi</string>
-  <string name="microg_settings_summary">GmsCore iestatījumi</string>
-  </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">Haptiskā atgriezeniskā saite</string>
   <string name="revanced_disable_haptic_feedback_summary">Mainīt haptisko atgriezenisko saiti</string>
@@ -1529,35 +1548,54 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_slide_to_seek_summary_off">Slīdēšana, lai meklētu, nav iespējota</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Viltot video straumes</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Viltot klienta video straumes, lai novērstu atskaņošanas problēmas</string>
-  <string name="revanced_spoof_video_streams_title">Viltot video straumes</string>
-  <string name="revanced_spoof_video_streams_summary_on">Video straumes ir viltotas</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Video straumes nav viltotas
-
-Video atskaņošana var nedarboties"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">Šī iestatījuma atspējošana var izraisīt video atskaņošanas problēmas.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Noklusētā klients</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_title">Spēka iOS AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_on">Video kodeks ir piespiests AVC (H.264)</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_summary_off">Video kodeks tiek automātiski noteikts</string>
-  <string name="revanced_spoof_video_streams_ios_force_avc_user_dialog_message">"Iespējojot to, var uzlabot akumulatora darbības laiku un novērst atskaņošanas aizķeršanos.
-
-AVC maksimālā izšķirtspēja ir 1080p, Opus audio kodeks nav pieejams, un video atskaņošanā tiks patērēts vairāk interneta datu nekā VP9 vai AV1."</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_title">iOS izlikšanās blakusefekti</string>
-  <string name="revanced_spoof_video_streams_about_ios_tv_summary">"• Filmas vai apmaksāti video, iespējams, netiks atskaņoti
-• Nav pieejams stabils skaļums
-• Video beidzas 1 sekundi par ātru"</string>
+  <string name="revanced_spoof_video_streams_about_title">Viltotu straumju blakusparādības</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android viltus straumēšanas blakus efekti</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Trūkst audio celiņa izvēlnes
-• Nav pieejams stabils skaļums
-• Nav pieejama oriģinālā audio piespiešana"</string>
+  <string name="revanced_spoof_video_streams_about_android_summary">"• Audio celiņa izvēlne trūkst
+• Nav pieejams stabils skaļums"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video var apstāties pulksten 1:00 vai nebūt pieejams dažos reģionos</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentāls klients un jebkurā brīdī var pārtraukt darbu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nav pieejams AV1 video kodeks</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Bērnu videoklipi var netikt atskaņoti, kad esat izrakstījies vai inkognito režīmā.</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Rādīt statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienta tips tiek rādīts statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klients ir paslēpts statistiskos datos entuziastiem</string>
-  <string name="revanced_spoof_video_streams_language_title">VR noklusējuma audio straumes valoda</string>
+  <string name="revanced_spoof_video_streams_language_title">Audio straumes valoda</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Lai atlasītu konkrētu audio valodu, izslēdziet “Piespiest oriģinālo audio valodu”</string>
+  </patch>
+  </app>
+  <app id="music">
+  <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Par</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Reklāmas</string>
+  <string name="revanced_settings_music_screen_2_general_title">Vispārīgi</string>
+  <string name="revanced_settings_music_screen_3_player_title">Atskaņotājs</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Dažādi</string>
+  </patch>
+  <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Slēpt videoreklāmas</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Videoreklāmas ir paslēptas</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Videoreklāmas ir redzamas</string>
+  </patch>
+  <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Iespējot pastāvīgu atkārtošanu</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Pastāvīgā atkārtošana ir iespējota</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Pastāvīgā atkārtošana ir atspējota</string>
+  </patch>
+  <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Slēpt kategoriju joslu</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Kategoriju josla ir paslēpta</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Kategoriju josla ir redzama</string>
+  </patch>
+  <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title">Slēpt uzrakstu \"Iegūt Music Premium\"</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Uzraksts ir paslēpts</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Uzraksts ir redzams</string>
+  </patch>
+  <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Slēpt jaunināšanas pogu</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Poga ir paslēpta</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Poga ir redzama</string>
   </patch>
   </app>
   <app id="twitch">
