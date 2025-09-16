@@ -1,3 +1,10 @@
+# [5.38.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.38.0-dev.1...v5.38.0-dev.2) (2025-09-16)
+
+
+### Features
+
+* **YouTube Music:** Add `Settings` patch ([#5838](https://github.com/ReVanced/revanced-patches/issues/5838)) ([5e20bd8](https://github.com/ReVanced/revanced-patches/commit/5e20bd80f138d7ca94f18857194c46e489c435dc))
+
 # [5.38.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.37.1-dev.3...v5.38.0-dev.1) (2025-09-15)
 
 
