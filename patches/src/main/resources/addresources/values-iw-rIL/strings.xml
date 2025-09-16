@@ -721,7 +721,7 @@ Second \"item\" text"</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"תפריט רצועת השמע מוסתר
 
-תפריט רצועת השמע אינו זמין כאשר 'התחזות לזרמי וידאו' מופעלת"</string>
+כדי להציג את תפריט רצועת השמע, שנה את 'התחזות לזרמי וידאו' ל-iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">הסתר \'צפה ב-VR\'</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">תפריט \'צפה ב-VR\' מוסתר</string>
@@ -1553,6 +1553,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_android_title">תופעות לוואי של זיוף Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• תפריט רצועת השמע חסר
 • עוצמת קול יציבה אינה זמינה"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• הווידאו עשוי להיעצר בדקה 1:00, או ייתכן שלא יהיה זמין באזורים מסוימים</string>
   <string name="revanced_spoof_video_streams_about_experimental">• לקוח ניסיוני ועשוי להפסיק לפעול בכל עת</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• אין קודק וידאו מסוג AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ייתכן שסרטוני Kids לא יופעלו כשאתה מנותק או במצב פרטי</string>
@@ -1560,6 +1561,8 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">סוג הלקוח מוצג בנתונים לגיקים</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">הלקוח מוסתר בנתונים לגיקים</string>
   <string name="revanced_spoof_video_streams_language_title">שפת זרם השמע</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">כדי לבחור שפת שמע ספציפית, כבה את \'אכוף שפת שמע מקורית\'</string>
   </patch>
   </app>
   <app id="music">

@@ -719,9 +719,9 @@ Dacă modificarea acestei setări nu are efect, încercați să comutați la mod
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meniul piesei audio este ascuns</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Meniul piesei audio este afișat</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meniul piesei audio este ascuns
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Meniul de piste audio este ascuns
 
-Meniul piesei audio nu este disponibil când \"Simulează fluxurile video\" este activat"</string>
+Pentru a afișa meniul de piste audio, modificați „Emulare fluxuri video” la iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ascunde ceas în VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Vizionarea în meniul VR este ascunsă</string>
@@ -1550,6 +1550,7 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efecte secundare spoofing Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Meniul piesei audio lipsește
 • Volumul stabil nu este disponibil"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Videoclipul se poate opri la 1:00, sau poate să nu fie disponibil în unele regiuni</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Client experimental și se poate opri din funcționare oricând</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Fara codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Copiii nu pot urmări videoclipuri atunci când sunt deconectați sau în modul incognito</string>
@@ -1557,6 +1558,8 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tipul clientului este afișat în Statistici pentru pasionați</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Clientul este ascuns în Statistici pentru pasionați</string>
   <string name="revanced_spoof_video_streams_language_title">Limba fluxului audio</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Pentru a selecta o limbă audio specifică, dezactivați „Forțează limba audio originală”</string>
   </patch>
   </app>
   <app id="music">

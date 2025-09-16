@@ -719,9 +719,9 @@ Pokud změna tohoto nastavení nemá žádný účinek, zkuste přepnout do rež
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu Zvuková stopa je skryto</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menu Zvuková stopa je zobrazeno</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Nabídka zvukové stopy je skrytá
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Nabídka zvukové stopy je skryta
 
-Nabídka zvukové stopy není dostupná, když je povoleno 'Maskování video streamů'."</string>
+Chcete-li zobrazit nabídku zvukové stopy, změňte 'Zfalšovat streamy videa' na iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skrýt Sledovat ve VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu Sledovat ve VR je skryto</string>
@@ -1551,6 +1551,7 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Vedlejší účinky spoofingu Androidu</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Chybí nabídka zvukové stopy
 • Stabilní hlasitost není k dispozici"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video se může zastavit v 1:00 nebo nemusí být dostupné v některých oblastech</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentální klient a může kdykoli přestat fungovat</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Dětská videa se nemusí přehrávat, když jste odhlášení nebo v anonymním režimu</string>
@@ -1558,6 +1559,8 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta se zobrazuje ve statistikách pro nadšence</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient je skrytý ve statistikách pro nadšence</string>
   <string name="revanced_spoof_video_streams_language_title">Jazyk zvukového streamu</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Chcete-li vybrat konkrétní zvukový jazyk, vypněte „Vynutit původní zvukový jazyk“</string>
   </patch>
   </app>
   <app id="music">

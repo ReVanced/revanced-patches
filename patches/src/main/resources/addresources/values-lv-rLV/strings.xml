@@ -721,7 +721,7 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Audio celiņa izvēlne ir paslēpta
 
-Audio celiņa izvēlne nav pieejama, kad ir iespējots \"Viltot video straumes\""</string>
+Lai parādītu audio celiņa izvēlni, mainiet \"Atdarināt video straumes\" uz iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Paslēpt Skatīties VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Skatīties VR izvēlne ir paslēpta</string>
@@ -1552,6 +1552,7 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_spoof_video_streams_about_android_title">Android viltus straumēšanas blakus efekti</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Audio celiņa izvēlne trūkst
 • Nav pieejams stabils skaļums"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video var apstāties pulksten 1:00 vai nebūt pieejams dažos reģionos</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentāls klients un jebkurā brīdī var pārtraukt darbu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nav pieejams AV1 video kodeks</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Bērnu videoklipi var netikt atskaņoti, kad esat izrakstījies vai inkognito režīmā.</string>
@@ -1559,6 +1560,8 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienta tips tiek rādīts statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klients ir paslēpts statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_video_streams_language_title">Audio straumes valoda</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Lai atlasītu konkrētu audio valodu, izslēdziet “Piespiest oriģinālo audio valodu”</string>
   </patch>
   </app>
   <app id="music">

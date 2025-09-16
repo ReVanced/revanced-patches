@@ -721,7 +721,7 @@ Si la modification de ce paramètre ne prend pas effet, essayez de passer en mod
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Le menu Piste audio est masqué
 
-Le menu Piste audio n'est pas disponible lorsque \"Falsifier les flux vidéo\" est activé"</string>
+Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Masquer \"Regarder en RV\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Le menu Regarder en RV est masqué</string>
@@ -1552,6 +1552,7 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_spoof_video_streams_about_android_title">Effets secondaires de la falsification Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Le menu Piste audio est absent
 • Le volume stable n'est pas disponible"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Les vidéos sont susceptibles de s\'arrêter à 1:00, ou de ne pas être disponibles dans certaines régions</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Client expérimental, peut cesser de fonctionner à tout moment</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Codec vidéo AV1 indisponible</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• La lecture des vidéos pour enfants peut ne pas fonctionner lorsque vous êtes déconnecté ou en mode navigation privée</string>
@@ -1559,6 +1560,8 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Le type de client est affiché dans les Statistiques avancées</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Le client est caché dans les Statistiques avancées</string>
   <string name="revanced_spoof_video_streams_language_title">Langue du flux audio</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Pour sélectionner une langue audio spécifique, désactivez \"Forcer la langue audio d\'origine\"</string>
   </patch>
   </app>
   <app id="music">

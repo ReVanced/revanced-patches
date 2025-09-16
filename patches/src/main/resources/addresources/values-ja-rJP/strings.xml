@@ -723,7 +723,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"「音声トラック」は表示されません
 
-「動画ストリームを偽装」が有効になっているときに「音声トラック」は利用できません"</string>
+「音声トラック」を表示するには、「動画ストリームを偽装」を iPadOS に変更してください"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">「VR で見る」を非表示</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">「VR で見る」は表示されません</string>
@@ -1553,6 +1553,7 @@ Automotive レイアウト
   <string name="revanced_spoof_video_streams_about_android_title">Android クライアントの副作用</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 「音声トラック」がフライアウト メニューに表示されない
 • 「一定音量」が利用できない"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• 動画は1:00で停止する場合があります。または、一部の地域では利用できない場合があります。</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 実験的なクライアントであり、いつでも動作しなくなる可能性がある</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 コーデックが利用できない</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ログアウト時またはシークレット モード時に、子ども向け動画が再生されない可能性がある</string>
@@ -1560,6 +1561,8 @@ Automotive レイアウト
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">統計情報に現在のクライアントが表示されます</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">統計情報に現在のクライアントは表示されません</string>
   <string name="revanced_spoof_video_streams_language_title">音声ストリームの言語</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">特定の音声言語を選択するには、「元の音声言語を強制」をオフにしてください</string>
   </patch>
   </app>
   <app id="music">

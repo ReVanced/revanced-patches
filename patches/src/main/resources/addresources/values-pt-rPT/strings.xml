@@ -721,7 +721,7 @@ Se alterar esta configuração não fizer efeito, tente alternar para o modo an�
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"O menu da faixa de áudio está oculto
 
-O menu da faixa de áudio não está disponível quando 'Falsificar streams de vídeo' está ativado"</string>
+Para mostrar o menu da faixa de áudio, altere 'Falsificar fluxos de vídeo' para iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Esconder relógio no VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Assista no menu VR está escondido</string>
@@ -1551,6 +1551,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_spoof_video_streams_about_android_title">Efeitos colaterais da falsificação do Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• O menu da faixa de áudio está faltando
 • O volume estável não está disponível"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• O vídeo pode parar em 1:00, ou pode não estar disponível em algumas regiões</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Cliente experimental e pode parar de funcionar a qualquer momento</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nenhum codec de vídeo AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Vídeos infantis podem não ser reproduzidos quando desconectado ou no modo anônimo</string>
@@ -1558,6 +1559,8 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">O tipo de cliente é mostrado em Estatísticas para nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">O cliente está oculto em Estatísticas para nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma do fluxo de áudio</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Para selecionar um idioma de áudio específico, desative \'Forçar idioma de áudio original\'</string>
   </patch>
   </app>
   <app id="music">

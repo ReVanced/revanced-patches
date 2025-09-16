@@ -717,7 +717,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"অডিও ট্র্যাক মেনু লুকানো আছে
 
-\"ভিডিও স্ট্রিম স্পুফ করুন\" সক্ষম করা হলে অডিও ট্র্যাক মেনু উপলব্ধ থাকে না"</string>
+অডিও ট্র্যাক মেনু দেখানোর জন্য, 'ভিডিও স্ট্রিম স্পুফ করুন' কে iPadOS এ পরিবর্তন করুন"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">ভিআর-এ ঘড়ি লুকান</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">ভিআর মেনুতে দেখুন লুকানো আছে</string>
@@ -1547,6 +1547,7 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_spoof_video_streams_about_android_title">Android স্পুফিংয়ের পার্শ্বপ্রতিক্রিয়া</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• অডিও ট্র্যাক মেনু অনুপস্থিত
 • স্থিতিশীল ভলিউম উপলব্ধ নেই"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• ভিডিও ১:০০ মিনিটে বন্ধ হতে পারে, অথবা কিছু অঞ্চলে উপলব্ধ নাও হতে পারে</string>
   <string name="revanced_spoof_video_streams_about_experimental">• পরীক্ষামূলক ক্লায়েন্ট এবং যেকোনো সময় কাজ করা বন্ধ করতে পারে</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• কোনো AV1 ভিডিও কোডেক নেই</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• লগআউট করা হলে বা ছদ্মবেশী মোডে বাচ্চাদের ভিডিও চলতে নাও পারে</string>
@@ -1554,6 +1555,8 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">স্ট্যাটস ফর নার্ডসে ক্লায়েন্ট প্রকার দেখানো হবে</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">স্ট্যাটস ফর নার্ডসে ক্লায়েন্ট লুকানো হবে</string>
   <string name="revanced_spoof_video_streams_language_title">অডিও স্ট্রিম ভাষা</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">একটি নির্দিষ্ট অডিও ভাষা নির্বাচন করতে, \'মূল অডিও ভাষা জোর করে চালু রাখুন\' বন্ধ করুন</string>
   </patch>
   </app>
   <app id="music">

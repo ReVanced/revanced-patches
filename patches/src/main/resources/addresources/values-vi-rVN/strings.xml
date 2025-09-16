@@ -721,7 +721,7 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Trình đơn bản âm thanh đã bị ẩn
 
-Trình đơn bản âm thanh không khả dụng khi tính năng 'Giả mạo luồng video' được bật"</string>
+Để hiển thị trình đơn bản âm thanh, hãy đổi 'Giả mạo luồng video' thành iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Ẩn Xem ở chế độ thực tế ảo</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Trình đơn xem ở chế độ thực tế ảo đã bị ẩn</string>
@@ -1557,6 +1557,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_spoof_video_streams_about_android_title">Hạn chế khi giả mạo Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Trình đơn bản âm thanh bị thiếu
 • Âm lượng ổn định không khả dụng"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video có thể dừng ở 1:00, hoặc có thể không khả dụng ở một số khu vực</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Ứng dụng thử nghiệm và có thể ngừng hoạt động bất cứ lúc nào</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Không có codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video dành cho trẻ em có thể không phát được khi đăng xuất hoặc ở chế độ ẩn danh</string>
@@ -1564,6 +1565,8 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Loại máy khách đã được hiển thị trong Thống kê chi tiết</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Loại thiết bị đã ẩn trong Thống kê chi tiết</string>
   <string name="revanced_spoof_video_streams_language_title">Ngôn ngữ luồng âm thanh</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Để chọn ngôn ngữ âm thanh cụ thể, hãy tắt \'Buộc ngôn ngữ âm thanh gốc\'</string>
   </patch>
   </app>
   <app id="music">

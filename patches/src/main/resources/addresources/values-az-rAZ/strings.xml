@@ -713,9 +713,6 @@ Bu seçimi dəyişdirmə işə düşmürsə, Gizli rejimə keçməyə çalışı
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Səs axını menyusu gizlidir</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Səs axını menyusu göstərilir</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Səs treki menyusu gizlidir
-
-\"Video yayımları saxtalaşdır\" aktivləşdikdə səs trek menyusu mövcud deyil "</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">\"VR-da İzləni\" gizlət</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR menyusunda izləmə gizlidir</string>
@@ -1551,10 +1548,15 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Qəbuledici növü İstək üçün statistikada göstərilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Qəbuledici nerd üçün Statistikada gizlidir</string>
   <string name="revanced_spoof_video_streams_language_title">Səs yayım dili</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   </patch>
   </app>
   <app id="music">
   <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_music_screen_0_about_title">Haqqında</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Reklamlar</string>
+  <string name="revanced_settings_music_screen_2_general_title">Ümumi</string>
+  <string name="revanced_settings_music_screen_3_player_title">Oyunçu</string>
   <string name="revanced_settings_music_screen_4_misc_title">Çoxvariantlı</string>
   </patch>
   <patch id="ad.video.hideVideoAdsPatch">
@@ -1566,6 +1568,8 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <patch id="layout.premium.hideGetPremiumPatch">
   </patch>
   <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_summary_on">Düymə gizlidir</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Düymə görünür</string>
   </patch>
   </app>
   <app id="twitch">

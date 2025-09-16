@@ -89,13 +89,13 @@ Ketuk tombol lanjutkan dan izinkan perubahan pengoptimalan."</string>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">Palsukan aliran video</string>
   <string name="revanced_spoof_video_streams_screen_summary">Palsukan klien aliran video untuk mencegah masalah pemutaran</string>
-  <string name="revanced_spoof_video_streams_screen_title">Mengelabui aliran video</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Mengelabui aliran video klien untuk mencegah masalah pemutaran</string>
+  <string name="revanced_spoof_video_streams_screen_title">Palsukan aliran video</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Palsukan klien aliran video untuk mencegah masalah pemutaran</string>
   <string name="revanced_spoof_video_streams_title">Palsukan aliran video</string>
-  <string name="revanced_spoof_video_streams_summary_on">"Stream video ditiru
+  <string name="revanced_spoof_video_streams_summary_on">"Aliran video dipalsukan
 
 Jika Anda adalah pengguna YouTube Premium, setelan ini mungkin tidak diperlukan"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Aliran video tidak dikelabui
+  <string name="revanced_spoof_video_streams_summary_off">"Aliran video tidak dipalsukan
 
 Pemutaran mungkin tidak berfungsi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran.</string>
@@ -721,7 +721,7 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Menu trek audio disembunyikan
 
-Menu trek audio tidak tersedia saat 'Spoof stream video' diaktifkan"</string>
+Untuk menampilkan menu trek audio, ubah 'Spoof stream video' ke iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Sembunyikan Tonton di VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu tonton di VR disembunyikan</string>
@@ -1550,6 +1550,7 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efek samping pemalsuan Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Menu trek audio tidak ada
 • Volume stabil tidak tersedia"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video mungkin berhenti pada pukul 1:00, atau mungkin tidak tersedia di beberapa wilayah</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klien eksperimental dan dapat berhenti berfungsi kapan saja</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video anak-anak mungkin tidak dapat diputar saat keluar atau dalam mode penyamaran</string>
@@ -1557,6 +1558,8 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Jenis klien ditampilkan di Statistik untuk nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klien disembunyikan di Statistik untuk nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Bahasa aliran audio</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Untuk memilih bahasa audio tertentu, matikan \'Paksa bahasa audio asli\'</string>
   </patch>
   </app>
   <app id="music">

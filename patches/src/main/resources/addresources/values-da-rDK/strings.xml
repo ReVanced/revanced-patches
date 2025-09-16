@@ -721,7 +721,7 @@ Hvis ændring af denne indstilling ikke træder i kraft, kan du prøve at skifte
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Lydsporsmenuen er skjult
 
-Lydsporsmenuen er ikke tilgængelig, når 'Spoof videostreams' er aktiveret"</string>
+For at vise lydsporsmenuen, skift 'Spoof videostreams' til iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skjul vagt i VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Se i VR-menuen er skjult</string>
@@ -1553,6 +1553,7 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Bivirkninger ved Android-spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Lydsporsmenuen mangler
 • Stabil lydstyrke er ikke tilgængelig"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Videoen kan stoppe ved 1:00, eller er muligvis ikke tilgængelig i visse regioner</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentel klient og kan stoppe med at fungere når som helst</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Intet AV1-videokodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videoer til børn afspilles muligvis ikke, når du er logget ud eller i inkognitotilstand</string>
@@ -1560,6 +1561,8 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttypen vises i Statistik for nørder</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten er skjult i Statistik for nørder</string>
   <string name="revanced_spoof_video_streams_language_title">Lydstreamsprog</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">For at vælge et specifikt lydsprog, slå \'Gennemtving originalt lydsprog\' fra</string>
   </patch>
   </app>
   <app id="music">

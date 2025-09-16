@@ -719,9 +719,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Աուդիո ձայնագրման մենյուը թաքցված է</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Աուդիո ձայնագրման մենյուը երևում է</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Ձայնային ուղու մենյուն թաքնված է
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Ձայնաուղու ընտրացանկը թաքնված է
 
-Ձայնային ուղու մենյուն հասանելի չէ, երբ միացված է «Տեսահոսքերը կեղծել» տարբերակը"</string>
+Ձայնաուղու ընտրացանկը ցուցադրելու համար «Կեղծել տեսահոսքերը» փոխեք iPadOS-ի"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Դիտել VR-ով թաքցնել</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR-ով դիտել մենյուը թաքցված է</string>
@@ -1552,6 +1552,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_spoof_video_streams_about_android_title">Android խաբեության կողմնակի ազդեցություններ</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Ձայնային ուղու մենյուն բացակայում է
 • Կայուն ձայնի մակարդակը հասանելի չէ"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Տեսանյութը կարող է դադարել 1:00-ին կամ հասանելի չլինել որոշ տարածաշրջաններում</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Փորձնական հաճախորդ է և կարող է ցանկացած պահի դադարել աշխատել</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Հեռացված բոլոր AV1 վիդեո կոդեկները</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">Երեխաների տեսանյութերը կարող են չհամապատասխանել հետևյալ պահանջներին՝ եթե արտոնագրման խախտումներ կան։</string>
@@ -1559,6 +1560,8 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Հաճախորդի տեսակը ցուցադրվում է վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Հաճախորդը թաքնված է վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_video_streams_language_title">Ձայնային հոսքի լեզուն</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Որոշակի ձայնային լեզու ընտրելու համար անջատեք \'Պարտադրել բնօրինակ ձայնային լեզուն\'</string>
   </patch>
   </app>
   <app id="music">

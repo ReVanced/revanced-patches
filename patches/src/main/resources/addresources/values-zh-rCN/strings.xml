@@ -719,9 +719,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">音轨菜单已隐藏</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">音轨菜单已显示</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"音轨菜单已隐藏
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"已隱藏「音軌」選單
 
-启用“欺骗视频流”时，音轨菜单不可用"</string>
+如要顯示音軌選單，請將「欺騙視訊串流」變更為 iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">隐藏「在 VR 模式下观看」</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">在 VR 模式下观看已隐藏</string>
@@ -1556,6 +1556,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android 模拟的副作用</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 音轨菜单缺失
 • 稳定音量不可用"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• 视频可能会在 1:00 停止，或者在某些地区可能无法播放</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 实验性客户端，可能随时停止工作</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• 不支持 AV1 视频编解码器</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• 注销或使用无痕模式时，儿童视频可能无法播放</string>
@@ -1563,6 +1564,8 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">客户端类型显示在 Stats for nerds 中</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">客户端隐藏在 Stats for nerds 中</string>
   <string name="revanced_spoof_video_streams_language_title">音频流语言</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">要选择特定的音频语言，请关闭“强制原始音频语言”</string>
   </patch>
   </app>
   <app id="music">

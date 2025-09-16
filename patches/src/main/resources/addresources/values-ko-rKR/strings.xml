@@ -720,7 +720,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"오디오 트랙 메뉴가 숨겨집니다
 
-'동영상 스트림 변경하기'가 활성화된 경우에는 오디오 트랙 메뉴를 사용할 수 없습니다"</string>
+오디오 트랙 메뉴를 표시하려면, '동영상 스트림 변경하기'에서 기본 클라이언트를 iPadOS로 변경하세요"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">VR로 보기 메뉴 숨기기</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR로 보기 메뉴가 숨겨집니다</string>
@@ -1558,6 +1558,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android 변경에 따른 부작용</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 오디오 트랙 메뉴가 표시되지 않습니다
 • 안정적인 볼륨을 사용할 수 없습니다"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• 동영상이 1:00에서 중지되거나 일부 지역에서 제공되지 않을 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 실험용 클라이언트이며 언제든지 작동이 중단될 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kids 동영상은 로그인을 하지 않았거나 시크릿 모드에서는 재생되지 않을 수 있습니다</string>
@@ -1565,6 +1566,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">동영상 스트림을 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">동영상 스트림을 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시되지 않습니다</string>
   <string name="revanced_spoof_video_streams_language_title">오디오 스트림 언어</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">특정 오디오 언어를 선택하려면 \"원본 오디오 언어 강제 적용\"을 끄십시오.</string>
   </patch>
   </app>
   <app id="music">

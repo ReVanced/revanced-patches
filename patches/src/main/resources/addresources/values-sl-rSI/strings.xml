@@ -721,7 +721,7 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Meni za zvočno skladbo je skrit
 
-Meni za zvočno skladbo ni na voljo, ko je omogočena možnost \"Ponarejene video tokove\""</string>
+Za prikaz menija za zvočno skladbo, spremenite \"Ponarejene video tokove\" na iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skrij gledanje v VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Meni z gledanjem v VR je skrit</string>
@@ -1551,6 +1551,7 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android Stranski učinki spoofing</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Meni za zvočno skladbo manjka
 • Stabilna glasnost ni na voljo"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video se lahko ustavi ob 1:00, ali pa morda ne bo na voljo v nekaterih regijah</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentalni odjemalec in lahko kadar koli preneha delovati</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Brez kodeka videa AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Posnetki za otroke se mogoče ne bodo predvajali, ko ste odjavljeni ali v načinu brez beleženja zgodovine</string>
@@ -1558,6 +1559,8 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Vrsta odjemalca je prikazana v statistiki za piflarje</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Odjemalec je skrit v statistiki za piflarje</string>
   <string name="revanced_spoof_video_streams_language_title">Jezik zvočnega toka</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Za izbiro določenega zvočnega jezika izklopite \'Vsili izvirni zvočni jezik\'</string>
   </patch>
   </app>
   <app id="music">

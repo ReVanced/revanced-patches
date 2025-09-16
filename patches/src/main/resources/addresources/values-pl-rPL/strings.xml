@@ -715,9 +715,9 @@ Jeśli zmiana tego ustawienia nie przyniesie efektu, spróbuj przełączyć się
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu ścieżki dźwiękowej jest ukryte</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menu ścieżki dźwiękowej jest widoczne</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menu ścieżek dźwiękowych jest ukryte
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Menu ścieżek audio jest ukryte
 
-Menu ścieżek dźwiękowych jest niedostępne, gdy włączona jest opcja \"Fałszowanie strumieni wideo\""</string>
+Aby wyświetlić menu ścieżek audio, zmień „Fałszowanie strumieni wideo” na iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Menu oglądania w VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menu oglądania w VR jest ukryte</string>
@@ -1547,6 +1547,7 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Efekty uboczne podszywania się pod Androida</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Brak menu ścieżek dźwiękowych
 • Stabilna głośność jest niedostępna"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Wideo może zatrzymać się o 1:00 lub może być niedostępne w niektórych regionach</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperymentalny klient i może przestać działać w każdej chwili</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Filmy dla dzieci mogą nie być odtwarzane po wylogowaniu lub w trybie incognito</string>
@@ -1554,6 +1555,8 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta jest wyświetlany w Statystykach dla nerdów</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient jest ukryty w statystykach dla nerdów</string>
   <string name="revanced_spoof_video_streams_language_title">Język strumienia audio</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Aby wybrać konkretny język audio, wyłącz \"Wymuś oryginalny język audio\"</string>
   </patch>
   </app>
   <app id="music">

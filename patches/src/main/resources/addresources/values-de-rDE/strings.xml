@@ -716,7 +716,7 @@ Wenn diese Änderung nicht wirksam wird, versuchen Sie, in den Inkognito-Modus z
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Audiotrack-Menü ist ausgeblendet
 
-Audiotrack-Menü ist nicht verfügbar, wenn 'Videostreams spoofen' aktiviert ist"</string>
+Um das Audiotrack-Menü anzuzeigen, ändern Sie \"Video-Streams fälschen\" zu iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Überwachung in VR ausblenden</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Im VR-Menü beobachten ist ausgeblendet</string>
@@ -1546,6 +1546,7 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_spoof_video_streams_about_android_title">Android-Spoofing-Nebenwirkungen</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Audiotrack-Menü fehlt
 • Stabile Lautstärke ist nicht verfügbar"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video kann um 1:00 Uhr stoppen oder ist möglicherweise in einigen Regionen nicht verfügbar</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimenteller Client und kann jederzeit aufhören zu funktionieren</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Kein AV1-Videocodec</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kinder-Videos werden möglicherweise nicht abgespielt, wenn du abgemeldet bist oder den Inkognito-Modus verwendest.</string>
@@ -1553,6 +1554,8 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Der Client-Typ wird in den Statistiken für Nerds angezeigt</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Der Client wird in den Statistiken für Nerds ausgeblendet</string>
   <string name="revanced_spoof_video_streams_language_title">Audiodatenstromsprache</string>
+  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Um eine bestimmte Audiosprache auszuwählen, deaktivieren Sie „Original-Audiosprache erzwingen“</string>
   </patch>
   </app>
   <app id="music">
