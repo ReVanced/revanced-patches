@@ -1559,7 +1559,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клієнта приховано у вікні \"Статистика для сисадмінів\"</string>
   <string name="revanced_spoof_video_streams_language_title">Мова звукової доріжки</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">Щоб вибрати певну аудіомову, вимкніть \"Примусово використовувати оригінальну аудіомову\"</string>
+  <string name="revanced_spoof_video_streams_language_not_available">Щоб вибрати певну звукову доріжку, вимкніть \"Примусово оригінальна мова звукової доріжки\"</string>
   </patch>
   </app>
   <app id="music">

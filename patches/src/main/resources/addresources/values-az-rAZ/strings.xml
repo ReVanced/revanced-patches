@@ -89,10 +89,16 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">Video yayımları saxtalaşdır</string>
   <string name="revanced_spoof_video_streams_screen_summary">Oynatma problemlərin önləmək üçün qəbuledici video yayımların saxtalaşdır</string>
+  <string name="revanced_spoof_video_streams_screen_title">Video yayımların saxtalaşdır</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Oynatma problemlərin önləmək üçün qəbuledici video yayımların saxtalaşdır</string>
   <string name="revanced_spoof_video_streams_title">Video yayımları saxtalaşdır</string>
   <string name="revanced_spoof_video_streams_summary_on">"Video yayımları saxtalaşdırılıb
 
 Əgər YouTube Premium istifadəçisisinizsə, bu tənzimlənmə tələb olunmaya bilər"</string>
+  <string name="revanced_spoof_video_streams_summary_off">"Video yayımları saxtalaşmayıb
+
+Oynatma işləməyə bilər"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">Bu tənzimləməni qapatmaq oynatma problemlərinə səbəb ola bilər.</string>
   <string name="revanced_spoof_video_streams_client_type_title">İlkin qəbuledici</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
@@ -713,6 +719,9 @@ Bu seçimi dəyişdirmə işə düşmürsə, Gizli rejimə keçməyə çalışı
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Səs axını menyusu gizlidir</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Səs axını menyusu göstərilir</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Səs trek menyusu gizlidir
+
+Səs treki menyusunu göstərmək üçün \"Video yayımları saxtalaşdır\"ı iPadOS-a dəyiş"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">\"VR-da İzləni\" gizlət</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR menyusunda izləmə gizlidir</string>
@@ -1541,6 +1550,7 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_spoof_video_streams_about_android_title">Android saxtalaşdırma yan təsirləri</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Səs treki menyusu əlçatmazdır
 • Sabit səs səviyyəsi yoxdur"</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video 01:00-da dayana bilər və ya bəzi bölgələrdə mövcud olmaya bilər</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Təcrübi qəbuledici və hər vaxt işləməyi dayandıra bilər</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodlayıcı yoxdur</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Giriş edilməyəndə və ya gizli rejimdə uşaq videoları oynadıla bilməz</string>
@@ -1549,6 +1559,7 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Qəbuledici nerd üçün Statistikada gizlidir</string>
   <string name="revanced_spoof_video_streams_language_title">Səs yayım dili</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_language_not_available">Xüsusi səs dilini seçmək üçün \"Orijinal səs dilini zorlanı\" qapat</string>
   </patch>
   </app>
   <app id="music">
@@ -1556,18 +1567,31 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_settings_music_screen_0_about_title">Haqqında</string>
   <string name="revanced_settings_music_screen_1_ads_title">Reklamlar</string>
   <string name="revanced_settings_music_screen_2_general_title">Ümumi</string>
-  <string name="revanced_settings_music_screen_3_player_title">Oyunçu</string>
+  <string name="revanced_settings_music_screen_3_player_title">Oynadıcı</string>
   <string name="revanced_settings_music_screen_4_misc_title">Çoxvariantlı</string>
   </patch>
   <patch id="ad.video.hideVideoAdsPatch">
+  <string name="revanced_music_hide_video_ads_title">Video reklamlarını gizlət</string>
+  <string name="revanced_music_hide_video_ads_summary_on">Video reklamları gizlidir</string>
+  <string name="revanced_music_hide_video_ads_summary_off">Video reklamları görünür</string>
   </patch>
   <patch id="interaction.permanentrepeat.permanentRepeatPatch">
+  <string name="revanced_music_play_permanent_repeat_title">Kəsintisiz təkrarlamanı aktivləşdir</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">Kəsintisiz təkrarlama aktivdir</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">Kəsintisiz təkrarlama qapalıdır</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
+  <string name="revanced_music_hide_category_bar_title">Kateqoriya cizgisin gizlət</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Kateqoriya cizgisi gizlidir</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Kateqoriya cizgisi görünür</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
+  <string name="revanced_music_hide_get_premium_label_title"> \'Musiqi Premiumu Əldə et\' etiketini gizlət</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Etiket gizlidir</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Etiket görünür</string>
   </patch>
   <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
+  <string name="revanced_music_hide_upgrade_button_title">Təkmilləşdirmə düyməsini gizlət</string>
   <string name="revanced_music_hide_upgrade_button_summary_on">Düymə gizlidir</string>
   <string name="revanced_music_hide_upgrade_button_summary_off">Düymə görünür</string>
   </patch>
