@@ -121,6 +121,20 @@
                 <item>ZH</item>
             </string-array>
         </patch>
+    </app>
+    <app id="music">
+        <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+            <string-array name="revanced_spoof_video_streams_client_type_entries">
+                <item>Android VR</item>
+                <item>visionOS</item>
+            </string-array>
+            <string-array name="revanced_spoof_video_streams_client_type_entry_values">
+                <item>ANDROID_VR_1_43_32</item>
+                <item>VISIONOS</item>
+            </string-array>
+        </patch>
+    </app>
+    <app id="youtube">
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string-array name="revanced_spoof_video_streams_client_type_entries">
                 <item>Android VR</item>
@@ -133,8 +147,6 @@
                 <item>IPADOS</item>
             </string-array>
         </patch>
-    </app>
-    <app id="youtube">
         <patch id="interaction.swipecontrols.swipeControlsResourcePatch">
             <string-array name="revanced_swipe_overlay_style_entries">
                 <item>@string/revanced_swipe_overlay_style_entry_1</item>

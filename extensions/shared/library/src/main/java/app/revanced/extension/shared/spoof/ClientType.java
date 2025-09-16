@@ -31,7 +31,6 @@ public enum ClientType {
             "132.0.6808.3",
             "1.61.48",
             false,
-            false,
             "Android VR 1.61"
     ),
     /**
@@ -50,7 +49,6 @@ public enum ClientType {
             Objects.requireNonNull(ANDROID_VR_1_61_48.buildId),
             "107.0.5284.2",
             "1.43.32",
-            ANDROID_VR_1_61_48.requiresAuth,
             ANDROID_VR_1_61_48.useAuth,
             "Android VR 1.43"
     ),
@@ -71,7 +69,6 @@ public enum ClientType {
             "132.0.6779.0",
             "23.47.101",
             true,
-            true,
             "Android Creator"
     ),
     /**
@@ -85,7 +82,6 @@ public enum ClientType {
             "1.3.21O771",
             "0.1",
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15",
-            false,
             false,
             "visionOS"
     ),
@@ -110,7 +106,6 @@ public enum ClientType {
             "17.7.10.21H450",
             "19.22.3",
             "com.google.ios.youtube/19.22.3 (iPad7,6; U; CPU iPadOS 17_7_10 like Mac OS X; " + Locale.getDefault() + ")",
-            false,
             false,
             "iPadOS"
     );
@@ -181,12 +176,6 @@ public enum ClientType {
     public final String clientVersion;
 
     /**
-     * If this client requires authentication and does not work
-     * if logged out or in incognito mode.
-     */
-    public final boolean requiresAuth;
-
-    /**
      * If the client should use authentication if available.
      */
     public final boolean useAuth;
@@ -210,7 +199,6 @@ public enum ClientType {
                @NonNull String buildId,
                @NonNull String cronetVersion,
                String clientVersion,
-               boolean requiresAuth,
                boolean useAuth,
                String friendlyName) {
         this.id = id;
@@ -224,7 +212,6 @@ public enum ClientType {
         this.buildId = buildId;
         this.cronetVersion = cronetVersion;
         this.clientVersion = clientVersion;
-        this.requiresAuth = requiresAuth;
         this.useAuth = useAuth;
         this.friendlyName = friendlyName;
 
@@ -250,7 +237,6 @@ public enum ClientType {
                String osVersion,
                String clientVersion,
                String userAgent,
-               boolean requiresAuth,
                boolean useAuth,
                String friendlyName) {
         this.id = id;
@@ -261,7 +247,6 @@ public enum ClientType {
         this.osVersion = osVersion;
         this.clientVersion = clientVersion;
         this.userAgent = userAgent;
-        this.requiresAuth = requiresAuth;
         this.useAuth = useAuth;
         this.friendlyName = friendlyName;
         this.packageName = null;

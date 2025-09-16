@@ -177,7 +177,7 @@ public class StreamingDataRequest {
                 }
             }
 
-            if (!authHeadersIncludes && clientType.requiresAuth) {
+            if (!authHeadersIncludes && clientType.useAuth) {
                 Logger.printDebug(() -> "Skipping client since user is not logged in: " + clientType
                         + " videoId: " + videoId);
                 return null;

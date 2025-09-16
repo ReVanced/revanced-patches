@@ -8,9 +8,9 @@ import static app.revanced.extension.shared.spoof.ClientType.VISIONOS;
 
 import java.util.List;
 
-import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.spoof.ClientType;
 import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
+import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
@@ -27,7 +27,8 @@ public class SpoofVideoStreamsPatch {
                 IPADOS
         );
 
-        StreamingDataRequest.setClientOrderToUse(availableClients,
-                BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get());
+        ClientType client = Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
+        app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch.setPreferredClient(client);
+        StreamingDataRequest.setClientOrderToUse(availableClients, client);
     }
 }

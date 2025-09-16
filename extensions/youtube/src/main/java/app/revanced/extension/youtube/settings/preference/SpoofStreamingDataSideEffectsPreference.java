@@ -15,6 +15,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.ClientType;
+import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"deprecation", "unused"})
 public class SpoofStreamingDataSideEffectsPreference extends Preference {
@@ -69,7 +70,7 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
     }
 
     private void updateUI() {
-        ClientType clientType = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
+        ClientType clientType = Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
         if (currentClientType == clientType) {
             return;
         }
