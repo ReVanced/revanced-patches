@@ -1,3 +1,10 @@
+# [5.39.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.38.1-dev.2...v5.39.0-dev.1) (2025-09-17)
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add "Hide Shop button" setting ([a84db7b](https://github.com/ReVanced/revanced-patches/commit/a84db7be7fde2e9bb3ac41aec709a1681e845fe1))
+
 ## [5.38.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.38.1-dev.1...v5.38.1-dev.2) (2025-09-16)
 
 
