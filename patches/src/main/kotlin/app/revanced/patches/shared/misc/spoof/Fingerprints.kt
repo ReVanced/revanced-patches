@@ -150,7 +150,6 @@ internal val nerdsStatsVideoFormatBuilderFingerprint = fingerprint {
 }
 
 internal val patchIncludedExtensionMethodFingerprint = fingerprint {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Z")
     parameters()
     custom { method, classDef ->

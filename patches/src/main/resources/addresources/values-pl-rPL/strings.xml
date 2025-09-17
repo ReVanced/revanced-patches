@@ -1472,8 +1472,7 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_force_original_audio_title">Wymuś język oryginalnego dźwięku</string>
   <string name="revanced_force_original_audio_summary_on">Używanie oryginalnego języka audio</string>
   <string name="revanced_force_original_audio_summary_off">Używanie domyślnego dźwięku</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Aby użyć tej funkcji, zmień opcję \"Fałszuj strumienie wideo\" na iOS TV</string>
+
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

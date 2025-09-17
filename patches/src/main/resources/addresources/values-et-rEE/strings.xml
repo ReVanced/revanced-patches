@@ -1476,8 +1476,7 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_force_original_audio_title">Sunni originaalheli keel</string>
   <string name="revanced_force_original_audio_summary_on">Algse helikeele kasutamine</string>
   <string name="revanced_force_original_audio_summary_off">Kasutan vaikeheli</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Selle funktsiooni kasutamiseks muuda valik „Pettemanööver videovoogudele” iOS TV peale</string>
+
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

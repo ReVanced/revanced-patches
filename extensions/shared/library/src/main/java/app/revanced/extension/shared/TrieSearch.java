@@ -7,7 +7,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-/**Searches for a group of different patterns using a trie (prefix tree).
+/**
+ * Searches for a group of different patterns using a trie (prefix tree).
  * Can significantly speed up searching for multiple patterns.
  */
 public abstract class TrieSearch<T> {
@@ -55,11 +56,13 @@ public abstract class TrieSearch<T> {
             if (searchTextLength - searchTextIndex < patternLength - patternStartIndex) {
                 return false; // Remaining search text is shorter than the remaining leaf pattern and they cannot match.
             }
+
             for (int i = searchTextIndex, j = patternStartIndex; j < patternLength; i++, j++) {
                 if (enclosingNode.getCharValue(searchText, i) != enclosingNode.getCharValue(pattern, j)) {
                     return false;
                 }
             }
+
             return callback == null || callback.patternMatched(searchText,
                     searchTextIndex - patternStartIndex, patternLength, callbackParameter);
         }
@@ -143,6 +146,7 @@ public abstract class TrieSearch<T> {
                 endOfPatternCallback.add(callback);
                 return;
             }
+
             if (leaf != null) {
                 // Reached end of the graph and a leaf exist.
                 // Recursively call back into this method and push the existing leaf down 1 level.
@@ -157,6 +161,7 @@ public abstract class TrieSearch<T> {
                 leaf = new TrieCompressedPath<>(pattern, patternIndex, patternLength, callback);
                 return;
             }
+
             final char character = getCharValue(pattern, patternIndex);
             final int arrayIndex = hashIndexForTableSize(children.length, character);
             TrieNode<T> child = children[arrayIndex];
@@ -181,6 +186,7 @@ public abstract class TrieSearch<T> {
                 //noinspection unchecked
                 TrieNode<T>[] replacement = new TrieNode[replacementArraySize];
                 addNodeToArray(replacement, child);
+
                 boolean collision = false;
                 for (TrieNode<T> existingChild : children) {
                     if (existingChild != null) {
@@ -193,6 +199,7 @@ public abstract class TrieSearch<T> {
                 if (collision) {
                     continue;
                 }
+
                 children = replacement;
                 return;
             }
@@ -232,6 +239,7 @@ public abstract class TrieSearch<T> {
                 if (leaf != null && leaf.matches(startNode, searchText, searchTextEndIndex, searchTextIndex, callbackParameter)) {
                     return true; // Leaf exists and it matched the search text.
                 }
+
                 List<TriePatternMatchedCallback<T>> endOfPatternCallback = node.endOfPatternCallback;
                 if (endOfPatternCallback != null) {
                     final int matchStartIndex = searchTextIndex - currentMatchLength;
@@ -244,6 +252,7 @@ public abstract class TrieSearch<T> {
                         }
                     }
                 }
+
                 TrieNode<T>[] children = node.children;
                 if (children == null) {
                     return false; // Reached a graph end point and there's no further patterns to search.
@@ -276,9 +285,11 @@ public abstract class TrieSearch<T> {
             if (leaf != null) {
                 numberOfPointers += 4; // Number of fields in leaf node.
             }
+
             if (endOfPatternCallback != null) {
                 numberOfPointers += endOfPatternCallback.size();
             }
+
             if (children != null) {
                 numberOfPointers += children.length;
                 for (TrieNode<T> child : children) {

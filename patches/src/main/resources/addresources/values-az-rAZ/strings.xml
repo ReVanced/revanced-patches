@@ -1472,8 +1472,7 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_force_original_audio_title">Orijinal səs dilini zorla</string>
   <string name="revanced_force_original_audio_summary_on">Orijinal səs dilini istifadə</string>
   <string name="revanced_force_original_audio_summary_off">İlkin səs istifadəsi</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Bu xüsusiyyəti istifadə etmək üçün \"Saxta video yayımların\" iOS TV-yə dəyiş</string>
+
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
