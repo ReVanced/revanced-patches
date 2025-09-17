@@ -621,6 +621,10 @@ Ajusta el volumen deslizando verticalmente en el lado derecho de la pantalla"</s
   <string name="revanced_hide_clip_button_title">Ocultar Recortar</string>
   <string name="revanced_hide_clip_button_summary_on">El botón del recortar está oculto</string>
   <string name="revanced_hide_clip_button_summary_off">Se muestra el botón de recortar</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Ocultar Tienda</string>
+  <string name="revanced_hide_shop_button_summary_on">El botón de la Tienda está oculto</string>
+  <string name="revanced_hide_shop_button_summary_off">El botón de la Tienda es visible</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Ocultar Guardar</string>
   <string name="revanced_hide_save_button_summary_on">El botón de Guardar está oculto</string>

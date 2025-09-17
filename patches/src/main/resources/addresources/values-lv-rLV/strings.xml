@@ -621,6 +621,10 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_hide_clip_button_title">Paslēpt Izgriezt</string>
   <string name="revanced_hide_clip_button_summary_on">Izgriezt poga ir paslēpta</string>
   <string name="revanced_hide_clip_button_summary_off">Izgriezt poga ir redzama</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Paslēpt veikalu</string>
+  <string name="revanced_hide_shop_button_summary_on">Veikala poga ir paslēpta</string>
+  <string name="revanced_hide_shop_button_summary_off">Veikala poga ir redzama</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Paslēpt Saglabāt</string>
   <string name="revanced_hide_save_button_summary_on">Poga Saglabāt ir paslēpta</string>

@@ -621,6 +621,10 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_clip_button_title">Թաքցնել Clip</string>
   <string name="revanced_hide_clip_button_summary_on">Clip կոճակը թաքցված է</string>
   <string name="revanced_hide_clip_button_summary_off">Clip կոճակը ցուցադրվում է</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Թաքցնել Խանութը</string>
+  <string name="revanced_hide_shop_button_summary_on">Խանութի կոճակը թաքնված է</string>
+  <string name="revanced_hide_shop_button_summary_off">Խանութի կոճակը ցուցադրվում է</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Թաքցնել պահելը</string>
   <string name="revanced_hide_save_button_summary_on">Պահելու կոճակը թաքցված է</string>
