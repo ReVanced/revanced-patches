@@ -1,3 +1,10 @@
+# [5.39.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.39.0-dev.1...v5.39.0-dev.2) (2025-09-17)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Show Android Studio in spoof stream menu ([c9f741e](https://github.com/ReVanced/revanced-patches/commit/c9f741e616c7acab0cd4558e02b0c4ec18392c10))
+
 # [5.39.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.38.1-dev.2...v5.39.0-dev.1) (2025-09-17)
 
 
