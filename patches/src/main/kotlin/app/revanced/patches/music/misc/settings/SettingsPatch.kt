@@ -3,6 +3,7 @@ package app.revanced.patches.music.misc.settings
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -13,7 +14,11 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.settingsPatch
+import app.revanced.patches.youtube.misc.settings.licenseActivityOnCreateFingerprint
 import app.revanced.util.*
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
@@ -38,15 +43,6 @@ private val settingsResourcePatch = resourcePatch {
     )
 
     execute {
-
-        // TODO: Remove this when search will be abstract.
-        copyResources(
-            "settings",
-            ResourceGroup(
-                "layout",
-                "revanced_music_settings_with_toolbar.xml"
-            )
-        )
 
         val targetResource = "values/styles.xml"
         inputStreamFromBundledResource(
@@ -133,6 +129,32 @@ val settingsPatch = bytecodePatch(
         // Remove other methods as they will break as the onCreate method is modified above.
         googleApiActivityFingerprint.classDef.apply {
             methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
+        }
+
+        googleApiActivityFingerprint.classDef.apply {
+            // Override finish() to intercept back gesture.
+            ImmutableMethod(
+                type,
+                "finish",
+                emptyList(),
+                "V",
+                AccessFlags.PUBLIC.value,
+                null,
+                null,
+                MutableMethodImplementation(3),
+            ).toMutable().apply {
+                addInstructions(
+                    """
+                    invoke-static {}, Lapp/revanced/extension/music/settings/GoogleApiActivityHook;->handleBackPress()Z
+                    move-result v0
+                    if-nez v0, :search_handled
+                    invoke-super { p0 }, Landroid/app/Activity;->finish()V
+                    return-void
+                    :search_handled
+                    return-void
+                """
+                )
+            }.let(methods::add)
         }
     }
 

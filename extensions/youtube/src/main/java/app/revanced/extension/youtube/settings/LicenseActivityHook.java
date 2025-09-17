@@ -16,7 +16,7 @@ import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
-import app.revanced.extension.youtube.settings.search.SearchViewController;
+import app.revanced.extension.youtube.settings.search.YouTubeSearchViewController;
 
 /**
  * Hooks LicenseActivity to inject a custom ReVancedPreferenceFragment with a toolbar and search functionality.
@@ -30,14 +30,13 @@ public class LicenseActivityHook extends BaseActivityHook {
      * Controller for managing search view components in the toolbar.
      */
     @SuppressLint("StaticFieldLeak")
-    public static SearchViewController searchViewController;
+    public static YouTubeSearchViewController searchViewController;
 
     /**
      * Injection point
      * <p>
      * Creates an instance of LicenseActivityHook for use in static initialization.
      */
-    @SuppressWarnings("unused")
     public static LicenseActivityHook createInstance() {
         return new LicenseActivityHook();
     }
@@ -98,7 +97,7 @@ public class LicenseActivityHook extends BaseActivityHook {
     @Override
     protected void onPostToolbarSetup(Activity activity, Toolbar toolbar, PreferenceFragment fragment) {
         if (fragment instanceof ReVancedPreferenceFragment) {
-            searchViewController = SearchViewController.addSearchViewComponents(
+            searchViewController = YouTubeSearchViewController.addSearchViewComponents(
                     activity, toolbar, (ReVancedPreferenceFragment) fragment);
         }
     }
@@ -162,5 +161,15 @@ public class LicenseActivityHook extends BaseActivityHook {
             currentThemeValueOrdinal = themeOrdinal;
             Utils.setIsDarkModeEnabled(themeOrdinal == 1);
         }
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Static method for back press handling.
+     */
+    @SuppressWarnings("unused")
+    public static boolean handleBackPress() {
+        return YouTubeSearchViewController.handleBackPress(searchViewController);
     }
 }

@@ -1,25 +1,28 @@
 package app.revanced.extension.music.settings;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.preference.PreferenceFragment;
 import android.view.View;
+import android.widget.Toolbar;
 
 import app.revanced.extension.music.settings.preference.ReVancedPreferenceFragment;
+import app.revanced.extension.music.settings.search.MusicSearchViewController;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseActivityHook;
 
 /**
- * Hooks GoogleApiActivity to inject a custom ReVancedPreferenceFragment with a toolbar.
+ * Hooks GoogleApiActivity to inject a custom ReVancedPreferenceFragment with a toolbar and search.
  */
+@SuppressWarnings("deprecation")
 public class GoogleApiActivityHook extends BaseActivityHook {
-    /**
-     * Injection point
-     * <p>
-     * Creates an instance of GoogleApiActivityHook for use in static initialization.
-     */
+
+    @SuppressLint("StaticFieldLeak")
+    public static MusicSearchViewController searchViewController;
+
     @SuppressWarnings("unused")
     public static GoogleApiActivityHook createInstance() {
         // Must touch the Music settings to ensure the class is loaded and
@@ -48,8 +51,7 @@ public class GoogleApiActivityHook extends BaseActivityHook {
      */
     @Override
     protected int getContentViewResourceId() {
-        // In the future can use LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR when search will be shared.
-        return Utils.getResourceIdentifier("revanced_music_settings_with_toolbar", "layout");
+        return LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR;
     }
 
     /**
@@ -75,7 +77,28 @@ public class GoogleApiActivityHook extends BaseActivityHook {
      */
     @Override
     protected View.OnClickListener getNavigationClickListener(Activity activity) {
-        return view -> activity.finish();
+        return view -> {
+            if (searchViewController != null && searchViewController.isSearchActive()) {
+                searchViewController.closeSearch();
+            } else {
+                activity.finish();
+            }
+        };
+    }
+
+    /**
+     * Adds search view components to the toolbar for ReVancedPreferenceFragment.
+     *
+     * @param activity The activity hosting the toolbar.
+     * @param toolbar  The configured toolbar.
+     * @param fragment The PreferenceFragment associated with the activity.
+     */
+    @Override
+    protected void onPostToolbarSetup(Activity activity, Toolbar toolbar, PreferenceFragment fragment) {
+        if (fragment instanceof ReVancedPreferenceFragment) {
+            searchViewController = MusicSearchViewController.addSearchViewComponents(
+                    activity, toolbar, (ReVancedPreferenceFragment) fragment);
+        }
     }
 
     /**
@@ -84,5 +107,15 @@ public class GoogleApiActivityHook extends BaseActivityHook {
     @Override
     protected PreferenceFragment createPreferenceFragment() {
         return new ReVancedPreferenceFragment();
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Static method for back press handling.
+     */
+    @SuppressWarnings("unused")
+    public static boolean handleBackPress() {
+        return MusicSearchViewController.handleBackPress(searchViewController);
     }
 }

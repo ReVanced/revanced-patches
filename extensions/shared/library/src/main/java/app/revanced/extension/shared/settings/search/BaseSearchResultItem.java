@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.settings.search;
+package app.revanced.extension.shared.settings.search;
 
 import android.graphics.Color;
 import android.preference.ListPreference;
@@ -18,13 +18,12 @@ import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
-import app.revanced.extension.youtube.settings.preference.UrlLinkPreference;
-import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPreference;
+import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 
 /**
  * Abstract base class for search result items, defining common fields and behavior.
  */
-public abstract class SearchResultItem {
+public abstract class BaseSearchResultItem {
     // Enum to represent view types.
     public enum ViewType {
         REGULAR,
@@ -61,7 +60,7 @@ public abstract class SearchResultItem {
     CharSequence highlightedSummary;
     boolean highlightingApplied;
 
-    SearchResultItem(String navPath, List<String> navKeys, ViewType type) {
+    BaseSearchResultItem(String navPath, List<String> navKeys, ViewType type) {
         this.navigationPath = navPath;
         this.navigationKeys = new ArrayList<>(navKeys != null ? navKeys : Collections.emptyList());
         this.preferenceType = type;
@@ -95,7 +94,7 @@ public abstract class SearchResultItem {
     /**
      * Search result item for group headers (navigation path only).
      */
-    public static class GroupHeaderItem extends SearchResultItem {
+    public static class GroupHeaderItem extends BaseSearchResultItem {
         GroupHeaderItem(String navPath, List<String> navKeys) {
             super(navPath, navKeys, ViewType.GROUP_HEADER);
             this.highlightedTitle = navPath;
@@ -117,8 +116,8 @@ public abstract class SearchResultItem {
      * Search result item for preferences, handling type-specific data and search text.
      */
     @SuppressWarnings("deprecation")
-    public static class PreferenceSearchItem extends SearchResultItem {
-        final Preference preference;
+    public static class PreferenceSearchItem extends BaseSearchResultItem {
+        public final Preference preference;
         final String searchableText;
         final CharSequence originalTitle;
         final CharSequence originalSummary;
@@ -134,21 +133,22 @@ public abstract class SearchResultItem {
         // Store last applied highlighting pattern to reapply when needed.
         Pattern lastQueryPattern;
 
-        PreferenceSearchItem(Preference pref, String navPath, List<String> navKeys) {
-            super(navPath, navKeys, determineType(pref));
+        // Constructor now takes a PreferenceTypeResolver
+        PreferenceSearchItem(Preference pref, String navPath, List<String> navKeys, PreferenceTypeResolver typeResolver) {
+            super(navPath, navKeys, typeResolver.determineViewType(pref));
             this.preference = pref;
             this.originalTitle = pref.getTitle() != null ? pref.getTitle() : "";
             this.originalSummary = pref.getSummary();
             this.highlightedTitle = this.originalTitle;
             this.highlightedSummary = this.originalSummary != null ? this.originalSummary : "";
-            this.color = 0;
             this.lastQueryPattern = null;
 
-            // Initialize type-specific fields and create immutable backups.
-            FieldInitializationResult result = initTypeSpecificFields(pref);
+            // Initialize type-specific fields.
+            FieldInitializationResult result = initTypeSpecificFields(pref, typeResolver);
             this.originalSummaryOn = result.summaryOn;
             this.originalSummaryOff = result.summaryOff;
             this.originalEntries = result.entries;
+            this.color = result.color;
 
             // Build searchable text.
             this.searchableText = buildSearchableText(pref);
@@ -158,19 +158,10 @@ public abstract class SearchResultItem {
             CharSequence summaryOn = null;
             CharSequence summaryOff = null;
             CharSequence[] entries = null;
+            @ColorInt int color = 0;
         }
 
-        private static ViewType determineType(Preference pref) {
-            if (pref instanceof SwitchPreference) return ViewType.SWITCH;
-            if (pref instanceof ListPreference && !(pref instanceof SegmentCategoryListPreference)) return ViewType.LIST;
-            if (pref instanceof ColorPickerPreference) return ViewType.COLOR_PICKER;
-            if (pref instanceof SegmentCategoryListPreference) return ViewType.SEGMENT_CATEGORY;
-            if (pref instanceof UrlLinkPreference) return ViewType.URL_LINK;
-            if ("no_results_placeholder".equals(pref.getKey())) return ViewType.NO_RESULTS;
-            return ViewType.REGULAR;
-        }
-
-        private FieldInitializationResult initTypeSpecificFields(Preference pref) {
+        private FieldInitializationResult initTypeSpecificFields(Preference pref, PreferenceTypeResolver typeResolver) {
             FieldInitializationResult result = new FieldInitializationResult();
 
             if (pref instanceof SwitchPreference switchPref) {
@@ -178,10 +169,13 @@ public abstract class SearchResultItem {
                 result.summaryOff = switchPref.getSummaryOff();
             } else if (pref instanceof ColorPickerPreference colorPref) {
                 String colorString = colorPref.getText();
-                this.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) | 0xFF000000);
-            } else if (pref instanceof SegmentCategoryListPreference segmentPref) {
-                this.color = segmentPref.getColorWithOpacity();
-            } else if (pref instanceof ListPreference listPref) {
+                result.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) | 0xFF000000);
+            } else {
+                // Use resolver for app-specific color extraction.
+                result.color = typeResolver.extractColor(pref);
+            }
+
+            if (pref instanceof ListPreference listPref) {
                 result.entries = listPref.getEntries();
                 if (result.entries != null) {
                     this.highlightedEntries = new CharSequence[result.entries.length];
@@ -239,6 +233,12 @@ public abstract class SearchResultItem {
          * Gets the current effective summary for this preference, considering state-dependent summaries.
          */
         public CharSequence getCurrentEffectiveSummary() {
+            if (preference instanceof CustomDialogListPreference customPref) {
+                String staticSum = customPref.getStaticSummary();
+                if (staticSum != null) {
+                    return staticSum;
+                }
+            }
             if (preference instanceof SwitchPreference switchPref) {
                 boolean currentState = switchPref.isChecked();
                 return currentState
@@ -331,7 +331,8 @@ public abstract class SearchResultItem {
 
             // Restore original entries.
             if (originalEntries != null && highlightedEntries != null) {
-                System.arraycopy(originalEntries, 0, highlightedEntries, 0, Math.min(originalEntries.length, highlightedEntries.length));
+                System.arraycopy(originalEntries, 0, highlightedEntries, 0,
+                        Math.min(originalEntries.length, highlightedEntries.length));
             }
 
             entriesHighlightingApplied = false;

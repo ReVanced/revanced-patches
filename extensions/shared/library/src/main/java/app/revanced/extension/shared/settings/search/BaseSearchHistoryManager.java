@@ -1,13 +1,15 @@
-package app.revanced.extension.youtube.settings.search;
+package app.revanced.extension.shared.settings.search;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.BulletSpan;
+import android.util.Pair;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +19,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.ui.CustomDialog;
-import app.revanced.extension.youtube.settings.Settings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,33 +30,41 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
-import android.util.Pair;
-import android.app.Dialog;
-
 /**
- * Manages search history for the ReVanced settings search functionality.
+ * Abstract manager for search history functionality.
+ * Subclasses must provide app-specific settings.
  */
-public class SearchHistoryManager {
-    private final Deque<String> searchHistory;
-    private final Activity activity;
-    private final SearchHistoryAdapter searchHistoryAdapter;
-    private final boolean showSettingsSearchHistory;
-    private final FrameLayout searchHistoryContainer;
+public abstract class BaseSearchHistoryManager {
+    protected final Deque<String> searchHistory;
+    protected final Activity activity;
+    protected final SearchHistoryAdapter searchHistoryAdapter;
+    protected final boolean showSettingsSearchHistory;
+    protected final FrameLayout searchHistoryContainer;
+    // Abstract methods for app-specific settings.
+    protected abstract BooleanSetting getSearchHistorySetting();
+    protected abstract StringSetting getSearchEntriesSetting();
 
-    private static final int MAX_HISTORY_SIZE = 5; // Maximum history items stored.
+    protected static final int MAX_HISTORY_SIZE = 5;
 
-    private static final int ID_SEARCH_HISTORY_LIST = getResourceIdentifier("search_history_list", "id");
-    private static final int ID_CLEAR_HISTORY_BUTTON = getResourceIdentifier("clear_history_button", "id");
-    private static final int ID_HISTORY_TEXT = getResourceIdentifier("history_text", "id");
-    private static final int ID_DELETE_ICON = getResourceIdentifier("delete_icon", "id");
-    private static final int ID_EMPTY_HISTORY_TITLE = getResourceIdentifier("empty_history_title", "id");
-    private static final int ID_EMPTY_HISTORY_SUMMARY = getResourceIdentifier("empty_history_summary", "id");
-    private static final int ID_SEARCH_HISTORY_HEADER = getResourceIdentifier("search_history_header", "id");
-    private static final int ID_SEARCH_TIPS_SUMMARY = getResourceIdentifier("revanced_settings_search_tips_summary", "id");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_SCREEN =
+    protected static final int ID_SEARCH_HISTORY_LIST = getResourceIdentifier("search_history_list", "id");
+    protected static final int ID_CLEAR_HISTORY_BUTTON = getResourceIdentifier("clear_history_button", "id");
+    protected static final int ID_HISTORY_TEXT = getResourceIdentifier("history_text", "id");
+    protected static final int ID_DELETE_ICON = getResourceIdentifier("delete_icon", "id");
+    protected static final int ID_EMPTY_HISTORY_TITLE = getResourceIdentifier("empty_history_title", "id");
+    protected static final int ID_EMPTY_HISTORY_SUMMARY = getResourceIdentifier("empty_history_summary", "id");
+    protected static final int ID_SEARCH_HISTORY_HEADER = getResourceIdentifier("search_history_header", "id");
+    protected static final int ID_SEARCH_TIPS_SUMMARY = getResourceIdentifier("revanced_settings_search_tips_summary", "id");
+    protected static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_SCREEN =
             getResourceIdentifier("revanced_preference_search_history_screen", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_ITEM =
+    protected static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_ITEM =
             getResourceIdentifier("revanced_preference_search_history_item", "layout");
+
+    /**
+     * Interface for handling history item selection.
+     */
+    public interface OnSelectHistoryItemListener {
+        void onSelectHistoryItem(String query);
+    }
 
     /**
      * Constructor for SearchHistoryManager.
@@ -63,14 +73,14 @@ public class SearchHistoryManager {
      * @param overlayContainer          The overlay container to hold the search history container.
      * @param onSelectHistoryItemAction Callback for when a history item is selected.
      */
-    public SearchHistoryManager(Activity activity, FrameLayout overlayContainer,
-                                OnSelectHistoryItemListener onSelectHistoryItemAction) {
+    protected BaseSearchHistoryManager(Activity activity, FrameLayout overlayContainer,
+                                       OnSelectHistoryItemListener onSelectHistoryItemAction) {
         this.activity = activity;
-        this.showSettingsSearchHistory = Settings.SETTINGS_SEARCH_HISTORY.get();
+        this.showSettingsSearchHistory = getSearchHistorySetting().get();
         this.searchHistory = new LinkedList<>();
 
         // Initialize search history from settings.
-        StringSetting searchEntries = Settings.SETTINGS_SEARCH_ENTRIES;
+        StringSetting searchEntries = getSearchEntriesSetting();
         if (showSettingsSearchHistory) {
             String entries = searchEntries.get();
             if (!entries.isBlank()) {
@@ -106,8 +116,8 @@ public class SearchHistoryManager {
         }
 
         // Set up history adapter.
-        this.searchHistoryAdapter = new SearchHistoryAdapter(activity, searchHistoryListView, new ArrayList<>(searchHistory),
-                onSelectHistoryItemAction);
+        this.searchHistoryAdapter = new SearchHistoryAdapter(activity, searchHistoryListView,
+                new ArrayList<>(searchHistory), onSelectHistoryItemAction);
 
         // Set up clear history button.
         TextView clearHistoryButton = searchHistoryContainer.findViewById(ID_CLEAR_HISTORY_BUTTON);
@@ -127,13 +137,6 @@ public class SearchHistoryManager {
         }
         TextView tipsSummary = historyView.findViewById(ID_SEARCH_TIPS_SUMMARY);
         tipsSummary.setText(builder);
-    }
-
-    /**
-     * Interface for handling history item selection.
-     */
-    public interface OnSelectHistoryItemListener {
-        void onSelectHistoryItem(String query);
     }
 
     /**
@@ -171,64 +174,6 @@ public class SearchHistoryManager {
     }
 
     /**
-     * Helper method to show empty history views.
-     */
-    private void showEmptyHistoryViews(TextView emptyTitle, TextView emptySummary) {
-        emptyTitle.setVisibility(View.VISIBLE);
-        emptyTitle.setText(str("revanced_settings_search_empty_history_title"));
-
-        emptySummary.setVisibility(View.VISIBLE);
-        emptySummary.setText(str("revanced_settings_search_empty_history_summary"));
-    }
-
-    /**
-     * Helper method to hide empty history views.
-     */
-    private void hideEmptyHistoryViews(TextView emptyTitle, TextView emptySummary) {
-        emptyTitle.setVisibility(View.GONE);
-        emptySummary.setVisibility(View.GONE);
-    }
-
-    /**
-     * Helper method to show history list views.
-     */
-    private void showHistoryViews(TextView header, LinearLayout list, TextView clearButton) {
-        header.setVisibility(View.VISIBLE);
-        list.setVisibility(View.VISIBLE);
-        clearButton.setVisibility(View.VISIBLE);
-    }
-
-    /**
-     * Helper method to hide history list views.
-     */
-    private void hideHistoryViews(TextView header, LinearLayout list, TextView clearButton) {
-        header.setVisibility(View.GONE);
-        list.setVisibility(View.GONE);
-        clearButton.setVisibility(View.GONE);
-    }
-
-    /**
-     * Shows the search history container and overlay.
-     */
-    public void showSearchHistoryContainer() {
-        searchHistoryContainer.setVisibility(View.VISIBLE);
-    }
-
-    /**
-     * Hides the search history container.
-     */
-    public void hideSearchHistoryContainer() {
-        searchHistoryContainer.setVisibility(View.GONE);
-    }
-
-    /**
-     * Checks if search history feature is enabled.
-     */
-    public boolean isSearchHistoryEnabled() {
-        return showSettingsSearchHistory;
-    }
-
-    /**
      * Saves a search query to the history, maintaining the size limit.
      */
     public void saveSearchQuery(String query) {
@@ -247,19 +192,19 @@ public class SearchHistoryManager {
     }
 
     /**
+     * Saves the search history to shared preferences.
+     */
+    protected void saveSearchHistory() {
+        Logger.printDebug(() -> "Saving search history: " + searchHistory);
+        getSearchEntriesSetting().save(String.join("\n", searchHistory));
+    }
+
+    /**
      * Removes a search query from the history.
      */
     public void removeSearchQuery(String query) {
         searchHistory.remove(query);
         saveSearchHistory();
-    }
-
-    /**
-     * Saves the search history to shared preferences.
-     */
-    private void saveSearchHistory() {
-        Logger.printDebug(() -> "Saving search history: " + searchHistory);
-        Settings.SETTINGS_SEARCH_ENTRIES.save(String.join("\n", searchHistory));
     }
 
     /**
@@ -274,13 +219,70 @@ public class SearchHistoryManager {
     }
 
     /**
+     * Checks if search history feature is enabled.
+     */
+    public boolean isSearchHistoryEnabled() {
+        return showSettingsSearchHistory;
+    }
+
+    /**
+     * Shows the search history container and overlay.
+     */
+    public void showSearchHistoryContainer() {
+        searchHistoryContainer.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * Hides the search history container.
+     */
+    public void hideSearchHistoryContainer() {
+        searchHistoryContainer.setVisibility(View.GONE);
+    }
+
+    /**
+     * Helper method to show empty history views.
+     */
+    protected void showEmptyHistoryViews(TextView emptyTitle, TextView emptySummary) {
+        emptyTitle.setVisibility(View.VISIBLE);
+        emptyTitle.setText(str("revanced_settings_search_empty_history_title"));
+        emptySummary.setVisibility(View.VISIBLE);
+        emptySummary.setText(str("revanced_settings_search_empty_history_summary"));
+    }
+
+    /**
+     * Helper method to hide empty history views.
+     */
+    protected void hideEmptyHistoryViews(TextView emptyTitle, TextView emptySummary) {
+        emptyTitle.setVisibility(View.GONE);
+        emptySummary.setVisibility(View.GONE);
+    }
+
+    /**
+     * Helper method to show history list views.
+     */
+    protected void showHistoryViews(TextView header, LinearLayout list, TextView clearButton) {
+        header.setVisibility(View.VISIBLE);
+        list.setVisibility(View.VISIBLE);
+        clearButton.setVisibility(View.VISIBLE);
+    }
+
+    /**
+     * Helper method to hide history list views.
+     */
+    protected void hideHistoryViews(TextView header, LinearLayout list, TextView clearButton) {
+        header.setVisibility(View.GONE);
+        list.setVisibility(View.GONE);
+        clearButton.setVisibility(View.GONE);
+    }
+
+    /**
      * Creates and shows a dialog with the specified title, message, and confirmation action.
      *
      * @param title            The title of the dialog.
      * @param message          The message to display in the dialog.
      * @param confirmAction    The action to perform when the dialog is confirmed.
      */
-    private void createAndShowDialog(String title, String message, Runnable confirmAction) {
+    protected void createAndShowDialog(String title, String message, Runnable confirmAction) {
         Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 activity,
                 title,
@@ -299,14 +301,15 @@ public class SearchHistoryManager {
         dialog.show();
     }
 
+
     /**
      * Custom adapter for search history items.
      */
-    private class SearchHistoryAdapter {
-        private final List<String> history;
-        private final LayoutInflater inflater;
-        private final LinearLayout container;
-        private final OnSelectHistoryItemListener onSelectHistoryItemListener;
+    protected class SearchHistoryAdapter {
+        protected final List<String> history;
+        protected final LayoutInflater inflater;
+        protected final LinearLayout container;
+        protected final OnSelectHistoryItemListener onSelectHistoryItemListener;
 
         public SearchHistoryAdapter(Context context, LinearLayout container, List<String> history,
                                     OnSelectHistoryItemListener listener) {

@@ -73,7 +73,8 @@ private val settingsResourcePatch = resourcePatch {
         // Use same colors as stock YouTube.
         overrideThemeColors("@color/yt_white1", "@color/yt_black3")
 
-        arrayOf(
+        copyResources(
+            "settings",
             ResourceGroup("drawable",
                 "revanced_settings_icon.xml",
                 "revanced_settings_screen_00_about.xml",
@@ -89,22 +90,8 @@ private val settingsResourcePatch = resourcePatch {
                 "revanced_settings_screen_10_sponsorblock.xml",
                 "revanced_settings_screen_11_misc.xml",
                 "revanced_settings_screen_12_video.xml",
-            ),
-            ResourceGroup("layout",
-                "revanced_preference_search_history_item.xml",
-                "revanced_preference_search_history_screen.xml",
-                "revanced_preference_search_no_result.xml",
-                "revanced_preference_search_result_color.xml",
-                "revanced_preference_search_result_group_header.xml",
-                "revanced_preference_search_result_list.xml",
-                "revanced_preference_search_result_regular.xml",
-                "revanced_preference_search_result_switch.xml",
-                "revanced_settings_with_toolbar.xml"
-            ),
-            ResourceGroup("menu", "revanced_search_menu.xml")
-        ).forEach { resourceGroup ->
-            copyResources("settings", resourceGroup)
-        }
+            )
+        )
 
         // Copy style properties used to fix over-sized copy menu that appear in EditTextPreference.
         // For a full explanation of how this fixes the issue, see the comments in this style file
@@ -263,7 +250,7 @@ val settingsPatch = bytecodePatch(
                 )
             }.let(methods::add)
 
-            // Add onBackPressed method to handle back button presses, delegating to SearchViewController.
+            // Add onBackPressed method to handle back button presses.
             ImmutableMethod(
                 type,
                 "onBackPressed",
@@ -276,7 +263,7 @@ val settingsPatch = bytecodePatch(
             ).toMutable().apply {
                 addInstructions(
                     """
-                        invoke-static {}, Lapp/revanced/extension/youtube/settings/search/SearchViewController;->handleBackPress()Z
+                        invoke-static {}, Lapp/revanced/extension/youtube/settings/LicenseActivityHook;->handleBackPress()Z
                         move-result v0
                         if-nez v0, :search_handled
                         invoke-virtual { p0 }, Landroid/app/Activity;->finish()V

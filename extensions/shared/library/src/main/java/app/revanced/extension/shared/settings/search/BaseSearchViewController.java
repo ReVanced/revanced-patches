@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.settings.search;
+package app.revanced.extension.shared.settings.search;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
@@ -26,65 +26,49 @@ import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
-import app.revanced.extension.youtube.settings.LicenseActivityHook;
-import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPreference;
-import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
-import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 
 /**
- * Controller for managing the overlay search view in ReVanced settings.
+ * Abstract controller for managing the overlay search view in ReVanced settings.
+ * Subclasses must implement app-specific preference handling.
  */
-@SuppressWarnings({"deprecation", "DiscouragedApi", "NewApi"})
-public class SearchViewController {
-    private final SearchView searchView;
-    private final FrameLayout searchContainer;
-    private final FrameLayout overlayContainer;
-    private final Toolbar toolbar;
-    private final Activity activity;
-    private final ReVancedPreferenceFragment fragment;
-    private final CharSequence originalTitle;
-    private final SearchResultsAdapter searchResultsAdapter;
-    private final List<SearchResultItem> allSearchItems;
-    private final List<SearchResultItem> filteredSearchItems;
-    private final Map<String, SearchResultItem> keyToSearchItem;
-    private final InputMethodManager inputMethodManager;
-    private final SearchHistoryManager searchHistoryManager;
-    private boolean isSearchActive;
-    private boolean isShowingSearchHistory;
+@SuppressWarnings("deprecation")
+public abstract class BaseSearchViewController {
+    protected SearchView searchView;
+    protected FrameLayout searchContainer;
+    protected FrameLayout overlayContainer;
+    protected final Toolbar toolbar;
+    protected final Activity activity;
+    protected final BasePreferenceFragment fragment;
+    protected final CharSequence originalTitle;
+    protected BaseSearchResultsAdapter searchResultsAdapter;
+    protected final List<BaseSearchResultItem> allSearchItems;
+    protected final List<BaseSearchResultItem> filteredSearchItems;
+    protected final Map<String, BaseSearchResultItem> keyToSearchItem;
+    protected final InputMethodManager inputMethodManager;
+    protected BaseSearchHistoryManager searchHistoryManager;
+    protected boolean isSearchActive;
+    protected boolean isShowingSearchHistory;
+    protected final PreferenceTypeResolver preferenceTypeResolver;
 
-    private static final int MAX_SEARCH_RESULTS = 50; // Maximum number of search results displayed.
+    protected static final int MAX_SEARCH_RESULTS = 50;
 
-    private static final int ID_REVANCED_SEARCH_VIEW = getResourceIdentifier("revanced_search_view", "id");
-    private static final int ID_REVANCED_SEARCH_VIEW_CONTAINER = getResourceIdentifier("revanced_search_view_container", "id");
-    private static final int ID_ACTION_SEARCH = getResourceIdentifier("action_search", "id");
-    private static final int ID_REVANCED_SETTINGS_FRAGMENTS = getResourceIdentifier("revanced_settings_fragments", "id");
+    protected static final int ID_REVANCED_SEARCH_VIEW = getResourceIdentifier("revanced_search_view", "id");
+    protected static final int ID_REVANCED_SEARCH_VIEW_CONTAINER = getResourceIdentifier("revanced_search_view_container", "id");
+    protected static final int ID_ACTION_SEARCH = getResourceIdentifier("action_search", "id");
+    protected static final int ID_REVANCED_SETTINGS_FRAGMENTS = getResourceIdentifier("revanced_settings_fragments", "id");
     public static final int DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON =
             getResourceIdentifier("revanced_settings_search_icon", "drawable");
-    private static final int MENU_REVANCED_SEARCH_MENU =
+    protected static final int MENU_REVANCED_SEARCH_MENU =
             getResourceIdentifier("revanced_search_menu", "menu");
 
     /**
-     * Factory method to create and initialize a SearchViewController instance.
+     * Constructs a new BaseSearchViewController instance.
      *
-     * @param activity The activity containing the search components.
-     * @param toolbar  The toolbar where search functionality will be integrated.
-     * @param fragment The preference fragment to search within.
-     * @return Configured SearchViewController instance.
+     * @param activity The activity hosting the search view.
+     * @param toolbar  The toolbar containing the search action.
+     * @param fragment The preference fragment to manage search preferences.
      */
-    public static SearchViewController addSearchViewComponents(Activity activity, Toolbar toolbar,
-                                                               ReVancedPreferenceFragment fragment) {
-        return new SearchViewController(activity, toolbar, fragment);
-    }
-
-    /**
-     * Initializes the SearchViewController with all necessary components and listeners.
-     * Sets up the search view, overlay container, toolbar menu, and search history functionality.
-     *
-     * @param activity The parent activity.
-     * @param toolbar  The toolbar for search integration.
-     * @param fragment The preference fragment to search within.
-     */
-    private SearchViewController(Activity activity, Toolbar toolbar, ReVancedPreferenceFragment fragment) {
+    protected BaseSearchViewController(Activity activity, Toolbar toolbar, BasePreferenceFragment fragment) {
         this.activity = activity;
         this.toolbar = toolbar;
         this.fragment = fragment;
@@ -94,7 +78,20 @@ public class SearchViewController {
         this.keyToSearchItem = new HashMap<>();
         this.inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         this.isShowingSearchHistory = false;
+        this.preferenceTypeResolver = createPreferenceTypeResolver();
 
+        // Initialize components
+        initializeSearchView();
+        initializeOverlayContainer();
+        initializeSearchHistoryManager();
+        setupToolbarMenu();
+        setupListeners();
+    }
+
+    /**
+     * Initializes the search view with proper configurations, such as background, query hint, and RTL support.
+     */
+    private void initializeSearchView() {
         // Retrieve SearchView and container from XML.
         searchView = activity.findViewById(ID_REVANCED_SEARCH_VIEW);
         EditText searchEditText = searchView.findViewById(
@@ -105,6 +102,22 @@ public class SearchViewController {
 
         searchContainer = activity.findViewById(ID_REVANCED_SEARCH_VIEW_CONTAINER);
 
+        // Set background and query hint.
+        searchView.setBackground(createBackgroundDrawable());
+        searchView.setQueryHint(str("revanced_settings_search_hint"));
+
+        // Configure RTL support based on app language.
+        AppLanguage appLanguage = BaseSettings.REVANCED_LANGUAGE.get();
+        if (Utils.isRightToLeftLocale(appLanguage.getLocale())) {
+            searchView.setTextDirection(View.TEXT_DIRECTION_RTL);
+            searchView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+        }
+    }
+
+    /**
+     * Initializes the overlay container for displaying search results and history.
+     */
+    private void initializeOverlayContainer() {
         // Create overlay container for search results and history.
         overlayContainer = new FrameLayout(activity);
         overlayContainer.setVisibility(View.GONE);
@@ -115,11 +128,10 @@ public class SearchViewController {
         FrameLayout searchResultsContainer = new FrameLayout(activity);
         searchResultsContainer.setVisibility(View.VISIBLE);
 
-        // Create a ListView for the results.
         ListView searchResultsListView = new ListView(activity);
         searchResultsListView.setDivider(null);
         searchResultsListView.setDividerHeight(0);
-        searchResultsAdapter = new SearchResultsAdapter(activity, filteredSearchItems, fragment, this);
+        searchResultsAdapter = createSearchResultsAdapter();
         searchResultsListView.setAdapter(searchResultsAdapter);
 
         // Add results list into container.
@@ -141,25 +153,66 @@ public class SearchViewController {
             overlayParams.gravity = Gravity.TOP;
             mainContainer.addView(overlayContainer, overlayParams);
         }
+    }
 
-        // Initialize search history manager.
-        searchHistoryManager = new SearchHistoryManager(activity, overlayContainer, query -> {
+    /**
+     * Initializes the search history manager with the specified overlay container and listener.
+     */
+    private void initializeSearchHistoryManager() {
+        searchHistoryManager = createSearchHistoryManager(overlayContainer, query -> {
             searchView.setQuery(query, true);
             hideSearchHistory();
         });
+    }
 
-        // Set background and query hint.
-        searchView.setBackground(createBackgroundDrawable());
-        searchView.setQueryHint(str("revanced_settings_search_hint"));
+    // Abstract methods that subclasses must implement.
+    protected abstract BaseSearchResultsAdapter createSearchResultsAdapter();
+    protected abstract BaseSearchHistoryManager createSearchHistoryManager(FrameLayout overlayContainer,
+                                                                           BaseSearchHistoryManager.OnSelectHistoryItemListener listener);
+    protected abstract boolean isNotSpecialPreferenceGroup(Preference preference);
+    protected abstract void setupSpecialPreferenceListeners(BaseSearchResultItem item);
+    protected abstract PreferenceTypeResolver createPreferenceTypeResolver();
 
-        // Configure RTL support based on app language.
-        AppLanguage appLanguage = BaseSettings.REVANCED_LANGUAGE.get();
-        if (Utils.isRightToLeftLocale(appLanguage.getLocale())) {
-            searchView.setTextDirection(View.TEXT_DIRECTION_RTL);
-            searchView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
-        }
+    // Abstract interface for preference fragments.
+    public interface BasePreferenceFragment {
+        PreferenceScreen getPreferenceScreenForSearch();
+        android.view.View getView();
+        Activity getActivity();
+    }
 
-        // Set up query text listener.
+    /**
+     * Determines whether a preference should be included in the search index.
+     *
+     * @param preference   The preference to evaluate.
+     * @param currentDepth The current depth in the preference hierarchy.
+     * @param includeDepth The maximum depth to include in the search index.
+     * @return True if the preference should be included, false otherwise.
+     */
+    protected boolean shouldIncludePreference(Preference preference, int currentDepth, int includeDepth) {
+        return includeDepth <= currentDepth
+                && !(preference instanceof PreferenceCategory)
+                && isNotSpecialPreferenceGroup(preference)
+                && !(preference instanceof PreferenceScreen);
+    }
+
+    /**
+     * Sets up the toolbar menu for the search action.
+     */
+    protected void setupToolbarMenu() {
+        toolbar.inflateMenu(MENU_REVANCED_SEARCH_MENU);
+        toolbar.setOnMenuItemClickListener(item -> {
+            if (item.getItemId() == ID_ACTION_SEARCH && !isSearchActive) {
+                openSearch();
+                return true;
+            }
+            return false;
+        });
+    }
+
+    /**
+     * Configures listeners for the search view and toolbar navigation.
+     */
+    protected void setupListeners() {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -200,19 +253,6 @@ public class SearchViewController {
                 return true;
             }
         });
-
-        // Set up menu to toolbar.
-        toolbar.inflateMenu(MENU_REVANCED_SEARCH_MENU);
-
-        // Set menu item click listener.
-        toolbar.setOnMenuItemClickListener(item -> {
-            if (item.getItemId() == ID_ACTION_SEARCH && !isSearchActive) {
-                openSearch();
-                return true;
-            }
-            return false;
-        });
-
         // Set navigation click listener.
         toolbar.setNavigationOnClickListener(view -> {
             if (isSearchActive) {
@@ -224,50 +264,6 @@ public class SearchViewController {
     }
 
     /**
-     * Shows the search history screen.
-     */
-    private void showSearchHistory() {
-        if (searchHistoryManager.isSearchHistoryEnabled()) {
-            overlayContainer.setVisibility(View.VISIBLE);
-            searchHistoryManager.showSearchHistory();
-            isShowingSearchHistory = true;
-        } else {
-            hideAllOverlays();
-        }
-    }
-
-    /**
-     * Hides the search history screen.
-     */
-    private void hideSearchHistory() {
-        searchHistoryManager.hideSearchHistoryContainer();
-        isShowingSearchHistory = false;
-    }
-
-    /**
-     * Hides all overlay containers.
-     */
-    private void hideAllOverlays() {
-        hideSearchHistory();
-        hideSearchResults();
-    }
-
-    /**
-     * Hides search results overlay only.
-     */
-    private void hideSearchResults() {
-        overlayContainer.setVisibility(View.GONE);
-
-        filteredSearchItems.clear();
-        searchResultsAdapter.notifyDataSetChanged();
-
-        // Clear highlighting for all items.
-        for (SearchResultItem item : allSearchItems) {
-            item.clearHighlighting();
-        }
-    }
-
-    /**
      * Initializes search data by collecting all searchable preferences from the fragment.
      * This method should be called after the preference fragment is fully loaded.
      * Runs on the UI thread to ensure proper access to preference components.
@@ -275,23 +271,20 @@ public class SearchViewController {
     public void initializeSearchData() {
         allSearchItems.clear();
         keyToSearchItem.clear();
-
         // Wait until fragment is properly initialized.
         activity.runOnUiThread(() -> {
             try {
                 PreferenceScreen screen = fragment.getPreferenceScreenForSearch();
                 if (screen != null) {
                     collectSearchablePreferences(screen);
-                    for (SearchResultItem item : allSearchItems) {
-                        // Only PreferenceSearchItem instances have keys.
-                        if (item instanceof SearchResultItem.PreferenceSearchItem prefItem) {
+                    for (BaseSearchResultItem item : allSearchItems) {
+                        if (item instanceof BaseSearchResultItem.PreferenceSearchItem prefItem) {
                             String key = prefItem.preference.getKey();
                             if (key != null) {
                                 keyToSearchItem.put(key, item);
                             }
                         }
                     }
-                    // Set up listeners.
                     setupPreferenceListeners();
                     Logger.printDebug(() -> "Collected " + allSearchItems.size() + " searchable preferences");
                 }
@@ -304,42 +297,31 @@ public class SearchViewController {
     /**
      * Sets up listeners for preferences to keep search results in sync when preference values change.
      */
-    private void setupPreferenceListeners() {
-        for (SearchResultItem item : allSearchItems) {
+    protected void setupPreferenceListeners() {
+        for (BaseSearchResultItem item : allSearchItems) {
             // Skip non-preference items.
-            if (!(item instanceof SearchResultItem.PreferenceSearchItem prefItem)) continue;
+            if (!(item instanceof BaseSearchResultItem.PreferenceSearchItem prefItem)) continue;
             Preference pref = prefItem.preference;
 
             if (pref instanceof ColorPickerPreference colorPref) {
                 colorPref.setOnColorChangeListener((prefKey, newColor) -> {
-                    SearchResultItem.PreferenceSearchItem searchItem =
-                            (SearchResultItem.PreferenceSearchItem) keyToSearchItem.get(prefKey);
+                    BaseSearchResultItem.PreferenceSearchItem searchItem =
+                            (BaseSearchResultItem.PreferenceSearchItem) keyToSearchItem.get(prefKey);
                     if (searchItem != null) {
                         searchItem.setColor(newColor | 0xFF000000);
                         refreshSearchResults();
                     }
                 });
-            } else if (pref instanceof SegmentCategoryListPreference segmentPref) {
-                segmentPref.setOnPreferenceChangeListener((preference, newValue) -> {
-                    SearchResultItem.PreferenceSearchItem searchItem =
-                            (SearchResultItem.PreferenceSearchItem) keyToSearchItem.get(preference.getKey());
-                    if (searchItem != null) {
-                        searchItem.setColor(segmentPref.getColorWithOpacity());
-                        refreshSearchResults();
-                    }
-                    return true;
-                });
             } else if (pref instanceof CustomDialogListPreference listPref) {
                 listPref.setOnPreferenceChangeListener((preference, newValue) -> {
-                    SearchResultItem.PreferenceSearchItem searchItem =
-                            (SearchResultItem.PreferenceSearchItem) keyToSearchItem.get(preference.getKey());
+                    BaseSearchResultItem.PreferenceSearchItem searchItem =
+                            (BaseSearchResultItem.PreferenceSearchItem) keyToSearchItem.get(preference.getKey());
                     if (searchItem == null) return true;
 
                     int index = listPref.findIndexOfValue(newValue.toString());
                     if (index >= 0) {
                         // Check if a static summary is set.
                         boolean isStaticSummary = listPref.getStaticSummary() != null;
-
                         if (!isStaticSummary) {
                             // Only update summary if it is not static.
                             CharSequence newSummary = listPref.getEntries()[index];
@@ -353,73 +335,39 @@ public class SearchViewController {
                     return true;
                 });
             }
+
+            // Let subclasses handle special preferences.
+            setupSpecialPreferenceListeners(item);
         }
     }
 
     /**
-     * Finds a SearchResultItem by its Preference in all search items.
+     * Collects searchable preferences from a preference group.
      */
-    public SearchResultItem.PreferenceSearchItem findSearchItemByPreference(Preference preference) {
-        // First, search in filtered results.
-        for (SearchResultItem item : filteredSearchItems) {
-            if (item instanceof SearchResultItem.PreferenceSearchItem prefItem) {
-                if (prefItem.preference == preference) {
-                    return prefItem;
-                }
-            }
-        }
-
-        // If not found, search in all items.
-        for (SearchResultItem item : allSearchItems) {
-            if (item instanceof SearchResultItem.PreferenceSearchItem prefItem) {
-                if (prefItem.preference == preference) {
-                    return prefItem;
-                }
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * Refreshes search results if search is active.
-     */
-    private void refreshSearchResults() {
-        if (isSearchActive && !isShowingSearchHistory) {
-            searchResultsAdapter.notifyDataSetChanged();
-        }
-    }
-
-    /**
-     * Collect all searchable preferences with key-based navigation support.
-     */
-    private void collectSearchablePreferences(PreferenceGroup group) {
+    protected void collectSearchablePreferences(PreferenceGroup group) {
         collectSearchablePreferencesWithKeys(group, "", new ArrayList<>(), 1, 0);
     }
 
     /**
-     * Recursively collects all searchable preferences from a preference group with navigation keys.
-     * Builds navigation paths for each preference and filters out non-searchable items.
+     * Collects searchable preferences with their navigation paths and keys.
      *
-     * @param group        The preference group to search within.
-     * @param parentPath   The navigation path to this group.
-     * @param parentKeys   The list of navigation keys to this group.
-     * @param includeDepth The minimum depth at which to include preferences.
-     * @param currentDepth The current recursion depth.
+     * @param group        The preference group to collect from.
+     * @param parentPath   The navigation path of the parent group.
+     * @param parentKeys   The keys of parent preferences.
+     * @param includeDepth The maximum depth to include in the search index.
+     * @param currentDepth The current depth in the preference hierarchy.
      */
-    private void collectSearchablePreferencesWithKeys(PreferenceGroup group, String parentPath,
-                                                      List<String> parentKeys, int includeDepth, int currentDepth) {
+    protected void collectSearchablePreferencesWithKeys(PreferenceGroup group, String parentPath,
+                                                        List<String> parentKeys, int includeDepth, int currentDepth) {
         if (group == null) return;
 
         for (int i = 0, count = group.getPreferenceCount(); i < count; i++) {
             Preference preference = group.getPreference(i);
 
             // Add to search results only if it is not a category, special group, or PreferenceScreen.
-            if (includeDepth <= currentDepth
-                    && !(preference instanceof PreferenceCategory)
-                    && !(preference instanceof SponsorBlockPreferenceGroup)
-                    && !(preference instanceof PreferenceScreen)) {
-                allSearchItems.add(new SearchResultItem.PreferenceSearchItem(preference, parentPath, parentKeys));
+            if (shouldIncludePreference(preference, currentDepth, includeDepth)) {
+                allSearchItems.add(new BaseSearchResultItem.PreferenceSearchItem(
+                        preference, parentPath, parentKeys, preferenceTypeResolver));
             }
 
             // If the preference is a group, recurse into it.
@@ -428,7 +376,7 @@ public class SearchViewController {
                 List<String> newKeys = new ArrayList<>(parentKeys);
 
                 // Append the group title to the path and save key for navigation.
-                if (!(preference instanceof SponsorBlockPreferenceGroup)
+                if (isNotSpecialPreferenceGroup(preference)
                         && !(preference instanceof NoTitlePreferenceCategory)) {
                     CharSequence title = preference.getTitle();
                     if (!TextUtils.isEmpty(title)) {
@@ -454,10 +402,10 @@ public class SearchViewController {
      * Filters all search items based on the provided query and displays results in the overlay.
      * Applies highlighting to matching text and shows a "no results" message if nothing matches.
      */
-    private void filterAndShowResults(String query) {
+    protected void filterAndShowResults(String query) {
         hideSearchHistory();
         // Keep track of the previously displayed items to clear their highlights.
-        List<SearchResultItem> previouslyDisplayedItems = new ArrayList<>(filteredSearchItems);
+        List<BaseSearchResultItem> previouslyDisplayedItems = new ArrayList<>(filteredSearchItems);
 
         filteredSearchItems.clear();
 
@@ -466,14 +414,14 @@ public class SearchViewController {
 
         // Clear highlighting only for items that were previously visible.
         // This avoids iterating through all items on every keystroke during filtering.
-        for (SearchResultItem item : previouslyDisplayedItems) {
+        for (BaseSearchResultItem item : previouslyDisplayedItems) {
             item.clearHighlighting();
         }
 
         // Collect matched items first.
-        List<SearchResultItem> matched = new ArrayList<>();
+        List<BaseSearchResultItem> matched = new ArrayList<>();
         int matchCount = 0;
-        for (SearchResultItem item : allSearchItems) {
+        for (BaseSearchResultItem item : allSearchItems) {
             if (matchCount >= MAX_SEARCH_RESULTS) break; // Stop after collecting max results.
             if (item.matchesQuery(queryLower)) {
                 item.applyHighlighting(queryPattern);
@@ -484,14 +432,14 @@ public class SearchViewController {
 
         // Build filteredSearchItems, inserting parent enablers for disabled dependents.
         Set<String> addedParentKeys = new HashSet<>(2 * matched.size());
-        for (SearchResultItem item : matched) {
-            if (item instanceof SearchResultItem.PreferenceSearchItem prefItem) {
+        for (BaseSearchResultItem item : matched) {
+            if (item instanceof BaseSearchResultItem.PreferenceSearchItem prefItem) {
                 String key = prefItem.preference.getKey();
                 Setting<?> setting = (key != null) ? Setting.getSettingFromPath(key) : null;
                 if (setting != null && !setting.isAvailable()) {
                     List<Setting<?>> parentSettings = setting.getParentSettings();
                     for (Setting<?> parentSetting : parentSettings) {
-                        SearchResultItem parentItem = keyToSearchItem.get(parentSetting.key);
+                        BaseSearchResultItem parentItem = keyToSearchItem.get(parentSetting.key);
                         if (parentItem != null && !addedParentKeys.contains(parentSetting.key)) {
                             if (!parentItem.matchesQuery(queryLower)) {
                                 // Apply highlighting to parent items even if they don't match the query.
@@ -512,11 +460,11 @@ public class SearchViewController {
 
         if (!filteredSearchItems.isEmpty()) {
             filteredSearchItems.sort(Comparator.comparing(o -> o.navigationPath));
-            List<SearchResultItem> displayItems = new ArrayList<>();
+            List<BaseSearchResultItem> displayItems = new ArrayList<>();
             String currentPath = null;
-            for (SearchResultItem item : filteredSearchItems) {
+            for (BaseSearchResultItem item : filteredSearchItems) {
                 if (!item.navigationPath.equals(currentPath)) {
-                    SearchResultItem header = new SearchResultItem.GroupHeaderItem(item.navigationPath, item.navigationKeys);
+                    BaseSearchResultItem header = new BaseSearchResultItem.GroupHeaderItem(item.navigationPath, item.navigationKeys);
                     displayItems.add(header);
                     currentPath = item.navigationPath;
                 }
@@ -525,7 +473,6 @@ public class SearchViewController {
             filteredSearchItems.clear();
             filteredSearchItems.addAll(displayItems);
         }
-
         // Show "No results found" if search results are empty.
         if (filteredSearchItems.isEmpty()) {
             Preference noResultsPreference = new Preference(activity);
@@ -534,11 +481,10 @@ public class SearchViewController {
             noResultsPreference.setSummary(str("revanced_settings_search_no_results_summary"));
             noResultsPreference.setSelectable(false);
             noResultsPreference.setIcon(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
-            filteredSearchItems.add(new SearchResultItem.PreferenceSearchItem(noResultsPreference, "", Collections.emptyList()));
+            filteredSearchItems.add(new BaseSearchResultItem.PreferenceSearchItem(noResultsPreference, "", Collections.emptyList(), preferenceTypeResolver));
         }
 
         searchResultsAdapter.notifyDataSetChanged();
-
         overlayContainer.setVisibility(View.VISIBLE);
     }
 
@@ -546,18 +492,16 @@ public class SearchViewController {
      * Opens the search interface by showing the search view and hiding the menu item.
      * Configures the UI for search mode, shows the keyboard, and displays search suggestions.
      */
-    private void openSearch() {
+    protected void openSearch() {
         isSearchActive = true;
         toolbar.getMenu().findItem(ID_ACTION_SEARCH).setVisible(false);
         toolbar.setTitle("");
         searchContainer.setVisibility(View.VISIBLE);
         searchView.requestFocus();
-
         // Configure soft input mode to adjust layout and show keyboard.
         activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN
                 | WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         inputMethodManager.showSoftInput(searchView, InputMethodManager.SHOW_IMPLICIT);
-
         // Always show search history when opening search.
         showSearchHistory();
     }
@@ -579,17 +523,92 @@ public class SearchViewController {
         toolbar.getMenu().findItem(ID_ACTION_SEARCH).setVisible(true);
         toolbar.setTitle(originalTitle);
         searchView.setQuery("", false);
-
         // Hide keyboard and reset soft input mode.
         inputMethodManager.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
         activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
-
         // Clear highlighting for all search items.
-        for (SearchResultItem item : allSearchItems) {
+        for (BaseSearchResultItem item : allSearchItems) {
             item.clearHighlighting();
         }
 
         searchResultsAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * Shows the search history if enabled.
+     */
+    protected void showSearchHistory() {
+        if (searchHistoryManager.isSearchHistoryEnabled()) {
+            overlayContainer.setVisibility(View.VISIBLE);
+            searchHistoryManager.showSearchHistory();
+            isShowingSearchHistory = true;
+        } else {
+            hideAllOverlays();
+        }
+    }
+
+    /**
+     * Hides the search history container.
+     */
+    protected void hideSearchHistory() {
+        searchHistoryManager.hideSearchHistoryContainer();
+        isShowingSearchHistory = false;
+    }
+
+    /**
+     * Hides all overlay containers, including search results and history.
+     */
+    protected void hideAllOverlays() {
+        hideSearchHistory();
+        hideSearchResults();
+    }
+
+    /**
+     * Hides the search results overlay and clears the filtered results.
+     */
+    protected void hideSearchResults() {
+        overlayContainer.setVisibility(View.GONE);
+        filteredSearchItems.clear();
+        searchResultsAdapter.notifyDataSetChanged();
+        for (BaseSearchResultItem item : allSearchItems) {
+            item.clearHighlighting();
+        }
+    }
+
+    /**
+     * Refreshes the search results display if the search is active and history is not shown.
+     */
+    protected void refreshSearchResults() {
+        if (isSearchActive && !isShowingSearchHistory) {
+            searchResultsAdapter.notifyDataSetChanged();
+        }
+    }
+
+    /**
+     * Finds a search item corresponding to the given preference.
+     *
+     * @param preference The preference to find a search item for.
+     * @return The corresponding PreferenceSearchItem, or null if not found.
+     */
+    public BaseSearchResultItem.PreferenceSearchItem findSearchItemByPreference(Preference preference) {
+        // First, search in filtered results.
+        for (BaseSearchResultItem item : filteredSearchItems) {
+            if (item instanceof BaseSearchResultItem.PreferenceSearchItem prefItem) {
+                if (prefItem.preference == preference) {
+                    return prefItem;
+                }
+            }
+        }
+        // If not found, search in all items.
+        for (BaseSearchResultItem item : allSearchItems) {
+            if (item instanceof BaseSearchResultItem.PreferenceSearchItem prefItem) {
+                if (prefItem.preference == preference) {
+                    return prefItem;
+                }
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -603,25 +622,12 @@ public class SearchViewController {
     /**
      * Creates a rounded background drawable for the main search view.
      */
-    private static GradientDrawable createBackgroundDrawable() {
+    protected static GradientDrawable createBackgroundDrawable() {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
-        background.setCornerRadius(Utils.dipToPixels(28)); // 28dp corner radius.
+        background.setCornerRadius(Utils.dipToPixels(28));
         background.setColor(getSearchViewBackground());
         return background;
-    }
-
-    /**
-     * Injection point.
-     */
-    @SuppressWarnings("unused")
-    public static boolean handleBackPress() {
-        if (LicenseActivityHook.searchViewController != null
-                && LicenseActivityHook.searchViewController.isSearchActive()) {
-            LicenseActivityHook.searchViewController.closeSearch();
-            return true;
-        }
-        return false;
     }
 
     /**

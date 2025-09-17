@@ -1,7 +1,7 @@
-package app.revanced.extension.youtube.settings.search;
+package app.revanced.extension.shared.settings.search;
 
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
-import static app.revanced.extension.youtube.settings.search.SearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
+import static app.revanced.extension.shared.settings.search.BaseSearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
 
 import android.animation.*;
 import android.content.Context;
@@ -21,66 +21,62 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
+import app.revanced.extension.shared.settings.preference.UrlLinkPreference;
 import app.revanced.extension.shared.ui.ColorDot;
-import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
-import app.revanced.extension.youtube.settings.preference.UrlLinkPreference;
 
 import java.lang.reflect.Method;
 import java.util.List;
 
 /**
- * Adapter for displaying search results in overlay ListView with ViewHolder pattern.
+ * Abstract adapter for displaying search results in overlay ListView with ViewHolder pattern.
  */
 @SuppressWarnings("deprecation")
-public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
-    private final LayoutInflater inflater;
-    private final ReVancedPreferenceFragment fragment;
-    private final SearchViewController searchViewController;
-    private AnimatorSet currentAnimator;
+public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchResultItem> {
+    protected final LayoutInflater inflater;
+    protected final BaseSearchViewController.BasePreferenceFragment fragment;
+    protected final BaseSearchViewController searchViewController;
+    protected AnimatorSet currentAnimator;
+    protected abstract PreferenceScreen getMainPreferenceScreen();
 
-    private static final int BLINK_DURATION = 400;
-    private static final int PAUSE_BETWEEN_BLINKS = 100;
+    protected static final int BLINK_DURATION = 400;
+    protected static final int PAUSE_BETWEEN_BLINKS = 100;
 
-    private static final int ID_PREFERENCE_TITLE = getResourceIdentifier("preference_title", "id");
-    private static final int ID_PREFERENCE_SUMMARY = getResourceIdentifier("preference_summary", "id");
-    private static final int ID_PREFERENCE_PATH = getResourceIdentifier("preference_path", "id");
-    private static final int ID_PREFERENCE_SWITCH = getResourceIdentifier("preference_switch", "id");
-    private static final int ID_PREFERENCE_COLOR_DOT = getResourceIdentifier("preference_color_dot", "id");
+    protected static final int ID_PREFERENCE_TITLE = getResourceIdentifier("preference_title", "id");
+    protected static final int ID_PREFERENCE_SUMMARY = getResourceIdentifier("preference_summary", "id");
+    protected static final int ID_PREFERENCE_PATH = getResourceIdentifier("preference_path", "id");
+    protected static final int ID_PREFERENCE_SWITCH = getResourceIdentifier("preference_switch", "id");
+    protected static final int ID_PREFERENCE_COLOR_DOT = getResourceIdentifier("preference_color_dot", "id");
 
-    // ViewHolder for regular, list and url_link preferences.
-    private static class RegularViewHolder {
+    protected static class RegularViewHolder {
         TextView titleView;
         TextView summaryView;
     }
 
-    // ViewHolder for switch preferences.
-    private static class SwitchViewHolder {
+    protected static class SwitchViewHolder {
         TextView titleView;
         TextView summaryView;
         Switch switchWidget;
     }
 
-    // ViewHolder for color preferences.
-    private static class ColorViewHolder {
+    protected static class ColorViewHolder {
         TextView titleView;
         TextView summaryView;
         View colorDot;
     }
 
-    // ViewHolder for group header.
-    private static class GroupHeaderViewHolder {
+    protected static class GroupHeaderViewHolder {
         TextView pathView;
     }
 
-    // ViewHolder for no results preferences.
-    private static class NoResultsViewHolder {
+    protected static class NoResultsViewHolder {
         TextView titleView;
         TextView summaryView;
         ImageView iconView;
     }
 
-    public SearchResultsAdapter(Context context, List<SearchResultItem> items,
-                                ReVancedPreferenceFragment fragment, SearchViewController searchViewController) {
+    public BaseSearchResultsAdapter(Context context, List<BaseSearchResultItem> items,
+                                    BaseSearchViewController.BasePreferenceFragment fragment,
+                                    BaseSearchViewController searchViewController) {
         super(context, 0, items);
         this.inflater = LayoutInflater.from(context);
         this.fragment = fragment;
@@ -89,33 +85,31 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
 
     @Override
     public int getItemViewType(int position) {
-        SearchResultItem item = getItem(position);
+        BaseSearchResultItem item = getItem(position);
         return item == null ? 0 : item.preferenceType.ordinal();
     }
 
     @Override
     public int getViewTypeCount() {
-        return SearchResultItem.ViewType.values().length;
+        return BaseSearchResultItem.ViewType.values().length;
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        SearchResultItem item = getItem(position);
+        BaseSearchResultItem item = getItem(position);
         if (item == null) return new View(getContext());
-
         // Use the ViewType enum.
-        SearchResultItem.ViewType viewType = item.preferenceType;
-
+        BaseSearchResultItem.ViewType viewType = item.preferenceType;
         // Create or reuse preference view based on type.
         return createPreferenceView(item, convertView, viewType, parent);
     }
 
     @Override
     public boolean isEnabled(int position) {
-        SearchResultItem item = getItem(position);
+        BaseSearchResultItem item = getItem(position);
         // Disable for NO_RESULTS items to prevent ripple/selection.
-        return item != null && item.preferenceType != SearchResultItem.ViewType.NO_RESULTS;
+        return item != null && item.preferenceType != BaseSearchResultItem.ViewType.NO_RESULTS;
     }
 
     /**
@@ -126,141 +120,151 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
      * That means convertView passed here is ALWAYS of the correct type for this position.
      * So only need to check if (view == null), and if so – inflate a new layout and create the proper ViewHolder.
      */
-    private View createPreferenceView(SearchResultItem item, View convertView,
-                                      SearchResultItem.ViewType viewType, ViewGroup parent) {
+    protected View createPreferenceView(BaseSearchResultItem item, View convertView,
+                                        BaseSearchResultItem.ViewType viewType, ViewGroup parent) {
         View view = convertView;
         if (view == null) {
-            view = inflater.inflate(viewType.getLayoutResourceId(), parent, false);
-
-            // Initialize ViewHolder based on view type.
-            switch (viewType) {
-                case REGULAR, LIST, URL_LINK -> {
-                    RegularViewHolder regularHolder = new RegularViewHolder();
-                    regularHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
-                    regularHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
-                    view.setTag(regularHolder);
-                }
-                case SWITCH -> {
-                    SwitchViewHolder switchHolder = new SwitchViewHolder();
-                    switchHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
-                    switchHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
-                    switchHolder.switchWidget = view.findViewById(ID_PREFERENCE_SWITCH);
-                    view.setTag(switchHolder);
-                }
-                case COLOR_PICKER, SEGMENT_CATEGORY -> {
-                    ColorViewHolder colorHolder = new ColorViewHolder();
-                    colorHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
-                    colorHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
-                    colorHolder.colorDot = view.findViewById(ID_PREFERENCE_COLOR_DOT);
-                    view.setTag(colorHolder);
-                }
-                case GROUP_HEADER -> {
-                    GroupHeaderViewHolder groupHolder = new GroupHeaderViewHolder();
-                    groupHolder.pathView = view.findViewById(ID_PREFERENCE_PATH);
-                    view.setTag(groupHolder);
-                }
-                case NO_RESULTS -> {
-                    NoResultsViewHolder noResultsHolder = new NoResultsViewHolder();
-                    noResultsHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
-                    noResultsHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
-                    noResultsHolder.iconView = view.findViewById(android.R.id.icon);
-                    view.setTag(noResultsHolder);
-                }
-                default -> throw new IllegalStateException("Unknown viewType: " + viewType);
-            }
+            view = inflateViewForType(viewType, parent);
+            createViewHolderForType(view, viewType);
         }
 
-        // Retrieve the cached ViewHolder.
         Object holder = view.getTag();
+        bindDataToViewHolder(item, holder, viewType, view);
+        return view;
+    }
 
-        // Bind data to ViewHolder.
+    protected View inflateViewForType(BaseSearchResultItem.ViewType viewType, ViewGroup parent) {
+        return inflater.inflate(viewType.getLayoutResourceId(), parent, false);
+    }
+
+    protected void createViewHolderForType(View view, BaseSearchResultItem.ViewType viewType) {
         switch (viewType) {
-            case REGULAR, URL_LINK, LIST -> {
-                RegularViewHolder regularHolder = (RegularViewHolder) holder;
-                SearchResultItem.PreferenceSearchItem prefItem = (SearchResultItem.PreferenceSearchItem) item;
-                prefItem.refreshHighlighting();
-                regularHolder.titleView.setText(item.highlightedTitle);
-                regularHolder.summaryView.setText(item.highlightedSummary);
-                regularHolder.summaryView.setVisibility(TextUtils.isEmpty(item.highlightedSummary) ? View.GONE : View.VISIBLE);
-                setupPreferenceView(view, regularHolder.titleView, regularHolder.summaryView, prefItem.preference,
-                        () -> {
-                            handlePreferenceClick(prefItem.preference);
-                            if (prefItem.preference instanceof ListPreference) {
-                                prefItem.refreshHighlighting();
-                                regularHolder.summaryView.setText(prefItem.getCurrentEffectiveSummary());
-                                regularHolder.summaryView.setVisibility(TextUtils.isEmpty(prefItem.highlightedSummary) ? View.GONE : View.VISIBLE);
-                                notifyDataSetChanged();
-                            }
-                        },
-                        () -> navigateAndScrollToPreference(item));
+            case REGULAR, LIST, URL_LINK -> {
+                RegularViewHolder regularHolder = new RegularViewHolder();
+                regularHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
+                regularHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
+                view.setTag(regularHolder);
             }
             case SWITCH -> {
-                SwitchViewHolder switchHolder = (SwitchViewHolder) holder;
-                SearchResultItem.PreferenceSearchItem prefItem = (SearchResultItem.PreferenceSearchItem) item;
-                SwitchPreference switchPref = (SwitchPreference) prefItem.preference;
-                switchHolder.titleView.setText(item.highlightedTitle);
-                switchHolder.switchWidget.setBackground(null); // Remove ripple/highlight.
-                // Sync switch state with preference without animation.
-                boolean currentState = switchPref.isChecked();
-                if (switchHolder.switchWidget.isChecked() != currentState) {
-                    switchHolder.switchWidget.setChecked(currentState);
-                    switchHolder.switchWidget.jumpDrawablesToCurrentState();
-                }
-                prefItem.refreshHighlighting();
-                switchHolder.summaryView.setText(prefItem.highlightedSummary);
-                switchHolder.summaryView.setVisibility(TextUtils.isEmpty(prefItem.highlightedSummary) ? View.GONE : View.VISIBLE);
-
-                setupPreferenceView(view, switchHolder.titleView, switchHolder.summaryView, switchPref,
-                        () -> {
-                            boolean newState = !switchPref.isChecked();
-                            switchPref.setChecked(newState);
-                            switchHolder.switchWidget.setChecked(newState);
-                            prefItem.refreshHighlighting();
-                            switchHolder.summaryView.setText(prefItem.getCurrentEffectiveSummary());
-                            switchHolder.summaryView.setVisibility(TextUtils.isEmpty(prefItem.highlightedSummary) ? View.GONE : View.VISIBLE);
-                            // Notify preference change.
-                            if (switchPref.getOnPreferenceChangeListener() != null) {
-                                switchPref.getOnPreferenceChangeListener().onPreferenceChange(switchPref, newState);
-                            }
-                            notifyDataSetChanged();
-                        },
-                        () -> navigateAndScrollToPreference(item));
-                switchHolder.switchWidget.setEnabled(switchPref.isEnabled());
+                SwitchViewHolder switchHolder = new SwitchViewHolder();
+                switchHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
+                switchHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
+                switchHolder.switchWidget = view.findViewById(ID_PREFERENCE_SWITCH);
+                view.setTag(switchHolder);
             }
             case COLOR_PICKER, SEGMENT_CATEGORY -> {
-                ColorViewHolder colorHolder = (ColorViewHolder) holder;
-                SearchResultItem.PreferenceSearchItem prefItem = (SearchResultItem.PreferenceSearchItem) item;
-                colorHolder.titleView.setText(item.highlightedTitle);
-                colorHolder.summaryView.setText(item.highlightedSummary);
-                colorHolder.summaryView.setVisibility(TextUtils.isEmpty(item.highlightedSummary) ? View.GONE : View.VISIBLE);
-                ColorDot.applyColorDot(colorHolder.colorDot, prefItem.getColor(), prefItem.preference.isEnabled());
-                setupPreferenceView(view, colorHolder.titleView, colorHolder.summaryView, prefItem.preference,
-                        () -> handlePreferenceClick(prefItem.preference),
-                        () -> navigateAndScrollToPreference(item));
+                ColorViewHolder colorHolder = new ColorViewHolder();
+                colorHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
+                colorHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
+                colorHolder.colorDot = view.findViewById(ID_PREFERENCE_COLOR_DOT);
+                view.setTag(colorHolder);
             }
             case GROUP_HEADER -> {
-                GroupHeaderViewHolder groupHolder = (GroupHeaderViewHolder) holder;
-                groupHolder.pathView.setText(item.highlightedTitle);
-                view.setOnClickListener(v -> navigateToTargetScreen(item));
+                GroupHeaderViewHolder groupHolder = new GroupHeaderViewHolder();
+                groupHolder.pathView = view.findViewById(ID_PREFERENCE_PATH);
+                view.setTag(groupHolder);
             }
             case NO_RESULTS -> {
-                NoResultsViewHolder noResultsHolder = (NoResultsViewHolder) holder;
-                noResultsHolder.titleView.setText(item.highlightedTitle);
-                noResultsHolder.summaryView.setText(item.highlightedSummary);
-                noResultsHolder.summaryView.setVisibility(TextUtils.isEmpty(item.highlightedSummary) ? View.GONE : View.VISIBLE);
-                noResultsHolder.iconView.setImageResource(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
+                NoResultsViewHolder noResultsHolder = new NoResultsViewHolder();
+                noResultsHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
+                noResultsHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
+                noResultsHolder.iconView = view.findViewById(android.R.id.icon);
+                view.setTag(noResultsHolder);
             }
             default -> throw new IllegalStateException("Unknown viewType: " + viewType);
         }
+    }
 
-        return view;
+    protected void bindDataToViewHolder(BaseSearchResultItem item, Object holder,
+                                        BaseSearchResultItem.ViewType viewType, View view) {
+        switch (viewType) {
+            case REGULAR, URL_LINK, LIST -> bindRegularViewHolder(item, (RegularViewHolder) holder, view);
+            case SWITCH -> bindSwitchViewHolder(item, (SwitchViewHolder) holder, view);
+            case COLOR_PICKER, SEGMENT_CATEGORY -> bindColorViewHolder(item, (ColorViewHolder) holder, view);
+            case GROUP_HEADER -> bindGroupHeaderViewHolder(item, (GroupHeaderViewHolder) holder, view);
+            case NO_RESULTS -> bindNoResultsViewHolder(item, (NoResultsViewHolder) holder);
+            default -> throw new IllegalStateException("Unknown viewType: " + viewType);
+        }
+    }
+
+    protected void bindRegularViewHolder(BaseSearchResultItem item, RegularViewHolder holder, View view) {
+        BaseSearchResultItem.PreferenceSearchItem prefItem = (BaseSearchResultItem.PreferenceSearchItem) item;
+        prefItem.refreshHighlighting();
+        holder.titleView.setText(item.highlightedTitle);
+        holder.summaryView.setText(item.highlightedSummary);
+        holder.summaryView.setVisibility(TextUtils.isEmpty(item.highlightedSummary) ? View.GONE : View.VISIBLE);
+        setupPreferenceView(view, holder.titleView, holder.summaryView, prefItem.preference,
+                () -> {
+                    handlePreferenceClick(prefItem.preference);
+                    if (prefItem.preference instanceof ListPreference) {
+                        prefItem.refreshHighlighting();
+                        holder.summaryView.setText(prefItem.getCurrentEffectiveSummary());
+                        holder.summaryView.setVisibility(TextUtils.isEmpty(prefItem.highlightedSummary) ? View.GONE : View.VISIBLE);
+                        notifyDataSetChanged();
+                    }
+                },
+                () -> navigateAndScrollToPreference(item));
+    }
+
+    protected void bindSwitchViewHolder(BaseSearchResultItem item, SwitchViewHolder holder, View view) {
+        BaseSearchResultItem.PreferenceSearchItem prefItem = (BaseSearchResultItem.PreferenceSearchItem) item;
+        SwitchPreference switchPref = (SwitchPreference) prefItem.preference;
+        holder.titleView.setText(item.highlightedTitle);
+        holder.switchWidget.setBackground(null); // Remove ripple/highlight.
+        // Sync switch state with preference without animation.
+        boolean currentState = switchPref.isChecked();
+        if (holder.switchWidget.isChecked() != currentState) {
+            holder.switchWidget.setChecked(currentState);
+            holder.switchWidget.jumpDrawablesToCurrentState();
+        }
+        prefItem.refreshHighlighting();
+        holder.summaryView.setText(prefItem.highlightedSummary);
+        holder.summaryView.setVisibility(TextUtils.isEmpty(prefItem.highlightedSummary) ? View.GONE : View.VISIBLE);
+        setupPreferenceView(view, holder.titleView, holder.summaryView, switchPref,
+                () -> {
+                    boolean newState = !switchPref.isChecked();
+                    switchPref.setChecked(newState);
+                    holder.switchWidget.setChecked(newState);
+                    prefItem.refreshHighlighting();
+                    holder.summaryView.setText(prefItem.getCurrentEffectiveSummary());
+                    holder.summaryView.setVisibility(TextUtils.isEmpty(prefItem.highlightedSummary) ? View.GONE : View.VISIBLE);
+                    if (switchPref.getOnPreferenceChangeListener() != null) {
+                        switchPref.getOnPreferenceChangeListener().onPreferenceChange(switchPref, newState);
+                    }
+                    notifyDataSetChanged();
+                },
+                () -> navigateAndScrollToPreference(item));
+        holder.switchWidget.setEnabled(switchPref.isEnabled());
+    }
+
+    protected void bindColorViewHolder(BaseSearchResultItem item, ColorViewHolder holder, View view) {
+        BaseSearchResultItem.PreferenceSearchItem prefItem = (BaseSearchResultItem.PreferenceSearchItem) item;
+        holder.titleView.setText(item.highlightedTitle);
+        holder.summaryView.setText(item.highlightedSummary);
+        holder.summaryView.setVisibility(TextUtils.isEmpty(item.highlightedSummary) ? View.GONE : View.VISIBLE);
+        ColorDot.applyColorDot(holder.colorDot, prefItem.getColor(), prefItem.preference.isEnabled());
+        setupPreferenceView(view, holder.titleView, holder.summaryView, prefItem.preference,
+                () -> handlePreferenceClick(prefItem.preference),
+                () -> navigateAndScrollToPreference(item));
+    }
+
+    protected void bindGroupHeaderViewHolder(BaseSearchResultItem item, GroupHeaderViewHolder holder, View view) {
+        holder.pathView.setText(item.highlightedTitle);
+        view.setOnClickListener(v -> navigateToTargetScreen(item));
+    }
+
+    protected void bindNoResultsViewHolder(BaseSearchResultItem item, NoResultsViewHolder holder) {
+        holder.titleView.setText(item.highlightedTitle);
+        holder.summaryView.setText(item.highlightedSummary);
+        holder.summaryView.setVisibility(TextUtils.isEmpty(item.highlightedSummary) ? View.GONE : View.VISIBLE);
+        holder.iconView.setImageResource(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
     }
 
     /**
      * Sets up a preference view with click listeners and proper enabled state handling.
      */
-    private void setupPreferenceView(View view, TextView titleView, TextView summaryView, Preference preference,
-                                     Runnable onClickAction, Runnable onLongClickAction) {
+    protected void setupPreferenceView(View view, TextView titleView, TextView summaryView, Preference preference,
+                                       Runnable onClickAction, Runnable onLongClickAction) {
         boolean enabled = preference.isEnabled();
 
         // To enable long-click navigation for disabled settings, manually control the enabled state of the title
@@ -287,18 +291,17 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     /**
      * Navigates to the settings screen containing the given search result item and triggers scrolling.
      */
-    private void navigateAndScrollToPreference(SearchResultItem item) {
-        // No navigation for URL_LINK items.
-        if (item.preferenceType == SearchResultItem.ViewType.URL_LINK) return;
+    protected void navigateAndScrollToPreference(BaseSearchResultItem item) {
+        if (item.preferenceType == BaseSearchResultItem.ViewType.URL_LINK) return;
 
         PreferenceScreen targetScreen = navigateToTargetScreen(item);
         if (targetScreen == null) return;
-        if (!(item instanceof SearchResultItem.PreferenceSearchItem prefItem)) return;
+        if (!(item instanceof BaseSearchResultItem.PreferenceSearchItem prefItem)) return;
 
         Preference targetPreference = prefItem.preference;
 
         fragment.getView().post(() -> {
-            ListView listView = targetScreen == fragment.getPreferenceScreenForSearch()
+            ListView listView = targetScreen == getMainPreferenceScreen()
                     ? getPreferenceListView()
                     : targetScreen.getDialog().findViewById(android.R.id.list);
 
@@ -365,8 +368,8 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     /**
      * Navigates to the final PreferenceScreen using preference keys or titles as fallback.
      */
-    private PreferenceScreen navigateToTargetScreen(SearchResultItem item) {
-        PreferenceScreen currentScreen = fragment.getPreferenceScreenForSearch();
+    protected PreferenceScreen navigateToTargetScreen(BaseSearchResultItem item) {
+        PreferenceScreen currentScreen = getMainPreferenceScreen();
         Preference targetPref = null;
 
         // Try key-based navigation first.
@@ -395,7 +398,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     /**
      * Recursively searches for a preference by title in a preference group.
      */
-    private Preference findPreferenceByTitle(PreferenceGroup group, String title) {
+    protected Preference findPreferenceByTitle(PreferenceGroup group, String title) {
         for (int i = 0; i < group.getPreferenceCount(); i++) {
             Preference pref = group.getPreference(i);
             CharSequence prefTitle = pref.getTitle();
@@ -410,14 +413,13 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 }
             }
         }
-
         return null;
     }
 
     /**
      * Normalizes string for comparison (removes extra characters, spaces etc).
      */
-    private String normalizeString(String input) {
+    protected String normalizeString(String input) {
         if (TextUtils.isEmpty(input)) return "";
         return input.trim().toLowerCase().replaceAll("\\s+", " ").replaceAll("[^\\w\\s]", "");
     }
@@ -425,7 +427,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     /**
      * Gets the ListView from the PreferenceFragment.
      */
-    private ListView getPreferenceListView() {
+    protected ListView getPreferenceListView() {
         View fragmentView = fragment.getView();
         if (fragmentView != null) {
             ListView listView = findListViewInViewGroup(fragmentView);
@@ -433,14 +435,13 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 return listView;
             }
         }
-
         return fragment.getActivity().findViewById(android.R.id.list);
     }
 
     /**
      * Recursively searches for a ListView in a ViewGroup.
      */
-    private ListView findListViewInViewGroup(View view) {
+    protected ListView findListViewInViewGroup(View view) {
         if (view instanceof ListView) {
             return (ListView) view;
         }
@@ -452,14 +453,13 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 }
             }
         }
-
         return null;
     }
 
     /**
      * Finds the position of a preference in the ListView adapter.
      */
-    private int findPreferencePosition(Preference targetPreference, ListView listView) {
+    protected int findPreferencePosition(Preference targetPreference, ListView listView) {
         ListAdapter adapter = listView.getAdapter();
         if (adapter == null) {
             return -1;
@@ -476,14 +476,13 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 }
             }
         }
-
         return -1;
     }
 
     /**
      * Highlights a preference at the specified position with a blink effect.
      */
-    private void highlightPreferenceAtPosition(ListView listView, int position) {
+    protected void highlightPreferenceAtPosition(ListView listView, int position) {
         int firstVisible = listView.getFirstVisiblePosition();
         if (position < firstVisible || position > listView.getLastVisiblePosition()) {
             return;
@@ -499,7 +498,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
      * Creates a smooth double-blink effect on a view's background without affecting the text.
      * @param view The View to apply the animation to.
      */
-    private void blinkView(View view) {
+    protected void blinkView(View view) {
         // If a previous animation is still running, cancel it to prevent conflicts.
         if (currentAnimator != null && currentAnimator.isRunning()) {
             currentAnimator.cancel();
@@ -542,7 +541,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     /**
      * Recursively finds a preference by key in a preference group.
      */
-    private Preference findPreferenceByKey(PreferenceGroup group, String key) {
+    protected Preference findPreferenceByKey(PreferenceGroup group, String key) {
         if (group == null || TextUtils.isEmpty(key)) {
             return null;
         }
@@ -560,7 +559,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
                 }
             }
         }
-
         return null;
     }
 
@@ -571,7 +569,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
     private void handlePreferenceClick(Preference preference) {
         try {
             if (preference instanceof CustomDialogListPreference listPref) {
-                SearchResultItem.PreferenceSearchItem searchItem =
+                BaseSearchResultItem.PreferenceSearchItem searchItem =
                         searchViewController.findSearchItemByPreference(preference);
                 if (searchItem != null && searchItem.isEntriesHighlightingApplied()) {
                     listPref.setHighlightedEntriesForDialog(searchItem.getHighlightedEntries());
@@ -580,7 +578,7 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
 
             Method m = Preference.class.getDeclaredMethod("performClick", PreferenceScreen.class);
             m.setAccessible(true);
-            m.invoke(preference, fragment.getPreferenceScreen());
+            m.invoke(preference, fragment.getPreferenceScreenForSearch());
         } catch (Exception e) {
             Logger.printException(() -> "Failed to invoke performClick()", e);
         }
@@ -599,7 +597,6 @@ public class SearchResultsAdapter extends ArrayAdapter<SearchResultItem> {
             // Check if it has its own fragment or intent.
             return preference.getIntent() != null || preference.getFragment() != null;
         }
-
         return false;
     }
 }

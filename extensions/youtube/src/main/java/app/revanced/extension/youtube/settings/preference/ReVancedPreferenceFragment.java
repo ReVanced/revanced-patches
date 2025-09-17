@@ -16,9 +16,11 @@ import app.revanced.extension.youtube.settings.LicenseActivityHook;
 public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
 
     /**
-     * Preference fragment for ReVanced settings.
+     * The main PreferenceScreen used to display the current set of preferences.
+     * This screen is manipulated during initialization and filtering to show or hide preferences.
      */
     private PreferenceScreen preferenceScreen;
+
 
     /**
      * Initializes the preference fragment.
