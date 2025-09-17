@@ -9,12 +9,12 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/instagram/feed/ForceFollowingOnlyFeedPatch;"
+internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/instagram/feed/SetFollowingOnlyFeedPatch;"
 
 @Suppress("unused")
 val setFollowingOnlyHomePatch = bytecodePatch(
-    name = "Force following only feed",
-    description = "The home feed will contains only posts/reels of people you are following.",
+    name = "Limit feed to followed profiles",
+    description = "Filters the home feed to display only content from profiles you follow.",
 ) {
     compatibleWith("com.instagram.android")
 

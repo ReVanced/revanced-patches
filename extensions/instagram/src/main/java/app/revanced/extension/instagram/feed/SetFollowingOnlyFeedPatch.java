@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @SuppressWarnings("unused")
-public class ForceFollowingOnlyFeedPatch {
+public class SetFollowingOnlyFeedPatch {
 
     /**
      * Injection point.
