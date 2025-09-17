@@ -112,6 +112,10 @@ val settingsPatch = bytecodePatch(
             selectable = true,
         )
 
+        PreferenceScreen.GENERAL.addPreferences(
+            SwitchPreference("revanced_settings_search_history")
+        )
+
         // Modify GoogleApiActivity and remove all existing layout code.
         // Must modify an existing activity and cannot add a new activity to the manifest,
         // as that fails for root installations.
