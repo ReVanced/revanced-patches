@@ -1481,7 +1481,8 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">强制使用原始音频语言</string>
   <string name="revanced_force_original_audio_summary_on">使用原始音频语言</string>
   <string name="revanced_force_original_audio_summary_off">正在使用默认音频</string>
-
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">要使用此功能，请将“伪造视频流”更改为除 Android Studio 之外的任何客户端</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

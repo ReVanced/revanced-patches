@@ -1475,7 +1475,8 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   <string name="revanced_force_original_audio_title">Tvinga ursprungligt ljudspråk</string>
   <string name="revanced_force_original_audio_summary_on">Använder ursprungligt ljudspråk</string>
   <string name="revanced_force_original_audio_summary_off">Använder standardljud</string>
-
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Om du vill använda den här funktionen ändrar du \"Förfalska videoströmmar\" till valfri klient utom Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

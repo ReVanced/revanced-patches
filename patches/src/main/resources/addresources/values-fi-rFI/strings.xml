@@ -1476,7 +1476,8 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_force_original_audio_title">Pakota alkuperäinen äänen kieli</string>
   <string name="revanced_force_original_audio_summary_on">Käytetään alkuperäistä ääntä</string>
   <string name="revanced_force_original_audio_summary_off">Käytetään oletusääntä</string>
-
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Jotta voit käyttää tätä ominaisuutta, muuta \'Huijaa videovirtoja\' mihin tahansa asiakasohjelmaan paitsi Android Studioon</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

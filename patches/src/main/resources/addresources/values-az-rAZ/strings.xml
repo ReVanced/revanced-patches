@@ -622,6 +622,9 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_hide_clip_button_summary_on">Kəsmə düyməsi gizlidir</string>
   <string name="revanced_hide_clip_button_summary_off">Kəsmə düyməsi göstərilir</string>
   <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Mağazanı Gizlət</string>
+  <string name="revanced_hide_shop_button_summary_on">Mağaza düyməsi gizlidir</string>
+  <string name="revanced_hide_shop_button_summary_off">Mağaza düyməsi görünür</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Saxlayın-ı Gizlət</string>
   <string name="revanced_hide_save_button_summary_on">Saxlayın düyməsi gizlidir</string>
@@ -1472,7 +1475,8 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_force_original_audio_title">Orijinal səs dilini zorla</string>
   <string name="revanced_force_original_audio_summary_on">Orijinal səs dilini istifadə</string>
   <string name="revanced_force_original_audio_summary_off">İlkin səs istifadəsi</string>
-
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Bu funksiyanı istifadə etmək üçün \"Video yayımları saxtalaşdırı\" Android Studio savayı istənilən qəbulediciyə dəyiş</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
