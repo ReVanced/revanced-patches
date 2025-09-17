@@ -1478,7 +1478,8 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_title">כפה שפת שמע מקורית</string>
   <string name="revanced_force_original_audio_summary_on">שימוש בשפת שמע מקורית</string>
   <string name="revanced_force_original_audio_summary_off">שימוש בשמע ברירת מחדל</string>
-
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה את \'זיוף זרמי וידאו\' לכל לקוח מלבד Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

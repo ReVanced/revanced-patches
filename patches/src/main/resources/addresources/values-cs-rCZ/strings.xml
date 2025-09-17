@@ -1476,6 +1476,8 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_force_original_audio_title">Vynutit původní jazyk zvuku</string>
   <string name="revanced_force_original_audio_summary_on">Použít původní jazyk zvuku</string>
   <string name="revanced_force_original_audio_summary_off">Používání výchozího zvuku</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Chcete-li použít tuto funkci, změňte \'Zfalšovat video streamy\' na libovolného klienta kromě Android Studia</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

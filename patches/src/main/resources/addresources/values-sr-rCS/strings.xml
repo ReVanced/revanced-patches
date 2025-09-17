@@ -622,7 +622,7 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_hide_clip_button_summary_on">Dugme „Klip” je skriveno</string>
   <string name="revanced_hide_clip_button_summary_off">Dugme „Klip” je prikazano</string>
   <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_shop_button_title">Sakrij Prodavnicu</string>
+  <string name="revanced_hide_shop_button_title">Sakrij dugme „Prodavnica”</string>
   <string name="revanced_hide_shop_button_summary_on">Dugme „Prodavnica” je skriveno</string>
   <string name="revanced_hide_shop_button_summary_off">Dugme „Prodavnica” je prikazano</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
@@ -1475,7 +1475,8 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_force_original_audio_title">Prisili originalni jezik zvuka</string>
   <string name="revanced_force_original_audio_summary_on">Korišćenje originalnog jezika zvuka</string>
   <string name="revanced_force_original_audio_summary_off">Korišćenje podrazumevanog zvuka</string>
-
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Da biste koristili ovu funkciju, promenite opciju „Lažirani video strimovi” na bilo koji klijent osim Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

@@ -622,9 +622,9 @@ Menyesuaikan volume dengan mengusap secara vertikal di sisi kanan layar"</string
   <string name="revanced_hide_clip_button_summary_on">Tombol klip disembunyikan</string>
   <string name="revanced_hide_clip_button_summary_off">Tombol klip ditampilkan</string>
   <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_shop_button_title">Sembunyikan Toko</string>
-  <string name="revanced_hide_shop_button_summary_on">Tombol Toko disembunyikan</string>
-  <string name="revanced_hide_shop_button_summary_off">Tombol Toko ditampilkan</string>
+  <string name="revanced_hide_shop_button_title">Sembunyikan Belanja</string>
+  <string name="revanced_hide_shop_button_summary_on">Tombol belanja disembunyikan</string>
+  <string name="revanced_hide_shop_button_summary_off">Tombol belanja ditampilkan</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Sembunyikan Simpan</string>
   <string name="revanced_hide_save_button_summary_on">Tombol Simpan disembunyikan</string>
@@ -835,7 +835,7 @@ Untuk menampilkan menu trek audio, ubah 'Palsukan aliran video' ke iPadOS"</stri
   <string name="revanced_hide_shorts_search_suggestions_title">Sembunyikan saran penelusuran</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Saran penelusuran disembunyikan</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Saran penelusuran ditampilkan</string>
-  <string name="revanced_hide_shorts_shop_button_title">Sembunyikan tombol Toko</string>
+  <string name="revanced_hide_shorts_shop_button_title">Sembunyikan tombol Belanja</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">Tombol belanja disembunyikan</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">Tombol belanja ditampilkan</string>
   <string name="revanced_hide_shorts_stickers_title">Sembunyikan stiker</string>
@@ -1475,7 +1475,8 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_force_original_audio_title">Paksa bahasa audio asli</string>
   <string name="revanced_force_original_audio_summary_on">Menggunakan bahasa audio asli</string>
   <string name="revanced_force_original_audio_summary_off">Menggunakan audio bawaan</string>
-
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Spoof aliran video\' ke klien apa pun kecuali Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
