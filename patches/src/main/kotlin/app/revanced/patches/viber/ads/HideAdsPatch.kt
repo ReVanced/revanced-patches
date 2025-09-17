@@ -19,9 +19,7 @@ val hideAdsPatch = bytecodePatch(
 
     execute {
         val method = findAdStringFingerprint.method
-
-        val instructions = method.implementation!!.instructions.toList()
-
+ 
         // Find the ads free string index
         val stringIndex = findAdStringFingerprint.stringMatches!!.first().index
 
