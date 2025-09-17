@@ -45,13 +45,13 @@ val setFollowingOnlyHomePatch = bytecodePatch(
                 }
             }
 
-            val paramHeaderRegister = getInstruction<TwoRegisterInstruction>(getHeaderIndex).registerB
+            val paramHeaderRegister = getInstruction<TwoRegisterInstruction>(getHeaderIndex).registerA
 
             // Replace the `pagination_source` header value with `following` in the feed/timeline request.
             addInstructions(
                 getHeaderIndex,
                 """
-                    invoke-static v$paramHeaderRegister, $EXTENSION_CLASS_DESCRIPTOR->setFollowingHeader(Ljava/util/Map;)Ljava/util/Map;
+                    invoke-static { v$paramHeaderRegister }, $EXTENSION_CLASS_DESCRIPTOR->setFollowingHeader(Ljava/util/Map;)Ljava/util/Map;
                     move-result-object v$paramHeaderRegister
                 """
             )
