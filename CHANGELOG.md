@@ -1,3 +1,10 @@
+# [5.40.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.39.1-dev.1...v5.40.0-dev.1) (2025-09-17)
+
+
+### Features
+
+* **Viber - Hide ads:** Support latest app target ([#5863](https://github.com/ReVanced/revanced-patches/issues/5863)) ([e6cce85](https://github.com/ReVanced/revanced-patches/commit/e6cce8554116df3c0ea6dbb7440c59c9e73d8334))
+
 ## [5.39.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.39.0...v5.39.1-dev.1) (2025-09-17)
 
 
