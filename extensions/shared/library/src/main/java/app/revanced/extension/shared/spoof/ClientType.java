@@ -69,7 +69,7 @@ public enum ClientType {
             "132.0.6779.0",
             "23.47.101",
             true,
-            "Android Creator"
+            "Android Studio"
     ),
     /**
      * Internal YT client for an unreleased YT client. May stop working at any time.
