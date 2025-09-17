@@ -2,7 +2,6 @@ package app.revanced.patches.instagram.feed
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
@@ -27,15 +26,19 @@ val setFollowingOnlyHomePatch = bytecodePatch(
          * an additional method is fingerprinted.
          * This method uses the map, so we can get the field name of the map field using this.
          */
-        val mainFeedRequestHeaderFieldName =
-            mainFeedHeaderMapFinderFingerprint.method.instructions
-                .asSequence()
-                .mapNotNull { it.getReference<FieldReference>() }
-                .firstOrNull { ref ->
-                    ref.type == "Ljava/util/Map;" &&
+        val mainFeedRequestHeaderFieldName: String
+
+        with(mainFeedHeaderMapFinderFingerprint.method) {
+            mainFeedRequestHeaderFieldName = indexOfFirstInstructionOrThrow {
+                getReference<FieldReference>().let { ref ->
+                    ref?.type == "Ljava/util/Map;" &&
                             ref.definingClass == mainFeedRequestClassFingerprint.classDef.toString()
+
                 }
-                ?.name
+            }.let { instructionIndex ->
+                getInstruction(instructionIndex).getReference<FieldReference>()!!.name
+            }
+        }
 
         initMainFeedRequestFingerprint.method.apply {
             // Finds the instruction where the map is being initialized in the constructor
