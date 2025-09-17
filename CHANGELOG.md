@@ -1,3 +1,10 @@
+## [5.39.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.39.0...v5.39.1-dev.1) (2025-09-17)
+
+
+### Bug Fixes
+
+* **YouTube - Force original audio:** Show UI setting summary if spoofing to Android Studio ([b7026b7](https://github.com/ReVanced/revanced-patches/commit/b7026b70865bc44de07b30f84ba8b8b608930d5b))
+
 # [5.39.0](https://github.com/ReVanced/revanced-patches/compare/v5.38.0...v5.39.0) (2025-09-17)
 
 
