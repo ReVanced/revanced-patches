@@ -621,6 +621,10 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_hide_clip_button_title">Sakrij dugme „Klip”</string>
   <string name="revanced_hide_clip_button_summary_on">Dugme „Klip” je skriveno</string>
   <string name="revanced_hide_clip_button_summary_off">Dugme „Klip” je prikazano</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Sakrij Prodavnicu</string>
+  <string name="revanced_hide_shop_button_summary_on">Dugme „Prodavnica” je skriveno</string>
+  <string name="revanced_hide_shop_button_summary_off">Dugme „Prodavnica” je prikazano</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Sakrij dugme „Sačuvaj”</string>
   <string name="revanced_hide_save_button_summary_on">Dugme „Sačuvaj” je skriveno</string>

@@ -621,6 +621,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_title">隐藏「剪辑」按钮</string>
   <string name="revanced_hide_clip_button_summary_on">剪辑按钮已隐藏</string>
   <string name="revanced_hide_clip_button_summary_off">剪辑按钮已显示</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">隐藏购物</string>
+  <string name="revanced_hide_shop_button_summary_on">购物按钮已隐藏</string>
+  <string name="revanced_hide_shop_button_summary_off">购物按钮已显示</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">隐藏保存</string>
   <string name="revanced_hide_save_button_summary_on">保存按钮已隐藏</string>
