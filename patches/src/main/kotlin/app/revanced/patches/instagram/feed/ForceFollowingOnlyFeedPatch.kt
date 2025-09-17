@@ -1,14 +1,19 @@
 package app.revanced.patches.instagram.feed
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/instagram/feed/ForceFollowingOnlyFeedPatch;"
 
 @Suppress("unused")
-val setFollowerOnlyHomePatch = bytecodePatch(
+val setFollowingOnlyHomePatch = bytecodePatch(
     name = "Force following only feed",
     description = "The home feed will contains only posts/reels of people you are following.",
 ) {
@@ -17,20 +22,34 @@ val setFollowerOnlyHomePatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
-        val initRequestMethodFingerprint = fingerprint {
-            custom { method, classDef ->
-                method.name == "<init>"
-                        && classDef == mainFeedRequestFingerprint.classDef
+        val mainFeedRequestHeaderFieldName =
+            mainFeedHeaderMapFinderFingerprint.method.instructions
+                .asSequence()
+                .mapNotNull { it.getReference<FieldReference>() }
+                .firstOrNull { ref ->
+                    ref.type == "Ljava/util/Map;" &&
+                            ref.definingClass == mainFeedRequestClassFingerprint.classDef.toString()
+                }
+                ?.name
+
+        with(initMainFeedRequestFingerprint.method) {
+            // Finds the instruction where the map is being initialized in the constructor
+            val getHeaderIndex = indexOfFirstInstructionOrThrow {
+                getReference<FieldReference>().let {
+                    it?.name == mainFeedRequestHeaderFieldName
+                }
             }
 
-        }
+            val paramHeaderRegister = getInstruction<TwoRegisterInstruction>(getHeaderIndex).registerB
 
-        initRequestMethodFingerprint.method.addInstructions(
-            0,
+            // Replace the `pagination_source` header value with `following` in the feed/timeline request.
+            addInstructions(
+                getHeaderIndex,
+                """
+                invoke-static v$paramHeaderRegister, $EXTENSION_CLASS_DESCRIPTOR->setFollowingHeader(Ljava/util/Map;)Ljava/util/Map;
+                move-result-object v$paramHeaderRegister
             """
-                   invoke-static/range {p16 .. p16}, $EXTENSION_CLASS_DESCRIPTOR->setFollowersHeader(Ljava/util/Map;)Ljava/util/Map;
-                   move-result-object p16
-                   """
-        )
+            )
+        }
     }
 }
