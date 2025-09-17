@@ -153,7 +153,7 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
                 switchHolder.switchWidget = view.findViewById(ID_PREFERENCE_SWITCH);
                 view.setTag(switchHolder);
             }
-            case COLOR_PICKER, SEGMENT_CATEGORY -> {
+            case COLOR_PICKER -> {
                 ColorViewHolder colorHolder = new ColorViewHolder();
                 colorHolder.titleView = view.findViewById(ID_PREFERENCE_TITLE);
                 colorHolder.summaryView = view.findViewById(ID_PREFERENCE_SUMMARY);
@@ -181,7 +181,7 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
         switch (viewType) {
             case REGULAR, URL_LINK, LIST -> bindRegularViewHolder(item, (RegularViewHolder) holder, view);
             case SWITCH -> bindSwitchViewHolder(item, (SwitchViewHolder) holder, view);
-            case COLOR_PICKER, SEGMENT_CATEGORY -> bindColorViewHolder(item, (ColorViewHolder) holder, view);
+            case COLOR_PICKER -> bindColorViewHolder(item, (ColorViewHolder) holder, view);
             case GROUP_HEADER -> bindGroupHeaderViewHolder(item, (GroupHeaderViewHolder) holder, view);
             case NO_RESULTS -> bindNoResultsViewHolder(item, (NoResultsViewHolder) holder);
             default -> throw new IllegalStateException("Unknown viewType: " + viewType);

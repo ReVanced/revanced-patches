@@ -9,7 +9,6 @@ import android.widget.Toolbar;
 
 import app.revanced.extension.shared.settings.search.*;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
-import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPreference;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 
 /**
@@ -45,20 +44,6 @@ public class YouTubeSearchViewController extends BaseSearchViewController {
 
     @Override
     protected void setupSpecialPreferenceListeners(BaseSearchResultItem item) {
-        if (!(item instanceof BaseSearchResultItem.PreferenceSearchItem prefItem)) return;
-        Preference pref = prefItem.preference;
-
-        if (pref instanceof SegmentCategoryListPreference segmentPref) {
-            segmentPref.setOnPreferenceChangeListener((preference, newValue) -> {
-                BaseSearchResultItem.PreferenceSearchItem searchItem =
-                        (BaseSearchResultItem.PreferenceSearchItem) keyToSearchItem.get(preference.getKey());
-                if (searchItem != null) {
-                    searchItem.setColor(segmentPref.getColorWithOpacity());
-                    refreshSearchResults();
-                }
-                return true;
-            });
-        }
     }
 
     // Static method for back press handling.
@@ -68,11 +53,6 @@ public class YouTubeSearchViewController extends BaseSearchViewController {
             return true;
         }
         return false;
-    }
-
-    @Override
-    protected PreferenceTypeResolver createPreferenceTypeResolver() {
-        return new YouTubePreferenceTypeResolver();
     }
 
     // Adapter to wrap ReVancedPreferenceFragment to BasePreferenceFragment interface.

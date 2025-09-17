@@ -19,6 +19,7 @@ import java.util.regex.Pattern;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
+import app.revanced.extension.shared.settings.preference.UrlLinkPreference;
 
 /**
  * Abstract base class for search result items, defining common fields and behavior.
@@ -30,7 +31,6 @@ public abstract class BaseSearchResultItem {
         SWITCH,
         LIST,
         COLOR_PICKER,
-        SEGMENT_CATEGORY,
         GROUP_HEADER,
         NO_RESULTS,
         URL_LINK;
@@ -41,7 +41,7 @@ public abstract class BaseSearchResultItem {
                 case REGULAR, URL_LINK -> getResourceIdentifier("revanced_preference_search_result_regular");
                 case SWITCH -> getResourceIdentifier("revanced_preference_search_result_switch");
                 case LIST   -> getResourceIdentifier("revanced_preference_search_result_list");
-                case COLOR_PICKER, SEGMENT_CATEGORY -> getResourceIdentifier("revanced_preference_search_result_color");
+                case COLOR_PICKER -> getResourceIdentifier("revanced_preference_search_result_color");
                 case GROUP_HEADER -> getResourceIdentifier("revanced_preference_search_result_group_header");
                 case NO_RESULTS   -> getResourceIdentifier("revanced_preference_search_no_result");
             };
@@ -133,22 +133,21 @@ public abstract class BaseSearchResultItem {
         // Store last applied highlighting pattern to reapply when needed.
         Pattern lastQueryPattern;
 
-        // Constructor now takes a PreferenceTypeResolver
-        PreferenceSearchItem(Preference pref, String navPath, List<String> navKeys, PreferenceTypeResolver typeResolver) {
-            super(navPath, navKeys, typeResolver.determineViewType(pref));
+        PreferenceSearchItem(Preference pref, String navPath, List<String> navKeys) {
+            super(navPath, navKeys, determineType(pref));
             this.preference = pref;
             this.originalTitle = pref.getTitle() != null ? pref.getTitle() : "";
             this.originalSummary = pref.getSummary();
             this.highlightedTitle = this.originalTitle;
             this.highlightedSummary = this.originalSummary != null ? this.originalSummary : "";
+            this.color = 0;
             this.lastQueryPattern = null;
 
             // Initialize type-specific fields.
-            FieldInitializationResult result = initTypeSpecificFields(pref, typeResolver);
+            FieldInitializationResult result = initTypeSpecificFields(pref);
             this.originalSummaryOn = result.summaryOn;
             this.originalSummaryOff = result.summaryOff;
             this.originalEntries = result.entries;
-            this.color = result.color;
 
             // Build searchable text.
             this.searchableText = buildSearchableText(pref);
@@ -158,10 +157,18 @@ public abstract class BaseSearchResultItem {
             CharSequence summaryOn = null;
             CharSequence summaryOff = null;
             CharSequence[] entries = null;
-            @ColorInt int color = 0;
         }
 
-        private FieldInitializationResult initTypeSpecificFields(Preference pref, PreferenceTypeResolver typeResolver) {
+        private static ViewType determineType(Preference pref) {
+            if (pref instanceof SwitchPreference) return ViewType.SWITCH;
+            if (pref instanceof ListPreference) return ViewType.LIST;
+            if (pref instanceof ColorPickerPreference) return ViewType.COLOR_PICKER;
+            if (pref instanceof UrlLinkPreference) return ViewType.URL_LINK;
+            if ("no_results_placeholder".equals(pref.getKey())) return ViewType.NO_RESULTS;
+            return ViewType.REGULAR;
+        }
+
+        private FieldInitializationResult initTypeSpecificFields(Preference pref) {
             FieldInitializationResult result = new FieldInitializationResult();
 
             if (pref instanceof SwitchPreference switchPref) {
@@ -169,13 +176,8 @@ public abstract class BaseSearchResultItem {
                 result.summaryOff = switchPref.getSummaryOff();
             } else if (pref instanceof ColorPickerPreference colorPref) {
                 String colorString = colorPref.getText();
-                result.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) | 0xFF000000);
-            } else {
-                // Use resolver for app-specific color extraction.
-                result.color = typeResolver.extractColor(pref);
-            }
-
-            if (pref instanceof ListPreference listPref) {
+                this.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) | 0xFF000000);
+            } else if (pref instanceof ListPreference listPref) {
                 result.entries = listPref.getEntries();
                 if (result.entries != null) {
                     this.highlightedEntries = new CharSequence[result.entries.length];

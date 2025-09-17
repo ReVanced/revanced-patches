@@ -152,7 +152,7 @@ public enum SegmentCategory {
 
     public final String keyValue;
     public final StringSetting behaviorSetting; // TODO: Replace with EnumSetting.
-    private final StringSetting colorSetting;
+    final StringSetting colorSetting;
     private final FloatSetting opacitySetting;
 
     public final StringRef title;

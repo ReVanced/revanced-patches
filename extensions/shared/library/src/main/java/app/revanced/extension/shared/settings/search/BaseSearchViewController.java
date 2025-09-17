@@ -48,7 +48,6 @@ public abstract class BaseSearchViewController {
     protected BaseSearchHistoryManager searchHistoryManager;
     protected boolean isSearchActive;
     protected boolean isShowingSearchHistory;
-    protected final PreferenceTypeResolver preferenceTypeResolver;
 
     protected static final int MAX_SEARCH_RESULTS = 50; // Maximum number of search results displayed.
 
@@ -78,7 +77,6 @@ public abstract class BaseSearchViewController {
         this.keyToSearchItem = new HashMap<>();
         this.inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         this.isShowingSearchHistory = false;
-        this.preferenceTypeResolver = createPreferenceTypeResolver();
 
         // Initialize components
         initializeSearchView();
@@ -172,7 +170,6 @@ public abstract class BaseSearchViewController {
                                                                            BaseSearchHistoryManager.OnSelectHistoryItemListener listener);
     protected abstract boolean isNotSpecialPreferenceGroup(Preference preference);
     protected abstract void setupSpecialPreferenceListeners(BaseSearchResultItem item);
-    protected abstract PreferenceTypeResolver createPreferenceTypeResolver();
 
     // Abstract interface for preference fragments.
     public interface BasePreferenceFragment {
@@ -368,7 +365,7 @@ public abstract class BaseSearchViewController {
             // Add to search results only if it is not a category, special group, or PreferenceScreen.
             if (shouldIncludePreference(preference, currentDepth, includeDepth)) {
                 allSearchItems.add(new BaseSearchResultItem.PreferenceSearchItem(
-                        preference, parentPath, parentKeys, preferenceTypeResolver));
+                        preference, parentPath, parentKeys));
             }
 
             // If the preference is a group, recurse into it.
@@ -482,7 +479,7 @@ public abstract class BaseSearchViewController {
             noResultsPreference.setSummary(str("revanced_settings_search_no_results_summary"));
             noResultsPreference.setSelectable(false);
             noResultsPreference.setIcon(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
-            filteredSearchItems.add(new BaseSearchResultItem.PreferenceSearchItem(noResultsPreference, "", Collections.emptyList(), preferenceTypeResolver));
+            filteredSearchItems.add(new BaseSearchResultItem.PreferenceSearchItem(noResultsPreference, "", Collections.emptyList()));
         }
 
         searchResultsAdapter.notifyDataSetChanged();

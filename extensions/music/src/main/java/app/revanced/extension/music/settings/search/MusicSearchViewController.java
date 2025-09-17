@@ -48,11 +48,6 @@ public class MusicSearchViewController extends BaseSearchViewController {
         // This method can be empty or handle music-specific preferences if any.
     }
 
-    @Override
-    protected PreferenceTypeResolver createPreferenceTypeResolver() {
-        return new MusicPreferenceTypeResolver();
-    }
-
     // Static method for back press handling.
     public static boolean handleBackPress(MusicSearchViewController searchViewController) {
         if (searchViewController != null && searchViewController.isSearchActive()) {

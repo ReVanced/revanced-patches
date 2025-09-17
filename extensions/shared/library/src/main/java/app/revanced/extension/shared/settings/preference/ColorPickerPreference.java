@@ -184,9 +184,13 @@ public class ColorPickerPreference extends EditTextPreference {
      * Initializes the preference by setting up the EditText, loading the color, and set the widget layout.
      */
     private void init() {
-        colorSetting = (StringSetting) Setting.getSettingFromPath(getKey());
-        if (colorSetting == null) {
-            Logger.printException(() -> "Could not find color setting for: " + getKey());
+        if (getKey() != null) {
+            colorSetting = (StringSetting) Setting.getSettingFromPath(getKey());
+            if (colorSetting == null) {
+                Logger.printException(() -> "Could not find color setting for: " + getKey());
+            }
+        } else {
+            Logger.printDebug(() -> "initialized without key, settings will be loaded later");
         }
 
         EditText editText = getEditText();
@@ -207,7 +211,7 @@ public class ColorPickerPreference extends EditTextPreference {
      * @throws IllegalArgumentException If the color string is invalid.
      */
     @Override
-    public final void setText(String colorString) {
+    public void setText(String colorString) {
         try {
             Logger.printDebug(() -> "setText: " + colorString);
             super.setText(colorString);

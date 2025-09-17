@@ -2,8 +2,6 @@ package app.revanced.extension.youtube.sponsorblock.objects;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
-import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.*;
-import static app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory.applyOpacityToColor;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -26,16 +24,13 @@ import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.ColorPickerView;
-import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.ui.ColorDot;
 import app.revanced.extension.shared.ui.CustomDialog;
-import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("deprecation")
-public class SegmentCategoryListPreference extends CustomDialogListPreference {
+public class SegmentCategoryListPreference extends ColorPickerPreference {
     public final SegmentCategory category;
 
     /**
@@ -60,23 +55,32 @@ public class SegmentCategoryListPreference extends CustomDialogListPreference {
         super(context);
         this.category = Objects.requireNonNull(category);
 
-        // Edit: Using preferences to sync together multiple pieces
-        // of code is messy and should be rethought.
-        setKey(category.behaviorSetting.key);
-        setDefaultValue(category.behaviorSetting.defaultValue);
+        // Set key to color setting for persistence.
+        // Edit: Using preferences to sync together multiple pieces of code is messy and should be rethought.
+        setKey(category.colorSetting.key);
         setTitle(category.getTitle().toString());
-
-        final boolean isHighlightCategory = category == SegmentCategory.HIGHLIGHT;
-        setEntries(isHighlightCategory
-                ? CategoryBehaviour.getBehaviorDescriptionsWithoutSkipOnce()
-                : CategoryBehaviour.getBehaviorDescriptions());
-        setEntryValues(isHighlightCategory
-                ? CategoryBehaviour.getBehaviorKeyValuesWithoutSkipOnce()
-                : CategoryBehaviour.getBehaviorKeyValues());
-        super.setStaticSummary(category.description.toString());
+        setSummary(category.description.toString());
 
         setWidgetLayoutResource(LAYOUT_REVANCED_COLOR_DOT_WIDGET);
         updateUI();
+
+        // Sync initial color from category
+        setText(category.getColorString());
+    }
+
+    @Override
+    public final void setText(String colorString) {
+        try {
+            super.setText(colorString);
+            // Directly save to category and settings.
+            category.setColor(colorString);
+            updateUI();
+        } catch (IllegalArgumentException ex) {
+            Utils.showToastShort(str("revanced_settings_color_invalid"));
+            setText(category.colorSetting.defaultValue);
+        } catch (Exception ex) {
+            Logger.printException(() -> "setText failure: " + colorString, ex);
+        }
     }
 
     @Override
@@ -85,7 +89,20 @@ public class SegmentCategoryListPreference extends CustomDialogListPreference {
             Context context = getContext();
             categoryColor = category.getColorNoOpacity();
             categoryOpacity = category.getOpacity();
-            selectedDialogEntryIndex = findIndexOfValue(getValue());
+
+            // Find initial behavior index.
+            final boolean isHighlightCategory = category == SegmentCategory.HIGHLIGHT;
+            CharSequence[] entryValues = isHighlightCategory
+                    ? CategoryBehaviour.getBehaviorKeyValuesWithoutSkipOnce()
+                    : CategoryBehaviour.getBehaviorKeyValues();
+            String currentBehavior = category.behaviorSetting.get();
+            selectedDialogEntryIndex = -1;
+            for (int i = 0; i < entryValues.length; i++) {
+                if (entryValues[i].equals(currentBehavior)) {
+                    selectedDialogEntryIndex = i;
+                    break;
+                }
+            }
 
             // Create the main layout for the dialog content.
             LinearLayout contentLayout = new LinearLayout(context);
@@ -94,7 +111,9 @@ public class SegmentCategoryListPreference extends CustomDialogListPreference {
             // Add behavior selection radio buttons.
             RadioGroup radioGroup = new RadioGroup(context);
             radioGroup.setOrientation(RadioGroup.VERTICAL);
-            CharSequence[] entries = getEntries();
+            CharSequence[] entries = isHighlightCategory
+                    ? CategoryBehaviour.getBehaviorDescriptionsWithoutSkipOnce()
+                    : CategoryBehaviour.getBehaviorDescriptions();
             for (int i = 0; i < entries.length; i++) {
                 RadioButton radioButton = new RadioButton(context);
                 radioButton.setText(entries[i]);
@@ -259,30 +278,28 @@ public class SegmentCategoryListPreference extends CustomDialogListPreference {
                     null, // No message (replaced by contentLayout).
                     null, // No EditText.
                     null, // OK button text.
-                    () -> {
-                        // OK button action.
-                        if (selectedDialogEntryIndex >= 0 && getEntryValues() != null) {
-                            String value = getEntryValues()[selectedDialogEntryIndex].toString();
-                            if (callChangeListener(value)) {
-                                setValue(value);
-                                category.setBehaviour(Objects.requireNonNull(CategoryBehaviour.byReVancedKeyValue(value)));
-                                SegmentCategory.updateEnabledCategories();
-                            }
+                    () -> { // OK button action.
+                        if (selectedDialogEntryIndex >= 0) {
+                            String value = entryValues[selectedDialogEntryIndex].toString();
+                            category.setBehaviour(Objects.requireNonNull(CategoryBehaviour.byReVancedKeyValue(value)));
+                            SegmentCategory.updateEnabledCategories();
+                        }
 
-                            try {
-                                category.setColor(dialogColorEditText.getText().toString());
-                                category.setOpacity(categoryOpacity);
-                            } catch (IllegalArgumentException ex) {
+                        try {
+                            String colorString = dialogColorEditText.getText().toString();
+                            if (colorString.length() != COLOR_STRING_LENGTH) {
                                 Utils.showToastShort(str("revanced_settings_color_invalid"));
+                                return;
                             }
-
-                            updateUI();
+                            setText(colorString); // Calls super.setText and saves via category.
+                            category.setOpacity(categoryOpacity);
+                        } catch (IllegalArgumentException ex) {
+                            Utils.showToastShort(str("revanced_settings_color_invalid"));
                         }
                     },
                     () -> {}, // Cancel button action (dismiss only).
                     str("revanced_settings_reset_color"), // Neutral button text.
-                    () -> {
-                        // Neutral button action (Reset).
+                    () -> { // Neutral button action (Reset).
                         try {
                             // Setting view color causes callback to update the UI.
                             dialogColorPickerView.setColor(category.getColorNoOpacityDefault());
@@ -353,7 +370,7 @@ public class SegmentCategoryListPreference extends CustomDialogListPreference {
 
     @ColorInt
     private int applyOpacityToCategoryColor() {
-        return applyOpacityToColor(categoryColor, categoryOpacity);
+        return SegmentCategory.applyOpacityToColor(categoryColor, categoryOpacity);
     }
 
     public void updateUI() {
@@ -361,37 +378,14 @@ public class SegmentCategoryListPreference extends CustomDialogListPreference {
             categoryColor = category.getColorNoOpacity();
             categoryOpacity = category.getOpacity();
 
-            Setting<String> behaviorSetting = getCategoryBehaviorSetting();
-
-            if (behaviorSetting != null) {
-                setEnabled(behaviorSetting.isAvailable());
+            if (category.behaviorSetting != null) {
+                setEnabled(category.behaviorSetting.isAvailable());
             }
 
             updateWidgetColorDot();
         } catch (Exception ex) {
             Logger.printException(() -> "updateUI failure for category: " + category.keyValue, ex);
         }
-    }
-
-    /**
-     * Returns the Setting object for this category's behavior.
-     * This allows the UI to check availability automatically.
-     */
-    private Setting<String> getCategoryBehaviorSetting() {
-        // Map category to its corresponding setting.
-        return switch (category) {
-            case SPONSOR -> Settings.SB_CATEGORY_SPONSOR;
-            case SELF_PROMO -> Settings.SB_CATEGORY_SELF_PROMO;
-            case INTERACTION -> Settings.SB_CATEGORY_INTERACTION;
-            case HIGHLIGHT -> Settings.SB_CATEGORY_HIGHLIGHT;
-            case HOOK -> Settings.SB_CATEGORY_HOOK;
-            case INTRO -> Settings.SB_CATEGORY_INTRO;
-            case OUTRO -> Settings.SB_CATEGORY_OUTRO;
-            case PREVIEW -> Settings.SB_CATEGORY_PREVIEW;
-            case FILLER -> Settings.SB_CATEGORY_FILLER;
-            case MUSIC_OFFTOPIC -> Settings.SB_CATEGORY_MUSIC_OFFTOPIC;
-            case UNSUBMITTED -> Settings.SB_CATEGORY_UNSUBMITTED;
-        };
     }
 
     @Override
@@ -422,10 +416,5 @@ public class SegmentCategoryListPreference extends CustomDialogListPreference {
         if (dialogOpacityEditText != null) {
             dialogOpacityEditText.setText(String.format(Locale.US, "%.2f", categoryOpacity));
         }
-    }
-
-    @ColorInt
-    public int getColorWithOpacity() {
-        return applyOpacityToCategoryColor();
     }
 }
