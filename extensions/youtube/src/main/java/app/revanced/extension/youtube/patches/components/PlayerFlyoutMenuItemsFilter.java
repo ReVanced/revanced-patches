@@ -23,10 +23,7 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
 
         @Override
         public List<Setting<?>> getParentSettings() {
-            return List.of(
-                    BaseSettings.SPOOF_VIDEO_STREAMS,
-                    BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE
-            );
+            return List.of(BaseSettings.SPOOF_VIDEO_STREAMS);
         }
     }
 
