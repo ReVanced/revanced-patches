@@ -619,6 +619,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_title">ซ่อนคลิป</string>
   <string name="revanced_hide_clip_button_summary_on">ปุ่มคลิปถูกซ่อน</string>
   <string name="revanced_hide_clip_button_summary_off">ปุ่มคลิปถูกแสดง</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">ซ่อนร้านค้า</string>
+  <string name="revanced_hide_shop_button_summary_on">ปุ่มร้านค้าถูกซ่อน</string>
+  <string name="revanced_hide_shop_button_summary_off">ปุ่มร้านค้าถูกแสดง</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">ซ่อนบันทึก</string>
   <string name="revanced_hide_save_button_summary_on">ปุ่มบันทึกถูกซ่อน</string>

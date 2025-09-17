@@ -621,6 +621,10 @@ Säädä äänenvoimakkuutta pyyhkäisemällä pystysuoraan näytön oikealta pu
   <string name="revanced_hide_clip_button_title">Piilota Klippi</string>
   <string name="revanced_hide_clip_button_summary_on">Klippi-painike on piilotettu</string>
   <string name="revanced_hide_clip_button_summary_off">Klippi-painike näytetään</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Piilota Ostokset</string>
+  <string name="revanced_hide_shop_button_summary_on">Kauppa-painike on piilotettu</string>
+  <string name="revanced_hide_shop_button_summary_off">Kauppa-painike näytetään</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Piilota Tallenna</string>
   <string name="revanced_hide_save_button_summary_on">Tallenna-painike on piilotettu</string>

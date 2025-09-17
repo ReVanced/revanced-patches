@@ -38,7 +38,7 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
         )
     },
     executeBlock = {
-        addResources("shared", "misc.spoof.spoofVideoStreamsPatch")
+        addResources("music", "misc.fix.playback.spoofVideoStreamsPatch")
 
         PreferenceScreen.MISC.addPreferences(
             PreferenceScreenPreference(

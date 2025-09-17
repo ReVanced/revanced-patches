@@ -49,6 +49,7 @@ val hideButtonsPatch = resourcePatch(
                     SwitchPreference("revanced_hide_report_button"),
                     SwitchPreference("revanced_hide_save_button"),
                     SwitchPreference("revanced_hide_share_button"),
+                    SwitchPreference("revanced_hide_shop_button"),
                     SwitchPreference("revanced_hide_stop_ads_button"),
                     SwitchPreference("revanced_hide_thanks_button"),
                 )

@@ -3,8 +3,12 @@ package app.revanced.extension.music.settings;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
+import static app.revanced.extension.shared.settings.Setting.parent;
+
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
+import app.revanced.extension.shared.settings.EnumSetting;
+import app.revanced.extension.shared.spoof.ClientType;
 import app.revanced.extension.shared.settings.StringSetting;
 
 public class Settings extends BaseSettings {
@@ -21,4 +25,8 @@ public class Settings extends BaseSettings {
 
     // Player
     public static final BooleanSetting PERMANENT_REPEAT = new BooleanSetting("revanced_music_play_permanent_repeat", FALSE, true);
+
+    // Miscellaneous
+    public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_video_streams_client_type",
+            ClientType.ANDROID_VR_1_43_32, true, parent(SPOOF_VIDEO_STREAMS));
 }

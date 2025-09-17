@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 
 import java.nio.ByteBuffer;
 import java.util.Map;
+import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -17,14 +18,6 @@ import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
-    private static final boolean SPOOF_STREAMING_DATA = BaseSettings.SPOOF_VIDEO_STREAMS.get();
-
-    private static final boolean FIX_HLS_CURRENT_TIME = SPOOF_STREAMING_DATA
-            && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.VISIONOS;
-
-    @Nullable
-    private static volatile AppLanguage languageOverride;
-
     /**
      * Domain used for internet connectivity verification.
      * It has an empty response body and is only used to check for a 204 response code.
@@ -40,6 +33,13 @@ public class SpoofVideoStreamsPatch {
     private static final String INTERNET_CONNECTION_CHECK_URI_STRING = "https://www.google.com/gen_204";
     private static final Uri INTERNET_CONNECTION_CHECK_URI = Uri.parse(INTERNET_CONNECTION_CHECK_URI_STRING);
 
+    private static final boolean SPOOF_STREAMING_DATA = BaseSettings.SPOOF_VIDEO_STREAMS.get();
+
+    @Nullable
+    private static volatile AppLanguage languageOverride;
+
+    private static volatile ClientType preferredClient = ClientType.ANDROID_VR_1_61_48;
+
     /**
      * @return If this patch was included during patching.
      */
@@ -47,10 +47,9 @@ public class SpoofVideoStreamsPatch {
         return false; // Modified during patching.
     }
 
-    public static boolean spoofingToClientWithNoMultiAudioStreams() {
-        return isPatchIncluded()
-                && BaseSettings.SPOOF_VIDEO_STREAMS.get()
-                && BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() != ClientType.IPADOS;
+    @Nullable
+    public static AppLanguage getLanguageOverride() {
+        return languageOverride;
     }
 
     /**
@@ -61,9 +60,14 @@ public class SpoofVideoStreamsPatch {
         languageOverride = language;
     }
 
-    @Nullable
-    public static AppLanguage getLanguageOverride() {
-        return languageOverride;
+    public static void setPreferredClient(ClientType client) {
+        preferredClient = Objects.requireNonNull(client);
+    }
+
+    public static boolean spoofingToClientWithNoMultiAudioStreams() {
+        return isPatchIncluded()
+                && SPOOF_STREAMING_DATA
+                && preferredClient != ClientType.IPADOS;
     }
 
     /**
@@ -278,8 +282,7 @@ public class SpoofVideoStreamsPatch {
     public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
-            // Since all current clients are un-authenticated, this works for all spoof clients.
-            return BaseSettings.SPOOF_VIDEO_STREAMS.get();
+            return BaseSettings.SPOOF_VIDEO_STREAMS.get() && !preferredClient.useAuth;
         }
     }
 }

@@ -41,6 +41,7 @@ import app.revanced.extension.shared.settings.LongSetting;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.settings.preference.SharedPrefCategory;
+import app.revanced.extension.shared.spoof.ClientType;
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.DeArrowAvailability;
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.StillImagesAvailability;
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.ThumbnailOption;
@@ -228,6 +229,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_REPORT_BUTTON = new BooleanSetting("revanced_hide_report_button", FALSE);
     public static final BooleanSetting HIDE_SAVE_BUTTON = new BooleanSetting("revanced_hide_save_button", FALSE);
     public static final BooleanSetting HIDE_SHARE_BUTTON = new BooleanSetting("revanced_hide_share_button", FALSE);
+    public static final BooleanSetting HIDE_SHOP_BUTTON = new BooleanSetting("revanced_hide_shop_button", FALSE);
     public static final BooleanSetting HIDE_STOP_ADS_BUTTON = new BooleanSetting("revanced_hide_stop_ads_button", TRUE);
     public static final BooleanSetting HIDE_THANKS_BUTTON = new BooleanSetting("revanced_hide_thanks_button", TRUE);
 
@@ -355,6 +357,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting REMOVE_TRACKING_QUERY_PARAMETER = new BooleanSetting("revanced_remove_tracking_query_parameter", TRUE);
     public static final BooleanSetting SPOOF_DEVICE_DIMENSIONS = new BooleanSetting("revanced_spoof_device_dimensions", FALSE, true,
             "revanced_spoof_device_dimensions_user_dialog_message");
+    public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_video_streams_client_type", ClientType.ANDROID_VR_1_61_48, true, parent(SPOOF_VIDEO_STREAMS));
     public static final BooleanSetting DEBUG_PROTOBUFFER = new BooleanSetting("revanced_debug_protobuffer", FALSE, false,
             "revanced_debug_protobuffer_user_dialog_message", parent(BaseSettings.DEBUG));
 
