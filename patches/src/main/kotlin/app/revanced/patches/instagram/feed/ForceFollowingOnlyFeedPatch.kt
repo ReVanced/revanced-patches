@@ -22,6 +22,11 @@ val setFollowingOnlyHomePatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
+        /**
+         * Since the header field is obfuscated and there is no easy way to identify it among all the class fields,
+         * an additional method is fingerprinted.
+         * This method uses the map, so we can get the field name of the map field using this.
+         */
         val mainFeedRequestHeaderFieldName =
             mainFeedHeaderMapFinderFingerprint.method.instructions
                 .asSequence()
@@ -46,9 +51,9 @@ val setFollowingOnlyHomePatch = bytecodePatch(
             addInstructions(
                 getHeaderIndex,
                 """
-                invoke-static v$paramHeaderRegister, $EXTENSION_CLASS_DESCRIPTOR->setFollowingHeader(Ljava/util/Map;)Ljava/util/Map;
-                move-result-object v$paramHeaderRegister
-            """
+                    invoke-static v$paramHeaderRegister, $EXTENSION_CLASS_DESCRIPTOR->setFollowingHeader(Ljava/util/Map;)Ljava/util/Map;
+                    move-result-object v$paramHeaderRegister
+                """
             )
         }
     }
