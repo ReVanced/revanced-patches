@@ -98,7 +98,7 @@ private val settingsResourcePatch = resourcePatch {
         // and the comments in the extension code.
         val targetResource = "values/styles.xml"
         inputStreamFromBundledResource(
-            "settings/host",
+            "settings/youtube",
             targetResource,
         )!!.let { inputStream ->
             "resources".copyXmlNode(
