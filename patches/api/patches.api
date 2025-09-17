@@ -1877,3 +1877,4 @@ public final class app/revanced/util/resource/StringResource : app/revanced/util
 public final class app/revanced/util/resource/StringResource$Companion {
 	public final fun fromNode (Lorg/w3c/dom/Node;)Lapp/revanced/util/resource/StringResource;
 }
+
