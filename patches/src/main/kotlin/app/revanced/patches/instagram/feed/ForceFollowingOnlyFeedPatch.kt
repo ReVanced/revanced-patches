@@ -37,7 +37,7 @@ val setFollowingOnlyHomePatch = bytecodePatch(
                 }
                 ?.name
 
-        with(initMainFeedRequestFingerprint.method) {
+        initMainFeedRequestFingerprint.method.apply {
             // Finds the instruction where the map is being initialized in the constructor
             val getHeaderIndex = indexOfFirstInstructionOrThrow {
                 getReference<FieldReference>().let {
