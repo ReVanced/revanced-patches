@@ -128,6 +128,7 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
             createViewHolderForType(view, viewType);
         }
 
+        // Retrieve the cached ViewHolder.
         Object holder = view.getTag();
         bindDataToViewHolder(item, holder, viewType, view);
         return view;
@@ -292,6 +293,7 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
      * Navigates to the settings screen containing the given search result item and triggers scrolling.
      */
     protected void navigateAndScrollToPreference(BaseSearchResultItem item) {
+        // No navigation for URL_LINK items.
         if (item.preferenceType == BaseSearchResultItem.ViewType.URL_LINK) return;
 
         PreferenceScreen targetScreen = navigateToTargetScreen(item);

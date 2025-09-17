@@ -21,7 +21,6 @@ public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
      */
     private PreferenceScreen preferenceScreen;
 
-
     /**
      * Initializes the preference fragment.
      */

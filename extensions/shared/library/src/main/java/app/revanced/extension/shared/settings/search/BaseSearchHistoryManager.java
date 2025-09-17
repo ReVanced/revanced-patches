@@ -44,7 +44,7 @@ public abstract class BaseSearchHistoryManager {
     protected abstract BooleanSetting getSearchHistorySetting();
     protected abstract StringSetting getSearchEntriesSetting();
 
-    protected static final int MAX_HISTORY_SIZE = 5;
+    protected static final int MAX_HISTORY_SIZE = 5;  // Maximum history items stored.
 
     protected static final int ID_SEARCH_HISTORY_LIST = getResourceIdentifier("search_history_list", "id");
     protected static final int ID_CLEAR_HISTORY_BUTTON = getResourceIdentifier("clear_history_button", "id");

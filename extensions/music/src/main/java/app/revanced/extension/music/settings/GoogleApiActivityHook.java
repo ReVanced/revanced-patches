@@ -23,6 +23,11 @@ public class GoogleApiActivityHook extends BaseActivityHook {
     @SuppressLint("StaticFieldLeak")
     public static MusicSearchViewController searchViewController;
 
+    /**
+     * Injection point
+     * <p>
+     * Creates an instance of GoogleApiActivityHook for use in static initialization.
+     */
     @SuppressWarnings("unused")
     public static GoogleApiActivityHook createInstance() {
         // Must touch the Music settings to ensure the class is loaded and

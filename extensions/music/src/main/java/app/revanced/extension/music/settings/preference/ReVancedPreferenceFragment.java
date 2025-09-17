@@ -9,7 +9,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
 
-@SuppressWarnings({"deprecation", ""})
+@SuppressWarnings("deprecation")
 public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
     /**
      * The main PreferenceScreen used to display the current set of preferences.

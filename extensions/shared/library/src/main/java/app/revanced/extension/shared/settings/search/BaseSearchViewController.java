@@ -50,7 +50,7 @@ public abstract class BaseSearchViewController {
     protected boolean isShowingSearchHistory;
     protected final PreferenceTypeResolver preferenceTypeResolver;
 
-    protected static final int MAX_SEARCH_RESULTS = 50;
+    protected static final int MAX_SEARCH_RESULTS = 50; // Maximum number of search results displayed.
 
     protected static final int ID_REVANCED_SEARCH_VIEW = getResourceIdentifier("revanced_search_view", "id");
     protected static final int ID_REVANCED_SEARCH_VIEW_CONTAINER = getResourceIdentifier("revanced_search_view_container", "id");
@@ -128,6 +128,7 @@ public abstract class BaseSearchViewController {
         FrameLayout searchResultsContainer = new FrameLayout(activity);
         searchResultsContainer.setVisibility(View.VISIBLE);
 
+        // Create a ListView for the results.
         ListView searchResultsListView = new ListView(activity);
         searchResultsListView.setDivider(null);
         searchResultsListView.setDividerHeight(0);
