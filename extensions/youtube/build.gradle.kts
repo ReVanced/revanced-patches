@@ -4,7 +4,7 @@ dependencies {
     compileOnly(libs.annotation)
     implementation("com.github.teamnewpipe:NewPipeExtractor:0.24.8")
     implementation("io.reactivex.rxjava3:rxjava:3.1.8")
-    implementation("com.squareup.okio:okio:3.10.2")
+    implementation("com.squareup.okio:okio:3.7.0") // Newer okio use Kotlin 2.0 which Patches does not yet use.
     implementation("com.github.TeamNewPipe:nanojson:e9d656ddb49a412a5a0a5d5ef20ca7ef09549996")
     implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
 }
