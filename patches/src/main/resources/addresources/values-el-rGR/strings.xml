@@ -623,6 +623,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_title">Κουμπί «Κλιπ»</string>
   <string name="revanced_hide_clip_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_clip_button_summary_off">Εμφανίζεται</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Κουμπί «Αγορές»</string>
+  <string name="revanced_hide_shop_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_shop_button_summary_off">Εμφανίζεται</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Κουμπί «Αποθήκευση»</string>
   <string name="revanced_hide_save_button_summary_on">Κρυμμένο</string>
@@ -721,7 +725,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Εμφανίζεται</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Το μενού «Κομμάτι ήχου» είναι κρυμμένο
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Κρυμμένο
 
 Για να εμφανίζεται το μενού κομματιού ήχου, αλλάξτε την «Παραποίηση ροών βίντεο» σε iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -1550,7 +1554,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Παρενέργειες παραποίησης σε Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Το μενού «Κομμάτι ήχου» λείπει
 • Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Το βίντεο ενδέχεται να σταματήσει στο 1:00 ή ενδέχεται να μην είναι διαθέσιμο σε ορισμένες περιοχές</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Το βίντεο ενδέχεται να σταματήσει στο 1:00 ή να μην είναι διαθέσιμο σε ορισμένες περιοχές</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Πειραματικός πελάτης και μπορεί να σταματήσει να λειτουργεί ανά πάσα στιγμή</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Δεν υπάρχει ο κωδικοποιητής βίντεο AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεδεμένοι ή σε λειτουργία ανώνυμης περιήγησης</string>
@@ -1559,12 +1563,12 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Το πρόγραμμα πελάτη δεν εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>
   <string name="revanced_spoof_video_streams_language_title">Γλώσσα ροής ήχου</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">Για να επιλέξετε μια συγκεκριμένη γλώσσα ήχου, απενεργοποιήστε το \'Επιβολή αρχικής γλώσσας ήχου\'</string>
+  <string name="revanced_spoof_video_streams_language_not_available">Για να επιλέξετε μια συγκεκριμένη γλώσσα ήχου, απενεργοποιήστε το «Εξαναγκασμός αρχικής γλώσσας ήχου»</string>
   </patch>
   </app>
   <app id="music">
   <patch id="misc.settings.settingsPatch">
-  <string name="revanced_settings_music_screen_0_about_title">Ομάδα προγραμματιστών</string>
+  <string name="revanced_settings_music_screen_0_about_title">Σχετικά με</string>
   <string name="revanced_settings_music_screen_1_ads_title">Διαφημίσεις</string>
   <string name="revanced_settings_music_screen_2_general_title">Γενικά</string>
   <string name="revanced_settings_music_screen_3_player_title">Οθόνη αναπαραγωγής</string>
@@ -1581,17 +1585,17 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Η μόνιμη επανάληψη είναι απενεργοποιημένη</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
-  <string name="revanced_music_hide_category_bar_title">Απόκρυψη γραμμής κατηγοριών</string>
-  <string name="revanced_music_hide_category_bar_summary_on">Η γραμμή κατηγοριών είναι κρυμμένη</string>
-  <string name="revanced_music_hide_category_bar_summary_off">Η γραμμή κατηγοριών εμφανίζεται</string>
+  <string name="revanced_music_hide_category_bar_title">Γραμμή κατηγοριών</string>
+  <string name="revanced_music_hide_category_bar_summary_on">Κρυμμένη</string>
+  <string name="revanced_music_hide_category_bar_summary_off">Εμφανίζεται</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
-  <string name="revanced_music_hide_get_premium_label_title">Απόκρυψη ετικέτας «Απόκτηση Music Premium»</string>
-  <string name="revanced_music_hide_get_premium_label_summary_on">Η ετικέτα είναι κρυμμένη</string>
-  <string name="revanced_music_hide_get_premium_label_summary_off">Η ετικέτα εμφανίζεται</string>
+  <string name="revanced_music_hide_get_premium_label_title">Ετικέτα «Αποκτήστε το Music Premium»</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Κρυμμένη</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Εμφανίζεται</string>
   </patch>
   <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
-  <string name="revanced_music_hide_upgrade_button_title">Απόκρυψη κουμπιού αναβάθμισης</string>
+  <string name="revanced_music_hide_upgrade_button_title">Κουμπί «Αναβάθμιση»</string>
   <string name="revanced_music_hide_upgrade_button_summary_on">Κρυμμένο</string>
   <string name="revanced_music_hide_upgrade_button_summary_off">Εμφανίζεται</string>
   </patch>

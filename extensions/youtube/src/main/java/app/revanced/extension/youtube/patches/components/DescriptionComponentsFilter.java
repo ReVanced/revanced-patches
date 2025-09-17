@@ -1,6 +1,6 @@
 package app.revanced.extension.youtube.patches.components;
 
-import app.revanced.extension.youtube.StringTrieSearch;
+import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 

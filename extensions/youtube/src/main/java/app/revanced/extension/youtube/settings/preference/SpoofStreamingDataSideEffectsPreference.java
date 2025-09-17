@@ -15,6 +15,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.ClientType;
+import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"deprecation", "unused"})
 public class SpoofStreamingDataSideEffectsPreference extends Preference {
@@ -69,7 +70,7 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
     }
 
     private void updateUI() {
-        ClientType clientType = BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
+        ClientType clientType = Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
         if (currentClientType == clientType) {
             return;
         }
@@ -82,19 +83,19 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
 
         String summary = str(clientType == ClientType.IPADOS
                 ? "revanced_spoof_video_streams_about_ipados_summary"
-                // visionOS has same base side effects as Android VR.
+                // Same base side effects for Android VR, Android Studio, and visionOS.
                 : "revanced_spoof_video_streams_about_android_summary");
 
         if (clientType == ClientType.IPADOS) {
-            summary = str("revanced_spoof_video_streams_about_no_av1")
-                    + '\n' + summary;
+            summary += '\n' + str("revanced_spoof_video_streams_about_no_av1");
         } else if (clientType == ClientType.VISIONOS) {
             summary = str("revanced_spoof_video_streams_about_experimental")
                     + '\n' + summary
                     + '\n' + str("revanced_spoof_video_streams_about_no_av1")
                     + '\n' + str("revanced_spoof_video_streams_about_kids_videos");
-        } else {
-            summary += '\n' + str("revanced_spoof_video_streams_about_kids_videos");
+        } else if (clientType == ClientType.ANDROID_CREATOR) {
+            summary += '\n' + str("revanced_spoof_video_streams_about_no_av1")
+                    + '\n' + str("revanced_spoof_video_streams_about_kids_videos");
         }
 
         setSummary(summary);

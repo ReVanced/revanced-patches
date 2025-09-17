@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.settings.BooleanSetting;
-import app.revanced.extension.youtube.ByteTrieSearch;
+import app.revanced.extension.shared.ByteTrieSearch;
 
 abstract class FilterGroup<T> {
     final static class FilterGroupResult {

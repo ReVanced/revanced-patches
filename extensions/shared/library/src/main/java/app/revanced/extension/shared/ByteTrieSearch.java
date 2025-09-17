@@ -1,6 +1,4 @@
-package app.revanced.extension.youtube;
-
-import androidx.annotation.NonNull;
+package app.revanced.extension.shared;
 
 import java.nio.charset.StandardCharsets;
 
@@ -39,7 +37,7 @@ public final class ByteTrieSearch extends TrieSearch<byte[]> {
         return replacement;
     }
 
-    public ByteTrieSearch(@NonNull byte[]... patterns) {
+    public ByteTrieSearch(byte[]... patterns) {
         super(new ByteTrieNode(), patterns);
     }
 }

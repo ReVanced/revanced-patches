@@ -1,5 +1,6 @@
 package app.revanced.extension.shared.spoof.requests;
 
+import static app.revanced.extension.shared.ByteTrieSearch.convertStringsToBytes;
 import static app.revanced.extension.shared.spoof.requests.PlayerRoutes.GET_STREAMING_DATA;
 
 import androidx.annotation.NonNull;
@@ -13,12 +14,18 @@ import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+import app.revanced.extension.shared.ByteTrieSearch;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
@@ -93,6 +100,16 @@ public class StreamingDataRequest {
                 }
             });
 
+    /**
+     * Strings found in the response if the video is a livestream.
+     */
+    private static final ByteTrieSearch liveStreamBufferSearch = new ByteTrieSearch(
+            convertStringsToBytes(
+                    "yt_live_broadcast",
+                    "yt_premiere_broadcast"
+            )
+    );
+
     private static volatile ClientType lastSpoofedClientType;
 
     public static String getLastSpoofedClientName() {
@@ -160,7 +177,7 @@ public class StreamingDataRequest {
                 }
             }
 
-            if (!authHeadersIncludes && clientType.requiresAuth) {
+            if (!authHeadersIncludes && clientType.useAuth) {
                 Logger.printDebug(() -> "Skipping client since user is not logged in: " + clientType
                         + " videoId: " + videoId);
                 return null;
@@ -221,9 +238,13 @@ public class StreamingDataRequest {
                             while ((bytesRead = inputStream.read(buffer)) >= 0) {
                                 baos.write(buffer, 0, bytesRead);
                             }
-                            lastSpoofedClientType = clientType;
+                            if (clientType == ClientType.ANDROID_CREATOR && liveStreamBufferSearch.matches(buffer)) {
+                                Logger.printDebug(() -> "Skipping Android Studio as video is a livestream: " + videoId);
+                            } else {
+                                lastSpoofedClientType = clientType;
 
-                            return ByteBuffer.wrap(baos.toByteArray());
+                                return ByteBuffer.wrap(baos.toByteArray());
+                            }
                         }
                     }
                 } catch (IOException ex) {

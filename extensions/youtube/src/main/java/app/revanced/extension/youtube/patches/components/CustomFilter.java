@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.youtube.ByteTrieSearch;
+import app.revanced.extension.shared.ByteTrieSearch;
 import app.revanced.extension.youtube.settings.Settings;
 
 /**

@@ -619,6 +619,10 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_clip_button_title">클립 버튼 숨기기</string>
   <string name="revanced_hide_clip_button_summary_on">클립 버튼이 숨겨집니다</string>
   <string name="revanced_hide_clip_button_summary_off">클립 버튼이 표시됩니다</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">쇼핑 버튼 숨기기</string>
+  <string name="revanced_hide_shop_button_summary_on">쇼핑 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_shop_button_summary_off">쇼핑 버튼이 표시됩니다</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">저장 버튼 숨기기</string>
   <string name="revanced_hide_save_button_summary_on">저장 버튼이 숨겨집니다</string>
@@ -1558,7 +1562,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Android 변경에 따른 부작용</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 오디오 트랙 메뉴가 표시되지 않습니다
 • 안정적인 볼륨을 사용할 수 없습니다"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• 동영상이 1:00에서 중지되거나 일부 지역에서 제공되지 않을 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• 동영상이 1:00에 멈출 수 있으며, 일부 지역에서는 이용이 불가능할 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 실험용 클라이언트이며 언제든지 작동이 중단될 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kids 동영상은 로그인을 하지 않았거나 시크릿 모드에서는 재생되지 않을 수 있습니다</string>
@@ -1567,7 +1571,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">동영상 스트림을 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시되지 않습니다</string>
   <string name="revanced_spoof_video_streams_language_title">오디오 스트림 언어</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">특정 오디오 언어를 선택하려면 \"원본 오디오 언어 강제 적용\"을 끄십시오.</string>
+  <string name="revanced_spoof_video_streams_language_not_available">특정 오디오 스트림 언어를 선택하려면, \'원본 오디오 스트림 언어 강제로 활성화하기\'를 끄세요</string>
   </patch>
   </app>
   <app id="music">
