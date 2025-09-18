@@ -72,9 +72,14 @@ public class SegmentCategoryListPreference extends ColorPickerPreference {
     public final void setText(String colorString) {
         try {
             super.setText(colorString);
-            // Directly save to category and settings.
-            category.setColor(colorString);
+
+            category.setColor(colorString); // Directly save to category and settings.
             updateUI();
+
+            // Notify the listener about the color change.
+            if (colorChangeListener != null) {
+                colorChangeListener.onColorChanged(getKey(), category.getColorWithOpacity());
+            }
         } catch (IllegalArgumentException ex) {
             Utils.showToastShort(str("revanced_settings_color_invalid"));
             setText(category.colorSetting.defaultValue);

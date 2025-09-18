@@ -100,7 +100,7 @@ public class ColorPickerPreference extends EditTextPreference {
     /**
      * Listener for color changes.
      */
-    private OnColorChangeListener colorChangeListener;
+    protected OnColorChangeListener colorChangeListener;
 
     public static final int ID_REVANCED_COLOR_PICKER_VIEW =
             getResourceIdentifier("revanced_color_picker_view", "id");

@@ -311,6 +311,15 @@ public enum SegmentCategory {
     }
 
     /**
+     * Gets the color with opacity applied.
+     * @return Integer color in ARGB format (#AARRGGBB).
+     */
+    @ColorInt
+    public int getColorWithOpacity() {
+        return applyOpacityToColor(getColorNoOpacity(), getOpacity());
+    }
+
+    /**
      * Gets the default color without opacity.
      * @return Integer color of #RRGGBB format.
      */
