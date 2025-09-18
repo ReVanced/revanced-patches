@@ -11,11 +11,11 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseActivityHook;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
-import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
+import app.revanced.extension.youtube.settings.preference.YouTubePreferenceFragment;
 import app.revanced.extension.youtube.settings.search.YouTubeSearchViewController;
 
 /**
- * Hooks LicenseActivity to inject a custom {@link ReVancedPreferenceFragment}
+ * Hooks LicenseActivity to inject a custom {@link YouTubePreferenceFragment}
  * with a toolbar and search functionality.
  */
 @SuppressWarnings("deprecation")
@@ -72,7 +72,7 @@ public class YouTubeActivityHook extends BaseActivityHook {
      */
     @Override
     protected Drawable getNavigationIcon() {
-        return ReVancedPreferenceFragment.getBackButtonDrawable();
+        return YouTubePreferenceFragment.getBackButtonDrawable();
     }
 
     /**
@@ -92,9 +92,9 @@ public class YouTubeActivityHook extends BaseActivityHook {
      */
     @Override
     protected void onPostToolbarSetup(Activity activity, Toolbar toolbar, PreferenceFragment fragment) {
-        if (fragment instanceof ReVancedPreferenceFragment) {
+        if (fragment instanceof YouTubePreferenceFragment) {
             searchViewController = YouTubeSearchViewController.addSearchViewComponents(
-                    activity, toolbar, (ReVancedPreferenceFragment) fragment);
+                    activity, toolbar, (YouTubePreferenceFragment) fragment);
         }
     }
 
@@ -103,7 +103,7 @@ public class YouTubeActivityHook extends BaseActivityHook {
      */
     @Override
     protected PreferenceFragment createPreferenceFragment() {
-        return new ReVancedPreferenceFragment();
+        return new YouTubePreferenceFragment();
     }
 
     /**

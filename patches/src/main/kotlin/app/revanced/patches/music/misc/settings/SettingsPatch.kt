@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.misc.settings.modifyActivityForSettingsInjec
 import app.revanced.util.*
 
 private const val GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/music/settings/YouTubeMusicActivityHook;"
+    "Lapp/revanced/extension/music/settings/MusicActivityHook;"
 
 private val preferences = mutableSetOf<BasePreference>()
 

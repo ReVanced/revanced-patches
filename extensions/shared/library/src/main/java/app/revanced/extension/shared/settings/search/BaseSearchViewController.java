@@ -60,7 +60,7 @@ public abstract class BaseSearchViewController {
     protected final List<BaseSearchResultItem> filteredSearchItems;
     protected final Map<String, BaseSearchResultItem> keyToSearchItem;
     protected final InputMethodManager inputMethodManager;
-    protected BaseSearchHistoryManager searchHistoryManager;
+    protected SearchHistoryManager searchHistoryManager;
     protected boolean isSearchActive;
     protected boolean isShowingSearchHistory;
 
@@ -172,7 +172,7 @@ public abstract class BaseSearchViewController {
      * Initializes the search history manager with the specified overlay container and listener.
      */
     private void initializeSearchHistoryManager() {
-        searchHistoryManager = createSearchHistoryManager(overlayContainer, query -> {
+        searchHistoryManager = new SearchHistoryManager(activity, overlayContainer, query -> {
             searchView.setQuery(query, true);
             hideSearchHistory();
         });
@@ -180,9 +180,8 @@ public abstract class BaseSearchViewController {
 
     // Abstract methods that subclasses must implement.
     protected abstract BaseSearchResultsAdapter createSearchResultsAdapter();
-    protected abstract BaseSearchHistoryManager createSearchHistoryManager(FrameLayout overlayContainer,
-                                                                           BaseSearchHistoryManager.OnSelectHistoryItemListener listener);
-    protected abstract boolean isNotSpecialPreferenceGroup(Preference preference);
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    protected abstract boolean isSpecialPreferenceGroup(Preference preference);
     protected abstract void setupSpecialPreferenceListeners(BaseSearchResultItem item);
 
     // Abstract interface for preference fragments.
@@ -203,7 +202,7 @@ public abstract class BaseSearchViewController {
     protected boolean shouldIncludePreference(Preference preference, int currentDepth, int includeDepth) {
         return includeDepth <= currentDepth
                 && !(preference instanceof PreferenceCategory)
-                && isNotSpecialPreferenceGroup(preference)
+                && !isSpecialPreferenceGroup(preference)
                 && !(preference instanceof PreferenceScreen);
     }
 
@@ -388,7 +387,7 @@ public abstract class BaseSearchViewController {
                 List<String> newKeys = new ArrayList<>(parentKeys);
 
                 // Append the group title to the path and save key for navigation.
-                if (isNotSpecialPreferenceGroup(preference)
+                if (!isSpecialPreferenceGroup(preference)
                         && !(preference instanceof NoTitlePreferenceCategory)) {
                     CharSequence title = preference.getTitle();
                     if (!TextUtils.isEmpty(title)) {

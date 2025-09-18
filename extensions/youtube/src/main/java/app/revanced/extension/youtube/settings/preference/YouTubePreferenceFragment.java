@@ -1,16 +1,20 @@
-package app.revanced.extension.music.settings.preference;
+package app.revanced.extension.youtube.settings.preference;
 
 import android.app.Dialog;
 import android.preference.PreferenceScreen;
 import android.widget.Toolbar;
 
-import app.revanced.extension.music.settings.YouTubeMusicActivityHook;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
+import app.revanced.extension.youtube.settings.YouTubeActivityHook;
 
-@SuppressWarnings("deprecation")
-public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
+/**
+ * Preference fragment for ReVanced settings.
+ */
+@SuppressWarnings({"deprecation", "NewApi"})
+public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
+
     /**
      * The main PreferenceScreen used to display the current set of preferences.
      * This screen is manipulated during initialization and filtering to show or hide preferences.
@@ -40,9 +44,10 @@ public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
     public void onStart() {
         super.onStart();
         try {
-            // Initialize search controller if needed
-            if (YouTubeMusicActivityHook.searchViewController != null) {
-                YouTubeMusicActivityHook.searchViewController.initializeSearchData();
+            // Initialize search controller if needed.
+            if (YouTubeActivityHook.searchViewController != null) {
+                // Trigger search data collection after fragment is ready.
+                YouTubeActivityHook.searchViewController.initializeSearchData();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "onStart failure", ex);
@@ -54,7 +59,7 @@ public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
      */
     @Override
     protected void customizeToolbar(Toolbar toolbar) {
-        YouTubeMusicActivityHook.setToolbarLayoutParams(toolbar);
+        YouTubeActivityHook.setToolbarLayoutParams(toolbar);
     }
 
     /**
@@ -62,9 +67,9 @@ public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
      */
     @Override
     protected void onPostToolbarSetup(Toolbar toolbar, Dialog preferenceScreenDialog) {
-        if (YouTubeMusicActivityHook.searchViewController != null
-                && YouTubeMusicActivityHook.searchViewController.isSearchActive()) {
-            toolbar.post(() -> YouTubeMusicActivityHook.searchViewController.closeSearch());
+        if (YouTubeActivityHook.searchViewController != null
+                && YouTubeActivityHook.searchViewController.isSearchActive()) {
+            toolbar.post(() -> YouTubeActivityHook.searchViewController.closeSearch());
         }
     }
 

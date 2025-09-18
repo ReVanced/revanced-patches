@@ -8,16 +8,16 @@ import android.preference.PreferenceFragment;
 import android.view.View;
 import android.widget.Toolbar;
 
-import app.revanced.extension.music.settings.preference.ReVancedPreferenceFragment;
+import app.revanced.extension.music.settings.preference.MusicPreferenceFragment;
 import app.revanced.extension.music.settings.search.MusicSearchViewController;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseActivityHook;
 
 /**
- * Hooks GoogleApiActivity to inject a custom ReVancedPreferenceFragment with a toolbar and search.
+ * Hooks GoogleApiActivity to inject a custom {@link MusicPreferenceFragment} with a toolbar and search.
  */
-public class YouTubeMusicActivityHook extends BaseActivityHook {
+public class MusicActivityHook extends BaseActivityHook {
 
     @SuppressLint("StaticFieldLeak")
     public static MusicSearchViewController searchViewController;
@@ -35,7 +35,7 @@ public class YouTubeMusicActivityHook extends BaseActivityHook {
         // YT Music always uses dark mode.
         Utils.setIsDarkModeEnabled(true);
 
-        BaseActivityHook.initialize(new YouTubeMusicActivityHook(), parentActivity);
+        BaseActivityHook.initialize(new MusicActivityHook(), parentActivity);
     }
 
     /**
@@ -69,7 +69,7 @@ public class YouTubeMusicActivityHook extends BaseActivityHook {
      */
     @Override
     protected Drawable getNavigationIcon() {
-        Drawable navigationIcon = ReVancedPreferenceFragment.getBackButtonDrawable();
+        Drawable navigationIcon = MusicPreferenceFragment.getBackButtonDrawable();
         navigationIcon.setColorFilter(Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
         return navigationIcon;
     }
@@ -97,9 +97,9 @@ public class YouTubeMusicActivityHook extends BaseActivityHook {
      */
     @Override
     protected void onPostToolbarSetup(Activity activity, Toolbar toolbar, PreferenceFragment fragment) {
-        if (fragment instanceof ReVancedPreferenceFragment) {
+        if (fragment instanceof MusicPreferenceFragment) {
             searchViewController = MusicSearchViewController.addSearchViewComponents(
-                    activity, toolbar, (ReVancedPreferenceFragment) fragment);
+                    activity, toolbar, (MusicPreferenceFragment) fragment);
         }
     }
 
@@ -108,7 +108,7 @@ public class YouTubeMusicActivityHook extends BaseActivityHook {
      */
     @Override
     protected PreferenceFragment createPreferenceFragment() {
-        return new ReVancedPreferenceFragment();
+        return new MusicPreferenceFragment();
     }
 
     /**

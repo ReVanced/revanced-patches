@@ -2,6 +2,8 @@ package app.revanced.extension.shared.settings.search;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.shared.settings.BaseSettings.SETTINGS_SEARCH_ENTRIES;
+import static app.revanced.extension.shared.settings.BaseSettings.SETTINGS_SEARCH_HISTORY;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -15,49 +17,44 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Deque;
 import java.util.LinkedList;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.settings.BooleanSetting;
-import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.settings.preference.BulletPointPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
 
 /**
- * Abstract manager for search history functionality.
- * Subclasses must provide app-specific settings.
+ * Manager for search history functionality.
  */
-public abstract class BaseSearchHistoryManager {
-    protected final Deque<String> searchHistory;
-    protected final Activity activity;
-    protected final SearchHistoryAdapter searchHistoryAdapter;
-    protected final boolean showSettingsSearchHistory;
-    protected final FrameLayout searchHistoryContainer;
-    // Abstract methods for app-specific settings.
-    protected abstract BooleanSetting getSearchHistorySetting();
-    protected abstract StringSetting getSearchEntriesSetting();
-
-    protected static final int MAX_HISTORY_SIZE = 5;  // Maximum history items stored.
-
-    protected static final int ID_SEARCH_HISTORY_LIST = getResourceIdentifier("search_history_list", "id");
-    protected static final int ID_CLEAR_HISTORY_BUTTON = getResourceIdentifier("clear_history_button", "id");
-    protected static final int ID_HISTORY_TEXT = getResourceIdentifier("history_text", "id");
-    protected static final int ID_DELETE_ICON = getResourceIdentifier("delete_icon", "id");
-    protected static final int ID_EMPTY_HISTORY_TITLE = getResourceIdentifier("empty_history_title", "id");
-    protected static final int ID_EMPTY_HISTORY_SUMMARY = getResourceIdentifier("empty_history_summary", "id");
-    protected static final int ID_SEARCH_HISTORY_HEADER = getResourceIdentifier("search_history_header", "id");
-    protected static final int ID_SEARCH_TIPS_SUMMARY = getResourceIdentifier("revanced_settings_search_tips_summary", "id");
-    protected static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_SCREEN =
-            getResourceIdentifier("revanced_preference_search_history_screen", "layout");
-    protected static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_ITEM =
-            getResourceIdentifier("revanced_preference_search_history_item", "layout");
-
+public class SearchHistoryManager {
     /**
      * Interface for handling history item selection.
      */
+    private static final int MAX_HISTORY_SIZE = 5;  // Maximum history items stored.
+
+    private static final int ID_CLEAR_HISTORY_BUTTON = getResourceIdentifier("clear_history_button", "id");
+    private static final int ID_HISTORY_TEXT = getResourceIdentifier("history_text", "id");
+    private static final int ID_DELETE_ICON = getResourceIdentifier("delete_icon", "id");
+    private static final int ID_EMPTY_HISTORY_TITLE = getResourceIdentifier("empty_history_title", "id");
+    private static final int ID_EMPTY_HISTORY_SUMMARY = getResourceIdentifier("empty_history_summary", "id");
+    private static final int ID_SEARCH_HISTORY_HEADER = getResourceIdentifier("search_history_header", "id");
+    private static final int ID_SEARCH_TIPS_SUMMARY = getResourceIdentifier("revanced_settings_search_tips_summary", "id");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_SCREEN =
+            getResourceIdentifier("revanced_preference_search_history_screen", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_ITEM =
+            getResourceIdentifier("revanced_preference_search_history_item", "layout");
+    private static final int ID_SEARCH_HISTORY_LIST = getResourceIdentifier("search_history_list", "id");
+
+    private final Deque<String> searchHistory;
+    private final Activity activity;
+    private final SearchHistoryAdapter searchHistoryAdapter;
+    private final boolean showSettingsSearchHistory;
+    private final FrameLayout searchHistoryContainer;
+
     public interface OnSelectHistoryItemListener {
         void onSelectHistoryItem(String query);
     }
@@ -69,22 +66,21 @@ public abstract class BaseSearchHistoryManager {
      * @param overlayContainer          The overlay container to hold the search history container.
      * @param onSelectHistoryItemAction Callback for when a history item is selected.
      */
-    protected BaseSearchHistoryManager(Activity activity, FrameLayout overlayContainer,
-                                       OnSelectHistoryItemListener onSelectHistoryItemAction) {
+    SearchHistoryManager(Activity activity, FrameLayout overlayContainer,
+                         OnSelectHistoryItemListener onSelectHistoryItemAction) {
         this.activity = activity;
-        this.showSettingsSearchHistory = getSearchHistorySetting().get();
+        this.showSettingsSearchHistory = SETTINGS_SEARCH_HISTORY.get();
         this.searchHistory = new LinkedList<>();
 
         // Initialize search history from settings.
-        StringSetting searchEntries = getSearchEntriesSetting();
         if (showSettingsSearchHistory) {
-            String entries = searchEntries.get();
+            String entries = SETTINGS_SEARCH_ENTRIES.get();
             if (!entries.isBlank()) {
                 searchHistory.addAll(Arrays.asList(entries.split("\n")));
             }
         } else {
             // Clear old saved history if the feature is disabled.
-            searchEntries.resetToDefault();
+            SETTINGS_SEARCH_ENTRIES.resetToDefault();
         }
 
         // Create search history container.
@@ -111,9 +107,9 @@ public abstract class BaseSearchHistoryManager {
             throw new IllegalStateException("Search history list view not found in container");
         }
 
-        // Set up history adapter.
+        // Set up history adapter. Use a copy of the search history.
         this.searchHistoryAdapter = new SearchHistoryAdapter(activity, searchHistoryListView,
-                searchHistory, onSelectHistoryItemAction);
+                new ArrayList<>(searchHistory), onSelectHistoryItemAction);
 
         // Set up clear history button.
         TextView clearHistoryButton = searchHistoryContainer.findViewById(ID_CLEAR_HISTORY_BUTTON);
@@ -187,7 +183,7 @@ public abstract class BaseSearchHistoryManager {
      */
     protected void saveSearchHistory() {
         Logger.printDebug(() -> "Saving search history: " + searchHistory);
-        getSearchEntriesSetting().save(String.join("\n", searchHistory));
+        SETTINGS_SEARCH_ENTRIES.save(String.join("\n", searchHistory));
     }
 
     /**

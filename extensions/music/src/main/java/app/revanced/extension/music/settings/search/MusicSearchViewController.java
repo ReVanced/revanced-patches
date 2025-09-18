@@ -4,10 +4,9 @@ import android.app.Activity;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.Toolbar;
 
-import app.revanced.extension.music.settings.preference.ReVancedPreferenceFragment;
+import app.revanced.extension.music.settings.preference.MusicPreferenceFragment;
 import app.revanced.extension.shared.settings.search.*;
 
 /**
@@ -17,11 +16,11 @@ import app.revanced.extension.shared.settings.search.*;
 public class MusicSearchViewController extends BaseSearchViewController {
 
     public static MusicSearchViewController addSearchViewComponents(Activity activity, Toolbar toolbar,
-                                                                    ReVancedPreferenceFragment fragment) {
+                                                                    MusicPreferenceFragment fragment) {
         return new MusicSearchViewController(activity, toolbar, fragment);
     }
 
-    private MusicSearchViewController(Activity activity, Toolbar toolbar, ReVancedPreferenceFragment fragment) {
+    private MusicSearchViewController(Activity activity, Toolbar toolbar, MusicPreferenceFragment fragment) {
         super(activity, toolbar, new PreferenceFragmentAdapter(fragment));
     }
 
@@ -31,15 +30,9 @@ public class MusicSearchViewController extends BaseSearchViewController {
     }
 
     @Override
-    protected BaseSearchHistoryManager createSearchHistoryManager(FrameLayout overlayContainer,
-                                                                  BaseSearchHistoryManager.OnSelectHistoryItemListener listener) {
-        return new MusicSearchHistoryManager(activity, overlayContainer, listener);
-    }
-
-    @Override
-    protected boolean isNotSpecialPreferenceGroup(Preference preference) {
+    protected boolean isSpecialPreferenceGroup(Preference preference) {
         // Music doesn't have SponsorBlock, so no special groups.
-        return true;
+        return false;
     }
 
     @Override
@@ -58,12 +51,7 @@ public class MusicSearchViewController extends BaseSearchViewController {
     }
 
     // Adapter to wrap ReVancedPreferenceFragment to BasePreferenceFragment interface.
-    private static class PreferenceFragmentAdapter implements BasePreferenceFragment {
-        private final ReVancedPreferenceFragment fragment;
-
-        public PreferenceFragmentAdapter(ReVancedPreferenceFragment fragment) {
-            this.fragment = fragment;
-        }
+    private record PreferenceFragmentAdapter(MusicPreferenceFragment fragment) implements BasePreferenceFragment {
 
         @Override
         public PreferenceScreen getPreferenceScreenForSearch() {
