@@ -123,6 +123,16 @@ public class SegmentCategoryPreference extends ColorPickerPreference {
         }
     }
 
+    @Override
+    protected void onDialogNeutralClicked() {
+        try {
+            final int defaultColor = category.getDefaultColorWithOpacity();
+            dialogColorPickerView.setColor(defaultColor);
+        } catch (Exception ex) {
+            Logger.printException(() -> "Reset button failure", ex);
+        }
+    }
+
     public void updateUI() {
         try {
             if (category.behaviorSetting != null) {

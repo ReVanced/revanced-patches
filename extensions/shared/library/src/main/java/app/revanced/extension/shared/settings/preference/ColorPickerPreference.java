@@ -70,7 +70,7 @@ public class ColorPickerPreference extends EditTextPreference {
     private TextWatcher colorTextWatcher;
 
     /** Dialog color picker view. */
-    private ColorPickerView dialogColorPickerView;
+    protected ColorPickerView dialogColorPickerView;
 
     /** Listener for color changes. */
     protected OnColorChangeListener colorChangeListener;
@@ -268,6 +268,19 @@ public class ColorPickerPreference extends EditTextPreference {
         // Default implementation does nothing.
     }
 
+    /**
+     * Hook for subclasses to handle the Neutral button click.
+     */
+    protected void onDialogNeutralClicked() {
+        // Default implementation.
+        try {
+            final int defaultColor = Color.parseColor(colorSetting.defaultValue);
+            dialogColorPickerView.setColor(defaultColor);
+        } catch (Exception ex) {
+            Logger.printException(() -> "Reset button failure", ex);
+        }
+    }
+
     @Override
     protected void showDialog(Bundle state) {
         Context context = getContext();
@@ -381,14 +394,7 @@ public class ColorPickerPreference extends EditTextPreference {
                     }
                 },
                 str("revanced_settings_reset_color"), // Neutral button text.
-                () -> { // Neutral button action.
-                    try {
-                        final int defaultColor = Color.parseColor(colorSetting.defaultValue);
-                        dialogColorPickerView.setColor(defaultColor);
-                    } catch (Exception ex) {
-                        Logger.printException(() -> "Reset button failure", ex);
-                    }
-                },
+                this::onDialogNeutralClicked, // Neutral button action.
                 false // Do not dismiss dialog.
         );
 
