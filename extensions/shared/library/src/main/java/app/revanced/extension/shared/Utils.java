@@ -22,10 +22,6 @@ import android.os.Looper;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.BulletSpan;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -269,22 +265,6 @@ public class Utils {
             }
         }
         return -1;
-    }
-
-    /**
-     * Converts a string into a formatted bullet point list.
-     */
-    public static Spannable formatIntoBulletPoints(String text, String delimiter) {
-        SpannableStringBuilder builder = new SpannableStringBuilder();
-        for (String item : text.split(delimiter)) {
-            item = item.replace("\n", "").strip();
-            final int start = builder.length();
-            builder.append(item);
-            builder.setSpan(new BulletSpan(20), start, builder.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.append("\n");
-        }
-
-        return builder;
     }
 
     /**

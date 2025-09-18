@@ -6,7 +6,6 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.text.Spannable;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -22,9 +21,9 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.StringSetting;
+import app.revanced.extension.shared.settings.preference.BulletPointPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
 
 /**
@@ -125,8 +124,8 @@ public abstract class BaseSearchHistoryManager {
         ));
 
         // Set up search tips summary.
-        Spannable text = Utils.formatIntoBulletPoints(
-                str("revanced_settings_search_tips_summary"), "\\n\\s*\\n");
+        CharSequence text = BulletPointPreference.formatIntoBulletPoints(
+                str("revanced_settings_search_tips_summary"));
         TextView tipsSummary = historyView.findViewById(ID_SEARCH_TIPS_SUMMARY);
         tipsSummary.setText(text);
     }

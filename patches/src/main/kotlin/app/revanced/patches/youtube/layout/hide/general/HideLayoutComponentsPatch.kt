@@ -190,7 +190,10 @@ val hideLayoutComponentsPatch = bytecodePatch(
                     SwitchPreference("revanced_hide_keyword_content_subscriptions"),
                     SwitchPreference("revanced_hide_keyword_content_search"),
                     TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
-                    NonInteractivePreference("revanced_hide_keyword_content_about"),
+                    NonInteractivePreference(
+                        key = "revanced_hide_keyword_content_about",
+                        tag = "app.revanced.extension.shared.settings.preference.BulletPointPreference"
+                    ),
                     NonInteractivePreference(
                         key = "revanced_hide_keyword_content_about_whole_words",
                         tag = "app.revanced.extension.youtube.settings.preference.HtmlPreference",
@@ -224,7 +227,10 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_chips_shelf"),
             SwitchPreference("revanced_hide_expandable_card"),
             SwitchPreference("revanced_hide_floating_microphone_button"),
-            SwitchPreference("revanced_hide_horizontal_shelves"),
+            SwitchPreference(
+                key = "revanced_hide_horizontal_shelves",
+                tag = "app.revanced.extension.shared.settings.preference.BulletPointSwitchPreference"
+            ),
             SwitchPreference("revanced_hide_image_shelf"),
             SwitchPreference("revanced_hide_latest_posts"),
             SwitchPreference("revanced_hide_mix_playlists"),

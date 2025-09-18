@@ -53,16 +53,11 @@ Second \"item\" text"</string>
             <string name="revanced_settings_search_clear_history">Clear search history</string>
             <string name="revanced_settings_search_clear_history_message">Are you sure you want to clear all search history?</string>
             <string name="revanced_settings_search_tips_title">Search Tips</string>
-            <!-- Text is formatted at runtime into bullet points. Bullet point lines are separated by an empty line. -->
-            <string name="revanced_settings_search_tips_summary">"Tap a path to navigate to it
-
-Long-press a setting to navigate to it
-
-Press Enter to save a search query to history
-
-Search ignores casing and punctuation
-
-Parent settings appear above disabled child settings"</string>
+            <string name="revanced_settings_search_tips_summary">"• Tap a path to navigate to it
+• Long-press a setting to navigate to it
+• Press Enter to save a search query to history
+• Search ignores casing and punctuation
+• Parent settings appear above disabled child settings"</string>
             <string name="revanced_settings_search_empty_history_title">Search history is empty</string>
             <string name="revanced_settings_search_empty_history_summary">To save search history, type a search query and press Enter</string>
             <string name="revanced_settings_search_history_title">Show settings search history</string>
@@ -262,6 +257,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_floating_microphone_button_summary_off">Floating microphone button in search is shown</string>
             <string name="revanced_hide_horizontal_shelves_title">Hide horizontal shelves</string>
             <string name="revanced_hide_horizontal_shelves_summary_on">"Horizontal shelves are hidden, such as:
+
 • Breaking news
 • Continue watching
 • Explore more channels
