@@ -111,9 +111,9 @@ public abstract class BaseSearchHistoryManager {
             throw new IllegalStateException("Search history list view not found in container");
         }
 
-        // Set up history adapter.
+        // Set up history adapter. Use a copy of the search history.
         this.searchHistoryAdapter = new SearchHistoryAdapter(activity, searchHistoryListView,
-                searchHistory, onSelectHistoryItemAction);
+                new ArrayList<>(searchHistory), onSelectHistoryItemAction);
 
         // Set up clear history button.
         TextView clearHistoryButton = searchHistoryContainer.findViewById(ID_CLEAR_HISTORY_BUTTON);
