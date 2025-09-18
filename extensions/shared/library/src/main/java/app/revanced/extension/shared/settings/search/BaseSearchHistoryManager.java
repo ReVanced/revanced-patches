@@ -6,9 +6,7 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.BulletSpan;
+import android.text.Spannable;
 import android.util.Pair;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,17 +16,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.settings.BooleanSetting;
-import app.revanced.extension.shared.settings.StringSetting;
-import app.revanced.extension.shared.ui.CustomDialog;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.List;
+
+import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.BooleanSetting;
+import app.revanced.extension.shared.settings.StringSetting;
+import app.revanced.extension.shared.ui.CustomDialog;
 
 /**
  * Abstract manager for search history functionality.
@@ -128,15 +125,10 @@ public abstract class BaseSearchHistoryManager {
         ));
 
         // Set up search tips summary.
-        SpannableStringBuilder builder = new SpannableStringBuilder();
-        for (String item : str("revanced_settings_search_tips_summary").split("\\n\\s*\\n")) {
-            final int start = builder.length();
-            builder.append(item);
-            builder.setSpan(new BulletSpan(20), start, builder.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            builder.append("\n");
-        }
+        Spannable text = Utils.formatIntoBulletPoints(
+                str("revanced_settings_search_tips_summary"), "\\n\\s*\\n");
         TextView tipsSummary = historyView.findViewById(ID_SEARCH_TIPS_SUMMARY);
-        tipsSummary.setText(builder);
+        tipsSummary.setText(text);
     }
 
     /**

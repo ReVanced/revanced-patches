@@ -22,13 +22,26 @@ import android.os.Looper;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.BulletSpan;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.util.TypedValue;
-import android.view.*;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.*;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -256,6 +269,22 @@ public class Utils {
             }
         }
         return -1;
+    }
+
+    /**
+     * Converts a string into a formatted bullet point list.
+     */
+    public static Spannable formatIntoBulletPoints(String text, String delimiter) {
+        SpannableStringBuilder builder = new SpannableStringBuilder();
+        for (String item : text.split(delimiter)) {
+            item = item.replace("\n", "").strip();
+            final int start = builder.length();
+            builder.append(item);
+            builder.setSpan(new BulletSpan(20), start, builder.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            builder.append("\n");
+        }
+
+        return builder;
     }
 
     /**
@@ -896,7 +925,6 @@ public class Utils {
     /**
      * {@link PreferenceScreen} and {@link PreferenceGroup} sorting styles.
      */
-    @SuppressWarnings("deprecation")
     private enum Sort {
         /**
          * Sort by the localized preference title.

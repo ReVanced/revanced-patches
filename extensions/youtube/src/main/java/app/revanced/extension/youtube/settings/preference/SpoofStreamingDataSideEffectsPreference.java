@@ -98,6 +98,7 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
                     + '\n' + str("revanced_spoof_video_streams_about_kids_videos");
         }
 
-        setSummary(summary);
+        // Use better formatting for bullet points.
+        setSummary(Utils.formatIntoBulletPoints(summary, "•"));
     }
 }
