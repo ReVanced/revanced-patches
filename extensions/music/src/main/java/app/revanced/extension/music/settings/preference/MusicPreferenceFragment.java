@@ -10,7 +10,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
 
 @SuppressWarnings("deprecation")
-public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
+public class MusicPreferenceFragment extends ToolbarPreferenceFragment {
     /**
      * The main PreferenceScreen used to display the current set of preferences.
      * This screen is manipulated during initialization and filtering to show or hide preferences.

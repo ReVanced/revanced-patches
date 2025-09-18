@@ -9,7 +9,7 @@ import android.widget.Toolbar;
 import app.revanced.extension.shared.settings.search.BaseSearchResultItem;
 import app.revanced.extension.shared.settings.search.BaseSearchResultsAdapter;
 import app.revanced.extension.shared.settings.search.BaseSearchViewController;
-import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
+import app.revanced.extension.youtube.settings.preference.YouTubePreferenceFragment;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 
 /**
@@ -19,11 +19,11 @@ import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGrou
 public class YouTubeSearchViewController extends BaseSearchViewController {
 
     public static YouTubeSearchViewController addSearchViewComponents(Activity activity, Toolbar toolbar,
-                                                                      ReVancedPreferenceFragment fragment) {
+                                                                      YouTubePreferenceFragment fragment) {
         return new YouTubeSearchViewController(activity, toolbar, fragment);
     }
 
-    private YouTubeSearchViewController(Activity activity, Toolbar toolbar, ReVancedPreferenceFragment fragment) {
+    private YouTubeSearchViewController(Activity activity, Toolbar toolbar, YouTubePreferenceFragment fragment) {
         super(activity, toolbar, new PreferenceFragmentAdapter(fragment));
     }
 
@@ -51,7 +51,7 @@ public class YouTubeSearchViewController extends BaseSearchViewController {
     }
 
     // Adapter to wrap ReVancedPreferenceFragment to BasePreferenceFragment interface.
-    private record PreferenceFragmentAdapter(ReVancedPreferenceFragment fragment) implements BasePreferenceFragment {
+    private record PreferenceFragmentAdapter(YouTubePreferenceFragment fragment) implements BasePreferenceFragment {
         @Override
         public PreferenceScreen getPreferenceScreenForSearch() {
             return fragment.getPreferenceScreenForSearch();
