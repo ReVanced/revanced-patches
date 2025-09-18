@@ -2,7 +2,6 @@ package app.revanced.extension.youtube.settings;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
-import static app.revanced.extension.shared.settings.Setting.Availability;
 import static app.revanced.extension.shared.settings.Setting.migrateOldSettingToNew;
 import static app.revanced.extension.shared.settings.Setting.parent;
 import static app.revanced.extension.shared.settings.Setting.parentsAll;
@@ -15,10 +14,6 @@ import static app.revanced.extension.youtube.patches.ExitFullscreenPatch.Fullscr
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerHorizontalDragAvailability;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.MINIMAL;
-import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_1;
-import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_2;
-import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_3;
-import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.MODERN_4;
 import static app.revanced.extension.youtube.patches.OpenShortsInRegularPlayerPatch.ShortsPlayerType;
 import static app.revanced.extension.youtube.patches.SeekbarThumbnailsPatch.SeekbarThumbnailsHighQualityAvailability;
 import static app.revanced.extension.youtube.patches.components.PlayerFlyoutMenuItemsFilter.HideAudioFlyoutMenuAvailability;
@@ -251,8 +246,6 @@ public class Settings extends BaseSettings {
 
     // General layout
     public static final BooleanSetting RESTORE_OLD_SETTINGS_MENUS = new BooleanSetting("revanced_restore_old_settings_menus", FALSE, true);
-    public static final BooleanSetting SETTINGS_SEARCH_HISTORY = new BooleanSetting("revanced_settings_search_history", TRUE, true);
-    public static final StringSetting SETTINGS_SEARCH_ENTRIES = new StringSetting("revanced_settings_search_entries", "", true);
     public static final EnumSetting<FormFactor> CHANGE_FORM_FACTOR = new EnumSetting<>("revanced_change_form_factor", FormFactor.DEFAULT, true, "revanced_change_form_factor_user_dialog_message");
     public static final BooleanSetting BYPASS_IMAGE_REGION_RESTRICTIONS = new BooleanSetting("revanced_bypass_image_region_restrictions", FALSE, true);
     public static final BooleanSetting GRADIENT_LOADING_SCREEN = new BooleanSetting("revanced_gradient_loading_screen", FALSE, true);
