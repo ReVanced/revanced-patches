@@ -82,11 +82,7 @@ public abstract class Setting<T> {
      * Availability based on any parent being enabled.
      */
     public static Availability parentsAny(BooleanSetting... parents) {
-        List<BooleanSetting> parentList = Arrays.asList(parents);
-
         return new Availability() {
-            private final List<BooleanSetting> parents = parentList;
-
             @Override
             public boolean isAvailable() {
                 for (BooleanSetting parent : parents) {
@@ -97,7 +93,7 @@ public abstract class Setting<T> {
 
             @Override
             public List<Setting<?>> getParentSettings() {
-                return Collections.unmodifiableList(parents);
+                return Collections.unmodifiableList(Arrays.asList(parents));
             }
         };
     }
