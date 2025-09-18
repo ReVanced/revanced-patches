@@ -81,7 +81,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                 loadingPlaceholderPreference.setTitle(str("revanced_sb_stats_sb_disabled"));
             }
         } catch (Exception ex) {
-            Logger.printException(() -> "updateUI failure", ex);
+            Logger.printException(() -> "onAttachedToActivity failure", ex);
         }
     }
 

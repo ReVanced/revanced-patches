@@ -2,7 +2,6 @@ package app.revanced.extension.youtube.sponsorblock;
 
 import static app.revanced.extension.shared.StringRef.str;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,8 +12,6 @@ import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.widget.EditText;
-
-import androidx.annotation.NonNull;
 
 import java.lang.ref.WeakReference;
 import java.text.NumberFormat;
@@ -67,7 +64,6 @@ public class SponsorBlockUtils {
     };
     private static SegmentCategory newUserCreatedSegmentCategory;
     private static final DialogInterface.OnClickListener segmentTypeListener = new DialogInterface.OnClickListener() {
-        @SuppressLint("InlinedApi")
         @Override
         public void onClick(DialogInterface dialog, int which) {
             try {
@@ -90,7 +86,6 @@ public class SponsorBlockUtils {
         }
     };
     private static final DialogInterface.OnClickListener segmentReadyDialogButtonListener = new DialogInterface.OnClickListener() {
-        @SuppressLint("InlinedApi")
         @Override
         public void onClick(DialogInterface dialog, int which) {
             try {
@@ -127,7 +122,7 @@ public class SponsorBlockUtils {
         try {
             Context context = ((AlertDialog) dialog).getContext();
 
-            @SuppressLint("InlinedApi") final boolean isStart = DialogInterface.BUTTON_NEGATIVE == which;
+            final boolean isStart = DialogInterface.BUTTON_NEGATIVE == which;
 
             final EditText textView = new EditText(context);
             textView.setHint(MANUAL_EDIT_TIME_TEXT_HINT);
@@ -214,7 +209,6 @@ public class SponsorBlockUtils {
         newSponsorSegmentPreviewed = false;
     }
 
-    @SuppressLint("NewApi")
     private static void submitNewSegment() {
         try {
             Utils.verifyOnMainThread();
@@ -260,7 +254,6 @@ public class SponsorBlockUtils {
         }
     }
 
-    @SuppressWarnings("deprecation")
     public static void onPublishClicked() {
         try {
             Utils.verifyOnMainThread();
@@ -287,7 +280,7 @@ public class SponsorBlockUtils {
         }
     }
 
-    public static void onVotingClicked(@NonNull Context context) {
+    public static void onVotingClicked(Context context) {
         try {
             Utils.verifyOnMainThread();
             SponsorSegment[] segments = SegmentPlaybackController.getSegments();
@@ -338,12 +331,12 @@ public class SponsorBlockUtils {
         }
     }
 
-    private static void onNewCategorySelect(@NonNull SponsorSegment segment, @NonNull Context context) {
+    private static void onNewCategorySelect(SponsorSegment segment, Context context) {
         try {
             Utils.verifyOnMainThread();
             final SegmentCategory[] values = SegmentCategory.categoriesWithoutHighlights();
             CharSequence[] titles = new CharSequence[values.length];
-            for (int i = 0; i < values.length; i++) {
+            for (int i = 0, length = values.length; i < length; i++) {
                 titles[i] = values[i].getTitle().toString();
             }
 
@@ -450,7 +443,6 @@ public class SponsorBlockUtils {
         }
     }
 
-    @SuppressLint("NewApi")
     private static String formatSegmentTime(long segmentTime) {
         // Use same time formatting as shown in the video player.
         final long videoLength = VideoInformation.getVideoLength();
@@ -479,7 +471,6 @@ public class SponsorBlockUtils {
         return String.format(Locale.US, formatPattern, formatArgs);
     }
 
-    @SuppressLint("NewApi")
     public static String getTimeSavedString(long totalSecondsSaved) {
         Duration duration = Duration.ofSeconds(totalSecondsSaved);
         final long hours = duration.toHours();
@@ -505,7 +496,6 @@ public class SponsorBlockUtils {
         private boolean settingStart;
         private WeakReference<EditText> editTextRef = new WeakReference<>(null);
 
-        @SuppressLint("InlinedApi")
         @Override
         public void onClick(DialogInterface dialog, int which) {
             try {

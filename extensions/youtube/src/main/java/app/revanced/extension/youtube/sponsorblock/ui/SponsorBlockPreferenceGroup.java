@@ -327,15 +327,15 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 if (newValue && !Settings.SB_SEEN_GUIDELINES.get()) {
                     Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                             preference1.getContext(),
-                            str("revanced_sb_guidelines_popup_title"),   // Title.
-                            str("revanced_sb_guidelines_popup_content"), // Message.
-                            null,                                        // No EditText.
-                            str("revanced_sb_guidelines_popup_open"),    // OK button text.
-                            this::openGuidelines,                      // OK button action.
-                            null,                                        // Cancel button action.
+                            str("revanced_sb_guidelines_popup_title"),      // Title.
+                            str("revanced_sb_guidelines_popup_content"),    // Message.
+                            null,                                               // No EditText.
+                            str("revanced_sb_guidelines_popup_open"),       // OK button text.
+                            this::openGuidelines,                               // OK button action.
+                            null,                                               // Cancel button action.
                             str("revanced_sb_guidelines_popup_already_read"), // Neutral button text.
-                            () -> {},                                    // Neutral button action (dismiss only).
-                            true                                         // Dismiss dialog when onNeutralClick.
+                            () -> {},                                           // Neutral button action (dismiss only).
+                            true                                                // Dismiss dialog when onNeutralClick.
                     );
 
                     // Set dialog as non-cancelable.

@@ -117,7 +117,7 @@ public abstract class BaseSearchHistoryManager {
 
         // Set up history adapter.
         this.searchHistoryAdapter = new SearchHistoryAdapter(activity, searchHistoryListView,
-                new ArrayList<>(searchHistory), onSelectHistoryItemAction);
+                searchHistory, onSelectHistoryItemAction);
 
         // Set up clear history button.
         TextView clearHistoryButton = searchHistoryContainer.findViewById(ID_CLEAR_HISTORY_BUTTON);
@@ -306,12 +306,12 @@ public abstract class BaseSearchHistoryManager {
      * Custom adapter for search history items.
      */
     protected class SearchHistoryAdapter {
-        protected final List<String> history;
+        protected final Collection<String> history;
         protected final LayoutInflater inflater;
         protected final LinearLayout container;
         protected final OnSelectHistoryItemListener onSelectHistoryItemListener;
 
-        public SearchHistoryAdapter(Context context, LinearLayout container, List<String> history,
+        public SearchHistoryAdapter(Context context, LinearLayout container, Collection<String> history,
                                     OnSelectHistoryItemListener listener) {
             this.history = history;
             this.inflater = LayoutInflater.from(context);

@@ -253,7 +253,7 @@ public abstract class BaseSearchResultItem {
                 CharSequence[] entries = listPref.getEntries();
                 CharSequence[] entryValues = listPref.getEntryValues();
                 if (value != null && entries != null && entryValues != null) {
-                    for (int i = 0; i < entryValues.length; i++) {
+                    for (int i = 0, length = entries.length; i < length; i++) {
                         if (value.equals(entryValues[i].toString())) {
                             return originalEntries != null && i < originalEntries.length && originalEntries[i] != null
                                     ? originalEntries[i]
@@ -305,7 +305,7 @@ public abstract class BaseSearchResultItem {
             // Highlight the entries.
             if (preference instanceof ListPreference && originalEntries != null) {
                 highlightedEntries = new CharSequence[originalEntries.length];
-                for (int i = 0; i < originalEntries.length; i++) {
+                for (int i = 0, length = originalEntries.length; i < length; i++) {
                     if (originalEntries[i] != null) {
                         highlightedEntries[i] = highlightSearchQuery(originalEntries[i], queryPattern);
                     } else {

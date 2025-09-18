@@ -50,6 +50,7 @@ import kotlin.Unit;
  * <p>
  * Class is not thread safe. All methods must be called on the main thread unless otherwise specified.
  */
+@SuppressLint("NewApi")
 public class SegmentPlaybackController {
 
     /**
@@ -231,7 +232,6 @@ public class SegmentPlaybackController {
         highlightSegment = null;
     }
 
-    @SuppressLint("NewApi")
     static void addUnsubmittedSegment(SponsorSegment segment) {
         Objects.requireNonNull(segment);
         if (segments == null) {
@@ -407,7 +407,6 @@ public class SegmentPlaybackController {
      * Updates SponsorBlock every 1000ms.
      * When changing videos, this is first called with value 0 and then the video is changed.
      */
-    @SuppressLint("NewApi")
     public static void setVideoTime(long millis) {
         try {
             if (!Settings.SB_ENABLED.get()
@@ -619,7 +618,6 @@ public class SegmentPlaybackController {
     /**
      * Removes all previously hidden segments that are not longer contained in the given video time.
      */
-    @SuppressLint("NewApi")
     private static void updateHiddenSegments(long currentVideoTime) {
         hiddenSkipSegmentsForCurrentVideoTime.removeIf((hiddenSegment) -> {
             if (!hiddenSegment.containsTime(currentVideoTime)) {
@@ -690,7 +688,7 @@ public class SegmentPlaybackController {
                 Logger.printDebug(() -> "Setting new undo range to: " + range);
                 undoAutoSkipRange = range;
             } else {
-                @SuppressLint({"NewApi", "LocalSuppress"}) Range<Long> extendedRange = undoAutoSkipRange.extend(range);
+                Range<Long> extendedRange = undoAutoSkipRange.extend(range);
                 Logger.printDebug(() -> "Extending undo range from: " + undoAutoSkipRange +
                         " to: " + extendedRange);
                 undoAutoSkipRange = extendedRange;
@@ -744,7 +742,6 @@ public class SegmentPlaybackController {
     /**
      * Checks if the segment should be auto-skipped _and_ if undo autoskip is not active.
      */
-    @SuppressLint("NewApi")
     private static boolean shouldAutoSkipAndUndoSkipNotActive(SponsorSegment segment, long currentVideoTime) {
         return segment.shouldAutoSkip() && (undoAutoSkipRange == null
                 || !undoAutoSkipRange.contains(currentVideoTime));
@@ -792,7 +789,6 @@ public class SegmentPlaybackController {
         }, delayToToastMilliseconds);
     }
 
-    @SuppressLint("NewApi")
     private static void showAutoSkipToast(String messageToToast, Range<Long> rangeToUndo) {
         Objects.requireNonNull(messageToToast);
         Utils.verifyOnMainThread();

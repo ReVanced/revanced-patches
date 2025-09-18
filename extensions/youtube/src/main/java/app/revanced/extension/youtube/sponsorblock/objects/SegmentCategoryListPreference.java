@@ -102,7 +102,7 @@ public class SegmentCategoryListPreference extends ColorPickerPreference {
                     : CategoryBehaviour.getBehaviorKeyValues();
             String currentBehavior = category.behaviorSetting.get();
             selectedDialogEntryIndex = -1;
-            for (int i = 0; i < entryValues.length; i++) {
+            for (int i = 0, length = entryValues.length; i < length; i++) {
                 if (entryValues[i].equals(currentBehavior)) {
                     selectedDialogEntryIndex = i;
                     break;
@@ -119,7 +119,7 @@ public class SegmentCategoryListPreference extends ColorPickerPreference {
             CharSequence[] entries = isHighlightCategory
                     ? CategoryBehaviour.getBehaviorDescriptionsWithoutSkipOnce()
                     : CategoryBehaviour.getBehaviorDescriptions();
-            for (int i = 0; i < entries.length; i++) {
+            for (int i = 0, length = entries.length; i < length; i++) {
                 RadioButton radioButton = new RadioButton(context);
                 radioButton.setText(entries[i]);
                 radioButton.setId(i);
