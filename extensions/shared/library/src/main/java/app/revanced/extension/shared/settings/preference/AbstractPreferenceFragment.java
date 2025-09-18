@@ -249,7 +249,8 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 Setting.privateSetValueFromString(setting, listPref.getValue());
             }
             updateListPreferenceSummary(listPref, setting);
-        } else {
+        } else if (!pref.getClass().equals(Preference.class)) {
+            // Ignore root preference class because there is no data to sync.
             Logger.printException(() -> "Setting cannot be handled: " + pref.getClass() + ": " + pref);
         }
     }
