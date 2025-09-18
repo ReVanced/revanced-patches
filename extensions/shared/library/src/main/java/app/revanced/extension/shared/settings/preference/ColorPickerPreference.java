@@ -42,56 +42,40 @@ import app.revanced.extension.shared.ui.CustomDialog;
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class ColorPickerPreference extends EditTextPreference {
-    /**
-     * Length of a valid color string of format #RRGGBB.
-     */
-    public static final int COLOR_STRING_LENGTH = 7;
+    /** Length of a valid color string of format #RRGGBB (without alpha) or #AARRGGBB (with alpha). */
+    public static final int COLOR_STRING_LENGTH_WITHOUT_ALPHA = 7;
+    public static final int COLOR_STRING_LENGTH_WITH_ALPHA = 9;
 
-    /**
-     * Matches everything that is not a hex number/letter.
-     */
+    /** Matches everything that is not a hex number/letter. */
     private static final Pattern PATTERN_NOT_HEX = Pattern.compile("[^0-9A-Fa-f]");
 
-    /**
-     * Alpha for dimming when the preference is disabled.
-     */
+    /** Alpha for dimming when the preference is disabled. */
     public static final float DISABLED_ALPHA = 0.5f; // 50%
 
-    /**
-     * View displaying a colored dot in the widget area.
-     */
+    /** View displaying a colored dot in the widget area. */
     private View widgetColorDot;
 
-    /**
-     * Dialog View displaying a colored dot for the selected color preview in the dialog.
-     */
+    /** Dialog View displaying a colored dot for the selected color preview in the dialog. */
     private View dialogColorDot;
 
-    /**
-     * Current color in RGB format (without alpha).
-     */
+    /** Current color, including alpha channel if opacity slider is enabled. */
     @ColorInt
     private int currentColor;
 
-    /**
-     * Associated setting for storing the color value.
-     */
+    /** Associated setting for storing the color value. */
     private StringSetting colorSetting;
 
-    /**
-     * Dialog TextWatcher for the EditText to monitor color input changes.
-     */
+    /** Dialog TextWatcher for the EditText to monitor color input changes. */
     private TextWatcher colorTextWatcher;
 
-    /**
-     * Dialog color picker view.
-     */
+    /** Dialog color picker view. */
     private ColorPickerView dialogColorPickerView;
 
-    /**
-     * Listener for color changes.
-     */
+    /** Listener for color changes. */
     protected OnColorChangeListener colorChangeListener;
+
+    /** * Whether the opacity slider is enabled. */
+    private boolean opacitySliderEnabled = false;
 
     public static final int ID_REVANCED_COLOR_PICKER_VIEW =
             getResourceIdentifier("revanced_color_picker_view", "id");
@@ -106,24 +90,28 @@ public class ColorPickerPreference extends EditTextPreference {
      * Removes non valid hex characters, converts to all uppercase,
      * and adds # character to the start if not present.
      */
-    public static String cleanupColorCodeString(String colorString) {
-        // Remove non-hex chars, convert to uppercase, and ensure correct length
+    public static String cleanupColorCodeString(String colorString, boolean includeAlpha) {
         String result = "#" + PATTERN_NOT_HEX.matcher(colorString)
                 .replaceAll("").toUpperCase(Locale.ROOT);
 
-        if (result.length() < COLOR_STRING_LENGTH) {
+        int maxLength = includeAlpha ? COLOR_STRING_LENGTH_WITH_ALPHA : COLOR_STRING_LENGTH_WITHOUT_ALPHA;
+        if (result.length() < maxLength) {
             return result;
         }
 
-        return result.substring(0, COLOR_STRING_LENGTH);
+        return result.substring(0, maxLength);
     }
 
     /**
-     * @param color RGB color, without an alpha channel.
-     * @return #RRGGBB hex color string
+     * @param color Color, with or without alpha channel.
+     * @param includeAlpha Whether to include the alpha channel in the output string.
+     * @return #RRGGBB or #AARRGGBB hex color string
      */
-    public static String getColorString(@ColorInt int color) {
-        color = color & 0x00FFFFFF;  // Always mask to strip any alpha.
+    public static String getColorString(@ColorInt int color, boolean includeAlpha) {
+        if (includeAlpha) {
+            return String.format("#%08X", color);
+        }
+        color = color & 0x00FFFFFF; // Mask to strip alpha.
         return String.format("#%06X", color);
     }
 
@@ -139,6 +127,13 @@ public class ColorPickerPreference extends EditTextPreference {
      */
     public void setOnColorChangeListener(OnColorChangeListener listener) {
         this.colorChangeListener = listener;
+    }
+
+    /**
+     * Enables or disables the opacity slider in the color picker dialog.
+     */
+    public void setOpacitySliderEnabled(boolean enabled) {
+        this.opacitySliderEnabled = enabled;
     }
 
     public ColorPickerPreference(Context context) {
@@ -182,9 +177,6 @@ public class ColorPickerPreference extends EditTextPreference {
 
     /**
      * Sets the selected color and updates the UI and settings.
-     *
-     * @param colorString The color in hexadecimal format (e.g., "#RRGGBB").
-     * @throws IllegalArgumentException If the color string is invalid.
      */
     @Override
     public void setText(String colorString) {
@@ -192,9 +184,9 @@ public class ColorPickerPreference extends EditTextPreference {
             Logger.printDebug(() -> "setText: " + colorString);
             super.setText(colorString);
 
-            currentColor = Color.parseColor(colorString) & 0x00FFFFFF;
+            currentColor = Color.parseColor(colorString);
             if (colorSetting != null) {
-                colorSetting.save(getColorString(currentColor));
+                colorSetting.save(getColorString(currentColor, opacitySliderEnabled));
             }
             updateDialogColorDot();
             updateWidgetColorDot();
@@ -216,8 +208,6 @@ public class ColorPickerPreference extends EditTextPreference {
 
     /**
      * Creates a TextWatcher to monitor changes in the EditText for color input.
-     *
-     * @return A TextWatcher that updates the color preview on valid input.
      */
     private TextWatcher createColorTextWatcher(ColorPickerView colorPickerView) {
         return new TextWatcher() {
@@ -234,14 +224,16 @@ public class ColorPickerPreference extends EditTextPreference {
                 try {
                     String colorString = edit.toString();
 
-                    String sanitizedColorString = cleanupColorCodeString(colorString);
+                    String sanitizedColorString = cleanupColorCodeString(colorString, opacitySliderEnabled);
                     if (!sanitizedColorString.equals(colorString)) {
                         edit.replace(0, colorString.length(), sanitizedColorString);
                         return;
                     }
 
-                    if (sanitizedColorString.length() != COLOR_STRING_LENGTH) {
-                        // User is still typing out the color.
+                    int expectedLength = opacitySliderEnabled
+                            ? COLOR_STRING_LENGTH_WITH_ALPHA
+                            : COLOR_STRING_LENGTH_WITHOUT_ALPHA;
+                    if (sanitizedColorString.length() != expectedLength) {
                         return;
                     }
 
@@ -271,6 +263,7 @@ public class ColorPickerPreference extends EditTextPreference {
         // Inflate color picker view.
         View colorPicker = LayoutInflater.from(context).inflate(LAYOUT_REVANCED_COLOR_PICKER, null);
         dialogColorPickerView = colorPicker.findViewById(ID_REVANCED_COLOR_PICKER_VIEW);
+        dialogColorPickerView.setOpacitySliderEnabled(opacitySliderEnabled);
         dialogColorPickerView.setColor(currentColor);
 
         // Horizontal layout for preview and EditText.
@@ -297,7 +290,7 @@ public class ColorPickerPreference extends EditTextPreference {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         ));
-        String currentColorString = getColorString(currentColor);
+        String currentColorString = getColorString(currentColor, opacitySliderEnabled);
         editText.setText(currentColorString);
         editText.setSelection(currentColorString.length());
         editText.setTypeface(Typeface.MONOSPACE);
@@ -324,8 +317,8 @@ public class ColorPickerPreference extends EditTextPreference {
 
         // Create ScrollView to wrap the content container.
         ScrollView contentScrollView = new ScrollView(context);
-        contentScrollView.setVerticalScrollBarEnabled(false); // Disable vertical scrollbar.
-        contentScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER); // Disable overscroll effect.
+        contentScrollView.setVerticalScrollBarEnabled(false);
+        contentScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER);
         LinearLayout.LayoutParams scrollViewParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 0,
@@ -334,21 +327,20 @@ public class ColorPickerPreference extends EditTextPreference {
         contentScrollView.setLayoutParams(scrollViewParams);
         contentScrollView.addView(contentContainer);
 
-        // Create custom dialog.
-        final int originalColor = currentColor & 0x00FFFFFF;
+        final int originalColor = currentColor;
         Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
-                getTitle() != null ? getTitle().toString() : str("revanced_settings_color_picker_title"), // Title.
-                null, // No message.
-                null, // No EditText.
-                null, // OK button text.
-                () -> {
-                    // OK button action.
+                getTitle() != null ? getTitle().toString() : str("revanced_settings_color_picker_title"),
+                null,
+                null,
+                null,
+                () -> { // OK button action.
                     try {
                         String colorString = editText.getText().toString();
-                        if (colorString.length() != COLOR_STRING_LENGTH) {
+                        int expectedLength = opacitySliderEnabled ? COLOR_STRING_LENGTH_WITH_ALPHA : COLOR_STRING_LENGTH_WITHOUT_ALPHA;
+                        if (colorString.length() != expectedLength) {
                             Utils.showToastShort(str("revanced_settings_color_invalid"));
-                            setText(getColorString(originalColor));
+                            setText(getColorString(originalColor, opacitySliderEnabled));
                             return;
                         }
                         setText(colorString);
@@ -358,21 +350,17 @@ public class ColorPickerPreference extends EditTextPreference {
                         Logger.printException(() -> "OK button failure", ex);
                     }
                 },
-                () -> {
-                    // Cancel button action.
+                () -> { // Cancel button action.
                     try {
-                        // Restore the original color.
-                        setText(getColorString(originalColor));
+                        setText(getColorString(originalColor, opacitySliderEnabled));
                     } catch (Exception ex) {
                         Logger.printException(() -> "Cancel button failure", ex);
                     }
                 },
                 str("revanced_settings_reset_color"), // Neutral button text.
-                () -> {
-                    // Neutral button action.
+                () -> { // Neutral button action.
                     try {
-                        final int defaultColor = Color.parseColor(colorSetting.defaultValue) & 0x00FFFFFF;
-                        // Setting view color causes listener callback into this class.
+                        final int defaultColor = Color.parseColor(colorSetting.defaultValue);
                         dialogColorPickerView.setColor(defaultColor);
                     } catch (Exception ex) {
                         Logger.printException(() -> "Reset button failure", ex);
@@ -394,7 +382,7 @@ public class ColorPickerPreference extends EditTextPreference {
                 return;
             }
 
-            String updatedColorString = getColorString(color);
+            String updatedColorString = getColorString(color, opacitySliderEnabled);
             Logger.printDebug(() -> "onColorChanged: " + updatedColorString);
             currentColor = color;
             editText.setText(updatedColorString);
@@ -442,20 +430,17 @@ public class ColorPickerPreference extends EditTextPreference {
 
         ColorDot.applyColorDot(
                 widgetColorDot,
-                currentColor | 0xFF000000,
+                currentColor,
                 widgetColorDot.isEnabled()
         );
     }
 
-    /**
-     * Updates the color preview View with a colored dot drawable.
-     */
     private void updateDialogColorDot() {
         if (dialogColorDot == null) return;
 
         ColorDot.applyColorDot(
                 dialogColorDot,
-                currentColor | 0xFF000000,
+                currentColor,
                 true
         );
     }

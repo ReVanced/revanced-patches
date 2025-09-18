@@ -239,8 +239,7 @@ public enum SegmentCategory {
         String colorString = colorSetting.get();
         final float opacity = opacitySetting.get();
         try {
-            setColor(colorString);
-            setOpacity(opacity);
+            setColorWithOpacityFromSettings(colorString, opacity);
         } catch (Exception ex) {
             Logger.printException(() -> "Invalid color: " + colorString + " opacity: " + opacity, ex);
             colorSetting.resetToDefault();
@@ -254,67 +253,56 @@ public enum SegmentCategory {
         this.behaviorSetting.save(behaviour.reVancedKeyValue);
     }
 
-    private void updateColor() {
-        color = applyOpacityToColor(color, opacitySetting.get());
+    /**
+     * Sets the segment color with opacity from settings (internal method).
+     */
+    private void setColorWithOpacityFromSettings(String colorString, float opacity) throws IllegalArgumentException {
+        int rgbColor = Color.parseColor(colorString) & 0x00FFFFFF;
+        color = applyOpacityToColor(rgbColor, opacity);
+        colorSetting.save(colorString);
+        opacitySetting.save(opacity);
         paint.setColor(color);
     }
 
     /**
-     * Sets the opacity of the segment color.
-     * @param opacity Segment color opacity between [0, 1].
+     * Sets the segment color with opacity (ARGB format).
      */
-    public void setOpacity(float opacity) throws IllegalArgumentException {
-        if (opacity < 0 || opacity > 1) {
-            throw new IllegalArgumentException("Invalid opacity: " + opacity);
-        }
+    public void setColorWithOpacity(String colorString) throws IllegalArgumentException {
+        int fullColor = Color.parseColor(colorString);
+        int alpha = (fullColor >> 24) & 0xFF;
+        float opacity = alpha / 255f;
+        int rgbColor = fullColor & 0x00FFFFFF;
+        String rgbString = String.format(Locale.US, "#%06X", rgbColor);
 
+        colorSetting.save(rgbString);
         opacitySetting.save(opacity);
-        updateColor();
-    }
-
-    public float getOpacity() {
-        return opacitySetting.get();
-    }
-
-    public float getOpacityDefault() {
-        return opacitySetting.defaultValue;
+        color = fullColor;
+        paint.setColor(color);
     }
 
     /**
-     * Sets the segment color.
-     * @param colorString Segment color with #RRGGBB format.
-     */
-    public void setColor(String colorString) throws IllegalArgumentException {
-        color = Color.parseColor(colorString);
-        colorSetting.save(colorString);
-
-        updateColor();
-    }
-
-    /**
-     * Gets the color without opacity.
-     * @return Integer color of #RRGGBB format.
+     * Gets the color with opacity applied (ARGB).
      */
     @ColorInt
-    public int getColorNoOpacity() {
-        return color & 0x00FFFFFF;
+    public int getColorWithOpacity() {
+        return color;
     }
 
     /**
-     * Gets the default color without opacity.
-     * @return Integer color of #RRGGBB format.
+     * Gets the default color with opacity applied.
      */
     @ColorInt
-    public int getColorNoOpacityDefault() {
-        return Color.parseColor(colorSetting.defaultValue) & 0x00FFFFFF;
+    public int getDefaultColorWithOpacity() {
+        int defaultRgb = Color.parseColor(colorSetting.defaultValue) & 0x00FFFFFF;
+        float defaultOpacity = opacitySetting.defaultValue;
+        return applyOpacityToColor(defaultRgb, defaultOpacity);
     }
 
     /**
-     * Gets the color as a hex string.
-     * @return Hex color string of #RRGGBB format with no opacity level.
+     * Gets the color as a hex string with opacity (#AARRGGBB).
      */
-    public String getColorString() {
-        return String.format(Locale.US, "#%06X", getColorNoOpacity());
+    public String getColorStringWithOpacity() {
+        return String.format(Locale.US, "#%08X", getColorWithOpacity());
     }
 
     public StringRef getTitle() {

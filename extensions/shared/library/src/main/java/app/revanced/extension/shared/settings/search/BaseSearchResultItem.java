@@ -176,7 +176,7 @@ public abstract class BaseSearchResultItem {
                 result.summaryOff = switchPref.getSummaryOff();
             } else if (pref instanceof ColorPickerPreference colorPref) {
                 String colorString = colorPref.getText();
-                this.color = TextUtils.isEmpty(colorString) ? 0 : (Color.parseColor(colorString) | 0xFF000000);
+                this.color = TextUtils.isEmpty(colorString) ? 0 : Color.parseColor(colorString);
             } else if (pref instanceof ListPreference listPref) {
                 result.entries = listPref.getEntries();
                 if (result.entries != null) {
@@ -215,7 +215,7 @@ public abstract class BaseSearchResultItem {
                 appendText(searchBuilder, originalSummaryOn);
                 appendText(searchBuilder, originalSummaryOff);
             } else if (pref instanceof ColorPickerPreference) {
-                appendText(searchBuilder, ColorPickerPreference.getColorString(color));
+                appendText(searchBuilder, ColorPickerPreference.getColorString(color, false));
             }
 
             // Include navigation path in searchable text.

@@ -320,7 +320,7 @@ public abstract class BaseSearchViewController {
                     BaseSearchResultItem.PreferenceSearchItem searchItem =
                             (BaseSearchResultItem.PreferenceSearchItem) keyToSearchItem.get(prefKey);
                     if (searchItem != null) {
-                        searchItem.setColor(newColor | 0xFF000000);
+                        searchItem.setColor(newColor);
                         refreshSearchResults();
                     }
                 });
