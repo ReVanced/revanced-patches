@@ -1,3 +1,10 @@
+# [5.40.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.1...v5.40.0-dev.2) (2025-09-18)
+
+
+### Features
+
+* **Instagram:** Add `Limit feed to followed profiles` patch ([#5908](https://github.com/ReVanced/revanced-patches/issues/5908)) ([8ba9a19](https://github.com/ReVanced/revanced-patches/commit/8ba9a19ade24c5fe9bd6d4e49772b7663522780e))
+
 # [5.40.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.39.1-dev.1...v5.40.0-dev.1) (2025-09-17)
 
 
