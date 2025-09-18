@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.Toolbar;
 
 import app.revanced.extension.music.settings.preference.ReVancedPreferenceFragment;
@@ -28,12 +27,6 @@ public class MusicSearchViewController extends BaseSearchViewController {
     @Override
     protected BaseSearchResultsAdapter createSearchResultsAdapter() {
         return new MusicSearchResultsAdapter(activity, filteredSearchItems, fragment, this);
-    }
-
-    @Override
-    protected BaseSearchHistoryManager createSearchHistoryManager(FrameLayout overlayContainer,
-                                                                  BaseSearchHistoryManager.OnSelectHistoryItemListener listener) {
-        return new MusicSearchHistoryManager(activity, overlayContainer, listener);
     }
 
     @Override

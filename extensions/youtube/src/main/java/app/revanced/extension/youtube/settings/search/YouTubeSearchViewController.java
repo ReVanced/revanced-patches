@@ -4,10 +4,11 @@ import android.app.Activity;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.Toolbar;
 
-import app.revanced.extension.shared.settings.search.*;
+import app.revanced.extension.shared.settings.search.BaseSearchResultItem;
+import app.revanced.extension.shared.settings.search.BaseSearchResultsAdapter;
+import app.revanced.extension.shared.settings.search.BaseSearchViewController;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 
@@ -32,12 +33,6 @@ public class YouTubeSearchViewController extends BaseSearchViewController {
     }
 
     @Override
-    protected BaseSearchHistoryManager createSearchHistoryManager(FrameLayout overlayContainer,
-                                                                  BaseSearchHistoryManager.OnSelectHistoryItemListener listener) {
-        return new YouTubeSearchHistoryManager(activity, overlayContainer, listener);
-    }
-
-    @Override
     protected boolean isNotSpecialPreferenceGroup(Preference preference) {
         return !(preference instanceof SponsorBlockPreferenceGroup);
     }
@@ -56,13 +51,7 @@ public class YouTubeSearchViewController extends BaseSearchViewController {
     }
 
     // Adapter to wrap ReVancedPreferenceFragment to BasePreferenceFragment interface.
-    private static class PreferenceFragmentAdapter implements BasePreferenceFragment {
-        private final ReVancedPreferenceFragment fragment;
-
-        public PreferenceFragmentAdapter(ReVancedPreferenceFragment fragment) {
-            this.fragment = fragment;
-        }
-
+    private record PreferenceFragmentAdapter(ReVancedPreferenceFragment fragment) implements BasePreferenceFragment {
         @Override
         public PreferenceScreen getPreferenceScreenForSearch() {
             return fragment.getPreferenceScreenForSearch();

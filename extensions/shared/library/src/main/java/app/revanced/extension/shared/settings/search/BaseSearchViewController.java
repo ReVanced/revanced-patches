@@ -60,7 +60,7 @@ public abstract class BaseSearchViewController {
     protected final List<BaseSearchResultItem> filteredSearchItems;
     protected final Map<String, BaseSearchResultItem> keyToSearchItem;
     protected final InputMethodManager inputMethodManager;
-    protected BaseSearchHistoryManager searchHistoryManager;
+    protected SearchHistoryManager searchHistoryManager;
     protected boolean isSearchActive;
     protected boolean isShowingSearchHistory;
 
@@ -172,7 +172,7 @@ public abstract class BaseSearchViewController {
      * Initializes the search history manager with the specified overlay container and listener.
      */
     private void initializeSearchHistoryManager() {
-        searchHistoryManager = createSearchHistoryManager(overlayContainer, query -> {
+        searchHistoryManager = new SearchHistoryManager(activity, overlayContainer, query -> {
             searchView.setQuery(query, true);
             hideSearchHistory();
         });
@@ -180,8 +180,6 @@ public abstract class BaseSearchViewController {
 
     // Abstract methods that subclasses must implement.
     protected abstract BaseSearchResultsAdapter createSearchResultsAdapter();
-    protected abstract BaseSearchHistoryManager createSearchHistoryManager(FrameLayout overlayContainer,
-                                                                           BaseSearchHistoryManager.OnSelectHistoryItemListener listener);
     protected abstract boolean isNotSpecialPreferenceGroup(Preference preference);
     protected abstract void setupSpecialPreferenceListeners(BaseSearchResultItem item);
 
