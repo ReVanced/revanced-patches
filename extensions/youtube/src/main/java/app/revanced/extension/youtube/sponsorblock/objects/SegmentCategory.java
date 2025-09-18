@@ -313,7 +313,8 @@ public enum SegmentCategory {
      * @return [0, 1] opacity value.
      */
     public double getOpacity() {
-        return Color.alpha(color) / 255.0;
+        double opacity = Color.alpha(color) / 255.0;
+        return Math.round(opacity * 100.0) / 100.0; // Round to 2 decimal digits.
     }
 
     /**
