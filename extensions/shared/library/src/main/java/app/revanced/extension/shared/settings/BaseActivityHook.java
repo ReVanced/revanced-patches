@@ -4,6 +4,7 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.preference.PreferenceFragment;
 import android.util.TypedValue;
@@ -71,6 +72,20 @@ public abstract class BaseActivityHook extends Activity {
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
         }
+    }
+
+    /**
+     * Injection point.
+     * Overrides the ReVanced settings language.
+     */
+    @SuppressWarnings("unused")
+    public static Context getAttachBaseContext(Context original) {
+        AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
+        if (language == AppLanguage.DEFAULT) {
+            return original;
+        }
+
+        return Utils.getContext();
     }
 
     /**

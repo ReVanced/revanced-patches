@@ -2,27 +2,24 @@ package app.revanced.extension.youtube.settings;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
-import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.preference.PreferenceFragment;
 import android.view.View;
 import android.widget.Toolbar;
 
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseActivityHook;
-import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
 import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
 import app.revanced.extension.youtube.settings.search.YouTubeSearchViewController;
 
 /**
- * Hooks LicenseActivity to inject a custom ReVancedPreferenceFragment with a toolbar and search functionality.
+ * Hooks LicenseActivity to inject a custom {@link ReVancedPreferenceFragment}
+ * with a toolbar and search functionality.
  */
 @SuppressWarnings("deprecation")
-public class LicenseActivityHook extends BaseActivityHook {
+public class YouTubeActivityHook extends BaseActivityHook {
 
     private static int currentThemeValueOrdinal = -1; // Must initially be a non-valid enum ordinal value.
 
@@ -33,12 +30,11 @@ public class LicenseActivityHook extends BaseActivityHook {
     public static YouTubeSearchViewController searchViewController;
 
     /**
-     * Injection point
-     * <p>
-     * Creates an instance of LicenseActivityHook for use in static initialization.
+     * Injection point.
      */
-    public static LicenseActivityHook createInstance() {
-        return new LicenseActivityHook();
+    @SuppressWarnings("unused")
+    public static void initialize(Activity parentActivity) {
+        BaseActivityHook.initialize(new YouTubeActivityHook(), parentActivity);
     }
 
     /**
@@ -108,20 +104,6 @@ public class LicenseActivityHook extends BaseActivityHook {
     @Override
     protected PreferenceFragment createPreferenceFragment() {
         return new ReVancedPreferenceFragment();
-    }
-
-    /**
-     * Injection point.
-     * Overrides the ReVanced settings language.
-     */
-    @SuppressWarnings("unused")
-    public static Context getAttachBaseContext(Context original) {
-        AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
-        if (language == AppLanguage.DEFAULT) {
-            return original;
-        }
-
-        return Utils.getContext();
     }
 
     /**

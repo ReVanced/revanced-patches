@@ -4,7 +4,7 @@ import android.app.Dialog;
 import android.preference.PreferenceScreen;
 import android.widget.Toolbar;
 
-import app.revanced.extension.music.settings.GoogleApiActivityHook;
+import app.revanced.extension.music.settings.YouTubeMusicActivityHook;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
@@ -41,8 +41,8 @@ public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
         super.onStart();
         try {
             // Initialize search controller if needed
-            if (GoogleApiActivityHook.searchViewController != null) {
-                GoogleApiActivityHook.searchViewController.initializeSearchData();
+            if (YouTubeMusicActivityHook.searchViewController != null) {
+                YouTubeMusicActivityHook.searchViewController.initializeSearchData();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "onStart failure", ex);
@@ -54,7 +54,7 @@ public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
      */
     @Override
     protected void customizeToolbar(Toolbar toolbar) {
-        GoogleApiActivityHook.setToolbarLayoutParams(toolbar);
+        YouTubeMusicActivityHook.setToolbarLayoutParams(toolbar);
     }
 
     /**
@@ -62,9 +62,9 @@ public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
      */
     @Override
     protected void onPostToolbarSetup(Toolbar toolbar, Dialog preferenceScreenDialog) {
-        if (GoogleApiActivityHook.searchViewController != null
-                && GoogleApiActivityHook.searchViewController.isSearchActive()) {
-            toolbar.post(() -> GoogleApiActivityHook.searchViewController.closeSearch());
+        if (YouTubeMusicActivityHook.searchViewController != null
+                && YouTubeMusicActivityHook.searchViewController.isSearchActive()) {
+            toolbar.post(() -> YouTubeMusicActivityHook.searchViewController.closeSearch());
         }
     }
 

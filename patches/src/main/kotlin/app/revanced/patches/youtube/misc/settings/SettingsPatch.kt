@@ -4,6 +4,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
@@ -31,8 +33,8 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/shared/settings/BaseActivityHook;"
-private const val LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/settings/LicenseActivityHook;"
+private const val YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/settings/YouTubeActivityHook;"
 
 internal var appearanceStringId = -1L
     private set
@@ -216,7 +218,7 @@ val settingsPatch = bytecodePatch(
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
                 addInstructionsAtControlFlowLabel(
                     index,
-                    "invoke-static { v$register }, ${LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR}->updateLightDarkModeStatus(Ljava/lang/Enum;)V",
+                    "invoke-static { v$register }, ${YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR}->updateLightDarkModeStatus(Ljava/lang/Enum;)V",
                 )
             }
         }
@@ -224,79 +226,88 @@ val settingsPatch = bytecodePatch(
         // Add setting to force Cairo settings fragment on/off.
         cairoFragmentConfigFingerprint.method.insertLiteralOverride(
             CAIRO_CONFIG_LITERAL_VALUE,
-            "$LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z"
+            "$YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z"
         )
 
-
-        // Modify the license activity and remove all existing layout code.
-        // Must modify an existing activity and cannot add a new activity to the manifest,
-        // as that fails for root installations.
-
-        licenseActivityOnCreateFingerprint.method.addInstructions(
-            1,
-            """
-                invoke-static {}, $LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->createInstance()Lapp/revanced/extension/youtube/settings/LicenseActivityHook;
-                move-result-object v0
-                invoke-static { v0, p0 }, $BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->initialize(Lapp/revanced/extension/shared/settings/BaseActivityHook;Landroid/app/Activity;)V
-                return-void
-            """
+        modifyActivityForSettingsInjection(
+            licenseActivityOnCreateFingerprint.classDef,
+            licenseActivityOnCreateFingerprint.method,
+            YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR
         )
-
-        // Remove other methods as they will break as the onCreate method is modified above.
-        licenseActivityOnCreateFingerprint.classDef.apply {
-            methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
-        }
-
-        licenseActivityOnCreateFingerprint.classDef.apply {
-            // Add attachBaseContext method to override the context for setting a specific language.
-            ImmutableMethod(
-                type,
-                "attachBaseContext",
-                listOf(ImmutableMethodParameter("Landroid/content/Context;", null, null)),
-                "V",
-                AccessFlags.PROTECTED.value,
-                null,
-                null,
-                MutableMethodImplementation(3),
-            ).toMutable().apply {
-                addInstructions(
-                    """
-                        invoke-static { p1 }, $LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->getAttachBaseContext(Landroid/content/Context;)Landroid/content/Context;
-                        move-result-object p1
-                        invoke-super { p0, p1 }, $superclass->attachBaseContext(Landroid/content/Context;)V
-                        return-void
-                    """
-                )
-            }.let(methods::add)
-
-            // Add onBackPressed method to handle back button presses.
-            ImmutableMethod(
-                type,
-                "onBackPressed",
-                emptyList(),
-                "V",
-                AccessFlags.PUBLIC.value,
-                null,
-                null,
-                MutableMethodImplementation(3),
-            ).toMutable().apply {
-                addInstructions(
-                    """
-                        invoke-static {}, Lapp/revanced/extension/youtube/settings/LicenseActivityHook;->handleBackPress()Z
-                        move-result v0
-                        if-nez v0, :search_handled
-                        invoke-virtual { p0 }, Landroid/app/Activity;->finish()V
-                        :search_handled
-                        return-void
-                    """
-                )
-            }.let(methods::add)
-        }
     }
 
     finalize {
         PreferenceScreen.close()
     }
+}
+
+/**
+ * Modifies the activity to show ReVanced settings instead of it's original purpose.
+ */
+internal fun modifyActivityForSettingsInjection(
+    activityOnCreateClass: MutableClass,
+    activityOnCreateMethod: MutableMethod,
+    extensionClassType: String
+) {
+    // Modify Activity and remove all existing layout code.
+    // Must modify an existing activity and cannot add a new activity to the manifest,
+    // as that fails for root installations.
+    activityOnCreateMethod.addInstructions(
+        1,
+        """
+            invoke-static { p0 }, $extensionClassType->initialize(Landroid/app/Activity;)V
+            return-void
+        """
+    )
+
+    // Remove other methods as they will break as the onCreate method is modified above.
+    activityOnCreateClass.apply {
+        methods.removeIf { it != activityOnCreateMethod && !MethodUtil.isConstructor(it) }
+    }
+
+    // Override base context to allow using ReVanced specific settings.
+    ImmutableMethod(
+        activityOnCreateClass.type,
+        "attachBaseContext",
+        listOf(ImmutableMethodParameter("Landroid/content/Context;", null, null)),
+        "V",
+        AccessFlags.PROTECTED.value,
+        null,
+        null,
+        MutableMethodImplementation(3),
+    ).toMutable().apply {
+        addInstructions(
+            """
+                invoke-static { p1 }, $BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->getAttachBaseContext(Landroid/content/Context;)Landroid/content/Context;
+                move-result-object p1
+                invoke-super { p0, p1 }, ${activityOnCreateClass.superclass}->attachBaseContext(Landroid/content/Context;)V
+                return-void
+            """
+        )
+    }.let(activityOnCreateClass.methods::add)
+
+    // Add onBackPressed method to handle back button presses.
+    ImmutableMethod(
+        activityOnCreateClass.type,
+        "onBackPressed",
+        emptyList(),
+        "V",
+        AccessFlags.PUBLIC.value,
+        null,
+        null,
+        MutableMethodImplementation(3),
+    ).toMutable().apply {
+        addInstructions(
+            """
+                invoke-static {}, $extensionClassType->handleBackPress()Z
+                move-result v0
+                if-nez v0, :search_handled
+                invoke-virtual { p0 }, Landroid/app/Activity;->finish()V
+                :search_handled
+                return-void
+            """
+        )
+    }.let(activityOnCreateClass.methods::add)
 }
 
 /**

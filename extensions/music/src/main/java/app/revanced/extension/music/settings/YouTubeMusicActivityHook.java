@@ -17,19 +17,16 @@ import app.revanced.extension.shared.settings.BaseActivityHook;
 /**
  * Hooks GoogleApiActivity to inject a custom ReVancedPreferenceFragment with a toolbar and search.
  */
-@SuppressWarnings("deprecation")
-public class GoogleApiActivityHook extends BaseActivityHook {
+public class YouTubeMusicActivityHook extends BaseActivityHook {
 
     @SuppressLint("StaticFieldLeak")
     public static MusicSearchViewController searchViewController;
 
     /**
-     * Injection point
-     * <p>
-     * Creates an instance of GoogleApiActivityHook for use in static initialization.
+     * Injection point.
      */
     @SuppressWarnings("unused")
-    public static GoogleApiActivityHook createInstance() {
+    public static void initialize(Activity parentActivity) {
         // Must touch the Music settings to ensure the class is loaded and
         // the values can be found when setting the UI preferences.
         // Logging anything under non debug ensures this is set.
@@ -38,7 +35,7 @@ public class GoogleApiActivityHook extends BaseActivityHook {
         // YT Music always uses dark mode.
         Utils.setIsDarkModeEnabled(true);
 
-        return new GoogleApiActivityHook();
+        BaseActivityHook.initialize(new YouTubeMusicActivityHook(), parentActivity);
     }
 
     /**

@@ -1,9 +1,7 @@
 package app.revanced.patches.music.misc.settings
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -14,17 +12,11 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.settingsPatch
-import app.revanced.patches.youtube.misc.settings.licenseActivityOnCreateFingerprint
+import app.revanced.patches.youtube.misc.settings.modifyActivityForSettingsInjection
 import app.revanced.util.*
-import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
-import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
-import com.android.tools.smali.dexlib2.util.MethodUtil
 
-private const val BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/shared/settings/BaseActivityHook;"
 private const val GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/music/settings/GoogleApiActivityHook;"
+    "Lapp/revanced/extension/music/settings/YouTubeMusicActivityHook;"
 
 private val preferences = mutableSetOf<BasePreference>()
 
@@ -83,8 +75,12 @@ val settingsPatch = bytecodePatch(
         addResources("music", "misc.settings.settingsPatch")
         addResources("shared", "misc.debugging.enableDebuggingPatch")
 
-        // Should make a separate debugging patch, but for now include it with all installations.
         PreferenceScreen.MISC.addPreferences(
+            ListPreference(
+                key = "revanced_language",
+                tag = "app.revanced.extension.shared.settings.preference.SortedListPreference"
+            ),
+            // Should make a separate debugging patch, but for now include it with all installations.
             PreferenceScreenPreference(
                 key = "revanced_debug_screen",
                 sorting = Sorting.UNSORTED,
@@ -116,50 +112,11 @@ val settingsPatch = bytecodePatch(
             SwitchPreference("revanced_settings_search_history")
         )
 
-        // Modify GoogleApiActivity and remove all existing layout code.
-        // Must modify an existing activity and cannot add a new activity to the manifest,
-        // as that fails for root installations.
-
-        googleApiActivityFingerprint.method.addInstructions(
-            1,
-            """
-                invoke-static { }, $GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR->createInstance()Lapp/revanced/extension/music/settings/GoogleApiActivityHook;
-                move-result-object v0
-                invoke-static { v0, p0 }, $BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->initialize(Lapp/revanced/extension/shared/settings/BaseActivityHook;Landroid/app/Activity;)V
-                return-void
-            """
+        modifyActivityForSettingsInjection(
+            googleApiActivityFingerprint.classDef,
+            googleApiActivityFingerprint.method,
+            GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR
         )
-
-        // Remove other methods as they will break as the onCreate method is modified above.
-        googleApiActivityFingerprint.classDef.apply {
-            methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
-        }
-
-        googleApiActivityFingerprint.classDef.apply {
-            // Override finish() to intercept back gesture.
-            ImmutableMethod(
-                type,
-                "finish",
-                emptyList(),
-                "V",
-                AccessFlags.PUBLIC.value,
-                null,
-                null,
-                MutableMethodImplementation(3),
-            ).toMutable().apply {
-                addInstructions(
-                    """
-                    invoke-static {}, Lapp/revanced/extension/music/settings/GoogleApiActivityHook;->handleBackPress()Z
-                    move-result v0
-                    if-nez v0, :search_handled
-                    invoke-super { p0 }, Landroid/app/Activity;->finish()V
-                    return-void
-                    :search_handled
-                    return-void
-                """
-                )
-            }.let(methods::add)
-        }
     }
 
     finalize {

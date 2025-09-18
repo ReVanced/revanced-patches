@@ -7,7 +7,7 @@ import android.widget.Toolbar;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
-import app.revanced.extension.youtube.settings.LicenseActivityHook;
+import app.revanced.extension.youtube.settings.YouTubeActivityHook;
 
 /**
  * Preference fragment for ReVanced settings.
@@ -45,9 +45,9 @@ public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
         super.onStart();
         try {
             // Initialize search controller if needed.
-            if (LicenseActivityHook.searchViewController != null) {
+            if (YouTubeActivityHook.searchViewController != null) {
                 // Trigger search data collection after fragment is ready.
-                LicenseActivityHook.searchViewController.initializeSearchData();
+                YouTubeActivityHook.searchViewController.initializeSearchData();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "onStart failure", ex);
@@ -59,7 +59,7 @@ public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
      */
     @Override
     protected void customizeToolbar(Toolbar toolbar) {
-        LicenseActivityHook.setToolbarLayoutParams(toolbar);
+        YouTubeActivityHook.setToolbarLayoutParams(toolbar);
     }
 
     /**
@@ -67,9 +67,9 @@ public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
      */
     @Override
     protected void onPostToolbarSetup(Toolbar toolbar, Dialog preferenceScreenDialog) {
-        if (LicenseActivityHook.searchViewController != null
-                && LicenseActivityHook.searchViewController.isSearchActive()) {
-            toolbar.post(() -> LicenseActivityHook.searchViewController.closeSearch());
+        if (YouTubeActivityHook.searchViewController != null
+                && YouTubeActivityHook.searchViewController.isSearchActive()) {
+            toolbar.post(() -> YouTubeActivityHook.searchViewController.closeSearch());
         }
     }
 
