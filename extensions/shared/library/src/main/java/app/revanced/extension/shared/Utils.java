@@ -262,14 +262,14 @@ public class Utils {
      * @return zero, if the resource is not found.
      */
     @SuppressLint("DiscouragedApi")
-    public static int getResourceIdentifier(Context context, String resourceIdentifierName, String type) {
+    public static int getResourceIdentifier(Context context, String resourceIdentifierName, @Nullable String type) {
         return context.getResources().getIdentifier(resourceIdentifierName, type, context.getPackageName());
     }
 
     /**
      * @return zero, if the resource is not found.
      */
-    public static int getResourceIdentifier(String resourceIdentifierName, String type) {
+    public static int getResourceIdentifier(String resourceIdentifierName, @Nullable String type) {
         return getResourceIdentifier(getContext(), resourceIdentifierName, type);
     }
 

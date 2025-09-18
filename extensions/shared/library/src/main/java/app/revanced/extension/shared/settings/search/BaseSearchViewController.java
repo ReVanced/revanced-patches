@@ -6,16 +6,31 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
-import android.preference.*;
+import android.preference.Preference;
+import android.preference.PreferenceCategory;
+import android.preference.PreferenceGroup;
+import android.preference.PreferenceScreen;
 import android.text.TextUtils;
-import android.view.*;
+import android.view.Gravity;
+import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.*;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.Toolbar;
 
 import androidx.annotation.ColorInt;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.Logger;
@@ -92,9 +107,8 @@ public abstract class BaseSearchViewController {
     private void initializeSearchView() {
         // Retrieve SearchView and container from XML.
         searchView = activity.findViewById(ID_REVANCED_SEARCH_VIEW);
-        EditText searchEditText = searchView.findViewById(
-                searchView.getContext().getResources().getIdentifier(
-                        "android:id/search_src_text", null, null));
+        EditText searchEditText = searchView.findViewById(Utils.getResourceIdentifier(
+                "android:id/search_src_text", null));
         // Disable fullscreen keyboard mode.
         searchEditText.setImeOptions(searchEditText.getImeOptions() | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
 
@@ -457,7 +471,10 @@ public abstract class BaseSearchViewController {
         }
 
         if (!filteredSearchItems.isEmpty()) {
-            filteredSearchItems.sort(Comparator.comparing(o -> o.navigationPath));
+            //noinspection ComparatorCombinators
+            Collections.sort(filteredSearchItems, (o1, o2) ->
+                    o1.navigationPath.compareTo(o2.navigationPath)
+            );
             List<BaseSearchResultItem> displayItems = new ArrayList<>();
             String currentPath = null;
             for (BaseSearchResultItem item : filteredSearchItems) {
