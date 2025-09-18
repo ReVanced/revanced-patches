@@ -208,6 +208,25 @@ val settingsPatch = bytecodePatch(
             )
         )
 
+        // Update shared dark mode status based on YT theme.
+        // This is needed because YT allows forcing light/dark mode
+        // which then differs from the system dark mode status.
+        setThemeFingerprint.method.apply {
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
+                addInstructionsAtControlFlowLabel(
+                    index,
+                    "invoke-static { v$register }, ${LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR}->updateLightDarkModeStatus(Ljava/lang/Enum;)V",
+                )
+            }
+        }
+
+        // Add setting to force Cairo settings fragment on/off.
+        cairoFragmentConfigFingerprint.method.insertLiteralOverride(
+            CAIRO_CONFIG_LITERAL_VALUE,
+            "$LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z"
+        )
+
 
         // Modify the license activity and remove all existing layout code.
         // Must modify an existing activity and cannot add a new activity to the manifest,
@@ -273,25 +292,6 @@ val settingsPatch = bytecodePatch(
                 )
             }.let(methods::add)
         }
-
-        // Update shared dark mode status based on YT theme.
-        // This is needed because YT allows forcing light/dark mode
-        // which then differs from the system dark mode status.
-        setThemeFingerprint.method.apply {
-            findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
-                addInstructionsAtControlFlowLabel(
-                    index,
-                    "invoke-static { v$register }, ${LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR}->updateLightDarkModeStatus(Ljava/lang/Enum;)V",
-                )
-            }
-        }
-
-        // Add setting to force Cairo settings fragment on/off.
-        cairoFragmentConfigFingerprint.method.insertLiteralOverride(
-            CAIRO_CONFIG_LITERAL_VALUE,
-            "$LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z"
-        )
     }
 
     finalize {
