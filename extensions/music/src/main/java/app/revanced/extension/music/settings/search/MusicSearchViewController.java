@@ -30,9 +30,9 @@ public class MusicSearchViewController extends BaseSearchViewController {
     }
 
     @Override
-    protected boolean isNotSpecialPreferenceGroup(Preference preference) {
+    protected boolean isSpecialPreferenceGroup(Preference preference) {
         // Music doesn't have SponsorBlock, so no special groups.
-        return true;
+        return false;
     }
 
     @Override
@@ -51,12 +51,7 @@ public class MusicSearchViewController extends BaseSearchViewController {
     }
 
     // Adapter to wrap ReVancedPreferenceFragment to BasePreferenceFragment interface.
-    private static class PreferenceFragmentAdapter implements BasePreferenceFragment {
-        private final ReVancedPreferenceFragment fragment;
-
-        public PreferenceFragmentAdapter(ReVancedPreferenceFragment fragment) {
-            this.fragment = fragment;
-        }
+    private record PreferenceFragmentAdapter(ReVancedPreferenceFragment fragment) implements BasePreferenceFragment {
 
         @Override
         public PreferenceScreen getPreferenceScreenForSearch() {

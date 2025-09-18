@@ -33,8 +33,8 @@ public class YouTubeSearchViewController extends BaseSearchViewController {
     }
 
     @Override
-    protected boolean isNotSpecialPreferenceGroup(Preference preference) {
-        return !(preference instanceof SponsorBlockPreferenceGroup);
+    protected boolean isSpecialPreferenceGroup(Preference preference) {
+        return preference instanceof SponsorBlockPreferenceGroup;
     }
 
     @Override
