@@ -1,6 +1,28 @@
 package app.revanced.extension.youtube.sponsorblock;
 
 import static app.revanced.extension.shared.StringRef.str;
+import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_FILLER_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_HIGHLIGHT_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_HOOK_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_INTERACTION_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_INTRO_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_OUTRO_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_PREVIEW_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_SELF_PROMO_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_SPONSOR_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_UNSUBMITTED_OPACITY;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_FILLER_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HIGHLIGHT_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HOOK_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTERACTION_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTRO_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_MUSIC_OFFTOPIC_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_OUTRO_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_PREVIEW_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SELF_PROMO_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SPONSOR_COLOR;
+import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_UNSUBMITTED_COLOR;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -11,19 +33,22 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import app.revanced.extension.shared.ui.CustomDialog;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.Locale;
 import java.util.UUID;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.FloatSetting;
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.settings.StringSetting;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 import app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory;
+import app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup;
 
 @SuppressWarnings("NewApi")
 public class SponsorBlockSettings {
@@ -56,7 +81,11 @@ public class SponsorBlockSettings {
                 category.setBehaviour(CategoryBehaviour.IGNORE);
                 if (barTypesObject.has(category.keyValue)) {
                     JSONObject categoryObject = barTypesObject.getJSONObject(category.keyValue);
-                    category.setColorWithOpacity(categoryObject.getString("color"));
+                    // Older ReVanced SB exports lack an opacity value.
+                    if (categoryObject.has("color") && categoryObject.has("opacity")) {
+                        category.setColorWithOpacity(categoryObject.getString("color"));
+                        category.setOpacity((float) categoryObject.getDouble("opacity"));
+                    }
                 }
             }
 
@@ -142,8 +171,9 @@ public class SponsorBlockSettings {
             for (SegmentCategory category : categories) {
                 JSONObject categoryObject = new JSONObject();
                 String categoryKey = category.keyValue;
-                // Export color with opacity (#AARRGGBB).
-                categoryObject.put("color", category.getColorStringWithOpacity());
+                // SB settings use separate color and opacity.
+                categoryObject.put("color", category.getColorStringWithoutOpacity());
+                categoryObject.put("opacity", category.getOpacity());
                 barTypesObject.put(categoryKey, categoryObject);
 
                 if (category.behaviour != CategoryBehaviour.IGNORE) {
@@ -249,6 +279,22 @@ public class SponsorBlockSettings {
             Settings.SB_PRIVATE_USER_ID.save(uuid);
         }
         return uuid;
+    }
+
+    public static String migrateOldColorString(String colorString, float opacity) {
+        if (colorString.length() >= 8) {
+            return colorString;
+        }
+
+        // Change color string from #RGB to #ARGB using default alpha.
+        if (colorString.startsWith("#")) {
+            colorString = colorString.substring(1);
+        }
+
+        String alphaHex = String.format(Locale.US, "%02X", (int)(opacity * 255));
+        String argbColorString = '#' + alphaHex + colorString.substring(0, 6);
+        Logger.printDebug(() -> "Migrating old color string with default opacity: " + argbColorString);
+        return argbColorString;
     }
 
     private static boolean initialized;

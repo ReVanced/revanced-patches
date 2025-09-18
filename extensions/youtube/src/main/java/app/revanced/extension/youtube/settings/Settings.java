@@ -27,6 +27,7 @@ import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehavi
 import android.graphics.Color;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.EnumSetting;
@@ -450,6 +451,18 @@ public class Settings extends BaseSettings {
     private static final BooleanSetting DEPRECATED_RESTORE_OLD_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_restore_old_video_quality_menu", TRUE);
     private static final BooleanSetting DEPRECATED_AUTO_CAPTIONS = new BooleanSetting("revanced_auto_captions", FALSE);
 
+    public static final FloatSetting DEPRECATED_SB_CATEGORY_SPONSOR_OPACITY = new FloatSetting("sb_sponsor_opacity", 0.8f, false, false);
+    public static final FloatSetting DEPRECATED_SB_CATEGORY_SELF_PROMO_OPACITY = new FloatSetting("sb_selfpromo_opacity", 0.8f, false, false);
+    public static final FloatSetting DEPRECATED_SB_CATEGORY_INTERACTION_OPACITY = new FloatSetting("sb_interaction_opacity", 0.8f, false, false);
+    public static final FloatSetting DEPRECATED_SB_CATEGORY_HIGHLIGHT_OPACITY = new FloatSetting("sb_highlight_opacity", 0.8f, false, false);
+    public static final FloatSetting DEPRECATED_SB_CATEGORY_HOOK_OPACITY = new FloatSetting("sb_hook_opacity", 0.8f, false, false);
+    public static final FloatSetting DEPRECATED_SB_CATEGORY_INTRO_OPACITY = new FloatSetting("sb_intro_opacity", 0.8f, false, false);
+    public static final FloatSetting DEPRECATED_SB_CATEGORY_OUTRO_OPACITY = new FloatSetting("sb_outro_opacity", 0.8f, false, false);
+    public static final FloatSetting DEPRECATED_SB_CATEGORY_PREVIEW_OPACITY = new FloatSetting("sb_preview_opacity", 0.8f, false, false);
+    public static final FloatSetting DEPRECATED_SB_CATEGORY_FILLER_OPACITY = new FloatSetting("sb_filler_opacity", 0.8f, false, false);
+    public static final FloatSetting DEPRECATED_SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY = new FloatSetting("sb_music_offtopic_opacity", 0.8f, false, false);
+    public static final FloatSetting DEPRECATED_SB_CATEGORY_UNSUBMITTED_OPACITY = new FloatSetting("sb_unsubmitted_opacity", 1.0f, false, false);
+
     static {
         // region Migration
 
@@ -510,6 +523,19 @@ public class Settings extends BaseSettings {
         Setting.migrateFromOldPreferences(revancedPrefs, RYD_ESTIMATED_LIKE, "ryd_estimated_like");
         Setting.migrateFromOldPreferences(revancedPrefs, RYD_TOAST_ON_CONNECTION_ERROR, "ryd_toast_on_connection_error");
 
+        // Migrate old saved data. Must be done here before the settings can be used by any other code.
+        applyOldSbOpacityToColor(SB_CATEGORY_SPONSOR_COLOR, DEPRECATED_SB_CATEGORY_SPONSOR_OPACITY);
+        applyOldSbOpacityToColor(SB_CATEGORY_SELF_PROMO_COLOR, DEPRECATED_SB_CATEGORY_SELF_PROMO_OPACITY);
+        applyOldSbOpacityToColor(SB_CATEGORY_INTERACTION_COLOR, DEPRECATED_SB_CATEGORY_INTERACTION_OPACITY);
+        applyOldSbOpacityToColor(SB_CATEGORY_HIGHLIGHT_COLOR, DEPRECATED_SB_CATEGORY_HIGHLIGHT_OPACITY);
+        applyOldSbOpacityToColor(SB_CATEGORY_HOOK_COLOR, DEPRECATED_SB_CATEGORY_HOOK_OPACITY);
+        applyOldSbOpacityToColor(SB_CATEGORY_INTRO_COLOR, DEPRECATED_SB_CATEGORY_INTRO_OPACITY);
+        applyOldSbOpacityToColor(SB_CATEGORY_OUTRO_COLOR, DEPRECATED_SB_CATEGORY_OUTRO_OPACITY);
+        applyOldSbOpacityToColor(SB_CATEGORY_PREVIEW_COLOR, DEPRECATED_SB_CATEGORY_PREVIEW_OPACITY);
+        applyOldSbOpacityToColor(SB_CATEGORY_FILLER_COLOR, DEPRECATED_SB_CATEGORY_FILLER_OPACITY);
+        applyOldSbOpacityToColor(SB_CATEGORY_MUSIC_OFFTOPIC_COLOR, DEPRECATED_SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY);
+        applyOldSbOpacityToColor(SB_CATEGORY_UNSUBMITTED_COLOR, DEPRECATED_SB_CATEGORY_UNSUBMITTED_OPACITY);
+
         // endregion
 
         // region SB import/export callbacks
@@ -517,5 +543,16 @@ public class Settings extends BaseSettings {
         Setting.addImportExportCallback(SponsorBlockSettings.SB_IMPORT_EXPORT_CALLBACK);
 
         // endregion
+    }
+
+    private static void applyOldSbOpacityToColor(StringSetting colorSetting, FloatSetting opacitySetting) {
+        String colorString = colorSetting.get();
+        if (colorString.length() >= 8) {
+            return; // Color is already #ARGB
+        }
+
+        String argbString = SponsorBlockSettings.migrateOldColorString(colorString, opacitySetting.get());
+        Logger.printInfo(() -> "Migrating opacity to color string: " + argbString);
+        colorSetting.save(argbString);
     }
 }

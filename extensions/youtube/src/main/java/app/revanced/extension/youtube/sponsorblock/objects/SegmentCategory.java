@@ -82,6 +82,9 @@ public enum SegmentCategory {
             FILLER,
             MUSIC_OFFTOPIC,
     };
+
+    public static final float CATEGORY_DEFAULT_OPACITY = 0.7f;
+
     private static final Map<String, SegmentCategory> mValuesMap = new HashMap<>(2 * categoriesWithoutUnsubmitted.length);
 
     /**
@@ -268,6 +271,14 @@ public enum SegmentCategory {
     }
 
     /**
+     * @param opacity [0, 1] opacity value.
+     */
+    public void setOpacity(double opacity) {
+        color = Color.argb((int) (opacity * 255), Color.red(color), Color.green(color), Color.blue(color));
+        paint.setColor(color);
+    }
+
+    /**
      * Gets the color with opacity applied (ARGB).
      */
     @ColorInt
@@ -276,7 +287,7 @@ public enum SegmentCategory {
     }
 
     /**
-     * Gets the default color with opacity applied.
+     * @return The default color with opacity applied.
      */
     @ColorInt
     public int getDefaultColorWithOpacity() {
@@ -288,6 +299,21 @@ public enum SegmentCategory {
      */
     public String getColorStringWithOpacity() {
         return String.format(Locale.US, "#%08X", getColorWithOpacity());
+    }
+
+    /**
+     * @return The color as a hex string without opacity (#RRGGBB).
+     */
+    public String getColorStringWithoutOpacity() {
+        final int colorNoOpacity = getColorWithOpacity() & 0x00FFFFFF;
+        return String.format(Locale.US, "#%06X", colorNoOpacity);
+    }
+
+    /**
+     * @return [0, 1] opacity value.
+     */
+    public double getOpacity() {
+        return Color.alpha(color) / 255.0;
     }
 
     /**
