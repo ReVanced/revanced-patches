@@ -619,6 +619,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_title">ซ่อนคลิป</string>
   <string name="revanced_hide_clip_button_summary_on">ปุ่มคลิปถูกซ่อน</string>
   <string name="revanced_hide_clip_button_summary_off">ปุ่มคลิปถูกแสดง</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">ซ่อนร้านค้า</string>
+  <string name="revanced_hide_shop_button_summary_on">ปุ่มร้านค้าถูกซ่อน</string>
+  <string name="revanced_hide_shop_button_summary_off">ปุ่มร้านค้าถูกแสดง</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">ซ่อนบันทึก</string>
   <string name="revanced_hide_save_button_summary_on">ปุ่มบันทึกถูกซ่อน</string>
@@ -1475,7 +1479,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_force_original_audio_summary_on">กำลังใช้ภาษาเสียงต้นฉบับ</string>
   <string name="revanced_force_original_audio_summary_off">กำลังใช้ออดิโอเริ่มต้น</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'ปลอมแปลงสตรีมวิดีโอ\' เป็น iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'Spoof video streams\' เป็นไคลเอ็นต์อื่น ๆ ยกเว้น Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

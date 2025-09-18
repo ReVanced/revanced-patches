@@ -621,6 +621,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_title">Бутон за създаване на клип</string>
   <string name="revanced_hide_clip_button_summary_on">Бутона за клип е скрит</string>
   <string name="revanced_hide_clip_button_summary_off">Бутона за клип се показва</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Скрий магазин</string>
+  <string name="revanced_hide_shop_button_summary_on">Бутонът за магазин е скрит</string>
+  <string name="revanced_hide_shop_button_summary_off">Бутонът за магазин е показан</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Скриване на Запазване</string>
   <string name="revanced_hide_save_button_summary_on">Бутонът за запазване е скрит</string>
@@ -1473,7 +1477,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
   <string name="revanced_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">За да използвате тази функция, сменете „Фалшифициране на видео потоци“ на iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">За да използвате тази функция, променете \'Фалшифициране на видео потоци\' на всеки клиент, освен Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

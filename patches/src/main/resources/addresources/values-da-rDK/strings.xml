@@ -621,6 +621,10 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <string name="revanced_hide_clip_button_title">Skjul klip</string>
   <string name="revanced_hide_clip_button_summary_on">Klip knappen er skjult</string>
   <string name="revanced_hide_clip_button_summary_off">Klip knappen er vist</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Skjul butik</string>
+  <string name="revanced_hide_shop_button_summary_on">Butiksknappen er skjult</string>
+  <string name="revanced_hide_shop_button_summary_off">Butiksknappen vises</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Skjul Gem</string>
   <string name="revanced_hide_save_button_summary_on">Knappen \"Gem\" er skjult</string>
@@ -1475,7 +1479,7 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_force_original_audio_summary_on">Bruger originalt lydsprog</string>
   <string name="revanced_force_original_audio_summary_off">Brug standard lyd</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">For at bruge denne funktion skal du ændre \"Spoof videostreams\" til iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">For at bruge denne funktion skal du ændre \"Forfalsk videostreams\" til en hvilken som helst klient undtagen Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

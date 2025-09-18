@@ -621,6 +621,10 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_hide_clip_button_title">Ascunde Clip</string>
   <string name="revanced_hide_clip_button_summary_on">Butonul clip este ascuns</string>
   <string name="revanced_hide_clip_button_summary_off">Butonul clipului este afișat</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Ascunde Magazinul</string>
+  <string name="revanced_hide_shop_button_summary_on">Butonul Magazin este ascuns</string>
+  <string name="revanced_hide_shop_button_summary_off">Butonul Magazin este afișat</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Ascunde Salvare</string>
   <string name="revanced_hide_save_button_summary_on">Butonul Salvare este ascuns</string>
@@ -1472,7 +1476,7 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_force_original_audio_summary_on">Folosind limba audio originală</string>
   <string name="revanced_force_original_audio_summary_off">Utilizează audio implicit</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Pentru a utiliza această funcție, schimbați „Spoof video streams” în iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Pentru a utiliza această funcție, modificați \"Falsificare fluxuri video\" la orice client, cu excepția Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

@@ -621,6 +621,10 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_clip_button_title">Թաքցնել Clip</string>
   <string name="revanced_hide_clip_button_summary_on">Clip կոճակը թաքցված է</string>
   <string name="revanced_hide_clip_button_summary_off">Clip կոճակը ցուցադրվում է</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Թաքցնել Խանութը</string>
+  <string name="revanced_hide_shop_button_summary_on">Խանութի կոճակը թաքնված է</string>
+  <string name="revanced_hide_shop_button_summary_off">Խանութի կոճակը ցուցադրվում է</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Թաքցնել պահելը</string>
   <string name="revanced_hide_save_button_summary_on">Պահելու կոճակը թաքցված է</string>
@@ -1474,7 +1478,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_force_original_audio_summary_on">Օգտագործելով ձայնային օրիգինալ լեզուն</string>
   <string name="revanced_force_original_audio_summary_off">Վերջնական ձայն օգտագործվում է</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Այս գործառույթն օգտագործելու համար փոխեք «Կեղծել տեսահոսքերը» iOS TV-ի</string>
+  <string name="revanced_force_original_audio_not_available">Այս հնարավորությունն օգտագործելու համար «Կեղծել վիդեո հոսքերը» տարբերակը փոխեք ցանկացած հաճախորդի, բացի Android Studio-ից</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

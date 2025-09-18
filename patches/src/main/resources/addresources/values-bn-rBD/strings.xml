@@ -617,6 +617,10 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_clip_button_title">ক্লিপ লুকান</string>
   <string name="revanced_hide_clip_button_summary_on">ক্লিপ বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_clip_button_summary_off">ক্লিপ বোতাম প্রদর্শিত হয়েছে</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">শপ লুকান</string>
+  <string name="revanced_hide_shop_button_summary_on">শপ বাটন লুকানো আছে</string>
+  <string name="revanced_hide_shop_button_summary_off">শপ বাটন দেখানো আছে</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">সংরক্ষণ লুকান</string>
   <string name="revanced_hide_save_button_summary_on">সংরক্ষণ বোতাম লুকানো আছে</string>
@@ -1469,7 +1473,7 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_force_original_audio_summary_on">মূল অডিও ভাষা ব্যবহার করা হচ্ছে</string>
   <string name="revanced_force_original_audio_summary_off">ডিফল্ট অডিও ব্যবহার করছে</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">এই বৈশিষ্ট্যটি ব্যবহার করতে, \'স্পুফ ভিডিও স্ট্রীম\' কে iOS TV-তে পরিবর্তন করুন</string>
+  <string name="revanced_force_original_audio_not_available">এই বৈশিষ্ট্যটি ব্যবহার করতে, \'ভিডিও স্ট্রিম স্পুফ করুন\' অ্যান্ড্রয়েড স্টুডিও ছাড়া অন্য কোনো ক্লায়েন্টে পরিবর্তন করুন</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

@@ -621,6 +621,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_title">Приховати \"Створити кліп\"</string>
   <string name="revanced_hide_clip_button_summary_on">Кнопку \"Створити кліп\" приховано</string>
   <string name="revanced_hide_clip_button_summary_off">Кнопка \"Створити кліп\" показується</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Приховати \"Покупки\"</string>
+  <string name="revanced_hide_shop_button_summary_on">Кнопку \"Покупки\" приховано</string>
+  <string name="revanced_hide_shop_button_summary_off">Кнопка \"Покупки\" показується</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Приховати \"Зберегти\"</string>
   <string name="revanced_hide_save_button_summary_on">Кнопку \"Зберегти\" приховано</string>
@@ -1472,7 +1476,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
   <string name="revanced_force_original_audio_summary_off">Використовується стандартна (регіональна) мова звукової доріжки</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Щоб використовувати цю функцію, змініть клієнт \"Підробки відеопотоків\" на iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Щоб використовувати цю функцію, змініть клієнт \"Підробки відеопотоків\" на будь-який клієнт, окрім Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
@@ -1559,7 +1563,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клієнта приховано у вікні \"Статистика для сисадмінів\"</string>
   <string name="revanced_spoof_video_streams_language_title">Мова звукової доріжки</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">Щоб вибрати певну аудіомову, вимкніть \"Примусово використовувати оригінальну аудіомову\"</string>
+  <string name="revanced_spoof_video_streams_language_not_available">Щоб вибрати певну звукову доріжку, вимкніть \"Примусово оригінальна мова звукової доріжки\"</string>
   </patch>
   </app>
   <app id="music">

@@ -621,6 +621,10 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_hide_clip_button_title">Fragment verbergen</string>
   <string name="revanced_hide_clip_button_summary_on">Fragment knop is verborgen</string>
   <string name="revanced_hide_clip_button_summary_off">Fragment knop wordt weergegeven</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Winkel verbergen</string>
+  <string name="revanced_hide_shop_button_summary_on">Winkelknop is verborgen</string>
+  <string name="revanced_hide_shop_button_summary_off">Winkelknop is weergegeven</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Opslaan verbergen</string>
   <string name="revanced_hide_save_button_summary_on">Knop \"Opslaan\" is verborgen</string>
@@ -1471,7 +1475,7 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_force_original_audio_summary_on">De oorspronkelijke audiotaal gebruiken</string>
   <string name="revanced_force_original_audio_summary_off">Standaard audio gebruiken</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Om deze functie te gebruiken, wijzig je \'Videostreams vervalsen\' in iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Om deze functie te gebruiken, wijzig \'Videostreams spoofen\' naar elke client behalve Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

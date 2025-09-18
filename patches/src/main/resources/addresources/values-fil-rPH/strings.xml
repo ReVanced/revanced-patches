@@ -621,6 +621,10 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_hide_clip_button_title">Itago ang Clip</string>
   <string name="revanced_hide_clip_button_summary_on">Nakatago ang clip button</string>
   <string name="revanced_hide_clip_button_summary_off">Ang pindutan ng clip ay ipinapakita</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Itago ang Tindahan</string>
+  <string name="revanced_hide_shop_button_summary_on">Ang pindutan ng Tindahan ay nakatago</string>
+  <string name="revanced_hide_shop_button_summary_off">Ang pindutan ng Tindahan ay nakikita</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Itago ang I-save</string>
   <string name="revanced_hide_save_button_summary_on">Nakatago ang button ng I-save</string>
@@ -1471,7 +1475,7 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_force_original_audio_summary_on">Ginagamit ang orihinal na wika ng audio</string>
   <string name="revanced_force_original_audio_summary_off">Gumagamit ng default audio</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Para magamit ang feature na ito, palitan ang \'Magpanggap na video stream\' sa iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Para magamit ang feature na ito, palitan ang \'Panggagaya ng mga video stream\' sa anumang client maliban sa Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

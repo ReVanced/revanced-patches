@@ -621,6 +621,10 @@ Coigeartaigh an toirt trí haisceartán go hingearach ar thaobh deas an scáile�
   <string name="revanced_hide_clip_button_title">Folaigh Gearrthóg</string>
   <string name="revanced_hide_clip_button_summary_on">Tá an cnaipe gearrthóg i bhfolach</string>
   <string name="revanced_hide_clip_button_summary_off">Taispeántar cnaipe gearrthóg</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Folaigh Siopa</string>
+  <string name="revanced_hide_shop_button_summary_on">Tá cnaipe an tSiopa i bhfolach</string>
+  <string name="revanced_hide_shop_button_summary_off">Tá cnaipe an tSiopa ar taispeáint</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Folaigh Sábháil</string>
   <string name="revanced_hide_save_button_summary_on">Tá cnaipe sábhála i bhfolach</string>
@@ -1473,7 +1477,7 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_force_original_audio_summary_on">Ag úsáid teanga bhunaidh na fuaime</string>
   <string name="revanced_force_original_audio_summary_off">Ag úsáid fuaim réamhshocraithe</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Chun an ghné seo a úsáid, athraigh \'Sruthanna físeáin bhréige\' go iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Chun an ghné seo a úsáid, athraigh \'Bréag-sruthanna físeáin\' chuig aon chliant seachas Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

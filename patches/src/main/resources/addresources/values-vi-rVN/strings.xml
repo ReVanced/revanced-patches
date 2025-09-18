@@ -621,6 +621,10 @@ Vui lòng kiểm tra lại tên gói và đảm bảo ứng dụng đã được
   <string name="revanced_hide_clip_button_title">Ẩn Tạo đoạn video</string>
   <string name="revanced_hide_clip_button_summary_on">Nút tạo đoạn video đã bị ẩn</string>
   <string name="revanced_hide_clip_button_summary_off">Nút tạo đoạn video được hiển thị</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Ẩn Cửa hàng</string>
+  <string name="revanced_hide_shop_button_summary_on">Nút Cửa hàng đã bị ẩn</string>
+  <string name="revanced_hide_shop_button_summary_off">Nút Cửa hàng được hiển thị</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Ẩn Lưu</string>
   <string name="revanced_hide_save_button_summary_on">Nút Lưu đã bị ẩn</string>
@@ -1479,7 +1483,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_force_original_audio_summary_on">Đang dùng ngôn ngữ âm thanh gốc</string>
   <string name="revanced_force_original_audio_summary_off">Đang dùng âm thanh mặc định</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Để dùng tính năng này, hãy đổi \'Giả mạo luồng video\' thành iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Để dùng tính năng này, hãy đổi \'Giả mạo luồng video\' thành bất kỳ ứng dụng khách nào ngoại trừ Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

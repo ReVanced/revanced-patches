@@ -90,15 +90,15 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   <string name="revanced_spoof_video_streams_screen_title">動画ストリームを偽装</string>
   <string name="revanced_spoof_video_streams_screen_summary">動画再生の失敗を回避するために、クライアントの動画ストリームを偽装します</string>
   <string name="revanced_spoof_video_streams_screen_title">動画ストリームを偽装</string>
-  <string name="revanced_spoof_video_streams_screen_summary">再生の問題を防ぐためにクライアントのビデオストリームを偽装する</string>
+  <string name="revanced_spoof_video_streams_screen_summary">動画再生の失敗を回避するために、クライアントの動画ストリームを偽装します</string>
   <string name="revanced_spoof_video_streams_title">動画ストリームを偽装</string>
   <string name="revanced_spoof_video_streams_summary_on">"動画ストリームは偽装されます
 
 YouTube Premium ユーザーの場合、この設定は必要ない可能性があります"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"ビデオストリームが偽装されていません
+  <string name="revanced_spoof_video_streams_summary_off">"動画ストリームは偽装されません
 
-再生できない可能性があります"</string>
-  <string name="revanced_spoof_video_streams_user_dialog_message">この設定をオフにすると、再生の問題が発生する可能性があります。</string>
+再生に失敗する可能性があります"</string>
+  <string name="revanced_spoof_video_streams_user_dialog_message">この設定を無効にすると、動画の再生に失敗するようになる可能性があります。</string>
   <string name="revanced_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
@@ -623,6 +623,10 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_clip_button_title">クリップボタンを非表示</string>
   <string name="revanced_hide_clip_button_summary_on">クリップボタンは表示されません</string>
   <string name="revanced_hide_clip_button_summary_off">クリップボタンは表示されます</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">「ショップ」を非表示</string>
+  <string name="revanced_hide_shop_button_summary_on">ショップボタンは表示されません</string>
+  <string name="revanced_hide_shop_button_summary_off">ショップボタンは表示されます</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">「保存」を非表示にする</string>
   <string name="revanced_hide_save_button_summary_on">「保存」ボタンは表示されません</string>
@@ -1475,7 +1479,7 @@ Automotive レイアウト
   <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用しません</string>
   <string name="revanced_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックを使用する場合があります</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装」のクライアントを iOS TV に変更してください</string>
+  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装」のクライアントを Android Studio を除く任意のクライアントに変更してください</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
@@ -1553,7 +1557,7 @@ Automotive レイアウト
   <string name="revanced_spoof_video_streams_about_android_title">Android クライアントの副作用</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• 「音声トラック」がフライアウト メニューに表示されない
 • 「一定音量」が利用できない"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• 動画は1:00で停止する場合があります。または、一部の地域では利用できない場合があります。</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• 動画が 01:00 で停止する、または一部の地域で利用できない可能性がある</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 実験的なクライアントであり、いつでも動作しなくなる可能性がある</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 コーデックが利用できない</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ログアウト時またはシークレット モード時に、子ども向け動画が再生されない可能性がある</string>
@@ -1562,14 +1566,14 @@ Automotive レイアウト
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">統計情報に現在のクライアントは表示されません</string>
   <string name="revanced_spoof_video_streams_language_title">音声ストリームの言語</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">特定の音声言語を選択するには、「元の音声言語を強制」をオフにしてください</string>
+  <string name="revanced_spoof_video_streams_language_not_available">特定の音声言語を選択するには、「オリジナルの音声を強制的に使用」を無効にしてください</string>
   </patch>
   </app>
   <app id="music">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">ReVanced について</string>
   <string name="revanced_settings_music_screen_1_ads_title">広告</string>
-  <string name="revanced_settings_music_screen_2_general_title">その他</string>
+  <string name="revanced_settings_music_screen_2_general_title">全般</string>
   <string name="revanced_settings_music_screen_3_player_title">プレーヤー</string>
   <string name="revanced_settings_music_screen_4_misc_title">その他</string>
   </patch>
@@ -1579,24 +1583,24 @@ Automotive レイアウト
   <string name="revanced_music_hide_video_ads_summary_off">動画広告は表示されます</string>
   </patch>
   <patch id="interaction.permanentrepeat.permanentRepeatPatch">
-  <string name="revanced_music_play_permanent_repeat_title">永続リピートを有効にする</string>
-  <string name="revanced_music_play_permanent_repeat_summary_on">永続リピートが有効です</string>
-  <string name="revanced_music_play_permanent_repeat_summary_off">永続リピートが無効です</string>
+  <string name="revanced_music_play_permanent_repeat_title">常時リピートを有効化</string>
+  <string name="revanced_music_play_permanent_repeat_summary_on">常時リピートは有効です\n\nリピート設定が保存され常時適用されます</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">常時リピートは無効です\n\nリピート設定は保存されません</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">カテゴリバーを非表示</string>
-  <string name="revanced_music_hide_category_bar_summary_on">カテゴリバーは非表示です</string>
+  <string name="revanced_music_hide_category_bar_summary_on">カテゴリバーは表示されません</string>
   <string name="revanced_music_hide_category_bar_summary_off">カテゴリバーは表示されます</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
-  <string name="revanced_music_hide_get_premium_label_title">「Get Music Premium」ラベルを非表示</string>
-  <string name="revanced_music_hide_get_premium_label_summary_on">ラベルは非表示です</string>
+  <string name="revanced_music_hide_get_premium_label_title">「Music Premium に登録」ラベルを非表示</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">ラベルは表示されません</string>
   <string name="revanced_music_hide_get_premium_label_summary_off">ラベルは表示されます</string>
   </patch>
   <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
-  <string name="revanced_music_hide_upgrade_button_title">アップグレードボタンを非表示</string>
-  <string name="revanced_music_hide_upgrade_button_summary_on">「メンバーになる」ボタンは表示されません</string>
-  <string name="revanced_music_hide_upgrade_button_summary_off">「メンバーになる」ボタンは表示されます</string>
+  <string name="revanced_music_hide_upgrade_button_title">アップグレード ボタンを非表示</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">ボタンは表示されません</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">ボタンは表示されます</string>
   </patch>
   </app>
   <app id="twitch">

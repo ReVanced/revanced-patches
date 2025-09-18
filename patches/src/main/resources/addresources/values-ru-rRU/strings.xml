@@ -621,6 +621,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_title">Скрыть кнопку \"Создать клип\"</string>
   <string name="revanced_hide_clip_button_summary_on">Кнопка \"Создать клип\" под плеером скрыта</string>
   <string name="revanced_hide_clip_button_summary_off">Кнопка \"Создать клип\" под плеером показана</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Скрыть магазин</string>
+  <string name="revanced_hide_shop_button_summary_on">Кнопка \"Магазин\" в Shorts скрыта</string>
+  <string name="revanced_hide_shop_button_summary_off">Кнопка \"Магазин\" в Shorts показана</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Скрыть кнопку \"Сохранить\"</string>
   <string name="revanced_hide_save_button_summary_on">Кнопка \"Сохранить\" скрыта</string>
@@ -1480,7 +1484,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
   <string name="revanced_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Для использования данной опции измените подмену видеопотока на тип клиента iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Для использования этой функции, измените \'Подмена видеопотоков\' на любой клиент, кроме Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

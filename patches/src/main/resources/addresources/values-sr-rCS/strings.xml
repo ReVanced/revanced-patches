@@ -89,13 +89,13 @@ Dodirnite dugme „Nastavi” i dozvolite promene optimizacije."</string>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">Lažirani video strimovi</string>
   <string name="revanced_spoof_video_streams_screen_summary">Lažiranje klijenta video strimova da bi se sprečili problemi sa reprodukcijom</string>
-  <string name="revanced_spoof_video_streams_screen_title">Lažiranje video tokova</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Lažirajte video tokove klijenta da biste sprečili probleme sa reprodukcijom.</string>
+  <string name="revanced_spoof_video_streams_screen_title">Lažirani video strimovi</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Lažiranje video strimova klijenta da bi se sprečili problemi sa reprodukcijom</string>
   <string name="revanced_spoof_video_streams_title">Lažirani video strimovi</string>
   <string name="revanced_spoof_video_streams_summary_on">"Video strimovi su lažirani
 
 Ako ste korisnik YouTube Premiuma, ovo podešavanje možda neće biti potrebno"</string>
-  <string name="revanced_spoof_video_streams_summary_off">"Video tokovi nisu lažirani
+  <string name="revanced_spoof_video_streams_summary_off">"Video strimovi nisu lažirani
 
 Reprodukcija možda neće raditi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ovog podešavanja može izazvati probleme sa reprodukcijom.</string>
@@ -621,6 +621,10 @@ Podesite jačinu zvuka prevlačenjem vertikalno na desnoj strani ekrana"</string
   <string name="revanced_hide_clip_button_title">Sakrij dugme „Klip”</string>
   <string name="revanced_hide_clip_button_summary_on">Dugme „Klip” je skriveno</string>
   <string name="revanced_hide_clip_button_summary_off">Dugme „Klip” je prikazano</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Sakrij dugme „Prodavnica”</string>
+  <string name="revanced_hide_shop_button_summary_on">Dugme „Prodavnica” je skriveno</string>
+  <string name="revanced_hide_shop_button_summary_off">Dugme „Prodavnica” je prikazano</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Sakrij dugme „Sačuvaj”</string>
   <string name="revanced_hide_save_button_summary_on">Dugme „Sačuvaj” je skriveno</string>
@@ -721,7 +725,7 @@ Ako se promena ove opcije ne primeni, pokušajte da pređete u režim bez arhivi
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Meni „Audio snimak” je skriven
 
-Da biste prikazali meni „Audio snimak”, promenite „Lažirani video strimovi” u iPadOS"</string>
+Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video strimovi” na iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Sakrij dugme „Gledaj u VR”</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Dugme „Gledaj u VR” je skriveno</string>
@@ -1472,7 +1476,7 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_force_original_audio_summary_on">Korišćenje originalnog jezika zvuka</string>
   <string name="revanced_force_original_audio_summary_off">Korišćenje podrazumevanog zvuka</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Da biste koristili ovu funkciju, promenite opciju „Lažirani video strimovi” na iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Da biste koristili ovu funkciju, promenite opciju „Lažirani video strimovi” na bilo koji klijent osim Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
@@ -1550,7 +1554,7 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_spoof_video_streams_about_android_title">Neželjeni efekti lažiranja na Android</string>
   <string name="revanced_spoof_video_streams_about_android_summary">"• Meni „Audio snimak” nedostaje
 • Opcija „Ujednačena jačina zvuka” nije dostupna"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video se može zaustaviti u 1:00, ili možda neće biti dostupan u nekim regionima</string>
+  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video se može zaustaviti u 1:00 ili možda neće biti dostupan u nekim regionima</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentalni klijent i može prestati da radi bilo kada</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nema video kodeka AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videi za decu se možda neće puštati kada ste odjavljeni ili u režimu bez arhiviranja</string>
@@ -1559,12 +1563,12 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Tip klijenta je skriven u „Statistici za znalce”</string>
   <string name="revanced_spoof_video_streams_language_title">Jezik audio strima</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">Da biste odabrali određeni audio jezik, isključite \'Prisiljavanje originalnog audio jezika\'</string>
+  <string name="revanced_spoof_video_streams_language_not_available">Da biste izabrali određeni jezik zvuka, isključite opciju „Prisili originalni jezik zvuka”</string>
   </patch>
   </app>
   <app id="music">
   <patch id="misc.settings.settingsPatch">
-  <string name="revanced_settings_music_screen_0_about_title">O</string>
+  <string name="revanced_settings_music_screen_0_about_title">O programu</string>
   <string name="revanced_settings_music_screen_1_ads_title">Oglasi</string>
   <string name="revanced_settings_music_screen_2_general_title">Opšte</string>
   <string name="revanced_settings_music_screen_3_player_title">Plejer</string>
@@ -1586,7 +1590,7 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_music_hide_category_bar_summary_off">Traka kategorija je prikazana</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
-  <string name="revanced_music_hide_get_premium_label_title">Sakrij oznaku „Preuzmi Music Premium”</string>
+  <string name="revanced_music_hide_get_premium_label_title">Sakrij oznaku „Nabavite Music Premium”</string>
   <string name="revanced_music_hide_get_premium_label_summary_on">Oznaka je skrivena</string>
   <string name="revanced_music_hide_get_premium_label_summary_off">Oznaka je prikazana</string>
   </patch>

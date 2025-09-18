@@ -621,6 +621,10 @@ Ajuste o volume deslizando verticalmente no lado direito da tela"</string>
   <string name="revanced_hide_clip_button_title">Ocultar Clipe</string>
   <string name="revanced_hide_clip_button_summary_on">Botão clipe está oculto</string>
   <string name="revanced_hide_clip_button_summary_off">O botão clipe é mostrado</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Ocultar Loja</string>
+  <string name="revanced_hide_shop_button_summary_on">O botão Loja está oculto</string>
+  <string name="revanced_hide_shop_button_summary_off">O botão Loja é exibido</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Ocultar Salvar</string>
   <string name="revanced_hide_save_button_summary_on">O botão Salvar está oculto</string>
@@ -1470,7 +1474,7 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_force_original_audio_summary_on">Usar o idioma original do áudio</string>
   <string name="revanced_force_original_audio_summary_off">Usando áudio padrão</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Para usar este recurso, altere \"Spoof video streams\" para iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Para usar este recurso, mude \'Falsificar fluxos de vídeo\' para qualquer cliente, exceto o Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

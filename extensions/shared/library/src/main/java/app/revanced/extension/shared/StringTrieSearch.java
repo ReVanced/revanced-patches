@@ -1,6 +1,4 @@
-package app.revanced.extension.youtube;
-
-import androidx.annotation.NonNull;
+package app.revanced.extension.shared;
 
 /**
  * Text pattern searching using a prefix tree (trie).
@@ -28,7 +26,7 @@ public final class StringTrieSearch extends TrieSearch<String> {
         }
     }
 
-    public StringTrieSearch(@NonNull String... patterns) {
+    public StringTrieSearch(String... patterns) {
         super(new StringTrieNode(), patterns);
     }
 }

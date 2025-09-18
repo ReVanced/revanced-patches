@@ -617,6 +617,10 @@ Dostosuj głośność, przesuwając pionowo po prawej stronie ekranu"</string>
   <string name="revanced_hide_clip_button_title">Przycisk od klipów</string>
   <string name="revanced_hide_clip_button_summary_on">Przycisk tworzenia klipów jest ukryty</string>
   <string name="revanced_hide_clip_button_summary_off">Przycisk tworzenia klipów jest widoczny</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Ukryj Sklep</string>
+  <string name="revanced_hide_shop_button_summary_on">Przycisk Sklep jest ukryty</string>
+  <string name="revanced_hide_shop_button_summary_off">Przycisk Sklep jest widoczny</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Ukryj Zapisz</string>
   <string name="revanced_hide_save_button_summary_on">Przycisk Zapisz jest ukryty</string>
@@ -1469,7 +1473,7 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_force_original_audio_summary_on">Używanie oryginalnego języka audio</string>
   <string name="revanced_force_original_audio_summary_off">Używanie domyślnego dźwięku</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Aby użyć tej funkcji, zmień opcję \"Fałszuj strumienie wideo\" na iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Aby użyć tej funkcji, zmień \'Fałszuj strumienie wideo\' na dowolnego klienta z wyjątkiem Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

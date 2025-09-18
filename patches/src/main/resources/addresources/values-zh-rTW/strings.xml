@@ -621,6 +621,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_clip_button_title">隱藏剪輯片段</string>
   <string name="revanced_hide_clip_button_summary_on">已隱藏「剪輯片段」按鈕</string>
   <string name="revanced_hide_clip_button_summary_off">已顯示「剪輯片段」按鈕</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">隱藏「商店」</string>
+  <string name="revanced_hide_shop_button_summary_on">「商店」按鈕已隱藏</string>
+  <string name="revanced_hide_shop_button_summary_off">「商店」按鈕已顯示</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">隱藏「儲存」</string>
   <string name="revanced_hide_save_button_summary_on">「儲存」按鈕已隱藏</string>
@@ -1483,7 +1487,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_summary_on">正在使用原始音訊語言</string>
   <string name="revanced_force_original_audio_summary_off">使用預設音訊</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">如要使用這項功能，請將「偽裝視訊串流」變更為 iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">若要使用此功能，請將「偽造視訊串流」變更為 Android Studio 以外的任何用戶端</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

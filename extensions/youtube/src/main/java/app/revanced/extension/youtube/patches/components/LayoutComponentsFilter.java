@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.youtube.StringTrieSearch;
+import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.youtube.patches.ChangeHeaderPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;

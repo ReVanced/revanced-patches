@@ -1,3 +1,59 @@
+# [5.40.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.39.1-dev.1...v5.40.0-dev.1) (2025-09-17)
+
+
+### Features
+
+* **Viber - Hide ads:** Support latest app target ([#5863](https://github.com/ReVanced/revanced-patches/issues/5863)) ([e6cce85](https://github.com/ReVanced/revanced-patches/commit/e6cce8554116df3c0ea6dbb7440c59c9e73d8334))
+
+## [5.39.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.39.0...v5.39.1-dev.1) (2025-09-17)
+
+
+### Bug Fixes
+
+* **YouTube - Force original audio:** Show UI setting summary if spoofing to Android Studio ([b7026b7](https://github.com/ReVanced/revanced-patches/commit/b7026b70865bc44de07b30f84ba8b8b608930d5b))
+
+# [5.39.0](https://github.com/ReVanced/revanced-patches/compare/v5.38.0...v5.39.0) (2025-09-17)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Do not use Android Creator for livestreams ([cbe576b](https://github.com/ReVanced/revanced-patches/commit/cbe576bc384ef5f5ee2fa341147925ed0dff568b))
+* **YouTube - Spoof video streams:** Show Android Studio in spoof stream menu ([c9f741e](https://github.com/ReVanced/revanced-patches/commit/c9f741e616c7acab0cd4558e02b0c4ec18392c10))
+* **YouTube Music - Spoof video streams:** Remove iPadOS client ([7eeffd3](https://github.com/ReVanced/revanced-patches/commit/7eeffd3392c57555342173103d3a417c038d0970))
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add "Hide Shop button" setting ([a84db7b](https://github.com/ReVanced/revanced-patches/commit/a84db7be7fde2e9bb3ac41aec709a1681e845fe1))
+
+# [5.39.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.39.0-dev.1...v5.39.0-dev.2) (2025-09-17)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Show Android Studio in spoof stream menu ([c9f741e](https://github.com/ReVanced/revanced-patches/commit/c9f741e616c7acab0cd4558e02b0c4ec18392c10))
+
+# [5.39.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.38.1-dev.2...v5.39.0-dev.1) (2025-09-17)
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add "Hide Shop button" setting ([a84db7b](https://github.com/ReVanced/revanced-patches/commit/a84db7be7fde2e9bb3ac41aec709a1681e845fe1))
+
+## [5.38.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.38.1-dev.1...v5.38.1-dev.2) (2025-09-16)
+
+
+### Bug Fixes
+
+* **YouTube Music - Spoof video streams:** Remove iPadOS client ([7eeffd3](https://github.com/ReVanced/revanced-patches/commit/7eeffd3392c57555342173103d3a417c038d0970))
+
+## [5.38.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.38.0...v5.38.1-dev.1) (2025-09-16)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Do not use Android Creator for livestreams ([cbe576b](https://github.com/ReVanced/revanced-patches/commit/cbe576bc384ef5f5ee2fa341147925ed0dff568b))
+
 # [5.38.0](https://github.com/ReVanced/revanced-patches/compare/v5.37.0...v5.38.0) (2025-09-16)
 
 

@@ -100,6 +100,7 @@ Second \"item\" text"</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
                   This button only shows if the user ip is from specific region such as the USA or EU. -->
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">

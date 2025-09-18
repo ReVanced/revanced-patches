@@ -5,9 +5,9 @@ import androidx.annotation.NonNull;
 import java.util.*;
 import java.util.function.Consumer;
 
-import app.revanced.extension.youtube.ByteTrieSearch;
-import app.revanced.extension.youtube.StringTrieSearch;
-import app.revanced.extension.youtube.TrieSearch;
+import app.revanced.extension.shared.ByteTrieSearch;
+import app.revanced.extension.shared.StringTrieSearch;
+import app.revanced.extension.shared.TrieSearch;
 
 abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<T> {
 

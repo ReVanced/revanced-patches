@@ -621,6 +621,10 @@ Ekranın sağ tarafında dikey olarak kaydırarak sesi ayarlayın"</string>
   <string name="revanced_hide_clip_button_title">Klip\'i gizle</string>
   <string name="revanced_hide_clip_button_summary_on">Klip düğmesi gizli</string>
   <string name="revanced_hide_clip_button_summary_off">Klip düğmesi görünür</string>
+  <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_title">Alışverişi gizle</string>
+  <string name="revanced_hide_shop_button_summary_on">Alışveriş düğmesi gizli</string>
+  <string name="revanced_hide_shop_button_summary_off">Alışveriş düğmesi görünür</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Kaydet\'i Gizle</string>
   <string name="revanced_hide_save_button_summary_on">Kaydet düğmesi gizli</string>
@@ -1480,7 +1484,7 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
   <string name="revanced_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Bu özelliği kullanmak için \'Video akışlarını taklit et\' ayarını iOS TV olarak değiştirin</string>
+  <string name="revanced_force_original_audio_not_available">Bu özelliği kullanmak için \'Video akışlarını taklit et\' ayarını Android Studio dışındaki herhangi bir istemciye değiştirin</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

@@ -8,9 +8,8 @@ import static app.revanced.extension.shared.spoof.ClientType.VISIONOS;
 
 import java.util.List;
 
-import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.spoof.ClientType;
-import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
+import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
@@ -22,14 +21,12 @@ public class SpoofVideoStreamsPatch {
         List<ClientType> availableClients = List.of(
                 ANDROID_VR_1_61_48,
                 VISIONOS,
-                IPADOS,
-                // Creator must be next to last, because livestreams fetch successfully but don't playback.
                 ANDROID_CREATOR,
-                // VR 1.43 must be last as spoof streaming data handles it slightly differently.
-                ANDROID_VR_1_43_32
+                ANDROID_VR_1_43_32,
+                IPADOS
         );
 
-        StreamingDataRequest.setClientOrderToUse(availableClients,
-                BaseSettings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get());
+        app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch.setClientsToUse(
+                availableClients, Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get());
     }
 }
