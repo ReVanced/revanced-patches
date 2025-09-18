@@ -12,6 +12,7 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Pair;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
@@ -34,18 +35,26 @@ public class SegmentCategoryListPreference extends ColorPickerPreference {
     public final SegmentCategory category;
 
     /**
-     * RGB format (no alpha).
+     * Current category color in RGB format (without alpha).
      */
     @ColorInt
     private int categoryColor;
+
     /**
-     * [0, 1]
+     * Current category opacity [0, 1].
      */
     private float categoryOpacity;
     private int selectedDialogEntryIndex;
 
+    /**
+     * View displaying a colored dot in the widget area.
+     */
     private View widgetColorDot;
-    private TextView dialogColorDotView;
+
+    /**
+     * Dialog View displaying a colored dot for the selected color preview in the dialog.
+     */
+    private View dialogColorDot;
     private EditText dialogColorEditText;
     private EditText dialogOpacityEditText;
     private ColorPickerView dialogColorPickerView;
@@ -78,7 +87,7 @@ public class SegmentCategoryListPreference extends ColorPickerPreference {
 
             // Notify the listener about the color change.
             if (colorChangeListener != null) {
-                colorChangeListener.onColorChanged(getKey(), category.getColorWithOpacity());
+                colorChangeListener.onColorChanged(getKey(), category.getColorNoOpacity());
             }
         } catch (IllegalArgumentException ex) {
             Utils.showToastShort(str("revanced_settings_color_invalid"));
@@ -154,10 +163,13 @@ public class SegmentCategoryListPreference extends ColorPickerPreference {
             gridParams.rowSpec = GridLayout.spec(0); // First row.
             gridParams.columnSpec = GridLayout.spec(1); // Second column.
             gridParams.setMargins(0, 0, dipToPixels(10), 0);
-            dialogColorDotView = new TextView(context);
-            dialogColorDotView.setLayoutParams(gridParams);
-            gridLayout.addView(dialogColorDotView);
-            updateCategoryColorDot();
+            gridParams.setGravity(Gravity.CENTER_VERTICAL);
+            gridParams.width = dipToPixels(20); // Set size for the color dot.
+            gridParams.height = dipToPixels(20);
+            dialogColorDot = new View(context);
+            dialogColorDot.setLayoutParams(gridParams);
+            gridLayout.addView(dialogColorDot);
+            updateDialogColorDot();
 
             gridParams = new GridLayout.LayoutParams();
             gridParams.rowSpec = GridLayout.spec(0); // First row.
@@ -260,7 +272,7 @@ public class SegmentCategoryListPreference extends ColorPickerPreference {
                             categoryOpacity = opacity;
                         }
 
-                        updateCategoryColorDot();
+                        updateDialogColorDot();
                     } catch (Exception ex) {
                         // Should never happen.
                         Logger.printException(() -> "opacityEditText afterTextChanged failure", ex);
@@ -336,7 +348,7 @@ public class SegmentCategoryListPreference extends ColorPickerPreference {
                 String hexColor = getColorString(color);
                 Logger.printDebug(() -> "onColorChanged: " + hexColor);
 
-                updateCategoryColorDot();
+                updateDialogColorDot();
                 dialogColorEditText.setText(hexColor);
                 dialogColorEditText.setSelection(hexColor.length());
             });
@@ -366,7 +378,7 @@ public class SegmentCategoryListPreference extends ColorPickerPreference {
     @Override
     protected void onDialogClosed(boolean positiveResult) {
         // Nullify dialog references.
-        dialogColorDotView = null;
+        dialogColorDot = null;
         dialogColorEditText = null;
         dialogOpacityEditText = null;
         dialogColorPickerView = null;
@@ -408,17 +420,27 @@ public class SegmentCategoryListPreference extends ColorPickerPreference {
     private void updateWidgetColorDot() {
         if (widgetColorDot == null) return;
 
+        int color = categoryOpacity == 0
+                ? 0x00000000 // Fully transparent for empty dot with stroke.
+                : categoryColor | 0xFF000000;
         ColorDot.applyColorDot(
                 widgetColorDot,
-                applyOpacityToCategoryColor(),
+                color,
                 widgetColorDot.isEnabled()
         );
     }
 
-    private void updateCategoryColorDot() {
-        if (dialogColorDotView != null) {
-            dialogColorDotView.setText(SegmentCategory.getCategoryColorDot(applyOpacityToCategoryColor()));
-        }
+    /**
+     * Updates the color preview View with a colored dot drawable.
+     */
+    private void updateDialogColorDot() {
+        if (dialogColorDot == null) return;
+
+        ColorDot.applyColorDot(
+                dialogColorDot,
+                applyOpacityToCategoryColor(),
+                true
+        );
     }
 
     private void updateOpacityText() {

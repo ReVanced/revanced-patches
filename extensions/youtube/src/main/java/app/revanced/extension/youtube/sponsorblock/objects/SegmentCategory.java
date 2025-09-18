@@ -1,16 +1,11 @@
 package app.revanced.extension.youtube.sponsorblock.objects;
 
 import static app.revanced.extension.shared.StringRef.sf;
-import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.COLOR_DOT_STRING;
 import static app.revanced.extension.youtube.settings.Settings.*;
 
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.RelativeSizeSpan;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -285,11 +280,6 @@ public enum SegmentCategory {
         return opacitySetting.defaultValue;
     }
 
-    public void resetColorAndOpacity() {
-        setColor(colorSetting.defaultValue);
-        setOpacity(opacitySetting.defaultValue);
-    }
-
     /**
      * Sets the segment color.
      * @param colorString Segment color with #RRGGBB format.
@@ -311,15 +301,6 @@ public enum SegmentCategory {
     }
 
     /**
-     * Gets the color with opacity applied.
-     * @return Integer color in ARGB format (#AARRGGBB).
-     */
-    @ColorInt
-    public int getColorWithOpacity() {
-        return applyOpacityToColor(getColorNoOpacity(), getOpacity());
-    }
-
-    /**
      * Gets the default color without opacity.
      * @return Integer color of #RRGGBB format.
      */
@@ -334,15 +315,6 @@ public enum SegmentCategory {
      */
     public String getColorString() {
         return String.format(Locale.US, "#%06X", getColorNoOpacity());
-    }
-
-    public static SpannableString getCategoryColorDot(@ColorInt int color) {
-        SpannableString dotSpan = new SpannableString(COLOR_DOT_STRING);
-        dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        dotSpan.setSpan(new RelativeSizeSpan(1.5f), 0, 1,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        return dotSpan;
     }
 
     public StringRef getTitle() {

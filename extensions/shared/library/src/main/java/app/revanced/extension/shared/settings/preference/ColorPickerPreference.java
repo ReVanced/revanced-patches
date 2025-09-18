@@ -13,13 +13,10 @@ import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.text.Editable;
 import android.text.InputType;
-import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextWatcher;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.RelativeSizeSpan;
 import android.util.AttributeSet;
 import android.util.Pair;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,12 +42,6 @@ import app.revanced.extension.shared.ui.CustomDialog;
  */
 @SuppressWarnings({"unused", "deprecation"})
 public class ColorPickerPreference extends EditTextPreference {
-
-    /**
-     * Character to show the color appearance.
-     */
-    public static final String COLOR_DOT_STRING = "⬤";
-
     /**
      * Length of a valid color string of format #RRGGBB.
      */
@@ -72,6 +63,11 @@ public class ColorPickerPreference extends EditTextPreference {
     private View widgetColorDot;
 
     /**
+     * Dialog View displaying a colored dot for the selected color preview in the dialog.
+     */
+    private View dialogColorDot;
+
+    /**
      * Current color in RGB format (without alpha).
      */
     @ColorInt
@@ -86,11 +82,6 @@ public class ColorPickerPreference extends EditTextPreference {
      * Dialog TextWatcher for the EditText to monitor color input changes.
      */
     private TextWatcher colorTextWatcher;
-
-    /**
-     * Dialog TextView displaying a colored dot for the selected color preview in the dialog.
-     */
-    private TextView dialogColorPreview;
 
     /**
      * Dialog color picker view.
@@ -134,21 +125,6 @@ public class ColorPickerPreference extends EditTextPreference {
     public static String getColorString(@ColorInt int color) {
         color = color & 0x00FFFFFF;  // Always mask to strip any alpha.
         return String.format("#%06X", color);
-    }
-
-    /**
-     * Creates a Spanned object for a colored dot using SpannableString.
-     *
-     * @param color The RGB color (without alpha).
-     * @return A Spanned object with the colored dot.
-     */
-    public static Spanned getColorDot(@ColorInt int color) {
-        SpannableString spannable = new SpannableString(COLOR_DOT_STRING);
-        spannable.setSpan(new ForegroundColorSpan(color | 0xFF000000), 0, COLOR_DOT_STRING.length(),
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spannable.setSpan(new RelativeSizeSpan(1.5f), 0, 1,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        return spannable;
     }
 
     /**
@@ -220,7 +196,7 @@ public class ColorPickerPreference extends EditTextPreference {
             if (colorSetting != null) {
                 colorSetting.save(getColorString(currentColor));
             }
-            updateColorPreview();
+            updateDialogColorDot();
             updateWidgetColorDot();
 
             // Notify the listener about the color change.
@@ -235,33 +211,6 @@ public class ColorPickerPreference extends EditTextPreference {
             setText(colorSetting.resetToDefault());
         } catch (Exception ex) {
             Logger.printException(() -> "setText failure: " + colorString, ex);
-        }
-    }
-
-    @Override
-    protected void onBindView(View view) {
-        super.onBindView(view);
-
-        widgetColorDot = view.findViewById(ID_PREFERENCE_COLOR_DOT);
-        updateWidgetColorDot();
-    }
-
-    private void updateWidgetColorDot() {
-        if (widgetColorDot == null) return;
-
-        ColorDot.applyColorDot(
-                widgetColorDot,
-                currentColor | 0xFF000000,
-                widgetColorDot.isEnabled()
-        );
-    }
-
-    /**
-     * Updates the color preview TextView with a colored dot.
-     */
-    private void updateColorPreview() {
-        if (dialogColorPreview != null) {
-            dialogColorPreview.setText(getColorDot(currentColor));
         }
     }
 
@@ -300,7 +249,7 @@ public class ColorPickerPreference extends EditTextPreference {
                     if (currentColor != newColor) {
                         Logger.printDebug(() -> "afterTextChanged: " + sanitizedColorString);
                         currentColor = newColor;
-                        updateColorPreview();
+                        updateDialogColorDot();
                         updateWidgetColorDot();
                         colorPickerView.setColor(newColor);
                     }
@@ -327,16 +276,17 @@ public class ColorPickerPreference extends EditTextPreference {
         // Horizontal layout for preview and EditText.
         LinearLayout inputLayout = new LinearLayout(context);
         inputLayout.setOrientation(LinearLayout.HORIZONTAL);
+        inputLayout.setGravity(Gravity.CENTER_VERTICAL);
 
-        dialogColorPreview = new TextView(context);
+        dialogColorDot = new View(context);
         LinearLayout.LayoutParams previewParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
+                dipToPixels(20),
+                dipToPixels(20)
         );
-        previewParams.setMargins(dipToPixels(15), 0, dipToPixels(10), 0); // text dot has its own indents so 15, instead 16.
-        dialogColorPreview.setLayoutParams(previewParams);
-        inputLayout.addView(dialogColorPreview);
-        updateColorPreview();
+        previewParams.setMargins(dipToPixels(16), 0, dipToPixels(10), 0);
+        dialogColorDot.setLayoutParams(previewParams);
+        inputLayout.addView(dialogColorDot);
+        updateDialogColorDot();
 
         EditText editText = getEditText();
         ViewParent parent = editText.getParent();
@@ -450,7 +400,7 @@ public class ColorPickerPreference extends EditTextPreference {
             editText.setText(updatedColorString);
             editText.setSelection(updatedColorString.length());
 
-            updateColorPreview();
+            updateDialogColorDot();
             updateWidgetColorDot();
         });
 
@@ -469,7 +419,7 @@ public class ColorPickerPreference extends EditTextPreference {
             colorTextWatcher = null;
         }
 
-        dialogColorPreview = null;
+        dialogColorDot = null;
         dialogColorPickerView = null;
     }
 
@@ -477,5 +427,36 @@ public class ColorPickerPreference extends EditTextPreference {
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
         updateWidgetColorDot();
+    }
+
+    @Override
+    protected void onBindView(View view) {
+        super.onBindView(view);
+
+        widgetColorDot = view.findViewById(ID_PREFERENCE_COLOR_DOT);
+        updateWidgetColorDot();
+    }
+
+    private void updateWidgetColorDot() {
+        if (widgetColorDot == null) return;
+
+        ColorDot.applyColorDot(
+                widgetColorDot,
+                currentColor | 0xFF000000,
+                widgetColorDot.isEnabled()
+        );
+    }
+
+    /**
+     * Updates the color preview View with a colored dot drawable.
+     */
+    private void updateDialogColorDot() {
+        if (dialogColorDot == null) return;
+
+        ColorDot.applyColorDot(
+                dialogColorDot,
+                currentColor | 0xFF000000,
+                true
+        );
     }
 }
