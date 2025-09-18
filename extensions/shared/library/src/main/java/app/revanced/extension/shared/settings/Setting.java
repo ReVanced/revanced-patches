@@ -1,18 +1,27 @@
 package app.revanced.extension.shared.settings;
 
+import static app.revanced.extension.shared.StringRef.str;
+
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.StringRef;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.SharedPrefCategory;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.*;
-
-import static app.revanced.extension.shared.StringRef.str;
 
 public abstract class Setting<T> {
 
@@ -32,80 +41,65 @@ public abstract class Setting<T> {
         }
     }
 
-    private record SingleParentAvailability(BooleanSetting parent) implements Availability {
-
-        @Override
-        public boolean isAvailable() {
-            return parent.get();
-        }
-
-        @Override
-        public List<Setting<?>> getParentSettings() {
-            return Collections.singletonList(parent);
-        }
-    }
-
-    private static class AllParentsAvailability implements Availability {
-        private final List<BooleanSetting> parents;
-
-        AllParentsAvailability(BooleanSetting... parents) {
-            this.parents = Arrays.asList(parents);
-        }
-
-        @Override
-        public boolean isAvailable() {
-            for (BooleanSetting parent : parents) {
-                if (!parent.get()) return false;
-            }
-            return true;
-        }
-
-        @Override
-        public List<Setting<?>> getParentSettings() {
-            return Collections.unmodifiableList(parents);
-        }
-    }
-
-    private static class AnyParentsAvailability implements Availability {
-        private final List<BooleanSetting> parents;
-
-        AnyParentsAvailability(BooleanSetting... parents) {
-            this.parents = Arrays.asList(parents);
-        }
-
-        @Override
-        public boolean isAvailable() {
-            for (BooleanSetting parent : parents) {
-                if (parent.get()) return true;
-            }
-            return false;
-        }
-
-        @Override
-        public List<Setting<?>> getParentSettings() {
-            return Collections.unmodifiableList(parents);
-        }
-    }
-
     /**
      * Availability based on a single parent setting being enabled.
      */
     public static Availability parent(BooleanSetting parent) {
-        return new SingleParentAvailability(parent);
+        return new Availability() {
+            @Override
+            public boolean isAvailable() {
+                return parent.get();
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Collections.singletonList(parent);
+            }
+        };
     }
 
     /**
      * Availability based on all parents being enabled.
      */
     public static Availability parentsAll(BooleanSetting... parents) {
-        return new AllParentsAvailability(parents);
+        return new Availability() {
+            @Override
+            public boolean isAvailable() {
+                for (BooleanSetting parent : parents) {
+                    if (!parent.get()) return false;
+                }
+                return true;
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Collections.unmodifiableList(Arrays.asList(parents));
+            }
+        };
     }
 
     /**
      * Availability based on any parent being enabled.
      */
     public static Availability parentsAny(BooleanSetting... parents) {
-        return new AnyParentsAvailability(parents);
+        List<BooleanSetting> parentList = Arrays.asList(parents);
+
+        return new Availability() {
+            private final List<BooleanSetting> parents = parentList;
+
+            @Override
+            public boolean isAvailable() {
+                for (BooleanSetting parent : parents) {
+                    if (parent.get()) return true;
+                }
+                return false;
+            }
+
+            @Override
+            public List<Setting<?>> getParentSettings() {
+                return Collections.unmodifiableList(parents);
+            }
+        };
     }
 
     /**
