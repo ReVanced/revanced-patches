@@ -35,7 +35,7 @@ import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory;
-import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPreference;
+import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryPreference;
 
 /**
  * Lots of old code that could be converted to a half dozen custom preferences,
@@ -56,7 +56,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
 
     private EditTextPreference importExport;
 
-    private final List<SegmentCategoryListPreference> segmentCategories = new ArrayList<>();
+    private final List<SegmentCategoryPreference> segmentCategories = new ArrayList<>();
 
     public SponsorBlockPreferenceGroup(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
@@ -99,7 +99,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     : str("revanced_sb_settings_ie_sum");
             importExport.setSummary(importExportSummary);
 
-            for (SegmentCategoryListPreference category : segmentCategories) {
+            for (SegmentCategoryPreference category : segmentCategories) {
                 category.updateUI();
             }
         } catch (Exception ex) {
@@ -266,7 +266,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             addPreference(segmentCategory);
 
             for (SegmentCategory category : SegmentCategory.categoriesWithoutUnsubmitted()) {
-                SegmentCategoryListPreference categoryPreference = new SegmentCategoryListPreference(context, category);
+                SegmentCategoryPreference categoryPreference = new SegmentCategoryPreference(context, category);
                 segmentCategories.add(categoryPreference);
                 segmentCategory.addPreference(categoryPreference);
             }

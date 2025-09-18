@@ -16,7 +16,7 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
     public enum SegmentVote {
         UPVOTE(sf("revanced_sb_vote_upvote"), 1,false),
         DOWNVOTE(sf("revanced_sb_vote_downvote"), 0, true),
-        CATEGORY_CHANGE(sf("revanced_sb_vote_category"), -1, true); // apiVoteType is not used for category change
+        CATEGORY_CHANGE(sf("revanced_sb_vote_category"), -1, true); // ApiVoteType is not used for category change.
 
         public static final SegmentVote[] voteTypesWithoutCategoryChange = {
                 UPVOTE,
@@ -104,7 +104,7 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
     /**
      * @return The start/end time in range form.
      * Range times are adjusted since it uses inclusive and Segments use exclusive.
-     *
+     * <p>
      * {@link SegmentCategory#HIGHLIGHT} is unique and
      * returns a range from the start of the video until the highlight.
      */
@@ -116,7 +116,7 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
     }
 
     /**
-     * @return the length of this segment, in milliseconds.  Always a positive number.
+     * @return the length of this segment, in milliseconds. Always a positive number.
      */
     public long length() {
         return end - start;
@@ -148,8 +148,7 @@ public class SponsorSegment implements Comparable<SponsorSegment> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof SponsorSegment)) return false;
-        SponsorSegment other = (SponsorSegment) o;
+        if (!(o instanceof SponsorSegment other)) return false;
         return Objects.equals(UUID, other.UUID)
                 && category == other.category
                 && start == other.start

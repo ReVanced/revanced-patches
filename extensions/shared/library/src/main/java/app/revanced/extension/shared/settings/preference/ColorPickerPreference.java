@@ -24,6 +24,7 @@ import android.view.ViewParent;
 import android.widget.*;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.Nullable;
 
 import java.util.Locale;
 import java.util.regex.Pattern;
@@ -74,7 +75,7 @@ public class ColorPickerPreference extends EditTextPreference {
     /** Listener for color changes. */
     protected OnColorChangeListener colorChangeListener;
 
-    /** * Whether the opacity slider is enabled. */
+    /** Whether the opacity slider is enabled. */
     private boolean opacitySliderEnabled = false;
 
     public static final int ID_REVANCED_COLOR_PICKER_VIEW =
@@ -223,7 +224,6 @@ public class ColorPickerPreference extends EditTextPreference {
             public void afterTextChanged(Editable edit) {
                 try {
                     String colorString = edit.toString();
-
                     String sanitizedColorString = cleanupColorCodeString(colorString, opacitySliderEnabled);
                     if (!sanitizedColorString.equals(colorString)) {
                         edit.replace(0, colorString.length(), sanitizedColorString);
@@ -254,17 +254,40 @@ public class ColorPickerPreference extends EditTextPreference {
     }
 
     /**
-     * Creates a Dialog with a color preview and EditText for hex color input.
+     * Hook for subclasses to add a custom view to the top of the dialog.
      */
+    @Nullable
+    protected View createExtraDialogContentView(Context context) {
+        return null; // Default implementation returns no extra view.
+    }
+
+    /**
+     * Hook for subclasses to handle the OK button click.
+     */
+    protected void onDialogOkClicked() {
+        // Default implementation does nothing.
+    }
+
     @Override
     protected void showDialog(Bundle state) {
         Context context = getContext();
+
+        // Create content container for all dialog views.
+        LinearLayout contentContainer = new LinearLayout(context);
+        contentContainer.setOrientation(LinearLayout.VERTICAL);
+
+        // Add extra view from subclass if it exists.
+        View extraView = createExtraDialogContentView(context);
+        if (extraView != null) {
+            contentContainer.addView(extraView);
+        }
 
         // Inflate color picker view.
         View colorPicker = LayoutInflater.from(context).inflate(LAYOUT_REVANCED_COLOR_PICKER, null);
         dialogColorPickerView = colorPicker.findViewById(ID_REVANCED_COLOR_PICKER_VIEW);
         dialogColorPickerView.setOpacitySliderEnabled(opacitySliderEnabled);
         dialogColorPickerView.setColor(currentColor);
+        contentContainer.addView(colorPicker);
 
         // Horizontal layout for preview and EditText.
         LinearLayout inputLayout = new LinearLayout(context);
@@ -309,10 +332,6 @@ public class ColorPickerPreference extends EditTextPreference {
         paddingView.setLayoutParams(params);
         inputLayout.addView(paddingView);
 
-        // Create content container for color picker and input layout.
-        LinearLayout contentContainer = new LinearLayout(context);
-        contentContainer.setOrientation(LinearLayout.VERTICAL);
-        contentContainer.addView(colorPicker);
         contentContainer.addView(inputLayout);
 
         // Create ScrollView to wrap the content container.
@@ -337,13 +356,17 @@ public class ColorPickerPreference extends EditTextPreference {
                 () -> { // OK button action.
                     try {
                         String colorString = editText.getText().toString();
-                        int expectedLength = opacitySliderEnabled ? COLOR_STRING_LENGTH_WITH_ALPHA : COLOR_STRING_LENGTH_WITHOUT_ALPHA;
+                        int expectedLength = opacitySliderEnabled
+                                ? COLOR_STRING_LENGTH_WITH_ALPHA
+                                : COLOR_STRING_LENGTH_WITHOUT_ALPHA;
                         if (colorString.length() != expectedLength) {
                             Utils.showToastShort(str("revanced_settings_color_invalid"));
                             setText(getColorString(originalColor, opacitySliderEnabled));
                             return;
                         }
                         setText(colorString);
+
+                        onDialogOkClicked();
                     } catch (Exception ex) {
                         // Should never happen due to a bad color string,
                         // since the text is validated and fixed while the user types.
@@ -366,7 +389,7 @@ public class ColorPickerPreference extends EditTextPreference {
                         Logger.printException(() -> "Reset button failure", ex);
                     }
                 },
-                false // Do not dismiss dialog when onNeutralClick.
+                false // Do not dismiss dialog.
         );
 
         // Add the ScrollView to the dialog's main layout.
