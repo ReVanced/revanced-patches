@@ -264,8 +264,8 @@ public final class app/revanced/patches/instagram/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/instagram/feed/SetFollowingOnlyFeedPatchKt {
-	public static final fun getSetFollowingOnlyHomePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/instagram/feed/LimitFeedToFollowedProfilesKt {
+	public static final fun getLimitFeedToFollowedProfiles ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/instagram/hide/explore/HideExploreFeedKt {
