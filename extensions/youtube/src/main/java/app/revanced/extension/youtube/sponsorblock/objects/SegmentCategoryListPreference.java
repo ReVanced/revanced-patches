@@ -274,10 +274,10 @@ public class SegmentCategoryListPreference extends ColorPickerPreference {
             // Create the custom dialog.
             Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     context,
-                    category.title.toString(), // Title.
-                    null, // No message (replaced by contentLayout).
-                    null, // No EditText.
-                    null, // OK button text.
+                    category.title.toString(),
+                    null,
+                    null,
+                    null,
                     () -> { // OK button action.
                         if (selectedDialogEntryIndex >= 0) {
                             String value = entryValues[selectedDialogEntryIndex].toString();
@@ -291,8 +291,12 @@ public class SegmentCategoryListPreference extends ColorPickerPreference {
                                 Utils.showToastShort(str("revanced_settings_color_invalid"));
                                 return;
                             }
-                            setText(colorString); // Calls super.setText and saves via category.
-                            category.setOpacity(categoryOpacity);
+                            setText(colorString); // Save color.
+
+                            String opacityString = dialogOpacityEditText.getText().toString();
+                            float opacity = Float.parseFloat(opacityString);
+                            category.setOpacity(opacity); // Save opacity.
+                            updateUI();
                         } catch (IllegalArgumentException ex) {
                             Utils.showToastShort(str("revanced_settings_color_invalid"));
                         }
@@ -310,7 +314,7 @@ public class SegmentCategoryListPreference extends ColorPickerPreference {
                             Logger.printException(() -> "resetButton onClick failure", ex);
                         }
                     },
-                    false // Do not dismiss dialog on Neutral button click.
+                    false
             );
 
             // Add the ScrollView to the dialog's main layout.
