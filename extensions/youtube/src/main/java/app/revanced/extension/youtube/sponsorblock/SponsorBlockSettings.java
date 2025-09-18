@@ -1,28 +1,6 @@
 package app.revanced.extension.youtube.sponsorblock;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_FILLER_OPACITY;
-import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_HIGHLIGHT_OPACITY;
-import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_HOOK_OPACITY;
-import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_INTERACTION_OPACITY;
-import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_INTRO_OPACITY;
-import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY;
-import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_OUTRO_OPACITY;
-import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_PREVIEW_OPACITY;
-import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_SELF_PROMO_OPACITY;
-import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_SPONSOR_OPACITY;
-import static app.revanced.extension.youtube.settings.Settings.DEPRECATED_SB_CATEGORY_UNSUBMITTED_OPACITY;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_FILLER_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HIGHLIGHT_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_HOOK_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTERACTION_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_INTRO_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_MUSIC_OFFTOPIC_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_OUTRO_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_PREVIEW_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SELF_PROMO_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_SPONSOR_COLOR;
-import static app.revanced.extension.youtube.settings.Settings.SB_CATEGORY_UNSUBMITTED_COLOR;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -41,9 +19,7 @@ import java.util.UUID;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.FloatSetting;
 import app.revanced.extension.shared.settings.Setting;
-import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour;

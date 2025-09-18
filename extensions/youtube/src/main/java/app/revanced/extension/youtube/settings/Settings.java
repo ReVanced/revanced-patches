@@ -549,8 +549,6 @@ public class Settings extends BaseSettings {
             return; // Color is already #ARGB
         }
 
-        String argbString = SponsorBlockSettings.migrateOldColorString(colorString, opacitySetting.get());
-        Logger.printInfo(() -> "Migrating opacity to color string: " + argbString);
-        colorSetting.save(argbString);
+        colorSetting.save(SponsorBlockSettings.migrateOldColorString(colorString, opacitySetting.get()));
     }
 }
