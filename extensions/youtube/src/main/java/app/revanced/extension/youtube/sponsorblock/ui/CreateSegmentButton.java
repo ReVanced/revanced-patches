@@ -59,7 +59,6 @@ public class CreateSegmentButton {
 
     private static boolean isButtonEnabled() {
         return Settings.SB_ENABLED.get() && Settings.SB_CREATE_NEW_SEGMENT.get()
-                && SegmentPlaybackController.videoHasSegments()
                 && !SegmentPlaybackController.isAdProgressTextVisible();
     }
 }
