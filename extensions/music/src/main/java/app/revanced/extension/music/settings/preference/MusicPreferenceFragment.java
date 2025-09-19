@@ -9,11 +9,13 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
 
+/**
+ * Preference fragment for ReVanced settings.
+ */
 @SuppressWarnings("deprecation")
 public class MusicPreferenceFragment extends ToolbarPreferenceFragment {
     /**
      * The main PreferenceScreen used to display the current set of preferences.
-     * This screen is manipulated during initialization and filtering to show or hide preferences.
      */
     private PreferenceScreen preferenceScreen;
 
@@ -42,6 +44,7 @@ public class MusicPreferenceFragment extends ToolbarPreferenceFragment {
         try {
             // Initialize search controller if needed
             if (MusicActivityHook.searchViewController != null) {
+                // Trigger search data collection after fragment is ready.
                 MusicActivityHook.searchViewController.initializeSearchData();
             }
         } catch (Exception ex) {

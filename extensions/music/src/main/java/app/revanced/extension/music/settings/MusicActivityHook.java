@@ -17,6 +17,7 @@ import app.revanced.extension.shared.settings.BaseActivityHook;
 /**
  * Hooks GoogleApiActivity to inject a custom {@link MusicPreferenceFragment} with a toolbar and search.
  */
+@SuppressWarnings("deprecation")
 public class MusicActivityHook extends BaseActivityHook {
 
     @SuppressLint("StaticFieldLeak")
@@ -89,7 +90,7 @@ public class MusicActivityHook extends BaseActivityHook {
     }
 
     /**
-     * Adds search view components to the toolbar for ReVancedPreferenceFragment.
+     * Adds search view components to the toolbar for {@link MusicPreferenceFragment}.
      *
      * @param activity The activity hosting the toolbar.
      * @param toolbar  The configured toolbar.
@@ -104,7 +105,7 @@ public class MusicActivityHook extends BaseActivityHook {
     }
 
     /**
-     * Creates a new ReVancedPreferenceFragment for the activity.
+     * Creates a new {@link MusicPreferenceFragment} for the activity.
      */
     @Override
     protected PreferenceFragment createPreferenceFragment() {

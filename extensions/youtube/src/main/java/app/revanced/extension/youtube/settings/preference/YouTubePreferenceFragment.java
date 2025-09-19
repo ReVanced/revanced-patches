@@ -12,12 +12,10 @@ import app.revanced.extension.youtube.settings.YouTubeActivityHook;
 /**
  * Preference fragment for ReVanced settings.
  */
-@SuppressWarnings({"deprecation", "NewApi"})
+@SuppressWarnings("deprecation")
 public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
-
     /**
      * The main PreferenceScreen used to display the current set of preferences.
-     * This screen is manipulated during initialization and filtering to show or hide preferences.
      */
     private PreferenceScreen preferenceScreen;
 

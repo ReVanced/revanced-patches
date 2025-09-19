@@ -50,7 +50,7 @@ public class MusicSearchViewController extends BaseSearchViewController {
         return false;
     }
 
-    // Adapter to wrap ReVancedPreferenceFragment to BasePreferenceFragment interface.
+    // Adapter to wrap MusicPreferenceFragment to BasePreferenceFragment interface.
     private record PreferenceFragmentAdapter(MusicPreferenceFragment fragment) implements BasePreferenceFragment {
 
         @Override

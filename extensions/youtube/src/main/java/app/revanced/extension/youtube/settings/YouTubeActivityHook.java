@@ -15,8 +15,7 @@ import app.revanced.extension.youtube.settings.preference.YouTubePreferenceFragm
 import app.revanced.extension.youtube.settings.search.YouTubeSearchViewController;
 
 /**
- * Hooks LicenseActivity to inject a custom {@link YouTubePreferenceFragment}
- * with a toolbar and search functionality.
+ * Hooks LicenseActivity to inject a custom {@link YouTubePreferenceFragment} with a toolbar and search functionality.
  */
 @SuppressWarnings("deprecation")
 public class YouTubeActivityHook extends BaseActivityHook {
@@ -84,7 +83,7 @@ public class YouTubeActivityHook extends BaseActivityHook {
     }
 
     /**
-     * Adds search view components to the toolbar for ReVancedPreferenceFragment.
+     * Adds search view components to the toolbar for {@link YouTubePreferenceFragment}.
      *
      * @param activity The activity hosting the toolbar.
      * @param toolbar  The configured toolbar.
@@ -99,7 +98,7 @@ public class YouTubeActivityHook extends BaseActivityHook {
     }
 
     /**
-     * Creates a new ReVancedPreferenceFragment for the activity.
+     * Creates a new {@link YouTubePreferenceFragment} for the activity.
      */
     @Override
     protected PreferenceFragment createPreferenceFragment() {
