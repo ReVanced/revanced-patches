@@ -18,6 +18,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_UPGRADE_BUTTON = new BooleanSetting("revanced_music_hide_upgrade_button", TRUE, true);
 
     // General
+    public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_music_hide_cast_button", FALSE, false);
     public static final BooleanSetting HIDE_CATEGORY_BAR = new BooleanSetting("revanced_music_hide_category_bar", FALSE, true);
 
     // Player

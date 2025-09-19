@@ -1663,6 +1663,11 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_music_play_permanent_repeat_summary_on">Permanent repeat is enabled</string>
             <string name="revanced_music_play_permanent_repeat_summary_off">Permanent repeat is disabled</string>
         </patch>
+        <patch id="layout.castbutton.hideCastButton">
+            <string name="revanced_music_hide_cast_button_title">Hide cast button</string>
+            <string name="revanced_music_hide_cast_button_summary_on">Cast button is hidden</string>
+            <string name="revanced_music_hide_cast_button_summary_off">Cast button is shown</string>
+        </patch>
         <patch id="layout.compactheader.hideCategoryBar">
             <string name="revanced_music_hide_category_bar_title">Hide category bar</string>
             <string name="revanced_music_hide_category_bar_summary_on">Category bar is hidden</string>
