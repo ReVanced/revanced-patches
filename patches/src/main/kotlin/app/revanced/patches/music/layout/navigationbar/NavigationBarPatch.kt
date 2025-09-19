@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
@@ -27,29 +26,16 @@ internal var text1 = -1L
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/NavigationBarPatch;"
 
-private val navigationBarResourcePatch = resourcePatch {
-    dependsOn(
-        resourceMappingPatch,
-    )
-
-    execute {
-        text1 = resourceMappings[
-            "id",
-            "text1",
-        ]
-    }
-}
-
 @Suppress("unused")
 val navigationBarPatch = bytecodePatch(
     name = "Navigation bar",
     description = "Adds options to hide navigation bar, labels and buttons."
 ) {
     dependsOn(
+        resourceMappingPatch,
         sharedExtensionPatch,
         settingsPatch,
-        addResourcesPatch,
-        navigationBarResourcePatch
+        addResourcesPatch
     )
 
     compatibleWith(
@@ -59,6 +45,11 @@ val navigationBarPatch = bytecodePatch(
     )
 
     execute {
+        text1 = resourceMappings[
+            "id",
+            "text1",
+        ]
+
         addResources("music", "layout.navigationbar.navigationBarPatch")
 
         PreferenceScreen.GENERAL.addPreferences(
@@ -92,7 +83,7 @@ val navigationBarPatch = bytecodePatch(
 
             addInstruction(
                 targetIndex + 1,
-                "invoke-static {v$targetRegister}, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationLabel(Landroid/widget/TextView;)V"
+                "invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationLabel(Landroid/widget/TextView;)V"
             )
 
             /**
@@ -107,12 +98,12 @@ val navigationBarPatch = bytecodePatch(
 
             addInstruction(
                 pivotTabIndex,
-                "invoke-static {v$pivotTabRegister}, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V"
+                "invoke-static { v$pivotTabRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V"
             )
 
             addInstruction(
                 insertEnumIndex,
-                "invoke-static {v$enumRegister}, $EXTENSION_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V"
+                "invoke-static { v$enumRegister }, $EXTENSION_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V"
             )
         }
     }

@@ -10,7 +10,9 @@ import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 internal var playerOverlayChip = -1L
@@ -43,25 +45,25 @@ val hideCastButton = bytecodePatch(
         )
 
         mediaRouteButtonFingerprint.classDef.apply {
-            val setVisibilityMethod = methods.find { method -> method.name == "setVisibility" }
+            val setVisibilityMethod = methods.first { method -> method.name == "setVisibility" }
 
-            setVisibilityMethod?.addInstructions(
+            setVisibilityMethod.addInstructions(
                 0,
                 """
-                    invoke-static {p1}, $EXTENSION_CLASS_DESCRIPTOR->hideCastButton(I)I
+                    invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->hideCastButton(I)I
                     move-result p1
                 """
             )
         }
 
         playerOverlayChipFingerprint.method.apply {
-            val targetIndex =
-                indexOfFirstLiteralInstructionOrThrow(playerOverlayChip) + 2
+            val resourceIndex = indexOfFirstLiteralInstructionOrThrow(playerOverlayChip)
+            val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex, Opcode.MOVE_RESULT)
             val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             addInstruction(
                 targetIndex + 1,
-                "invoke-static {v$targetRegister}, $EXTENSION_CLASS_DESCRIPTOR->hideCastButton(Landroid/view/View;)V"
+                "invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideCastButton(Landroid/view/View;)V"
             )
         }
     }
