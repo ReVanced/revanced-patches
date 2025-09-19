@@ -5,9 +5,9 @@ import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragm
 import app.revanced.extension.twitch.settings.Settings;
 
 /**
- * Preference fragment for ReVanced settings
+ * Preference fragment for ReVanced settings.
  */
-public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
+public class TwitchPreferenceFragment extends AbstractPreferenceFragment {
 
     @Override
     protected void initialize() {
