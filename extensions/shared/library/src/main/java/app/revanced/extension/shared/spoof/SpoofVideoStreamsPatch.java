@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 
 import java.nio.ByteBuffer;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -43,7 +44,7 @@ public class SpoofVideoStreamsPatch {
     /**
      * @return If this patch was included during patching.
      */
-    private static boolean isPatchIncluded() {
+    public static boolean isPatchIncluded() {
         return false; // Modified during patching.
     }
 
@@ -60,8 +61,9 @@ public class SpoofVideoStreamsPatch {
         languageOverride = language;
     }
 
-    public static void setPreferredClient(ClientType client) {
+    public static void setClientsToUse(List<ClientType> availableClients, ClientType client) {
         preferredClient = Objects.requireNonNull(client);
+        StreamingDataRequest.setClientOrderToUse(availableClients, client);
     }
 
     public static boolean spoofingToClientWithNoMultiAudioStreams() {

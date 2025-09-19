@@ -1477,7 +1477,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
   <string name="revanced_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams\' إلى iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \"تزوير تدفقات الفيديو\" إلى أي عميل باستثناء Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

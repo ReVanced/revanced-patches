@@ -1472,7 +1472,7 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_force_original_audio_summary_on">Original-Audiosprache verwenden</string>
   <string name="revanced_force_original_audio_summary_off">Standardaudio verwenden</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Um diese Funktion zu nutzen, ändere \"Video-Streams fälschen\" zu iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Um diese Funktion zu nutzen, ändere \"Video-Streams fälschen\" auf einen beliebigen Client außer Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

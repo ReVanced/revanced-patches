@@ -1479,7 +1479,7 @@ Automotive レイアウト
   <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用しません</string>
   <string name="revanced_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックを使用する場合があります</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装」のクライアントを iOS TV に変更してください</string>
+  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装」のクライアントを Android Studio を除く任意のクライアントに変更してください</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

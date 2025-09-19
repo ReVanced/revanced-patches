@@ -1470,7 +1470,7 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_force_original_audio_summary_on">Používa sa pôvodný jazyk zvuku</string>
   <string name="revanced_force_original_audio_summary_off">Používanie predvoleného zvuku</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Ak chcete používať túto funkciu, zmeňte možnosť „Zosmiešniť streamy videa“ na iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Ak chcete použiť túto funkciu, zmeňte \"Podvrhnúť video streamy\" na ľubovoľného klienta okrem Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

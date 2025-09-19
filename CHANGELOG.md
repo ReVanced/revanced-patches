@@ -1,3 +1,24 @@
+# [5.40.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.1...v5.40.0-dev.2) (2025-09-18)
+
+
+### Features
+
+* **Instagram:** Add `Limit feed to followed profiles` patch ([#5908](https://github.com/ReVanced/revanced-patches/issues/5908)) ([8ba9a19](https://github.com/ReVanced/revanced-patches/commit/8ba9a19ade24c5fe9bd6d4e49772b7663522780e))
+
+# [5.40.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.39.1-dev.1...v5.40.0-dev.1) (2025-09-17)
+
+
+### Features
+
+* **Viber - Hide ads:** Support latest app target ([#5863](https://github.com/ReVanced/revanced-patches/issues/5863)) ([e6cce85](https://github.com/ReVanced/revanced-patches/commit/e6cce8554116df3c0ea6dbb7440c59c9e73d8334))
+
+## [5.39.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.39.0...v5.39.1-dev.1) (2025-09-17)
+
+
+### Bug Fixes
+
+* **YouTube - Force original audio:** Show UI setting summary if spoofing to Android Studio ([b7026b7](https://github.com/ReVanced/revanced-patches/commit/b7026b70865bc44de07b30f84ba8b8b608930d5b))
+
 # [5.39.0](https://github.com/ReVanced/revanced-patches/compare/v5.38.0...v5.39.0) (2025-09-17)
 
 

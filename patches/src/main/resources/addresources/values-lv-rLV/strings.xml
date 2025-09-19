@@ -1478,7 +1478,7 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_force_original_audio_summary_on">Izmantot oriģinālo audio valodu</string>
   <string name="revanced_force_original_audio_summary_off">Tiek izmantots noklusējuma audio</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Lai izmantotu šo funkciju, nomainiet \"Video straumju viltošana\" uz iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Lai izmantotu šo funkciju, mainiet \"Viltotās video plūsmas\" uz jebkuru klientu, izņemot Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
