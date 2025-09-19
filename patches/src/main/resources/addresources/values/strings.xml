@@ -1673,6 +1673,36 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_music_hide_category_bar_summary_on">Category bar is hidden</string>
             <string name="revanced_music_hide_category_bar_summary_off">Category bar is shown</string>
         </patch>
+        <patch id="layout.navigationbar.navigationBarPatch">
+            <string name="revanced_music_navigation_bar_screen_title">Navigation bar</string>
+            <string name="revanced_music_navigation_bar_screen_summary">Hide or change navigation bar buttons</string>
+            <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+            <string name="revanced_music_hide_navigation_bar_home_button_title">Hide Home button</string>
+            <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Home button is hidden</string>
+            <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Home button is shown</string>
+            <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+            <string name="revanced_music_hide_navigation_bar_samples_button_title">Hide Samples button</string>
+            <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Samples button is hidden</string>
+            <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Samples button is shown</string>
+            <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+            <string name="revanced_music_hide_navigation_bar_explore_button_title">Hide Explore button</string>
+            <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Explore button is hidden</string>
+            <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Explore button is shown</string>
+            <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+            <string name="revanced_music_hide_navigation_bar_library_button_title">Hide Library button</string>
+            <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Library button is hidden</string>
+            <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Library button is shown</string>
+            <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+            <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Hide Upgrade button</string>
+            <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Upgrade button is hidden</string>
+            <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Upgrade button is shown</string>
+            <string name="revanced_music_hide_navigation_bar_title">Hide navigation bar</string>
+            <string name="revanced_music_hide_navigation_bar_summary_on">Navigation bar is hidden</string>
+            <string name="revanced_music_hide_navigation_bar_summary_off">Navigation bar is shown</string>
+            <string name="revanced_music_hide_navigation_bar_labels_title">Hide navigation button labels</string>
+            <string name="revanced_music_hide_navigation_bar_labels_summary_on">Labels are hidden</string>
+            <string name="revanced_music_hide_navigation_bar_labels_summary_off">Labels are shown</string>
+        </patch>
         <patch id="layout.premium.hideGetPremiumPatch">
             <string name="revanced_music_hide_get_premium_label_title">Hide \'Get Music Premium\' label</string>
             <string name="revanced_music_hide_get_premium_label_summary_on">Label is hidden</string>
