@@ -372,8 +372,16 @@ public final class app/revanced/patches/music/interaction/permanentshuffle/Perma
 	public static final fun getPermanentShufflePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/layout/castbutton/HideCastButtonKt {
+	public static final fun getHideCastButton ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/layout/compactheader/HideCategoryBarKt {
 	public static final fun getHideCategoryBar ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/layout/navigationbar/NavigationBarPatchKt {
+	public static final fun getNavigationBarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/layout/premium/HideGetPremiumPatchKt {
