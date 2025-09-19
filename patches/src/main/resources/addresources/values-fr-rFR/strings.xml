@@ -1163,20 +1163,20 @@ Il existe déjà."</string>
   <string name="revanced_sb_vote_upvote">Voter pour</string>
   <string name="revanced_sb_vote_downvote">Voter contre</string>
   <string name="revanced_sb_vote_category">Modifier la catégorie</string>
-  <string name="revanced_sb_vote_no_segments">Il n\'y a pas de segments où voter</string>
+  <string name="revanced_sb_vote_no_segments">Il n\'y a pas de segments sur lesquels voter</string>
   <!-- A segment start and end time, such as "02:10 to 03:40". -->
   <string name="revanced_sb_vote_segment_time_to_from">%1$s – %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Choisissez la catégorie du segment</string>
-  <string name="revanced_sb_new_segment_disabled_category">La catégorie est désactivée dans les paramètres. Activez la catégorie pour soumettre.</string>
+  <string name="revanced_sb_new_segment_disabled_category">Catégorie désact. ds paramètres. Activer pr soumettre.</string>
   <string name="revanced_sb_new_segment_title">Nouveau segment SponsorBlock</string>
-  <string name="revanced_sb_new_segment_mark_time_as_question">Définir %s comme début ou fin du nouveau segment ?</string>
+  <string name="revanced_sb_new_segment_mark_time_as_question">Définir %s comme début ou fin d\'un nouveau segment ?</string>
   <string name="revanced_sb_new_segment_mark_start">Début</string>
   <string name="revanced_sb_new_segment_mark_end">Fin</string>
-  <string name="revanced_sb_new_segment_now">Maint.</string>
+  <string name="revanced_sb_new_segment_now">Maintenant</string>
   <string name="revanced_sb_new_segment_time_start">Instant de début du segment</string>
   <string name="revanced_sb_new_segment_time_end">Instant de fin du segment</string>
-  <string name="revanced_sb_new_segment_confirm_title">Est-ce que ces valeurs sont correctes ?</string>
-  <string name="revanced_sb_new_segment_confirm_content">"Le segment dure de
+  <string name="revanced_sb_new_segment_confirm_title">Ces valeurs sont-elles correctes ?</string>
+  <string name="revanced_sb_new_segment_confirm_content">"Le segment s'étend de
 
 %1$s
 à
@@ -1184,10 +1184,10 @@ Il existe déjà."</string>
 
 (%3$s)
 
-Prêt à soumettre ?"</string>
-  <string name="revanced_sb_new_segment_start_is_before_end">Le début doit être avant la fin</string>
+Prêt à le soumettre ?"</string>
+  <string name="revanced_sb_new_segment_start_is_before_end">Le début doit précéder la fin</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Marquez d\'abord deux emplacements sur la barre de progression</string>
-  <string name="revanced_sb_new_segment_preview_segment_first">Regardez la vidéo au moment du segment, et assurez-vous qu\'il est ignoré de manière fluide</string>
+  <string name="revanced_sb_new_segment_preview_segment_first">Prévisualisez segment + contrôlez fluidité du saut</string>
   <string name="revanced_sb_new_segment_edit_by_hand_title">Modifier la durée du segment manuellement</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Voulez-vous modifier le début ou la fin du segment ?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Temps fourni invalide</string>
@@ -1209,7 +1209,7 @@ Prêt à soumettre ?"</string>
   <string name="revanced_sb_stats_saved_sum">Cela représente &lt;b&gt;%s&lt;/b&gt; de leur vie.&lt;br&gt;Appuyez ici pour voir le classement</string>
   <string name="revanced_sb_stats_self_saved">Vous avez passé &lt;b&gt;%s&lt;/b&gt; segments</string>
   <string name="revanced_sb_stats_self_saved_sum">Pour un total de &lt;b&gt;%s&lt;/b&gt;</string>
-  <string name="revanced_sb_stats_self_saved_reset_title">Réinitialiser le compteur de segments ignorés ?</string>
+  <string name="revanced_sb_stats_self_saved_reset_title">Réinitialiser le compteur de segments passés ?</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s heures et %2$s minutes</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minutes et %2$s secondes</string>
   <string name="revanced_sb_stats_saved_second_format">%s secondes</string>
@@ -1478,7 +1478,7 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_force_original_audio_summary_on">Utilisation de la langue audio d\'origine</string>
   <string name="revanced_force_original_audio_summary_off">Utilisation de l\'audio par défaut</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Pour utiliser cette fonctionnalité, changez \"Simuler les flux vidéo\" pour tout client sauf Android Studio</string>
+  <string name="revanced_force_original_audio_not_available">Pour utiliser cette fonctionnalité, définissez \"Falsifier les flux vidéo\" sur n\'importe quel client, sauf Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
