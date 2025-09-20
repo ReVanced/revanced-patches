@@ -139,7 +139,7 @@ internal val hlsCurrentTimeFingerprint by fingerprint {
 
 internal const val DISABLED_BY_SABR_STREAMING_URI_STRING = "DISABLED_BY_SABR_STREAMING_URI"
 
-internal val mediaFetchEnumConstructorFingerprint = fingerprint {
+internal val mediaFetchEnumConstructorFingerprint by fingerprint {
     returns("V")
     strings(
         "ENABLED",

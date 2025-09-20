@@ -9,9 +9,9 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -45,10 +45,7 @@ val navigationBarPatch = bytecodePatch(
     )
 
     execute {
-        text1 = resourceMappings[
-            "id",
-            "text1",
-        ]
+        text1 = getResourceId(ResourceType.ID, "text1")
 
         addResources("music", "layout.navigationbar.navigationBarPatch")
 

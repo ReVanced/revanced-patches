@@ -29,6 +29,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
@@ -105,18 +106,17 @@ fun spoofVideoStreamsPatch(
         buildRequestFingerprint.method.apply {
             buildRequestMethod = this
 
-            val newRequestBuilderIndex = it.instructionMatches.first().index
+            val newRequestBuilderIndex = buildRequestFingerprint.instructionMatches.first().index
             buildRequestMethodUrlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
             val freeRegister = findFreeRegister(newRequestBuilderIndex, buildRequestMethodUrlRegister)
 
-                addInstructions(
-                    builderIndex,
-                    """
-                        move-object v$freeRegister, p1
-                        invoke-static { v$buildRequestMethodUrlRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
-                    """
-                )
-            }
+            addInstructions(
+                newRequestBuilderIndex,
+                """
+                    move-object v$freeRegister, p1
+                    invoke-static { v$buildRequestMethodUrlRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
+                """
+            )
         }
 
         // endregion
@@ -292,7 +292,7 @@ fun spoofVideoStreamsPatch(
             )
         }
 
-        fingerprint {
+        val sabrFingerprint by fingerprint {
             returns(mediaFetchEnumClass)
             opcodes(
                 Opcode.SGET_OBJECT,
@@ -301,7 +301,8 @@ fun spoofVideoStreamsPatch(
             custom { method, _ ->
                 !method.parameterTypes.isEmpty()
             }
-        }.method.addInstructionsWithLabels(
+        }
+        sabrFingerprint.method.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disableSABR()Z
