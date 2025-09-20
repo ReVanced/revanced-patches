@@ -1582,10 +1582,45 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_music_play_permanent_repeat_summary_on">Dauerwiederholung ist aktiviert</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Dauerwiederholung ist deaktiviert</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Übertragen-Taste ausblenden</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Übertragen-Taste ist ausgeblendet</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Übertragen-Taste wird angezeigt</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Kategorieleiste ausblenden</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategorieleiste ist ausgeblendet</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategorieleiste wird angezeigt</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Navigationsleiste</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Navigationsleisten-Schaltflächen ausblenden oder ändern</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Start-Schaltfläche ausblenden</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Start-Schaltfläche ist ausgeblendet</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Start-Schaltfläche wird angezeigt</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Samples-Schaltfläche ausblenden</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Samples-Schaltfläche ist ausgeblendet</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Samples-Schaltfläche wird angezeigt</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Entdecken-Schaltfläche ausblenden</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Entdecken-Schaltfläche ist ausgeblendet</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Entdecken-Schaltfläche wird angezeigt</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Mediathek-Schaltfläche ausblenden</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Mediathek-Schaltfläche ist ausgeblendet</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Mediathek-Schaltfläche wird angezeigt</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Upgrade-Schaltfläche ausblenden</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Upgrade-Schaltfläche ist ausgeblendet</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Upgrade-Schaltfläche wird angezeigt</string>
+  <string name="revanced_music_hide_navigation_bar_title">Navigationsleiste ausblenden</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Navigationsleiste ist ausgeblendet</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Navigationsleiste wird angezeigt</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Beschriftungen der Navigationsschaltflächen ausblenden</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Beschriftungen sind ausgeblendet</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Beschriftungen werden angezeigt</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">\"Music Premium holen\"-Label ausblenden</string>

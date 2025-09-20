@@ -1584,10 +1584,45 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Pengulangan permanen diaktifkan</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Pengulangan permanen dinonaktifkan</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Sembunyikan tombol Transmisi</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Tombol Transmisi disembunyikan</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Tombol Transmisi ditampilkan</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Sembunyikan bilah kategori</string>
   <string name="revanced_music_hide_category_bar_summary_on">Bilah kategori disembunyikan</string>
   <string name="revanced_music_hide_category_bar_summary_off">Bilah kategori ditampilkan</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Bilah navigasi</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Sembunyikan atau ubah tombol bilah navigasi</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Sembunyikan tombol Beranda</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Tombol Beranda disembunyikan</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Tombol Beranda ditampilkan</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Sembunyikan tombol Cuplikan</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Tombol Cuplikan disembunyikan</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Tombol Cuplikan ditampilkan</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Sembunyikan tombol Jelajahi</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Tombol Jelajahi disembunyikan</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Tombol Jelajahi ditampilkan</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Sembunyikan tombol Koleksi</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Tombol Koleksi disembunyikan</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Tombol Koleksi ditampilkan</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Sembunyikan tombol upgrade</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Tombol upgrade disembunyikan</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Tombol upgrade ditampilkan</string>
+  <string name="revanced_music_hide_navigation_bar_title">Sembunyikan bilah navigasi</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Bilah navigasi disembunyikan</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Bilah navigasi ditampilkan</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Sembunyikan label tombol navigasi</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Label disembunyikan</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Label ditampilkan</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Sembunyikan label \'Dapatkan Music Premium\'</string>

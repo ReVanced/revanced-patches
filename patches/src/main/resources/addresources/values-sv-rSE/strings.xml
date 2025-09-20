@@ -1584,10 +1584,45 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Permanent upprepning är aktiverad</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Permanent upprepning är inaktiverad</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Dölj knappen Casta</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Knappen Casta är dold</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Knappen Casta visas</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Dölj kategorifält</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategorifältet är dolt</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategorifältet visas</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Navigationsfältet</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Dölj eller ändra knappar i navigeringsfältet</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Dölj Hem-knappen</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Knappen Hem är dold</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Knappen Hem visas</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Dölj Klipp-knappen</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Klipp-knappen är dold</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Klipp-knappen visas</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Dölj Utforska-knappen</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Utforska-knappen är dold</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Utforska-knappen visas</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Dölj Bibliotek-knappen</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Bibliotek-knappen är dold</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Bibliotek-knappen visas</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Dölj Uppgradera-knappen</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Uppgradera-knappen är dold</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Uppgradera-knappen visas</string>
+  <string name="revanced_music_hide_navigation_bar_title">Dölj navigeringsfältet</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Navigeringsfältet är dolt</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Navigeringsfältet visas</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Dölj etiketter för navigeringsknappar</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Etiketter är dolda</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Etiketter visas</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Dölj etiketten \"Skaffa Music Premium\"</string>

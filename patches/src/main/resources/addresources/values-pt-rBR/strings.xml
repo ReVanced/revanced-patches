@@ -1582,10 +1582,45 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Repetição permanente está ativada</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Repetição permanente está desativada</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Ocultar botão de transmissão</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Botão de transmissão está oculto</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Botão de transmissão está visível</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Ocultar barra de categoria</string>
   <string name="revanced_music_hide_category_bar_summary_on">Barra de categoria está oculta</string>
   <string name="revanced_music_hide_category_bar_summary_off">Barra de categoria é exibida</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Barra de navegação</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Ocultar ou alterar botões da barra de navegação</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Ocultar botão Início</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Botão Início oculto</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Botão Início visível</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Ocultar botão Amostras</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Botão Amostras oculto</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Botão Amostras visível</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Ocultar botão Explorar</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Botão Explorar oculto</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Botão Explorar visível</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Ocultar botão Biblioteca</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Botão Biblioteca oculto</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Botão Biblioteca visível</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Ocultar botão Fazer upgrade</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Botão Fazer upgrade oculto</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Botão Fazer upgrade visível</string>
+  <string name="revanced_music_hide_navigation_bar_title">Ocultar barra de navegação</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Barra de navegação oculta</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Barra de navegação visível</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Ocultar rótulos dos botões de navegação</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Rótulos ocultos</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Rótulos visíveis</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Ocultar o rótulo \'Obter Music Premium\'</string>

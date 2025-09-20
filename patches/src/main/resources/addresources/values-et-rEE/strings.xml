@@ -1585,10 +1585,45 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Püsiv kordus on lubatud</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Püsiv kordus on keelatud</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Peida edastusnupp</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Edastusnupp on peidetud</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Edastusnupp on nähtav</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Peida kategooriariba</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategooriariba on peidetud</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategooriariba on nähtaval</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Navigeerimisriba</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Peida või muuda navigeerimisriba nuppe</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Peida Avalehe nupp</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Avalehe nupp on peidetud</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Avalehe nupp on nähtav</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Peida Näidiste nupp</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Näidiste nupp on peidetud</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Näidiste nupp on nähtav</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Peida Avasta nupp</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Avasta nupp on peidetud</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Avasta nupp on nähtav</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Peida Kogu nupp</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Kogu nupp on peidetud</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Kogu nupp on nähtav</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Peida Uuenda nupp</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Uuenda nupp on peidetud</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Uuenda nupp on nähtav</string>
+  <string name="revanced_music_hide_navigation_bar_title">Peida navigeerimisriba</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Navigeerimisriba on peidetud</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Navigeerimisriba on nähtav</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Peida navigeerimisnuppude sildid</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Sildid on peidetud</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Sildid on nähtavale toodud</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Peida sildike \"Hangi Music Premium\"</string>

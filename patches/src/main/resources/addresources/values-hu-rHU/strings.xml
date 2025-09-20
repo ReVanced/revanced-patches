@@ -1582,10 +1582,45 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_music_play_permanent_repeat_summary_on">Az állandó ismétlés engedélyezve van</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Az állandó ismétlés letiltva van</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Kivetítés gomb elrejtése</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Kivetítés gomb elrejtve</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Kivetítés gomb látható</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Kategóriasáv elrejtése</string>
   <string name="revanced_music_hide_category_bar_summary_on">A kategóriasáv rejtve van</string>
   <string name="revanced_music_hide_category_bar_summary_off">A kategóriasáv látható</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Navigációs sáv</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Navigációs sáv gombjainak elrejtése vagy módosítása</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Kezdőlap gomb elrejtése</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">A Kezdőlap gomb elrejtve</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">A Kezdőlap gomb látható</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Minták gomb elrejtése</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">A Minták gomb elrejtve</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">A Minták gomb látható</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Felfedezés gomb elrejtése</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">A Felfedezés gomb elrejtve</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">A Felfedezés gomb látható</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Könyvtár gomb elrejtése</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">A Könyvtár gomb elrejtve</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">A Könyvtár gomb látható</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Frissítés gomb elrejtése</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">A Frissítés gomb elrejtve</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">A Frissítés gomb látható</string>
+  <string name="revanced_music_hide_navigation_bar_title">Navigációs sáv elrejtése</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">A navigációs sáv elrejtve</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">A navigációs sáv látható</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Navigációs gombok feliratainak elrejtése</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">A feliratok elrejtve</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">A feliratok láthatóak</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">A „Music Premium beszerzése” címke elrejtése</string>
