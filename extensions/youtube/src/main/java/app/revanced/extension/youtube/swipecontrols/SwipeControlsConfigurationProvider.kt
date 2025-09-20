@@ -92,7 +92,7 @@ class SwipeControlsConfigurationProvider {
     val overlayBackgroundOpacity: Int by lazy {
         var opacity = Settings.SWIPE_OVERLAY_OPACITY.get()
 
-        if (opacity < 0 || opacity > 100) {
+        if (opacity !in 0..100) {
             Utils.showToastLong(str("revanced_swipe_overlay_background_opacity_invalid_toast"))
             opacity = Settings.SWIPE_OVERLAY_OPACITY.resetToDefault()
         }
@@ -115,14 +115,13 @@ class SwipeControlsConfigurationProvider {
      * Resets to default and shows a toast if the color string is invalid or empty.
      */
     val overlayVolumeProgressColor: Int by lazy {
+        // Use lazy to avoid repeat parsing. Changing color requires app restart.
         getSettingColor(Settings.SWIPE_OVERLAY_VOLUME_COLOR)
     }
 
     private fun getSettingColor(setting: StringSetting): Int {
-        try {
-            //noinspection UseKtx
-            val color = Color.parseColor(setting.get())
-            return (0xBF000000.toInt() or (color and 0x00FFFFFF))
+        return try {
+            Color.parseColor(setting.get())
         } catch (ex: IllegalArgumentException) {
             // This code should never be reached.
             // Color picker rejects and will not save bad colors to a setting.
@@ -151,7 +150,7 @@ class SwipeControlsConfigurationProvider {
      */
     val overlayTextSize: Int by lazy {
         val size = Settings.SWIPE_OVERLAY_TEXT_SIZE.get()
-        if (size < 1 || size > 30) {
+        if (size !in 1..30) {
             Utils.showToastLong(str("revanced_swipe_text_overlay_size_invalid_toast"))
             return@lazy Settings.SWIPE_OVERLAY_TEXT_SIZE.resetToDefault()
         }

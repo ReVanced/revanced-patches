@@ -2,7 +2,6 @@ package app.revanced.extension.music.settings;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
-
 import static app.revanced.extension.shared.settings.Setting.parent;
 
 import app.revanced.extension.shared.settings.BaseSettings;

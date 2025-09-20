@@ -1,27 +1,33 @@
 package app.revanced.extension.music.settings;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.preference.PreferenceFragment;
 import android.view.View;
+import android.widget.Toolbar;
 
-import app.revanced.extension.music.settings.preference.ReVancedPreferenceFragment;
+import app.revanced.extension.music.settings.preference.MusicPreferenceFragment;
+import app.revanced.extension.music.settings.search.MusicSearchViewController;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseActivityHook;
 
 /**
- * Hooks GoogleApiActivity to inject a custom ReVancedPreferenceFragment with a toolbar.
+ * Hooks GoogleApiActivity to inject a custom {@link MusicPreferenceFragment} with a toolbar and search.
  */
-public class GoogleApiActivityHook extends BaseActivityHook {
+@SuppressWarnings("deprecation")
+public class MusicActivityHook extends BaseActivityHook {
+
+    @SuppressLint("StaticFieldLeak")
+    public static MusicSearchViewController searchViewController;
+
     /**
-     * Injection point
-     * <p>
-     * Creates an instance of GoogleApiActivityHook for use in static initialization.
+     * Injection point.
      */
     @SuppressWarnings("unused")
-    public static GoogleApiActivityHook createInstance() {
+    public static void initialize(Activity parentActivity) {
         // Must touch the Music settings to ensure the class is loaded and
         // the values can be found when setting the UI preferences.
         // Logging anything under non debug ensures this is set.
@@ -30,7 +36,7 @@ public class GoogleApiActivityHook extends BaseActivityHook {
         // YT Music always uses dark mode.
         Utils.setIsDarkModeEnabled(true);
 
-        return new GoogleApiActivityHook();
+        BaseActivityHook.initialize(new MusicActivityHook(), parentActivity);
     }
 
     /**
@@ -48,7 +54,7 @@ public class GoogleApiActivityHook extends BaseActivityHook {
      */
     @Override
     protected int getContentViewResourceId() {
-        return Utils.getResourceIdentifier("revanced_music_settings_with_toolbar", "layout");
+        return LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR;
     }
 
     /**
@@ -64,7 +70,7 @@ public class GoogleApiActivityHook extends BaseActivityHook {
      */
     @Override
     protected Drawable getNavigationIcon() {
-        Drawable navigationIcon = ReVancedPreferenceFragment.getBackButtonDrawable();
+        Drawable navigationIcon = MusicPreferenceFragment.getBackButtonDrawable();
         navigationIcon.setColorFilter(Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
         return navigationIcon;
     }
@@ -74,14 +80,45 @@ public class GoogleApiActivityHook extends BaseActivityHook {
      */
     @Override
     protected View.OnClickListener getNavigationClickListener(Activity activity) {
-        return view -> activity.finish();
+        return view -> {
+            if (searchViewController != null && searchViewController.isSearchActive()) {
+                searchViewController.closeSearch();
+            } else {
+                activity.finish();
+            }
+        };
     }
 
     /**
-     * Creates a new ReVancedPreferenceFragment for the activity.
+     * Adds search view components to the toolbar for {@link MusicPreferenceFragment}.
+     *
+     * @param activity The activity hosting the toolbar.
+     * @param toolbar  The configured toolbar.
+     * @param fragment The PreferenceFragment associated with the activity.
+     */
+    @Override
+    protected void onPostToolbarSetup(Activity activity, Toolbar toolbar, PreferenceFragment fragment) {
+        if (fragment instanceof MusicPreferenceFragment) {
+            searchViewController = MusicSearchViewController.addSearchViewComponents(
+                    activity, toolbar, (MusicPreferenceFragment) fragment);
+        }
+    }
+
+    /**
+     * Creates a new {@link MusicPreferenceFragment} for the activity.
      */
     @Override
     protected PreferenceFragment createPreferenceFragment() {
-        return new ReVancedPreferenceFragment();
+        return new MusicPreferenceFragment();
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Static method for back press handling.
+     */
+    @SuppressWarnings("unused")
+    public static boolean handleBackPress() {
+        return MusicSearchViewController.handleBackPress(searchViewController);
     }
 }

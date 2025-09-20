@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import app.revanced.extension.shared.ui.CustomDialog;
 import org.json.JSONArray;
 
 import java.io.IOException;
@@ -125,7 +126,7 @@ public final class AnnouncementsPatch {
 
                 Utils.runOnMainThread(() -> {
                     // Create the custom dialog and show the announcement.
-                    Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                    Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                             context,
                             finalTitle,                           // Title.
                             finalMessage,                         // Message.

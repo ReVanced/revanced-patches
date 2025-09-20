@@ -121,7 +121,7 @@ public class DownloadPathPreference extends DialogPreference {
     }
 
     private int findIndexOf(String str) {
-        for (int i = 0; i < entryValues.length; i++) {
+        for (int i = 0, length = entryValues.length; i < length; i++) {
             if (str.equals(entryValues[i])) return i;
         }
         return -1;

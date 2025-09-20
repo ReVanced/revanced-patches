@@ -14,6 +14,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.settings.preference.BulletPointPreference;
 import app.revanced.extension.shared.spoof.ClientType;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -99,6 +100,7 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
                     + '\n' + str("revanced_spoof_video_streams_about_kids_videos");
         }
 
-        setSummary(summary);
+        // Use better formatting for bullet points.
+        setSummary(BulletPointPreference.formatIntoBulletPoints(summary));
     }
 }

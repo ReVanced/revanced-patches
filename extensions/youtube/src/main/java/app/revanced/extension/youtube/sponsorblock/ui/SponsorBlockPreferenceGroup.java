@@ -14,7 +14,6 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.SwitchPreference;
-import android.text.Html;
 import android.text.InputType;
 import android.util.AttributeSet;
 import android.util.Pair;
@@ -31,11 +30,12 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.ResettableEditTextPreference;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
 import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategory;
-import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryListPreference;
+import app.revanced.extension.youtube.sponsorblock.objects.SegmentCategoryPreference;
 
 /**
  * Lots of old code that could be converted to a half dozen custom preferences,
@@ -54,27 +54,9 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
      */
     private boolean preferencesInitialized;
 
-    private SwitchPreference sbEnabled;
-    private SwitchPreference addNewSegment;
-    private SwitchPreference votingEnabled;
-    private SwitchPreference autoHideSkipSegmentButton;
-    private SwitchPreference compactSkipButton;
-    private SwitchPreference squareLayout;
-    private SwitchPreference showSkipToast;
-    private SwitchPreference trackSkips;
-    private SwitchPreference showTimeWithoutSegments;
-    private SwitchPreference toastOnConnectionError;
-    private CustomDialogListPreference autoHideSkipSegmentButtonDuration;
-    private CustomDialogListPreference showSkipToastDuration;
-
-    private ResettableEditTextPreference newSegmentStep;
-    private ResettableEditTextPreference minSegmentDuration;
-    private EditTextPreference privateUserId;
     private EditTextPreference importExport;
-    private Preference apiUrl;
 
-    private PreferenceCategory segmentCategory;
-    private final List<SegmentCategoryListPreference> segmentCategories = new ArrayList<>();
+    private final List<SegmentCategoryPreference> segmentCategories = new ArrayList<>();
 
     public SponsorBlockPreferenceGroup(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
@@ -99,60 +81,17 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
         try {
             Logger.printDebug(() -> "updateUI");
 
-            final boolean enabled = Settings.SB_ENABLED.get();
-            if (!enabled) {
+            if (!Settings.SB_ENABLED.get()) {
                 SponsorBlockViewController.hideAll();
                 SegmentPlaybackController.setCurrentVideoId(null);
             } else if (!Settings.SB_CREATE_NEW_SEGMENT.get()) {
                 SponsorBlockViewController.hideNewSegmentLayout();
             }
-            // Voting and add new segment buttons automatically show/hide themselves.
 
             SponsorBlockViewController.updateLayout();
 
-            sbEnabled.setChecked(enabled);
-
-            addNewSegment.setChecked(Settings.SB_CREATE_NEW_SEGMENT.get());
-            addNewSegment.setEnabled(enabled);
-
-            votingEnabled.setChecked(Settings.SB_VOTING_BUTTON.get());
-            votingEnabled.setEnabled(enabled);
-
-            autoHideSkipSegmentButton.setChecked(Settings.SB_AUTO_HIDE_SKIP_BUTTON.get());
-            autoHideSkipSegmentButton.setEnabled(enabled);
-
-            autoHideSkipSegmentButtonDuration.setValue(Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.get().toString());
-            autoHideSkipSegmentButtonDuration.setEnabled(Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.isAvailable());
-
-            compactSkipButton.setChecked(Settings.SB_COMPACT_SKIP_BUTTON.get());
-            compactSkipButton.setEnabled(enabled);
-
-            showSkipToast.setChecked(Settings.SB_TOAST_ON_SKIP.get());
-            showSkipToast.setEnabled(enabled);
-
-            squareLayout.setChecked(Settings.SB_SQUARE_LAYOUT.get());
-            squareLayout.setEnabled(enabled);
-
-            showSkipToastDuration.setValue(Settings.SB_TOAST_ON_SKIP_DURATION.get().toString());
-            showSkipToastDuration.setEnabled(Settings.SB_TOAST_ON_SKIP_DURATION.isAvailable());
-
-            toastOnConnectionError.setChecked(Settings.SB_TOAST_ON_CONNECTION_ERROR.get());
-            toastOnConnectionError.setEnabled(enabled);
-
-            trackSkips.setChecked(Settings.SB_TRACK_SKIP_COUNT.get());
-            trackSkips.setEnabled(enabled);
-
-            showTimeWithoutSegments.setChecked(Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.get());
-            showTimeWithoutSegments.setEnabled(enabled);
-
-            newSegmentStep.setText((Settings.SB_CREATE_NEW_SEGMENT_STEP.get()).toString());
-            newSegmentStep.setEnabled(enabled);
-
-            minSegmentDuration.setText((Settings.SB_SEGMENT_MIN_DURATION.get()).toString());
-            minSegmentDuration.setEnabled(enabled);
-
-            privateUserId.setText(Settings.SB_PRIVATE_USER_ID.get());
-            privateUserId.setEnabled(enabled);
+            // Preferences are synced by AbstractPreferenceFragment since keys are set
+            // and a Setting exist with the same key.
 
             // If the user has a private user id, then include a subtext that mentions not to share it.
             String importExportSummary = SponsorBlockSettings.userHasSBPrivateId()
@@ -160,16 +99,18 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     : str("revanced_sb_settings_ie_sum");
             importExport.setSummary(importExportSummary);
 
-            apiUrl.setEnabled(enabled);
-            importExport.setEnabled(enabled);
-            segmentCategory.setEnabled(enabled);
-
-            for (SegmentCategoryListPreference category : segmentCategories) {
+            for (SegmentCategoryPreference category : segmentCategories) {
                 category.updateUI();
             }
         } catch (Exception ex) {
             Logger.printException(() -> "updateUI failure", ex);
         }
+    }
+
+    public void updateUIDelayed() {
+        // Must use a delay, so AbstractPreferenceFragment can
+        // update the availability of the settings.
+        Utils.runOnMainThreadDelayed(this::updateUI, 50);
     }
 
     protected void onAttachedToActivity() {
@@ -183,20 +124,21 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 }
                 return;
             }
-
             preferencesInitialized = true;
 
             Logger.printDebug(() -> "Creating settings preferences");
             Context context = getContext();
             SponsorBlockSettings.initialize();
 
-            sbEnabled = new SwitchPreference(context);
+            SwitchPreference sbEnabled = new SwitchPreference(context);
+            sbEnabled.setKey(Settings.SB_ENABLED.key);
             sbEnabled.setTitle(str("revanced_sb_enable_sb"));
             sbEnabled.setSummary(str("revanced_sb_enable_sb_sum"));
+            sbEnabled.setChecked(Settings.SB_ENABLED.get());
             addPreference(sbEnabled);
             sbEnabled.setOnPreferenceChangeListener((preference1, newValue) -> {
                 Settings.SB_ENABLED.save((Boolean) newValue);
-                updateUI();
+                updateUIDelayed();
                 return true;
             });
 
@@ -204,35 +146,41 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             appearanceCategory.setTitle(str("revanced_sb_appearance_category"));
             addPreference(appearanceCategory);
 
-            votingEnabled = new SwitchPreference(context);
+            SwitchPreference votingEnabled = new SwitchPreference(context);
+            votingEnabled.setKey(Settings.SB_VOTING_BUTTON.key);
+            votingEnabled.setEnabled(Settings.SB_VOTING_BUTTON.isAvailable());
             votingEnabled.setTitle(str("revanced_sb_enable_voting"));
             votingEnabled.setSummaryOn(str("revanced_sb_enable_voting_sum_on"));
             votingEnabled.setSummaryOff(str("revanced_sb_enable_voting_sum_off"));
             votingEnabled.setOnPreferenceChangeListener((preference1, newValue) -> {
                 Settings.SB_VOTING_BUTTON.save((Boolean) newValue);
-                updateUI();
+                updateUIDelayed();
                 return true;
             });
             appearanceCategory.addPreference(votingEnabled);
 
-            compactSkipButton = new SwitchPreference(context);
+            SwitchPreference compactSkipButton = new SwitchPreference(context);
+            compactSkipButton.setKey(Settings.SB_COMPACT_SKIP_BUTTON.key);
+            compactSkipButton.setEnabled(Settings.SB_COMPACT_SKIP_BUTTON.isAvailable());
             compactSkipButton.setTitle(str("revanced_sb_enable_compact_skip_button"));
             compactSkipButton.setSummaryOn(str("revanced_sb_enable_compact_skip_button_sum_on"));
             compactSkipButton.setSummaryOff(str("revanced_sb_enable_compact_skip_button_sum_off"));
             compactSkipButton.setOnPreferenceChangeListener((preference1, newValue) -> {
                 Settings.SB_COMPACT_SKIP_BUTTON.save((Boolean) newValue);
-                updateUI();
+                updateUIDelayed();
                 return true;
             });
             appearanceCategory.addPreference(compactSkipButton);
 
-            autoHideSkipSegmentButton = new SwitchPreference(context);
+            SwitchPreference autoHideSkipSegmentButton = new SwitchPreference(context);
+            autoHideSkipSegmentButton.setKey(Settings.SB_AUTO_HIDE_SKIP_BUTTON.key);
+            autoHideSkipSegmentButton.setEnabled(Settings.SB_AUTO_HIDE_SKIP_BUTTON.isAvailable());
             autoHideSkipSegmentButton.setTitle(str("revanced_sb_enable_auto_hide_skip_segment_button"));
             autoHideSkipSegmentButton.setSummaryOn(str("revanced_sb_enable_auto_hide_skip_segment_button_sum_on"));
             autoHideSkipSegmentButton.setSummaryOff(str("revanced_sb_enable_auto_hide_skip_segment_button_sum_off"));
             autoHideSkipSegmentButton.setOnPreferenceChangeListener((preference1, newValue) -> {
                 Settings.SB_AUTO_HIDE_SKIP_BUTTON.save((Boolean) newValue);
-                updateUI();
+                updateUIDelayed();
                 return true;
             });
             appearanceCategory.addPreference(autoHideSkipSegmentButton);
@@ -240,73 +188,85 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             String[] durationEntries = Utils.getResourceStringArray("revanced_sb_duration_entries");
             String[] durationEntryValues = Utils.getResourceStringArray("revanced_sb_duration_entry_values");
 
-            autoHideSkipSegmentButtonDuration = new CustomDialogListPreference(context);
+            CustomDialogListPreference autoHideSkipSegmentButtonDuration = new CustomDialogListPreference(context);
+            autoHideSkipSegmentButtonDuration.setKey(Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.key);
+            autoHideSkipSegmentButtonDuration.setEnabled(Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.isAvailable());
             autoHideSkipSegmentButtonDuration.setTitle(str("revanced_sb_auto_hide_skip_button_duration"));
-            autoHideSkipSegmentButtonDuration.setSummary(str("revanced_sb_auto_hide_skip_button_duration_sum"));
+            // Sets a static summary without overwriting it.
+            autoHideSkipSegmentButtonDuration.setStaticSummary(str("revanced_sb_auto_hide_skip_button_duration_sum"));
             autoHideSkipSegmentButtonDuration.setEntries(durationEntries);
             autoHideSkipSegmentButtonDuration.setEntryValues(durationEntryValues);
             autoHideSkipSegmentButtonDuration.setOnPreferenceChangeListener((preference1, newValue) -> {
-                Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.save(
-                        SponsorBlockDuration.valueOf((String) newValue)
-                );
-                updateUI();
+                SponsorBlockDuration newDuration = SponsorBlockDuration.valueOf((String) newValue);
+                Settings.SB_AUTO_HIDE_SKIP_BUTTON_DURATION.save(newDuration);
+                ((CustomDialogListPreference) preference1).setValue(newDuration.name());
+                updateUIDelayed();
                 return true;
             });
             appearanceCategory.addPreference(autoHideSkipSegmentButtonDuration);
 
-            showSkipToast = new SwitchPreference(context);
+            SwitchPreference showSkipToast = new SwitchPreference(context);
+            showSkipToast.setKey(Settings.SB_TOAST_ON_SKIP.key);
+            showSkipToast.setEnabled(Settings.SB_TOAST_ON_SKIP.isAvailable());
             showSkipToast.setTitle(str("revanced_sb_general_skiptoast"));
             showSkipToast.setSummaryOn(str("revanced_sb_general_skiptoast_sum_on"));
             showSkipToast.setSummaryOff(str("revanced_sb_general_skiptoast_sum_off"));
             showSkipToast.setOnPreferenceChangeListener((preference1, newValue) -> {
                 Settings.SB_TOAST_ON_SKIP.save((Boolean) newValue);
-                updateUI();
+                updateUIDelayed();
                 return true;
             });
             appearanceCategory.addPreference(showSkipToast);
 
-            showSkipToastDuration = new CustomDialogListPreference(context);
+            CustomDialogListPreference showSkipToastDuration = new CustomDialogListPreference(context);
+            showSkipToastDuration.setKey(Settings.SB_TOAST_ON_SKIP_DURATION.key);
+            showSkipToastDuration.setEnabled(Settings.SB_TOAST_ON_SKIP_DURATION.isAvailable());
             showSkipToastDuration.setTitle(str("revanced_sb_toast_on_skip_duration"));
-            showSkipToastDuration.setSummary(str("revanced_sb_toast_on_skip_duration_sum"));
+            // Sets a static summary without overwriting it.
+            showSkipToastDuration.setStaticSummary(str("revanced_sb_toast_on_skip_duration_sum"));
             showSkipToastDuration.setEntries(durationEntries);
             showSkipToastDuration.setEntryValues(durationEntryValues);
             showSkipToastDuration.setOnPreferenceChangeListener((preference1, newValue) -> {
-                Settings.SB_TOAST_ON_SKIP_DURATION.save(
-                        SponsorBlockDuration.valueOf((String) newValue)
-                );
-                updateUI();
+                SponsorBlockDuration newDuration = SponsorBlockDuration.valueOf((String) newValue);
+                Settings.SB_TOAST_ON_SKIP_DURATION.save(newDuration);
+                ((CustomDialogListPreference) preference1).setValue(newDuration.name());
+                updateUIDelayed();
                 return true;
             });
             appearanceCategory.addPreference(showSkipToastDuration);
 
-            showTimeWithoutSegments = new SwitchPreference(context);
+            SwitchPreference showTimeWithoutSegments = new SwitchPreference(context);
+            showTimeWithoutSegments.setKey(Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.key);
+            showTimeWithoutSegments.setEnabled(Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.isAvailable());
             showTimeWithoutSegments.setTitle(str("revanced_sb_general_time_without"));
             showTimeWithoutSegments.setSummaryOn(str("revanced_sb_general_time_without_sum_on"));
             showTimeWithoutSegments.setSummaryOff(str("revanced_sb_general_time_without_sum_off"));
             showTimeWithoutSegments.setOnPreferenceChangeListener((preference1, newValue) -> {
                 Settings.SB_VIDEO_LENGTH_WITHOUT_SEGMENTS.save((Boolean) newValue);
-                updateUI();
+                updateUIDelayed();
                 return true;
             });
             appearanceCategory.addPreference(showTimeWithoutSegments);
 
-            squareLayout = new SwitchPreference(context);
+            SwitchPreference squareLayout = new SwitchPreference(context);
+            squareLayout.setKey(Settings.SB_SQUARE_LAYOUT.key);
+            squareLayout.setEnabled(Settings.SB_SQUARE_LAYOUT.isAvailable());
             squareLayout.setTitle(str("revanced_sb_square_layout"));
             squareLayout.setSummaryOn(str("revanced_sb_square_layout_sum_on"));
             squareLayout.setSummaryOff(str("revanced_sb_square_layout_sum_off"));
             squareLayout.setOnPreferenceChangeListener((preference1, newValue) -> {
                 Settings.SB_SQUARE_LAYOUT.save((Boolean) newValue);
-                updateUI();
+                updateUIDelayed();
                 return true;
             });
             appearanceCategory.addPreference(squareLayout);
 
-            segmentCategory = new PreferenceCategory(context);
+            PreferenceCategory segmentCategory = new PreferenceCategory(context);
             segmentCategory.setTitle(str("revanced_sb_diff_segments"));
             addPreference(segmentCategory);
 
             for (SegmentCategory category : SegmentCategory.categoriesWithoutUnsubmitted()) {
-                SegmentCategoryListPreference categoryPreference = new SegmentCategoryListPreference(context, category);
+                SegmentCategoryPreference categoryPreference = new SegmentCategoryPreference(context, category);
                 segmentCategories.add(categoryPreference);
                 segmentCategory.addPreference(categoryPreference);
             }
@@ -315,24 +275,26 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             createSegmentCategory.setTitle(str("revanced_sb_create_segment_category"));
             addPreference(createSegmentCategory);
 
-            addNewSegment = new SwitchPreference(context);
+            SwitchPreference addNewSegment = new SwitchPreference(context);
+            addNewSegment.setKey(Settings.SB_CREATE_NEW_SEGMENT.key);
+            addNewSegment.setEnabled(Settings.SB_CREATE_NEW_SEGMENT.isAvailable());
             addNewSegment.setTitle(str("revanced_sb_enable_create_segment"));
             addNewSegment.setSummaryOn(str("revanced_sb_enable_create_segment_sum_on"));
             addNewSegment.setSummaryOff(str("revanced_sb_enable_create_segment_sum_off"));
             addNewSegment.setOnPreferenceChangeListener((preference1, o) -> {
                 Boolean newValue = (Boolean) o;
                 if (newValue && !Settings.SB_SEEN_GUIDELINES.get()) {
-                    Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                    Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                             preference1.getContext(),
-                            str("revanced_sb_guidelines_popup_title"),   // Title.
-                            str("revanced_sb_guidelines_popup_content"), // Message.
-                            null,                                        // No EditText.
-                            str("revanced_sb_guidelines_popup_open"),    // OK button text.
-                            () -> openGuidelines(),                      // OK button action.
-                            null,                                        // Cancel button action.
+                            str("revanced_sb_guidelines_popup_title"),      // Title.
+                            str("revanced_sb_guidelines_popup_content"),    // Message.
+                            null,                                               // No EditText.
+                            str("revanced_sb_guidelines_popup_open"),       // OK button text.
+                            this::openGuidelines,                               // OK button action.
+                            null,                                               // Cancel button action.
                             str("revanced_sb_guidelines_popup_already_read"), // Neutral button text.
-                            () -> {},                                    // Neutral button action (dismiss only).
-                            true                                         // Dismiss dialog when onNeutralClick.
+                            () -> {},                                           // Neutral button action (dismiss only).
+                            true                                                // Dismiss dialog when onNeutralClick.
                     );
 
                     // Set dialog as non-cancelable.
@@ -344,13 +306,15 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     dialogPair.first.show();
                 }
                 Settings.SB_CREATE_NEW_SEGMENT.save(newValue);
-                updateUI();
+                updateUIDelayed();
                 return true;
             });
             createSegmentCategory.addPreference(addNewSegment);
 
-            newSegmentStep = new ResettableEditTextPreference(context);
+            ResettableEditTextPreference newSegmentStep = new ResettableEditTextPreference(context);
             newSegmentStep.setSetting(Settings.SB_CREATE_NEW_SEGMENT_STEP);
+            newSegmentStep.setKey(Settings.SB_CREATE_NEW_SEGMENT_STEP.key);
+            newSegmentStep.setEnabled(Settings.SB_CREATE_NEW_SEGMENT_STEP.isAvailable());
             newSegmentStep.setTitle(str("revanced_sb_general_adjusting"));
             newSegmentStep.setSummary(str("revanced_sb_general_adjusting_sum"));
             newSegmentStep.getEditText().setInputType(InputType.TYPE_CLASS_NUMBER);
@@ -359,6 +323,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     final int newAdjustmentValue = Integer.parseInt(newValue.toString());
                     if (newAdjustmentValue != 0) {
                         Settings.SB_CREATE_NEW_SEGMENT_STEP.save(newAdjustmentValue);
+                        updateUIDelayed();
                         return true;
                     }
                 } catch (NumberFormatException ex) {
@@ -366,7 +331,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 }
 
                 Utils.showToastLong(str("revanced_sb_general_adjusting_invalid"));
-                updateUI();
+                updateUIDelayed();
                 return false;
             });
             createSegmentCategory.addPreference(newSegmentStep);
@@ -384,30 +349,36 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             generalCategory.setTitle(str("revanced_sb_general"));
             addPreference(generalCategory);
 
-            toastOnConnectionError = new SwitchPreference(context);
+            SwitchPreference toastOnConnectionError = new SwitchPreference(context);
+            toastOnConnectionError.setKey(Settings.SB_TOAST_ON_CONNECTION_ERROR.key);
+            toastOnConnectionError.setEnabled(Settings.SB_TOAST_ON_CONNECTION_ERROR.isAvailable());
             toastOnConnectionError.setTitle(str("revanced_sb_toast_on_connection_error_title"));
             toastOnConnectionError.setSummaryOn(str("revanced_sb_toast_on_connection_error_summary_on"));
             toastOnConnectionError.setSummaryOff(str("revanced_sb_toast_on_connection_error_summary_off"));
             toastOnConnectionError.setOnPreferenceChangeListener((preference1, newValue) -> {
                 Settings.SB_TOAST_ON_CONNECTION_ERROR.save((Boolean) newValue);
-                updateUI();
+                updateUIDelayed();
                 return true;
             });
             generalCategory.addPreference(toastOnConnectionError);
 
-            trackSkips = new SwitchPreference(context);
+            SwitchPreference trackSkips = new SwitchPreference(context);
+            trackSkips.setKey(Settings.SB_TRACK_SKIP_COUNT.key);
+            trackSkips.setEnabled(Settings.SB_TRACK_SKIP_COUNT.isAvailable());
             trackSkips.setTitle(str("revanced_sb_general_skipcount"));
             trackSkips.setSummaryOn(str("revanced_sb_general_skipcount_sum_on"));
             trackSkips.setSummaryOff(str("revanced_sb_general_skipcount_sum_off"));
             trackSkips.setOnPreferenceChangeListener((preference1, newValue) -> {
                 Settings.SB_TRACK_SKIP_COUNT.save((Boolean) newValue);
-                updateUI();
+                updateUIDelayed();
                 return true;
             });
             generalCategory.addPreference(trackSkips);
 
-            minSegmentDuration = new ResettableEditTextPreference(context);
+            ResettableEditTextPreference minSegmentDuration = new ResettableEditTextPreference(context);
             minSegmentDuration.setSetting(Settings.SB_SEGMENT_MIN_DURATION);
+            minSegmentDuration.setKey(Settings.SB_SEGMENT_MIN_DURATION.key);
+            minSegmentDuration.setEnabled(Settings.SB_SEGMENT_MIN_DURATION.isAvailable());
             minSegmentDuration.setTitle(str("revanced_sb_general_min_duration"));
             minSegmentDuration.setSummary(str("revanced_sb_general_min_duration_sum"));
             minSegmentDuration.getEditText().setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
@@ -415,18 +386,19 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                 try {
                     Float minTimeDuration = Float.valueOf(newValue.toString());
                     Settings.SB_SEGMENT_MIN_DURATION.save(minTimeDuration);
+                    updateUIDelayed();
                     return true;
                 } catch (NumberFormatException ex) {
                     Logger.printInfo(() -> "Invalid minimum segment duration", ex);
                 }
 
                 Utils.showToastLong(str("revanced_sb_general_min_duration_invalid"));
-                updateUI();
+                updateUIDelayed();
                 return false;
             });
             generalCategory.addPreference(minSegmentDuration);
 
-            privateUserId = new EditTextPreference(context) {
+            EditTextPreference privateUserId = new EditTextPreference(context) {
                 @Override
                 protected void showDialog(Bundle state) {
                     try {
@@ -439,7 +411,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                         editText.setSelection(initialValue.length()); // Move cursor to end.
 
                         // Create custom dialog.
-                        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                                 context,
                                 getTitle() != null ? getTitle().toString() : "", // Title.
                                 null,     // Message is replaced by EditText.
@@ -475,31 +447,36 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     }
                 }
             };
+            privateUserId.setKey(Settings.SB_PRIVATE_USER_ID.key);
+            privateUserId.setEnabled(Settings.SB_PRIVATE_USER_ID.isAvailable());
             privateUserId.setTitle(str("revanced_sb_general_uuid"));
             privateUserId.setSummary(str("revanced_sb_general_uuid_sum"));
             privateUserId.setOnPreferenceChangeListener((preference1, newValue) -> {
                 String newUUID = newValue.toString();
                 if (!SponsorBlockSettings.isValidSBUserId(newUUID)) {
                     Utils.showToastLong(str("revanced_sb_general_uuid_invalid"));
+                    updateUIDelayed();
                     return false;
                 }
 
                 Settings.SB_PRIVATE_USER_ID.save(newUUID);
-                updateUI();
+                updateUIDelayed();
                 return true;
             });
             generalCategory.addPreference(privateUserId);
 
-            apiUrl = new Preference(context);
+            Preference apiUrl = new Preference(context);
+            apiUrl.setKey(Settings.SB_API_URL.key);
+            apiUrl.setEnabled(Settings.SB_API_URL.isAvailable());
             apiUrl.setTitle(str("revanced_sb_general_api_url"));
-            apiUrl.setSummary(Html.fromHtml(str("revanced_sb_general_api_url_sum")));
+            apiUrl.setSummary(str("revanced_sb_general_api_url_sum"));
             apiUrl.setOnPreferenceClickListener(preference1 -> {
                 EditText editText = new EditText(context);
                 editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);
                 editText.setText(Settings.SB_API_URL.get());
 
                 // Create a custom dialog.
-                Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                         context,
                         str("revanced_sb_general_api_url"), // Title.
                         null,     // No message, EditText replaces it.
@@ -538,8 +515,11 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                         Context context = getContext();
                         EditText editText = getEditText();
 
+                        editText.setInputType(editText.getInputType() | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+                        editText.setTextSize(TypedValue.COMPLEX_UNIT_PT, 7); // Use a smaller font to reduce text wrap.
+
                         // Create a custom dialog.
-                        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                                 context,
                                 str("revanced_sb_settings_ie"), // Title.
                                 null,     // No message, EditText replaces it.
@@ -588,7 +568,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
             });
             importExport.setOnPreferenceChangeListener((preference1, newValue) -> {
                 SponsorBlockSettings.importDesktopSettings((String) newValue);
-                updateUI();
+                updateUIDelayed();
                 return true;
             });
             generalCategory.addPreference(importExport);

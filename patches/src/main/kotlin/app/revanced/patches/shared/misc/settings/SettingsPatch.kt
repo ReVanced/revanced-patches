@@ -65,14 +65,15 @@ fun settingsPatch (
         copyResources(
             "settings",
             ResourceGroup("xml", "revanced_prefs.xml", "revanced_prefs_icons.xml"),
+            ResourceGroup("menu", "revanced_search_menu.xml"),
             ResourceGroup("drawable",
                 // CustomListPreference resources.
                 "revanced_ic_dialog_alert.xml",
                 "revanced_settings_arrow_time.xml",
-                "revanced_settings_circle_background.xml",
                 "revanced_settings_cursor.xml",
                 "revanced_settings_custom_checkmark.xml",
                 "revanced_settings_search_icon.xml",
+                "revanced_settings_search_remove.xml",
                 "revanced_settings_toolbar_arrow_left.xml",
             ),
             ResourceGroup("layout",
@@ -80,6 +81,16 @@ fun settingsPatch (
                 // Color picker.
                 "revanced_color_dot_widget.xml",
                 "revanced_color_picker.xml",
+                // Search.
+                "revanced_preference_search_history_item.xml",
+                "revanced_preference_search_history_screen.xml",
+                "revanced_preference_search_no_result.xml",
+                "revanced_preference_search_result_color.xml",
+                "revanced_preference_search_result_group_header.xml",
+                "revanced_preference_search_result_list.xml",
+                "revanced_preference_search_result_regular.xml",
+                "revanced_preference_search_result_switch.xml",
+                "revanced_settings_with_toolbar.xml"
             )
         )
 

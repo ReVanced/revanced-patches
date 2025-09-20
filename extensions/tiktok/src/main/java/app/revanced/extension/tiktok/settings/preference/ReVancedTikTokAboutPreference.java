@@ -15,7 +15,7 @@ public class ReVancedTikTokAboutPreference extends ReVancedAboutPreference {
     /**
      * Because resources cannot be added to TikTok,
      * these strings are copied from the shared strings.xml file.
-     *
+     * <p>
      * Changes here must also be made in strings.xml
      */
     private final Map<String, String> aboutStrings = Map.of(

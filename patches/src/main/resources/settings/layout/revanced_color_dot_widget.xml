@@ -8,13 +8,9 @@
         android:clipToPadding="false">
 
     <View
-            android:id="@+id/revanced_color_dot_widget"
+            android:id="@+id/preference_color_dot"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_gravity="center"
-            android:background="@drawable/revanced_settings_circle_background"
-            android:elevation="2dp"
-            android:translationZ="2dp"
-            android:outlineProvider="background" />
+            android:layout_gravity="center" />
 
 </FrameLayout>

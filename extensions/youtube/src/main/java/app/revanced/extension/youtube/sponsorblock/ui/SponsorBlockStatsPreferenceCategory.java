@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.sponsorblock.ui;
 
+import static android.text.Html.FROM_HTML_MODE_COMPACT;
 import static android.text.Html.fromHtml;
 import static app.revanced.extension.shared.StringRef.str;
 
@@ -7,7 +8,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.util.AttributeSet;
@@ -19,6 +19,7 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ResettableEditTextPreference;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils;
@@ -27,7 +28,6 @@ import app.revanced.extension.youtube.sponsorblock.requests.SBRequester;
 
 /**
  * User skip stats.
- *
  * None of the preferences here show up in search results because
  * a category cannot be added to another category for the search results.
  * Additionally the stats must load remotely on a background thread which means the
@@ -48,6 +48,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
         super(context, attrs);
     }
 
+    @Override
     protected void onAttachedToActivity() {
         try {
             super.onAttachedToActivity();
@@ -97,8 +98,8 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
             if (stats.totalSegmentCountIncludingIgnored > 0) {
                 // If user has not created any segments, there's no reason to set a username.
                 String userName = stats.userName;
-                EditTextPreference preference = new ResettableEditTextPreference(context);
-                preference.setTitle(fromHtml(str("revanced_sb_stats_username", userName)));
+                ResettableEditTextPreference preference = new ResettableEditTextPreference(context);
+                preference.setTitle(fromHtml(str("revanced_sb_stats_username", userName), FROM_HTML_MODE_COMPACT));
                 preference.setSummary(str("revanced_sb_stats_username_change"));
                 preference.setText(userName);
                 preference.setOnPreferenceChangeListener((preference1, value) -> {
@@ -107,7 +108,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                         String errorMessage = SBRequester.setUsername(newUserName);
                         Utils.runOnMainThread(() -> {
                             if (errorMessage == null) {
-                                preference.setTitle(fromHtml(str("revanced_sb_stats_username", newUserName)));
+                                preference.setTitle(fromHtml(str("revanced_sb_stats_username", newUserName), FROM_HTML_MODE_COMPACT));
                                 preference.setText(newUserName);
                                 Utils.showToastLong(str("revanced_sb_stats_username_changed"));
                             } else {
@@ -118,6 +119,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                     });
                     return true;
                 });
+                preference.setEnabled(Settings.SB_PRIVATE_USER_ID.isAvailable()); // Sync with private user ID setting.
                 addPreference(preference);
             }
 
@@ -125,7 +127,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                 // Number of segment submissions (does not include ignored segments).
                 Preference preference = new Preference(context);
                 String formatted = SponsorBlockUtils.getNumberOfSkipsString(stats.segmentCount);
-                preference.setTitle(fromHtml(str("revanced_sb_stats_submissions", formatted)));
+                preference.setTitle(fromHtml(str("revanced_sb_stats_submissions", formatted), FROM_HTML_MODE_COMPACT));
                 preference.setSummary(str("revanced_sb_stats_submissions_sum"));
                 if (stats.totalSegmentCountIncludingIgnored == 0) {
                     preference.setSelectable(false);
@@ -137,6 +139,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                         return true;
                     });
                 }
+                preference.setEnabled(Settings.SB_ENABLED.isAvailable());
                 addPreference(preference);
             }
 
@@ -144,8 +147,9 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                 // "user reputation".  Usually not useful since it appears most users have zero reputation.
                 // But if there is a reputation then show it here.
                 Preference preference = new Preference(context);
-                preference.setTitle(fromHtml(str("revanced_sb_stats_reputation", stats.reputation)));
+                preference.setTitle(fromHtml(str("revanced_sb_stats_reputation", stats.reputation), FROM_HTML_MODE_COMPACT));
                 preference.setSelectable(false);
+                preference.setEnabled(Settings.SB_ENABLED.isAvailable());
                 if (stats.reputation != 0) {
                     addPreference(preference);
                 }
@@ -166,14 +170,15 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
                     stats_saved_sum = str("revanced_sb_stats_saved_sum",
                             SponsorBlockUtils.getTimeSavedString((long) (60 * stats.minutesSaved)));
                 }
-                preference.setTitle(fromHtml(stats_saved));
-                preference.setSummary(fromHtml(stats_saved_sum));
+                preference.setTitle(fromHtml(stats_saved, FROM_HTML_MODE_COMPACT));
+                preference.setSummary(fromHtml(stats_saved_sum, FROM_HTML_MODE_COMPACT));
                 preference.setOnPreferenceClickListener(preference1 -> {
                     Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setData(Uri.parse("https://sponsor.ajay.app/stats/"));
                     preference1.getContext().startActivity(i);
                     return false;
                 });
+                preference.setEnabled(Settings.SB_ENABLED.isAvailable());
                 addPreference(preference);
             }
         } catch (Exception ex) {
@@ -187,16 +192,16 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
         Runnable updateStatsSelfSaved = () -> {
             String formatted = SponsorBlockUtils.getNumberOfSkipsString(
                     Settings.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.get());
-            preference.setTitle(fromHtml(str("revanced_sb_stats_self_saved", formatted)));
+            preference.setTitle(fromHtml(str("revanced_sb_stats_self_saved", formatted), FROM_HTML_MODE_COMPACT));
 
             String formattedSaved = SponsorBlockUtils.getTimeSavedString(
                     Settings.SB_LOCAL_TIME_SAVED_MILLISECONDS.get() / 1000);
-            preference.setSummary(fromHtml(str("revanced_sb_stats_self_saved_sum", formattedSaved)));
+            preference.setSummary(fromHtml(str("revanced_sb_stats_self_saved_sum", formattedSaved), FROM_HTML_MODE_COMPACT));
         };
         updateStatsSelfSaved.run();
 
         preference.setOnPreferenceClickListener(preference1 -> {
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     preference.getContext(),
                     str("revanced_sb_stats_self_saved_reset_title"), // Title.
                     null, // No message.
@@ -219,6 +224,7 @@ public class SponsorBlockStatsPreferenceCategory extends PreferenceCategory {
             return true;
         });
 
+        preference.setEnabled(Settings.SB_LOCAL_TIME_SAVED_NUMBER_SEGMENTS.isAvailable());
         addPreference(preference);
     }
 }

@@ -2,11 +2,11 @@ package app.revanced.extension.youtube.patches.playback.speed;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
+import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.fadeInDuration;
+import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.getDialogBackgroundColor;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.res.Configuration;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
@@ -20,19 +20,9 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import android.icu.text.NumberFormat;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.GridLayout;
-import android.widget.LinearLayout;
-import android.widget.SeekBar;
-import android.widget.TextView;
+import android.widget.*;
 
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
@@ -40,6 +30,7 @@ import java.util.function.Function;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.ui.SheetBottomDialog;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilter;
 import app.revanced.extension.youtube.settings.Settings;
@@ -97,7 +88,7 @@ public class CustomPlaybackSpeedPatch {
     /**
      * Weak reference to the currently open dialog.
      */
-    private static WeakReference<Dialog> currentDialog = new WeakReference<>(null);
+    private static WeakReference<SheetBottomDialog.SlideDialog> currentDialog;
 
     static {
         // Use same 2 digit format as built in speed picker,
@@ -268,368 +259,239 @@ public class CustomPlaybackSpeedPatch {
      */
     @SuppressLint("SetTextI18n")
     public static void showModernCustomPlaybackSpeedDialog(Context context) {
-        // Create a dialog without a theme for custom appearance.
-        Dialog dialog = new Dialog(context);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
+        try {
+            // Create main layout.
+            SheetBottomDialog.DraggableLinearLayout mainLayout =
+                    SheetBottomDialog.createMainLayout(context, getDialogBackgroundColor());
 
-        // Store the dialog reference.
-        currentDialog = new WeakReference<>(dialog);
+            // Preset size constants.
+            final int dip4 = dipToPixels(4);
+            final int dip8 = dipToPixels(8);
+            final int dip12 = dipToPixels(12);
+            final int dip20 = dipToPixels(20);
+            final int dip32 = dipToPixels(32);
+            final int dip60 = dipToPixels(60);
 
-        // Enable dismissing the dialog when tapping outside.
-        dialog.setCanceledOnTouchOutside(true);
+            // Display current playback speed.
+            TextView currentSpeedText = new TextView(context);
+            float currentSpeed = VideoInformation.getPlaybackSpeed();
+            // Initially show with only 0 minimum digits, so 1.0 shows as 1x.
+            currentSpeedText.setText(formatSpeedStringX(currentSpeed));
+            currentSpeedText.setTextColor(Utils.getAppForegroundColor());
+            currentSpeedText.setTextSize(16);
+            currentSpeedText.setTypeface(Typeface.DEFAULT_BOLD);
+            currentSpeedText.setGravity(Gravity.CENTER);
+            LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            textParams.setMargins(0, dip20, 0, 0);
+            currentSpeedText.setLayoutParams(textParams);
+            // Add current speed text view to main layout.
+            mainLayout.addView(currentSpeedText);
 
-        // Create main vertical LinearLayout for dialog content.
-        LinearLayout mainLayout = new LinearLayout(context);
-        mainLayout.setOrientation(LinearLayout.VERTICAL);
+            // Create horizontal layout for slider and +/- buttons.
+            LinearLayout sliderLayout = new LinearLayout(context);
+            sliderLayout.setOrientation(LinearLayout.HORIZONTAL);
+            sliderLayout.setGravity(Gravity.CENTER_VERTICAL);
 
-        // Preset size constants.
-        final int dip4 = dipToPixels(4);   // Height for handle bar.
-        final int dip5 = dipToPixels(5);
-        final int dip6 = dipToPixels(6);   // Padding for mainLayout from bottom.
-        final int dip8 = dipToPixels(8);   // Padding for mainLayout from left and right.
-        final int dip20 = dipToPixels(20);
-        final int dip32 = dipToPixels(32); // Height for in-rows speed buttons.
-        final int dip36 = dipToPixels(36); // Height for minus and plus buttons.
-        final int dip40 = dipToPixels(40); // Width for handle bar.
-        final int dip60 = dipToPixels(60); // Height for speed button container.
+            // Create +/- buttons.
+            Button minusButton = createStyledButton(context, false, dip8, dip8);
+            Button plusButton = createStyledButton(context, true, dip8, dip8);
 
-        mainLayout.setPadding(dip5, dip8, dip5, dip8);
+            // Create slider for speed adjustment.
+            SeekBar speedSlider = new SeekBar(context);
+            speedSlider.setFocusable(true);
+            speedSlider.setFocusableInTouchMode(true);
+            speedSlider.setMax(speedToProgressValue(customPlaybackSpeedsMax));
+            speedSlider.setProgress(speedToProgressValue(currentSpeed));
+            speedSlider.getProgressDrawable().setColorFilter(
+                    Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme progress bar.
+            speedSlider.getThumb().setColorFilter(
+                    Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme slider thumb.
+            LinearLayout.LayoutParams sliderParams = new LinearLayout.LayoutParams(
+                    0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+            speedSlider.setLayoutParams(sliderParams);
 
-        // Set rounded rectangle background for the main layout.
-        RoundRectShape roundRectShape = new RoundRectShape(
-                Utils.createCornerRadii(12), null, null);
-        ShapeDrawable background = new ShapeDrawable(roundRectShape);
-        background.getPaint().setColor(Utils.getDialogBackgroundColor());
-        mainLayout.setBackground(background);
+            // Add -/+ and slider views to slider layout.
+            sliderLayout.addView(minusButton);
+            sliderLayout.addView(speedSlider);
+            sliderLayout.addView(plusButton);
 
-        // Add handle bar at the top.
-        View handleBar = new View(context);
-        ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(4), null, null));
-        handleBackground.getPaint().setColor(getAdjustedBackgroundColor(true));
-        handleBar.setBackground(handleBackground);
-        LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(
-                dip40, // handle bar width.
-                dip4   // handle bar height.
-        );
-        handleParams.gravity = Gravity.CENTER_HORIZONTAL; // Center horizontally.
-        handleParams.setMargins(0, 0, 0, dip20); // 20dp bottom margins.
-        handleBar.setLayoutParams(handleParams);
-        // Add handle bar view to main layout.
-        mainLayout.addView(handleBar);
+            // Add slider layout to main layout.
+            mainLayout.addView(sliderLayout);
 
-        // Display current playback speed.
-        TextView currentSpeedText = new TextView(context);
-        float currentSpeed = VideoInformation.getPlaybackSpeed();
-        // Initially show with only 0 minimum digits, so 1.0 shows as 1x
-        currentSpeedText.setText(formatSpeedStringX(currentSpeed));
-        currentSpeedText.setTextColor(Utils.getAppForegroundColor());
-        currentSpeedText.setTextSize(16);
-        currentSpeedText.setTypeface(Typeface.DEFAULT_BOLD);
-        currentSpeedText.setGravity(Gravity.CENTER);
-        LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        textParams.setMargins(0, 0, 0, 0);
-        currentSpeedText.setLayoutParams(textParams);
-        // Add current speed text view to main layout.
-        mainLayout.addView(currentSpeedText);
+            Function<Float, Void> userSelectedSpeed = newSpeed -> {
+                final float roundedSpeed = roundSpeedToNearestIncrement(newSpeed);
+                if (VideoInformation.getPlaybackSpeed() == roundedSpeed) {
+                    // Nothing has changed. New speed rounds to the current speed.
+                    return null;
+                }
 
-        // Create horizontal layout for slider and +/- buttons.
-        LinearLayout sliderLayout = new LinearLayout(context);
-        sliderLayout.setOrientation(LinearLayout.HORIZONTAL);
-        sliderLayout.setGravity(Gravity.CENTER_VERTICAL);
-        sliderLayout.setPadding(dip5, dip5, dip5, dip5); // 5dp padding.
+                currentSpeedText.setText(formatSpeedStringX(roundedSpeed)); // Update display.
+                speedSlider.setProgress(speedToProgressValue(roundedSpeed)); // Update slider.
 
-        // Create minus button.
-        Button minusButton = new Button(context, null, 0); // Disable default theme style.
-        minusButton.setText(""); // No text on button.
-        ShapeDrawable minusBackground = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(20), null, null));
-        minusBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
-        minusButton.setBackground(minusBackground);
-        OutlineSymbolDrawable minusDrawable = new OutlineSymbolDrawable(false); // Minus symbol.
-        minusButton.setForeground(minusDrawable);
-        LinearLayout.LayoutParams minusParams = new LinearLayout.LayoutParams(dip36, dip36);
-        minusParams.setMargins(0, 0, dip5, 0); // 5dp to slider.
-        minusButton.setLayoutParams(minusParams);
-
-        // Create slider for speed adjustment.
-        SeekBar speedSlider = new SeekBar(context);
-        speedSlider.setMax(speedToProgressValue(customPlaybackSpeedsMax));
-        speedSlider.setProgress(speedToProgressValue(currentSpeed));
-        speedSlider.getProgressDrawable().setColorFilter(
-                Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme progress bar.
-        speedSlider.getThumb().setColorFilter(
-                Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN); // Theme slider thumb.
-        LinearLayout.LayoutParams sliderParams = new LinearLayout.LayoutParams(
-                0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
-        sliderParams.setMargins(dip5, 0, dip5, 0); // 5dp to -/+ buttons.
-        speedSlider.setLayoutParams(sliderParams);
-
-        // Create plus button.
-        Button plusButton = new Button(context, null, 0); // Disable default theme style.
-        plusButton.setText(""); // No text on button.
-        ShapeDrawable plusBackground = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(20), null, null));
-        plusBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
-        plusButton.setBackground(plusBackground);
-        OutlineSymbolDrawable plusDrawable = new OutlineSymbolDrawable(true); // Plus symbol.
-        plusButton.setForeground(plusDrawable);
-        LinearLayout.LayoutParams plusParams = new LinearLayout.LayoutParams(dip36, dip36);
-        plusParams.setMargins(dip5, 0, 0, 0); // 5dp to slider.
-        plusButton.setLayoutParams(plusParams);
-
-        // Add -/+ and slider views to slider layout.
-        sliderLayout.addView(minusButton);
-        sliderLayout.addView(speedSlider);
-        sliderLayout.addView(plusButton);
-
-        LinearLayout.LayoutParams sliderLayoutParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        sliderLayoutParams.setMargins(0, 0, 0, dip5); // 5dp bottom margin.
-        sliderLayout.setLayoutParams(sliderLayoutParams);
-
-        // Add slider layout to main layout.
-        mainLayout.addView(sliderLayout);
-
-        Function<Float, Void> userSelectedSpeed = newSpeed -> {
-            final float roundedSpeed = roundSpeedToNearestIncrement(newSpeed);
-            if (VideoInformation.getPlaybackSpeed() == roundedSpeed) {
-                // Nothing has changed. New speed rounds to the current speed.
+                RememberPlaybackSpeedPatch.userSelectedPlaybackSpeed(roundedSpeed);
+                VideoInformation.overridePlaybackSpeed(roundedSpeed);
                 return null;
-            }
+            };
 
-            currentSpeedText.setText(formatSpeedStringX(roundedSpeed)); // Update display.
-            speedSlider.setProgress(speedToProgressValue(roundedSpeed)); // Update slider.
-
-            RememberPlaybackSpeedPatch.userSelectedPlaybackSpeed(roundedSpeed);
-            VideoInformation.overridePlaybackSpeed(roundedSpeed);
-            return null;
-        };
-
-        // Set listener for slider to update playback speed.
-        speedSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser) {
-                    // Convert from progress value to video playback speed.
-                    userSelectedSpeed.apply(customPlaybackSpeedsMin + (progress / PROGRESS_BAR_VALUE_SCALE));
+            // Set listener for slider to update playback speed.
+            speedSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                    if (fromUser) {
+                        // Convert from progress value to video playback speed.
+                        userSelectedSpeed.apply(customPlaybackSpeedsMin + (progress / PROGRESS_BAR_VALUE_SCALE));
+                    }
                 }
+
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {}
+
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {}
+            });
+
+            minusButton.setOnClickListener(v -> userSelectedSpeed.apply(
+                    (float) (VideoInformation.getPlaybackSpeed() - SPEED_ADJUSTMENT_CHANGE)));
+            plusButton.setOnClickListener(v -> userSelectedSpeed.apply(
+                    (float) (VideoInformation.getPlaybackSpeed() + SPEED_ADJUSTMENT_CHANGE)));
+
+            // Create GridLayout for preset speed buttons.
+            GridLayout gridLayout = new GridLayout(context);
+            gridLayout.setColumnCount(5); // 5 columns for speed buttons.
+            gridLayout.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
+            gridLayout.setRowCount((int) Math.ceil(customPlaybackSpeeds.length / 5.0));
+            LinearLayout.LayoutParams gridParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            gridParams.setMargins(dip4, dip12, dip4, dip12); // Speed buttons container.
+            gridLayout.setLayoutParams(gridParams);
+
+            // For button use 1 digit minimum.
+            speedFormatter.setMinimumFractionDigits(1);
+
+            // Add buttons for each preset playback speed.
+            for (float speed : customPlaybackSpeeds) {
+                // Container for button and optional label.
+                FrameLayout buttonContainer = new FrameLayout(context);
+
+                // Set layout parameters for each grid cell.
+                GridLayout.LayoutParams containerParams = new GridLayout.LayoutParams();
+                containerParams.width = 0; // Equal width for columns.
+                containerParams.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1f);
+                containerParams.setMargins(dip4, 0, dip4, 0); // Button margins.
+                containerParams.height = dip60; // Fixed height for button and label.
+                buttonContainer.setLayoutParams(containerParams);
+
+                // Create speed button.
+                Button speedButton = new Button(context, null, 0);
+                speedButton.setText(speedFormatter.format(speed));
+                speedButton.setTextColor(Utils.getAppForegroundColor());
+                speedButton.setTextSize(12);
+                speedButton.setAllCaps(false);
+                speedButton.setGravity(Gravity.CENTER);
+
+                ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(
+                        Utils.createCornerRadii(20), null, null));
+                buttonBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
+                speedButton.setBackground(buttonBackground);
+                speedButton.setPadding(dip4, dip4, dip4, dip4);
+
+                // Center button vertically and stretch horizontally in container.
+                FrameLayout.LayoutParams buttonParams = new FrameLayout.LayoutParams(
+                        FrameLayout.LayoutParams.MATCH_PARENT, dip32, Gravity.CENTER);
+                speedButton.setLayoutParams(buttonParams);
+
+                // Add speed buttons view to buttons container layout.
+                buttonContainer.addView(speedButton);
+
+                // Add "Normal" label for 1.0x speed.
+                if (speed == 1.0f) {
+                    TextView normalLabel = new TextView(context);
+                    // Use same 'Normal' string as stock YouTube.
+                    normalLabel.setText(str("normal_playback_rate_label"));
+                    normalLabel.setTextColor(Utils.getAppForegroundColor());
+                    normalLabel.setTextSize(10);
+                    normalLabel.setGravity(Gravity.CENTER);
+
+                    FrameLayout.LayoutParams labelParams = new FrameLayout.LayoutParams(
+                            FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT,
+                            Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
+                    labelParams.bottomMargin = 0; // Position label below button.
+                    normalLabel.setLayoutParams(labelParams);
+
+                    buttonContainer.addView(normalLabel);
+                }
+
+                speedButton.setOnClickListener(v -> userSelectedSpeed.apply(speed));
+
+                gridLayout.addView(buttonContainer);
             }
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
+            // Restore 2 digit minimum.
+            speedFormatter.setMinimumFractionDigits(2);
 
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
-        });
+            // Add in-rows speed buttons layout to main layout.
+            mainLayout.addView(gridLayout);
 
-        minusButton.setOnClickListener(v -> userSelectedSpeed.apply(
-                (float) (VideoInformation.getPlaybackSpeed() - SPEED_ADJUSTMENT_CHANGE)));
-        plusButton.setOnClickListener(v -> userSelectedSpeed.apply(
-                (float) (VideoInformation.getPlaybackSpeed() + SPEED_ADJUSTMENT_CHANGE)));
+            // Create dialog.
+            SheetBottomDialog.SlideDialog dialog = SheetBottomDialog.createSlideDialog(context, mainLayout, fadeInDuration);
+            currentDialog = new WeakReference<>(dialog);
 
-        // Create GridLayout for preset speed buttons.
-        GridLayout gridLayout = new GridLayout(context);
-        gridLayout.setColumnCount(5); // 5 columns for speed buttons.
-        gridLayout.setAlignmentMode(GridLayout.ALIGN_BOUNDS);
-        gridLayout.setRowCount((int) Math.ceil(customPlaybackSpeeds.length / 5.0));
-        LinearLayout.LayoutParams gridParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        gridParams.setMargins(0, 0, 0, 0); // No margins around GridLayout.
-        gridLayout.setLayoutParams(gridParams);
+            // Create observer for PlayerType changes.
+            Function1<PlayerType, Unit> playerTypeObserver = new Function1<>() {
+                @Override
+                public Unit invoke(PlayerType type) {
+                    SheetBottomDialog.SlideDialog current = currentDialog.get();
+                    if (current == null || !current.isShowing()) {
+                        // Should never happen.
+                        PlayerType.getOnChange().removeObserver(this);
+                        Logger.printException(() -> "Removing player type listener as dialog is null or closed");
+                    } else if (type == PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE) {
+                        current.dismiss();
+                        Logger.printDebug(() -> "Playback speed dialog dismissed due to PiP mode");
+                    }
+                    return Unit.INSTANCE;
+                }
+            };
 
-        // For button use 1 digit minimum.
-        speedFormatter.setMinimumFractionDigits(1);
+            // Add observer to dismiss dialog when entering PiP mode.
+            PlayerType.getOnChange().addObserver(playerTypeObserver);
 
-        // Add buttons for each preset playback speed.
-        for (float speed : customPlaybackSpeeds) {
-            // Container for button and optional label.
-            FrameLayout buttonContainer = new FrameLayout(context);
+            // Remove observer when dialog is dismissed.
+            dialog.setOnDismissListener(d -> {
+                PlayerType.getOnChange().removeObserver(playerTypeObserver);
+                Logger.printDebug(() -> "PlayerType observer removed on dialog dismiss");
+            });
 
-            // Set layout parameters for each grid cell.
-            GridLayout.LayoutParams containerParams = new GridLayout.LayoutParams();
-            containerParams.width = 0; // Equal width for columns.
-            containerParams.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1f);
-            containerParams.setMargins(dip5, 0, dip5, 0); // Button margins.
-            containerParams.height = dip60; // Fixed height for button and label.
-            buttonContainer.setLayoutParams(containerParams);
+            dialog.show(); // Show the dialog.
 
-            // Create speed button.
-            Button speedButton = new Button(context, null, 0);
-            speedButton.setText(speedFormatter.format(speed));
-            speedButton.setTextColor(Utils.getAppForegroundColor());
-            speedButton.setTextSize(12);
-            speedButton.setAllCaps(false);
-            speedButton.setGravity(Gravity.CENTER);
-
-            ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(
-                    Utils.createCornerRadii(20), null, null));
-            buttonBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
-            speedButton.setBackground(buttonBackground);
-            speedButton.setPadding(dip5, dip5, dip5, dip5);
-
-            // Center button vertically and stretch horizontally in container.
-            FrameLayout.LayoutParams buttonParams = new FrameLayout.LayoutParams(
-                    FrameLayout.LayoutParams.MATCH_PARENT, dip32, Gravity.CENTER);
-            speedButton.setLayoutParams(buttonParams);
-
-            // Add speed buttons view to buttons container layout.
-            buttonContainer.addView(speedButton);
-
-            // Add "Normal" label for 1.0x speed.
-            if (speed == 1.0f) {
-                TextView normalLabel = new TextView(context);
-                // Use same 'Normal' string as stock YouTube.
-                normalLabel.setText(str("normal_playback_rate_label"));
-                normalLabel.setTextColor(Utils.getAppForegroundColor());
-                normalLabel.setTextSize(10);
-                normalLabel.setGravity(Gravity.CENTER);
-
-                FrameLayout.LayoutParams labelParams = new FrameLayout.LayoutParams(
-                        FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT,
-                        Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
-                labelParams.bottomMargin = 0; // Position label below button.
-                normalLabel.setLayoutParams(labelParams);
-
-                buttonContainer.addView(normalLabel);
-            }
-
-            speedButton.setOnClickListener(v -> userSelectedSpeed.apply(speed));
-
-            gridLayout.addView(buttonContainer);
+        } catch (Exception ex) {
+            Logger.printException(() -> "showModernCustomPlaybackSpeedDialog failure", ex);
         }
+    }
 
-        // Restore 2 digit minimum.
-        speedFormatter.setMinimumFractionDigits(2);
-
-        // Add in-rows speed buttons layout to main layout.
-        mainLayout.addView(gridLayout);
-
-        // Wrap mainLayout in another LinearLayout for side margins.
-        LinearLayout wrapperLayout = new LinearLayout(context);
-        wrapperLayout.setOrientation(LinearLayout.VERTICAL);
-        wrapperLayout.setPadding(dip8, 0, dip8, 0); // 8dp side margins.
-        wrapperLayout.addView(mainLayout);
-        dialog.setContentView(wrapperLayout);
-
-        // Configure dialog window to appear at the bottom.
-        Window window = dialog.getWindow();
-        if (window != null) {
-            WindowManager.LayoutParams params = window.getAttributes();
-            params.gravity = Gravity.BOTTOM; // Position at bottom of screen.
-            params.y = dip6; // 6dp margin from bottom.
-            // In landscape, use the smaller dimension (height) as portrait width.
-            int portraitWidth = context.getResources().getDisplayMetrics().widthPixels;
-            if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                portraitWidth = Math.min(
-                        portraitWidth,
-                        context.getResources().getDisplayMetrics().heightPixels);
-            }
-            params.width = portraitWidth; // Use portrait width.
-            params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-            window.setAttributes(params);
-            window.setBackgroundDrawable(null); // Remove default dialog background.
-        }
-
-        // Apply slide-in animation when showing the dialog.
-        final int fadeDurationFast = Utils.getResourceInteger("fade_duration_fast");
-        Animation slideInABottomAnimation = Utils.getResourceAnimation("slide_in_bottom");
-        slideInABottomAnimation.setDuration(fadeDurationFast);
-        mainLayout.startAnimation(slideInABottomAnimation);
-
-        // Set touch listener on mainLayout to enable drag-to-dismiss.
-        //noinspection ClickableViewAccessibility
-        mainLayout.setOnTouchListener(new View.OnTouchListener() {
-            /** Threshold for dismissing the dialog. */
-            final float dismissThreshold = dipToPixels(100); // Distance to drag to dismiss.
-            /** Store initial Y position of touch. */
-            float touchY;
-            /** Track current translation. */
-            float translationY;
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        // Capture initial Y position of touch.
-                        touchY = event.getRawY();
-                        translationY = mainLayout.getTranslationY();
-                        return true;
-                    case MotionEvent.ACTION_MOVE:
-                        // Calculate drag distance and apply translation downwards only.
-                        final float deltaY = event.getRawY() - touchY;
-                        // Only allow downward drag (positive deltaY).
-                        if (deltaY >= 0) {
-                            mainLayout.setTranslationY(translationY + deltaY);
-                        }
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                    case MotionEvent.ACTION_CANCEL:
-                        // Check if dialog should be dismissed based on drag distance.
-                        if (mainLayout.getTranslationY() > dismissThreshold) {
-                            // Animate dialog off-screen and dismiss.
-                            //noinspection ExtractMethodRecommender
-                            final float remainingDistance = context.getResources().getDisplayMetrics().heightPixels
-                                    - mainLayout.getTop();
-                            TranslateAnimation slideOut = new TranslateAnimation(
-                                    0, 0, mainLayout.getTranslationY(), remainingDistance);
-                            slideOut.setDuration(fadeDurationFast);
-                            slideOut.setAnimationListener(new Animation.AnimationListener() {
-                                @Override
-                                public void onAnimationStart(Animation animation) {}
-
-                                @Override
-                                public void onAnimationEnd(Animation animation) {
-                                    dialog.dismiss();
-                                }
-
-                                @Override
-                                public void onAnimationRepeat(Animation animation) {}
-                            });
-                            mainLayout.startAnimation(slideOut);
-                        } else {
-                            // Animate back to original position if not dragged far enough.
-                            TranslateAnimation slideBack = new TranslateAnimation(
-                                    0, 0, mainLayout.getTranslationY(), 0);
-                            slideBack.setDuration(fadeDurationFast);
-                            mainLayout.startAnimation(slideBack);
-                            mainLayout.setTranslationY(0);
-                        }
-                        return true;
-                    default:
-                        return false;
-                }
-            }
-        });
-
-        // Create observer for PlayerType changes.
-        Function1<PlayerType, Unit> playerTypeObserver = new Function1<>() {
-            @Override
-            public Unit invoke(PlayerType type) {
-                Dialog current = currentDialog.get();
-                if (current == null || !current.isShowing()) {
-                    // Should never happen.
-                    PlayerType.getOnChange().removeObserver(this);
-                    Logger.printException(() -> "Removing player type listener as dialog is null or closed");
-                } else if (type == PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE) {
-                    current.dismiss();
-                    Logger.printDebug(() -> "Playback speed dialog dismissed due to PiP mode");
-                }
-                return Unit.INSTANCE;
-            }
-        };
-
-        // Add observer to dismiss dialog when entering PiP mode.
-        PlayerType.getOnChange().addObserver(playerTypeObserver);
-
-        // Remove observer when dialog is dismissed.
-        dialog.setOnDismissListener(d -> {
-            PlayerType.getOnChange().removeObserver(playerTypeObserver);
-            Logger.printDebug(() -> "PlayerType observer removed on dialog dismiss");
-        });
-
-        dialog.show(); // Display the dialog.
+    /**
+     * Creates a styled button with a plus or minus symbol.
+     *
+     * @param context The Android context used to create the button.
+     * @param isPlus  True to display a plus symbol, false to display a minus symbol.
+     * @param marginStart The start margin in pixels (left for LTR, right for RTL).
+     * @param marginEnd The end margin in pixels (right for LTR, left for RTL).
+     * @return A configured {@link Button} with the specified styling and layout parameters.
+     */
+    private static Button createStyledButton(Context context, boolean isPlus, int marginStart, int marginEnd) {
+        Button button = new Button(context, null, 0); // Disable default theme style.
+        button.setText(""); // No text on button.
+        ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
+                Utils.createCornerRadii(20), null, null));
+        background.getPaint().setColor(getAdjustedBackgroundColor(false));
+        button.setBackground(background);
+        button.setForeground(new OutlineSymbolDrawable(isPlus)); // Plus or minus symbol.
+        final int dip36 = dipToPixels(36);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(dip36, dip36);
+        params.setMargins(marginStart, 0, marginEnd, 0); // Set margins.
+        button.setLayoutParams(params);
+        return button;
     }
 
     /**
@@ -674,10 +536,9 @@ public class CustomPlaybackSpeedPatch {
      *         for light themes to ensure visual contrast.
      */
     public static int getAdjustedBackgroundColor(boolean isHandleBar) {
-        final int baseColor = Utils.getDialogBackgroundColor();
         final float darkThemeFactor = isHandleBar ? 1.25f : 1.115f; // 1.25f for handleBar, 1.115f for others in dark theme.
         final float lightThemeFactor = isHandleBar ? 0.9f : 0.95f; // 0.9f for handleBar, 0.95f for others in light theme.
-        return Utils.adjustColorBrightness(baseColor, lightThemeFactor, darkThemeFactor);
+        return Utils.adjustColorBrightness(getDialogBackgroundColor(), lightThemeFactor, darkThemeFactor);
     }
 }
 

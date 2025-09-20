@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
+@SuppressWarnings({"deprecation", "unused"})
 public class CustomPreferenceCategory extends PreferenceCategory {
     public CustomPreferenceCategory(Context context, AttributeSet attrs) {
         super(context, attrs);

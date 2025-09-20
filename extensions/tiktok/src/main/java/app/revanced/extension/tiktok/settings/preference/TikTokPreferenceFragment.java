@@ -14,7 +14,7 @@ import app.revanced.extension.tiktok.settings.preference.categories.SimSpoofPref
  * Preference fragment for ReVanced settings
  */
 @SuppressWarnings("deprecation")
-public class ReVancedPreferenceFragment extends AbstractPreferenceFragment {
+public class TikTokPreferenceFragment extends AbstractPreferenceFragment {
 
     @Override
     protected void syncSettingWithPreference(@NonNull Preference pref,
