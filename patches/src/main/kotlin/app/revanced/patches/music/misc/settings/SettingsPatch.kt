@@ -27,7 +27,6 @@ private const val GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
 
 private val preferences = mutableSetOf<BasePreference>()
 
-
 private val settingsResourcePatch = resourcePatch {
     dependsOn(
         resourceMappingPatch,

@@ -1,11 +1,10 @@
 package app.revanced.patches.youtube.misc.debugging
 
 import app.revanced.patches.all.misc.resources.addResources
-import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.shared.misc.debugging.enableDebuggingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
 @Suppress("unused")
@@ -14,7 +13,6 @@ val enableDebuggingPatch = enableDebuggingPatch(
         dependsOn(
             sharedExtensionPatch,
             settingsPatch,
-            addResourcesPatch
         )
 
         compatibleWith(

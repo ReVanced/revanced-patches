@@ -6,6 +6,7 @@ import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
+import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
@@ -35,6 +36,8 @@ internal fun enableDebuggingPatch(
     description = "Adds options for debugging and exporting ReVanced logs to the clipboard.",
 ) {
 
+    dependsOn(addResourcesPatch)
+
     block()
 
     execute {
@@ -44,20 +47,26 @@ internal fun enableDebuggingPatch(
 
         val preferences = mutableSetOf<BasePreference>(
             SwitchPreference("revanced_debug"),
-            SwitchPreference("revanced_debug_stacktrace"),
-            SwitchPreference("revanced_debug_toast_on_error"),
-            NonInteractivePreference(
-                "revanced_debug_export_logs_to_clipboard",
-                tag = "app.revanced.extension.shared.settings.preference.ExportLogToClipboardPreference",
-                selectable = true
-            ),
-            NonInteractivePreference(
-                "revanced_debug_logs_clear_buffer",
-                tag = "app.revanced.extension.shared.settings.preference.ClearLogBufferPreference",
-                selectable = true
+        )
+
+        preferences.addAll(additionalDebugPreferences)
+
+        preferences.addAll(
+            listOf(
+                SwitchPreference("revanced_debug_stacktrace"),
+                SwitchPreference("revanced_debug_toast_on_error"),
+                NonInteractivePreference(
+                    "revanced_debug_export_logs_to_clipboard",
+                    tag = "app.revanced.extension.shared.settings.preference.ExportLogToClipboardPreference",
+                    selectable = true
+                ),
+                NonInteractivePreference(
+                    "revanced_debug_logs_clear_buffer",
+                    tag = "app.revanced.extension.shared.settings.preference.ClearLogBufferPreference",
+                    selectable = true
+                )
             )
         )
-        preferences.addAll(additionalDebugPreferences)
 
         preferenceScreen.addPreferences(
             PreferenceScreenPreference(
