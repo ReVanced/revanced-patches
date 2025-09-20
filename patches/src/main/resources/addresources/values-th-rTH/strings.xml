@@ -107,6 +107,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_title">การบันทึกการแก้ไขข้อบกพร่อง</string>
   <string name="revanced_debug_summary_on">การบันทึกการแก้ไขข้อบกพร่องถูกเปิดใช้งาน</string>
   <string name="revanced_debug_summary_off">การบันทึกการแก้ไขข้อบกพร่องถูกปิดใช้งาน</string>
+  <string name="revanced_debug_stacktrace_title">บันทึกการติดตามสแต็ก</string>
+  <string name="revanced_debug_stacktrace_summary_on">การบันทึกการแก้ไขข้อบกพร่องรวมถึงการติดตามสแต็ก</string>
+  <string name="revanced_debug_stacktrace_summary_off">การบันทึกการแก้ไขข้อบกพร่องไม่รวมการติดตามสแต็ก</string>
+  <string name="revanced_debug_toast_on_error_title">แสดง  toast  เมื่อเกิดข้อผิดพลาดของ ReVanced</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Toast จะปรากฏขึ้นหากเกิดข้อผิดพลาด</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Toast จะไม่ปรากฏขึ้นหากเกิดข้อผิดพลาด</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"การปิดการแจ้งเตือนข้อผิดพลาดจะซ่อนการแจ้งเตือนข้อผิดพลาดของ ReVanced ทั้งหมด
+
+คุณจะไม่ได้รับแจ้งเกี่ยวกับเหตุการณ์ที่ไม่คาดคิดใดๆ"</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">ส่งออกบันทึกการแก้ไขข้อบกพร่อง</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">คัดลอกบันทึกการแก้ไขข้อบกพร่องของ ReVanced ไปยังคลิปบอร์ด</string>
   <string name="revanced_debug_logs_disabled">ปิดใช้งานการบันทึกการแก้ไขข้อบกพร่อง</string>
@@ -151,15 +160,6 @@ Second \"item\" text"</string>
 ซึ่งจะช่วยระบุส่วนประกอบเมื่อสร้างตัวกรองที่กำหนดเองได้
 
 อย่างไรก็ตาม การเปิดใช้งานนี้จะบันทึกข้อมูลผู้ใช้บางอย่าง เช่น ที่อยู่ IP ของคุณด้วย"</string>
-  <string name="revanced_debug_stacktrace_title">บันทึกการติดตามสแต็ก</string>
-  <string name="revanced_debug_stacktrace_summary_on">การบันทึกการแก้ไขข้อบกพร่องรวมถึงการติดตามสแต็ก</string>
-  <string name="revanced_debug_stacktrace_summary_off">การบันทึกการแก้ไขข้อบกพร่องไม่รวมการติดตามสแต็ก</string>
-  <string name="revanced_debug_toast_on_error_title">แสดง  toast  เมื่อเกิดข้อผิดพลาดของ ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Toast จะปรากฏขึ้นหากเกิดข้อผิดพลาด</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Toast จะไม่ปรากฏขึ้นหากเกิดข้อผิดพลาด</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"การปิดการแจ้งเตือนข้อผิดพลาดจะซ่อนการแจ้งเตือนข้อผิดพลาดของ ReVanced ทั้งหมด
-
-คุณจะไม่ได้รับแจ้งเกี่ยวกับเหตุการณ์ที่ไม่คาดคิดใดๆ"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">ซ่อนการ์ดอัลบั้ม</string>
@@ -584,6 +584,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_stop_ads_button_title">ซ่อนหยุดโฆษณา</string>
   <string name="revanced_hide_stop_ads_button_summary_on">ปุ่มหยุดโฆษณาถูกซ่อน</string>
   <string name="revanced_hide_stop_ads_button_summary_off">ปุ่มหยุดโฆษณาถูกแสดง</string>
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+  <string name="revanced_hide_comments_button_title">ซ่อนความคิดเห็น</string>
+  <string name="revanced_hide_comments_button_summary_on">ปุ่มความคิดเห็นถูกซ่อน</string>
+  <string name="revanced_hide_comments_button_summary_off">ปุ่มความคิดเห็นแสดงอยู่</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">ซ่อนรายงาน</string>
@@ -1241,8 +1245,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
 
 ถ้าปิดในภายหลัง ขอแนะนําให้ล้างข้อมูลแอปเพื่อป้องกันข้อผิดพลาดของ UI"</string>
   <string name="revanced_spoof_app_version_target_title">เป้าหมายการปลอมแปลงเวอร์ชันแอป</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - คืนค่าไอคอนเครื่องเล่น Shorts เก่า</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - กู้คืนไอคอนการนำทางแบบเก่า</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - กู้คืนแถบการทำงานของวิดีโอที่ไม่ได้ยุบ</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - คืนค่าไอคอนเครื่องเล่น Shorts เก่า</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - กู้คืนไอคอนการนำทางแบบเก่า</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">เปลี่ยนหน้าเริ่มต้น</string>

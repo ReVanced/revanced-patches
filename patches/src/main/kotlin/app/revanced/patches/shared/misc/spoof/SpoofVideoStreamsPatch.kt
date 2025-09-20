@@ -16,20 +16,17 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.insertLiteralOverride
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
-import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
@@ -336,13 +333,4 @@ fun spoofVideoStreamsPatch(
 
         executeBlock()
     }
-}
-
-internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) = method.indexOfFirstInstruction {
-    opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>().toString() ==
-        "Lorg/chromium/net/CronetEngine;" +
-            "->newUrlRequestBuilder(" +
-                "Ljava/lang/String;Lorg/chromium/net/UrlRequest${'$'}Callback;" +
-                "Ljava/util/concurrent/Executor;" +
-            ")Lorg/chromium/net/UrlRequest${'$'}Builder;"
 }

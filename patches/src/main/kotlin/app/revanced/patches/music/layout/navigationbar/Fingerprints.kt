@@ -1,11 +1,11 @@
 package app.revanced.patches.music.layout.navigationbar
 
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
+import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
-import app.revanced.util.literal
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -23,9 +23,9 @@ internal val tabLayoutTextFingerprint = fingerprint {
         Opcode.MOVE_RESULT
     )
     strings("FEmusic_search")
-    literal { text1 }
     custom { method, _ ->
-        indexOfGetVisibilityInstruction(method) >= 0
+        method.containsLiteralInstruction(text1)
+                && indexOfGetVisibilityInstruction(method) >= 0
     }
 }
 

@@ -1,3 +1,31 @@
+# [5.40.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.8...v5.40.0-dev.9) (2025-09-20)
+
+
+### Features
+
+* **YouTube Music:** Support version `8.10.52` ([#5941](https://github.com/ReVanced/revanced-patches/issues/5941)) ([01c0f1b](https://github.com/ReVanced/revanced-patches/commit/01c0f1bd1ac6edb8aea758f88ffffcdea74a29b7))
+
+# [5.40.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.7...v5.40.0-dev.8) (2025-09-20)
+
+
+### Features
+
+* **YouTube:** Support version `20.14.43` ([#5940](https://github.com/ReVanced/revanced-patches/issues/5940)) ([f7f4a1b](https://github.com/ReVanced/revanced-patches/commit/f7f4a1b0f0186598266b41a2c6a781fdee49e440))
+
+# [5.40.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.6...v5.40.0-dev.7) (2025-09-20)
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add "Hide comments" button ([db796fb](https://github.com/ReVanced/revanced-patches/commit/db796fb8830b813e1ed626d491c4a797171e69e7))
+
+# [5.40.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.5...v5.40.0-dev.6) (2025-09-20)
+
+
+### Features
+
+* **YouTube Music:** Add `Enable debugging` patch ([#5939](https://github.com/ReVanced/revanced-patches/issues/5939)) ([418f594](https://github.com/ReVanced/revanced-patches/commit/418f5945c213313f9a77cac9a5c326d89c754dfd))
+
 # [5.40.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.4...v5.40.0-dev.5) (2025-09-20)
 
 
