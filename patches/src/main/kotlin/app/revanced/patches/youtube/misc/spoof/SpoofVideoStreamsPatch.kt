@@ -24,9 +24,9 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
             "com.google.android.youtube"(
                 "19.34.42",
                 "19.43.41",
-                    "20.07.39",
-                    "20.13.41",
-            "20.14.43",
+                "20.07.39",
+                "20.13.41",
+                "20.14.43",
             )
         )
 
