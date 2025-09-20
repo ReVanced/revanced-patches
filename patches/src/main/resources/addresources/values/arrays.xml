@@ -180,10 +180,18 @@
                 <item>19.35.36</item>
                 <item>19.01.34</item>
             </string-array>
-            <string-array name="revanced_spoof_app_version_target_legacy_entries">
+            <string-array name="revanced_spoof_app_version_target_legacy_20_13_entries">
+                <item>@string/revanced_spoof_app_version_target_entry_2</item>
+                <item>@string/revanced_spoof_app_version_target_entry_3</item>
+            </string-array>
+            <string-array name="revanced_spoof_app_version_target_legacy_20_13_entry_values">
+                <item>19.35.36</item>
                 <item>19.01.34</item>
             </string-array>
-            <string-array name="revanced_spoof_app_version_target_legacy_entry_values">
+            <string-array name="revanced_spoof_app_version_target_legacy_19_34_entries">
+                <item>19.01.34</item>
+            </string-array>
+            <string-array name="revanced_spoof_app_version_target_legacy_19_34_entry_values">
                 <item>19.01.34</item>
             </string-array>
         </patch>
