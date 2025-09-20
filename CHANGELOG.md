@@ -1,3 +1,10 @@
+# [5.40.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.6...v5.40.0-dev.7) (2025-09-20)
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add "Hide comments" button ([db796fb](https://github.com/ReVanced/revanced-patches/commit/db796fb8830b813e1ed626d491c4a797171e69e7))
+
 # [5.40.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.5...v5.40.0-dev.6) (2025-09-20)
 
 
