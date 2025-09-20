@@ -5,23 +5,28 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.insertLiteralOverride
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
@@ -29,6 +34,9 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/shared/spoof/SpoofVideoStreamsPatch;"
+
+private lateinit var buildRequestMethod: MutableMethod
+private var buildRequestMethodUrlRegister = -1
 
 fun spoofVideoStreamsPatch(
     block: BytecodePatchBuilder.() -> Unit = {},
@@ -94,17 +102,18 @@ fun spoofVideoStreamsPatch(
 
         // region Get replacement streams at player requests.
 
-        buildRequestFingerprint.let {
-            it.method.apply {
-                val builderIndex = it.instructionMatches.first().index
-                val urlRegister = getInstruction<FiveRegisterInstruction>(builderIndex).registerD
-                val freeRegister = findFreeRegister(builderIndex, urlRegister)
+        buildRequestFingerprint.method.apply {
+            buildRequestMethod = this
+
+            val newRequestBuilderIndex = it.instructionMatches.first().index
+            buildRequestMethodUrlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
+            val freeRegister = findFreeRegister(newRequestBuilderIndex, buildRequestMethodUrlRegister)
 
                 addInstructions(
                     builderIndex,
                     """
                         move-object v$freeRegister, p1
-                        invoke-static { v$urlRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
+                        invoke-static { v$buildRequestMethodUrlRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
                     """
                 )
             }
@@ -190,6 +199,21 @@ fun spoofVideoStreamsPatch(
 
         // endregion
 
+        // region block getAtt request
+
+        buildRequestMethod.apply {
+            val insertIndex = indexOfNewUrlRequestBuilderInstruction(this)
+
+            addInstructions(
+                insertIndex, """
+                    invoke-static { v$buildRequestMethodUrlRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetAttRequest(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$buildRequestMethodUrlRegister
+                """
+            )
+        }
+
+        // endregion
+
         // region Remove /videoplayback request body to fix playback.
         // It is assumed, YouTube makes a request with a body tuned for Android.
         // Requesting streams intended for other platforms with a body tuned for Android could be the cause of 400 errors.
@@ -248,6 +272,50 @@ fun spoofVideoStreamsPatch(
 
         // endregion
 
+        // region Disable SABR playback.
+        // If SABR is disabled, it seems 'MediaFetchHotConfig' may no longer need an override (not confirmed).
+
+        val (mediaFetchEnumClass, sabrFieldReference) = with(mediaFetchEnumConstructorFingerprint.method) {
+            val stringIndex = mediaFetchEnumConstructorFingerprint.stringMatches!!.first {
+                it.string == DISABLED_BY_SABR_STREAMING_URI_STRING
+            }.index
+
+            val mediaFetchEnumClass = definingClass
+            val sabrFieldIndex = indexOfFirstInstructionOrThrow(stringIndex) {
+                opcode == Opcode.SPUT_OBJECT &&
+                        getReference<FieldReference>()?.type == mediaFetchEnumClass
+            }
+
+            Pair(
+                mediaFetchEnumClass,
+                getInstruction<ReferenceInstruction>(sabrFieldIndex).reference
+            )
+        }
+
+        fingerprint {
+            returns(mediaFetchEnumClass)
+            opcodes(
+                Opcode.SGET_OBJECT,
+                Opcode.RETURN_OBJECT,
+            )
+            custom { method, _ ->
+                !method.parameterTypes.isEmpty()
+            }
+        }.method.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disableSABR()Z
+                move-result v0
+                if-eqz v0, :ignore
+                sget-object v0, $sabrFieldReference
+                return-object v0
+                :ignore
+                nop
+            """
+        )
+
+        // endregion
+
         // region turn off stream config replacement feature flag.
 
         if (fixMediaFetchHotConfigChanges()) {
@@ -281,4 +349,13 @@ fun spoofVideoStreamsPatch(
 
         executeBlock()
     }
+}
+
+internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) = method.indexOfFirstInstruction {
+    opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>().toString() ==
+        "Lorg/chromium/net/CronetEngine;" +
+            "->newUrlRequestBuilder(" +
+                "Ljava/lang/String;Lorg/chromium/net/UrlRequest${'$'}Callback;" +
+                "Ljava/util/concurrent/Executor;" +
+            ")Lorg/chromium/net/UrlRequest${'$'}Builder;"
 }

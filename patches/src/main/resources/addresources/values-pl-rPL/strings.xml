@@ -1581,10 +1581,45 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Stałe powtarzanie jest włączone</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Stałe powtarzanie jest wyłączone</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Ukryj przycisk Cast</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Przycisk Cast jest ukryty</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Przycisk Cast jest widoczny</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Ukryj pasek kategorii</string>
   <string name="revanced_music_hide_category_bar_summary_on">Pasek kategorii jest ukryty</string>
   <string name="revanced_music_hide_category_bar_summary_off">Pasek kategorii jest widoczny</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Pasek nawigacji</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Ukryj lub zmień przyciski paska nawigacji</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Ukryj przycisk Główna</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Przycisk Główna jest ukryty</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Przycisk Główna jest pokazany</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Ukryj przycisk Wycinki</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Przycisk Wycinki jest ukryty</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Przycisk Wycinki jest pokazany</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Ukryj przycisk Przeglądaj</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Przycisk Przeglądaj jest ukryty</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Przycisk Przeglądaj jest pokazany</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Ukryj przycisk Biblioteka</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Przycisk Biblioteka jest ukryty</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Przycisk Biblioteka jest pokazany</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Ukryj przycisk Ulepsz</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Przycisk Ulepsz jest ukryty</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Przycisk Ulepsz jest pokazany</string>
+  <string name="revanced_music_hide_navigation_bar_title">Ukryj pasek nawigacji</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Pasek nawigacji jest ukryty</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Pasek nawigacji jest pokazany</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Ukryj etykiety przycisków nawigacji</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Etykiety są ukryte</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Etykiety są pokazane</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Ukryj etykietę „Uzyskaj Music Premium”</string>

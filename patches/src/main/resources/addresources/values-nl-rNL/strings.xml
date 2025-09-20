@@ -1583,10 +1583,45 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Permanent herhalen is ingeschakeld</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Permanent herhalen is uitgeschakeld</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Cast-knop verbergen</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Cast-knop is verborgen</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Cast-knop is weergegeven</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Categoriebalk verbergen</string>
   <string name="revanced_music_hide_category_bar_summary_on">Categoriebalk is verborgen</string>
   <string name="revanced_music_hide_category_bar_summary_off">Categoriebalk wordt weergegeven</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Navigatiebalk</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Navigatiebalkknoppen verbergen of wijzigen</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Startknop verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Startknop is verborgen</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Startknop wordt weergegeven</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Knop Voorbeelden verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Knop Voorbeelden is verborgen</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Knop Voorbeelden wordt weergegeven</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Knop Ontdekken verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Knop Ontdekken is verborgen</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Knop Ontdekken wordt weergegeven</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Knop Bibliotheek verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Knop Bibliotheek is verborgen</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Knop Bibliotheek wordt weergegeven</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Upgrade-knop verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Upgrade-knop is verborgen</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Upgrade-knop wordt weergegeven</string>
+  <string name="revanced_music_hide_navigation_bar_title">Navigatiebalk verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Navigatiebalk is verborgen</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Navigatiebalk wordt weergegeven</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Labels van navigatieknoppen verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Labels zijn verborgen</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Labels worden weergegeven</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">\'Muziek Premium krijgen\' label verbergen</string>

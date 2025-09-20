@@ -1484,7 +1484,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_force_original_audio_summary_on">원본 오디오 스트림 언어를 사용 중입니다</string>
   <string name="revanced_force_original_audio_summary_off">기본 오디오 스트림 언어를 사용 중입니다</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 변경하기\'를 Android Studio를 제외한 다른 클라이언트로 변경하세요.</string>
+  <string name="revanced_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 변경하기\'에서 기본 클라이언트를 Android Studio를 제외한 다른 클라이언트로 변경하세요</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
@@ -1592,10 +1592,45 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">영구적인 반복을 활성화합니다</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">영구적인 반복을 비활성화합니다</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">크롬캐스트 버튼 숨기기</string>
+  <string name="revanced_music_hide_cast_button_summary_on">크롬캐스트 버튼이 숨겨집니다</string>
+  <string name="revanced_music_hide_cast_button_summary_off">크롬캐스트 버튼이 표시됩니다</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">카테고리 바 숨기기</string>
   <string name="revanced_music_hide_category_bar_summary_on">카테고리 바가 숨겨집니다</string>
   <string name="revanced_music_hide_category_bar_summary_off">카테고리 바가 표시됩니다</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">하단바</string>
+  <string name="revanced_music_navigation_bar_screen_summary">하단바에서 버튼을 숨기거나 변경할 수 있습니다</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">홈 버튼 숨기기</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">홈 버튼이 숨겨집니다</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">홈 버튼이 표시됩니다</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">샘플 버튼 숨기기</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">샘플 버튼이 숨겨집니다</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">샘플 버튼이 표시됩니다</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">둘러보기 버튼 숨기기</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">둘러보기 버튼이 숨겨집니다</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">둘러보기 버튼이 표시됩니다</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">보관함 버튼 숨기기</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">보관함 버튼이 숨겨집니다</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">보관함 버튼이 표시됩니다</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">업그레이드 버튼 숨기기</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">업그레이드 버튼이 숨겨집니다</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">업그레이드 버튼이 표시됩니다</string>
+  <string name="revanced_music_hide_navigation_bar_title">하단바 숨기기</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">하단바가 숨겨집니다</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">하단바가 표시됩니다</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">하단바 버튼 라벨 숨기기</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">라벨이 숨겨집니다</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">라벨이 표시됩니다</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Music Premium 가입 라벨 숨기기</string>

@@ -1,14 +1,11 @@
 package app.revanced.patches.shared.misc.spoof
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val buildInitPlaybackRequestFingerprint by fingerprint {
     returns("Lorg/chromium/net/UrlRequest\$Builder;")
@@ -45,6 +42,10 @@ internal val buildRequestFingerprint by fingerprint {
         methodCall(name = "newUrlRequestBuilder")
     ) // UrlRequest; or UrlRequest$Builder;
     custom { methodDef, _ ->
+        if (indexOfNewUrlRequestBuilderInstruction(methodDef) < 0) {
+            return@custom false
+        }
+
         // Different targets have slightly different parameters
 
         // Earlier targets have parameters:
@@ -133,6 +134,17 @@ internal val hlsCurrentTimeFingerprint by fingerprint {
     parameters("Z", "L")
     instructions(
         literal(45355374L) // HLS current time feature flag.
+    )
+}
+
+internal const val DISABLED_BY_SABR_STREAMING_URI_STRING = "DISABLED_BY_SABR_STREAMING_URI"
+
+internal val mediaFetchEnumConstructorFingerprint = fingerprint {
+    returns("V")
+    strings(
+        "ENABLED",
+        "DISABLED_FOR_PLAYBACK",
+        DISABLED_BY_SABR_STREAMING_URI_STRING
     )
 }
 

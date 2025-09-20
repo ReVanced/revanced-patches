@@ -21,9 +21,9 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideUpgradeButtonPatch;"
 
+@Deprecated("This patch will be removed in the future.")
 @Suppress("unused")
 val hideUpgradeButton = bytecodePatch(
-    name = "Hide upgrade button",
     description = "Hides the upgrade tab from the pivot bar.",
 ) {
     dependsOn(
