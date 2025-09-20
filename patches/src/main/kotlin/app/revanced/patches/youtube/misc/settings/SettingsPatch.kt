@@ -232,7 +232,8 @@ val settingsPatch = bytecodePatch(
         modifyActivityForSettingsInjection(
             licenseActivityOnCreateFingerprint.classDef,
             licenseActivityOnCreateFingerprint.method,
-            YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR
+            YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR,
+            "onBackPressed"
         )
     }
 
@@ -247,7 +248,8 @@ val settingsPatch = bytecodePatch(
 internal fun modifyActivityForSettingsInjection(
     activityOnCreateClass: MutableClass,
     activityOnCreateMethod: MutableMethod,
-    extensionClassType: String
+    extensionClassType: String,
+    activityBackFinishedMethodName: String
 ) {
     // Modify Activity and remove all existing layout code.
     // Must modify an existing activity and cannot add a new activity to the manifest,
@@ -289,7 +291,7 @@ internal fun modifyActivityForSettingsInjection(
     // Add onBackPressed method to handle back button presses.
     ImmutableMethod(
         activityOnCreateClass.type,
-        "onBackPressed",
+        activityBackFinishedMethodName,
         emptyList(),
         "V",
         AccessFlags.PUBLIC.value,
