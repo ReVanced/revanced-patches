@@ -9,10 +9,12 @@ import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.shared.misc.settings.preference.TextPreference
 import app.revanced.patches.shared.misc.settings.settingsPatch
 import app.revanced.patches.youtube.misc.settings.modifyActivityForSettingsInjection
 import app.revanced.util.copyXmlNode
@@ -87,6 +89,16 @@ val settingsPatch = bytecodePatch(
 
         PreferenceScreen.GENERAL.addPreferences(
             SwitchPreference("revanced_settings_search_history")
+        )
+
+        PreferenceScreen.MISC.addPreferences(
+            TextPreference(
+                key = null,
+                titleKey = "revanced_pref_import_export_title",
+                summaryKey = "revanced_pref_import_export_summary",
+                inputType = InputType.TEXT_MULTI_LINE,
+                tag = "app.revanced.extension.shared.settings.preference.ImportExportPreference",
+            )
         )
 
         modifyActivityForSettingsInjection(
