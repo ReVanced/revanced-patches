@@ -17,6 +17,7 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_43_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_14_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -60,10 +61,9 @@ val spoofAppVersionPatch = bytecodePatch(
         "com.google.android.youtube"(
             "19.34.42",
             "19.43.41",
-            "19.47.53",
             "20.07.39",
-            "20.12.46",
             "20.13.41",
+            "20.14.43",
         )
     )
 
@@ -79,17 +79,21 @@ val spoofAppVersionPatch = bytecodePatch(
                 tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
                 preferences = setOf(
                     SwitchPreference("revanced_spoof_app_version"),
-                    if (is_19_43_or_greater) {
+                    if (is_20_14_or_greater) {
+                        ListPreference("revanced_spoof_app_version_target")
+                    } else if (is_19_43_or_greater) {
                         ListPreference(
                             key = "revanced_spoof_app_version_target",
-                            summaryKey = null
+                            summaryKey = null,
+                            entriesKey = "revanced_spoof_app_version_target_legacy_20_13_entries",
+                            entryValuesKey = "revanced_spoof_app_version_target_legacy_20_13_entry_values"
                         )
                     } else {
                         ListPreference(
                             key = "revanced_spoof_app_version_target",
                             summaryKey = null,
-                            entriesKey = "revanced_spoof_app_version_target_legacy_entries",
-                            entryValuesKey = "revanced_spoof_app_version_target_legacy_entry_values"
+                            entriesKey = "revanced_spoof_app_version_target_legacy_19_34_entries",
+                            entryValuesKey = "revanced_spoof_app_version_target_legacy_19_34_entry_values"
                         )
                     }
                 )
