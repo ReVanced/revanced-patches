@@ -1,3 +1,10 @@
+# [5.40.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.3...v5.40.0-dev.4) (2025-09-20)
+
+
+### Bug Fixes
+
+* **Spoof video streams:** Resolve occasional playback stuttering ([5c7c8b5](https://github.com/ReVanced/revanced-patches/commit/5c7c8b536416ec53cd98f7d59d11850aa1b70f11))
+
 # [5.40.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.2...v5.40.0-dev.3) (2025-09-19)
 
 
