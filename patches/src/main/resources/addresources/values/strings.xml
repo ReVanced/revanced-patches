@@ -1654,12 +1654,15 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_spoof_video_streams_about_experimental">• Experimental client and may stop working anytime</string>
             <string name="revanced_spoof_video_streams_about_no_av1">• No AV1 video codec</string>
             <string name="revanced_spoof_video_streams_about_kids_videos">• Kids videos may not play when logged out or in incognito mode</string>
+            <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+            <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Force original audio is not available</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client type is shown in Stats for nerds</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is hidden in Stats for nerds</string>
             <string name="revanced_spoof_video_streams_language_title">Audio stream language</string>
             <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
             <string name="revanced_spoof_video_streams_language_not_available">To select a specific audio language, turn off \'Force original audio language\'</string>
+            <string name="revanced_spoof_video_streams_language_android_studio">Stream language selection is not available with Android Studio</string>
         </patch>
     </app>
     <app id="music">

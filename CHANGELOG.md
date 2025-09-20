@@ -1,3 +1,10 @@
+# [5.40.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.9...v5.40.0-dev.10) (2025-09-20)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Add "Force original audio" disclaimer for Android Studio client ([f97d332](https://github.com/ReVanced/revanced-patches/commit/f97d33206b4c97244f0bd0c672c4b91eaf477b0b))
+
 # [5.40.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.8...v5.40.0-dev.9) (2025-09-20)
 
 
