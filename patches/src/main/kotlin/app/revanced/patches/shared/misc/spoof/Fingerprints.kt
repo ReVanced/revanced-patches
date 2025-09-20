@@ -1,9 +1,13 @@
 package app.revanced.patches.shared.misc.spoof
 
 import app.revanced.patcher.fingerprint
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val buildInitPlaybackRequestFingerprint = fingerprint {
     returns("Lorg/chromium/net/UrlRequest\$Builder;")
@@ -37,10 +41,6 @@ internal val buildRequestFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Lorg/chromium/net/UrlRequest") // UrlRequest; or UrlRequest$Builder;
     custom { methodDef, _ ->
-        if (indexOfNewUrlRequestBuilderInstruction(methodDef) < 0) {
-            return@custom false
-        }
-
         // Different targets have slightly different parameters
 
         // Earlier targets have parameters:
@@ -74,9 +74,9 @@ internal val buildRequestFingerprint = fingerprint {
         val parameterTypesSize = parameterTypes.size
         (parameterTypesSize == 6 || parameterTypesSize == 7 || parameterTypesSize == 8) &&
                 parameterTypes[1] == "Ljava/util/Map;" // URL headers.
+                && indexOfNewUrlRequestBuilderInstruction(methodDef) >= 0
     }
 }
-
 
 internal val protobufClassParseByteBufferFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.STATIC)
@@ -190,4 +190,14 @@ internal val playbackStartDescriptorFeatureFlagFingerprint = fingerprint {
     parameters()
     returns("Z")
     literal { PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG }
+}
+
+internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) = method.indexOfFirstInstruction {
+    val reference = getReference<MethodReference>()
+    opcode == Opcode.INVOKE_VIRTUAL && reference?.definingClass == "Lorg/chromium/net/CronetEngine;"
+            && reference.name == "newUrlRequestBuilder"
+            && reference.parameterTypes.size == 3
+            && reference.parameterTypes[0] == "Ljava/lang/String;"
+            && reference.parameterTypes[1] == "Lorg/chromium/net/UrlRequest\$Callback;"
+            && reference.parameterTypes[2] == "Ljava/util/concurrent/Executor;"
 }
