@@ -649,6 +649,10 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_hide_stop_ads_button_title">Hide Stop ads</string>
             <string name="revanced_hide_stop_ads_button_summary_on">Stop ads button is hidden</string>
             <string name="revanced_hide_stop_ads_button_summary_off">Stop ads button is shown</string>
+            <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+            <string name="revanced_hide_comments_button_title">Hide Comments</string>
+            <string name="revanced_hide_comments_button_summary_on">Comments button is hidden</string>
+            <string name="revanced_hide_comments_button_summary_off">Comments button is shown</string>
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
             <string name="revanced_hide_report_button_title">Hide Report</string>
