@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 internal val scrollPositionFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
@@ -24,30 +24,18 @@ internal val recyclerViewTopScrollingFingerprint = fingerprint {
     returns("V")
     parameters()
     opcodes(
-        Opcode.IGET_OBJECT,
-        Opcode.IF_EQZ,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_EQZ,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.CONST_4,
         Opcode.INVOKE_VIRTUAL,
         Opcode.GOTO,
         Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
+        Opcode.INVOKE_INTERFACE
     )
 }
 
 internal val recyclerViewTopScrollingParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("L", "L", "Landroid/view/ViewGroup;", "Landroid/view/ViewGroup;")
     opcodes(
-        Opcode.INVOKE_DIRECT,
         Opcode.IPUT_OBJECT,
         Opcode.IPUT_OBJECT,
         Opcode.IPUT_OBJECT,
@@ -55,5 +43,8 @@ internal val recyclerViewTopScrollingParentFingerprint = fingerprint {
         Opcode.CONST_16,
         Opcode.INVOKE_VIRTUAL,
         Opcode.NEW_INSTANCE,
+        Opcode.INVOKE_DIRECT,
+        Opcode.IPUT_OBJECT,
+        Opcode.RETURN_VOID
     )
 }

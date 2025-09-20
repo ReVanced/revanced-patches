@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 
 import java.nio.ByteBuffer;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -43,7 +44,7 @@ public class SpoofVideoStreamsPatch {
     /**
      * @return If this patch was included during patching.
      */
-    private static boolean isPatchIncluded() {
+    public static boolean isPatchIncluded() {
         return false; // Modified during patching.
     }
 
@@ -60,8 +61,9 @@ public class SpoofVideoStreamsPatch {
         languageOverride = language;
     }
 
-    public static void setPreferredClient(ClientType client) {
+    public static void setClientsToUse(List<ClientType> availableClients, ClientType client) {
         preferredClient = Objects.requireNonNull(client);
+        StreamingDataRequest.setClientOrderToUse(availableClients, client);
     }
 
     public static boolean spoofingToClientWithNoMultiAudioStreams() {
@@ -97,6 +99,35 @@ public class SpoofVideoStreamsPatch {
 
     /**
      * Injection point.
+     *
+     * Blocks /get_watch requests by returning an unreachable URI.
+     * /att/get requests are used to obtain a PoToken challenge.
+     * See: <a href="https://github.com/FreeTubeApp/FreeTube/blob/4b7208430bc1032019a35a35eb7c8a84987ddbd7/src/botGuardScript.js#L15">botGuardScript.js#L15</a>
+     * <p>
+     * Since the Spoof streaming data patch was implemented because a valid PoToken cannot be obtained,
+     * Blocking /att/get requests are not a problem.
+     */
+    public static String blockGetAttRequest(String originalUrlString) {
+        if (SPOOF_STREAMING_DATA) {
+            try {
+                var originalUri = Uri.parse(originalUrlString);
+                String path = originalUri.getPath();
+
+                if (path != null && path.contains("att/get")) {
+                    Logger.printDebug(() -> "Blocking 'att/get' by returning internet connection check uri");
+
+                    return INTERNET_CONNECTION_CHECK_URI_STRING;
+                }
+            } catch (Exception ex) {
+                Logger.printException(() -> "blockGetAttRequest failure", ex);
+            }
+        }
+
+        return originalUrlString;
+    }
+
+    /**
+     * Injection point.
      * <p>
      * Blocks /initplayback requests.
      */
@@ -128,13 +159,21 @@ public class SpoofVideoStreamsPatch {
 
     /**
      * Injection point.
-     * Only invoked when playing a livestream on an iOS client.
+     * Only invoked when playing a livestream on an Apple client.
      */
     public static boolean fixHLSCurrentTime(boolean original) {
         if (!SPOOF_STREAMING_DATA) {
             return original;
         }
         return false;
+    }
+
+    /*
+     * Injection point.
+     * Fix audio stuttering in YouTube Music.
+     */
+    public static boolean disableSABR() {
+        return SPOOF_STREAMING_DATA;
     }
 
     /**

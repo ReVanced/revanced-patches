@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches;
+package app.revanced.extension.shared.patches;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;

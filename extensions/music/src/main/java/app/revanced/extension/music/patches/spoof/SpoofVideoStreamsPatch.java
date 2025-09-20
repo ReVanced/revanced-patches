@@ -8,7 +8,6 @@ import static app.revanced.extension.shared.spoof.ClientType.VISIONOS;
 import java.util.List;
 
 import app.revanced.extension.shared.spoof.ClientType;
-import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
@@ -23,8 +22,7 @@ public class SpoofVideoStreamsPatch {
                 VISIONOS
         );
 
-        ClientType client = SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
-        app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch.setPreferredClient(client);
-        StreamingDataRequest.setClientOrderToUse(availableClients, client);
+        app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch.setClientsToUse(
+                availableClients, SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get());
     }
 }

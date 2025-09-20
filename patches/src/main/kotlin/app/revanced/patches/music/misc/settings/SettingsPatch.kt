@@ -8,12 +8,16 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.settings.preference.*
+import app.revanced.patches.shared.misc.settings.preference.BasePreference
+import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
+import app.revanced.patches.shared.misc.settings.preference.IntentPreference
+import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
-import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.settingsPatch
-import app.revanced.util.*
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
+import app.revanced.util.copyXmlNode
+import app.revanced.util.inputStreamFromBundledResource
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
@@ -22,7 +26,6 @@ private const val GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/music/settings/GoogleApiActivityHook;"
 
 private val preferences = mutableSetOf<BasePreference>()
-
 
 private val settingsResourcePatch = resourcePatch {
     dependsOn(
@@ -87,27 +90,6 @@ val settingsPatch = bytecodePatch(
         addResources("music", "misc.settings.settingsPatch")
         addResources("shared", "misc.debugging.enableDebuggingPatch")
 
-        // Should make a separate debugging patch, but for now include it with all installations.
-        PreferenceScreen.MISC.addPreferences(
-            PreferenceScreenPreference(
-                key = "revanced_debug_screen",
-                sorting = Sorting.UNSORTED,
-                preferences = setOf(
-                    SwitchPreference("revanced_debug"),
-                    NonInteractivePreference(
-                        "revanced_debug_export_logs_to_clipboard",
-                        tag = "app.revanced.extension.shared.settings.preference.ExportLogToClipboardPreference",
-                        selectable = true
-                    ),
-                    NonInteractivePreference(
-                        "revanced_debug_logs_clear_buffer",
-                        tag = "app.revanced.extension.shared.settings.preference.ClearLogBufferPreference",
-                        selectable = true
-                    )
-                )
-            )
-        )
-
         // Add an "About" preference to the top.
         preferences += NonInteractivePreference(
             key = "revanced_settings_music_screen_0_about",
@@ -154,19 +136,19 @@ fun newIntent(settingsName: String) = IntentPreference.Intent(
 
 object PreferenceScreen : BasePreferenceScreen() {
     val ADS = Screen(
-        "revanced_settings_music_screen_1_ads",
+        key = "revanced_settings_music_screen_1_ads",
         summaryKey = null
     )
     val GENERAL = Screen(
-        "revanced_settings_music_screen_2_general",
+        key = "revanced_settings_music_screen_2_general",
         summaryKey = null
     )
     val PLAYER = Screen(
-        "revanced_settings_music_screen_3_player",
+        key = "revanced_settings_music_screen_3_player",
         summaryKey = null
     )
     val MISC = Screen(
-        "revanced_settings_music_screen_4_misc",
+        key = "revanced_settings_music_screen_4_misc",
         summaryKey = null
     )
 

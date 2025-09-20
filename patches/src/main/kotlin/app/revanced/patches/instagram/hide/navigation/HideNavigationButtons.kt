@@ -49,7 +49,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
                 val freeRegister = findFreeRegister(insertIndex, loopIndexRegister)
                 val instruction = getInstruction(endIndex - 1)
 
-                var instructions = buildString {
+                val instructions = buildString {
                     if (hideCreate!!) {
                         appendLine(
                             """

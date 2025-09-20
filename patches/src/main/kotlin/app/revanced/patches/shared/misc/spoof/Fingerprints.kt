@@ -6,6 +6,7 @@ import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val buildInitPlaybackRequestFingerprint = fingerprint {
@@ -40,13 +41,6 @@ internal val buildRequestFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Lorg/chromium/net/UrlRequest") // UrlRequest; or UrlRequest$Builder;
     custom { methodDef, _ ->
-        if (methodDef.indexOfFirstInstruction {
-                val reference = getReference<MethodReference>()
-                reference?.name == "newUrlRequestBuilder"
-            } < 0) {
-            return@custom false
-        }
-
         // Different targets have slightly different parameters
 
         // Earlier targets have parameters:
@@ -80,9 +74,9 @@ internal val buildRequestFingerprint = fingerprint {
         val parameterTypesSize = parameterTypes.size
         (parameterTypesSize == 6 || parameterTypesSize == 7 || parameterTypesSize == 8) &&
                 parameterTypes[1] == "Ljava/util/Map;" // URL headers.
+                && indexOfNewUrlRequestBuilderInstruction(methodDef) >= 0
     }
 }
-
 
 internal val protobufClassParseByteBufferFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.STATIC)
@@ -142,6 +136,17 @@ internal val hlsCurrentTimeFingerprint = fingerprint {
     }
 }
 
+internal const val DISABLED_BY_SABR_STREAMING_URI_STRING = "DISABLED_BY_SABR_STREAMING_URI"
+
+internal val mediaFetchEnumConstructorFingerprint = fingerprint {
+    returns("V")
+    strings(
+        "ENABLED",
+        "DISABLED_FOR_PLAYBACK",
+        DISABLED_BY_SABR_STREAMING_URI_STRING
+    )
+}
+
 internal val nerdsStatsVideoFormatBuilderFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
@@ -150,7 +155,6 @@ internal val nerdsStatsVideoFormatBuilderFingerprint = fingerprint {
 }
 
 internal val patchIncludedExtensionMethodFingerprint = fingerprint {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Z")
     parameters()
     custom { method, classDef ->
@@ -186,4 +190,14 @@ internal val playbackStartDescriptorFeatureFlagFingerprint = fingerprint {
     parameters()
     returns("Z")
     literal { PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG }
+}
+
+internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) = method.indexOfFirstInstruction {
+    val reference = getReference<MethodReference>()
+    opcode == Opcode.INVOKE_VIRTUAL && reference?.definingClass == "Lorg/chromium/net/CronetEngine;"
+            && reference.name == "newUrlRequestBuilder"
+            && reference.parameterTypes.size == 3
+            && reference.parameterTypes[0] == "Ljava/lang/String;"
+            && reference.parameterTypes[1] == "Lorg/chromium/net/UrlRequest\$Callback;"
+            && reference.parameterTypes[2] == "Ljava/util/concurrent/Executor;"
 }

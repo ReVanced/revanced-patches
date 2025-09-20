@@ -1,6 +1,5 @@
 package app.revanced.patches.music.layout.compactheader
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -10,7 +9,6 @@ import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -29,7 +27,8 @@ val hideCategoryBar = bytecodePatch(
 
     compatibleWith(
         "com.google.android.apps.youtube.music"(
-            "7.29.52"
+            "7.29.52",
+            "8.10.52"
         )
     )
 

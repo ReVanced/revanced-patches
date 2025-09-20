@@ -95,6 +95,7 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
                     + '\n' + str("revanced_spoof_video_streams_about_kids_videos");
         } else if (clientType == ClientType.ANDROID_CREATOR) {
             summary += '\n' + str("revanced_spoof_video_streams_about_no_av1")
+                    + '\n' + str("revanced_spoof_video_streams_about_no_force_original_audio")
                     + '\n' + str("revanced_spoof_video_streams_about_kids_videos");
         }
 
