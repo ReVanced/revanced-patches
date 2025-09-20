@@ -1,12 +1,9 @@
 package app.revanced.patches.shared.misc.spoof
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val buildInitPlaybackRequestFingerprint = fingerprint {
     returns("Lorg/chromium/net/UrlRequest\$Builder;")
@@ -40,10 +37,7 @@ internal val buildRequestFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Lorg/chromium/net/UrlRequest") // UrlRequest; or UrlRequest$Builder;
     custom { methodDef, _ ->
-        if (methodDef.indexOfFirstInstruction {
-                val reference = getReference<MethodReference>()
-                reference?.name == "newUrlRequestBuilder"
-            } < 0) {
+        if (indexOfNewUrlRequestBuilderInstruction(methodDef) < 0) {
             return@custom false
         }
 
@@ -140,6 +134,17 @@ internal val hlsCurrentTimeFingerprint = fingerprint {
     literal {
         HLS_CURRENT_TIME_FEATURE_FLAG
     }
+}
+
+internal const val DISABLED_BY_SABR_STREAMING_URI_STRING = "DISABLED_BY_SABR_STREAMING_URI"
+
+internal val mediaFetchEnumConstructorFingerprint = fingerprint {
+    returns("V")
+    strings(
+        "ENABLED",
+        "DISABLED_FOR_PLAYBACK",
+        DISABLED_BY_SABR_STREAMING_URI_STRING
+    )
 }
 
 internal val nerdsStatsVideoFormatBuilderFingerprint = fingerprint {
