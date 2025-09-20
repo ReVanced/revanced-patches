@@ -1,3 +1,10 @@
+# [5.40.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.8...v5.40.0-dev.9) (2025-09-20)
+
+
+### Features
+
+* **YouTube Music:** Support version `8.10.52` ([#5941](https://github.com/ReVanced/revanced-patches/issues/5941)) ([01c0f1b](https://github.com/ReVanced/revanced-patches/commit/01c0f1bd1ac6edb8aea758f88ffffcdea74a29b7))
+
 # [5.40.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.7...v5.40.0-dev.8) (2025-09-20)
 
 
