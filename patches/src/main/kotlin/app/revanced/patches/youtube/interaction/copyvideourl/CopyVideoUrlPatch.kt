@@ -59,6 +59,7 @@ val copyVideoUrlPatch = bytecodePatch(
             "20.07.39",
             "20.12.46",
             "20.13.41",
+            "20.14.43",
         )
     )
 
