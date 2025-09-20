@@ -163,6 +163,15 @@ Playback may not work"</string>
             <string name="revanced_debug_title">Debug logging</string>
             <string name="revanced_debug_summary_on">Debug logs are enabled</string>
             <string name="revanced_debug_summary_off">Debug logs are disabled</string>
+            <string name="revanced_debug_stacktrace_title">Log stack traces</string>
+            <string name="revanced_debug_stacktrace_summary_on">Debug logs include stack trace</string>
+            <string name="revanced_debug_stacktrace_summary_off">Debug logs do not include stack trace</string>
+            <string name="revanced_debug_toast_on_error_title">Show toast on ReVanced error</string>
+            <string name="revanced_debug_toast_on_error_summary_on">Toast is shown if error occurs</string>
+            <string name="revanced_debug_toast_on_error_summary_off">Toast is not shown if error occurs</string>
+            <string name="revanced_debug_toast_on_error_user_dialog_message">"Turning off error toasts hides all ReVanced error notifications.
+
+You will not be notified of any unexpected events."</string>
             <string name="revanced_debug_export_logs_to_clipboard_title">Export debug logs</string>
             <string name="revanced_debug_export_logs_to_clipboard_summary">Copies ReVanced debug logs to the clipboard</string>
             <string name="revanced_debug_logs_disabled">Debug logging is disabled</string>
@@ -209,15 +218,6 @@ Playback may not work"</string>
 This can help identify components when creating custom filters.
 
 However, enabling this will also log some user data such as your IP address."</string>
-            <string name="revanced_debug_stacktrace_title">Log stack traces</string>
-            <string name="revanced_debug_stacktrace_summary_on">Debug logs include stack trace</string>
-            <string name="revanced_debug_stacktrace_summary_off">Debug logs do not include stack trace</string>
-            <string name="revanced_debug_toast_on_error_title">Show toast on ReVanced error</string>
-            <string name="revanced_debug_toast_on_error_summary_on">Toast is shown if error occurs</string>
-            <string name="revanced_debug_toast_on_error_summary_off">Toast is not shown if error occurs</string>
-            <string name="revanced_debug_toast_on_error_user_dialog_message">"Turning off error toasts hides all ReVanced error notifications.
-
-You will not be notified of any unexpected events."</string>
         </patch>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <string name="revanced_hide_album_cards_title">Hide album cards</string>
