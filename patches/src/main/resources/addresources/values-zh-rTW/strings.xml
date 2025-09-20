@@ -1595,10 +1595,45 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">永久重複播放已啟用</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">永久重複播放已停用</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">隱藏投放按鈕</string>
+  <string name="revanced_music_hide_cast_button_summary_on">投放按鈕已隱藏</string>
+  <string name="revanced_music_hide_cast_button_summary_off">投放按鈕已顯示</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">隱藏類別列</string>
   <string name="revanced_music_hide_category_bar_summary_on">類別列已隱藏</string>
   <string name="revanced_music_hide_category_bar_summary_off">類別列已顯示</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">導覽列</string>
+  <string name="revanced_music_navigation_bar_screen_summary">隱藏或變更導覽列按鈕</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">隱藏「首頁」按鈕</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">「首頁」按鈕已隱藏</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">「首頁」按鈕已顯示</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">隱藏「取樣」按鈕</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">「取樣」按鈕已隱藏</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">「取樣」按鈕已顯示</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">隱藏「探索」按鈕</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">「探索」按鈕已隱藏</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">「探索」按鈕已顯示</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">隱藏「媒體庫」按鈕</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">「媒體庫」按鈕已隱藏</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">「媒體庫」按鈕已顯示</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">隱藏「升級」按鈕</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">「升級」按鈕已隱藏</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">「升級」按鈕已顯示</string>
+  <string name="revanced_music_hide_navigation_bar_title">隱藏導覽列</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">導覽列已隱藏</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">導覽列已顯示</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">隱藏導覽按鈕標籤</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">已隱藏「標籤」</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">已顯示「標籤」</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">隱藏「取得 Music Premium」標籤</string>

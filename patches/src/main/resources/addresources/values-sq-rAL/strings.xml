@@ -1583,10 +1583,45 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Përsëritja e përhershme është aktivizuar</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Përsëritja e përhershme është çaktivizuar</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Fshih butonin e transmetimit</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Butoni i transmetimit është fshehur</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Butoni i transmetimit është shfaqur</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Fshi shiritin e kategorive</string>
   <string name="revanced_music_hide_category_bar_summary_on">Shiriti i kategorive është i fshehur</string>
   <string name="revanced_music_hide_category_bar_summary_off">Shiriti i kategorive është i shfaqur</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Shiriti i navigimit</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Fshih ose ndrysho butonat e shiritit të navigimit</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Fshih butonin Kryesore</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Butoni Kryesore është fshehur</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Butoni Kryesore është shfaqur</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Fshih butonin Mostra</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Butoni Mostra është fshehur</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Butoni Mostra është shfaqur</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Fshih butonin Eksploro</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Butoni Eksploro është fshehur</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Butoni Eksploro është shfaqur</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Fshih butonin Biblioteka</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Butoni Biblioteka është fshehur</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Butoni Biblioteka është shfaqur</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Fshih butonin Azhorno</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Butoni Azhorno është fshehur</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Butoni Azhorno është shfaqur</string>
+  <string name="revanced_music_hide_navigation_bar_title">Fshih shiritin e navigimit</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Shiriti i navigimit është fshehur</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Shiriti i navigimit është shfaqur</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Fshih etiketat e butonave të navigimit</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Etiketat janë fshehur</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Etiketat janë shfaqur</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Fshi etiketën \'Merr Music Premium\'</string>

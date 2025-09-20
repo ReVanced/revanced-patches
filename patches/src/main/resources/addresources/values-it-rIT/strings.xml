@@ -1584,10 +1584,45 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">La ripetizione permanente è abilitata</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">La ripetizione permanente è disabilitata</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Nascondi pulsante trasmissione</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Il pulsante di trasmissione è nascosto</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Il pulsante di trasmissione è mostrato</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Nascondi barra delle categorie</string>
   <string name="revanced_music_hide_category_bar_summary_on">La barra delle categorie è nascosta</string>
   <string name="revanced_music_hide_category_bar_summary_off">La barra delle categorie è mostrata</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Barra di navigazione</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Nascondi o modifica i pulsanti della barra di navigazione</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Nascondi il pulsante Home</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Il pulsante Home è nascosto</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Il pulsante Home è mostrato</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Nascondi il pulsante Campioni</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Il pulsante Campioni è nascosto</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Il pulsante Campioni è mostrato</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Nascondi il pulsante Esplora</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Il pulsante Esplora è nascosto</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Il pulsante Esplora è mostrato</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Nascondi il pulsante Libreria</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Il pulsante Libreria è nascosto</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Il pulsante Libreria è mostrato</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Nascondi il pulsante Aggiorna</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Il pulsante Aggiorna è nascosto</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Il pulsante Aggiorna è mostrato</string>
+  <string name="revanced_music_hide_navigation_bar_title">Nascondi la barra di navigazione</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">La barra di navigazione è nascosta</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">La barra di navigazione è mostrata</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Nascondi le etichette dei pulsanti di navigazione</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Le etichette sono nascoste</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Le etichette sono mostrate</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Nascondi l\'etichetta \'Ottieni Music Premium\'</string>
