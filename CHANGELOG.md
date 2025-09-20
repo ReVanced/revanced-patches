@@ -1,3 +1,10 @@
+# [5.40.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.10...v5.40.0-dev.11) (2025-09-20)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Add stream audio selector disclaimer for Android Studio client ([a8a4107](https://github.com/ReVanced/revanced-patches/commit/a8a410708d50f34ac4bd2ca29bbbc3cde00bbf93))
+
 # [5.40.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.9...v5.40.0-dev.10) (2025-09-20)
 
 
