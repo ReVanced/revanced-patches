@@ -1,3 +1,10 @@
+# [5.40.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.4...v5.40.0-dev.5) (2025-09-20)
+
+
+### Features
+
+* **YouTube Music:** Add `Hide cast button` and `Navigation bar` patches ([#5934](https://github.com/ReVanced/revanced-patches/issues/5934)) ([651d358](https://github.com/ReVanced/revanced-patches/commit/651d3580967a252b57cbf4afbba02d6a4601ccfe))
+
 # [5.40.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.3...v5.40.0-dev.4) (2025-09-20)
 
 
