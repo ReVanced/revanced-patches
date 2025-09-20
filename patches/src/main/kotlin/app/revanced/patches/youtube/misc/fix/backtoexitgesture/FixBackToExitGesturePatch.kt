@@ -25,7 +25,7 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
 
         scrollPositionFingerprint.let {
             navigate(it.originalMethod)
-                .to(it.instructionMatches.first().index + 1)
+                .to(it.patternMatch!!.startIndex + 1)
                 .stop().apply {
                     val index = indexOfFirstInstructionOrThrow {
                         opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.definingClass ==

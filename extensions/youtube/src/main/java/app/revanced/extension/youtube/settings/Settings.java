@@ -34,6 +34,7 @@ import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehavi
 import android.graphics.Color;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.EnumSetting;
@@ -224,6 +225,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting DISABLE_LIKE_SUBSCRIBE_GLOW = new BooleanSetting("revanced_disable_like_subscribe_glow", FALSE);
     public static final BooleanSetting HIDE_ASK_BUTTON = new BooleanSetting("revanced_hide_ask_button", FALSE);
     public static final BooleanSetting HIDE_CLIP_BUTTON = new BooleanSetting("revanced_hide_clip_button", TRUE);
+    public static final BooleanSetting HIDE_COMMENTS_BUTTON = new BooleanSetting("revanced_hide_comments_button", TRUE);
     public static final BooleanSetting HIDE_DOWNLOAD_BUTTON = new BooleanSetting("revanced_hide_download_button", FALSE);
     public static final BooleanSetting HIDE_HYPE_BUTTON = new BooleanSetting("revanced_hide_hype_button", FALSE);
     public static final BooleanSetting HIDE_LIKE_DISLIKE_BUTTON = new BooleanSetting("revanced_hide_like_dislike_button", FALSE);
@@ -524,10 +526,14 @@ public class Settings extends BaseSettings {
             DEPRECATED_SWIPE_OVERLAY_BACKGROUND_ALPHA.resetToDefault();
         }
 
-        // Old spoof versions that no longer work.
-        if (SPOOF_APP_VERSION_TARGET.get().compareTo(SPOOF_APP_VERSION_TARGET.defaultValue) < 0) {
-            Logger.printInfo(() -> "Resetting spoof app version target");
+        // Old spoof versions that no longer work,
+        // or is spoofing to a version the same or newer than this app.
+        if (!SPOOF_APP_VERSION_TARGET.isSetToDefault() &&
+                (SPOOF_APP_VERSION_TARGET.get().compareTo(SPOOF_APP_VERSION_TARGET.defaultValue) < 0
+                || (Utils.getAppVersionName().compareTo(SPOOF_APP_VERSION_TARGET.get()) <= 0))) {
+            Logger.printInfo(() -> "Resetting spoof app version");
             SPOOF_APP_VERSION_TARGET.resetToDefault();
+            SPOOF_APP_VERSION.resetToDefault();
         }
 
         // RYD requires manually migrating old settings since the lack of
