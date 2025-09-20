@@ -40,6 +40,7 @@ val hideButtonsPatch = resourcePatch(
                     SwitchPreference("revanced_disable_like_subscribe_glow"),
                     SwitchPreference("revanced_hide_ask_button"),
                     SwitchPreference("revanced_hide_clip_button"),
+                    SwitchPreference("revanced_hide_comments_button"),
                     SwitchPreference("revanced_hide_download_button"),
                     SwitchPreference("revanced_hide_hype_button"),
                     SwitchPreference("revanced_hide_like_dislike_button"),
