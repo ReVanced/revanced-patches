@@ -3,10 +3,12 @@ package app.revanced.patches.spotify.misc.lyrics
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
@@ -87,7 +89,18 @@ val changeLyricsProviderPatch = bytecodePatch(
 
         // region Replace the call to the HTTP client builder method used exclusively for lyrics by the modified one.
 
-        getLyricsHttpClientFingerprint(httpClientBuilderMethod).method.apply {
+
+        val getLyricsHttpClientFingerprint by fingerprint {
+            returns(httpClientBuilderMethod.returnType)
+            parameters()
+            custom { method, _ ->
+                method.indexOfFirstInstruction {
+                    getReference<MethodReference>() == httpClientBuilderMethod
+                } >= 0
+            }
+        }
+
+        getLyricsHttpClientFingerprint.method.apply {
             val getLyricsHttpClientIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>() == httpClientBuilderMethod
             }

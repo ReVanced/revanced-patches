@@ -29,6 +29,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
@@ -203,8 +204,11 @@ public class ReVancedPreferenceFragment extends ToolbarPreferenceFragment {
             noResultsPreference.setSelectable(false);
             // Set icon for the placeholder preference.
             noResultsPreference.setLayoutResource(getResourceIdentifier(
-                    "revanced_preference_with_icon_no_search_result", "layout"));
-            noResultsPreference.setIcon(getResourceIdentifier("revanced_settings_search_icon", "drawable"));
+                    ResourceType.LAYOUT,
+                    "revanced_preference_with_icon_no_search_result"));
+            noResultsPreference.setIcon(getResourceIdentifier(
+                    ResourceType.DRAWABLE,
+                    "revanced_settings_search_icon"));
             preferenceScreen.addPreference(noResultsPreference);
         }
     }

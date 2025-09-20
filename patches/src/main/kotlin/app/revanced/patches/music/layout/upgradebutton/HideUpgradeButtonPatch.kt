@@ -50,7 +50,7 @@ val hideUpgradeButton = bytecodePatch(
 
         pivotBarConstructorFingerprint.method.apply {
             val pivotBarElementFieldReference =
-                getInstruction(pivotBarConstructorFingerprint.patternMatch!!.endIndex - 1)
+                getInstruction(pivotBarConstructorFingerprint.instructionMatches.last().index - 1)
                     .getReference<FieldReference>()
 
             val register = getInstruction<FiveRegisterInstruction>(0).registerC
@@ -64,7 +64,7 @@ val hideUpgradeButton = bytecodePatch(
                 iput-object v0, v$register, $pivotBarElementFieldReference
             """.toInstructions().toMutableList()
 
-            val endIndex = pivotBarConstructorFingerprint.patternMatch!!.endIndex
+            val endIndex = pivotBarConstructorFingerprint.instructionMatches.last().index
 
             // Replace the instruction to retain the label at given index.
             replaceInstruction(

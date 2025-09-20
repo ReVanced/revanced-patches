@@ -17,6 +17,7 @@ import android.widget.Toolbar;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseActivityHook;
 
@@ -116,7 +117,7 @@ public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
     @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
         final int backButtonResource = Utils.getResourceIdentifier(
-                "revanced_settings_toolbar_arrow_left", "drawable");
+                ResourceType.DRAWABLE, "revanced_settings_toolbar_arrow_left");
         Drawable drawable = Utils.getContext().getResources().getDrawable(backButtonResource);
         customizeBackButtonDrawable(drawable);
         return drawable;

@@ -38,7 +38,7 @@ val permanentRepeatPatch = bytecodePatch(
             SwitchPreference("revanced_music_play_permanent_repeat"),
         )
 
-        val startIndex = repeatTrackFingerprint.patternMatch!!.endIndex
+        val startIndex = repeatTrackFingerprint.instructionMatches.last().index
         val repeatIndex = startIndex + 1
 
         repeatTrackFingerprint.method.apply {

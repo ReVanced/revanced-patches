@@ -1,5 +1,6 @@
 package app.revanced.extension.youtube.patches.components;
 
+import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -38,7 +39,6 @@ final class ButtonsFilter extends Filter {
 
         addPathCallbacks(
                 likeSubscribeGlow,
-                bufferFilterPathGroup,
                 new StringFilterGroup(
                         Settings.HIDE_LIKE_DISLIKE_BUTTON,
                         "|segmented_like_dislike_button"
@@ -56,6 +56,12 @@ final class ButtonsFilter extends Filter {
                         "|clip_button.eml"
                 )
         );
+
+        // FIXME: 20.22+ filtering of the action buttons doesn't work because
+        //        the buffer is the same for all buttons.
+        if (!VersionCheckPatch.IS_20_22_OR_GREATER) {
+            addPathCallbacks(bufferFilterPathGroup);
+        }
 
         bufferButtonsGroupList.addAll(
                 new ByteArrayFilterGroup(
@@ -108,11 +114,13 @@ final class ButtonsFilter extends Filter {
     }
 
     private boolean isEveryFilterGroupEnabled() {
-        for (var group : pathCallbacks)
+        for (var group : pathCallbacks) {
             if (!group.isEnabled()) return false;
+        }
 
-        for (var group : bufferButtonsGroupList)
+        for (var group : bufferButtonsGroupList) {
             if (!group.isEnabled()) return false;
+        }
 
         return true;
     }
