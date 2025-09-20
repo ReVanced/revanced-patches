@@ -1581,10 +1581,45 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_music_play_permanent_repeat_summary_on">স্থায়ী পুনরাবৃত্তি সক্ষম করা হয়েছে</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">স্থায়ী পুনরাবৃত্তি অক্ষম করা হয়েছে</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">কাস্ট বোতাম লুকান</string>
+  <string name="revanced_music_hide_cast_button_summary_on">কাস্ট বোতাম লুকানো আছে</string>
+  <string name="revanced_music_hide_cast_button_summary_off">কাস্ট বোতাম দেখানো আছে</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">ক্যাটাগরি বার লুকান</string>
   <string name="revanced_music_hide_category_bar_summary_on">ক্যাটাগরি বার লুকানো আছে</string>
   <string name="revanced_music_hide_category_bar_summary_off">ক্যাটাগরি বার দেখানো আছে</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">নেভিগেশন বার</string>
+  <string name="revanced_music_navigation_bar_screen_summary">নেভিগেশন বারের বোতামগুলি লুকান বা পরিবর্তন করুন</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">হোম বোতাম লুকান</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">হোম বোতাম লুকানো আছে</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">হোম বোতাম দেখানো আছে</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">স্যাম্পল বোতাম লুকান</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">স্যাম্পল বোতাম লুকানো আছে</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">স্যাম্পল বোতাম দেখানো আছে</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">অনুসন্ধান বোতাম লুকান</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">অনুসন্ধান বোতাম লুকানো আছে</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">অনুসন্ধান বোতাম দেখানো আছে</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">লাইব্রেরি বোতাম লুকান</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">লাইব্রেরি বোতাম লুকানো আছে</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">লাইব্রেরি বোতাম দেখানো আছে</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">আপগ্রেড বোতাম লুকান</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">আপগ্রেড বোতাম লুকানো আছে</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">আপগ্রেড বোতাম দেখানো আছে</string>
+  <string name="revanced_music_hide_navigation_bar_title">নেভিগেশন বার লুকান</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">নেভিগেশন বার লুকানো আছে</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">নেভিগেশন বার দেখানো আছে</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">নেভিগেশন বোতামের লেবেলগুলি লুকান</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">লেবেলগুলি লুকানো আছে</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">লেবেলগুলি দেখানো আছে</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">\'গেট মিউজিক প্রিমিয়াম\' লেবেল লুকান</string>

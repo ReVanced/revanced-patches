@@ -1584,10 +1584,45 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Постійний повтор увімкнено</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Постійний повтор вимкнено</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Приховати кнопку трансляції</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Кнопку \"Трансляція\" у відеоплеєрі приховано</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Кнопка \"Трансляція\" у відеоплеєрі показується</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Приховати панель категорій</string>
   <string name="revanced_music_hide_category_bar_summary_on">Панель категорій приховано</string>
   <string name="revanced_music_hide_category_bar_summary_off">Панель категорій показується</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Панель навігації</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Приховати або змінити кнопки панелі навігації</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Приховати кнопку \"Головна\"</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Кнопку \"Головна\" приховано на панелі навігації</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Кнопка \"Головна\" показується на панелі навігації</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Приховати кнопку \"Зразки\"</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Кнопку \"Зразки\" приховано</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Кнопка \"Зразки\" показується</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Приховати кнопку \"Огляд\"</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Кнопку \"Огляд\" приховано</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Кнопка \"Огляд\" показується</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Приховати кнопку \"Бібліотека\"</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Кнопку \"Бібліотека\" приховано</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Кнопка \"Бібліотека\" показується</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Приховати кнопку \"Підписка\"</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Кнопку \"Підписка\" приховано</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Кнопка \"Підписка\" показується</string>
+  <string name="revanced_music_hide_navigation_bar_title">Приховати панель навігації</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Панель навігації приховано</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Панель навігації показується</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Приховати підписи кнопок навігації</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Підписи кнопок навігації приховано</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Підписи кнопок навігації показуються</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Приховати Пункт \"Підписатися на Music Premium\"</string>

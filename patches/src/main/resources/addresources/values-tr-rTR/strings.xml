@@ -1592,10 +1592,45 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Kalıcı tekrar etkin</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Kalıcı tekrar devre dışı</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Yayınla düğmesini gizle</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Yayınla düğmesi gizli</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Yayınla düğmesi görünür</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Kategori çubuğunu gizle</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategori çubuğu gizli</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategori çubuğu görünür</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Gezinme çubuğu</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Gezinme çubuğundaki düğmeleri gizle veya değiştir</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Ana Sayfa düğmesini gizle</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Ana Sayfa düğmesi gizli</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Ana Sayfa düğmesi görünür</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Sana Özel düğmesini gizle</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Sana Özel düğmesi gizli</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Sana Özel düğmesi görünür</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Keşfet düğmesini gizle</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Keşfet düğmesi gizli</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Keşfet düğmesi görünür</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Kitaplık düğmesini gizle</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Kitaplık düğmesi gizli</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Kitaplık düğmesi görünür</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Yükselt düğmesini gizle</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Yükselt düğmesi gizli</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Yükselt düğmesi görünür</string>
+  <string name="revanced_music_hide_navigation_bar_title">Gezinme çubuğunu gizle</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Gezinme çubuğu gizli</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Gezinme çubuğu görünür</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Gezinme düğmeleri etiketlerini gizle</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Etiketler gizli</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Etiketler görünür</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">\'Müzik Premium Al\' etiketini gizle</string>

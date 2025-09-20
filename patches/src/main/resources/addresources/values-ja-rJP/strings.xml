@@ -1587,10 +1587,45 @@ Automotive レイアウト
   <string name="revanced_music_play_permanent_repeat_summary_on">常時リピートは有効です\n\nリピート設定が保存され常時適用されます</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">常時リピートは無効です\n\nリピート設定は保存されず毎回リセットされます</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">キャストボタンを非表示</string>
+  <string name="revanced_music_hide_cast_button_summary_on">プレーヤー オーバーレイのキャストボタンは表示されません</string>
+  <string name="revanced_music_hide_cast_button_summary_off">プレーヤー オーバーレイのキャストボタンは表示されます</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">カテゴリバーを非表示</string>
   <string name="revanced_music_hide_category_bar_summary_on">カテゴリバーは表示されません</string>
   <string name="revanced_music_hide_category_bar_summary_off">カテゴリバーは表示されます</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">ナビゲーションバー</string>
+  <string name="revanced_music_navigation_bar_screen_summary">ナビゲーションバーのボタンを非表示または変更</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">ホームボタンを非表示</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">ホームボタンは表示されません</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">ホームボタンは表示されます</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">サンプルボタンを非表示</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">サンプルボタンは表示されません</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">サンプルボタンは表示されます</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">探索ボタンを非表示</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">探索ボタンは表示されません</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">探索ボタンは表示されます</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">ライブラリボタンを非表示</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">ライブラリボタンは表示されません</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">ライブラリボタンは表示されます</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">アップグレード ボタンを非表示</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">アップグレード ボタンは表示されません</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">アップグレード ボタンは表示されます</string>
+  <string name="revanced_music_hide_navigation_bar_title">ナビゲーションバーを非表示</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">ナビゲーションバーは表示されません</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">ナビゲーションバーは表示されます</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">ボタンをアイコンのみで表示</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">ナビゲーション ボタンはアイコンのみで表示されます</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">ナビゲーション ボタンはアイコンと文字で表示されます</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">「Music Premium に登録」ラベルを非表示</string>

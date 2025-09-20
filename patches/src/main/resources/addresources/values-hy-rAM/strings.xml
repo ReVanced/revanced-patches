@@ -1586,10 +1586,45 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_music_play_permanent_repeat_summary_on">Մշտական կրկնությունը միացված է</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Մշտական կրկնությունը անջատված է</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Թաքցնել հեռարձակման կոճակը</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Հեռարձակման կոճակը թաքնված է</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Հեռարձակման կոճակը ցուցադրված է</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Թաքցնել կատեգորիաների վահանակը</string>
   <string name="revanced_music_hide_category_bar_summary_on">Կատեգորիաների վահանակը թաքցված է</string>
   <string name="revanced_music_hide_category_bar_summary_off">Կատեգորիաների վահանակը ցուցադրվում է</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Նավիգացիոն գիծ</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Թաքցնել կամ փոխել նավիգացիոն գծի կոճակները</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Թաքցնել «Գլխավոր» կոճակը</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">«Գլխավոր» կոճակը թաքնված է</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">«Գլխավոր» կոճակը ցուցադրված է</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Թաքցնել «Նմուշներ» կոճակը</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">«Նմուշներ» կոճակը թաքնված է</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">«Նմուշներ» կոճակը ցուցադրված է</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Թաքցնել «Բացահայտել» կոճակը</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">«Բացահայտել» կոճակը թաքնված է</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">«Բացահայտել» կոճակը ցուցադրված է</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Թաքցնել «Գրադարան» կոճակը</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">«Գրադարան» կոճակը թաքնված է</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">«Գրադարան» կոճակը ցուցադրված է</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Թաքցնել «Արդիականացնել» կոճակը</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">«Արդիականացնել» կոճակը թաքնված է</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">«Արդիականացնել» կոճակը ցուցադրված է</string>
+  <string name="revanced_music_hide_navigation_bar_title">Թաքցնել նավիգացիոն գիծը</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Նավիգացիոն գիծը թաքնված է</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Նավիգացիոն գիծը ցուցադրված է</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Թաքցնել նավիգացիոն կոճակների պիտակները</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Պիտակները թաքնված են</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Պիտակները ցուցադրված են</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Թաքցնել «Ստացեք Music Premium» պիտակը</string>
