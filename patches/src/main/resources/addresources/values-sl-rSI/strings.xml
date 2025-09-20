@@ -1585,10 +1585,45 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Trajno ponavljanje je omogočeno</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Trajno ponavljanje je onemogočeno</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Skrij gumb za predvajanje</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Gumb za predvajanje je skrit</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Gumb za predvajanje je prikazan</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Skrij vrstico kategorij</string>
   <string name="revanced_music_hide_category_bar_summary_on">Vrstica kategorij je skrita</string>
   <string name="revanced_music_hide_category_bar_summary_off">Vrstica kategorij je prikazana</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Navigacijska vrstica</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Skrij ali spremeni gumbe navigacijske vrstice</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Skrij gumb Domov</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Gumb Domov je skrit</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Gumb Domov je prikazan</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Skrij gumb Vzorci</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Gumb Vzorci je skrit</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Gumb Vzorci je prikazan</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Skrij gumb Raziskovanje</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Gumb Raziskovanje je skrit</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Gumb Raziskovanje je prikazan</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Skrij gumb Knjižnica</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Gumb Knjižnica je skrit</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Gumb Knjižnica je prikazan</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Skrij gumb Nadgradi</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Gumb Nadgradi je skrit</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Gumb Nadgradi je prikazan</string>
+  <string name="revanced_music_hide_navigation_bar_title">Skrij navigacijsko vrstico</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Navigacijska vrstica je skrita</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Navigacijska vrstica je prikazana</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Skrij oznake navigacijskih gumbov</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Oznake so skrite</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Oznake so prikazane</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Skrij oznako \'Pridobi Music Premium\'</string>

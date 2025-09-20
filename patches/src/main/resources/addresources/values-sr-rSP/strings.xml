@@ -1587,10 +1587,45 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Трајно понављање је омогућено</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Трајно понављање је онемогућено</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Сакриј дугме „Пребацивање”</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Дугме „Пребацивање” је скривено</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Дугме „Пребацивање” је приказано</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Сакриј траку категорија</string>
   <string name="revanced_music_hide_category_bar_summary_on">Трака категорија је скривена</string>
   <string name="revanced_music_hide_category_bar_summary_off">Трака категорија је приказана</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Трака за навигацију</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Сакријте или промените дугмад траке за навигацију</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Сакриј дугме „Почетна”</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Дугме „Почетна” је скривено</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Дугме „Почетна” је приказано</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Сакриј дугме „Узорци”</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Дугме „Узорци” је скривено</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Дугме „Узорци” је приказано</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Сакриј дугме „Истражи”</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Дугме „Истражи” је скривено</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Дугме „Истражи” је приказано</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Сакриј дугме „Библиотека”</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Дугме „Библиотека” је скривено</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Дугме „Библиотека” је приказано</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Сакриј дугме „Надогради”</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Дугме „Надогради” је скривено</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Дугме „Надогради” је приказано</string>
+  <string name="revanced_music_hide_navigation_bar_title">Сакриј траку за навигацију</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Трака за навигацију је скривена</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Трака за навигацију је приказана</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Сакриј ознаке дугмади за навигацију</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Ознаке су скривене</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Ознаке су приказане</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Сакриј ознаку „Набавите Music Premium”</string>

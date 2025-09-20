@@ -1584,10 +1584,45 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Repetarea permanentă este activată</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Repetarea permanentă este dezactivată</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Ascunde butonul de transmisie</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Butonul de transmisie este ascuns</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Butonul de transmisie este afișat</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Ascunde bara de categorii</string>
   <string name="revanced_music_hide_category_bar_summary_on">Bara de categorii este ascunsă</string>
   <string name="revanced_music_hide_category_bar_summary_off">Bara de categorii este afișată</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Bară de navigare</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Ascundeți sau modificați butoanele barei de navigare</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Ascundeți butonul Acasă</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Butonul Acasă este ascuns</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Butonul Acasă este afișat</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Ascundeți butonul Mostre</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Butonul Mostre este ascuns</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Butonul Mostre este afișat</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Ascundeți butonul Explorare</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Butonul Explorare este ascuns</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Butonul Explorare este afișat</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Ascundeți butonul Bibliotecă</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Butonul Bibliotecă este ascuns</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Butonul Bibliotecă este afișat</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Ascundeți butonul Upgrade</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Butonul Upgrade este ascuns</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Butonul Upgrade este afișat</string>
+  <string name="revanced_music_hide_navigation_bar_title">Ascundeți bara de navigare</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Bara de navigare este ascunsă</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Bara de navigare este afișată</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Ascundeți etichetele butoanelor de navigare</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Etichetele sunt ascunse</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Etichetele sunt afișate</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Ascunde eticheta „Obține Music Premium”</string>
