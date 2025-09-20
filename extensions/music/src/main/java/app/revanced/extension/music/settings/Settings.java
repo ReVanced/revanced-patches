@@ -15,7 +15,6 @@ public class Settings extends BaseSettings {
     // Ads
     public static final BooleanSetting HIDE_VIDEO_ADS = new BooleanSetting("revanced_music_hide_video_ads", TRUE, true);
     public static final BooleanSetting HIDE_GET_PREMIUM_LABEL = new BooleanSetting("revanced_music_hide_get_premium_label", TRUE, true);
-    public static final BooleanSetting HIDE_UPGRADE_BUTTON = new BooleanSetting("revanced_music_hide_upgrade_button", TRUE, true);
 
     // General
     public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_music_hide_cast_button", FALSE, false);

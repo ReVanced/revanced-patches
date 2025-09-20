@@ -34,7 +34,7 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
         compatibleWith(
             "com.google.android.apps.youtube.music"(
                 "7.29.52",
-            "8.10.52"
+                "8.10.52"
             )
         )
     },
