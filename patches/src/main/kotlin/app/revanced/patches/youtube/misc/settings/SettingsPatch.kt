@@ -232,8 +232,7 @@ val settingsPatch = bytecodePatch(
         modifyActivityForSettingsInjection(
             licenseActivityOnCreateFingerprint.classDef,
             licenseActivityOnCreateFingerprint.method,
-            YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR,
-            "onBackPressed"
+            YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR
         )
     }
 
@@ -248,8 +247,7 @@ val settingsPatch = bytecodePatch(
 internal fun modifyActivityForSettingsInjection(
     activityOnCreateClass: MutableClass,
     activityOnCreateMethod: MutableMethod,
-    extensionClassType: String,
-    activityBackFinishedMethodName: String
+    extensionClassType: String
 ) {
     // Modify Activity and remove all existing layout code.
     // Must modify an existing activity and cannot add a new activity to the manifest,
@@ -288,10 +286,10 @@ internal fun modifyActivityForSettingsInjection(
         )
     }.let(activityOnCreateClass.methods::add)
 
-    // Add onBackPressed method to handle back button presses.
+    // Override finish() to intercept back gesture.
     ImmutableMethod(
         activityOnCreateClass.type,
-        activityBackFinishedMethodName,
+        "finish",
         emptyList(),
         "V",
         AccessFlags.PUBLIC.value,
@@ -304,7 +302,8 @@ internal fun modifyActivityForSettingsInjection(
                 invoke-static {}, $extensionClassType->handleBackPress()Z
                 move-result v0
                 if-nez v0, :search_handled
-                invoke-virtual { p0 }, Landroid/app/Activity;->finish()V
+                invoke-super { p0 }, Landroid/app/Activity;->finish()V
+                return-void
                 :search_handled
                 return-void
             """
