@@ -107,6 +107,15 @@ Redarea poate să nu funcționeze"</string>
   <string name="revanced_debug_title">Jurnal depanare</string>
   <string name="revanced_debug_summary_on">Jurnalele de depanare sunt activate</string>
   <string name="revanced_debug_summary_off">Jurnalele de depanare sunt dezactivate</string>
+  <string name="revanced_debug_stacktrace_title">Urme stive de jurnal</string>
+  <string name="revanced_debug_stacktrace_summary_on">Jurnalele depanării includ urmărirea stivelor</string>
+  <string name="revanced_debug_stacktrace_summary_off">Jurnalele de depanare nu includ urmărirea stivelor</string>
+  <string name="revanced_debug_toast_on_error_title">Arată toast la eroare ReVanced</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Se afișează un toast dacă apare o eroare</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Nu se afișează un toast dacă apare o eroare</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Oprirea toasturilor de eroare ascunde toate notificările de eroare ReVanced.
+
+Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Exportare jurnale de depanare</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">Copiază jurnalele de depanare ReVanced în clipboard</string>
   <string name="revanced_debug_logs_disabled">Înregistrarea în jurnal de depanare este dezactivată</string>
@@ -151,15 +160,6 @@ Redarea poate să nu funcționeze"</string>
 Acest lucru poate ajuta la identificarea componentelor atunci când creați filtre personalizate.
 
 Cu toate acestea, activarea acestei opțiuni va înregistra și unele date ale utilizatorului, cum ar fi adresa dvs. IP."</string>
-  <string name="revanced_debug_stacktrace_title">Urme stive de jurnal</string>
-  <string name="revanced_debug_stacktrace_summary_on">Jurnalele depanării includ urmărirea stivelor</string>
-  <string name="revanced_debug_stacktrace_summary_off">Jurnalele de depanare nu includ urmărirea stivelor</string>
-  <string name="revanced_debug_toast_on_error_title">Arată toast la eroare ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Se afișează un toast dacă apare o eroare</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Nu se afișează un toast dacă apare o eroare</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Oprirea toasturilor de eroare ascunde toate notificările de eroare ReVanced.
-
-Nu veți fi notificat de niciun eveniment neașteptat."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Ascundeți cardurile de album</string>
@@ -586,6 +586,10 @@ Reglați volumul glisând vertical pe partea dreaptă a ecranului"</string>
   <string name="revanced_hide_stop_ads_button_title">Ascunde \'Oprește anunțurile\'</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Butonul de oprire a reclamelor este ascuns</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Butonul de oprire a reclamelor este afișat</string>
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+  <string name="revanced_hide_comments_button_title">Ascunde comentariile</string>
+  <string name="revanced_hide_comments_button_summary_on">Butonul de comentarii este ascuns</string>
+  <string name="revanced_hide_comments_button_summary_off">Butonul de comentarii este afișat</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Ascunde raportul</string>
@@ -1241,8 +1245,9 @@ Acest lucru va schimba aspectul și caracteristicile aplicației, dar pot apăre
 
 Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației pentru a preveni erorile UI."</string>
   <string name="revanced_spoof_app_version_target_title">Țintă versiune falsificată a aplicației</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restaurează pictogramele vechi ale playerului Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Restaurați pictogramele de navigare vechi</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Restabiliți bara de acțiune video necolapsată</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Restaurează pictogramele vechi ale playerului Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Restaurați pictogramele de navigare vechi</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Schimbă pagina de start</string>
