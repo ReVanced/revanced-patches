@@ -116,7 +116,7 @@ public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
      */
     @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
-        final int backButtonResource = Utils.getResourceIdentifier(
+        final int backButtonResource = Utils.getResourceIdentifierOrThrow(
                 ResourceType.DRAWABLE, "revanced_settings_toolbar_arrow_left");
         Drawable drawable = Utils.getContext().getResources().getDrawable(backButtonResource);
         customizeBackButtonDrawable(drawable);

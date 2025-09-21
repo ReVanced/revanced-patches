@@ -26,6 +26,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.ui.CustomDialog;
 
 abstract class Check {
     private static final int NUMBER_OF_TIMES_TO_IGNORE_WARNING_BEFORE_DISABLING = 2;
@@ -93,7 +94,7 @@ abstract class Check {
 
         Utils.runOnMainThreadDelayed(() -> {
             // Create the custom dialog.
-            Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+            Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                     activity,
                     str("revanced_check_environment_failed_title"), // Title.
                     message, // Message.
@@ -127,8 +128,8 @@ abstract class Check {
 
             // Add icon to the dialog.
             ImageView iconView = new ImageView(activity);
-            iconView.setImageResource(Utils.getResourceIdentifier(
-                    ResourceType.DRAWABLE, "revanced_ic_dialog_alert"));
+            iconView.setImageResource(Utils.getResourceIdentifierOrThrow(
+                    "revanced_ic_dialog_alert", "drawable"));
             iconView.setColorFilter(Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
             iconView.setPadding(0, 0, 0, 0);
             LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(
@@ -159,8 +160,8 @@ abstract class Check {
                     Button ignoreButton;
 
                     // Check if buttons are in a single-row layout (buttonContainer has one child: rowContainer).
-                    if (buttonContainer.getChildCount() == 1 && buttonContainer.getChildAt(0) instanceof LinearLayout) {
-                        LinearLayout rowContainer = (LinearLayout) buttonContainer.getChildAt(0);
+                    if (buttonContainer.getChildCount() == 1
+                            && buttonContainer.getChildAt(0) instanceof LinearLayout rowContainer) {
                         // Neutral button is the first child (index 0).
                         ignoreButton = (Button) rowContainer.getChildAt(0);
                         // OK button is the last child.

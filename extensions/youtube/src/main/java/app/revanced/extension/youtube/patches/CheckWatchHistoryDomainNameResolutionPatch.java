@@ -13,6 +13,7 @@ import java.net.UnknownHostException;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.ui.CustomDialog;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -68,7 +69,7 @@ public class CheckWatchHistoryDomainNameResolutionPatch {
                 Utils.runOnMainThread(() -> {
                     try {
                         // Create the custom dialog.
-                        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+                        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                                 context,
                                 str("revanced_check_watch_history_domain_name_dialog_title"), // Title.
                                 Html.fromHtml(str("revanced_check_watch_history_domain_name_dialog_message")), // Message (HTML).

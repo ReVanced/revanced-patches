@@ -107,6 +107,15 @@ La riproduzione potrebbe non funzionare"</string>
   <string name="revanced_debug_title">Log di debug</string>
   <string name="revanced_debug_summary_on">I log di debug sono abilitati</string>
   <string name="revanced_debug_summary_off">I log di debug sono disabilitati</string>
+  <string name="revanced_debug_stacktrace_title">Registra stack trace</string>
+  <string name="revanced_debug_stacktrace_summary_on">I log di debug includono lo stack trace</string>
+  <string name="revanced_debug_stacktrace_summary_off">I log di debug non includono lo stack trace</string>
+  <string name="revanced_debug_toast_on_error_title">Mostra notifica per errore di ReVanced</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Il toast viene mostrato se si verifica un errore</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Il toast non viene mostrato se si verifica un errore</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Disabilitare i toast di errore nasconde tutte le notifiche di errore di ReVanced.
+
+Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Esporta i log di debug</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">Copia i log di debug di ReVanced negli Appunti</string>
   <string name="revanced_debug_logs_disabled">La registrazione di debug è disabilitata</string>
@@ -151,15 +160,6 @@ La riproduzione potrebbe non funzionare"</string>
 Questo può aiutare a identificare i componenti durante la creazione di filtri personalizzati.
 
 Tuttavia, l'abilitazione di questa opzione registrerà anche alcuni dati dell'utente come il tuo indirizzo IP."</string>
-  <string name="revanced_debug_stacktrace_title">Registra stack trace</string>
-  <string name="revanced_debug_stacktrace_summary_on">I log di debug includono lo stack trace</string>
-  <string name="revanced_debug_stacktrace_summary_off">I log di debug non includono lo stack trace</string>
-  <string name="revanced_debug_toast_on_error_title">Mostra notifica per errore di ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Il toast viene mostrato se si verifica un errore</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Il toast non viene mostrato se si verifica un errore</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Disabilitare i toast di errore nasconde tutte le notifiche di errore di ReVanced.
-
-Non sarai notificato di eventi imprevisti."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Nascondi le schede degli album</string>
@@ -586,6 +586,10 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_hide_stop_ads_button_title">Nascondi Interrompi annunci</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Il pulsante per interrompere gli annunci è nascosto</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Il pulsante per interrompere gli annunci è mostrato</string>
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+  <string name="revanced_hide_comments_button_title">Nascondi commenti</string>
+  <string name="revanced_hide_comments_button_summary_on">Il pulsante Commenti è nascosto</string>
+  <string name="revanced_hide_comments_button_summary_off">Il pulsante Commenti è mostrato</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Nascondi Segnala</string>
@@ -1241,8 +1245,9 @@ Questo cambierà l'aspetto e le funzionalità dell'app, ma potrebbero verificars
 
 Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per evitare bug dell'interfaccia."</string>
   <string name="revanced_spoof_app_version_target_title">Target della versione dell\'app desiderata</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Ripristinare le vecchie icone del player Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Ripristina le vecchie icone di navigazione</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Ripristina la barra delle azioni video non compressa</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Ripristinare le vecchie icone del player Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Ripristina le vecchie icone di navigazione</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Cambia pagina iniziale</string>
@@ -1558,12 +1563,15 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Client sperimentale e potrebbe smettere di funzionare in qualsiasi momento</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nessun codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• I video dei bambini potrebbero non essere riprodotti quando si è disconnessi o in modalità di navigazione in incognito</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• L\'audio originale forzato non è disponibile</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra nelle statistiche per nerd</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Il tipo di client è mostrato nelle statistiche per nerd</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Il client è nascosto nelle statistiche per nerd</string>
   <string name="revanced_spoof_video_streams_language_title">Lingua del flusso audio</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Per selezionare una lingua audio specifica, disattiva \'Forza lingua audio originale\'</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">La selezione della lingua dello stream non è disponibile con Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1598,23 +1606,23 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_music_navigation_bar_screen_title">Barra di navigazione</string>
   <string name="revanced_music_navigation_bar_screen_summary">Nascondi o modifica i pulsanti della barra di navigazione</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Nascondi il pulsante Home</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Nascondi Home</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Il pulsante Home è nascosto</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Il pulsante Home è mostrato</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Nascondi il pulsante Campioni</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Nascondi Esempi</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Il pulsante Campioni è nascosto</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Il pulsante Campioni è mostrato</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Nascondi il pulsante Esplora</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Nascondi Esplora</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Il pulsante Esplora è nascosto</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Il pulsante Esplora è mostrato</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Nascondi il pulsante Libreria</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Nascondi Libreria</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Il pulsante Libreria è nascosto</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Il pulsante Libreria è mostrato</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Nascondi il pulsante Aggiorna</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Nascondi Aggiorna</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Il pulsante Aggiorna è nascosto</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Il pulsante Aggiorna è mostrato</string>
   <string name="revanced_music_hide_navigation_bar_title">Nascondi la barra di navigazione</string>

@@ -152,13 +152,10 @@ public final class SeekbarColorPatch {
             String seekbarStyle = get9BitStyleIdentifier(customSeekbarColor);
             Logger.printDebug(() -> "Using splash seekbar style: " + seekbarStyle);
 
-            final int styleIdentifierDefault = Utils.getResourceIdentifier(
+            final int styleIdentifierDefault = Utils.getResourceIdentifierOrThrow(
                     ResourceType.STYLE,
                     seekbarStyle
             );
-            if (styleIdentifierDefault == 0) {
-                throw new RuntimeException("Seekbar style not found: " + seekbarStyle);
-            }
 
             Resources.Theme theme = Utils.getContext().getResources().newTheme();
             theme.applyStyle(styleIdentifierDefault, true);

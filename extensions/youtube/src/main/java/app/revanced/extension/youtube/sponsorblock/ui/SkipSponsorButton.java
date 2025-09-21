@@ -4,6 +4,7 @@ import static app.revanced.extension.shared.Utils.getResourceColor;
 import static app.revanced.extension.shared.Utils.getResourceDimension;
 import static app.revanced.extension.shared.Utils.getResourceDimensionPixelSize;
 import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -57,9 +58,10 @@ public class SkipSponsorButton extends FrameLayout {
     public SkipSponsorButton(Context context, AttributeSet attributeSet, int defStyleAttr, int defStyleRes) {
         super(context, attributeSet, defStyleAttr, defStyleRes);
 
-        LayoutInflater.from(context).inflate(getResourceIdentifier(context, ResourceType.LAYOUT, "revanced_sb_skip_sponsor_button"), this, true);  // layout:skip_ad_button
+        LayoutInflater.from(context).inflate(getResourceIdentifierOrThrow(context, ResourceType.LAYOUT, "revanced_sb_skip_sponsor_button"), this, true);  // layout:skip_ad_button
         setMinimumHeight(getResourceDimensionPixelSize("ad_skip_ad_button_min_height"));  // dimen:ad_skip_ad_button_min_height
-        skipSponsorBtnContainer = Objects.requireNonNull(findViewById(getResourceIdentifier(context, ResourceType.ID, "revanced_sb_skip_sponsor_button_container")));  // id:skip_ad_button_container
+        skipSponsorBtnContainer = Objects.requireNonNull(findViewById(getResourceIdentifierOrThrow(
+                context, ResourceType.ID, "revanced_sb_skip_sponsor_button_container")));  // id:skip_ad_button_container
 
         background = new Paint();
         background.setColor(getResourceColor("skip_ad_button_background_color"));  // color:skip_ad_button_background_color);

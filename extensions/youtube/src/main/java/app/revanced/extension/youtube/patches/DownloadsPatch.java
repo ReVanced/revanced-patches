@@ -27,11 +27,11 @@ public final class DownloadsPatch {
 
     /**
      * Injection point.
-     *
+     * <p>
      * Called from the in app download hook,
      * for both the player action button (below the video)
      * and the 'Download video' flyout option for feed videos.
-     *
+     * <p>
      * Appears to always be called from the main thread.
      */
     public static boolean inAppDownloadButtonOnClick(String videoId) {

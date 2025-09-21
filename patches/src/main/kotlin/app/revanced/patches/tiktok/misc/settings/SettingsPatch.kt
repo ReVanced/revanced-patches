@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/tiktok/settings/AdPersonalizationActivityHook;"
+    "Lapp/revanced/extension/tiktok/settings/TikTokActivityHook;"
 
 val settingsPatch = bytecodePatch(
     name = "Settings",

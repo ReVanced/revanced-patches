@@ -107,6 +107,15 @@ Oynatma işləməyə bilər"</string>
   <string name="revanced_debug_title">Sazlama jurnalı</string>
   <string name="revanced_debug_summary_on">Sazlama jurnalı işləkdir</string>
   <string name="revanced_debug_summary_off">Sazlama jurnalı qeyri-aktivdir</string>
+  <string name="revanced_debug_stacktrace_title">Yığın izləri jurnalı</string>
+  <string name="revanced_debug_stacktrace_summary_on">Sazlama jurnalına yığın izləri daxildir</string>
+  <string name="revanced_debug_stacktrace_summary_off">Sazlama jurnalına yığın izləri daxil deyil</string>
+  <string name="revanced_debug_toast_on_error_title">ReVanced xətasında ani bildiriş göstər</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Xəta baş verərsə ani bildiriş görünür</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Xəta baş verərsə ani bildiriş görünmür</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Xəta ani bildirişlərin qapatmaq, bütün ReVanced xəta bildirişlərin gizlədir.
+
+Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Sazlama qeydlərini ixrac edin</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced sazlama qeydlərini buferə köçürür</string>
   <string name="revanced_debug_logs_disabled">Sazlama qeydi qapalıdır</string>
@@ -151,15 +160,6 @@ Oynatma işləməyə bilər"</string>
 Bu, xüsusi filtrlər yaradarkən quruluşları müəyyən etməyə kömək edə bilər.
 
 Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlumatın da daxil edəcək."</string>
-  <string name="revanced_debug_stacktrace_title">Yığın izləri jurnalı</string>
-  <string name="revanced_debug_stacktrace_summary_on">Sazlama jurnalına yığın izləri daxildir</string>
-  <string name="revanced_debug_stacktrace_summary_off">Sazlama jurnalına yığın izləri daxil deyil</string>
-  <string name="revanced_debug_toast_on_error_title">ReVanced xətasında ani bildiriş göstər</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Xəta baş verərsə ani bildiriş görünür</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Xəta baş verərsə ani bildiriş görünmür</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Xəta ani bildirişlərin qapatmaq, bütün ReVanced xəta bildirişlərin gizlədir.
-
-Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Albom kartlarını gizlət</string>
@@ -586,6 +586,10 @@ Ekranın sağ tərəfində düzünə sürüşdürərək səs səviyyəsini tənz
   <string name="revanced_hide_stop_ads_button_title">Reklamları Dayandırın-ı gizlət</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Reklamları dayandır düyməsi gizlidir</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Reklamları dayandır düyməsi görünür</string>
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+  <string name="revanced_hide_comments_button_title">Şərhləri Gizlət</string>
+  <string name="revanced_hide_comments_button_summary_on">Şərhlər düyməsi gizlidir</string>
+  <string name="revanced_hide_comments_button_summary_off">Şərhlər düyməsi görünür</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">\"Xəbər verin\"i gizlət</string>
@@ -1241,8 +1245,9 @@ Bu tətbiqin görünüşün və xüsusiyyətlərin dəyişdirəcək, lakin bilin
 
 Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların silmək tövsiyə olunur."</string>
   <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Köhnə fəaliyyət simvolların bərpa et</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Yığılmayan video fəaliyyət cizgisin bərpa et</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Köhnə fəaliyyət simvolların bərpa et</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlatma səhifəsini dəyişdir</string>
@@ -1558,12 +1563,15 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_spoof_video_streams_about_experimental">• Təcrübi qəbuledici və hər vaxt işləməyi dayandıra bilər</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodlayıcı yoxdur</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Giriş edilməyəndə və ya gizli rejimdə uşaq videoları oynadıla bilməz</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• \"Orijinal səsi zorla\" əlçatmazdır</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">İstək üçün Statistikada göstər</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Qəbuledici növü İstək üçün statistikada göstərilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Qəbuledici nerd üçün Statistikada gizlidir</string>
   <string name="revanced_spoof_video_streams_language_title">Səs yayım dili</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Xüsusi səs dilini seçmək üçün \"Orijinal səs dilini zorlanı\" qapat</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Yayım dili seçimi Android Studio ilə əlçatmazdır</string>
   </patch>
   </app>
   <app id="music">
@@ -1585,6 +1593,9 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_music_play_permanent_repeat_summary_off">Kəsintisiz təkrarlama qapalıdır</string>
   </patch>
   <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Yayım düyməsini gizlət</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Yayım düyməsi gizlidir</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Yayım düyməsi göstərilir</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Kateqoriya cizgisin gizlət</string>
@@ -1592,11 +1603,34 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_music_hide_category_bar_summary_off">Kateqoriya cizgisi görünür</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Fəaliyyət cizgisi</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Fəaliyyət cizgisi düymələrini gizlət və ya dəyiş</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Ev-i Gizlət</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Ev düyməsi gizlidir</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Ev düyməsi görünür</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Nümunələri Gizlət</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Nümunələr düyməsi gizlidir</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Nümunələr düyməsi görünür</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Kəşf edin-i gizlət</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Kəşf et düyməsi gizlidir</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Kəşf et düyməsi görünür</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Kitabxananı gizlət</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Kitabxana düyməsi gizlidir</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Kitabxana düyməsi görünür</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Təkmilləşdirməni Gizlət</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Təkmilləşdirmə düyməsi gizlidir</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Təkmilləşdirmə düyməsi görünür</string>
+  <string name="revanced_music_hide_navigation_bar_title">Fəaliyyət cizgisin gizlət</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Fəaliyyət cizgisi gizlidir</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Fəaliyyət cizgisi görünür</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Fəaliyyət düyməsi etiketlərini gizlət</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Etiketlər gizlidir</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Etiketlər görünür</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title"> \'Musiqi Premiumu Əldə et\' etiketini gizlət</string>

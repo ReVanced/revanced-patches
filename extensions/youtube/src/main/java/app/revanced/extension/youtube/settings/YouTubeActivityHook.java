@@ -2,8 +2,6 @@ package app.revanced.extension.youtube.settings;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
-import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.preference.PreferenceFragment;
 import android.view.View;
@@ -11,18 +9,17 @@ import android.widget.Toolbar;
 
 import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseActivityHook;
-import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.patches.spoof.SpoofAppVersionPatch;
-import app.revanced.extension.youtube.settings.preference.ReVancedPreferenceFragment;
+import app.revanced.extension.youtube.settings.preference.YouTubePreferenceFragment;
+import app.revanced.extension.youtube.settings.search.YouTubeSearchViewController;
 
 /**
- * Hooks LicenseActivity to inject a custom ReVancedPreferenceFragment with a toolbar and search functionality.
+ * Hooks LicenseActivity to inject a custom {@link YouTubePreferenceFragment} with a toolbar and search functionality.
  */
 @SuppressWarnings("deprecation")
-public class LicenseActivityHook extends BaseActivityHook {
+public class YouTubeActivityHook extends BaseActivityHook {
 
     private static int currentThemeValueOrdinal = -1; // Must initially be a non-valid enum ordinal value.
 
@@ -30,16 +27,14 @@ public class LicenseActivityHook extends BaseActivityHook {
      * Controller for managing search view components in the toolbar.
      */
     @SuppressLint("StaticFieldLeak")
-    public static SearchViewController searchViewController;
+    public static YouTubeSearchViewController searchViewController;
 
     /**
-     * Injection point
-     * <p>
-     * Creates an instance of LicenseActivityHook for use in static initialization.
+     * Injection point.
      */
     @SuppressWarnings("unused")
-    public static LicenseActivityHook createInstance() {
-        return new LicenseActivityHook();
+    public static void initialize(Activity parentActivity) {
+        BaseActivityHook.initialize(new YouTubeActivityHook(), parentActivity);
     }
 
     /**
@@ -50,7 +45,7 @@ public class LicenseActivityHook extends BaseActivityHook {
         final var theme = Utils.isDarkModeEnabled()
                 ? "Theme.YouTube.Settings.Dark"
                 : "Theme.YouTube.Settings";
-        activity.setTheme(Utils.getResourceIdentifier(ResourceType.STYLE, theme));
+        activity.setTheme(Utils.getResourceIdentifierOrThrow(ResourceType.STYLE, theme));
     }
 
     /**
@@ -58,7 +53,7 @@ public class LicenseActivityHook extends BaseActivityHook {
      */
     @Override
     protected int getContentViewResourceId() {
-        return Utils.getResourceIdentifier(ResourceType.LAYOUT, "revanced_settings_with_toolbar");
+        return LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR;
     }
 
     /**
@@ -77,7 +72,7 @@ public class LicenseActivityHook extends BaseActivityHook {
      */
     @Override
     protected Drawable getNavigationIcon() {
-        return ReVancedPreferenceFragment.getBackButtonDrawable();
+        return YouTubePreferenceFragment.getBackButtonDrawable();
     }
 
     /**
@@ -89,7 +84,7 @@ public class LicenseActivityHook extends BaseActivityHook {
     }
 
     /**
-     * Adds search view components to the toolbar for ReVancedPreferenceFragment.
+     * Adds search view components to the toolbar for {@link YouTubePreferenceFragment}.
      *
      * @param activity The activity hosting the toolbar.
      * @param toolbar  The configured toolbar.
@@ -97,32 +92,18 @@ public class LicenseActivityHook extends BaseActivityHook {
      */
     @Override
     protected void onPostToolbarSetup(Activity activity, Toolbar toolbar, PreferenceFragment fragment) {
-        if (fragment instanceof ReVancedPreferenceFragment) {
-            searchViewController = SearchViewController.addSearchViewComponents(
-                    activity, toolbar, (ReVancedPreferenceFragment) fragment);
+        if (fragment instanceof YouTubePreferenceFragment) {
+            searchViewController = YouTubeSearchViewController.addSearchViewComponents(
+                    activity, toolbar, (YouTubePreferenceFragment) fragment);
         }
     }
 
     /**
-     * Creates a new ReVancedPreferenceFragment for the activity.
+     * Creates a new {@link YouTubePreferenceFragment} for the activity.
      */
     @Override
     protected PreferenceFragment createPreferenceFragment() {
-        return new ReVancedPreferenceFragment();
-    }
-
-    /**
-     * Injection point.
-     * Overrides the ReVanced settings language.
-     */
-    @SuppressWarnings("unused")
-    public static Context getAttachBaseContext(Context original) {
-        AppLanguage language = BaseSettings.REVANCED_LANGUAGE.get();
-        if (language == AppLanguage.DEFAULT) {
-            return original;
-        }
-
-        return Utils.getContext();
+        return new YouTubePreferenceFragment();
     }
 
     /**
@@ -165,12 +146,14 @@ public class LicenseActivityHook extends BaseActivityHook {
     }
 
     /**
-     * Handles configuration changes, such as orientation, to update the search view.
+     * Injection point.
+     * <p>
+     * Overrides {@link Activity#finish()} of the injection Activity.
+     *
+     * @return if the original activity finish method should be allowed to run.
      */
     @SuppressWarnings("unused")
-    public static void handleConfigurationChanged(Activity activity, Configuration newConfig) {
-        if (searchViewController != null) {
-            searchViewController.handleOrientationChange(newConfig.orientation);
-        }
+    public static boolean handleFinish() {
+        return YouTubeSearchViewController.handleFinish(searchViewController);
     }
 }

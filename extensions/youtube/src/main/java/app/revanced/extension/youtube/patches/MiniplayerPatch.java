@@ -12,13 +12,15 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import java.util.List;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 
-@SuppressWarnings({"unused", "SpellCheckingInspection"})
+@SuppressWarnings("SpellCheckingInspection")
 public final class MiniplayerPatch {
 
     /**
@@ -174,6 +176,14 @@ public final class MiniplayerPatch {
         public boolean isAvailable() {
             return Settings.MINIPLAYER_TYPE.get().isModern() && Settings.MINIPLAYER_DRAG_AND_DROP.get();
         }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(
+                    Settings.MINIPLAYER_TYPE,
+                    Settings.MINIPLAYER_DRAG_AND_DROP
+            );
+        }
     }
 
     public static final class MiniplayerHideOverlayButtonsAvailability implements Setting.Availability {
@@ -186,11 +196,59 @@ public final class MiniplayerPatch {
                     && !Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get() && !Settings.MINIPLAYER_DRAG_AND_DROP.get())
                     || (IS_19_29_OR_GREATER && type == MODERN_3);
         }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(
+                    Settings.MINIPLAYER_TYPE,
+                    Settings.MINIPLAYER_DOUBLE_TAP_ACTION,
+                    Settings.MINIPLAYER_DRAG_AND_DROP
+            );
+        }
+    }
+
+    public static final class MiniplayerAnyModernAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            MiniplayerType type = Settings.MINIPLAYER_TYPE.get();
+            return type == MODERN_1 || type == MODERN_2 || type == MODERN_3 || type == MODERN_4;
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.MINIPLAYER_TYPE);
+        }
+    }
+
+    public static final class MiniplayerHideSubtextsAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            MiniplayerType type = Settings.MINIPLAYER_TYPE.get();
+            return type == MODERN_3 || type == MODERN_4;
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.MINIPLAYER_TYPE);
+        }
+    }
+
+    public static final class MiniplayerHideRewindOrOverlayOpacityAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            MiniplayerType type = Settings.MINIPLAYER_TYPE.get();
+            return type == MODERN_1;
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.MINIPLAYER_TYPE);
+        }
     }
 
     /**
      * Injection point.
-     *
+     * <p>
      * Enables a handler that immediately closes the miniplayer when the video is minimized,
      * effectively disabling the miniplayer.
      */

@@ -21,6 +21,7 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
+  <string name="revanced_check_environment_failed_title">Provjere nisu uspjele</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <!-- Settings about dialog. -->
@@ -89,6 +90,7 @@ Second \"item\" text"</string>
   <patch id="layout.buttons.action.hideButtonsPatch">
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
@@ -243,6 +245,7 @@ Second \"item\" text"</string>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   </patch>
   </app>
