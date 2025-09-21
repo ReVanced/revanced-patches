@@ -1563,12 +1563,15 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментальний клієнт, який може припинити працювати будь-якої миті</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Відсутній відеокодек AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Відео для дітей можуть не відтворюватися, якщо вийти з облікового запису або перейти в анонімний режим</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• \"Примусово оригінальна мова звукової доріжки\" недоступна</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клієнта відображається у вікні \"Статистика для сисадмінів\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клієнта приховано у вікні \"Статистика для сисадмінів\"</string>
   <string name="revanced_spoof_video_streams_language_title">Мова звукової доріжки</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Щоб вибрати певну звукову доріжку, вимкніть \"Примусово оригінальна мова звукової доріжки\"</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Вибір мови потоку недоступний з Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1603,23 +1606,23 @@ Second \"item\" text"</string>
   <string name="revanced_music_navigation_bar_screen_title">Панель навігації</string>
   <string name="revanced_music_navigation_bar_screen_summary">Приховати або змінити кнопки панелі навігації</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Приховати кнопку \"Головна\"</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Приховати \"Головна\"</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Кнопку \"Головна\" приховано</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Кнопка \"Головна\" показується</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Приховати кнопку \"Семпли\"</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Приховати Семпли</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Кнопку \"Семпли\" приховано</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Кнопка \"Семпли\" показується</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Приховати кнопку \"Навігація\"</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Приховати Огляд</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Кнопку \"Навігація\" приховано</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Кнопка \"Навігація\" показується</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Приховати кнопку \"Бібліотека\"</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Приховати Бібліотеку</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Кнопку \"Бібліотека\" приховано</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Кнопка \"Бібліотека\" показується</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Приховати кнопку \"Підписка\"</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Приховати Підписку</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Кнопку \"Підписка\" приховано</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Кнопка \"Підписка\" показується</string>
   <string name="revanced_music_hide_navigation_bar_title">Приховати панель навігації</string>

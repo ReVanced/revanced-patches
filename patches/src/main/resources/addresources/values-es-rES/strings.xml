@@ -1555,12 +1555,15 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• El cliente es experimental y puede dejar de funcionar en cualquier momento</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Sin códec de vídeo AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Es posible que los vídeos infantiles no se reproduzcan cuando se cierra la sesión o se está en modo incógnito</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Forzar audio original no está disponible</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostrar en Estadísticas para nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">El tipo de cliente se muestra en Estadísticas para nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">El cliente está oculto en Estadísticas para nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Idioma de la transmisión de audio</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Para seleccionar un idioma de audio específico, desactiva \"Forzar idioma de audio original\"</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">La selección de idioma de transmisión no está disponible con Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1595,23 +1598,23 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_music_navigation_bar_screen_title">Barra de navegación</string>
   <string name="revanced_music_navigation_bar_screen_summary">Ocultar o cambiar los botones de la barra de navegación</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Ocultar el botón Inicio</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Ocultar pestaña \'Inicio\'</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">El botón Inicio está oculto</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">El botón Inicio es visible</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Ocultar el botón Muestras</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Ocultar muestras</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">El botón Muestras está oculto</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">El botón Muestras es visible</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Ocultar el botón Explorar</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Ocultar Explorar</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">El botón Explorar está oculto</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">El botón Explorar es visible</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Ocultar el botón Biblioteca</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Ocultar Biblioteca</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">El botón Biblioteca está oculto</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">El botón Biblioteca es visible</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Ocultar el botón Actualizar</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Ocultar Premium</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">El botón Actualizar está oculto</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">El botón Actualizar es visible</string>
   <string name="revanced_music_hide_navigation_bar_title">Ocultar la barra de navegación</string>

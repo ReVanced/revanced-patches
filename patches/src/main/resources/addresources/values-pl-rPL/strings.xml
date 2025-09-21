@@ -1560,12 +1560,15 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperymentalny klient i może przestać działać w każdej chwili</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Filmy dla dzieci mogą nie być odtwarzane po wylogowaniu lub w trybie incognito</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Wymuś oryginalny dźwięk jest niedostępny</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Pokaż w statystykach dla nerdów</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta jest wyświetlany w Statystykach dla nerdów</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient jest ukryty w statystykach dla nerdów</string>
   <string name="revanced_spoof_video_streams_language_title">Język strumienia audio</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Aby wybrać konkretny język audio, wyłącz \"Wymuś oryginalny język audio\"</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Wybór języka strumienia nie jest dostępny w przypadku Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1600,23 +1603,23 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_music_navigation_bar_screen_title">Pasek nawigacji</string>
   <string name="revanced_music_navigation_bar_screen_summary">Ukryj lub zmień przyciski paska nawigacji</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Ukryj przycisk Główna</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Ukryj Główną</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Przycisk Główna jest ukryty</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Przycisk Główna jest pokazany</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Ukryj przycisk Wycinki</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Ukryj Fragmenty</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Przycisk Wycinki jest ukryty</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Przycisk Wycinki jest pokazany</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Ukryj przycisk Przeglądaj</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Ukryj Odkrywaj</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Przycisk Przeglądaj jest ukryty</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Przycisk Przeglądaj jest pokazany</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Ukryj przycisk Biblioteka</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Ukryj Bibliotekę</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Przycisk Biblioteka jest ukryty</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Przycisk Biblioteka jest pokazany</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Ukryj przycisk Ulepsz</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Ukryj Ulepsz</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Przycisk Ulepsz jest ukryty</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Przycisk Ulepsz jest pokazany</string>
   <string name="revanced_music_hide_navigation_bar_title">Ukryj pasek nawigacji</string>

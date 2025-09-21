@@ -68,8 +68,8 @@ Second \"item\" text"</string>
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
-  <string name="microg_settings_title">Cài đặt GmsCore</string>
-  <string name="microg_settings_summary">Các cài đặt cho GmsCore</string>
+  <string name="microg_settings_title">GmsCore</string>
+  <string name="microg_settings_summary">Chuyển hướng tới GmsCore và thiết lập</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="gms_core_toast_not_installed_message">MicroG GmsCore chưa được cài đặt. Hãy cài đặt ngay.</string>
   <string name="gms_core_dialog_title">Yêu cầu thực hiện</string>
@@ -88,9 +88,9 @@ Nhấn tiếp tục để thay đổi lựa chọn tối ưu hóa."</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">Giả mạo luồng video</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Giả mạo luồng video của thiết bị nhằm ngăn chặn lỗi khi phát</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Giả mạo luồng video của ứng dụng khách nhằm ngăn chặn lỗi khi phát</string>
   <string name="revanced_spoof_video_streams_screen_title">Giả mạo luồng video</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Giả mạo luồng video của thiết bị nhằm ngăn chặn lỗi khi phát</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Giả mạo luồng video của ứng dụng khách nhằm ngăn chặn lỗi khi phát</string>
   <string name="revanced_spoof_video_streams_title">Giả mạo luồng video</string>
   <string name="revanced_spoof_video_streams_summary_on">"Luồng video đã được giả mạo
 
@@ -99,7 +99,7 @@ Nếu bạn là người dùng YouTube Premium, thì cài đặt này có thể 
 
 Có thể gặp lỗi khi phát."</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Tắt cài đặt này có thể gây ra lỗi khi phát.</string>
-  <string name="revanced_spoof_video_streams_client_type_title">Loại thiết bị mặc định</string>
+  <string name="revanced_spoof_video_streams_client_type_title">Ứng dụng khách mặc định</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Gỡ lỗi</string>
@@ -186,15 +186,15 @@ Tuy nhiên, bật tính năng này cũng sẽ ghi lại một số dữ liệu n
   <string name="revanced_hide_floating_microphone_button_title">Ẩn nút micrô nổi</string>
   <string name="revanced_hide_floating_microphone_button_summary_on">Nút micro nổi trong tìm kiếm bị ẩn</string>
   <string name="revanced_hide_floating_microphone_button_summary_off">Nút micro nổi trong tìm kiếm đang hiển thị</string>
-  <string name="revanced_hide_horizontal_shelves_title">Ẩn kệ ngang</string>
-  <string name="revanced_hide_horizontal_shelves_summary_on">"Các kệ ngang đã bị ẩn, chẳng hạn như:
+  <string name="revanced_hide_horizontal_shelves_title">Ẩn kệ cá nhân hoá</string>
+  <string name="revanced_hide_horizontal_shelves_summary_on">"Các kệ cá nhân hoá đã bị ẩn, chẳng hạn như:
 • Tin nổi bật
 • Tiếp tục xem
 • Khám phá các chủ đề khác
 • Phù hợp nhất
 • Mua sắm
 • Xem lại"</string>
-  <string name="revanced_hide_horizontal_shelves_summary_off">Kệ ngang được hiển thị</string>
+  <string name="revanced_hide_horizontal_shelves_summary_off">Kệ cá nhân hoá được hiển thị</string>
   <string name="revanced_hide_image_shelf_title">Ẩn kệ hình ảnh</string>
   <string name="revanced_hide_image_shelf_summary_on">Kệ hình ảnh trong kết quả tìm kiếm đã bị ẩn</string>
   <string name="revanced_hide_image_shelf_summary_off">Kệ hình ảnh trong kết quả tìm kiếm được hiển thị</string>
@@ -626,9 +626,9 @@ Vui lòng kiểm tra lại tên gói và đảm bảo ứng dụng đã được
   <string name="revanced_hide_clip_button_summary_on">Nút tạo đoạn video đã bị ẩn</string>
   <string name="revanced_hide_clip_button_summary_off">Nút tạo đoạn video được hiển thị</string>
   <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_shop_button_title">Ẩn Cửa hàng</string>
-  <string name="revanced_hide_shop_button_summary_on">Nút Cửa hàng đã bị ẩn</string>
-  <string name="revanced_hide_shop_button_summary_off">Nút Cửa hàng được hiển thị</string>
+  <string name="revanced_hide_shop_button_title">Ẩn Mua sắm</string>
+  <string name="revanced_hide_shop_button_summary_on">Nút Mua sắm đã bị ẩn</string>
+  <string name="revanced_hide_shop_button_summary_off">Nút Mua sắm được hiển thị</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">Ẩn Lưu</string>
   <string name="revanced_hide_save_button_summary_on">Nút Lưu đã bị ẩn</string>
@@ -839,7 +839,7 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <string name="revanced_hide_shorts_search_suggestions_title">Ẩn đề xuất tìm kiếm</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Đề xuất tìm kiếm đã bị ẩn</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Đề xuất tìm kiếm được hiển thị</string>
-  <string name="revanced_hide_shorts_shop_button_title">Ẩn nút Cửa hàng</string>
+  <string name="revanced_hide_shorts_shop_button_title">Ẩn nút Mua sắm</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">Nút mua sắm đã bị ẩn</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">Nút mua sắm được hiển thị</string>
   <string name="revanced_hide_shorts_stickers_title">Ẩn nhãn dán</string>
@@ -1247,7 +1247,7 @@ Bố cục màn hình ô tô
 
 Nếu tắt đi sau đó, bạn nên xóa dữ liệu ứng dụng để tránh phát sinh lỗi giao diện."</string>
   <string name="revanced_spoof_app_version_target_title">Mục tiêu phiên bản giả mạo</string>
-  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Khôi phục thanh hành động video không bị thu gọn</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Khôi phục thanh thao tác video mở rộng</string>
   <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Khôi phục biểu tượng trình phát Shorts cũ</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Khôi phục biểu tượng điều hướng cũ</string>
   </patch>
@@ -1567,15 +1567,18 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_spoof_video_streams_about_android_summary">"• Trình đơn bản âm thanh bị thiếu
 • Âm lượng ổn định không khả dụng"</string>
   <string name="revanced_spoof_video_streams_about_ipados_summary">• Video có thể dừng ở 1:00, hoặc có thể không khả dụng ở một số khu vực</string>
-  <string name="revanced_spoof_video_streams_about_experimental">• Ứng dụng thử nghiệm và có thể ngừng hoạt động bất cứ lúc nào</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Ứng dụng khách đang trong giai đoạn thử nghiệm và có thể ngừng hoạt động bất cứ lúc nào</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Không có codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video dành cho trẻ em có thể không phát được khi đăng xuất hoặc ở chế độ ẩn danh</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Buộc âm thanh gốc không khả dụng</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Hiện trong Thống kê chi tiết</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Loại máy khách đã được hiển thị trong Thống kê chi tiết</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Loại thiết bị đã ẩn trong Thống kê chi tiết</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Ứng dụng khách đã được hiển thị trong Thống kê chi tiết</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Ứng dụng khách đã ẩn trong Thống kê chi tiết</string>
   <string name="revanced_spoof_video_streams_language_title">Ngôn ngữ luồng âm thanh</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Để chọn ngôn ngữ âm thanh cụ thể, hãy tắt \'Buộc ngôn ngữ âm thanh gốc\'</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Chọn ngôn ngữ luồng không khả dụng với Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1610,23 +1613,23 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_music_navigation_bar_screen_title">Thanh điều hướng</string>
   <string name="revanced_music_navigation_bar_screen_summary">Ẩn hoặc thay đổi các nút trên thanh điều hướng</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Ẩn nút Trang chủ</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Ẩn Trang chủ</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Nút Trang chủ đã bị ẩn</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Nút Trang chủ được hiển thị</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Ẩn nút Đoạn nhạc</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Ẩn Đoạn nhạc</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Nút Đoạn nhạc đã bị ẩn</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Nút Đoạn nhạc được hiển thị</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Ẩn nút Khám phá</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Ẩn Khám phá</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Nút Khám phá đã bị ẩn</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Nút Khám phá được hiển thị</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Ẩn nút Thư viện</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Ẩn Thư viện</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Nút Thư viện đã bị ẩn</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Nút Thư viện được hiển thị</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Ẩn nút Nâng cấp</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Ẩn Nâng cấp</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Nút Nâng cấp đã bị ẩn</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Nút Nâng cấp được hiển thị</string>
   <string name="revanced_music_hide_navigation_bar_title">Ẩn thanh điều hướng</string>
@@ -1696,7 +1699,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_misc_screen_summary">Cài đặt linh tinh</string>
   <string name="revanced_general_category_title">Cài đặt chung</string>
   <string name="revanced_other_category_title">Cài đặt khác</string>
-  <string name="revanced_client_ads_category_title">Quảng cáo phía máy khách</string>
+  <string name="revanced_client_ads_category_title">Quảng cáo phía ứng dụng</string>
   <string name="revanced_surestream_ads_category_title">Quảng cáo luồng đảm bảo phía máy khách</string>
   <string name="revanced_twitch_debug_title">Nhật ký gỡ lỗi</string>
   <string name="revanced_twitch_debug_summary_on">Nhật ký gỡ lỗi đã bật</string>

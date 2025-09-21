@@ -1566,12 +1566,15 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentel klient og kan stoppe med at fungere når som helst</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Intet AV1-videokodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videoer til børn afspilles muligvis ikke, når du er logget ud eller i inkognitotilstand</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Tving original lyd er ikke tilgængelig</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Vis i Statistik for nørder</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttypen vises i Statistik for nørder</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten er skjult i Statistik for nørder</string>
   <string name="revanced_spoof_video_streams_language_title">Lydstreamsprog</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">For at vælge et specifikt lydsprog, slå \'Gennemtving originalt lydsprog\' fra</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Valg af streaming-sprog er ikke tilgængeligt med Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1606,23 +1609,23 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_music_navigation_bar_screen_title">Navigationslinje</string>
   <string name="revanced_music_navigation_bar_screen_summary">Skjul eller skift navigationslinjeknapper</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Skjul Startside-knap</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Skjul Startside</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Startside-knappen er skjult</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Startside-knappen vises</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Skjul Kortklip-knap</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Skjul Uddrag</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Kortklip-knappen er skjult</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Kortklip-knappen vises</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Skjul Udforsk-knap</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Skjul Udforsk</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Udforsk-knappen er skjult</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Udforsk-knappen vises</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Skjul Bibliotek-knap</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Skjul Bibliotek</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Bibliotek-knappen er skjult</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Bibliotek-knappen vises</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Skjul Opgrader-knap</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Skjul Opgrader</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Opgrader-knappen er skjult</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Opgrader-knappen vises</string>
   <string name="revanced_music_hide_navigation_bar_title">Skjul navigationslinje</string>

@@ -1565,12 +1565,15 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_spoof_video_streams_about_experimental">• Փորձնական հաճախորդ է և կարող է ցանկացած պահի դադարել աշխատել</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Հեռացված բոլոր AV1 վիդեո կոդեկները</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">Երեխաների տեսանյութերը կարող են չհամապատասխանել հետևյալ պահանջներին՝ եթե արտոնագրման խախտումներ կան։</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Բնօրինակ ձայնի պարտադրումը հասանելի չէ</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Ցուցադրել վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Հաճախորդի տեսակը ցուցադրվում է վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Հաճախորդը թաքնված է վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_video_streams_language_title">Ձայնային հոսքի լեզուն</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Որոշակի ձայնային լեզու ընտրելու համար անջատեք \'Պարտադրել բնօրինակ ձայնային լեզուն\'</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Հոսքի լեզվի ընտրությունը հասանելի չէ Android Studio-ի հետ</string>
   </patch>
   </app>
   <app id="music">
@@ -1605,23 +1608,23 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_music_navigation_bar_screen_title">Նավիգացիոն գիծ</string>
   <string name="revanced_music_navigation_bar_screen_summary">Թաքցնել կամ փոխել նավիգացիոն գծի կոճակները</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Թաքցնել «Գլխավոր» կոճակը</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Թաքցնել Գլխավորը</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">«Գլխավոր» կոճակը թաքնված է</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">«Գլխավոր» կոճակը ցուցադրված է</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Թաքցնել «Նմուշներ» կոճակը</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Թաքցնել Նմուշները</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">«Նմուշներ» կոճակը թաքնված է</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">«Նմուշներ» կոճակը ցուցադրված է</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Թաքցնել «Բացահայտել» կոճակը</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Թաքցնել Ուսումնասիրելը</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">«Բացահայտել» կոճակը թաքնված է</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">«Բացահայտել» կոճակը ցուցադրված է</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Թաքցնել «Գրադարան» կոճակը</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Թաքցնել Գրադարանը</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">«Գրադարան» կոճակը թաքնված է</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">«Գրադարան» կոճակը ցուցադրված է</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Թաքցնել «Արդիականացնել» կոճակը</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Թաքցնել Թարմացումը</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">«Արդիականացնել» կոճակը թաքնված է</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">«Արդիականացնել» կոճակը ցուցադրված է</string>
   <string name="revanced_music_hide_navigation_bar_title">Թաքցնել նավիգացիոն գիծը</string>

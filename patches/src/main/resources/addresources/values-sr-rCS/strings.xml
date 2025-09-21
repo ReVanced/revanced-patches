@@ -1563,12 +1563,15 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentalni klijent i može prestati da radi bilo kada</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nema video kodeka AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videi za decu se možda neće puštati kada ste odjavljeni ili u režimu bez arhiviranja</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Forsiranje originalnog zvuka nije dostupno</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Prikaži u „Statistici za znalce”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tip klijenta je prikazan u „Statistici za znalce”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Tip klijenta je skriven u „Statistici za znalce”</string>
   <string name="revanced_spoof_video_streams_language_title">Jezik audio strima</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Da biste izabrali određeni jezik zvuka, isključite opciju „Prisili originalni jezik zvuka”</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Izbor jezika strima nije dostupan sa Android Studijem</string>
   </patch>
   </app>
   <app id="music">
@@ -1603,23 +1606,23 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_music_navigation_bar_screen_title">Traka za navigaciju</string>
   <string name="revanced_music_navigation_bar_screen_summary">Sakrijte ili promenite dugmad trake za navigaciju</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Sakrij dugme „Početna”</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Sakrij Početnu</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Dugme „Početna” je skriveno</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Dugme „Početna” je prikazano</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Sakrij dugme „Uzorci”</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Sakrij Uzorke</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Dugme „Uzorci” je skriveno</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Dugme „Uzorci” je prikazano</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Sakrij dugme „Istražite”</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Sakrij Istražite</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Dugme „Istražite” je skriveno</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Dugme „Istražite” je prikazano</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Sakrij dugme „Biblioteka”</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Sakrij Biblioteku</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Dugme „Biblioteka” je skriveno</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Dugme „Biblioteka” je prikazano</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Sakrij dugme „Nadogradite”</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Sakrij Nadogradi</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Dugme „Nadogradite” je skriveno</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Dugme „Nadogradite” je prikazano</string>
   <string name="revanced_music_hide_navigation_bar_title">Sakrij traku za navigaciju</string>

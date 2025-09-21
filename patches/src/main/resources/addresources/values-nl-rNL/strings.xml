@@ -1562,12 +1562,15 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentele client en kan elk moment stoppen met werken</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Geen AV1-videocodec</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• \"Kinder\"​-Video’s worden mogelijk niet afgespeeld wanneer u bent uitgelogd of de incognitomodus gebruikt</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Oorspronkelijke audio forceren is niet beschikbaar</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Weergeven in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Het clienttype wordt getoond in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is verborgen in Stats for nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Audiostreamtaal</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Om een specifieke audiotaal te selecteren, schakel \"Oorspronkelijke audiotaal forceren\" uit</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Streamtaalselectie is niet beschikbaar met Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1602,23 +1605,23 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_music_navigation_bar_screen_title">Navigatiebalk</string>
   <string name="revanced_music_navigation_bar_screen_summary">Navigatiebalkknoppen verbergen of wijzigen</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Startknop verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Startpagina verbergen</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Startknop is verborgen</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Startknop wordt weergegeven</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Knop Voorbeelden verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Fragmenten verbergen</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Knop Voorbeelden is verborgen</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Knop Voorbeelden wordt weergegeven</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Knop Ontdekken verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Verberg Ontdekken</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Knop Ontdekken is verborgen</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Knop Ontdekken wordt weergegeven</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Knop Bibliotheek verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Verberg Bibliotheek</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Knop Bibliotheek is verborgen</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Knop Bibliotheek wordt weergegeven</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Upgrade-knop verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Verberg Upgraden</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Upgrade-knop is verborgen</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Upgrade-knop wordt weergegeven</string>
   <string name="revanced_music_hide_navigation_bar_title">Navigatiebalk verbergen</string>

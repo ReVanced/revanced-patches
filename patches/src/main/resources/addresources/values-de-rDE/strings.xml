@@ -1561,12 +1561,15 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_spoof_video_streams_about_experimental">• Experimenteller Client und kann jederzeit aufhören zu funktionieren</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Kein AV1-Videocodec</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kinder-Videos werden möglicherweise nicht abgespielt, wenn du abgemeldet bist oder den Inkognito-Modus verwendest.</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Originalton erzwingen ist nicht verfügbar</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">In Statistiken für Nerds anzeigen</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Der Client-Typ wird in den Statistiken für Nerds angezeigt</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Der Client wird in den Statistiken für Nerds ausgeblendet</string>
   <string name="revanced_spoof_video_streams_language_title">Audiodatenstromsprache</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Um eine bestimmte Audiosprache auszuwählen, deaktivieren Sie „Original-Audiosprache erzwingen“</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Die Auswahl der Stream-Sprache ist mit Android Studio nicht verfügbar.</string>
   </patch>
   </app>
   <app id="music">
@@ -1601,23 +1604,23 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_music_navigation_bar_screen_title">Navigationsleiste</string>
   <string name="revanced_music_navigation_bar_screen_summary">Navigationsleisten-Schaltflächen ausblenden oder ändern</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Start-Schaltfläche ausblenden</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Startseite ausblenden</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Start-Schaltfläche ist ausgeblendet</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Start-Schaltfläche wird angezeigt</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Samples-Schaltfläche ausblenden</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Kurzvideos ausblenden</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Samples-Schaltfläche ist ausgeblendet</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Samples-Schaltfläche wird angezeigt</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Entdecken-Schaltfläche ausblenden</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Erkunden ausblenden</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Entdecken-Schaltfläche ist ausgeblendet</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Entdecken-Schaltfläche wird angezeigt</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Mediathek-Schaltfläche ausblenden</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Mediathek ausblenden</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Mediathek-Schaltfläche ist ausgeblendet</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Mediathek-Schaltfläche wird angezeigt</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Upgrade-Schaltfläche ausblenden</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Upgrade ausblenden</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Upgrade-Schaltfläche ist ausgeblendet</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Upgrade-Schaltfläche wird angezeigt</string>
   <string name="revanced_music_hide_navigation_bar_title">Navigationsleiste ausblenden</string>

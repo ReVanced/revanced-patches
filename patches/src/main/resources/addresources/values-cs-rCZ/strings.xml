@@ -1564,12 +1564,15 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentální klient a může kdykoli přestat fungovat</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Dětská videa se nemusí přehrávat, když jste odhlášení nebo v anonymním režimu</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Vynutit původní zvuk není k dispozici</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Zobrazit ve statistikách pro nadšence</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta se zobrazuje ve statistikách pro nadšence</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient je skrytý ve statistikách pro nadšence</string>
   <string name="revanced_spoof_video_streams_language_title">Jazyk zvukového streamu</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Chcete-li vybrat konkrétní zvukový jazyk, vypněte „Vynutit původní zvukový jazyk“</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Volba jazyka streamu není k dispozici s Android Studiem</string>
   </patch>
   </app>
   <app id="music">
@@ -1604,23 +1607,23 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_music_navigation_bar_screen_title">Navigační panel</string>
   <string name="revanced_music_navigation_bar_screen_summary">Skrýt nebo změnit tlačítka navigačního panelu</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Skrýt tlačítko Domů</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Skrýt Domů</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Tlačítko Domů je skryté</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Tlačítko Domů je zobrazeno</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Skrýt tlačítko Ukázky</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Skrýt Ukázky</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Tlačítko Ukázky je skryté</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Tlačítko Ukázky je zobrazeno</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Skrýt tlačítko Prozkoumat</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Skrýt Prozkoumat</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Tlačítko Prozkoumat je skryté</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Tlačítko Prozkoumat je zobrazeno</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Skrýt tlačítko Knihovna</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Skrýt Knihovnu</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Tlačítko Knihovna je skryté</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Tlačítko Knihovna je zobrazeno</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Skrýt tlačítko Vylepšit</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Skrýt Upgradovat</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Tlačítko Vylepšit je skryté</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Tlačítko Vylepšit je zobrazeno</string>
   <string name="revanced_music_hide_navigation_bar_title">Skrýt navigační panel</string>

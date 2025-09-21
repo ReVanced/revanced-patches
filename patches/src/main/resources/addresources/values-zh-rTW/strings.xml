@@ -1574,12 +1574,15 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 實驗性用戶端，隨時可能停止運作</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• 沒有 AV1 影片解碼器</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• 在登出或無痕模式下，兒童影片可能無法播放</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• 強制原始音訊不可用</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">顯示統計資料</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">已在統計資料中顯示用戶端類型</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">已在統計資料中隱藏用戶端類型</string>
   <string name="revanced_spoof_video_streams_language_title">音訊串流語言</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">若要選擇特定的音訊語言，請關閉「強制使用原始音訊語言」</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">無法使用 Android Studio 選擇串流語言</string>
   </patch>
   </app>
   <app id="music">
@@ -1614,23 +1617,23 @@ Second \"item\" text"</string>
   <string name="revanced_music_navigation_bar_screen_title">導覽列</string>
   <string name="revanced_music_navigation_bar_screen_summary">隱藏或變更導覽列按鈕</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">隱藏「首頁」按鈕</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">隱藏「首頁」</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">「首頁」按鈕已隱藏</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">「首頁」按鈕已顯示</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">隱藏「取樣」按鈕</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">隱藏「取樣」</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">「取樣」按鈕已隱藏</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">「取樣」按鈕已顯示</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">隱藏「探索」按鈕</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">隱藏探索</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">「探索」按鈕已隱藏</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">「探索」按鈕已顯示</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">隱藏「媒體庫」按鈕</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">隱藏媒體庫</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">「媒體庫」按鈕已隱藏</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">「媒體庫」按鈕已顯示</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">隱藏「升級」按鈕</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">隱藏升級</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">「升級」按鈕已隱藏</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">「升級」按鈕已顯示</string>
   <string name="revanced_music_hide_navigation_bar_title">隱藏導覽列</string>

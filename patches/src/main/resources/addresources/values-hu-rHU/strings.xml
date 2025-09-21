@@ -1561,12 +1561,15 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_spoof_video_streams_about_experimental">• Kísérleti kliens, és bármikor leállhat</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nincs AV1 videokodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• A gyermekeknek szóló videók nem játszódnak le, ha a felhasználó kijelentkezett, vagy inkognitómódban van.</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Eredeti hang kényszerítése nem érhető el</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Megjelenítés a Statisztikákban</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">A kliens típusa a Statisztikákban látható</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">A kliens el van rejtve a Statisztikákban</string>
   <string name="revanced_spoof_video_streams_language_title">Hangfolyam nyelve</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Egy adott hangsáv nyelv kiválasztásához kapcsold ki az \"Eredeti hangsáv nyelv kikényszerítése\" opciót</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Az Android Studio-val nem érhető el a stream nyelvének kiválasztása</string>
   </patch>
   </app>
   <app id="music">
@@ -1601,23 +1604,23 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_music_navigation_bar_screen_title">Navigációs sáv</string>
   <string name="revanced_music_navigation_bar_screen_summary">Navigációs sáv gombjainak elrejtése vagy módosítása</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Kezdőlap gomb elrejtése</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Főoldal elrejtése</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">A Kezdőlap gomb elrejtve</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">A Kezdőlap gomb látható</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Minták gomb elrejtése</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Minták elrejtése</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">A Minták gomb elrejtve</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">A Minták gomb látható</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Felfedezés gomb elrejtése</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Felfedezés elrejtése</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">A Felfedezés gomb elrejtve</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">A Felfedezés gomb látható</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Könyvtár gomb elrejtése</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Könyvtár elrejtése</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">A Könyvtár gomb elrejtve</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">A Könyvtár gomb látható</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Frissítés gomb elrejtése</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Frissítés elrejtése</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">A Frissítés gomb elrejtve</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">A Frissítés gomb látható</string>
   <string name="revanced_music_hide_navigation_bar_title">Navigációs sáv elrejtése</string>
