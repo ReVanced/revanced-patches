@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">অনুসন্ধান সেটিংস</string>
   <string name="revanced_settings_search_no_results_title">\'%s\'-এর জন্য কোন ফলাফল পাওয়া যায়নি</string>
   <string name="revanced_settings_search_no_results_summary">অন্য কোনো কীওয়ার্ড চেষ্টা করুন</string>
+  <string name="revanced_settings_search_recent_searches">সাম্প্রতিক অনুসন্ধানগুলি</string>
   <string name="revanced_settings_search_remove_message">অনুসন্ধান ইতিহাস থেকে সরাবেন?</string>
+  <string name="revanced_settings_search_clear_history">অনুসন্ধানের ইতিহাস মুছুন</string>
+  <string name="revanced_settings_search_clear_history_message">আপনি কি আপনার সমস্ত অনুসন্ধানের ইতিহাস মুছে ফেলতে চান?</string>
+  <string name="revanced_settings_search_tips_title">অনুসন্ধানের টিপস</string>
+  <string name="revanced_settings_search_tips_summary">"• এটিতে নেভিগেট করতে একটি পাথে ট্যাপ করুন
+• এটিতে নেভিগেট করতে একটি সেটিং-এ লং-প্রেস করুন
+• অনুসন্ধানের প্রশ্ন ইতিহাসে সংরক্ষণ করতে এন্টার চাপুন
+• অনুসন্ধান কেসিং এবং বিরামচিহ্ন উপেক্ষা করে
+• অক্ষম শিশু সেটিংসের উপরে মূল সেটিংস দেখা যায়"</string>
+  <string name="revanced_settings_search_empty_history_title">অনুসন্ধান ইতিহাস খালি</string>
+  <string name="revanced_settings_search_empty_history_summary">অনুসন্ধান ইতিহাস সংরক্ষণ করতে, একটি অনুসন্ধানের প্রশ্ন টাইপ করুন এবং এন্টার চাপুন</string>
+  <string name="revanced_settings_search_history_title">অনুসন্ধান সেটিংসের ইতিহাস দেখান</string>
+  <string name="revanced_settings_search_history_summary_on">সেটিংস অনুসন্ধান ইতিহাস দেখানো হয়েছে</string>
+  <string name="revanced_settings_search_history_summary_off">সেটিংস অনুসন্ধান ইতিহাস দেখানো হয় না</string>
   <string name="revanced_show_menu_icons_title">ReVanced সেটিং আইকন দেখান</string>
   <string name="revanced_show_menu_icons_summary_on">সেটিং আইকন দেখানো হয়েছে</string>
   <string name="revanced_show_menu_icons_summary_off">সেটিং আইকন দেখানো হচ্ছে না</string>
   <string name="revanced_language_title">ReVanced ভাষা</string>
-  <string name="revanced_language_user_dialog_message">"কিছু ভাষার জন্য অনুবাদ অনুপস্থিত বা অসম্পূর্ণ হতে পারে।
+  <string name="revanced_language_user_dialog_message">"কিছু ভাষার অনুবাদ অনুপস্থিত বা অসম্পূর্ণ হতে পারে।
 
-নতুন ভাষা অনুবাদ করতে translate.revanced.app দেখুন"</string>
+নতুন ভাষা অনুবাদ করতে বা বিদ্যমান অনুবাদ উন্নত করতে, translate.revanced.app এ ভিজিট করুন"</string>
   <string name="revanced_language_DEFAULT">অ্যাপ্লিকেশনের ভাষা</string>
   <string name="revanced_pref_import_export_title">আমদানি এবং রপ্তানি</string>
   <string name="revanced_pref_import_export_summary">ReVanced সেটিং আমদানি বা রপ্তানি করুন</string>
@@ -142,9 +156,6 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_restore_old_settings_menus_title">পুরানো সেটিংস মেনু পুনরুদ্ধার করুন</string>
   <string name="revanced_restore_old_settings_menus_summary_on">পুরাতন সেটিংস মেনু দেখানো হচ্ছে</string>
   <string name="revanced_restore_old_settings_menus_summary_off">পুরাতন সেটিংস মেনু দেখানো হচ্ছে না</string>
-  <string name="revanced_settings_search_history_title">অনুসন্ধান সেটিংসের ইতিহাস দেখান</string>
-  <string name="revanced_settings_search_history_summary_on">সেটিংস অনুসন্ধান ইতিহাস দেখানো হয়েছে</string>
-  <string name="revanced_settings_search_history_summary_off">সেটিংস অনুসন্ধান ইতিহাস দেখানো হয় না</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts ব্যাকগ্রাউন্ড প্লে অক্ষম করুন</string>
@@ -1056,9 +1067,9 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_sb_guidelines_popup_already_read">ইতোমধ্যে পড়া হয়েছে</string>
   <string name="revanced_sb_guidelines_popup_open">আমাকে দেখান</string>
   <string name="revanced_sb_general">সাধারণ</string>
-  <string name="revanced_sb_toast_on_connection_error_title">API উপলভ্য না থাকলে একটি টোস্ট দেখান</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock উপলভ্য না হলে টোস্ট দেখানো হয়</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock উপলভ্য না হলে টোস্ট দেখানো হয় না</string>
+  <string name="revanced_sb_toast_on_connection_error">API উপলভ্য না থাকলে একটি টোস্ট দেখান</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">SponsorBlock উপলভ্য না হলে টোস্ট দেখানো হয়</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">SponsorBlock উপলভ্য না হলে টোস্ট দেখানো হয় না</string>
   <string name="revanced_sb_general_skipcount">স্কিপ কাউন্ট ট্র্যাকিং সক্রিয় করুন</string>
   <string name="revanced_sb_general_skipcount_sum_on">SponsorBlock লিডারবোর্ডে জানান যে কত সময় সংরক্ষিত হয়েছে। সেগমেন্ট স্কিপ করা হলে লিডারবোর্ডে একটি বার্তা প্রেরণ করা হয়</string>
   <string name="revanced_sb_general_skipcount_sum_off">স্কিপ কাউন্ট ট্র্যাকিং সক্রিয় হয়নি</string>
@@ -1469,9 +1480,9 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_external_browser_summary_off">ইন-অ্যাপ ব্রাউজারে লিঙ্ক খোলা হচ্ছে</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">ট্র্যাকিং করার প্যারামিটার মুছুন</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়েছে</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়নি</string>
+  <string name="revanced_sanitize_sharing_links_title">ট্র্যাকিং করার প্যারামিটার মুছুন</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়েছে</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়নি</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">মূল অডিও ভাষা বলপূর্বক চালু করুন</string>

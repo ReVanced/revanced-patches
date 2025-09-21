@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Configurações de pesquisa</string>
   <string name="revanced_settings_search_no_results_title">Nenhum resultado encontrado para \"%s\"</string>
   <string name="revanced_settings_search_no_results_summary">Tente outra palavra-chave</string>
+  <string name="revanced_settings_search_recent_searches">Pesquisas recentes</string>
   <string name="revanced_settings_search_remove_message">Remover do histórico de pesquisa?</string>
+  <string name="revanced_settings_search_clear_history">Limpar histórico de pesquisa</string>
+  <string name="revanced_settings_search_clear_history_message">Tem certeza de que deseja limpar todo o histórico de pesquisa?</string>
+  <string name="revanced_settings_search_tips_title">Dicas de Pesquisa</string>
+  <string name="revanced_settings_search_tips_summary">"• Toque em um caminho para navegar até ele
+• Pressione e segure uma configuração para navegar até ela
+• Pressione Enter para salvar uma consulta de pesquisa no histórico
+• A pesquisa ignora maiúsculas/minúsculas e pontuação
+• As configurações pai aparecem acima das configurações filho desativadas"</string>
+  <string name="revanced_settings_search_empty_history_title">O histórico de pesquisa está vazio</string>
+  <string name="revanced_settings_search_empty_history_summary">Para salvar o histórico de pesquisa, digite uma consulta de pesquisa e pressione Enter</string>
+  <string name="revanced_settings_search_history_title">Mostrar histórico de pesquisa de configurações</string>
+  <string name="revanced_settings_search_history_summary_on">O histórico de pesquisa de configurações é exibido</string>
+  <string name="revanced_settings_search_history_summary_off">O histórico de pesquisa de configurações não é exibido</string>
   <string name="revanced_show_menu_icons_title">Mostrar ícones de configuração do ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Os ícones de configuração são mostrados</string>
   <string name="revanced_show_menu_icons_summary_off">Os ícones de configuração não são mostrados</string>
   <string name="revanced_language_title">Idioma do ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"As traduções para algumas línguas podem estar em falta ou incompletas.
+  <string name="revanced_language_user_dialog_message">"As traduções para alguns idiomas podem estar ausentes ou incompletas.
 
-Para traduzir novas línguas, visite translate.revanced.app"</string>
+Para traduzir novos idiomas ou melhorar as traduções existentes, visite translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Idioma da aplicação</string>
   <string name="revanced_pref_import_export_title">Importar / Exportar</string>
   <string name="revanced_pref_import_export_summary">Importar / Exportar as configurações do ReVanced</string>
@@ -142,9 +156,6 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_restore_old_settings_menus_title">Restaurar menus de configurações antigos</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Os menus de configurações antigos são mostrados</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Os menus de configurações antigos não são mostrados</string>
-  <string name="revanced_settings_search_history_title">Mostrar histórico de pesquisa de configurações</string>
-  <string name="revanced_settings_search_history_summary_on">O histórico de pesquisa de configurações é exibido</string>
-  <string name="revanced_settings_search_history_summary_off">O histórico de pesquisa de configurações não é exibido</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Desativar reprodução de fundo de Shorts</string>
@@ -1060,9 +1071,9 @@ Tính năng này hoạt động tốt nhất với chất lg video là 720p tr�
   <string name="revanced_sb_guidelines_popup_already_read">Já lido</string>
   <string name="revanced_sb_guidelines_popup_open">Mostre-me</string>
   <string name="revanced_sb_general">Geral</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Mostrar uma notificação flutuante se a API não estiver disponível</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Toast é visível se o Patrocinador não está disponível</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Toast não é visível se o Patrocinador não está disponível</string>
+  <string name="revanced_sb_toast_on_connection_error">Mostrar uma notificação flutuante se a API não estiver disponível</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Toast é visível se o Patrocinador não está disponível</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Toast não é visível se o Patrocinador não está disponível</string>
   <string name="revanced_sb_general_skipcount">Ativar rastreamento de ignorar contagem</string>
   <string name="revanced_sb_general_skipcount_sum_on">Vamos o placar do Patrocinador saber quanto tempo é salvo. Uma mensagem é enviada para o placar cada vez que um segmento é ignorado</string>
   <string name="revanced_sb_general_skipcount_sum_off">O rastreamento da contagem ignorada não está habilitado</string>
@@ -1473,9 +1484,9 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_external_browser_summary_off">Abrindo links no navegador no aplicativo</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Remover parâmetro de consulta de rastreamento</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">O parâmetro da consulta de rastreamento é removido dos links</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">O parâmetro da consulta de rastreamento não é removido dos links</string>
+  <string name="revanced_sanitize_sharing_links_title">Remover parâmetro de consulta de rastreamento</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">O parâmetro da consulta de rastreamento é removido dos links</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">O parâmetro da consulta de rastreamento não é removido dos links</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forçar idioma original do áudio</string>

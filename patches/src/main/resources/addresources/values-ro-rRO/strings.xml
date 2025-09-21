@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Caută în setări</string>
   <string name="revanced_settings_search_no_results_title">Nu s-au găsit rezultate pentru „%s”</string>
   <string name="revanced_settings_search_no_results_summary">Încearcă un alt cuvânt cheie</string>
+  <string name="revanced_settings_search_recent_searches">Căutări recente</string>
   <string name="revanced_settings_search_remove_message">Eliminați din istoricul căutărilor?</string>
+  <string name="revanced_settings_search_clear_history">Șterge istoricul căutărilor</string>
+  <string name="revanced_settings_search_clear_history_message">Sigur doriți să ștergeți tot istoricul căutărilor?</string>
+  <string name="revanced_settings_search_tips_title">Sfaturi de căutare</string>
+  <string name="revanced_settings_search_tips_summary">"• Atingeți o cale pentru a naviga la ea
+• Apăsați lung pe o setare pentru a naviga la ea
+• Apăsați Enter pentru a salva o interogare de căutare în istoric
+• Căutarea ignoră majusculele/minusculele și punctuația
+• Setările părinte apar deasupra setărilor copil dezactivate"</string>
+  <string name="revanced_settings_search_empty_history_title">Istoricul căutărilor este gol</string>
+  <string name="revanced_settings_search_empty_history_summary">Pentru a salva istoricul căutărilor, introduceți o interogare de căutare și apăsați Enter</string>
+  <string name="revanced_settings_search_history_title">Afișează istoricul căutărilor în setări</string>
+  <string name="revanced_settings_search_history_summary_on">Se afișează istoricul căutărilor în setări</string>
+  <string name="revanced_settings_search_history_summary_off">Istoricul căutărilor în setări nu este afișat</string>
   <string name="revanced_show_menu_icons_title">Afișați pictogramele de setări ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Pictogramele de setări sunt afișate</string>
   <string name="revanced_show_menu_icons_summary_off">Pictogramele setărilor nu sunt afișate</string>
   <string name="revanced_language_title">Limba ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Traducerile pentru unele limbi pot lipsi sau pot fi incomplete.
 
-Pentru a traduce noi limbi, vizitați translate.revanced.app"</string>
+Pentru a traduce limbi noi sau pentru a îmbunătăți traducerile existente, vizitați translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Limba aplicației</string>
   <string name="revanced_pref_import_export_title">Importă / Exportă</string>
   <string name="revanced_pref_import_export_summary">Import/Export setări ReVanced</string>
@@ -142,9 +156,6 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_restore_old_settings_menus_title">Restaurare meniuri setări vechi</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Meniurile de setări vechi sunt afișate</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Meniurile de setări vechi nu sunt afișate</string>
-  <string name="revanced_settings_search_history_title">Afișează istoricul căutărilor în setări</string>
-  <string name="revanced_settings_search_history_summary_on">Se afișează istoricul căutărilor în setări</string>
-  <string name="revanced_settings_search_history_summary_off">Istoricul căutărilor în setări nu este afișat</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Dezactivează redarea în fundal a Shorts</string>
@@ -1060,9 +1071,9 @@ Această caracteristică funcționează cel mai bine cu o calitate video de 720p
   <string name="revanced_sb_guidelines_popup_already_read">Deja citite</string>
   <string name="revanced_sb_guidelines_popup_open">Arată-mi</string>
   <string name="revanced_sb_general">Generalități</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Arată un toast dacă API-ul nu este disponibil</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Toast este afișat dacă SponsorBlock nu este disponibil</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Toast nu este afișat dacă SponsorBlock nu este disponibil</string>
+  <string name="revanced_sb_toast_on_connection_error">Arată un toast dacă API-ul nu este disponibil</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Toast este afișat dacă SponsorBlock nu este disponibil</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Toast nu este afișat dacă SponsorBlock nu este disponibil</string>
   <string name="revanced_sb_general_skipcount">Activați omiterea peste urmărire</string>
   <string name="revanced_sb_general_skipcount_sum_on">Lasa clasamentul SponsorBlock sa stie cat de mult timp este salvat. Un mesaj este trimis in clasament de fiecare data cand un segment este sarit</string>
   <string name="revanced_sb_general_skipcount_sum_off">Omiterea numărului de urmărire nu este activată</string>
@@ -1472,9 +1483,9 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_external_browser_summary_off">Deschiderea linkurilor în browserul din aplicație</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Elimină parametrul de urmărire interogare</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Parametrul de urmărire a interogării este eliminat din link-uri</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Parametrul de urmărire a interogării nu este eliminat din link-uri</string>
+  <string name="revanced_sanitize_sharing_links_title">Elimină parametrul de urmărire interogare</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parametrul de urmărire a interogării este eliminat din link-uri</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parametrul de urmărire a interogării nu este eliminat din link-uri</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forțează limba audio originală</string>

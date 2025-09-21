@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Претражите подешавања</string>
   <string name="revanced_settings_search_no_results_title">Нису пронађени резултати за „%s”</string>
   <string name="revanced_settings_search_no_results_summary">Покушајте са другом кључном речи</string>
+  <string name="revanced_settings_search_recent_searches">Недавне претраге</string>
   <string name="revanced_settings_search_remove_message">Уклонити из историје претраге?</string>
+  <string name="revanced_settings_search_clear_history">Обриши историју претраге</string>
+  <string name="revanced_settings_search_clear_history_message">Да ли сте сигурни да желите да обришете целу историју претраге?</string>
+  <string name="revanced_settings_search_tips_title">Савети за претрагу</string>
+  <string name="revanced_settings_search_tips_summary">"• Додирните путању да бисте се кретали до ње
+• Дуго притисните поставку да бисте се кретали до ње
+• Притисните Enter да бисте сачували упит за претрагу у историји
+• Претрага игнорише велика/мала слова и интерпункцију
+• Родитељске поставке се појављују изнад онемогућених подређених поставки"</string>
+  <string name="revanced_settings_search_empty_history_title">Историја претраге је празна</string>
+  <string name="revanced_settings_search_empty_history_summary">Да бисте сачували историју претраге, унесите упит за претрагу и притисните Enter</string>
+  <string name="revanced_settings_search_history_title">Прикажи историју претраге подешавања</string>
+  <string name="revanced_settings_search_history_summary_on">Историја претраге подешавања је приказана</string>
+  <string name="revanced_settings_search_history_summary_off">Историја претраге подешавања није приказана</string>
   <string name="revanced_show_menu_icons_title">Прикажи иконице подешавања ReVanced-а</string>
   <string name="revanced_show_menu_icons_summary_on">Иконице подешавања су приказане</string>
   <string name="revanced_show_menu_icons_summary_off">Иконице подешавања нису приказане</string>
   <string name="revanced_language_title">Језик ReVanced-a</string>
   <string name="revanced_language_user_dialog_message">"Преводи за неке језике могу недостајати или бити непотпуни.
 
-Да бисте превели нове језике, посетите translate.revanced.app"</string>
+Да бисте превели нове језике или побољшали постојеће преводе, посетите translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Језик апликације</string>
   <string name="revanced_pref_import_export_title">Увоз / Извоз</string>
   <string name="revanced_pref_import_export_summary">Увоз / Извоз подешавања ReVanced-а</string>
@@ -142,9 +156,6 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Врати старе меније подешавања</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Приказују се стари менији подешавања</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Не приказују се стари менији подешавања</string>
-  <string name="revanced_settings_search_history_title">Прикажи историју претраге подешавања</string>
-  <string name="revanced_settings_search_history_summary_on">Историја претраге подешавања је приказана</string>
-  <string name="revanced_settings_search_history_summary_off">Историја претраге подешавања није приказана</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Онемогући пуштање Shorts видеа у позадини</string>
@@ -1060,9 +1071,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">Већ прочитано</string>
   <string name="revanced_sb_guidelines_popup_open">Покажи ми</string>
   <string name="revanced_sb_general">Опште</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Прикажи искачуће обавештење ако API није доступан</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Искачуће обавештење је приказано, ако SponsorBlock није доступан</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Искачуће обавештење није приказано, ако SponsorBlock није доступан</string>
+  <string name="revanced_sb_toast_on_connection_error">Прикажи искачуће обавештење ако API није доступан</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Искачуће обавештење је приказано, ако SponsorBlock није доступан</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Искачуће обавештење није приказано, ако SponsorBlock није доступан</string>
   <string name="revanced_sb_general_skipcount">Омогући праћење броја прескакања</string>
   <string name="revanced_sb_general_skipcount_sum_on">Омогућава SponsorBlock ранг-листи да зна колико је времена уштеђено. Порука се шаље на ранг-листу сваки пут када је сегмент прескочен</string>
   <string name="revanced_sb_general_skipcount_sum_off">Праћење броја прескакања није омогућено</string>
@@ -1475,9 +1486,9 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_off">Отварање линкова у прегледачу у апликацији</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Уклони параметар упита за праћење</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Параметар упита за праћење је уклоњен из линкова</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Параметар упита за праћење није уклоњен из линкова</string>
+  <string name="revanced_sanitize_sharing_links_title">Уклони параметар упита за праћење</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметар упита за праћење је уклоњен из линкова</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметар упита за праћење није уклоњен из линкова</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Присили оригинални језик звука</string>

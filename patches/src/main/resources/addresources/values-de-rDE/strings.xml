@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Sucheinstellungen</string>
   <string name="revanced_settings_search_no_results_title">Keine Ergebnisse für „%s“ gefunden</string>
   <string name="revanced_settings_search_no_results_summary">Versuche ein anderes Schlüsselwort</string>
+  <string name="revanced_settings_search_recent_searches">Kürzliche Suchen</string>
   <string name="revanced_settings_search_remove_message">Aus Suchverlauf entfernen?</string>
+  <string name="revanced_settings_search_clear_history">Suchverlauf löschen</string>
+  <string name="revanced_settings_search_clear_history_message">Möchten Sie wirklich den gesamten Suchverlauf löschen?</string>
+  <string name="revanced_settings_search_tips_title">Suchtipps</string>
+  <string name="revanced_settings_search_tips_summary">"• Tippen Sie auf einen Pfad, um dorthin zu navigieren
+• Halten Sie eine Einstellung gedrückt, um dorthin zu navigieren
+• Drücken Sie Enter, um eine Suchanfrage im Verlauf zu speichern
+• Die Suche ignoriert Groß- und Kleinschreibung sowie Satzzeichen
+• Übergeordnete Einstellungen erscheinen über deaktivierten untergeordneten Einstellungen"</string>
+  <string name="revanced_settings_search_empty_history_title">Suchverlauf ist leer</string>
+  <string name="revanced_settings_search_empty_history_summary">Um den Suchverlauf zu speichern, geben Sie eine Suchanfrage ein und drücken Sie Enter</string>
+  <string name="revanced_settings_search_history_title">Suchverlauf der Einstellungen anzeigen</string>
+  <string name="revanced_settings_search_history_summary_on">Suchverlauf der Einstellungen wird angezeigt</string>
+  <string name="revanced_settings_search_history_summary_off">Der Suchverlauf der Einstellungen wird nicht angezeigt</string>
   <string name="revanced_show_menu_icons_title">ReVanced-Einstellungssymbole anzeigen</string>
   <string name="revanced_show_menu_icons_summary_on">Einstellungssymbole werden angezeigt</string>
   <string name="revanced_show_menu_icons_summary_off">Einstellungssymbole werden nicht angezeigt</string>
   <string name="revanced_language_title">ReVanced-Sprache</string>
   <string name="revanced_language_user_dialog_message">"Übersetzungen für einige Sprachen fehlen möglicherweise oder sind unvollständig.
 
-Um neue Sprachen zu übersetzen, besuchen Sie translate.revanced.app"</string>
+Um neue Sprachen zu übersetzen oder die vorhandenen Übersetzungen zu verbessern, besuchen Sie translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">App-Sprache</string>
   <string name="revanced_pref_import_export_title">Import/Export</string>
   <string name="revanced_pref_import_export_summary">ReVanced-Einstellungen importieren/exportieren</string>
@@ -142,9 +156,6 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_restore_old_settings_menus_title">Alte Einstellungsmenüs wiederherstellen</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Alte Einstellungsmenüs werden angezeigt</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Alte Einstellungsmenüs werden nicht angezeigt</string>
-  <string name="revanced_settings_search_history_title">Suchverlauf der Einstellungen anzeigen</string>
-  <string name="revanced_settings_search_history_summary_on">Suchverlauf der Einstellungen wird angezeigt</string>
-  <string name="revanced_settings_search_history_summary_off">Der Suchverlauf der Einstellungen wird nicht angezeigt</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Hintergrundwiedergabe von Shorts deaktivieren</string>
@@ -1057,9 +1068,9 @@ Diese Funktion funktioniert am besten mit einer Videoqualität von 720p oder nie
   <string name="revanced_sb_guidelines_popup_already_read">Bereits gelesen</string>
   <string name="revanced_sb_guidelines_popup_open">Zeig sie mir</string>
   <string name="revanced_sb_general">Allgemein</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Einen Toast anzeigen, wenn die API nicht verfügbar ist</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Toast wird angezeigt, wenn SponsorBlock nicht verfügbar ist</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Toast wird nicht angezeigt, wenn SponsorBlock nicht verfügbar ist</string>
+  <string name="revanced_sb_toast_on_connection_error">Einen Toast anzeigen, wenn die API nicht verfügbar ist</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Toast wird angezeigt, wenn SponsorBlock nicht verfügbar ist</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Toast wird nicht angezeigt, wenn SponsorBlock nicht verfügbar ist</string>
   <string name="revanced_sb_general_skipcount">Aktiviere Sprungzähler-Tracking</string>
   <string name="revanced_sb_general_skipcount_sum_on">Lässt die SponsorBlock Rangliste wissen, wie viel Zeit gespeichert wird. Jedes Mal, wenn ein Segment übersprungen wird, wird eine Nachricht an die Rangliste gesendet</string>
   <string name="revanced_sb_general_skipcount_sum_off">Überspringungszähler ist nicht aktiviert</string>
@@ -1470,9 +1481,9 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_external_browser_summary_off">Links im In-App-Browser öffnen</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Tracking-Abfrageparameter entfernen</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking-Abfrageparameter wird von Links entfernt</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking-Abfrageparameter wird nicht von Links entfernt</string>
+  <string name="revanced_sanitize_sharing_links_title">Tracking-Abfrageparameter entfernen</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird von Links entfernt</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht von Links entfernt</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Original Audio erzwingen</string>

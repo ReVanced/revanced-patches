@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Cuardaigh socruithe</string>
   <string name="revanced_settings_search_no_results_title">Ní bhfuarthas aon toradh ar \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Bain triail as eochairfhocal eile</string>
+  <string name="revanced_settings_search_recent_searches">Cuardaigh le déanaí</string>
   <string name="revanced_settings_search_remove_message">Bain as stair an chuardaigh?</string>
+  <string name="revanced_settings_search_clear_history">Glan stair an chuardaigh</string>
+  <string name="revanced_settings_search_clear_history_message">An bhfuil tú cinnte gur mhaith leat stair chuardaigh go léir a ghlanadh?</string>
+  <string name="revanced_settings_search_tips_title">Leideanna Cuardaigh</string>
+  <string name="revanced_settings_search_tips_summary">"• Tapáil cosán chun dul chuige
+• Brúigh fada ar shocrú chun dul chuige
+• Brúigh Iontráil chun iarratas cuardaigh a shábháil sa stair
+• Déanann cuardach neamhaird de chásáil agus poncaíocht
+• Tá socruithe tuismitheora le feiceáil os cionn socruithe leanaí díchumasaithe"</string>
+  <string name="revanced_settings_search_empty_history_title">Tá stair an chuardaigh folamh</string>
+  <string name="revanced_settings_search_empty_history_summary">Chun stair an chuardaigh a shábháil, clóscríobh iarratas cuardaigh agus brúigh Iontráil</string>
+  <string name="revanced_settings_search_history_title">Taispeáin stair cuardaigh na socruithe</string>
+  <string name="revanced_settings_search_history_summary_on">Taispeántar stair cuardaigh na socruithe</string>
+  <string name="revanced_settings_search_history_summary_off">Ní thaispeántar stair cuardaigh na socruithe</string>
   <string name="revanced_show_menu_icons_title">Taispeáin deilbhíní socruithe ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Taispeántar deilbhíní socruithe</string>
   <string name="revanced_show_menu_icons_summary_off">Ní thaispeántar deilbhíní socraithe</string>
   <string name="revanced_language_title">Teanga ReVanced</string>
   <string name="revanced_language_user_dialog_message">"D'fhéadfadh aistriúcháin do roinnt teangacha a bheith ar iarraidh nó mí-iomlán.
 
-Chun teangacha nua a aistriú, tabhair cuairt ar translate.revanced.app"</string>
+Chun teangacha nua a aistriú nó chun na haistriúcháin atá ann cheana a fheabhsú, tabhair cuairt ar translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Teanga aip</string>
   <string name="revanced_pref_import_export_title">Iompórtáil / Easpórtáil</string>
   <string name="revanced_pref_import_export_summary">Iompórtáil / Easpórtáil socruithe ReVanced</string>
@@ -142,9 +156,6 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_restore_old_settings_menus_title">Athchóirigh sean-roghchláir socruithe</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Taispeántar sean-roghchláir socruithe</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Ní thaispeántar sean-roghchláir socruithe</string>
-  <string name="revanced_settings_search_history_title">Taispeáin stair cuardaigh na socruithe</string>
-  <string name="revanced_settings_search_history_summary_on">Taispeántar stair cuardaigh na socruithe</string>
-  <string name="revanced_settings_search_history_summary_off">Ní thaispeántar stair cuardaigh na socruithe</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Díchumasaigh seinnte Cúlra Shorts</string>
@@ -1060,9 +1071,9 @@ Oibríonn an ghné seo is fearr le caighdeán físeáin 720p nó níos ísle agu
   <string name="revanced_sb_guidelines_popup_already_read">Léigh cheana féin</string>
   <string name="revanced_sb_guidelines_popup_open">Taispeáin dom</string>
   <string name="revanced_sb_general">Ginearálta</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Taispeáin tósta mura bhfuil API ar fáil</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Taispeántar tósta mura bhfuil SponsorBlock ar fáil</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Ní thaispeántar tósta mura bhfuil SponsorBlock ar fáil</string>
+  <string name="revanced_sb_toast_on_connection_error">Taispeáin tósta mura bhfuil API ar fáil</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Taispeántar tósta mura bhfuil SponsorBlock ar fáil</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Ní thaispeántar tósta mura bhfuil SponsorBlock ar fáil</string>
   <string name="revanced_sb_general_skipcount">Cumasaigh scip-rianú comhairimh</string>
   <string name="revanced_sb_general_skipcount_sum_on">Ligeann sí do chlár ceannairí SponsorBlock cá mhéad ama a shábháiltear. Seoltar teachtaireacht chuig an gclár ceannairí gach uair a fhágtar mírlíne</string>
   <string name="revanced_sb_general_skipcount_sum_off">Níl rianú comhaireamh scipeála cumasaithe</string>
@@ -1473,9 +1484,9 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_external_browser_summary_off">Ag oscailt naisc sa bhrabhsálaí in-aip</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Bain paraiméadar ceist rianaithe</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Baintear paraiméadar ceisteanna rianaithe ó naisc</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Ní bhaintear paraiméadar fiosrúcháin rianaithe ó naisc</string>
+  <string name="revanced_sanitize_sharing_links_title">Bain paraiméadar ceist rianaithe</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Baintear paraiméadar ceisteanna rianaithe ó naisc</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Ní bhaintear paraiméadar fiosrúcháin rianaithe ó naisc</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Fórsaigh teanga bhunaidh na fuaime</string>

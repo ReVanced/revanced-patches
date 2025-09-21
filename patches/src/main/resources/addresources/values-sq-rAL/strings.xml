@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Kërko cilësimet</string>
   <string name="revanced_settings_search_no_results_title">Nuk u gjet asnjë rezultat për \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Provo një fjalë kyçe tjetër</string>
+  <string name="revanced_settings_search_recent_searches">Kërkime të fundit</string>
   <string name="revanced_settings_search_remove_message">Hiq nga historiku i kërkimit?</string>
+  <string name="revanced_settings_search_clear_history">Pastro historikun e kërkimeve</string>
+  <string name="revanced_settings_search_clear_history_message">Jeni i sigurt që dëshironi të pastroni të gjithë historikun e kërkimeve?</string>
+  <string name="revanced_settings_search_tips_title">Këshilla për kërkim</string>
+  <string name="revanced_settings_search_tips_summary">"• Prek një shteg për të lundruar te ai
+• Shtyp gjatë një cilësim për të lundruar te ai
+• Shtyp Enter për të ruajtur një pyetje kërkimi në histori
+• Kërkimi injoron shkronjat e mëdha/vogla dhe shenjat e pikësimit
+• Cilësimet prindërore shfaqen mbi cilësimet fëmijë të çaktivizuara"</string>
+  <string name="revanced_settings_search_empty_history_title">Historia e kërkimit është bosh</string>
+  <string name="revanced_settings_search_empty_history_summary">Për të ruajtur historinë e kërkimit, shkruaj një pyetje kërkimi dhe shtyp Enter</string>
+  <string name="revanced_settings_search_history_title">Shfaq historikun e kërkimeve të cilësimeve</string>
+  <string name="revanced_settings_search_history_summary_on">Historiku i kërkimeve të cilësimeve është shfaqur</string>
+  <string name="revanced_settings_search_history_summary_off">Historia e kërkimit të cilësimeve nuk shfaqet</string>
   <string name="revanced_show_menu_icons_title">Shfaq ikonat e cilësimeve të ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikonat e cilësimeve shfaqen</string>
   <string name="revanced_show_menu_icons_summary_off">Ikonat e cilësimeve nuk shfaqen</string>
   <string name="revanced_language_title">Gjuha e ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"Përkthimet për disa gjuhë mund të jenë të humbura ose të paplota.
+  <string name="revanced_language_user_dialog_message">"Përkthimet për disa gjuhë mund të mungojnë ose të jenë të paplota.
 
-Për të përkthyer gjuhë të reja vizitoni translate.revanced.app"</string>
+Për të përkthyer gjuhë të reja ose për të përmirësuar përkthimet ekzistuese, vizito translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Gjuha e aplikacionit</string>
   <string name="revanced_pref_import_export_title">Importo / Eksporto</string>
   <string name="revanced_pref_import_export_summary">Importo / Eksporto cilësimet e ReVanced</string>
@@ -142,9 +156,6 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_restore_old_settings_menus_title">Rikthe menutë e vjetër të konfigurimeve</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Menutë e vjetër të cilësimeve shfaqen</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Menutë e vjetër të cilësimeve nuk shfaqen</string>
-  <string name="revanced_settings_search_history_title">Shfaq historikun e kërkimeve të cilësimeve</string>
-  <string name="revanced_settings_search_history_summary_on">Historiku i kërkimeve të cilësimeve është shfaqur</string>
-  <string name="revanced_settings_search_history_summary_off">Historia e kërkimit të cilësimeve nuk shfaqet</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Çaktivizo luajtjen në sfond të Shorts</string>
@@ -1060,9 +1071,9 @@ Kjo veçori funksionon më mirë me një cilësi video prej 720p ose më të ul�
   <string name="revanced_sb_guidelines_popup_already_read">I kam lexuar tashmë</string>
   <string name="revanced_sb_guidelines_popup_open">Trego më</string>
   <string name="revanced_sb_general">Të përgjithshme</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Shfaq një lajmërim nëse API nuk është i disponueshëm</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Lajmërimi shfaqet nëse SponsorBlock nuk është i disponueshëm</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Lajmërimi nuk shfaqet nëse SponsorBlock nuk është i disponueshëm</string>
+  <string name="revanced_sb_toast_on_connection_error">Shfaq një lajmërim nëse API nuk është i disponueshëm</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Lajmërimi shfaqet nëse SponsorBlock nuk është i disponueshëm</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Lajmërimi nuk shfaqet nëse SponsorBlock nuk është i disponueshëm</string>
   <string name="revanced_sb_general_skipcount">Aktivizo ndjekjen e numrit të kalimeve</string>
   <string name="revanced_sb_general_skipcount_sum_on">Lejon që tabela e renditjes së SponsorBlock të dijë se sa kohë është ruajtur. Një mesazh dërgohet në tabelën e renditjes çdo herë që një segment kalon</string>
   <string name="revanced_sb_general_skipcount_sum_off">Ndjekja e numrit të kalimeve nuk është e aktivizuar</string>
@@ -1471,9 +1482,9 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_external_browser_summary_off">Hapja e linkeve në shfletuesin brenda aplikacionit</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Hiq parametrin e gjurmimit të kërkesës</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Parametri i gjurmimit të kërkesës hiqet nga linket</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Parametri i gjurmimit të kërkesës nuk hiqet nga linket</string>
+  <string name="revanced_sanitize_sharing_links_title">Hiq parametrin e gjurmimit të kërkesës</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parametri i gjurmimit të kërkesës hiqet nga linket</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parametri i gjurmimit të kërkesës nuk hiqet nga linket</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forco gjuhën origjinale të audios</string>

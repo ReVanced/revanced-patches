@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">חפש בהגדרות</string>
   <string name="revanced_settings_search_no_results_title">לא נמצאו תוצאות עבור \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">נסה מילת מפתח אחרת</string>
+  <string name="revanced_settings_search_recent_searches">חיפושים אחרונים</string>
   <string name="revanced_settings_search_remove_message">להסיר מהיסטוריית חיפוש?</string>
+  <string name="revanced_settings_search_clear_history">נקה היסטוריית חיפושים</string>
+  <string name="revanced_settings_search_clear_history_message">האם אתה בטוח שברצונך למחוק את כל היסטוריית החיפושים?</string>
+  <string name="revanced_settings_search_tips_title">טיפים לחיפוש</string>
+  <string name="revanced_settings_search_tips_summary">"• הקש על נתיב כדי לנווט אליו
+• לחיצה ארוכה על הגדרה כדי לנווט אליה
+• לחץ על Enter כדי לשמור שאילתת חיפוש להיסטוריה
+• החיפוש מתעלם מאותיות גדולות/קטנות וסימני פיסוק
+• הגדרות הורים מופיעות מעל הגדרות ילדים מושבתות"</string>
+  <string name="revanced_settings_search_empty_history_title">היסטוריית החיפוש ריקה</string>
+  <string name="revanced_settings_search_empty_history_summary">כדי לשמור היסטוריית חיפוש, הקלד שאילתת חיפוש ולחץ על Enter</string>
+  <string name="revanced_settings_search_history_title">הצג הגדרות היסטוריית חיפוש</string>
+  <string name="revanced_settings_search_history_summary_on">הגדרות היסטוריית חיפוש מוצגות</string>
+  <string name="revanced_settings_search_history_summary_off">הגדרות היסטוריית חיפוש אינן מוצגות</string>
   <string name="revanced_show_menu_icons_title">הצג סמלי הגדרות ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">סמלי ההגדרות מוצגים</string>
   <string name="revanced_show_menu_icons_summary_off">סמלי ההגדרות אינם מוצגים</string>
   <string name="revanced_language_title">שפת ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"תרגומים לשפות מסוימות עשויים להיות חסרים או לא שלמים.
+  <string name="revanced_language_user_dialog_message">"תרגומים עבור שפות מסוימות עשויים להיות חסרים או לא מלאים.
 
-כדי לתרגם שפות חדשות בקר ב-translate.revanced.app"</string>
+כדי לתרגם שפות חדשות או לשפר את התרגומים הקיימים, בקר ב-translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">שפת היישום</string>
   <string name="revanced_pref_import_export_title">ייבוא / ייצוא</string>
   <string name="revanced_pref_import_export_summary">ייבוא / ייצוא הגדרות ReVanced</string>
@@ -142,9 +156,6 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">שחזר תפריטי הגדרות ישנים</string>
   <string name="revanced_restore_old_settings_menus_summary_on">תפריטי הגדרות ישנים מוצגים</string>
   <string name="revanced_restore_old_settings_menus_summary_off">תפריטי הגדרות ישנים אינם מוצגים</string>
-  <string name="revanced_settings_search_history_title">הצג הגדרות היסטוריית חיפוש</string>
-  <string name="revanced_settings_search_history_summary_on">הגדרות היסטוריית חיפוש מוצגות</string>
-  <string name="revanced_settings_search_history_summary_off">הגדרות היסטוריית חיפוש אינן מוצגות</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">השבת הפעלה ברקע של Shorts</string>
@@ -1063,9 +1074,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">כבר קראתי</string>
   <string name="revanced_sb_guidelines_popup_open">תראה לי</string>
   <string name="revanced_sb_general">כללי</string>
-  <string name="revanced_sb_toast_on_connection_error_title">הצג הודעה קופצת אם ה-API אינו זמין</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">הודעה קופצת מוצגת אם SponsorBlock אינו זמין</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">הודעה קופצת אינה מוצגת אם SponsorBlock אינו זמין</string>
+  <string name="revanced_sb_toast_on_connection_error">הצג הודעה קופצת אם ה-API אינו זמין</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">הודעה קופצת מוצגת אם SponsorBlock אינו זמין</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">הודעה קופצת אינה מוצגת אם SponsorBlock אינו זמין</string>
   <string name="revanced_sb_general_skipcount">הפעל מעקב ספירת דילוגים</string>
   <string name="revanced_sb_general_skipcount_sum_on">מאפשר ללוח המובילים של SponsorBlock לדעת כמה זמן נחסך. הודעה נשלחת ללוח המובילים בכל פעם שמדלגים על מקטע</string>
   <string name="revanced_sb_general_skipcount_sum_off">מעקב ספירת דילוגים אינו מופעל</string>
@@ -1475,9 +1486,9 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_off">פותח קישורים בדפדפן בתוך היישום</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">הסר פרמטר מעקב של שאילתה</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">פרמטר מעקב של שאילתה מוסר מקישורים</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">פרמטר מעקב של שאילתה אינו מוסר מקישורים</string>
+  <string name="revanced_sanitize_sharing_links_title">הסר פרמטר מעקב של שאילתה</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">פרמטר מעקב של שאילתה מוסר מקישורים</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">פרמטר מעקב של שאילתה אינו מוסר מקישורים</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">כפה שפת שמע מקורית</string>

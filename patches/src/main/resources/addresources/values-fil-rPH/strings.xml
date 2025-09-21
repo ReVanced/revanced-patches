@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Maghanap ng mga setting</string>
   <string name="revanced_settings_search_no_results_title">Walang nakitang resulta para sa 																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	\'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Subukan ang ibang keyword</string>
+  <string name="revanced_settings_search_recent_searches">Mga kamakailang paghahanap</string>
   <string name="revanced_settings_search_remove_message">Alisin sa history ng paghahanap?</string>
+  <string name="revanced_settings_search_clear_history">I-clear ang history ng paghahanap</string>
+  <string name="revanced_settings_search_clear_history_message">Sigurado ka bang gusto mong i-clear ang lahat ng history ng paghahanap?</string>
+  <string name="revanced_settings_search_tips_title">Mga Tip sa Paghahanap</string>
+  <string name="revanced_settings_search_tips_summary">"• I-tap ang isang landas upang mag-navigate dito
+• Pindutin nang matagal ang isang setting upang mag-navigate dito
+• Pindutin ang Enter upang i-save ang isang query sa paghahanap sa kasaysayan
+• Hindi isinasaalang-alang ng paghahanap ang casing at bantas
+• Lumilitaw ang mga setting ng magulang sa itaas ng mga disabled na setting ng anak"</string>
+  <string name="revanced_settings_search_empty_history_title">Walang laman ang kasaysayan ng paghahanap</string>
+  <string name="revanced_settings_search_empty_history_summary">Upang i-save ang kasaysayan ng paghahanap, mag-type ng query sa paghahanap at pindutin ang Enter</string>
+  <string name="revanced_settings_search_history_title">Ipakita ang history ng paghahanap sa mga setting</string>
+  <string name="revanced_settings_search_history_summary_on">Ipinapakita ang history ng paghahanap sa mga setting</string>
+  <string name="revanced_settings_search_history_summary_off">Hindi ipinapakita ang kasaysayan ng paghahanap sa Mga Setting</string>
   <string name="revanced_show_menu_icons_title">Ipakita ang mga icon ng setting ng ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ipinapakita ang mga icon ng setting</string>
   <string name="revanced_show_menu_icons_summary_off">Hindi ipinapakita ang mga icon ng setting</string>
   <string name="revanced_language_title">Wika ng ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"Ang mga pagsasalin para sa ilang mga wika ay maaaring nawawala o hindi kumpleto.
+  <string name="revanced_language_user_dialog_message">"Maaaring nawawala o hindi kumpleto ang mga pagsasalin para sa ilang wika.
 
-Upang magsalin ng mga bagong wika, bisitahin ang translate.revanced.app"</string>
+Upang isalin ang mga bagong wika o pagbutihin ang kasalukuyang mga pagsasalin, bisitahin ang translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Wika ng app</string>
   <string name="revanced_pref_import_export_title">Mag-import / Mag-export</string>
   <string name="revanced_pref_import_export_summary">I-import / I-export ang mga setting ng ReVanced</string>
@@ -142,9 +156,6 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_restore_old_settings_menus_title">Ibalik ang dating mga menu ng setting</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Ipinapakita ang mga lumang menu ng setting</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Hindi ipinapakita ang mga lumang menu ng setting</string>
-  <string name="revanced_settings_search_history_title">Ipakita ang history ng paghahanap sa mga setting</string>
-  <string name="revanced_settings_search_history_summary_on">Ipinapakita ang history ng paghahanap sa mga setting</string>
-  <string name="revanced_settings_search_history_summary_off">Hindi ipinapakita ang kasaysayan ng paghahanap sa Mga Setting</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">I-disable ang pag-playback ng Shorts sa background</string>
@@ -1058,9 +1069,9 @@ Ang tampok na ito ay pinakamahusay na gumagana sa kalidad ng video na 720p o mas
   <string name="revanced_sb_guidelines_popup_already_read">Nabasa na</string>
   <string name="revanced_sb_guidelines_popup_open">Ipakita mo saakin</string>
   <string name="revanced_sb_general">Pangkalahatan</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Magpakita ng toast kung hindi available ang API</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Ang toast ay ipinapakita kung hindi available ang SponsorBlock</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Hindi ipinapakita ang toast kung hindi available ang SponsorBlock</string>
+  <string name="revanced_sb_toast_on_connection_error">Magpakita ng toast kung hindi available ang API</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Ang toast ay ipinapakita kung hindi available ang SponsorBlock</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Hindi ipinapakita ang toast kung hindi available ang SponsorBlock</string>
   <string name="revanced_sb_general_skipcount">Paganahin ang pagsubaybay sa bilang ng laktawan</string>
   <string name="revanced_sb_general_skipcount_sum_on">Hinahayaan ang SponsorBlock leaderboard na malaman kung gaano karaming oras ang nai-save. Ang isang mensahe ay ipinapadala sa leaderboard sa tuwing ang isang segment ay lalaktawan</string>
   <string name="revanced_sb_general_skipcount_sum_off">Hindi pinagana ang pagsubaybay sa bilang ng laktawan</string>
@@ -1471,9 +1482,9 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_external_browser_summary_off">Binubuksan ang mga link sa in-app na browser</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Alisin ang parameter ng query sa pagsubaybay</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Ang parameter ng query sa pagsubaybay ay tinanggal mula sa mga link</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Ang parameter ng query sa pagsubaybay ay hindi inaalis sa mga link</string>
+  <string name="revanced_sanitize_sharing_links_title">Alisin ang parameter ng query sa pagsubaybay</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Ang parameter ng query sa pagsubaybay ay tinanggal mula sa mga link</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Ang parameter ng query sa pagsubaybay ay hindi inaalis sa mga link</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Pilitin ang orihinal na wika ng audio</string>

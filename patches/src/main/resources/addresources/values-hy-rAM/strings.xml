@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Որոնման կարգավորումներ</string>
   <string name="revanced_settings_search_no_results_title">«%s»-ի համար արդյունքներ չեն գտնվել</string>
   <string name="revanced_settings_search_no_results_summary">Փորձեք այլ հիմնաբառ</string>
+  <string name="revanced_settings_search_recent_searches">Վերջին որոնումները</string>
   <string name="revanced_settings_search_remove_message">Հեռացնե՞լ որոնման պատմությունից:</string>
+  <string name="revanced_settings_search_clear_history">Մաքրել որոնման պատմությունը</string>
+  <string name="revanced_settings_search_clear_history_message">Վստա՞հ եք, որ ցանկանում եք մաքրել որոնման ողջ պատմությունը:</string>
+  <string name="revanced_settings_search_tips_title">Որոնման խորհուրդներ</string>
+  <string name="revanced_settings_search_tips_summary">"• Հպեք ճանապարհին՝ դրանով նավարկելու համար
+• Երկար սեղմեք կարգավորման վրա՝ դրանով նավարկելու համար
+• Սեղմեք Enter՝ որոնման հարցումը պատմության մեջ պահելու համար
+• Որոնումը անտեսում է տառատեսակը և կետադրությունը
+• Ծնողական կարգավորումները հայտնվում են անջատված ենթակարգավորումներից վերև"</string>
+  <string name="revanced_settings_search_empty_history_title">Որոնման պատմությունը դատարկ է</string>
+  <string name="revanced_settings_search_empty_history_summary">Որոնման պատմությունը պահելու համար մուտքագրեք որոնման հարցում և սեղմեք Enter</string>
+  <string name="revanced_settings_search_history_title">Ցույց տալ կարգավորումների որոնման պատմությունը</string>
+  <string name="revanced_settings_search_history_summary_on">Կարգավորումների որոնման պատմությունը ցուցադրվում է</string>
+  <string name="revanced_settings_search_history_summary_off">Կարգավորումների որոնման պատմությունը ցույց չի տրվում</string>
   <string name="revanced_show_menu_icons_title">Ցուցադրել ReVanced-ի կարգավորումների պատկերակները</string>
   <string name="revanced_show_menu_icons_summary_on">Կարգավորումների պատկերակները ցուցադրվում են</string>
   <string name="revanced_show_menu_icons_summary_off">Կարգավորումների պատկերակները ցուցադրված չեն</string>
   <string name="revanced_language_title">ReVanced լեզվի</string>
-  <string name="revanced_language_user_dialog_message">"Որոշ լեզուների թարգմանությունները կարող են լինել բացակայուն կամ անավարտ:
+  <string name="revanced_language_user_dialog_message">"Որոշ լեզուների թարգմանությունները կարող են բացակայել կամ թերի լինել:
 
-Նոր լեզուներ թարգմանելու համար այցելեք translate.revanced.app"</string>
+Նոր լեզուներ թարգմանելու կամ առկա թարգմանությունները բարելավելու համար այցելեք translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Հավելվածի լեզու</string>
   <string name="revanced_pref_import_export_title">Ներմուծում/Արտահանում</string>
   <string name="revanced_pref_import_export_summary">Import / Export ReVanced կարգավորումներ</string>
@@ -142,9 +156,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_restore_old_settings_menus_title">Վերականգնել հին սահմանումների մենյուները</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Նախկին կարգավորումների մենյուները ցուցադրվում են</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Նախկին կարգավորումների մենյուները չեն ցուցադրվում</string>
-  <string name="revanced_settings_search_history_title">Ցույց տալ կարգավորումների որոնման պատմությունը</string>
-  <string name="revanced_settings_search_history_summary_on">Կարգավորումների որոնման պատմությունը ցուցադրվում է</string>
-  <string name="revanced_settings_search_history_summary_off">Կարգավորումների որոնման պատմությունը ցույց չի տրվում</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Անջատել  Shorts-ի  ֆոնային  վերարտադրությունը</string>
@@ -1061,9 +1072,9 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_guidelines_popup_already_read">Արդեն կարդացել եմ</string>
   <string name="revanced_sb_guidelines_popup_open">Ցույց տվեք ինձ</string>
   <string name="revanced_sb_general">Ընդհանուր</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Ցույց տալ toast, եթե API-ը հասանելի չէ</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Toast ցույց է տրվում, եթե SponsorBlock-ը հասանելի չէ</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Toast չի ցույց տրվում, եթե SponsorBlock-ը հասանելի չէ</string>
+  <string name="revanced_sb_toast_on_connection_error">Ցույց տալ toast, եթե API-ը հասանելի չէ</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Toast ցույց է տրվում, եթե SponsorBlock-ը հասանելի չէ</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Toast չի ցույց տրվում, եթե SponsorBlock-ը հասանելի չէ</string>
   <string name="revanced_sb_general_skipcount">Ակտիվացնել բաց թողնելների հաշվի վարումը</string>
   <string name="revanced_sb_general_skipcount_sum_on">Թույլ է տալիս SponsorBlock-ի առաջատարներին իմանալ, թե որքան ժամանակ է խնայվում: Յուրաքանչյուր անգամ, երբ segment-ը բաց է թողնվում, հաղորդագրություն է ուղարկվում առաջատարներին</string>
   <string name="revanced_sb_general_skipcount_sum_off">Բաց թողնելների հաշվի վարումը չի ակտիվացվել</string>
@@ -1474,9 +1485,9 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_external_browser_summary_off">Բացել հղումները ներծրագրային բրաուզերում</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Հետևողականության  հարցումի  պարամետրը  հեռացնել</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Հետևողականության  հարցումի  պարամետրը  հեռացվում է  հղումներից</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Հետևողականության  հարցումի  պարամետրը  չի  հեռացվում  հղումներից</string>
+  <string name="revanced_sanitize_sharing_links_title">Հետևողականության  հարցումի  պարամետրը  հեռացնել</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Հետևողականության  հարցումի  պարամետրը  հեռացվում է  հղումներից</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Հետևողականության  հարցումի  պարամետրը  չի  հեռացվում  հղումներից</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել լեզուն</string>

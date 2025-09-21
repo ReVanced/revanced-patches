@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Sök i inställningar</string>
   <string name="revanced_settings_search_no_results_title">Inga resultat hittades för \"%s\"</string>
   <string name="revanced_settings_search_no_results_summary">Försök med ett annat sökord</string>
+  <string name="revanced_settings_search_recent_searches">Senaste sökningar</string>
   <string name="revanced_settings_search_remove_message">Ta bort från sökhistoriken?</string>
+  <string name="revanced_settings_search_clear_history">Rensa sökhistorik</string>
+  <string name="revanced_settings_search_clear_history_message">Är du säker på att du vill rensa all sökhistorik?</string>
+  <string name="revanced_settings_search_tips_title">Söktips</string>
+  <string name="revanced_settings_search_tips_summary">"• Tryck på en sökväg för att navigera till den
+• Tryck länge på en inställning för att navigera till den
+• Tryck på Enter för att spara en sökfråga i historiken
+• Sökningen ignorerar skiftläge och skiljetecken
+• Överordnade inställningar visas ovanför inaktiverade underordnade inställningar"</string>
+  <string name="revanced_settings_search_empty_history_title">Sökhistoriken är tom</string>
+  <string name="revanced_settings_search_empty_history_summary">För att spara sökhistorik, skriv en sökfråga och tryck på Enter</string>
+  <string name="revanced_settings_search_history_title">Visa sökhistorik för inställningar</string>
+  <string name="revanced_settings_search_history_summary_on">Sökhistorik för inställningar visas</string>
+  <string name="revanced_settings_search_history_summary_off">Sökhistorik för inställningar visas inte</string>
   <string name="revanced_show_menu_icons_title">Visa ikoner för ReVanced-inställningar</string>
   <string name="revanced_show_menu_icons_summary_on">Inställningsikoner visas</string>
   <string name="revanced_show_menu_icons_summary_off">Inställningsikoner visas inte</string>
   <string name="revanced_language_title">Språk för ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Översättningar till vissa språk kan vara ofullständiga eller saknas.
 
-Om du vill översätta till nya språk besöker du translate.revanced.app"</string>
+Om du vill översätta till nya språk eller förbättra befintliga översättningar, besök translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Appspråk</string>
   <string name="revanced_pref_import_export_title">Importera/exportera</string>
   <string name="revanced_pref_import_export_summary">Importera/exportera ReVanced-inställningar</string>
@@ -142,9 +156,6 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_restore_old_settings_menus_title">Återställ gamla inställningsmenyer</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Gamla inställningsmenyer visas</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Gamla inställningsmenyer visas inte</string>
-  <string name="revanced_settings_search_history_title">Visa sökhistorik för inställningar</string>
-  <string name="revanced_settings_search_history_summary_on">Sökhistorik för inställningar visas</string>
-  <string name="revanced_settings_search_history_summary_off">Sökhistorik för inställningar visas inte</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Inaktivera uppspelning av Shorts-videor i bakgrunden</string>
@@ -1060,9 +1071,9 @@ Den här funktionen fungerar bäst med en videokvalitet på 720p eller lägre oc
   <string name="revanced_sb_guidelines_popup_already_read">Redan läst</string>
   <string name="revanced_sb_guidelines_popup_open">Visa mig</string>
   <string name="revanced_sb_general">Allmänt</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Visa ett popup-meddelande om API inte är tillgängligt</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Popup-meddelande visas om SponsorBlock inte är tillgängligt</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Popup-meddelande visas inte om SponsorBlock inte är tillgängligt</string>
+  <string name="revanced_sb_toast_on_connection_error">Visa ett popup-meddelande om API inte är tillgängligt</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Popup-meddelande visas om SponsorBlock inte är tillgängligt</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Popup-meddelande visas inte om SponsorBlock inte är tillgängligt</string>
   <string name="revanced_sb_general_skipcount">Aktivera spårning av antalet överhoppningar</string>
   <string name="revanced_sb_general_skipcount_sum_on">Låter SponsorBlock-topplistan veta hur mycket tid som sparas. Ett meddelande skickas till topplistan varje gång ett segment hoppas över</string>
   <string name="revanced_sb_general_skipcount_sum_off">Spårning av antalet överhoppningar är inte aktiverat</string>
@@ -1472,9 +1483,9 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   <string name="revanced_external_browser_summary_off">Öppnar länkar i webbläsare i appen</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Ta bort spårningsfrågeparameter</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Spårningsfrågeparametern tas bort från länkar</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Spårningsfrågeparametern tas inte bort från länkar</string>
+  <string name="revanced_sanitize_sharing_links_title">Ta bort spårningsfrågeparameter</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Spårningsfrågeparametern tas bort från länkar</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Spårningsfrågeparametern tas inte bort från länkar</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Tvinga ursprungligt ljudspråk</string>

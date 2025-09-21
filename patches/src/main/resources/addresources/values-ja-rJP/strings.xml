@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">設定を検索</string>
   <string name="revanced_settings_search_no_results_title">「%s」に該当する結果は見つかりませんでした</string>
   <string name="revanced_settings_search_no_results_summary">別のキーワードを試してください</string>
+  <string name="revanced_settings_search_recent_searches">最近の検索</string>
   <string name="revanced_settings_search_remove_message">検索履歴から削除しますか？</string>
+  <string name="revanced_settings_search_clear_history">検索履歴を消去</string>
+  <string name="revanced_settings_search_clear_history_message">検索履歴をすべて消去しますか？</string>
+  <string name="revanced_settings_search_tips_title">検索のヒント</string>
+  <string name="revanced_settings_search_tips_summary">"• パスをタップして移動します
+• 設定を長押しして移動します
+• Enterキーを押して検索クエリを履歴に保存します
+• 検索では大文字・小文字や句読点は無視されます
+• 親設定は無効化された子設定の上に表示されます"</string>
+  <string name="revanced_settings_search_empty_history_title">検索履歴は空です</string>
+  <string name="revanced_settings_search_empty_history_summary">検索履歴を保存するには、検索クエリを入力してEnterキーを押してください</string>
+  <string name="revanced_settings_search_history_title">設定の検索履歴を表示</string>
+  <string name="revanced_settings_search_history_summary_on">設定の検索履歴は表示されます</string>
+  <string name="revanced_settings_search_history_summary_off">設定の検索履歴は表示されません</string>
   <string name="revanced_show_menu_icons_title">ReVanced の設定にアイコンを表示</string>
   <string name="revanced_show_menu_icons_summary_on">ReVanced の設定にアイコンが表示されます</string>
   <string name="revanced_show_menu_icons_summary_off">ReVanced の設定にアイコンは表示されません</string>
   <string name="revanced_language_title">ReVanced 設定の言語</string>
-  <string name="revanced_language_user_dialog_message">"一部の言語の翻訳が欠落しているか不完全な可能性があります。
+  <string name="revanced_language_user_dialog_message">"一部の言語の翻訳が欠落しているか不完全である可能性があります。
 
-新しい言語を翻訳するには、translate.revanced.app にアクセスしてください。"</string>
+新しい言語を翻訳したり、既存の翻訳を改善するには、translate.revanced.app にアクセスしてください。"</string>
   <string name="revanced_language_DEFAULT">アプリの言語</string>
   <string name="revanced_pref_import_export_title">インポート / エクスポート</string>
   <string name="revanced_pref_import_export_summary">ReVanced の設定をインポート/エクスポートします</string>
@@ -143,9 +157,6 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_restore_old_settings_menus_title">古い設定メニューを復元</string>
   <string name="revanced_restore_old_settings_menus_summary_on">旧バージョンの設定メニューが表示されます</string>
   <string name="revanced_restore_old_settings_menus_summary_off">旧バージョンの設定メニューは表示されません</string>
-  <string name="revanced_settings_search_history_title">設定の検索履歴を表示</string>
-  <string name="revanced_settings_search_history_summary_on">設定の検索履歴は表示されます</string>
-  <string name="revanced_settings_search_history_summary_off">設定の検索履歴は表示されません</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">ショートのバックグラウンド再生を無効化</string>
@@ -1064,9 +1075,9 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_sb_guidelines_popup_already_read">既読</string>
   <string name="revanced_sb_guidelines_popup_open">表示する</string>
   <string name="revanced_sb_general">その他</string>
-  <string name="revanced_sb_toast_on_connection_error_title">API 利用不可時にトーストを表示</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock が利用できない場合にトースト通知が表示されます</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock が利用できない場合にトースト通知は表示されません</string>
+  <string name="revanced_sb_toast_on_connection_error">API 利用不可時にトーストを表示</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">SponsorBlock が利用できない場合にトースト通知が表示されます</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">SponsorBlock が利用できない場合にトースト通知は表示されません</string>
   <string name="revanced_sb_general_skipcount">スキップデータの収集を有効化</string>
   <string name="revanced_sb_general_skipcount_sum_on">SponsorBlock リーダーボード にスキップによって節約した時間を送信します。セグメントをスキップする度にデータが送信されます</string>
   <string name="revanced_sb_general_skipcount_sum_off">スキップデータの収集は無効です</string>
@@ -1475,9 +1486,9 @@ Automotive レイアウト
   <string name="revanced_external_browser_summary_off">アプリ内ブラウザでリンクを開きます</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">追跡パラメータをリンクから削除する</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">追跡パラメータはリンクから削除されます</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">追跡パラメータはリンクから削除されません</string>
+  <string name="revanced_sanitize_sharing_links_title">追跡パラメータをリンクから削除する</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">追跡パラメータはリンクから削除されます</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">追跡パラメータはリンクから削除されません</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">オリジナルの音声を強制的に使用</string>
