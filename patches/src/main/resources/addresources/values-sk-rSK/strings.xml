@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Hľadať nastavenia</string>
   <string name="revanced_settings_search_no_results_title">Pre výraz \",%s\" sa nenašli žiadne výsledky</string>
   <string name="revanced_settings_search_no_results_summary">Skúste iné kľúčové slovo</string>
+  <string name="revanced_settings_search_recent_searches">Posledné vyhľadávania</string>
   <string name="revanced_settings_search_remove_message">Odstrániť z histórie vyhľadávania?</string>
+  <string name="revanced_settings_search_clear_history">Vymazať históriu vyhľadávania</string>
+  <string name="revanced_settings_search_clear_history_message">Naozaj chcete vymazať celú históriu vyhľadávania?</string>
+  <string name="revanced_settings_search_tips_title">Tipy na vyhľadávanie</string>
+  <string name="revanced_settings_search_tips_summary">"• Ťuknite na cestu pre prechod na ňu
+• Dlho stlačte nastavenie pre prechod naň
+• Stlačte Enter pre uloženie vyhľadávacieho dotazu do histórie
+• Vyhľadávanie ignoruje veľkosť písmen a interpunkciu
+• Nadradené nastavenia sa zobrazujú nad zakázanými podradenými nastaveniami"</string>
+  <string name="revanced_settings_search_empty_history_title">História vyhľadávania je prázdna</string>
+  <string name="revanced_settings_search_empty_history_summary">Pre uloženie histórie vyhľadávania zadajte vyhľadávací dotaz a stlačte Enter</string>
+  <string name="revanced_settings_search_history_title">Zobraziť históriu vyhľadávania v nastaveniach</string>
+  <string name="revanced_settings_search_history_summary_on">História vyhľadávania v nastaveniach je zobrazená</string>
+  <string name="revanced_settings_search_history_summary_off">História vyhľadávania nastavení sa nezobrazuje</string>
   <string name="revanced_show_menu_icons_title">Zobraziť ikony nastavení ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikony nastavení sa zobrazujú</string>
   <string name="revanced_show_menu_icons_summary_off">Ikony nastavení sa nezobrazujú</string>
   <string name="revanced_language_title">Jazyk reVanced</string>
-  <string name="revanced_language_user_dialog_message">"Pre niektoré jazyky môžu chýbať preklady alebo môžu byť neúplné.
+  <string name="revanced_language_user_dialog_message">"Preklady pre niektoré jazyky môžu chýbať alebo byť neúplné.
 
-Na preklad nových jazykov navštívte translate.revanced.app"</string>
+Pre preloženie nových jazykov alebo zlepšenie existujúcich prekladov navštívte translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Jazyk aplikácie</string>
   <string name="revanced_pref_import_export_title">Importovať / Exportovať</string>
   <string name="revanced_pref_import_export_summary">Import / Export nastavení ReVanced</string>
@@ -140,9 +154,6 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_restore_old_settings_menus_title">Obnoviť staré ponuky nastavení</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Staré ponuky nastavení sa zobrazujú</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Staré ponuky nastavení sa nezobrazujú</string>
-  <string name="revanced_settings_search_history_title">Zobraziť históriu vyhľadávania v nastaveniach</string>
-  <string name="revanced_settings_search_history_summary_on">História vyhľadávania v nastaveniach je zobrazená</string>
-  <string name="revanced_settings_search_history_summary_off">História vyhľadávania nastavení sa nezobrazuje</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Zakázať prehrávanie Shorts na pozadí</string>
@@ -1058,9 +1069,9 @@ Táto funkcia najlepšie funguje s kvalitou videa 720p alebo nižšou a pri pou�
   <string name="revanced_sb_guidelines_popup_already_read">Už prečítané</string>
   <string name="revanced_sb_guidelines_popup_open">Zobraziť</string>
   <string name="revanced_sb_general">Všeobecné</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Ukážte prípitok, ak API nie je k dispozícii</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Ak nie je k dispozícii SponsorBlock, zobrazí sa toast</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Toast sa nezobrazuje, ak nie je k dispozícii SponsorBlock</string>
+  <string name="revanced_sb_toast_on_connection_error">Ukážte prípitok, ak API nie je k dispozícii</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Ak nie je k dispozícii SponsorBlock, zobrazí sa toast</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Toast sa nezobrazuje, ak nie je k dispozícii SponsorBlock</string>
   <string name="revanced_sb_general_skipcount">Povoliť sledovanie počtu preskočení</string>
   <string name="revanced_sb_general_skipcount_sum_on">Dáva rebríčku SponsorBlock vedieť, koľko času ušetríte. Pri každom preskočení segmentu sa do výsledkovej tabuľky odošle správa</string>
   <string name="revanced_sb_general_skipcount_sum_off">Sledovanie počtu preskočení nie je povolené</string>
@@ -1466,9 +1477,9 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_external_browser_summary_off">Otváranie odkazov v prehliadači v aplikácii</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Odstráňte parameter dopytu sledovania</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Parameter dopytu sledovania je odstránený z odkazov</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Parameter dopytu sledovania nie je odstránený z odkazov</string>
+  <string name="revanced_sanitize_sharing_links_title">Odstráňte parameter dopytu sledovania</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parameter dopytu sledovania je odstránený z odkazov</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parameter dopytu sledovania nie je odstránený z odkazov</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Vynútiť pôvodný jazyk zvuku</string>

@@ -1,15 +1,10 @@
-package app.revanced.patches.youtube.misc.privacy
+package app.revanced.patches.shared.misc.privacy
 
-import app.revanced.patcher.checkCast
-import app.revanced.patcher.fieldAccess
-import app.revanced.patcher.fingerprint
-import app.revanced.patcher.methodCall
-import app.revanced.patcher.opcode
-import app.revanced.patcher.string
-import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.AccessFlags
+import app.revanced.patcher.fingerprint
 
-internal val copyTextFingerprint by fingerprint {
+internal val youTubeCopyTextFingerprint by fingerprint {
     returns("V")
     parameters("L", "Ljava/util/Map;")
     instructions(
@@ -27,8 +22,7 @@ internal val copyTextFingerprint by fingerprint {
     )
 }
 
-internal val youtubeShareSheetFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+internal val youTubeSystemShareSheetFingerprint by fingerprint {
     returns("V")
     parameters("L", "Ljava/util/Map;")
     instructions(
@@ -54,7 +48,7 @@ internal val youtubeShareSheetFingerprint by fingerprint {
     )
 }
 
-internal val systemShareSheetFingerprint by fingerprint {
+internal val youTubeShareSheetFingerprint by fingerprint {
     returns("V")
     parameters("L", "Ljava/util/Map;")
     instructions(

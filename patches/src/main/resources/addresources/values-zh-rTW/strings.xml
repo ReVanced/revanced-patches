@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">搜尋設定</string>
   <string name="revanced_settings_search_no_results_title">沒有找到「%s」的結果</string>
   <string name="revanced_settings_search_no_results_summary">嘗試其他關鍵字</string>
+  <string name="revanced_settings_search_recent_searches">最近搜尋</string>
   <string name="revanced_settings_search_remove_message">要從搜尋記錄中移除嗎？</string>
+  <string name="revanced_settings_search_clear_history">清除搜尋記錄</string>
+  <string name="revanced_settings_search_clear_history_message">您確定要清除所有搜尋記錄嗎？</string>
+  <string name="revanced_settings_search_tips_title">搜尋秘訣</string>
+  <string name="revanced_settings_search_tips_summary">"• 輕觸路徑即可前往
+• 長按設定即可前往
+• 按下 Enter 鍵即可將搜尋查詢儲存至記錄
+• 搜尋會忽略大小寫和標點符號
+• 父設定會顯示在停用的子設定上方"</string>
+  <string name="revanced_settings_search_empty_history_title">搜尋記錄是空的</string>
+  <string name="revanced_settings_search_empty_history_summary">若要儲存搜尋記錄，請輸入搜尋查詢並按下 Enter 鍵</string>
+  <string name="revanced_settings_search_history_title">顯示設定搜尋記錄</string>
+  <string name="revanced_settings_search_history_summary_on">顯示設定搜尋記錄</string>
+  <string name="revanced_settings_search_history_summary_off">不顯示設定搜尋記錄</string>
   <string name="revanced_show_menu_icons_title">顯示 ReVanced 設定圖示</string>
   <string name="revanced_show_menu_icons_summary_on">已顯示設定圖示</string>
   <string name="revanced_show_menu_icons_summary_off">未顯示設定圖示</string>
   <string name="revanced_language_title">ReVanced 語言</string>
   <string name="revanced_language_user_dialog_message">"部分語言的翻譯可能缺少或不完整。
 
-如要翻譯新的語言，請前往 translate.revanced.app"</string>
+如要翻譯新的語言或改善現有翻譯，請前往 translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">應用程式語言</string>
   <string name="revanced_pref_import_export_title">匯入/匯出</string>
   <string name="revanced_pref_import_export_summary">匯入/匯出 ReVanced 設定</string>
@@ -142,9 +156,6 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">還原舊版設定選單</string>
   <string name="revanced_restore_old_settings_menus_summary_on">已顯示舊版設定選單</string>
   <string name="revanced_restore_old_settings_menus_summary_off">不顯示舊版設定選單</string>
-  <string name="revanced_settings_search_history_title">顯示設定搜尋記錄</string>
-  <string name="revanced_settings_search_history_summary_on">顯示設定搜尋記錄</string>
-  <string name="revanced_settings_search_history_summary_off">不顯示設定搜尋記錄</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">停用背景播放 Shorts</string>
@@ -1061,9 +1072,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">已閱讀</string>
   <string name="revanced_sb_guidelines_popup_open">顯示</string>
   <string name="revanced_sb_general">一般</string>
-  <string name="revanced_sb_toast_on_connection_error_title">若 API 無法使用，顯示提示</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">如果 SponsorBlock 無法使用，則顯示提示訊息</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">如果 SponsorBlock 無法使用，則不會顯示提示訊息</string>
+  <string name="revanced_sb_toast_on_connection_error">若 API 無法使用，顯示提示</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">如果 SponsorBlock 無法使用，則顯示提示訊息</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">如果 SponsorBlock 無法使用，則不會顯示提示訊息</string>
   <string name="revanced_sb_general_skipcount">啟用跳過次數追蹤</string>
   <string name="revanced_sb_general_skipcount_sum_on">讓 SponsorBlock 排行榜記錄您節省了多少時間。每跳過一個片段時，都會向排行榜傳送一則訊息</string>
   <string name="revanced_sb_general_skipcount_sum_off">未啟用跳過次數追蹤</string>
@@ -1483,9 +1494,9 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_off">在應用程式內瀏覽器中開啟連結</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">移除追蹤查詢參數</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">已從連結移除追蹤查詢參數</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">未從連結移除追蹤查詢參數</string>
+  <string name="revanced_sanitize_sharing_links_title">移除追蹤查詢參數</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">已從連結移除追蹤查詢參數</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">未從連結移除追蹤查詢參數</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">強制使用原始音訊語言</string>

@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Pretraži podešavanja</string>
   <string name="revanced_settings_search_no_results_title">Nisu pronađeni rezultati za „%s”</string>
   <string name="revanced_settings_search_no_results_summary">Pokušajte sa drugom ključnom reči</string>
+  <string name="revanced_settings_search_recent_searches">Nedavne pretrage</string>
   <string name="revanced_settings_search_remove_message">Ukloniti iz istorije pretrage?</string>
+  <string name="revanced_settings_search_clear_history">Obriši istoriju pretrage</string>
+  <string name="revanced_settings_search_clear_history_message">Da li ste sigurni da želite da obrišete celokupnu istoriju pretrage?</string>
+  <string name="revanced_settings_search_tips_title">Saveti za pretragu</string>
+  <string name="revanced_settings_search_tips_summary">"• Dodirnite putanju da biste došli do nje
+• Dugo pritisnite postavku da biste došli do nje
+• Pritisnite Enter da biste sačuvali upit za pretragu u istoriju
+• Pretraga ignoriše velika i mala slova i interpunkciju
+• Nadređene postavke se prikazuju iznad onemogućenih podređenih postavki"</string>
+  <string name="revanced_settings_search_empty_history_title">Istorija pretrage je prazna</string>
+  <string name="revanced_settings_search_empty_history_summary">Da biste sačuvali istoriju pretrage, ukucajte upit za pretragu i pritisnite Enter</string>
+  <string name="revanced_settings_search_history_title">Prikaži istoriju pretrage podešavanja</string>
+  <string name="revanced_settings_search_history_summary_on">Istorija pretrage podešavanja je prikazana</string>
+  <string name="revanced_settings_search_history_summary_off">Istorija pretrage podešavanja nije prikazana</string>
   <string name="revanced_show_menu_icons_title">Prikaži ikonice podešavanja ReVanceda</string>
   <string name="revanced_show_menu_icons_summary_on">Ikonice podešavanja su prikazane</string>
   <string name="revanced_show_menu_icons_summary_off">Ikonice podešavanja nisu prikazane</string>
   <string name="revanced_language_title">Jezik ReVanceda</string>
-  <string name="revanced_language_user_dialog_message">"Prevodi za neke jezike mogu nedostajati ili biti nepotpuni.
+  <string name="revanced_language_user_dialog_message">"Prevod za neke jezike možda nedostaje ili je nepotpun.
 
-Da biste preveli nove jezike, posetite translate.revanced.app"</string>
+Da biste preveli nove jezike ili poboljšali postojeće prevode, posetite translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Jezik aplikacije</string>
   <string name="revanced_pref_import_export_title">Uvoz / Izvoz</string>
   <string name="revanced_pref_import_export_summary">Uvoz / Izvoz podešavanja ReVanceda</string>
@@ -142,9 +156,6 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_restore_old_settings_menus_title">Vrati stare menije podešavanja</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Prikazuju se stari meniji podešavanja</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Ne prikazuju se stari meniji podešavanja</string>
-  <string name="revanced_settings_search_history_title">Prikaži istoriju pretrage podešavanja</string>
-  <string name="revanced_settings_search_history_summary_on">Istorija pretrage podešavanja je prikazana</string>
-  <string name="revanced_settings_search_history_summary_off">Istorija pretrage podešavanja nije prikazana</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Onemogući puštanje Shorts videa u pozadini</string>
@@ -1060,9 +1071,9 @@ Ova funkcija najbolje radi sa kvalitetom videa od 720p ili nižim i kada koristi
   <string name="revanced_sb_guidelines_popup_already_read">Već pročitano</string>
   <string name="revanced_sb_guidelines_popup_open">Pokaži mi</string>
   <string name="revanced_sb_general">Opšte</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Prikaži iskačuće obaveštenje ako API nije dostupan</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Iskačuće obaveštenje je prikazano, ako SponsorBlock nije dostupan</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Iskačuće obaveštenje nije prikazano, ako SponsorBlock nije dostupan</string>
+  <string name="revanced_sb_toast_on_connection_error">Prikaži iskačuće obaveštenje ako API nije dostupan</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Iskačuće obaveštenje je prikazano, ako SponsorBlock nije dostupan</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Iskačuće obaveštenje nije prikazano, ako SponsorBlock nije dostupan</string>
   <string name="revanced_sb_general_skipcount">Omogući praćenje broja preskakanja</string>
   <string name="revanced_sb_general_skipcount_sum_on">Omogućava SponsorBlock rang-listi da zna koliko je vremena ušteđeno. Poruka se šalje na rang-listu svaki put kada je segment preskočen</string>
   <string name="revanced_sb_general_skipcount_sum_off">Praćenje broja preskakanja nije omogućeno</string>
@@ -1472,9 +1483,9 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_external_browser_summary_off">Otvaranje linkova u pregledaču u aplikaciji</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Ukloni parametar upita za praćenje</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Parametar upita za praćenje je uklonjen iz linkova</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Parametar upita za praćenje nije uklonjen iz linkova</string>
+  <string name="revanced_sanitize_sharing_links_title">Ukloni parametar upita za praćenje</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parametar upita za praćenje je uklonjen iz linkova</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parametar upita za praćenje nije uklonjen iz linkova</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Prisili originalni jezik zvuka</string>

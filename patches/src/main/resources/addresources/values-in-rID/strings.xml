@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Pengaturan pencarian</string>
   <string name="revanced_settings_search_no_results_title">Tidak ada hasil yang ditemukan untuk \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Coba kata kunci lain</string>
+  <string name="revanced_settings_search_recent_searches">Pencarian terbaru</string>
   <string name="revanced_settings_search_remove_message">Hapus dari riwayat pencarian?</string>
+  <string name="revanced_settings_search_clear_history">Hapus riwayat pencarian</string>
+  <string name="revanced_settings_search_clear_history_message">Apakah Anda yakin ingin menghapus semua riwayat pencarian?</string>
+  <string name="revanced_settings_search_tips_title">Tips Pencarian</string>
+  <string name="revanced_settings_search_tips_summary">"• Ketuk jalur untuk menavigasi ke sana
+• Tekan lama pengaturan untuk menavigasi ke sana
+• Tekan Enter untuk menyimpan kueri pencarian ke riwayat
+• Pencarian mengabaikan huruf besar/kecil dan tanda baca
+• Pengaturan induk muncul di atas pengaturan anak yang dinonaktifkan"</string>
+  <string name="revanced_settings_search_empty_history_title">Riwayat pencarian kosong</string>
+  <string name="revanced_settings_search_empty_history_summary">Untuk menyimpan riwayat pencarian, ketik kueri pencarian dan tekan Enter</string>
+  <string name="revanced_settings_search_history_title">Tampilkan pengaturan riwayat pencarian</string>
+  <string name="revanced_settings_search_history_summary_on">Pengaturan riwayat pencarian ditampilkan</string>
+  <string name="revanced_settings_search_history_summary_off">Pengaturan riwayat pencarian tidak ditampilkan</string>
   <string name="revanced_show_menu_icons_title">Tampilkan ikon pengaturan ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikon pengaturan ditampilkan</string>
   <string name="revanced_show_menu_icons_summary_off">Ikon pengaturan tidak ditampilkan</string>
   <string name="revanced_language_title">Bahasa ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Terjemahan untuk beberapa bahasa mungkin hilang atau tidak lengkap.
 
-Untuk menerjemahkan bahasa baru kunjungi translate.revanced.app"</string>
+Untuk menerjemahkan bahasa baru atau meningkatkan terjemahan yang sudah ada, kunjungi translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Bahasa aplikasi</string>
   <string name="revanced_pref_import_export_title">Impor / Ekspor</string>
   <string name="revanced_pref_import_export_summary">Impor / Ekspor setelan ReVanced</string>
@@ -142,9 +156,6 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_restore_old_settings_menus_title">Pulihkan menu pengaturan lama</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Menu pengaturan lama ditampilkan</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Menu pengaturan lama tidak ditampilkan</string>
-  <string name="revanced_settings_search_history_title">Tampilkan pengaturan riwayat pencarian</string>
-  <string name="revanced_settings_search_history_summary_on">Pengaturan riwayat pencarian ditampilkan</string>
-  <string name="revanced_settings_search_history_summary_off">Pengaturan riwayat pencarian tidak ditampilkan</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Nonaktifkan pemutaran Shorts di latar belakang</string>
@@ -1060,9 +1071,9 @@ Fitur ini bekerja paling baik dengan kualitas video 720p atau lebih rendah dan s
   <string name="revanced_sb_guidelines_popup_already_read">Sudah dibaca</string>
   <string name="revanced_sb_guidelines_popup_open">Tunjukkan</string>
   <string name="revanced_sb_general">Umum</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Tampilkan pesan timbul jika API tidak tersedia</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Pesan timbul ditampilkan jika SponsorBlock tidak tersedia</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Pesan timbul tidak ditampilkan jika SponsorBlock tidak tersedia</string>
+  <string name="revanced_sb_toast_on_connection_error">Tampilkan pesan timbul jika API tidak tersedia</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Pesan timbul ditampilkan jika SponsorBlock tidak tersedia</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Pesan timbul tidak ditampilkan jika SponsorBlock tidak tersedia</string>
   <string name="revanced_sb_general_skipcount">Aktifkan pelacakan melewati hitungan</string>
   <string name="revanced_sb_general_skipcount_sum_on">Mengizinkan papan peringkat SponsorBlock mengetahui berapa banyak waktu yang dihemat. Pesan dikirim ke papan peringkat setiap kali sebuah segmen dilewati</string>
   <string name="revanced_sb_general_skipcount_sum_off">Lewati pelacakan jumlah tidak diaktifkan </string>
@@ -1472,9 +1483,9 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_external_browser_summary_off">Membuka tautan di peramban dalam aplikasi</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Hapus parameter kueri pelacakan</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Parameter kueri pelacakan dihapus dari tautan</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Parameter kueri pelacakan tidak dihapus dari tautan</string>
+  <string name="revanced_sanitize_sharing_links_title">Hapus parameter kueri pelacakan</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parameter kueri pelacakan dihapus dari tautan</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parameter kueri pelacakan tidak dihapus dari tautan</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Paksa bahasa audio asli</string>

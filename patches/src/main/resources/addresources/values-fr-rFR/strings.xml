@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Rechercher dans les paramètres</string>
   <string name="revanced_settings_search_no_results_title">Aucun résultat trouvé pour \"%s\"</string>
   <string name="revanced_settings_search_no_results_summary">Essayez un autre mot-clé</string>
+  <string name="revanced_settings_search_recent_searches">Recherches récentes</string>
   <string name="revanced_settings_search_remove_message">Supprimer de l\'historique des recherches ?</string>
+  <string name="revanced_settings_search_clear_history">Effacer l\'historique de recherche</string>
+  <string name="revanced_settings_search_clear_history_message">Voulez-vous vraiment effacer tout l\'historique de recherche ?</string>
+  <string name="revanced_settings_search_tips_title">Conseils de recherche</string>
+  <string name="revanced_settings_search_tips_summary">"• Appuyez sur un chemin pour y naviguer
+• Appuyez longuement sur un paramètre pour y naviguer
+• Appuyez sur Entrée pour enregistrer une requête de recherche dans l'historique
+• La recherche ignore la casse et la ponctuation
+• Les paramètres parents apparaissent au-dessus des paramètres enfants désactivés"</string>
+  <string name="revanced_settings_search_empty_history_title">L\'historique de recherche est vide</string>
+  <string name="revanced_settings_search_empty_history_summary">Pour enregistrer l\'historique de recherche, saisissez une requête de recherche et appuyez sur Entrée</string>
+  <string name="revanced_settings_search_history_title">Afficher l\'historique de recherche des paramètres</string>
+  <string name="revanced_settings_search_history_summary_on">L\'historique de recherche des paramètres est affiché</string>
+  <string name="revanced_settings_search_history_summary_off">L\'historique de recherche des paramètres n\'est pas affiché</string>
   <string name="revanced_show_menu_icons_title">Afficher les icônes des paramètres ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Les icônes des paramètres sont affichées</string>
   <string name="revanced_show_menu_icons_summary_off">Les icônes des paramètres ne sont pas affichées</string>
   <string name="revanced_language_title">Langue de ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"Il se peut que les traductions dans certaines langues soient manquantes ou incomplètes.
+  <string name="revanced_language_user_dialog_message">"Les traductions pour certaines langues peuvent être manquantes ou incomplètes.
 
-Pour traduire dans de nouvelles langues, visitez translate.revanced.app"</string>
+Pour traduire de nouvelles langues ou améliorer les traductions existantes, visitez translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Langue de l\'application</string>
   <string name="revanced_pref_import_export_title">Importer/Exporter</string>
   <string name="revanced_pref_import_export_summary">Importer/Exporter les paramètres ReVanced</string>
@@ -142,9 +156,6 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_restore_old_settings_menus_title">Restaurer les anciens menus des paramètres</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Les anciens menus des paramètres sont affichés</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Les anciens menus des paramètres ne sont pas affichés</string>
-  <string name="revanced_settings_search_history_title">Afficher l\'historique de recherche des paramètres</string>
-  <string name="revanced_settings_search_history_summary_on">L\'historique de recherche des paramètres est affiché</string>
-  <string name="revanced_settings_search_history_summary_off">L\'historique de recherche des paramètres n\'est pas affiché</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Désactiver la lecture en arrière-plan des Shorts</string>
@@ -1062,9 +1073,9 @@ Cette fonctionnalité fonctionne de manière optimale avec une qualité vidéo d
   <string name="revanced_sb_guidelines_popup_already_read">Déjà lues</string>
   <string name="revanced_sb_guidelines_popup_open">Montrez-les-moi</string>
   <string name="revanced_sb_general">Général</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Afficher un message toast si l\'API n\'est pas disponible</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Un message toast est affiché si SponsorBlock n\'est pas disponible</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Pas d\'affichage de message toast si SponsorBlock n\'est pas disponible</string>
+  <string name="revanced_sb_toast_on_connection_error">Afficher un message toast si l\'API n\'est pas disponible</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Un message toast est affiché si SponsorBlock n\'est pas disponible</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Pas d\'affichage de message toast si SponsorBlock n\'est pas disponible</string>
   <string name="revanced_sb_general_skipcount">Activer le comptage des segments ignorés</string>
   <string name="revanced_sb_general_skipcount_sum_on">Permet à SponsorBlock d\'afficher sur son classement le temps total épargné à ses utilisateurs. Un message est envoyé au classement à chaque fois qu\'un segment est ignoré.</string>
   <string name="revanced_sb_general_skipcount_sum_off">Le comptage des segments ignorés n\'est pas activé</string>
@@ -1474,9 +1485,9 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   <string name="revanced_external_browser_summary_off">Les liens sont ouverts dans le navigateur intégré à l\'application</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Supprimer le paramètre de suivi</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Le paramètre de requête destiné au suivi est supprimé des liens</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Le paramètre de requête destiné au suivi n\'est pas supprimé des liens</string>
+  <string name="revanced_sanitize_sharing_links_title">Supprimer le paramètre de suivi</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Le paramètre de requête destiné au suivi est supprimé des liens</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Le paramètre de requête destiné au suivi n\'est pas supprimé des liens</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forcer la langue audio d\'origine</string>

@@ -48,14 +48,26 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Пошук налад</string>
   <string name="revanced_settings_search_no_results_title">Нічога не знойдзена для \",%s\"</string>
   <string name="revanced_settings_search_no_results_summary">Паспрабуйце іншае ключавое слова</string>
+  <string name="revanced_settings_search_recent_searches">Апошнія пошукі</string>
   <string name="revanced_settings_search_remove_message">Выдаліць з гісторыі пошуку?</string>
+  <string name="revanced_settings_search_clear_history">Ачысціць гісторыю пошуку</string>
+  <string name="revanced_settings_search_clear_history_message">Вы ўпэўнены, што хочаце ачысціць усю гісторыю пошуку?</string>
+  <string name="revanced_settings_search_tips_title">Парады па пошуку</string>
+  <string name="revanced_settings_search_tips_summary">"• Націсніце шлях, каб перайсці да яго
+• Доўга націсніце настройку, каб перайсці да яе
+• Націсніце Enter, каб захаваць пошукавы запыт у гісторыю
+• Пошук ігнаруе рэгістр і пунктуацыю
+• Бацькоўскія налады з'яўляюцца над адключанымі даччынымі наладамі"</string>
+  <string name="revanced_settings_search_empty_history_title">Гісторыя пошуку пустая</string>
+  <string name="revanced_settings_search_empty_history_summary">Каб захаваць гісторыю пошуку, увядзіце пошукавы запыт і націсніце Enter</string>
+  <string name="revanced_settings_search_history_title">Паказваць гісторыю пошуку ў наладах</string>
+  <string name="revanced_settings_search_history_summary_on">Паказваецца гісторыя пошуку ў наладах</string>
+  <string name="revanced_settings_search_history_summary_off">Гісторыя пошуку налад не паказваецца</string>
   <string name="revanced_show_menu_icons_title">Паказваць значкі налад ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Значкі налад паказваюцца</string>
   <string name="revanced_show_menu_icons_summary_off">Значкі налад не паказваюцца</string>
   <string name="revanced_language_title">Мова ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"Пераклады для некаторых моў могуць быць адсутнымі або няпоўнымі.
-
-Каб дадаць новыя мовы, наведайце translate.revanced.app"</string>
+  <string name="revanced_language_user_dialog_message">"Пераклады для некаторых моў могуць адсутнічаць або быць няпоўнымі.\n\nКаб перакласці новыя мовы або палепшыць існуючыя пераклады, наведайце translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Мова праграмы</string>
   <string name="revanced_pref_import_export_title">Імпарт / Экспарт</string>
   <string name="revanced_pref_import_export_summary">Імпарт / Экспарт налад ReVanced</string>
@@ -142,9 +154,6 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Аднавіць старое меню налад</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Старыя меню налад паказваюцца</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Старыя меню налад не паказваюцца</string>
-  <string name="revanced_settings_search_history_title">Паказваць гісторыю пошуку ў наладах</string>
-  <string name="revanced_settings_search_history_summary_on">Паказваецца гісторыя пошуку ў наладах</string>
-  <string name="revanced_settings_search_history_summary_off">Гісторыя пошуку налад не паказваецца</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Адключыць прайграванне Shorts у фонавым</string>
@@ -1060,9 +1069,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">Ужо прачытаў</string>
   <string name="revanced_sb_guidelines_popup_open">Пакажы мне</string>
   <string name="revanced_sb_general">Генерал</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Паказаць тост, калі API недаступны</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Тост паказваецца, калі SponsorBlock недаступны</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Тост не паказваецца, калі SponsorBlock недаступны</string>
+  <string name="revanced_sb_toast_on_connection_error">Паказаць тост, калі API недаступны</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Тост паказваецца, калі SponsorBlock недаступны</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Тост не паказваецца, калі SponsorBlock недаступны</string>
   <string name="revanced_sb_general_skipcount">Уключыць адсочванне колькасці пропускаў</string>
   <string name="revanced_sb_general_skipcount_sum_on">Дазваляе табліцы лідэраў SponsorBlock ведаць, колькі часу зэканомлена. Паведамленне адпраўляецца ў спіс лідэраў кожны раз, калі сегмент прапускаецца</string>
   <string name="revanced_sb_general_skipcount_sum_off">Адсочванне колькасці пропускаў не ўключана</string>
@@ -1474,9 +1483,9 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_off">Адкрыццё спасылак ва ўбудаваным браўзеры</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Выдаліць параметр запыту адсочвання</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Параметр запыту адсочвання выдалены са спасылак</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Параметр адсочвання запыту не выдаляецца са спасылак</string>
+  <string name="revanced_sanitize_sharing_links_title">Выдаліць параметр запыту адсочвання</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметр запыту адсочвання выдалены са спасылак</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметр адсочвання запыту не выдаляецца са спасылак</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Вымушаная арыгінальная мова аўдыё</string>

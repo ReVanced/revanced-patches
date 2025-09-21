@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Zoekinstellingen</string>
   <string name="revanced_settings_search_no_results_title">Geen resultaten gevonden voor \", %s\"</string>
   <string name="revanced_settings_search_no_results_summary">Probeer een ander trefwoord</string>
+  <string name="revanced_settings_search_recent_searches">Recente zoekopdrachten</string>
   <string name="revanced_settings_search_remove_message">Verwijderen uit zoekgeschiedenis?</string>
+  <string name="revanced_settings_search_clear_history">Zoekgeschiedenis wissen</string>
+  <string name="revanced_settings_search_clear_history_message">Weet u zeker dat u alle zoekgeschiedenis wilt wissen?</string>
+  <string name="revanced_settings_search_tips_title">Zoektips</string>
+  <string name="revanced_settings_search_tips_summary">"• Tik op een pad om ernaartoe te navigeren
+• Lang indrukken op een instelling om ernaartoe te navigeren
+• Druk op Enter om een zoekopdracht op te slaan in de geschiedenis
+• Zoeken negeert hoofdletters en leestekens
+• Bovenliggende instellingen verschijnen boven uitgeschakelde onderliggende instellingen"</string>
+  <string name="revanced_settings_search_empty_history_title">Zoekgeschiedenis is leeg</string>
+  <string name="revanced_settings_search_empty_history_summary">Om zoekgeschiedenis op te slaan, typ een zoekopdracht en druk op Enter</string>
+  <string name="revanced_settings_search_history_title">Zoekgeschiedenis instellingen weergeven</string>
+  <string name="revanced_settings_search_history_summary_on">Zoekgeschiedenis instellingen wordt weergegeven</string>
+  <string name="revanced_settings_search_history_summary_off">De zoekgeschiedenis van de instellingen wordt niet weergegeven</string>
   <string name="revanced_show_menu_icons_title">Pictogrammen voor ReVanced-instellingen weergeven</string>
   <string name="revanced_show_menu_icons_summary_on">Instellingspictogrammen worden weergegeven</string>
   <string name="revanced_show_menu_icons_summary_off">Pictogrammen voor instellingen worden niet weergegeven</string>
   <string name="revanced_language_title">ReVanced-taal</string>
   <string name="revanced_language_user_dialog_message">"Vertalingen voor sommige talen kunnen ontbreken of onvolledig zijn.
 
-Om nieuwe talen te vertalen, gaat u naar translate.revanced.app"</string>
+Om nieuwe talen te vertalen of bestaande vertalingen te verbeteren, bezoek translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">App-taal</string>
   <string name="revanced_pref_import_export_title">Importeren / Exporteren</string>
   <string name="revanced_pref_import_export_summary">ReVanced-instellingen importeren / exporteren</string>
@@ -142,9 +156,6 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_restore_old_settings_menus_title">Oude instellingenmenu\'s herstellen</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Oude instellingenmenu\'s worden getoond</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Oude instellingenmenu\'s worden niet getoond</string>
-  <string name="revanced_settings_search_history_title">Zoekgeschiedenis instellingen weergeven</string>
-  <string name="revanced_settings_search_history_summary_on">Zoekgeschiedenis instellingen wordt weergegeven</string>
-  <string name="revanced_settings_search_history_summary_off">De zoekgeschiedenis van de instellingen wordt niet weergegeven</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts-achtergrondafspelen uitschakelen</string>
@@ -1060,9 +1071,9 @@ Deze functie werkt het beste met een videokwaliteit van 720p of lager en wanneer
   <string name="revanced_sb_guidelines_popup_already_read">Al gelezen</string>
   <string name="revanced_sb_guidelines_popup_open">Toon mij</string>
   <string name="revanced_sb_general">Algemeen</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Toon een \"toast\" als de API niet beschikbaar is</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">\"Toast\" wordt weergegeven als SponsorBlock niet beschikbaar is</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">\"Toast\" wordt niet weergegeven als SponsorBlock niet beschikbaar is</string>
+  <string name="revanced_sb_toast_on_connection_error">Toon een \"toast\" als de API niet beschikbaar is</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">\"Toast\" wordt weergegeven als SponsorBlock niet beschikbaar is</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">\"Toast\" wordt niet weergegeven als SponsorBlock niet beschikbaar is</string>
   <string name="revanced_sb_general_skipcount">Schakel het bijhouden van het aantal overslaan in</string>
   <string name="revanced_sb_general_skipcount_sum_on">Laat het SponsorBlock-klassement weten hoeveel tijd wordt bespaard. Er wordt een bericht naar het klassement verzonden telkens wanneer een segment wordt overgeslagen</string>
   <string name="revanced_sb_general_skipcount_sum_off">Het bijhouden van het aantal overslaan is niet ingeschakeld</string>
@@ -1471,9 +1482,9 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_external_browser_summary_off">Koppelingen openen in in-app browser</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Verwijder tracking-queryparameter</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking-queryparameter wordt verwijderd uit koppelingen</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking-queryparameter wordt niet verwijderd uit koppelingen</string>
+  <string name="revanced_sanitize_sharing_links_title">Verwijder tracking-queryparameter</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Tracking-queryparameter wordt verwijderd uit koppelingen</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Tracking-queryparameter wordt niet verwijderd uit koppelingen</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forceer de originele audiotaal</string>

@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Otsi seadetest</string>
   <string name="revanced_settings_search_no_results_title">Otsingule „%s” ei leitud tulemusi</string>
   <string name="revanced_settings_search_no_results_summary">Proovi mõnda muud märksõna</string>
+  <string name="revanced_settings_search_recent_searches">Viimased otsingud</string>
   <string name="revanced_settings_search_remove_message">Kas eemaldada otsinguajaloost?</string>
+  <string name="revanced_settings_search_clear_history">Tühjenda otsinguajalugu</string>
+  <string name="revanced_settings_search_clear_history_message">Kas olete kindel, et soovite kogu otsinguajaloo kustutada?</string>
+  <string name="revanced_settings_search_tips_title">Otsingunõuanded</string>
+  <string name="revanced_settings_search_tips_summary">"• Puudutage rada, et sinna navigeerida
+• Vajutage pikalt seadet, et sinna navigeerida
+• Vajutage sisestusklahvi, et salvestada otsingupäring ajalukku
+• Otsing ignoreerib suurtähti ja kirjavahemärke
+• Vanemseaded kuvatakse keelatud alamseadete kohal"</string>
+  <string name="revanced_settings_search_empty_history_title">Otsinguajalugu on tühi</string>
+  <string name="revanced_settings_search_empty_history_summary">Otsinguajaloo salvestamiseks tippige otsingupäring ja vajutage sisestusklahvi</string>
+  <string name="revanced_settings_search_history_title">Kuva seadete otsinguajalugu</string>
+  <string name="revanced_settings_search_history_summary_on">Seadete otsinguajalugu on näidatud</string>
+  <string name="revanced_settings_search_history_summary_off">Seadete otsingu ajalugu ei kuvata</string>
   <string name="revanced_show_menu_icons_title">Näita ReVancedi seadete ikoone</string>
   <string name="revanced_show_menu_icons_summary_on">Seadete ikoonid on näidatud</string>
   <string name="revanced_show_menu_icons_summary_off">Seadete ikoonid ei ole nähtavad</string>
   <string name="revanced_language_title">Revancedi keel</string>
-  <string name="revanced_language_user_dialog_message">"Mõnede keelte tõlked võivad olla puudulikud või ebatäielikud.
+  <string name="revanced_language_user_dialog_message">"Mõnede keelte tõlked võivad olla puudu või mittetäielikud.
 
-Uute keelte tõlkimiseks külastage saiti translate.revanced.app"</string>
+Uute keelte tõlkimiseks või olemasolevate tõlgete parandamiseks külastage translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Rakenduse keel</string>
   <string name="revanced_pref_import_export_title">Impordi / Ekspordi</string>
   <string name="revanced_pref_import_export_summary">Impordi / Ekspordi ReVanced seadeteid</string>
@@ -142,9 +156,6 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_restore_old_settings_menus_title">Taasta vanad seadete menüüd</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Vanad seadete menüüd on kuvatud</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Vanad seadete menüüd ei ole kuvatud</string>
-  <string name="revanced_settings_search_history_title">Kuva seadete otsinguajalugu</string>
-  <string name="revanced_settings_search_history_summary_on">Seadete otsinguajalugu on näidatud</string>
-  <string name="revanced_settings_search_history_summary_off">Seadete otsingu ajalugu ei kuvata</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts taustavideo esitamine lülitada</string>
@@ -1060,9 +1071,9 @@ See funktsioon toimib kõige paremini 720p või madalama video kvaliteedi ja vä
   <string name="revanced_sb_guidelines_popup_already_read">Olen juba lugenud</string>
   <string name="revanced_sb_guidelines_popup_open">Näita mulle</string>
   <string name="revanced_sb_general">Üldine</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Näita teatist, kui API pole saadaval</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Teatis näidatakse, kui SponsorBlock pole saadaval</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Teatist ei näidata, kui SponsorBlock pole saadaval</string>
+  <string name="revanced_sb_toast_on_connection_error">Näita teatist, kui API pole saadaval</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Teatis näidatakse, kui SponsorBlock pole saadaval</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Teatist ei näidata, kui SponsorBlock pole saadaval</string>
   <string name="revanced_sb_general_skipcount">Luba vahelejätmiste arvu jälgimine</string>
   <string name="revanced_sb_general_skipcount_sum_on">Teavitab SponsorBlocki edetabelit, kui palju aega säästetakse. Iga segmendi vahelejätmisel saadetakse edetabelisse teade</string>
   <string name="revanced_sb_general_skipcount_sum_off">Vahelejätmiste arvu jälgimine pole lubatud</string>
@@ -1473,9 +1484,9 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_external_browser_summary_off">Linkide avamine rakendusesiseses brauseris</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Eemalda jälgimise päringuparameeter</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Jälgimise päringuparameeter eemaldatakse linkidest</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Jälgimise päringuparameeter ei eemaldata linkidest</string>
+  <string name="revanced_sanitize_sharing_links_title">Eemalda jälgimise päringuparameeter</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Jälgimise päringuparameeter eemaldatakse linkidest</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Jälgimise päringuparameeter ei eemaldata linkidest</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Sunni originaalheli keel</string>

@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Ieškoti nustatymų</string>
   <string name="revanced_settings_search_no_results_title">Nerasta rezultatų pagal „%s“</string>
   <string name="revanced_settings_search_no_results_summary">Bandykite kitą raktinį žodį</string>
+  <string name="revanced_settings_search_recent_searches">Naujausios paieškos</string>
   <string name="revanced_settings_search_remove_message">Pašalinti iš paieškos istorijos?</string>
+  <string name="revanced_settings_search_clear_history">Išvalyti paieškos istoriją</string>
+  <string name="revanced_settings_search_clear_history_message">Ar tikrai norite išvalyti visą paieškos istoriją?</string>
+  <string name="revanced_settings_search_tips_title">Paieškos patarimai</string>
+  <string name="revanced_settings_search_tips_summary">"• Bakstelėkite kelią, kad pereitumėte į jį
+• Ilgai paspauskite nustatymą, kad pereitumėte į jį
+• Paspauskite „Enter“, kad išsaugotumėte paieškos užklausą istorijoje
+• Paieška ignoruoja didžiąsias/mažąsias raides ir skyrybos ženklus
+• Tėviniai nustatymai rodomi virš išjungtų vaiko nustatymų"</string>
+  <string name="revanced_settings_search_empty_history_title">Paieškos istorija tuščia</string>
+  <string name="revanced_settings_search_empty_history_summary">Norėdami išsaugoti paieškos istoriją, įveskite paieškos užklausą ir paspauskite „Enter“</string>
+  <string name="revanced_settings_search_history_title">Rodyti nustatymų paieškos istoriją</string>
+  <string name="revanced_settings_search_history_summary_on">Nustatymų paieškos istorija rodoma</string>
+  <string name="revanced_settings_search_history_summary_off">Nustatymų paieškos istorija nerodoma</string>
   <string name="revanced_show_menu_icons_title">Rodyti „ReVanced“ nustatymų piktogramas</string>
   <string name="revanced_show_menu_icons_summary_on">Nustatymų piktogramos yra rodomos</string>
   <string name="revanced_show_menu_icons_summary_off">Nenurodomos nustatymų piktogramos</string>
   <string name="revanced_language_title">ReVanced kalba</string>
-  <string name="revanced_language_user_dialog_message">"Kai kurių kalbų vertimai gali būti neišsamūs ar trūkti.
+  <string name="revanced_language_user_dialog_message">"Kai kurių kalbų vertimai gali būti trūkstami arba neišsamūs.
 
-Norėdami išversti naujomis kalbomis apsilankykite translate.revanced.app"</string>
+Norėdami išversti naujas kalbas arba patobulinti esamus vertimus, apsilankykite translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Programų kalba</string>
   <string name="revanced_pref_import_export_title">Importuoti / Eksportuoti</string>
   <string name="revanced_pref_import_export_summary">Importuoti / Eksportuoti ReVanced nustatymus</string>
@@ -142,9 +156,6 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_restore_old_settings_menus_title">Atkurti senus nustatymų meniu</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Rodomi seni nustatymų meniu</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Seni nustatymų meniu nerodomi</string>
-  <string name="revanced_settings_search_history_title">Rodyti nustatymų paieškos istoriją</string>
-  <string name="revanced_settings_search_history_summary_on">Nustatymų paieškos istorija rodoma</string>
-  <string name="revanced_settings_search_history_summary_off">Nustatymų paieškos istorija nerodoma</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Išjungti \"Shorts\" foninį atkūrimą</string>
@@ -1060,9 +1071,9 @@ Paieškos juostos miniatiūros bus naudojamos tos pačios kokybės kaip dabartin
   <string name="revanced_sb_guidelines_popup_already_read">Jau perskaičiau</string>
   <string name="revanced_sb_guidelines_popup_open">Rodyti</string>
   <string name="revanced_sb_general">Bendrieji</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Rodyti pranešimą, jei API neprieinama</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Pranešimas rodomas, jei SponsorBlock neprieinama</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Pranešimas nerodomas, jei SponsorBlock neprieinama</string>
+  <string name="revanced_sb_toast_on_connection_error">Rodyti pranešimą, jei API neprieinama</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Pranešimas rodomas, jei SponsorBlock neprieinama</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Pranešimas nerodomas, jei SponsorBlock neprieinama</string>
   <string name="revanced_sb_general_skipcount">Įjungti praleidimo skaičiavimo sekimą</string>
   <string name="revanced_sb_general_skipcount_sum_on">Leidžia SponsorBlock reitingui žinoti, kiek laiko sutaupoma. Žinutė siunčiama į reitingą kaskart, kai praleidžiamas segmentas</string>
   <string name="revanced_sb_general_skipcount_sum_off">Praleidimo skaičiavimo sekimas neišjungtas</string>
@@ -1474,9 +1485,9 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_external_browser_summary_off">Nuorodos atidaromos programėlės naršyklėje</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Pašalinti stebėjimo užklausų parametrą</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Stebėjimo užklausų parametras pašalinamas iš nuorodų</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Stebėjimo užklausų parametras nėra pašalinamas iš nuorodų</string>
+  <string name="revanced_sanitize_sharing_links_title">Pašalinti stebėjimo užklausų parametrą</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Stebėjimo užklausų parametras pašalinamas iš nuorodų</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Stebėjimo užklausų parametras nėra pašalinamas iš nuorodų</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Priversti originalią garso kalbą</string>
