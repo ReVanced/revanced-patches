@@ -1,7 +1,7 @@
 package app.revanced.extension.shared.settings.search;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
 
 import android.app.Activity;
 import android.content.Context;
@@ -66,14 +66,14 @@ public abstract class BaseSearchViewController {
 
     protected static final int MAX_SEARCH_RESULTS = 50; // Maximum number of search results displayed.
 
-    protected static final int ID_REVANCED_SEARCH_VIEW = getResourceIdentifier("revanced_search_view", "id");
-    protected static final int ID_REVANCED_SEARCH_VIEW_CONTAINER = getResourceIdentifier("revanced_search_view_container", "id");
-    protected static final int ID_ACTION_SEARCH = getResourceIdentifier("action_search", "id");
-    protected static final int ID_REVANCED_SETTINGS_FRAGMENTS = getResourceIdentifier("revanced_settings_fragments", "id");
+    protected static final int ID_REVANCED_SEARCH_VIEW = getResourceIdentifierOrThrow("revanced_search_view", "id");
+    protected static final int ID_REVANCED_SEARCH_VIEW_CONTAINER = getResourceIdentifierOrThrow("revanced_search_view_container", "id");
+    protected static final int ID_ACTION_SEARCH = getResourceIdentifierOrThrow("action_search", "id");
+    protected static final int ID_REVANCED_SETTINGS_FRAGMENTS = getResourceIdentifierOrThrow("revanced_settings_fragments", "id");
     public static final int DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON =
-            getResourceIdentifier("revanced_settings_search_icon", "drawable");
+            getResourceIdentifierOrThrow("revanced_settings_search_icon", "drawable");
     protected static final int MENU_REVANCED_SEARCH_MENU =
-            getResourceIdentifier("revanced_search_menu", "menu");
+            getResourceIdentifierOrThrow("revanced_search_menu", "menu");
 
     /**
      * Constructs a new BaseSearchViewController instance.
@@ -107,7 +107,7 @@ public abstract class BaseSearchViewController {
     private void initializeSearchView() {
         // Retrieve SearchView and container from XML.
         searchView = activity.findViewById(ID_REVANCED_SEARCH_VIEW);
-        EditText searchEditText = searchView.findViewById(Utils.getResourceIdentifier(
+        EditText searchEditText = searchView.findViewById(Utils.getResourceIdentifierOrThrow(
                 "android:id/search_src_text", null));
         // Disable fullscreen keyboard mode.
         searchEditText.setImeOptions(searchEditText.getImeOptions() | EditorInfo.IME_FLAG_NO_EXTRACT_UI);

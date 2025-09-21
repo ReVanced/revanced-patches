@@ -49,7 +49,7 @@ public abstract class BaseSearchResultItem {
 
         private static int getResourceIdentifier(String name) {
             // Placeholder for actual resource identifier retrieval.
-            return Utils.getResourceIdentifier(name, "layout");
+            return Utils.getResourceIdentifierOrThrow(name, "layout");
         }
     }
 

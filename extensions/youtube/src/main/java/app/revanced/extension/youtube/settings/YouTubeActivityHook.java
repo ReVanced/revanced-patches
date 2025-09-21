@@ -44,7 +44,7 @@ public class YouTubeActivityHook extends BaseActivityHook {
         final var theme = Utils.isDarkModeEnabled()
                 ? "Theme.YouTube.Settings.Dark"
                 : "Theme.YouTube.Settings";
-        activity.setTheme(Utils.getResourceIdentifier(theme, "style"));
+        activity.setTheme(Utils.getResourceIdentifierOrThrow(theme, "style"));
     }
 
     /**

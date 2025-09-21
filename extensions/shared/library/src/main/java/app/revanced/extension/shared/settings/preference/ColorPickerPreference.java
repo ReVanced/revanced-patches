@@ -1,8 +1,8 @@
 package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 import static app.revanced.extension.shared.Utils.dipToPixels;
+import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -21,7 +21,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import android.widget.*;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
@@ -79,13 +81,13 @@ public class ColorPickerPreference extends EditTextPreference {
     private boolean opacitySliderEnabled = false;
 
     public static final int ID_REVANCED_COLOR_PICKER_VIEW =
-            getResourceIdentifier("revanced_color_picker_view", "id");
+            getResourceIdentifierOrThrow("revanced_color_picker_view", "id");
     public static final int ID_PREFERENCE_COLOR_DOT =
-            getResourceIdentifier("preference_color_dot", "id");
+            getResourceIdentifierOrThrow("preference_color_dot", "id");
     public static final int LAYOUT_REVANCED_COLOR_DOT_WIDGET =
-            getResourceIdentifier("revanced_color_dot_widget", "layout");
+            getResourceIdentifierOrThrow("revanced_color_dot_widget", "layout");
     public static final int LAYOUT_REVANCED_COLOR_PICKER =
-            getResourceIdentifier("revanced_color_picker", "layout");
+            getResourceIdentifierOrThrow("revanced_color_picker", "layout");
 
     /**
      * Removes non valid hex characters, converts to all uppercase,

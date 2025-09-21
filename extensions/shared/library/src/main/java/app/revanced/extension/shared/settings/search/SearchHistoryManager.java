@@ -1,7 +1,7 @@
 package app.revanced.extension.shared.settings.search;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
 import static app.revanced.extension.shared.settings.BaseSettings.SETTINGS_SEARCH_ENTRIES;
 import static app.revanced.extension.shared.settings.BaseSettings.SETTINGS_SEARCH_HISTORY;
 
@@ -36,18 +36,26 @@ public class SearchHistoryManager {
      */
     private static final int MAX_HISTORY_SIZE = 5;  // Maximum history items stored.
 
-    private static final int ID_CLEAR_HISTORY_BUTTON = getResourceIdentifier("clear_history_button", "id");
-    private static final int ID_HISTORY_TEXT = getResourceIdentifier("history_text", "id");
-    private static final int ID_DELETE_ICON = getResourceIdentifier("delete_icon", "id");
-    private static final int ID_EMPTY_HISTORY_TITLE = getResourceIdentifier("empty_history_title", "id");
-    private static final int ID_EMPTY_HISTORY_SUMMARY = getResourceIdentifier("empty_history_summary", "id");
-    private static final int ID_SEARCH_HISTORY_HEADER = getResourceIdentifier("search_history_header", "id");
-    private static final int ID_SEARCH_TIPS_SUMMARY = getResourceIdentifier("revanced_settings_search_tips_summary", "id");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_SCREEN =
-            getResourceIdentifier("revanced_preference_search_history_screen", "layout");
-    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_ITEM =
-            getResourceIdentifier("revanced_preference_search_history_item", "layout");
-    private static final int ID_SEARCH_HISTORY_LIST = getResourceIdentifier("search_history_list", "id");
+    private static final int ID_CLEAR_HISTORY_BUTTON = getResourceIdentifierOrThrow(
+            "clear_history_button", "id");
+    private static final int ID_HISTORY_TEXT = getResourceIdentifierOrThrow(
+            "history_text", "id");
+    private static final int ID_DELETE_ICON = getResourceIdentifierOrThrow(
+            "delete_icon", "id");
+    private static final int ID_EMPTY_HISTORY_TITLE = getResourceIdentifierOrThrow(
+            "empty_history_title", "id");
+    private static final int ID_EMPTY_HISTORY_SUMMARY = getResourceIdentifierOrThrow(
+            "empty_history_summary", "id");
+    private static final int ID_SEARCH_HISTORY_HEADER = getResourceIdentifierOrThrow(
+            "search_history_header", "id");
+    private static final int ID_SEARCH_TIPS_SUMMARY = getResourceIdentifierOrThrow(
+            "revanced_settings_search_tips_summary", "id");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_SCREEN = getResourceIdentifierOrThrow(
+            "revanced_preference_search_history_screen", "layout");
+    private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_ITEM = getResourceIdentifierOrThrow(
+            "revanced_preference_search_history_item", "layout");
+    private static final int ID_SEARCH_HISTORY_LIST = getResourceIdentifierOrThrow(
+            "search_history_list", "id");
 
     private final Deque<String> searchHistory;
     private final Activity activity;

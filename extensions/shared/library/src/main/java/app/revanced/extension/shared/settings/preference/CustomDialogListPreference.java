@@ -1,5 +1,7 @@
 package app.revanced.extension.shared.settings.preference;
 
+import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -9,15 +11,17 @@ import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ui.CustomDialog;
-
-import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 
 /**
  * A custom ListPreference that uses a styled custom dialog with a custom checkmark indicator,
@@ -27,13 +31,13 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifier;
 public class CustomDialogListPreference extends ListPreference {
 
     public static final int ID_REVANCED_CHECK_ICON =
-            getResourceIdentifier("revanced_check_icon", "id");
+            getResourceIdentifierOrThrow("revanced_check_icon", "id");
     public static final int ID_REVANCED_CHECK_ICON_PLACEHOLDER =
-            getResourceIdentifier("revanced_check_icon_placeholder", "id");
+            getResourceIdentifierOrThrow("revanced_check_icon_placeholder", "id");
     public static final int ID_REVANCED_ITEM_TEXT =
-            getResourceIdentifier("revanced_item_text", "id");
+            getResourceIdentifierOrThrow("revanced_item_text", "id");
     public static final int LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED =
-            getResourceIdentifier("revanced_custom_list_item_checked", "layout");
+            getResourceIdentifierOrThrow("revanced_custom_list_item_checked", "layout");
 
     private String staticSummary = null;
     private CharSequence[] highlightedEntriesForDialog = null;

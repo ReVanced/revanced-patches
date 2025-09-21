@@ -1,6 +1,6 @@
 package app.revanced.extension.shared.settings;
 
-import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -25,13 +25,13 @@ import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragme
 public abstract class BaseActivityHook extends Activity {
 
     private static final int ID_REVANCED_SETTINGS_FRAGMENTS =
-            getResourceIdentifier("revanced_settings_fragments", "id");
+            getResourceIdentifierOrThrow("revanced_settings_fragments", "id");
     private static final int ID_REVANCED_TOOLBAR_PARENT =
-            getResourceIdentifier("revanced_toolbar_parent", "id");
+            getResourceIdentifierOrThrow("revanced_toolbar_parent", "id");
     public static final int LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR =
-            getResourceIdentifier("revanced_settings_with_toolbar", "layout");
+            getResourceIdentifierOrThrow("revanced_settings_with_toolbar", "layout");
     private static final int STRING_REVANCED_SETTINGS_TITLE =
-            getResourceIdentifier("revanced_settings_title", "string");
+            getResourceIdentifierOrThrow("revanced_settings_title", "string");
 
     /**
      * Layout parameters for the toolbar, extracted from the dummy toolbar.

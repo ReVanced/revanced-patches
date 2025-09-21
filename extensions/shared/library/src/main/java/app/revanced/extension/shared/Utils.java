@@ -275,37 +275,59 @@ public class Utils {
         return context.getResources().getIdentifier(resourceIdentifierName, type, context.getPackageName());
     }
 
+    public static int getResourceIdentifierOrThrow(Context context, String resourceIdentifierName, @Nullable String type) {
+        final int resourceId = getResourceIdentifier(context, resourceIdentifierName, type);
+        if (resourceId == 0) {
+            throw new Resources.NotFoundException("No resource id exists with name: " + resourceIdentifierName
+                    + " type: " + type);
+        }
+        return resourceId;
+    }
+
     /**
      * @return zero, if the resource is not found.
+     * @see #getResourceIdentifierOrThrow(String, String)
      */
     public static int getResourceIdentifier(String resourceIdentifierName, @Nullable String type) {
         return getResourceIdentifier(getContext(), resourceIdentifierName, type);
     }
 
+    /**
+     * @return The resource identifier, or throws an exception if not found.
+     */
+    public static int getResourceIdentifierOrThrow(String resourceIdentifierName, @Nullable String type) {
+        final int resourceId = getResourceIdentifier(getContext(), resourceIdentifierName, type);
+        if (resourceId == 0) {
+            throw new Resources.NotFoundException("No resource id exists with name: " + resourceIdentifierName
+                    + " type: " + type);
+        }
+        return resourceId;
+    }
+
     public static int getResourceInteger(String resourceIdentifierName) throws Resources.NotFoundException {
-        return getContext().getResources().getInteger(getResourceIdentifier(resourceIdentifierName, "integer"));
+        return getContext().getResources().getInteger(getResourceIdentifierOrThrow(resourceIdentifierName, "integer"));
     }
 
     public static Animation getResourceAnimation(String resourceIdentifierName) throws Resources.NotFoundException {
-        return AnimationUtils.loadAnimation(getContext(), getResourceIdentifier(resourceIdentifierName, "anim"));
+        return AnimationUtils.loadAnimation(getContext(), getResourceIdentifierOrThrow(resourceIdentifierName, "anim"));
     }
 
     @ColorInt
     public static int getResourceColor(String resourceIdentifierName) throws Resources.NotFoundException {
         //noinspection deprecation
-        return getContext().getResources().getColor(getResourceIdentifier(resourceIdentifierName, "color"));
+        return getContext().getResources().getColor(getResourceIdentifierOrThrow(resourceIdentifierName, "color"));
     }
 
     public static int getResourceDimensionPixelSize(String resourceIdentifierName) throws Resources.NotFoundException {
-        return getContext().getResources().getDimensionPixelSize(getResourceIdentifier(resourceIdentifierName, "dimen"));
+        return getContext().getResources().getDimensionPixelSize(getResourceIdentifierOrThrow(resourceIdentifierName, "dimen"));
     }
 
     public static float getResourceDimension(String resourceIdentifierName) throws Resources.NotFoundException {
-        return getContext().getResources().getDimension(getResourceIdentifier(resourceIdentifierName, "dimen"));
+        return getContext().getResources().getDimension(getResourceIdentifierOrThrow(resourceIdentifierName, "dimen"));
     }
 
     public static String[] getResourceStringArray(String resourceIdentifierName) throws Resources.NotFoundException {
-        return getContext().getResources().getStringArray(getResourceIdentifier(resourceIdentifierName, "array"));
+        return getContext().getResources().getStringArray(getResourceIdentifierOrThrow(resourceIdentifierName, "array"));
     }
 
     public interface MatchFilter<T> {
@@ -316,13 +338,9 @@ public class Utils {
      * Includes sub children.
      */
     public static <R extends View> R getChildViewByResourceName(View view, String str) {
-        var child = view.findViewById(Utils.getResourceIdentifier(str, "id"));
-        if (child != null) {
-            //noinspection unchecked
-            return (R) child;
-        }
-
-        throw new IllegalArgumentException("View with resource name not found: " + str);
+        var child = view.findViewById(Utils.getResourceIdentifierOrThrow(str, "id"));
+        //noinspection unchecked
+        return (R) child;
     }
 
     /**

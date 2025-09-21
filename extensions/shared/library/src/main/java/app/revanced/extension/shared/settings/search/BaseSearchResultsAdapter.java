@@ -1,21 +1,36 @@
 package app.revanced.extension.shared.settings.search;
 
-import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
 import static app.revanced.extension.shared.settings.search.BaseSearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
 
-import android.animation.*;
+import android.animation.AnimatorSet;
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.preference.*;
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.preference.PreferenceGroup;
+import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.AbsListView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.Switch;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.lang.reflect.Method;
+import java.util.List;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -23,9 +38,6 @@ import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.UrlLinkPreference;
 import app.revanced.extension.shared.ui.ColorDot;
-
-import java.lang.reflect.Method;
-import java.util.List;
 
 /**
  * Abstract adapter for displaying search results in overlay ListView with ViewHolder pattern.
@@ -41,11 +53,16 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
     protected static final int BLINK_DURATION = 400;
     protected static final int PAUSE_BETWEEN_BLINKS = 100;
 
-    protected static final int ID_PREFERENCE_TITLE = getResourceIdentifier("preference_title", "id");
-    protected static final int ID_PREFERENCE_SUMMARY = getResourceIdentifier("preference_summary", "id");
-    protected static final int ID_PREFERENCE_PATH = getResourceIdentifier("preference_path", "id");
-    protected static final int ID_PREFERENCE_SWITCH = getResourceIdentifier("preference_switch", "id");
-    protected static final int ID_PREFERENCE_COLOR_DOT = getResourceIdentifier("preference_color_dot", "id");
+    protected static final int ID_PREFERENCE_TITLE = getResourceIdentifierOrThrow(
+            "preference_title", "id");
+    protected static final int ID_PREFERENCE_SUMMARY = getResourceIdentifierOrThrow(
+            "preference_summary", "id");
+    protected static final int ID_PREFERENCE_PATH = getResourceIdentifierOrThrow(
+            "preference_path", "id");
+    protected static final int ID_PREFERENCE_SWITCH = getResourceIdentifierOrThrow(
+            "preference_switch", "id");
+    protected static final int ID_PREFERENCE_COLOR_DOT = getResourceIdentifierOrThrow(
+            "preference_color_dot", "id");
 
     protected static class RegularViewHolder {
         TextView titleView;

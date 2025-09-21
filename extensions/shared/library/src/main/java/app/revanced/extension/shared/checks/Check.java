@@ -127,7 +127,8 @@ abstract class Check {
 
             // Add icon to the dialog.
             ImageView iconView = new ImageView(activity);
-            iconView.setImageResource(Utils.getResourceIdentifier("revanced_ic_dialog_alert", "drawable"));
+            iconView.setImageResource(Utils.getResourceIdentifierOrThrow(
+                    "revanced_ic_dialog_alert", "drawable"));
             iconView.setColorFilter(Utils.getAppForegroundColor(), PorterDuff.Mode.SRC_IN);
             iconView.setPadding(0, 0, 0, 0);
             LinearLayout.LayoutParams iconParams = new LinearLayout.LayoutParams(
