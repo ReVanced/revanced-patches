@@ -140,6 +140,14 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Kaydedilmiş tüm ReVanced hata ayıklama kayıtlarını temizler</string>
   <string name="revanced_debug_logs_clear_toast">Kayıtlar temizlendi</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">İzleyici sorgu parametresini kaldır</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Bağlantılardan izleyici sorgu parametresi kaldırılır</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
+  <string name="revanced_replace_music_with_youtube_title">Paylaşım bağlantılarını youtube.com olarak değiştir</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Paylaşılan bağlantılar youtube.com kullanır</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Paylaşılan bağlantılar music.youtube.com kullanır</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1490,11 +1498,6 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_external_browser_summary_on">Bağlantılar harici tarayıcıda açılıyor</string>
   <string name="revanced_external_browser_summary_off">Bağlantılar uygulama içi tarayıcıda açılıyor</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">İzleyici sorgu parametresini kaldır</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Bağlantılardan izleyici sorgu parametresi kaldırılır</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Orijinal ses dilini zorla</string>
   <string name="revanced_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
@@ -1590,7 +1593,7 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_spoof_video_streams_language_title">Ses akışı dili</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Belirli bir ses dilini seçmek için \'Orijinal ses dilini zorla\' seçeneğini kapatın</string>
-  <string name="revanced_spoof_video_streams_language_android_studio">Yayın dili seçimi Android Studio ile kullanılamıyor</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Akış dili seçimi Android Studio ile kullanılamıyor</string>
   </patch>
   </app>
   <app id="music">
@@ -1629,19 +1632,19 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Ana Sayfa düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Ana Sayfa düğmesi görünür</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Örnekleri Gizle</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Örnekler\'i gizle</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Sana Özel düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Sana Özel düğmesi görünür</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Keşfet\'i Gizle</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Keşfet\'i gizle</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Keşfet düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Keşfet düğmesi görünür</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Kitaplık\'ı Gizle</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Kitaplık\'ı gizle</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Kitaplık düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Kitaplık düğmesi görünür</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Yükselt\'i Gizle</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Yükselt\'i gizle</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Yükselt düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Yükselt düğmesi görünür</string>
   <string name="revanced_music_hide_navigation_bar_title">Gezinme çubuğunu gizle</string>

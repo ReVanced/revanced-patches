@@ -140,6 +140,14 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Wist alle opgeslagen ReVanced-foutopsporingslogboeken</string>
   <string name="revanced_debug_logs_clear_toast">Logboeken gewist</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Verwijder tracking-queryparameter</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Tracking-queryparameter wordt verwijderd uit koppelingen</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Tracking-queryparameter wordt niet verwijderd uit koppelingen</string>
+  <string name="revanced_replace_music_with_youtube_title">Deelkoppelingen wijzigen naar youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Gedeelde koppelingen gebruiken youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Gedeelde koppelingen gebruiken music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1480,11 +1488,6 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_external_browser_title">Koppelingen openen in browser</string>
   <string name="revanced_external_browser_summary_on">Koppelingen openen in externe browser</string>
   <string name="revanced_external_browser_summary_off">Koppelingen openen in in-app browser</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Verwijder tracking-queryparameter</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Tracking-queryparameter wordt verwijderd uit koppelingen</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Tracking-queryparameter wordt niet verwijderd uit koppelingen</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forceer de originele audiotaal</string>

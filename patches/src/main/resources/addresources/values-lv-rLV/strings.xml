@@ -140,6 +140,14 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Notīra visus saglabātos ReVanced atkļūdošanas žurnālus</string>
   <string name="revanced_debug_logs_clear_toast">Žurnāli ir notīrīti</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Noņemt izsekošanas vaicājuma parametru</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Izsekošanas vaicājuma parametrs tiek noņemts no saitēm</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Izsekošanas vaicājuma parametrs netiek noņemts no saitēm</string>
+  <string name="revanced_replace_music_with_youtube_title">Mainīt kopīgošanas saites uz youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Kopīgotās saites izmanto youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Kopīgotās saites izmanto music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1483,11 +1491,6 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_external_browser_title">Atvērt saites pārlūkprogrammā</string>
   <string name="revanced_external_browser_summary_on">Saišu atvēršana ārējā pārlūkprogrammā</string>
   <string name="revanced_external_browser_summary_off">Saišu atvēršana lietotnes pārlūkprogrammā</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Noņemt izsekošanas vaicājuma parametru</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Izsekošanas vaicājuma parametrs tiek noņemts no saitēm</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Izsekošanas vaicājuma parametrs netiek noņemts no saitēm</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Piespiest oriģinālo audio valodu</string>

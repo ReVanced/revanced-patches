@@ -140,6 +140,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Изчиства всички съхранени логове за отстраняване на грешки на ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Логовете са изчистени</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Премахнете параметъра на заявката за проследяване</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметърът на заявката за проследяване е премахнат от връзките</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметърът на заявката за проследяване не е премахнат от връзките</string>
+  <string name="revanced_replace_music_with_youtube_title">Промяна на връзките за споделяне към youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Споделените връзки използват youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Споделените връзки използват music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1482,11 +1490,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">Отваряне на връзки в браузъра</string>
   <string name="revanced_external_browser_summary_on">Отваряне на връзки във външен браузър</string>
   <string name="revanced_external_browser_summary_off">Отваряне на връзки във вграден браузър</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Премахнете параметъра на заявката за проследяване</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Параметърът на заявката за проследяване е премахнат от връзките</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Параметърът на заявката за проследяване не е премахнат от връзките</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Принудително оригинално аудио език</string>

@@ -140,6 +140,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">清除所有存储的 ReVanced 调试日志</string>
   <string name="revanced_debug_logs_clear_toast">日志已清除</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">删除跟踪查询参数</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">链接中跟踪参数已去除</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">链接中跟踪参数未去除</string>
+  <string name="revanced_replace_music_with_youtube_title">将分享链接更改为 youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">分享链接使用 youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">分享链接使用 music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1487,11 +1495,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">在浏览器中打开链接</string>
   <string name="revanced_external_browser_summary_on">在外部浏览器中打开链接</string>
   <string name="revanced_external_browser_summary_off">在应用内浏览器中打开链接</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">删除跟踪查询参数</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">链接中跟踪参数已去除</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">链接中跟踪参数未去除</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">强制使用原始音频语言</string>

@@ -140,6 +140,14 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Pastro të gjithë regjistrat e ruajtur të korrigjimit të ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Regjistrat u pastruan</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Hiq parametrin e gjurmimit të kërkesës</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parametri i gjurmimit të kërkesës hiqet nga linket</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parametri i gjurmimit të kërkesës nuk hiqet nga linket</string>
+  <string name="revanced_replace_music_with_youtube_title">Ndrysho lidhjet e ndarjes në youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Lidhjet e ndara përdorin youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Lidhjet e ndara përdorin music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1480,11 +1488,6 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_external_browser_title">Hap linket në shfletues</string>
   <string name="revanced_external_browser_summary_on">Hapja e linkeve në shfletuesin e jashtëm</string>
   <string name="revanced_external_browser_summary_off">Hapja e linkeve në shfletuesin brenda aplikacionit</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Hiq parametrin e gjurmimit të kërkesës</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Parametri i gjurmimit të kërkesës hiqet nga linket</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Parametri i gjurmimit të kërkesës nuk hiqet nga linket</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forco gjuhën origjinale të audios</string>

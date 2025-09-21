@@ -140,6 +140,14 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_debug_logs_clear_buffer_summary">저장된 모든 ReVanced 디버그 로그를 지울 수 있습니다</string>
   <string name="revanced_debug_logs_clear_toast">디버그 로그가 지워졌습니다</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 삭제한 링크 공유하기</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 삭제합니다 (URL의 뒷부분 \'?si=...\' 이 삭제됨)</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 삭제하지 않습니다</string>
+  <string name="revanced_replace_music_with_youtube_title">공유 링크를 youtube.com으로 변경</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">공유 링크가 youtube.com을 사용합니다</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">공유 링크가 music.youtube.com을 사용합니다</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1489,11 +1497,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_external_browser_title">외부 브라우저 사용하기</string>
   <string name="revanced_external_browser_summary_on">앱 내에서 외부 링크를 열 경우에 외부 브라우저를 사용합니다</string>
   <string name="revanced_external_browser_summary_off">앱 내에서 외부 링크를 열 경우에 내부 브라우저를 사용합니다</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 삭제한 링크 공유하기</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 삭제합니다 (URL의 뒷부분 \'?si=...\' 이 삭제됨)</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 삭제하지 않습니다</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">원본 오디오 언어 강제로 활성화하기</string>

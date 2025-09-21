@@ -140,6 +140,14 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Löscht alle gespeicherten ReVanced-Debug-Protokolle</string>
   <string name="revanced_debug_logs_clear_toast">Protokolle gelöscht</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Tracking-Abfrageparameter entfernen</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird von Links entfernt</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht von Links entfernt</string>
+  <string name="revanced_replace_music_with_youtube_title">Teilen-Links zu youtube.com ändern</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Geteilte Links verwenden youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Geteilte Links verwenden music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1479,11 +1487,6 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_external_browser_title">Links im Browser öffnen</string>
   <string name="revanced_external_browser_summary_on">Links im externen Browser öffnen</string>
   <string name="revanced_external_browser_summary_off">Links im In-App-Browser öffnen</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Tracking-Abfrageparameter entfernen</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird von Links entfernt</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht von Links entfernt</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Original Audio erzwingen</string>

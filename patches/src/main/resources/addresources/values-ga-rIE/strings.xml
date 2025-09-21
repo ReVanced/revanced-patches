@@ -140,6 +140,14 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Glanann sé gach loga dífhabhtaithe ReVanced stóráilte</string>
   <string name="revanced_debug_logs_clear_toast">Lógaí glanta</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Bain paraiméadar ceist rianaithe</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Baintear paraiméadar ceisteanna rianaithe ó naisc</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Ní bhaintear paraiméadar fiosrúcháin rianaithe ó naisc</string>
+  <string name="revanced_replace_music_with_youtube_title">Athraigh na naisc comhroinnte go youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Úsáideann naisc chomhroinnte youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Úsáideann naisc chomhroinnte music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1482,11 +1490,6 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_external_browser_title">Oscail naisc sa bhrabhsála</string>
   <string name="revanced_external_browser_summary_on">Ag oscailt naisc sa bhrabhsálaí seachtrach</string>
   <string name="revanced_external_browser_summary_off">Ag oscailt naisc sa bhrabhsálaí in-aip</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Bain paraiméadar ceist rianaithe</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Baintear paraiméadar ceisteanna rianaithe ó naisc</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Ní bhaintear paraiméadar fiosrúcháin rianaithe ó naisc</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Fórsaigh teanga bhunaidh na fuaime</string>

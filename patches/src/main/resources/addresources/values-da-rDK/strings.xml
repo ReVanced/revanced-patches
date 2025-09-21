@@ -140,6 +140,14 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Rydder alle gemte ReVanced-fejlsøgningslogfiler</string>
   <string name="revanced_debug_logs_clear_toast">Logfiler ryddet</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Fjern sporingsforespørgselsparameter</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Sporingsparameteren er fjernet fra links</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Sporingsforespørgselsparameteren er ikke fjernet fra links</string>
+  <string name="revanced_replace_music_with_youtube_title">Skift delingslinks til youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Delte links bruger youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Delte links bruger music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1484,11 +1492,6 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_external_browser_title">Åbn links i browser</string>
   <string name="revanced_external_browser_summary_on">Åbner links i ekstern browser</string>
   <string name="revanced_external_browser_summary_off">Åbner links i browser i appen</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Fjern sporingsforespørgselsparameter</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Sporingsparameteren er fjernet fra links</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Sporingsforespørgselsparameteren er ikke fjernet fra links</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Tving originalt lydsprog</string>

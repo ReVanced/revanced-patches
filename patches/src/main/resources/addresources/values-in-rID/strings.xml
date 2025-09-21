@@ -140,6 +140,14 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Menghapus semua catatan debug ReVanced yang tersimpan</string>
   <string name="revanced_debug_logs_clear_toast">Catatan dibersihkan</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Hapus parameter kueri pelacakan</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parameter kueri pelacakan dihapus dari tautan</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parameter kueri pelacakan tidak dihapus dari tautan</string>
+  <string name="revanced_replace_music_with_youtube_title">Ubah tautan berbagi ke youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Tautan yang dibagikan menggunakan youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Tautan yang dibagikan menggunakan music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1481,11 +1489,6 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_external_browser_title">Buka tautan di peramban</string>
   <string name="revanced_external_browser_summary_on">Membuka tautan di peramban eksternal</string>
   <string name="revanced_external_browser_summary_off">Membuka tautan di peramban dalam aplikasi</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Hapus parameter kueri pelacakan</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Parameter kueri pelacakan dihapus dari tautan</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Parameter kueri pelacakan tidak dihapus dari tautan</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Paksa bahasa audio asli</string>

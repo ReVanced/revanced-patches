@@ -140,6 +140,14 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Vymaže všechny uložené ladicí protokoly ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Protokoly vymazány</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Odstranit sledovací parametr dotazu</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Sledovací parametr dotazu je odstraněn z odkazů</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Sledovací parametr dotazu není odstraněn z odkazů</string>
+  <string name="revanced_replace_music_with_youtube_title">Změnit odkazy pro sdílení na youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Sdílené odkazy používají youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Sdílené odkazy používají music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1482,11 +1490,6 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_external_browser_title">Otevírat odkazy v prohlížeči</string>
   <string name="revanced_external_browser_summary_on">Otevírání odkazů v externím prohlížeči</string>
   <string name="revanced_external_browser_summary_off">Otevírání odkazů v prohlížeči v aplikaci</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Odstranit sledovací parametr dotazu</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Sledovací parametr dotazu je odstraněn z odkazů</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Sledovací parametr dotazu není odstraněn z odkazů</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Vynutit původní jazyk zvuku</string>
