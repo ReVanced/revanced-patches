@@ -1,3 +1,11 @@
+## [5.40.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.40.0...v5.40.1-dev.1) (2025-09-21)
+
+
+### Bug Fixes
+
+* **YouTube - Return YouTube Dislike:** Do not show error toast if API returns 401 status ([#5949](https://github.com/ReVanced/revanced-patches/issues/5949)) ([58d088a](https://github.com/ReVanced/revanced-patches/commit/58d088ab307440a6912a867246da799b7dd6499b))
+* **YouTube - Settings:** Use an overlay to show search results ([#5806](https://github.com/ReVanced/revanced-patches/issues/5806)) ([ece8076](https://github.com/ReVanced/revanced-patches/commit/ece8076f7cefd752b97515014bc50fe4fd80171e))
+
 # [5.40.0](https://github.com/ReVanced/revanced-patches/compare/v5.39.0...v5.40.0) (2025-09-21)
 
 
