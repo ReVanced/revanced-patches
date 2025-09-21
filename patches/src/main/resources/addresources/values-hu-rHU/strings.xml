@@ -140,6 +140,14 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Törli az összes tárolt ReVanced hibakeresési naplót</string>
   <string name="revanced_debug_logs_clear_toast">Naplók törölve</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Nyomkövetési lekérdezési paraméter eltávolítása</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">A nyomkövetési lekérdezési paraméter eltávolítva a linkekből</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">A nyomkövetési lekérdezési paraméter nincs eltávolítva a linkekből</string>
+  <string name="revanced_replace_music_with_youtube_title">Módosítsa a megosztási linkeket youtube.com-ra</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">A megosztott linkek a youtube.com-ot használják</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">A megosztott linkek a music.youtube.com-ot használják</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1479,11 +1487,6 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_external_browser_title">Hivatkozások megnyitása a böngészőben</string>
   <string name="revanced_external_browser_summary_on">Hivatkozások megnyitása külső böngészőben</string>
   <string name="revanced_external_browser_summary_off">Hivatkozások megnyitása az alkalmazáson belüli böngészőben</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Nyomkövetési lekérdezési paraméter eltávolítása</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">A nyomkövetési lekérdezési paraméter eltávolítva a linkekből</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">A nyomkövetési lekérdezési paraméter nincs eltávolítva a linkekből</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Eredeti hang kikényszerítése</string>

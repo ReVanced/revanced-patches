@@ -49,6 +49,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -235,8 +237,6 @@ Second \"item\" text"</string>
   <patch id="misc.links.bypassURLRedirectsPatch">
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->

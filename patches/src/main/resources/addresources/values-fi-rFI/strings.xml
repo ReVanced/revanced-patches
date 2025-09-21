@@ -140,6 +140,14 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Tyhjentää kaikki tallennetut ReVanced-virheenkorjauslokit</string>
   <string name="revanced_debug_logs_clear_toast">Lokit tyhjennetty</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Poista seurantakyselyparametrit</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Seurantakyselyparametrit poistetaan linkeistä</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Seurantakyselyparametrejä ei poisteta linkeistä</string>
+  <string name="revanced_replace_music_with_youtube_title">Muuta jakolinkit youtube.com-sivustolle</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Jaetut linkit käyttävät youtube.com-sivustoa</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Jaetut linkit käyttävät music.youtube.com-sivustoa</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1482,11 +1490,6 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_external_browser_title">Avaa linkit selaimessa</string>
   <string name="revanced_external_browser_summary_on">Linkit avataan ulkoisessa selaimessa</string>
   <string name="revanced_external_browser_summary_off">Linkit avataan sovelluksen sisäisessä selaimessa</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Poista seurantakyselyparametrit</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Seurantakyselyparametrit poistetaan linkeistä</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Seurantakyselyparametrejä ei poisteta linkeistä</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Pakota alkuperäinen äänen kieli</string>

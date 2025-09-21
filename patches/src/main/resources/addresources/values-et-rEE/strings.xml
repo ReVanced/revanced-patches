@@ -140,6 +140,14 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Puhastab kõik salvestatud ReVanced silumislogid</string>
   <string name="revanced_debug_logs_clear_toast">Logid puhastatud</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Eemalda jälgimise päringuparameeter</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Jälgimise päringuparameeter eemaldatakse linkidest</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Jälgimise päringuparameeter ei eemaldata linkidest</string>
+  <string name="revanced_replace_music_with_youtube_title">Muuda jagamislingid youtube.com-iks</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Jagatud lingid kasutavad youtube.com-i</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Jagatud lingid kasutavad music.youtube.com-i</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1482,11 +1490,6 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_external_browser_title">Ava lingid brauseris</string>
   <string name="revanced_external_browser_summary_on">Linkide avamine välises brauseris</string>
   <string name="revanced_external_browser_summary_off">Linkide avamine rakendusesiseses brauseris</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Eemalda jälgimise päringuparameeter</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Jälgimise päringuparameeter eemaldatakse linkidest</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Jälgimise päringuparameeter ei eemaldata linkidest</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Sunni originaalheli keel</string>

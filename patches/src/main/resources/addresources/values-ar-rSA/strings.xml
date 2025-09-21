@@ -140,6 +140,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">يمسح جميع سجلات تصحيح أخطاء ReVanced المخزنة</string>
   <string name="revanced_debug_logs_clear_toast">تم مسح السجلات</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">إزالة معلمة تتبع الاستعلام</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">يتم إزالة معلمة استعلام التتبع من الروابط</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">لا يتم إزالة معلمة استعلام التتبع من الروابط</string>
+  <string name="revanced_replace_music_with_youtube_title">تغيير روابط المشاركة إلى youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">تستخدم الروابط المشتركة youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">تستخدم الروابط المشتركة music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1482,11 +1490,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">فتح الروابط في المتصفح</string>
   <string name="revanced_external_browser_summary_on">فتح الروابط في متصفح خارجي</string>
   <string name="revanced_external_browser_summary_off">فتح الروابط في متصفح داخل التطبيق</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">إزالة معلمة تتبع الاستعلام</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">يتم إزالة معلمة استعلام التتبع من الروابط</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">لا يتم إزالة معلمة استعلام التتبع من الروابط</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">فرض لغة الصوت الأصلية</string>

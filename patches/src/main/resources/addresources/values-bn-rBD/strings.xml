@@ -140,6 +140,14 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_debug_logs_clear_buffer_summary">সমস্ত সঞ্চিত ReVanced ডিবাগ লগ সাফ করে</string>
   <string name="revanced_debug_logs_clear_toast">লগ সাফ করা হয়েছে</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">ট্র্যাকিং করার প্যারামিটার মুছুন</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়েছে</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়নি</string>
+  <string name="revanced_replace_music_with_youtube_title">শেয়ার লিঙ্কগুলি youtube.com-এ পরিবর্তন করুন</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">শেয়ার করা লিঙ্কগুলি youtube.com ব্যবহার করে</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">শেয়ার করা লিঙ্কগুলি music.youtube.com ব্যবহার করে</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1478,11 +1486,6 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_external_browser_title">লিংক ব্রাউজারে খুলুন</string>
   <string name="revanced_external_browser_summary_on">বাহ্যিক ব্রাউজারে লিঙ্ক খোলা হচ্ছে</string>
   <string name="revanced_external_browser_summary_off">ইন-অ্যাপ ব্রাউজারে লিঙ্ক খোলা হচ্ছে</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">ট্র্যাকিং করার প্যারামিটার মুছুন</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়েছে</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়নি</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">মূল অডিও ভাষা বলপূর্বক চালু করুন</string>

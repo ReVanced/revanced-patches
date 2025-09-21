@@ -140,6 +140,14 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Șterge toate jurnalele de depanare ReVanced stocate</string>
   <string name="revanced_debug_logs_clear_toast">Jurnale șterse</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Elimină parametrul de urmărire interogare</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parametrul de urmărire a interogării este eliminat din link-uri</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parametrul de urmărire a interogării nu este eliminat din link-uri</string>
+  <string name="revanced_replace_music_with_youtube_title">Schimbați linkurile de partajare la youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Linkurile partajate utilizează youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Linkurile partajate utilizează music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1481,11 +1489,6 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_external_browser_title">Deschide link-uri în browser</string>
   <string name="revanced_external_browser_summary_on">Deschiderea linkurilor în browserul extern</string>
   <string name="revanced_external_browser_summary_off">Deschiderea linkurilor în browserul din aplicație</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Elimină parametrul de urmărire interogare</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Parametrul de urmărire a interogării este eliminat din link-uri</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Parametrul de urmărire a interogării nu este eliminat din link-uri</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forțează limba audio originală</string>

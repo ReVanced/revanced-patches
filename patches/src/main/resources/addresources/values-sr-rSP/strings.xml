@@ -50,8 +50,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_no_results_summary">Покушајте са другом кључном речи</string>
   <string name="revanced_settings_search_recent_searches">Недавне претраге</string>
   <string name="revanced_settings_search_remove_message">Уклонити из историје претраге?</string>
-  <string name="revanced_settings_search_clear_history">Обриши историју претраге</string>
-  <string name="revanced_settings_search_clear_history_message">Да ли сте сигурни да желите да обришете целу историју претраге?</string>
+  <string name="revanced_settings_search_clear_history">Очисти историју претраге</string>
+  <string name="revanced_settings_search_clear_history_message">Желите ли заиста да очистите целу историју претраге?</string>
   <string name="revanced_settings_search_tips_title">Савети за претрагу</string>
   <string name="revanced_settings_search_tips_summary">"• Додирните путању да бисте се кретали до ње
 • Дуго притисните поставку да бисте се кретали до ње
@@ -139,6 +139,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">Избриши евиденције отклањања грешака</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Брише све сачуване евиденције отклањања грешака ReVanced-а</string>
   <string name="revanced_debug_logs_clear_toast">Евиденције су избрисане</string>
+  </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Уклони параметар упита за праћење</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметар упита за праћење је уклоњен из линкова</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметар упита за праћење није уклоњен из линкова</string>
+  <string name="revanced_replace_music_with_youtube_title">Промени дељене везе у youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Дељене везе користе youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Дељене везе користе music.youtube.com</string>
   </patch>
   </app>
   <app id="youtube">
@@ -598,7 +606,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Дугме „Заустави огласе” је скривено</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Дугме „Заустави огласе” је приказано</string>
   <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
-  <string name="revanced_hide_comments_button_title">Сакриј коментаре</string>
+  <string name="revanced_hide_comments_button_title">Сакриј дугме „Коментари”</string>
   <string name="revanced_hide_comments_button_summary_on">Дугме „Коментари” је скривено</string>
   <string name="revanced_hide_comments_button_summary_off">Дугме „Коментари” је приказано</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
@@ -1485,11 +1493,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_on">Отварање линкова у спољном прегледачу</string>
   <string name="revanced_external_browser_summary_off">Отварање линкова у прегледачу у апликацији</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Уклони параметар упита за праћење</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Параметар упита за праћење је уклоњен из линкова</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Параметар упита за праћење није уклоњен из линкова</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Присили оригинални језик звука</string>
   <string name="revanced_force_original_audio_summary_on">Коришћење оригиналног језика звука</string>
@@ -1578,7 +1581,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Нема видео кодека AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Видеи за децу се можда неће пуштати када сте одјављени или у режиму без архивирања</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Форсирање оригиналног звука није доступно</string>
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Присиљавање оригиналног звука није доступно</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Прикажи у „Статистици за зналце”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клијента је приказан у „Статистици за зналце”</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клијента је скривен у „Статистици за зналце”</string>
@@ -1607,9 +1610,9 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Трајно понављање је онемогућено</string>
   </patch>
   <patch id="layout.castbutton.hideCastButton">
-  <string name="revanced_music_hide_cast_button_title">Сакриј дугме „Пребацивање”</string>
-  <string name="revanced_music_hide_cast_button_summary_on">Дугме „Пребацивање” је скривено</string>
-  <string name="revanced_music_hide_cast_button_summary_off">Дугме „Пребацивање” је приказано</string>
+  <string name="revanced_music_hide_cast_button_title">Сакриј дугме „Пребацуј”</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Дугме „Пребацуј” је скривено</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Дугме „Пребацуј” је приказано</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Сакриј траку категорија</string>
@@ -1620,23 +1623,23 @@ Second \"item\" text"</string>
   <string name="revanced_music_navigation_bar_screen_title">Трака за навигацију</string>
   <string name="revanced_music_navigation_bar_screen_summary">Сакријте или промените дугмад траке за навигацију</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Сакриј Почетну</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Сакриј дугме „Почетна”</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Дугме „Почетна” је скривено</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Дугме „Почетна” је приказано</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Сакриј Узорке</string>
-  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Дугме „Узорци” је скривено</string>
-  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Дугме „Узорци” је приказано</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Сакриј дугме „Семплови”</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Дугме „Семплови” је скривено</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Дугме „Семплови” је приказано</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Сакриј Истражи</string>
-  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Дугме „Истражи” је скривено</string>
-  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Дугме „Истражи” је приказано</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Сакриј дугме „Истражите”</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Дугме „Истражите” је скривено</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Дугме „Истражите” је приказано</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Сакриј Библиотеку</string>
-  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Дугме „Библиотека” је скривено</string>
-  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Дугме „Библиотека” је приказано</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Сакриј дугме „Збирка”</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Дугме „Збирка” је скривено</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Дугме „Збирка” је приказано</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Сакриј Надогради</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Сакриј дугме „Надогради”</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Дугме „Надогради” је скривено</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Дугме „Надогради” је приказано</string>
   <string name="revanced_music_hide_navigation_bar_title">Сакриј траку за навигацију</string>

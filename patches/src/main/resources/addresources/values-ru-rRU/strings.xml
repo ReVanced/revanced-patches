@@ -140,6 +140,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Очищает все сохраненные журналы отладки ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Журналы очищены</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Удалить параметр отслеживания запросов</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметр отслеживания запросов из ссылок удален</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметр отслеживания запросов из ссылок не удален</string>
+  <string name="revanced_replace_music_with_youtube_title">Изменить ссылки для обмена на youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Общие ссылки используют youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Общие ссылки используют music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1489,11 +1497,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">Открыть ссылки в браузере</string>
   <string name="revanced_external_browser_summary_on">Ссылки открываются во внешнем браузере</string>
   <string name="revanced_external_browser_summary_off">Ссылки открываются во встроенном браузере</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Удалить параметр отслеживания запросов</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Параметр отслеживания запросов из ссылок удален</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Параметр отслеживания запросов из ссылок не удален</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>

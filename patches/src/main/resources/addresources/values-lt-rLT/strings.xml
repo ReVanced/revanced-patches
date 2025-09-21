@@ -140,6 +140,14 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Išvalo visus išsaugotus „ReVanced“ derinimo žurnalus</string>
   <string name="revanced_debug_logs_clear_toast">Žurnalai išvalyti</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Pašalinti stebėjimo užklausų parametrą</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Stebėjimo užklausų parametras pašalinamas iš nuorodų</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Stebėjimo užklausų parametras nėra pašalinamas iš nuorodų</string>
+  <string name="revanced_replace_music_with_youtube_title">Pakeisti bendrinimo nuorodas į youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Bendrinamose nuorodose naudojama youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Bendrinamose nuorodose naudojama music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1483,11 +1491,6 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_external_browser_title">Atidaryti nuorodas naršyklėje</string>
   <string name="revanced_external_browser_summary_on">Nuorodos atidaromos išorinėje naršyklėje</string>
   <string name="revanced_external_browser_summary_off">Nuorodos atidaromos programėlės naršyklėje</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Pašalinti stebėjimo užklausų parametrą</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Stebėjimo užklausų parametras pašalinamas iš nuorodų</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Stebėjimo užklausų parametras nėra pašalinamas iš nuorodų</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Priversti originalią garso kalbą</string>

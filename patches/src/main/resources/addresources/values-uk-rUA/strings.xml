@@ -140,6 +140,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Очищує всі збережені журнали налагодження ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Журнали очищено</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Вилучити параметр відстеження</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметри запиту відстеження вилучаються з посилань під час поширення посилань</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметри запиту відстеження не вилучаються з посилань під час поширення посилань</string>
+  <string name="revanced_replace_music_with_youtube_title">Змінити посилання для поширення на youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Під час поширення посилань використовується youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Під час поширення посилань використовується music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1481,11 +1489,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">Відкривати посилання у браузері</string>
   <string name="revanced_external_browser_summary_on">Посилання відкриваються у зовнішньому браузері</string>
   <string name="revanced_external_browser_summary_off">Посилання відкриваються у вбудованому браузері</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Вилучити параметр відстеження</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Параметри запиту відстеження вилучаються з посилань під час поширення посилань</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Параметри запиту відстеження не вилучаються з посилань під час поширення посилань</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Примусово оригінальна мова звукової доріжки</string>

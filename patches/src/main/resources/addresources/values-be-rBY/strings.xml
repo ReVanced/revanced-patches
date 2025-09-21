@@ -138,6 +138,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Ачышчае ўсе захаваныя адладачныя лагі ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Лагі ачышчаны</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Выдаліць параметр запыту адсочвання</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметр запыту адсочвання выдалены са спасылак</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметр адсочвання запыту не выдаляецца са спасылак</string>
+  <string name="revanced_replace_music_with_youtube_title">Змяніць спасылкі для абагульвання на youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Агульныя спасылкі выкарыстоўваюць youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Агульныя спасылкі выкарыстоўваюць music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1481,11 +1489,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">Адкрываць спасылкі ў браўзеры</string>
   <string name="revanced_external_browser_summary_on">Адкрыццё спасылак у знешнім браўзеры</string>
   <string name="revanced_external_browser_summary_off">Адкрыццё спасылак ва ўбудаваным браўзеры</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Выдаліць параметр запыту адсочвання</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Параметр запыту адсочвання выдалены са спасылак</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Параметр адсочвання запыту не выдаляецца са спасылак</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Вымушаная арыгінальная мова аўдыё</string>
