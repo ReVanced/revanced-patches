@@ -196,6 +196,14 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_debug_logs_clear_buffer_summary">Clears all stored ReVanced debug logs</string>
             <string name="revanced_debug_logs_clear_toast">Logs cleared</string>
         </patch>
+        <patch id="misc.privacy.sanitizeSharingLinksPatch">
+            <string name="revanced_sanitize_sharing_links_title">Remove tracking query parameter</string>
+            <string name="revanced_sanitize_sharing_links_summary_on">Tracking query parameter is removed from links</string>
+            <string name="revanced_sanitize_sharing_links_summary_off">Tracking query parameter is not removed from links</string>
+            <string name="revanced_replace_music_with_youtube_title">Change share links to youtube.com</string>
+            <string name="revanced_replace_music_with_youtube_summary_on">Shared links use youtube.com</string>
+            <string name="revanced_replace_music_with_youtube_summary_off">Shared links use music.youtube.com</string>
+        </patch>
     </app>
     <app id="youtube">
         <patch id="misc.settings.settingsPatch">
@@ -1561,11 +1569,6 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_external_browser_title">Open links in browser</string>
             <string name="revanced_external_browser_summary_on">Opening links in external browser</string>
             <string name="revanced_external_browser_summary_off">Opening links in in-app browser</string>
-        </patch>
-        <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-            <string name="revanced_remove_tracking_query_parameter_title">Remove tracking query parameter</string>
-            <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking query parameter is removed from links</string>
-            <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking query parameter is not removed from links</string>
         </patch>
         <patch id="video.audio.forceOriginalAudioPatch">
             <string name="revanced_force_original_audio_title">Force original audio language</string>
