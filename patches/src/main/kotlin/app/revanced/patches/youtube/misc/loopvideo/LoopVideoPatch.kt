@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.autorepeat
+package app.revanced.patches.youtube.misc.loopvideo
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
@@ -7,19 +7,20 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.youtube.misc.loopvideo.button.loopVideoButtonPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.shared.autoRepeatFingerprint
 import app.revanced.patches.youtube.shared.autoRepeatParentFingerprint
 
-// TODO: Rename this patch to AlwaysRepeatPatch (as well as strings and references in the extension).
-val autoRepeatPatch = bytecodePatch(
-    name = "Always repeat",
-    description = "Adds an option to always repeat videos when they end.",
+val loopVideoPatch = bytecodePatch(
+    name = "Loop video",
+    description = "Adds an option to loop videos and display loop video button in the video player.",
 ) {
     dependsOn(
         sharedExtensionPatch,
         addResourcesPatch,
+        loopVideoButtonPatch
     )
 
     compatibleWith(
@@ -33,10 +34,10 @@ val autoRepeatPatch = bytecodePatch(
     )
 
     execute {
-        addResources("youtube", "misc.autorepeat.autoRepeatPatch")
+        addResources("youtube", "misc.loopvideo.loopVideoPatch")
 
         PreferenceScreen.MISC.addPreferences(
-            SwitchPreference("revanced_auto_repeat"),
+            SwitchPreference("revanced_loop_video"),
         )
 
         autoRepeatFingerprint.match(autoRepeatParentFingerprint.originalClassDef).method.apply {
@@ -49,7 +50,7 @@ val autoRepeatPatch = bytecodePatch(
             addInstructionsWithLabels(
                 index,
                 """
-                    invoke-static {}, Lapp/revanced/extension/youtube/patches/AutoRepeatPatch;->shouldAutoRepeat()Z
+                    invoke-static {}, Lapp/revanced/extension/youtube/patches/LoopVideoPatch;->shouldLoopVideo()Z
                     move-result v0
                     if-eqz v0, :noautorepeat
                     invoke-virtual { p0 }, $playMethod
@@ -59,4 +60,9 @@ val autoRepeatPatch = bytecodePatch(
             )
         }
     }
+}
+
+@Deprecated("Patch was renamed", ReplaceWith("looVideoPatch"))
+val autoRepeatPatch = bytecodePatch {
+    dependsOn(loopVideoPatch)
 }

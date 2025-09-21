@@ -1545,10 +1545,6 @@ public final class app/revanced/patches/youtube/misc/announcements/Announcements
 	public static final fun getAnnouncementsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/misc/autorepeat/AutoRepeatPatchKt {
-	public static final fun getAutoRepeatPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/youtube/misc/backgroundplayback/BackgroundPlaybackPatchKt {
 	public static final fun getBackgroundPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1608,6 +1604,15 @@ public final class app/revanced/patches/youtube/misc/links/OpenLinksExternallyPa
 public final class app/revanced/patches/youtube/misc/litho/filter/LithoFilterPatchKt {
 	public static final fun getAddLithoFilter ()Lkotlin/jvm/functions/Function1;
 	public static final fun getLithoFilterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/misc/loopvideo/LoopVideoPatchKt {
+	public static final fun getAutoRepeatPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getLoopVideoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/misc/loopvideo/button/LoopVideoButtonPatchKt {
+	public static final fun getLoopVideoButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/misc/navigation/NavigationBarHookPatchKt {
