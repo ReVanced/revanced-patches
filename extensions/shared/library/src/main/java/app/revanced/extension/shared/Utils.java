@@ -577,7 +577,13 @@ public class Utils {
         showToast(messageToToast, Toast.LENGTH_LONG);
     }
 
-    private static void showToast(String messageToToast, int toastDuration) {
+    /**
+     * Safe to call from any thread.
+     *
+     * @param messageToToast Message to show.
+     * @param toastDuration Either {@link Toast#LENGTH_SHORT} or {@link Toast#LENGTH_LONG}.
+     */
+    public static void showToast(String messageToToast, int toastDuration) {
         Objects.requireNonNull(messageToToast);
         runOnMainThreadNowOrLater(() -> {
             Context currentContext = context;
