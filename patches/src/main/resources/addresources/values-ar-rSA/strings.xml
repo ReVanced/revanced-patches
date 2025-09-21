@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">بحث الإعدادات</string>
   <string name="revanced_settings_search_no_results_title">لم يتم العثور على نتائج لـ \".%s\"</string>
   <string name="revanced_settings_search_no_results_summary">جرّب كلمة مفتاحية أخرى</string>
+  <string name="revanced_settings_search_recent_searches">عمليات البحث الأخيرة</string>
   <string name="revanced_settings_search_remove_message">إزالة من سجل البحث؟</string>
+  <string name="revanced_settings_search_clear_history">مسح سجل البحث</string>
+  <string name="revanced_settings_search_clear_history_message">هل أنت متأكد أنك تريد مسح كل سجل البحث؟</string>
+  <string name="revanced_settings_search_tips_title">نصائح البحث</string>
+  <string name="revanced_settings_search_tips_summary">"• انقر فوق مسار للتنقل إليه
+• اضغط مطولاً على إعداد للتنقل إليه
+• اضغط على Enter لحفظ استعلام بحث في السجل
+• يتجاهل البحث حالة الأحرف وعلامات الترقيم
+• تظهر الإعدادات الرئيسية فوق الإعدادات الفرعية المعطلة"</string>
+  <string name="revanced_settings_search_empty_history_title">سجل البحث فارغ</string>
+  <string name="revanced_settings_search_empty_history_summary">لحفظ سجل البحث، اكتب استعلام بحث واضغط على Enter</string>
+  <string name="revanced_settings_search_history_title">عرض سجل بحث الإعدادات</string>
+  <string name="revanced_settings_search_history_summary_on">يتم عرض سجل البحث في الإعدادات</string>
+  <string name="revanced_settings_search_history_summary_off">لا يتم عرض سجل البحث في الإعدادات</string>
   <string name="revanced_show_menu_icons_title">عرض أيقونات إعدادات ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">يتم عرض أيقونات الإعدادات</string>
   <string name="revanced_show_menu_icons_summary_off">لا يتم عرض أيقونات الإعدادات</string>
   <string name="revanced_language_title">لغة ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"قد تكون الترجمات لبعض اللغات مفقودة أو غير مكتملة.
+  <string name="revanced_language_user_dialog_message">"قد تكون ترجمات بعض اللغات مفقودة أو غير مكتملة.
 
-لترجمة لغات جديدة، تفضل بزيارة translate.revanced.app"</string>
+لترجمة لغات جديدة أو تحسين الترجمات الحالية، تفضل بزيارة translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">لغة التطبيق</string>
   <string name="revanced_pref_import_export_title">استيراد / تصدير</string>
   <string name="revanced_pref_import_export_summary">استيراد / تصدير إعدادات ReVanced</string>
@@ -142,9 +156,6 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">استعادة قوائم الإعدادات القديمة</string>
   <string name="revanced_restore_old_settings_menus_summary_on">يتم عرض قوائم الإعدادات القديمة</string>
   <string name="revanced_restore_old_settings_menus_summary_off">لا يتم عرض قوائم الإعدادات القديمة</string>
-  <string name="revanced_settings_search_history_title">عرض سجل بحث الإعدادات</string>
-  <string name="revanced_settings_search_history_summary_on">يتم عرض سجل البحث في الإعدادات</string>
-  <string name="revanced_settings_search_history_summary_off">لا يتم عرض سجل البحث في الإعدادات</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">تعطيل تشغيل فيديوهات Shorts في الخلفية</string>
@@ -1060,9 +1071,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">تمت قراءتها</string>
   <string name="revanced_sb_guidelines_popup_open">اعرضها لي</string>
   <string name="revanced_sb_general">عام</string>
-  <string name="revanced_sb_toast_on_connection_error_title">عرض ملاحظة إذا كان API غير متاح</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">يتم عرض ملاحظة في حالة عدم توفر SponsorBlock</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">لا يتم عرض ملاحظة في حالة عدم توفر SponsorBlock</string>
+  <string name="revanced_sb_toast_on_connection_error">عرض ملاحظة إذا كان API غير متاح</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">يتم عرض ملاحظة في حالة عدم توفر SponsorBlock</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">لا يتم عرض ملاحظة في حالة عدم توفر SponsorBlock</string>
   <string name="revanced_sb_general_skipcount">تمكين تتبع مرات التخطي</string>
   <string name="revanced_sb_general_skipcount_sum_on">يُتيح لـ SponsorBlock Leaderboard معرفة مقدار الوقت الذي وفره المشاهدين، يتم إعلام الخادم في كل مرة تتخطى فيها مقطعًا</string>
   <string name="revanced_sb_general_skipcount_sum_off">تم تعطيل تتبع مرات التخطي</string>
@@ -1473,9 +1484,9 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_off">فتح الروابط في متصفح داخل التطبيق</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">إزالة معلمة تتبع الاستعلام</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">يتم إزالة معلمة استعلام التتبع من الروابط</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">لا يتم إزالة معلمة استعلام التتبع من الروابط</string>
+  <string name="revanced_sanitize_sharing_links_title">إزالة معلمة تتبع الاستعلام</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">يتم إزالة معلمة استعلام التتبع من الروابط</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">لا يتم إزالة معلمة استعلام التتبع من الروابط</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">فرض لغة الصوت الأصلية</string>

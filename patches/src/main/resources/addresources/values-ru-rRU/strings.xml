@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Поиск настроек</string>
   <string name="revanced_settings_search_no_results_title">По запросу \"%s\" ничего не найдено</string>
   <string name="revanced_settings_search_no_results_summary">Попробуйте другое ключевое слово</string>
+  <string name="revanced_settings_search_recent_searches">Недавние поиски</string>
   <string name="revanced_settings_search_remove_message">Удалить из истории поиска?</string>
+  <string name="revanced_settings_search_clear_history">Очистить историю поиска</string>
+  <string name="revanced_settings_search_clear_history_message">Вы уверены, что хотите очистить всю историю поиска?</string>
+  <string name="revanced_settings_search_tips_title">Советы по поиску</string>
+  <string name="revanced_settings_search_tips_summary">"• Нажмите на путь, чтобы перейти к нему
+• Длительно нажмите на настройку, чтобы перейти к ней
+• Нажмите Enter, чтобы сохранить поисковый запрос в историю
+• Поиск игнорирует регистр и знаки препинания
+• Родительские настройки отображаются над отключенными дочерними настройками"</string>
+  <string name="revanced_settings_search_empty_history_title">История поиска пуста</string>
+  <string name="revanced_settings_search_empty_history_summary">Чтобы сохранить историю поиска, введите поисковый запрос и нажмите Enter</string>
+  <string name="revanced_settings_search_history_title">Показать историю поиска настроек</string>
+  <string name="revanced_settings_search_history_summary_on">История поиска настроек показана</string>
+  <string name="revanced_settings_search_history_summary_off">История поиска настроек скрыта</string>
   <string name="revanced_show_menu_icons_title">Показать иконки в настройках ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Иконки в настройках ReVanced показаны</string>
   <string name="revanced_show_menu_icons_summary_off">Иконки в настройках ReVanced скрыты</string>
   <string name="revanced_language_title">Язык настроек ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Переводы для некоторых языков могут отсутствовать или быть неполными.
 
-Чтобы перевести новые языки, посетите translate.revanced.app"</string>
+Чтобы перевести новые языки или улучшить существующие переводы, посетите translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Язык приложения YouTube</string>
   <string name="revanced_pref_import_export_title">Резервное копирование настроек</string>
   <string name="revanced_pref_import_export_summary">Создание и восстановление резервной копии настроек ReVanced</string>
@@ -142,9 +156,6 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Включить старое меню настроек</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Старое меню настроек включено</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Новое меню настроек включено</string>
-  <string name="revanced_settings_search_history_title">Показать историю поиска настроек</string>
-  <string name="revanced_settings_search_history_summary_on">История поиска настроек показана</string>
-  <string name="revanced_settings_search_history_summary_off">История поиска настроек скрыта</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Отключить воспроизведение Shorts в фоновом режиме</string>
@@ -1062,9 +1073,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">Уже прочитано</string>
   <string name="revanced_sb_guidelines_popup_open">Показать</string>
   <string name="revanced_sb_general">Общие настройки</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Уведомление при недоступности API</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Всплывающее уведомление при недоступности SponsorBlock показано</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Всплывающее уведомление при недоступности SponsorBlock скрыто</string>
+  <string name="revanced_sb_toast_on_connection_error">Уведомление при недоступности API</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Всплывающее уведомление при недоступности SponsorBlock показано</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Всплывающее уведомление при недоступности SponsorBlock скрыто</string>
   <string name="revanced_sb_general_skipcount">Включить подсчет количества пропусков</string>
   <string name="revanced_sb_general_skipcount_sum_on">Это позволяет системе лидеров SponsorBlock знать, сколько времени было сэкономлено. Сообщение отправляется на сервер каждый раз при пропуске сегмента</string>
   <string name="revanced_sb_general_skipcount_sum_off">Подсчет количества пропусков отключен</string>
@@ -1480,9 +1491,9 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_off">Ссылки открываются во встроенном браузере</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Удалить параметр отслеживания запросов</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Параметр отслеживания запросов из ссылок удален</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Параметр отслеживания запросов из ссылок не удален</string>
+  <string name="revanced_sanitize_sharing_links_title">Удалить параметр отслеживания запросов</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметр отслеживания запросов из ссылок удален</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметр отслеживания запросов из ссылок не удален</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>

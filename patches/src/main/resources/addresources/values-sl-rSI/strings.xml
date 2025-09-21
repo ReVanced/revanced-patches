@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Iskanje nastavitev</string>
   <string name="revanced_settings_search_no_results_title">Za \"%s\" ni bilo najdenih rezultatov</string>
   <string name="revanced_settings_search_no_results_summary">Poskusite z drugo ključno besedo</string>
+  <string name="revanced_settings_search_recent_searches">Nedavna iskanja</string>
   <string name="revanced_settings_search_remove_message">Odstrani iz zgodovine iskanja?</string>
+  <string name="revanced_settings_search_clear_history">Počisti zgodovino iskanja</string>
+  <string name="revanced_settings_search_clear_history_message">Ali ste prepričani, da želite počistiti vso zgodovino iskanja?</string>
+  <string name="revanced_settings_search_tips_title">Nasveti za iskanje</string>
+  <string name="revanced_settings_search_tips_summary">"• Dotaknite se poti, da se pomaknete do nje
+• Dolgo pritisnite na nastavitev, da se pomaknete do nje
+• Pritisnite Enter, da shranite iskalno poizvedbo v zgodovino
+• Iskanje ignorira velikost črk in ločila
+• Nadrejene nastavitve se prikažejo nad onemogočenimi podrejenimi nastavitvami"</string>
+  <string name="revanced_settings_search_empty_history_title">Zgodovina iskanja je prazna</string>
+  <string name="revanced_settings_search_empty_history_summary">Če želite shraniti zgodovino iskanja, vnesite iskalno poizvedbo in pritisnite Enter</string>
+  <string name="revanced_settings_search_history_title">Pokaži zgodovino iskanja nastavitev</string>
+  <string name="revanced_settings_search_history_summary_on">Zgodovina iskanja nastavitev je prikazana</string>
+  <string name="revanced_settings_search_history_summary_off">Zgodovina iskanja nastavitev ni prikazana</string>
   <string name="revanced_show_menu_icons_title">Pokaži ikone nastavitev ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikone nastavitev so prikazane</string>
   <string name="revanced_show_menu_icons_summary_off">Ikone nastavitev niso prikazane</string>
   <string name="revanced_language_title">ReVanced jezik</string>
-  <string name="revanced_language_user_dialog_message">"Prevodi za nekatere jezike morda manjkajo ali so nepopolni.
+  <string name="revanced_language_user_dialog_message">"Prevodi za nekatere jezike so morda manjkajoči ali nepopolni.
 
-Če želite prevesti nove jezike, obiščite translate.revanced.app"</string>
+Če želite prevesti nove jezike ali izboljšati obstoječe prevode, obiščite translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Jezik aplikacije</string>
   <string name="revanced_pref_import_export_title">Uvozi / Izvozi</string>
   <string name="revanced_pref_import_export_summary">Uvozi / Izvozi ReVanced nastavitve</string>
@@ -142,9 +156,6 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_restore_old_settings_menus_title">Obnovi stare menije nastavitev</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Prikazani so stari meniji nastavitev</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Stari meniji nastavitev niso prikazani</string>
-  <string name="revanced_settings_search_history_title">Pokaži zgodovino iskanja nastavitev</string>
-  <string name="revanced_settings_search_history_summary_on">Zgodovina iskanja nastavitev je prikazana</string>
-  <string name="revanced_settings_search_history_summary_off">Zgodovina iskanja nastavitev ni prikazana</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Onemogoči predvajanje Shorts v ozadju</string>
@@ -1060,9 +1071,9 @@ Ta funkcija deluje najbolje pri kakovosti videa 720p ali nižji in pri uporabi z
   <string name="revanced_sb_guidelines_popup_already_read">Že sem prebral</string>
   <string name="revanced_sb_guidelines_popup_open">Pokaži mi</string>
   <string name="revanced_sb_general">Splošno</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Pokaži sporočilo, če API ni na voljo</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Sporočilo se prikaže, če SponsorBlock ni na voljo</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Sporočilo se ne prikaže, če SponsorBlock ni na voljo</string>
+  <string name="revanced_sb_toast_on_connection_error">Pokaži sporočilo, če API ni na voljo</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Sporočilo se prikaže, če SponsorBlock ni na voljo</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Sporočilo se ne prikaže, če SponsorBlock ni na voljo</string>
   <string name="revanced_sb_general_skipcount">Omogoči sledenje števila preskokov</string>
   <string name="revanced_sb_general_skipcount_sum_on">Pove lestvici SponsorBlock, koliko časa je shranjenega. Sporočilo se pošlje na lestvico vsakič, ko se segment preskoči</string>
   <string name="revanced_sb_general_skipcount_sum_off">Sledenje števila preskokov ni omogočeno</string>
@@ -1473,9 +1484,9 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_external_browser_summary_off">Odpiranje povezav v brskalniku v aplikaciji</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Odstrani parameter poizvedbe za sledenje</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Parameter poizvedbe za sledenje je odstranjen iz povezav</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Parameter poizvedbe za sledenje ni odstranjen iz povezav</string>
+  <string name="revanced_sanitize_sharing_links_title">Odstrani parameter poizvedbe za sledenje</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parameter poizvedbe za sledenje je odstranjen iz povezav</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parameter poizvedbe za sledenje ni odstranjen iz povezav</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Izsili izvirni jezik zvoka</string>

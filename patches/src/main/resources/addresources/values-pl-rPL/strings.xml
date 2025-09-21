@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Szukaj w ustawieniach</string>
   <string name="revanced_settings_search_no_results_title">Brak wyników dla „%s”</string>
   <string name="revanced_settings_search_no_results_summary">Spróbuj innego słowa kluczowego</string>
+  <string name="revanced_settings_search_recent_searches">Ostatnie wyszukiwania</string>
   <string name="revanced_settings_search_remove_message">Usunąć z historii wyszukiwania?</string>
+  <string name="revanced_settings_search_clear_history">Wyczyść historię wyszukiwania</string>
+  <string name="revanced_settings_search_clear_history_message">Czy na pewno chcesz wyczyścić całą historię wyszukiwania?</string>
+  <string name="revanced_settings_search_tips_title">Wskazówki dotyczące wyszukiwania</string>
+  <string name="revanced_settings_search_tips_summary">"• Dotknij ścieżki, aby do niej przejść
+• Długo naciśnij ustawienie, aby do niego przejść
+• Naciśnij Enter, aby zapisać wyszukiwane hasło w historii
+• Wyszukiwanie ignoruje wielkość liter i interpunkcję
+• Ustawienia nadrzędne pojawiają się powyżej wyłączonych ustawień podrzędnych"</string>
+  <string name="revanced_settings_search_empty_history_title">Historia wyszukiwania jest pusta</string>
+  <string name="revanced_settings_search_empty_history_summary">Aby zapisać historię wyszukiwania, wpisz zapytanie i naciśnij Enter</string>
+  <string name="revanced_settings_search_history_title">Pokaż historię wyszukiwania ustawień</string>
+  <string name="revanced_settings_search_history_summary_on">Historia wyszukiwania ustawień jest wyświetlana</string>
+  <string name="revanced_settings_search_history_summary_off">Historia wyszukiwania w ustawieniach jest niewidoczna</string>
   <string name="revanced_show_menu_icons_title">Pokaż ikony ustawień ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikony ustawień są widoczne</string>
   <string name="revanced_show_menu_icons_summary_off">Ikony ustawień nie są wyświetlane</string>
   <string name="revanced_language_title">Język ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"Tłumaczenia dla niektórych języków mogą być niepełne lub nieaktualne.
+  <string name="revanced_language_user_dialog_message">"Tłumaczenia dla niektórych języków mogą być brakujące lub niekompletne.
 
-Aby przetłumaczyć nowe języki, odwiedź stronę translate.revanced.app"</string>
+Aby przetłumaczyć nowe języki lub poprawić istniejące tłumaczenia, odwiedź translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Język aplikacji</string>
   <string name="revanced_pref_import_export_title">Zaimportuj / Wyeksportuj</string>
   <string name="revanced_pref_import_export_summary">Zaimportuj / Wyeksportuj ustawienia ReVanced</string>
@@ -142,9 +156,6 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_restore_old_settings_menus_title">Przywróć stare menu ustawień</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Wyświetlane są stare menu ustawień</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Stare menu ustawień nie są wyświetlane</string>
-  <string name="revanced_settings_search_history_title">Pokaż historię wyszukiwania ustawień</string>
-  <string name="revanced_settings_search_history_summary_on">Historia wyszukiwania ustawień jest wyświetlana</string>
-  <string name="revanced_settings_search_history_summary_off">Historia wyszukiwania w ustawieniach jest niewidoczna</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Wyłącz odtwarzanie Shortsów w tle</string>
@@ -1056,9 +1067,9 @@ Ta funkcja działa najlepiej przy jakości wideo 720p lub niższej i przy korzys
   <string name="revanced_sb_guidelines_popup_already_read">Przeczytano</string>
   <string name="revanced_sb_guidelines_popup_open">Pokaż mi</string>
   <string name="revanced_sb_general">Ogólne</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Komunikat o niedostępności API</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Komunikat jest wyświetlany, jeśli SponsorBlock nie jest dostępny</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Komunikat nie jest wyświetlany, jeśli SponsorBlock nie jest dostępny</string>
+  <string name="revanced_sb_toast_on_connection_error">Komunikat o niedostępności API</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Komunikat jest wyświetlany, jeśli SponsorBlock nie jest dostępny</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Komunikat nie jest wyświetlany, jeśli SponsorBlock nie jest dostępny</string>
   <string name="revanced_sb_general_skipcount">Śledzenie licznika pominięć</string>
   <string name="revanced_sb_general_skipcount_sum_on">Pozwala tabeli wyników SponsorBlock\'a wiedzieć, ile czasu zostało zaoszczędzone. Wiadomość jest wysyłana do tabeli wyników za każdym razem, gdy segment zostanie pominięty</string>
   <string name="revanced_sb_general_skipcount_sum_off">Śledzenie licznika pominięć nie jest włączone</string>
@@ -1469,9 +1480,9 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_external_browser_summary_off">Otwieranie linków w przeglądarce w aplikacji</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Parametr zapytania śledzenia</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Parametr zapytania śledzenia jest usuwany z linków</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Parametr zapytania śledzenia nie jest usuwany z linków</string>
+  <string name="revanced_sanitize_sharing_links_title">Parametr zapytania śledzenia</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parametr zapytania śledzenia jest usuwany z linków</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parametr zapytania śledzenia nie jest usuwany z linków</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Wymuś język oryginalnego dźwięku</string>

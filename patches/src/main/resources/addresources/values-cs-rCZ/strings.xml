@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Hledat nastavení</string>
   <string name="revanced_settings_search_no_results_title">Nebyly nalezeny žádné výsledky pro \",%s\"</string>
   <string name="revanced_settings_search_no_results_summary">Zkuste jiné klíčové slovo</string>
+  <string name="revanced_settings_search_recent_searches">Nedávná hledání</string>
   <string name="revanced_settings_search_remove_message">Odebrat z historie vyhledávání?</string>
+  <string name="revanced_settings_search_clear_history">Vymazat historii hledání</string>
+  <string name="revanced_settings_search_clear_history_message">Opravdu chcete vymazat celou historii hledání?</string>
+  <string name="revanced_settings_search_tips_title">Tipy pro vyhledávání</string>
+  <string name="revanced_settings_search_tips_summary">"• Klepnutím na cestu k ní přejdete
+• Dlouhým stisknutím nastavení k němu přejdete
+• Stisknutím klávesy Enter uložíte vyhledávací dotaz do historie
+• Vyhledávání ignoruje velikost písmen a interpunkci
+• Nadřazená nastavení se zobrazují nad zakázanými podřízenými nastaveními"</string>
+  <string name="revanced_settings_search_empty_history_title">Historie vyhledávání je prázdná</string>
+  <string name="revanced_settings_search_empty_history_summary">Chcete-li uložit historii vyhledávání, zadejte vyhledávací dotaz a stiskněte Enter</string>
+  <string name="revanced_settings_search_history_title">Zobrazit historii vyhledávání v nastavení</string>
+  <string name="revanced_settings_search_history_summary_on">Historie vyhledávání v nastavení je zobrazena</string>
+  <string name="revanced_settings_search_history_summary_off">Historie vyhledávání nastavení se nezobrazuje</string>
   <string name="revanced_show_menu_icons_title">Zobrazit ikony nastavení ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikony nastavení se zobrazují</string>
   <string name="revanced_show_menu_icons_summary_off">Ikony nastavení se nezobrazují</string>
   <string name="revanced_language_title">Jazyk ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Překlady pro některé jazyky mohou chybět nebo být neúplné.
 
-Nové jazyky přeložíte na translate.revanced.app"</string>
+Chcete-li přeložit nové jazyky nebo zlepšit stávající překlady, navštivte translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Jazyk aplikace</string>
   <string name="revanced_pref_import_export_title">Importovat / Exportovat</string>
   <string name="revanced_pref_import_export_summary">Importovat/exportovat nastavení ReVanced</string>
@@ -142,9 +156,6 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_restore_old_settings_menus_title">Obnovit staré menu nastavení</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Staré menu nastavení se zobrazují</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Staré menu nastavení se nezobrazují</string>
-  <string name="revanced_settings_search_history_title">Zobrazit historii vyhledávání v nastavení</string>
-  <string name="revanced_settings_search_history_summary_on">Historie vyhledávání v nastavení je zobrazena</string>
-  <string name="revanced_settings_search_history_summary_off">Historie vyhledávání nastavení se nezobrazuje</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Zakázat automatické přehrávání Shorts v pozadí</string>
@@ -1061,9 +1072,9 @@ Tato funkce funguje nejlépe s kvalitou videa 720p nebo nižší a při použit�
   <string name="revanced_sb_guidelines_popup_already_read">Již jsem si to přečetl</string>
   <string name="revanced_sb_guidelines_popup_open">Ukázat mi</string>
   <string name="revanced_sb_general">Obecné</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Zobrazit \"toast\", pokud rozhraní API není k dispozici</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">\"Toast\" se zobrazí, pokud SponsorBlock není k dispozici</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">\"Toast\" se nezobrazí, pokud SponsorBlock není k dispozici</string>
+  <string name="revanced_sb_toast_on_connection_error">Zobrazit \"toast\", pokud rozhraní API není k dispozici</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">\"Toast\" se zobrazí, pokud SponsorBlock není k dispozici</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">\"Toast\" se nezobrazí, pokud SponsorBlock není k dispozici</string>
   <string name="revanced_sb_general_skipcount">Povolit sledování počtu přeskočení</string>
   <string name="revanced_sb_general_skipcount_sum_on">Nechá žebříček SponsorBlock vědět, kolik času se ušetří. Při každém přeskočení segmentu se na žebříček odešle zpráva</string>
   <string name="revanced_sb_general_skipcount_sum_off">Sledování počtu přeskočení není povoleno</string>
@@ -1473,9 +1484,9 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_external_browser_summary_off">Otevírání odkazů v prohlížeči v aplikaci</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Odstranit sledovací parametr dotazu</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Sledovací parametr dotazu je odstraněn z odkazů</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Sledovací parametr dotazu není odstraněn z odkazů</string>
+  <string name="revanced_sanitize_sharing_links_title">Odstranit sledovací parametr dotazu</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Sledovací parametr dotazu je odstraněn z odkazů</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Sledovací parametr dotazu není odstraněn z odkazů</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Vynutit původní jazyk zvuku</string>

@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Ayarları ara</string>
   <string name="revanced_settings_search_no_results_title">\'%s\' için sonuç bulunamadı</string>
   <string name="revanced_settings_search_no_results_summary">Başka bir anahtar kelime deneyin</string>
+  <string name="revanced_settings_search_recent_searches">Son aramalar</string>
   <string name="revanced_settings_search_remove_message">Arama geçmişinden kaldırılsın mı?</string>
+  <string name="revanced_settings_search_clear_history">Arama geçmişini temizle</string>
+  <string name="revanced_settings_search_clear_history_message">Tüm arama geçmişini temizlemek istediğinizden emin misiniz?</string>
+  <string name="revanced_settings_search_tips_title">Arama İpuçları</string>
+  <string name="revanced_settings_search_tips_summary">"• Bir yola gitmek için ona dokunun
+• Bir ayara gitmek için üzerine uzun basın
+• Bir arama sorgusunu geçmişe kaydetmek için Enter'a basın
+• Arama, büyük/küçük harf ve noktalama işaretlerini dikkate almaz
+• Ana ayarlar, devre dışı bırakılmış alt ayarların üzerinde görünür"</string>
+  <string name="revanced_settings_search_empty_history_title">Arama geçmişi boş</string>
+  <string name="revanced_settings_search_empty_history_summary">Arama geçmişini kaydetmek için bir arama sorgusu yazın ve Enter\'a basın</string>
+  <string name="revanced_settings_search_history_title">Ayarlar arama geçmişini göster</string>
+  <string name="revanced_settings_search_history_summary_on">Ayarlar arama geçmişi gösteriliyor</string>
+  <string name="revanced_settings_search_history_summary_off">Ayarlar arama geçmişi gösterilmiyor</string>
   <string name="revanced_show_menu_icons_title">ReVanced ayar simgelerini göster</string>
   <string name="revanced_show_menu_icons_summary_on">Ayar simgeleri gösteriliyor</string>
   <string name="revanced_show_menu_icons_summary_off">Ayar simgeleri gösterilmiyor</string>
   <string name="revanced_language_title">ReVanced dili</string>
-  <string name="revanced_language_user_dialog_message">"Bazı diller için çeviriler eksik veya tamamlanmamış olabilir. 
+  <string name="revanced_language_user_dialog_message">"Bazı diller için çeviriler eksik veya tamamlanmamış olabilir.
 
-Yeni dilleri çevirmek için translate.revanced.app adresini ziyaret edin"</string>
+Yeni dilleri çevirmek veya mevcut çevirileri geliştirmek için translate.revanced.app adresini ziyaret edin"</string>
   <string name="revanced_language_DEFAULT">Uygulama dili</string>
   <string name="revanced_pref_import_export_title">İçe / Dışa aktar</string>
   <string name="revanced_pref_import_export_summary">ReVanced ayarlarını içe / dışa aktar</string>
@@ -142,9 +156,6 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_restore_old_settings_menus_title">Eski ayarlar menülerini geri getir</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Eski ayarlar menüleri gösteriliyor</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Eski ayarlar menüleri gösterilmiyor</string>
-  <string name="revanced_settings_search_history_title">Ayarlar arama geçmişini göster</string>
-  <string name="revanced_settings_search_history_summary_on">Ayarlar arama geçmişi gösteriliyor</string>
-  <string name="revanced_settings_search_history_summary_off">Ayarlar arama geçmişi gösterilmiyor</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts\'un arka planda oynatılmasını devre dışı bırak</string>
@@ -1062,9 +1073,9 @@ Bu özellik, 720p veya daha düşük video kalitesi ve çok hızlı bir internet
   <string name="revanced_sb_guidelines_popup_already_read">Okudum</string>
   <string name="revanced_sb_guidelines_popup_open">Göster</string>
   <string name="revanced_sb_general">Genel</string>
-  <string name="revanced_sb_toast_on_connection_error_title">API kullanılamadığında bir bildirim göster</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock kullanılamadığında bir bildirim gösterilir</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock kullanılamadığında bildirim gösterilmez</string>
+  <string name="revanced_sb_toast_on_connection_error">API kullanılamadığında bir bildirim göster</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">SponsorBlock kullanılamadığında bir bildirim gösterilir</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">SponsorBlock kullanılamadığında bildirim gösterilmez</string>
   <string name="revanced_sb_general_skipcount">Atlama sayısı takibini etkinleştir</string>
   <string name="revanced_sb_general_skipcount_sum_on">SponsorBlock liderlik tablosunun ne kadar zaman kazanıldığını bilmesini sağlar. Her bir kısım atlandığında liderlik tablosuna bir mesaj gönderilir</string>
   <string name="revanced_sb_general_skipcount_sum_off">Atlama sayısı izleme etkin değil</string>
@@ -1480,9 +1491,9 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_external_browser_summary_off">Bağlantılar uygulama içi tarayıcıda açılıyor</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">İzleyici sorgu parametresini kaldır</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Bağlantılardan izleyici sorgu parametresi kaldırılır</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
+  <string name="revanced_sanitize_sharing_links_title">İzleyici sorgu parametresini kaldır</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Bağlantılardan izleyici sorgu parametresi kaldırılır</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Orijinal ses dilini zorla</string>

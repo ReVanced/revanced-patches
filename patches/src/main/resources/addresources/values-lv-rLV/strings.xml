@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Meklēt iestatījumus</string>
   <string name="revanced_settings_search_no_results_title">Nav atrasts neviens rezultāts atbilstoši \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Mēģiniet citu atslēgvārdu</string>
+  <string name="revanced_settings_search_recent_searches">Pēdējie meklējumi</string>
   <string name="revanced_settings_search_remove_message">Noņemt no meklēšanas vēstures?</string>
+  <string name="revanced_settings_search_clear_history">Notīrīt meklēšanas vēsturi</string>
+  <string name="revanced_settings_search_clear_history_message">Vai tiešām vēlaties notīrīt visu meklēšanas vēsturi?</string>
+  <string name="revanced_settings_search_tips_title">Meklēšanas padomi</string>
+  <string name="revanced_settings_search_tips_summary">"• Pieskarieties ceļam, lai pārietu uz to
+• Turiet nospiestu iestatījumu, lai pārietu uz to
+• Nospiediet taustiņu Enter, lai saglabātu meklēšanas vaicājumu vēsturē
+• Meklēšana ignorē lielo/mazo burtu atšķirības un pieturzīmes
+• Vecāku iestatījumi tiek rādīti virs atspējotiem pakārtotiem iestatījumiem"</string>
+  <string name="revanced_settings_search_empty_history_title">Meklēšanas vēsture ir tukša</string>
+  <string name="revanced_settings_search_empty_history_summary">Lai saglabātu meklēšanas vēsturi, ievadiet meklēšanas vaicājumu un nospiediet taustiņu Enter</string>
+  <string name="revanced_settings_search_history_title">Rādīt iestatījumu meklēšanas vēsturi</string>
+  <string name="revanced_settings_search_history_summary_on">Iestatījumu meklēšanas vēsture tiek rādīta</string>
+  <string name="revanced_settings_search_history_summary_off">Iestatījumu meklēšanas vēsture netiek rādīta</string>
   <string name="revanced_show_menu_icons_title">Rādīt ReVanced iestatījumu ikonas</string>
   <string name="revanced_show_menu_icons_summary_on">Iestatījumu ikonas tiek rādītas</string>
   <string name="revanced_show_menu_icons_summary_off">Ikonas iestatījumos netiek rādītas</string>
   <string name="revanced_language_title">ReVanced valoda</string>
-  <string name="revanced_language_user_dialog_message">"Tulkojuma dažām valodām var būt nepilnīgs vai nebūt vispār.
+  <string name="revanced_language_user_dialog_message">"Dažu valodu tulkojumi var būt trūkstoši vai nepilnīgi.
 
-Lai palīdzētu tulkot jaunās valodās, apmeklējiet vietni translate.revanced.app"</string>
+Lai tulkotu jaunās valodas vai uzlabotu esošos tulkojumus, apmeklējiet translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Lietotnes valoda</string>
   <string name="revanced_pref_import_export_title">Importēt/Eksportēt</string>
   <string name="revanced_pref_import_export_summary">Importēt/Eksportēt ReVanced iestatījumus</string>
@@ -142,9 +156,6 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_restore_old_settings_menus_title">Atjaunot vecās iestatījumu izvēlnes</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Tiek rādītas vecās iestatījumu izvēlnes</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Vecās iestatījumu izvēlnes netiek rādītas</string>
-  <string name="revanced_settings_search_history_title">Rādīt iestatījumu meklēšanas vēsturi</string>
-  <string name="revanced_settings_search_history_summary_on">Iestatījumu meklēšanas vēsture tiek rādīta</string>
-  <string name="revanced_settings_search_history_summary_off">Iestatījumu meklēšanas vēsture netiek rādīta</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Atspējot Shorts fonu atskaņošanu</string>
@@ -1062,9 +1073,9 @@ Laika skalas miniatūras izmantos tādu pašu kvalitāti kā pašreizējais vide
   <string name="revanced_sb_guidelines_popup_already_read">Jau izlasīts</string>
   <string name="revanced_sb_guidelines_popup_open">Parādīt man</string>
   <string name="revanced_sb_general">Vispārīgi</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Parādīt paziņojumu, ja API nav pieejama</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Paziņojums parādās, ja SponsorBlock nav pieejams</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Paziņojums netiek parādīts, ja SponsorBlock nav pieejams</string>
+  <string name="revanced_sb_toast_on_connection_error">Parādīt paziņojumu, ja API nav pieejama</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Paziņojums parādās, ja SponsorBlock nav pieejams</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Paziņojums netiek parādīts, ja SponsorBlock nav pieejams</string>
   <string name="revanced_sb_general_skipcount">Iespējot izlaides skaita uzskaiti</string>
   <string name="revanced_sb_general_skipcount_sum_on">Atļauj SponsorBlock līderu sarakstam uzzināt, cik daudz laika tiek ietaupīts. Ziņojums tiek nosūtīts līderu sarakstam katru reizi, kad tiek izlaists segments</string>
   <string name="revanced_sb_general_skipcount_sum_off">Izlaides skaita uzskaite nav iespējota</string>
@@ -1474,9 +1485,9 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_external_browser_summary_off">Saišu atvēršana lietotnes pārlūkprogrammā</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Noņemt izsekošanas vaicājuma parametru</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Izsekošanas vaicājuma parametrs tiek noņemts no saitēm</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Izsekošanas vaicājuma parametrs netiek noņemts no saitēm</string>
+  <string name="revanced_sanitize_sharing_links_title">Noņemt izsekošanas vaicājuma parametru</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Izsekošanas vaicājuma parametrs tiek noņemts no saitēm</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Izsekošanas vaicājuma parametrs netiek noņemts no saitēm</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Piespiest oriģinālo audio valodu</string>

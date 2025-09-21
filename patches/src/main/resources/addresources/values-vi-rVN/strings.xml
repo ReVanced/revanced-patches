@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Tìm kiếm</string>
   <string name="revanced_settings_search_no_results_title">Không tìm thấy kết quả nào cho \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Thử từ khóa khác</string>
+  <string name="revanced_settings_search_recent_searches">Các tìm kiếm gần đây</string>
   <string name="revanced_settings_search_remove_message">Xóa khỏi lịch sử tìm kiếm?</string>
+  <string name="revanced_settings_search_clear_history">Xóa lịch sử tìm kiếm</string>
+  <string name="revanced_settings_search_clear_history_message">Bạn có chắc chắn muốn xóa tất cả lịch sử tìm kiếm không?</string>
+  <string name="revanced_settings_search_tips_title">Mẹo tìm kiếm</string>
+  <string name="revanced_settings_search_tips_summary">"• Nhấn vào một đường dẫn để điều hướng đến đó
+• Nhấn giữ một cài đặt để điều hướng đến đó
+• Nhấn Enter để lưu truy vấn tìm kiếm vào lịch sử
+• Tìm kiếm bỏ qua chữ hoa/thường và dấu câu
+• Cài đặt cha xuất hiện phía trên cài đặt con bị vô hiệu hóa"</string>
+  <string name="revanced_settings_search_empty_history_title">Lịch sử tìm kiếm trống</string>
+  <string name="revanced_settings_search_empty_history_summary">Để lưu lịch sử tìm kiếm, nhập truy vấn tìm kiếm và nhấn Enter</string>
+  <string name="revanced_settings_search_history_title">Hiện lịch sử tìm kiếm cài đặt</string>
+  <string name="revanced_settings_search_history_summary_on">Lịch sử tìm kiếm cài đặt đã được hiển thị</string>
+  <string name="revanced_settings_search_history_summary_off">Lịch sử tìm kiếm cài đặt không được hiển thị</string>
   <string name="revanced_show_menu_icons_title">Hiện biểu tượng cài đặt ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Các biểu tượng cài đặt được hiển thị</string>
   <string name="revanced_show_menu_icons_summary_off">Các biểu tượng cài đặt không được hiển thị</string>
   <string name="revanced_language_title">Ngôn ngữ ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Bản dịch cho một số ngôn ngữ có thể bị thiếu hoặc chưa hoàn thiện.
 
-Để dịch các ngôn ngữ mới, hãy truy cập translate.revanced.app"</string>
+Để dịch các ngôn ngữ mới hoặc cải thiện bản dịch hiện có, hãy truy cập translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Ngôn ngữ ứng dụng</string>
   <string name="revanced_pref_import_export_title">Nhập hoặc Xuất</string>
   <string name="revanced_pref_import_export_summary">Nhập hoắc xuất các cài đặt ReVanced</string>
@@ -142,9 +156,6 @@ Bạn sẽ không được thông báo khi xẩy ra lỗi bất ngờ."</string>
   <string name="revanced_restore_old_settings_menus_title">Khôi phục trình đơn cài đặt cũ</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Các trình đơn cài đặt cũ được hiển thị</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Các trình đơn cài đặt cũ không được hiển thị</string>
-  <string name="revanced_settings_search_history_title">Hiện lịch sử tìm kiếm cài đặt</string>
-  <string name="revanced_settings_search_history_summary_on">Lịch sử tìm kiếm cài đặt đã được hiển thị</string>
-  <string name="revanced_settings_search_history_summary_off">Lịch sử tìm kiếm cài đặt không được hiển thị</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Tắt phát nền cho Shorts</string>
@@ -1062,9 +1073,9 @@ Hoạt động tốt nhất với chất lượng video 720p trở xuống và k
   <string name="revanced_sb_guidelines_popup_already_read">Đã đọc</string>
   <string name="revanced_sb_guidelines_popup_open">Hiện cho tôi</string>
   <string name="revanced_sb_general">Chung</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Hiện thông báo ngắn nếu API không khả dụng</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Thông báo ngắn sẽ hiện nếu SponsorBlock không khả dụng</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Thông báo ngắn không hiện nếu SponsorBlock không khả dụng</string>
+  <string name="revanced_sb_toast_on_connection_error">Hiện thông báo ngắn nếu API không khả dụng</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Thông báo ngắn sẽ hiện nếu SponsorBlock không khả dụng</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Thông báo ngắn không hiện nếu SponsorBlock không khả dụng</string>
   <string name="revanced_sb_general_skipcount">Bật theo dõi số lần bỏ qua</string>
   <string name="revanced_sb_general_skipcount_sum_on">Cho phép bảng xếp hạng SponsorBlock biết đã tiết kiệm được bao nhiêu thời gian. Một tin nhắn được gửi đến bảng xếp hạng mỗi khi một phân đoạn bị bỏ qua</string>
   <string name="revanced_sb_general_skipcount_sum_off">Theo dõi số lần bỏ qua không được bật</string>
@@ -1479,9 +1490,9 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_external_browser_summary_off">Đang mở liên kết trình duyệt trong ứng dụng</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Loại bỏ tham số truy vấn theo dõi</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Tham số truy vấn theo dõi đã bị loại bỏ khỏi liên kết</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Tham số truy vấn theo dõi không được loại bỏ khỏi liên kết</string>
+  <string name="revanced_sanitize_sharing_links_title">Loại bỏ tham số truy vấn theo dõi</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Tham số truy vấn theo dõi đã bị loại bỏ khỏi liên kết</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Tham số truy vấn theo dõi không được loại bỏ khỏi liên kết</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Buộc ngôn ngữ âm thanh gốc</string>

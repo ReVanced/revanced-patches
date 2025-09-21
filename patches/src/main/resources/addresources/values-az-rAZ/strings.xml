@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Tənzimləmələri axtar</string>
   <string name="revanced_settings_search_no_results_title">‘%s’ üçün nəticə tapılmadı</string>
   <string name="revanced_settings_search_no_results_summary">Başqa açar sözü yoxla</string>
+  <string name="revanced_settings_search_recent_searches">Son axtarışlar</string>
   <string name="revanced_settings_search_remove_message">Axtarış tarixçəsindən silinsin?</string>
+  <string name="revanced_settings_search_clear_history">Axtarış tarixçəsini təmizlə</string>
+  <string name="revanced_settings_search_clear_history_message">Bütün axtarış tarixçəsini təmizləmək istədiyinizə əminsiniz?</string>
+  <string name="revanced_settings_search_tips_title">Axtarış Tövsiyələri</string>
+  <string name="revanced_settings_search_tips_summary">"• Buna keçmək üçün yola toxun
+• Buna keçmək üçün tənzimləməni uzun basın
+• Axtarış sorğusunu tarixçəyə qeyd etmək üçün Daxil Et düyməsini bas
+• Axtarış böyük/kiçik hərfləri və durğu işarələrini nəzərə almır
+• Valideyn tənzimləmələri qapadılan uşaq tənzimləmələrin üstündə görünür"</string>
+  <string name="revanced_settings_search_empty_history_title">Axtarış tarixçəsi boşdur</string>
+  <string name="revanced_settings_search_empty_history_summary">Axtarış tarixçəsini saxlamaq üçün axtarış sorğusu yazın və Daxil Et basın</string>
+  <string name="revanced_settings_search_history_title">Axtarış tarixçəsi tənzimləməsin göstər</string>
+  <string name="revanced_settings_search_history_summary_on">Axtarış tarixçəsi tənzimləməsi göstərilir</string>
+  <string name="revanced_settings_search_history_summary_off">Axtarış tarixçəsi tənzimləməsi göstərilmir</string>
   <string name="revanced_show_menu_icons_title">ReVanced tənzimləmə nişanların göstər</string>
   <string name="revanced_show_menu_icons_summary_on">Tənzimləmə nişanları göstərilir</string>
   <string name="revanced_show_menu_icons_summary_off">Tənzimləmə nişanları göstərilmir</string>
   <string name="revanced_language_title">ReVanced dili</string>
-  <string name="revanced_language_user_dialog_message">"Bəzi dillər üçün tərcümələr əskik və ya səhv ola bilər.
+  <string name="revanced_language_user_dialog_message">"Bəzi dillər üçün tərcümələr çatışmayan və ya natamam ola bilər.
 
-Yeni dilləri tərcümə etmək üçün translate.revanced.app 'ə daxil olun"</string>
+Yeni dilləri tərcümə etmək və ya mövcud tərcümələri təkmilləşdirmək üçün translate.revanced.app saytın ziyarət edin"</string>
   <string name="revanced_language_DEFAULT">Tətbiq dili</string>
   <string name="revanced_pref_import_export_title">İdxal/İxrac et</string>
   <string name="revanced_pref_import_export_summary">ReVanced tənzimləmələrin idxal/ixrac et</string>
@@ -142,9 +156,6 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_restore_old_settings_menus_title">Köhnə tənzimləmələr bölmələrin bərpa et</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Köhnə tənzimləmələr bölmələri göstərilir</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Köhnə tənzimləmələr bölmələri göstərilmir</string>
-  <string name="revanced_settings_search_history_title">Axtarış tarixçəsi tənzimləməsin göstər</string>
-  <string name="revanced_settings_search_history_summary_on">Axtarış tarixçəsi tənzimləməsi göstərilir</string>
-  <string name="revanced_settings_search_history_summary_off">Axtarış tarixçəsi tənzimləməsi göstərilmir</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts arxa plan oynatmasın qapat</string>
@@ -1059,9 +1070,9 @@ Bu funksiya 720p və ya daha aşağı video keyfiyyəti ilə və çox sürətli 
   <string name="revanced_sb_guidelines_popup_already_read">Artıq oxudum</string>
   <string name="revanced_sb_guidelines_popup_open">Mənə göstər</string>
   <string name="revanced_sb_general">Ümumi</string>
-  <string name="revanced_sb_toast_on_connection_error_title">API əlçatan deyilsə ani bildirişi göstər</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock əlçatan deyilsə bildiriş göstərilir</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock əlçatan deyilsə, bildiriş göstərilmir</string>
+  <string name="revanced_sb_toast_on_connection_error">API əlçatan deyilsə ani bildirişi göstər</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">SponsorBlock əlçatan deyilsə bildiriş göstərilir</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">SponsorBlock əlçatan deyilsə, bildiriş göstərilmir</string>
   <string name="revanced_sb_general_skipcount">Ötürmə sayının izlənməsini aktivləşdir</string>
   <string name="revanced_sb_general_skipcount_sum_on">SponsorBlock liderlik lövhəsinin nə qədər vaxta qənaət edildiyini bilməsinə icazə verir. Hər dəfə bölüm ötürüləndə liderlik lövhəsinə məlumat göndərilir</string>
   <string name="revanced_sb_general_skipcount_sum_off">Ötürmə sayının izlənməsi aktiv deyil</string>
@@ -1472,9 +1483,9 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_external_browser_summary_off">Tətbiqdaxili brauzerdə bağlantıların açılması</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">İzləmə sorğusu faktorun sil</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">İzləmə sorğusu faktoru bağlantılardan silinir</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">İzləmə sorğusu faktoru bağlantılardan silinmir</string>
+  <string name="revanced_sanitize_sharing_links_title">İzləmə sorğusu faktorun sil</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">İzləmə sorğusu faktoru bağlantılardan silinir</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">İzləmə sorğusu faktoru bağlantılardan silinmir</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Orijinal səs dilini zorla</string>

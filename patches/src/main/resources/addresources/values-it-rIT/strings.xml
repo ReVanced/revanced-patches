@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Cerca impostazioni</string>
   <string name="revanced_settings_search_no_results_title">Nessun risultato trovato per \".%s\"</string>
   <string name="revanced_settings_search_no_results_summary">Prova un\'altra parola chiave</string>
+  <string name="revanced_settings_search_recent_searches">Ricerche recenti</string>
   <string name="revanced_settings_search_remove_message">Rimuovere dalla cronologia di ricerca?</string>
+  <string name="revanced_settings_search_clear_history">Cancella cronologia ricerche</string>
+  <string name="revanced_settings_search_clear_history_message">Sei sicuro di voler cancellare tutta la cronologia delle ricerche?</string>
+  <string name="revanced_settings_search_tips_title">Suggerimenti per la ricerca</string>
+  <string name="revanced_settings_search_tips_summary">"• Tocca un percorso per accedervi
+• Premi a lungo un'impostazione per accedervi
+• Premi Invio per salvare una query di ricerca nella cronologia
+• La ricerca ignora maiuscole/minuscole e punteggiatura
+• Le impostazioni padre appaiono sopra le impostazioni figlio disabilitate"</string>
+  <string name="revanced_settings_search_empty_history_title">La cronologia delle ricerche è vuota</string>
+  <string name="revanced_settings_search_empty_history_summary">Per salvare la cronologia delle ricerche, digita una query di ricerca e premi Invio</string>
+  <string name="revanced_settings_search_history_title">Mostra la cronologia di ricerca delle impostazioni</string>
+  <string name="revanced_settings_search_history_summary_on">La cronologia di ricerca delle impostazioni è visualizzata</string>
+  <string name="revanced_settings_search_history_summary_off">La cronologia di ricerca delle impostazioni non viene mostrata</string>
   <string name="revanced_show_menu_icons_title">Mostra le icone delle impostazioni di ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Le icone delle impostazioni vengono mostrate</string>
   <string name="revanced_show_menu_icons_summary_off">Le icone delle impostazioni non vengono mostrate</string>
   <string name="revanced_language_title">Lingua di ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"Le traduzioni per alcune lingue potrebbero essere mancanti o incomplete.
+  <string name="revanced_language_user_dialog_message">"Le traduzioni per alcune lingue potrebbero mancare o essere incomplete.
 
-Per tradurre nuove lingue visita translate.revanced.app"</string>
+Per tradurre nuove lingue o migliorare le traduzioni esistenti, visita translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Lingua dell\'app</string>
   <string name="revanced_pref_import_export_title">Importa / Esporta</string>
   <string name="revanced_pref_import_export_summary">Importa / Esporta impostazioni ReVanced</string>
@@ -142,9 +156,6 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_restore_old_settings_menus_title">Ripristina i vecchi menu delle impostazioni</string>
   <string name="revanced_restore_old_settings_menus_summary_on">I vecchi menu delle impostazioni vengono mostrati</string>
   <string name="revanced_restore_old_settings_menus_summary_off">I vecchi menu delle impostazioni non vengono mostrati</string>
-  <string name="revanced_settings_search_history_title">Mostra la cronologia di ricerca delle impostazioni</string>
-  <string name="revanced_settings_search_history_summary_on">La cronologia di ricerca delle impostazioni è visualizzata</string>
-  <string name="revanced_settings_search_history_summary_off">La cronologia di ricerca delle impostazioni non viene mostrata</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Disattiva la riproduzione degli Shorts in background</string>
@@ -1060,9 +1071,9 @@ Questa funzione funziona meglio con una qualità video di 720p o inferiore e qua
   <string name="revanced_sb_guidelines_popup_already_read">Già lette</string>
   <string name="revanced_sb_guidelines_popup_open">Mostramele</string>
   <string name="revanced_sb_general">Generale</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Mostra una notifica se l\'API non è disponibile</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">La notifica è mostrata se SponsorBlock non è disponibile</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">La notifica è nascosta se SponsorBlock non è disponibile</string>
+  <string name="revanced_sb_toast_on_connection_error">Mostra una notifica se l\'API non è disponibile</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">La notifica è mostrata se SponsorBlock non è disponibile</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">La notifica è nascosta se SponsorBlock non è disponibile</string>
   <string name="revanced_sb_general_skipcount">Attiva il monitoraggio del conteggio dei salti</string>
   <string name="revanced_sb_general_skipcount_sum_on">Quanto permette al sistema di classifica di SponsorBlock di sapere quanto tempo le persone hanno risparmiato. Viene inviato un messaggio al server ogni volta che salti un segmento</string>
   <string name="revanced_sb_general_skipcount_sum_off">Il monitoraggio del contatore dei salti è disattivato</string>
@@ -1472,9 +1483,9 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_external_browser_summary_off">Apertura dei link nel browser in-app</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Rimuovi il parametro di tracciamento della query</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Il parametro di tracciamento della query viene rimosso dai link</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Il parametro di tracciamento della query non viene rimosso dai link</string>
+  <string name="revanced_sanitize_sharing_links_title">Rimuovi il parametro di tracciamento della query</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Il parametro di tracciamento della query viene rimosso dai link</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Il parametro di tracciamento della query non viene rimosso dai link</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forza la lingua audio originale</string>

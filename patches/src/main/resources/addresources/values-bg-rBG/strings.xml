@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Търсене на настройки</string>
   <string name="revanced_settings_search_no_results_title">Няма намерени резултати за \",%s\"</string>
   <string name="revanced_settings_search_no_results_summary">Опитайте друга ключова дума</string>
+  <string name="revanced_settings_search_recent_searches">Скорошни търсения</string>
   <string name="revanced_settings_search_remove_message">Премахване от историята на търсенията?</string>
+  <string name="revanced_settings_search_clear_history">Изчистване на историята на търсенията</string>
+  <string name="revanced_settings_search_clear_history_message">Сигурни ли сте, че искате да изчистите цялата история на търсенията?</string>
+  <string name="revanced_settings_search_tips_title">Съвети за търсене</string>
+  <string name="revanced_settings_search_tips_summary">"• Докоснете път, за да отидете до него
+• Натиснете продължително настройка, за да отидете до нея
+• Натиснете Enter, за да запазите заявка за търсене в историята
+• Търсенето не отчита главни/малки букви и препинателни знаци
+• Родителските настройки се появяват над деактивираните дъщерни настройки"</string>
+  <string name="revanced_settings_search_empty_history_title">Историята на търсене е празна</string>
+  <string name="revanced_settings_search_empty_history_summary">За да запазите историята на търсене, въведете заявка за търсене и натиснете Enter</string>
+  <string name="revanced_settings_search_history_title">Показване на историята на търсенията в настройките</string>
+  <string name="revanced_settings_search_history_summary_on">Историята на търсенията в настройките е показана</string>
+  <string name="revanced_settings_search_history_summary_off">Историята на търсенията в настройките не се показва</string>
   <string name="revanced_show_menu_icons_title">Показване на иконите на настройките на ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Иконите на настройките се показват</string>
   <string name="revanced_show_menu_icons_summary_off">Иконите на настройките не се показват</string>
   <string name="revanced_language_title">Език на ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"Преводите на някои езици може да липсват или да са непълни.
+  <string name="revanced_language_user_dialog_message">"Преводите за някои езици може да липсват или да са непълни.
 
-За да преведете нови езици, посетете translate.revanced.app"</string>
+За да преведете нови езици или да подобрите съществуващите преводи, посетете translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Език на приложението</string>
   <string name="revanced_pref_import_export_title">Импортиране / Експортиране</string>
   <string name="revanced_pref_import_export_summary">Импортиране / Експортиране на ReVanced настройките</string>
@@ -142,9 +156,6 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Възстановяване на старите менюта за настройки</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Старите менюта с настройки се показват</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Старите менюта с настройки не се показват</string>
-  <string name="revanced_settings_search_history_title">Показване на историята на търсенията в настройките</string>
-  <string name="revanced_settings_search_history_summary_on">Историята на търсенията в настройките е показана</string>
-  <string name="revanced_settings_search_history_summary_off">Историята на търсенията в настройките не се показва</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Възпроизвеждане на  Shorts в фонов режим</string>
@@ -1060,9 +1071,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">Вече ги прочетох</string>
   <string name="revanced_sb_guidelines_popup_open">Покажи ми</string>
   <string name="revanced_sb_general">Основен</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Показване на известие, ако API не е наличен</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Показва се известие, ако SponsorBlock не е наличен</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Показва се известие, ако SponsorBlock не е наличен</string>
+  <string name="revanced_sb_toast_on_connection_error">Показване на известие, ако API не е наличен</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Показва се известие, ако SponsorBlock не е наличен</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Показва се известие, ако SponsorBlock не е наличен</string>
   <string name="revanced_sb_general_skipcount">Прослед. на броя пропускания</string>
   <string name="revanced_sb_general_skipcount_sum_on">Показва в класацията на SponsorBlock колко време е спестено. Съобщение се изпраща при всяка пропусната част</string>
   <string name="revanced_sb_general_skipcount_sum_off">Прослед. на броя пропускания е изключен</string>
@@ -1473,9 +1484,9 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_off">Отваряне на връзки във вграден браузър</string>
   </patch>
   <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Премахнете параметъра на заявката за проследяване</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Параметърът на заявката за проследяване е премахнат от връзките</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Параметърът на заявката за проследяване не е премахнат от връзките</string>
+  <string name="revanced_sanitize_sharing_links_title">Премахнете параметъра на заявката за проследяване</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметърът на заявката за проследяване е премахнат от връзките</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметърът на заявката за проследяване не е премахнат от връзките</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Принудително оригинално аудио език</string>
