@@ -1571,12 +1571,15 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Deneysel istemci ve her an çalışmayı durdurabilir</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Çocuk videoları oturum açılmadığında veya gizli modda oynatılamayabilir</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Orijinal sesi zorlama mevcut değil</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Meraklısı için istatistiklerde göster</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">İstemci tipi meraklısı için istatistiklerde gösterilir</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">İstemci, meraklısı için istatistiklerde gizli</string>
   <string name="revanced_spoof_video_streams_language_title">Ses akışı dili</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Belirli bir ses dilini seçmek için \'Orijinal ses dilini zorla\' seçeneğini kapatın</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Yayın dili seçimi Android Studio ile kullanılamıyor</string>
   </patch>
   </app>
   <app id="music">
@@ -1611,23 +1614,23 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_music_navigation_bar_screen_title">Gezinme çubuğu</string>
   <string name="revanced_music_navigation_bar_screen_summary">Gezinme çubuğundaki düğmeleri gizle veya değiştir</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Ana Sayfa düğmesini gizle</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Ana Sayfa\'yı gizle</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Ana Sayfa düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Ana Sayfa düğmesi görünür</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Sana Özel düğmesini gizle</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Örnekleri Gizle</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Sana Özel düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Sana Özel düğmesi görünür</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Keşfet düğmesini gizle</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Keşfet\'i Gizle</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Keşfet düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Keşfet düğmesi görünür</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Kitaplık düğmesini gizle</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Kitaplık\'ı Gizle</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Kitaplık düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Kitaplık düğmesi görünür</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Yükselt düğmesini gizle</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Yükselt\'i Gizle</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Yükselt düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Yükselt düğmesi görünür</string>
   <string name="revanced_music_hide_navigation_bar_title">Gezinme çubuğunu gizle</string>

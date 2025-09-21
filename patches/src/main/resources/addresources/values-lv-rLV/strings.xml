@@ -1565,12 +1565,15 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentāls klients un jebkurā brīdī var pārtraukt darbu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nav pieejams AV1 video kodeks</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Bērnu videoklipi var netikt atskaņoti, kad esat izrakstījies vai inkognito režīmā.</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Piespiest oriģinālo skaņu nav pieejams</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Rādīt statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienta tips tiek rādīts statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klients ir paslēpts statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_video_streams_language_title">Audio straumes valoda</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Lai atlasītu konkrētu audio valodu, izslēdziet “Piespiest oriģinālo audio valodu”</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Straumju valodas izvēle nav pieejama ar Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1605,23 +1608,23 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_music_navigation_bar_screen_title">Navigācijas josla</string>
   <string name="revanced_music_navigation_bar_screen_summary">Slēpt vai mainīt navigācijas joslas pogas</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Slēpt pogu Sākums</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Paslēpt Sākumlapu</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Poga Sākums ir paslēpta</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Poga Sākums ir redzama</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Slēpt pogu Paraugi</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Paslēpt Īsos klipus</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Poga Paraugi ir paslēpta</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Poga Paraugi ir redzama</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Slēpt pogu Izpētīt</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Slēpt Izpētīt</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Poga Izpētīt ir paslēpta</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Poga Izpētīt ir redzama</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Slēpt pogu Bibliotēka</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Slēpt bibliotēku</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Poga Bibliotēka ir paslēpta</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Poga Bibliotēka ir redzama</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Slēpt pogu Jaunināt</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Slēpt jaunināšanu</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Poga Jaunināt ir paslēpta</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Poga Jaunināt ir redzama</string>
   <string name="revanced_music_hide_navigation_bar_title">Slēpt navigācijas joslu</string>

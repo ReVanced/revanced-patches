@@ -1566,12 +1566,15 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• לקוח ניסיוני ועשוי להפסיק לפעול בכל עת</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• אין קודק וידאו מסוג AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ייתכן שסרטוני Kids לא יופעלו כשאתה מנותק או במצב פרטי</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• כפיית שמע מקורי אינה זמינה</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">הצג בנתונים לגיקים</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">סוג הלקוח מוצג בנתונים לגיקים</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">הלקוח מוסתר בנתונים לגיקים</string>
   <string name="revanced_spoof_video_streams_language_title">שפת זרם השמע</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">כדי לבחור שפת שמע ספציפית, כבה את \'אכוף שפת שמע מקורית\'</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">בחירת שפת הזרם אינה זמינה עם אנדרואיד סטודיו</string>
   </patch>
   </app>
   <app id="music">
@@ -1606,23 +1609,23 @@ Second \"item\" text"</string>
   <string name="revanced_music_navigation_bar_screen_title">סרגל ניווט</string>
   <string name="revanced_music_navigation_bar_screen_summary">הסתר או שנה לחצני סרגל ניווט</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">הסתר לחצן \'דף הבית\'</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">הסתר דף הבית</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">לחצן \'דף הבית\' מוסתר</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">לחצן \'דף הבית\' מוצג</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">הסתר לחצן \'דוגמיות\'</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">הסתר דוגמאות</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">לחצן \'דוגמיות\' מוסתר</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">לחצן \'דוגמיות\' מוצג</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">הסתר לחצן \'גלו\'</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">הסתר גלו</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">לחצן \'גלו\' מוסתר</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">לחצן \'גלו\' מוצג</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">הסתר לחצן \'ספרייה\'</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">הסתר ספרייה</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">לחצן \'ספרייה\' מוסתר</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">לחצן \'ספרייה\' מוצג</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">הסתר לחצן \'שדרוג\'</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">הסתר שדרוג</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">לחצן \'שדרוג\' מוסתר</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">לחצן \'שדרוג\' מוצג</string>
   <string name="revanced_music_hide_navigation_bar_title">הסתר סרגל ניווט</string>

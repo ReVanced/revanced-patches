@@ -1564,12 +1564,15 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментален клиент и може да спре да работи по всяко време</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Без AV1 видео кодек</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Детските видеоклипове може да не се възпроизвеждат, когато сте излезли от профила си или в режим \"инкогнито\"</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Принудителният оригинален звук не е наличен</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Poka6i v Statistiki za nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tipът na klienta se poka6va v Statistiki za nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klientът e skriт v Statistiki za nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Език на аудио потока</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">За да изберете конкретен аудио език, изключете \'Принудително оригинален аудио език\'</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Изборът на език на потока не е наличен с Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1604,23 +1607,23 @@ Second \"item\" text"</string>
   <string name="revanced_music_navigation_bar_screen_title">Навигационна лента</string>
   <string name="revanced_music_navigation_bar_screen_summary">Скриване или промяна на бутоните на навигационната лента</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Скриване на бутона Начало</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Скриване на Начало</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Бутонът Начало е скрит</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Бутонът Начало е показан</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Скриване на бутона Мостри</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Скриване на Мостри</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Бутонът Мостри е скрит</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Бутонът Мостри е показан</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Скриване на бутона Проучване</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Скриване на Разглеждане</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Бутонът Проучване е скрит</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Бутонът Проучване е показан</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Скриване на бутона Библиотека</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Скриване на Библиотека</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Бутонът Библиотека е скрит</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Бутонът Библиотека е показан</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Скриване на бутона Надграждане</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Скриване на Надстройка</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Бутонът Надграждане е скрит</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Бутонът Надграждане е показан</string>
   <string name="revanced_music_hide_navigation_bar_title">Скриване на навигационната лента</string>

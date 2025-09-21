@@ -1564,12 +1564,15 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Cliant turgnamhach é seo agus féadfaidh sé stop a chur ag obair ag am ar bith</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Níl aon chóidéir físe AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videos faoi phaistí uaireanta nach imreoidh nuair a bhíonn tú logáilte amach nó i mod incognito</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Níl Éigean fuaime bunaidh ar fáil</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Taispeáin i Staitisticí do nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Taispeántar cineál an chliaint i Staitisticí do nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Tá an cliant curtha i bhfolach i Staitisticí do nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Teanga an tsrutha fuaime</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Chun teanga fuaime shonrach a roghnú, múch \'Cuir iallach ar bhunteanga fuaime\'</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Níl roghnú theanga an tsrutha ar fáil le Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1604,23 +1607,23 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_music_navigation_bar_screen_title">Barra nascleanúna</string>
   <string name="revanced_music_navigation_bar_screen_summary">Folaigh nó athraigh cnaipí an bharra nascleanúna</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Folaigh cnaipe Baile</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Folaigh Baile</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Tá cnaipe Baile folaithe</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Tá cnaipe Baile taispeánta</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Folaigh cnaipe Samplaí</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Folaigh Samplaí</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Tá cnaipe Samplaí folaithe</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Tá cnaipe Samplaí taispeánta</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Folaigh cnaipe Fionnachtana</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Folaigh Scrúdaigh</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Tá cnaipe Fionnachtana folaithe</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Tá cnaipe Fionnachtana taispeánta</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Folaigh cnaipe Leabharlann</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Folaigh Leabharlann</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Tá cnaipe Leabharlann folaithe</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Tá cnaipe Leabharlann taispeánta</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Folaigh cnaipe Uasghrádú</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Folaigh Uasghrádaigh</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Tá cnaipe Uasghrádú folaithe</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Tá cnaipe Uasghrádú taispeánta</string>
   <string name="revanced_music_hide_navigation_bar_title">Folaigh barra nascleanúna</string>

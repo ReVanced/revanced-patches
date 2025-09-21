@@ -1562,12 +1562,15 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klient eksperimental dhe mund të ndalojë së funksionuari në çdo kohë</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nuk ka codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video për fëmijë mund të mos luajnë kur jeni jashtë llogarisë ose në modalitetin incognito</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Detyro audio origjinale nuk është i disponueshëm</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Shfaqni në Statistikat për nerdës</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Lloji i klientit shfaqet në Statistikat për nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienti është fshehur në statistikat për nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Gjuha e transmetimit audio</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Për të zgjedhur një gjuhë specifike audio, çaktivizoni \"Detyro gjuhën origjinale audio\"</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Zgjedhja e gjuhës së transmetimit nuk është e disponueshme me Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1602,23 +1605,23 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_music_navigation_bar_screen_title">Shiriti i navigimit</string>
   <string name="revanced_music_navigation_bar_screen_summary">Fshih ose ndrysho butonat e shiritit të navigimit</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Fshih butonin Kryesore</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Fshih Kreun</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Butoni Kryesore është fshehur</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Butoni Kryesore është shfaqur</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Fshih butonin Mostra</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Fshih Mostrat</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Butoni Mostra është fshehur</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Butoni Mostra është shfaqur</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Fshih butonin Eksploro</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Fshih Eksplorimin</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Butoni Eksploro është fshehur</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Butoni Eksploro është shfaqur</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Fshih butonin Biblioteka</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Fshih Bibliotekën</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Butoni Biblioteka është fshehur</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Butoni Biblioteka është shfaqur</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Fshih butonin Azhorno</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Fshih përmirësimin</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Butoni Azhorno është fshehur</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Butoni Azhorno është shfaqur</string>
   <string name="revanced_music_hide_navigation_bar_title">Fshih shiritin e navigimit</string>

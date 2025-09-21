@@ -1563,12 +1563,15 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Client experimental și se poate opri din funcționare oricând</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Fara codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Copiii nu pot urmări videoclipuri atunci când sunt deconectați sau în modul incognito</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Forțarea sunetului original nu este disponibilă</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Afișează în Statistici pentru pasionați</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Tipul clientului este afișat în Statistici pentru pasionați</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Clientul este ascuns în Statistici pentru pasionați</string>
   <string name="revanced_spoof_video_streams_language_title">Limba fluxului audio</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Pentru a selecta o limbă audio specifică, dezactivați „Forțează limba audio originală”</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Selecția limbii fluxului nu este disponibilă cu Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1603,23 +1606,23 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_music_navigation_bar_screen_title">Bară de navigare</string>
   <string name="revanced_music_navigation_bar_screen_summary">Ascundeți sau modificați butoanele barei de navigare</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Ascundeți butonul Acasă</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Ascunde Acasă</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Butonul Acasă este ascuns</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Butonul Acasă este afișat</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Ascundeți butonul Mostre</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Ascunde Mostre</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Butonul Mostre este ascuns</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Butonul Mostre este afișat</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Ascundeți butonul Explorare</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Ascundeți Explorare</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Butonul Explorare este ascuns</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Butonul Explorare este afișat</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Ascundeți butonul Bibliotecă</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Ascundeți Bibliotecă</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Butonul Bibliotecă este ascuns</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Butonul Bibliotecă este afișat</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Ascundeți butonul Upgrade</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Ascundeți Upgrade</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Butonul Upgrade este ascuns</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Butonul Upgrade este afișat</string>
   <string name="revanced_music_hide_navigation_bar_title">Ascundeți bara de navigare</string>

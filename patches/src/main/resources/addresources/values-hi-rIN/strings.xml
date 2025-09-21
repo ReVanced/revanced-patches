@@ -31,6 +31,8 @@ Second \"item\" text"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_screen_summary">प्लेबैक समस्याओं को रोकने के लिए क्लाइंट वीडियो स्ट्रीम को स्पूफ करें</string>
+  <string name="revanced_spoof_video_streams_screen_summary">प्लेबैक समस्याओं को रोकने के लिए क्लाइंट वीडियो स्ट्रीम को स्पूफ करें</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   </patch>
@@ -244,6 +246,7 @@ Second \"item\" text"</string>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   </patch>
   </app>

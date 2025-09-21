@@ -1566,12 +1566,15 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_spoof_video_streams_about_experimental">• ไคลเอนต์ทดลองและอาจหยุดทำงานได้ตลอดเวลา</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• ไม่มีตัวแปลงสัญญาณวิดีโอ AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• วิดีโอเด็กอาจไม่เล่นเมื่อลงชื่อออกหรืออยู่ในโหมดไม่ระบุตัวตน</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• บังคับใช้เสียงต้นฉบับไม่พร้อมใช้งาน</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">แสดงในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">แสดงชนิดไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">ซ่อนไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_video_streams_language_title">ภาษาของสตรีมเสียง</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">หากต้องการเลือกภาษาเสียงที่ต้องการ ให้ปิด \'บังคับใช้ภาษาเสียงต้นฉบับ\'</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">การเลือกภาษาของสตรีมไม่พร้อมใช้งานกับ Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1606,23 +1609,23 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_music_navigation_bar_screen_title">แถบนำทาง</string>
   <string name="revanced_music_navigation_bar_screen_summary">ซ่อนหรือเปลี่ยนปุ่มแถบนำทาง</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">ซ่อนปุ่มหน้าแรก</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">ซ่อนหน้าแรก</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">ซ่อนปุ่มหน้าแรกแล้ว</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">แสดงปุ่มหน้าแรกแล้ว</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">ซ่อนปุ่มตัวอย่าง</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">ซ่อนตัวอย่าง</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">ซ่อนปุ่มตัวอย่างแล้ว</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">แสดงปุ่มตัวอย่างแล้ว</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">ซ่อนปุ่มสำรวจ</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">ซ่อนสำรวจ</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">ซ่อนปุ่มสำรวจแล้ว</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">แสดงปุ่มสำรวจแล้ว</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">ซ่อนปุ่มคลัง</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">ซ่อนคลัง</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">ซ่อนปุ่มคลังแล้ว</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">แสดงปุ่มคลังแล้ว</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">ซ่อนปุ่มอัปเกรด</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">ซ่อนอัปเกรด</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">ซ่อนปุ่มอัปเกรดแล้ว</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">แสดงปุ่มอัปเกรดแล้ว</string>
   <string name="revanced_music_hide_navigation_bar_title">ซ่อนแถบนำทาง</string>

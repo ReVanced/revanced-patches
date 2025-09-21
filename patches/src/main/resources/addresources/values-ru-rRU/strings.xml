@@ -1571,12 +1571,15 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Экспериментальный клиент и может перестать работать в любое время</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Отсутствует видеокодек AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Видео для детей могут не воспроизводиться при выходе из системы или в режиме инкогнито</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Принудительная оригинальная звуковая дорожка недоступна</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показать в \"Статистике для сисадминов\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клиента в \"Статистике для сисадминов\" показан</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клиента в \"Статистике для сисадминов\" скрыт</string>
   <string name="revanced_spoof_video_streams_language_title">Язык аудиопотока</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Чтобы выбрать определенный язык аудио, отключите \"Принудительный язык оригинального аудио\"</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Выбор языка трансляции недоступен в Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1615,19 +1618,19 @@ Second \"item\" text"</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Кнопка \"Главная\" в панели навигации скрыта</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Кнопка \"Главная\" в панели навигации показана</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Скрыть кнопку \"Семплы\"</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Скрыть Сэмплы</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Кнопка \"Семплы\" скрыта</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Кнопка \"Семплы\" показана</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Скрыть кнопку \"Обзор\"</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Скрыть Обзор</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Кнопка \"Обзор\" скрыта</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Кнопка \"Обзор\" показана</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Скрыть кнопку \"Библиотека\"</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Скрыть Библиотеку</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Кнопка \"Библиотека\" скрыта</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Кнопка \"Библиотека\" показана</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Скрыть кнопку \"Премиум\"</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Скрыть Премиум</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Кнопка \"Премиум\" скрыта</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Кнопка \"Премиум\" показана</string>
   <string name="revanced_music_hide_navigation_bar_title">Скрыть панель навигации</string>

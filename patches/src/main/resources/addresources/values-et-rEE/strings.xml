@@ -1564,12 +1564,15 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentaalne klient ja võib igal ajal töötamast lakata</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Puuduv AV1 videokoodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video lastele ei pruugi taasesitada, kui olete välja logitud või inkognito režiimis</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Sunni algne heli pole saadaval</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Kuva statistikas \"Nerdide jaoks\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienditüüp on statistikas \"Nerdide jaoks\" nähtav</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient on statistikas \"Nerdide jaoks\" peidetud</string>
   <string name="revanced_spoof_video_streams_language_title">Helivoo keel</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Konkreetse helikeele valimiseks lülita välja \"Sunni algne helikeel\"</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Voogedastuse keelevalik ei ole Android Studioga saadaval</string>
   </patch>
   </app>
   <app id="music">
@@ -1604,23 +1607,23 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_music_navigation_bar_screen_title">Navigeerimisriba</string>
   <string name="revanced_music_navigation_bar_screen_summary">Peida või muuda navigeerimisriba nuppe</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Peida Avalehe nupp</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Peida Avaleht</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Avalehe nupp on peidetud</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Avalehe nupp on nähtav</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Peida Näidiste nupp</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Peida Näidised</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Näidiste nupp on peidetud</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Näidiste nupp on nähtav</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Peida Avasta nupp</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Peida Avasta</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Avasta nupp on peidetud</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Avasta nupp on nähtav</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Peida Kogu nupp</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Peida Kogu</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Kogu nupp on peidetud</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Kogu nupp on nähtav</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Peida Uuenda nupp</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Peida Uuenda</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Uuenda nupp on peidetud</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Uuenda nupp on nähtav</string>
   <string name="revanced_music_hide_navigation_bar_title">Peida navigeerimisriba</string>

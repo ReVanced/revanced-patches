@@ -1565,12 +1565,15 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentinis klientas ir bet kada gali nustoti veikti</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nėra AV1 vaizdo kodeko</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Vaikų vaizdo įrašai gali būti neatkuriami, kai atsijungiama arba naudojamas inkognito režimas</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Priverstinai naudoti originalų garsą nepasiekiama</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Rodyti statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Kliento tipas rodomas statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klientas paslėptas statistinėje informacijoje \"tik profesionalams\"</string>
   <string name="revanced_spoof_video_streams_language_title">Garso srauto kalba</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Norėdami pasirinkti konkrečią garso kalbą, išjunkite „Priverstinė originali garso kalba“.</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Transliacijos kalbos pasirinkimas nepasiekiamas naudojant „Android Studio“</string>
   </patch>
   </app>
   <app id="music">
@@ -1605,23 +1608,23 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_music_navigation_bar_screen_title">Naršymo juosta</string>
   <string name="revanced_music_navigation_bar_screen_summary">Slėpti arba keisti naršymo juostos mygtukus</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Slėpti mygtuką „Pagrindinis“</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Slėpti Pagrindinį</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Mygtukas „Pagrindinis“ yra paslėptas</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Mygtukas „Pagrindinis“ yra rodomas</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Slėpti mygtuką „Pavyzdžiai“</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Slėpti Pavyzdžius</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Mygtukas „Pavyzdžiai“ yra paslėptas</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Mygtukas „Pavyzdžiai“ yra rodomas</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Slėpti mygtuką „Naršyti“</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Slėpti Naršyti</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Mygtukas „Naršyti“ yra paslėptas</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Mygtukas „Naršyti“ yra rodomas</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Slėpti mygtuką „Biblioteka“</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Slėpti Biblioteką</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Mygtukas „Biblioteka“ yra paslėptas</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Mygtukas „Biblioteka“ yra rodomas</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Slėpti mygtuką „Naujinti“</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Slėpti Atnaujinti</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Mygtukas „Naujinti“ yra paslėptas</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Mygtukas „Naujinti“ yra rodomas</string>
   <string name="revanced_music_hide_navigation_bar_title">Slėpti naršymo juostą</string>

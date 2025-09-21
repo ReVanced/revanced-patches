@@ -1564,12 +1564,15 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• عميل تجريبي وقد يتوقف عن العمل في أي وقت</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• لا يوجد ترميز الفيديو AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو عند استخدام وضع التصفح المتخفي</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• فرض الصوت الأصلي غير متاح</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">عرض في إحصاءات تقنية</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">يتم عرض نوع العميل في إحصاءات تقنية</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">تم إخفاء نوع العميل في إحصاءات تقنية</string>
   <string name="revanced_spoof_video_streams_language_title">لغة بث الصوت</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">لتحديد لغة صوتية معينة، قم بإيقاف تشغيل \"فرض لغة الصوت الأصلية\"</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">اختيار لغة البث غير متاح مع Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1604,23 +1607,23 @@ Second \"item\" text"</string>
   <string name="revanced_music_navigation_bar_screen_title">شريط التنقل</string>
   <string name="revanced_music_navigation_bar_screen_summary">إخفاء أزرار شريط التنقل أو تغييرها</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">إخفاء زر \"الرئيسية\"</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">إخفاء الرئيسية</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">زر \"الرئيسية\" مخفي</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">زر \"الرئيسية\" ظاهر</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">إخفاء زر \"المقتطفات\"</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">إخفاء المقاطع</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">زر \"المقتطفات\" مخفي</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">زر \"المقتطفات\" ظاهر</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">إخفاء زر \"استكشاف\"</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">إخفاء استكشاف</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">زر \"استكشاف\" مخفي</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">زر \"استكشاف\" ظاهر</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">إخفاء زر \"المكتبة\"</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">إخفاء المكتبة</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">زر \"المكتبة\" مخفي</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">زر \"المكتبة\" ظاهر</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">إخفاء زر \"الترقية\"</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">إخفاء ترقية</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">زر \"الترقية\" مخفي</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">زر \"الترقية\" ظاهر</string>
   <string name="revanced_music_hide_navigation_bar_title">إخفاء شريط التنقل</string>

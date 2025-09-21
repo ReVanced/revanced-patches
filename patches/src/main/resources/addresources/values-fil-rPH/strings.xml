@@ -1562,12 +1562,15 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_spoof_video_streams_about_experimental">• Pang-eksperimentong kliyente at maaaring huminto sa paggana anumang oras</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Walang AV1 video codec</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Mga video ng mga bata ay maaaring hindi ma-play kapag naka-log out o nasa incognito mode</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Ang Pilitin ang orihinal na audio ay hindi magagamit</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Ipakita sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Ipinapakita ang uri ng kliyente sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Nakatago ang kliyente sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Wika ng audio stream</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Upang pumili ng isang partikular na wika ng audio, i-off ang \'Puwersahin ang orihinal na wika ng audio\'</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Hindi available ang pagpili ng wika ng stream sa Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1602,23 +1605,23 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_music_navigation_bar_screen_title">Navigation bar</string>
   <string name="revanced_music_navigation_bar_screen_summary">Itago o baguhin ang mga pindutan ng navigation bar</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Itago ang pindutan ng Home</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Itago ang Tahanan</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Nakatago ang pindutan ng Home</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Nakalabas ang pindutan ng Home</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Itago ang pindutan ng Samples</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Itago ang Mga Sample</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Nakatago ang pindutan ng Samples</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Nakalabas ang pindutan ng Samples</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Itago ang pindutan ng Explore</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Itago ang Galugarin</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Nakatago ang pindutan ng Explore</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Nakalabas ang pindutan ng Explore</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Itago ang pindutan ng Library</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Itago ang Aklatan</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Nakatago ang pindutan ng Library</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Nakalabas ang pindutan ng Library</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Itago ang pindutan ng Upgrade</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Itago ang I-upgrade</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Nakatago ang pindutan ng Upgrade</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Nakalabas ang pindutan ng Upgrade</string>
   <string name="revanced_music_hide_navigation_bar_title">Itago ang navigation bar</string>

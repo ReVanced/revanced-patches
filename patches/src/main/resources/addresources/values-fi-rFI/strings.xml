@@ -1564,12 +1564,15 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Kokeellinen asiakasohjelma, joka saattaa lakata toimimasta milloin tahansa</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ei AV1-videokoodekkia</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Lasten videot eivät ehkä toistu, kun olet kirjautunut ulos tai incognito-tilassa</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Pakota alkuperäinen ääni ei ole käytettävissä</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Näytä teknisissä tiedoissa</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Asiakastyyppi näytetään teknisissä tiedoissa</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Asiakastyyppi on piilotettu teknisissä tiedoissa</string>
   <string name="revanced_spoof_video_streams_language_title">Äänivirran kieli</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Valitaksesi tietyn äänikielen, poista käytöstä \'Pakota alkuperäinen äänikieli\'</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Striimin kielivalinta ei ole käytettävissä Android Studion kanssa</string>
   </patch>
   </app>
   <app id="music">
@@ -1604,23 +1607,23 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_music_navigation_bar_screen_title">Navigointipalkki</string>
   <string name="revanced_music_navigation_bar_screen_summary">Piilota tai muuta navigointipalkin painikkeita</string>
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_home_button_title">Piilota Etusivu-painike</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Piilota Koti</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Etusivu-painike on piilotettu</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Etusivu-painike näytetään</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Piilota Näytteet-painike</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Piilota Näytteet</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Näytteet-painike on piilotettu</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Näytteet-painike näytetään</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Piilota Tutustu-painike</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Piilota Tutki</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Tutustu-painike on piilotettu</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Tutustu-painike näytetään</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Piilota Kirjasto-painike</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Piilota kirjasto</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Kirjasto-painike on piilotettu</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Kirjasto-painike näytetään</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Piilota Päivitä-painike</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Piilota Päivitä</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Päivitä-painike on piilotettu</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Päivitä-painike näytetään</string>
   <string name="revanced_music_hide_navigation_bar_title">Piilota navigointipalkki</string>
