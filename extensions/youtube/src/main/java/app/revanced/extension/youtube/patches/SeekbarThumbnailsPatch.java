@@ -3,6 +3,8 @@ package app.revanced.extension.youtube.patches;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 
+import java.util.List;
+
 @SuppressWarnings("unused")
 public class SeekbarThumbnailsPatch {
 
@@ -10,6 +12,11 @@ public class SeekbarThumbnailsPatch {
         @Override
         public boolean isAvailable() {
             return VersionCheckPatch.IS_19_17_OR_GREATER || !Settings.RESTORE_OLD_SEEKBAR_THUMBNAILS.get();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.RESTORE_OLD_SEEKBAR_THUMBNAILS);
         }
     }
 

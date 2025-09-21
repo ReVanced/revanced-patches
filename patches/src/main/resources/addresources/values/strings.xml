@@ -48,14 +48,28 @@ Second \"item\" text"</string>
             <string name="revanced_settings_search_hint">Search settings</string>
             <string name="revanced_settings_search_no_results_title">No results found for \'%s\'</string>
             <string name="revanced_settings_search_no_results_summary">Try another keyword</string>
+            <string name="revanced_settings_search_recent_searches">Recent searches</string>
             <string name="revanced_settings_search_remove_message">Remove from search history?</string>
+            <string name="revanced_settings_search_clear_history">Clear search history</string>
+            <string name="revanced_settings_search_clear_history_message">Are you sure you want to clear all search history?</string>
+            <string name="revanced_settings_search_tips_title">Search Tips</string>
+            <string name="revanced_settings_search_tips_summary">"• Tap a path to navigate to it
+• Long-press a setting to navigate to it
+• Press Enter to save a search query to history
+• Search ignores casing and punctuation
+• Parent settings appear above disabled child settings"</string>
+            <string name="revanced_settings_search_empty_history_title">Search history is empty</string>
+            <string name="revanced_settings_search_empty_history_summary">To save search history, type a search query and press Enter</string>
+            <string name="revanced_settings_search_history_title">Show settings search history</string>
+            <string name="revanced_settings_search_history_summary_on">Settings search history is shown</string>
+            <string name="revanced_settings_search_history_summary_off">Settings search history is not shown</string>
             <string name="revanced_show_menu_icons_title">Show ReVanced setting icons</string>
             <string name="revanced_show_menu_icons_summary_on">Setting icons are shown</string>
             <string name="revanced_show_menu_icons_summary_off">Setting icons are not shown</string>
             <string name="revanced_language_title">ReVanced language</string>
             <string name="revanced_language_user_dialog_message">"Translations for some languages may be missing or incomplete.
 
-To translate new languages visit translate.revanced.app"</string>
+To translate new languages or improve the existing translations, visit translate.revanced.app"</string>
             <string name="revanced_language_DEFAULT">App language</string>
             <string name="revanced_language_AM" translatable="false">አማርኛ</string>
             <string name="revanced_language_AR" translatable="false">العربية</string>
@@ -200,9 +214,6 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_restore_old_settings_menus_title">Restore old settings menus</string>
             <string name="revanced_restore_old_settings_menus_summary_on">Old settings menus are shown</string>
             <string name="revanced_restore_old_settings_menus_summary_off">Old settings menus are not shown</string>
-            <string name="revanced_settings_search_history_title">Show settings search history</string>
-            <string name="revanced_settings_search_history_summary_on">Settings search history is shown</string>
-            <string name="revanced_settings_search_history_summary_off">Settings search history is not shown</string>
         </patch>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
             <string name="revanced_shorts_disable_background_playback_title">Disable Shorts background play</string>
@@ -246,6 +257,7 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_floating_microphone_button_summary_off">Floating microphone button in search is shown</string>
             <string name="revanced_hide_horizontal_shelves_title">Hide horizontal shelves</string>
             <string name="revanced_hide_horizontal_shelves_summary_on">"Horizontal shelves are hidden, such as:
+
 • Breaking news
 • Continue watching
 • Explore more channels
@@ -1128,9 +1140,9 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_guidelines_popup_already_read">Already read</string>
             <string name="revanced_sb_guidelines_popup_open">Show me</string>
             <string name="revanced_sb_general">General</string>
-            <string name="revanced_sb_toast_on_connection_error_title">Show a toast if API is not available</string>
-            <string name="revanced_sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is not available</string>
-            <string name="revanced_sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is not available</string>
+            <string name="revanced_sb_toast_on_connection_error">Show a toast if API is not available</string>
+            <string name="revanced_sb_toast_on_connection_error_sum_on">Toast is shown if SponsorBlock is not available</string>
+            <string name="revanced_sb_toast_on_connection_error_sum_off">Toast is not shown if SponsorBlock is not available</string>
             <string name="revanced_sb_general_skipcount">Enable skip count tracking</string>
             <string name="revanced_sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped</string>
             <string name="revanced_sb_general_skipcount_sum_off">Skip count tracking is not enabled</string>

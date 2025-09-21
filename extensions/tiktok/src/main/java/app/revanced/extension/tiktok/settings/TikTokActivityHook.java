@@ -7,29 +7,29 @@ import android.preference.PreferenceFragment;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.tiktok.settings.preference.ReVancedPreferenceFragment;
+import app.revanced.extension.tiktok.settings.preference.TikTokPreferenceFragment;
+
 import com.bytedance.ies.ugc.aweme.commercialize.compliance.personalization.AdPersonalizationActivity;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * Hooks AdPersonalizationActivity.
- * <p>
- * This class is responsible for injecting our own fragment by replacing the AdPersonalizationActivity.
- *
- * @noinspection unused
+ * Hooks AdPersonalizationActivity to inject a custom {@link TikTokPreferenceFragment}.
  */
-public class AdPersonalizationActivityHook {
+@SuppressWarnings({"deprecation", "NewApi", "unused"})
+public class TikTokActivityHook {
     public static Object createSettingsEntry(String entryClazzName, String entryInfoClazzName) {
         try {
             Class<?> entryClazz = Class.forName(entryClazzName);
             Class<?> entryInfoClazz = Class.forName(entryInfoClazzName);
             Constructor<?> entryConstructor = entryClazz.getConstructor(entryInfoClazz);
             Constructor<?> entryInfoConstructor = entryInfoClazz.getDeclaredConstructors()[0];
-            Object buttonInfo = entryInfoConstructor.newInstance("ReVanced settings", null, (View.OnClickListener) view -> startSettingsActivity(), "revanced");
+            Object buttonInfo = entryInfoConstructor.newInstance(
+                    "ReVanced settings", null, (View.OnClickListener) view -> startSettingsActivity(), "revanced");
             return entryConstructor.newInstance(buttonInfo);
         } catch (ClassNotFoundException | NoSuchMethodException | InvocationTargetException | IllegalAccessException |
                  InstantiationException e) {
@@ -62,7 +62,7 @@ public class AdPersonalizationActivityHook {
         linearLayout.addView(fragment);
         base.setContentView(linearLayout);
 
-        PreferenceFragment preferenceFragment = new ReVancedPreferenceFragment();
+        PreferenceFragment preferenceFragment = new TikTokPreferenceFragment();
         base.getFragmentManager().beginTransaction().replace(fragmentId, preferenceFragment).commit();
 
         return true;

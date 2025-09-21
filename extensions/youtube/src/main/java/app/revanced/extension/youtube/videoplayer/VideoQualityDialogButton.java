@@ -2,38 +2,30 @@ package app.revanced.extension.youtube.videoplayer;
 
 import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.dipToPixels;
+import static app.revanced.extension.shared.settings.preference.CustomDialogListPreference.*;
 import static app.revanced.extension.youtube.patches.VideoInformation.AUTOMATIC_VIDEO_QUALITY_VALUE;
 import static app.revanced.extension.youtube.patches.VideoInformation.VIDEO_QUALITY_PREMIUM_NAME;
+import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.fadeInDuration;
+import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.getDialogBackgroundColor;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.res.Configuration;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.RoundRectShape;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.UnderlineSpan;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.*;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import app.revanced.extension.shared.ui.SheetBottomDialog;
+import app.revanced.extension.youtube.shared.PlayerType;
 import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +35,7 @@ import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 @SuppressWarnings("unused")
 public class VideoQualityDialogButton {
@@ -59,6 +52,11 @@ public class VideoQualityDialogButton {
             return Unit.INSTANCE;
         });
     }
+
+    /**
+     * Weak reference to the currently open dialog.
+     */
+    private static WeakReference<SheetBottomDialog.SlideDialog> currentDialog;
 
     /**
      * Injection point.
@@ -216,41 +214,14 @@ public class VideoQualityDialogButton {
                 }
             }
 
-            Dialog dialog = new Dialog(context);
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            dialog.setCanceledOnTouchOutside(true);
-            dialog.setCancelable(true);
+            // Preset size constants.
+            final int dip8 = dipToPixels(8);
+            final int dip12 = dipToPixels(12);
+            final int dip16 = dipToPixels(16);
 
-            final int dip4 = dipToPixels(4);   // Height for handle bar.
-            final int dip5 = dipToPixels(5);   // Padding for mainLayout.
-            final int dip6 = dipToPixels(6);   // Bottom margin.
-            final int dip8 = dipToPixels(8);   // Side padding.
-            final int dip16 = dipToPixels(16); // Left padding for ListView.
-            final int dip20 = dipToPixels(20); // Margin below handle.
-            final int dip40 = dipToPixels(40); // Width for handle bar.
-
-            LinearLayout mainLayout = new LinearLayout(context);
-            mainLayout.setOrientation(LinearLayout.VERTICAL);
-            mainLayout.setPadding(dip5, dip8, dip5, dip8);
-
-            ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
-                    Utils.createCornerRadii(12), null, null));
-            background.getPaint().setColor(Utils.getDialogBackgroundColor());
-            mainLayout.setBackground(background);
-
-            View handleBar = new View(context);
-            ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(
-                    Utils.createCornerRadii(4), null, null));
-            final int baseColor = Utils.getDialogBackgroundColor();
-            final int adjustedHandleBarBackgroundColor = Utils.adjustColorBrightness(
-                    baseColor, 0.9f, 1.25f);
-            handleBackground.getPaint().setColor(adjustedHandleBarBackgroundColor);
-            handleBar.setBackground(handleBackground);
-            LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(dip40, dip4);
-            handleParams.gravity = Gravity.CENTER_HORIZONTAL;
-            handleParams.setMargins(0, 0, 0, dip20);
-            handleBar.setLayoutParams(handleParams);
-            mainLayout.addView(handleBar);
+            // Create main layout.
+            SheetBottomDialog.DraggableLinearLayout mainLayout =
+                    SheetBottomDialog.createMainLayout(context, getDialogBackgroundColor());
 
             // Create SpannableStringBuilder for formatted text.
             SpannableStringBuilder spannableTitle = new SpannableStringBuilder();
@@ -298,16 +269,20 @@ public class VideoQualityDialogButton {
             LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
-            titleParams.setMargins(dip8, 0, 0, dip20);
+            titleParams.setMargins(dip12, dip16, 0, dip16);
             titleView.setLayoutParams(titleParams);
             mainLayout.addView(titleView);
 
+            // Create ListView for quality selection.
             ListView listView = new ListView(context);
             CustomQualityAdapter adapter = new CustomQualityAdapter(context, qualityLabels);
             adapter.setSelectedPosition(listViewSelectedIndex);
             listView.setAdapter(adapter);
             listView.setDivider(null);
-            listView.setPadding(dip16, 0, 0, 0);
+
+            // Create dialog.
+            SheetBottomDialog.SlideDialog dialog = SheetBottomDialog.createSlideDialog(context, mainLayout, fadeInDuration);
+            currentDialog = new WeakReference<>(dialog);
 
             listView.setOnItemClickListener((parent, view, which, id) -> {
                 try {
@@ -322,112 +297,41 @@ public class VideoQualityDialogButton {
                 }
             });
 
-            LinearLayout.LayoutParams listViewParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
-            listViewParams.setMargins(0, 0, 0, dip5);
-            listView.setLayoutParams(listViewParams);
             mainLayout.addView(listView);
 
-            LinearLayout wrapperLayout = new LinearLayout(context);
-            wrapperLayout.setOrientation(LinearLayout.VERTICAL);
-            wrapperLayout.setPadding(dip8, 0, dip8, 0);
-            wrapperLayout.addView(mainLayout);
-            dialog.setContentView(wrapperLayout);
-
-            Window window = dialog.getWindow();
-            if (window != null) {
-                WindowManager.LayoutParams params = window.getAttributes();
-                params.gravity = Gravity.BOTTOM;
-                params.y = dip6;
-                int portraitWidth = context.getResources().getDisplayMetrics().widthPixels;
-                if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                    portraitWidth = Math.min(
-                            portraitWidth,
-                            context.getResources().getDisplayMetrics().heightPixels);
-                    // Limit height in landscape mode.
-                    params.height = Utils.percentageHeightToPixels(80);
-                } else {
-                    params.height = WindowManager.LayoutParams.WRAP_CONTENT;
-                }
-                params.width = portraitWidth;
-                window.setAttributes(params);
-                window.setBackgroundDrawable(null);
-            }
-
-            final int fadeDurationFast = Utils.getResourceInteger("fade_duration_fast");
-            Animation slideInABottomAnimation = Utils.getResourceAnimation("slide_in_bottom");
-            slideInABottomAnimation.setDuration(fadeDurationFast);
-            mainLayout.startAnimation(slideInABottomAnimation);
-
-            // noinspection ClickableViewAccessibility
-            mainLayout.setOnTouchListener(new View.OnTouchListener() {
-                final float dismissThreshold = dipToPixels(100);
-                float touchY;
-                float translationY;
-
+            // Create observer for PlayerType changes.
+            Function1<PlayerType, Unit> playerTypeObserver = new Function1<>() {
                 @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    switch (event.getAction()) {
-                        case MotionEvent.ACTION_DOWN:
-                            touchY = event.getRawY();
-                            translationY = mainLayout.getTranslationY();
-                            return true;
-                        case MotionEvent.ACTION_MOVE:
-                            final float deltaY = event.getRawY() - touchY;
-                            if (deltaY >= 0) {
-                                mainLayout.setTranslationY(translationY + deltaY);
-                            }
-                            return true;
-                        case MotionEvent.ACTION_UP:
-                        case MotionEvent.ACTION_CANCEL:
-                            if (mainLayout.getTranslationY() > dismissThreshold) {
-                                //noinspection ExtractMethodRecommender
-                                final float remainingDistance = context.getResources().getDisplayMetrics().heightPixels
-                                        - mainLayout.getTop();
-                                TranslateAnimation slideOut = new TranslateAnimation(
-                                        0, 0, mainLayout.getTranslationY(), remainingDistance);
-                                slideOut.setDuration(fadeDurationFast);
-                                slideOut.setAnimationListener(new Animation.AnimationListener() {
-                                    @Override
-                                    public void onAnimationStart(Animation animation) {}
-                                    @Override
-                                    public void onAnimationEnd(Animation animation) {
-                                        dialog.dismiss();
-                                    }
-                                    @Override
-                                    public void onAnimationRepeat(Animation animation) {}
-                                });
-                                mainLayout.startAnimation(slideOut);
-                            } else {
-                                TranslateAnimation slideBack = new TranslateAnimation(
-                                        0, 0, mainLayout.getTranslationY(), 0);
-                                slideBack.setDuration(fadeDurationFast);
-                                mainLayout.startAnimation(slideBack);
-                                mainLayout.setTranslationY(0);
-                            }
-                            return true;
-                        default:
-                            return false;
+                public Unit invoke(PlayerType type) {
+                    SheetBottomDialog.SlideDialog current = currentDialog.get();
+                    if (current == null || !current.isShowing()) {
+                        // Should never happen.
+                        PlayerType.getOnChange().removeObserver(this);
+                        Logger.printException(() -> "Removing player type listener as dialog is null or closed");
+                    } else if (type == PlayerType.WATCH_WHILE_PICTURE_IN_PICTURE) {
+                        current.dismiss();
+                        Logger.printDebug(() -> "Playback speed dialog dismissed due to PiP mode");
                     }
+                    return Unit.INSTANCE;
                 }
+            };
+
+            // Add observer to dismiss dialog when entering PiP mode.
+            PlayerType.getOnChange().addObserver(playerTypeObserver);
+
+            // Remove observer when dialog is dismissed.
+            dialog.setOnDismissListener(d -> {
+                PlayerType.getOnChange().removeObserver(playerTypeObserver);
+                Logger.printDebug(() -> "PlayerType observer removed on dialog dismiss");
             });
 
-            dialog.show();
+            dialog.show(); // Show the dialog.
         } catch (Exception ex) {
             Logger.printException(() -> "showVideoQualityDialog failure", ex);
         }
     }
 
     private static class CustomQualityAdapter extends ArrayAdapter<String> {
-        private static final int CUSTOM_LIST_ITEM_CHECKED_ID = Utils.getResourceIdentifier(
-                "revanced_custom_list_item_checked", "layout");
-        private static final int CHECK_ICON_ID = Utils.getResourceIdentifier(
-                "revanced_check_icon", "id");
-        private static final int CHECK_ICON_PLACEHOLDER_ID = Utils.getResourceIdentifier(
-                "revanced_check_icon_placeholder", "id");
-        private static final int ITEM_TEXT_ID = Utils.getResourceIdentifier(
-                "revanced_item_text", "id");
 
         private int selectedPosition = -1;
 
@@ -447,14 +351,14 @@ public class VideoQualityDialogButton {
 
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(
-                        CUSTOM_LIST_ITEM_CHECKED_ID,
+                        LAYOUT_REVANCED_CUSTOM_LIST_ITEM_CHECKED,
                         parent,
                         false
                 );
                 viewHolder = new ViewHolder();
-                viewHolder.checkIcon = convertView.findViewById(CHECK_ICON_ID);
-                viewHolder.placeholder = convertView.findViewById(CHECK_ICON_PLACEHOLDER_ID);
-                viewHolder.textView = convertView.findViewById(ITEM_TEXT_ID);
+                viewHolder.checkIcon = convertView.findViewById(ID_REVANCED_CHECK_ICON);
+                viewHolder.placeholder = convertView.findViewById(ID_REVANCED_CHECK_ICON_PLACEHOLDER);
+                viewHolder.textView = convertView.findViewById(ID_REVANCED_ITEM_TEXT);
                 convertView.setTag(viewHolder);
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();

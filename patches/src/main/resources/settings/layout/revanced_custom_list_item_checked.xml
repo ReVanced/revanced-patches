@@ -14,7 +14,7 @@
             android:id="@+id/revanced_check_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="24dp"
             android:src="@drawable/revanced_settings_custom_checkmark"
             android:visibility="gone"
             android:contentDescription="@null" />
@@ -23,7 +23,7 @@
             android:id="@+id/revanced_check_icon_placeholder"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="24dp"
             android:visibility="invisible" />
 
     <TextView
