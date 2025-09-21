@@ -1600,10 +1600,6 @@ public final class app/revanced/patches/youtube/misc/playservice/VersionCheckPat
 	public static final fun is_20_37_or_greater ()Z
 }
 
-public final class app/revanced/patches/youtube/misc/privacy/RemoveTrackingQueryParameterPatchKt {
-	public static final fun getRemoveTrackingQueryParameterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/youtube/misc/privacy/SanitizeSharingLinksPatchKt {
 	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

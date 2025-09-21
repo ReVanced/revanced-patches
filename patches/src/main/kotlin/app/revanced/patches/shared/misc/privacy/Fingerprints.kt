@@ -1,8 +1,12 @@
 package app.revanced.patches.shared.misc.privacy
 
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.AccessFlags
+import app.revanced.patcher.checkCast
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
+import app.revanced.patcher.string
+import com.android.tools.smali.dexlib2.Opcode
 
 internal val youTubeCopyTextFingerprint by fingerprint {
     returns("V")
