@@ -41,8 +41,8 @@ public class YouTubeSearchViewController extends BaseSearchViewController {
     protected void setupSpecialPreferenceListeners(BaseSearchResultItem item) {
     }
 
-    // Static method for back press handling.
-    public static boolean handleBackPress(YouTubeSearchViewController searchViewController) {
+    // Static method for Activity finish.
+    public static boolean handleFinish(YouTubeSearchViewController searchViewController) {
         if (searchViewController != null && searchViewController.isSearchActive()) {
             searchViewController.closeSearch();
             return true;

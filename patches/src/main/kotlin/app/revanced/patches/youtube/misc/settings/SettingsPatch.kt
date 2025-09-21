@@ -299,7 +299,7 @@ internal fun modifyActivityForSettingsInjection(
     ).toMutable().apply {
         addInstructions(
             """
-                invoke-static {}, $extensionClassType->handleBackPress()Z
+                invoke-static {}, $extensionClassType->handleFinish()Z
                 move-result v0
                 if-nez v0, :search_handled
                 invoke-super { p0 }, Landroid/app/Activity;->finish()V

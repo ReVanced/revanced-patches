@@ -17,7 +17,6 @@ import app.revanced.extension.shared.settings.BaseActivityHook;
 /**
  * Hooks GoogleApiActivity to inject a custom {@link MusicPreferenceFragment} with a toolbar and search.
  */
-@SuppressWarnings("deprecation")
 public class MusicActivityHook extends BaseActivityHook {
 
     @SuppressLint("StaticFieldLeak")
@@ -115,10 +114,12 @@ public class MusicActivityHook extends BaseActivityHook {
     /**
      * Injection point.
      * <p>
-     * Static method for back press handling.
+     * Overrides {@link Activity#finish()} of the injection Activity.
+     *
+     * @return if the original activity finish method should be allowed to run.
      */
     @SuppressWarnings("unused")
-    public static boolean handleBackPress() {
-        return MusicSearchViewController.handleBackPress(searchViewController);
+    public static boolean handleFinish() {
+        return MusicSearchViewController.handleFinish(searchViewController);
     }
 }
