@@ -26,13 +26,13 @@ import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragme
 public abstract class BaseActivityHook extends Activity {
 
     private static final int ID_REVANCED_SETTINGS_FRAGMENTS =
-            getResourceIdentifierOrThrow("revanced_settings_fragments", "id");
+            getResourceIdentifierOrThrow(ResourceType.ID, "revanced_settings_fragments");
     private static final int ID_REVANCED_TOOLBAR_PARENT =
-            getResourceIdentifierOrThrow("revanced_toolbar_parent", "id");
+            getResourceIdentifierOrThrow(ResourceType.ID, "revanced_toolbar_parent");
     public static final int LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR =
-            getResourceIdentifierOrThrow("revanced_settings_with_toolbar", "layout");
+            getResourceIdentifierOrThrow(ResourceType.LAYOUT, "revanced_settings_with_toolbar");
     private static final int STRING_REVANCED_SETTINGS_TITLE =
-            getResourceIdentifierOrThrow("revanced_settings_title", "string");
+            getResourceIdentifierOrThrow(ResourceType.STRING, "revanced_settings_title");
 
     /**
      * Layout parameters for the toolbar, extracted from the dummy toolbar.

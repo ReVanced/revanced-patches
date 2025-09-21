@@ -34,6 +34,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
@@ -66,14 +67,18 @@ public abstract class BaseSearchViewController {
 
     protected static final int MAX_SEARCH_RESULTS = 50; // Maximum number of search results displayed.
 
-    protected static final int ID_REVANCED_SEARCH_VIEW = getResourceIdentifierOrThrow("revanced_search_view", "id");
-    protected static final int ID_REVANCED_SEARCH_VIEW_CONTAINER = getResourceIdentifierOrThrow("revanced_search_view_container", "id");
-    protected static final int ID_ACTION_SEARCH = getResourceIdentifierOrThrow("action_search", "id");
-    protected static final int ID_REVANCED_SETTINGS_FRAGMENTS = getResourceIdentifierOrThrow("revanced_settings_fragments", "id");
-    public static final int DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON =
-            getResourceIdentifierOrThrow("revanced_settings_search_icon", "drawable");
-    protected static final int MENU_REVANCED_SEARCH_MENU =
-            getResourceIdentifierOrThrow("revanced_search_menu", "menu");
+    protected static final int ID_REVANCED_SEARCH_VIEW = getResourceIdentifierOrThrow(
+            ResourceType.ID, "revanced_search_view");
+    protected static final int ID_REVANCED_SEARCH_VIEW_CONTAINER = getResourceIdentifierOrThrow(
+            ResourceType.ID, "revanced_search_view_container");
+    protected static final int ID_ACTION_SEARCH = getResourceIdentifierOrThrow(
+            ResourceType.ID, "action_search");
+    protected static final int ID_REVANCED_SETTINGS_FRAGMENTS = getResourceIdentifierOrThrow(
+            ResourceType.ID, "revanced_settings_fragments");
+    public static final int DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON = getResourceIdentifierOrThrow(
+            ResourceType.DRAWABLE, "revanced_settings_search_icon");
+    protected static final int MENU_REVANCED_SEARCH_MENU = getResourceIdentifierOrThrow(
+            ResourceType.MENU, "revanced_search_menu");
 
     /**
      * Constructs a new BaseSearchViewController instance.
@@ -108,7 +113,7 @@ public abstract class BaseSearchViewController {
         // Retrieve SearchView and container from XML.
         searchView = activity.findViewById(ID_REVANCED_SEARCH_VIEW);
         EditText searchEditText = searchView.findViewById(Utils.getResourceIdentifierOrThrow(
-                "android:id/search_src_text", null));
+                null, "android:id/search_src_text"));
         // Disable fullscreen keyboard mode.
         searchEditText.setImeOptions(searchEditText.getImeOptions() | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
 

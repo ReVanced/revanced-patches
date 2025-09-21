@@ -328,53 +328,6 @@ public class Utils {
         return getResourceIdentifierOrThrow(getContext(), type, resourceIdentifierName);
     }
 
-    /**
-     * @return The resource identifier, or throws an exception if not found.
-     */
-    @Deprecated
-    public static int getResourceIdentifierOrThrow(Context context, String resourceIdentifierName, @Nullable String type) {
-        final int resourceId = getResourceIdentifier(context, type, resourceIdentifierName);
-        if (resourceId == 0) {
-            throw new Resources.NotFoundException("No resource id exists with name: " + resourceIdentifierName
-                    + " type: " + type);
-        }
-        return resourceId;
-    }
-
-
-    /**
-     * Instead use {@link #getResourceIdentifierOrThrow(ResourceType, String)}
-     */
-    @Deprecated
-    public static int getResourceIdentifierOrThrow(String resourceIdentifierName, @Nullable String stringType) {
-        return getResourceIdentifierOrThrow(getContext(), resourceIdentifierName, stringType);
-    }
-
-    /**
-     * Instead use {@link #getResourceIdentifier(ResourceType, String)}
-     */
-    @Deprecated
-    public static int getResourceIdentifier(String resourceIdentifierName, @Nullable String stringType) {
-        return getResourceIdentifier(getContext(), resourceIdentifierName, stringType);
-    }
-
-    /**
-     * Instead use {@link #getResourceIdentifier(Context, ResourceType, String)}
-     */
-    @Deprecated
-    public static int getResourceIdentifier(Context context, String resourceIdentifierName, @Nullable String stringType) {
-        // Find ResourceType with same name as type parameter string
-        ResourceType convertedType = null;
-        for (ResourceType type : ResourceType.values()) {
-            if (type.value.equals(stringType)) {
-                convertedType = type;
-                break;
-            }
-        }
-
-        return getResourceIdentifierOrThrow(context, convertedType, resourceIdentifierName);
-    }
-
     public static int getResourceInteger(String resourceIdentifierName) throws Resources.NotFoundException {
         return getContext().getResources().getInteger(getResourceIdentifierOrThrow(ResourceType.INTEGER, resourceIdentifierName));
     }

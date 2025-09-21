@@ -24,6 +24,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.settings.preference.BulletPointPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
 
@@ -37,25 +38,25 @@ public class SearchHistoryManager {
     private static final int MAX_HISTORY_SIZE = 5;  // Maximum history items stored.
 
     private static final int ID_CLEAR_HISTORY_BUTTON = getResourceIdentifierOrThrow(
-            "clear_history_button", "id");
+            ResourceType.ID, "clear_history_button");
     private static final int ID_HISTORY_TEXT = getResourceIdentifierOrThrow(
-            "history_text", "id");
+            ResourceType.ID, "history_text");
     private static final int ID_DELETE_ICON = getResourceIdentifierOrThrow(
-            "delete_icon", "id");
+            ResourceType.ID, "delete_icon");
     private static final int ID_EMPTY_HISTORY_TITLE = getResourceIdentifierOrThrow(
-            "empty_history_title", "id");
+            ResourceType.ID, "empty_history_title");
     private static final int ID_EMPTY_HISTORY_SUMMARY = getResourceIdentifierOrThrow(
-            "empty_history_summary", "id");
+            ResourceType.ID, "empty_history_summary");
     private static final int ID_SEARCH_HISTORY_HEADER = getResourceIdentifierOrThrow(
-            "search_history_header", "id");
+            ResourceType.ID, "search_history_header");
     private static final int ID_SEARCH_TIPS_SUMMARY = getResourceIdentifierOrThrow(
-            "revanced_settings_search_tips_summary", "id");
+            ResourceType.ID, "revanced_settings_search_tips_summary");
     private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_SCREEN = getResourceIdentifierOrThrow(
-            "revanced_preference_search_history_screen", "layout");
+            ResourceType.LAYOUT, "revanced_preference_search_history_screen");
     private static final int LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_ITEM = getResourceIdentifierOrThrow(
-            "revanced_preference_search_history_item", "layout");
+            ResourceType.LAYOUT, "revanced_preference_search_history_item");
     private static final int ID_SEARCH_HISTORY_LIST = getResourceIdentifierOrThrow(
-            "search_history_list", "id");
+            ResourceType.ID, "search_history_list");
 
     private final Deque<String> searchHistory;
     private final Activity activity;
