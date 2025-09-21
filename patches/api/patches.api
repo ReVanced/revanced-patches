@@ -264,6 +264,10 @@ public final class app/revanced/patches/instagram/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/instagram/feed/LimitFeedToFollowedProfilesKt {
+	public static final fun getLimitFeedToFollowedProfiles ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/instagram/hide/explore/HideExploreFeedKt {
 	public static final fun getHideExportFeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -274,6 +278,10 @@ public final class app/revanced/patches/instagram/hide/navigation/HideNavigation
 
 public final class app/revanced/patches/instagram/hide/stories/HideStoriesKt {
 	public static final fun getHideStoriesPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/instagram/misc/extension/SharedExtensionPatchKt {
+	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/instagram/misc/signature/SignatureCheckPatchKt {
@@ -364,8 +372,16 @@ public final class app/revanced/patches/music/interaction/permanentshuffle/Perma
 	public static final fun getPermanentShufflePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/layout/castbutton/HideCastButtonKt {
+	public static final fun getHideCastButton ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/layout/compactheader/HideCategoryBarKt {
 	public static final fun getHideCategoryBar ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/layout/navigationbar/NavigationBarPatchKt {
+	public static final fun getNavigationBarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/layout/premium/HideGetPremiumPatchKt {
@@ -383,6 +399,10 @@ public final class app/revanced/patches/music/misc/androidauto/BypassCertificate
 
 public final class app/revanced/patches/music/misc/backgroundplayback/BackgroundPlaybackPatchKt {
 	public static final fun getBackgroundPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/misc/debugging/EnableDebuggingPatchKt {
+	public static final fun getEnableDebuggingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/misc/extension/SharedExtensionPatchKt {

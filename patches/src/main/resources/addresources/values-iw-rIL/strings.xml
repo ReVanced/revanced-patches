@@ -107,6 +107,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_title">רישום איתור באגים</string>
   <string name="revanced_debug_summary_on">יומני איתור באגים מופעלים</string>
   <string name="revanced_debug_summary_off">יומני איתור באגים מושבתים</string>
+  <string name="revanced_debug_stacktrace_title">רשום עקבות מחסנית</string>
+  <string name="revanced_debug_stacktrace_summary_on">יומני איתור באגים כוללים עקבות מחסנית</string>
+  <string name="revanced_debug_stacktrace_summary_off">יומני איתור באגים אינם כוללים עקבות מחסנית</string>
+  <string name="revanced_debug_toast_on_error_title">הצג הודעה קופצת בעת שגיאת ReVanced</string>
+  <string name="revanced_debug_toast_on_error_summary_on">הודעה קופצת מוצגת אם מתרחשת שגיאה</string>
+  <string name="revanced_debug_toast_on_error_summary_off">הודעה קופצת אינה מוצגת אם מתרחשת שגיאה</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"השבתת הודעות שגיאה קופצות מסתירה את כל הודעות השגיאה של ReVanced.
+
+לא תקבל הודעה על אירועים בלתי צפויים."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">ייצוא יומני איתור באגים</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">מעתיק יומנים לאיתור באגים של Revanced ללוח ההעתקה</string>
   <string name="revanced_debug_logs_disabled">תיעוד איתור באגים מושבת</string>
@@ -151,15 +160,6 @@ Second \"item\" text"</string>
 זה יכול לעזור לזהות רכיבים בעת יצירת מסננים מותאמים אישית.
 
 עם זאת, הפעלת הגדרה זו תתעד גם כמה נתוני משתמש כמו כתובת ה-IP שלך."</string>
-  <string name="revanced_debug_stacktrace_title">רשום עקבות מחסנית</string>
-  <string name="revanced_debug_stacktrace_summary_on">יומני איתור באגים כוללים עקבות מחסנית</string>
-  <string name="revanced_debug_stacktrace_summary_off">יומני איתור באגים אינם כוללים עקבות מחסנית</string>
-  <string name="revanced_debug_toast_on_error_title">הצג הודעה קופצת בעת שגיאת ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">הודעה קופצת מוצגת אם מתרחשת שגיאה</string>
-  <string name="revanced_debug_toast_on_error_summary_off">הודעה קופצת אינה מוצגת אם מתרחשת שגיאה</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"השבתת הודעות שגיאה קופצות מסתירה את כל הודעות השגיאה של ReVanced.
-
-לא תקבל הודעה על אירועים בלתי צפויים."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">הסתר כרטיסי אלבום</string>
@@ -586,6 +586,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_stop_ads_button_title">הסתר עצירת מודעות</string>
   <string name="revanced_hide_stop_ads_button_summary_on">לחצן עצירת מודעות מוסתר</string>
   <string name="revanced_hide_stop_ads_button_summary_off">לחצן עצירת מודעות מוצג</string>
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+  <string name="revanced_hide_comments_button_title">הסתר תגובות</string>
+  <string name="revanced_hide_comments_button_summary_on">הלחצן \'תגובות\' מוסתר</string>
+  <string name="revanced_hide_comments_button_summary_off">הלחצן \'תגובות\' מוצג</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">הסתר דיווח</string>
@@ -1244,8 +1248,9 @@ Second \"item\" text"</string>
 
 אם נכבה מאוחר יותר, מומלץ לנקות את נתוני היישום כדי למנוע באגים של ממשק המשתמש."</string>
   <string name="revanced_spoof_app_version_target_title">יעד גרסת יישום מזויפת</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - שחזר סמלי נגן Shorts ישנים</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - שחזר סמלי ניווט ישנים</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - שחזור סרגל פעולות וידאו לא מכווץ</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - שחזר סמלי נגן Shorts ישנים</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - שחזר סמלי ניווט ישנים</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">שנה את דף ההתחלה</string>
@@ -1479,7 +1484,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_summary_on">שימוש בשפת שמע מקורית</string>
   <string name="revanced_force_original_audio_summary_off">שימוש בשמע ברירת מחדל</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה את \'זייף זרמי וידאו\' ל-iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה את \'זיוף זרמי וידאו\' לכל לקוח מלבד Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
@@ -1561,12 +1566,15 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• לקוח ניסיוני ועשוי להפסיק לפעול בכל עת</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• אין קודק וידאו מסוג AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ייתכן שסרטוני Kids לא יופעלו כשאתה מנותק או במצב פרטי</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• כפיית שמע מקורי אינה זמינה</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">הצג בנתונים לגיקים</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">סוג הלקוח מוצג בנתונים לגיקים</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">הלקוח מוסתר בנתונים לגיקים</string>
   <string name="revanced_spoof_video_streams_language_title">שפת זרם השמע</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">כדי לבחור שפת שמע ספציפית, כבה את \'אכוף שפת שמע מקורית\'</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">בחירת שפת הזרם אינה זמינה עם אנדרואיד סטודיו</string>
   </patch>
   </app>
   <app id="music">
@@ -1587,10 +1595,45 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">חזרה קבועה מופעלת</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">חזרה קבועה מושבתת</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">הסתר לחצן שידור</string>
+  <string name="revanced_music_hide_cast_button_summary_on">לחצן השידור מוסתר</string>
+  <string name="revanced_music_hide_cast_button_summary_off">לחצן השידור מוצג</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">הסתר סרגל קטגוריות</string>
   <string name="revanced_music_hide_category_bar_summary_on">סרגל הקטגוריות מוסתר</string>
   <string name="revanced_music_hide_category_bar_summary_off">סרגל הקטגוריות מוצג</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">סרגל ניווט</string>
+  <string name="revanced_music_navigation_bar_screen_summary">הסתר או שנה לחצני סרגל ניווט</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">הסתר דף הבית</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">לחצן \'דף הבית\' מוסתר</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">לחצן \'דף הבית\' מוצג</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">הסתר דוגמאות</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">לחצן \'דוגמיות\' מוסתר</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">לחצן \'דוגמיות\' מוצג</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">הסתר גלו</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">לחצן \'גלו\' מוסתר</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">לחצן \'גלו\' מוצג</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">הסתר ספרייה</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">לחצן \'ספרייה\' מוסתר</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">לחצן \'ספרייה\' מוצג</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">הסתר שדרוג</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">לחצן \'שדרוג\' מוסתר</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">לחצן \'שדרוג\' מוצג</string>
+  <string name="revanced_music_hide_navigation_bar_title">הסתר סרגל ניווט</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">סרגל הניווט מוסתר</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">סרגל הניווט מוצג</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">הסתר תוויות לחצני ניווט</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">התוויות מוסתרות</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">התוויות מוצגות</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">הסתר תווית \'קבל Premium למוזיקה\'</string>

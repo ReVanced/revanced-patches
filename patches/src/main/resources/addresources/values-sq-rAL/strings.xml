@@ -107,6 +107,15 @@ Riprodhimi mund të mos funksionojë"</string>
   <string name="revanced_debug_title">Regjistrimi i depurimit</string>
   <string name="revanced_debug_summary_on">Regjistrimet e depurimit janë të aktivizuara</string>
   <string name="revanced_debug_summary_off">Regjistrimet e depurimit janë të çaktivizuara</string>
+  <string name="revanced_debug_stacktrace_title">Regjistro gjurmët e grumbullimit</string>
+  <string name="revanced_debug_stacktrace_summary_on">Regjistrimet e depurimit përfshijnë gjurmë grumbullimi</string>
+  <string name="revanced_debug_stacktrace_summary_off">Regjistrimet e depurimit nuk përfshijnë gjurmë grumbullimi</string>
+  <string name="revanced_debug_toast_on_error_title">Shfaqni toast për gabimet e ReVanced</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Shfaqet një toast nëse ndodh një gabim</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Nuk shfaqet toast nëse ndodh një gabim</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Fshirja e toast-eve të gabimit fsheh të gjitha njoftimet e gabimeve të ReVanced.
+
+Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Eksporto regjistrat e korrigjimit</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">Kopjon regjistrat e korrigjimit të ReVanced në kujtesën e shkurtër</string>
   <string name="revanced_debug_logs_disabled">Regjistrimi i korrigjimeve është çaktivizuar</string>
@@ -151,15 +160,6 @@ Riprodhimi mund të mos funksionojë"</string>
 Kjo mund të ndihmojë në identifikimin e komponentëve kur krijoni filtra të personalizuar.
 
 Gjithsesi, aktivizimi i këtij opsioni do të regjistrojë edhe disa të dhëna të përdoruesit, siç është adresa juaj IP."</string>
-  <string name="revanced_debug_stacktrace_title">Regjistro gjurmët e grumbullimit</string>
-  <string name="revanced_debug_stacktrace_summary_on">Regjistrimet e depurimit përfshijnë gjurmë grumbullimi</string>
-  <string name="revanced_debug_stacktrace_summary_off">Regjistrimet e depurimit nuk përfshijnë gjurmë grumbullimi</string>
-  <string name="revanced_debug_toast_on_error_title">Shfaqni toast për gabimet e ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Shfaqet një toast nëse ndodh një gabim</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Nuk shfaqet toast nëse ndodh një gabim</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Fshirja e toast-eve të gabimit fsheh të gjitha njoftimet e gabimeve të ReVanced.
-
-Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Fshih kartat e albumit</string>
@@ -586,6 +586,10 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_hide_stop_ads_button_title">Fshih \"Ndalo reklamat\"</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Butoni Ndalo reklamat është i fshehur</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Butoni Ndalo reklamat është i shfaqur</string>
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+  <string name="revanced_hide_comments_button_title">Fshih Komentet</string>
+  <string name="revanced_hide_comments_button_summary_on">Butoni i komenteve është i fshehur</string>
+  <string name="revanced_hide_comments_button_summary_off">Butoni i komenteve është shfaqur</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Fsheh \"Raporton\"</string>
@@ -1240,8 +1244,9 @@ Kjo do të ndryshojë pamjen dhe veçoritë e aplikacionit, por mund të ndodhin
 
 Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dhënat e aplikacionit për të parandaluar gabimet e UI."</string>
   <string name="revanced_spoof_app_version_target_title">Shënjestër e versionit të aplikacionit të mashtuar</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Rikthe ikonat e vjetra të lojtarit Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Ristauro ikonave te vjetra te navigimit</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Rivendos shiritin e veprimeve të videos jo të palosur</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Rikthe ikonat e vjetra të lojtarit Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Ristauro ikonave te vjetra te navigimit</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Ndrysho faqen e fillimit</string>
@@ -1475,7 +1480,7 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_force_original_audio_summary_on">Duke përdorur gjuhën origjinale audio</string>
   <string name="revanced_force_original_audio_summary_off">Përdorimi i Zërit Parazgjedhur</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Për ta përdorur këtë veçori, ndryshoni \'Rrjedhat e videos tallëse\' në iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Për të përdorur këtë veçori, ndryshoni \'Falsifiko transmetimet e videos\' në çdo klient përveç Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
@@ -1557,12 +1562,15 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klient eksperimental dhe mund të ndalojë së funksionuari në çdo kohë</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nuk ka codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video për fëmijë mund të mos luajnë kur jeni jashtë llogarisë ose në modalitetin incognito</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Detyro audio origjinale nuk është i disponueshëm</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Shfaqni në Statistikat për nerdës</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Lloji i klientit shfaqet në Statistikat për nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienti është fshehur në statistikat për nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Gjuha e transmetimit audio</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Për të zgjedhur një gjuhë specifike audio, çaktivizoni \"Detyro gjuhën origjinale audio\"</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Zgjedhja e gjuhës së transmetimit nuk është e disponueshme me Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1583,10 +1591,45 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Përsëritja e përhershme është aktivizuar</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Përsëritja e përhershme është çaktivizuar</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Fshih butonin e transmetimit</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Butoni i transmetimit është fshehur</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Butoni i transmetimit është shfaqur</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Fshi shiritin e kategorive</string>
   <string name="revanced_music_hide_category_bar_summary_on">Shiriti i kategorive është i fshehur</string>
   <string name="revanced_music_hide_category_bar_summary_off">Shiriti i kategorive është i shfaqur</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Shiriti i navigimit</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Fshih ose ndrysho butonat e shiritit të navigimit</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Fshih Kreun</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Butoni Kryesore është fshehur</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Butoni Kryesore është shfaqur</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Fshih Mostrat</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Butoni Mostra është fshehur</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Butoni Mostra është shfaqur</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Fshih Eksplorimin</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Butoni Eksploro është fshehur</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Butoni Eksploro është shfaqur</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Fshih Bibliotekën</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Butoni Biblioteka është fshehur</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Butoni Biblioteka është shfaqur</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Fshih përmirësimin</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Butoni Azhorno është fshehur</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Butoni Azhorno është shfaqur</string>
+  <string name="revanced_music_hide_navigation_bar_title">Fshih shiritin e navigimit</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Shiriti i navigimit është fshehur</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Shiriti i navigimit është shfaqur</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Fshih etiketat e butonave të navigimit</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Etiketat janë fshehur</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Etiketat janë shfaqur</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Fshi etiketën \'Merr Music Premium\'</string>

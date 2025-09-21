@@ -107,6 +107,15 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_debug_title">Առաջնորդման մատնանշում</string>
   <string name="revanced_debug_summary_on">Մարմնացման առաջնորդման մատնանշումները ակտիվացված են</string>
   <string name="revanced_debug_summary_off">Մարմնացման առաջնորդման մատնանշումները անջատված են</string>
+  <string name="revanced_debug_stacktrace_title">Մուտքագրել կուտակային կետերի հետքեր</string>
+  <string name="revanced_debug_stacktrace_summary_on">Մարմնացման առաջնորդման մատնանշումները պարունակում են կուտակային կետի հետք</string>
+  <string name="revanced_debug_stacktrace_summary_off">Մարմնացման առաջնորդման մատնանշումները չեն պարունակում կուտակային կետի հետք</string>
+  <string name="revanced_debug_toast_on_error_title">Ցույց տալ  toast  ReVanced  սխալի  դեպքում</string>
+  <string name="revanced_debug_toast_on_error_summary_on">\"Toast\"-ը ցուցադրվում է, եթե սխալ է առաջանում</string>
+  <string name="revanced_debug_toast_on_error_summary_off">\"Toast\"-ը չի ցուցադրվում, եթե սխալ է առաջանում</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Սխալների տոաստի անջատումը թաքցնում է ReVanced-ի բոլոր սխալների ծանուցումները։
+
+Դուք չեք ստանա ան予期した出来事ի մասին ծանուցում։"</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Արտահանել վրեժխնդրության կարգաբերման մատյանները</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">Պատճենում է ReVanced-ի կարգաբերման մատյանները սեղմատախտակին</string>
   <string name="revanced_debug_logs_disabled">Վրեժխնդրության մատյանների գրանցումն անջատված է</string>
@@ -151,15 +160,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
 Սա կարող է օգնել բացահայտել բաղադրիչները՝ հատուկ զտիչներ ստեղծելիս։
 
 Այնուամենայնիվ, սա միացնելը կգրանցի նաև օգտատիրոջ որոշ տվյալներ, ինչպիսիք են ձեր IP հասցեն:"</string>
-  <string name="revanced_debug_stacktrace_title">Մուտքագրել կուտակային կետերի հետքեր</string>
-  <string name="revanced_debug_stacktrace_summary_on">Մարմնացման առաջնորդման մատնանշումները պարունակում են կուտակային կետի հետք</string>
-  <string name="revanced_debug_stacktrace_summary_off">Մարմնացման առաջնորդման մատնանշումները չեն պարունակում կուտակային կետի հետք</string>
-  <string name="revanced_debug_toast_on_error_title">Ցույց տալ  toast  ReVanced  սխալի  դեպքում</string>
-  <string name="revanced_debug_toast_on_error_summary_on">\"Toast\"-ը ցուցադրվում է, եթե սխալ է առաջանում</string>
-  <string name="revanced_debug_toast_on_error_summary_off">\"Toast\"-ը չի ցուցադրվում, եթե սխալ է առաջանում</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Սխալների տոաստի անջատումը թաքցնում է ReVanced-ի բոլոր սխալների ծանուցումները։
-
-Դուք չեք ստանա ան予期した出来事ի մասին ծանուցում։"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Թաքցնել  ալբոմի  քարտերը</string>
@@ -586,6 +586,10 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_stop_ads_button_title">Թաքցնել \"Դադարեցնել գովազդները\"</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Գովազդները դադարեցնելու կոճակը թաքցված է</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Գովազդները դադարեցնելու կոճակը ցուցադրված է</string>
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+  <string name="revanced_hide_comments_button_title">Թաքցնել մեկնաբանությունները</string>
+  <string name="revanced_hide_comments_button_summary_on">Մեկնաբանությունների կոճակը թաքնված է</string>
+  <string name="revanced_hide_comments_button_summary_off">Մեկնաբանությունների կոճակը ցուցադրված է</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Թաքցնել Report</string>
@@ -1243,8 +1247,9 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
 
 Եթե հետագայում անջատվի, խորհուրդ է տրվում մաքրել հավելվածի տվյալները՝ UI սխալներից խուսափելու համար։"</string>
   <string name="revanced_spoof_app_version_target_title">Spoof-ի կիրառության տարբերակի նպատակ</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Վերականգնել հին Shorts պլեյերի պատկերակները</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Վերականգնել հին նավիգացիոն պատկերակները</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Վերականգնել չծալված տեսանյութի գործողությունների տողը</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Վերականգնել հին Shorts պլեյերի պատկերակները</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Վերականգնել հին նավիգացիոն պատկերակները</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Փոխել մեկնարկային էջը</string>
@@ -1478,7 +1483,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_force_original_audio_summary_on">Օգտագործելով ձայնային օրիգինալ լեզուն</string>
   <string name="revanced_force_original_audio_summary_off">Վերջնական ձայն օգտագործվում է</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Այս գործառույթն օգտագործելու համար փոխեք «Կեղծել տեսահոսքերը» iOS TV-ի</string>
+  <string name="revanced_force_original_audio_not_available">Այս հնարավորությունն օգտագործելու համար «Կեղծել վիդեո հոսքերը» տարբերակը փոխեք ցանկացած հաճախորդի, բացի Android Studio-ից</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
@@ -1560,12 +1565,15 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_spoof_video_streams_about_experimental">• Փորձնական հաճախորդ է և կարող է ցանկացած պահի դադարել աշխատել</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Հեռացված բոլոր AV1 վիդեո կոդեկները</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">Երեխաների տեսանյութերը կարող են չհամապատասխանել հետևյալ պահանջներին՝ եթե արտոնագրման խախտումներ կան։</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Բնօրինակ ձայնի պարտադրումը հասանելի չէ</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Ցուցադրել վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Հաճախորդի տեսակը ցուցադրվում է վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Հաճախորդը թաքնված է վիճակագրության ակնոցներում</string>
   <string name="revanced_spoof_video_streams_language_title">Ձայնային հոսքի լեզուն</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Որոշակի ձայնային լեզու ընտրելու համար անջատեք \'Պարտադրել բնօրինակ ձայնային լեզուն\'</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Հոսքի լեզվի ընտրությունը հասանելի չէ Android Studio-ի հետ</string>
   </patch>
   </app>
   <app id="music">
@@ -1586,10 +1594,45 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_music_play_permanent_repeat_summary_on">Մշտական կրկնությունը միացված է</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Մշտական կրկնությունը անջատված է</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Թաքցնել հեռարձակման կոճակը</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Հեռարձակման կոճակը թաքնված է</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Հեռարձակման կոճակը ցուցադրված է</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Թաքցնել կատեգորիաների վահանակը</string>
   <string name="revanced_music_hide_category_bar_summary_on">Կատեգորիաների վահանակը թաքցված է</string>
   <string name="revanced_music_hide_category_bar_summary_off">Կատեգորիաների վահանակը ցուցադրվում է</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Նավիգացիոն գիծ</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Թաքցնել կամ փոխել նավիգացիոն գծի կոճակները</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Թաքցնել Գլխավորը</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">«Գլխավոր» կոճակը թաքնված է</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">«Գլխավոր» կոճակը ցուցադրված է</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Թաքցնել Նմուշները</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">«Նմուշներ» կոճակը թաքնված է</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">«Նմուշներ» կոճակը ցուցադրված է</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Թաքցնել Ուսումնասիրելը</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">«Բացահայտել» կոճակը թաքնված է</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">«Բացահայտել» կոճակը ցուցադրված է</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Թաքցնել Գրադարանը</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">«Գրադարան» կոճակը թաքնված է</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">«Գրադարան» կոճակը ցուցադրված է</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Թաքցնել Թարմացումը</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">«Արդիականացնել» կոճակը թաքնված է</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">«Արդիականացնել» կոճակը ցուցադրված է</string>
+  <string name="revanced_music_hide_navigation_bar_title">Թաքցնել նավիգացիոն գիծը</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Նավիգացիոն գիծը թաքնված է</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Նավիգացիոն գիծը ցուցադրված է</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Թաքցնել նավիգացիոն կոճակների պիտակները</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Պիտակները թաքնված են</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Պիտակները ցուցադրված են</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Թաքցնել «Ստացեք Music Premium» պիտակը</string>

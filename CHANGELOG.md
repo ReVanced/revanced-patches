@@ -1,3 +1,87 @@
+# [5.40.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.10...v5.40.0-dev.11) (2025-09-20)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Add stream audio selector disclaimer for Android Studio client ([a8a4107](https://github.com/ReVanced/revanced-patches/commit/a8a410708d50f34ac4bd2ca29bbbc3cde00bbf93))
+
+# [5.40.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.9...v5.40.0-dev.10) (2025-09-20)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Add "Force original audio" disclaimer for Android Studio client ([f97d332](https://github.com/ReVanced/revanced-patches/commit/f97d33206b4c97244f0bd0c672c4b91eaf477b0b))
+
+# [5.40.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.8...v5.40.0-dev.9) (2025-09-20)
+
+
+### Features
+
+* **YouTube Music:** Support version `8.10.52` ([#5941](https://github.com/ReVanced/revanced-patches/issues/5941)) ([01c0f1b](https://github.com/ReVanced/revanced-patches/commit/01c0f1bd1ac6edb8aea758f88ffffcdea74a29b7))
+
+# [5.40.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.7...v5.40.0-dev.8) (2025-09-20)
+
+
+### Features
+
+* **YouTube:** Support version `20.14.43` ([#5940](https://github.com/ReVanced/revanced-patches/issues/5940)) ([f7f4a1b](https://github.com/ReVanced/revanced-patches/commit/f7f4a1b0f0186598266b41a2c6a781fdee49e440))
+
+# [5.40.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.6...v5.40.0-dev.7) (2025-09-20)
+
+
+### Features
+
+* **YouTube - Hide video action buttons:** Add "Hide comments" button ([db796fb](https://github.com/ReVanced/revanced-patches/commit/db796fb8830b813e1ed626d491c4a797171e69e7))
+
+# [5.40.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.5...v5.40.0-dev.6) (2025-09-20)
+
+
+### Features
+
+* **YouTube Music:** Add `Enable debugging` patch ([#5939](https://github.com/ReVanced/revanced-patches/issues/5939)) ([418f594](https://github.com/ReVanced/revanced-patches/commit/418f5945c213313f9a77cac9a5c326d89c754dfd))
+
+# [5.40.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.4...v5.40.0-dev.5) (2025-09-20)
+
+
+### Features
+
+* **YouTube Music:** Add `Hide cast button` and `Navigation bar` patches ([#5934](https://github.com/ReVanced/revanced-patches/issues/5934)) ([651d358](https://github.com/ReVanced/revanced-patches/commit/651d3580967a252b57cbf4afbba02d6a4601ccfe))
+
+# [5.40.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.3...v5.40.0-dev.4) (2025-09-20)
+
+
+### Bug Fixes
+
+* **Spoof video streams:** Resolve occasional playback stuttering ([5c7c8b5](https://github.com/ReVanced/revanced-patches/commit/5c7c8b536416ec53cd98f7d59d11850aa1b70f11))
+
+# [5.40.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.2...v5.40.0-dev.3) (2025-09-19)
+
+
+### Bug Fixes
+
+* **Instagram - Limit feed to followed profiles:** Change patch to default off ([767f1e3](https://github.com/ReVanced/revanced-patches/commit/767f1e3695327bdbc4daea8b50a80d4c0a38456a))
+
+# [5.40.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.40.0-dev.1...v5.40.0-dev.2) (2025-09-18)
+
+
+### Features
+
+* **Instagram:** Add `Limit feed to followed profiles` patch ([#5908](https://github.com/ReVanced/revanced-patches/issues/5908)) ([8ba9a19](https://github.com/ReVanced/revanced-patches/commit/8ba9a19ade24c5fe9bd6d4e49772b7663522780e))
+
+# [5.40.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.39.1-dev.1...v5.40.0-dev.1) (2025-09-17)
+
+
+### Features
+
+* **Viber - Hide ads:** Support latest app target ([#5863](https://github.com/ReVanced/revanced-patches/issues/5863)) ([e6cce85](https://github.com/ReVanced/revanced-patches/commit/e6cce8554116df3c0ea6dbb7440c59c9e73d8334))
+
+## [5.39.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.39.0...v5.39.1-dev.1) (2025-09-17)
+
+
+### Bug Fixes
+
+* **YouTube - Force original audio:** Show UI setting summary if spoofing to Android Studio ([b7026b7](https://github.com/ReVanced/revanced-patches/commit/b7026b70865bc44de07b30f84ba8b8b608930d5b))
+
 # [5.39.0](https://github.com/ReVanced/revanced-patches/compare/v5.38.0...v5.39.0) (2025-09-17)
 
 

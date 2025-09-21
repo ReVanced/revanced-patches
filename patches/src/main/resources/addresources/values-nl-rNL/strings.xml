@@ -107,6 +107,15 @@ Afspeelproblemen kunnen optreden"</string>
   <string name="revanced_debug_title">Debuglogboek</string>
   <string name="revanced_debug_summary_on">Debuglogboeken zijn ingeschakeld</string>
   <string name="revanced_debug_summary_off">Debuglogboeken zijn uitgeschakeld</string>
+  <string name="revanced_debug_stacktrace_title">Stacktraces loggen</string>
+  <string name="revanced_debug_stacktrace_summary_on">Debuglogboeken bevatten stacktrace</string>
+  <string name="revanced_debug_stacktrace_summary_off">Debuglogs bevatten geen stacktrace</string>
+  <string name="revanced_debug_toast_on_error_title">Toon toastmelding bij ReVanced error</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Toastmelding wordt weergegeven als er een fout optreedt</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Toastmelding wordt niet weergegeven als er een fout optreedt</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Het uitschakelen van foutmeldingen verbergt alle ReVanced-foutmeldingen.
+
+U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Foutopsporingslogboeken exporteren</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">Kopieert ReVanced-foutopsporingslogboeken naar het klembord</string>
   <string name="revanced_debug_logs_disabled">Foutopsporing is uitgeschakeld</string>
@@ -151,15 +160,6 @@ Afspeelproblemen kunnen optreden"</string>
 Dit kan helpen bij het identificeren van componenten bij het maken van aangepaste filters.
 
 Als u dit inschakelt, worden echter ook bepaalde gebruikersgegevens, zoals uw IP-adres, vastgelegd."</string>
-  <string name="revanced_debug_stacktrace_title">Stacktraces loggen</string>
-  <string name="revanced_debug_stacktrace_summary_on">Debuglogboeken bevatten stacktrace</string>
-  <string name="revanced_debug_stacktrace_summary_off">Debuglogs bevatten geen stacktrace</string>
-  <string name="revanced_debug_toast_on_error_title">Toon toastmelding bij ReVanced error</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Toastmelding wordt weergegeven als er een fout optreedt</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Toastmelding wordt niet weergegeven als er een fout optreedt</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Het uitschakelen van foutmeldingen verbergt alle ReVanced-foutmeldingen.
-
-U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Verberg albumkaarten</string>
@@ -586,6 +586,10 @@ Pas het volume aan door verticaal over de rechterkant van het scherm te vegen"</
   <string name="revanced_hide_stop_ads_button_title">Advertenties stoppen verbergen</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Knop \"Advertenties stoppen\" is verborgen</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Knop \"Advertenties stoppen\" is zichtbaar</string>
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+  <string name="revanced_hide_comments_button_title">Reacties verbergen</string>
+  <string name="revanced_hide_comments_button_summary_on">De reactieknop is verborgen</string>
+  <string name="revanced_hide_comments_button_summary_off">De reactieknop wordt weergegeven</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Melden verbergen</string>
@@ -1242,8 +1246,9 @@ Dit zal het uiterlijk en de functies van de app veranderen, maar er kunnen onbek
 
 Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen om UI-fouten te voorkomen."</string>
   <string name="revanced_spoof_app_version_target_title">Doel voor vervalsen app-versie</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Herstel oude pictogrammen voor Shorts-speler</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Herstel oude navigatie-iconen</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Herstel niet-ingeklapte videobalk</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Herstel oude pictogrammen voor Shorts-speler</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Herstel oude navigatie-iconen</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Startpagina wijzigen</string>
@@ -1475,7 +1480,7 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_force_original_audio_summary_on">De oorspronkelijke audiotaal gebruiken</string>
   <string name="revanced_force_original_audio_summary_off">Standaard audio gebruiken</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Om deze functie te gebruiken, wijzig je \'Videostreams vervalsen\' in iOS TV</string>
+  <string name="revanced_force_original_audio_not_available">Om deze functie te gebruiken, wijzig \'Videostreams spoofen\' naar elke client behalve Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
@@ -1557,12 +1562,15 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentele client en kan elk moment stoppen met werken</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Geen AV1-videocodec</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• \"Kinder\"​-Video’s worden mogelijk niet afgespeeld wanneer u bent uitgelogd of de incognitomodus gebruikt</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Oorspronkelijke audio forceren is niet beschikbaar</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Weergeven in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Het clienttype wordt getoond in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is verborgen in Stats for nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Audiostreamtaal</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Om een specifieke audiotaal te selecteren, schakel \"Oorspronkelijke audiotaal forceren\" uit</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Streamtaalselectie is niet beschikbaar met Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1583,10 +1591,45 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Permanent herhalen is ingeschakeld</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Permanent herhalen is uitgeschakeld</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Cast-knop verbergen</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Cast-knop is verborgen</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Cast-knop is weergegeven</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Categoriebalk verbergen</string>
   <string name="revanced_music_hide_category_bar_summary_on">Categoriebalk is verborgen</string>
   <string name="revanced_music_hide_category_bar_summary_off">Categoriebalk wordt weergegeven</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Navigatiebalk</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Navigatiebalkknoppen verbergen of wijzigen</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Startpagina verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Startknop is verborgen</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Startknop wordt weergegeven</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Fragmenten verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Knop Voorbeelden is verborgen</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Knop Voorbeelden wordt weergegeven</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Verberg Ontdekken</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Knop Ontdekken is verborgen</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Knop Ontdekken wordt weergegeven</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Verberg Bibliotheek</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Knop Bibliotheek is verborgen</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Knop Bibliotheek wordt weergegeven</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Verberg Upgraden</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Upgrade-knop is verborgen</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Upgrade-knop wordt weergegeven</string>
+  <string name="revanced_music_hide_navigation_bar_title">Navigatiebalk verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Navigatiebalk is verborgen</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Navigatiebalk wordt weergegeven</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Labels van navigatieknoppen verbergen</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Labels zijn verborgen</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Labels worden weergegeven</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">\'Muziek Premium krijgen\' label verbergen</string>
