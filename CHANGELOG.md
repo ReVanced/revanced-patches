@@ -1,3 +1,10 @@
+# [5.41.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.1...v5.41.0-dev.2) (2025-09-21)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Update client side effects summary text ([a0a62dd](https://github.com/ReVanced/revanced-patches/commit/a0a62ddad26cfab3e04907fae5532e1ba1fdf710))
+
 # [5.41.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.40.1-dev.1...v5.41.0-dev.1) (2025-09-21)
 
 
