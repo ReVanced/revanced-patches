@@ -1571,10 +1571,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Странични ефекти от подменянето</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Strani4ni efekti na fal6ivoto predstavqne na Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Липсва менюто за аудиозаписи
-• Стабилен звук не е наличен"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Видеото може да спре на 1:00 или може да не е налично в някои региони</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Видеото може да спре на 1:00 или може да не е налично в някои региони</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментален клиент и може да спре да работи по всяко време</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Без AV1 видео кодек</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Детските видеоклипове може да не се възпроизвеждат, когато сте излезли от профила си или в режим \"инкогнито\"</string>

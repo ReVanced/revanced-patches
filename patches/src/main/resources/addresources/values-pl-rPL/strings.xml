@@ -1567,10 +1567,7 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Skutki uboczne fałszowania</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Efekty uboczne podszywania się pod Androida</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Brak menu ścieżek dźwiękowych
-• Stabilna głośność jest niedostępna"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Wideo może zatrzymać się o 1:00 lub może być niedostępne w niektórych regionach</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Wideo może zatrzymać się o 1:00 lub może być niedostępne w niektórych regionach</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperymentalny klient i może przestać działać w każdej chwili</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Filmy dla dzieci mogą nie być odtwarzane po wylogowaniu lub w trybie incognito</string>

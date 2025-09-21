@@ -1570,10 +1570,7 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Saxtakarlıq yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android saxtalaşdırma yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Səs treki menyusu əlçatmazdır
-• Sabit səs səviyyəsi yoxdur"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video 01:00-da dayana bilər və ya bəzi bölgələrdə mövcud olmaya bilər</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video 01:00-da dayana bilər və ya bəzi bölgələrdə mövcud olmaya bilər</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Təcrübi qəbuledici və hər vaxt işləməyi dayandıra bilər</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodlayıcı yoxdur</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Giriş edilməyəndə və ya gizli rejimdə uşaq videoları oynadıla bilməz</string>

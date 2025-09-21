@@ -1571,10 +1571,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">الآثار الجانبية للتزوير</string>
-  <string name="revanced_spoof_video_streams_about_android_title">الآثار الجانبية لمحاكاة هوية Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• قائمة المسارات الصوتية مفقودة
-• مستوى الصوت المستقر غير متاح"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• قد يتوقف الفيديو عند 1:00، أو قد لا يكون متاحًا في بعض المناطق</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• قد يتوقف الفيديو عند 1:00، أو قد لا يكون متاحًا في بعض المناطق</string>
   <string name="revanced_spoof_video_streams_about_experimental">• عميل تجريبي وقد يتوقف عن العمل في أي وقت</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• لا يوجد ترميز الفيديو AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو عند استخدام وضع التصفح المتخفي</string>

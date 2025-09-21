@@ -1570,10 +1570,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Παρενέργειες παραποίησης</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Παρενέργειες παραποίησης σε Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Το μενού «Κομμάτι ήχου» λείπει
-• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Το βίντεο ενδέχεται να σταματήσει στο 1:00 ή να μην είναι διαθέσιμο σε ορισμένες περιοχές</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Το βίντεο ενδέχεται να σταματήσει στο 1:00 ή να μην είναι διαθέσιμο σε ορισμένες περιοχές</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Πειραματικός πελάτης και μπορεί να σταματήσει να λειτουργεί ανά πάσα στιγμή</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Δεν υπάρχει ο κωδικοποιητής βίντεο AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεδεμένοι ή σε λειτουργία ανώνυμης περιήγησης</string>

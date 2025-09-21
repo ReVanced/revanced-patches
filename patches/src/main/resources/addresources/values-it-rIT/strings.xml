@@ -1570,10 +1570,7 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Effetti collaterali della falsificazione</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Effetti collaterali simulazione Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Il menu della traccia audio è mancante
-• Il volume stabile non è disponibile"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Il video potrebbe interrompersi all\'1:00, o potrebbe non essere disponibile in alcune regioni</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Il video potrebbe interrompersi all\'1:00, o potrebbe non essere disponibile in alcune regioni</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Client sperimentale e potrebbe smettere di funzionare in qualsiasi momento</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nessun codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• I video dei bambini potrebbero non essere riprodotti quando si è disconnessi o in modalità di navigazione in incognito</string>

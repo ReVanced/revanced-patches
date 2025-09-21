@@ -1570,10 +1570,7 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Biverkningar av förfalskning</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Biverkningar av Android-förfalskning</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Ljudspårsmenyn saknas
-• Jämn volym är inte tillgänglig"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video kan stoppa vid 1:00, eller kanske inte är tillgänglig i vissa regioner</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video kan stoppa vid 1:00, eller kanske inte är tillgänglig i vissa regioner</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentell klient och kan sluta fungera när som helst</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ingen AV1-videokodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videor för barn kanske inte spelas upp när du är utloggad eller i inkognitoläge</string>

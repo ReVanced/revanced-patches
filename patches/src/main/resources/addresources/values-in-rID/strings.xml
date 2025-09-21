@@ -1570,10 +1570,7 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Efek samping pemalsuan</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Efek samping pemalsuan Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Menu trek audio hilang
-• Volume stabil tidak tersedia"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video mungkin berhenti pada 1:00, atau mungkin tidak tersedia di beberapa wilayah</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video mungkin berhenti pada 1:00, atau mungkin tidak tersedia di beberapa wilayah</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klien eksperimental dan dapat berhenti berfungsi kapan saja</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video anak-anak mungkin tidak dapat diputar saat keluar atau dalam mode penyamaran</string>

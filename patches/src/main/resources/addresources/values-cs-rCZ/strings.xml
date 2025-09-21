@@ -1571,10 +1571,7 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Vedlejší účinky maskování</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Vedlejší účinky spoofingu Androidu</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Chybí nabídka zvukové stopy
-• Stabilní hlasitost není k dispozici"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video se může zastavit v 1:00 nebo nemusí být dostupné v některých oblastech</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video se může zastavit v 1:00 nebo nemusí být dostupné v některých oblastech</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentální klient a může kdykoli přestat fungovat</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Dětská videa se nemusí přehrávat, když jste odhlášení nebo v anonymním režimu</string>

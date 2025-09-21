@@ -1570,10 +1570,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Побічні ефекти підробки</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Побічні ефекти підробки Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Меню звукової доріжки відсутнє
-• Меню стабілізації гучності недоступне"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Відео може зупинитися на 1:00, або може бути недоступним у деяких регіонах</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Відео може зупинитися на 1:00, або може бути недоступним у деяких регіонах</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментальний клієнт, який може припинити працювати будь-якої миті</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Відсутній відеокодек AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Відео для дітей можуть не відтворюватися, якщо вийти з облікового запису або перейти в анонімний режим</string>

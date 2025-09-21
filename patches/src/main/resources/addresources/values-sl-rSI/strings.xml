@@ -1571,10 +1571,7 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Stranski učinki ponarejanja</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android Stranski učinki spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Meni za zvočno skladbo manjka
-• Stabilna glasnost ni na voljo"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video se lahko ustavi ob 1:00, ali pa morda ne bo na voljo v nekaterih regijah</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video se lahko ustavi ob 1:00, ali pa morda ne bo na voljo v nekaterih regijah</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentalni odjemalec in lahko kadar koli preneha delovati</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Brez kodeka videa AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Posnetki za otroke se mogoče ne bodo predvajali, ko ste odjavljeni ali v načinu brez beleženja zgodovine</string>

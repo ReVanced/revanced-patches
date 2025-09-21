@@ -1578,10 +1578,7 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Taklit yan etkileri</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android taklidi yan etkileri</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Ses parçası menüsü eksik
-• Sabit ses özelliği kullanılamaz"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video 1:00\'da durabilir veya bazı bölgelerde kullanılamayabilir</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video 1:00\'da durabilir veya bazı bölgelerde kullanılamayabilir</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Deneysel istemci ve her an çalışmayı durdurabilir</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Çocuk videoları oturum açılmadığında veya gizli modda oynatılamayabilir</string>

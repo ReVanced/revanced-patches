@@ -1571,10 +1571,7 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Võltsimise kõrvalmõjud</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Androidi pettuse kõrvalmõjud</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Heliriba menüü puudub
-• Stabiilne helitugevus pole saadaval"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video võib peatuda kell 1:00 või ei pruugi olla teatud piirkondades saadaval</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video võib peatuda kell 1:00 või ei pruugi olla teatud piirkondades saadaval</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentaalne klient ja võib igal ajal töötamast lakata</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Puuduv AV1 videokoodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video lastele ei pruugi taasesitada, kui olete välja logitud või inkognito režiimis</string>

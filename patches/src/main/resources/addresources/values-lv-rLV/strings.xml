@@ -1572,10 +1572,7 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Viltotu straumju blakusparādības</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android viltus straumēšanas blakus efekti</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Audio celiņa izvēlne trūkst
-• Nav pieejams stabils skaļums"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video var apstāties pulksten 1:00 vai nebūt pieejams dažos reģionos</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video var apstāties pulksten 1:00 vai nebūt pieejams dažos reģionos</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentāls klients un jebkurā brīdī var pārtraukt darbu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nav pieejams AV1 video kodeks</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Bērnu videoklipi var netikt atskaņoti, kad esat izrakstījies vai inkognito režīmā.</string>

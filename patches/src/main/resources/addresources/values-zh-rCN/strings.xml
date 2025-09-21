@@ -1576,10 +1576,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">欺骗的副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android 模拟的副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• 音轨菜单缺失
-• 稳定音量不可用"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• 视频可能会在 1:00 停止，或者在某些地区可能无法播放</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• 视频可能会在 1:00 停止，或者在某些地区可能无法播放</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 实验性客户端，可能随时停止工作</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• 不支持 AV1 视频编解码器</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• 注销或使用无痕模式时，儿童视频可能无法播放</string>

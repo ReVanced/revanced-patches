@@ -1569,10 +1569,7 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Spoofing-neveneffecten</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Bijwerkingen van Android-spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Audiotracks-menu ontbreekt
-• Stabiel volume is niet beschikbaar"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video kan stoppen om 1:00, of is mogelijk niet beschikbaar in sommige regio\'s</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video kan stoppen om 1:00, of is mogelijk niet beschikbaar in sommige regio\'s</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentele client en kan elk moment stoppen met werken</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Geen AV1-videocodec</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• \"Kinder\"​-Video’s worden mogelijk niet afgespeeld wanneer u bent uitgelogd of de incognitomodus gebruikt</string>

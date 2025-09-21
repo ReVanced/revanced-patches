@@ -1572,10 +1572,7 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Klastojimo šalutiniai efektai</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android apsimetinėjimo šalutiniai poveikiai</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Trūksta garso takelio meniu
-• Stabilus garsumas nepasiekiamas"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Vaizdo įrašas gali sustoti ties 1:00 arba gali būti nepasiekiamas kai kuriuose regionuose</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Vaizdo įrašas gali sustoti ties 1:00 arba gali būti nepasiekiamas kai kuriuose regionuose</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentinis klientas ir bet kada gali nustoti veikti</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nėra AV1 vaizdo kodeko</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Vaikų vaizdo įrašai gali būti neatkuriami, kai atsijungiama arba naudojamas inkognito režimas</string>

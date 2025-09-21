@@ -1562,10 +1562,7 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Efectos secundarios de la falsificación</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Efectos secundarios de la falsificación de Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Falta el menú de la pista de audio
-• El volumen estable no está disponible"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• El video puede detenerse en 1:00, o puede no estar disponible en algunas regiones</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• El video puede detenerse en 1:00, o puede no estar disponible en algunas regiones</string>
   <string name="revanced_spoof_video_streams_about_experimental">• El cliente es experimental y puede dejar de funcionar en cualquier momento</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Sin códec de vídeo AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Es posible que los vídeos infantiles no se reproduzcan cuando se cierra la sesión o se está en modo incógnito</string>

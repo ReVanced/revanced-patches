@@ -1573,10 +1573,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">תופעות לוואי של התחזות</string>
-  <string name="revanced_spoof_video_streams_about_android_title">תופעות לוואי של זיוף Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• תפריט רצועת השמע חסר
-• עוצמת קול יציבה אינה זמינה"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• הווידאו עשוי להיעצר בדקה 1:00, או ייתכן שלא יהיה זמין באזורים מסוימים</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• הווידאו עשוי להיעצר בדקה 1:00, או ייתכן שלא יהיה זמין באזורים מסוימים</string>
   <string name="revanced_spoof_video_streams_about_experimental">• לקוח ניסיוני ועשוי להפסיק לפעול בכל עת</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• אין קודק וידאו מסוג AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ייתכן שסרטוני Kids לא יופעלו כשאתה מנותק או במצב פרטי</string>

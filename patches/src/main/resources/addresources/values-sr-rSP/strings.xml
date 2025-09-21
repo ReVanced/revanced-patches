@@ -1573,10 +1573,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Нежељени ефекти лажирања</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Нежељени ефекти лажирања на Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Мени „Аудио снимак” недостаје
-• Опција „Уједначена јачина звука” није доступна"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Видео се може зауставити на 1:00 или можда неће бити доступан у неким регионима</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Видео се може зауставити на 1:00 или можда неће бити доступан у неким регионима</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментални клијент и може престати да ради било када</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Нема видео кодека AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Видеи за децу се можда неће пуштати када сте одјављени или у режиму без архивирања</string>
