@@ -61,8 +61,3 @@ val loopVideoPatch = bytecodePatch(
         }
     }
 }
-
-@Deprecated("Patch was renamed", ReplaceWith("looVideoPatch"))
-val autoRepeatPatch = bytecodePatch {
-    dependsOn(loopVideoPatch)
-}
