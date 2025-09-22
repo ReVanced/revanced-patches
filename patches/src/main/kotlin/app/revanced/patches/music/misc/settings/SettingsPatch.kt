@@ -42,6 +42,8 @@ private val settingsResourcePatch = resourcePatch {
 
     execute {
 
+        // Set the style for the ReVanced settings to follow the style of the music settings,
+        // namely: action bar height, menu item padding and remove horizontal dividers.
         val targetResource = "values/styles.xml"
         inputStreamFromBundledResource(
             "settings/music",
@@ -53,7 +55,7 @@ private val settingsResourcePatch = resourcePatch {
             ).close()
         }
 
-        // Remove horizontal divider from the settings Preferences.
+        // Remove horizontal dividers from the music settings.
         val styleFile = get("res/values/styles.xml")
         styleFile.writeText(
             styleFile.readText()

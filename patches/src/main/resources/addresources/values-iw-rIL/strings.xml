@@ -1268,8 +1268,8 @@ Second \"item\" text"</string>
 אם נכבה מאוחר יותר, מומלץ לנקות את נתוני היישום כדי למנוע באגים של ממשק המשתמש."</string>
   <string name="revanced_spoof_app_version_target_title">יעד גרסת יישום מזויפת</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - שחזור סרגל פעולות וידאו לא מכווץ</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - שחזר סמלי נגן Shorts ישנים</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - שחזר סמלי ניווט ישנים</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - שחזר סמלי נגן Shorts ישנים</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - שחזר סמלי ניווט ישנים</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">שנה את דף ההתחלה</string>
