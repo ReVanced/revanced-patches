@@ -140,6 +140,14 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_debug_logs_clear_buffer_summary">保存されているすべての ReVanced デバッグログを消去します</string>
   <string name="revanced_debug_logs_clear_toast">ログを消去しました</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">追跡パラメータをリンクから削除する</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">追跡パラメータはリンクから削除されます</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">追跡パラメータはリンクから削除されません</string>
+  <string name="revanced_replace_music_with_youtube_title">共有リンクをyoutube.comに変更</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">共有リンクはyoutube.comを使用</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">共有リンクはmusic.youtube.comを使用</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1485,11 +1493,6 @@ Automotive レイアウト
   <string name="revanced_external_browser_summary_on">外部ブラウザでリンクを開きます</string>
   <string name="revanced_external_browser_summary_off">アプリ内ブラウザでリンクを開きます</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">追跡パラメータをリンクから削除する</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">追跡パラメータはリンクから削除されます</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">追跡パラメータはリンクから削除されません</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">オリジナルの音声を強制的に使用</string>
   <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用しません</string>
@@ -1570,10 +1573,7 @@ Automotive レイアウト
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">偽装による副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android クライアントの副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• 「音声トラック」がフライアウト メニューに表示されない
-• 「一定音量」が利用できない"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• 動画が 01:00 で停止する、または一部の地域で利用できない可能性がある</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• 動画が 01:00 で停止する、または一部の地域で利用できない可能性がある</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 実験的なクライアントであり、いつでも動作しなくなる可能性がある</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 コーデックが利用できない</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ログアウト時またはシークレット モード時に、子ども向け動画が再生されない可能性がある</string>

@@ -140,6 +140,14 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Wist alle opgeslagen ReVanced-foutopsporingslogboeken</string>
   <string name="revanced_debug_logs_clear_toast">Logboeken gewist</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Verwijder tracking-queryparameter</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Tracking-queryparameter wordt verwijderd uit koppelingen</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Tracking-queryparameter wordt niet verwijderd uit koppelingen</string>
+  <string name="revanced_replace_music_with_youtube_title">Deelkoppelingen wijzigen naar youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Gedeelde koppelingen gebruiken youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Gedeelde koppelingen gebruiken music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1481,11 +1489,6 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_external_browser_summary_on">Koppelingen openen in externe browser</string>
   <string name="revanced_external_browser_summary_off">Koppelingen openen in in-app browser</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Verwijder tracking-queryparameter</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Tracking-queryparameter wordt verwijderd uit koppelingen</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Tracking-queryparameter wordt niet verwijderd uit koppelingen</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forceer de originele audiotaal</string>
   <string name="revanced_force_original_audio_summary_on">De oorspronkelijke audiotaal gebruiken</string>
@@ -1566,10 +1569,7 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Spoofing-neveneffecten</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Bijwerkingen van Android-spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Audiotracks-menu ontbreekt
-• Stabiel volume is niet beschikbaar"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video kan stoppen om 1:00, of is mogelijk niet beschikbaar in sommige regio\'s</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video kan stoppen om 1:00, of is mogelijk niet beschikbaar in sommige regio\'s</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentele client en kan elk moment stoppen met werken</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Geen AV1-videocodec</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• \"Kinder\"​-Video’s worden mogelijk niet afgespeeld wanneer u bent uitgelogd of de incognitomodus gebruikt</string>

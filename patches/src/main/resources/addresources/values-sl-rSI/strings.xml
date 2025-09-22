@@ -140,6 +140,14 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Počisti vse shranjene dnevnike napak ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Dnevniki so bili izbrisani</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Odstrani parameter poizvedbe za sledenje</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parameter poizvedbe za sledenje je odstranjen iz povezav</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parameter poizvedbe za sledenje ni odstranjen iz povezav</string>
+  <string name="revanced_replace_music_with_youtube_title">Spremenite povezave za skupno rabo v youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Skupne povezave uporabljajo youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Skupne povezave uporabljajo music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1483,11 +1491,6 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_external_browser_summary_on">Odpiranje povezav v zunanjem brskalniku</string>
   <string name="revanced_external_browser_summary_off">Odpiranje povezav v brskalniku v aplikaciji</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Odstrani parameter poizvedbe za sledenje</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Parameter poizvedbe za sledenje je odstranjen iz povezav</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Parameter poizvedbe za sledenje ni odstranjen iz povezav</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Izsili izvirni jezik zvoka</string>
   <string name="revanced_force_original_audio_summary_on">Uporabi izvirni jezik zvoka</string>
@@ -1568,10 +1571,7 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Stranski učinki ponarejanja</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android Stranski učinki spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Meni za zvočno skladbo manjka
-• Stabilna glasnost ni na voljo"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video se lahko ustavi ob 1:00, ali pa morda ne bo na voljo v nekaterih regijah</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video se lahko ustavi ob 1:00, ali pa morda ne bo na voljo v nekaterih regijah</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentalni odjemalec in lahko kadar koli preneha delovati</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Brez kodeka videa AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Posnetki za otroke se mogoče ne bodo predvajali, ko ste odjavljeni ali v načinu brez beleženja zgodovine</string>

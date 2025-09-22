@@ -140,6 +140,14 @@ Nie będziesz informowany o żadnych nieoczekiwanych zdarzeniach."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Czyści wszystkie zapisane dzienniki debugowania ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Dzienniki wyczyszczone</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Parametr zapytania śledzenia</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parametr zapytania śledzenia jest usuwany z linków</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parametr zapytania śledzenia nie jest usuwany z linków</string>
+  <string name="revanced_replace_music_with_youtube_title">Zmień linki udostępniania na youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Udostępnione linki używają youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Udostępnione linki używają music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1479,11 +1487,6 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_external_browser_summary_on">Otwieranie linków w zewnętrznej przeglądarce</string>
   <string name="revanced_external_browser_summary_off">Otwieranie linków w przeglądarce w aplikacji</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Parametr zapytania śledzenia</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Parametr zapytania śledzenia jest usuwany z linków</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Parametr zapytania śledzenia nie jest usuwany z linków</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Wymuś język oryginalnego dźwięku</string>
   <string name="revanced_force_original_audio_summary_on">Używanie oryginalnego języka audio</string>
@@ -1564,10 +1567,7 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Skutki uboczne fałszowania</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Efekty uboczne podszywania się pod Androida</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Brak menu ścieżek dźwiękowych
-• Stabilna głośność jest niedostępna"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Wideo może zatrzymać się o 1:00 lub może być niedostępne w niektórych regionach</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Wideo może zatrzymać się o 1:00 lub może być niedostępne w niektórych regionach</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperymentalny klient i może przestać działać w każdej chwili</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Filmy dla dzieci mogą nie być odtwarzane po wylogowaniu lub w trybie incognito</string>

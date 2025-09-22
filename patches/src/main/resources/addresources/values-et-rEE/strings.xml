@@ -140,6 +140,14 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Puhastab kõik salvestatud ReVanced silumislogid</string>
   <string name="revanced_debug_logs_clear_toast">Logid puhastatud</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Eemalda jälgimise päringuparameeter</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Jälgimise päringuparameeter eemaldatakse linkidest</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Jälgimise päringuparameeter ei eemaldata linkidest</string>
+  <string name="revanced_replace_music_with_youtube_title">Muuda jagamislingid youtube.com-iks</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Jagatud lingid kasutavad youtube.com-i</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Jagatud lingid kasutavad music.youtube.com-i</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1483,11 +1491,6 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_external_browser_summary_on">Linkide avamine välises brauseris</string>
   <string name="revanced_external_browser_summary_off">Linkide avamine rakendusesiseses brauseris</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Eemalda jälgimise päringuparameeter</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Jälgimise päringuparameeter eemaldatakse linkidest</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Jälgimise päringuparameeter ei eemaldata linkidest</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Sunni originaalheli keel</string>
   <string name="revanced_force_original_audio_summary_on">Algse helikeele kasutamine</string>
@@ -1568,10 +1571,7 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Võltsimise kõrvalmõjud</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Androidi pettuse kõrvalmõjud</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Heliriba menüü puudub
-• Stabiilne helitugevus pole saadaval"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video võib peatuda kell 1:00 või ei pruugi olla teatud piirkondades saadaval</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video võib peatuda kell 1:00 või ei pruugi olla teatud piirkondades saadaval</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentaalne klient ja võib igal ajal töötamast lakata</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Puuduv AV1 videokoodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video lastele ei pruugi taasesitada, kui olete välja logitud või inkognito režiimis</string>

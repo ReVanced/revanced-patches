@@ -1,3 +1,17 @@
+# [5.41.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.1...v5.41.0-dev.2) (2025-09-21)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Update client side effects summary text ([a0a62dd](https://github.com/ReVanced/revanced-patches/commit/a0a62ddad26cfab3e04907fae5532e1ba1fdf710))
+
+# [5.41.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.40.1-dev.1...v5.41.0-dev.1) (2025-09-21)
+
+
+### Features
+
+* **YouTube Music:** Add `Sanitize sharing links` patch ([#5952](https://github.com/ReVanced/revanced-patches/issues/5952)) ([45c1ee8](https://github.com/ReVanced/revanced-patches/commit/45c1ee8a12dc777a371875d90741a05cf5d8e9dd))
+
 ## [5.40.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.40.0...v5.40.1-dev.1) (2025-09-21)
 
 

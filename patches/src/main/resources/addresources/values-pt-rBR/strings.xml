@@ -140,6 +140,14 @@ Você não será notificado sobre nenhum evento inesperado."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Limpa todos os registros de depuração do ReVanced armazenados</string>
   <string name="revanced_debug_logs_clear_toast">Registros limpos</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Remover parâmetro de consulta de rastreamento</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parâmetro da consulta de rastreamento foi removido dos links</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parâmetro da consulta de rastreamento não foi removido dos links</string>
+  <string name="revanced_replace_music_with_youtube_title">Alterar links de compartilhamento para youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Links compartilhados usam youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Links compartilhados usam music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1480,11 +1488,6 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   <string name="revanced_external_browser_summary_on">Abrindo links no navegador externo</string>
   <string name="revanced_external_browser_summary_off">Abrindo links no navegador interno do app</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Remover parâmetro de consulta de rastreamento</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Parâmetro da consulta de rastreamento foi removido dos links</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Parâmetro da consulta de rastreamento não foi removido dos links</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forçar idioma do áudio original</string>
   <string name="revanced_force_original_audio_summary_on">Usar o idioma original do áudio</string>
@@ -1565,10 +1568,7 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Efeitos colaterais da falsificação</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Efeitos colaterais da falsificação do Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• O menu de faixa de áudio está faltando
-• Volume estável não está disponível"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• O vídeo pode parar em 1:00, ou pode não estar disponível em algumas regiões</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• O vídeo pode parar em 1:00, ou pode não estar disponível em algumas regiões</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Cliente experimental e pode parar de funcionar a qualquer momento</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Sem codec de vídeo AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Vídeos infantis podem não ser reproduzidos quando estiver desconectado ou no modo de navegação anônima</string>

@@ -140,6 +140,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">מנקה את כל היומנים לאיתור באגים של Revanced המאוחסנים</string>
   <string name="revanced_debug_logs_clear_toast">היומנים נוקו</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">הסר פרמטר מעקב של שאילתה</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">פרמטר מעקב של שאילתה מוסר מקישורים</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">פרמטר מעקב של שאילתה אינו מוסר מקישורים</string>
+  <string name="revanced_replace_music_with_youtube_title">שנה קישורי שיתוף ל-youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">קישורים משותפים משתמשים ב-youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">קישורים משותפים משתמשים ב-music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1485,11 +1493,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_on">פותח קישורים בדפדפן חיצוני </string>
   <string name="revanced_external_browser_summary_off">פותח קישורים בדפדפן בתוך היישום</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">הסר פרמטר מעקב של שאילתה</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">פרמטר מעקב של שאילתה מוסר מקישורים</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">פרמטר מעקב של שאילתה אינו מוסר מקישורים</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">כפה שפת שמע מקורית</string>
   <string name="revanced_force_original_audio_summary_on">שימוש בשפת שמע מקורית</string>
@@ -1570,10 +1573,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">תופעות לוואי של התחזות</string>
-  <string name="revanced_spoof_video_streams_about_android_title">תופעות לוואי של זיוף Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• תפריט רצועת השמע חסר
-• עוצמת קול יציבה אינה זמינה"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• הווידאו עשוי להיעצר בדקה 1:00, או ייתכן שלא יהיה זמין באזורים מסוימים</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• הווידאו עשוי להיעצר בדקה 1:00, או ייתכן שלא יהיה זמין באזורים מסוימים</string>
   <string name="revanced_spoof_video_streams_about_experimental">• לקוח ניסיוני ועשוי להפסיק לפעול בכל עת</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• אין קודק וידאו מסוג AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ייתכן שסרטוני Kids לא יופעלו כשאתה מנותק או במצב פרטי</string>

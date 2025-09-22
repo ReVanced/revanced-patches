@@ -140,6 +140,14 @@ Bạn sẽ không được thông báo khi xẩy ra lỗi bất ngờ."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Xóa tất cả nhật ký gỡ lỗi ReVanced đã lưu trữ</string>
   <string name="revanced_debug_logs_clear_toast">Đã xóa nhật ký</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Loại bỏ tham số truy vấn theo dõi</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Tham số truy vấn theo dõi đã bị loại bỏ khỏi liên kết</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Tham số truy vấn theo dõi không được loại bỏ khỏi liên kết</string>
+  <string name="revanced_replace_music_with_youtube_title">Thay đổi liên kết chia sẻ thành youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Liên kết được chia sẻ sử dụng youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Liên kết được chia sẻ sử dụng music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1489,11 +1497,6 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_external_browser_summary_on">Đang mở liên kết trong trình duyệt bên ngoài</string>
   <string name="revanced_external_browser_summary_off">Đang mở liên kết trình duyệt trong ứng dụng</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Loại bỏ tham số truy vấn theo dõi</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Tham số truy vấn theo dõi đã bị loại bỏ khỏi liên kết</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Tham số truy vấn theo dõi không được loại bỏ khỏi liên kết</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Buộc ngôn ngữ âm thanh gốc</string>
   <string name="revanced_force_original_audio_summary_on">Đang dùng ngôn ngữ âm thanh gốc</string>
@@ -1574,10 +1577,7 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Hạn chế khi giả mạo</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Hạn chế khi giả mạo Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Trình đơn bản âm thanh bị thiếu
-• Âm lượng ổn định không khả dụng"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video có thể dừng ở 1:00, hoặc có thể không khả dụng ở một số khu vực</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video có thể dừng ở 1:00, hoặc có thể không khả dụng ở một số khu vực</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Ứng dụng khách đang trong giai đoạn thử nghiệm và có thể ngừng hoạt động bất cứ lúc nào</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Không có codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video dành cho trẻ em có thể không phát được khi đăng xuất hoặc ở chế độ ẩn danh</string>

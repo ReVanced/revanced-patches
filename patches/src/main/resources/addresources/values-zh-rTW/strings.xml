@@ -140,6 +140,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">清除所有儲存的 ReVanced 偵錯記錄</string>
   <string name="revanced_debug_logs_clear_toast">記錄已清除</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">移除追蹤查詢參數</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">已從連結移除追蹤查詢參數</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">未從連結移除追蹤查詢參數</string>
+  <string name="revanced_replace_music_with_youtube_title">將分享連結更改為 youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">分享連結使用 youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">分享連結使用 music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1493,11 +1501,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_on">在外部瀏覽器中開啟連結</string>
   <string name="revanced_external_browser_summary_off">在應用程式內瀏覽器中開啟連結</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">移除追蹤查詢參數</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">已從連結移除追蹤查詢參數</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">未從連結移除追蹤查詢參數</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">強制使用原始音訊語言</string>
   <string name="revanced_force_original_audio_summary_on">正在使用原始音訊語言</string>
@@ -1578,10 +1581,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">欺騙的副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_title">偽裝 Android 的副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• 音軌選單遺失
-• 無法使用穩定音量"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• 影片可能會在 1:00 停止，或在某些地區無法播放</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• 影片可能會在 1:00 停止，或在某些地區無法播放</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 實驗性用戶端，隨時可能停止運作</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• 沒有 AV1 影片解碼器</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• 在登出或無痕模式下，兒童影片可能無法播放</string>

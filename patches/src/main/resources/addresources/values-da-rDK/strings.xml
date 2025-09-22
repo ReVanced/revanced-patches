@@ -140,6 +140,14 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Rydder alle gemte ReVanced-fejlsøgningslogfiler</string>
   <string name="revanced_debug_logs_clear_toast">Logfiler ryddet</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Fjern sporingsforespørgselsparameter</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Sporingsparameteren er fjernet fra links</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Sporingsforespørgselsparameteren er ikke fjernet fra links</string>
+  <string name="revanced_replace_music_with_youtube_title">Skift delingslinks til youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Delte links bruger youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Delte links bruger music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1485,11 +1493,6 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_external_browser_summary_on">Åbner links i ekstern browser</string>
   <string name="revanced_external_browser_summary_off">Åbner links i browser i appen</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Fjern sporingsforespørgselsparameter</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Sporingsparameteren er fjernet fra links</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Sporingsforespørgselsparameteren er ikke fjernet fra links</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Tving originalt lydsprog</string>
   <string name="revanced_force_original_audio_summary_on">Bruger originalt lydsprog</string>
@@ -1570,10 +1573,7 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Bivirkninger ved spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Bivirkninger ved Android-spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Lydsporsmenuen mangler
-• Stabil lydstyrke er ikke tilgængelig"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Videoen kan stoppe ved 1:00, eller er muligvis ikke tilgængelig i visse regioner</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Videoen kan stoppe ved 1:00, eller er muligvis ikke tilgængelig i visse regioner</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentel klient og kan stoppe med at fungere når som helst</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Intet AV1-videokodek</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videoer til børn afspilles muligvis ikke, når du er logget ud eller i inkognitotilstand</string>

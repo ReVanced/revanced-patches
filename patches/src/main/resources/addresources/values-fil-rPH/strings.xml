@@ -140,6 +140,14 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Iki-clear ang lahat ng nakaimbak na ReVanced debug log</string>
   <string name="revanced_debug_logs_clear_toast">Na-clear ang mga log</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Alisin ang parameter ng query sa pagsubaybay</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Ang parameter ng query sa pagsubaybay ay tinanggal mula sa mga link</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Ang parameter ng query sa pagsubaybay ay hindi inaalis sa mga link</string>
+  <string name="revanced_replace_music_with_youtube_title">Baguhin ang mga link ng pagbabahagi sa youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Gumagamit ang mga nakabahaging link ng youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Gumagamit ang mga nakabahaging link ng music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1481,11 +1489,6 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_external_browser_summary_on">Binubuksan ang mga link sa panlabas na browser</string>
   <string name="revanced_external_browser_summary_off">Binubuksan ang mga link sa in-app na browser</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Alisin ang parameter ng query sa pagsubaybay</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Ang parameter ng query sa pagsubaybay ay tinanggal mula sa mga link</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Ang parameter ng query sa pagsubaybay ay hindi inaalis sa mga link</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Pilitin ang orihinal na wika ng audio</string>
   <string name="revanced_force_original_audio_summary_on">Ginagamit ang orihinal na wika ng audio</string>
@@ -1566,10 +1569,7 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Mga epekto ng pagpapanggap</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Mga side effect ng Android spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Nawawala ang menu ng audio track
-• Hindi available ang stable na volume"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Maaaring huminto ang video sa 1:00, o maaaring hindi available sa ilang rehiyon</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Maaaring huminto ang video sa 1:00, o maaaring hindi available sa ilang rehiyon</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Pang-eksperimentong kliyente at maaaring huminto sa paggana anumang oras</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Walang AV1 video codec</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Mga video ng mga bata ay maaaring hindi ma-play kapag naka-log out o nasa incognito mode</string>

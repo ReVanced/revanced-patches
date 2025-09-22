@@ -140,6 +140,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Изчиства всички съхранени логове за отстраняване на грешки на ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Логовете са изчистени</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Премахнете параметъра на заявката за проследяване</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметърът на заявката за проследяване е премахнат от връзките</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметърът на заявката за проследяване не е премахнат от връзките</string>
+  <string name="revanced_replace_music_with_youtube_title">Промяна на връзките за споделяне към youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Споделените връзки използват youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Споделените връзки използват music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1483,11 +1491,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_on">Отваряне на връзки във външен браузър</string>
   <string name="revanced_external_browser_summary_off">Отваряне на връзки във вграден браузър</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Премахнете параметъра на заявката за проследяване</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Параметърът на заявката за проследяване е премахнат от връзките</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Параметърът на заявката за проследяване не е премахнат от връзките</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Принудително оригинално аудио език</string>
   <string name="revanced_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
@@ -1568,10 +1571,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Странични ефекти от подменянето</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Strani4ni efekti na fal6ivoto predstavqne na Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Липсва менюто за аудиозаписи
-• Стабилен звук не е наличен"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Видеото може да спре на 1:00 или може да не е налично в някои региони</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Видеото може да спре на 1:00 или може да не е налично в някои региони</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментален клиент и може да спре да работи по всяко време</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Без AV1 видео кодек</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Детските видеоклипове може да не се възпроизвеждат, когато сте излезли от профила си или в режим \"инкогнито\"</string>

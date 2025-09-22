@@ -140,6 +140,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Εκκαθάριση όλων των αποθηκευμένων αρχειών καταγραφής εντοπισμού σφαλμάτων ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Τα αρχεία καταγραφής εκκαθαρίστηκαν</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Η παράμετρος παρακολούθησης αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Η παράμετρος παρακολούθησης δεν αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
+  <string name="revanced_replace_music_with_youtube_title">Αλλαγή συνδέσμων κοινής χρήσης σε youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Οι κοινόχρηστοι σύνδεσμοι χρησιμοποιούν youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Οι κοινόχρηστοι σύνδεσμοι χρησιμοποιούν music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1482,11 +1490,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_on">Οι σύνδεσμοι ανοίγουν σε εξωτερικό πρόγραμμα περιήγησης</string>
   <string name="revanced_external_browser_summary_off">Οι σύνδεσμοι ανοίγουν στο εσωτερικό πρόγραμμα περιήγησης της εφαρμογής</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Η παράμετρος παρακολούθησης αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Η παράμετρος παρακολούθησης δεν αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Εξαναγκασμός αρχικής γλώσσας ήχου</string>
   <string name="revanced_force_original_audio_summary_on">Χρησιμοποιείται η αρχική γλώσσα ήχου</string>
@@ -1567,10 +1570,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Παρενέργειες παραποίησης</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Παρενέργειες παραποίησης σε Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Το μενού «Κομμάτι ήχου» λείπει
-• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Το βίντεο ενδέχεται να σταματήσει στο 1:00 ή να μην είναι διαθέσιμο σε ορισμένες περιοχές</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Το βίντεο ενδέχεται να σταματήσει στο 1:00 ή να μην είναι διαθέσιμο σε ορισμένες περιοχές</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Πειραματικός πελάτης και μπορεί να σταματήσει να λειτουργεί ανά πάσα στιγμή</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Δεν υπάρχει ο κωδικοποιητής βίντεο AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεδεμένοι ή σε λειτουργία ανώνυμης περιήγησης</string>

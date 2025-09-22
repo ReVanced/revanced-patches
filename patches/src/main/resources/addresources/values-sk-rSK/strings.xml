@@ -138,6 +138,14 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Vymaže všetky uložené protokoly ladenia ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Protokoly vymazané</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Odstráňte parameter dopytu sledovania</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parameter dopytu sledovania je odstránený z odkazov</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parameter dopytu sledovania nie je odstránený z odkazov</string>
+  <string name="revanced_replace_music_with_youtube_title">Zmeniť odkazy na zdieľanie na youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Zdieľané odkazy používajú youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Zdieľané odkazy používajú music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1476,11 +1484,6 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_external_browser_summary_on">Otváranie odkazov v externom prehliadači</string>
   <string name="revanced_external_browser_summary_off">Otváranie odkazov v prehliadači v aplikácii</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Odstráňte parameter dopytu sledovania</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Parameter dopytu sledovania je odstránený z odkazov</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Parameter dopytu sledovania nie je odstránený z odkazov</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Vynútiť pôvodný jazyk zvuku</string>
   <string name="revanced_force_original_audio_summary_on">Používa sa pôvodný jazyk zvuku</string>
@@ -1561,10 +1564,7 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Vedľajšie účinky podvrhnutia</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Vedľajšie účinky spoofingu Androidu</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Chýba ponuka zvukovej stopy
-• Stabilná hlasitosť nie je k dispozícii"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video sa môže zastaviť o 1:00, alebo nemusí byť dostupné v niektorých regiónoch</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video sa môže zastaviť o 1:00, alebo nemusí byť dostupné v niektorých regiónoch</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentálny klient a môže kedykoľvek prestať fungovať</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žiadny video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videá pre deti sa nemusia prehrávať, keď ste odhlásení alebo v režime inkognito</string>

@@ -140,6 +140,14 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Pastro të gjithë regjistrat e ruajtur të korrigjimit të ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Regjistrat u pastruan</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Hiq parametrin e gjurmimit të kërkesës</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parametri i gjurmimit të kërkesës hiqet nga linket</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parametri i gjurmimit të kërkesës nuk hiqet nga linket</string>
+  <string name="revanced_replace_music_with_youtube_title">Ndrysho lidhjet e ndarjes në youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Lidhjet e ndara përdorin youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Lidhjet e ndara përdorin music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1481,11 +1489,6 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_external_browser_summary_on">Hapja e linkeve në shfletuesin e jashtëm</string>
   <string name="revanced_external_browser_summary_off">Hapja e linkeve në shfletuesin brenda aplikacionit</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Hiq parametrin e gjurmimit të kërkesës</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Parametri i gjurmimit të kërkesës hiqet nga linket</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Parametri i gjurmimit të kërkesës nuk hiqet nga linket</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forco gjuhën origjinale të audios</string>
   <string name="revanced_force_original_audio_summary_on">Duke përdorur gjuhën origjinale audio</string>
@@ -1566,10 +1569,7 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Efektet anësore të falsifikimit</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Efekte anësore të spoofinguit të Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Menyja e gjurmës audio mungon
-• Volumi i qëndrueshëm nuk është i disponueshëm"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Videoja mund të ndalojë në 1:00, ose mund të mos jetë e disponueshme në disa rajone</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Videoja mund të ndalojë në 1:00, ose mund të mos jetë e disponueshme në disa rajone</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klient eksperimental dhe mund të ndalojë së funksionuari në çdo kohë</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nuk ka codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video për fëmijë mund të mos luajnë kur jeni jashtë llogarisë ose në modalitetin incognito</string>

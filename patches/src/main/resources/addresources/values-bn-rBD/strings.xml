@@ -140,6 +140,14 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_debug_logs_clear_buffer_summary">সমস্ত সঞ্চিত ReVanced ডিবাগ লগ সাফ করে</string>
   <string name="revanced_debug_logs_clear_toast">লগ সাফ করা হয়েছে</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">ট্র্যাকিং করার প্যারামিটার মুছুন</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়েছে</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়নি</string>
+  <string name="revanced_replace_music_with_youtube_title">শেয়ার লিঙ্কগুলি youtube.com-এ পরিবর্তন করুন</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">শেয়ার করা লিঙ্কগুলি youtube.com ব্যবহার করে</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">শেয়ার করা লিঙ্কগুলি music.youtube.com ব্যবহার করে</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1479,11 +1487,6 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_external_browser_summary_on">বাহ্যিক ব্রাউজারে লিঙ্ক খোলা হচ্ছে</string>
   <string name="revanced_external_browser_summary_off">ইন-অ্যাপ ব্রাউজারে লিঙ্ক খোলা হচ্ছে</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">ট্র্যাকিং করার প্যারামিটার মুছুন</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়েছে</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">লিংক থেকে ট্র্যাকিং করার প্যারামিটার মুছে ফেলা হয়নি</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">মূল অডিও ভাষা বলপূর্বক চালু করুন</string>
   <string name="revanced_force_original_audio_summary_on">মূল অডিও ভাষা ব্যবহার করা হচ্ছে</string>
@@ -1564,10 +1567,7 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">স্পুফিংয়ের পার্শ্বপ্রতিক্রিয়া</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android স্পুফিংয়ের পার্শ্বপ্রতিক্রিয়া</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• অডিও ট্র্যাক মেনু অনুপস্থিত
-• স্থিতিশীল ভলিউম উপলব্ধ নেই"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• ভিডিও ১:০০ মিনিটে বন্ধ হতে পারে, অথবা কিছু অঞ্চলে উপলব্ধ নাও হতে পারে</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• ভিডিও ১:০০ মিনিটে বন্ধ হতে পারে, অথবা কিছু অঞ্চলে উপলব্ধ নাও হতে পারে</string>
   <string name="revanced_spoof_video_streams_about_experimental">• পরীক্ষামূলক ক্লায়েন্ট এবং যেকোনো সময় কাজ করা বন্ধ করতে পারে</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• কোনো AV1 ভিডিও কোডেক নেই</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• লগআউট করা হলে বা ছদ্মবেশী মোডে বাচ্চাদের ভিডিও চলতে নাও পারে</string>

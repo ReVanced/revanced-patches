@@ -140,6 +140,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Очищує всі збережені журнали налагодження ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Журнали очищено</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Вилучити параметр відстеження</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметри запиту відстеження вилучаються з посилань під час поширення посилань</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметри запиту відстеження не вилучаються з посилань під час поширення посилань</string>
+  <string name="revanced_replace_music_with_youtube_title">Змінити посилання для поширення на youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Під час поширення посилань використовується youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Під час поширення посилань використовується music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -1482,11 +1490,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_on">Посилання відкриваються у зовнішньому браузері</string>
   <string name="revanced_external_browser_summary_off">Посилання відкриваються у вбудованому браузері</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_sanitize_sharing_links_title">Вилучити параметр відстеження</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Параметри запиту відстеження вилучаються з посилань під час поширення посилань</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Параметри запиту відстеження не вилучаються з посилань під час поширення посилань</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Примусово оригінальна мова звукової доріжки</string>
   <string name="revanced_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
@@ -1567,10 +1570,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Побічні ефекти підробки</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Побічні ефекти підробки Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Меню звукової доріжки відсутнє
-• Меню стабілізації гучності недоступне"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Відео може зупинитися на 1:00, або може бути недоступним у деяких регіонах</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Відео може зупинитися на 1:00, або може бути недоступним у деяких регіонах</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментальний клієнт, який може припинити працювати будь-якої миті</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Відсутній відеокодек AV1</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Відео для дітей можуть не відтворюватися, якщо вийти з облікового запису або перейти в анонімний режим</string>
