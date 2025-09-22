@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:yt="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/youtube_controls_bottom_ui_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="ltr">
+
+    <com.google.android.libraries.youtube.common.ui.TouchImageView
+            android:id="@+id/revanced_loop_video_button"
+            style="@style/YouTubePlayerButton"
+            android:layout_width="48.0dip"
+            android:layout_height="60.0dip"
+            android:paddingTop="6.0dp"
+            android:paddingBottom="0dp"
+            android:scaleType="center"
+            android:src="@drawable/revanced_loop_video_button_off"
+            yt:layout_constraintBottom_toTopOf="@+id/quick_actions_container"
+            yt:layout_constraintRight_toLeftOf="@+id/fullscreen_button" />
+
+</android.support.constraint.ConstraintLayout>
