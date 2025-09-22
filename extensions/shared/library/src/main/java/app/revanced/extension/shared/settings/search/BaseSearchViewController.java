@@ -5,7 +5,9 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
@@ -122,11 +124,38 @@ public abstract class BaseSearchViewController {
         // Set text size.
         searchEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
 
+        // Set cursor color.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            setCursorColor(searchEditText);
+        }
+
         // Configure RTL support based on app language.
         AppLanguage appLanguage = BaseSettings.REVANCED_LANGUAGE.get();
         if (Utils.isRightToLeftLocale(appLanguage.getLocale())) {
             searchView.setTextDirection(View.TEXT_DIRECTION_RTL);
             searchView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+        }
+    }
+
+    /**
+     * Sets the cursor color (for Android 10+ devices).
+     */
+    private void setCursorColor(EditText editText) {
+        try {
+            // Get the cursor color based on the current theme.
+            @ColorInt int cursorColor = Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK;
+
+            // Create cursor drawable.
+            GradientDrawable cursorDrawable = new GradientDrawable();
+            cursorDrawable.setShape(GradientDrawable.RECTANGLE);
+            cursorDrawable.setSize(Utils.dipToPixels(2), -1); // Width: 2dp, Height: match text height.
+            cursorDrawable.setColor(cursorColor);
+
+            // Set cursor drawable.
+            editText.setTextCursorDrawable(cursorDrawable);
+
+        } catch (Exception e) {
+            Logger.printException(() -> "Failed to set cursor color", e);
         }
     }
 
