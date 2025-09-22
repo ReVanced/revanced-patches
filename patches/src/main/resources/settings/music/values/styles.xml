@@ -5,8 +5,4 @@
         <item name="android:listPreferredItemPaddingStart">@dimen/item_extra_extra_large_spacing</item>
         <item name="android:listDivider">@null</item>
     </style>
-    <style name="revanced_searchbar_cursor">
-        <item name="android:textCursorDrawable">@drawable/revanced_settings_cursor</item>
-        <item name="android:textSize">16sp</item>
-    </style>
 </resources>
