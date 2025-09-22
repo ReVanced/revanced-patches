@@ -13,10 +13,10 @@ public class LoopVideoButton {
     @Nullable
     private static PlayerControlButton instance;
 
-    private static final int LOOP_VIDEO_ON =
-            Utils.getResourceIdentifier("revanced_loop_video_button_on", "drawable");
-    private static final int LOOP_VIDEO_OFF =
-            Utils.getResourceIdentifier("revanced_loop_video_button_off", "drawable");
+    private static final int LOOP_VIDEO_ON = Utils.getResourceIdentifierOrThrow(
+            "revanced_loop_video_button_on", "drawable");
+    private static final int LOOP_VIDEO_OFF = Utils.getResourceIdentifierOrThrow(
+            "revanced_loop_video_button_off", "drawable");
 
     /**
      * Injection point.
@@ -66,16 +66,16 @@ public class LoopVideoButton {
         try {
             Utils.verifyOnMainThread();
 
-            boolean currentState = Settings.LOOP_VIDEO.get();
-            boolean newState = !currentState;
+            final boolean currentState = Settings.LOOP_VIDEO.get();
+            final boolean newState = !currentState;
             Settings.LOOP_VIDEO.save(newState);
 
             instance.setIcon(newState
                     ? LOOP_VIDEO_ON
                     : LOOP_VIDEO_OFF);
-            Utils.showToastShort(newState
-                    ? str("revanced_loop_video_button_toast_on")
-                    : str("revanced_loop_video_button_toast_off"));
+            Utils.showToastShort(str(newState
+                    ? "revanced_loop_video_button_toast_on"
+                    : "revanced_loop_video_button_toast_off"));
         } catch (Exception ex) {
             Logger.printException(() -> "updateButtonAppearance failure", ex);
         }
