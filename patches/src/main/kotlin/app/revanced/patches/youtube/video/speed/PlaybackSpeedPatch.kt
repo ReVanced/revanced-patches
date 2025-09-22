@@ -17,7 +17,7 @@ internal val settingsMenuVideoSpeedGroup = mutableSetOf<BasePreference>()
 @Suppress("unused")
 val playbackSpeedPatch = bytecodePatch(
     name = "Playback speed",
-    description = "Adds options to customize available playback speeds, set default a playback speed, " +
+    description = "Adds options to customize available playback speeds, set a default playback speed, " +
         "and show a speed dialog button in the video player.",
 ) {
     dependsOn(
@@ -30,10 +30,9 @@ val playbackSpeedPatch = bytecodePatch(
         "com.google.android.youtube"(
             "19.34.42",
             "19.43.41",
-            "19.47.53",
             "20.07.39",
-            "20.12.46",
             "20.13.41",
+            "20.14.43",
         )
     )
 

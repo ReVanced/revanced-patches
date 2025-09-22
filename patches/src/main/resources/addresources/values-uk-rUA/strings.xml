@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Пошук налаштувань</string>
   <string name="revanced_settings_search_no_results_title">За запитом \'%s\' нічого не знайдено</string>
   <string name="revanced_settings_search_no_results_summary">Спробуйте інше ключове слово</string>
+  <string name="revanced_settings_search_recent_searches">Нещодавні пошуки</string>
   <string name="revanced_settings_search_remove_message">Видалити з історії пошуку?</string>
+  <string name="revanced_settings_search_clear_history">Очистити історію пошуку</string>
+  <string name="revanced_settings_search_clear_history_message">Ви впевнені, що хочете очистити всю історію пошуку?</string>
+  <string name="revanced_settings_search_tips_title">Поради щодо пошуку</string>
+  <string name="revanced_settings_search_tips_summary">"• Натисніть на шлях, щоб відкрити його
+• Натисніть і утримуйте налаштування, щоб перейти до нього
+• Натисніть Enter, щоб зберегти пошуковий запит в історію
+• Пошук ігнорує регістр і розділові знаки
+• Батьківські налаштування показуються над вимкненими дочірніми налаштуваннями"</string>
+  <string name="revanced_settings_search_empty_history_title">Історія пошуку порожня</string>
+  <string name="revanced_settings_search_empty_history_summary">Щоб зберегти історію пошуку, введіть пошуковий запит і натисніть Enter</string>
+  <string name="revanced_settings_search_history_title">Показувати історію пошуку налаштувань</string>
+  <string name="revanced_settings_search_history_summary_on">Історія пошуку налаштувань показується</string>
+  <string name="revanced_settings_search_history_summary_off">Історія пошуку налаштувань не показується</string>
   <string name="revanced_show_menu_icons_title">Показувати іконки в налаштуваннях ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Іконки в налаштуваннях показуються</string>
   <string name="revanced_show_menu_icons_summary_off">Іконки в налаштуваннях не показуються</string>
   <string name="revanced_language_title">Мова налаштувань ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Переклади для деяких мов можуть бути відсутні або неповні.
 
-Щоб перекласти нові мови, відвідайте translate.revanced.app"</string>
+Щоб перекласти нові мови або покращити наявні переклади, відвідайте translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Мова застосунку</string>
   <string name="revanced_pref_import_export_title">Імпорт / Експорт налаштувань</string>
   <string name="revanced_pref_import_export_summary">Імпорт / Експорт налаштувань ReVanced\n\nДля збереження налаштувань скопіюйте текст у вікні кнопкою \"Копіювати\" та збережіть його в текстовому файлі.\nДля відновлення налаштувань вставте у вікно збережений раніше текст та натисніть кнопку \"Імпортувати\"</string>
@@ -107,6 +121,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_title">Журнал налагодження</string>
   <string name="revanced_debug_summary_on">Журнали налагодження ввімкнено</string>
   <string name="revanced_debug_summary_off">Журнали налагодження вимкнено</string>
+  <string name="revanced_debug_stacktrace_title">Реєструвати трасування стека</string>
+  <string name="revanced_debug_stacktrace_summary_on">Журнали налагодження містять трасування стека</string>
+  <string name="revanced_debug_stacktrace_summary_off">Журнали налагодження не містять трасування стека</string>
+  <string name="revanced_debug_toast_on_error_title">Показувати тост при помилці ReVanced</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Тост показується, якщо сталася помилка</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Тост не показується, якщо сталася помилка</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Вимкнення сповіщень про помилки приховує всі сповіщення про помилки ReVanced.
+
+Ви не будете отримувати сповіщення про будь-які непередбачувані події."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Експортувати журнали налагодження</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">Копіює журнали налагодження ReVanced до буфера обміну</string>
   <string name="revanced_debug_logs_disabled">Журнали налагодження вимкнено</string>
@@ -116,6 +139,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">Очистити журнали налагодження</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Очищує всі збережені журнали налагодження ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Журнали очищено</string>
+  </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Вилучити параметр відстеження</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметри запиту відстеження вилучаються з посилань під час поширення посилань</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметри запиту відстеження не вилучаються з посилань під час поширення посилань</string>
+  <string name="revanced_replace_music_with_youtube_title">Змінити посилання для поширення на youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Під час поширення посилань використовується youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Під час поширення посилань використовується music.youtube.com</string>
   </patch>
   </app>
   <app id="youtube">
@@ -133,9 +164,6 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Відновити старе меню налаштувань</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Показується старе меню налаштувань</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Показується нове меню налаштувань</string>
-  <string name="revanced_settings_search_history_title">Показувати історію пошуку налаштувань</string>
-  <string name="revanced_settings_search_history_summary_on">Історія пошуку налаштувань показується</string>
-  <string name="revanced_settings_search_history_summary_off">Історія пошуку налаштувань не показується</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Вимкнути фонове відтворення Shorts</string>
@@ -151,15 +179,6 @@ Second \"item\" text"</string>
 Це може допомогти визначити компоненти під час створення користувацьких фільтрів.
 
 Однак, увімкнувши це, також буде записано деякі дані користувача, наприклад Вашу IP-адресу."</string>
-  <string name="revanced_debug_stacktrace_title">Реєструвати трасування стека</string>
-  <string name="revanced_debug_stacktrace_summary_on">Журнали налагодження містять трасування стека</string>
-  <string name="revanced_debug_stacktrace_summary_off">Журнали налагодження не містять трасування стека</string>
-  <string name="revanced_debug_toast_on_error_title">Показувати тост при помилці ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Тост показується, якщо сталася помилка</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Тост не показується, якщо сталася помилка</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Вимкнення сповіщень про помилки приховує всі сповіщення про помилки ReVanced.
-
-Ви не будете отримувати сповіщення про будь-які непередбачувані події."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Приховати картки альбому</string>
@@ -586,6 +605,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_stop_ads_button_title">Приховати \"Зупинити показ оголошень\"</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Кнопку \"Зупинити показ оголошень\" приховано</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Кнопка \"Зупинити показ оголошень\" показується</string>
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+  <string name="revanced_hide_comments_button_title">Приховати \"Коментарі\"</string>
+  <string name="revanced_hide_comments_button_summary_on">Кнопку \"Коментарі\" приховано</string>
+  <string name="revanced_hide_comments_button_summary_off">Кнопка \"Коментарі\" показується</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Приховати \"Поскаржитися\"</string>
@@ -1056,9 +1079,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">Вже прочитано</string>
   <string name="revanced_sb_guidelines_popup_open">Показати</string>
   <string name="revanced_sb_general">Загальні налаштування</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Показувати тост, якщо API не доступний</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Тост показується, якщо SponsorBlock не доступний</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Тост не показується, якщо SponsorBlock не доступний</string>
+  <string name="revanced_sb_toast_on_connection_error">Показувати тост, якщо API не доступний</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Тост показується, якщо SponsorBlock не доступний</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Тост не показується, якщо SponsorBlock не доступний</string>
   <string name="revanced_sb_general_skipcount">Відстеження кількості пропусків</string>
   <string name="revanced_sb_general_skipcount_sum_on">Дозволяє таблиці лідерів SponsorBlock дізнатися, скільки часу заощаджено. Повідомлення надсилається в таблицю лідерів щоразу, коли сегмент пропущено</string>
   <string name="revanced_sb_general_skipcount_sum_off">Відстеження кількості пропусків вимкнено</string>
@@ -1241,8 +1264,9 @@ Second \"item\" text"</string>
 
 Якщо пізніше вимкнути, рекомендується очистити дані застосунку, щоб запобігти помилкам інтерфейсу."</string>
   <string name="revanced_spoof_app_version_target_title">Підробити версію програми на</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Відновлення старих іконок плеєра Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Відновлення старих іконок панелі навігації</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Відновити незгорнуту панель дій відео</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Відновлення старих іконок плеєра Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Відновлення старих іконок панелі навігації</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Змінити початкову сторінку</string>
@@ -1422,10 +1446,17 @@ Second \"item\" text"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша історія переглядів не зберігається.&lt;br&gt;&lt;br&gt;Швидше за все, це спричинено блокувальником реклами DNS або мережевим проксі.&lt;br&gt;&lt;br&gt;Щоб це виправити, додайте &lt;b&gt;s.youtube.com&lt;/b&gt; у білий список блокувальника або вимкніть усі DNS блокувальники та проксі.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Більше не показувати</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Увімкнути автоповтор відео</string>
-  <string name="revanced_auto_repeat_summary_on">Автоповторення поточного відео ввімкнено</string>
-  <string name="revanced_auto_repeat_summary_off">Автоповторення поточного відео вимкнено</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Увімкнути повторення відео</string>
+  <string name="revanced_loop_video_summary_on">Відео буде повторюватися</string>
+  <string name="revanced_loop_video_summary_off">Відео не буде повторюватися</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Показувати кнопку повторення відео</string>
+  <string name="revanced_loop_video_button_summary_on">Кнопка показується</string>
+  <string name="revanced_loop_video_button_summary_off">Кнопка швидкості відтворення не показується</string>
+  <string name="revanced_loop_video_button_toast_on">Повторення відео увімкнено</string>
+  <string name="revanced_loop_video_button_toast_off">Повторення відео вимкнено</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Підробити розміри пристрою</string>
@@ -1465,11 +1496,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">Відкривати посилання у браузері</string>
   <string name="revanced_external_browser_summary_on">Посилання відкриваються у зовнішньому браузері</string>
   <string name="revanced_external_browser_summary_off">Посилання відкриваються у вбудованому браузері</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Вилучити параметр відстеження</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Параметри запиту відстеження вилучаються з посилань під час поширення посилань</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Параметри запиту відстеження не вилучаються з посилань під час поширення посилань</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Примусово оригінальна мова звукової доріжки</string>
@@ -1551,19 +1577,21 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Побічні ефекти підробки</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Побічні ефекти підробки Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Меню звукової доріжки відсутнє
-• Меню стабілізації гучності недоступне"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Відео може зупинитися на 1:00, або може бути недоступним у деяких регіонах</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментальний клієнт, який може припинити працювати будь-якої миті</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Відео може зупинитися на 1:00, або може бути недоступним у деяких регіонах</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Пункт меню \"Звукова доріжка\" відсутній</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Відсутній відеокодек AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Пункт меню \"Стабілізувати гучність\" недоступний</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Відео для дітей можуть не відтворюватися, якщо вийти з облікового запису або перейти в анонімний режим</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• \"Примусово оригінальна мова звукової доріжки\" недоступна</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показувати у \"Статистиці для сисадмінів\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клієнта відображається у вікні \"Статистика для сисадмінів\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клієнта приховано у вікні \"Статистика для сисадмінів\"</string>
   <string name="revanced_spoof_video_streams_language_title">Мова звукової доріжки</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Щоб вибрати певну звукову доріжку, вимкніть \"Примусово оригінальна мова звукової доріжки\"</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Вибір мови звукової доріжки недоступний з клієнтом Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1584,10 +1612,45 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Постійний повтор увімкнено</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Постійний повтор вимкнено</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Приховати кнопку трансляції</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Кнопку трансляції приховано</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Кнопка трансляції показується</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Приховати панель категорій</string>
   <string name="revanced_music_hide_category_bar_summary_on">Панель категорій приховано</string>
   <string name="revanced_music_hide_category_bar_summary_off">Панель категорій показується</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Панель навігації</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Приховати або змінити кнопки панелі навігації</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Приховати \"Головна\"</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Кнопку \"Головна\" приховано</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Кнопка \"Головна\" показується</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Приховати \"Семпли\"</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Кнопку \"Семпли\" приховано</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Кнопка \"Семпли\" показується</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Приховати \"Навігація\"</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Кнопку \"Навігація\" приховано</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Кнопка \"Навігація\" показується</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Приховати \"Бібліотека\"</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Кнопку \"Бібліотека\" приховано</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Кнопка \"Бібліотека\" показується</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Приховати \"Підписка\"</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Кнопку \"Підписка\" приховано</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Кнопка \"Підписка\" показується</string>
+  <string name="revanced_music_hide_navigation_bar_title">Приховати панель навігації</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Панель навігації приховано</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Панель навігації показується</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Приховати підписи кнопок навігації</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Підписи кнопок навігації приховано</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Підписи кнопок навігації показуються</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Приховати Пункт \"Підписатися на Music Premium\"</string>

@@ -48,14 +48,28 @@ Second \"item\" text"</string>
             <string name="revanced_settings_search_hint">Search settings</string>
             <string name="revanced_settings_search_no_results_title">No results found for \'%s\'</string>
             <string name="revanced_settings_search_no_results_summary">Try another keyword</string>
+            <string name="revanced_settings_search_recent_searches">Recent searches</string>
             <string name="revanced_settings_search_remove_message">Remove from search history?</string>
+            <string name="revanced_settings_search_clear_history">Clear search history</string>
+            <string name="revanced_settings_search_clear_history_message">Are you sure you want to clear all search history?</string>
+            <string name="revanced_settings_search_tips_title">Search Tips</string>
+            <string name="revanced_settings_search_tips_summary">"• Tap a path to navigate to it
+• Long-press a setting to navigate to it
+• Press Enter to save a search query to history
+• Search ignores casing and punctuation
+• Parent settings appear above disabled child settings"</string>
+            <string name="revanced_settings_search_empty_history_title">Search history is empty</string>
+            <string name="revanced_settings_search_empty_history_summary">To save search history, type a search query and press Enter</string>
+            <string name="revanced_settings_search_history_title">Show settings search history</string>
+            <string name="revanced_settings_search_history_summary_on">Settings search history is shown</string>
+            <string name="revanced_settings_search_history_summary_off">Settings search history is not shown</string>
             <string name="revanced_show_menu_icons_title">Show ReVanced setting icons</string>
             <string name="revanced_show_menu_icons_summary_on">Setting icons are shown</string>
             <string name="revanced_show_menu_icons_summary_off">Setting icons are not shown</string>
             <string name="revanced_language_title">ReVanced language</string>
             <string name="revanced_language_user_dialog_message">"Translations for some languages may be missing or incomplete.
 
-To translate new languages visit translate.revanced.app"</string>
+To translate new languages or improve the existing translations, visit translate.revanced.app"</string>
             <string name="revanced_language_DEFAULT">App language</string>
             <string name="revanced_language_AM" translatable="false">አማርኛ</string>
             <string name="revanced_language_AR" translatable="false">العربية</string>
@@ -163,6 +177,15 @@ Playback may not work"</string>
             <string name="revanced_debug_title">Debug logging</string>
             <string name="revanced_debug_summary_on">Debug logs are enabled</string>
             <string name="revanced_debug_summary_off">Debug logs are disabled</string>
+            <string name="revanced_debug_stacktrace_title">Log stack traces</string>
+            <string name="revanced_debug_stacktrace_summary_on">Debug logs include stack trace</string>
+            <string name="revanced_debug_stacktrace_summary_off">Debug logs do not include stack trace</string>
+            <string name="revanced_debug_toast_on_error_title">Show toast on ReVanced error</string>
+            <string name="revanced_debug_toast_on_error_summary_on">Toast is shown if error occurs</string>
+            <string name="revanced_debug_toast_on_error_summary_off">Toast is not shown if error occurs</string>
+            <string name="revanced_debug_toast_on_error_user_dialog_message">"Turning off error toasts hides all ReVanced error notifications.
+
+You will not be notified of any unexpected events."</string>
             <string name="revanced_debug_export_logs_to_clipboard_title">Export debug logs</string>
             <string name="revanced_debug_export_logs_to_clipboard_summary">Copies ReVanced debug logs to the clipboard</string>
             <string name="revanced_debug_logs_disabled">Debug logging is disabled</string>
@@ -172,6 +195,14 @@ Playback may not work"</string>
             <string name="revanced_debug_logs_clear_buffer_title">Clear debug logs</string>
             <string name="revanced_debug_logs_clear_buffer_summary">Clears all stored ReVanced debug logs</string>
             <string name="revanced_debug_logs_clear_toast">Logs cleared</string>
+        </patch>
+        <patch id="misc.privacy.sanitizeSharingLinksPatch">
+            <string name="revanced_sanitize_sharing_links_title">Remove tracking query parameter</string>
+            <string name="revanced_sanitize_sharing_links_summary_on">Tracking query parameter is removed from links</string>
+            <string name="revanced_sanitize_sharing_links_summary_off">Tracking query parameter is not removed from links</string>
+            <string name="revanced_replace_music_with_youtube_title">Change share links to youtube.com</string>
+            <string name="revanced_replace_music_with_youtube_summary_on">Shared links use youtube.com</string>
+            <string name="revanced_replace_music_with_youtube_summary_off">Shared links use music.youtube.com</string>
         </patch>
     </app>
     <app id="youtube">
@@ -191,9 +222,6 @@ Playback may not work"</string>
             <string name="revanced_restore_old_settings_menus_title">Restore old settings menus</string>
             <string name="revanced_restore_old_settings_menus_summary_on">Old settings menus are shown</string>
             <string name="revanced_restore_old_settings_menus_summary_off">Old settings menus are not shown</string>
-            <string name="revanced_settings_search_history_title">Show settings search history</string>
-            <string name="revanced_settings_search_history_summary_on">Settings search history is shown</string>
-            <string name="revanced_settings_search_history_summary_off">Settings search history is not shown</string>
         </patch>
         <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
             <string name="revanced_shorts_disable_background_playback_title">Disable Shorts background play</string>
@@ -209,15 +237,6 @@ Playback may not work"</string>
 This can help identify components when creating custom filters.
 
 However, enabling this will also log some user data such as your IP address."</string>
-            <string name="revanced_debug_stacktrace_title">Log stack traces</string>
-            <string name="revanced_debug_stacktrace_summary_on">Debug logs include stack trace</string>
-            <string name="revanced_debug_stacktrace_summary_off">Debug logs do not include stack trace</string>
-            <string name="revanced_debug_toast_on_error_title">Show toast on ReVanced error</string>
-            <string name="revanced_debug_toast_on_error_summary_on">Toast is shown if error occurs</string>
-            <string name="revanced_debug_toast_on_error_summary_off">Toast is not shown if error occurs</string>
-            <string name="revanced_debug_toast_on_error_user_dialog_message">"Turning off error toasts hides all ReVanced error notifications.
-
-You will not be notified of any unexpected events."</string>
         </patch>
         <patch id="layout.hide.general.hideLayoutComponentsPatch">
             <string name="revanced_hide_album_cards_title">Hide album cards</string>
@@ -246,6 +265,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_hide_floating_microphone_button_summary_off">Floating microphone button in search is shown</string>
             <string name="revanced_hide_horizontal_shelves_title">Hide horizontal shelves</string>
             <string name="revanced_hide_horizontal_shelves_summary_on">"Horizontal shelves are hidden, such as:
+
 • Breaking news
 • Continue watching
 • Explore more channels
@@ -649,6 +669,10 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_hide_stop_ads_button_title">Hide Stop ads</string>
             <string name="revanced_hide_stop_ads_button_summary_on">Stop ads button is hidden</string>
             <string name="revanced_hide_stop_ads_button_summary_off">Stop ads button is shown</string>
+            <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+            <string name="revanced_hide_comments_button_title">Hide Comments</string>
+            <string name="revanced_hide_comments_button_summary_on">Comments button is hidden</string>
+            <string name="revanced_hide_comments_button_summary_off">Comments button is shown</string>
             <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
             <string name="revanced_hide_report_button_title">Hide Report</string>
@@ -1124,9 +1148,9 @@ This feature works best with a video quality of 720p or lower and when using a v
             <string name="revanced_sb_guidelines_popup_already_read">Already read</string>
             <string name="revanced_sb_guidelines_popup_open">Show me</string>
             <string name="revanced_sb_general">General</string>
-            <string name="revanced_sb_toast_on_connection_error_title">Show a toast if API is not available</string>
-            <string name="revanced_sb_toast_on_connection_error_summary_on">Toast is shown if SponsorBlock is not available</string>
-            <string name="revanced_sb_toast_on_connection_error_summary_off">Toast is not shown if SponsorBlock is not available</string>
+            <string name="revanced_sb_toast_on_connection_error">Show a toast if API is not available</string>
+            <string name="revanced_sb_toast_on_connection_error_sum_on">Toast is shown if SponsorBlock is not available</string>
+            <string name="revanced_sb_toast_on_connection_error_sum_off">Toast is not shown if SponsorBlock is not available</string>
             <string name="revanced_sb_general_skipcount">Enable skip count tracking</string>
             <string name="revanced_sb_general_skipcount_sum_on">Lets the SponsorBlock leaderboard know how much time is saved. A message is sent to the leaderboard each time a segment is skipped</string>
             <string name="revanced_sb_general_skipcount_sum_off">Skip count tracking is not enabled</string>
@@ -1311,8 +1335,9 @@ This will change the appearance and features of the app, but unknown side effect
 
 If later turned off, it is recommended to clear the app data to prevent UI bugs."</string>
             <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
-            <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Restore old Shorts player icons</string>
-            <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Restore old navigation icons</string>
+            <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Restore non collapsed video action bar</string>
+            <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Restore old Shorts player icons</string>
+            <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Restore old navigation icons</string>
         </patch>
         <patch id="layout.startpage.changeStartPagePatch">
             <string name="revanced_change_start_page_title">Change start page</string>
@@ -1501,10 +1526,17 @@ Tap here to learn more about DeArrow"</string>
             <string name="revanced_check_watch_history_domain_name_dialog_message">Your watch history is not being saved.&lt;br>&lt;br>This most likely is caused by a DNS ad blocker or network proxy.&lt;br>&lt;br>To fix this, whitelist &lt;b>s.youtube.com&lt;/b> or turn off all DNS blockers and proxies.</string>
             <string name="revanced_check_watch_history_domain_name_dialog_ignore">Do not show again</string>
         </patch>
-        <patch id="misc.autorepeat.autoRepeatPatch">
-            <string name="revanced_auto_repeat_title">Enable auto-repeat</string>
-            <string name="revanced_auto_repeat_summary_on">Auto-repeat is enabled</string>
-            <string name="revanced_auto_repeat_summary_off">Auto-repeat is disabled</string>
+        <patch id="misc.loopvideo.loopVideoPatch">
+            <string name="revanced_loop_video_title">Enable loop video</string>
+            <string name="revanced_loop_video_summary_on">Video will loop</string>
+            <string name="revanced_loop_video_summary_off">Video will not loop</string>
+        </patch>
+        <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+            <string name="revanced_loop_video_button_title">Show loop video button</string>
+            <string name="revanced_loop_video_button_summary_on">Button is shown</string>
+            <string name="revanced_loop_video_button_summary_off">Button is not shown</string>
+            <string name="revanced_loop_video_button_toast_on">Loop video is on</string>
+            <string name="revanced_loop_video_button_toast_off">Loop video is off</string>
         </patch>
         <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
             <string name="revanced_spoof_device_dimensions_title">Spoof device dimensions</string>
@@ -1544,11 +1576,6 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_external_browser_title">Open links in browser</string>
             <string name="revanced_external_browser_summary_on">Opening links in external browser</string>
             <string name="revanced_external_browser_summary_off">Opening links in in-app browser</string>
-        </patch>
-        <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-            <string name="revanced_remove_tracking_query_parameter_title">Remove tracking query parameter</string>
-            <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking query parameter is removed from links</string>
-            <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking query parameter is not removed from links</string>
         </patch>
         <patch id="video.audio.forceOriginalAudioPatch">
             <string name="revanced_force_original_audio_title">Force original audio language</string>
@@ -1630,19 +1657,21 @@ Enabling this can unlock higher video qualities"</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string name="revanced_spoof_video_streams_about_title">Spoofing side effects</string>
-            <string name="revanced_spoof_video_streams_about_android_title">Android spoofing side effects</string>
-            <string name="revanced_spoof_video_streams_about_android_summary">"• Audio track menu is missing
-• Stable volume is not available"</string>
-            <string name="revanced_spoof_video_streams_about_ipados_summary">• Video may stop at 1:00, or may not be available in some regions</string>
             <string name="revanced_spoof_video_streams_about_experimental">• Experimental client and may stop working anytime</string>
+            <string name="revanced_spoof_video_streams_about_playback_failure">• Video may stop at 1:00, or may not be available in some regions</string>
+            <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Audio track menu is missing</string>
             <string name="revanced_spoof_video_streams_about_no_av1">• No AV1 video codec</string>
+            <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stable volume is not available</string>
             <string name="revanced_spoof_video_streams_about_kids_videos">• Kids videos may not play when logged out or in incognito mode</string>
+            <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+            <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Force original audio is not available</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Show in Stats for nerds</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Client type is shown in Stats for nerds</string>
             <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is hidden in Stats for nerds</string>
             <string name="revanced_spoof_video_streams_language_title">Audio stream language</string>
             <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
             <string name="revanced_spoof_video_streams_language_not_available">To select a specific audio language, turn off \'Force original audio language\'</string>
+            <string name="revanced_spoof_video_streams_language_android_studio">Stream language selection is not available with Android Studio</string>
         </patch>
     </app>
     <app id="music">
@@ -1663,10 +1692,45 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_music_play_permanent_repeat_summary_on">Permanent repeat is enabled</string>
             <string name="revanced_music_play_permanent_repeat_summary_off">Permanent repeat is disabled</string>
         </patch>
+        <patch id="layout.castbutton.hideCastButton">
+            <string name="revanced_music_hide_cast_button_title">Hide cast button</string>
+            <string name="revanced_music_hide_cast_button_summary_on">Cast button is hidden</string>
+            <string name="revanced_music_hide_cast_button_summary_off">Cast button is shown</string>
+        </patch>
         <patch id="layout.compactheader.hideCategoryBar">
             <string name="revanced_music_hide_category_bar_title">Hide category bar</string>
             <string name="revanced_music_hide_category_bar_summary_on">Category bar is hidden</string>
             <string name="revanced_music_hide_category_bar_summary_off">Category bar is shown</string>
+        </patch>
+        <patch id="layout.navigationbar.navigationBarPatch">
+            <string name="revanced_music_navigation_bar_screen_title">Navigation bar</string>
+            <string name="revanced_music_navigation_bar_screen_summary">Hide or change navigation bar buttons</string>
+            <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+            <string name="revanced_music_hide_navigation_bar_home_button_title">Hide Home</string>
+            <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Home button is hidden</string>
+            <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Home button is shown</string>
+            <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+            <string name="revanced_music_hide_navigation_bar_samples_button_title">Hide Samples</string>
+            <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Samples button is hidden</string>
+            <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Samples button is shown</string>
+            <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+            <string name="revanced_music_hide_navigation_bar_explore_button_title">Hide Explore</string>
+            <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Explore button is hidden</string>
+            <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Explore button is shown</string>
+            <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+            <string name="revanced_music_hide_navigation_bar_library_button_title">Hide Library</string>
+            <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Library button is hidden</string>
+            <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Library button is shown</string>
+            <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+            <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Hide Upgrade</string>
+            <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Upgrade button is hidden</string>
+            <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Upgrade button is shown</string>
+            <string name="revanced_music_hide_navigation_bar_title">Hide navigation bar</string>
+            <string name="revanced_music_hide_navigation_bar_summary_on">Navigation bar is hidden</string>
+            <string name="revanced_music_hide_navigation_bar_summary_off">Navigation bar is shown</string>
+            <string name="revanced_music_hide_navigation_bar_labels_title">Hide navigation button labels</string>
+            <string name="revanced_music_hide_navigation_bar_labels_summary_on">Labels are hidden</string>
+            <string name="revanced_music_hide_navigation_bar_labels_summary_off">Labels are shown</string>
         </patch>
         <patch id="layout.premium.hideGetPremiumPatch">
             <string name="revanced_music_hide_get_premium_label_title">Hide \'Get Music Premium\' label</string>

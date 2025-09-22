@@ -372,8 +372,16 @@ public final class app/revanced/patches/music/interaction/permanentshuffle/Perma
 	public static final fun getPermanentShufflePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/layout/castbutton/HideCastButtonKt {
+	public static final fun getHideCastButton ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/layout/compactheader/HideCategoryBarKt {
 	public static final fun getHideCategoryBar ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/layout/navigationbar/NavigationBarPatchKt {
+	public static final fun getNavigationBarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/layout/premium/HideGetPremiumPatchKt {
@@ -393,6 +401,10 @@ public final class app/revanced/patches/music/misc/backgroundplayback/Background
 	public static final fun getBackgroundPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/misc/debugging/EnableDebuggingPatchKt {
+	public static final fun getEnableDebuggingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/misc/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -403,6 +415,10 @@ public final class app/revanced/patches/music/misc/gms/Constants {
 
 public final class app/revanced/patches/music/misc/gms/GmsCoreSupportPatchKt {
 	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/misc/privacy/SanitizeSharingLinksPatchKt {
+	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/misc/settings/PreferenceScreen : app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen {
@@ -1594,6 +1610,10 @@ public final class app/revanced/patches/youtube/misc/litho/filter/LithoFilterPat
 	public static final fun getLithoFilterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/misc/loopvideo/LoopVideoPatchKt {
+	public static final fun getLoopVideoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/misc/navigation/NavigationBarHookPatchKt {
 	public static field hookNavigationButtonCreated Lkotlin/jvm/functions/Function1;
 	public static final fun getHookNavigationButtonCreated ()Lkotlin/jvm/functions/Function1;
@@ -1650,6 +1670,10 @@ public final class app/revanced/patches/youtube/misc/playservice/VersionCheckPat
 
 public final class app/revanced/patches/youtube/misc/privacy/RemoveTrackingQueryParameterPatchKt {
 	public static final fun getRemoveTrackingQueryParameterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/misc/privacy/SanitizeSharingLinksPatchKt {
+	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/misc/recyclerviewtree/hook/RecyclerViewTreeHookPatchKt {

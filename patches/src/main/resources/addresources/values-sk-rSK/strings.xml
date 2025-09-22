@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Hľadať nastavenia</string>
   <string name="revanced_settings_search_no_results_title">Pre výraz \",%s\" sa nenašli žiadne výsledky</string>
   <string name="revanced_settings_search_no_results_summary">Skúste iné kľúčové slovo</string>
+  <string name="revanced_settings_search_recent_searches">Posledné vyhľadávania</string>
   <string name="revanced_settings_search_remove_message">Odstrániť z histórie vyhľadávania?</string>
+  <string name="revanced_settings_search_clear_history">Vymazať históriu vyhľadávania</string>
+  <string name="revanced_settings_search_clear_history_message">Naozaj chcete vymazať celú históriu vyhľadávania?</string>
+  <string name="revanced_settings_search_tips_title">Tipy na vyhľadávanie</string>
+  <string name="revanced_settings_search_tips_summary">"• Ťuknite na cestu pre prechod na ňu
+• Dlho stlačte nastavenie pre prechod naň
+• Stlačte Enter pre uloženie vyhľadávacieho dotazu do histórie
+• Vyhľadávanie ignoruje veľkosť písmen a interpunkciu
+• Nadradené nastavenia sa zobrazujú nad zakázanými podradenými nastaveniami"</string>
+  <string name="revanced_settings_search_empty_history_title">História vyhľadávania je prázdna</string>
+  <string name="revanced_settings_search_empty_history_summary">Pre uloženie histórie vyhľadávania zadajte vyhľadávací dotaz a stlačte Enter</string>
+  <string name="revanced_settings_search_history_title">Zobraziť históriu vyhľadávania v nastaveniach</string>
+  <string name="revanced_settings_search_history_summary_on">História vyhľadávania v nastaveniach je zobrazená</string>
+  <string name="revanced_settings_search_history_summary_off">História vyhľadávania nastavení sa nezobrazuje</string>
   <string name="revanced_show_menu_icons_title">Zobraziť ikony nastavení ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikony nastavení sa zobrazujú</string>
   <string name="revanced_show_menu_icons_summary_off">Ikony nastavení sa nezobrazujú</string>
   <string name="revanced_language_title">Jazyk reVanced</string>
-  <string name="revanced_language_user_dialog_message">"Pre niektoré jazyky môžu chýbať preklady alebo môžu byť neúplné.
+  <string name="revanced_language_user_dialog_message">"Preklady pre niektoré jazyky môžu chýbať alebo byť neúplné.
 
-Na preklad nových jazykov navštívte translate.revanced.app"</string>
+Pre preloženie nových jazykov alebo zlepšenie existujúcich prekladov navštívte translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Jazyk aplikácie</string>
   <string name="revanced_pref_import_export_title">Importovať / Exportovať</string>
   <string name="revanced_pref_import_export_summary">Import / Export nastavení ReVanced</string>
@@ -105,6 +119,15 @@ Prehrávanie nemusí fungovať"</string>
   <string name="revanced_debug_title">Debug logovanie</string>
   <string name="revanced_debug_summary_on">Denníky ladenia sú povolené</string>
   <string name="revanced_debug_summary_off">Denníky ladenia sú zakázané</string>
+  <string name="revanced_debug_stacktrace_title">Zaznamenať stopy zásobníka</string>
+  <string name="revanced_debug_stacktrace_summary_on">Denníky ladenia obsahujú sledovanie zásobníka</string>
+  <string name="revanced_debug_stacktrace_summary_off">Denníky ladenia neobsahujú sledovanie zásobníka</string>
+  <string name="revanced_debug_toast_on_error_title">Zobraziť toast pri chybe ReVanced</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Ak sa vyskytne chyba, zobrazí sa upozornenie toast</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Ak sa vyskytne chyba, nezobrazí sa upozornenie toast</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Vypnutie upozornení o chybách skryje všetky upozornenia o chybách v ReVanced.
+
+Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Exportovať protokoly ladenia</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">Skopíruje protokoly ladenia ReVanced do schránky</string>
   <string name="revanced_debug_logs_disabled">Protokolovanie ladenia je vypnuté</string>
@@ -114,6 +137,14 @@ Prehrávanie nemusí fungovať"</string>
   <string name="revanced_debug_logs_clear_buffer_title">Vymazať protokoly ladenia</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Vymaže všetky uložené protokoly ladenia ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Protokoly vymazané</string>
+  </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Odstráňte parameter dopytu sledovania</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parameter dopytu sledovania je odstránený z odkazov</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parameter dopytu sledovania nie je odstránený z odkazov</string>
+  <string name="revanced_replace_music_with_youtube_title">Zmeniť odkazy na zdieľanie na youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Zdieľané odkazy používajú youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Zdieľané odkazy používajú music.youtube.com</string>
   </patch>
   </app>
   <app id="youtube">
@@ -131,9 +162,6 @@ Prehrávanie nemusí fungovať"</string>
   <string name="revanced_restore_old_settings_menus_title">Obnoviť staré ponuky nastavení</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Staré ponuky nastavení sa zobrazujú</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Staré ponuky nastavení sa nezobrazujú</string>
-  <string name="revanced_settings_search_history_title">Zobraziť históriu vyhľadávania v nastaveniach</string>
-  <string name="revanced_settings_search_history_summary_on">História vyhľadávania v nastaveniach je zobrazená</string>
-  <string name="revanced_settings_search_history_summary_off">História vyhľadávania nastavení sa nezobrazuje</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Zakázať prehrávanie Shorts na pozadí</string>
@@ -149,15 +177,6 @@ Prehrávanie nemusí fungovať"</string>
 Toto môže pomôcť identifikovať komponenty pri vytváraní vlastných filtrov.
 
 Povolením tejto funkcie sa však budú zaznamenávať aj niektoré používateľské údaje, ako napríklad vaša IP adresa."</string>
-  <string name="revanced_debug_stacktrace_title">Zaznamenať stopy zásobníka</string>
-  <string name="revanced_debug_stacktrace_summary_on">Denníky ladenia obsahujú sledovanie zásobníka</string>
-  <string name="revanced_debug_stacktrace_summary_off">Denníky ladenia neobsahujú sledovanie zásobníka</string>
-  <string name="revanced_debug_toast_on_error_title">Zobraziť toast pri chybe ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Ak sa vyskytne chyba, zobrazí sa upozornenie toast</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Ak sa vyskytne chyba, nezobrazí sa upozornenie toast</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Vypnutie upozornení o chybách skryje všetky upozornenia o chybách v ReVanced.
-
-Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Skryť karty albumov</string>
@@ -584,6 +603,10 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_hide_stop_ads_button_title">Skryť Zastaviť reklamy</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Tlačidlo Zastaviť reklamy je skryté</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Tlačidlo Zastaviť reklamy je zobrazené</string>
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+  <string name="revanced_hide_comments_button_title">Skryť komentáre</string>
+  <string name="revanced_hide_comments_button_summary_on">Tlačidlo komentárov je skryté</string>
+  <string name="revanced_hide_comments_button_summary_off">Tlačidlo komentárov je zobrazené</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Skryť prehľad</string>
@@ -1054,9 +1077,9 @@ Táto funkcia najlepšie funguje s kvalitou videa 720p alebo nižšou a pri pou�
   <string name="revanced_sb_guidelines_popup_already_read">Už prečítané</string>
   <string name="revanced_sb_guidelines_popup_open">Zobraziť</string>
   <string name="revanced_sb_general">Všeobecné</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Ukážte prípitok, ak API nie je k dispozícii</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Ak nie je k dispozícii SponsorBlock, zobrazí sa toast</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Toast sa nezobrazuje, ak nie je k dispozícii SponsorBlock</string>
+  <string name="revanced_sb_toast_on_connection_error">Ukážte prípitok, ak API nie je k dispozícii</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Ak nie je k dispozícii SponsorBlock, zobrazí sa toast</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Toast sa nezobrazuje, ak nie je k dispozícii SponsorBlock</string>
   <string name="revanced_sb_general_skipcount">Povoliť sledovanie počtu preskočení</string>
   <string name="revanced_sb_general_skipcount_sum_on">Dáva rebríčku SponsorBlock vedieť, koľko času ušetríte. Pri každom preskočení segmentu sa do výsledkovej tabuľky odošle správa</string>
   <string name="revanced_sb_general_skipcount_sum_off">Sledovanie počtu preskočení nie je povolené</string>
@@ -1237,8 +1260,9 @@ Zmení sa vzhľad a funkcie aplikácie, ale môžu sa vyskytnúť neznáme vedľ
 
 Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo chybám používateľského rozhrania."</string>
   <string name="revanced_spoof_app_version_target_title">Falošná cieľová verzia aplikácie</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Obnoviť staré ikony Shorts prehrávača</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 – Obnoviť staré ikony navigácie</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Obnoviť nerozbalený panel akcií videa</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Obnoviť staré ikony Shorts prehrávača</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 – Obnoviť staré ikony navigácie</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Zmeniť úvodnú stránku</string>
@@ -1416,10 +1440,17 @@ Ak je táto možnosť povolená, adresy URL videí sa odošlú na server API a n
   <string name="revanced_check_watch_history_domain_name_dialog_message">Vaša história pozeraného sa neuchováva.&lt;br&gt;&lt;br&gt;Toto je pravdepodobne spôsobené blokovaním reklám pomocou DNS alebo sieťového proxy.&lt;br&gt;&lt;br&gt;Pre vyriešenie tohto problému povoľte &lt;b&gt;s.youtube.com&lt;/b&gt; alebo vypnite všetky blokátory reklám pomocou DNS a proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Neukazuj znovu</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Povoliť automatické opakovanie</string>
-  <string name="revanced_auto_repeat_summary_on">Automatické opakovanie je povolené</string>
-  <string name="revanced_auto_repeat_summary_off">Automatické opakovanie je zakázané</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Povoliť opakovanie videa</string>
+  <string name="revanced_loop_video_summary_on">Video sa bude opakovať</string>
+  <string name="revanced_loop_video_summary_off">Video sa nebude opakovať</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Zobraziť tlačidlo pre opakovanie videa</string>
+  <string name="revanced_loop_video_button_summary_on">Tlačidlo je zobrazené</string>
+  <string name="revanced_loop_video_button_summary_off">Tlačidlo sa nezobrazuje</string>
+  <string name="revanced_loop_video_button_toast_on">Opakovanie videa je zapnuté</string>
+  <string name="revanced_loop_video_button_toast_off">Opakovanie videa je vypnuté</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Rozmery spoof zariadenia</string>
@@ -1459,11 +1490,6 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_external_browser_title">Otvoriť odkazy v prehliadači</string>
   <string name="revanced_external_browser_summary_on">Otváranie odkazov v externom prehliadači</string>
   <string name="revanced_external_browser_summary_off">Otváranie odkazov v prehliadači v aplikácii</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Odstráňte parameter dopytu sledovania</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Parameter dopytu sledovania je odstránený z odkazov</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Parameter dopytu sledovania nie je odstránený z odkazov</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Vynútiť pôvodný jazyk zvuku</string>
@@ -1545,19 +1571,21 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Vedľajšie účinky podvrhnutia</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Vedľajšie účinky spoofingu Androidu</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Chýba ponuka zvukovej stopy
-• Stabilná hlasitosť nie je k dispozícii"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video sa môže zastaviť o 1:00, alebo nemusí byť dostupné v niektorých regiónoch</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentálny klient a môže kedykoľvek prestať fungovať</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video sa môže zastaviť o 1:00, alebo nemusí byť dostupné v niektorých regiónoch</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Chýba ponuka zvukovej stopy</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žiadny video kodek AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabilná hlasitosť nie je dostupná</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videá pre deti sa nemusia prehrávať, keď ste odhlásení alebo v režime inkognito</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Vynútenie pôvodného zvuku nie je k dispozícii</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Zobraziť v štatistike pre expertov</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Typ klienta sa zobrazuje v štatistikách pre expertov</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klient je skrytý v štatistikách pre expertov</string>
   <string name="revanced_spoof_video_streams_language_title">Jazyk zvukového streamu</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Ak chcete vybrať konkrétny jazyk zvuku, vypnite „Vynútiť pôvodný jazyk zvuku“</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Výber jazyka streamu nie je k dispozícii v aplikácii Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1578,10 +1606,45 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Trvalé opakovanie je povolené</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Trvalé opakovanie je zakázané</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Skryť tlačidlo prenášania</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Tlačidlo prenášania je skryté</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Tlačidlo prenášania je zobrazené</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Skryť lištu kategórií</string>
   <string name="revanced_music_hide_category_bar_summary_on">Lišta kategórií je skrytá</string>
   <string name="revanced_music_hide_category_bar_summary_off">Lišta kategórií je zobrazená</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Navigačný panel</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Skryť alebo zmeniť tlačidlá navigačného panela</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Skryť Domov</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Tlačidlo Domov je skryté</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Tlačidlo Domov je zobrazené</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Skryť Ukážky</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Tlačidlo Ukážky je skryté</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Tlačidlo Ukážky je zobrazené</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Skryť Preskúmať</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Tlačidlo Preskúmať je skryté</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Tlačidlo Preskúmať je zobrazené</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Skryť Knižnicu</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Tlačidlo Knižnica je skryté</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Tlačidlo Knižnica je zobrazené</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Skryť Vylepšiť</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Tlačidlo Inovovať je skryté</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Tlačidlo Inovovať je zobrazené</string>
+  <string name="revanced_music_hide_navigation_bar_title">Skryť navigačný panel</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Navigačný panel je skrytý</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Navigačný panel je zobrazený</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Skryť popisky navigačných tlačidiel</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Popisky sú skryté</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Popisky sú zobrazené</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Skryť štítok „Získajte Music Premium“</string>

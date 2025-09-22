@@ -2,7 +2,6 @@ package app.revanced.extension.music.settings;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
-
 import static app.revanced.extension.shared.settings.Setting.parent;
 
 import app.revanced.extension.shared.settings.BaseSettings;
@@ -15,10 +14,17 @@ public class Settings extends BaseSettings {
     // Ads
     public static final BooleanSetting HIDE_VIDEO_ADS = new BooleanSetting("revanced_music_hide_video_ads", TRUE, true);
     public static final BooleanSetting HIDE_GET_PREMIUM_LABEL = new BooleanSetting("revanced_music_hide_get_premium_label", TRUE, true);
-    public static final BooleanSetting HIDE_UPGRADE_BUTTON = new BooleanSetting("revanced_music_hide_upgrade_button", TRUE, true);
 
     // General
+    public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_music_hide_cast_button", TRUE, false);
     public static final BooleanSetting HIDE_CATEGORY_BAR = new BooleanSetting("revanced_music_hide_category_bar", FALSE, true);
+    public static final BooleanSetting HIDE_NAVIGATION_BAR_HOME_BUTTON = new BooleanSetting("revanced_music_hide_navigation_bar_home_button", FALSE, true);
+    public static final BooleanSetting HIDE_NAVIGATION_BAR_SAMPLES_BUTTON = new BooleanSetting("revanced_music_hide_navigation_bar_samples_button", FALSE, true);
+    public static final BooleanSetting HIDE_NAVIGATION_BAR_EXPLORE_BUTTON = new BooleanSetting("revanced_music_hide_navigation_bar_explore_button", FALSE, true);
+    public static final BooleanSetting HIDE_NAVIGATION_BAR_LIBRARY_BUTTON = new BooleanSetting("revanced_music_hide_navigation_bar_library_button", FALSE, true);
+    public static final BooleanSetting HIDE_NAVIGATION_BAR_UPGRADE_BUTTON = new BooleanSetting("revanced_music_hide_navigation_bar_upgrade_button", TRUE, true);
+    public static final BooleanSetting HIDE_NAVIGATION_BAR = new BooleanSetting("revanced_music_hide_navigation_bar", FALSE, true);
+    public static final BooleanSetting HIDE_NAVIGATION_BAR_LABEL = new BooleanSetting("revanced_music_hide_navigation_bar_labels", FALSE, true);
 
     // Player
     public static final BooleanSetting PERMANENT_REPEAT = new BooleanSetting("revanced_music_play_permanent_repeat", FALSE, true);

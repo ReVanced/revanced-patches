@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">設定を検索</string>
   <string name="revanced_settings_search_no_results_title">「%s」に該当する結果は見つかりませんでした</string>
   <string name="revanced_settings_search_no_results_summary">別のキーワードを試してください</string>
+  <string name="revanced_settings_search_recent_searches">最近の検索</string>
   <string name="revanced_settings_search_remove_message">検索履歴から削除しますか？</string>
+  <string name="revanced_settings_search_clear_history">検索履歴を消去</string>
+  <string name="revanced_settings_search_clear_history_message">本当にすべての検索履歴を消去しますか？</string>
+  <string name="revanced_settings_search_tips_title">検索のヒント</string>
+  <string name="revanced_settings_search_tips_summary">"• カテゴリをタップするとそのカテゴリの設定メニューに移動する
+• 設定を長押しすると設定メニューに移動しその設定の位置までスクロールする
+• Enter キーを押すと検索クエリが履歴に保存される
+• 検索では、大文字・小文字や句読点は無視される
+• 無効化されている下位設定の上には、その設定を無効化している上位設定が表示される"</string>
+  <string name="revanced_settings_search_empty_history_title">検索履歴はありません</string>
+  <string name="revanced_settings_search_empty_history_summary">検索履歴を保存するには、検索クエリを入力して Enter キーを押してください</string>
+  <string name="revanced_settings_search_history_title">設定の検索履歴を表示</string>
+  <string name="revanced_settings_search_history_summary_on">設定の検索履歴は表示されます</string>
+  <string name="revanced_settings_search_history_summary_off">設定の検索履歴は表示されません</string>
   <string name="revanced_show_menu_icons_title">ReVanced の設定にアイコンを表示</string>
   <string name="revanced_show_menu_icons_summary_on">ReVanced の設定にアイコンが表示されます</string>
   <string name="revanced_show_menu_icons_summary_off">ReVanced の設定にアイコンは表示されません</string>
   <string name="revanced_language_title">ReVanced 設定の言語</string>
-  <string name="revanced_language_user_dialog_message">"一部の言語の翻訳が欠落しているか不完全な可能性があります。
+  <string name="revanced_language_user_dialog_message">"一部の言語の翻訳が欠落しているか不完全である可能性があります。
 
-新しい言語を翻訳するには、translate.revanced.app にアクセスしてください。"</string>
+新しい言語を翻訳する、または既存の翻訳を改善するには、translate.revanced.app にアクセスしてください。"</string>
   <string name="revanced_language_DEFAULT">アプリの言語</string>
   <string name="revanced_pref_import_export_title">インポート / エクスポート</string>
   <string name="revanced_pref_import_export_summary">ReVanced の設定をインポート/エクスポートします</string>
@@ -107,6 +121,15 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_debug_title">デバッグログを有効化</string>
   <string name="revanced_debug_summary_on">デバッグログは有効です</string>
   <string name="revanced_debug_summary_off">デバッグログは無効です</string>
+  <string name="revanced_debug_stacktrace_title">スタック トレースをログに記録</string>
+  <string name="revanced_debug_stacktrace_summary_on">デバッグログにスタック トレースが含まれます</string>
+  <string name="revanced_debug_stacktrace_summary_off">デバッグログにスタック トレースは含まれません</string>
+  <string name="revanced_debug_toast_on_error_title">ReVanced のエラー時にトーストを表示</string>
+  <string name="revanced_debug_toast_on_error_summary_on">エラーが発生した場合にトーストが表示されます</string>
+  <string name="revanced_debug_toast_on_error_summary_off">エラーが発生してもトーストは表示されません</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"エラートーストをオフにすると、ReVanced のすべてのエラー通知が非表示になります。
+
+予期しないイベントが発生した場合でも通知されなくなります。"</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">デバッグログのエクスポート</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced のデバッグログをクリップボードにコピーします</string>
   <string name="revanced_debug_logs_disabled">デバッグログは無効です</string>
@@ -116,6 +139,14 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_debug_logs_clear_buffer_title">デバッグログを消去</string>
   <string name="revanced_debug_logs_clear_buffer_summary">保存されているすべての ReVanced デバッグログを消去します</string>
   <string name="revanced_debug_logs_clear_toast">ログを消去しました</string>
+  </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">追跡パラメータをリンクから削除する</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">追跡パラメータはリンクから削除されます</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">追跡パラメータはリンクから削除されません</string>
+  <string name="revanced_replace_music_with_youtube_title">共有リンクを youtube.com に変更</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">共有リンクには youtube.com が使用されます</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">共有リンクには music.youtube.com が使用されます</string>
   </patch>
   </app>
   <app id="youtube">
@@ -134,9 +165,6 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_restore_old_settings_menus_title">古い設定メニューを復元</string>
   <string name="revanced_restore_old_settings_menus_summary_on">旧バージョンの設定メニューが表示されます</string>
   <string name="revanced_restore_old_settings_menus_summary_off">旧バージョンの設定メニューは表示されません</string>
-  <string name="revanced_settings_search_history_title">設定の検索履歴を表示</string>
-  <string name="revanced_settings_search_history_summary_on">設定の検索履歴は表示されます</string>
-  <string name="revanced_settings_search_history_summary_off">設定の検索履歴は表示されません</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">ショートのバックグラウンド再生を無効化</string>
@@ -152,15 +180,6 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
 これは、カスタムフィルターを作成する際にコンポーネントを識別するのに役立ちます。
 
 ただし、これを有効にすると、IP アドレスなどの一部のユーザーデータもログに記録されます。"</string>
-  <string name="revanced_debug_stacktrace_title">スタック トレースをログに記録</string>
-  <string name="revanced_debug_stacktrace_summary_on">デバッグログにスタック トレースが含まれます</string>
-  <string name="revanced_debug_stacktrace_summary_off">デバッグログにスタック トレースは含まれません</string>
-  <string name="revanced_debug_toast_on_error_title">ReVanced のエラー時にトーストを表示</string>
-  <string name="revanced_debug_toast_on_error_summary_on">エラーが発生した場合にトーストが表示されます</string>
-  <string name="revanced_debug_toast_on_error_summary_off">エラーが発生してもトーストは表示されません</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"エラートーストをオフにすると、ReVanced のすべてのエラー通知が非表示になります。
-
-予期しないイベントが発生した場合でも通知されなくなります。"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">アルバムカードを非表示</string>
@@ -588,6 +607,10 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_stop_ads_button_title">「広告を停止」を非表示</string>
   <string name="revanced_hide_stop_ads_button_summary_on">「広告を停止」ボタンは表示されません</string>
   <string name="revanced_hide_stop_ads_button_summary_off">「広告を停止」ボタンは表示されます</string>
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+  <string name="revanced_hide_comments_button_title">コメントボタンを非表示</string>
+  <string name="revanced_hide_comments_button_summary_on">コメントボタンは表示されません</string>
+  <string name="revanced_hide_comments_button_summary_off">コメントボタンは表示されます</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">報告ボタンを非表示</string>
@@ -624,9 +647,9 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_clip_button_summary_on">クリップボタンは表示されません</string>
   <string name="revanced_hide_clip_button_summary_off">クリップボタンは表示されます</string>
   <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_shop_button_title">「ショップ」を非表示</string>
-  <string name="revanced_hide_shop_button_summary_on">ショップボタンは表示されません</string>
-  <string name="revanced_hide_shop_button_summary_off">ショップボタンは表示されます</string>
+  <string name="revanced_hide_shop_button_title">購入ボタンを非表示</string>
+  <string name="revanced_hide_shop_button_summary_on">購入ボタンは表示されません</string>
+  <string name="revanced_hide_shop_button_summary_off">購入ボタンは表示されます</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_save_button_title">「保存」を非表示にする</string>
   <string name="revanced_hide_save_button_summary_on">「保存」ボタンは表示されません</string>
@@ -741,15 +764,15 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_autoplay_button_title">自動再生ボタンを非表示</string>
-  <string name="revanced_hide_autoplay_button_summary_on">プレーヤー オーバーレイの自動再生ボタンは表示されません</string>
-  <string name="revanced_hide_autoplay_button_summary_off">プレーヤー オーバーレイの自動再生ボタンは表示されます</string>
+  <string name="revanced_hide_autoplay_button_summary_on">自動再生ボタンはプレーヤー オーバーレイに表示されません</string>
+  <string name="revanced_hide_autoplay_button_summary_off">自動再生ボタンはプレーヤー オーバーレイに表示されます</string>
   <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
   <string name="revanced_hide_captions_button_title">字幕ボタンを非表示</string>
-  <string name="revanced_hide_captions_button_summary_on">プレーヤー オーバーレイの字幕ボタンは表示されません</string>
-  <string name="revanced_hide_captions_button_summary_off">プレーヤー オーバーレイの字幕ボタンは表示されます</string>
+  <string name="revanced_hide_captions_button_summary_on">字幕ボタンはプレーヤー オーバーレイに表示されません</string>
+  <string name="revanced_hide_captions_button_summary_off">字幕ボタンはプレーヤー オーバーレイに表示されます</string>
   <string name="revanced_hide_cast_button_title">キャストボタンを非表示</string>
-  <string name="revanced_hide_cast_button_summary_on">プレーヤー オーバーレイのキャストボタンは表示されません</string>
-  <string name="revanced_hide_cast_button_summary_off">プレーヤー オーバーレイのキャストボタンは表示されます</string>
+  <string name="revanced_hide_cast_button_summary_on">キャストボタンはプレーヤー オーバーレイに表示されません</string>
+  <string name="revanced_hide_cast_button_summary_off">キャストボタンはプレーヤー オーバーレイに表示されます</string>
   <string name="revanced_hide_player_control_buttons_background_title">プレーヤー コントロールの背景を非表示</string>
   <string name="revanced_hide_player_control_buttons_background_summary_on">プレーヤー コントロールの背景は表示されません</string>
   <string name="revanced_hide_player_control_buttons_background_summary_off">プレーヤー コントロールの背景は表示されます</string>
@@ -1060,9 +1083,9 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_sb_guidelines_popup_already_read">既読</string>
   <string name="revanced_sb_guidelines_popup_open">表示する</string>
   <string name="revanced_sb_general">その他</string>
-  <string name="revanced_sb_toast_on_connection_error_title">API 利用不可時にトーストを表示</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock が利用できない場合にトースト通知が表示されます</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock が利用できない場合にトースト通知は表示されません</string>
+  <string name="revanced_sb_toast_on_connection_error">API 利用不可時にトーストを表示</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">SponsorBlock が利用できない場合にトースト通知が表示されます</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">SponsorBlock が利用できない場合にトースト通知は表示されません</string>
   <string name="revanced_sb_general_skipcount">スキップデータの収集を有効化</string>
   <string name="revanced_sb_general_skipcount_sum_on">SponsorBlock リーダーボード にスキップによって節約した時間を送信します。セグメントをスキップする度にデータが送信されます</string>
   <string name="revanced_sb_general_skipcount_sum_off">スキップデータの収集は無効です</string>
@@ -1243,10 +1266,11 @@ Automotive レイアウト
 
 アプリの外観と機能が変化しますが、予期せぬ副作用が発生する可能性があります。
 
-再び偽装を無効にする場合は、UI のバグを防ぐためにアプリデータを消去することをお勧めします。"</string>
+再び偽装を無効にする場合には、UI のバグを防ぐためにアプリデータを消去することをお勧めします。"</string>
   <string name="revanced_spoof_app_version_target_title">アプリバージョンの偽装先</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - 古いショート プレーヤーのアイコンを復元</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - 古いナビゲーション アイコンを復元</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - アクション ボタンの文字表示を復元</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - 古いショート プレーヤーのアイコンを復元</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - 古いナビゲーション アイコンを復元</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">スタート画面を変更</string>
@@ -1314,12 +1338,12 @@ Automotive レイアウト
   <string name="revanced_miniplayer_rounded_corners_title">丸角を有効化</string>
   <string name="revanced_miniplayer_rounded_corners_summary_on">ミニプレーヤーの角は丸角です</string>
   <string name="revanced_miniplayer_rounded_corners_summary_off">ミニプレーヤーの角は直角です</string>
-  <string name="revanced_miniplayer_double_tap_action_title">「ダブルタップとピンチでサイズ変更」を有効化</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_on">"「ダブルタップとピンチでサイズ変更」は有効です
+  <string name="revanced_miniplayer_double_tap_action_title">ダブルタップとピンチによるサイズ変更を有効化</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_on">"ダブルタップとピンチによるサイズ変更は有効です
 
 • ダブルタップすると、ミニプレーヤーのサイズが大きくなる
 • もう一度ダブルタップすると、元のサイズに戻る"</string>
-  <string name="revanced_miniplayer_double_tap_action_summary_off">「 ダブルタップとピンチでサイズ変更」は無効です</string>
+  <string name="revanced_miniplayer_double_tap_action_summary_off">ダブルタップとピンチによるサイズ変更は無効です</string>
   <string name="revanced_miniplayer_drag_and_drop_title">ドラッグ＆ドロップを有効化</string>
   <string name="revanced_miniplayer_drag_and_drop_summary_on">"ドラッグ＆ドロップは有効です
 
@@ -1424,10 +1448,17 @@ Automotive レイアウト
   <string name="revanced_check_watch_history_domain_name_dialog_message">再生履歴が保存されていません。&lt;br&gt;&lt;br&gt;これは、DNS 広告ブロッカーまたはネットワーク プロキシが原因である可能性があります。&lt;br&gt;&lt;br&gt;この問題を解決するには、&lt;b&gt;s.youtube.com&lt;/b&gt; をホワイトリストに追加するか、すべての DNS ブロッカーとプロキシをオフにしてください。</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">今後表示しない</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">自動ループ再生を有効にする</string>
-  <string name="revanced_auto_repeat_summary_on">自動ループ再生は有効です</string>
-  <string name="revanced_auto_repeat_summary_off">自動ループ再生は無効です</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">ループ再生を有効にする</string>
+  <string name="revanced_loop_video_summary_on">動画がループ再生されます</string>
+  <string name="revanced_loop_video_summary_off">動画がループ再生されません</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">ループ再生ボタンを表示</string>
+  <string name="revanced_loop_video_button_summary_on">ボタンは表示されます</string>
+  <string name="revanced_loop_video_button_summary_off">ボタンはプレーヤー オーバーレイに表示されません</string>
+  <string name="revanced_loop_video_button_toast_on">ループ再生がオンです</string>
+  <string name="revanced_loop_video_button_toast_off">ループ再生がオフです</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">デバイスの画面サイズを偽装する</string>
@@ -1469,17 +1500,12 @@ Automotive レイアウト
   <string name="revanced_external_browser_summary_on">外部ブラウザでリンクを開きます</string>
   <string name="revanced_external_browser_summary_off">アプリ内ブラウザでリンクを開きます</string>
   </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">追跡パラメータをリンクから削除する</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">追跡パラメータはリンクから削除されます</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">追跡パラメータはリンクから削除されません</string>
-  </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">オリジナルの音声を強制的に使用</string>
   <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用しません</string>
   <string name="revanced_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックを使用する場合があります</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装」のクライアントを Android Studio を除く任意のクライアントに変更してください</string>
+  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装」のクライアントを Android Studio 以外の任意のクライアントに変更してください</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
@@ -1554,19 +1580,21 @@ Automotive レイアウト
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">偽装による副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android クライアントの副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• 「音声トラック」がフライアウト メニューに表示されない
-• 「一定音量」が利用できない"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• 動画が 01:00 で停止する、または一部の地域で利用できない可能性がある</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 実験的なクライアントであり、いつでも動作しなくなる可能性がある</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• 動画が 01:00 で停止する、または一部の地域で利用できない可能性がある</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">•「音声トラック」がフライアウト メニューに表示されない</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 コーデックが利用できない</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">•「一定音量」が利用できない</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ログアウト時またはシークレット モード時に、子ども向け動画が再生されない可能性がある</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">•「オリジナルの音声を強制的に使用」が利用できない</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">統計情報に表示する</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">統計情報に現在のクライアントが表示されます</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">統計情報に現在のクライアントは表示されません</string>
   <string name="revanced_spoof_video_streams_language_title">音声ストリームの言語</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">特定の音声言語を選択するには、「オリジナルの音声を強制的に使用」を無効にしてください</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Android Studio では、ストリームの言語を選択できません</string>
   </patch>
   </app>
   <app id="music">
@@ -1585,12 +1613,47 @@ Automotive レイアウト
   <patch id="interaction.permanentrepeat.permanentRepeatPatch">
   <string name="revanced_music_play_permanent_repeat_title">常時リピートを有効化</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">常時リピートは有効です\n\nリピート設定が保存され常時適用されます</string>
-  <string name="revanced_music_play_permanent_repeat_summary_off">常時リピートは無効です\n\nリピート設定は保存されません</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">常時リピートは無効です\n\nリピート設定は保存されずリセットされます</string>
+  </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">キャストボタンを非表示</string>
+  <string name="revanced_music_hide_cast_button_summary_on">キャストボタンはプレーヤー オーバーレイに表示されません</string>
+  <string name="revanced_music_hide_cast_button_summary_off">キャストボタンはプレーヤー オーバーレイに表示されます</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">カテゴリバーを非表示</string>
   <string name="revanced_music_hide_category_bar_summary_on">カテゴリバーは表示されません</string>
   <string name="revanced_music_hide_category_bar_summary_off">カテゴリバーは表示されます</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">ナビゲーション バー</string>
+  <string name="revanced_music_navigation_bar_screen_summary">ナビゲーション バーのボタンを変更または非表示にします</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">「ホーム」を非表示</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">ホームボタンは表示されません</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">ホームボタンは表示されます</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">「サンプル」を非表示</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">サンプルボタンは表示されません</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">サンプルボタンは表示されます</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">「探索」を非表示</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">探索ボタンは表示されません</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">探索ボタンは表示されます</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">「ライブラリ」を非表示</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">ライブラリ ボタンは表示されません</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">ライブラリ ボタンは表示されます</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">「アップグレード」を非表示</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">アップグレード ボタンは表示されません</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">アップグレード ボタンは表示されます</string>
+  <string name="revanced_music_hide_navigation_bar_title">ナビゲーション バーを非表示</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">ナビゲーション バーは表示されません</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">ナビゲーション バーは表示されます</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">ボタンをアイコンのみで表示</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">ナビゲーション ボタンはアイコンのみで表示されます</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">ナビゲーション ボタンはアイコンと文字で表示されます</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">「Music Premium に登録」ラベルを非表示</string>

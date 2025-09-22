@@ -3,7 +3,7 @@ package app.revanced.extension.youtube.sponsorblock.ui;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import app.revanced.extension.youtube.settings.preference.UrlLinkPreference;
+import app.revanced.extension.shared.settings.preference.UrlLinkPreference;
 
 @SuppressWarnings("unused")
 public class SponsorBlockAboutPreference extends UrlLinkPreference {

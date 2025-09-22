@@ -29,7 +29,7 @@ private const val MENU_DISMISS_EVENT_CLASS_DESCRIPTOR =
     "Ltv/twitch/android/feature/settings/menu/SettingsMenuViewDelegate\$Event\$OnDismissClicked;"
 
 private const val EXTENSION_PACKAGE = "app/revanced/extension/twitch"
-private const val ACTIVITY_HOOKS_CLASS_DESCRIPTOR = "L$EXTENSION_PACKAGE/settings/AppCompatActivityHook;"
+private const val ACTIVITY_HOOKS_CLASS_DESCRIPTOR = "L$EXTENSION_PACKAGE/settings/TwitchActivityHook;"
 private const val UTILS_CLASS_DESCRIPTOR = "L$EXTENSION_PACKAGE/Utils;"
 
 private val preferences = mutableSetOf<BasePreference>()

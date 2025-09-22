@@ -17,6 +17,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.preference.Preference;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.webkit.WebView;
@@ -228,10 +229,10 @@ class WebViewDialog extends Dialog {
 
         setContentView(mainLayout);
 
-        // Set dialog window attributes
+        // Set dialog window attributes.
         Window window = getWindow();
         if (window != null) {
-            Utils.setDialogWindowParameters(window);
+            Utils.setDialogWindowParameters(window, Gravity.CENTER, 0, 90, false);
         }
     }
 

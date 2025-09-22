@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Maghanap ng mga setting</string>
   <string name="revanced_settings_search_no_results_title">Walang nakitang resulta para sa 																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	\'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Subukan ang ibang keyword</string>
+  <string name="revanced_settings_search_recent_searches">Mga kamakailang paghahanap</string>
   <string name="revanced_settings_search_remove_message">Alisin sa history ng paghahanap?</string>
+  <string name="revanced_settings_search_clear_history">I-clear ang history ng paghahanap</string>
+  <string name="revanced_settings_search_clear_history_message">Sigurado ka bang gusto mong i-clear ang lahat ng history ng paghahanap?</string>
+  <string name="revanced_settings_search_tips_title">Mga Tip sa Paghahanap</string>
+  <string name="revanced_settings_search_tips_summary">"• I-tap ang isang landas upang mag-navigate dito
+• Pindutin nang matagal ang isang setting upang mag-navigate dito
+• Pindutin ang Enter upang i-save ang isang query sa paghahanap sa kasaysayan
+• Hindi isinasaalang-alang ng paghahanap ang casing at bantas
+• Lumilitaw ang mga setting ng magulang sa itaas ng mga disabled na setting ng anak"</string>
+  <string name="revanced_settings_search_empty_history_title">Walang laman ang kasaysayan ng paghahanap</string>
+  <string name="revanced_settings_search_empty_history_summary">Upang i-save ang kasaysayan ng paghahanap, mag-type ng query sa paghahanap at pindutin ang Enter</string>
+  <string name="revanced_settings_search_history_title">Ipakita ang history ng paghahanap sa mga setting</string>
+  <string name="revanced_settings_search_history_summary_on">Ipinapakita ang history ng paghahanap sa mga setting</string>
+  <string name="revanced_settings_search_history_summary_off">Hindi ipinapakita ang kasaysayan ng paghahanap sa Mga Setting</string>
   <string name="revanced_show_menu_icons_title">Ipakita ang mga icon ng setting ng ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ipinapakita ang mga icon ng setting</string>
   <string name="revanced_show_menu_icons_summary_off">Hindi ipinapakita ang mga icon ng setting</string>
   <string name="revanced_language_title">Wika ng ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"Ang mga pagsasalin para sa ilang mga wika ay maaaring nawawala o hindi kumpleto.
+  <string name="revanced_language_user_dialog_message">"Maaaring nawawala o hindi kumpleto ang mga pagsasalin para sa ilang wika.
 
-Upang magsalin ng mga bagong wika, bisitahin ang translate.revanced.app"</string>
+Upang isalin ang mga bagong wika o pagbutihin ang kasalukuyang mga pagsasalin, bisitahin ang translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Wika ng app</string>
   <string name="revanced_pref_import_export_title">Mag-import / Mag-export</string>
   <string name="revanced_pref_import_export_summary">I-import / I-export ang mga setting ng ReVanced</string>
@@ -107,6 +121,15 @@ Maaaring hindi gumana ang pag-playback"</string>
   <string name="revanced_debug_title">Pag-log sa pag-debug</string>
   <string name="revanced_debug_summary_on">Ang mga debug log ay pinagana</string>
   <string name="revanced_debug_summary_off">Ang mga debug log ay hindi pinagana</string>
+  <string name="revanced_debug_stacktrace_title">Mga bakas ng stack ng log</string>
+  <string name="revanced_debug_stacktrace_summary_on">Kasama sa mga debug log ang stack trace</string>
+  <string name="revanced_debug_stacktrace_summary_off">Hindi kasama sa mga debug log ang stack trace</string>
+  <string name="revanced_debug_toast_on_error_title">Ipakita ang toast sa ReVanced error</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Ipinapakita ang Toast kung may naganap na error</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Hindi ipinapakita ang Toast kung may naganap na error</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Ang pag-off ng mga toast ng error ay nagtatago ng lahat ng mga abiso ng error ng ReVanced.
+
+Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">I-export ang mga debug log</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">Kinokopya ang mga ReVanced debug log sa clipboard</string>
   <string name="revanced_debug_logs_disabled">Hindi pinagana ang pag-log ng debug</string>
@@ -116,6 +139,14 @@ Maaaring hindi gumana ang pag-playback"</string>
   <string name="revanced_debug_logs_clear_buffer_title">I-clear ang mga debug log</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Iki-clear ang lahat ng nakaimbak na ReVanced debug log</string>
   <string name="revanced_debug_logs_clear_toast">Na-clear ang mga log</string>
+  </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Alisin ang parameter ng query sa pagsubaybay</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Ang parameter ng query sa pagsubaybay ay tinanggal mula sa mga link</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Ang parameter ng query sa pagsubaybay ay hindi inaalis sa mga link</string>
+  <string name="revanced_replace_music_with_youtube_title">Baguhin ang mga link ng pagbabahagi sa youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Gumagamit ang mga nakabahaging link ng youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Gumagamit ang mga nakabahaging link ng music.youtube.com</string>
   </patch>
   </app>
   <app id="youtube">
@@ -133,9 +164,6 @@ Maaaring hindi gumana ang pag-playback"</string>
   <string name="revanced_restore_old_settings_menus_title">Ibalik ang dating mga menu ng setting</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Ipinapakita ang mga lumang menu ng setting</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Hindi ipinapakita ang mga lumang menu ng setting</string>
-  <string name="revanced_settings_search_history_title">Ipakita ang history ng paghahanap sa mga setting</string>
-  <string name="revanced_settings_search_history_summary_on">Ipinapakita ang history ng paghahanap sa mga setting</string>
-  <string name="revanced_settings_search_history_summary_off">Hindi ipinapakita ang kasaysayan ng paghahanap sa Mga Setting</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">I-disable ang pag-playback ng Shorts sa background</string>
@@ -151,15 +179,6 @@ Maaaring hindi gumana ang pag-playback"</string>
 Maaaring makatulong ito na matukoy ang mga bahagi kapag lumilikha ng mga custom na filter.
 
 Gayunpaman, ang pagpapagana nito ay magtatala rin ng ilang data ng user gaya ng iyong IP address."</string>
-  <string name="revanced_debug_stacktrace_title">Mga bakas ng stack ng log</string>
-  <string name="revanced_debug_stacktrace_summary_on">Kasama sa mga debug log ang stack trace</string>
-  <string name="revanced_debug_stacktrace_summary_off">Hindi kasama sa mga debug log ang stack trace</string>
-  <string name="revanced_debug_toast_on_error_title">Ipakita ang toast sa ReVanced error</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Ipinapakita ang Toast kung may naganap na error</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Hindi ipinapakita ang Toast kung may naganap na error</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Ang pag-off ng mga toast ng error ay nagtatago ng lahat ng mga abiso ng error ng ReVanced.
-
-Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Itago ang mga album card</string>
@@ -586,6 +605,10 @@ Ayusin ang volume sa pamamagitan ng pag-swipe nang patayo sa kanang bahagi ng sc
   <string name="revanced_hide_stop_ads_button_title">Itago ang Ihinto ang mga ad</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Nakatago ang button ng pagtigil sa mga ad</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Napakita ang button ng pagtigil sa mga ad</string>
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+  <string name="revanced_hide_comments_button_title">Itago ang mga Komento</string>
+  <string name="revanced_hide_comments_button_summary_on">Nakatago ang pindutan ng Mga Komento</string>
+  <string name="revanced_hide_comments_button_summary_off">Ipinapakita ang pindutan ng Mga Komento</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Itago ang Ulat</string>
@@ -1054,9 +1077,9 @@ Ang tampok na ito ay pinakamahusay na gumagana sa kalidad ng video na 720p o mas
   <string name="revanced_sb_guidelines_popup_already_read">Nabasa na</string>
   <string name="revanced_sb_guidelines_popup_open">Ipakita mo saakin</string>
   <string name="revanced_sb_general">Pangkalahatan</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Magpakita ng toast kung hindi available ang API</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Ang toast ay ipinapakita kung hindi available ang SponsorBlock</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Hindi ipinapakita ang toast kung hindi available ang SponsorBlock</string>
+  <string name="revanced_sb_toast_on_connection_error">Magpakita ng toast kung hindi available ang API</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Ang toast ay ipinapakita kung hindi available ang SponsorBlock</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Hindi ipinapakita ang toast kung hindi available ang SponsorBlock</string>
   <string name="revanced_sb_general_skipcount">Paganahin ang pagsubaybay sa bilang ng laktawan</string>
   <string name="revanced_sb_general_skipcount_sum_on">Hinahayaan ang SponsorBlock leaderboard na malaman kung gaano karaming oras ang nai-save. Ang isang mensahe ay ipinapadala sa leaderboard sa tuwing ang isang segment ay lalaktawan</string>
   <string name="revanced_sb_general_skipcount_sum_off">Hindi pinagana ang pagsubaybay sa bilang ng laktawan</string>
@@ -1240,8 +1263,9 @@ Ito ay magbabago sa hitsura at mga tampok ng app, ngunit maaaring mangyari ang m
 
 Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan ang mga bug ng UI."</string>
   <string name="revanced_spoof_app_version_target_title">Target na bersyon ng Spoof app</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Ibalik ang mga lumang icon ng Shorts player</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Ibalik ang mga lumang icon ng navigation</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Ibalik ang hindi nakatiklop na video action bar</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Ibalik ang mga lumang icon ng Shorts player</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Ibalik ang mga lumang icon ng navigation</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Baguhin ang panimulang pahina</string>
@@ -1421,10 +1445,17 @@ Mag-tap dito upang matuto nang higit pa tungkol sa DeArrow"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Hindi nai-save ang iyong kasaysayan ng panonood.&lt;br&gt;&lt;br&gt;Karaniwang sanhi nito ay ang DNS ad blocker o network proxy.&lt;br&gt;&lt;br&gt;Para maayos ito, i-whitelist ang &lt;b&gt;s.youtube.com&lt;/b&gt; o i-off ang lahat ng DNS blocker at proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Huwag ipakitang muli</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Paganahin ang auto-repeat</string>
-  <string name="revanced_auto_repeat_summary_on">Naka-enable ang auto-repeat</string>
-  <string name="revanced_auto_repeat_summary_off">Naka-disable ang auto-repeat</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Paganahin ang loop ng video</string>
+  <string name="revanced_loop_video_summary_on">Maglo-loop ang video</string>
+  <string name="revanced_loop_video_summary_off">Hindi maglo-loop ang video</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Ipakita ang button ng loop ng video</string>
+  <string name="revanced_loop_video_button_summary_on">Ipinapakita ang button</string>
+  <string name="revanced_loop_video_button_summary_off">Hindi ipinapakita ang buton</string>
+  <string name="revanced_loop_video_button_toast_on">Naka-on ang loop ng video</string>
+  <string name="revanced_loop_video_button_toast_off">Naka-off ang loop ng video</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Mga dimensyon ng spoof device</string>
@@ -1464,11 +1495,6 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_external_browser_title">Buksan ang mga link sa browser</string>
   <string name="revanced_external_browser_summary_on">Binubuksan ang mga link sa panlabas na browser</string>
   <string name="revanced_external_browser_summary_off">Binubuksan ang mga link sa in-app na browser</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Alisin ang parameter ng query sa pagsubaybay</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Ang parameter ng query sa pagsubaybay ay tinanggal mula sa mga link</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Ang parameter ng query sa pagsubaybay ay hindi inaalis sa mga link</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Pilitin ang orihinal na wika ng audio</string>
@@ -1550,19 +1576,21 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Mga epekto ng pagpapanggap</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Mga side effect ng Android spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Nawawala ang menu ng audio track
-• Hindi available ang stable na volume"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Maaaring huminto ang video sa 1:00, o maaaring hindi available sa ilang rehiyon</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Pang-eksperimentong kliyente at maaaring huminto sa paggana anumang oras</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Maaaring huminto ang video sa 1:00, o maaaring hindi available sa ilang rehiyon</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Nawawala ang menu ng audio track</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Walang AV1 video codec</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Hindi available ang stable volume</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Mga video ng mga bata ay maaaring hindi ma-play kapag naka-log out o nasa incognito mode</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Ang Pilitin ang orihinal na audio ay hindi magagamit</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Ipakita sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Ipinapakita ang uri ng kliyente sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Nakatago ang kliyente sa Mga Istatistika para sa mga nerds</string>
   <string name="revanced_spoof_video_streams_language_title">Wika ng audio stream</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Upang pumili ng isang partikular na wika ng audio, i-off ang \'Puwersahin ang orihinal na wika ng audio\'</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Hindi available ang pagpili ng wika ng stream sa Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1583,10 +1611,45 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_music_play_permanent_repeat_summary_on">Pinagana ang permanenteng pag-ulit</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Hindi pinagana ang permanenteng pag-ulit</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Itago ang pindutan ng Cast</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Nakatago ang pindutan ng Cast</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Ipinapakita ang pindutan ng Cast</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Itago ang category bar</string>
   <string name="revanced_music_hide_category_bar_summary_on">Nakatago ang category bar</string>
   <string name="revanced_music_hide_category_bar_summary_off">Ipinapakita ang category bar</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Navigation bar</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Itago o baguhin ang mga pindutan ng navigation bar</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Itago ang Tahanan</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Nakatago ang pindutan ng Home</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Nakalabas ang pindutan ng Home</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Itago ang Mga Sample</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Nakatago ang pindutan ng Samples</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Nakalabas ang pindutan ng Samples</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Itago ang Galugarin</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Nakatago ang pindutan ng Explore</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Nakalabas ang pindutan ng Explore</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Itago ang Aklatan</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Nakatago ang pindutan ng Library</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Nakalabas ang pindutan ng Library</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Itago ang I-upgrade</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Nakatago ang pindutan ng Upgrade</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Nakalabas ang pindutan ng Upgrade</string>
+  <string name="revanced_music_hide_navigation_bar_title">Itago ang navigation bar</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Nakatago ang navigation bar</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Nakalabas ang navigation bar</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Itago ang mga label ng pindutan ng navigation</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Nakatago ang mga label</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Nakalabas ang mga label</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Itago ang label na \'Kumuha ng Music Premium\'</string>

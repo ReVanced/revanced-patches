@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Cerca impostazioni</string>
   <string name="revanced_settings_search_no_results_title">Nessun risultato trovato per \".%s\"</string>
   <string name="revanced_settings_search_no_results_summary">Prova un\'altra parola chiave</string>
+  <string name="revanced_settings_search_recent_searches">Ricerche recenti</string>
   <string name="revanced_settings_search_remove_message">Rimuovere dalla cronologia di ricerca?</string>
+  <string name="revanced_settings_search_clear_history">Cancella cronologia ricerche</string>
+  <string name="revanced_settings_search_clear_history_message">Sei sicuro di voler cancellare tutta la cronologia delle ricerche?</string>
+  <string name="revanced_settings_search_tips_title">Suggerimenti per la ricerca</string>
+  <string name="revanced_settings_search_tips_summary">"• Tocca un percorso per accedervi
+• Premi a lungo un'impostazione per accedervi
+• Premi Invio per salvare una query di ricerca nella cronologia
+• La ricerca ignora maiuscole/minuscole e punteggiatura
+• Le impostazioni padre appaiono sopra le impostazioni figlio disabilitate"</string>
+  <string name="revanced_settings_search_empty_history_title">La cronologia delle ricerche è vuota</string>
+  <string name="revanced_settings_search_empty_history_summary">Per salvare la cronologia delle ricerche, digita una query di ricerca e premi Invio</string>
+  <string name="revanced_settings_search_history_title">Mostra la cronologia di ricerca delle impostazioni</string>
+  <string name="revanced_settings_search_history_summary_on">La cronologia di ricerca delle impostazioni è visualizzata</string>
+  <string name="revanced_settings_search_history_summary_off">La cronologia di ricerca delle impostazioni non viene mostrata</string>
   <string name="revanced_show_menu_icons_title">Mostra le icone delle impostazioni di ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Le icone delle impostazioni vengono mostrate</string>
   <string name="revanced_show_menu_icons_summary_off">Le icone delle impostazioni non vengono mostrate</string>
   <string name="revanced_language_title">Lingua di ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"Le traduzioni per alcune lingue potrebbero essere mancanti o incomplete.
+  <string name="revanced_language_user_dialog_message">"Le traduzioni per alcune lingue potrebbero mancare o essere incomplete.
 
-Per tradurre nuove lingue visita translate.revanced.app"</string>
+Per tradurre nuove lingue o migliorare le traduzioni esistenti, visita translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Lingua dell\'app</string>
   <string name="revanced_pref_import_export_title">Importa / Esporta</string>
   <string name="revanced_pref_import_export_summary">Importa / Esporta impostazioni ReVanced</string>
@@ -107,6 +121,15 @@ La riproduzione potrebbe non funzionare"</string>
   <string name="revanced_debug_title">Log di debug</string>
   <string name="revanced_debug_summary_on">I log di debug sono abilitati</string>
   <string name="revanced_debug_summary_off">I log di debug sono disabilitati</string>
+  <string name="revanced_debug_stacktrace_title">Registra stack trace</string>
+  <string name="revanced_debug_stacktrace_summary_on">I log di debug includono lo stack trace</string>
+  <string name="revanced_debug_stacktrace_summary_off">I log di debug non includono lo stack trace</string>
+  <string name="revanced_debug_toast_on_error_title">Mostra notifica per errore di ReVanced</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Il toast viene mostrato se si verifica un errore</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Il toast non viene mostrato se si verifica un errore</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"Disabilitare i toast di errore nasconde tutte le notifiche di errore di ReVanced.
+
+Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">Esporta i log di debug</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">Copia i log di debug di ReVanced negli Appunti</string>
   <string name="revanced_debug_logs_disabled">La registrazione di debug è disabilitata</string>
@@ -116,6 +139,14 @@ La riproduzione potrebbe non funzionare"</string>
   <string name="revanced_debug_logs_clear_buffer_title">Cancella i log di debug</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Cancella tutti i log di debug di ReVanced memorizzati</string>
   <string name="revanced_debug_logs_clear_toast">Log cancellati</string>
+  </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Rimuovi il parametro di tracciamento della query</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Il parametro di tracciamento della query viene rimosso dai link</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Il parametro di tracciamento della query non viene rimosso dai link</string>
+  <string name="revanced_replace_music_with_youtube_title">Cambia i link di condivisione in youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">I link condivisi usano youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">I link condivisi usano music.youtube.com</string>
   </patch>
   </app>
   <app id="youtube">
@@ -133,9 +164,6 @@ La riproduzione potrebbe non funzionare"</string>
   <string name="revanced_restore_old_settings_menus_title">Ripristina i vecchi menu delle impostazioni</string>
   <string name="revanced_restore_old_settings_menus_summary_on">I vecchi menu delle impostazioni vengono mostrati</string>
   <string name="revanced_restore_old_settings_menus_summary_off">I vecchi menu delle impostazioni non vengono mostrati</string>
-  <string name="revanced_settings_search_history_title">Mostra la cronologia di ricerca delle impostazioni</string>
-  <string name="revanced_settings_search_history_summary_on">La cronologia di ricerca delle impostazioni è visualizzata</string>
-  <string name="revanced_settings_search_history_summary_off">La cronologia di ricerca delle impostazioni non viene mostrata</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Disattiva la riproduzione degli Shorts in background</string>
@@ -151,15 +179,6 @@ La riproduzione potrebbe non funzionare"</string>
 Questo può aiutare a identificare i componenti durante la creazione di filtri personalizzati.
 
 Tuttavia, l'abilitazione di questa opzione registrerà anche alcuni dati dell'utente come il tuo indirizzo IP."</string>
-  <string name="revanced_debug_stacktrace_title">Registra stack trace</string>
-  <string name="revanced_debug_stacktrace_summary_on">I log di debug includono lo stack trace</string>
-  <string name="revanced_debug_stacktrace_summary_off">I log di debug non includono lo stack trace</string>
-  <string name="revanced_debug_toast_on_error_title">Mostra notifica per errore di ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Il toast viene mostrato se si verifica un errore</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Il toast non viene mostrato se si verifica un errore</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"Disabilitare i toast di errore nasconde tutte le notifiche di errore di ReVanced.
-
-Non sarai notificato di eventi imprevisti."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Nascondi le schede degli album</string>
@@ -586,6 +605,10 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_hide_stop_ads_button_title">Nascondi Interrompi annunci</string>
   <string name="revanced_hide_stop_ads_button_summary_on">Il pulsante per interrompere gli annunci è nascosto</string>
   <string name="revanced_hide_stop_ads_button_summary_off">Il pulsante per interrompere gli annunci è mostrato</string>
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+  <string name="revanced_hide_comments_button_title">Nascondi commenti</string>
+  <string name="revanced_hide_comments_button_summary_on">Il pulsante Commenti è nascosto</string>
+  <string name="revanced_hide_comments_button_summary_off">Il pulsante Commenti è mostrato</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">Nascondi Segnala</string>
@@ -1056,9 +1079,9 @@ Questa funzione funziona meglio con una qualità video di 720p o inferiore e qua
   <string name="revanced_sb_guidelines_popup_already_read">Già lette</string>
   <string name="revanced_sb_guidelines_popup_open">Mostramele</string>
   <string name="revanced_sb_general">Generale</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Mostra una notifica se l\'API non è disponibile</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">La notifica è mostrata se SponsorBlock non è disponibile</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">La notifica è nascosta se SponsorBlock non è disponibile</string>
+  <string name="revanced_sb_toast_on_connection_error">Mostra una notifica se l\'API non è disponibile</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">La notifica è mostrata se SponsorBlock non è disponibile</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">La notifica è nascosta se SponsorBlock non è disponibile</string>
   <string name="revanced_sb_general_skipcount">Attiva il monitoraggio del conteggio dei salti</string>
   <string name="revanced_sb_general_skipcount_sum_on">Quanto permette al sistema di classifica di SponsorBlock di sapere quanto tempo le persone hanno risparmiato. Viene inviato un messaggio al server ogni volta che salti un segmento</string>
   <string name="revanced_sb_general_skipcount_sum_off">Il monitoraggio del contatore dei salti è disattivato</string>
@@ -1241,8 +1264,9 @@ Questo cambierà l'aspetto e le funzionalità dell'app, ma potrebbero verificars
 
 Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per evitare bug dell'interfaccia."</string>
   <string name="revanced_spoof_app_version_target_title">Target della versione dell\'app desiderata</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - Ripristinare le vecchie icone del player Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - Ripristina le vecchie icone di navigazione</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Ripristina la barra delle azioni video non compressa</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Ripristinare le vecchie icone del player Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Ripristina le vecchie icone di navigazione</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Cambia pagina iniziale</string>
@@ -1422,10 +1446,17 @@ Tocca qui per saperne di più su DeArrow"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">La tua cronologia di visualizzazione non è stata salvata.&lt;br&gt;&lt;br&gt;Questo è molto probabilmente dovuto da un blocco annunci DNS o da un proxy di rete.&lt;br&gt;&lt;br&gt;Per risolvere questo problema, inserisci nella whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; o disattiva tutti i DNS bloccanti e proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Non mostrare più</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Abilita ripetizione automatica</string>
-  <string name="revanced_auto_repeat_summary_on">La ripetizione automatica è abilitata</string>
-  <string name="revanced_auto_repeat_summary_off">La ripetizione automatica è disattivata</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Abilita riproduzione video in loop</string>
+  <string name="revanced_loop_video_summary_on">Il video verrà riprodotto in loop</string>
+  <string name="revanced_loop_video_summary_off">Il video non verrà riprodotto in loop</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Mostra pulsante riproduzione video in loop</string>
+  <string name="revanced_loop_video_button_summary_on">Pulsante mostrato</string>
+  <string name="revanced_loop_video_button_summary_off">Pulsante non mostrato</string>
+  <string name="revanced_loop_video_button_toast_on">Riproduzione video in loop attivata</string>
+  <string name="revanced_loop_video_button_toast_off">Riproduzione video in loop disattivata</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Simula le dimensioni del dispositivo</string>
@@ -1465,11 +1496,6 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_external_browser_title">Apri link nel browser</string>
   <string name="revanced_external_browser_summary_on">Apertura dei link nel browser esterno</string>
   <string name="revanced_external_browser_summary_off">Apertura dei link nel browser in-app</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Rimuovi il parametro di tracciamento della query</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Il parametro di tracciamento della query viene rimosso dai link</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Il parametro di tracciamento della query non viene rimosso dai link</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forza la lingua audio originale</string>
@@ -1551,19 +1577,21 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Effetti collaterali della falsificazione</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Effetti collaterali simulazione Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Il menu della traccia audio è mancante
-• Il volume stabile non è disponibile"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Il video potrebbe interrompersi all\'1:00, o potrebbe non essere disponibile in alcune regioni</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Client sperimentale e potrebbe smettere di funzionare in qualsiasi momento</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Il video potrebbe interrompersi all\'1:00, o potrebbe non essere disponibile in alcune regioni</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Manca il menu delle tracce audio</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nessun codec video AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Il volume stabile non è disponibile</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• I video dei bambini potrebbero non essere riprodotti quando si è disconnessi o in modalità di navigazione in incognito</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• L\'audio originale forzato non è disponibile</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra nelle statistiche per nerd</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Il tipo di client è mostrato nelle statistiche per nerd</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Il client è nascosto nelle statistiche per nerd</string>
   <string name="revanced_spoof_video_streams_language_title">Lingua del flusso audio</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Per selezionare una lingua audio specifica, disattiva \'Forza lingua audio originale\'</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">La selezione della lingua dello stream non è disponibile con Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1584,10 +1612,45 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">La ripetizione permanente è abilitata</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">La ripetizione permanente è disabilitata</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">Nascondi pulsante trasmissione</string>
+  <string name="revanced_music_hide_cast_button_summary_on">Il pulsante di trasmissione è nascosto</string>
+  <string name="revanced_music_hide_cast_button_summary_off">Il pulsante di trasmissione è mostrato</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Nascondi barra delle categorie</string>
   <string name="revanced_music_hide_category_bar_summary_on">La barra delle categorie è nascosta</string>
   <string name="revanced_music_hide_category_bar_summary_off">La barra delle categorie è mostrata</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">Barra di navigazione</string>
+  <string name="revanced_music_navigation_bar_screen_summary">Nascondi o modifica i pulsanti della barra di navigazione</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">Nascondi Home</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Il pulsante Home è nascosto</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Il pulsante Home è mostrato</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Nascondi Esempi</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Il pulsante Campioni è nascosto</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Il pulsante Campioni è mostrato</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Nascondi Esplora</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Il pulsante Esplora è nascosto</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Il pulsante Esplora è mostrato</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Nascondi Libreria</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Il pulsante Libreria è nascosto</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Il pulsante Libreria è mostrato</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Nascondi Aggiorna</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Il pulsante Aggiorna è nascosto</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Il pulsante Aggiorna è mostrato</string>
+  <string name="revanced_music_hide_navigation_bar_title">Nascondi la barra di navigazione</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">La barra di navigazione è nascosta</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">La barra di navigazione è mostrata</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">Nascondi le etichette dei pulsanti di navigazione</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">Le etichette sono nascoste</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">Le etichette sono mostrate</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Nascondi l\'etichetta \'Ottieni Music Premium\'</string>

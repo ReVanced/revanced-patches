@@ -48,14 +48,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">ค้นหาในการตั้งค่า</string>
   <string name="revanced_settings_search_no_results_title">ไม่พบผลลัพธ์สำหรับ \",%s\"</string>
   <string name="revanced_settings_search_no_results_summary">ลองใช้คำหลักอื่น</string>
+  <string name="revanced_settings_search_recent_searches">การค้นหาล่าสุด</string>
   <string name="revanced_settings_search_remove_message">นำออกจากประวัติการค้นหาใช่ไหม</string>
+  <string name="revanced_settings_search_clear_history">ล้างประวัติการค้นหา</string>
+  <string name="revanced_settings_search_clear_history_message">คุณแน่ใจหรือไม่ว่าต้องการล้างประวัติการค้นหาทั้งหมด</string>
+  <string name="revanced_settings_search_tips_title">เคล็ดลับการค้นหา</string>
+  <string name="revanced_settings_search_tips_summary">"• แตะเส้นทางเพื่อไปยังเส้นทางนั้น
+• กดค้างที่การตั้งค่าเพื่อไปยังการตั้งค่า
+• กด Enter เพื่อบันทึกคำค้นหาลงในประวัติ
+• การค้นหาไม่สนใจตัวพิมพ์เล็ก/ใหญ่และเครื่องหมายวรรคตอน
+• การตั้งค่าหลักจะปรากฏอยู่เหนือการตั้งค่ารองที่ถูกปิดใช้งาน"</string>
+  <string name="revanced_settings_search_empty_history_title">ประวัติการค้นหาว่างเปล่า</string>
+  <string name="revanced_settings_search_empty_history_summary">หากต้องการบันทึกประวัติการค้นหา ให้พิมพ์คำค้นหาแล้วกด Enter</string>
+  <string name="revanced_settings_search_history_title">แสดงประวัติการค้นหาในการตั้งค่า</string>
+  <string name="revanced_settings_search_history_summary_on">ประวัติการค้นหาในการตั้งค่าจะปรากฏ</string>
+  <string name="revanced_settings_search_history_summary_off">ไม่แสดงประวัติการค้นหาการตั้งค่า</string>
   <string name="revanced_show_menu_icons_title">แสดงไอคอนการตั้งค่า ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">ไอคอนการตั้งค่าจะปรากฏขึ้น</string>
   <string name="revanced_show_menu_icons_summary_off">ไม่แสดงไอคอนการตั้งค่า</string>
   <string name="revanced_language_title">ภาษา ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"การแปลบางภาษาอาจหายไปหรือไม่สมบูรณ์
+  <string name="revanced_language_user_dialog_message">"คำแปลสำหรับบางภาษาอาจหายไปหรือไม่สมบูรณ์
 
-เพื่อแปลภาษาใหม่ ไปที่ translate.revanced.app"</string>
+หากต้องการแปลภาษาใหม่หรือปรับปรุงคำแปลที่มีอยู่ โปรดไปที่ translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">ภาษาของแอป</string>
   <string name="revanced_pref_import_export_title">นำเข้า / ส่งออก</string>
   <string name="revanced_pref_import_export_summary">นำเข้า / ส่งออกการตั้งค่า ReVanced</string>
@@ -107,6 +121,15 @@ Second \"item\" text"</string>
   <string name="revanced_debug_title">การบันทึกการแก้ไขข้อบกพร่อง</string>
   <string name="revanced_debug_summary_on">การบันทึกการแก้ไขข้อบกพร่องถูกเปิดใช้งาน</string>
   <string name="revanced_debug_summary_off">การบันทึกการแก้ไขข้อบกพร่องถูกปิดใช้งาน</string>
+  <string name="revanced_debug_stacktrace_title">บันทึกการติดตามสแต็ก</string>
+  <string name="revanced_debug_stacktrace_summary_on">การบันทึกการแก้ไขข้อบกพร่องรวมถึงการติดตามสแต็ก</string>
+  <string name="revanced_debug_stacktrace_summary_off">การบันทึกการแก้ไขข้อบกพร่องไม่รวมการติดตามสแต็ก</string>
+  <string name="revanced_debug_toast_on_error_title">แสดง  toast  เมื่อเกิดข้อผิดพลาดของ ReVanced</string>
+  <string name="revanced_debug_toast_on_error_summary_on">Toast จะปรากฏขึ้นหากเกิดข้อผิดพลาด</string>
+  <string name="revanced_debug_toast_on_error_summary_off">Toast จะไม่ปรากฏขึ้นหากเกิดข้อผิดพลาด</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"การปิดการแจ้งเตือนข้อผิดพลาดจะซ่อนการแจ้งเตือนข้อผิดพลาดของ ReVanced ทั้งหมด
+
+คุณจะไม่ได้รับแจ้งเกี่ยวกับเหตุการณ์ที่ไม่คาดคิดใดๆ"</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">ส่งออกบันทึกการแก้ไขข้อบกพร่อง</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">คัดลอกบันทึกการแก้ไขข้อบกพร่องของ ReVanced ไปยังคลิปบอร์ด</string>
   <string name="revanced_debug_logs_disabled">ปิดใช้งานการบันทึกการแก้ไขข้อบกพร่อง</string>
@@ -116,6 +139,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">ล้างบันทึกการแก้ไขข้อบกพร่อง</string>
   <string name="revanced_debug_logs_clear_buffer_summary">ล้างบันทึกการแก้ไขข้อบกพร่องของ ReVanced ที่จัดเก็บไว้ทั้งหมด</string>
   <string name="revanced_debug_logs_clear_toast">ล้างบันทึกแล้ว</string>
+  </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">ลบพารามิเตอร์การติดตามแบบสอบถาม</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">พารามิเตอร์การติดตามแบบสอบถามถูกลบออกจากลิงก์</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">พารามิเตอร์การติดตามแบบสอบถามไม่ได้ถูกลบออกจากลิงก์</string>
+  <string name="revanced_replace_music_with_youtube_title">เปลี่ยนลิงก์การแชร์เป็น youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">ลิงก์ที่แชร์ใช้ youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">ลิงก์ที่แชร์ใช้ music.youtube.com</string>
   </patch>
   </app>
   <app id="youtube">
@@ -133,9 +164,6 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">กู้คืนเมนูการตั้งค่าแบบเก่า</string>
   <string name="revanced_restore_old_settings_menus_summary_on">แสดงเมนูการตั้งค่าแบบเก่า</string>
   <string name="revanced_restore_old_settings_menus_summary_off">ไม่แสดงเมนูการตั้งค่าแบบเก่า</string>
-  <string name="revanced_settings_search_history_title">แสดงประวัติการค้นหาในการตั้งค่า</string>
-  <string name="revanced_settings_search_history_summary_on">ประวัติการค้นหาในการตั้งค่าจะปรากฏ</string>
-  <string name="revanced_settings_search_history_summary_off">ไม่แสดงประวัติการค้นหาการตั้งค่า</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">ปิดการเล่นพื้นหลัง Shorts</string>
@@ -151,15 +179,6 @@ Second \"item\" text"</string>
 ซึ่งจะช่วยระบุส่วนประกอบเมื่อสร้างตัวกรองที่กำหนดเองได้
 
 อย่างไรก็ตาม การเปิดใช้งานนี้จะบันทึกข้อมูลผู้ใช้บางอย่าง เช่น ที่อยู่ IP ของคุณด้วย"</string>
-  <string name="revanced_debug_stacktrace_title">บันทึกการติดตามสแต็ก</string>
-  <string name="revanced_debug_stacktrace_summary_on">การบันทึกการแก้ไขข้อบกพร่องรวมถึงการติดตามสแต็ก</string>
-  <string name="revanced_debug_stacktrace_summary_off">การบันทึกการแก้ไขข้อบกพร่องไม่รวมการติดตามสแต็ก</string>
-  <string name="revanced_debug_toast_on_error_title">แสดง  toast  เมื่อเกิดข้อผิดพลาดของ ReVanced</string>
-  <string name="revanced_debug_toast_on_error_summary_on">Toast จะปรากฏขึ้นหากเกิดข้อผิดพลาด</string>
-  <string name="revanced_debug_toast_on_error_summary_off">Toast จะไม่ปรากฏขึ้นหากเกิดข้อผิดพลาด</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"การปิดการแจ้งเตือนข้อผิดพลาดจะซ่อนการแจ้งเตือนข้อผิดพลาดของ ReVanced ทั้งหมด
-
-คุณจะไม่ได้รับแจ้งเกี่ยวกับเหตุการณ์ที่ไม่คาดคิดใดๆ"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">ซ่อนการ์ดอัลบั้ม</string>
@@ -584,6 +603,10 @@ Second \"item\" text"</string>
   <string name="revanced_hide_stop_ads_button_title">ซ่อนหยุดโฆษณา</string>
   <string name="revanced_hide_stop_ads_button_summary_on">ปุ่มหยุดโฆษณาถูกซ่อน</string>
   <string name="revanced_hide_stop_ads_button_summary_off">ปุ่มหยุดโฆษณาถูกแสดง</string>
+  <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
+  <string name="revanced_hide_comments_button_title">ซ่อนความคิดเห็น</string>
+  <string name="revanced_hide_comments_button_summary_on">ปุ่มความคิดเห็นถูกซ่อน</string>
+  <string name="revanced_hide_comments_button_summary_off">ปุ่มความคิดเห็นแสดงอยู่</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
   <string name="revanced_hide_report_button_title">ซ่อนรายงาน</string>
@@ -1055,9 +1078,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">อ่านแล้ว</string>
   <string name="revanced_sb_guidelines_popup_open">แสดงให้ฉันดู</string>
   <string name="revanced_sb_general">ทั่วไป</string>
-  <string name="revanced_sb_toast_on_connection_error_title">แสดงคำอวยพรถ้า API ไม่พร้อมใช้งาน</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">แสดง «toast» หาก SponsorBlock ไม่พร้อมใช้งาน</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">«Toast» ไม่แสดงหาก SponsorBlock ไม่พร้อมใช้งาน</string>
+  <string name="revanced_sb_toast_on_connection_error">แสดงคำอวยพรถ้า API ไม่พร้อมใช้งาน</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">แสดง «toast» หาก SponsorBlock ไม่พร้อมใช้งาน</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">«Toast» ไม่แสดงหาก SponsorBlock ไม่พร้อมใช้งาน</string>
   <string name="revanced_sb_general_skipcount">เปิดใช้งานการติดตามการนับข้าม</string>
   <string name="revanced_sb_general_skipcount_sum_on">แจ้งให้ SponsorBlock leaderboard ทราบว่าประหยัดเวลาได้มากเพียงใด ข้อความจะถูกส่งไปยัง leaderboard ทุกครั้งที่ข้ามส่วน</string>
   <string name="revanced_sb_general_skipcount_sum_off">การติดตามจำนวนการข้ามไม่ได้เปิดใช้งาน</string>
@@ -1241,8 +1264,9 @@ User id ของคุณเหมือนกับรหัสผ่าน �
 
 ถ้าปิดในภายหลัง ขอแนะนําให้ล้างข้อมูลแอปเพื่อป้องกันข้อผิดพลาดของ UI"</string>
   <string name="revanced_spoof_app_version_target_title">เป้าหมายการปลอมแปลงเวอร์ชันแอป</string>
-  <string name="revanced_spoof_app_version_target_entry_1">19.35.36 - คืนค่าไอคอนเครื่องเล่น Shorts เก่า</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.01.34 - กู้คืนไอคอนการนำทางแบบเก่า</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - กู้คืนแถบการทำงานของวิดีโอที่ไม่ได้ยุบ</string>
+  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - คืนค่าไอคอนเครื่องเล่น Shorts เก่า</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - กู้คืนไอคอนการนำทางแบบเก่า</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">เปลี่ยนหน้าเริ่มต้น</string>
@@ -1425,10 +1449,17 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_check_watch_history_domain_name_dialog_message">ประวัติการรับชมของคุณไม่ได้ถูกบันทึก&lt;br&gt;&lt;br&gt;สาเหตุที่เป็นไปได้มากที่สุดคือตัวบล็อกโฆษณา DNS หรือพร็อกซีเครือข่าย&lt;br&gt;&lt;br&gt;เพื่อแก้ไขปัญหานี้ ให้เพิ่ม &lt;b&gt;s.youtube.com&lt;/b&gt; ในรายการที่อนุญาต หรือปิดตัวบล็อกโฆษณา DNS และพร็อกซีทั้งหมด</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">อย่าแสดงอีก</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">เปิดใช้งานเล่นซ้ำอัตโนมัติ</string>
-  <string name="revanced_auto_repeat_summary_on">เล่นซ้ำอัตโนมัติเปิดใช้งาน</string>
-  <string name="revanced_auto_repeat_summary_off">เล่นซ้ำอัตโนมัติปิดใช้งาน</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">เปิดใช้งานการเล่นวิดีโอซ้ำ</string>
+  <string name="revanced_loop_video_summary_on">วิดีโอจะเล่นซ้ำ</string>
+  <string name="revanced_loop_video_summary_off">วิดีโอจะไม่เล่นซ้ำ</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">แสดงปุ่มเล่นวิดีโอซ้ำ</string>
+  <string name="revanced_loop_video_button_summary_on">แสดงปุ่มแล้ว</string>
+  <string name="revanced_loop_video_button_summary_off">ยังไม่แสดงปุ่ม</string>
+  <string name="revanced_loop_video_button_toast_on">เปิดใช้งานการเล่นวิดีโอซ้ำแล้ว</string>
+  <string name="revanced_loop_video_button_toast_off">ปิดใช้งานการเล่นวิดีโอซ้ำแล้ว</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">ปลอมแปลงมิติของอุปกรณ์</string>
@@ -1468,11 +1499,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_external_browser_title">เปิดลิงก์ในเบราว์เซอร์</string>
   <string name="revanced_external_browser_summary_on">เปิดลิงก์ในเบราว์เซอร์ภายนอก</string>
   <string name="revanced_external_browser_summary_off">เปิดลิงก์ในเบราว์เซอร์ในแอป</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">ลบพารามิเตอร์การติดตามแบบสอบถาม</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">พารามิเตอร์การติดตามแบบสอบถามถูกลบออกจากลิงก์</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">พารามิเตอร์การติดตามแบบสอบถามไม่ได้ถูกลบออกจากลิงก์</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">บังคับใช้ภาษาเสียงต้นฉบับ</string>
@@ -1554,19 +1580,21 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">ผลข้างเคียงของการปลอมแปลง</string>
-  <string name="revanced_spoof_video_streams_about_android_title">ผลข้างเคียงของการปลอมแปลง Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• เมนูแทร็กเสียงหายไป
-• ระดับเสียงคงที่ใช้งานไม่ได้"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• วิดีโออาจหยุดที่ 1:00 หรืออาจไม่สามารถรับชมได้ในบางภูมิภาค</string>
   <string name="revanced_spoof_video_streams_about_experimental">• ไคลเอนต์ทดลองและอาจหยุดทำงานได้ตลอดเวลา</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• วิดีโออาจหยุดที่ 1:00 หรืออาจไม่สามารถรับชมได้ในบางภูมิภาค</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• เมนูแทร็กเสียงหายไป</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• ไม่มีตัวแปลงสัญญาณวิดีโอ AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• ระดับเสียงคงที่ไม่พร้อมใช้งาน</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• วิดีโอเด็กอาจไม่เล่นเมื่อลงชื่อออกหรืออยู่ในโหมดไม่ระบุตัวตน</string>
+  <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
+  <string name="revanced_spoof_video_streams_about_no_force_original_audio">• บังคับใช้เสียงต้นฉบับไม่พร้อมใช้งาน</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">แสดงในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">แสดงชนิดไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">ซ่อนไคลเอ็นต์ในสถิติสำหรับพวกเนิร์ด</string>
   <string name="revanced_spoof_video_streams_language_title">ภาษาของสตรีมเสียง</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">หากต้องการเลือกภาษาเสียงที่ต้องการ ให้ปิด \'บังคับใช้ภาษาเสียงต้นฉบับ\'</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">การเลือกภาษาของสตรีมไม่พร้อมใช้งานกับ Android Studio</string>
   </patch>
   </app>
   <app id="music">
@@ -1587,10 +1615,45 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_music_play_permanent_repeat_summary_on">เปิดใช้งานเล่นซ้ำถาวรแล้ว</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">ปิดใช้งานเล่นซ้ำถาวรแล้ว</string>
   </patch>
+  <patch id="layout.castbutton.hideCastButton">
+  <string name="revanced_music_hide_cast_button_title">ซ่อนปุ่มแคสต์</string>
+  <string name="revanced_music_hide_cast_button_summary_on">ปุ่มแคสต์ซ่อนอยู่</string>
+  <string name="revanced_music_hide_cast_button_summary_off">ปุ่มแคสต์แสดงอยู่</string>
+  </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">ซ่อนแถบหมวดหมู่</string>
   <string name="revanced_music_hide_category_bar_summary_on">ซ่อนแถบหมวดหมู่แล้ว</string>
   <string name="revanced_music_hide_category_bar_summary_off">แสดงแถบหมวดหมู่แล้ว</string>
+  </patch>
+  <patch id="layout.navigationbar.navigationBarPatch">
+  <string name="revanced_music_navigation_bar_screen_title">แถบนำทาง</string>
+  <string name="revanced_music_navigation_bar_screen_summary">ซ่อนหรือเปลี่ยนปุ่มแถบนำทาง</string>
+  <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_home_button_title">ซ่อนหน้าแรก</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_on">ซ่อนปุ่มหน้าแรกแล้ว</string>
+  <string name="revanced_music_hide_navigation_bar_home_button_summary_off">แสดงปุ่มหน้าแรกแล้ว</string>
+  <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">ซ่อนตัวอย่าง</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">ซ่อนปุ่มตัวอย่างแล้ว</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">แสดงปุ่มตัวอย่างแล้ว</string>
+  <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">ซ่อนสำรวจ</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">ซ่อนปุ่มสำรวจแล้ว</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">แสดงปุ่มสำรวจแล้ว</string>
+  <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_library_button_title">ซ่อนคลัง</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_on">ซ่อนปุ่มคลังแล้ว</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_summary_off">แสดงปุ่มคลังแล้ว</string>
+  <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">ซ่อนอัปเกรด</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">ซ่อนปุ่มอัปเกรดแล้ว</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">แสดงปุ่มอัปเกรดแล้ว</string>
+  <string name="revanced_music_hide_navigation_bar_title">ซ่อนแถบนำทาง</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">ซ่อนแถบนำทางแล้ว</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">แสดงแถบนำทางแล้ว</string>
+  <string name="revanced_music_hide_navigation_bar_labels_title">ซ่อนป้ายกำกับปุ่มนำทาง</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_on">ซ่อนป้ายกำกับแล้ว</string>
+  <string name="revanced_music_hide_navigation_bar_labels_summary_off">แสดงป้ายกำกับแล้ว</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">ซ่อนป้าย \'รับ Music Premium\'</string>
