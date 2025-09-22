@@ -1263,8 +1263,8 @@ Isso mudará a aparência e os recursos do aplicativo, mas podem ocorrer efeitos
 Se posteriormente desativado, é recomendável limpar os dados do aplicativo para evitar bugs na IU."</string>
   <string name="revanced_spoof_app_version_target_title">Versão de spoofing alvo</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Restaurar barra de ações de vídeo não recolhida</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Restaurar ícones antigos do player dos Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Restaurar ícones de navegação antigos</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Restaurar ícones antigos do player dos Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Restaurar ícones de navegação antigos</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Alterar página inicial</string>
