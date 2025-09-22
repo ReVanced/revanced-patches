@@ -1,17 +1,19 @@
 package app.revanced.patches.youtube.misc.loopvideo
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.misc.loopvideo.button.loopVideoButtonPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.loopvideo.button.loopVideoButtonPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
-import app.revanced.patches.youtube.shared.autoRepeatFingerprint
-import app.revanced.patches.youtube.shared.autoRepeatParentFingerprint
+import app.revanced.patches.youtube.shared.loopVideoFingerprint
+import app.revanced.patches.youtube.shared.loopVideoParentFingerprint
+import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.Opcode
+
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/LoopVideoPatch;"
 
 val loopVideoPatch = bytecodePatch(
     name = "Loop video",
@@ -40,23 +42,20 @@ val loopVideoPatch = bytecodePatch(
             SwitchPreference("revanced_loop_video"),
         )
 
-        autoRepeatFingerprint.match(autoRepeatParentFingerprint.originalClassDef).method.apply {
-            val playMethod = autoRepeatParentFingerprint.method
-            val index = instructions.lastIndex
+        loopVideoFingerprint.match(loopVideoParentFingerprint.originalClassDef).method.apply {
+            val playMethod = loopVideoParentFingerprint.method
+            val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID)
 
-            // Remove return-void.
-            removeInstruction(index)
-            // Add own instructions there.
-            addInstructionsWithLabels(
-                index,
+            addInstructionsAtControlFlowLabel(
+                insertIndex,
                 """
-                    invoke-static {}, Lapp/revanced/extension/youtube/patches/LoopVideoPatch;->shouldLoopVideo()Z
+                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->shouldLoopVideo()Z
                     move-result v0
-                    if-eqz v0, :noautorepeat
+                    if-eqz v0, :do_not_loop
                     invoke-virtual { p0 }, $playMethod
-                    :noautorepeat
-                    return-void
-                """,
+                    :do_not_loop
+                    nop
+                """
             )
         }
     }
