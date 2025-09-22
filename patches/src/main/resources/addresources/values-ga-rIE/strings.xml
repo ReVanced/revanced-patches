@@ -1447,10 +1447,17 @@ Brúigh anseo chun tuilleadh eolais a fháil faoi DeArrow"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Níl do stair faire á sábháil.&lt;br&gt;&lt;br&gt;Is é is dóichí gur seachfhreastalaí fógraí DNS nó seachfhreastalaí líonra is cúis leis seo.&lt;br&gt;&lt;br&gt; Chun é seo a réiteach, déan liosta bán &lt;b&gt;s.youtube.com&lt;/b&gt; nó gach seachfhreastalaí DNS a mhúchadh.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ná taispeáin arís</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Cumasaigh uath-athdhéanta</string>
-  <string name="revanced_auto_repeat_summary_on">Tá uath-athdhéanta cumasaithe</string>
-  <string name="revanced_auto_repeat_summary_off">Tá uath-athdhéanta díchumasaithe</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Cumasaigh físeán lúbtha</string>
+  <string name="revanced_loop_video_summary_on">Lúbfar an físeán</string>
+  <string name="revanced_loop_video_summary_off">Ní lúbfar an físeán</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Taispeáin an cnaipe físeáin lúbtha</string>
+  <string name="revanced_loop_video_button_summary_on">Tá an cnaipe ar taispeáint</string>
+  <string name="revanced_loop_video_button_summary_off">Níl an cnaipe ar taispeáint</string>
+  <string name="revanced_loop_video_button_toast_on">Tá físeán lúbtha ar siúl</string>
+  <string name="revanced_loop_video_button_toast_off">Tá físeán lúbtha as siúl</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Toisí feiste spoof</string>
@@ -1571,9 +1578,11 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Fo-iarsmaí bréagaíochta</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Is féidir go stopfaidh an físeán ag 1:00, nó b\'fhéidir nach mbeidh sé ar fáil i réigiúin áirithe</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Cliant turgnamhach é seo agus féadfaidh sé stop a chur ag obair ag am ar bith</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Is féidir go stopfaidh an físeán ag 1:00, nó b\'fhéidir nach mbeidh sé ar fáil i réigiúin áirithe</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Tá an roghchlár rian fuaime in easnamh</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Níl aon chóidéir físe AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Níl toirt chobhsaí ar fáil</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videos faoi phaistí uaireanta nach imreoidh nuair a bhíonn tú logáilte amach nó i mod incognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Níl Éigean fuaime bunaidh ar fáil</string>

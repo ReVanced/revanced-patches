@@ -1446,10 +1446,17 @@ Atingeți aici pentru a afla mai multe despre DeArrow"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Istoricul de vizionare nu este salvat.&lt;br&gt;&lt;br&gt;Cel mai probabil este cauzată de un DNS de blocare a anunțurilor sau de un proxy de rețea.&lt;br&gt;&lt;br&gt;Pentru a remedia acest lucru, lista albă &lt;b&gt;s.youtube.com&lt;/b&gt; sau pentru a opri toate blocantele DNS și proxy-urile.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nu mai afișa</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Activare auto-repetare</string>
-  <string name="revanced_auto_repeat_summary_on">Auto-repetarea este activată</string>
-  <string name="revanced_auto_repeat_summary_off">Auto-Repetarea este dezactivată</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Activează bucla video</string>
+  <string name="revanced_loop_video_summary_on">Videoclipul se va repeta în buclă</string>
+  <string name="revanced_loop_video_summary_off">Videoclipul nu se va repeta în buclă</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Afișează butonul de buclă video</string>
+  <string name="revanced_loop_video_button_summary_on">Butonul este afișat</string>
+  <string name="revanced_loop_video_button_summary_off">Butonul nu este afișat</string>
+  <string name="revanced_loop_video_button_toast_on">Bucla video este activată</string>
+  <string name="revanced_loop_video_button_toast_off">Bucla video este dezactivată</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Spoul dimensiunilor dispozitivului</string>
@@ -1570,9 +1577,11 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Efecte secundare ale simulării</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Videoclipul se poate opri la 1:00, sau poate să nu fie disponibil în unele regiuni</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Client experimental și se poate opri din funcționare oricând</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Videoclipul se poate opri la 1:00, sau poate să nu fie disponibil în unele regiuni</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Meniul pistei audio lipsește</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Fara codec video AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volumul stabil nu este disponibil</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Copiii nu pot urmări videoclipuri atunci când sunt deconectați sau în modul incognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Forțarea sunetului original nu este disponibilă</string>

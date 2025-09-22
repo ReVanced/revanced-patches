@@ -1447,10 +1447,17 @@ Puudutage siia, et saada lisateavet DeArrow kohta"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Teie vaatamise ajalugu ei salvestata.&lt;br&gt;&lt;br&gt;See on tõenäoliselt tingitud DNS-i reklaamiblokeerijast või võrguproksilt.&lt;br&gt;&lt;br&gt;Selle parandamiseks lisage valgesse nimekirja &lt;b&gt;s.youtube.com&lt;/b&gt; või lülitage kõik DNS-i reklaamiblokeerijad ja proksid välja.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ära kuva uuesti</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Luba automaatne kordamine</string>
-  <string name="revanced_auto_repeat_summary_on">Automaatne kordamine on lubatud</string>
-  <string name="revanced_auto_repeat_summary_off">Automaatne kordamine on keelatud</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Luba video kordamine</string>
+  <string name="revanced_loop_video_summary_on">Video kordub</string>
+  <string name="revanced_loop_video_summary_off">Video ei kordu</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Näita video korduse nuppu</string>
+  <string name="revanced_loop_video_button_summary_on">Nuppu kuvatakse</string>
+  <string name="revanced_loop_video_button_summary_off">Nuppu ei kuvata</string>
+  <string name="revanced_loop_video_button_toast_on">Video kordus on sees</string>
+  <string name="revanced_loop_video_button_toast_off">Video kordus on väljas</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Võltsitud seadme mõõtmed</string>
@@ -1571,9 +1578,11 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Võltsimise kõrvalmõjud</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Video võib peatuda kell 1:00 või ei pruugi olla teatud piirkondades saadaval</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentaalne klient ja võib igal ajal töötamast lakata</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video võib peatuda kell 1:00 või ei pruugi olla teatud piirkondades saadaval</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Heliraja menüü puudub</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Puuduv AV1 videokoodek</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabiilne helitugevus pole saadaval</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video lastele ei pruugi taasesitada, kui olete välja logitud või inkognito režiimis</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Sunni algne heli pole saadaval</string>

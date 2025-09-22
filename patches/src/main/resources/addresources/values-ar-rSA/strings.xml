@@ -1447,10 +1447,17 @@ Second \"item\" text"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">لم يتم حفظ سجل المشاهدة الخاص بك.&lt;br&gt;&lt;br&gt;من المرجح أن يكون السبب في ذلك هو مانع إعلانات DNS أو وكيل الشبكة.&lt;br&gt;&lt;br&gt;لإصلاح هذه المشكلة، قم بإضافة &lt;b&gt;s.youtube.com&lt;/b&gt; إلى القائمة البيضاء أو قم بإيقاف تشغيل جميع أدوات حظر DNS ووكلاء البروكسي.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">لا تعرض مرة أخرى</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">تمكين التكرار التلقائي</string>
-  <string name="revanced_auto_repeat_summary_on">تم تمكين التكرار التلقائي</string>
-  <string name="revanced_auto_repeat_summary_off">تم تعطيل التكرار التلقائي</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">تفعيل تكرار الفيديو</string>
+  <string name="revanced_loop_video_summary_on">سيتم تكرار الفيديو</string>
+  <string name="revanced_loop_video_summary_off">لن يتم تكرار الفيديو</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">إظهار زر تكرار الفيديو</string>
+  <string name="revanced_loop_video_button_summary_on">الزر ظاهر</string>
+  <string name="revanced_loop_video_button_summary_off">الزر غير ظاهر</string>
+  <string name="revanced_loop_video_button_toast_on">تكرار الفيديو قيد التشغيل</string>
+  <string name="revanced_loop_video_button_toast_off">تكرار الفيديو متوقف</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">محاكاة أبعاد الجهاز</string>
@@ -1571,9 +1578,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">الآثار الجانبية للتزوير</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• قد يتوقف الفيديو عند 1:00، أو قد لا يكون متاحًا في بعض المناطق</string>
   <string name="revanced_spoof_video_streams_about_experimental">• عميل تجريبي وقد يتوقف عن العمل في أي وقت</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• قد يتوقف الفيديو عند 1:00، أو قد لا يكون متاحًا في بعض المناطق</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• قائمة المسارات الصوتية مفقودة</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• لا يوجد ترميز الفيديو AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• مستوى الصوت الثابت غير متاح</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو عند استخدام وضع التصفح المتخفي</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• فرض الصوت الأصلي غير متاح</string>

@@ -1447,10 +1447,17 @@ Napauta tästä saadaksesi lisätietoja DeArrowista"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Kellon historiaa ei tallenneta.&lt;br&gt;&lt;br&gt;Tämä todennäköisesti johtuu DNS mainosten estäjä tai verkkovälityspalvelin.&lt;br&gt;&lt;br&gt;Korjataksesi tämän, valkoiselle listalle &lt;b&gt;s.youtube.com&lt;/b&gt; tai poistaaksesi kaikki DNS-estäjät ja -profiilit.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Älä näytä uudelleen</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Ota automaattinen toisto käyttöön</string>
-  <string name="revanced_auto_repeat_summary_on">Automaattinen toisto on käytössä</string>
-  <string name="revanced_auto_repeat_summary_off">Automaattinen toisto ei ole käytössä</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Ota videon toisto käyttöön</string>
+  <string name="revanced_loop_video_summary_on">Video toistetaan</string>
+  <string name="revanced_loop_video_summary_off">Videota ei toisteta</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Näytä toistovideon painike</string>
+  <string name="revanced_loop_video_button_summary_on">Painike näytetään</string>
+  <string name="revanced_loop_video_button_summary_off">Painiketta ei näytetä</string>
+  <string name="revanced_loop_video_button_toast_on">Videon toisto on päällä</string>
+  <string name="revanced_loop_video_button_toast_off">Videon toisto on pois päältä</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Naamioi laitteen mitat</string>
@@ -1571,9 +1578,11 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Naamioimisen sivuvaikutukset</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Video voi pysähtyä ajassa 1:00, tai ei välttämättä ole saatavilla joillakin alueilla</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Kokeellinen asiakasohjelma, joka saattaa lakata toimimasta milloin tahansa</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video voi pysähtyä ajassa 1:00, tai ei välttämättä ole saatavilla joillakin alueilla</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Ääniraitavalikko puuttuu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ei AV1-videokoodekkia</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Vakaa äänenvoimakkuus ei ole käytettävissä</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Lasten videot eivät ehkä toistu, kun olet kirjautunut ulos tai incognito-tilassa</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Pakota alkuperäinen ääni ei ole käytettävissä</string>
