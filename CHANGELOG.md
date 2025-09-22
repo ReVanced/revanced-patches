@@ -1,3 +1,10 @@
+# [5.41.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.3...v5.41.0-dev.4) (2025-09-22)
+
+
+### Bug Fixes
+
+* **Instagram - Limit feed to followed profiles:** Preserve favorites feed ([#5963](https://github.com/ReVanced/revanced-patches/issues/5963)) ([ef51401](https://github.com/ReVanced/revanced-patches/commit/ef514017f46025d9aef6884424caeb0670514e7a))
+
 # [5.41.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.2...v5.41.0-dev.3) (2025-09-22)
 
 
