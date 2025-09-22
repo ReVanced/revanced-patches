@@ -141,22 +141,17 @@ public abstract class BaseSearchViewController {
      * Sets the cursor color (for Android 10+ devices).
      */
     private void setCursorColor(EditText editText) {
-        try {
-            // Get the cursor color based on the current theme.
-            @ColorInt int cursorColor = Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK;
+        // Get the cursor color based on the current theme.
+        final int cursorColor = Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK;
 
-            // Create cursor drawable.
-            GradientDrawable cursorDrawable = new GradientDrawable();
-            cursorDrawable.setShape(GradientDrawable.RECTANGLE);
-            cursorDrawable.setSize(Utils.dipToPixels(2), -1); // Width: 2dp, Height: match text height.
-            cursorDrawable.setColor(cursorColor);
+        // Create cursor drawable.
+        GradientDrawable cursorDrawable = new GradientDrawable();
+        cursorDrawable.setShape(GradientDrawable.RECTANGLE);
+        cursorDrawable.setSize(Utils.dipToPixels(2), -1); // Width: 2dp, Height: match text height.
+        cursorDrawable.setColor(cursorColor);
 
-            // Set cursor drawable.
-            editText.setTextCursorDrawable(cursorDrawable);
-
-        } catch (Exception e) {
-            Logger.printException(() -> "Failed to set cursor color", e);
-        }
+        // Set cursor drawable.
+        editText.setTextCursorDrawable(cursorDrawable);
     }
 
     /**
