@@ -348,7 +348,8 @@ public class Settings extends BaseSettings {
     // Miscellaneous
     public static final BooleanSetting ANNOUNCEMENTS = new BooleanSetting("revanced_announcements", TRUE);
     public static final IntegerSetting ANNOUNCEMENT_LAST_ID = new IntegerSetting("revanced_announcement_last_id", -1, false, false);
-    public static final BooleanSetting AUTO_REPEAT = new BooleanSetting("revanced_auto_repeat", FALSE);
+    public static final BooleanSetting LOOP_VIDEO = new BooleanSetting("revanced_loop_video", FALSE);
+    public static final BooleanSetting LOOP_VIDEO_BUTTON = new BooleanSetting("revanced_loop_video_button", FALSE);
     public static final BooleanSetting BYPASS_URL_REDIRECTS = new BooleanSetting("revanced_bypass_url_redirects", TRUE);
     public static final BooleanSetting CHECK_WATCH_HISTORY_DOMAIN_NAME = new BooleanSetting("revanced_check_watch_history_domain_name", TRUE, false, false);
     public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_CHAPTERS = new BooleanSetting("revanced_disable_haptic_feedback_chapters", FALSE);
@@ -451,28 +452,30 @@ public class Settings extends BaseSettings {
     public static final StringSetting SB_CATEGORY_UNSUBMITTED_COLOR = new StringSetting("sb_unsubmitted_color", "#FFFFFFFF", false, false);
 
     // Deprecated migrations
+    private static final BooleanSetting DEPRECATED_AUTO_REPEAT = new BooleanSetting("revanced_auto_repeat", FALSE);
     private static final BooleanSetting DEPRECATED_HIDE_PLAYER_BUTTONS = new BooleanSetting("revanced_hide_player_buttons", FALSE, true);
     private static final BooleanSetting DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER = new BooleanSetting("revanced_hide_video_quality_menu_footer", FALSE);
     private static final IntegerSetting DEPRECATED_SWIPE_OVERLAY_BACKGROUND_ALPHA = new IntegerSetting("revanced_swipe_overlay_background_alpha", 127);
-    private static final StringSetting DEPRECATED_SEEKBAR_CUSTOM_COLOR_PRIMARY = new StringSetting("revanced_seekbar_custom_color_value", "#FF0033");
+    private static final StringSetting  DEPRECATED_SEEKBAR_CUSTOM_COLOR_PRIMARY = new StringSetting("revanced_seekbar_custom_color_value", "#FF0033");
     private static final BooleanSetting DEPRECATED_DISABLE_SUGGESTED_VIDEO_END_SCREEN = new BooleanSetting("revanced_disable_suggested_video_end_screen", FALSE);
     private static final BooleanSetting DEPRECATED_RESTORE_OLD_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_restore_old_video_quality_menu", TRUE);
     private static final BooleanSetting DEPRECATED_AUTO_CAPTIONS = new BooleanSetting("revanced_auto_captions", FALSE);
 
-    public static final FloatSetting DEPRECATED_SB_CATEGORY_SPONSOR_OPACITY = new FloatSetting("sb_sponsor_opacity", 0.8f, false, false);
-    public static final FloatSetting DEPRECATED_SB_CATEGORY_SELF_PROMO_OPACITY = new FloatSetting("sb_selfpromo_opacity", 0.8f, false, false);
-    public static final FloatSetting DEPRECATED_SB_CATEGORY_INTERACTION_OPACITY = new FloatSetting("sb_interaction_opacity", 0.8f, false, false);
-    public static final FloatSetting DEPRECATED_SB_CATEGORY_HIGHLIGHT_OPACITY = new FloatSetting("sb_highlight_opacity", 0.8f, false, false);
-    public static final FloatSetting DEPRECATED_SB_CATEGORY_HOOK_OPACITY = new FloatSetting("sb_hook_opacity", 0.8f, false, false);
-    public static final FloatSetting DEPRECATED_SB_CATEGORY_INTRO_OPACITY = new FloatSetting("sb_intro_opacity", 0.8f, false, false);
-    public static final FloatSetting DEPRECATED_SB_CATEGORY_OUTRO_OPACITY = new FloatSetting("sb_outro_opacity", 0.8f, false, false);
-    public static final FloatSetting DEPRECATED_SB_CATEGORY_PREVIEW_OPACITY = new FloatSetting("sb_preview_opacity", 0.8f, false, false);
-    public static final FloatSetting DEPRECATED_SB_CATEGORY_FILLER_OPACITY = new FloatSetting("sb_filler_opacity", 0.8f, false, false);
-    public static final FloatSetting DEPRECATED_SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY = new FloatSetting("sb_music_offtopic_opacity", 0.8f, false, false);
+    private static final FloatSetting DEPRECATED_SB_CATEGORY_SPONSOR_OPACITY = new FloatSetting("sb_sponsor_opacity", 0.8f, false, false);
+    private static final FloatSetting DEPRECATED_SB_CATEGORY_SELF_PROMO_OPACITY = new FloatSetting("sb_selfpromo_opacity", 0.8f, false, false);
+    private static final FloatSetting DEPRECATED_SB_CATEGORY_INTERACTION_OPACITY = new FloatSetting("sb_interaction_opacity", 0.8f, false, false);
+    private static final FloatSetting DEPRECATED_SB_CATEGORY_HIGHLIGHT_OPACITY = new FloatSetting("sb_highlight_opacity", 0.8f, false, false);
+    private static final FloatSetting DEPRECATED_SB_CATEGORY_HOOK_OPACITY = new FloatSetting("sb_hook_opacity", 0.8f, false, false);
+    private static final FloatSetting DEPRECATED_SB_CATEGORY_INTRO_OPACITY = new FloatSetting("sb_intro_opacity", 0.8f, false, false);
+    private static final FloatSetting DEPRECATED_SB_CATEGORY_OUTRO_OPACITY = new FloatSetting("sb_outro_opacity", 0.8f, false, false);
+    private static final FloatSetting DEPRECATED_SB_CATEGORY_PREVIEW_OPACITY = new FloatSetting("sb_preview_opacity", 0.8f, false, false);
+    private static final FloatSetting DEPRECATED_SB_CATEGORY_FILLER_OPACITY = new FloatSetting("sb_filler_opacity", 0.8f, false, false);
+    private static final FloatSetting DEPRECATED_SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY = new FloatSetting("sb_music_offtopic_opacity", 0.8f, false, false);
 
     static {
         // region Migration
 
+        migrateOldSettingToNew(DEPRECATED_AUTO_REPEAT, LOOP_VIDEO);
         migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_BUTTONS, HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS);
         migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER, HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER);
         migrateOldSettingToNew(DEPRECATED_DISABLE_SUGGESTED_VIDEO_END_SCREEN, HIDE_END_SCREEN_SUGGESTED_VIDEO);

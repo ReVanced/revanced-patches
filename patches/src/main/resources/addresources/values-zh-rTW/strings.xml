@@ -1457,10 +1457,17 @@ Second \"item\" text"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">你的觀看記錄未被儲存。&lt;br&gt;&lt;br&gt;這很可能是由於 DNS 廣告封鎖器或網路代理所導致。&lt;br&gt;&lt;br&gt;若要解決此問題，請將 &lt;b&gt;s.youtube.com&lt;/b&gt; 加入白名單，或關閉所有 DNS 封鎖器和代理。</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再顯示</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">啟用自動循環播放</string>
-  <string name="revanced_auto_repeat_summary_on">已啟用自動循環播放</string>
-  <string name="revanced_auto_repeat_summary_off">已停用自動循環播放</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">啟用循環播放影片</string>
+  <string name="revanced_loop_video_summary_on">影片將循環播放</string>
+  <string name="revanced_loop_video_summary_off">影片將不循環播放</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">顯示循環播放影片按鈕</string>
+  <string name="revanced_loop_video_button_summary_on">按鈕已顯示</string>
+  <string name="revanced_loop_video_button_summary_off">按鈕未顯示</string>
+  <string name="revanced_loop_video_button_toast_on">循環播放影片已開啟</string>
+  <string name="revanced_loop_video_button_toast_off">循環播放影片已關閉</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">偽裝裝置尺寸</string>
@@ -1581,9 +1588,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">欺騙的副作用</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• 影片可能會在 1:00 停止，或在某些地區無法播放</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 實驗性用戶端，隨時可能停止運作</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• 影片可能會在 1:00 停止，或在某些地區無法播放</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• 音軌選單遺失</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• 沒有 AV1 影片解碼器</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• 穩定音量無法使用</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• 在登出或無痕模式下，兒童影片可能無法播放</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• 強制原始音訊不可用</string>

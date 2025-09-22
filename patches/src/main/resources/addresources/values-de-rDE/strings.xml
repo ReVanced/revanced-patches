@@ -1444,10 +1444,17 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Ihr Verlauf wird nicht gespeichert.&lt;br&gt;&lt;br&gt;Dies wird höchstwahrscheinlich durch einen DNS-Werbeblocker oder einen Netzwerkproxy verursacht.&lt;br&gt;&lt;br&gt;Um dies zu beheben, setze &lt;b&gt;s.youtube.com&lt;/b&gt; auf die Whitelist oder schalten Sie alle DNS-Blocker und Proxies aus.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nicht wieder anzeigen</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Auto-Wiederholung aktivieren</string>
-  <string name="revanced_auto_repeat_summary_on">Auto-Wiederholung ist aktiviert</string>
-  <string name="revanced_auto_repeat_summary_off">Auto-Wiederholung ist deaktiviert</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Loop-Video aktivieren</string>
+  <string name="revanced_loop_video_summary_on">Video wird wiederholt</string>
+  <string name="revanced_loop_video_summary_off">Video wird nicht wiederholt</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Loop-Video-Schaltfläche anzeigen</string>
+  <string name="revanced_loop_video_button_summary_on">Schaltfläche wird angezeigt</string>
+  <string name="revanced_loop_video_button_summary_off">Schaltfläche wird nicht angezeigt</string>
+  <string name="revanced_loop_video_button_toast_on">Loop-Video ist aktiviert</string>
+  <string name="revanced_loop_video_button_toast_off">Loop-Video ist deaktiviert</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Spoof-Gerätegröße</string>
@@ -1568,9 +1575,11 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Nebenwirkungen des Spoofings</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Video kann um 1:00 Uhr stoppen oder ist möglicherweise in einigen Regionen nicht verfügbar</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimenteller Client und kann jederzeit aufhören zu funktionieren</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video kann um 1:00 Uhr stoppen oder ist möglicherweise in einigen Regionen nicht verfügbar</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Audiotrack-Menü fehlt</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Kein AV1-Videocodec</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabile Lautstärke ist nicht verfügbar</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kinder-Videos werden möglicherweise nicht abgespielt, wenn du abgemeldet bist oder den Inkognito-Modus verwendest.</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Originalton erzwingen ist nicht verfügbar</string>

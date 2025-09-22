@@ -144,9 +144,9 @@ Second \"item\" text"</string>
   <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
   <string name="revanced_sanitize_sharing_links_summary_on">Η παράμετρος παρακολούθησης αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
   <string name="revanced_sanitize_sharing_links_summary_off">Η παράμετρος παρακολούθησης δεν αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
-  <string name="revanced_replace_music_with_youtube_title">Αλλαγή συνδέσμων κοινής χρήσης σε youtube.com</string>
-  <string name="revanced_replace_music_with_youtube_summary_on">Οι κοινόχρηστοι σύνδεσμοι χρησιμοποιούν youtube.com</string>
-  <string name="revanced_replace_music_with_youtube_summary_off">Οι κοινόχρηστοι σύνδεσμοι χρησιμοποιούν music.youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_title">Αλλαγή συνδέσμων κοινοποίησης σε youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το music.youtube.com</string>
   </patch>
   </app>
   <app id="youtube">
@@ -1446,10 +1446,17 @@ Second \"item\" text"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Το ιστορικό παρακολούθησης δεν αποθηκεύεται.&lt;br&gt;&lt;br&gt;Πιθανό να συμβαίνει λόγω αποκλεισμού διαφημίσεων μέσω DNS ή μέσω διακομιστή μεσολάβησης δικτύου.&lt;br&gt;&lt;br&gt;Μια λύση γι\'αυτό θα ήταν να προσθέσετε σε whitelist το &lt;b&gt;s.youtube.com&lt;/b&gt; ή να απενεργοποιήστε τους DNS/proxy blockers.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Να μην εμφανιστεί ξανά</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Ενεργοποίηση αυτόματης επανάληψης</string>
-  <string name="revanced_auto_repeat_summary_on">Η αυτόματη επανάληψη είναι ενεργοποιημένη</string>
-  <string name="revanced_auto_repeat_summary_off">Η αυτόματη επανάληψη είναι απενεργοποιημένη</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Ενεργοποίηση επανάληψης βίντεο</string>
+  <string name="revanced_loop_video_summary_on">Το βίντεο θα επαναληφθεί</string>
+  <string name="revanced_loop_video_summary_off">Το βίντεο δεν θα επαναληφθεί</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Εμφάνιση κουμπιού επανάληψης βίντεο</string>
+  <string name="revanced_loop_video_button_summary_on">Εμφανίζεται</string>
+  <string name="revanced_loop_video_button_summary_off">Το κουμπί δεν εμφανίζεται</string>
+  <string name="revanced_loop_video_button_toast_on">Η επανάληψη βίντεο είναι ενεργή</string>
+  <string name="revanced_loop_video_button_toast_off">Η επανάληψη βίντεο είναι ανενεργή}]}],</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Παραποίηση διαστάσεων συσκευής</string>
@@ -1570,9 +1577,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Παρενέργειες παραποίησης</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Το βίντεο ενδέχεται να σταματήσει στο 1:00 ή να μην είναι διαθέσιμο σε ορισμένες περιοχές</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Πειραματικός πελάτης και μπορεί να σταματήσει να λειτουργεί ανά πάσα στιγμή</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Το βίντεο ενδέχεται να σταματήσει στο 1:00 ή να μην είναι διαθέσιμο σε ορισμένες περιοχές</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Το μενού «Κομμάτι ήχου» λείπει</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Δεν υπάρχει ο κωδικοποιητής βίντεο AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεδεμένοι ή σε λειτουργία ανώνυμης περιήγησης</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Ο εξαναγκασμός αρχικής γλώσσας ήχου δεν είναι διαθέσιμος</string>

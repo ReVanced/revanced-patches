@@ -144,9 +144,9 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 삭제한 링크 공유하기</string>
   <string name="revanced_sanitize_sharing_links_summary_on">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 삭제합니다 (URL의 뒷부분 \'?si=...\' 이 삭제됨)</string>
   <string name="revanced_sanitize_sharing_links_summary_off">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 삭제하지 않습니다</string>
-  <string name="revanced_replace_music_with_youtube_title">공유 링크를 youtube.com으로 변경</string>
-  <string name="revanced_replace_music_with_youtube_summary_on">공유 링크가 youtube.com을 사용합니다</string>
-  <string name="revanced_replace_music_with_youtube_summary_off">공유 링크가 music.youtube.com을 사용합니다</string>
+  <string name="revanced_replace_music_with_youtube_title">공유 링크를 youtube.com으로 변경하기</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">공유 링크를 youtube.com으로 사용합니다</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">공유 링크를 music.youtube.com으로 사용합니다</string>
   </patch>
   </app>
   <app id="youtube">
@@ -1454,10 +1454,17 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">시청 기록이 저장되지 않습니다.&lt;br&gt;&lt;br&gt; DNS 광고 차단기 또는 네트워크 프록시로 인하여 발생한 문제일 가능성이 높습니다.&lt;br&gt;&lt;br&gt; 이 문제를 해결하려면 &lt;b&gt;s.youtube.com&lt;/b&gt;을 허용 목록에서 제외하거나 모든 DNS 차단기 및 프록시를 해제하세요.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">다시 보지 않기</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">자동 반복 활성화하기</string>
-  <string name="revanced_auto_repeat_summary_on">자동 반복을 활성화합니다</string>
-  <string name="revanced_auto_repeat_summary_off">자동 반복을 비활성화합니다</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">동영상 연속 재생 활성화</string>
+  <string name="revanced_loop_video_summary_on">동영상이 연속 재생됩니다</string>
+  <string name="revanced_loop_video_summary_off">동영상이 연속 재생되지 않습니다</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">동영상 연속 재생 버튼 표시</string>
+  <string name="revanced_loop_video_button_summary_on">업그레이드 버튼이 표시됩니다</string>
+  <string name="revanced_loop_video_button_summary_off">버튼을 표시하지 않습니다</string>
+  <string name="revanced_loop_video_button_toast_on">동영상 연속 재생 켜짐</string>
+  <string name="revanced_loop_video_button_toast_off">동영상 연속 재생 꺼짐</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">기기 크기 정보 변경하기</string>
@@ -1578,9 +1585,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">변경에 따른 부작용</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• 동영상이 1:00에 멈출 수 있으며, 일부 지역에서는 이용이 불가능할 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 실험용 클라이언트이며 언제든지 작동이 중단될 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• 동영상이 1:00에 멈출 수 있으며, 일부 지역에서는 이용이 불가능할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• 오디오 트랙 메뉴가 표시되지 않습니다</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• 안정적인 볼륨을 사용할 수 없습니다</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kids 동영상은 로그인을 하지 않았거나 시크릿 모드에서는 재생되지 않을 수 있습니다</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• 원본 오디오를 강제로 활성화할 수 없습니다</string>

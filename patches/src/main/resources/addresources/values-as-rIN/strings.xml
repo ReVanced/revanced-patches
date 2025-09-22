@@ -213,7 +213,9 @@ Second \"item\" text"</string>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">সকীয়নি</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <patch id="misc.loopvideo.loopVideoPatch">
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   </patch>

@@ -29,7 +29,10 @@ internal val conversionContextFingerprintToString by fingerprint {
     }
 }
 
-internal val autoRepeatFingerprint by fingerprint {
+/**
+ * Resolves to class found in [loopVideoParentFingerprint].
+ */
+internal val loopVideoFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -38,7 +41,7 @@ internal val autoRepeatFingerprint by fingerprint {
     }
 }
 
-internal val autoRepeatParentFingerprint by fingerprint {
+internal val loopVideoParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     instructions(

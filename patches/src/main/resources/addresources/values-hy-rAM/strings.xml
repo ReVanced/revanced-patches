@@ -1448,10 +1448,17 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_check_watch_history_domain_name_dialog_message">Ձեր դիտման պատմությունը չի պահպանվում.&lt;br&gt;&lt;br&gt;Այս  հավանական  պատճառը DNS  գովազդների  բլոկավորիչ կամ ցանցային պրոքսի  է.&lt;br&gt;&lt;br&gt;Խնդրում ենք  գործարկել &lt;b&gt;s.youtube.com&lt;/b&gt;  կամ անջատել  DNS  բլոկավորիչներ  և  պրոքսիներ:</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ավելի  չցուցադրել</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Ավտոմատ կրկնումը  ակտիվացնել</string>
-  <string name="revanced_auto_repeat_summary_on">Ավտոմատ կրկնումը  ակտիվացված է</string>
-  <string name="revanced_auto_repeat_summary_off">Ավտոմատ կրկնումը  անջատված է</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Միացնել տեսանյութի կրկնությունը</string>
+  <string name="revanced_loop_video_summary_on">Տեսանյութը կկրկնվի</string>
+  <string name="revanced_loop_video_summary_off">Տեսանյութը չի կրկնվի</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Ցուցադրել տեսանյութի կրկնության կոճակը</string>
+  <string name="revanced_loop_video_button_summary_on">Կոճակը ցուցադրված է</string>
+  <string name="revanced_loop_video_button_summary_off">Կոճակը ցուցադրված չէ</string>
+  <string name="revanced_loop_video_button_toast_on">Տեսանյութի կրկնությունը միացված է</string>
+  <string name="revanced_loop_video_button_toast_off">Տեսանյութի կրկնությունը անջատված է</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Հեռախոսի  չափերը  հնարավոր է  փոփոխել</string>
@@ -1572,9 +1579,11 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Կեղծելու կողմնակի ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Տեսանյութը կարող է դադարել 1:00-ին կամ հասանելի չլինել որոշ տարածաշրջաններում</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Փորձնական հաճախորդ է և կարող է ցանկացած պահի դադարել աշխատել</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Տեսանյութը կարող է դադարել 1:00-ին կամ հասանելի չլինել որոշ տարածաշրջաններում</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Ձայնային ուղու մենյուն բացակայում է</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Հեռացված բոլոր AV1 վիդեո կոդեկները</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Կայուն ձայնի մակարդակը հասանելի չէ</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">Երեխաների տեսանյութերը կարող են չհամապատասխանել հետևյալ պահանջներին՝ եթե արտոնագրման խախտումներ կան։</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Բնօրինակ ձայնի պարտադրումը հասանելի չէ</string>

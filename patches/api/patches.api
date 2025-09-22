@@ -1540,6 +1540,10 @@ public final class app/revanced/patches/youtube/misc/litho/filter/LithoFilterPat
 	public static final fun getLithoFilterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/misc/loopvideo/LoopVideoPatchKt {
+	public static final fun getLoopVideoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/misc/navigation/NavigationBarHookPatchKt {
 	public static field hookNavigationButtonCreated Lkotlin/jvm/functions/Function1;
 	public static final fun getHookNavigationButtonCreated ()Lkotlin/jvm/functions/Function1;

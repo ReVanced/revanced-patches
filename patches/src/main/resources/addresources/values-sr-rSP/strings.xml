@@ -54,10 +54,10 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_clear_history_message">Желите ли заиста да очистите целу историју претраге?</string>
   <string name="revanced_settings_search_tips_title">Савети за претрагу</string>
   <string name="revanced_settings_search_tips_summary">"• Додирните путању да бисте се кретали до ње
-• Дуго притисните поставку да бисте се кретали до ње
+• Дуго додирните подешавање да бисте дошли до њега
 • Притисните Enter да бисте сачували упит за претрагу у историји
-• Претрага игнорише велика/мала слова и интерпункцију
-• Родитељске поставке се појављују изнад онемогућених подређених поставки"</string>
+• Претрага занемарује велика и мала слова и интерпункцију
+• Родитељска подешавања се појављују изнад онемогућених дечјих подешавања"</string>
   <string name="revanced_settings_search_empty_history_title">Историја претраге је празна</string>
   <string name="revanced_settings_search_empty_history_summary">Да бисте сачували историју претраге, унесите упит за претрагу и притисните Enter</string>
   <string name="revanced_settings_search_history_title">Прикажи историју претраге подешавања</string>
@@ -144,9 +144,9 @@ Second \"item\" text"</string>
   <string name="revanced_sanitize_sharing_links_title">Уклони параметар упита за праћење</string>
   <string name="revanced_sanitize_sharing_links_summary_on">Параметар упита за праћење је уклоњен из линкова</string>
   <string name="revanced_sanitize_sharing_links_summary_off">Параметар упита за праћење није уклоњен из линкова</string>
-  <string name="revanced_replace_music_with_youtube_title">Промени дељене везе у youtube.com</string>
-  <string name="revanced_replace_music_with_youtube_summary_on">Дељене везе користе youtube.com</string>
-  <string name="revanced_replace_music_with_youtube_summary_off">Дељене везе користе music.youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_title">Промени линкове за дељење на youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Дељени линкови користе youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Дељени линкови користе music.youtube.com</string>
   </patch>
   </app>
   <app id="youtube">
@@ -1449,10 +1449,17 @@ Second \"item\" text"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша историја гледања се не чува.&lt;br&gt;&lt;br&gt;Ово је највероватније узроковано DNS блокатором огласа или мрежним проксијем.&lt;br&gt;&lt;br&gt;Да бисте ово поправили, ставите на белу листу &lt;b&gt;s.youtube.com&lt;/b&gt; или искључите све DNS блокаторе и проксије.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не приказуј поново</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Омогући аутоматско понављање видеа</string>
-  <string name="revanced_auto_repeat_summary_on">Аутоматско понављање видеа је омогућено</string>
-  <string name="revanced_auto_repeat_summary_off">Аутоматско понављање видеа је онемогућено</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Омогући понављање видеа</string>
+  <string name="revanced_loop_video_summary_on">Видео ће се понављати</string>
+  <string name="revanced_loop_video_summary_off">Видео се неће понављати</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Прикажи дугме за понављање видеа</string>
+  <string name="revanced_loop_video_button_summary_on">Дугме је приказано</string>
+  <string name="revanced_loop_video_button_summary_off">Дугме није приказано</string>
+  <string name="revanced_loop_video_button_toast_on">Понављање видеа је укључено</string>
+  <string name="revanced_loop_video_button_toast_off">Понављање видеа је искључено</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Лажиране димензије уређаја</string>
@@ -1573,9 +1580,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Нежељени ефекти лажирања</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Видео се може зауставити на 1:00 или можда неће бити доступан у неким регионима</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментални клијент и може престати да ради било када</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Видео се може зауставити на 1:00 или можда неће бити доступан у неким регионима</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Мени „Аудио снимак” недостаје</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Нема видео кодека AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Опција „Уједначена јачина звука” није доступна</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Видеи за децу се можда неће пуштати када сте одјављени или у режиму без архивирања</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Присиљавање оригиналног звука није доступно</string>
