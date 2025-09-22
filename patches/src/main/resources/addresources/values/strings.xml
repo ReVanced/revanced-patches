@@ -412,6 +412,8 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
             <string name="revanced_hide_visit_store_button_summary_on">Visit store button is hidden</string>
             <string name="revanced_hide_visit_store_button_summary_off">Visit store button is shown</string>
+    
+           
 
             <string name="revanced_comments_screen_title">Comments</string>
             <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
@@ -1003,6 +1005,13 @@ Settings → Playback → Autoplay next video"</string>
             <string name="revanced_hide_timestamp_summary_on">Timestamp is hidden</string>
             <string name="revanced_hide_timestamp_summary_off">Timestamp is shown</string>
         </patch>
+
+        <patch id="layout.hide.viewcount.filterMetadataStringPatch">
+            <string name="revanced_hide_view_count_title">Hide View Count</string>
+            <string name="revanced_hide_view_count_summary_on">View Count Invisible from the list</string>
+            <string name="revanced_hide_view_count_summary_off">View Count Visible  in the list</string>
+        </patch> 
+
         <patch id="layout.panels.popup.playerPopupPanelsPatch">
             <string name="revanced_hide_player_popup_panels_title">Hide player popup panels</string>
             <string name="revanced_hide_player_popup_panels_summary_on">Player popup panels are hidden</string>
