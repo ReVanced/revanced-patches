@@ -26,6 +26,7 @@ import android.widget.SearchView;
 import android.widget.Toolbar;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.RequiresApi;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -140,6 +141,7 @@ public abstract class BaseSearchViewController {
     /**
      * Sets the cursor color (for Android 10+ devices).
      */
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     private void setCursorColor(EditText editText) {
         // Get the cursor color based on the current theme.
         final int cursorColor = Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK;
