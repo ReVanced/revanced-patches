@@ -1,13 +1,17 @@
 package app.revanced.patches.instagram.hide.navigation
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import java.util.logging.Logger
+
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/instagram/hide/navigation/HideNavigationButtonsPatch;"
 
 @Suppress("unused")
 val hideNavigationButtonsPatch = bytecodePatch(
@@ -38,43 +42,30 @@ val hideNavigationButtonsPatch = bytecodePatch(
             )
         }
 
-        tabCreateButtonsLoopStartFingerprint.method.apply {
-                // Check the current loop index, and skip over adding the
-                // navigation button view if the index matches a given button.
+        initializeTabArrayFingerprint.method.apply {
+            val returnIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
+            val tabListRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
+            val freeRegister = findFreeRegister(returnIndex)
 
-                val startIndex = tabCreateButtonsLoopStartFingerprint.patternMatch!!.startIndex
-                val endIndex = tabCreateButtonsLoopEndFingerprint.patternMatch!!.endIndex
-                val insertIndex = startIndex + 1
-                val loopIndexRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
-                val freeRegister = findFreeRegister(insertIndex, loopIndexRegister)
-                val instruction = getInstruction(endIndex - 1)
-
-                val instructions = buildString {
-                    if (hideCreate!!) {
-                        appendLine(
-                            """
-                                const v$freeRegister, 0x2
-                                if-eq v$freeRegister, v$loopIndexRegister, :skipAddView
-                            """
-                        )
-                    }
-
-                    if (hideReels!!) {
-                        appendLine(
-                            """
-                                const v$freeRegister, 0x3
-                                if-eq v$freeRegister, v$loopIndexRegister, :skipAddView
-                            """
-                        )
-                    }
-                }
-
-                addInstructionsWithLabels(
-                    insertIndex,
-                    instructions,
-                    ExternalLabel("skipAddView", instruction)
-                )
+            fun instructionsRemoveTabByName(tabName: String): String {
+                return """
+                    const-string v$freeRegister, "$tabName"
+                    invoke-static { v$tabListRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->removeNavigationTabByName(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
+                    move-result-object v$tabListRegister
+                    """
             }
+
+            if (hideReels!!)
+                addInstructionsAtControlFlowLabel(
+                    returnIndex,
+                    instructionsRemoveTabByName("fragment_clips")
+                )
+
+            if (hideCreate!!)
+                addInstructionsAtControlFlowLabel(
+                    returnIndex,
+                    instructionsRemoveTabByName("fragment_share")
+                )
         }
     }
-
+}
