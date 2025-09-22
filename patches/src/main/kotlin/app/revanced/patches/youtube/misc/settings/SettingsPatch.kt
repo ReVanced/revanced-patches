@@ -216,15 +216,6 @@ val settingsPatch = bytecodePatch(
             }
         }
 
-//        // Add setting to force Cairo settings fragment on/off.
-//        cairoFragmentConfigFingerprint.let {
-//            it.method.insertLiteralOverride(
-//                it.instructionMatches.last().index,
-//                "$LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z"
-//            )
-//        }
-//    }
-
         // Add setting to force Cairo settings fragment on/off.
         cairoFragmentConfigFingerprint.method.insertLiteralOverride(
             cairoFragmentConfigFingerprint.instructionMatches.first().index,
@@ -254,9 +245,11 @@ internal fun modifyActivityForSettingsInjection(
     // Modify Activity and remove all existing layout code.
     // Must modify an existing activity and cannot add a new activity to the manifest,
     // as that fails for root installations.
+    val superClass = activityOnCreateClass.superclass
     activityOnCreateMethod.addInstructions(
-        1,
+        0,
         """
+            invoke-super { p0, p1 }, $superClass->onCreate(Landroid/os/Bundle;)V
             invoke-static { p0 }, $extensionClassType->initialize(Landroid/app/Activity;)V
             return-void
         """
