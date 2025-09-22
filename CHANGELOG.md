@@ -1,3 +1,10 @@
+# [5.41.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.4...v5.41.0-dev.5) (2025-09-22)
+
+
+### Bug Fixes
+
+* **Twitch - Settings:** Fix missing style resources ([#5970](https://github.com/ReVanced/revanced-patches/issues/5970)) ([8c22995](https://github.com/ReVanced/revanced-patches/commit/8c229954d7f232a7a472ca49f1b5e7cdc475bbcc))
+
 # [5.41.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.3...v5.41.0-dev.4) (2025-09-22)
 
 
