@@ -95,20 +95,6 @@ private val settingsResourcePatch = resourcePatch {
             )
         )
 
-        // Copy style properties used to fix over-sized copy menu that appear in EditTextPreference.
-        // For a full explanation of how this fixes the issue, see the comments in this style file
-        // and the comments in the extension code.
-        val targetResource = "values/styles.xml"
-        inputStreamFromBundledResource(
-            "settings/youtube",
-            targetResource,
-        )!!.let { inputStream ->
-            "resources".copyXmlNode(
-                document(inputStream),
-                document("res/$targetResource"),
-            ).close()
-        }
-
         // Remove horizontal divider from the settings Preferences
         // To better match the appearance of the stock YouTube settings.
         document("res/values/styles.xml").use { document ->

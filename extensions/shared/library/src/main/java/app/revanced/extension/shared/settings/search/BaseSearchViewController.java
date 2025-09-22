@@ -11,6 +11,7 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -117,6 +118,9 @@ public abstract class BaseSearchViewController {
         // Set background and query hint.
         searchView.setBackground(createBackgroundDrawable());
         searchView.setQueryHint(str("revanced_settings_search_hint"));
+
+        // Set text size.
+        searchEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
 
         // Configure RTL support based on app language.
         AppLanguage appLanguage = BaseSettings.REVANCED_LANGUAGE.get();
