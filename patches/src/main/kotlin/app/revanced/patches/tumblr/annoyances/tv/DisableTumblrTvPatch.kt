@@ -7,7 +7,7 @@ import app.revanced.patches.tumblr.featureflags.overrideFeatureFlagsPatch
 @Suppress("unused")
 val disableTumblrTvPatch = bytecodePatch(
     name = "Disable Tumblr TV",
-    description = "Removes the Tumblr TV navigation button from the bottom bar",
+    description = "Removes the Tumblr TV navigation button from the bottom navigation bar.",
 ) {
     dependsOn(overrideFeatureFlagsPatch)
 
