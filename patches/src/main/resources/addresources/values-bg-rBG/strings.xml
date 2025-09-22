@@ -1447,10 +1447,17 @@ Second \"item\" text"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Историята ви на гледане не се запазва.&lt;br&gt;&lt;br&gt;Това най-вероятно е причинено от DNS блокиращ реклами или мрежов прокси.&lt;br&gt;&lt;br&gt;За да коригирате това, поставете &lt;b&gt;s.youtube в белия списък.com&lt;/b&gt; или изключете всички DNS блокери и проксита.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не показвай отново</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Автоматично повтаряне на текущия видеоклип</string>
-  <string name="revanced_auto_repeat_summary_on">Включено автоматично повтаряне на текущия видеоклип</string>
-  <string name="revanced_auto_repeat_summary_off">Изключено автоматично повтаряне на текущия видеоклип</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Активиране на повторение на видеото</string>
+  <string name="revanced_loop_video_summary_on">Видеоклипът ще се повтаря</string>
+  <string name="revanced_loop_video_summary_off">Видеоклипът няма да се повтаря</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Показване на бутона за повторение на видеото</string>
+  <string name="revanced_loop_video_button_summary_on">Бутонът е показан</string>
+  <string name="revanced_loop_video_button_summary_off">Бутонът не е показан</string>
+  <string name="revanced_loop_video_button_toast_on">Повторението на видеото е включено</string>
+  <string name="revanced_loop_video_button_toast_off">Повторението на видеото е изключено</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Лъжливи параметри на устройството</string>
@@ -1571,9 +1578,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Странични ефекти от подменянето</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Видеото може да спре на 1:00 или може да не е налично в някои региони</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментален клиент и може да спре да работи по всяко време</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Видеото може да спре на 1:00 или може да не е налично в някои региони</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Менюто за аудиозаписи липсва</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Без AV1 видео кодек</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Стабилният звук не е наличен</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Детските видеоклипове може да не се възпроизвеждат, когато сте излезли от профила си или в режим \"инкогнито\"</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Принудителният оригинален звук не е наличен</string>

@@ -1446,10 +1446,17 @@ Ketuk di sini untuk mempelajari lebih lanjut tentang DeArrow"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Riwayat tontonan Anda tidak disimpan.&lt;br&gt;&lt;br&gt;Hal ini kemungkinan besar disebabkan oleh pemblokir iklan DNS atau proksi jaringan.&lt;br&gt;&lt;br&gt;Untuk memperbaikinya, masukkan daftar putih &lt;b&gt;s.youtube.com&lt;/b&gt; atau matikan semua pemblokir DNS dan proksi.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Jangan tampilkan lagi</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Aktifkan pengulangan otomatis</string>
-  <string name="revanced_auto_repeat_summary_on">Pengulangan otomatis diaktifkan</string>
-  <string name="revanced_auto_repeat_summary_off">Pengulangan otomatis dinonaktifkan</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Aktifkan putar ulang video</string>
+  <string name="revanced_loop_video_summary_on">Video akan diputar ulang</string>
+  <string name="revanced_loop_video_summary_off">Video tidak akan diputar ulang</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Tampilkan tombol putar ulang video</string>
+  <string name="revanced_loop_video_button_summary_on">Tombol ditampilkan</string>
+  <string name="revanced_loop_video_button_summary_off">Tombol tidak ditampilkan</string>
+  <string name="revanced_loop_video_button_toast_on">Putar ulang video aktif</string>
+  <string name="revanced_loop_video_button_toast_off">Putar ulang video tidak aktif</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Palsukan dimensi perangkat</string>
@@ -1570,9 +1577,11 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Efek samping pemalsuan</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Video mungkin berhenti pada 1:00, atau mungkin tidak tersedia di beberapa wilayah</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klien eksperimental dan dapat berhenti berfungsi kapan saja</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video mungkin berhenti pada 1:00, atau mungkin tidak tersedia di beberapa wilayah</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menu trek audio tidak ada</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volume stabil tidak tersedia</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video anak-anak mungkin tidak dapat diputar saat keluar atau dalam mode penyamaran</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Paksa audio asli tidak tersedia</string>

@@ -1449,10 +1449,17 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_check_watch_history_domain_name_dialog_message">ประวัติการรับชมของคุณไม่ได้ถูกบันทึก&lt;br&gt;&lt;br&gt;สาเหตุที่เป็นไปได้มากที่สุดคือตัวบล็อกโฆษณา DNS หรือพร็อกซีเครือข่าย&lt;br&gt;&lt;br&gt;เพื่อแก้ไขปัญหานี้ ให้เพิ่ม &lt;b&gt;s.youtube.com&lt;/b&gt; ในรายการที่อนุญาต หรือปิดตัวบล็อกโฆษณา DNS และพร็อกซีทั้งหมด</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">อย่าแสดงอีก</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">เปิดใช้งานเล่นซ้ำอัตโนมัติ</string>
-  <string name="revanced_auto_repeat_summary_on">เล่นซ้ำอัตโนมัติเปิดใช้งาน</string>
-  <string name="revanced_auto_repeat_summary_off">เล่นซ้ำอัตโนมัติปิดใช้งาน</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">เปิดใช้งานการเล่นวิดีโอซ้ำ</string>
+  <string name="revanced_loop_video_summary_on">วิดีโอจะเล่นซ้ำ</string>
+  <string name="revanced_loop_video_summary_off">วิดีโอจะไม่เล่นซ้ำ</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">แสดงปุ่มเล่นวิดีโอซ้ำ</string>
+  <string name="revanced_loop_video_button_summary_on">แสดงปุ่มแล้ว</string>
+  <string name="revanced_loop_video_button_summary_off">ยังไม่แสดงปุ่ม</string>
+  <string name="revanced_loop_video_button_toast_on">เปิดใช้งานการเล่นวิดีโอซ้ำแล้ว</string>
+  <string name="revanced_loop_video_button_toast_off">ปิดใช้งานการเล่นวิดีโอซ้ำแล้ว</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">ปลอมแปลงมิติของอุปกรณ์</string>
@@ -1573,9 +1580,11 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">ผลข้างเคียงของการปลอมแปลง</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• วิดีโออาจหยุดที่ 1:00 หรืออาจไม่สามารถรับชมได้ในบางภูมิภาค</string>
   <string name="revanced_spoof_video_streams_about_experimental">• ไคลเอนต์ทดลองและอาจหยุดทำงานได้ตลอดเวลา</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• วิดีโออาจหยุดที่ 1:00 หรืออาจไม่สามารถรับชมได้ในบางภูมิภาค</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• เมนูแทร็กเสียงหายไป</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• ไม่มีตัวแปลงสัญญาณวิดีโอ AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• ระดับเสียงคงที่ไม่พร้อมใช้งาน</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• วิดีโอเด็กอาจไม่เล่นเมื่อลงชื่อออกหรืออยู่ในโหมดไม่ระบุตัวตน</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• บังคับใช้เสียงต้นฉบับไม่พร้อมใช้งาน</string>

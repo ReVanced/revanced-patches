@@ -1440,10 +1440,17 @@ Ak je táto možnosť povolená, adresy URL videí sa odošlú na server API a n
   <string name="revanced_check_watch_history_domain_name_dialog_message">Vaša história pozeraného sa neuchováva.&lt;br&gt;&lt;br&gt;Toto je pravdepodobne spôsobené blokovaním reklám pomocou DNS alebo sieťového proxy.&lt;br&gt;&lt;br&gt;Pre vyriešenie tohto problému povoľte &lt;b&gt;s.youtube.com&lt;/b&gt; alebo vypnite všetky blokátory reklám pomocou DNS a proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Neukazuj znovu</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Povoliť automatické opakovanie</string>
-  <string name="revanced_auto_repeat_summary_on">Automatické opakovanie je povolené</string>
-  <string name="revanced_auto_repeat_summary_off">Automatické opakovanie je zakázané</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Povoliť opakovanie videa</string>
+  <string name="revanced_loop_video_summary_on">Video sa bude opakovať</string>
+  <string name="revanced_loop_video_summary_off">Video sa nebude opakovať</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Zobraziť tlačidlo pre opakovanie videa</string>
+  <string name="revanced_loop_video_button_summary_on">Tlačidlo je zobrazené</string>
+  <string name="revanced_loop_video_button_summary_off">Tlačidlo sa nezobrazuje</string>
+  <string name="revanced_loop_video_button_toast_on">Opakovanie videa je zapnuté</string>
+  <string name="revanced_loop_video_button_toast_off">Opakovanie videa je vypnuté</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Rozmery spoof zariadenia</string>
@@ -1564,9 +1571,11 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Vedľajšie účinky podvrhnutia</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Video sa môže zastaviť o 1:00, alebo nemusí byť dostupné v niektorých regiónoch</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentálny klient a môže kedykoľvek prestať fungovať</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video sa môže zastaviť o 1:00, alebo nemusí byť dostupné v niektorých regiónoch</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Chýba ponuka zvukovej stopy</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žiadny video kodek AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabilná hlasitosť nie je dostupná</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videá pre deti sa nemusia prehrávať, keď ste odhlásení alebo v režime inkognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Vynútenie pôvodného zvuku nie je k dispozícii</string>
