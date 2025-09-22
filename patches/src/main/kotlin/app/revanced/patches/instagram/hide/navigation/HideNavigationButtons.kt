@@ -19,7 +19,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
     description = "Hides navigation bar buttons, such as the Reels and Create button.",
     use = false
 ) {
-    compatibleWith("com.instagram.android"("397.1.0.52.81"))
+    compatibleWith("com.instagram.android")
 
     val hideReels by booleanOption(
         key = "hideReels",
@@ -42,7 +42,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
             )
         }
 
-        initializeTabArrayFingerprint.method.apply {
+        initializeNavigationButtonsListFingerprint.method.apply {
             val returnIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
             val tabListRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
             val freeRegister = findFreeRegister(returnIndex)
