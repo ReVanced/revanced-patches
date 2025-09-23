@@ -1169,6 +1169,10 @@ public final class app/revanced/patches/tumblr/annoyances/popups/DisableGiftMess
 	public static final fun getDisableGiftMessagePopupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/tumblr/annoyances/tv/DisableTumblrTvPatchKt {
+	public static final fun getDisableTumblrTvPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/tumblr/featureflags/OverrideFeatureFlagsPatchKt {
 	public static final fun getOverrideFeatureFlagsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
