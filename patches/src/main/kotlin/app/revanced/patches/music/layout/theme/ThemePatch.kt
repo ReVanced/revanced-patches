@@ -15,7 +15,7 @@ import org.w3c.dom.Element
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/theme/ThemePatch;"
 
-private val musicThemeBytecodePatch = bytecodePatch(
+val musicThemeBytecodePatch = bytecodePatch(
     name = "Theme",
     description = "Adds options for theming and applies a custom background theme (defaults to pure black).",
 ) {
