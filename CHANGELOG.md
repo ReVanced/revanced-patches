@@ -1,3 +1,10 @@
+# [5.41.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.6...v5.41.0-dev.7) (2025-09-23)
+
+
+### Features
+
+* **Tumblr:** Add `Disable Tumblr TV` patch ([#5959](https://github.com/ReVanced/revanced-patches/issues/5959)) ([212418b](https://github.com/ReVanced/revanced-patches/commit/212418b8db9a730ae9efa89ad2bef24952afbadd))
+
 # [5.41.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.5...v5.41.0-dev.6) (2025-09-22)
 
 
