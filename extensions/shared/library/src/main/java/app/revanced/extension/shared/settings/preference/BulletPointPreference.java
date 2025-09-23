@@ -15,7 +15,11 @@ import android.util.AttributeSet;
 @SuppressWarnings({"unused", "deprecation"})
 public class BulletPointPreference extends Preference {
 
-    public static SpannedString formatIntoBulletPoints(CharSequence source) {
+    public static CharSequence formatIntoBulletPoints(CharSequence source) {
+        if (TextUtils.indexOf(source, '•') < 0) {
+            return source; // Nothing to do.
+        }
+
         SpannableStringBuilder builder = new SpannableStringBuilder(source);
 
         int lineStart = 0;
