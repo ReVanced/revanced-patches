@@ -9,7 +9,7 @@ val hideNavbarItemsPatch = bytecodePatch(
     name = "Hide Navbar Items",
     description = "Hides all bottom navbar tabs, except 'Chats', 'Calls' and 'More'.",
 ) {
-    compatibleWith("com.viber.voip")
+    compatibleWith("com.viber.voip"("26.1.2.0"))
 
     execute {
         val tabClass = tabIdClassFingerprint.classDef
