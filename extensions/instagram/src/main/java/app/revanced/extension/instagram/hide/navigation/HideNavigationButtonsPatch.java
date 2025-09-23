@@ -8,26 +8,26 @@ public class HideNavigationButtonsPatch {
 
     /**
      * Injection point.
-     * @param navigationTabList the list of navigation tabs, as an (obfuscated) Enum type
-     * @param tabNameToRemove the name of the tab we want to remove
+     * @param navigationButtonsList the list of navigation buttons, as an (obfuscated) Enum type
+     * @param buttonNameToRemove the name of the button we want to remove
      * @param enumNameField the field in the nav button enum class which contains the name of the button
      * @return the list without the tab
      */
     public static List<Object> removeNavigationTabByName(
-            List<Object> navigationTabList,
-            String tabNameToRemove,
+            List<Object> navigationButtonsList,
+            String buttonNameToRemove,
             String enumNameField
     )
             throws IllegalAccessException, NoSuchFieldException {
-        for (Object tab : navigationTabList) {
+        for (Object tab : navigationButtonsList) {
             Field f = tab.getClass().getDeclaredField(enumNameField);
             String currentTabName = (String) f.get(tab);
 
-            if (tabNameToRemove.equals(currentTabName)) {
-                navigationTabList.remove(tab);
+            if (buttonNameToRemove.equals(currentTabName)) {
+                navigationButtonsList.remove(tab);
                 break;
             }
         }
-        return navigationTabList;
+        return navigationButtonsList;
     }
 }
