@@ -1267,6 +1267,7 @@ Tas mainīs lietotnes izskatu un funkcijas, taču var rasties nezināmas blakusp
 Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu lietotāja saskarnes kļūdas."</string>
   <string name="revanced_spoof_app_version_target_title">Viltot lietotnes versijas mērķis</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Atjaunot nesaspiestu video darbību joslu</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Atjaunot transkripta funkcionalitāti</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Atjaunot vecās Shorts spēlētāja ikonas</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Atjaunot vecās navigācijas ikonas</string>
   </patch>

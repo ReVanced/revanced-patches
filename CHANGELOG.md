@@ -1,3 +1,10 @@
+# [5.41.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.5...v5.41.0-dev.6) (2025-09-22)
+
+
+### Features
+
+* **YouTube - Spoof app version:** Add spoof target `20.05.46` that fixes transcript functionality ([5823f0e](https://github.com/ReVanced/revanced-patches/commit/5823f0e982e87b4a35d30feeca8a7e16edfebc5f))
+
 # [5.41.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.4...v5.41.0-dev.5) (2025-09-22)
 
 

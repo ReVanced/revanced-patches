@@ -1265,6 +1265,7 @@ Ez megváltoztatja az alkalmazás megjelenését és funkcióit, de előfordulha
 Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy megakadályozza a felhasználói felület hibáit."</string>
   <string name="revanced_spoof_app_version_target_title">Hamisított alkalmazásverzió célja</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Nem összecsukott videó műveletsáv visszaállítása</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Átirat funkció visszaállítása</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - A régi Shorts lejátszó ikonok visszaállítása</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Állítsa vissza a régi navigációs ikonokat</string>
   </patch>

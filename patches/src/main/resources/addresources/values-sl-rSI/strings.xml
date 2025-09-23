@@ -1265,6 +1265,7 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
 Če ga kasneje izklopite, je priporočljivo počistiti podatke aplikacije, da preprečite napake uporabniškega vmesnika."</string>
   <string name="revanced_spoof_app_version_target_title">Cilj spoofa različice aplikacije</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Obnovi nezloženo video akcijsko vrstico</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Obnovi funkcionalnost prepisa</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Obnovi stare ikone predvajalnika Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 – Obnovi stare ikone za krmarjenje</string>
   </patch>

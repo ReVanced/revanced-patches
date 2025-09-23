@@ -28,7 +28,12 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
 ) {
     dependsOn(spoofVideoStreamsPatch)
 
-    compatibleWith(MUSIC_PACKAGE_NAME)
+    compatibleWith(
+        MUSIC_PACKAGE_NAME(
+            "7.29.52",
+            "8.10.52"
+        )
+    )
 }
 
 private fun gmsCoreSupportResourcePatch(

@@ -1268,6 +1268,7 @@ Dette ændrer appens udseende og funktioner, men ukendte bivirkninger kan foreko
 Hvis det senere slås fra, anbefales det at rydde app-dataene for at forhindre UI-fejl."</string>
   <string name="revanced_spoof_app_version_target_title">Spoof app version mål</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Gendan ikke-kollapset videohandlingslinje</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Gendan transkriptionsfunktionalitet</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Gendan gamle Shorts player ikoner</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Gendan gamle navigationsikoner</string>
   </patch>

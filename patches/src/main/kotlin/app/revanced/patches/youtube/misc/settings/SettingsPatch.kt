@@ -231,11 +231,10 @@ internal fun modifyActivityForSettingsInjection(
     // Modify Activity and remove all existing layout code.
     // Must modify an existing activity and cannot add a new activity to the manifest,
     // as that fails for root installations.
-    val superClass = activityOnCreateClass.superclass
     activityOnCreateMethod.addInstructions(
         0,
         """
-            invoke-super { p0, p1 }, $superClass->onCreate(Landroid/os/Bundle;)V
+            invoke-super { p0, p1 }, ${activityOnCreateClass.superclass}->onCreate(Landroid/os/Bundle;)V
             invoke-static { p0 }, $extensionClassType->initialize(Landroid/app/Activity;)V
             return-void
         """

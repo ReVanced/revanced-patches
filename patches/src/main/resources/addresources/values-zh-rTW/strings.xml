@@ -1267,6 +1267,7 @@ Second \"item\" text"</string>
 如果之後關閉此設定，建議清除應用程式資料以避免 UI 錯誤。"</string>
   <string name="revanced_spoof_app_version_target_title">應用程式偽裝目標版本</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - 還原未收合的影片操作列</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - 恢復轉錄功能</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - 還原舊版 Shorts 播放圖示</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - 還原舊版導覽圖示</string>
   </patch>

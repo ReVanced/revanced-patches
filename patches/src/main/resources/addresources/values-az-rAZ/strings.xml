@@ -1265,6 +1265,7 @@ Bu tətbiqin görünüşün və xüsusiyyətlərin dəyişdirəcək, lakin bilin
 Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların silmək tövsiyə olunur."</string>
   <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Yığılmayan video fəaliyyət cizgisin bərpa et</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Transkript funksionallığını bərpa edin</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Köhnə fəaliyyət simvolların bərpa et</string>
   </patch>

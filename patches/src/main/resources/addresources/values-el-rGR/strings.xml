@@ -1267,6 +1267,7 @@ Second \"item\" text"</string>
 Αν αργότερα απενεργοποιηθεί, συνιστάται η εκκαθάριση δεδομένων της εφαρμογής για την αποφυγή σφαλμάτων UI."</string>
   <string name="revanced_spoof_app_version_target_title">Έκδοση παραποίησης της εφαρμογής</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Επαναφορά της μη συμπτυγμένης γραμμής ενεργειών βίντεο</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Επαναφορά λειτουργικότητας μεταγραφής</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Επαναφορά των παλιών εικονιδίων της οθόνης αναπαραγωγής Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Επαναφορά παλιών εικονιδίων γραμμής πλοήγησης</string>
   </patch>
@@ -1578,7 +1579,7 @@ Second \"item\" text"</string>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Παρενέργειες παραποίησης</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Πειραματικός πελάτης και μπορεί να σταματήσει να λειτουργεί ανά πάσα στιγμή</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Το βίντεο ενδέχεται να σταματήσει στο 1:00 ή να μην είναι διαθέσιμο σε ορισμένες περιοχές</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Το βίντεο μπορεί να σταματήσει στο 1:00 ή να μην είναι διαθέσιμο σε ορισμένες περιοχές</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Το μενού «Κομμάτι ήχου» λείπει</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Δεν υπάρχει ο κωδικοποιητής βίντεο AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη</string>

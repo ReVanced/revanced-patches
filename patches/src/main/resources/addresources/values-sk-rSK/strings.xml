@@ -1261,6 +1261,7 @@ Zmení sa vzhľad a funkcie aplikácie, ale môžu sa vyskytnúť neznáme vedľ
 Ak sa neskôr vypne, odporúča sa vymazať údaje aplikácie, aby sa zabránilo chybám používateľského rozhrania."</string>
   <string name="revanced_spoof_app_version_target_title">Falošná cieľová verzia aplikácie</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Obnoviť nerozbalený panel akcií videa</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Obnoviť funkčnosť prepisu</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Obnoviť staré ikony Shorts prehrávača</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 – Obnoviť staré ikony navigácie</string>
   </patch>
