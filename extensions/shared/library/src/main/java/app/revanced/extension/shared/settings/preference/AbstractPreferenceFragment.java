@@ -125,11 +125,13 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
         showingUserDialogMessage = true;
 
+        CharSequence message = BulletPointPreference.formatIntoBulletPoints(
+                Objects.requireNonNull(setting.userDialogMessage).toString());
+
         Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 confirmDialogTitle, // Title.
-                BulletPointPreference.formatIntoBulletPoints(Objects.requireNonNull(
-                        setting.userDialogMessage).toString()),
+                message,
                 null, // No EditText.
                 null, // OK button text.
                 () -> {
