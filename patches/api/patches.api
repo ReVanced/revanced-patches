@@ -368,6 +368,10 @@ public final class app/revanced/patches/music/misc/debugging/EnableDebuggingPatc
 	public static final fun getEnableDebuggingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/misc/dns/CheckWatchHistoryDomainNameResolutionPatchKt {
+	public static final fun getCheckWatchHistoryDomainNameResolutionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/misc/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1640,6 +1644,10 @@ public final class app/revanced/patches/youtube/misc/spoof/UserAgentClientSpoofP
 
 public final class app/revanced/patches/youtube/video/audio/ForceOriginalAudioPatchKt {
 	public static final fun getForceOriginalAudioPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/video/codecs/DisableVideoCodecsPatchKt {
+	public static final fun getDisableVideoCodecsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/video/hdr/DisableHdrPatchKt {

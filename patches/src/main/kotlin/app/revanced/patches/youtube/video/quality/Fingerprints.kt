@@ -29,7 +29,6 @@ internal val videoQualityItemOnClickFingerprint by fingerprint {
     }
 }
 
-
 internal val videoQualityMenuOptionsFingerprint by fingerprint {
     accessFlags(AccessFlags.STATIC)
     returns("[L")
