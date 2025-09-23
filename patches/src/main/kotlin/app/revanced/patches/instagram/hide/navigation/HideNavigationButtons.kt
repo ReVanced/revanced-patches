@@ -1,13 +1,20 @@
 package app.revanced.patches.instagram.hide.navigation
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import java.util.logging.Logger
+
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/instagram/hide/navigation/HideNavigationButtonsPatch;"
 
 @Suppress("unused")
 val hideNavigationButtonsPatch = bytecodePatch(
@@ -15,7 +22,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
     description = "Hides navigation bar buttons, such as the Reels and Create button.",
     use = false
 ) {
-    compatibleWith("com.instagram.android"("397.1.0.52.81"))
+    compatibleWith("com.instagram.android")
 
     val hideReels by booleanOption(
         key = "hideReels",
@@ -38,43 +45,44 @@ val hideNavigationButtonsPatch = bytecodePatch(
             )
         }
 
-        tabCreateButtonsLoopStartFingerprint.method.apply {
-                // Check the current loop index, and skip over adding the
-                // navigation button view if the index matches a given button.
+        val enumNameField: String
 
-                val startIndex = tabCreateButtonsLoopStartFingerprint.patternMatch!!.startIndex
-                val endIndex = tabCreateButtonsLoopEndFingerprint.patternMatch!!.endIndex
-                val insertIndex = startIndex + 1
-                val loopIndexRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
-                val freeRegister = findFreeRegister(insertIndex, loopIndexRegister)
-                val instruction = getInstruction(endIndex - 1)
-
-                val instructions = buildString {
-                    if (hideCreate!!) {
-                        appendLine(
-                            """
-                                const v$freeRegister, 0x2
-                                if-eq v$freeRegister, v$loopIndexRegister, :skipAddView
-                            """
-                        )
-                    }
-
-                    if (hideReels!!) {
-                        appendLine(
-                            """
-                                const v$freeRegister, 0x3
-                                if-eq v$freeRegister, v$loopIndexRegister, :skipAddView
-                            """
-                        )
-                    }
-                }
-
-                addInstructionsWithLabels(
-                    insertIndex,
-                    instructions,
-                    ExternalLabel("skipAddView", instruction)
-                )
+        // Get the field name which contains the name of the enum for the navigation button ("fragment_clips", "fragment_share", ...)
+        with(navigationButtonsEnumInitFingerprint.method) {
+            enumNameField = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.IPUT_OBJECT &&
+                        (this as TwoRegisterInstruction).registerA == 2 // The p2 register
+            }.let {
+                getInstruction(it).getReference<FieldReference>()!!.name
             }
         }
-    }
 
+        initializeNavigationButtonsListFingerprint.method.apply {
+            val returnIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
+            val buttonsListRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
+            val freeRegister = findFreeRegister(returnIndex)
+            val freeRegister2 = findFreeRegister(returnIndex, freeRegister)
+
+            fun instructionsRemoveButtonByName(buttonEnumName: String): String {
+                return """
+                    const-string v$freeRegister, "$buttonEnumName"
+                    const-string v$freeRegister2, "$enumNameField"
+                    invoke-static { v$buttonsListRegister, v$freeRegister, v$freeRegister2 }, $EXTENSION_CLASS_DESCRIPTOR->removeNavigationButtonByName(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+                    move-result-object v$buttonsListRegister
+                    """
+            }
+
+            if (hideReels!!)
+                addInstructionsAtControlFlowLabel(
+                    returnIndex,
+                    instructionsRemoveButtonByName("fragment_clips")
+                )
+
+            if (hideCreate!!)
+                addInstructionsAtControlFlowLabel(
+                    returnIndex,
+                    instructionsRemoveButtonByName("fragment_share")
+                )
+        }
+    }
+}
