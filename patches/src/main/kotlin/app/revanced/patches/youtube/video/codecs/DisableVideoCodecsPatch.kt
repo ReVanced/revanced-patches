@@ -69,13 +69,13 @@ val disableVideoCodecsPatch = bytecodePatch(
 
         PreferenceScreen.VIDEO.addPreferences(
             SwitchPreference("revanced_disable_hdr_video"),
-            SwitchPreference("revanced_disable_vp9_codec")
+            SwitchPreference("revanced_force_avc_codec")
         )
 
         vp9CapabilityFingerprint.method.addInstructionsWithLabels(
             0,
             """
-                invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableVP9Codec()Z
+                invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->forceAVC()Z
                 move-result v0
                 if-nez v0, :default
                 return v0

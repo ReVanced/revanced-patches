@@ -18,15 +18,15 @@ public class SpoofVideoStreamsPatch {
      * Injection point.
      */
     public static void setClientOrderToUse() {
-        // VR 1.61 uses VP9/AV1, and cannot disable VPC to use AVC.
-        final boolean disableVP9 = Settings.DISABLE_VP9_CODEC.get();
+        final boolean forceAVC = Settings.FORCE_AVC_CODEC.get();
 
+        // VR 1.61 uses VP9/AV1, and cannot force AVC.
         ClientType client = Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
-        if (disableVP9 && client == ANDROID_VR_1_61_48) {
+        if (forceAVC && client == ANDROID_VR_1_61_48) {
             client = ANDROID_VR_1_43_32; // Use VR 1.43 instead.
         }
 
-        List<ClientType> availableClients = disableVP9
+        List<ClientType> availableClients = forceAVC
                 ? List.of(
                 ANDROID_VR_1_43_32,
                 VISIONOS,

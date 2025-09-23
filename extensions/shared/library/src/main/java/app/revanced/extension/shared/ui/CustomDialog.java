@@ -58,10 +58,10 @@ public class CustomDialog {
      * @param dismissDialogOnNeutralClick If the dialog should be dismissed when the Neutral button is clicked.
      * @return The Dialog and its main LinearLayout container.
      */
-    public static Pair<Dialog, LinearLayout> create(Context context, String title, CharSequence message,
-                                                    @Nullable EditText editText, String okButtonText,
+    public static Pair<Dialog, LinearLayout> create(Context context, CharSequence title, CharSequence message,
+                                                    @Nullable EditText editText, CharSequence okButtonText,
                                                     Runnable onOkClick, Runnable onCancelClick,
-                                                    @Nullable String neutralButtonText,
+                                                    @Nullable CharSequence neutralButtonText,
                                                     @Nullable Runnable onNeutralClick,
                                                     boolean dismissDialogOnNeutralClick) {
         Logger.printDebug(() -> "Creating custom dialog with title: " + title);
@@ -85,9 +85,9 @@ public class CustomDialog {
      * @param onNeutralClick              Action to perform when the Neutral button is clicked, or null if no Neutral button is needed.
      * @param dismissDialogOnNeutralClick If the dialog should be dismissed when the Neutral button is clicked.
      */
-    private CustomDialog(Context context, String title, CharSequence message, @Nullable EditText editText,
-                         String okButtonText, Runnable onOkClick, Runnable onCancelClick,
-                         @Nullable String neutralButtonText, @Nullable Runnable onNeutralClick,
+    private CustomDialog(Context context, CharSequence title, CharSequence message, @Nullable EditText editText,
+                         CharSequence okButtonText, Runnable onOkClick, Runnable onCancelClick,
+                         @Nullable CharSequence neutralButtonText, @Nullable Runnable onNeutralClick,
                          boolean dismissDialogOnNeutralClick) {
         this.context = context;
         this.dialog = new Dialog(context);
@@ -139,7 +139,7 @@ public class CustomDialog {
      *
      * @param title The title text to display.
      */
-    private void addTitle(String title) {
+    private void addTitle(CharSequence title) {
         if (TextUtils.isEmpty(title)) return;
 
         TextView titleView = new TextView(context);
@@ -232,8 +232,8 @@ public class CustomDialog {
      * @param onNeutralClick              Action for the Neutral button click, or null if no Neutral button.
      * @param dismissDialogOnNeutralClick If the dialog should dismiss on Neutral button click.
      */
-    private void addButtons(String okButtonText, Runnable onOkClick, Runnable onCancelClick,
-                            @Nullable String neutralButtonText, @Nullable Runnable onNeutralClick,
+    private void addButtons(CharSequence okButtonText, Runnable onOkClick, Runnable onCancelClick,
+                            @Nullable CharSequence neutralButtonText, @Nullable Runnable onNeutralClick,
                             boolean dismissDialogOnNeutralClick) {
         // Button container.
         LinearLayout buttonContainer = new LinearLayout(context);
@@ -280,7 +280,7 @@ public class CustomDialog {
      * @param dismissDialog If the dialog should dismiss when the button is clicked.
      * @return The created Button.
      */
-    private Button createButton(String text, Runnable onClick, boolean isOkButton, boolean dismissDialog) {
+    private Button createButton(CharSequence text, Runnable onClick, boolean isOkButton, boolean dismissDialog) {
         Button button = new Button(context, null, 0);
         button.setText(text);
         button.setTextSize(14);
