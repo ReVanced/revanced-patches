@@ -2,12 +2,15 @@ package app.revanced.extension.tiktok.settings.preference;
 
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+
 import androidx.annotation.NonNull;
+
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.AbstractPreferenceFragment;
 import app.revanced.extension.tiktok.settings.preference.categories.DownloadsPreferenceCategory;
-import app.revanced.extension.tiktok.settings.preference.categories.FeedFilterPreferenceCategory;
 import app.revanced.extension.tiktok.settings.preference.categories.ExtensionPreferenceCategory;
+import app.revanced.extension.tiktok.settings.preference.categories.FeedFilterPreferenceCategory;
 import app.revanced.extension.tiktok.settings.preference.categories.SimSpoofPreferenceCategory;
 
 /**
@@ -37,9 +40,13 @@ public class TikTokPreferenceFragment extends AbstractPreferenceFragment {
 
         // Currently no resources can be compiled for TikTok (fails with aapt error).
         // So all TikTok Strings are hard coded in the extension.
-        restartDialogTitle = "Refresh and restart";
+        restartDialogTitle = "Restart required";
+        restartDialogMessage = "Restart the app for this change to take effect.";
         restartDialogButtonText = "Restart";
         confirmDialogTitle = "Do you wish to proceed?";
+
+        // App does not use dark mode.
+        Utils.setIsDarkModeEnabled(false);
 
         PreferenceScreen preferenceScreen = getPreferenceManager().createPreferenceScreen(context);
         setPreferenceScreen(preferenceScreen);
