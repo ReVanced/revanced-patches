@@ -1652,9 +1652,9 @@ Enabling this can unlock higher video qualities"</string>
 
 Limitations:
 • Maximum resolution is 1080p.
-• HDR video may still use VP9.
 • Video playback will use more internet data than VP9.
-• This feature may not work for newer devices and VP9/AV1 is still used."</string>
+• HDR videos may still use VP9.
+• This feature may not work for newer devices."</string>
         </patch>
         <patch id="video.quality.advancedVideoQualityMenuPatch">
             <string name="revanced_advanced_video_quality_menu_title">Show advanced video quality menu</string>
