@@ -43,19 +43,19 @@ public class ThemePatch {
         }
     }
 
-    // color constants used in relation with litho components
+    // Color constants used in relation with litho components.
     private static final int[] WHITE_VALUES = {
-            -1, // comments chip background
-            -394759, // music related results panel background
-            -83886081, // video chapters list background
+            -1,        // Comments chip background.
+            -394759,   // Music related results panel background.
+            -83886081, // Video chapters list background.
     };
 
     private static final int[] DARK_VALUES = {
-            -14145496, // explore drawer background
-            -14606047, // comments chip background
-            -15198184, // music related results panel background
-            -15790321, // comments chip background (new layout)
-            -98492127 // video chapters list background
+            -14145496, // Explore drawer background.
+            -14606047, // Comments chip background.
+            -15198184, // Music related results panel background.
+            -15790321, // Comments chip background (new layout).
+            -98492127  // Video chapters list background.
     };
 
     // Background colors.
@@ -66,7 +66,7 @@ public class ThemePatch {
 
     /**
      * Injection point.
-     *
+     * <p>
      * Change the color of Litho components.
      * If the color of the component matches one of the values, return the background color .
      *

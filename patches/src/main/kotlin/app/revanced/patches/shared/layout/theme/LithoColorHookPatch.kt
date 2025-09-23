@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.layout.theme
+package app.revanced.patches.shared.layout.theme
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
