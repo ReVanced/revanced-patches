@@ -35,6 +35,7 @@ val hideNavbarItemsPatch = bytecodePatch(
             return v0  # false, do not enable other tabs
             # Proceed with default execution
             :continue
+            nop
         """
     }
 }
