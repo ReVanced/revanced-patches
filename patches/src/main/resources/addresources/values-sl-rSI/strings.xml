@@ -1265,8 +1265,9 @@ To bo spremenilo videz in funkcije aplikacije, vendar se lahko pojavijo neznani 
 Če ga kasneje izklopite, je priporočljivo počistiti podatke aplikacije, da preprečite napake uporabniškega vmesnika."</string>
   <string name="revanced_spoof_app_version_target_title">Cilj spoofa različice aplikacije</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Obnovi nezloženo video akcijsko vrstico</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Obnovi stare ikone predvajalnika Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 – Obnovi stare ikone za krmarjenje</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Obnovi funkcionalnost prepisa</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Obnovi stare ikone predvajalnika Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 – Obnovi stare ikone za krmarjenje</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Spremeni začetno stran</string>
@@ -1447,10 +1448,17 @@ Tapnite tukaj, če želite izvedeti več o DeArrow"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Vaš zgodovine gledanja se ne shranjuje.&lt;br&gt;&lt;br&gt;To najverjetneje povzroči DNS blokiralnik oglasov ali omrežni posrednik.&lt;br&gt;&lt;br&gt;Za odpravo težave dodajte na beli seznam &lt;b&gt;s.youtube.com&lt;/b&gt; ali izklopite vse blokiralnike oglasov DNS in posrednike.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne prikazuj več</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Omogoči samodejno ponavljanje</string>
-  <string name="revanced_auto_repeat_summary_on">Samodejno ponavljanje je omogočeno</string>
-  <string name="revanced_auto_repeat_summary_off">Samodejno ponavljanje je onemogočeno</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Omogoči ponavljanje videa</string>
+  <string name="revanced_loop_video_summary_on">Video se bo ponavljal</string>
+  <string name="revanced_loop_video_summary_off">Video se ne bo ponavljal</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Prikaži gumb za ponavljanje videa</string>
+  <string name="revanced_loop_video_button_summary_on">Gumb je prikazan</string>
+  <string name="revanced_loop_video_button_summary_off">Gumb ni prikazan</string>
+  <string name="revanced_loop_video_button_toast_on">Ponavljanje videa je vklopljeno</string>
+  <string name="revanced_loop_video_button_toast_off">Ponavljanje videa je izklopljeno</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Ponarejanje dimenzij naprave</string>
@@ -1571,9 +1579,11 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Stranski učinki ponarejanja</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Video se lahko ustavi ob 1:00, ali pa morda ne bo na voljo v nekaterih regijah</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentalni odjemalec in lahko kadar koli preneha delovati</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video se lahko ustavi ob 1:00, ali pa morda ne bo na voljo v nekaterih regijah</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Meni z zvočnimi posnetki manjka</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Brez kodeka videa AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabilna glasnost ni na voljo</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Posnetki za otroke se mogoče ne bodo predvajali, ko ste odjavljeni ali v načinu brez beleženja zgodovine</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Vsili izvirni zvok ni na voljo</string>

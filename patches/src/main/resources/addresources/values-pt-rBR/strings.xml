@@ -1263,8 +1263,9 @@ Isso mudará a aparência e os recursos do aplicativo, mas podem ocorrer efeitos
 Se posteriormente desativado, é recomendável limpar os dados do aplicativo para evitar bugs na IU."</string>
   <string name="revanced_spoof_app_version_target_title">Versão de spoofing alvo</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Restaurar barra de ações de vídeo não recolhida</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Restaurar ícones antigos do player dos Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Restaurar ícones de navegação antigos</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Restaurar funcionalidade de transcrição</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Restaurar ícones antigos do player dos Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Restaurar ícones de navegação antigos</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Alterar página inicial</string>
@@ -1444,10 +1445,17 @@ Toque aqui para saber mais sobre DeArrow"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Seu histórico de exibição não está sendo salvo.&lt;br&gt;&lt;br&gt;Na maioria dos casos isso é causado por um bloqueador de anúncios por DNS ou proxy de rede.&lt;br&gt;&lt;br&gt;Para corrigir isso, permita &lt;b&gt;s.youtube.com&lt;/b&gt; na sua lista ou desative todos os bloqueadores de DNS e proxies.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Não exibir novamente</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Ativar repetição automática</string>
-  <string name="revanced_auto_repeat_summary_on">Repetição automática está ativada</string>
-  <string name="revanced_auto_repeat_summary_off">Repetição automática está desativada</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Ativar vídeo em loop</string>
+  <string name="revanced_loop_video_summary_on">O vídeo será repetido</string>
+  <string name="revanced_loop_video_summary_off">O vídeo não será repetido</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Mostrar botão de vídeo em loop</string>
+  <string name="revanced_loop_video_button_summary_on">Botão é exibido</string>
+  <string name="revanced_loop_video_button_summary_off">Botão não é exibido</string>
+  <string name="revanced_loop_video_button_toast_on">Vídeo em loop está ativado</string>
+  <string name="revanced_loop_video_button_toast_off">Vídeo em loop está desativado</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Spoofing de dimensões do dispositivo</string>
@@ -1568,9 +1576,11 @@ Habilitar isso pode desbloquear qualidades de vídeo mais altas"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Efeitos colaterais da falsificação</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• O vídeo pode parar em 1:00, ou pode não estar disponível em algumas regiões</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Cliente experimental e pode parar de funcionar a qualquer momento</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• O vídeo pode parar em 1:00, ou pode não estar disponível em algumas regiões</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• O menu da faixa de áudio está faltando</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Sem codec de vídeo AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volume estável não está disponível</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Vídeos infantis podem não ser reproduzidos quando estiver desconectado ou no modo de navegação anônima</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Forçar áudio original não está disponível</string>

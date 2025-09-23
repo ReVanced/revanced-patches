@@ -1264,8 +1264,9 @@ Ito ay magbabago sa hitsura at mga tampok ng app, ngunit maaaring mangyari ang m
 Kung mamaya ay patayin, inirerekumenda na i-clear ang data ng app upang maiwasan ang mga bug ng UI."</string>
   <string name="revanced_spoof_app_version_target_title">Target na bersyon ng Spoof app</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Ibalik ang hindi nakatiklop na video action bar</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Ibalik ang mga lumang icon ng Shorts player</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Ibalik ang mga lumang icon ng navigation</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Ibalik ang paggana ng transcript</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Ibalik ang mga lumang icon ng Shorts player</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Ibalik ang mga lumang icon ng navigation</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Baguhin ang panimulang pahina</string>
@@ -1445,10 +1446,17 @@ Mag-tap dito upang matuto nang higit pa tungkol sa DeArrow"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Hindi nai-save ang iyong kasaysayan ng panonood.&lt;br&gt;&lt;br&gt;Karaniwang sanhi nito ay ang DNS ad blocker o network proxy.&lt;br&gt;&lt;br&gt;Para maayos ito, i-whitelist ang &lt;b&gt;s.youtube.com&lt;/b&gt; o i-off ang lahat ng DNS blocker at proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Huwag ipakitang muli</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Paganahin ang auto-repeat</string>
-  <string name="revanced_auto_repeat_summary_on">Naka-enable ang auto-repeat</string>
-  <string name="revanced_auto_repeat_summary_off">Naka-disable ang auto-repeat</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Paganahin ang loop ng video</string>
+  <string name="revanced_loop_video_summary_on">Maglo-loop ang video</string>
+  <string name="revanced_loop_video_summary_off">Hindi maglo-loop ang video</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Ipakita ang button ng loop ng video</string>
+  <string name="revanced_loop_video_button_summary_on">Ipinapakita ang button</string>
+  <string name="revanced_loop_video_button_summary_off">Hindi ipinapakita ang buton</string>
+  <string name="revanced_loop_video_button_toast_on">Naka-on ang loop ng video</string>
+  <string name="revanced_loop_video_button_toast_off">Naka-off ang loop ng video</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Mga dimensyon ng spoof device</string>
@@ -1569,9 +1577,11 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Mga epekto ng pagpapanggap</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Maaaring huminto ang video sa 1:00, o maaaring hindi available sa ilang rehiyon</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Pang-eksperimentong kliyente at maaaring huminto sa paggana anumang oras</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Maaaring huminto ang video sa 1:00, o maaaring hindi available sa ilang rehiyon</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Nawawala ang menu ng audio track</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Walang AV1 video codec</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Hindi available ang stable volume</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Mga video ng mga bata ay maaaring hindi ma-play kapag naka-log out o nasa incognito mode</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Ang Pilitin ang orihinal na audio ay hindi magagamit</string>

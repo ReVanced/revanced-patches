@@ -1271,8 +1271,9 @@ Second \"item\" text"</string>
 如果稍后关闭，建议清除应用程序数据以防止 UI 错误。"</string>
   <string name="revanced_spoof_app_version_target_title">伪装应用程序版本为</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - 恢复未折叠的视频操作栏</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - 恢复旧的 Shorts 播放器图标</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - 还原旧的导航图标</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - 恢复字幕功能</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - 恢复旧的 Shorts 播放器图标</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - 还原旧的导航图标</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">更改起始页</string>
@@ -1452,10 +1453,17 @@ Second \"item\" text"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">您的观看历史记录未保存。&lt;br&gt;&lt;br&gt;这很可能是由 DNS 广告拦截器或网络代理造成的。&lt;br&gt;&lt;br&gt;要解决此问题，请将 &lt;b&gt;s.youtube.com&lt;/b&gt; 添加到白名单或关闭所有 DNS 广告拦截器和代理。</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再显示</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">启用自动重复播放</string>
-  <string name="revanced_auto_repeat_summary_on">自动重复播放已启用</string>
-  <string name="revanced_auto_repeat_summary_off">自动重复播放已禁用</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">启用循环播放视频</string>
+  <string name="revanced_loop_video_summary_on">视频将循环播放</string>
+  <string name="revanced_loop_video_summary_off">视频将不循环播放</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">显示循环播放视频按钮</string>
+  <string name="revanced_loop_video_button_summary_on">按钮已显示</string>
+  <string name="revanced_loop_video_button_summary_off">按钮未显示</string>
+  <string name="revanced_loop_video_button_toast_on">循环播放视频已开启</string>
+  <string name="revanced_loop_video_button_toast_off">循环播放视频已关闭</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">伪装设备尺寸</string>
@@ -1576,9 +1584,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">欺骗的副作用</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• 视频可能会在 1:00 停止，或者在某些地区可能无法播放</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 实验性客户端，可能随时停止工作</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• 视频可能会在 1:00 停止，或者在某些地区可能无法播放</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• 音轨菜单缺失</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• 不支持 AV1 视频编解码器</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• 稳定音量不可用</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• 注销或使用无痕模式时，儿童视频可能无法播放</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• 强制原始音频不可用</string>

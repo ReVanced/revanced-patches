@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches;
+package app.revanced.extension.shared.patches;
 
 import static app.revanced.extension.shared.StringRef.str;
 
@@ -13,8 +13,8 @@ import java.net.UnknownHostException;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.ui.CustomDialog;
-import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 public class CheckWatchHistoryDomainNameResolutionPatch {
@@ -49,7 +49,7 @@ public class CheckWatchHistoryDomainNameResolutionPatch {
      * Checks if s.youtube.com is blacklisted and playback history will fail to work.
      */
     public static void checkDnsResolver(Activity context) {
-        if (!Utils.isNetworkConnected() || !Settings.CHECK_WATCH_HISTORY_DOMAIN_NAME.get()) return;
+        if (!Utils.isNetworkConnected() || !BaseSettings.CHECK_WATCH_HISTORY_DOMAIN_NAME.get()) return;
 
         Utils.runOnBackgroundThread(() -> {
             try {
@@ -61,8 +61,8 @@ public class CheckWatchHistoryDomainNameResolutionPatch {
                 // Prevent this false positive by verify youtube.com resolves.
                 // If youtube.com does not resolve, then it's not a watch history domain resolving error
                 // because the entire app will not work since no domains are resolving.
-                if (domainResolvesToValidIP(HISTORY_TRACKING_ENDPOINT)
-                        || !domainResolvesToValidIP("youtube.com")) {
+                if (!domainResolvesToValidIP("youtube.com")
+                        || domainResolvesToValidIP(HISTORY_TRACKING_ENDPOINT)) {
                     return;
                 }
 
@@ -78,7 +78,7 @@ public class CheckWatchHistoryDomainNameResolutionPatch {
                                 () -> {}, // OK button action (just dismiss).
                                 () -> {}, // Cancel button action (just dismiss).
                                 str("revanced_check_watch_history_domain_name_dialog_ignore"), // Neutral button text.
-                                () -> Settings.CHECK_WATCH_HISTORY_DOMAIN_NAME.save(false),    // Neutral button action (Ignore).
+                                () -> BaseSettings.CHECK_WATCH_HISTORY_DOMAIN_NAME.save(false),    // Neutral button action (Ignore).
                                 true // Dismiss dialog on Neutral button click.
                         );
 

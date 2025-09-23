@@ -1265,8 +1265,9 @@ Second \"item\" text"</string>
 Якщо пізніше вимкнути, рекомендується очистити дані застосунку, щоб запобігти помилкам інтерфейсу."</string>
   <string name="revanced_spoof_app_version_target_title">Підробити версію програми на</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Відновити незгорнуту панель дій відео</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Відновлення старих іконок плеєра Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Відновлення старих іконок панелі навігації</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Відновлення функціональності стенограми</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Відновлення старих іконок плеєра Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Відновлення старих іконок панелі навігації</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Змінити початкову сторінку</string>
@@ -1446,10 +1447,17 @@ Second \"item\" text"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша історія переглядів не зберігається.&lt;br&gt;&lt;br&gt;Швидше за все, це спричинено блокувальником реклами DNS або мережевим проксі.&lt;br&gt;&lt;br&gt;Щоб це виправити, додайте &lt;b&gt;s.youtube.com&lt;/b&gt; у білий список блокувальника або вимкніть усі DNS блокувальники та проксі.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Більше не показувати</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Увімкнути автоповтор відео</string>
-  <string name="revanced_auto_repeat_summary_on">Автоповторення поточного відео ввімкнено</string>
-  <string name="revanced_auto_repeat_summary_off">Автоповторення поточного відео вимкнено</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Увімкнути повторення відео</string>
+  <string name="revanced_loop_video_summary_on">Відео буде повторюватися</string>
+  <string name="revanced_loop_video_summary_off">Відео не буде повторюватися</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Показувати кнопку повторення відео</string>
+  <string name="revanced_loop_video_button_summary_on">Кнопка показується</string>
+  <string name="revanced_loop_video_button_summary_off">Кнопка не показується</string>
+  <string name="revanced_loop_video_button_toast_on">Повторення відео ввімкнено</string>
+  <string name="revanced_loop_video_button_toast_off">Повторення відео вимкнено</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Підробити розміри пристрою</string>
@@ -1570,9 +1578,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Побічні ефекти підробки</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Відео може зупинитися на 1:00, або може бути недоступним у деяких регіонах</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментальний клієнт, який може припинити працювати будь-якої миті</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Відео може зупинитися на 1:00, або може бути недоступним у деяких регіонах</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Пункт меню \"Звукова доріжка\" відсутній</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Відсутній відеокодек AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Пункт меню \"Стабілізувати гучність\" недоступний</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Відео для дітей можуть не відтворюватися, якщо вийти з облікового запису або перейти в анонімний режим</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• \"Примусово оригінальна мова звукової доріжки\" недоступна</string>

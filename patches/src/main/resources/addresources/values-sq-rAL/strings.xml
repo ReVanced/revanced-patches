@@ -1264,8 +1264,9 @@ Kjo do të ndryshojë pamjen dhe veçoritë e aplikacionit, por mund të ndodhin
 Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dhënat e aplikacionit për të parandaluar gabimet e UI."</string>
   <string name="revanced_spoof_app_version_target_title">Shënjestër e versionit të aplikacionit të mashtuar</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Rivendos shiritin e veprimeve të videos jo të palosur</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Rikthe ikonat e vjetra të lojtarit Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Ristauro ikonave te vjetra te navigimit</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Rivendos funksionalitetin e transkriptit</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Rikthe ikonat e vjetra të lojtarit Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Ristauro ikonave te vjetra te navigimit</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Ndrysho faqen e fillimit</string>
@@ -1445,10 +1446,17 @@ Prekni këtu për të mësuar më shumë rreth DeArrow"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Historia juaj e shikimit nuk po ruhet.&lt;br&gt;&lt;br&gt;Kjo me shumë mundësi shkaktohet nga një bllokues DNS reklamash ose një prokuri rrjeti.&lt;br&gt;&lt;br&gt;Për të zgjidhur këtë, shto në listën e bardhë &lt;b&gt;s.youtube.com&lt;/b&gt; ose çaktivizo të gjithë bllokuesit DNS dhe prokuritë.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Mos shfaq përsëri</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Aktivizo përsëritjen automatike</string>
-  <string name="revanced_auto_repeat_summary_on">Përsëritja automatike është e aktivizuar</string>
-  <string name="revanced_auto_repeat_summary_off">Përsëritja automatike është e çaktivizuar</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Aktivizo përsëritjen e videos</string>
+  <string name="revanced_loop_video_summary_on">Video do të përsëritet</string>
+  <string name="revanced_loop_video_summary_off">Video nuk do të përsëritet</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Shfaq butonin e përsëritjes së videos</string>
+  <string name="revanced_loop_video_button_summary_on">Butoni është shfaqur</string>
+  <string name="revanced_loop_video_button_summary_off">Butoni nuk është shfaqur</string>
+  <string name="revanced_loop_video_button_toast_on">Përsëritja e videos është aktivizuar</string>
+  <string name="revanced_loop_video_button_toast_off">Përsëritja e videos është çaktivizuar</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Mashtro dimensionet e pajisjes</string>
@@ -1569,9 +1577,11 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Efektet anësore të falsifikimit</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Videoja mund të ndalojë në 1:00, ose mund të mos jetë e disponueshme në disa rajone</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klient eksperimental dhe mund të ndalojë së funksionuari në çdo kohë</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Videoja mund të ndalojë në 1:00, ose mund të mos jetë e disponueshme në disa rajone</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menuja e gjurmës audio mungon</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nuk ka codec video AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volumi i qëndrueshëm nuk është i disponueshëm</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video për fëmijë mund të mos luajnë kur jeni jashtë llogarisë ose në modalitetin incognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Detyro audio origjinale nuk është i disponueshëm</string>

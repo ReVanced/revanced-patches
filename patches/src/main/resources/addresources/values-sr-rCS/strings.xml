@@ -55,11 +55,11 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_tips_title">Saveti za pretragu</string>
   <string name="revanced_settings_search_tips_summary">"• Dodirnite putanju da biste došli do nje
 • Dugo dodirnite podešavanje da biste došli do njega
-• Dodirnite Enter da biste sačuvali upit za pretragu u istoriju
+• Pritisnite Enter da biste sačuvali upit za pretragu u istoriju
 • Pretraga zanemaruje velika i mala slova i interpunkciju
 • Roditeljska podešavanja se prikazuju iznad onemogućenih dečjih podešavanja"</string>
   <string name="revanced_settings_search_empty_history_title">Istorija pretrage je prazna</string>
-  <string name="revanced_settings_search_empty_history_summary">Da biste sačuvali istoriju pretrage, ukucajte upit za pretragu i pritisnite Enter</string>
+  <string name="revanced_settings_search_empty_history_summary">Da biste sačuvali istoriju pretrage, unesite upit za pretragu i pritisnite Enter</string>
   <string name="revanced_settings_search_history_title">Prikaži istoriju pretrage podešavanja</string>
   <string name="revanced_settings_search_history_summary_on">Istorija pretrage podešavanja je prikazana</string>
   <string name="revanced_settings_search_history_summary_off">Istorija pretrage podešavanja nije prikazana</string>
@@ -67,7 +67,7 @@ Second \"item\" text"</string>
   <string name="revanced_show_menu_icons_summary_on">Ikonice podešavanja su prikazane</string>
   <string name="revanced_show_menu_icons_summary_off">Ikonice podešavanja nisu prikazane</string>
   <string name="revanced_language_title">Jezik ReVanceda</string>
-  <string name="revanced_language_user_dialog_message">"Prevod za neke jezike možda nedostaje ili je nepotpun.
+  <string name="revanced_language_user_dialog_message">"Prevodi za neke jezike mogu nedostajati ili biti nepotpuni.
 
 Da biste preveli nove jezike ili poboljšali postojeće prevode, posetite translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Jezik aplikacije</string>
@@ -144,9 +144,9 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_sanitize_sharing_links_title">Ukloni parametar upita za praćenje</string>
   <string name="revanced_sanitize_sharing_links_summary_on">Parametar upita za praćenje je uklonjen iz linkova</string>
   <string name="revanced_sanitize_sharing_links_summary_off">Parametar upita za praćenje nije uklonjen iz linkova</string>
-  <string name="revanced_replace_music_with_youtube_title">Promenite veze za deljenje na youtube.com</string>
-  <string name="revanced_replace_music_with_youtube_summary_on">Deljene veze koriste youtube.com</string>
-  <string name="revanced_replace_music_with_youtube_summary_off">Deljene veze koriste music.youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_title">Promeni linkove za deljenje na youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Deljeni linkovi koriste youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Deljeni linkovi koriste music.youtube.com</string>
   </patch>
   </app>
   <app id="youtube">
@@ -1265,8 +1265,9 @@ Ovo će promeniti izgled i funkcije aplikacije, ali se mogu pojaviti i nepoznati
 Ako se kasnije isključi, preporučuje se da izbrišete podatke aplikacije da biste sprečili greške u korisničkom interfejsu."</string>
   <string name="revanced_spoof_app_version_target_title">Ciljna verzija aplikacije za lažiranje</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Vraća neskupljenu traku radnji videa</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Vraća stare ikonice Shorts plejera</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Vraća stare ikonice navigacije</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Vrati funkcionalnost transkripta</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Vraća stare ikonice Shorts plejera</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Vraća stare ikonice navigacije</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Promena polazne stranice</string>
@@ -1446,10 +1447,17 @@ Dodirnite ovde da saznate više o DeArrowu"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Vaša istorija gledanja se ne čuva.&lt;br&gt;&lt;br&gt;Ovo je najverovatnije uzrokovano DNS blokatorom oglasa ili mrežnim proksijem.&lt;br&gt;&lt;br&gt;Da biste ovo popravili, stavite na belu listu &lt;b&gt;s.youtube.com&lt;/b&gt; ili isključite sve DNS blokatore i proksije.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne prikazuj ponovo</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Omogući automatsko ponavljanje videa</string>
-  <string name="revanced_auto_repeat_summary_on">Automatsko ponavljanje videa je omogućeno</string>
-  <string name="revanced_auto_repeat_summary_off">Automatsko ponavljanje videa je onemogućeno</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Omogući ponavljanje videa</string>
+  <string name="revanced_loop_video_summary_on">Video će se ponavljati</string>
+  <string name="revanced_loop_video_summary_off">Video se neće ponavljati</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Prikaži dugme za ponavljanje videa</string>
+  <string name="revanced_loop_video_button_summary_on">Dugme je prikazano</string>
+  <string name="revanced_loop_video_button_summary_off">Dugme nije prikazano</string>
+  <string name="revanced_loop_video_button_toast_on">Ponavljanje videa je uključeno</string>
+  <string name="revanced_loop_video_button_toast_off">Ponavljanje videa je isključeno</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Lažirane dimenzije uređaja</string>
@@ -1570,9 +1578,11 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Neželjeni efekti lažiranja</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Video se može zaustaviti u 1:00 ili možda neće biti dostupan u nekim regionima</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentalni klijent i može prestati da radi bilo kada</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video se može zaustaviti u 1:00 ili možda neće biti dostupan u nekim regionima</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Meni „Audio snimak” nedostaje</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nema video kodeka AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Opcija „Ujednačena jačina zvuka” nije dostupna</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videi za decu se možda neće puštati kada ste odjavljeni ili u režimu bez arhiviranja</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Prisiljavanje originalnog zvuka nije dostupno</string>

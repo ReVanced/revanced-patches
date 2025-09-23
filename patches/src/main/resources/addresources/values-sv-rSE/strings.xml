@@ -1265,8 +1265,9 @@ Detta kommer att ändra utseendet och funktionerna i appen, men okända bieffekt
 Om du senare inaktiverar det rekommenderar vi att rensa appens data för att förhindra fel i användargränssnittet."</string>
   <string name="revanced_spoof_app_version_target_title">Mål för Förfalska appversionen</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Återställ icke-komprimerad handlingsfält för video</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 – Återställ gamla ikoner i Shorts-spelaren</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 – Återställ gamla navigeringsikoner</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Återställ transkriptionsfunktion</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 – Återställ gamla ikoner i Shorts-spelaren</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 – Återställ gamla navigeringsikoner</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Byt startsida</string>
@@ -1446,10 +1447,17 @@ Tryck här för att läsa mer om DeArrow"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Din visningshistorik sparas inte.&lt;br&gt;&lt;br&gt;Detta orsakas troligen av en DNS-annonsblockerare eller nätverksproxy.&lt;br&gt;&lt;br&gt;För att åtgärda detta, vitlista &lt;b&gt;s.youtube.com&lt;/b&gt; eller stäng av alla DNS-blockerare och proxyer.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Visa inte igen</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Aktivera automatisk upprepning</string>
-  <string name="revanced_auto_repeat_summary_on">Automatisk upprepning är aktiverad</string>
-  <string name="revanced_auto_repeat_summary_off">Automatisk upprepning är inaktiverad</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Aktivera videoupprepning</string>
+  <string name="revanced_loop_video_summary_on">Videon kommer att upprepas</string>
+  <string name="revanced_loop_video_summary_off">Videon kommer inte att upprepas</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Visa knapp för videoupprepning</string>
+  <string name="revanced_loop_video_button_summary_on">Knappen visas</string>
+  <string name="revanced_loop_video_button_summary_off">Knappen visas inte</string>
+  <string name="revanced_loop_video_button_toast_on">Videoupprepning är aktiverad</string>
+  <string name="revanced_loop_video_button_toast_off">Videoupprepning är inaktiverad</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Förfalska enhetens mått</string>
@@ -1570,9 +1578,11 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Biverkningar av förfalskning</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Video kan stoppa vid 1:00, eller kanske inte är tillgänglig i vissa regioner</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentell klient och kan sluta fungera när som helst</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video kan stoppa vid 1:00, eller kanske inte är tillgänglig i vissa regioner</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menyn Ljudspår saknas</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ingen AV1-videokodek</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabil volym är inte tillgänglig</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videor för barn kanske inte spelas upp när du är utloggad eller i inkognitoläge</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Tvinga ursprungligt ljud är inte tillgängligt</string>

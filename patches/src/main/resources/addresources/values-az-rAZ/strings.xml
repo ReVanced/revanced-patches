@@ -144,9 +144,9 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_sanitize_sharing_links_title">İzləmə sorğusu faktorun sil</string>
   <string name="revanced_sanitize_sharing_links_summary_on">İzləmə sorğusu faktoru bağlantılardan silinir</string>
   <string name="revanced_sanitize_sharing_links_summary_off">İzləmə sorğusu faktoru bağlantılardan silinmir</string>
-  <string name="revanced_replace_music_with_youtube_title">Paylaşma keçidlərini youtube.com olaraq dəyişdirin</string>
-  <string name="revanced_replace_music_with_youtube_summary_on">Paylaşılan keçidlər youtube.com-dan istifadə edir</string>
-  <string name="revanced_replace_music_with_youtube_summary_off">Paylaşılan keçidlər music.youtube.com-dan istifadə edir</string>
+  <string name="revanced_replace_music_with_youtube_title">Paylaşma keçidlərini youtube.com-a dəyişdir</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Paylaşılan keçidlər youtube.com istifadə edir</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Paylaşılan keçidlər music.youtube.com istifadə edir</string>
   </patch>
   </app>
   <app id="youtube">
@@ -1265,8 +1265,9 @@ Bu tətbiqin görünüşün və xüsusiyyətlərin dəyişdirəcək, lakin bilin
 Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların silmək tövsiyə olunur."</string>
   <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Yığılmayan video fəaliyyət cizgisin bərpa et</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Köhnə fəaliyyət simvolların bərpa et</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Transkript funksionallığını bərpa edin</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Köhnə fəaliyyət simvolların bərpa et</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlatma səhifəsini dəyişdir</string>
@@ -1446,10 +1447,17 @@ DeArrow haqqında ətraflı öyrənmək üçün bura toxun"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Baxış tarixçəniz saxlanmır.&lt;br&gt;&lt;br&gt;Bu çox güman ki, DNS reklam bloklayıcı və ya şəbəkə proksisinə görədir.&lt;br&gt;&lt;br&gt;.Bunu düzəltmək üçün s.youtube.com-u&lt;/b&gt; &lt;b&gt;ağ siyahıya salın və ya bütün DNS bloklayıcıları və proksiləri bağlayın.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Təkrar göstərmə</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Avto-təkrarlamanı aktivləşdir</string>
-  <string name="revanced_auto_repeat_summary_on">Avtomatik təkrar aktivləşdirilib</string>
-  <string name="revanced_auto_repeat_summary_off">Avtomatik təkrarlama qeyri-aktiv edilib</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Video təkrarlamanı aktivləşdir</string>
+  <string name="revanced_loop_video_summary_on">Video təkrarlanacaq</string>
+  <string name="revanced_loop_video_summary_off">Video təkrarlanmayacaq</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Video təkrarlama düyməsini göstər</string>
+  <string name="revanced_loop_video_button_summary_on">Düymə görünür</string>
+  <string name="revanced_loop_video_button_summary_off">Düymə görünmür</string>
+  <string name="revanced_loop_video_button_toast_on">Video təkrarlama açıqdır</string>
+  <string name="revanced_loop_video_button_toast_off">Video təkrarlama qapalıdır</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Cihaz ölçülərini saxtalaşdır</string>
@@ -1570,9 +1578,11 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Saxtakarlıq yan təsirləri</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Video 01:00-da dayana bilər və ya bəzi bölgələrdə mövcud olmaya bilər</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Təcrübi qəbuledici və hər vaxt işləməyi dayandıra bilər</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video 01:00-da dayana bilər və ya bəzi bölgələrdə mövcud olmaya bilər</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Səs treki menyusu çatışmır</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodlayıcı yoxdur</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Sabit səs yoxdur</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Giriş edilməyəndə və ya gizli rejimdə uşaq videoları oynadıla bilməz</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• \"Orijinal səsi zorla\" əlçatmazdır</string>

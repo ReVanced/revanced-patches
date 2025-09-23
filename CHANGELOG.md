@@ -1,3 +1,52 @@
+# [5.41.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.8...v5.41.0-dev.9) (2025-09-23)
+
+
+### Bug Fixes
+
+* **Instagram - Hide navigation buttons:** Remove button based on name ([#5971](https://github.com/ReVanced/revanced-patches/issues/5971)) ([6fa4043](https://github.com/ReVanced/revanced-patches/commit/6fa404331b5162682d83fba5f38ed570c31495fc))
+
+# [5.41.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.7...v5.41.0-dev.8) (2025-09-23)
+
+
+### Features
+
+* **YouTube Music:** Add `Check watch history domain name resolution` ([#5979](https://github.com/ReVanced/revanced-patches/issues/5979)) ([8af70fe](https://github.com/ReVanced/revanced-patches/commit/8af70fe2d10c0f4da2d7e53bd00f5b3979775d5d))
+
+# [5.41.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.6...v5.41.0-dev.7) (2025-09-23)
+
+
+### Features
+
+* **Tumblr:** Add `Disable Tumblr TV` patch ([#5959](https://github.com/ReVanced/revanced-patches/issues/5959)) ([212418b](https://github.com/ReVanced/revanced-patches/commit/212418b8db9a730ae9efa89ad2bef24952afbadd))
+
+# [5.41.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.5...v5.41.0-dev.6) (2025-09-22)
+
+
+### Features
+
+* **YouTube - Spoof app version:** Add spoof target `20.05.46` that fixes transcript functionality ([5823f0e](https://github.com/ReVanced/revanced-patches/commit/5823f0e982e87b4a35d30feeca8a7e16edfebc5f))
+
+# [5.41.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.4...v5.41.0-dev.5) (2025-09-22)
+
+
+### Bug Fixes
+
+* **Twitch - Settings:** Fix missing style resources ([#5970](https://github.com/ReVanced/revanced-patches/issues/5970)) ([8c22995](https://github.com/ReVanced/revanced-patches/commit/8c229954d7f232a7a472ca49f1b5e7cdc475bbcc))
+
+# [5.41.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.3...v5.41.0-dev.4) (2025-09-22)
+
+
+### Bug Fixes
+
+* **Instagram - Limit feed to followed profiles:** Preserve favorites feed ([#5963](https://github.com/ReVanced/revanced-patches/issues/5963)) ([ef51401](https://github.com/ReVanced/revanced-patches/commit/ef514017f46025d9aef6884424caeb0670514e7a))
+
+# [5.41.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.2...v5.41.0-dev.3) (2025-09-22)
+
+
+### Features
+
+* **YouTube - Loop video:** Add player button to change loop video state ([#5961](https://github.com/ReVanced/revanced-patches/issues/5961)) ([dfb5407](https://github.com/ReVanced/revanced-patches/commit/dfb5407e67222e80e23c8935e04b6dbf1a43d757))
+
 # [5.41.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.1...v5.41.0-dev.2) (2025-09-21)
 
 

@@ -69,7 +69,7 @@ Second \"item\" text"</string>
   <string name="revanced_language_title">ReVanced dili</string>
   <string name="revanced_language_user_dialog_message">"Bazı diller için çeviriler eksik veya tamamlanmamış olabilir.
 
-Yeni dilleri çevirmek veya mevcut çevirileri geliştirmek için translate.revanced.app adresini ziyaret edin"</string>
+Yeni dilleri çevirmek veya mevcut çevirileri geliştirmek için translate.revanced.app adresini ziyaret edin."</string>
   <string name="revanced_language_DEFAULT">Uygulama dili</string>
   <string name="revanced_pref_import_export_title">İçe / Dışa aktar</string>
   <string name="revanced_pref_import_export_summary">ReVanced ayarlarını içe / dışa aktar</string>
@@ -1268,8 +1268,9 @@ Bu, uygulamanın görünümünü ve özelliklerini değiştirecektir, ancak bili
 Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerinin temizlenmesi önerilir."</string>
   <string name="revanced_spoof_app_version_target_title">Uygulama sürümü taklidi hedefi</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Daraltılmamış video eylem çubuğunu geri getir</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Eski Shorts oynatıcı simgelerini geri getir</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Eski gezinti simgelerini geri getir</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Transkript işlevini geri yükle</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Eski Shorts oynatıcı simgelerini geri getir</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Eski gezinti simgelerini geri getir</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlangıç sayfasını değiştir</string>
@@ -1454,10 +1455,17 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">İzleme geçmişiniz kaydedilmiyor.&lt;br&gt;&lt;br&gt;Bu büyük ihtimalle bir reklam engelleyici DNS\'den veya proxy\'den kaynaklanıyor.&lt;br&gt;&lt;br&gt;Bunu düzeltmek için, &lt;b&gt;s.youtube.com&lt;/b&gt; adresini beyaz listeye ekleyin veya bütün engelleyici DNSleri ve proxy\'leri kapatın.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Bir daha gösterme</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Otomatik tekrarı etkinleştir</string>
-  <string name="revanced_auto_repeat_summary_on">Otomatik tekrar etkin</string>
-  <string name="revanced_auto_repeat_summary_off">Otomatik tekrar devre dışı</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Videoyu döngüye almayı etkinleştir</string>
+  <string name="revanced_loop_video_summary_on">Video döngüye girecek</string>
+  <string name="revanced_loop_video_summary_off">Video döngüye girmeyecek</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Videoyu döngüye al düğmesini göster</string>
+  <string name="revanced_loop_video_button_summary_on">Düğme görünür</string>
+  <string name="revanced_loop_video_button_summary_off">Düğme gösterilmez</string>
+  <string name="revanced_loop_video_button_toast_on">Videoyu döngüye alma açık</string>
+  <string name="revanced_loop_video_button_toast_off">Videoyu döngüye alma kapalı</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Cihaz boyutlarını taklit et</string>
@@ -1578,9 +1586,11 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Taklit yan etkileri</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Video 1:00\'da durabilir veya bazı bölgelerde kullanılamayabilir</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Deneysel istemci ve her an çalışmayı durdurabilir</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video 1:00\'da durabilir veya bazı bölgelerde kullanılamayabilir</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Ses parçası menüsü eksik</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Sabit ses mevcut değil</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Çocuk videoları oturum açılmadığında veya gizli modda oynatılamayabilir</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Orijinal sesi zorlama mevcut değil</string>

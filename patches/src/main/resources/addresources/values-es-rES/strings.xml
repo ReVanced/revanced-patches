@@ -1257,8 +1257,9 @@ Esto cambiará la apariencia y las características de la aplicación, pero pued
 Si se desactiva posteriormente, se recomienda borrar los datos de la aplicación para evitar errores en la interfaz de usuario."</string>
   <string name="revanced_spoof_app_version_target_title">Versión objetiva de aplicación falsificada</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Restaurar barra de acciones de vídeo no colapsada</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Restaurar iconos antiguos del reproductor de Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Restaurar iconos de navegación antiguos</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Restaurar la funcionalidad de la transcripción</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Restaurar iconos antiguos del reproductor de Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Restaurar iconos de navegación antiguos</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Cambiar página de inicio</string>
@@ -1438,10 +1439,17 @@ Toca aquí para obtener más información sobre DeArrow"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Tu historial no está siendo guardado.&lt;br&gt;&lt;br&gt;Esto puede ser por un bloqueador de anuncios DNS o Proxy.&lt;br&gt;&lt;br&gt;Para arreglarlo, permita el dominio &lt;b&gt;s.youtube.com&lt;/b&gt; o desactive el bloqueador DNS o Proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">No mostrar de nuevo</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Activar autorepetición</string>
-  <string name="revanced_auto_repeat_summary_on">Auto-repetición habilitada</string>
-  <string name="revanced_auto_repeat_summary_off">Auto-repetición desactivada</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Activar bucle de vídeo</string>
+  <string name="revanced_loop_video_summary_on">El vídeo se reproducirá en bucle</string>
+  <string name="revanced_loop_video_summary_off">El vídeo no se reproducirá en bucle</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Mostrar botón de bucle de vídeo</string>
+  <string name="revanced_loop_video_button_summary_on">El botón es visible</string>
+  <string name="revanced_loop_video_button_summary_off">El botón no es visible</string>
+  <string name="revanced_loop_video_button_toast_on">Bucle de vídeo activado</string>
+  <string name="revanced_loop_video_button_toast_off">Bucle de vídeo desactivado</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Dimensiones del dispositivo</string>
@@ -1562,9 +1570,11 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Efectos secundarios de la falsificación</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• El video puede detenerse en 1:00, o puede no estar disponible en algunas regiones</string>
   <string name="revanced_spoof_video_streams_about_experimental">• El cliente es experimental y puede dejar de funcionar en cualquier momento</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• El video puede detenerse en 1:00, o puede no estar disponible en algunas regiones</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Falta el menú de la pista de audio</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Sin códec de vídeo AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volumen estable no disponible</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Es posible que los vídeos infantiles no se reproduzcan cuando se cierra la sesión o se está en modo incógnito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Forzar audio original no está disponible</string>

@@ -1267,8 +1267,9 @@ Tas mainīs lietotnes izskatu un funkcijas, taču var rasties nezināmas blakusp
 Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu lietotāja saskarnes kļūdas."</string>
   <string name="revanced_spoof_app_version_target_title">Viltot lietotnes versijas mērķis</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Atjaunot nesaspiestu video darbību joslu</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Atjaunot vecās Shorts spēlētāja ikonas</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Atjaunot vecās navigācijas ikonas</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Atjaunot transkripta funkcionalitāti</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Atjaunot vecās Shorts spēlētāja ikonas</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Atjaunot vecās navigācijas ikonas</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Mainīt sākuma lapu</string>
@@ -1448,10 +1449,17 @@ Nospiediet šeit, lai uzzinātu vairāk par DeArrow"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsu skatīšanās vēsture netiek saglabāta.&lt;br&gt;&lt;br&gt;Visticamāk, to izraisa DNS reklāmu bloķētājs vai tīkla starpniekserveris.&lt;br&gt;&lt;br&gt;Lai to novērstu, pievienojiet baltajam sarakstam &lt;b&gt;s.youtube.com&lt;/b&gt; vai izslēdziet visus DNS bloķētājus un starpniekservera serverus.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerādīt vēlreiz</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Iespējot automātisko atkārtošanu</string>
-  <string name="revanced_auto_repeat_summary_on">Automātiskā atkārtošana ir iespējota</string>
-  <string name="revanced_auto_repeat_summary_off">Automātiskā atkārtošana ir atspējota</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Iespējot video atkārtošanu</string>
+  <string name="revanced_loop_video_summary_on">Video tiks atkārtots</string>
+  <string name="revanced_loop_video_summary_off">Video netiks atkārtots</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Rādīt video atkārtošanas pogu</string>
+  <string name="revanced_loop_video_button_summary_on">Poga ir redzama</string>
+  <string name="revanced_loop_video_button_summary_off">Poga nav redzama</string>
+  <string name="revanced_loop_video_button_toast_on">Video atkārtošana ir ieslēgta</string>
+  <string name="revanced_loop_video_button_toast_off">Video atkārtošana ir izslēgta</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Viltot ierīces izmērus</string>
@@ -1572,9 +1580,11 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Viltotu straumju blakusparādības</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Video var apstāties pulksten 1:00 vai nebūt pieejams dažos reģionos</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentāls klients un jebkurā brīdī var pārtraukt darbu</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video var apstāties pulksten 1:00 vai nebūt pieejams dažos reģionos</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Trūkst audio celiņa izvēlnes</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nav pieejams AV1 video kodeks</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Nav pieejams stabils skaļums</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Bērnu videoklipi var netikt atskaņoti, kad esat izrakstījies vai inkognito režīmā.</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Piespiest oriģinālo skaņu nav pieejams</string>

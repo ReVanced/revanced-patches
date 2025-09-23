@@ -69,7 +69,7 @@ Second \"item\" text"</string>
   <string name="revanced_language_title">ReVanced nyelve</string>
   <string name="revanced_language_user_dialog_message">"Egyes nyelvek fordításai hiányozhatnak vagy hiányosak lehetnek.
 
-Új nyelvek fordításához vagy a meglévő fordítások javításához látogasson el a translate.revanced.app oldalra"</string>
+Új nyelvek fordításához vagy a meglévő fordítások javításához látogasson el a translate.revanced.app oldalra."</string>
   <string name="revanced_language_DEFAULT">Alkalmazás nyelve</string>
   <string name="revanced_pref_import_export_title">Importálás / exportálás</string>
   <string name="revanced_pref_import_export_summary">ReVanced beállítások importálása / exportálása</string>
@@ -1265,8 +1265,9 @@ Ez megváltoztatja az alkalmazás megjelenését és funkcióit, de előfordulha
 Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy megakadályozza a felhasználói felület hibáit."</string>
   <string name="revanced_spoof_app_version_target_title">Hamisított alkalmazásverzió célja</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Nem összecsukott videó műveletsáv visszaállítása</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - A régi Shorts lejátszó ikonok visszaállítása</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Állítsa vissza a régi navigációs ikonokat</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Átirat funkció visszaállítása</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - A régi Shorts lejátszó ikonok visszaállítása</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Állítsa vissza a régi navigációs ikonokat</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Kezdőlap módosítása</string>
@@ -1444,10 +1445,17 @@ Ha engedélyezve van, akkor a videók URL-jeit elküldjük az API kiszolgálóna
   <string name="revanced_check_watch_history_domain_name_dialog_message">A megtekintési előzmények mentése nem történik meg.&lt;br&gt;&lt;br&gt;Ezt valószínűleg egy DNS-hirdetésblokkoló vagy hálózati proxy okozza.&lt;br&gt;&lt;br&gt;A probléma megoldásához vegye fel az engedélyezőlistára az &lt;b&gt;s.youtube.com&lt;/b&gt; domaint vagy kapcsolja ki az összes DNS-blokkolót és proxyt.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne jelenjen meg többet</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Automatikus ismétlés engedélyezése</string>
-  <string name="revanced_auto_repeat_summary_on">Az automatikus ismétlés be van kapcsolva</string>
-  <string name="revanced_auto_repeat_summary_off">Az automatikus ismétlés ki van kapcsolva</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Hurokismétlés engedélyezése</string>
+  <string name="revanced_loop_video_summary_on">A videó ismétlődni fog</string>
+  <string name="revanced_loop_video_summary_off">A videó nem fog ismétlődni</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Hurokismétlés gomb megjelenítése</string>
+  <string name="revanced_loop_video_button_summary_on">A gomb megjelenik</string>
+  <string name="revanced_loop_video_button_summary_off">A gomb nem jelenik meg</string>
+  <string name="revanced_loop_video_button_toast_on">A hurokismétlés be van kapcsolva</string>
+  <string name="revanced_loop_video_button_toast_off">A hurokismétlés ki van kapcsolva</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Eszközméret hamisítása</string>
@@ -1568,9 +1576,11 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Hamisítás mellékhatásai</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• A videó megállhat 1:00-nál, vagy előfordulhat, hogy egyes régiókban nem elérhető</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Kísérleti kliens, és bármikor leállhat</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• A videó megállhat 1:00-nál, vagy előfordulhat, hogy egyes régiókban nem elérhető</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Hiányzik az hangsáv menü</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nincs AV1 videokodek</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabil hangerő nem elérhető</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• A gyermekeknek szóló videók nem játszódnak le, ha a felhasználó kijelentkezett, vagy inkognitómódban van.</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Eredeti hang kényszerítése nem érhető el</string>

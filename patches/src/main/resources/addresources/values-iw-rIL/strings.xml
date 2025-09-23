@@ -1268,8 +1268,9 @@ Second \"item\" text"</string>
 אם נכבה מאוחר יותר, מומלץ לנקות את נתוני היישום כדי למנוע באגים של ממשק המשתמש."</string>
   <string name="revanced_spoof_app_version_target_title">יעד גרסת יישום מזויפת</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - שחזור סרגל פעולות וידאו לא מכווץ</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - שחזר סמלי נגן Shorts ישנים</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - שחזר סמלי ניווט ישנים</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - שחזור פונקציונליות תמלול</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - שחזר סמלי נגן Shorts ישנים</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - שחזר סמלי ניווט ישנים</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">שנה את דף ההתחלה</string>
@@ -1449,10 +1450,17 @@ Second \"item\" text"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">היסטוריית הצפייה שלך לא נשמרת.&lt;br&gt;&lt;br&gt;סביר להניח שזה נגרם על ידי חוסם מודעות ברמת DNS או פרוקסי רשת.&lt;br&gt;&lt;br&gt;כדי לתקן זאת, רשום את &lt;b&gt;s.youtube.com&lt;/b&gt; ברשימת ההיתרים או כבה את כל חוסמי ה-DNS והפרוקסים.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">אל תציג שוב</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">הפעל החזרה אוטומטית</string>
-  <string name="revanced_auto_repeat_summary_on">החזרה אוטומטית מופעלת</string>
-  <string name="revanced_auto_repeat_summary_off">החזרה אוטומטית מושבתת</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">הפעל סרטון בלולאה</string>
+  <string name="revanced_loop_video_summary_on">הסרטון יופעל בלולאה</string>
+  <string name="revanced_loop_video_summary_off">הסרטון לא יופעל בלולאה</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">הצג לחצן הפעלת סרטון בלולאה</string>
+  <string name="revanced_loop_video_button_summary_on">הלחצן מוצג</string>
+  <string name="revanced_loop_video_button_summary_off">הלחצן אינו מוצג</string>
+  <string name="revanced_loop_video_button_toast_on">הפעלת סרטון בלולאה מופעלת</string>
+  <string name="revanced_loop_video_button_toast_off">הפעלת סרטון בלולאה כבויה</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">זייף ממדי מכשיר</string>
@@ -1573,9 +1581,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">תופעות לוואי של התחזות</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• הווידאו עשוי להיעצר בדקה 1:00, או ייתכן שלא יהיה זמין באזורים מסוימים</string>
   <string name="revanced_spoof_video_streams_about_experimental">• לקוח ניסיוני ועשוי להפסיק לפעול בכל עת</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• הווידאו עשוי להיעצר בדקה 1:00, או ייתכן שלא יהיה זמין באזורים מסוימים</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• תפריט ערוץ השמע חסר</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• אין קודק וידאו מסוג AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• עוצמת קול יציבה אינה זמינה</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ייתכן שסרטוני Kids לא יופעלו כשאתה מנותק או במצב פרטי</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• כפיית שמע מקורי אינה זמינה</string>

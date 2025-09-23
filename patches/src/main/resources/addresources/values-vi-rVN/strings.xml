@@ -1267,8 +1267,9 @@ Bố cục màn hình ô tô
 Nếu tắt đi sau đó, bạn nên xóa dữ liệu ứng dụng để tránh phát sinh lỗi giao diện."</string>
   <string name="revanced_spoof_app_version_target_title">Mục tiêu phiên bản giả mạo</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Khôi phục thanh thao tác video mở rộng</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Khôi phục biểu tượng trình phát Shorts cũ</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Khôi phục biểu tượng điều hướng cũ</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Khôi phục tính năng bản chép lời</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Khôi phục biểu tượng trình phát Shorts cũ</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Khôi phục biểu tượng điều hướng cũ</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Thay đổi trang bắt đầu</string>
@@ -1453,10 +1454,17 @@ Nhấn vào đây để tìm hiểu thêm về DeArrow"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Nhật ký xem của bạn hiện không được lưu lại.&lt;br&gt;&lt;br&gt;Nguyên nhân có thể là do trình chặn quảng cáo DNS hoặc proxy mạng.&lt;br&gt;&lt;br&gt;Để khắc phục, hãy thêm &lt;b&gt;s.youtube.com&lt;/b&gt; vào danh sách cho phép, hoặc tắt tất cả trình chặn DNS và proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Không hiện lại</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Bật tự phát lặp lại</string>
-  <string name="revanced_auto_repeat_summary_on">Tự phát lặp lại đã được bật</string>
-  <string name="revanced_auto_repeat_summary_off">Tự phát lặp lại đã tắt</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Bật video lặp lại</string>
+  <string name="revanced_loop_video_summary_on">Video sẽ lặp lại</string>
+  <string name="revanced_loop_video_summary_off">Video sẽ không lặp lại</string>
+  </patch>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Hiện nút video lặp lại</string>
+  <string name="revanced_loop_video_button_summary_on">Nút được hiển thị</string>
+  <string name="revanced_loop_video_button_summary_off">Nút không được hiển thị</string>
+  <string name="revanced_loop_video_button_toast_on">Video lặp lại đang bật</string>
+  <string name="revanced_loop_video_button_toast_off">Video lặp lại đang tắt</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Giả mạo kích thước thiết bị</string>
@@ -1577,9 +1585,11 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Hạn chế khi giả mạo</string>
-  <string name="revanced_spoof_video_streams_about_playback_failure">• Video có thể dừng ở 1:00, hoặc có thể không khả dụng ở một số khu vực</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Ứng dụng khách đang trong giai đoạn thử nghiệm và có thể ngừng hoạt động bất cứ lúc nào</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video có thể dừng ở 1:00, hoặc có thể không khả dụng ở một số khu vực</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Trình đơn bản âm thanh bị thiếu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Không có codec video AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Âm lượng ổn định không khả dụng</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video dành cho trẻ em có thể không phát được khi đăng xuất hoặc ở chế độ ẩn danh</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Buộc âm thanh gốc không khả dụng</string>
