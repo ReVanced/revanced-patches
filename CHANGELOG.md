@@ -1,3 +1,10 @@
+# [5.41.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.10...v5.41.0-dev.11) (2025-09-23)
+
+
+### Features
+
+* **YouTube:** Add `Disable video codecs` patch ([#5981](https://github.com/ReVanced/revanced-patches/issues/5981)) ([bfbffbd](https://github.com/ReVanced/revanced-patches/commit/bfbffbd1f5aa867027053e25b343a51a606216a3))
+
 # [5.41.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.9...v5.41.0-dev.10) (2025-09-23)
 
 
