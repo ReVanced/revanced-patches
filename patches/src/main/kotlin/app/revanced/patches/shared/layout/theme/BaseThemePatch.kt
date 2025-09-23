@@ -1,7 +1,10 @@
 package app.revanced.patches.shared.layout.theme
 
-import org.w3c.dom.Document
+import app.revanced.patcher.patch.BytecodePatchBuilder
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.childElementsSequence
+import org.w3c.dom.Document
 
 const val PURE_BLACK_COLOR = "@android:color/black"
 const val WHITE_COLOR = "@android:color/white"
@@ -30,6 +33,21 @@ val LIGHT_THEME_COLOR_VALUES = mapOf(
     "Light orange" to "#FFFFE6CC",
     "Light red" to "#FFFFD6D6",
 )
+
+fun baseThemePatch(
+    block: BytecodePatchBuilder.() -> Unit = {},
+    executeBlock: BytecodePatchContext.() -> Unit = {},
+) = bytecodePatch(
+    name = "Theme",
+    description = "Adds options for theming and applies a custom background theme " +
+            "(dark background theme defaults to pure black).",
+) {
+    block()
+
+    execute {
+        executeBlock()
+    }
+}
 
 fun editThemeColors(document: Document, darkColor: String, lightColor: String? = null) {
     val resourcesNode = document.getElementsByTagName("resources").item(0)
