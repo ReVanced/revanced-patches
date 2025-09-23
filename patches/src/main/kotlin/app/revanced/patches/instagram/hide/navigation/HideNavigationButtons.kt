@@ -5,9 +5,12 @@ import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
+import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -42,15 +45,29 @@ val hideNavigationButtonsPatch = bytecodePatch(
             )
         }
 
+        val enumNameField: String
+
+        // Get the field name which contains the name of the navigation button enum ("fragment_clips", "fragment_share", ...)
+        with(navigationButtonsEnumInitFingerprint.method) {
+            enumNameField = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.IPUT_OBJECT &&
+                        (this as TwoRegisterInstruction).registerA == 2 // The p2 register
+            }.let {
+                getInstruction(it).getReference<FieldReference>()!!.name
+            }
+        }
+
         initializeNavigationButtonsListFingerprint.method.apply {
             val returnIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
             val tabListRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
             val freeRegister = findFreeRegister(returnIndex)
+            val freeRegister2 = findFreeRegister(returnIndex, freeRegister)
 
-            fun instructionsRemoveTabByName(tabName: String): String {
+            fun instructionsRemoveButtonByName(tabName: String): String {
                 return """
                     const-string v$freeRegister, "$tabName"
-                    invoke-static { v$tabListRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->removeNavigationTabByName(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
+                    const-string v$freeRegister2, "$enumNameField"
+                    invoke-static { v$tabListRegister, v$freeRegister, v$freeRegister2 }, $EXTENSION_CLASS_DESCRIPTOR->removeNavigationTabByName(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
                     move-result-object v$tabListRegister
                     """
             }
@@ -58,13 +75,13 @@ val hideNavigationButtonsPatch = bytecodePatch(
             if (hideReels!!)
                 addInstructionsAtControlFlowLabel(
                     returnIndex,
-                    instructionsRemoveTabByName("fragment_clips")
+                    instructionsRemoveButtonByName("fragment_clips")
                 )
 
             if (hideCreate!!)
                 addInstructionsAtControlFlowLabel(
                     returnIndex,
-                    instructionsRemoveTabByName("fragment_share")
+                    instructionsRemoveButtonByName("fragment_share")
                 )
         }
     }
