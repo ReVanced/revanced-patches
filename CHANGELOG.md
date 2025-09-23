@@ -1,3 +1,10 @@
+# [5.41.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.8...v5.41.0-dev.9) (2025-09-23)
+
+
+### Bug Fixes
+
+* **Instagram - Hide navigation buttons:** Remove button based on name ([#5971](https://github.com/ReVanced/revanced-patches/issues/5971)) ([6fa4043](https://github.com/ReVanced/revanced-patches/commit/6fa404331b5162682d83fba5f38ed570c31495fc))
+
 # [5.41.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.7...v5.41.0-dev.8) (2025-09-23)
 
 
