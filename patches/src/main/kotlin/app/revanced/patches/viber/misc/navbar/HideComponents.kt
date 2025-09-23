@@ -20,7 +20,7 @@ val hideNavbarItemsPatch = bytecodePatch(
             custom { methodDef, classDef ->
                 classDef == tabClass
             }
-        }.method.addInstructions(0, """
+        }.method.addInstructionsWithLabels(0, """
             # Note: the tab "more" is always present
             const/4 v0, 0x0  # Allow tabId 0 (Chats)
             if-eqz p1, :continue
