@@ -14,12 +14,13 @@ internal val settingsMenuVideoQualityGroup = mutableSetOf<BasePreference>()
 @Suppress("unused")
 val videoQualityPatch = bytecodePatch(
     name = "Video quality",
-    description = "Adds options to use the advanced video quality menu and set default video qualities."
+    description = "Adds options to use the advanced video quality menu, set default video qualities, " +
+            "and disable video codecs such as VP9/HDR."
 ) {
     dependsOn(
         rememberVideoQualityPatch,
         advancedVideoQualityMenuPatch,
-        videoQualityDialogButtonPatch,
+        videoQualityDialogButtonPatch
     )
 
     compatibleWith(

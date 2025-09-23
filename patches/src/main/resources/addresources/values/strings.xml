@@ -1641,10 +1641,17 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_playback_speed_default_title">Default playback speed</string>
             <string name="revanced_remember_playback_speed_toast">Changed default speed to: %s</string>
         </patch>
-        <patch id="video.hdr.disableHdrPatch">
+        <patch id="video.codecs.disableVideoCodecsPatch">
             <string name="revanced_disable_hdr_video_title">Disable HDR video</string>
             <string name="revanced_disable_hdr_video_summary_on">HDR video is disabled</string>
             <string name="revanced_disable_hdr_video_summary_off">HDR video is enabled</string>
+            <string name="revanced_disable_vp9_codec_title">Disable VP9 codec</string>
+            <string name="revanced_disable_vp9_codec_summary_on">VP9 codec is disabled</string>
+            <string name="revanced_disable_vp9_codec_summary_off">VP9 codec is enabled</string>
+            <string name="revanced_disable_vp9_codec_user_dialog_message">"Limitations:
+• Maximum resolution is 1080p
+• Video playback will use more internet data than VP9
+• HDR video may still use VP9"</string>
         </patch>
         <patch id="video.quality.advancedVideoQualityMenuPatch">
             <string name="revanced_advanced_video_quality_menu_title">Show advanced video quality menu</string>

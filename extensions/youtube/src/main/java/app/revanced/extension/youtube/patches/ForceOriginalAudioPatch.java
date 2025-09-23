@@ -15,7 +15,8 @@ public class ForceOriginalAudioPatch {
      */
     public static void setPreferredLanguage() {
         if (Settings.FORCE_ORIGINAL_AUDIO.get()
-                && SpoofVideoStreamsPatch.spoofingToClientWithNoMultiAudioStreams()) {
+                && SpoofVideoStreamsPatch.spoofingToClientWithNoMultiAudioStreams()
+                && !Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get().useAuth) {
             // If client spoofing does not use authentication and lacks multi-audio streams,
             // then can use any language code for the request and if that requested language is
             // not available YT uses the original audio language. Authenticated requests ignore
