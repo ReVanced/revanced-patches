@@ -30,6 +30,11 @@ Second \"item\" text"</string>
             <string name="revanced_check_environment_not_near_patch_time_days">Patched %s days ago</string>
             <string name="revanced_check_environment_not_near_patch_time_invalid">APK build date is corrupted</string>
         </patch>
+        <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+            <string name="revanced_check_watch_history_domain_name_dialog_title">Warning</string>
+            <string name="revanced_check_watch_history_domain_name_dialog_message">Your watch history is not being saved.&lt;br>&lt;br>This most likely is caused by a DNS ad blocker or network proxy.&lt;br>&lt;br>To fix this, whitelist &lt;b>s.youtube.com&lt;/b> or turn off all DNS blockers and proxies.</string>
+            <string name="revanced_check_watch_history_domain_name_dialog_ignore">Do not show again</string>
+        </patch>
         <patch id="misc.settings.settingsResourcePatch">
             <string name="revanced_settings_submenu_title">Settings</string>
             <string name="revanced_settings_title" translatable="false">ReVanced</string>
@@ -1336,8 +1341,9 @@ This will change the appearance and features of the app, but unknown side effect
 If later turned off, it is recommended to clear the app data to prevent UI bugs."</string>
             <string name="revanced_spoof_app_version_target_title">Spoof app version target</string>
             <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Restore non collapsed video action bar</string>
-            <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Restore old Shorts player icons</string>
-            <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Restore old navigation icons</string>
+            <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Restore transcript functionality</string>
+            <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Restore old Shorts player icons</string>
+            <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Restore old navigation icons</string>
         </patch>
         <patch id="layout.startpage.changeStartPagePatch">
             <string name="revanced_change_start_page_title">Change start page</string>
@@ -1520,11 +1526,6 @@ Tap here to learn more about DeArrow"</string>
             <string name="revanced_announcements_enabled_summary">Show announcements on startup</string>
             <string name="revanced_announcements_connection_failed">Failed connecting to announcements provider</string>
             <string name="revanced_announcements_dialog_dismiss">Dismiss</string>
-        </patch>
-        <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-            <string name="revanced_check_watch_history_domain_name_dialog_title">Warning</string>
-            <string name="revanced_check_watch_history_domain_name_dialog_message">Your watch history is not being saved.&lt;br>&lt;br>This most likely is caused by a DNS ad blocker or network proxy.&lt;br>&lt;br>To fix this, whitelist &lt;b>s.youtube.com&lt;/b> or turn off all DNS blockers and proxies.</string>
-            <string name="revanced_check_watch_history_domain_name_dialog_ignore">Do not show again</string>
         </patch>
         <patch id="misc.loopvideo.loopVideoPatch">
             <string name="revanced_loop_video_title">Enable loop video</string>

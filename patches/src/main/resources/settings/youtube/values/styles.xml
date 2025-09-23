@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="revanced_searchbar_cursor">
-        <item name="android:textCursorDrawable">@drawable/revanced_settings_cursor</item>
-        <item name="android:textSize">16sp</item>
-    </style>
-</resources>

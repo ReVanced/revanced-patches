@@ -53,11 +53,11 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_clear_history">Hapus riwayat pencarian</string>
   <string name="revanced_settings_search_clear_history_message">Apakah Anda yakin ingin menghapus semua riwayat pencarian?</string>
   <string name="revanced_settings_search_tips_title">Tips Pencarian</string>
-  <string name="revanced_settings_search_tips_summary">"• Ketuk jalur untuk menavigasi ke sana
-• Tekan lama pengaturan untuk menavigasi ke sana
+  <string name="revanced_settings_search_tips_summary">"• Ketuk jalur untuk menelusuri ke jalur tersebut
+• Tekan lama pada pengaturan untuk menelusuri ke sana
 • Tekan Enter untuk menyimpan kueri pencarian ke riwayat
 • Pencarian mengabaikan huruf besar/kecil dan tanda baca
-• Pengaturan induk muncul di atas pengaturan anak yang dinonaktifkan"</string>
+• Pengaturan orang tua muncul di atas pengaturan anak yang dinonaktifkan"</string>
   <string name="revanced_settings_search_empty_history_title">Riwayat pencarian kosong</string>
   <string name="revanced_settings_search_empty_history_summary">Untuk menyimpan riwayat pencarian, ketik kueri pencarian dan tekan Enter</string>
   <string name="revanced_settings_search_history_title">Tampilkan pengaturan riwayat pencarian</string>
@@ -1265,8 +1265,9 @@ Ini akan mengubah tampilan dan fitur aplikasi, tetapi efek samping yang tidak di
 Jika kemudian dimatikan, disarankan untuk menghapus data aplikasi untuk mencegah bug UI."</string>
   <string name="revanced_spoof_app_version_target_title">Target versi app yang dipalsukan</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Pulihkan bilah tindakan video yang tidak diciutkan</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Pulihkan ikon pemutar Shorts lama</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Pulihkan ikon navigasi lama</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Kembalikan fungsionalitas transkrip</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Pulihkan ikon pemutar Shorts lama</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Pulihkan ikon navigasi lama</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Ubah halaman awal</string>
@@ -1447,16 +1448,16 @@ Ketuk di sini untuk mempelajari lebih lanjut tentang DeArrow"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Jangan tampilkan lagi</string>
   </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
-  <string name="revanced_loop_video_title">Aktifkan putar ulang video</string>
-  <string name="revanced_loop_video_summary_on">Video akan diputar ulang</string>
-  <string name="revanced_loop_video_summary_off">Video tidak akan diputar ulang</string>
+  <string name="revanced_loop_video_title">Aktifkan pengulangan video</string>
+  <string name="revanced_loop_video_summary_on">Video akan diulangi</string>
+  <string name="revanced_loop_video_summary_off">Video tidak akan diulangi</string>
   </patch>
   <patch id="misc.loopvideo.button.loopVideoButtonPatch">
-  <string name="revanced_loop_video_button_title">Tampilkan tombol putar ulang video</string>
+  <string name="revanced_loop_video_button_title">Tampilkan tombol pengulangan video</string>
   <string name="revanced_loop_video_button_summary_on">Tombol ditampilkan</string>
   <string name="revanced_loop_video_button_summary_off">Tombol tidak ditampilkan</string>
-  <string name="revanced_loop_video_button_toast_on">Putar ulang video aktif</string>
-  <string name="revanced_loop_video_button_toast_off">Putar ulang video tidak aktif</string>
+  <string name="revanced_loop_video_button_toast_on">Pengulangan video aktif</string>
+  <string name="revanced_loop_video_button_toast_off">Pengulangan video tidak aktif</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Palsukan dimensi perangkat</string>

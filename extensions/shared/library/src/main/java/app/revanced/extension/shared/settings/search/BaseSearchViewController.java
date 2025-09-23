@@ -5,12 +5,15 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -23,6 +26,7 @@ import android.widget.SearchView;
 import android.widget.Toolbar;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.RequiresApi;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -118,12 +122,38 @@ public abstract class BaseSearchViewController {
         searchView.setBackground(createBackgroundDrawable());
         searchView.setQueryHint(str("revanced_settings_search_hint"));
 
+        // Set text size.
+        searchEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+
+        // Set cursor color.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            setCursorColor(searchEditText);
+        }
+
         // Configure RTL support based on app language.
         AppLanguage appLanguage = BaseSettings.REVANCED_LANGUAGE.get();
         if (Utils.isRightToLeftLocale(appLanguage.getLocale())) {
             searchView.setTextDirection(View.TEXT_DIRECTION_RTL);
             searchView.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
         }
+    }
+
+    /**
+     * Sets the cursor color (for Android 10+ devices).
+     */
+    @RequiresApi(api = Build.VERSION_CODES.Q)
+    private void setCursorColor(EditText editText) {
+        // Get the cursor color based on the current theme.
+        final int cursorColor = Utils.isDarkModeEnabled() ? Color.WHITE : Color.BLACK;
+
+        // Create cursor drawable.
+        GradientDrawable cursorDrawable = new GradientDrawable();
+        cursorDrawable.setShape(GradientDrawable.RECTANGLE);
+        cursorDrawable.setSize(Utils.dipToPixels(2), -1); // Width: 2dp, Height: match text height.
+        cursorDrawable.setColor(cursorColor);
+
+        // Set cursor drawable.
+        editText.setTextCursorDrawable(cursorDrawable);
     }
 
     /**

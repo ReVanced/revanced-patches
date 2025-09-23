@@ -59,7 +59,7 @@ Second \"item\" text"</string>
 • Поиск игнорирует регистр и знаки препинания
 • Родительские настройки отображаются над отключенными дочерними настройками"</string>
   <string name="revanced_settings_search_empty_history_title">История поиска пуста</string>
-  <string name="revanced_settings_search_empty_history_summary">Чтобы сохранить историю поиска, введите поисковый запрос и нажмите Enter</string>
+  <string name="revanced_settings_search_empty_history_summary">Для сохранения истории поиска введите поисковый запрос и нажмите Enter</string>
   <string name="revanced_settings_search_history_title">Показать историю поиска настроек</string>
   <string name="revanced_settings_search_history_summary_on">История поиска настроек показана</string>
   <string name="revanced_settings_search_history_summary_off">История поиска настроек скрыта</string>
@@ -108,7 +108,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_title">Подменить видеопотоки</string>
   <string name="revanced_spoof_video_streams_summary_on">"Видеопотоки подменены
 
-Если вы являетесь пользователем YouTube Premium, эта настройка может не потребоваться"</string>
+Если Вы являетесь пользователем YouTube Premium, эта настройка может не потребоваться"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Видеопотоки не подменены
 
 Воспроизведение может не работать"</string>
@@ -1268,8 +1268,9 @@ Second \"item\" text"</string>
 Если позже данный параметр будет отключен, рекомендуется очистить данные приложения для предотвращения проблем с пользовательским интерфейсом."</string>
   <string name="revanced_spoof_app_version_target_title">Подменить версию приложения на</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Восстановить не свернутую панель действий видео</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Восстановление старых иконок плеера Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Восстановление старых иконок панели навигации</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Восстановить функциональность стенограммы</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Восстановление старых иконок плеера Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Восстановление старых иконок панели навигации</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Изменить начальную страницу</string>
@@ -1461,8 +1462,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.loopvideo.button.loopVideoButtonPatch">
   <string name="revanced_loop_video_button_title">Показать кнопку повтора воспроизведения</string>
-  <string name="revanced_loop_video_button_summary_on">Кнопка \"Стать спонсором\" на странице канала показана</string>
-  <string name="revanced_loop_video_button_summary_off">Кнопка выбора скорости воспроизведения скрыта</string>
+  <string name="revanced_loop_video_button_summary_on">Кнопка повтора воспроизведения показана</string>
+  <string name="revanced_loop_video_button_summary_off">Кнопка повтора воспроизведения скрыта</string>
   <string name="revanced_loop_video_button_toast_on">Повтор видео включен</string>
   <string name="revanced_loop_video_button_toast_off">Повтор видео выключен</string>
   </patch>
@@ -1510,7 +1511,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
   <string name="revanced_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Для использования этой функции, измените \'Подмена видеопотоков\' на любой клиент, кроме Android Studio</string>
+  <string name="revanced_force_original_audio_not_available">Для использования этой функции измените клиент в \"Подмене видеопотоков\" на любой, кроме Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
@@ -1585,11 +1586,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Побочные эффекты подмены</string>
-  <string name="revanced_spoof_video_streams_about_experimental">• Экспериментальный клиент и может перестать работать в любое время</string>
+  <string name="revanced_spoof_video_streams_about_experimental">• Клиент экспериментальный и может перестать работать в любое время</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Видео может остановиться на 1:00 или может быть недоступно в некоторых регионах</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Пункт \"Звуковая дорожка\" отсутствует</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Отсутствует видеокодек AV1</string>
-  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Стабильная громкость недоступна</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Постоянный уровень громкости недоступен </string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Видео для детей могут не воспроизводиться при выходе из системы или в режиме инкогнито</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Принудительная оригинальная звуковая дорожка недоступна</string>
@@ -1598,17 +1599,17 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клиента в \"Статистике для сисадминов\" скрыт</string>
   <string name="revanced_spoof_video_streams_language_title">Язык аудиопотока</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">Чтобы выбрать определенный язык аудио, отключите \"Принудительный язык оригинального аудио\"</string>
-  <string name="revanced_spoof_video_streams_language_android_studio">Выбор языка трансляции недоступен в Android Studio</string>
+  <string name="revanced_spoof_video_streams_language_not_available">Для выбора определенного языка аудио отключите \"Принудительный язык оригинального аудио\"</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Выбор языка трансляции недоступен с Android Studio</string>
   </patch>
   </app>
   <app id="music">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Об интеграции</string>
-  <string name="revanced_settings_music_screen_1_ads_title">Реклама</string>
+  <string name="revanced_settings_music_screen_1_ads_title">Настройки рекламы</string>
   <string name="revanced_settings_music_screen_2_general_title">Общие настройки</string>
-  <string name="revanced_settings_music_screen_3_player_title">Плеер</string>
-  <string name="revanced_settings_music_screen_4_misc_title">Прочие</string>
+  <string name="revanced_settings_music_screen_3_player_title">Настройки плеера</string>
+  <string name="revanced_settings_music_screen_4_misc_title">Прочие настройки</string>
   </patch>
   <patch id="ad.video.hideVideoAdsPatch">
   <string name="revanced_music_hide_video_ads_title">Скрыть видеорекламу</string>
@@ -1654,21 +1655,21 @@ Second \"item\" text"</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Кнопка \"Премиум\" скрыта</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Кнопка \"Премиум\" показана</string>
   <string name="revanced_music_hide_navigation_bar_title">Скрыть панель навигации</string>
-  <string name="revanced_music_hide_navigation_bar_summary_on">Панель навигации в Shorts скрыта</string>
-  <string name="revanced_music_hide_navigation_bar_summary_off">Панель навигации в Shorts показана</string>
+  <string name="revanced_music_hide_navigation_bar_summary_on">Панель навигации скрыта</string>
+  <string name="revanced_music_hide_navigation_bar_summary_off">Панель навигации показана</string>
   <string name="revanced_music_hide_navigation_bar_labels_title">Скрыть подписи кнопок навигации</string>
   <string name="revanced_music_hide_navigation_bar_labels_summary_on">Подписи кнопок навигации скрыты</string>
   <string name="revanced_music_hide_navigation_bar_labels_summary_off">Подписи кнопок навигации показаны</string>
   </patch>
   <patch id="layout.premium.hideGetPremiumPatch">
   <string name="revanced_music_hide_get_premium_label_title">Скрыть ярлык \"Купить Music Premium\"</string>
-  <string name="revanced_music_hide_get_premium_label_summary_on">Ярлык скрыт</string>
-  <string name="revanced_music_hide_get_premium_label_summary_off">Ярлык показан</string>
+  <string name="revanced_music_hide_get_premium_label_summary_on">Ярлык \"Купить Music Premium\" скрыт</string>
+  <string name="revanced_music_hide_get_premium_label_summary_off">Ярлык \"Купить Music Premium\" показан</string>
   </patch>
   <patch id="layout.upgradebutton.hideUpgradeButtonPatch">
-  <string name="revanced_music_hide_upgrade_button_title">Скрыть кнопку обновления</string>
-  <string name="revanced_music_hide_upgrade_button_summary_on">Кнопка \"Стать спонсором\" на странице канала скрыта</string>
-  <string name="revanced_music_hide_upgrade_button_summary_off">Кнопка \"Стать спонсором\" на странице канала показана</string>
+  <string name="revanced_music_hide_upgrade_button_title">Скрыть кнопку \"Подписка\"</string>
+  <string name="revanced_music_hide_upgrade_button_summary_on">Кнопка \"Подписка\" скрыта</string>
+  <string name="revanced_music_hide_upgrade_button_summary_off">Кнопка \"Подписка\" показана</string>
   </patch>
   </app>
   <app id="twitch">

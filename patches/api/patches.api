@@ -405,6 +405,10 @@ public final class app/revanced/patches/music/misc/debugging/EnableDebuggingPatc
 	public static final fun getEnableDebuggingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/misc/dns/CheckWatchHistoryDomainNameResolutionPatchKt {
+	public static final fun getCheckWatchHistoryDomainNameResolutionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/misc/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1181,6 +1185,10 @@ public final class app/revanced/patches/tumblr/annoyances/notifications/DisableB
 
 public final class app/revanced/patches/tumblr/annoyances/popups/DisableGiftMessagePopupPatchKt {
 	public static final fun getDisableGiftMessagePopupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/tumblr/annoyances/tv/DisableTumblrTvPatchKt {
+	public static final fun getDisableTumblrTvPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/tumblr/featureflags/OverrideFeatureFlagsPatchKt {

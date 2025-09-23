@@ -18,7 +18,9 @@ import app.revanced.util.returnEarly
 import org.w3c.dom.Node
 
 // TODO: Delete this on next major version bump.
-@Deprecated("Use non deprecated settings patch function")
+@Deprecated("Use non deprecated settings patch function",
+    ReplaceWith("settingsPatch(listOf(rootPreference), preferences)")
+)
 fun settingsPatch (
     rootPreference: Pair<IntentPreference, String>,
     preferences: Set<BasePreference>,
@@ -69,8 +71,8 @@ fun settingsPatch (
             ResourceGroup("drawable",
                 // CustomListPreference resources.
                 "revanced_ic_dialog_alert.xml",
+                // Search resources.
                 "revanced_settings_arrow_time.xml",
-                "revanced_settings_cursor.xml",
                 "revanced_settings_custom_checkmark.xml",
                 "revanced_settings_search_icon.xml",
                 "revanced_settings_search_remove.xml",

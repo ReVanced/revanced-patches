@@ -1265,8 +1265,9 @@ Bu tətbiqin görünüşün və xüsusiyyətlərin dəyişdirəcək, lakin bilin
 Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların silmək tövsiyə olunur."</string>
   <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Yığılmayan video fəaliyyət cizgisin bərpa et</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Köhnə fəaliyyət simvolların bərpa et</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Transkript funksionallığını bərpa edin</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Köhnə fəaliyyət simvolların bərpa et</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlatma səhifəsini dəyişdir</string>
@@ -1447,16 +1448,16 @@ DeArrow haqqında ətraflı öyrənmək üçün bura toxun"</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Təkrar göstərmə</string>
   </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
-  <string name="revanced_loop_video_title">Döngü videosunu aktivləşdir</string>
-  <string name="revanced_loop_video_summary_on">Video döngüyə alınacaq</string>
-  <string name="revanced_loop_video_summary_off">Video döngüyə alınmayacaq</string>
+  <string name="revanced_loop_video_title">Video təkrarlamanı aktivləşdir</string>
+  <string name="revanced_loop_video_summary_on">Video təkrarlanacaq</string>
+  <string name="revanced_loop_video_summary_off">Video təkrarlanmayacaq</string>
   </patch>
   <patch id="misc.loopvideo.button.loopVideoButtonPatch">
-  <string name="revanced_loop_video_button_title">Döngü videosu düyməsini göstər</string>
+  <string name="revanced_loop_video_button_title">Video təkrarlama düyməsini göstər</string>
   <string name="revanced_loop_video_button_summary_on">Düymə görünür</string>
   <string name="revanced_loop_video_button_summary_off">Düymə görünmür</string>
-  <string name="revanced_loop_video_button_toast_on">Video döngüsü aktivdir</string>
-  <string name="revanced_loop_video_button_toast_off">Video döngüsü passivdir</string>
+  <string name="revanced_loop_video_button_toast_on">Video təkrarlama açıqdır</string>
+  <string name="revanced_loop_video_button_toast_off">Video təkrarlama qapalıdır</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Cihaz ölçülərini saxtalaşdır</string>

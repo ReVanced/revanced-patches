@@ -1265,8 +1265,9 @@ Questo cambierà l'aspetto e le funzionalità dell'app, ma potrebbero verificars
 Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per evitare bug dell'interfaccia."</string>
   <string name="revanced_spoof_app_version_target_title">Target della versione dell\'app desiderata</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Ripristina la barra delle azioni video non compressa</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Ripristinare le vecchie icone del player Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Ripristina le vecchie icone di navigazione</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Ripristina la funzionalità della trascrizione</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Ripristinare le vecchie icone del player Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Ripristina le vecchie icone di navigazione</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Cambia pagina iniziale</string>

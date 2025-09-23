@@ -1267,8 +1267,9 @@ Bố cục màn hình ô tô
 Nếu tắt đi sau đó, bạn nên xóa dữ liệu ứng dụng để tránh phát sinh lỗi giao diện."</string>
   <string name="revanced_spoof_app_version_target_title">Mục tiêu phiên bản giả mạo</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Khôi phục thanh thao tác video mở rộng</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Khôi phục biểu tượng trình phát Shorts cũ</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Khôi phục biểu tượng điều hướng cũ</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Khôi phục tính năng bản chép lời</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Khôi phục biểu tượng trình phát Shorts cũ</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Khôi phục biểu tượng điều hướng cũ</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Thay đổi trang bắt đầu</string>
