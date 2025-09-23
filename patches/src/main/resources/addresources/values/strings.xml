@@ -30,6 +30,11 @@ Second \"item\" text"</string>
             <string name="revanced_check_environment_not_near_patch_time_days">Patched %s days ago</string>
             <string name="revanced_check_environment_not_near_patch_time_invalid">APK build date is corrupted</string>
         </patch>
+        <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+            <string name="revanced_check_watch_history_domain_name_dialog_title">Warning</string>
+            <string name="revanced_check_watch_history_domain_name_dialog_message">Your watch history is not being saved.&lt;br>&lt;br>This most likely is caused by a DNS ad blocker or network proxy.&lt;br>&lt;br>To fix this, whitelist &lt;b>s.youtube.com&lt;/b> or turn off all DNS blockers and proxies.</string>
+            <string name="revanced_check_watch_history_domain_name_dialog_ignore">Do not show again</string>
+        </patch>
         <patch id="misc.settings.settingsResourcePatch">
             <string name="revanced_settings_submenu_title">Settings</string>
             <string name="revanced_settings_title" translatable="false">ReVanced</string>
@@ -1521,11 +1526,6 @@ Tap here to learn more about DeArrow"</string>
             <string name="revanced_announcements_enabled_summary">Show announcements on startup</string>
             <string name="revanced_announcements_connection_failed">Failed connecting to announcements provider</string>
             <string name="revanced_announcements_dialog_dismiss">Dismiss</string>
-        </patch>
-        <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-            <string name="revanced_check_watch_history_domain_name_dialog_title">Warning</string>
-            <string name="revanced_check_watch_history_domain_name_dialog_message">Your watch history is not being saved.&lt;br>&lt;br>This most likely is caused by a DNS ad blocker or network proxy.&lt;br>&lt;br>To fix this, whitelist &lt;b>s.youtube.com&lt;/b> or turn off all DNS blockers and proxies.</string>
-            <string name="revanced_check_watch_history_domain_name_dialog_ignore">Do not show again</string>
         </patch>
         <patch id="misc.loopvideo.loopVideoPatch">
             <string name="revanced_loop_video_title">Enable loop video</string>
