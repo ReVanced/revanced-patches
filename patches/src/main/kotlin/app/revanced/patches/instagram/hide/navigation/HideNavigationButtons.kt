@@ -47,7 +47,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
 
         val enumNameField: String
 
-        // Get the field name which contains the name of the navigation button enum ("fragment_clips", "fragment_share", ...)
+        // Get the field name which contains the name of the enum for the navigation button ("fragment_clips", "fragment_share", ...)
         with(navigationButtonsEnumInitFingerprint.method) {
             enumNameField = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.IPUT_OBJECT &&
@@ -59,16 +59,16 @@ val hideNavigationButtonsPatch = bytecodePatch(
 
         initializeNavigationButtonsListFingerprint.method.apply {
             val returnIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
-            val tabListRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
+            val buttonsListRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
             val freeRegister = findFreeRegister(returnIndex)
             val freeRegister2 = findFreeRegister(returnIndex, freeRegister)
 
-            fun instructionsRemoveButtonByName(tabName: String): String {
+            fun instructionsRemoveButtonByName(buttonEnumName: String): String {
                 return """
-                    const-string v$freeRegister, "$tabName"
+                    const-string v$freeRegister, "$buttonEnumName"
                     const-string v$freeRegister2, "$enumNameField"
-                    invoke-static { v$tabListRegister, v$freeRegister, v$freeRegister2 }, $EXTENSION_CLASS_DESCRIPTOR->removeNavigationTabByName(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
-                    move-result-object v$tabListRegister
+                    invoke-static { v$buttonsListRegister, v$freeRegister, v$freeRegister2 }, $EXTENSION_CLASS_DESCRIPTOR->removeNavigationButtonByName(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+                    move-result-object v$buttonsListRegister
                     """
             }
 
