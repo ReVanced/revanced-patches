@@ -1297,6 +1297,10 @@ public final class app/revanced/patches/viber/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/viber/misc/navbar/HideComponentsKt {
+	public static final fun getHideNavbarItemsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/vsco/misc/pro/UnlockProPatchKt {
 	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1917,4 +1921,3 @@ public final class app/revanced/util/resource/StringResource : app/revanced/util
 public final class app/revanced/util/resource/StringResource$Companion {
 	public final fun fromNode (Lorg/w3c/dom/Node;)Lapp/revanced/util/resource/StringResource;
 }
-
