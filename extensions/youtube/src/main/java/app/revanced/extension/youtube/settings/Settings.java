@@ -48,6 +48,9 @@ import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationPr
 
 public class Settings extends BaseSettings {
     // Video
+    public static final BooleanSetting ADVANCED_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_advanced_video_quality_menu", TRUE);
+    public static final BooleanSetting DISABLE_HDR_VIDEO = new BooleanSetting("revanced_disable_hdr_video", FALSE);
+    public static final BooleanSetting FORCE_AVC_CODEC = new BooleanSetting("revanced_force_avc_codec", FALSE, true, "revanced_force_avc_codec_user_dialog_message");
     public static final IntegerSetting VIDEO_QUALITY_DEFAULT_WIFI = new IntegerSetting("revanced_video_quality_default_wifi", -2);
     public static final IntegerSetting VIDEO_QUALITY_DEFAULT_MOBILE = new IntegerSetting("revanced_video_quality_default_mobile", -2);
     public static final BooleanSetting REMEMBER_VIDEO_QUALITY_LAST_SELECTED = new BooleanSetting("revanced_remember_video_quality_last_selected", FALSE);
@@ -56,8 +59,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting REMEMBER_SHORTS_QUALITY_LAST_SELECTED = new BooleanSetting("revanced_remember_shorts_quality_last_selected", FALSE);
     public static final BooleanSetting REMEMBER_VIDEO_QUALITY_LAST_SELECTED_TOAST = new BooleanSetting("revanced_remember_video_quality_last_selected_toast", TRUE, false,
             parentsAny(REMEMBER_VIDEO_QUALITY_LAST_SELECTED, REMEMBER_SHORTS_QUALITY_LAST_SELECTED));
-    public static final BooleanSetting ADVANCED_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_advanced_video_quality_menu", TRUE);
-    public static final BooleanSetting DISABLE_HDR_VIDEO = new BooleanSetting("revanced_disable_hdr_video", FALSE);
 
     // Speed
     public static final FloatSetting SPEED_TAP_AND_HOLD = new FloatSetting("revanced_speed_tap_and_hold", 2.0f, true);

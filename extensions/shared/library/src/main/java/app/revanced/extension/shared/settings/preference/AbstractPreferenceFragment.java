@@ -53,7 +53,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * Set by subclasses if Strings cannot be added as a resource.
      */
     @Nullable
-    protected static String restartDialogTitle, restartDialogMessage, restartDialogButtonText, confirmDialogTitle;
+    protected static CharSequence restartDialogTitle, restartDialogMessage, restartDialogButtonText, confirmDialogTitle;
 
     private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         try {
@@ -125,10 +125,13 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
         showingUserDialogMessage = true;
 
+        CharSequence message = BulletPointPreference.formatIntoBulletPoints(
+                Objects.requireNonNull(setting.userDialogMessage).toString());
+
         Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 confirmDialogTitle, // Title.
-                Objects.requireNonNull(setting.userDialogMessage).toString(), // No message.
+                message,
                 null, // No EditText.
                 null, // OK button text.
                 () -> {

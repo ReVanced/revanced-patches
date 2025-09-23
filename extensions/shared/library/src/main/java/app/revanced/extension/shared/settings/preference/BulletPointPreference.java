@@ -15,7 +15,15 @@ import android.util.AttributeSet;
 @SuppressWarnings({"unused", "deprecation"})
 public class BulletPointPreference extends Preference {
 
-    public static SpannedString formatIntoBulletPoints(CharSequence source) {
+    /**
+     * Replaces bullet points with styled spans.
+     */
+    public static CharSequence formatIntoBulletPoints(CharSequence source) {
+        final char bulletPoint = '•';
+        if (TextUtils.indexOf(source, bulletPoint) < 0) {
+            return source; // Nothing to do.
+        }
+
         SpannableStringBuilder builder = new SpannableStringBuilder(source);
 
         int lineStart = 0;
@@ -26,7 +34,7 @@ public class BulletPointPreference extends Preference {
             if (lineEnd < 0) lineEnd = length;
 
             // Apply BulletSpan only if the line starts with the '•' character.
-            if (lineEnd > lineStart && builder.charAt(lineStart) == '•') {
+            if (lineEnd > lineStart && builder.charAt(lineStart) == bulletPoint) {
                 int deleteEnd = lineStart + 1; // remove the bullet itself
 
                 // If there's a single space right after the bullet, remove that too.

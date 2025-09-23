@@ -1641,10 +1641,22 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_playback_speed_default_title">Default playback speed</string>
             <string name="revanced_remember_playback_speed_toast">Changed default speed to: %s</string>
         </patch>
-        <patch id="video.hdr.disableHdrPatch">
+        <patch id="video.codecs.disableVideoCodecsPatch">
             <string name="revanced_disable_hdr_video_title">Disable HDR video</string>
             <string name="revanced_disable_hdr_video_summary_on">HDR video is disabled</string>
             <string name="revanced_disable_hdr_video_summary_off">HDR video is enabled</string>
+            <string name="revanced_force_avc_codec_title">Force AVC (H.264)</string>
+            <string name="revanced_force_avc_codec_summary_on">Video codec is forced to AVC (H.264)</string>
+            <string name="revanced_force_avc_codec_summary_off">Video codec is determined automatically</string>
+            <string name="revanced_force_avc_codec_user_dialog_message">"Benefits:
+• Can improve battery life.
+• Can restore missing video resolutions on older device.
+
+Limitations:
+• Maximum resolution is 1080p.
+• Video playback will use more internet data than VP9 or AV1.
+• HDR videos may not use AVC.
+• Some devices cannot force AVC."</string>
         </patch>
         <patch id="video.quality.advancedVideoQualityMenuPatch">
             <string name="revanced_advanced_video_quality_menu_title">Show advanced video quality menu</string>
