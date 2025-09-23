@@ -19,7 +19,7 @@ public class DisableVideoCodecsPatch {
     /**
      * Injection point.
      */
-    public static boolean disableVP9() {
+    public static boolean allowVP9() {
         return !Settings.FORCE_AVC_CODEC.get();
     }
 }

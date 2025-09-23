@@ -75,7 +75,7 @@ val disableVideoCodecsPatch = bytecodePatch(
         vp9CapabilityFingerprint.method.addInstructionsWithLabels(
             0,
             """
-                invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableVP9()Z
+                invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->allowVP9()Z
                 move-result v0
                 if-nez v0, :default
                 return v0
