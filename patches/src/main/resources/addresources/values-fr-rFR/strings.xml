@@ -1267,6 +1267,7 @@ Cela modifiera l'apparence et les fonctionnalités de l'application, mais il peu
 Si désactivé ultérieurement, il est recommandé d'effacer les données de l'application pour éviter des bugs d'interface."</string>
   <string name="revanced_spoof_app_version_target_title">Version cible</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Restaurer la barre d\'actions vidéo non réduite</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Restaurer la fonctionnalité de transcription</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Restaurer les anciennes icônes du lecteur Shorts </string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Restaurer les anciennes icônes de navigation</string>
   </patch>

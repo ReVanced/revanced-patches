@@ -1266,6 +1266,7 @@ To změní vzhled a funkce aplikace, ale mohou se objevit neznámé vedlejší e
 Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabránilo chybám uživatelského rozhraní."</string>
   <string name="revanced_spoof_app_version_target_title">Cíl napodobení verze aplikace</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Obnovit nerozbalený panel akcí videa</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Obnovit funkci přepisu</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Obnovuje staré ikony Shorts přehrávače</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 – Obnovit staré ikony navigace</string>
   </patch>

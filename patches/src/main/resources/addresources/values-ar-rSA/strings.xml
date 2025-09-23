@@ -1266,6 +1266,7 @@ Second \"item\" text"</string>
 إذا تم إيقاف تشغيله لاحقًا، من المستحسن مسح بيانات التطبيق لمنع حدوث أخطاء في واجهة المستخدم."</string>
   <string name="revanced_spoof_app_version_target_title">الهدف من تغيير إصدار التطبيق</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - استعادة شريط إجراءات الفيديو غير المطوي</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - استعادة وظيفة النسخ</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - استعادة أيقونات مشغل Shorts القديمة</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - استعادة أيقونات التنقل القديمة</string>
   </patch>
