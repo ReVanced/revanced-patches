@@ -1,3 +1,10 @@
+# [5.41.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.7...v5.41.0-dev.8) (2025-09-23)
+
+
+### Features
+
+* **YouTube Music:** Add `Check watch history domain name resolution` ([#5979](https://github.com/ReVanced/revanced-patches/issues/5979)) ([8af70fe](https://github.com/ReVanced/revanced-patches/commit/8af70fe2d10c0f4da2d7e53bd00f5b3979775d5d))
+
 # [5.41.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.6...v5.41.0-dev.7) (2025-09-23)
 
 
