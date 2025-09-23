@@ -1267,6 +1267,7 @@ Second \"item\" text"</string>
 Калі пазней будзе адключана, рэкамендуецца ачысціць даныя прыкладання, каб пазбегнуць памылак у інтэрфейсе."</string>
   <string name="revanced_spoof_app_version_target_title">Падробка мэтавай версіі праграмы</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Аднавіць не згорнуты радок дзеянняў відэа</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Аднавіць функцыянальнасць стэнаграмы</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 — Восстановить старые значки плеера Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Аднаўленне старых значкоў навігацыі</string>
   </patch>

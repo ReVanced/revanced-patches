@@ -54,7 +54,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_clear_history_message">本当にすべての検索履歴を消去しますか？</string>
   <string name="revanced_settings_search_tips_title">検索のヒント</string>
   <string name="revanced_settings_search_tips_summary">"• カテゴリをタップするとそのカテゴリの設定メニューに移動する
-• 設定を長押しすると設定メニューに移動しその設定の位置までスクロールする
+• 設定を長押しすると設定メニューに移動してその設定までスクロールする
 • Enter キーを押すと検索クエリが履歴に保存される
 • 検索では、大文字・小文字や句読点は無視される
 • 無効化されている下位設定の上には、その設定を無効化している上位設定が表示される"</string>
@@ -67,7 +67,7 @@ Second \"item\" text"</string>
   <string name="revanced_show_menu_icons_summary_on">ReVanced の設定にアイコンが表示されます</string>
   <string name="revanced_show_menu_icons_summary_off">ReVanced の設定にアイコンは表示されません</string>
   <string name="revanced_language_title">ReVanced 設定の言語</string>
-  <string name="revanced_language_user_dialog_message">"一部の言語の翻訳が欠落しているか不完全である可能性があります。
+  <string name="revanced_language_user_dialog_message">"一部の言語の翻訳が欠落しているまたは不完全である可能性があります。
 
 新しい言語を翻訳する、または既存の翻訳を改善するには、translate.revanced.app にアクセスしてください。"</string>
   <string name="revanced_language_DEFAULT">アプリの言語</string>
@@ -1269,6 +1269,7 @@ Automotive レイアウト
 再び偽装を無効にする場合には、UI のバグを防ぐためにアプリデータを消去することをお勧めします。"</string>
   <string name="revanced_spoof_app_version_target_title">アプリバージョンの偽装先</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - アクション ボタンの文字表示を復元</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - 文字起こし機能を復元</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - 古いショート プレーヤーのアイコンを復元</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - 古いナビゲーション アイコンを復元</string>
   </patch>

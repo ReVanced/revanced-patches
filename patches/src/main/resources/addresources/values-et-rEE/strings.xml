@@ -1266,6 +1266,7 @@ See muudab rakenduse välimust ja funktsioone, kuid võivad esineda tundmatud k�
 Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et vältida kasutajaliidese vigu."</string>
   <string name="revanced_spoof_app_version_target_title">Võltsitud rakenduse versiooni siht</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Taasta mittekokkuvarisenud video tegevusriba</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Taasta transkriptsioonifunktsionaalsus</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Taastage vanad Shortsi esitajaikoonid</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 – Taasta vanad navigeerimisikoonid</string>
   </patch>
