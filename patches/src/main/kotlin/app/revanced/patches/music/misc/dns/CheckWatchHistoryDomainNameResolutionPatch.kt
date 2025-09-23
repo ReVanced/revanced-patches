@@ -1,8 +1,8 @@
-package app.revanced.patches.youtube.misc.dns
+package app.revanced.patches.music.misc.dns
 
+import app.revanced.patches.music.misc.extension.sharedExtensionPatch
+import app.revanced.patches.music.shared.mainActivityOnCreateFingerprint
 import app.revanced.patches.shared.misc.dns.checkWatchHistoryDomainNameResolutionPatch
-import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
 val checkWatchHistoryDomainNameResolutionPatch = checkWatchHistoryDomainNameResolutionPatch(
     block = {
@@ -11,13 +11,12 @@ val checkWatchHistoryDomainNameResolutionPatch = checkWatchHistoryDomainNameReso
         )
 
         compatibleWith(
-            "com.google.android.youtube"(
-                "19.34.42",
-                "20.07.39",
-                "20.13.41",
-                "20.14.43",
+            "com.google.android.apps.youtube.music"(
+                "7.29.52",
+                "8.10.52"
             )
         )
     },
+
     mainActivityFingerprint = mainActivityOnCreateFingerprint
 )

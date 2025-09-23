@@ -405,6 +405,10 @@ public final class app/revanced/patches/music/misc/debugging/EnableDebuggingPatc
 	public static final fun getEnableDebuggingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/misc/dns/CheckWatchHistoryDomainNameResolutionPatchKt {
+	public static final fun getCheckWatchHistoryDomainNameResolutionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/misc/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
