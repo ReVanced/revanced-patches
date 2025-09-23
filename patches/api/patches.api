@@ -729,6 +729,20 @@ public final class app/revanced/patches/serviceportalbund/detection/root/RootDet
 	public static final fun getRootDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/shared/layout/theme/LithoColorHookPatchKt {
+	public static final fun getLithoColorHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getLithoColorOverrideHook ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class app/revanced/patches/shared/layout/theme/ThemePatchKt {
+	public static final field PURE_BLACK_COLOR Ljava/lang/String;
+	public static final field WHITE_COLOR Ljava/lang/String;
+	public static final fun editThemeColors (Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;)V
+	public static synthetic fun editThemeColors$default (Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)V
+	public static final fun getDARK_THEME_COLOR_VALUES ()Ljava/util/Map;
+	public static final fun getLIGHT_THEME_COLOR_VALUES ()Ljava/util/Map;
+}
+
 public final class app/revanced/patches/shared/misc/checks/BaseCheckEnvironmentPatchKt {
 	public static final fun checkEnvironmentPatch (Lapp/revanced/patcher/Fingerprint;Lapp/revanced/patcher/patch/Patch;[Ljava/lang/String;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1522,11 +1536,6 @@ public final class app/revanced/patches/youtube/layout/startupshortsreset/Disabl
 
 public final class app/revanced/patches/youtube/layout/tablet/EnableTabletLayoutPatchKt {
 	public static final fun getEnableTabletLayoutPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/youtube/layout/theme/LithoColorHookPatchKt {
-	public static final fun getLithoColorHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-	public static final fun getLithoColorOverrideHook ()Lkotlin/jvm/functions/Function2;
 }
 
 public final class app/revanced/patches/youtube/layout/theme/ThemePatchKt {
