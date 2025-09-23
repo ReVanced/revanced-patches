@@ -36,7 +36,7 @@ val hideViewCountPatch = bytecodePatch(
         
         hideViewCountFingerprint.method.apply {
 
-            val startIndex = hideViewCountFingerprint.patternMatch?.startIndex ?: -1
+            val startIndex = hideViewCountFingerprint.patternMatch!!.startIndex
 
             // Inject the code at the identified position
             // A float value is passed which is used to determine text
