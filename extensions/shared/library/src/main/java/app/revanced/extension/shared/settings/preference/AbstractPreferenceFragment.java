@@ -53,7 +53,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * Set by subclasses if Strings cannot be added as a resource.
      */
     @Nullable
-    protected static String restartDialogButtonText, restartDialogTitle, confirmDialogTitle, restartDialogMessage;
+    protected static String restartDialogTitle, restartDialogMessage, restartDialogButtonText, confirmDialogTitle;
 
     private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         try {
@@ -152,6 +152,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         );
 
         dialogPair.first.setOnDismissListener(d -> showingUserDialogMessage = false);
+        dialogPair.first.setCancelable(false);
 
         // Show the dialog.
         dialogPair.first.show();
