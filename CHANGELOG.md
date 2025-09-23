@@ -1,3 +1,10 @@
+# [5.41.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.9...v5.41.0-dev.10) (2025-09-23)
+
+
+### Bug Fixes
+
+* **TikTok:** Show correct dialog restart text, use correct font color for non-dark mode ([d1a1293](https://github.com/ReVanced/revanced-patches/commit/d1a12930c35f630793a0f240d4203c2ff9060158))
+
 # [5.41.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.8...v5.41.0-dev.9) (2025-09-23)
 
 
