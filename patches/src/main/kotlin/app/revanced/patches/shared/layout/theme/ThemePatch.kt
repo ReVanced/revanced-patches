@@ -7,7 +7,7 @@ const val PURE_BLACK_COLOR = "@android:color/black"
 const val WHITE_COLOR = "@android:color/white"
 
 val DARK_THEME_COLOR_VALUES = mapOf(
-    "Amoled black" to PURE_BLACK_COLOR,
+    "Pure black" to PURE_BLACK_COLOR,
     "Material You" to "@android:color/system_neutral1_900",
     "Classic (old YouTube)" to "#FF212121",
     "Catppuccin (Mocha)" to "#FF181825",
