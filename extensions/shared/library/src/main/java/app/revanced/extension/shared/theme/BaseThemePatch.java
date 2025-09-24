@@ -1,5 +1,7 @@
 package app.revanced.extension.shared.theme;
 
+import androidx.annotation.Nullable;
+
 import app.revanced.extension.shared.Utils;
 
 @SuppressWarnings("unused")
@@ -32,15 +34,13 @@ public abstract class BaseThemePatch {
      * @param lightValues   Array of light mode color values to match.
      * @return The new or original color value.
      */
-    protected static int processColorValue(int originalValue, int[] darkValues, int[] lightValues) {
+    protected static int processColorValue(int originalValue, int[] darkValues, @Nullable int[] lightValues) {
         if (Utils.isDarkModeEnabled()) {
             if (anyEquals(originalValue, darkValues)) {
                 return BLACK_COLOR;
             }
-        } else {
-            if (lightValues != null && anyEquals(originalValue, lightValues)) {
-                return WHITE_COLOR;
-            }
+        } else if (lightValues != null && anyEquals(originalValue, lightValues)) {
+            return WHITE_COLOR;
         }
 
         return originalValue;

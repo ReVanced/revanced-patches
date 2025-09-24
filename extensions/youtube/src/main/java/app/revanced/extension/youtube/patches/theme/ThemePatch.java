@@ -42,17 +42,17 @@ public class ThemePatch extends BaseThemePatch {
 
     // Color constants used in relation with litho components.
     private static final int[] WHITE_VALUES = {
-            -1,        // Comments chip background.
-            -394759,   // Music related results panel background.
-            -83886081, // Video chapters list background.
+            0xFFFFFFFF, // Comments chip background.
+            0xFFF9F9F9, // Music related results panel background.
+            0xFAFFFFFF, // Video chapters list background.
     };
 
     private static final int[] DARK_VALUES = {
-            -14145496, // Explore drawer background.
-            -14606047, // Comments chip background.
-            -15198184, // Music related results panel background.
-            -15790321, // Comments chip background (new layout).
-            -98492127  // Video chapters list background.
+            0xFF282828, // Explore drawer background.
+            0xFF212121, // Comments chip background.
+            0xFF181818, // Music related results panel background.
+            0xFF0F0F0F, // Comments chip background (new layout).
+            0xFA212121, // Video chapters list background.
     };
 
     /**
