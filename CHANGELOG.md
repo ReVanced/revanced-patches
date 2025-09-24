@@ -1,3 +1,10 @@
+# [5.41.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.12...v5.41.0-dev.13) (2025-09-24)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Fix "Hide preview comment" ([#5990](https://github.com/ReVanced/revanced-patches/issues/5990)) ([dd4e2cd](https://github.com/ReVanced/revanced-patches/commit/dd4e2cd0855ccc51b94593004fdd8150ac3b41cc))
+
 # [5.41.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.11...v5.41.0-dev.12) (2025-09-24)
 
 
