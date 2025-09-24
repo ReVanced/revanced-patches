@@ -13,7 +13,6 @@ val hideNavigationButtonsPatch = bytecodePatch(
 ) {
     compatibleWith("com.viber.voip"("26.1.2.0"))
 
-    // Build mapping AllowedNavigationsItem -> booleanOption
     val hideOptions = AllowedNavigationItems.entries.associateWith {
         booleanOption(
             key = it.key,
