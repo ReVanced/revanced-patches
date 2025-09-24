@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
@@ -35,7 +36,23 @@ val navigationBarPatch = bytecodePatch(
         resourceMappingPatch,
         sharedExtensionPatch,
         settingsPatch,
-        addResourcesPatch
+        addResourcesPatch,
+        resourcePatch {
+            execute {
+                // Ensure the first ImageView has 'layout_weight' to stay properly sized
+                // when the TextView is hidden.
+                document("res/layout/image_with_text_tab.xml").use { document ->
+                    val imageView = document.getElementsByTagName("ImageView").item(0)
+                    imageView?.let {
+                        if (it.attributes.getNamedItem("android:layout_weight") == null) {
+                            val attr = document.createAttribute("android:layout_weight")
+                            attr.value = "0.5"
+                            it.attributes.setNamedItem(attr)
+                        }
+                    }
+                }
+            }
+        }
     )
 
     compatibleWith(
@@ -46,10 +63,7 @@ val navigationBarPatch = bytecodePatch(
     )
 
     execute {
-        text1 = resourceMappings[
-            "id",
-            "text1",
-        ]
+        text1 = resourceMappings["id", "text1"]
 
         addResources("music", "layout.navigationbar.navigationBarPatch")
 
@@ -71,9 +85,7 @@ val navigationBarPatch = bytecodePatch(
         )
 
         tabLayoutTextFingerprint.method.apply {
-            /**
-             * Hide navigation labels.
-             */
+            // Hide navigation labels.
             val constIndex = indexOfFirstLiteralInstructionOrThrow(text1)
             val targetIndex = indexOfFirstInstructionOrThrow(constIndex, Opcode.CHECK_CAST)
             val targetParameter = getInstruction<ReferenceInstruction>(targetIndex).reference
@@ -87,9 +99,7 @@ val navigationBarPatch = bytecodePatch(
                 "invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationLabel(Landroid/widget/TextView;)V"
             )
 
-            /**
-             * Set navigation enum and hide navigation buttons.
-             */
+            // Set navigation enum and hide navigation buttons.
             val enumIndex = tabLayoutTextFingerprint.patternMatch!!.startIndex + 3
             val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
             val insertEnumIndex = indexOfFirstInstructionOrThrow(Opcode.AND_INT_LIT8) - 2
