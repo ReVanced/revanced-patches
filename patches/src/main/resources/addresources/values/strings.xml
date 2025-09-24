@@ -202,9 +202,9 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_debug_logs_clear_toast">Logs cleared</string>
         </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch">
-            <string name="revanced_sanitize_sharing_links_title">Remove tracking query parameter</string>
-            <string name="revanced_sanitize_sharing_links_summary_on">Tracking query parameter is removed from links</string>
-            <string name="revanced_sanitize_sharing_links_summary_off">Tracking query parameter is not removed from links</string>
+            <string name="revanced_sanitize_sharing_links_title">Sanitize sharing links</string>
+            <string name="revanced_sanitize_sharing_links_summary_on">Tracking query parameter is removed from shared links</string>
+            <string name="revanced_sanitize_sharing_links_summary_off">Tracking query parameter is not removed from shared links</string>
             <string name="revanced_replace_music_with_youtube_title">Change share links to youtube.com</string>
             <string name="revanced_replace_music_with_youtube_summary_on">Shared links use youtube.com</string>
             <string name="revanced_replace_music_with_youtube_summary_off">Shared links use music.youtube.com</string>
