@@ -29,7 +29,8 @@ val sanitizeSharingLinksPatch = bytecodePatch(
 
             val sharingUrlRegister = getInstruction<TwoRegisterInstruction>(putSharingUrlIndex).registerA
 
-            addInstructions(putSharingUrlIndex,
+            addInstructions(
+            	putSharingUrlIndex,
                 """
                     invoke-static { v$sharingUrlRegister }, $EXTENSION_CLASS_DESCRIPTOR->sanitizeSharingLink(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$sharingUrlRegister
