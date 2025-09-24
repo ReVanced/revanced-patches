@@ -16,5 +16,5 @@ internal val hideViewCountFingerprint = fingerprint {
     strings(
         "Has attachmentRuns but drawableRequester is missing.",
     )
-    
 }
+
