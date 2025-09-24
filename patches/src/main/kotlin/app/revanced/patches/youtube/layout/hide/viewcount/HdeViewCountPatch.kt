@@ -19,7 +19,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/
 
 @Suppress("unused")
 val hideViewCountPatch = bytecodePatch(
-    name = "Hide View Count",
+    name = "Hide view count",
     description = "Hide the view count from the video feed list.",
 ) {
     dependsOn(
