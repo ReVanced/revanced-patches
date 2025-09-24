@@ -34,13 +34,13 @@ internal val LIGHT_THEME_COLOR_VALUES = mapOf(
     "Light red" to "#FFFFD6D6",
 )
 
-internal val THEME_DEFAULT_LIGHT_COLOR_NAMES = setOf(
+internal val THEME_DEFAULT_DARK_COLOR_NAMES = setOf(
     "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98",
     "yt_black2", "yt_black3", "yt_black4", "yt_status_bar_background_dark",
     "material_grey_850"
 )
 
-internal val THEME_DEFAULT_DARK_COLOR_NAMES = setOf(
+internal val THEME_DEFAULT_LIGHT_COLOR_NAMES = setOf(
     "yt_white1", "yt_white1_opacity95", "yt_white1_opacity98",
     "yt_white2", "yt_white3", "yt_white4"
 )
@@ -72,14 +72,19 @@ internal fun baseThemeResourcePatch(
     lightColorReplacement: (() -> String)? = null
 ) = resourcePatch {
     execute {
+        val darkColor = darkColorReplacement()
+        val lightColor = lightColorReplacement?.invoke()
+
+        // TODO: Try to validate the color options are valid.
+
         document("res/values/colors.xml").use { document ->
             val resourcesNode = document.getElementsByTagName("resources").item(0)
+
             resourcesNode.childElementsSequence().forEach { node ->
                 val name = node.getAttribute("name")
                 when {
-                    name in lightColorNames -> node.textContent = darkColorReplacement()
-                    lightColorReplacement != null && name in darkColorNames
-                        -> node.textContent = lightColorReplacement()
+                    name in darkColorNames -> node.textContent = darkColor
+                    lightColor != null && name in lightColorNames -> node.textContent = lightColor
                 }
             }
         }
