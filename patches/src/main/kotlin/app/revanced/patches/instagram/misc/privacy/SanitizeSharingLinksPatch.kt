@@ -1,8 +1,12 @@
 package app.revanced.patches.instagram.misc.privacy
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
+import app.revanced.util.indexOfFirstInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/instagram/misc/privacy/SanitizeSharingLinksPatch;"
@@ -17,11 +21,20 @@ val sanitizeSharingLinksPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
-        val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->" +
-                "sanitizeUrl(Ljava/lang/String;)V"
+        permalinkResponseJsonParserFingerprint.method.apply {
+            val putSharingUrlIndex = indexOfFirstInstruction(
+                permalinkResponseJsonParserFingerprint.stringMatches!!.first { it.string == "permalink" }.index,
+                Opcode.IPUT_OBJECT
+            )
 
-        testFingerprint.method.addInstruction(0,
-            "invoke-static/range { p0 .. p1 }, $extensionMethodDescriptor"
-        )
+            val sharingUrlRegister = getInstruction<TwoRegisterInstruction>(putSharingUrlIndex).registerA
+
+            addInstructions(putSharingUrlIndex,
+                """
+                    invoke-static { v$sharingUrlRegister }, $EXTENSION_CLASS_DESCRIPTOR->sanitizeSharingLink(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$sharingUrlRegister
+                """
+            )
+        }
     }
 }

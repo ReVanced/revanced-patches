@@ -24,7 +24,7 @@ val sanitizeSharingLinksPatch = bytecodePatch(
 
     execute {
         val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->" +
-                "sanitizeUrl(Ljava/lang/String;)Ljava/lang/String;"
+                "sanitizeSharingLink(Ljava/lang/String;)Ljava/lang/String;"
 
         val copyFingerprint = if (shareCopyUrlFingerprint.originalMethodOrNull != null) {
             shareCopyUrlFingerprint
