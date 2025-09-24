@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Пропатчено %s дней назад</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Дата сборки APK повреждена</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Внимание</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша история просмотра не сохраняется.&lt;br&gt;&lt;br&gt;Вероятнее всего это вызвано DNS блокировщиком рекламы или сетевым прокси.&lt;br&gt;&lt;br&gt;Чтобы это исправить, добавьте &lt;b&gt;s.youtube.com&lt;/b&gt; в белый список блокировщика рекламы или отключите все блокировщики DNS и прокси.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не показывать снова</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Настройки</string>
   <string name="revanced_settings_confirm_user_dialog_title">Вы уверены, что хотите продолжить?</string>
@@ -1450,11 +1455,6 @@ Second \"item\" text"</string>
   <string name="revanced_announcements_connection_failed">Не удалось подключиться к поставщику объявлений</string>
   <string name="revanced_announcements_dialog_dismiss">Закрыть</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Внимание</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша история просмотра не сохраняется.&lt;br&gt;&lt;br&gt;Вероятнее всего это вызвано DNS блокировщиком рекламы или сетевым прокси.&lt;br&gt;&lt;br&gt;Чтобы это исправить, добавьте &lt;b&gt;s.youtube.com&lt;/b&gt; в белый список блокировщика рекламы или отключите все блокировщики DNS и прокси.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не показывать снова</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Включить повтор воспроизведения</string>
   <string name="revanced_loop_video_summary_on">Видео будет повторяться</string>
@@ -1569,10 +1569,22 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_default_title">Скорость воспроизведения по умолчанию</string>
   <string name="revanced_remember_playback_speed_toast">Скорость изменена на: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Отключить HDR видео</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR видео отключено</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR видео включено</string>
+  <string name="revanced_force_avc_codec_title">Принудительно AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Видеокодек принудительно установлен на AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Видеокодек определяется автоматически</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Преимущества:
+• Может улучшить срок службы батареи
+• Может восстановить отсутствующие разрешения видео на старых устройствах
+
+Ограничения:
+• Максимальное разрешение — 1080p
+• Воспроизведение видео будет использовать больше интернет-трафика, чем VP9 или AV1
+• HDR-видео не будут использовать AVC
+• Некоторые устройства не могут принудительно использовать AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Показать расширенное меню качества видео</string>

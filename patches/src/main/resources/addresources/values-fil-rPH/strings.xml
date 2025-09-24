@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Naka-patch %s araw ang nakalipas</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Ang petsa ng pagbuo ng APK ay sira</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Babala</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Hindi nai-save ang iyong kasaysayan ng panonood.&lt;br&gt;&lt;br&gt;Karaniwang sanhi nito ay ang DNS ad blocker o network proxy.&lt;br&gt;&lt;br&gt;Para maayos ito, i-whitelist ang &lt;b&gt;s.youtube.com&lt;/b&gt; o i-off ang lahat ng DNS blocker at proxy.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Huwag ipakitang muli</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Mga Setting</string>
   <string name="revanced_settings_confirm_user_dialog_title">Sigurado ka bang gusto mong magpatuloy?</string>
@@ -1441,11 +1446,6 @@ Mag-tap dito upang matuto nang higit pa tungkol sa DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Nabigong kumonekta sa provider ng mga anunsyo</string>
   <string name="revanced_announcements_dialog_dismiss">Kalimutan</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Babala</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Hindi nai-save ang iyong kasaysayan ng panonood.&lt;br&gt;&lt;br&gt;Karaniwang sanhi nito ay ang DNS ad blocker o network proxy.&lt;br&gt;&lt;br&gt;Para maayos ito, i-whitelist ang &lt;b&gt;s.youtube.com&lt;/b&gt; o i-off ang lahat ng DNS blocker at proxy.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Huwag ipakitang muli</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Paganahin ang loop ng video</string>
   <string name="revanced_loop_video_summary_on">Maglo-loop ang video</string>
@@ -1560,10 +1560,22 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_playback_speed_default_title">Default na bilis ng pag-playback</string>
   <string name="revanced_remember_playback_speed_toast">Binago ang default na bilis sa: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Huwag paganahin ang HDR video</string>
   <string name="revanced_disable_hdr_video_summary_on">Hindi pinagana ang HDR video</string>
   <string name="revanced_disable_hdr_video_summary_off">Pinagana ang HDR video</string>
+  <string name="revanced_force_avc_codec_title">Piliting gamitin ang AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Ang video codec ay pinilit na gumamit ng AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Awtomatikong tinutukoy ang video codec</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Mga Benepisyo:
+• Maaaring mapabuti ang buhay ng baterya
+• Maaaring maibalik ang nawawalang resolusyon ng video sa mas lumang device
+
+Mga Limitasyon:
+• Ang pinakamataas na resolusyon ay 1080p
+• Ang pag-playback ng video ay gagamit ng mas maraming data ng internet kaysa sa VP9 o AV1
+• Ang mga HDR video ay hindi gagamit ng AVC
+• Hindi kayang ipilit ng ilang device ang AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Ipakita ang advanced na menu ng kalidad ng video</string>

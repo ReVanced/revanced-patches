@@ -22,6 +22,9 @@ Second \"item\" text"</string>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">সকীয়নি</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <!-- Settings about dialog. -->
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
@@ -210,9 +213,6 @@ Second \"item\" text"</string>
   <patch id="misc.announcements.announcementsPatch">
   <string name="revanced_announcements_dialog_dismiss">খাৰিজ কৰক</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">সকীয়নি</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   </patch>
   <patch id="misc.loopvideo.button.loopVideoButtonPatch">
@@ -241,7 +241,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   </patch>

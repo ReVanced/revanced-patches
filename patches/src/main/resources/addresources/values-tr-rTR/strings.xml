@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s gün önce yamalanmış</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK derleme tarihi bozuk</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Uyarı</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">İzleme geçmişiniz kaydedilmiyor.&lt;br&gt;&lt;br&gt;Bu büyük ihtimalle bir reklam engelleyici DNS\'den veya proxy\'den kaynaklanıyor.&lt;br&gt;&lt;br&gt;Bunu düzeltmek için, &lt;b&gt;s.youtube.com&lt;/b&gt; adresini beyaz listeye ekleyin veya bütün engelleyici DNSleri ve proxy\'leri kapatın.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Bir daha gösterme</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ayarlar</string>
   <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istediğinizden emin misiniz?</string>
@@ -1450,11 +1455,6 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun"</string>
   <string name="revanced_announcements_connection_failed">Duyuru sağlayıcısına bağlanılamadı</string>
   <string name="revanced_announcements_dialog_dismiss">Yok say</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Uyarı</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">İzleme geçmişiniz kaydedilmiyor.&lt;br&gt;&lt;br&gt;Bu büyük ihtimalle bir reklam engelleyici DNS\'den veya proxy\'den kaynaklanıyor.&lt;br&gt;&lt;br&gt;Bunu düzeltmek için, &lt;b&gt;s.youtube.com&lt;/b&gt; adresini beyaz listeye ekleyin veya bütün engelleyici DNSleri ve proxy\'leri kapatın.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Bir daha gösterme</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Videoyu döngüye almayı etkinleştir</string>
   <string name="revanced_loop_video_summary_on">Video döngüye girecek</string>
@@ -1569,10 +1569,22 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_playback_speed_default_title">Varsayılan oynatma hızı</string>
   <string name="revanced_remember_playback_speed_toast">Varsayılan hız %s olarak ayarlandı</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">HDR videoyu devre dışı bırak</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video devre dışı</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video etkin</string>
+  <string name="revanced_force_avc_codec_title">AVC\'yi (H.264) zorla</string>
+  <string name="revanced_force_avc_codec_summary_on">Video kodeği AVC\'ye (H.264) zorlandı</string>
+  <string name="revanced_force_avc_codec_summary_off">Video kodeği otomatik olarak belirlenir</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Avantajları:
+• Pil ömrünü uzatabilir
+• Eski cihazlarda eksik video çözünürlüklerini geri yükleyebilir
+
+Sınırlamalar:
+• Maksimum çözünürlük 1080p'dir
+• Video oynatma, VP9 veya AV1'den daha fazla internet verisi kullanır
+• HDR videolar AVC kullanmaz
+• Bazı cihazlar AVC'yi zorlayamaz"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Gelişmiş video kalitesi menüsünü göster</string>

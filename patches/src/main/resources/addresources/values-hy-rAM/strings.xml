@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Մշակվել է %s օր առաջ</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-ի կառուցման ամսաթիվը վնասված է</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Զգուշացում</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Ձեր դիտման պատմությունը չի պահպանվում.&lt;br&gt;&lt;br&gt;Այս  հավանական  պատճառը DNS  գովազդների  բլոկավորիչ կամ ցանցային պրոքսի  է.&lt;br&gt;&lt;br&gt;Խնդրում ենք  գործարկել &lt;b&gt;s.youtube.com&lt;/b&gt;  կամ անջատել  DNS  բլոկավորիչներ  և  պրոքսիներ:</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ավելի  չցուցադրել</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Կարգավորումներ</string>
   <string name="revanced_settings_confirm_user_dialog_title">Վստա՞հ եք, որ ցանկանում եք շարունակել:</string>
@@ -1444,11 +1449,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_announcements_connection_failed">Հայտարարությունների մատակարարի հետ կապի  անհաջողություն</string>
   <string name="revanced_announcements_dialog_dismiss">Մերժել</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Զգուշացում</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Ձեր դիտման պատմությունը չի պահպանվում.&lt;br&gt;&lt;br&gt;Այս  հավանական  պատճառը DNS  գովազդների  բլոկավորիչ կամ ցանցային պրոքսի  է.&lt;br&gt;&lt;br&gt;Խնդրում ենք  գործարկել &lt;b&gt;s.youtube.com&lt;/b&gt;  կամ անջատել  DNS  բլոկավորիչներ  և  պրոքսիներ:</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ավելի  չցուցադրել</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Միացնել տեսանյութի կրկնությունը</string>
   <string name="revanced_loop_video_summary_on">Տեսանյութը կկրկնվի</string>
@@ -1563,10 +1563,22 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_playback_speed_default_title">Տեսանյութի  վերարտադրման  դեֆոլտ  արագությունը</string>
   <string name="revanced_remember_playback_speed_toast">Փոփոխվել է  դեֆոլտ  արագությունը: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">HDR տեսանյութը անջատված է</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR տեսանյութը անջատված է</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR տեսանյութը միացված է</string>
+  <string name="revanced_force_avc_codec_title">Պարտադրել AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Տեսակոդեկը պարտադրված է AVC-ի (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Տեսակոդեկն ավտոմատաբար որոշվում է</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Առավելությունները.
+• Կարող է բարելավել մարտկոցի կյանքը
+• Կարող է վերականգնել բացակայող տեսանյութի լուծաչափերը հին սարքերում
+
+Սահմանափակումներ.
+• Առավելագույն լուծաչափը 1080p է
+• Տեսանյութի նվագարկումը կօգտագործի ավելի շատ ինտերնետ տվյալներ, քան VP9 կամ AV1-ը
+• HDR տեսանյութերը չեն օգտագործի AVC
+• Որոշ սարքեր չեն կարող պարտադրել AVC-ն"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Ցուցադրել տեսանյութի որակի ընդլայնված մենյուն</string>

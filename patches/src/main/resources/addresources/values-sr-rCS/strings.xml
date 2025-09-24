@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Pečovano pre %s dana</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Datum izrade APK-a je oštećen</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Upozorenje</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Vaša istorija gledanja se ne čuva.&lt;br&gt;&lt;br&gt;Ovo je najverovatnije uzrokovano DNS blokatorom oglasa ili mrežnim proksijem.&lt;br&gt;&lt;br&gt;Da biste ovo popravili, stavite na belu listu &lt;b&gt;s.youtube.com&lt;/b&gt; ili isključite sve DNS blokatore i proksije.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne prikazuj ponovo</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Podešavanja</string>
   <string name="revanced_settings_confirm_user_dialog_title">Želite li zaista da nastavite?</string>
@@ -518,7 +523,7 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nije instaliran. Instalirajte ga.</string>
   <string name="revanced_external_downloader_package_not_found_warning">"Nije pronađena instalirana aplikacija sa nazivom paketa: %s
 
-Proverite da li je naziv paketa ispravan i da li je aplikacija instalirana"</string>
+Proverite da li je naziv paketa ispravan i da li je aplikacija instalirana Није пронађена инсталирана апликација са називом пакета: %s Проверите да ли је назив пакета исправан и да ли је апликација инсталирана"</string>
   <string name="revanced_external_downloader_empty_warning">Naziv paketa ne može biti prazan</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">
@@ -1442,11 +1447,6 @@ Dodirnite ovde da saznate više o DeArrowu"</string>
   <string name="revanced_announcements_connection_failed">Neuspešno povezivanje sa pružaocem saopštenja</string>
   <string name="revanced_announcements_dialog_dismiss">Odbaci</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Upozorenje</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Vaša istorija gledanja se ne čuva.&lt;br&gt;&lt;br&gt;Ovo je najverovatnije uzrokovano DNS blokatorom oglasa ili mrežnim proksijem.&lt;br&gt;&lt;br&gt;Da biste ovo popravili, stavite na belu listu &lt;b&gt;s.youtube.com&lt;/b&gt; ili isključite sve DNS blokatore i proksije.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne prikazuj ponovo</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Omogući ponavljanje videa</string>
   <string name="revanced_loop_video_summary_on">Video će se ponavljati</string>
@@ -1561,10 +1561,22 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_playback_speed_default_title">Podrazumevana brzina reprodukcije</string>
   <string name="revanced_remember_playback_speed_toast">Brzina reprodukcije promenjena na: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Onemogući HDR video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video je onemogućen</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video je omogućen</string>
+  <string name="revanced_force_avc_codec_title">Prisili AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Video kodek je prisiljen na AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Video kodek se određuje automatski</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Prednosti:
+• Može poboljšati trajanje baterije
+• Može vratiti nedostajuće rezolucije videa na starijem uređaju
+
+Ograničenja:
+• Maksimalna rezolucija je 1080p
+• Reprodukcija videa će koristiti više internet podataka nego VP9 ili AV1
+• HDR videi neće koristiti AVC
+• Neki uređaji ne mogu prisiliti AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Prikaži napredni meni kvaliteta videa</string>

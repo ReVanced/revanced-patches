@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Gepatcht %s dagen geleden</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-bouwdatum is beschadigd</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Waarschuwing</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Uw kijkgeschiedenis wordt niet opgeslagen.&lt;br&gt;&lt;br&gt;Dit wordt hoogstwaarschijnlijk veroorzaakt door een DNS-adblocker of netwerkproxy.&lt;br&gt;&lt;br&gt;Om dit te verhelpen, voegt u &lt;b&gt;s.youtube.com&lt;/b&gt; toe aan de witte lijst of schakelt u alle DNS-blokkers en proxies uit.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Niet meer weergeven</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Instellingen</string>
   <string name="revanced_settings_confirm_user_dialog_title">Weet je zeker dat je door wilt gaan?</string>
@@ -1441,11 +1446,6 @@ Tik hier om meer te weten te komen over DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Kan geen verbinding maken met de leverancier van aankondigingen</string>
   <string name="revanced_announcements_dialog_dismiss">Afwijzen</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Waarschuwing</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Uw kijkgeschiedenis wordt niet opgeslagen.&lt;br&gt;&lt;br&gt;Dit wordt hoogstwaarschijnlijk veroorzaakt door een DNS-adblocker of netwerkproxy.&lt;br&gt;&lt;br&gt;Om dit te verhelpen, voegt u &lt;b&gt;s.youtube.com&lt;/b&gt; toe aan de witte lijst of schakelt u alle DNS-blokkers en proxies uit.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Niet meer weergeven</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Loopvideo inschakelen</string>
   <string name="revanced_loop_video_summary_on">Video zal herhalen</string>
@@ -1560,10 +1560,22 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_playback_speed_default_title">Standaard afspeelsnelheid</string>
   <string name="revanced_remember_playback_speed_toast">Standaard snelheid gewijzigd naar: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">HDR-video uitschakelen</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video is uitgeschakeld</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video is ingeschakeld</string>
+  <string name="revanced_force_avc_codec_title">Forceer AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Videocodec wordt geforceerd naar AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Videocodec wordt automatisch bepaald</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Voordelen:
+• Kan de levensduur van de batterij verbeteren
+• Kan ontbrekende videoresoluties op oudere apparaten herstellen
+
+Beperkingen:
+• Maximale resolutie is 1080p
+• Het afspelen van video verbruikt meer internetdata dan VP9 of AV1
+• HDR-video's gebruiken geen AVC
+• Sommige apparaten kunnen AVC niet forceren"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Geavanceerd menu voor videokwaliteit weergeven</string>
