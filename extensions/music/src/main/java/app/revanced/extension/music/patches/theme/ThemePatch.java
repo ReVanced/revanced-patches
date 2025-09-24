@@ -4,6 +4,7 @@ import app.revanced.extension.shared.theme.BaseThemePatch;
 
 @SuppressWarnings("unused")
 public class ThemePatch extends BaseThemePatch {
+
     // Color constants used in relation with litho components.
     private static final int[] DARK_VALUES = {
             0xFF212121, // Comments box background.
