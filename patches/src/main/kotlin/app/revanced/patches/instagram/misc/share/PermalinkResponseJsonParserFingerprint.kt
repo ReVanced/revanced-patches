@@ -1,4 +1,4 @@
-package app.revanced.patches.instagram.misc.privacy
+package app.revanced.patches.instagram.misc.share
 
 import app.revanced.patcher.fingerprint
 

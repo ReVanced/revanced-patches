@@ -1,4 +1,4 @@
-package app.revanced.extension.instagram.misc.privacy;
+package app.revanced.extension.instagram.misc.share.privacy;
 
 import app.revanced.extension.shared.privacy.SanitizeSharingLinkPatch;
 
