@@ -565,9 +565,9 @@ This feature is only available for older devices"</string>
             <string name="revanced_disable_signin_to_tv_popup_summary_off">Sign in to TV popup is enabled</string>
         </patch>
         <patch id="layout.hide.viewcount.hideViewCountPatch">
-            <string name="revanced_hide_view_count_title">Hide View Count</string>
-            <string name="revanced_hide_view_count_summary_on">View Count hidden from video feed list</string>
-            <string name="revanced_hide_view_count_summary_off">View Count is Visible in the video feed list</string>
+            <string name="revanced_hide_view_count_title">Hide view count</string>
+            <string name="revanced_hide_view_count_summary_on">View count is hidden from feed and search results</string>
+            <string name="revanced_hide_view_count_summary_off">View count is visible in feed and search results</string>
         </patch> 
         <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
             <string name="revanced_disable_chapter_skip_double_tap_title">Disable double tap chapter skip</string>
