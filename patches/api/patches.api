@@ -1541,6 +1541,11 @@ public final class app/revanced/patches/youtube/layout/tablet/EnableTabletLayout
 	public static final fun getEnableTabletLayoutPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/layout/theme/LithoColorHookPatchKt {
+	public static final fun getLithoColorHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getLithoColorOverrideHook ()Lkotlin/jvm/functions/Function2;
+}
+
 public final class app/revanced/patches/youtube/layout/theme/ThemePatchKt {
 	public static final fun getThemePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

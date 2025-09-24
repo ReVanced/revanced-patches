@@ -88,22 +88,23 @@ val themePatch = baseThemePatch(
                     darkThemeBackgroundColor!!
                 )
 
-                // Edit splash screen files and change the background color,
+                // Edit splash screen files and change the background color.
                 arrayOf(
                     "res/drawable/quantum_launchscreen_youtube.xml",
                     "res/drawable-sw600dp/quantum_launchscreen_youtube.xml",
                 ).forEach editSplashScreen@{ resourceFileName ->
                     document(resourceFileName).use { document ->
-                        document.getElementsByTagName("layer-list").item(0)
-                            .forEachChildElement { node ->
-                                if (node.hasAttribute("android:drawable")) {
-                                    node.setAttribute(
-                                        "android:drawable",
-                                        "@color/$splashBackgroundColorKey"
-                                    )
-                                    return@editSplashScreen
-                                }
+                        document.getElementsByTagName(
+                            "layer-list"
+                        ).item(0).forEachChildElement { node ->
+                            if (node.hasAttribute("android:drawable")) {
+                                node.setAttribute(
+                                    "android:drawable",
+                                    "@color/$splashBackgroundColorKey"
+                                )
+                                return@editSplashScreen
                             }
+                        }
 
                         throw PatchException("Failed to modify launch screen")
                     }
@@ -111,7 +112,6 @@ val themePatch = baseThemePatch(
 
                 // Fix the splash screen dark mode background color.
                 // In 19.32+ the dark mode splash screen is white and fades to black.
-                // Maybe it's a bug in YT, or maybe it intentionally. Who knows.
                 document("res/values-night-v27/styles.xml").use { document ->
                     // Create a night mode specific override for the splash screen background.
                     val style = document.createElement("style")
