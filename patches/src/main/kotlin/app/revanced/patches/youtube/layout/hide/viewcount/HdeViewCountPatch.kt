@@ -66,9 +66,9 @@ val hideViewCountPatch = bytecodePatch(
             val floatDimensionRegister = getInstruction<OneRegisterInstruction>(injectPointRegisterIndex+1).registerA
 
             addInstructions(
-                injectPointRegisterIndex-1,
+                injectPointRegisterIndex - 1,
                 """
-                    invoke-static {v$returnStringRegister, v$floatDimensionRegister}, $EXTENSION_CLASS_DESCRIPTOR->hideViewCount(Landroid/text/SpannableString;F)Landroid/text/SpannableString;
+                    invoke-static { v$returnStringRegister, v$floatDimensionRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideViewCount(Landroid/text/SpannableString;F)Landroid/text/SpannableString;
                     move-result-object v$returnStringRegister
                 """
             )
