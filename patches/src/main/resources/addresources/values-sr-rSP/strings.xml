@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Печовано пре %s дана</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Датум израде APK-а је оштећен</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Упозорење</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша историја гледања се не чува.&lt;br&gt;&lt;br&gt;Ово је највероватније узроковано DNS блокатором огласа или мрежним проксијем.&lt;br&gt;&lt;br&gt;Да бисте ово поправили, ставите на белу листу &lt;b&gt;s.youtube.com&lt;/b&gt; или искључите све DNS блокаторе и проксије.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не приказуј поново</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Подешавања</string>
   <string name="revanced_settings_confirm_user_dialog_title">Желите ли заиста да наставите?</string>
@@ -1445,11 +1450,6 @@ Second \"item\" text"</string>
   <string name="revanced_announcements_connection_failed">Неуспешно повезивање са пружаоцем саопштења</string>
   <string name="revanced_announcements_dialog_dismiss">Одбаци</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Упозорење</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша историја гледања се не чува.&lt;br&gt;&lt;br&gt;Ово је највероватније узроковано DNS блокатором огласа или мрежним проксијем.&lt;br&gt;&lt;br&gt;Да бисте ово поправили, ставите на белу листу &lt;b&gt;s.youtube.com&lt;/b&gt; или искључите све DNS блокаторе и проксије.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не приказуј поново</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Омогући понављање видеа</string>
   <string name="revanced_loop_video_summary_on">Видео ће се понављати</string>
@@ -1564,10 +1564,22 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_default_title">Подразумевана брзина репродукције</string>
   <string name="revanced_remember_playback_speed_toast">Брзина репродукције промењена на: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Онемогући HDR видео</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR видео је онемогућен</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR видео је омогућен</string>
+  <string name="revanced_force_avc_codec_title">Присили AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Видео кодек је присиљен на AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Видео кодек се одређује аутоматски</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Предности:
+• Може побољшати трајање батерије
+• Може вратити недостајуће резолуције видеа на старијем уређају
+
+Ограничења:
+• Максимална резолуција је 1080p
+• Репродукција видеа ће користити више интернет података него VP9 или AV1
+• HDR видеи неће користити AVC
+• Неки уређаји не могу присилити AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Прикажи напредни мени квалитета видеа</string>

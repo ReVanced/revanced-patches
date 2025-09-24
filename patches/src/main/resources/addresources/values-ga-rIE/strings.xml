@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Paisteáilte %s lá ó shin</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Tá dáta tógála APK truaillithe</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Rabhadh</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Níl do stair faire á sábháil.&lt;br&gt;&lt;br&gt;Is é is dóichí gur seachfhreastalaí fógraí DNS nó seachfhreastalaí líonra is cúis leis seo.&lt;br&gt;&lt;br&gt; Chun é seo a réiteach, déan liosta bán &lt;b&gt;s.youtube.com&lt;/b&gt; nó gach seachfhreastalaí DNS a mhúchadh.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ná taispeáin arís</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Socruithe</string>
   <string name="revanced_settings_confirm_user_dialog_title">An bhfuil tú cinnte gur mhaith leat dul ar aghaidh?</string>
@@ -1443,11 +1448,6 @@ Brúigh anseo chun tuilleadh eolais a fháil faoi DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Theip ar nascadh le soláthraí fógraí</string>
   <string name="revanced_announcements_dialog_dismiss">Díbhunaigh</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Rabhadh</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Níl do stair faire á sábháil.&lt;br&gt;&lt;br&gt;Is é is dóichí gur seachfhreastalaí fógraí DNS nó seachfhreastalaí líonra is cúis leis seo.&lt;br&gt;&lt;br&gt; Chun é seo a réiteach, déan liosta bán &lt;b&gt;s.youtube.com&lt;/b&gt; nó gach seachfhreastalaí DNS a mhúchadh.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ná taispeáin arís</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Cumasaigh físeán lúbtha</string>
   <string name="revanced_loop_video_summary_on">Lúbfar an físeán</string>
@@ -1562,10 +1562,22 @@ Is féidir le seo caighdeáin físeáin níos airde a dhíghlasáil"</string>
   <string name="revanced_playback_speed_default_title">Luas athsheinm réamhshocraithe</string>
   <string name="revanced_remember_playback_speed_toast">Athraigh luas réamhshocraithe go: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title"><p style="margin-left: 60px;">Díchumasú físeán HDR</p></string>
   <string name="revanced_disable_hdr_video_summary_on"><p style="margin-left: 60px;">Tá físeán HDR díchumasaithe</p></string>
   <string name="revanced_disable_hdr_video_summary_off"><p style="margin-left: 60px;">Tá físeán HDR arna chumhachtú</p></string>
+  <string name="revanced_force_avc_codec_title">Fórsa AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Éigeantar an códóir físeáin go AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Cinntear an códóir físeáin go huathoibríoch</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Sochair:
+• Féadfaidh sé saolré na ceallraí a fheabhsú
+• Féadfaidh sé réitigh físeáin atá in easnamh a chur ar ais ar ghléasanna níos sine
+
+Teorainneacha:
+• Is é 1080p an t-uasréiteach
+• Úsáidfidh athsheinm físeáin níos mó sonraí idirlín ná VP9 nó AV1
+• Ní úsáidfidh físeáin HDR AVC
+• Ní féidir le roinnt gléasanna AVC a bhrú"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Taispeáin roghchlár ardcháilíochta físeáin</string>

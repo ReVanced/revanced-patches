@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s 일 전에 패치되었습니다</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 빌드 날짜가 손상되었습니다</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">경고</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">시청 기록이 저장되지 않습니다.&lt;br&gt;&lt;br&gt; DNS 광고 차단기 또는 네트워크 프록시로 인하여 발생한 문제일 가능성이 높습니다.&lt;br&gt;&lt;br&gt; 이 문제를 해결하려면 &lt;b&gt;s.youtube.com&lt;/b&gt;을 허용 목록에서 제외하거나 모든 DNS 차단기 및 프록시를 해제하세요.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">다시 보지 않기</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">설정</string>
   <string name="revanced_settings_confirm_user_dialog_title">계속하시겠습니까?</string>
@@ -1267,7 +1272,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 나중에 이 기능을 비활성화하면 앱 레이아웃 버그를 방지하기 위해 앱 데이터를 지우는 것이 좋습니다."</string>
   <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - 접히지 않은 동영상 동작바를 복원합니다</string>
-  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - 자막 기능을 복원합니다</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - 스크립트 기능을 복원합니다</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - 이전 Shorts 플레이어 아이콘을 복원합니다</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - 이전 하단바 아이콘을 복원합니다</string>
   </patch>
@@ -1450,11 +1455,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_announcements_connection_failed">공지 사항 제공자와 연결할 수 없습니다</string>
   <string name="revanced_announcements_dialog_dismiss">닫기</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">경고</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">시청 기록이 저장되지 않습니다.&lt;br&gt;&lt;br&gt; DNS 광고 차단기 또는 네트워크 프록시로 인하여 발생한 문제일 가능성이 높습니다.&lt;br&gt;&lt;br&gt; 이 문제를 해결하려면 &lt;b&gt;s.youtube.com&lt;/b&gt;을 허용 목록에서 제외하거나 모든 DNS 차단기 및 프록시를 해제하세요.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">다시 보지 않기</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">동영상 연속 재생 활성화하기</string>
   <string name="revanced_loop_video_summary_on">동영상이 연속 재생됩니다</string>
@@ -1569,10 +1569,22 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_playback_speed_default_title">기본 동영상 재생 속도</string>
   <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s 로 변경하였습니다</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">HDR 동영상 비활성화하기</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR 동영상을 비활성화합니다</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR 동영상을 활성화합니다</string>
+  <string name="revanced_force_avc_codec_title">AVC (H.264) 강제로 활성화하기</string>
+  <string name="revanced_force_avc_codec_summary_on">동영상 코덱이 AVC (H.264)로 강제로 결정됩니다</string>
+  <string name="revanced_force_avc_codec_summary_off">동영상 코덱이 자동으로 결정됩니다</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"장점:
+• 배터리 수명을 향상시킬 수 있습니다
+• 구형 기기에서 누락된 동영상 화질을 복원할 수 있습니다
+
+제한 사항:
+• 최대 화질은 1080p입니다
+• 동영상을 재생할 경우에 VP9 또는 AV1보다 더 많은 인터넷 데이터가 사용됩니다
+• HDR 동영상에서는 AVC가 사용되지 않습니다
+• 일부 기기에서는 AVC를 강제로 활성화할 수 없습니다"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">고급 동영상 화질 설정 메뉴 표시하기</string>

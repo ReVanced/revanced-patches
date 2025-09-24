@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Labots pirms %s dienām</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK veidošanas datums ir bojāts</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Brīdinājums</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsu skatīšanās vēsture netiek saglabāta.&lt;br&gt;&lt;br&gt;Visticamāk, to izraisa DNS reklāmu bloķētājs vai tīkla starpniekserveris.&lt;br&gt;&lt;br&gt;Lai to novērstu, pievienojiet baltajam sarakstam &lt;b&gt;s.youtube.com&lt;/b&gt; vai izslēdziet visus DNS bloķētājus un starpniekservera serverus.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerādīt vēlreiz</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Iestatījumi</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vai tiešām vēlaties turpināt?</string>
@@ -1444,11 +1449,6 @@ Nospiediet šeit, lai uzzinātu vairāk par DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Neizdevās izveidot savienojumu ar paziņojumu nodrošinātāju</string>
   <string name="revanced_announcements_dialog_dismiss">Aizvērt</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Brīdinājums</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsu skatīšanās vēsture netiek saglabāta.&lt;br&gt;&lt;br&gt;Visticamāk, to izraisa DNS reklāmu bloķētājs vai tīkla starpniekserveris.&lt;br&gt;&lt;br&gt;Lai to novērstu, pievienojiet baltajam sarakstam &lt;b&gt;s.youtube.com&lt;/b&gt; vai izslēdziet visus DNS bloķētājus un starpniekservera serverus.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerādīt vēlreiz</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Iespējot video atkārtošanu</string>
   <string name="revanced_loop_video_summary_on">Video tiks atkārtots</string>
@@ -1563,10 +1563,22 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_playback_speed_default_title">Noklusējuma atskaņošanas ātrums</string>
   <string name="revanced_remember_playback_speed_toast">Izmainīts noklusējuma ātrums uz: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Deaktivējiet HDR video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video ir deaktivizēts</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video ir aktivizēts</string>
+  <string name="revanced_force_avc_codec_title">Piespiest AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Video kodeks ir piespiests uz AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Video kodeks tiek noteikts automātiski</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Ieguvumi:
+• Var uzlabot akumulatora darbības laiku
+• Var atjaunot trūkstošās video izšķirtspējas vecākās ierīcēs
+
+Ierobežojumi:
+• Maksimālā izšķirtspēja ir 1080p
+• Video atskaņošana patērēs vairāk interneta datu nekā VP9 vai AV1
+• HDR video neizmantos AVC
+• Dažas ierīces nevar piespiest AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Rādīt izvērsto video kvalitātes izvēlni</string>

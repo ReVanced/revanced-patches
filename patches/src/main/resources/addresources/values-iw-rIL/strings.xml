@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">תוקן לפני %s ימים</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">תאריך בניית ה-APK פגום</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">אזהרה</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">היסטוריית הצפייה שלך לא נשמרת.&lt;br&gt;&lt;br&gt;סביר להניח שזה נגרם על ידי חוסם מודעות ברמת DNS או פרוקסי רשת.&lt;br&gt;&lt;br&gt;כדי לתקן זאת, רשום את &lt;b&gt;s.youtube.com&lt;/b&gt; ברשימת ההיתרים או כבה את כל חוסמי ה-DNS והפרוקסים.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">אל תציג שוב</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">הגדרות</string>
   <string name="revanced_settings_confirm_user_dialog_title">האם אתה בטוח שברצונך להמשיך?</string>
@@ -1445,11 +1450,6 @@ Second \"item\" text"</string>
   <string name="revanced_announcements_connection_failed">נכשל בהתחברות לספק הכרזות</string>
   <string name="revanced_announcements_dialog_dismiss">דחה</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">אזהרה</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">היסטוריית הצפייה שלך לא נשמרת.&lt;br&gt;&lt;br&gt;סביר להניח שזה נגרם על ידי חוסם מודעות ברמת DNS או פרוקסי רשת.&lt;br&gt;&lt;br&gt;כדי לתקן זאת, רשום את &lt;b&gt;s.youtube.com&lt;/b&gt; ברשימת ההיתרים או כבה את כל חוסמי ה-DNS והפרוקסים.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">אל תציג שוב</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">הפעל סרטון בלולאה</string>
   <string name="revanced_loop_video_summary_on">הסרטון יופעל בלולאה</string>
@@ -1564,10 +1564,22 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_default_title">מהירות הפעלה ברירת מחדל</string>
   <string name="revanced_remember_playback_speed_toast">מהירות ברירת המחדל שונתה ל: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">השבת סרטון HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">סרטון HDR מושבת</string>
   <string name="revanced_disable_hdr_video_summary_off">סרטון HDR מופעל</string>
+  <string name="revanced_force_avc_codec_title">כפה AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">קודק הווידאו נכפה ל-AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">קודק הווידאו נקבע אוטומטית</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"יתרונות:
+• יכול לשפר את חיי הסוללה
+• יכול לשחזר רזולוציות וידאו חסרות במכשירים ישנים יותר
+
+מגבלות:
+• הרזולוציה המקסימלית היא 1080p
+• הפעלת וידאו תשתמש ביותר נתוני אינטרנט מאשר VP9 או AV1
+• סרטוני HDR לא ישתמשו ב-AVC
+• התקנים מסוימים אינם יכולים לאכוף AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">הצג תפריט איכות סרטון מתקדם</string>

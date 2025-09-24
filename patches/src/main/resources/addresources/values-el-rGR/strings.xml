@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Τροποποιήθηκε πριν %s μέρες</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Η ημερομηνία κατασκευής του APK είναι κατεστραμμένη</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Προειδοποίηση</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Το ιστορικό παρακολούθησης δεν αποθηκεύεται.&lt;br&gt;&lt;br&gt;Πιθανό να συμβαίνει λόγω αποκλεισμού διαφημίσεων μέσω DNS ή μέσω διακομιστή μεσολάβησης δικτύου.&lt;br&gt;&lt;br&gt;Μια λύση γι\'αυτό θα ήταν να προσθέσετε σε whitelist το &lt;b&gt;s.youtube.com&lt;/b&gt; ή να απενεργοποιήστε τους DNS/proxy blockers.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Να μην εμφανιστεί ξανά</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ρυθμίσεις</string>
   <string name="revanced_settings_confirm_user_dialog_title">Είστε βέβαιοι ότι θέλετε να συνεχίσετε;</string>
@@ -1442,11 +1447,6 @@ Second \"item\" text"</string>
   <string name="revanced_announcements_connection_failed">Αποτυχία σύνδεσης με τον πάροχο ανακοινώσεων</string>
   <string name="revanced_announcements_dialog_dismiss">Παράλειψη</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Προειδοποίηση</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Το ιστορικό παρακολούθησης δεν αποθηκεύεται.&lt;br&gt;&lt;br&gt;Πιθανό να συμβαίνει λόγω αποκλεισμού διαφημίσεων μέσω DNS ή μέσω διακομιστή μεσολάβησης δικτύου.&lt;br&gt;&lt;br&gt;Μια λύση γι\'αυτό θα ήταν να προσθέσετε σε whitelist το &lt;b&gt;s.youtube.com&lt;/b&gt; ή να απενεργοποιήστε τους DNS/proxy blockers.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Να μην εμφανιστεί ξανά</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Αυτόματη επανάληψη βίντεο</string>
   <string name="revanced_loop_video_summary_on">Το βίντεο θα αναπαράγεται σε επανάληψη</string>
@@ -1561,10 +1561,22 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_default_title">Προεπιλεγμένη ταχύτητα αναπαραγωγής</string>
   <string name="revanced_remember_playback_speed_toast">Η προεπιλεγμένη ταχύτητα άλλαξε σε: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Απενεργοποίηση βίντεο HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">Τα βίντεο HDR είναι απενεργοποιημένα</string>
   <string name="revanced_disable_hdr_video_summary_off">Τα βίντεο HDR είναι ενεργοποιημένα</string>
+  <string name="revanced_force_avc_codec_title">Εξαναγκασμός κωδικοποιητή AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Ο κωδικοποιητής βίντεο έχει οριστεί υποχρεωτικά σε AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Ο κωδικοποιητής βίντεο ορίζεται αυτόματα</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Οφέλη:
+• Μπορεί να βελτιώσει τη διάρκεια ζωής της μπαταρίας
+• Μπορεί να αποκαταστήσει αναλύσεις βίντεο που λείπουν σε παλαιότερες συσκευές
+
+Περιορισμοί:
+• Η μέγιστη ανάλυση είναι 1080p
+• Η αναπαραγωγή βίντεο θα χρησιμοποιεί περισσότερα δεδομένα διαδικτύου από τον VP9 ή AV1
+• Τα βίντεο HDR δεν θα χρησιμοποιούν τον κωδικοποιητή AVC
+• Ορισμένες συσκευές δεν μπορούν να επιβάλλουν τον κωδικοποιητή AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Εμφάνιση προχωρημένου μενού ποιότητας βίντεο</string>

@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s gün əvvəl yamaqlanıb</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK qurulma vaxtı pozulub</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Xәbәrdarlıq</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Baxış tarixçəniz saxlanmır.&lt;br&gt;&lt;br&gt;Bu çox güman ki, DNS reklam bloklayıcı və ya şəbəkə proksisinə görədir.&lt;br&gt;&lt;br&gt;.Bunu düzəltmək üçün s.youtube.com-u&lt;/b&gt; &lt;b&gt;ağ siyahıya salın və ya bütün DNS bloklayıcıları və proksiləri bağlayın.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Təkrar göstərmə</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Tənzimləmələr</string>
   <string name="revanced_settings_confirm_user_dialog_title">Davam etmək istədiyinizə əminsiniz?</string>
@@ -1265,7 +1270,7 @@ Bu tətbiqin görünüşün və xüsusiyyətlərin dəyişdirəcək, lakin bilin
 Sonradan qapadılarsa, UI səhvlərin önləmək üçün tətbiq məlumatların silmək tövsiyə olunur."</string>
   <string name="revanced_spoof_app_version_target_title">Saxta tətbiq versiyası hədəfi</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Yığılmayan video fəaliyyət cizgisin bərpa et</string>
-  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Transkript funksionallığını bərpa edin</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Transkript xüsusiyyətin bərpa et</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Köhnə Shorts oynadıcı işarələrin bərpa et</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Köhnə fəaliyyət simvolların bərpa et</string>
   </patch>
@@ -1442,11 +1447,6 @@ DeArrow haqqında ətraflı öyrənmək üçün bura toxun"</string>
   <string name="revanced_announcements_connection_failed">Elan provayderinə bağlanmaq olmadı</string>
   <string name="revanced_announcements_dialog_dismiss">Ləğv et</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Xәbәrdarlıq</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Baxış tarixçəniz saxlanmır.&lt;br&gt;&lt;br&gt;Bu çox güman ki, DNS reklam bloklayıcı və ya şəbəkə proksisinə görədir.&lt;br&gt;&lt;br&gt;.Bunu düzəltmək üçün s.youtube.com-u&lt;/b&gt; &lt;b&gt;ağ siyahıya salın və ya bütün DNS bloklayıcıları və proksiləri bağlayın.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Təkrar göstərmə</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Video təkrarlamanı aktivləşdir</string>
   <string name="revanced_loop_video_summary_on">Video təkrarlanacaq</string>
@@ -1561,10 +1561,22 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_playback_speed_default_title">İlkin oynatma sürəti</string>
   <string name="revanced_remember_playback_speed_toast">İlkin sürət %s kimi dəyişdirildi</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">HDR Videonu Qapat</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video qapalıdır</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video aktivdir</string>
+  <string name="revanced_force_avc_codec_title">AVC (H.264) -i Məcbur et</string>
+  <string name="revanced_force_avc_codec_summary_on">Video kodlayıcı AVC (H.264) - ə məcbur edilir</string>
+  <string name="revanced_force_avc_codec_summary_off">Video kodlayıcı birbaşa müəyyən edilir</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Faydalar:
+• Batareya ömrünü uzada bilər
+• Köhnə cihazlarda çatışmayan video ayırdetmələrin bərpa edə bilər
+
+Məhdudiyyətlər:
+• Maksimum ayırdetmə 1080p-dir
+• Video oynatma VP9 və ya AV1-dən daha çox internet məlumatı işlədəcək
+• HDR videoları AVC istifadə etməyəcək
+• Bəzi cihazlar AVC-ni zorlaya bilməz"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Qabaqcıl video keyfiyyət siyahısın göstər</string>

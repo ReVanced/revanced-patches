@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Đã vá %s ngày trước</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Ngày dựng APK bị hỏng</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Cảnh báo</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Nhật ký xem của bạn hiện không được lưu lại.&lt;br&gt;&lt;br&gt;Nguyên nhân có thể là do trình chặn quảng cáo DNS hoặc proxy mạng.&lt;br&gt;&lt;br&gt;Để khắc phục, hãy thêm &lt;b&gt;s.youtube.com&lt;/b&gt; vào danh sách cho phép, hoặc tắt tất cả trình chặn DNS và proxy.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Không hiện lại</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Thiết lập</string>
   <string name="revanced_settings_confirm_user_dialog_title">Bạn có chắc chắn muốn tiếp tục không?</string>
@@ -1449,11 +1454,6 @@ Nhấn vào đây để tìm hiểu thêm về DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Không thể tải thông báo từ máy chủ</string>
   <string name="revanced_announcements_dialog_dismiss">Đóng</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Cảnh báo</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Nhật ký xem của bạn hiện không được lưu lại.&lt;br&gt;&lt;br&gt;Nguyên nhân có thể là do trình chặn quảng cáo DNS hoặc proxy mạng.&lt;br&gt;&lt;br&gt;Để khắc phục, hãy thêm &lt;b&gt;s.youtube.com&lt;/b&gt; vào danh sách cho phép, hoặc tắt tất cả trình chặn DNS và proxy.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Không hiện lại</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Bật video lặp lại</string>
   <string name="revanced_loop_video_summary_on">Video sẽ lặp lại</string>
@@ -1568,10 +1568,22 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_playback_speed_default_title">Tốc độ phát mặc định</string>
   <string name="revanced_remember_playback_speed_toast">Đã thay đổi tốc độ phát mặc định thành: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Vô hiệu hóa video HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">Video HDR đã tắt</string>
   <string name="revanced_disable_hdr_video_summary_off">Video HDR đã bật</string>
+  <string name="revanced_force_avc_codec_title">Bắt buộc AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Codec video bị buộc phải là AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Codec video sẽ được xác định tự động</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Lợi ích:
+• Có thể cải thiện thời lượng pin
+• Có thể khôi phục độ phân giải video bị thiếu trên thiết bị cũ hơn
+
+Hạn chế:
+• Độ phân giải tối đa là 1080p
+• Phát video sẽ sử dụng nhiều dữ liệu internet hơn VP9 hoặc AV1
+• Video HDR sẽ không sử dụng AVC
+• Một số thiết bị không thể buộc sử dụng AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Hiện trình đơn chất lượng video nâng cao</string>

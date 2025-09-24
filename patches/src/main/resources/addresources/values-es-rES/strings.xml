@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Parcheado hace %s días</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La fecha de compilación del APK está corrupta</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Advertencia</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Tu historial no está siendo guardado.&lt;br&gt;&lt;br&gt;Esto puede ser por un bloqueador de anuncios DNS o Proxy.&lt;br&gt;&lt;br&gt;Para arreglarlo, permita el dominio &lt;b&gt;s.youtube.com&lt;/b&gt; o desactive el bloqueador DNS o Proxy.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">No mostrar de nuevo</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ajustes</string>
   <string name="revanced_settings_confirm_user_dialog_title">¿Estás seguro de que quieres continuar?</string>
@@ -1434,11 +1439,6 @@ Toca aquí para obtener más información sobre DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Error al conectar con el proveedor de anuncios</string>
   <string name="revanced_announcements_dialog_dismiss">Descartar</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Advertencia</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Tu historial no está siendo guardado.&lt;br&gt;&lt;br&gt;Esto puede ser por un bloqueador de anuncios DNS o Proxy.&lt;br&gt;&lt;br&gt;Para arreglarlo, permita el dominio &lt;b&gt;s.youtube.com&lt;/b&gt; o desactive el bloqueador DNS o Proxy.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">No mostrar de nuevo</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Activar bucle de vídeo</string>
   <string name="revanced_loop_video_summary_on">El vídeo se reproducirá en bucle</string>
@@ -1553,10 +1553,22 @@ Habilitar esto puede desbloquear calidades de vídeo más altas"</string>
   <string name="revanced_playback_speed_default_title">Velocidad de reproducción por defecto</string>
   <string name="revanced_remember_playback_speed_toast">Cambió la velocidad predeterminada a: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Desactivar el vídeo HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">El vídeo HDR está desactivado</string>
   <string name="revanced_disable_hdr_video_summary_off">El vídeo HDR está activado</string>
+  <string name="revanced_force_avc_codec_title">Forzar AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">El códec de vídeo se fuerza a AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">El códec de vídeo se determina automáticamente</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Ventajas:
+• Puede mejorar la duración de la batería
+• Puede restaurar resoluciones de vídeo perdidas en dispositivos antiguos
+
+Limitaciones:
+• La resolución máxima es 1080p
+• La reproducción de vídeo utilizará más datos de internet que VP9 o AV1
+• Los vídeos HDR no utilizarán AVC
+• Algunos dispositivos no pueden forzar AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Mostrar menú de calidad de vídeo avanzado</string>

@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Upravené pred %s dňami</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Dátum zostavenia APK je poškodený</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Upozornenie</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Vaša história pozeraného sa neuchováva.&lt;br&gt;&lt;br&gt;Toto je pravdepodobne spôsobené blokovaním reklám pomocou DNS alebo sieťového proxy.&lt;br&gt;&lt;br&gt;Pre vyriešenie tohto problému povoľte &lt;b&gt;s.youtube.com&lt;/b&gt; alebo vypnite všetky blokátory reklám pomocou DNS a proxy.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Neukazuj znovu</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Nastavenia</string>
   <string name="revanced_settings_confirm_user_dialog_title">Naozaj chcete pokračovať?</string>
@@ -1436,11 +1441,6 @@ Ak je táto možnosť povolená, adresy URL videí sa odošlú na server API a n
   <string name="revanced_announcements_connection_failed">Nepodarilo sa pripojiť k poskytovateľovi oznámení</string>
   <string name="revanced_announcements_dialog_dismiss">Odmietnuť</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Upozornenie</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Vaša história pozeraného sa neuchováva.&lt;br&gt;&lt;br&gt;Toto je pravdepodobne spôsobené blokovaním reklám pomocou DNS alebo sieťového proxy.&lt;br&gt;&lt;br&gt;Pre vyriešenie tohto problému povoľte &lt;b&gt;s.youtube.com&lt;/b&gt; alebo vypnite všetky blokátory reklám pomocou DNS a proxy.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Neukazuj znovu</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Povoliť opakovanie videa</string>
   <string name="revanced_loop_video_summary_on">Video sa bude opakovať</string>
@@ -1555,10 +1555,22 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_playback_speed_default_title">Predvolená rýchlosť prehrávania</string>
   <string name="revanced_remember_playback_speed_toast">Predvolená rýchlosť bola zmenená na: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Vypnúť HDR video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video je vypnuté</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video je zapnuté</string>
+  <string name="revanced_force_avc_codec_title">Vynútiť AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Video kodek je vynútený na AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Video kodek je určený automaticky</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Výhody:
+• Môže zlepšiť výdrž batérie
+• Môže obnoviť chýbajúce rozlíšenia videa na staršom zariadení
+
+Obmedzenia:
+• Maximálne rozlíšenie je 1080p
+• Prehrávanie videa spotrebuje viac internetových dát ako VP9 alebo AV1
+• HDR videá nebudú používať AVC
+• Niektoré zariadenia nemôžu vynútiť AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Zobraziť rozšírenú ponuku kvality videa</string>

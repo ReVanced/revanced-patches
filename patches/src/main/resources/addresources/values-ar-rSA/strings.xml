@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">تم التعديل منذ %s يوم</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">تاريخ بناء APK تالف</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">تحذير</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">لم يتم حفظ سجل المشاهدة الخاص بك.&lt;br&gt;&lt;br&gt;من المرجح أن يكون السبب في ذلك هو مانع إعلانات DNS أو وكيل الشبكة.&lt;br&gt;&lt;br&gt;لإصلاح هذه المشكلة، قم بإضافة &lt;b&gt;s.youtube.com&lt;/b&gt; إلى القائمة البيضاء أو قم بإيقاف تشغيل جميع أدوات حظر DNS ووكلاء البروكسي.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">لا تعرض مرة أخرى</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">الإعدادات</string>
   <string name="revanced_settings_confirm_user_dialog_title">هل أنت متأكد أنك تريد المتابعة؟</string>
@@ -1443,11 +1448,6 @@ Second \"item\" text"</string>
   <string name="revanced_announcements_connection_failed">فشل الاتصال بموفر الإعلانات</string>
   <string name="revanced_announcements_dialog_dismiss">تجاهل</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">تحذير</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">لم يتم حفظ سجل المشاهدة الخاص بك.&lt;br&gt;&lt;br&gt;من المرجح أن يكون السبب في ذلك هو مانع إعلانات DNS أو وكيل الشبكة.&lt;br&gt;&lt;br&gt;لإصلاح هذه المشكلة، قم بإضافة &lt;b&gt;s.youtube.com&lt;/b&gt; إلى القائمة البيضاء أو قم بإيقاف تشغيل جميع أدوات حظر DNS ووكلاء البروكسي.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">لا تعرض مرة أخرى</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">تفعيل تكرار الفيديو</string>
   <string name="revanced_loop_video_summary_on">سيتم تكرار الفيديو</string>
@@ -1562,10 +1562,22 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_default_title">سرعة التشغيل الافتراضية</string>
   <string name="revanced_remember_playback_speed_toast">تغيير السرعة الافتراضية إلى: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">تعطيل فيديو HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">تم تعطيل فيديو HDR</string>
   <string name="revanced_disable_hdr_video_summary_off">تم تمكين فيديو HDR</string>
+  <string name="revanced_force_avc_codec_title">فرض AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">تم فرض برنامج ترميز الفيديو على AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">يتم تحديد برنامج ترميز الفيديو تلقائيًا</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"الفوائد:
+• يمكن أن يحسن عمر البطارية
+• يمكن أن يستعيد دقة الفيديو المفقودة على الأجهزة القديمة
+
+القيود:
+• أقصى دقة هي 1080p
+• تشغيل الفيديو سيستهلك المزيد من بيانات الإنترنت مقارنةً بـ VP9 أو AV1
+• لن تستخدم فيديوهات HDR ترميز AVC
+• لا يمكن لبعض الأجهزة فرض AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">عرض قائمة جودة الفيديو المتقدمة</string>

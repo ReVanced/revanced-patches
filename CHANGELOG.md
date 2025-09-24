@@ -1,3 +1,31 @@
+# [5.41.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.13...v5.41.0-dev.14) (2025-09-24)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add "Hide Emoji and Timestamp buttons" setting ([#5992](https://github.com/ReVanced/revanced-patches/issues/5992)) ([2b555f6](https://github.com/ReVanced/revanced-patches/commit/2b555f67f07e0de5703c630888ce2fbba3145192))
+
+# [5.41.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.12...v5.41.0-dev.13) (2025-09-24)
+
+
+### Bug Fixes
+
+* **YouTube - Hide Shorts components:** Fix "Hide preview comment" ([#5990](https://github.com/ReVanced/revanced-patches/issues/5990)) ([dd4e2cd](https://github.com/ReVanced/revanced-patches/commit/dd4e2cd0855ccc51b94593004fdd8150ac3b41cc))
+
+# [5.41.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.11...v5.41.0-dev.12) (2025-09-24)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Show category color in create new segment menu ([#5987](https://github.com/ReVanced/revanced-patches/issues/5987)) ([ffd933c](https://github.com/ReVanced/revanced-patches/commit/ffd933c6734274cdde5aaec0159b67f173f9228c))
+
+# [5.41.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.10...v5.41.0-dev.11) (2025-09-23)
+
+
+### Features
+
+* **YouTube:** Add `Disable video codecs` patch ([#5981](https://github.com/ReVanced/revanced-patches/issues/5981)) ([bfbffbd](https://github.com/ReVanced/revanced-patches/commit/bfbffbd1f5aa867027053e25b343a51a606216a3))
+
 # [5.41.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.9...v5.41.0-dev.10) (2025-09-23)
 
 

@@ -31,6 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s ದಿನಗಳ ಹಿಂದೆ ಪ್ಯಾಚ್ ಮಾಡಲಾಗಿದೆ</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK ನಿರ್ಮಾಣ ದಿನಾಂಕವು ಭ್ರಷ್ಟಗೊಂಡಿದೆ</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">ಸಂಯೋಜನೆಗಳು</string>
   <string name="revanced_settings_confirm_user_dialog_title">ನೀವು ಮುಂದುವರಿಯಲು ಖಚಿತವಾಗಿ ಬಯಸುತ್ತೀರಾ?</string>
@@ -224,8 +226,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   </patch>
   <patch id="misc.loopvideo.button.loopVideoButtonPatch">
@@ -254,7 +254,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   </patch>
