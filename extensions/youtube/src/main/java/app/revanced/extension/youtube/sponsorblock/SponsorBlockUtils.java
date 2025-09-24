@@ -96,7 +96,7 @@ public class SponsorBlockUtils {
                 SegmentCategory[] categories = SegmentCategory.categoriesWithoutHighlights();
                 CharSequence[] titles = new CharSequence[categories.length];
                 for (int i = 0, length = categories.length; i < length; i++) {
-                    titles[i] = categories[i].getTitle().toString();
+                    titles[i] = categories[i].getTitleWithColorDot();
                 }
 
                 newUserCreatedSegmentCategory = null;
@@ -336,8 +336,8 @@ public class SponsorBlockUtils {
             Utils.verifyOnMainThread();
             final SegmentCategory[] values = SegmentCategory.categoriesWithoutHighlights();
             CharSequence[] titles = new CharSequence[values.length];
-            for (int i = 0, length = values.length; i < length; i++) {
-                titles[i] = values[i].getTitle().toString();
+            for (int i = 0; i < values.length; i++) {
+                titles[i] = values[i].getTitleWithColorDot();
             }
 
             new AlertDialog.Builder(context)
