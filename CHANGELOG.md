@@ -1,3 +1,10 @@
+# [5.41.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.11...v5.41.0-dev.12) (2025-09-24)
+
+
+### Bug Fixes
+
+* **YouTube - SponsorBlock:** Show category color in create new segment menu ([#5987](https://github.com/ReVanced/revanced-patches/issues/5987)) ([ffd933c](https://github.com/ReVanced/revanced-patches/commit/ffd933c6734274cdde5aaec0159b67f173f9228c))
+
 # [5.41.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.10...v5.41.0-dev.11) (2025-09-23)
 
 
