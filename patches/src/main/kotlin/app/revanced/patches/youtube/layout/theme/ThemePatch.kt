@@ -10,7 +10,7 @@ import app.revanced.patches.shared.layout.theme.LIGHT_THEME_COLOR_VALUES
 import app.revanced.patches.shared.layout.theme.PURE_BLACK_COLOR
 import app.revanced.patches.shared.layout.theme.WHITE_COLOR
 import app.revanced.patches.shared.layout.theme.baseThemePatch
-import app.revanced.patches.shared.layout.theme.editThemeColors
+import app.revanced.patches.shared.layout.theme.baseThemeResourcePatch
 import app.revanced.patches.shared.layout.theme.lithoColorHookPatch
 import app.revanced.patches.shared.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -56,16 +56,15 @@ val themePatch = baseThemePatch(
             addResourcesPatch,
             lithoColorHookPatch,
             seekbarColorPatch,
+            baseThemeResourcePatch(
+                darkReplacementColor = { darkThemeBackgroundColor!! },
+                lightReplacementColor = { lightThemeBackgroundColor!! }
+            ),
             resourcePatch {
                 dependsOn(resourceMappingPatch)
 
                 execute {
                     overrideThemeColors(lightThemeBackgroundColor!!, darkThemeBackgroundColor!!)
-
-                    // Edit theme colors via resources.
-                    document("res/values/colors.xml").use { document ->
-                        editThemeColors(document, darkThemeBackgroundColor!!, lightThemeBackgroundColor!!)
-                    }
 
                     fun addColorResource(
                         resourceFile: String,
