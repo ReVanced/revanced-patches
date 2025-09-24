@@ -7,7 +7,7 @@ import app.revanced.patches.shared.layout.theme.DARK_THEME_COLOR_VALUES
 import app.revanced.patches.shared.layout.theme.PURE_BLACK_COLOR
 import app.revanced.patches.shared.layout.theme.baseThemePatch
 import app.revanced.patches.shared.layout.theme.baseThemeResourcePatch
-import app.revanced.patches.shared.layout.theme.themeDefaultDarkColorNames
+import app.revanced.patches.shared.layout.theme.THEME_DEFAULT_DARK_COLOR_NAMES
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/theme/ThemePatch;"
 
@@ -28,7 +28,7 @@ val musicThemeBytecodePatch = baseThemePatch(
             sharedExtensionPatch,
             addResourcesPatch,
             baseThemeResourcePatch(
-                darkColorNames = themeDefaultDarkColorNames + setOf(
+                darkColorNames = THEME_DEFAULT_DARK_COLOR_NAMES + setOf(
                     "yt_black_pure",
                     "yt_black_pure_opacity80",
                     "ytm_color_grey_12",
