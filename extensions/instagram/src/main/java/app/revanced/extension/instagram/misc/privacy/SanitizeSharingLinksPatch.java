@@ -1,22 +1,25 @@
 package app.revanced.extension.instagram.misc.privacy;
 
-import app.revanced.extension.shared.privacy.SanitizeSharingLink;
+import app.revanced.extension.shared.privacy.SanitizeSharingLinkPatch;
 
 import java.util.List;
 
 @SuppressWarnings("unused")
-public final class SanitizeSharingLinksPatch {
+public final class SanitizeSharingLinksPatch extends SanitizeSharingLinkPatch {
+    private static final SanitizeSharingLinksPatch INSTANCE = new SanitizeSharingLinksPatch();
+
     /**
      * Parameters that are considered undesirable and should be stripped away.
      */
-    private static final List<String> SHARE_PARAMETERS_TO_REMOVE = List.of(
-            "igsh"
-    );
+    @Override
+    protected List<String> getParametersToRemove() {
+        return List.of("igsh");
+    }
 
     /**
      * Injection point.
      */
     public static String sanitizeSharingLink(String url) {
-        return SanitizeSharingLink.sanitizeUrl(url, SHARE_PARAMETERS_TO_REMOVE);
+        return INSTANCE.sanitizeUrl(url);
     }
 }

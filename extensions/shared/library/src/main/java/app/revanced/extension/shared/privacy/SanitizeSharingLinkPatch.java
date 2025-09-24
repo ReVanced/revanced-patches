@@ -5,14 +5,16 @@ import app.revanced.extension.shared.Logger;
 
 import java.util.List;
 
-public class SanitizeSharingLink {
-    public static String sanitizeUrl(String url, List<String> shareParameterToRemove) {
+public abstract class SanitizeSharingLinkPatch {
+    protected abstract List<String> getParametersToRemove();
+
+    public String sanitizeUrl(String url) {
         try {
             Uri uri = Uri.parse(url);
             Uri.Builder builder = uri.buildUpon().clearQuery();
 
             for (String paramName : uri.getQueryParameterNames()) {
-                if (!shareParameterToRemove.contains(paramName)) {
+                if (!getParametersToRemove().contains(paramName)) {
                     for (String value : uri.getQueryParameters(paramName)) {
                         builder.appendQueryParameter(paramName, value);
                     }
