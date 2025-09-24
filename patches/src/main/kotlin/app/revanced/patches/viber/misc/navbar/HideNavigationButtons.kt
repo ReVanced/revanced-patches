@@ -23,7 +23,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
     }
 
     execute {
-        // Items that won't be forcefully hidden
+        // Items that won't be forcefully hidden.
         val allowedItems = hideOptions.filter { (option, enabled) -> enabled.value != true }
 
         if (allowedItems.isEmpty()) {
