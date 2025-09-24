@@ -1458,10 +1458,6 @@ public final class app/revanced/patches/youtube/layout/hide/time/HideTimestampPa
 	public static final fun getHideTimestampPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/viewcount/HdeViewCountPatchKt {
-	public static final fun getHideViewCountPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/youtube/layout/miniplayer/MiniplayerPatchKt {
 	public static final fun getMiniplayerPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

@@ -113,7 +113,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SURVEYS = new BooleanSetting("revanced_hide_surveys", TRUE);
     public static final BooleanSetting HIDE_TICKET_SHELF = new BooleanSetting("revanced_hide_ticket_shelf", FALSE);
     public static final BooleanSetting HIDE_VIDEO_RECOMMENDATION_LABELS = new BooleanSetting("revanced_hide_video_recommendation_labels", TRUE);
-    public static final BooleanSetting HIDE_VIEW_COUNT = new BooleanSetting("revanced_hide_view_count", FALSE);
+    public static final BooleanSetting HIDE_VIEW_COUNT = new BooleanSetting("revanced_hide_view_count", FALSE, false, Utils.isTablet() ? "revanced_hide_view_count_user_dialog_message" : null);
 
     // Alternative thumbnails
     public static final EnumSetting<ThumbnailOption> ALT_THUMBNAIL_HOME = new EnumSetting<>("revanced_alt_thumbnail_home", ThumbnailOption.ORIGINAL);

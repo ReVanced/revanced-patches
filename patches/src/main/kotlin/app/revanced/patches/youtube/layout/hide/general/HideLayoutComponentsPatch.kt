@@ -36,6 +36,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 
 var expandButtonDownId = -1L
     private set
@@ -110,6 +111,9 @@ private const val CUSTOM_FILTER_CLASS_NAME =
     "Lapp/revanced/extension/youtube/patches/components/CustomFilter;"
 private const val KEYWORD_FILTER_CLASS_NAME =
     "Lapp/revanced/extension/youtube/patches/components/KeywordContentFilter;"
+private const val HIDE_VIEW_COUNT_CLASS_NAME = 
+    "Lapp/revanced/extension/youtube/patches/HideViewCountPatch;"
+
 
 val hideLayoutComponentsPatch = bytecodePatch(
     name = "Hide layout components",
@@ -239,6 +243,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_surveys"),
             SwitchPreference("revanced_hide_ticket_shelf"),
             SwitchPreference("revanced_hide_video_recommendation_labels"),
+            SwitchPreference("revanced_hide_view_count"),
             SwitchPreference("revanced_hide_doodles"),
         )
 
@@ -393,6 +398,40 @@ val hideLayoutComponentsPatch = bytecodePatch(
                             "setDoodleDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V"
                 )
             }
+        }
+
+        // endregion
+
+
+        // region hide view count
+
+        hideViewCountFingerprint.method.apply { 
+
+            val startIndex = hideViewCountFingerprint.patternMatch!!.startIndex
+            var returnStringRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
+
+            // Find the instruction where the text dimension is retrieved.
+            val injectPointRegisterIndex = indexOfFirstInstructionReversedOrThrow {
+                opcode == Opcode.INVOKE_STATIC &&
+                getReference<MethodReference>()?.let { methodRef ->
+                    methodRef.definingClass == "Landroid/util/TypedValue;" &&
+                    methodRef.name == "applyDimension" &&
+                    methodRef.parameterTypes == listOf("I", "F", "Landroid/util/DisplayMetrics;") &&
+                    methodRef.returnType == "F"
+                } == true 
+            }
+            // A float value is passed which is used to determine subtitle text size.
+            val floatDimensionRegister = getInstruction<OneRegisterInstruction>(injectPointRegisterIndex+1).registerA
+
+            var stringAndroidClass = "Landroid/text/SpannableString;"
+
+            addInstructions(
+                injectPointRegisterIndex - 1,
+                """
+                    invoke-static { v$returnStringRegister, v$floatDimensionRegister }, $HIDE_VIEW_COUNT_CLASS_NAME->hideViewCount(${stringAndroidClass}F)$stringAndroidClass
+                    move-result-object v$returnStringRegister
+                """
+            )
         }
 
         // endregion
