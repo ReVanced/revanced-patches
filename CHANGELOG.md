@@ -1,3 +1,10 @@
+# [5.41.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.13...v5.41.0-dev.14) (2025-09-24)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add "Hide Emoji and Timestamp buttons" setting ([#5992](https://github.com/ReVanced/revanced-patches/issues/5992)) ([2b555f6](https://github.com/ReVanced/revanced-patches/commit/2b555f67f07e0de5703c630888ce2fbba3145192))
+
 # [5.41.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.12...v5.41.0-dev.13) (2025-09-24)
 
 
