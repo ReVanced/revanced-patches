@@ -20,7 +20,7 @@ public class SanitizeSharingLink {
             }
 
             String sanitizedUrl = builder.build().toString();
-            Logger.printInfo(() -> "Sanitized url " + url + " to " + sanitizedUrl);
+            Logger.printInfo(() -> "Sanitized url: " + url + " to: " + sanitizedUrl);
             return sanitizedUrl;
         } catch (Exception ex) {
             Logger.printException(() -> "sanitizeUrl failure with " + url, ex);

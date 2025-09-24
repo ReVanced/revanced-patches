@@ -14,7 +14,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 @Suppress("unused")
 val sanitizeSharingLinksPatch = bytecodePatch(
     name = "Sanitize sharing links",
-    description = "Removes the tracking query parameters from links before they are shared.",
+    description = "Removes the tracking query parameters from shared links.",
 ) {
     compatibleWith("com.instagram.android")
 

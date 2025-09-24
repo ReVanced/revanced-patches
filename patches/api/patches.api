@@ -808,10 +808,6 @@ public final class app/revanced/patches/shared/misc/pairip/license/DisableLicens
 	public static final fun getDisableLicenseCheckPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/shared/misc/privacy/SanitizeSharingLinkPatchKt {
-	public static final fun sanitizeSharingLinkPatch (Lapp/revanced/patcher/Fingerprint;II)Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/shared/misc/settings/SettingsPatchKt {
 	public static final fun overrideThemeColors (Ljava/lang/String;Ljava/lang/String;)V
 	public static final fun settingsPatch (Ljava/util/List;Ljava/util/Set;)Lapp/revanced/patcher/patch/ResourcePatch;
