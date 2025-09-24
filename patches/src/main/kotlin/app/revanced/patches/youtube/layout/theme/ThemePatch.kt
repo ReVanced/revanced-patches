@@ -57,8 +57,8 @@ val themePatch = baseThemePatch(
             lithoColorHookPatch,
             seekbarColorPatch,
             baseThemeResourcePatch(
-                darkReplacementColor = { darkThemeBackgroundColor!! },
-                lightReplacementColor = { lightThemeBackgroundColor!! }
+                darkColorReplacement = { darkThemeBackgroundColor!! },
+                lightColorReplacement = { lightThemeBackgroundColor!! }
             ),
             resourcePatch {
                 dependsOn(resourceMappingPatch)

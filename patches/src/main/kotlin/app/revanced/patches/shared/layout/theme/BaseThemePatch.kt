@@ -64,20 +64,19 @@ internal fun baseThemePatch(
 
 internal fun baseThemeResourcePatch(
     darkColorNames: Set<String> = themeDefaultDarkColorNames,
-    darkReplacementColor: () -> String,
+    darkColorReplacement: () -> String,
     lightColorNames: Set<String> = themeDefaultLightColorNames,
-    lightReplacementColor: (() -> String)? = null
+    lightColorReplacement: (() -> String)? = null
 ) = resourcePatch {
-
     execute {
         document("res/values/colors.xml").use { document ->
             val resourcesNode = document.getElementsByTagName("resources").item(0)
             resourcesNode.childElementsSequence().forEach { node ->
                 val name = node.getAttribute("name")
                 when {
-                    name in lightColorNames -> node.textContent = darkReplacementColor()
-                    lightReplacementColor != null && name in darkColorNames
-                        -> node.textContent = lightReplacementColor()
+                    name in lightColorNames -> node.textContent = darkColorReplacement()
+                    lightColorReplacement != null && name in darkColorNames
+                        -> node.textContent = lightColorReplacement()
                 }
             }
         }

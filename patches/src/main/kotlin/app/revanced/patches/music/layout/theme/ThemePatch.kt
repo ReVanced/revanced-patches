@@ -35,7 +35,7 @@ val musicThemeBytecodePatch = baseThemePatch(
                     "ytm_color_grey_12",
                     "material_grey_800"
                 ),
-                darkReplacementColor = { darkThemeBackgroundColor!! }
+                darkColorReplacement = { darkThemeBackgroundColor!! }
             )
         )
 
