@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">แก้ไขเมื่อ %s วันที่แล้ว</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">วันที่สร้าง APK เสียหาย</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">คำเตือน</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">ประวัติการรับชมของคุณไม่ได้ถูกบันทึก&lt;br&gt;&lt;br&gt;สาเหตุที่เป็นไปได้มากที่สุดคือตัวบล็อกโฆษณา DNS หรือพร็อกซีเครือข่าย&lt;br&gt;&lt;br&gt;เพื่อแก้ไขปัญหานี้ ให้เพิ่ม &lt;b&gt;s.youtube.com&lt;/b&gt; ในรายการที่อนุญาต หรือปิดตัวบล็อกโฆษณา DNS และพร็อกซีทั้งหมด</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">อย่าแสดงอีก</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">การตั้งค่า</string>
   <string name="revanced_settings_confirm_user_dialog_title">คุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อ</string>
@@ -1445,11 +1450,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_announcements_connection_failed">การเชื่อมต่อกับผู้ให้บริการการประกาศล้มเหลว</string>
   <string name="revanced_announcements_dialog_dismiss">ปิด</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">คำเตือน</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">ประวัติการรับชมของคุณไม่ได้ถูกบันทึก&lt;br&gt;&lt;br&gt;สาเหตุที่เป็นไปได้มากที่สุดคือตัวบล็อกโฆษณา DNS หรือพร็อกซีเครือข่าย&lt;br&gt;&lt;br&gt;เพื่อแก้ไขปัญหานี้ ให้เพิ่ม &lt;b&gt;s.youtube.com&lt;/b&gt; ในรายการที่อนุญาต หรือปิดตัวบล็อกโฆษณา DNS และพร็อกซีทั้งหมด</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">อย่าแสดงอีก</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">เปิดใช้งานการเล่นวิดีโอซ้ำ</string>
   <string name="revanced_loop_video_summary_on">วิดีโอจะเล่นซ้ำ</string>
@@ -1564,10 +1564,22 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_playback_speed_default_title">ความเร็วในการเล่นเริ่มต้น</string>
   <string name="revanced_remember_playback_speed_toast">เปลี่ยนความเร็วเริ่มต้นเป็น: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">ปิดใช้งานวิดีโอ HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">ปิดใช้งานวิดีโอ HDR</string>
   <string name="revanced_disable_hdr_video_summary_off">เปิดใช้งานวิดีโอ HDR</string>
+  <string name="revanced_force_avc_codec_title">บังคับ AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">ตัวแปลงสัญญาณวิดีโอถูกบังคับเป็น AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">ตัวแปลงสัญญาณวิดีโอจะถูกกำหนดโดยอัตโนมัติ</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"ประโยชน์:
+• ช่วยยืดอายุการใช้งานแบตเตอรี่
+• สามารถกู้คืนความละเอียดวิดีโอที่หายไปบนอุปกรณ์รุ่นเก่าได้
+
+ข้อจำกัด:
+• ความละเอียดสูงสุดคือ 1080p
+• การเล่นวิดีโอจะใช้ข้อมูลอินเทอร์เน็ตมากกว่า VP9 หรือ AV1
+• วิดีโอ HDR จะไม่ใช้ AVC
+• อุปกรณ์บางรุ่นไม่สามารถบังคับใช้ AVC ได้"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">แสดงเมนูคุณภาพวิดีโอขั้นสูง</string>

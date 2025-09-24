@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Vygenerována před %s dny</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Datum sestavení souboru APK je poškozeno</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Varování</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Vaše historie sledování není ukládána.&lt;br&gt;&lt;br&gt;Příčinou je s největší pravděpodobností DNS blokátor reklam nebo síťový proxy server.&lt;br&gt;&lt;br&gt;Chcete-li to opravit, přidejte&lt;b&gt;s.youtube.com&lt;/b&gt; na whitelist nebo vypněte všechny DNS blokátory a proxy servery.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Už nezobrazovat</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Nastavení</string>
   <string name="revanced_settings_confirm_user_dialog_title">Opravdu chcete pokračovat?</string>
@@ -1443,11 +1448,6 @@ Klepnutím sem se dozvíte více o DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Nepodařilo se připojit k poskytovateli oznámení</string>
   <string name="revanced_announcements_dialog_dismiss">Zrušit</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Varování</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Vaše historie sledování není ukládána.&lt;br&gt;&lt;br&gt;Příčinou je s největší pravděpodobností DNS blokátor reklam nebo síťový proxy server.&lt;br&gt;&lt;br&gt;Chcete-li to opravit, přidejte&lt;b&gt;s.youtube.com&lt;/b&gt; na whitelist nebo vypněte všechny DNS blokátory a proxy servery.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Už nezobrazovat</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Povolit smyčku videa</string>
   <string name="revanced_loop_video_summary_on">Video se bude přehrávat ve smyčce</string>
@@ -1562,10 +1562,22 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_playback_speed_default_title">Výchozí rychlost přehrávání</string>
   <string name="revanced_remember_playback_speed_toast">Výchozí rychlost změněna na: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Vypnout HDR video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video je vypnuté.</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video je zapnuté.</string>
+  <string name="revanced_force_avc_codec_title">Vynutit AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Video kodek je vynucen na AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Video kodek je určen automaticky</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Výhody:
+• Může zlepšit životnost baterie
+• Může obnovit chybějící rozlišení videa na starším zařízení
+
+Omezení:
+• Maximální rozlišení je 1080p
+• Přehrávání videa spotřebuje více internetových dat než VP9 nebo AV1
+• HDR videa nebudou používat AVC
+• Některá zařízení nemohou vynutit AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Zobrazit rozšířené menu kvality videa</string>

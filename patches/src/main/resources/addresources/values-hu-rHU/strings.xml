@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s napja patchelve</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Az APK build dátuma sérült</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Figyelmeztetés</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">A megtekintési előzmények mentése nem történik meg.&lt;br&gt;&lt;br&gt;Ezt valószínűleg egy DNS-hirdetésblokkoló vagy hálózati proxy okozza.&lt;br&gt;&lt;br&gt;A probléma megoldásához vegye fel az engedélyezőlistára az &lt;b&gt;s.youtube.com&lt;/b&gt; domaint vagy kapcsolja ki az összes DNS-blokkolót és proxyt.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne jelenjen meg többet</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Beállítások</string>
   <string name="revanced_settings_confirm_user_dialog_title">Biztosan folytatni szeretné?</string>
@@ -1440,11 +1445,6 @@ Ha engedélyezve van, akkor a videók URL-jeit elküldjük az API kiszolgálóna
   <string name="revanced_announcements_connection_failed">Nem sikerült csatlakozni a közlemény szolgáltatóhoz</string>
   <string name="revanced_announcements_dialog_dismiss">Elvetés</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Figyelmeztetés</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">A megtekintési előzmények mentése nem történik meg.&lt;br&gt;&lt;br&gt;Ezt valószínűleg egy DNS-hirdetésblokkoló vagy hálózati proxy okozza.&lt;br&gt;&lt;br&gt;A probléma megoldásához vegye fel az engedélyezőlistára az &lt;b&gt;s.youtube.com&lt;/b&gt; domaint vagy kapcsolja ki az összes DNS-blokkolót és proxyt.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne jelenjen meg többet</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Hurokismétlés engedélyezése</string>
   <string name="revanced_loop_video_summary_on">A videó ismétlődni fog</string>
@@ -1559,10 +1559,22 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_playback_speed_default_title">Alapértelmezett lejátszási sebesség</string>
   <string name="revanced_remember_playback_speed_toast">Alapértelmezett sebesség módosítva: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Az HDR videó letiltása</string>
   <string name="revanced_disable_hdr_video_summary_on">Az HDR videó le van tiltva</string>
   <string name="revanced_disable_hdr_video_summary_off">Az HDR videó engedélyezve van</string>
+  <string name="revanced_force_avc_codec_title">AVC kényszerítése (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">A videó kodek kényszerítve van AVC-re (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">A videó kodek automatikusan meghatározásra kerül</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Előnyök:
+• Javíthatja az akkumulátor élettartamát
+• Visszaállíthatja a hiányzó videófelbontásokat régebbi eszközökön
+
+Korlátozások:
+• A maximális felbontás 1080p
+• A videólejátszás több internetadatot fog használni, mint a VP9 vagy az AV1
+• A HDR videók nem fogják használni az AVC-t
+• Néhány eszköz nem tudja kikényszeríteni az AVC-t"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Speciális videóminőség menü megjelenítése</string>

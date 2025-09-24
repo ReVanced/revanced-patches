@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">上次修补在 %s 天前</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 构建日期已损坏</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">您的观看历史记录未保存。&lt;br&gt;&lt;br&gt;这很可能是由 DNS 广告拦截器或网络代理造成的。&lt;br&gt;&lt;br&gt;要解决此问题，请将 &lt;b&gt;s.youtube.com&lt;/b&gt; 添加到白名单或关闭所有 DNS 广告拦截器和代理。</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再显示</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">设置</string>
   <string name="revanced_settings_confirm_user_dialog_title">确定要继续吗？</string>
@@ -1448,11 +1453,6 @@ Second \"item\" text"</string>
   <string name="revanced_announcements_connection_failed">无法连接到公告提供者</string>
   <string name="revanced_announcements_dialog_dismiss">忽略</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">您的观看历史记录未保存。&lt;br&gt;&lt;br&gt;这很可能是由 DNS 广告拦截器或网络代理造成的。&lt;br&gt;&lt;br&gt;要解决此问题，请将 &lt;b&gt;s.youtube.com&lt;/b&gt; 添加到白名单或关闭所有 DNS 广告拦截器和代理。</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再显示</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">启用循环播放视频</string>
   <string name="revanced_loop_video_summary_on">视频将循环播放</string>
@@ -1567,10 +1567,22 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_default_title">默认播放速度</string>
   <string name="revanced_remember_playback_speed_toast">已更改默认速度为：%s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">禁用 HDR 视频</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR 视频已禁用</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR 视频已启用</string>
+  <string name="revanced_force_avc_codec_title">强制使用 AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">视频编解码器被强制为 AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">视频编解码器自动确定</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"优点：
+• 可延长电池续航时间
+• 可恢复旧设备上缺失的视频分辨率
+
+限制：
+• 最大分辨率为 1080p
+• 视频播放将比 VP9 或 AV1 消耗更多互联网数据
+• HDR 视频将不使用 AVC
+• 某些设备无法强制使用 AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">显示高级视频质量菜单</string>

@@ -31,6 +31,8 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s روز پیش وصله شده است</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">تاریخ ایجاد APK مخدوش شده است</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">تنظیمات</string>
   <string name="revanced_settings_reset">بازنشانی</string>
@@ -259,8 +261,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   </patch>
   <patch id="misc.loopvideo.button.loopVideoButtonPatch">
@@ -289,7 +289,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   </patch>

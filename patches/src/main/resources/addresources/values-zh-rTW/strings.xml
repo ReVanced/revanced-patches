@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">修補於 %s 天前</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 建構日期已損毀</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">你的觀看記錄未被儲存。&lt;br&gt;&lt;br&gt;這很可能是由於 DNS 廣告封鎖器或網路代理所導致。&lt;br&gt;&lt;br&gt;若要解決此問題，請將 &lt;b&gt;s.youtube.com&lt;/b&gt; 加入白名單，或關閉所有 DNS 封鎖器和代理。</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再顯示</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">設定</string>
   <string name="revanced_settings_confirm_user_dialog_title">你確定要繼續嗎？</string>
@@ -753,7 +758,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_title">隱藏「以 VR 模式觀看」</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">已隱藏「以 VR 模式觀看」</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">已顯示「以 VR 模式觀看」</string>
-  <string name="revanced_hide_player_flyout_video_quality_title">隱藏影片畫質選單  </string>
+  <string name="revanced_hide_player_flyout_video_quality_title">隱藏影片畫質選單</string>
   <string name="revanced_hide_player_flyout_video_quality_summary_on">影片畫質選單已隱藏</string>
   <string name="revanced_hide_player_flyout_video_quality_summary_off">影片畫質選單已顯示</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">隱藏影片畫質選單頁尾</string>
@@ -1453,11 +1458,6 @@ Second \"item\" text"</string>
   <string name="revanced_announcements_connection_failed">無法連線到公告提供者</string>
   <string name="revanced_announcements_dialog_dismiss">忽略</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">你的觀看記錄未被儲存。&lt;br&gt;&lt;br&gt;這很可能是由於 DNS 廣告封鎖器或網路代理所導致。&lt;br&gt;&lt;br&gt;若要解決此問題，請將 &lt;b&gt;s.youtube.com&lt;/b&gt; 加入白名單，或關閉所有 DNS 封鎖器和代理。</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再顯示</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">啟用循環播放影片</string>
   <string name="revanced_loop_video_summary_on">影片將循環播放</string>
@@ -1572,10 +1572,13 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_default_title">預設播放速度</string>
   <string name="revanced_remember_playback_speed_toast">已將預設速度變更為：%s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">停用 HDR 影片</string>
   <string name="revanced_disable_hdr_video_summary_on">已停用 HDR 影片</string>
   <string name="revanced_disable_hdr_video_summary_off">已啟用 HDR 影片</string>
+  <string name="revanced_force_avc_codec_title">強制使用 AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">視訊編解碼器強制使用 AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">視訊編解碼器將自動決定</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">顯示進階影片畫質選單</string>

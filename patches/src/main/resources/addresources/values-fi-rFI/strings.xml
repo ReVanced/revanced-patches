@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Paikattu %s päivää sitten</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK käännöspäivä on vioittunut</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Varoitus</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Kellon historiaa ei tallenneta.&lt;br&gt;&lt;br&gt;Tämä todennäköisesti johtuu DNS mainosten estäjä tai verkkovälityspalvelin.&lt;br&gt;&lt;br&gt;Korjataksesi tämän, valkoiselle listalle &lt;b&gt;s.youtube.com&lt;/b&gt; tai poistaaksesi kaikki DNS-estäjät ja -profiilit.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Älä näytä uudelleen</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Asetukset</string>
   <string name="revanced_settings_confirm_user_dialog_title">Haluatko varmasti jatkaa?</string>
@@ -1443,11 +1448,6 @@ Napauta tästä saadaksesi lisätietoja DeArrowista"</string>
   <string name="revanced_announcements_connection_failed">Yhteyden muodostaminen tietodusten tarjoajaan epäonnistui</string>
   <string name="revanced_announcements_dialog_dismiss">Hylkää</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Varoitus</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Kellon historiaa ei tallenneta.&lt;br&gt;&lt;br&gt;Tämä todennäköisesti johtuu DNS mainosten estäjä tai verkkovälityspalvelin.&lt;br&gt;&lt;br&gt;Korjataksesi tämän, valkoiselle listalle &lt;b&gt;s.youtube.com&lt;/b&gt; tai poistaaksesi kaikki DNS-estäjät ja -profiilit.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Älä näytä uudelleen</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Ota videon toisto käyttöön</string>
   <string name="revanced_loop_video_summary_on">Video toistetaan</string>
@@ -1562,10 +1562,22 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_playback_speed_default_title">Toiston oletusnopeus</string>
   <string name="revanced_remember_playback_speed_toast">Toiston oletusnopeus muutettiin: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Poista HDR-video käytöstä</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video ei ole käytössä</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video on käytössä</string>
+  <string name="revanced_force_avc_codec_title">Pakota AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Videokoodekki pakotetaan käyttämään AVC:tä (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Videokoodekki määritetään automaattisesti</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Hyödyt:
+• Voi parantaa akunkestoa
+• Voi palauttaa puuttuvia videoresoluutioita vanhemmissa laitteissa
+
+Rajoitukset:
+• Suurin resoluutio on 1080p
+• Videon toisto kuluttaa enemmän mobiilidataa kuin VP9 tai AV1
+• HDR-videot eivät käytä AVC:tä
+• Jotkin laitteet eivät voi pakottaa AVC:tä käyttöön"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Näytä edistynyt videolaatuvalikko</string>
