@@ -46,8 +46,9 @@ internal val themeDefaultDarkColorNames = setOf(
 )
 
 internal fun baseThemePatch(
+    extensionClassDescriptor: String,
     block: BytecodePatchBuilder.() -> Unit = {},
-    executeBlock: BytecodePatchContext.() -> Unit = {},
+    executeBlock: BytecodePatchContext.() -> Unit = {}
 ) = bytecodePatch(
     name = "Theme",
     description = "Adds options for theming and applies a custom background theme " +
@@ -55,10 +56,12 @@ internal fun baseThemePatch(
 ) {
     block()
 
+    dependsOn(lithoColorHookPatch)
+
     execute {
         executeBlock()
 
-
+        lithoColorOverrideHook(extensionClassDescriptor, "getValue")
     }
 }
 

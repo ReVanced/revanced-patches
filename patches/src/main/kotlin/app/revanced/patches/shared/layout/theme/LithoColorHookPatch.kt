@@ -11,7 +11,6 @@ val lithoColorHookPatch = bytecodePatch(
 ) {
 
     execute {
-
         var insertionIndex = lithoThemeFingerprint.patternMatch!!.endIndex - 1
 
         lithoColorOverrideHook = { targetMethodClass, targetMethodName ->
@@ -20,7 +19,7 @@ val lithoColorHookPatch = bytecodePatch(
                 """
                     invoke-static { p1 }, $targetMethodClass->$targetMethodName(I)I
                     move-result p1
-                """,
+                """
             )
             insertionIndex += 2
         }

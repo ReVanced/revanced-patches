@@ -7,14 +7,14 @@ import app.revanced.patches.shared.layout.theme.DARK_THEME_COLOR_VALUES
 import app.revanced.patches.shared.layout.theme.PURE_BLACK_COLOR
 import app.revanced.patches.shared.layout.theme.baseThemePatch
 import app.revanced.patches.shared.layout.theme.baseThemeResourcePatch
-import app.revanced.patches.shared.layout.theme.lithoColorHookPatch
-import app.revanced.patches.shared.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.shared.layout.theme.themeDefaultDarkColorNames
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/theme/ThemePatch;"
 
 @Suppress("unused")
 val musicThemeBytecodePatch = baseThemePatch(
+    extensionClassDescriptor = EXTENSION_CLASS_DESCRIPTOR,
+
     block = {
         val darkThemeBackgroundColor by stringOption(
             key = "darkThemeBackgroundColor",
@@ -27,7 +27,6 @@ val musicThemeBytecodePatch = baseThemePatch(
         dependsOn(
             sharedExtensionPatch,
             addResourcesPatch,
-            lithoColorHookPatch,
             baseThemeResourcePatch(
                 darkColorNames = themeDefaultDarkColorNames + setOf(
                     "yt_black_pure",
@@ -45,8 +44,5 @@ val musicThemeBytecodePatch = baseThemePatch(
                 "8.10.52"
             )
         )
-    },
-    executeBlock = {
-        lithoColorOverrideHook(EXTENSION_CLASS_DESCRIPTOR, "getValue")
     }
 )

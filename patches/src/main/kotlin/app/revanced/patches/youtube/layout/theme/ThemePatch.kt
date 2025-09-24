@@ -11,8 +11,6 @@ import app.revanced.patches.shared.layout.theme.PURE_BLACK_COLOR
 import app.revanced.patches.shared.layout.theme.WHITE_COLOR
 import app.revanced.patches.shared.layout.theme.baseThemePatch
 import app.revanced.patches.shared.layout.theme.baseThemeResourcePatch
-import app.revanced.patches.shared.layout.theme.lithoColorHookPatch
-import app.revanced.patches.shared.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.overrideThemeColors
 import app.revanced.patches.shared.misc.settings.preference.InputType
@@ -33,6 +31,8 @@ import org.w3c.dom.Element
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/theme/ThemePatch;"
 
 val themePatch = baseThemePatch(
+    extensionClassDescriptor = EXTENSION_CLASS_DESCRIPTOR,
+
     block = {
         val darkThemeBackgroundColor by stringOption(
             key = "darkThemeBackgroundColor",
@@ -50,92 +50,106 @@ val themePatch = baseThemePatch(
             description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
         )
 
+        val themeResourcePatch = resourcePatch {
+            dependsOn(resourceMappingPatch)
+
+            execute {
+                overrideThemeColors(lightThemeBackgroundColor!!, darkThemeBackgroundColor!!)
+
+                fun addColorResource(
+                    resourceFile: String,
+                    colorName: String,
+                    colorValue: String,
+                ) {
+                    document(resourceFile).use { document ->
+                        val resourcesNode =
+                            document.getElementsByTagName("resources").item(0) as Element
+
+                        resourcesNode.appendChild(
+                            document.createElement("color").apply {
+                                setAttribute("name", colorName)
+                                setAttribute("category", "color")
+                                textContent = colorValue
+                            }
+                        )
+                    }
+                }
+
+                // Add a dynamic background color to the colors.xml file.
+                val splashBackgroundColorKey = "revanced_splash_background_color"
+                addColorResource(
+                    "res/values/colors.xml",
+                    splashBackgroundColorKey,
+                    lightThemeBackgroundColor!!
+                )
+                addColorResource(
+                    "res/values-night/colors.xml",
+                    splashBackgroundColorKey,
+                    darkThemeBackgroundColor!!
+                )
+
+                // Edit splash screen files and change the background color,
+                arrayOf(
+                    "res/drawable/quantum_launchscreen_youtube.xml",
+                    "res/drawable-sw600dp/quantum_launchscreen_youtube.xml",
+                ).forEach editSplashScreen@{ resourceFileName ->
+                    document(resourceFileName).use { document ->
+                        document.getElementsByTagName("layer-list").item(0)
+                            .forEachChildElement { node ->
+                                if (node.hasAttribute("android:drawable")) {
+                                    node.setAttribute(
+                                        "android:drawable",
+                                        "@color/$splashBackgroundColorKey"
+                                    )
+                                    return@editSplashScreen
+                                }
+                            }
+
+                        throw PatchException("Failed to modify launch screen")
+                    }
+                }
+
+                // Fix the splash screen dark mode background color.
+                // In 19.32+ the dark mode splash screen is white and fades to black.
+                // Maybe it's a bug in YT, or maybe it intentionally. Who knows.
+                document("res/values-night-v27/styles.xml").use { document ->
+                    // Create a night mode specific override for the splash screen background.
+                    val style = document.createElement("style")
+                    style.setAttribute("name", "Theme.YouTube.Home")
+                    style.setAttribute("parent", "@style/Base.V27.Theme.YouTube.Home")
+
+                    // Fix status and navigation bar showing white on some Android devices,
+                    // such as SDK 28 Android 10 medium tablet.
+                    val colorSplashBackgroundColor = "@color/$splashBackgroundColorKey"
+                    arrayOf(
+                        "android:navigationBarColor" to colorSplashBackgroundColor,
+                        "android:windowBackground" to colorSplashBackgroundColor,
+                        "android:colorBackground" to colorSplashBackgroundColor,
+                        "colorPrimaryDark" to colorSplashBackgroundColor,
+                        "android:windowLightStatusBar" to "false",
+                    ).forEach { (name, value) ->
+                        val styleItem = document.createElement("item")
+                        styleItem.setAttribute("name", name)
+                        styleItem.textContent = value
+                        style.appendChild(styleItem)
+                    }
+
+                    val resourcesNode =
+                        document.getElementsByTagName("resources").item(0) as Element
+                    resourcesNode.appendChild(style)
+                }
+            }
+        }
         dependsOn(
             sharedExtensionPatch,
             settingsPatch,
             addResourcesPatch,
-            lithoColorHookPatch,
             seekbarColorPatch,
             baseThemeResourcePatch(
                 darkColorReplacement = { darkThemeBackgroundColor!! },
                 lightColorReplacement = { lightThemeBackgroundColor!! }
             ),
-            resourcePatch {
-                dependsOn(resourceMappingPatch)
-
-                execute {
-                    overrideThemeColors(lightThemeBackgroundColor!!, darkThemeBackgroundColor!!)
-
-                    fun addColorResource(
-                        resourceFile: String,
-                        colorName: String,
-                        colorValue: String,
-                    ) {
-                        document(resourceFile).use { document ->
-                            val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
-
-                            resourcesNode.appendChild(
-                                document.createElement("color").apply {
-                                    setAttribute("name", colorName)
-                                    setAttribute("category", "color")
-                                    textContent = colorValue
-                                }
-                            )
-                        }
-                    }
-
-                    // Add a dynamic background color to the colors.xml file.
-                    val splashBackgroundColorKey = "revanced_splash_background_color"
-                    addColorResource("res/values/colors.xml", splashBackgroundColorKey, lightThemeBackgroundColor!!)
-                    addColorResource("res/values-night/colors.xml", splashBackgroundColorKey, darkThemeBackgroundColor!!)
-
-                    // Edit splash screen files and change the background color,
-                    arrayOf(
-                        "res/drawable/quantum_launchscreen_youtube.xml",
-                        "res/drawable-sw600dp/quantum_launchscreen_youtube.xml",
-                    ).forEach editSplashScreen@{ resourceFileName ->
-                        document(resourceFileName).use { document ->
-                            document.getElementsByTagName("layer-list").item(0).forEachChildElement { node ->
-                                if (node.hasAttribute("android:drawable")) {
-                                    node.setAttribute("android:drawable", "@color/$splashBackgroundColorKey")
-                                    return@editSplashScreen
-                                }
-                            }
-
-                            throw PatchException("Failed to modify launch screen")
-                        }
-                    }
-
-                    // Fix the splash screen dark mode background color.
-                    // In 19.32+ the dark mode splash screen is white and fades to black.
-                    // Maybe it's a bug in YT, or maybe it intentionally. Who knows.
-                    document("res/values-night-v27/styles.xml").use { document ->
-                        // Create a night mode specific override for the splash screen background.
-                        val style = document.createElement("style")
-                        style.setAttribute("name", "Theme.YouTube.Home")
-                        style.setAttribute("parent", "@style/Base.V27.Theme.YouTube.Home")
-
-                        // Fix status and navigation bar showing white on some Android devices,
-                        // such as SDK 28 Android 10 medium tablet.
-                        val colorSplashBackgroundColor = "@color/$splashBackgroundColorKey"
-                        arrayOf(
-                            "android:navigationBarColor" to colorSplashBackgroundColor,
-                            "android:windowBackground" to colorSplashBackgroundColor,
-                            "android:colorBackground" to colorSplashBackgroundColor,
-                            "colorPrimaryDark" to colorSplashBackgroundColor,
-                            "android:windowLightStatusBar" to "false",
-                        ).forEach { (name, value) ->
-                            val styleItem = document.createElement("item")
-                            styleItem.setAttribute("name", name)
-                            styleItem.textContent = value
-                            style.appendChild(styleItem)
-                        }
-
-                        val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
-                        resourcesNode.appendChild(style)
-                    }
-                }
-            }
+            themeResourcePatch
         )
 
         compatibleWith(
@@ -147,6 +161,7 @@ val themePatch = baseThemePatch(
             )
         )
     },
+
     executeBlock = {
         addResources("youtube", "layout.theme.themePatch")
 
@@ -156,12 +171,16 @@ val themePatch = baseThemePatch(
 
         val preferences = mutableSetOf(
             SwitchPreference("revanced_seekbar_custom_color"),
-            TextPreference("revanced_seekbar_custom_color_primary",
+            TextPreference(
+                "revanced_seekbar_custom_color_primary",
                 tag = "app.revanced.extension.shared.settings.preference.ColorPickerPreference",
-                inputType = InputType.TEXT_CAP_CHARACTERS),
-            TextPreference("revanced_seekbar_custom_color_accent",
+                inputType = InputType.TEXT_CAP_CHARACTERS
+            ),
+            TextPreference(
+                "revanced_seekbar_custom_color_accent",
                 tag = "app.revanced.extension.shared.settings.preference.ColorPickerPreference",
-                inputType = InputType.TEXT_CAP_CHARACTERS)
+                inputType = InputType.TEXT_CAP_CHARACTERS
+            )
         )
 
         PreferenceScreen.SEEKBAR.addPreferences(
@@ -191,7 +210,5 @@ val themePatch = baseThemePatch(
                 "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I"
             )
         }
-
-        lithoColorOverrideHook(EXTENSION_CLASS_DESCRIPTOR, "getValue")
     }
 )
