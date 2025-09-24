@@ -4,10 +4,14 @@ import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.util.childElementsSequence
+import java.util.logging.Logger
 
 internal const val PURE_BLACK_COLOR = "@android:color/black"
 internal const val WHITE_COLOR = "@android:color/white"
+internal const val THEME_COLOR_OPTION_DESCRIPTION = "Can be a hex color (#AARRGGBB or #RRGGBB) or a color resource reference."
 
 internal val DARK_THEME_COLOR_VALUES = mapOf(
     "Pure black" to PURE_BLACK_COLOR,
@@ -45,6 +49,34 @@ internal val THEME_DEFAULT_LIGHT_COLOR_NAMES = setOf(
     "yt_white2", "yt_white3", "yt_white4"
 )
 
+/**
+ * @param colorString #AARRGGBB #RRGGBB, or an Android color resource name.
+ */
+internal fun validateColorName(colorString: String): Boolean {
+    if (colorString.startsWith("#")) {
+        // Check for #RRGGBB (7 characters) or #AARRGGBB (9 characters)
+        val hex = colorString.substring(1)
+        if (hex.length == 6 || hex.length == 8) {
+            return hex.all { it.isDigit() || it.lowercaseChar() in 'a'..'f' }
+        }
+        return false
+    }
+
+    if (colorString.startsWith("@android:color/")) {
+        // Cannot easily validate Android built-in colors, so assume it's a correct color.
+        return true
+    }
+
+    val colorNamePrefix = "@color/"
+    val name = if (colorString.startsWith(colorNamePrefix)) {
+        colorString.substring(colorNamePrefix.length)
+    } else {
+        colorNamePrefix
+    }
+
+    return resourceMappings.find { it.type == "color" && it.name == name } != null
+}
+
 internal fun baseThemePatch(
     extensionClassDescriptor: String,
     block: BytecodePatchBuilder.() -> Unit = {},
@@ -71,11 +103,27 @@ internal fun baseThemeResourcePatch(
     lightColorNames: Set<String> = THEME_DEFAULT_LIGHT_COLOR_NAMES,
     lightColorReplacement: (() -> String)? = null
 ) = resourcePatch {
-    execute {
-        val darkColor = darkColorReplacement()
-        val lightColor = lightColorReplacement?.invoke()
 
-        // TODO: Try to validate the color options are valid.
+    dependsOn(resourceMappingPatch)
+
+    execute {
+        fun getLogger() = Logger.getLogger(this::class.java.name)
+
+        // Cannot use an option validator, because resources
+        // have not been decoded when validator is called.
+        val darkColor = darkColorReplacement()
+        if (!validateColorName(darkColor)) {
+            return@execute getLogger().severe(
+                "Invalid dark theme color: $darkColor"
+            )
+        }
+
+        val lightColor = lightColorReplacement?.invoke()
+        if (lightColor != null && !validateColorName(lightColor)) {
+            return@execute getLogger().severe(
+                "Invalid light theme color: $lightColor"
+            )
+        }
 
         document("res/values/colors.xml").use { document ->
             val resourcesNode = document.getElementsByTagName("resources").item(0)

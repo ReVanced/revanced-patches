@@ -8,9 +8,11 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.layout.theme.DARK_THEME_COLOR_VALUES
 import app.revanced.patches.shared.layout.theme.LIGHT_THEME_COLOR_VALUES
 import app.revanced.patches.shared.layout.theme.PURE_BLACK_COLOR
+import app.revanced.patches.shared.layout.theme.THEME_COLOR_OPTION_DESCRIPTION
 import app.revanced.patches.shared.layout.theme.WHITE_COLOR
 import app.revanced.patches.shared.layout.theme.baseThemePatch
 import app.revanced.patches.shared.layout.theme.baseThemeResourcePatch
+import app.revanced.patches.shared.layout.theme.validateColorName
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.overrideThemeColors
 import app.revanced.patches.shared.misc.settings.preference.InputType
@@ -27,6 +29,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.forEachChildElement
 import app.revanced.util.insertLiteralOverride
 import org.w3c.dom.Element
+import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/theme/ThemePatch;"
 
@@ -39,7 +42,7 @@ val themePatch = baseThemePatch(
             default = PURE_BLACK_COLOR,
             values = DARK_THEME_COLOR_VALUES,
             title = "Dark theme background color",
-            description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
+            description = THEME_COLOR_OPTION_DESCRIPTION
         )
 
         val lightThemeBackgroundColor by stringOption(
@@ -47,13 +50,24 @@ val themePatch = baseThemePatch(
             default = WHITE_COLOR,
             values = LIGHT_THEME_COLOR_VALUES,
             title = "Light theme background color",
-            description = "Can be a hex color (#AARRGGBB) or a color resource reference.",
+            description = THEME_COLOR_OPTION_DESCRIPTION
         )
 
         val themeResourcePatch = resourcePatch {
             dependsOn(resourceMappingPatch)
 
             execute {
+                fun getLogger() = Logger.getLogger(this::class.java.name)
+                if (!validateColorName(lightThemeBackgroundColor!!)) {
+                    return@execute getLogger().severe(
+                        "Invalid light theme color: $lightThemeBackgroundColor"
+                    )
+                }
+                if (!validateColorName(darkThemeBackgroundColor!!)) {
+                    return@execute getLogger().severe(
+                        "Invalid dark theme color: $darkThemeBackgroundColor"
+                    )
+                }
                 overrideThemeColors(lightThemeBackgroundColor!!, darkThemeBackgroundColor!!)
 
                 fun addColorResource(
