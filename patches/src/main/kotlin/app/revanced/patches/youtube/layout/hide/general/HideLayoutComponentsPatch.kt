@@ -111,9 +111,6 @@ private const val CUSTOM_FILTER_CLASS_NAME =
     "Lapp/revanced/extension/youtube/patches/components/CustomFilter;"
 private const val KEYWORD_FILTER_CLASS_NAME =
     "Lapp/revanced/extension/youtube/patches/components/KeywordContentFilter;"
-private const val HIDE_VIEW_COUNT_CLASS_NAME = 
-    "Lapp/revanced/extension/youtube/patches/HideViewCountPatch;"
-
 
 val hideLayoutComponentsPatch = bytecodePatch(
     name = "Hide layout components",
@@ -428,7 +425,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             addInstructions(
                 applyDimensionIndex - 1,
                 """
-                    invoke-static { v$returnStringRegister, v$floatDimensionRegister }, $HIDE_VIEW_COUNT_CLASS_NAME->modifyFeedSubtitleSpan(Landroid/text/SpannableString;F)Landroid/text/SpannableString;
+                    invoke-static { v$returnStringRegister, v$floatDimensionRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->modifyFeedSubtitleSpan(Landroid/text/SpannableString;F)Landroid/text/SpannableString;
                     move-result-object v$returnStringRegister
                 """
             )
