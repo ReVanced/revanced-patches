@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val lithoThemeFingerprint = fingerprint {
+internal val lithoOnBoundsChangeFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/graphics/Rect;")
