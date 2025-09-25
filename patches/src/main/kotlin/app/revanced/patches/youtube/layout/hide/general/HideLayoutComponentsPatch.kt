@@ -421,7 +421,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 } == true 
             }
             // A float value is passed which is used to determine subtitle text size.
-            val floatDimensionRegister = getInstruction<OneRegisterInstruction>(injectPointRegisterIndex+1).registerA
+            val floatDimensionRegister = getInstruction<OneRegisterInstruction>(injectPointRegisterIndex + 1).registerA
 
             var stringAndroidClass = "Landroid/text/SpannableString;"
 
