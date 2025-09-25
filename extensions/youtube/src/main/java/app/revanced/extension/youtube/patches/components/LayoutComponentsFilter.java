@@ -520,29 +520,34 @@ public final class LayoutComponentsFilter extends Filter {
                 String delimiter = " · ";
                 final int delimiterLength = delimiter.length();
 
-                // Find the first and second delimiter positions
-                final int delimiterIndex1 = TextUtils.indexOf(original, delimiter);
-                if (delimiterIndex1 < 0) return original;
+                // Index includes the starting delimiter.
+                final int viewCountStartIndex = TextUtils.indexOf(original, delimiter);
+                if (viewCountStartIndex < 0) {
+                    return original;
+                }
 
-                final int delimiterIndex2 = TextUtils.indexOf(original, delimiter,
-                        delimiterIndex1 + delimiterLength);
-                if (delimiterIndex2 < 0) return original;
+                final int uploadTimeStartIndex = TextUtils.indexOf(original, delimiter,
+                        viewCountStartIndex + delimiterLength);
+                if (uploadTimeStartIndex < 0) {
+                    return original;
+                }
 
                 // Ensure there is exactly 2 delimiters.
-                final int delimiterIndex3 = TextUtils.indexOf(original, delimiter,
-                        delimiterIndex2 + delimiterLength);
-                if (delimiterIndex3 >= 0) return original;
+                if (TextUtils.indexOf(original, delimiter,
+                        uploadTimeStartIndex + delimiterLength) >= 0) {
+                    return original;
+                }
 
                 // Make a mutable copy that keeps existing span styling.
                 SpannableStringBuilder builder = new SpannableStringBuilder(original);
 
                 // Remove the sections.
                 if (hideUploadTime) {
-                    builder.delete(delimiterIndex2, original.length());
+                    builder.delete(uploadTimeStartIndex, original.length());
                 }
 
                 if (hideViewCount) {
-                    builder.delete(delimiterIndex1, delimiterIndex2);
+                    builder.delete(viewCountStartIndex, uploadTimeStartIndex);
                 }
 
                 SpannableString replacement = new SpannableString(builder);
