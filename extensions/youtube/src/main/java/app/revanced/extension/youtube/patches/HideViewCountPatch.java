@@ -13,9 +13,11 @@ public final class HideViewCountPatch {
     /**
      * Injection point.
      */
-    public static SpannableString hideViewCount(SpannableString original, float truncationDimension) {
+    public static SpannableString modifyFeedSubtitleSpan(SpannableString original, float truncationDimension) {
         try {
-            if (!Settings.HIDE_VIEW_COUNT.get()) {
+            final boolean hideViewCount = Settings.HIDE_VIEW_COUNT.get();
+            final boolean hideUploadTime = Settings.HIDE_UPLOAD_TIME.get();
+            if (!hideViewCount && !hideUploadTime) {
                 return original;
             }
 
@@ -37,14 +39,20 @@ public final class HideViewCountPatch {
                         delimiterIndex2 + delimiterLength);
                 if (delimiterIndex3 >= 0) return original;
 
-                // Make a mutable copy that keeps all existing spans.
+                // Make a mutable copy that keeps existing span styling.
                 SpannableStringBuilder builder = new SpannableStringBuilder(original);
 
-                // Remove the view count section.
-                builder.delete(delimiterIndex1 + delimiterLength, delimiterIndex2 + delimiterLength);
+                // Remove the sections.
+                if (hideUploadTime) {
+                    builder.delete(delimiterIndex2, original.length());
+                }
+
+                if (hideViewCount) {
+                    builder.delete(delimiterIndex1, delimiterIndex2);
+                }
 
                 SpannableString replacement = new SpannableString(builder);
-                Logger.printDebug(() -> "Replacing view count span: " + original + " with: " + replacement);
+                Logger.printDebug(() -> "Replacing feed subtitle span: " + original + " with: " + replacement);
 
                 return replacement;
             }

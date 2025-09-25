@@ -244,6 +244,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_ticket_shelf"),
             SwitchPreference("revanced_hide_video_recommendation_labels"),
             SwitchPreference("revanced_hide_view_count"),
+            SwitchPreference("revanced_hide_upload_time"),
             SwitchPreference("revanced_hide_doodles"),
         )
 
@@ -427,7 +428,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             addInstructions(
                 applyDimensionIndex - 1,
                 """
-                    invoke-static { v$returnStringRegister, v$floatDimensionRegister }, $HIDE_VIEW_COUNT_CLASS_NAME->hideViewCount(Landroid/text/SpannableString;F)Landroid/text/SpannableString;
+                    invoke-static { v$returnStringRegister, v$floatDimensionRegister }, $HIDE_VIEW_COUNT_CLASS_NAME->modifyFeedSubtitleSpan(Landroid/text/SpannableString;F)Landroid/text/SpannableString;
                     move-result-object v$returnStringRegister
                 """
             )
