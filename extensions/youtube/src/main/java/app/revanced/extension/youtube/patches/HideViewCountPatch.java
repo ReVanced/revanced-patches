@@ -1,28 +1,40 @@
 package app.revanced.extension.youtube.patches;
 
 import android.text.SpannableString;
+
+import app.revanced.extension.shared.Logger;
 import app.revanced.extension.youtube.settings.Settings;
 
+@SuppressWarnings("unused")
 public final class HideViewCountPatch {
 
+    /**
+     * Injection point.
+     */
     public static SpannableString hideViewCount(SpannableString text, float truncationDimension) {
-
-        if (!Settings.HIDE_VIEW_COUNT.get()) {
-            return text;
-        }
-    
-        // provides the dimension which is 16f for the text below the title
-        if (truncationDimension == 16f || truncationDimension == 42f) {
-
-            // it is sure that they contains " · "
-            String[] words = text.toString().split(" · ");
-            if (words.length != 3) {
+        try {
+            if (!Settings.HIDE_VIEW_COUNT.get()) {
                 return text;
             }
 
-            String modifiedText = words[0] + " · " + words[2];
-            return new SpannableString(modifiedText);
+            // provides the dimension which is 16f for the text below the title
+            if (truncationDimension == 16f || truncationDimension == 42f) {
+                String delimiter = " · ";
+
+                String[] words = text.toString().split(delimiter);
+                if (words.length != 3) {
+                    return text;
+                }
+
+                SpannableString modifiedText = new SpannableString(words[0] + delimiter + words[2]);
+                Logger.printDebug(() -> "Replacing view count span with: " + modifiedText);
+
+                return modifiedText;
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "hideViewCount failure", ex);
         }
+
         return text;
     }
 
