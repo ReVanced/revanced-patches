@@ -5,37 +5,36 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.util.childElementsSequence
+import java.util.Locale
 
 internal const val PURE_BLACK_COLOR = "@android:color/black"
 internal const val WHITE_COLOR = "@android:color/white"
-internal const val THEME_COLOR_OPTION_DESCRIPTION = "Can be a hex color (#AARRGGBB or #RRGGBB) or a color resource reference."
+internal const val THEME_COLOR_OPTION_DESCRIPTION = "Can be a hex color (#RRGGBB) or a color resource reference."
 
 internal val DARK_THEME_COLOR_VALUES = mapOf(
     "Pure black" to PURE_BLACK_COLOR,
     "Material You" to "@android:color/system_neutral1_900",
-    "Classic (old YouTube)" to "#FF212121",
-    "Catppuccin (Mocha)" to "#FF181825",
-    "Dark pink" to "#FF290025",
-    "Dark blue" to "#FF001029",
-    "Dark green" to "#FF002905",
-    "Dark yellow" to "#FF282900",
-    "Dark orange" to "#FF291800",
-    "Dark red" to "#FF290000",
+    "Classic (old YouTube)" to "#212121",
+    "Catppuccin (Mocha)" to "#181825",
+    "Dark pink" to "#290025",
+    "Dark blue" to "#001029",
+    "Dark green" to "#002905",
+    "Dark yellow" to "#282900",
+    "Dark orange" to "#291800",
+    "Dark red" to "#290000",
 )
 
 internal val LIGHT_THEME_COLOR_VALUES = mapOf(
     "White" to WHITE_COLOR,
     "Material You" to "@android:color/system_neutral1_50",
-    "Catppuccin (Latte)" to "#FFE6E9EF",
-    "Light pink" to "#FFFCCFF3",
-    "Light blue" to "#FFD1E0FF",
-    "Light green" to "#FFCCFFCC",
-    "Light yellow" to "#FFFDFFCC",
-    "Light orange" to "#FFFFE6CC",
-    "Light red" to "#FFFFD6D6",
+    "Catppuccin (Latte)" to "#FE6E9EF",
+    "Light pink" to "#FCCFF3",
+    "Light blue" to "#D1E0FF",
+    "Light green" to "#CCFFCC",
+    "Light yellow" to "#FDFFCC",
+    "Light orange" to "#FFE6CC",
+    "Light red" to "#FFD6D6",
 )
 
 internal val THEME_DEFAULT_DARK_COLOR_NAMES = setOf(
@@ -54,12 +53,19 @@ internal val THEME_DEFAULT_LIGHT_COLOR_NAMES = setOf(
  */
 internal fun validateColorName(colorString: String): Boolean {
     if (colorString.startsWith("#")) {
-        // Check for #RRGGBB (7 characters) or #AARRGGBB (9 characters)
-        val hex = colorString.substring(1)
-        if (hex.length == 6 || hex.length == 8) {
-            return hex.all { it.isDigit() || it.lowercaseChar() in 'a'..'f' }
+        // #RRGGBB or #AARRGGBB
+        val hex = colorString.substring(1).uppercase(Locale.US)
+
+        if (hex.length == 8) {
+            // Transparent colors will crash the app.
+            if (hex[0] != 'F' || hex[1] != 'F') {
+                return false
+            }
+        } else if (hex.length != 6) {
+            return false
         }
-        return false
+
+        return hex.all { it.isDigit() || it in 'A'..'F' }
     }
 
     if (colorString.startsWith("@android:color/")) {
@@ -72,8 +78,9 @@ internal fun validateColorName(colorString: String): Boolean {
         return false
     }
 
-    val name = colorString.substring(colorTypePrefix.length)
-    return resourceMappings.find { it.type == "color" && it.name == name } != null
+    // Allow anything else, because if it's invalid it will
+    // throw an exception during resource compilation.
+    return true
 }
 
 internal fun baseThemePatch(
@@ -103,15 +110,12 @@ internal fun baseThemeResourcePatch(
     lightColorReplacement: (() -> String)? = null
 ) = resourcePatch {
 
-    dependsOn(resourceMappingPatch)
-
     execute {
-        // Cannot use an option validator, because resources
-        // have not been decoded when validator is called.
+        // After patch option validators are fixed https://github.com/ReVanced/revanced-patcher/issues/372
+        // This should changed to a patch option.
         val darkColor = darkColorReplacement()
         if (!validateColorName(darkColor)) {
-            throw PatchException("Invalid dark theme color: $darkColor"
-            )
+            throw PatchException("Invalid dark theme color: $darkColor")
         }
 
         val lightColor = lightColorReplacement?.invoke()
