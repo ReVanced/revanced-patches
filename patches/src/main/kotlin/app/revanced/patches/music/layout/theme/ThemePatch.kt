@@ -12,7 +12,7 @@ import app.revanced.patches.shared.layout.theme.baseThemeResourcePatch
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/theme/ThemePatch;"
 
 @Suppress("unused")
-val musicThemeBytecodePatch = baseThemePatch(
+val themePatch = baseThemePatch(
     extensionClassDescriptor = EXTENSION_CLASS_DESCRIPTOR,
 
     block = {
