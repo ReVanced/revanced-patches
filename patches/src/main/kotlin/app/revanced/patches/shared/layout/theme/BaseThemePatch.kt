@@ -52,6 +52,9 @@ internal fun validateColorName(colorString: String): Boolean {
     return colorString.startsWith("@color/")
 }
 
+/**
+ * Dark theme color option for YouTube and YT Music Theme patches.
+ */
 internal val darkThemeBackgroundColorOption = stringOption(
     key = "darkThemeBackgroundColor",
     default = "@android:color/black",
@@ -71,6 +74,9 @@ internal val darkThemeBackgroundColorOption = stringOption(
     description = THEME_COLOR_OPTION_DESCRIPTION
 )
 
+/**
+ * Shared theme patch for YouTube and YT Music.
+ */
 internal fun baseThemePatch(
     extensionClassDescriptor: String,
     block: BytecodePatchBuilder.() -> Unit = {},
