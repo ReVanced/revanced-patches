@@ -405,30 +405,29 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         // region hide view count
 
-        hideViewCountFingerprint.method.apply { 
-
+        hideViewCountFingerprint.method.apply {
             val startIndex = hideViewCountFingerprint.patternMatch!!.startIndex
             var returnStringRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
 
             // Find the instruction where the text dimension is retrieved.
-            val injectPointRegisterIndex = indexOfFirstInstructionReversedOrThrow {
+            val applyDimensionIndex = indexOfFirstInstructionReversedOrThrow {
+                val reference = getReference<MethodReference>()
                 opcode == Opcode.INVOKE_STATIC &&
-                getReference<MethodReference>()?.let { methodRef ->
-                    methodRef.definingClass == "Landroid/util/TypedValue;" &&
-                    methodRef.name == "applyDimension" &&
-                    methodRef.parameterTypes == listOf("I", "F", "Landroid/util/DisplayMetrics;") &&
-                    methodRef.returnType == "F"
-                } == true 
+                        reference?.definingClass == "Landroid/util/TypedValue;" &&
+                        reference.returnType == "F" &&
+                        reference.name == "applyDimension" &&
+                        reference.parameterTypes == listOf("I", "F", "Landroid/util/DisplayMetrics;")
             }
-            // A float value is passed which is used to determine subtitle text size.
-            val floatDimensionRegister = getInstruction<OneRegisterInstruction>(injectPointRegisterIndex + 1).registerA
 
-            var stringAndroidClass = "Landroid/text/SpannableString;"
+            // A float value is passed which is used to determine subtitle text size.
+            val floatDimensionRegister = getInstruction<OneRegisterInstruction>(
+                applyDimensionIndex + 1
+            ).registerA
 
             addInstructions(
-                injectPointRegisterIndex - 1,
+                applyDimensionIndex - 1,
                 """
-                    invoke-static { v$returnStringRegister, v$floatDimensionRegister }, $HIDE_VIEW_COUNT_CLASS_NAME->hideViewCount(${stringAndroidClass}F)$stringAndroidClass
+                    invoke-static { v$returnStringRegister, v$floatDimensionRegister }, $HIDE_VIEW_COUNT_CLASS_NAME->hideViewCount(Landroid/text/SpannableString;F)Landroid/text/SpannableString;
                     move-result-object v$returnStringRegister
                 """
             )

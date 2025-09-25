@@ -145,7 +145,7 @@ internal val showFloatingMicrophoneButtonFingerprint = fingerprint {
         Opcode.IGET_BOOLEAN,
         Opcode.IF_EQZ,
     )
-    literal { fabButtonId } 
+    literal { fabButtonId }
 }
 
 internal val hideViewCountFingerprint = fingerprint {
