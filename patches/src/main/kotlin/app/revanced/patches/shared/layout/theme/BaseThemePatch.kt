@@ -9,34 +9,7 @@ import app.revanced.patcher.patch.stringOption
 import app.revanced.util.childElementsSequence
 import java.util.Locale
 
-internal const val PURE_BLACK_COLOR = "@android:color/black"
-internal const val WHITE_COLOR = "@android:color/white"
 internal const val THEME_COLOR_OPTION_DESCRIPTION = "Can be a hex color (#RRGGBB) or a color resource reference."
-
-internal val DARK_THEME_COLOR_VALUES = mapOf(
-    "Pure black" to PURE_BLACK_COLOR,
-    "Material You" to "@android:color/system_neutral1_900",
-    "Classic (old YouTube)" to "#212121",
-    "Catppuccin (Mocha)" to "#181825",
-    "Dark pink" to "#290025",
-    "Dark blue" to "#001029",
-    "Dark green" to "#002905",
-    "Dark yellow" to "#282900",
-    "Dark orange" to "#291800",
-    "Dark red" to "#290000",
-)
-
-internal val LIGHT_THEME_COLOR_VALUES = mapOf(
-    "White" to WHITE_COLOR,
-    "Material You" to "@android:color/system_neutral1_50",
-    "Catppuccin (Latte)" to "#FE6E9EF",
-    "Light pink" to "#FCCFF3",
-    "Light blue" to "#D1E0FF",
-    "Light green" to "#CCFFCC",
-    "Light yellow" to "#FDFFCC",
-    "Light orange" to "#FFE6CC",
-    "Light red" to "#FFD6D6",
-)
 
 internal val THEME_DEFAULT_DARK_COLOR_NAMES = setOf(
     "yt_black0", "yt_black1", "yt_black1_opacity95", "yt_black1_opacity98",
@@ -74,20 +47,26 @@ internal fun validateColorName(colorString: String): Boolean {
         return true
     }
 
-    val colorTypePrefix = "@color/"
-    if (!colorString.startsWith(colorTypePrefix)) {
-        return false
-    }
-
-    // Allow anything else, because if it's invalid it will
+    // Allow any color name, because if it's invalid it will
     // throw an exception during resource compilation.
-    return true
+    return colorString.startsWith("@color/")
 }
 
-val darkThemeBackgroundColorOption = stringOption(
+internal val darkThemeBackgroundColorOption = stringOption(
     key = "darkThemeBackgroundColor",
-    default = PURE_BLACK_COLOR,
-    values = DARK_THEME_COLOR_VALUES,
+    default = "@android:color/black",
+    values = mapOf(
+        "Pure black" to "@android:color/black",
+        "Material You" to "@android:color/system_neutral1_900",
+        "Classic (old YouTube)" to "#212121",
+        "Catppuccin (Mocha)" to "#181825",
+        "Dark pink" to "#290025",
+        "Dark blue" to "#001029",
+        "Dark green" to "#002905",
+        "Dark yellow" to "#282900",
+        "Dark orange" to "#291800",
+        "Dark red" to "#290000",
+    ),
     title = "Dark theme background color",
     description = THEME_COLOR_OPTION_DESCRIPTION
 )

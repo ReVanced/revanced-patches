@@ -5,11 +5,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.layout.theme.DARK_THEME_COLOR_VALUES
-import app.revanced.patches.shared.layout.theme.LIGHT_THEME_COLOR_VALUES
-import app.revanced.patches.shared.layout.theme.PURE_BLACK_COLOR
 import app.revanced.patches.shared.layout.theme.THEME_COLOR_OPTION_DESCRIPTION
-import app.revanced.patches.shared.layout.theme.WHITE_COLOR
 import app.revanced.patches.shared.layout.theme.baseThemePatch
 import app.revanced.patches.shared.layout.theme.baseThemeResourcePatch
 import app.revanced.patches.shared.layout.theme.darkThemeBackgroundColorOption
@@ -38,8 +34,18 @@ val themePatch = baseThemePatch(
     block = {
         val lightThemeBackgroundColor by stringOption(
             key = "lightThemeBackgroundColor",
-            default = WHITE_COLOR,
-            values = LIGHT_THEME_COLOR_VALUES,
+            default = "@android:color/white",
+            values =  mapOf(
+                "White" to "@android:color/white",
+                "Material You" to "@android:color/system_neutral1_50",
+                "Catppuccin (Latte)" to "#FE6E9EF",
+                "Light pink" to "#FCCFF3",
+                "Light blue" to "#D1E0FF",
+                "Light green" to "#CCFFCC",
+                "Light yellow" to "#FDFFCC",
+                "Light orange" to "#FFE6CC",
+                "Light red" to "#FFD6D6",
+            ),
             title = "Light theme background color",
             description = THEME_COLOR_OPTION_DESCRIPTION
         )
@@ -48,7 +54,10 @@ val themePatch = baseThemePatch(
             dependsOn(resourceMappingPatch)
 
             execute {
-                overrideThemeColors(lightThemeBackgroundColor!!, darkThemeBackgroundColorOption.value!!)
+                overrideThemeColors(
+                    lightThemeBackgroundColor!!,
+                    darkThemeBackgroundColorOption.value!!
+                )
 
                 fun addColorResource(
                     resourceFile: String,
