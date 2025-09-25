@@ -2,12 +2,12 @@ package app.revanced.patches.shared.layout.theme
 
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.util.childElementsSequence
-import java.util.logging.Logger
 
 internal const val PURE_BLACK_COLOR = "@android:color/black"
 internal const val WHITE_COLOR = "@android:color/white"
@@ -67,13 +67,12 @@ internal fun validateColorName(colorString: String): Boolean {
         return true
     }
 
-    val colorNamePrefix = "@color/"
-    val name = if (colorString.startsWith(colorNamePrefix)) {
-        colorString.substring(colorNamePrefix.length)
-    } else {
-        colorNamePrefix
+    val colorTypePrefix = "@color/"
+    if (!colorString.startsWith(colorTypePrefix)) {
+        return false
     }
 
+    val name = colorString.substring(colorTypePrefix.length)
     return resourceMappings.find { it.type == "color" && it.name == name } != null
 }
 
@@ -107,22 +106,17 @@ internal fun baseThemeResourcePatch(
     dependsOn(resourceMappingPatch)
 
     execute {
-        fun getLogger() = Logger.getLogger(this::class.java.name)
-
         // Cannot use an option validator, because resources
         // have not been decoded when validator is called.
         val darkColor = darkColorReplacement()
         if (!validateColorName(darkColor)) {
-            return@execute getLogger().severe(
-                "Invalid dark theme color: $darkColor"
+            throw PatchException("Invalid dark theme color: $darkColor"
             )
         }
 
         val lightColor = lightColorReplacement?.invoke()
         if (lightColor != null && !validateColorName(lightColor)) {
-            return@execute getLogger().severe(
-                "Invalid light theme color: $lightColor"
-            )
+            throw PatchException("Invalid light theme color: $lightColor")
         }
 
         document("res/values/colors.xml").use { document ->
