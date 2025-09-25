@@ -3,12 +3,8 @@ package app.revanced.patches.youtube.layout.sponsorblock
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -16,7 +12,10 @@ import app.revanced.patches.shared.misc.settings.preference.NonInteractivePrefer
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playercontrols.*
+import app.revanced.patches.youtube.misc.playercontrols.addTopControl
+import app.revanced.patches.youtube.misc.playercontrols.initializeTopControl
+import app.revanced.patches.youtube.misc.playercontrols.injectVisibilityCheckCall
+import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -133,7 +132,6 @@ val sponsorBlockPatch = bytecodePatch(
     compatibleWith(
         "com.google.android.youtube"(
             "19.34.42",
-            "20.07.39",
             "20.13.41",
             "20.14.43",
         )

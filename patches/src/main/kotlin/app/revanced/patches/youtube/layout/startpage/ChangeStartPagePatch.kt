@@ -13,10 +13,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ChangeStartPagePatch;"
 
@@ -33,7 +30,6 @@ val changeStartPagePatch = bytecodePatch(
     compatibleWith(
         "com.google.android.youtube"(
             "19.34.42",
-            "20.07.39",
             "20.13.41",
             "20.14.43",
         )
