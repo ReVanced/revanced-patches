@@ -555,7 +555,8 @@ public class ReturnYouTubeDislike {
 
                 if (originalDislikeSpan != null && replacementLikeDislikeSpan != null
                         && spansHaveEqualTextAndColor(original, originalDislikeSpan)) {
-                    Logger.printDebug(() -> "Replacing span with previously created dislike span of data: " + videoId);
+                    Logger.printDebug(() -> "Replacing span: " + original + " with " +
+                            "previously created dislike span of data: " + videoId);
                     return replacementLikeDislikeSpan;
                 }
 
