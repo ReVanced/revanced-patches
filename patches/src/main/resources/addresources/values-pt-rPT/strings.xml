@@ -146,9 +146,9 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_debug_logs_clear_toast">Registos limpos</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Remover parâmetro de consulta de rastreamento</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">O parâmetro da consulta de rastreamento é removido dos links</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">O parâmetro da consulta de rastreamento não é removido dos links</string>
+  <string name="revanced_sanitize_sharing_links_title">Sanitizar links de partilha</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">O parâmetro de consulta de rastreamento é removido dos links partilhados</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">O parâmetro de consulta de rastreamento não é removido dos links partilhados</string>
   <string name="revanced_replace_music_with_youtube_title">Alterar links de compartilhamento para youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Links compartilhados usam youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Links compartilhados usam music.youtube.com</string>
@@ -379,15 +379,15 @@ Se um Doodle estiver a ser exibido na sua região e esta definição de ocultaç
   <string name="revanced_hide_comments_create_a_short_button_title">Ocultar o botão \'Criar um Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">O botão Criar um Short está oculto</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">O botão Criar um Short é mostrado</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Ocultar botões de Emoji e Carimbo de data/hora</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Os botões de Emoji e Carimbo de data/hora estão ocultos</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Os botões de Emoji e Carimbo de data/hora são mostrados</string>
   <string name="revanced_hide_comments_preview_comment_title">Esconder comentário de pré-visualização</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Visualização do comentário está escondida</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Pré-visualização de comentário é exibida</string>
   <string name="revanced_hide_comments_thanks_button_title">Ocultar botão Obrigado</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">O botão de agradecimento está escondido</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">O botão Obrigado é visível</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Ocultar botão de carimbo de data/hora</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">O botão de carimbo de data/hora está oculto</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">O botão de carimbo de data/hora está visível</string>
   <string name="revanced_custom_filter_screen_title">Filtro personalizado</string>
   <string name="revanced_custom_filter_screen_summary">Esconder componentes usando filtros personalizados</string>
   <string name="revanced_custom_filter_title">Ativar filtro personalizado</string>

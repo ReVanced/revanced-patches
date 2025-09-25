@@ -146,9 +146,9 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_toast">Логовете са изчистени</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Премахнете параметъра на заявката за проследяване</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Параметърът на заявката за проследяване е премахнат от връзките</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Параметърът на заявката за проследяване не е премахнат от връзките</string>
+  <string name="revanced_sanitize_sharing_links_title">Почистване на връзки за споделяне</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметърът за проследяване се премахва от споделените връзки</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметърът за проследяване не се премахва от споделените връзки</string>
   <string name="revanced_replace_music_with_youtube_title">Промяна на връзките за споделяне към youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Споделените връзки използват youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Споделените връзки използват music.youtube.com</string>
@@ -379,15 +379,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Бутон за създаване на Shorts</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Бутонът \"Създаване на Short\" е скрит</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Бутонът \"Създаване на Short\" е показан</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Скриване на бутоните за емоджи и клеймо за време</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Бутоните за емоджи и клеймо за време са скрити</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Бутоните за емоджи и клеймо за време са показани</string>
   <string name="revanced_hide_comments_preview_comment_title">Преглед на коментари</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Прегледа на коментари е скрит</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Прегледа на коментари се показва</string>
   <string name="revanced_hide_comments_thanks_button_title">Скрий бутона за харесване</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Бутона за благодарност е скрит</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Бутона за благодарност се показва</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Скриване на бутона за клеймо за време</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Бутонът за времеви печат е скрит</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Бутонът за времеви печат е показан</string>
   <string name="revanced_custom_filter_screen_title">Потребителски филтър</string>
   <string name="revanced_custom_filter_screen_summary">Скриване на компоненти с помощта на потребителски филтри</string>
   <string name="revanced_custom_filter_title">Активиране на потребителските филтри</string>

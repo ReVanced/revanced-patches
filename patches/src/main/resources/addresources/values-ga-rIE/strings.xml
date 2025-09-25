@@ -146,9 +146,9 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_debug_logs_clear_toast">Lógaí glanta</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Bain paraiméadar ceist rianaithe</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Baintear paraiméadar ceisteanna rianaithe ó naisc</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Ní bhaintear paraiméadar fiosrúcháin rianaithe ó naisc</string>
+  <string name="revanced_sanitize_sharing_links_title">Glan na naisc roinnte</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Baintear an paraiméadar fiosrúcháin rianaithe de na naisc roinnte</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Ní bhaintear an paraiméadar fiosrúcháin rianaithe de na naisc roinnte</string>
   <string name="revanced_replace_music_with_youtube_title">Athraigh na naisc comhroinnte go youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Úsáideann naisc chomhroinnte youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Úsáideann naisc chomhroinnte music.youtube.com</string>
@@ -379,15 +379,15 @@ Má tá Doodle á thaispeáint faoi láthair i do réigiún agus má tá an tsu�
   <string name="revanced_hide_comments_create_a_short_button_title">Folaigh an cnaipe \'Cruthaigh Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tá cnaipe Cruthaigh gearrscéal i bhfolach</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Taispeántar cnaipe Cruthaigh gearrscéal</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Folaigh cnaipí Emoji agus Amscála</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Tá cnaipí Emoji agus Amscála i bhfolach</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Tá cnaipí Emoji agus Amscála taispeánta</string>
   <string name="revanced_hide_comments_preview_comment_title">Folaigh trácht réamhamharc</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Tá trácht réamhamhar i bhfolach</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Taispeántar trácht réamhamharc</string>
   <string name="revanced_hide_comments_thanks_button_title">Folaigh cnaipe Buíochas</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tá cnaipe buíochas i bhfolach</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Taispeántar cnaipe buíochas</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Folaigh cnaipe Stampa Ama</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Tá cnaipe an stampa ama i bhfolach</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Taispeántar cnaipe an stampa ama</string>
   <string name="revanced_custom_filter_screen_title">Scagaire saincheaptha</string>
   <string name="revanced_custom_filter_screen_summary">Folaigh comhpháirteanna ag baint úsáide as</string>
   <string name="revanced_custom_filter_title">Cumasaigh scagaire saincheaptha</string>

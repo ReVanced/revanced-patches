@@ -146,9 +146,9 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_toast">تم مسح السجلات</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">إزالة معلمة تتبع الاستعلام</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">يتم إزالة معلمة استعلام التتبع من الروابط</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">لا يتم إزالة معلمة استعلام التتبع من الروابط</string>
+  <string name="revanced_sanitize_sharing_links_title">تطهير روابط المشاركة</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">تمت إزالة معلمة استعلام التتبع من الروابط المشتركة</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">لم تتم إزالة معلمة استعلام التتبع من الروابط المشتركة</string>
   <string name="revanced_replace_music_with_youtube_title">تغيير روابط المشاركة إلى youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">تستخدم الروابط المشتركة youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">تستخدم الروابط المشتركة music.youtube.com</string>
@@ -379,15 +379,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">إخفاء زر \'إنشاء Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">تم إخفاء زر إنشاء Short</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">يتم عرض زر إنشاء Short</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">إخفاء أزرار الرموز التعبيرية والطابع الزمني</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">أزرار الرموز التعبيرية والطابع الزمني مخفية</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">أزرار الرموز التعبيرية والطابع الزمني معروضة</string>
   <string name="revanced_hide_comments_preview_comment_title">إخفاء تعليق المعاينة</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">تم إخفاء تعليق المعاينة</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">يتم عرض تعليق المعاينة</string>
   <string name="revanced_hide_comments_thanks_button_title">إخفاء زر شكرًا</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">تم إخفاء زر شكرًا</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">يتم عرض زر شكرًا</string>
-  <string name="revanced_hide_comments_timestamp_button_title">إخفاء زر الطابع الزمني</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">زر الطابع الزمني مخفي</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">زر الطابع الزمني معروض</string>
   <string name="revanced_custom_filter_screen_title">فلتر مخصص</string>
   <string name="revanced_custom_filter_screen_summary">إخفاء المكونات باستخدام فلاتر مخصصة</string>
   <string name="revanced_custom_filter_title">تمكين الفلتر المخصص</string>

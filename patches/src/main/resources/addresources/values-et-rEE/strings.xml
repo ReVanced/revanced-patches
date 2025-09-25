@@ -146,9 +146,9 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_debug_logs_clear_toast">Logid puhastatud</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Eemalda jälgimise päringuparameeter</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Jälgimise päringuparameeter eemaldatakse linkidest</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Jälgimise päringuparameeter ei eemaldata linkidest</string>
+  <string name="revanced_sanitize_sharing_links_title">Puhasta jagamislingid</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Jälgimispäringu parameeter on jagatud linkidest eemaldatud</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Jälgimispäringu parameetrit ei eemaldata jagatud linkidest</string>
   <string name="revanced_replace_music_with_youtube_title">Muuda jagamislingid youtube.com-iks</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Jagatud lingid kasutavad youtube.com-i</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Jagatud lingid kasutavad music.youtube.com-i</string>
@@ -379,15 +379,15 @@ Kui Doodle on teie piirkonnas praegu nähtav ja see peitmise seade on sisse lül
   <string name="revanced_hide_comments_create_a_short_button_title">Peida nupp \"Loo lühis\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Nupp Loo lühivideo on peidetud</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Nupp Loo lühivideo on kuvatud</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Peida emotikonide ja ajatempli nupud</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emotikonide ja ajatempli nupud on peidetud</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emotikonide ja ajatempli nupud on nähtavad</string>
   <string name="revanced_hide_comments_preview_comment_title">Peida eelvaate kommentaar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Eelvaate kommentaar on peidetud</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Eelvaate kommentaar on kuvatud</string>
   <string name="revanced_hide_comments_thanks_button_title">Peida tänunupp</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tänu nupp on peidetud</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tänu nupp on kuvatud</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Peida ajatempli nupp</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Ajatempli nupp on peidetud</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Ajatempli nupp on nähtav</string>
   <string name="revanced_custom_filter_screen_title">Kohandatud filter</string>
   <string name="revanced_custom_filter_screen_summary">Peida komponendid, kasutades kohandatud filtreid</string>
   <string name="revanced_custom_filter_title">Aktiveeri kohandatud filter</string>

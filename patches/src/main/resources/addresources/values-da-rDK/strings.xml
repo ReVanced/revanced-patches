@@ -146,9 +146,9 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_debug_logs_clear_toast">Logfiler ryddet</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Fjern sporingsforespørgselsparameter</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Sporingsparameteren er fjernet fra links</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Sporingsforespørgselsparameteren er ikke fjernet fra links</string>
+  <string name="revanced_sanitize_sharing_links_title">Rens delingslinks</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Sporingsforespørgselsparameter er fjernet fra delte links</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Sporingsforespørgselsparameter er ikke fjernet fra delte links</string>
   <string name="revanced_replace_music_with_youtube_title">Skift delingslinks til youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Delte links bruger youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Delte links bruger music.youtube.com</string>
@@ -379,15 +379,15 @@ Hvis et Doodle vises i øjeblikket i din region, og denne skjuleindstilling er a
   <string name="revanced_hide_comments_create_a_short_button_title">Skjul knappen \"Opret en Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Opret en Short knap er skjult</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Opret en Short knap vises</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Skjul Emoji- og Tidsstempelknapper</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emoji- og Tidsstempelknapper er skjult</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emoji- og Tidsstempelknapper vises</string>
   <string name="revanced_hide_comments_preview_comment_title">Skjul forhåndsvisning kommentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Forhåndsvisning kommentar er skjult</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Forhåndsvis kommentar er vist</string>
   <string name="revanced_hide_comments_thanks_button_title">Skjul \"Tak\"-knap</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tak knappen er skjult</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tak knappen er vist</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Skjul Tidsstempel-knap</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Tidsstempelknappen er skjult</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Tidsstempelknappen vises</string>
   <string name="revanced_custom_filter_screen_title">Tilpasset filter</string>
   <string name="revanced_custom_filter_screen_summary">Skjul komponenter ved hjælp af brugerdefinerede filtre</string>
   <string name="revanced_custom_filter_title">Aktiver brugerdefineret filter</string>

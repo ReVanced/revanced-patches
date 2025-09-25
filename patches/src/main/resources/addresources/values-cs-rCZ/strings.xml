@@ -146,9 +146,9 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_debug_logs_clear_toast">Protokoly vymazány</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Odstranit sledovací parametr dotazu</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Sledovací parametr dotazu je odstraněn z odkazů</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Sledovací parametr dotazu není odstraněn z odkazů</string>
+  <string name="revanced_sanitize_sharing_links_title">Vyčistit sdílené odkazy</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parametr sledování je odstraněn ze sdílených odkazů</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parametr sledování není odstraněn ze sdílených odkazů</string>
   <string name="revanced_replace_music_with_youtube_title">Změnit odkazy pro sdílení na youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Sdílené odkazy používají youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Sdílené odkazy používají music.youtube.com</string>
@@ -379,15 +379,15 @@ Pokud se Doodle v současné době zobrazuje ve vaší oblasti a toto nastavení
   <string name="revanced_hide_comments_create_a_short_button_title">Skrýt tlačítko \"Vytvořit Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačítko Vytvořit Short je skryté</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Tlačítko Vytvořit Short je zobrazeno</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Skrýt tlačítka emotikonů a časových značek</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Tlačítka emotikonů a časových značek jsou skryta</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Tlačítka emotikonů a časových značek jsou zobrazena</string>
   <string name="revanced_hide_comments_preview_comment_title">Skrýt náhled komentáře</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Náhled komentáře je skryt</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Náhled komentáře je zobrazen</string>
   <string name="revanced_hide_comments_thanks_button_title">Skrýt tlačítko děk」、「</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tlačítko poděkování je skryto</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tlačítko poděkování je zobrazeno</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Skrýt tlačítko časové značky</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Tlačítko časové osy je skryté</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Tlačítko časové osy je zobrazeno</string>
   <string name="revanced_custom_filter_screen_title">Vlastní filtr</string>
   <string name="revanced_custom_filter_screen_summary">Skrýt komponenty pomocí vlastních filtrů</string>
   <string name="revanced_custom_filter_title">Povolit vlastní filtr</string>

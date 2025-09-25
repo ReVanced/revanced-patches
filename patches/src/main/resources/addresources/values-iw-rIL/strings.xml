@@ -146,9 +146,9 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_toast">היומנים נוקו</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">הסר פרמטר מעקב של שאילתה</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">פרמטר מעקב של שאילתה מוסר מקישורים</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">פרמטר מעקב של שאילתה אינו מוסר מקישורים</string>
+  <string name="revanced_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">פרמטר מעקב מוסר מקישורי שיתוף</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">פרמטר מעקב אינו מוסר מקישורי שיתוף</string>
   <string name="revanced_replace_music_with_youtube_title">שנה קישורי שיתוף ל-youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">קישורים משותפים משתמשים ב-youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">קישורים משותפים משתמשים ב-music.youtube.com</string>
@@ -379,15 +379,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">הסתר לחצן \'יצירת Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">לחצן יצירת Short מוסתר</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">לחצן יצירת Short מוצג</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">הסתר לחצני אימוג\'י וחותמת זמן</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">לחצני אימוג\'י וחותמת זמן מוסתרים</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">לחצני אימוג\'י וחותמת זמן מוצגים</string>
   <string name="revanced_hide_comments_preview_comment_title">הסתר תצוגה מקדימה של תגובה</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">תצוגה מקדימה של תגובה מוסתרת</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">תצוגה מקדימה של תגובה מוצגת</string>
   <string name="revanced_hide_comments_thanks_button_title">הסתר לחצן תודה</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">לחצן תודה מוסתר</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">לחצן תודה מוצג</string>
-  <string name="revanced_hide_comments_timestamp_button_title">הסתר לחצן חותמת זמן</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">לחצן חותם זמן מוסתר</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">לחצן חותם זמן מוצג</string>
   <string name="revanced_custom_filter_screen_title">מסנן מותאם אישית</string>
   <string name="revanced_custom_filter_screen_summary">הסתר רכיבים באמצעות מסננים מותאמים אישית</string>
   <string name="revanced_custom_filter_title">הפעל מסנן מותאם אישית</string>
