@@ -146,9 +146,9 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_debug_logs_clear_toast">Loggar rensade</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Ta bort spårningsfrågeparameter</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Spårningsfrågeparametern tas bort från länkar</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Spårningsfrågeparametern tas inte bort från länkar</string>
+  <string name="revanced_sanitize_sharing_links_title">Rensa delningslänkar</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Spårningsfrågeparametern tas bort från delade länkar</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Spårningsfrågeparametern tas inte bort från delade länkar</string>
   <string name="revanced_replace_music_with_youtube_title">Ändra delningslänkar till youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Delade länkar använder youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Delade länkar använder music.youtube.com</string>
@@ -379,15 +379,15 @@ Om en doodle visas för närvarande i din region och den här döljningsinställ
   <string name="revanced_hide_comments_create_a_short_button_title">Dölj knappen Skapa en Shorts-video</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Knappen Skapa en Shorts-video är dold</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Knappen Skapa en Shorts-video visas</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Dölj knappar för emoji och tidsstämpel</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Knapparna för emoji och tidsstämpel är dolda</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Knapparna för emoji och tidsstämpel visas</string>
   <string name="revanced_hide_comments_preview_comment_title">Dölj förhandsvisad kommentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Förhandsvisad kommentar är dold</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Förhandsvisad kommentar visas</string>
   <string name="revanced_hide_comments_thanks_button_title">Dölj knappen Thanks</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Knappen Thanks är dold</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Knappen Thanks visas</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Dölj knappen Tidsstämpel</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Tidsstämpelknappen är dold</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Tidsstämpelknappen visas</string>
   <string name="revanced_custom_filter_screen_title">Anpassat filter</string>
   <string name="revanced_custom_filter_screen_summary">Dölj komponenter med anpassade filter</string>
   <string name="revanced_custom_filter_title">Aktivera anpassat filter</string>

@@ -146,9 +146,9 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_toast">Лагі ачышчаны</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Выдаліць параметр запыту адсочвання</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Параметр запыту адсочвання выдалены са спасылак</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Параметр адсочвання запыту не выдаляецца са спасылак</string>
+  <string name="revanced_sanitize_sharing_links_title">Ачысціць спасылкі для абагульвання</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметр запыту адсочвання выдалены з абагуленых спасылак</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметр запыту адсочвання не выдалены з абагуленых спасылак</string>
   <string name="revanced_replace_music_with_youtube_title">Змяніць спасылкі для абагульвання на youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Агульныя спасылкі выкарыстоўваюць youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Агульныя спасылкі выкарыстоўваюць music.youtube.com</string>
@@ -379,15 +379,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Схаваць кнопку \"Створиць Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопка «Стварыць Shorts» схаваная</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка «Стварыць Shorts» паказаная</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Схаваць кнопкі эмодзі і пазнак часу</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Кнопкі эмодзі і пазнак часу схаваны</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Кнопкі эмодзі і пазнак часу паказаны</string>
   <string name="revanced_hide_comments_preview_comment_title">Схаваць каментарый для папярэдняга прагляду</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Каментарый перад праглядам схаваны</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Паказваецца папярэдні прагляд каментарыя</string>
   <string name="revanced_hide_comments_thanks_button_title">Схаваць кнопку \"Дзякуй\"\"</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Кнопка падзякі схавана</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Паказана кнопка падзякі</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Схаваць кнопку \"Пазнака часу\"</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Кнопка часу схаваная</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Кнопка часу паказаная</string>
   <string name="revanced_custom_filter_screen_title">Карыстальніцкі фільтр</string>
   <string name="revanced_custom_filter_screen_summary">Схавайце кампаненты з дапамогай карыстацкіх фільтраў</string>
   <string name="revanced_custom_filter_title">Уключыць карыстальніцкі фільтр</string>

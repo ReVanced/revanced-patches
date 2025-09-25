@@ -146,9 +146,9 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_debug_logs_clear_toast">Naplók törölve</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Nyomkövetési lekérdezési paraméter eltávolítása</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">A nyomkövetési lekérdezési paraméter eltávolítva a linkekből</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">A nyomkövetési lekérdezési paraméter nincs eltávolítva a linkekből</string>
+  <string name="revanced_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">A követési lekérdezési paraméter eltávolításra kerül a megosztott linkekből</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">A követési lekérdezési paraméter nem kerül eltávolításra a megosztott linkekből</string>
   <string name="revanced_replace_music_with_youtube_title">Módosítsa a megosztási linkeket youtube.com-ra</string>
   <string name="revanced_replace_music_with_youtube_summary_on">A megosztott linkek a youtube.com-ot használják</string>
   <string name="revanced_replace_music_with_youtube_summary_off">A megosztott linkek a music.youtube.com-ot használják</string>
@@ -379,15 +379,15 @@ Ha a Doodle jelenleg a régiódában látható, és ez a rejtés beállítás be
   <string name="revanced_hide_comments_create_a_short_button_title">A „Rövid létrehozása” gomb elrejtése</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">A Rövidfilm létrehozása gomb rejtett</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">A Rövidfilm létrehozása gomb látható</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Emoji és időbélyeg gombok elrejtése</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Az Emoji és időbélyeg gombok elrejtve vannak</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Az Emoji és időbélyeg gombok megjelenítve vannak</string>
   <string name="revanced_hide_comments_preview_comment_title">Megjegyzés előnézet elrejtése</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">A megjegyzés előnézet el van rejtve</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">A megjegyzés előnézet megjelenik</string>
   <string name="revanced_hide_comments_thanks_button_title">Köszönet gomb elrejtése</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">A köszönet gomb el van rejtve</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">A köszönet gomb látható</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Időbélyegző gomb elrejtése</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Az időbélyegző gomb el van rejtve</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Az időbélyegző gomb megjelenik</string>
   <string name="revanced_custom_filter_screen_title">Egyedi szűrő</string>
   <string name="revanced_custom_filter_screen_summary">Komponensek elrejtése egyedi szűrők használatával</string>
   <string name="revanced_custom_filter_title">Egyedi szűrők engedélyezése</string>

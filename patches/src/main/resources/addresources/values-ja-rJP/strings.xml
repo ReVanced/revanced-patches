@@ -146,9 +146,9 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_debug_logs_clear_toast">ログを消去しました</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">追跡パラメータをリンクから削除する</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">追跡パラメータはリンクから削除されます</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">追跡パラメータはリンクから削除されません</string>
+  <string name="revanced_sanitize_sharing_links_title">共有リンクを無害化</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">共有リンクからトラッキング クエリ パラメータが削除されます</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">共有リンクからトラッキング クエリ パラメータは削除されません</string>
   <string name="revanced_replace_music_with_youtube_title">共有リンクを youtube.com に変更</string>
   <string name="revanced_replace_music_with_youtube_summary_on">共有リンクには youtube.com が使用されます</string>
   <string name="revanced_replace_music_with_youtube_summary_off">共有リンクには music.youtube.com が使用されます</string>
@@ -381,15 +381,15 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_comments_create_a_short_button_title">「ショートを作成」ボタンを非表示</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">「ショートを作成」ボタンは表示されません</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">「ショートを作成」ボタンは表示されます</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">絵文字ボタンとタイムスタンプ ボタンを非表示</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">絵文字ボタンとタイムスタンプ ボタンは表示されません</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">絵文字ボタンとタイムスタンプ ボタンは表示されます</string>
   <string name="revanced_hide_comments_preview_comment_title">コメントのプレビューを非表示</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">コメントのプレビューは表示されません</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">コメントのプレビューは表示されます</string>
   <string name="revanced_hide_comments_thanks_button_title">Thanks ボタンを非表示</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Thanks ボタンは表示されません</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Thanks ボタンは表示されます</string>
-  <string name="revanced_hide_comments_timestamp_button_title">タイムスタンプ ボタンを非表示</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">タイムスタンプ ボタンは表示されません</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">タイムスタンプ ボタンは表示されます</string>
   <string name="revanced_custom_filter_screen_title">カスタム フィルタ</string>
   <string name="revanced_custom_filter_screen_summary">カスタム フィルタを使用してコンポーネントを非表示にします</string>
   <string name="revanced_custom_filter_title">カスタム フィルタを有効化</string>

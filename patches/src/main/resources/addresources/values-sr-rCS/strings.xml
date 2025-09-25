@@ -146,9 +146,9 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_debug_logs_clear_toast">Evidencije su izbrisane</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Ukloni parametar upita za praćenje</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Parametar upita za praćenje je uklonjen iz linkova</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Parametar upita za praćenje nije uklonjen iz linkova</string>
+  <string name="revanced_sanitize_sharing_links_title">Saniraj linkove za deljenje</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parametar za praćenje iz upita je uklonjen sa deljenih linkova</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parametar za praćenje iz upita nije uklonjen sa deljenih linkova</string>
   <string name="revanced_replace_music_with_youtube_title">Promeni linkove za deljenje na youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Deljeni linkovi koriste youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Deljeni linkovi koriste music.youtube.com</string>
@@ -379,15 +379,15 @@ Ako se Doodle trenutno prikazuje u vašem regionu i ova opcija skrivanja je uklj
   <string name="revanced_hide_comments_create_a_short_button_title">Sakrij dugme „Napravi Short”</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Dugme „Napravi Short” je skriveno</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Dugme „Napravi Short” je prikazano</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Sakrij dugmad za emodžije i vremensku oznaku</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Dugmad za emodžije i vremensku oznaku su skrivena</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Dugmad za emodžije i vremensku oznaku su prikazana</string>
   <string name="revanced_hide_comments_preview_comment_title">Sakrij komentar za pregled</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komentar za pregled je skriven</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Komentar za pregled je prikazan</string>
   <string name="revanced_hide_comments_thanks_button_title">Sakrij dugme „Hvala”</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Dugme „Hvala” je skriveno</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Dugme „Hvala” je prikazano</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Sakrij dugme „Vremenska oznaka”</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Dugme vremenske oznake je skriveno</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Dugme vremenske oznake je prikazano</string>
   <string name="revanced_custom_filter_screen_title">Prilagođeni filter</string>
   <string name="revanced_custom_filter_screen_summary">Sakrijte komponente koristeći prilagođene filtere</string>
   <string name="revanced_custom_filter_title">Omogući prilagođeni filter</string>
@@ -523,7 +523,7 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_external_downloader_not_installed_warning">%s nije instaliran. Instalirajte ga.</string>
   <string name="revanced_external_downloader_package_not_found_warning">"Nije pronađena instalirana aplikacija sa nazivom paketa: %s
 
-Proverite da li je naziv paketa ispravan i da li je aplikacija instalirana Није пронађена инсталирана апликација са називом пакета: %s Проверите да ли је назив пакета исправан и да ли је апликација инсталирана"</string>
+Proverite da li je naziv paketa ispravan i da li je aplikacija instalirana"</string>
   <string name="revanced_external_downloader_empty_warning">Naziv paketa ne može biti prazan</string>
   </patch>
   <patch id="interaction.seekbar.disablePreciseSeekingGesturePatch">

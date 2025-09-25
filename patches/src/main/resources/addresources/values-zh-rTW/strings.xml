@@ -146,9 +146,9 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_toast">記錄已清除</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">移除追蹤查詢參數</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">已從連結移除追蹤查詢參數</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">未從連結移除追蹤查詢參數</string>
+  <string name="revanced_sanitize_sharing_links_title">清理分享連結</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">追蹤查詢參數已從分享連結中移除</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">追蹤查詢參數未從分享連結中移除</string>
   <string name="revanced_replace_music_with_youtube_title">將分享連結更改為 youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">分享連結使用 youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">分享連結使用 music.youtube.com</string>
@@ -379,15 +379,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">隱藏「建立 Short」按鈕</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">已隱藏「建立 Short」按鈕</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">已顯示「建立 Short」按鈕</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">隱藏表情符號和時間戳記按鈕</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">表情符號和時間戳記按鈕已隱藏</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">表情符號和時間戳記按鈕已顯示</string>
   <string name="revanced_hide_comments_preview_comment_title">隱藏留言預覽</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">已隱藏留言預覽</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">已顯示留言預覽</string>
   <string name="revanced_hide_comments_thanks_button_title">隱藏「感謝」按鈕</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">已隱藏「感謝」按鈕</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">已顯示「感謝」按鈕</string>
-  <string name="revanced_hide_comments_timestamp_button_title">隱藏時間戳記按鈕</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">時間戳記按鈕已隱藏</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">時間戳記按鈕已顯示</string>
   <string name="revanced_custom_filter_screen_title">自訂篩選器</string>
   <string name="revanced_custom_filter_screen_summary">使用自訂篩選器隱藏元件</string>
   <string name="revanced_custom_filter_title">啟用自訂篩選器</string>
@@ -1579,6 +1579,15 @@ Second \"item\" text"</string>
   <string name="revanced_force_avc_codec_title">強制使用 AVC (H.264)</string>
   <string name="revanced_force_avc_codec_summary_on">視訊編解碼器強制使用 AVC (H.264)</string>
   <string name="revanced_force_avc_codec_summary_off">視訊編解碼器將自動決定</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"優點：
+• 可改善電池續航力
+• 可在較舊的裝置上還原遺失的影片解析度
+
+限制：
+• 最大解析度為 1080p
+• 影片播放將比 VP9 或 AV1 消耗更多網路數據
+• HDR 影片將不會使用 AVC
+• 部分裝置無法強制使用 AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">顯示進階影片畫質選單</string>

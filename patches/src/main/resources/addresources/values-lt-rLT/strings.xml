@@ -146,9 +146,9 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_debug_logs_clear_toast">Žurnalai išvalyti</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Pašalinti stebėjimo užklausų parametrą</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Stebėjimo užklausų parametras pašalinamas iš nuorodų</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Stebėjimo užklausų parametras nėra pašalinamas iš nuorodų</string>
+  <string name="revanced_sanitize_sharing_links_title">Nuvalyti bendrinimo nuorodas</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Stebėjimo užklausos parametras pašalinamas iš bendrinamų nuorodų</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Stebėjimo užklausos parametras nepašalinamas iš bendrinamų nuorodų</string>
   <string name="revanced_replace_music_with_youtube_title">Pakeisti bendrinimo nuorodas į youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Bendrinamose nuorodose naudojama youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Bendrinamose nuorodose naudojama music.youtube.com</string>
@@ -379,15 +379,15 @@ Jei „Doodle“ šiuo metu rodomas jūsu regione ir šis paslėpimo nustatymas 
   <string name="revanced_hide_comments_create_a_short_button_title">Slėpti \"Kurti Short\" mygtuką</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Mygtukas „Sukurti Short“ paslėptas</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Mygtukas „Sukurti Short“ rodomas</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Slėpti jaustukų ir laiko žymos mygtukus</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Jaustukų ir laiko žymos mygtukai yra paslėpti</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Jaustukų ir laiko žymos mygtukai yra rodomi</string>
   <string name="revanced_hide_comments_preview_comment_title">Slėpti peržiūros komentarą</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Peržiūros komentaras yra paslėptas</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Peržiūros komentaras yra rodomas</string>
   <string name="revanced_hide_comments_thanks_button_title">PaslÄ—pti „AÄiÅ³“ mygtukÄ…</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">\"Ačiū\" mygtukas yra paslėptas</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">\"Ačiū\" mygtukas yra rodomas</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Slėpti laiko žymės mygtuką</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Datos ir laiko žymos mygtukas paslėptas</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Datos ir laiko žymos mygtukas rodomas</string>
   <string name="revanced_custom_filter_screen_title">Pritaikomas filtras</string>
   <string name="revanced_custom_filter_screen_summary">Slėpti komponentus naudojant pritaikomus filtrus</string>
   <string name="revanced_custom_filter_title">Įjungti pritaikomus filtrus</string>

@@ -146,9 +146,9 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_debug_logs_clear_toast">Protokolle gelöscht</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Tracking-Abfrageparameter entfernen</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird von Links entfernt</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht von Links entfernt</string>
+  <string name="revanced_sanitize_sharing_links_title">Freigabelinks säubern</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht aus freigegebenen Links entfernt</string>
   <string name="revanced_replace_music_with_youtube_title">Teilen-Links zu youtube.com ändern</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Geteilte Links verwenden youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Geteilte Links verwenden music.youtube.com</string>
@@ -378,15 +378,15 @@ Wenn ein Doodle zurzeit in Ihrer Region angezeigt wird und diese Einstellung zum
   <string name="revanced_hide_comments_create_a_short_button_title">\'Verknüpfung erstellen\'-Button ausblenden</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Schaltfläche \" Short erstellen\" ist ausgeblendet</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Schaltfläche \" Short erstellen\" wird angezeigt</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Emoji- und Zeitstempel-Schaltflächen ausblenden</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emoji- und Zeitstempel-Schaltflächen sind ausgeblendet</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emoji- und Zeitstempel-Schaltflächen werden angezeigt</string>
   <string name="revanced_hide_comments_preview_comment_title">Vorschaukommentar ausblenden</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Vorschaukommentar ist ausgeblendet</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Vorschau des Kommentars wird angezeigt</string>
   <string name="revanced_hide_comments_thanks_button_title">Schließe die Dankeschön-Schaltfläche aus</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Dankeschön-Taste ist ausgeblendet</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Dankeschön Button wird angezeigt</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Schaltfläche \'Zeitstempel\' ausblenden</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Timestamp-Button ist ausgeblendet</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Timestamp-Button wird angezeigt</string>
   <string name="revanced_custom_filter_screen_title">Eigener Filter</string>
   <string name="revanced_custom_filter_screen_summary">Komponenten mit benutzerdefinierten Filtern ausblenden</string>
   <string name="revanced_custom_filter_title">Eigenen Filter aktivieren</string>

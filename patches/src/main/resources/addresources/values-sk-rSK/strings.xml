@@ -144,9 +144,9 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_debug_logs_clear_toast">Protokoly vymazané</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Odstráňte parameter dopytu sledovania</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Parameter dopytu sledovania je odstránený z odkazov</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Parameter dopytu sledovania nie je odstránený z odkazov</string>
+  <string name="revanced_sanitize_sharing_links_title">Vyčistiť odkazy na zdieľanie</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parameter sledovania dotazu bol odstránený zo zdieľaných odkazov</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parameter sledovania dotazu nebol odstránený zo zdieľaných odkazov</string>
   <string name="revanced_replace_music_with_youtube_title">Zmeniť odkazy na zdieľanie na youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Zdieľané odkazy používajú youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Zdieľané odkazy používajú music.youtube.com</string>
@@ -377,15 +377,15 @@ Ak sa Doodle v súčasnosti zobrazuje vo vašom regióne a toto nastavenie skryt
   <string name="revanced_hide_comments_create_a_short_button_title">Skryť tlačidlo „Vytvoriť krátke video“</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačidlo Vytvoriť Short je skryté</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Tlačidlo Vytvoriť Short je zobrazené</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Skryť tlačidlá emoji a časovej pečiatky</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Tlačidlá emoji a časovej pečiatky sú skryté</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Tlačidlá emoji a časovej pečiatky sú zobrazené</string>
   <string name="revanced_hide_comments_preview_comment_title">Skryť ukážkový komentár</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komentár ukážky je skrytý</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Zobrazí sa ukážka komentára</string>
   <string name="revanced_hide_comments_thanks_button_title">Skryť tlačidlo Ďakujem</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tlačidlo poďakovania je skryté</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Zobrazí sa tlačidlo Ďakujem</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Skryť tlačidlo Časová pečiatka</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Tlačidlo s časovou pečiatkou je skryté</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Zobrazí sa tlačidlo s časovou pečiatkou</string>
   <string name="revanced_custom_filter_screen_title">Vlastný filter</string>
   <string name="revanced_custom_filter_screen_summary">Skryť komponenty pomocou vlastných filtrov</string>
   <string name="revanced_custom_filter_title">Povoliť vlastný filter</string>

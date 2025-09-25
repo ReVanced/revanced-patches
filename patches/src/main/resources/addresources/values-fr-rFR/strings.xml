@@ -146,9 +146,9 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_debug_logs_clear_toast">Journaux effacés</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Supprimer le paramètre de suivi</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Le paramètre de requête destiné au suivi est supprimé des liens</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Le paramètre de requête destiné au suivi n\'est pas supprimé des liens</string>
+  <string name="revanced_sanitize_sharing_links_title">Nettoyer les liens de partage</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Le paramètre de requête dédié au suivi est supprimé des liens partagés</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Le paramètre de requête dédié au suivi n\'est pas supprimé des liens partagés</string>
   <string name="revanced_replace_music_with_youtube_title">Utiliser youtube.com dans les liens partagés</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Les liens partagés utilisent youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Les liens partagés utilisent music.youtube.com</string>
@@ -379,15 +379,15 @@ Si un Doodle est actuellement affiché dans votre région et que cette option de
   <string name="revanced_hide_comments_create_a_short_button_title">Masquer le bouton Créer un Short</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Le bouton \"Créer un Short\" est masqué</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Le bouton \"Créer un Short\" est affiché</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Masquer les boutons Emoji et Horodatage</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Les boutons Emoji et Horodatage sont masqués</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Les boutons Emoji et Horodatage sont affichés</string>
   <string name="revanced_hide_comments_preview_comment_title">Masquer le commentaire servant d\'aperçu</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Le commentaire servant d\'aperçu est masqué</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Le commentaire servant d\'aperçu est affiché</string>
   <string name="revanced_hide_comments_thanks_button_title">Masquer le bouton Merci</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Le bouton Merci est masqué</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Le bouton Merci est affiché</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Masquer le bouton d\'horodatage</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Le bouton d\'horodatage est masqué</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Le bouton d\'horodatage est affiché</string>
   <string name="revanced_custom_filter_screen_title">Filtre personnalisé</string>
   <string name="revanced_custom_filter_screen_summary">Masquez des composants en utilisant des filtres personnalisés</string>
   <string name="revanced_custom_filter_title">Activer les filtres personnalisés</string>

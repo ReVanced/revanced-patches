@@ -146,9 +146,9 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_debug_logs_clear_toast">Catatan dibersihkan</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Hapus parameter kueri pelacakan</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Parameter kueri pelacakan dihapus dari tautan</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Parameter kueri pelacakan tidak dihapus dari tautan</string>
+  <string name="revanced_sanitize_sharing_links_title">Bersihkan tautan berbagi</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parameter kueri pelacakan dihapus dari tautan yang dibagikan</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parameter kueri pelacakan tidak dihapus dari tautan yang dibagikan</string>
   <string name="revanced_replace_music_with_youtube_title">Ubah tautan berbagi ke youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Tautan yang dibagikan menggunakan youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Tautan yang dibagikan menggunakan music.youtube.com</string>
@@ -379,15 +379,15 @@ Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini 
   <string name="revanced_hide_comments_create_a_short_button_title">Sembunyikan tombol \'Buat Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tombol Buat Short disembunyikan</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Tombol Buat Short ditampilkan</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Sembunyikan tombol Emoji dan Stempel Waktu</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Tombol Emoji dan Stempel Waktu disembunyikan</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Tombol Emoji dan Stempel Waktu ditampilkan</string>
   <string name="revanced_hide_comments_preview_comment_title">Sembunyikan pratinjau komentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Pratinjau komentar disembunyikan</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Pratinjau komentar ditampilkan</string>
   <string name="revanced_hide_comments_thanks_button_title">Sembunyikan tombol Terima Kasih</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tombol terima kasih ditampilkan</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Sembunyikan tombol Stempel Waktu</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Tombol penanda waktu disembunyikan</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Tombol penanda waktu ditampilkan</string>
   <string name="revanced_custom_filter_screen_title">Penyaring khusus</string>
   <string name="revanced_custom_filter_screen_summary">Sembunyikan komponen menggunakan penyaring khusus</string>
   <string name="revanced_custom_filter_title">Aktifkan penyaring khusus</string>

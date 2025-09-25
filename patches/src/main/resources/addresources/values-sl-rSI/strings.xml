@@ -146,9 +146,9 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_debug_logs_clear_toast">Dnevniki so bili izbrisani</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Odstrani parameter poizvedbe za sledenje</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Parameter poizvedbe za sledenje je odstranjen iz povezav</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Parameter poizvedbe za sledenje ni odstranjen iz povezav</string>
+  <string name="revanced_sanitize_sharing_links_title">Sanitiziraj povezave za deljenje</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parameter sledenja poizvedbe je odstranjen iz deljenih povezav</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parameter sledenja poizvedbe ni odstranjen iz deljenih povezav</string>
   <string name="revanced_replace_music_with_youtube_title">Spremenite povezave za skupno rabo v youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Skupne povezave uporabljajo youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Skupne povezave uporabljajo music.youtube.com</string>
@@ -379,15 +379,15 @@ Vendar pa bo omogočitev tega beležila tudi nekatere uporabniške podatke, kot 
   <string name="revanced_hide_comments_create_a_short_button_title">Skrij gumb \"Ustvari Shorts\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Gumb »Ustvari Short« je skrit</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Gumb »Ustvari Short« je prikazan</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Skrij gumbe za emodžije in časovne žige</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Gumbi za emodžije in časovne žige so skriti</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Gumbi za emodžije in časovne žige so prikazani</string>
   <string name="revanced_hide_comments_preview_comment_title">Skrij predogled komentarja</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Predogled komentarja je skrit</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Predogled komentarja je prikazan</string>
   <string name="revanced_hide_comments_thanks_button_title">Skrij gumb Hvala</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Gumb \"Hvala\" je skrit</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Gumb \"Hvala\" je prikazan</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Skrij gumb za časovni žig</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Gumb časovnega žiga je skrit</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Gumb časovnega žiga je prikazan</string>
   <string name="revanced_custom_filter_screen_title">Prilagojeni filter</string>
   <string name="revanced_custom_filter_screen_summary">Skrij komponente s prilagojenimi filtri</string>
   <string name="revanced_custom_filter_title">Omogoči prilagojeni filter</string>

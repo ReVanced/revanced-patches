@@ -146,9 +146,9 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_debug_logs_clear_toast">Qeydlər silindi</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">İzləmə sorğusu faktorun sil</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">İzləmə sorğusu faktoru bağlantılardan silinir</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">İzləmə sorğusu faktoru bağlantılardan silinmir</string>
+  <string name="revanced_sanitize_sharing_links_title">Paylaşım keçidlərini təmizlə</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">İzləmə sorğu parametri paylaşılan keçidlərdən silinir</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">İzləmə sorğu parametri paylaşılan keçidlərdən silinmir</string>
   <string name="revanced_replace_music_with_youtube_title">Paylaşma keçidlərini youtube.com-a dəyişdir</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Paylaşılan keçidlər youtube.com istifadə edir</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Paylaşılan keçidlər music.youtube.com istifadə edir</string>
@@ -379,15 +379,15 @@ Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlum
   <string name="revanced_hide_comments_create_a_short_button_title">\"Shorts Yarat\" düyməsini gizlət</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Short yarat düyməsi gizlidir</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Short yarat düyməsi görünür</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Emoji və Vaxt damğası düymələrini gizlət</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emoji və Vaxt damğası düymələri gizlədilib</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emoji və Vaxt damğası düymələri göstərilir</string>
   <string name="revanced_hide_comments_preview_comment_title">Önbaxış şərhin gizlət</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Önbaxış şərhi gizlədilib</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Önbaxış şərhi göstərilir</string>
   <string name="revanced_hide_comments_thanks_button_title">Təşəkkür Düyməsini Gizlət</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Təşəkkür düyməsi gizlidir</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Təşəkkür düyməsi göstərilir</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Vaxt damğası düyməsin gizlət</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Vaxt damğası düyməsi gizlidir</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Vaxt möhürü düyməsi göstərilir</string>
   <string name="revanced_custom_filter_screen_title">Şəxsi filtr</string>
   <string name="revanced_custom_filter_screen_summary">Fərdi filtrlər işlədərək elementləri gizlət</string>
   <string name="revanced_custom_filter_title">Fərdi filtri aktivləşdir</string>

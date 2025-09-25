@@ -146,9 +146,9 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_debug_logs_clear_toast">Log cancellati</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Rimuovi il parametro di tracciamento della query</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Il parametro di tracciamento della query viene rimosso dai link</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Il parametro di tracciamento della query non viene rimosso dai link</string>
+  <string name="revanced_sanitize_sharing_links_title">Sanifica collegamenti di condivisione</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Il parametro di query di tracciamento viene rimosso dai collegamenti condivisi</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Il parametro di query di tracciamento non viene rimosso dai collegamenti condivisi</string>
   <string name="revanced_replace_music_with_youtube_title">Cambia i link di condivisione in youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">I link condivisi usano youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">I link condivisi usano music.youtube.com</string>
@@ -379,15 +379,15 @@ Se al momento un Doodle è visibile nella tua regione e questa impostazione nasc
   <string name="revanced_hide_comments_create_a_short_button_title">Nascondi il pulsante \'Crea uno Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Il pulsante Crea uno Short è nascosto</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Il pulsante Crea uno Short è visibile</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Nascondi i pulsanti Emoji e Timestamp</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">I pulsanti Emoji e Timestamp sono nascosti</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">I pulsanti Emoji e Timestamp sono mostrati</string>
   <string name="revanced_hide_comments_preview_comment_title">Nascondi il commento di anteprima</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Il commento di anteprima è nascosto</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Il commento di anteprima è visibile</string>
   <string name="revanced_hide_comments_thanks_button_title">Nascondi il pulsante Grazie</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Il pulsante Grazie è nascosto</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Il pulsante Grazie è visibile</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Nascondi il pulsante Timestamp</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Il pulsante timestamp è nascosto</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Il pulsante timestamp è visibile</string>
   <string name="revanced_custom_filter_screen_title">Filtro personalizzato</string>
   <string name="revanced_custom_filter_screen_summary">Nascondi i componenti usando i filtri personalizzati</string>
   <string name="revanced_custom_filter_title">Attiva il filtro personalizzato</string>
