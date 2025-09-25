@@ -146,9 +146,9 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_toast">日志已清除</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">删除跟踪查询参数</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">链接中跟踪参数已去除</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">链接中跟踪参数未去除</string>
+  <string name="revanced_sanitize_sharing_links_title">净化分享链接</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">跟踪查询参数已从分享链接中移除</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">跟踪查询参数未从分享链接中移除</string>
   <string name="revanced_replace_music_with_youtube_title">将分享链接更改为 youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">分享链接使用 youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">分享链接使用 music.youtube.com</string>
@@ -379,15 +379,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">隐藏「创建 Short」按钮</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">“创建Shorts”按钮已隐藏</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">“创建Shorts”按钮已显示</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">隐藏表情符号和时间戳按钮</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">表情符号和时间戳按钮已隐藏</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">表情符号和时间戳按钮已显示</string>
   <string name="revanced_hide_comments_preview_comment_title">隐藏评论预览</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">评论预览已隐藏</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">评论预览已显示</string>
   <string name="revanced_hide_comments_thanks_button_title">隐藏感谢按钮</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">感谢按钮已隐藏</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">感谢按钮已显示</string>
-  <string name="revanced_hide_comments_timestamp_button_title">隐藏时间戳按钮</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">时间戳按钮已隐藏</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">时间戳按钮已显示</string>
   <string name="revanced_custom_filter_screen_title">自定义过滤器</string>
   <string name="revanced_custom_filter_screen_summary">使用自定义过滤器隐藏组件</string>
   <string name="revanced_custom_filter_title">启用自定义筛选器</string>

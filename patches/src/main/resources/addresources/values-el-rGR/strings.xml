@@ -56,7 +56,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_recent_searches">Πρόσφατες αναζητήσεις</string>
   <string name="revanced_settings_search_remove_message">Κατάργηση από το ιστορικό αναζήτησης;</string>
   <string name="revanced_settings_search_clear_history">Εκκαθάριση ιστορικού αναζήτησης</string>
-  <string name="revanced_settings_search_clear_history_message">Είστε σίγουροι ότι θέλετε να εκκαθαρίσετε όλο το ιστορικό αναζήτησης;</string>
+  <string name="revanced_settings_search_clear_history_message">Είστε βέβαιοι ότι θέλετε να εκκαθαρίσετε όλο το ιστορικό αναζήτησης;</string>
   <string name="revanced_settings_search_tips_title">Συμβουλές Αναζήτησης</string>
   <string name="revanced_settings_search_tips_summary">"• Πατήστε μια διαδρομή για να μεταβείτε σε αυτήν
 • Πατήστε παρατεταμένα μια ρύθμιση για να μεταβείτε σε αυτήν
@@ -147,8 +147,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Η παράμετρος παρακολούθησης αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Η παράμετρος παρακολούθησης δεν αφαιρείται από τους συνδέσμους στην κοινοποίηση</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Η παράμετρος παρακολούθησης αφαιρείται από τους συνδέσμους κατά την κοινοποίηση</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Η παράμετρος παρακολούθησης δεν αφαιρείται από τους συνδέσμους κατά την κοινοποίηση</string>
   <string name="revanced_replace_music_with_youtube_title">Αλλαγή συνδέσμων κοινοποίησης σε youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Οι κοινοποιημένοι σύνδεσμοι χρησιμοποιούν το music.youtube.com</string>
@@ -381,15 +381,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Κουμπί «Δημιουργία Short»</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Κουμπιά χρονοσήμανσης και emoji</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Κρυμμένα</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_comments_preview_comment_title">Προεπισκόπηση σχολίου</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_comments_thanks_button_title">Κουμπί «Σας ευχαριστούμε»</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Κουμπί χρονοσήμανσης</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_custom_filter_screen_title">Προσαρμοσμένο φίλτρο</string>
   <string name="revanced_custom_filter_screen_summary">Απόκρυψη στοιχείων χρησιμοποιώντας προσαρμοσμένα φίλτρα</string>
   <string name="revanced_custom_filter_title">Χρήση προσαρμοσμένου φίλτρου</string>

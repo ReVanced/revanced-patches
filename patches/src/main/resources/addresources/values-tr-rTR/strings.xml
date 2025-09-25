@@ -146,9 +146,9 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_debug_logs_clear_toast">Kayıtlar temizlendi</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">İzleyici sorgu parametresini kaldır</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Bağlantılardan izleyici sorgu parametresi kaldırılır</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
+  <string name="revanced_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılır</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
   <string name="revanced_replace_music_with_youtube_title">Paylaşım bağlantılarını youtube.com olarak değiştir</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Paylaşılan bağlantılar youtube.com kullanır</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Paylaşılan bağlantılar music.youtube.com kullanır</string>
@@ -379,15 +379,15 @@ Bir Doodle şu anda bölgenizde gösteriliyorsa ve bu gizleme ayarı açıksa, a
   <string name="revanced_hide_comments_create_a_short_button_title">\'Short oluştur\' düğmesini gizle</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Short oluştur düğmesi gizli</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Short oluştur düğmesi görünür</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Emoji ve Zaman damgası düğmelerini gizle</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emoji ve Zaman damgası düğmeleri gizli</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emoji ve Zaman damgası düğmeleri görünür</string>
   <string name="revanced_hide_comments_preview_comment_title">Ön izlenen yorumu gizle</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Ön izlenen yorum gizli</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Ön izlenen yorum görünür</string>
   <string name="revanced_hide_comments_thanks_button_title">Teşekkürler düğmesini gizle</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Teşekkürler düğmesi gizli</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Teşekkürler düğmesi görünür</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Zaman damgası düğmesini gizle</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Zaman damgası düğmesi gizli</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Zaman damgası düğmesi görünür</string>
   <string name="revanced_custom_filter_screen_title">Özel filtre</string>
   <string name="revanced_custom_filter_screen_summary">Özel filtreler kullanarak bileşenleri gizle</string>
   <string name="revanced_custom_filter_title">Özel filtreyi etkinleştir</string>

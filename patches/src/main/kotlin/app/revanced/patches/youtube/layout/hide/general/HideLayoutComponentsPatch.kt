@@ -38,6 +38,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 
 internal var albumCardId = -1L
     private set
@@ -222,6 +223,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_surveys"),
             SwitchPreference("revanced_hide_ticket_shelf"),
             SwitchPreference("revanced_hide_video_recommendation_labels"),
+            SwitchPreference("revanced_hide_view_count"),
+            SwitchPreference("revanced_hide_upload_time"),
             SwitchPreference("revanced_hide_doodles"),
         )
 
@@ -376,6 +379,39 @@ val hideLayoutComponentsPatch = bytecodePatch(
                             "setDoodleDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V"
                 )
             }
+        }
+
+        // endregion
+
+
+        // region hide view count
+
+        hideViewCountFingerprint.method.apply {
+            val startIndex = hideViewCountFingerprint.patternMatch!!.startIndex
+            var returnStringRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
+
+            // Find the instruction where the text dimension is retrieved.
+            val applyDimensionIndex = indexOfFirstInstructionReversedOrThrow {
+                val reference = getReference<MethodReference>()
+                opcode == Opcode.INVOKE_STATIC &&
+                        reference?.definingClass == "Landroid/util/TypedValue;" &&
+                        reference.returnType == "F" &&
+                        reference.name == "applyDimension" &&
+                        reference.parameterTypes == listOf("I", "F", "Landroid/util/DisplayMetrics;")
+            }
+
+            // A float value is passed which is used to determine subtitle text size.
+            val floatDimensionRegister = getInstruction<OneRegisterInstruction>(
+                applyDimensionIndex + 1
+            ).registerA
+
+            addInstructions(
+                applyDimensionIndex - 1,
+                """
+                    invoke-static { v$returnStringRegister, v$floatDimensionRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->modifyFeedSubtitleSpan(Landroid/text/SpannableString;F)Landroid/text/SpannableString;
+                    move-result-object v$returnStringRegister
+                """
+            )
         }
 
         // endregion

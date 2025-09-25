@@ -146,9 +146,9 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_toast">ล้างบันทึกแล้ว</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">ลบพารามิเตอร์การติดตามแบบสอบถาม</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">พารามิเตอร์การติดตามแบบสอบถามถูกลบออกจากลิงก์</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">พารามิเตอร์การติดตามแบบสอบถามไม่ได้ถูกลบออกจากลิงก์</string>
+  <string name="revanced_sanitize_sharing_links_title">ล้างข้อมูลลิงก์ที่แชร์</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">พารามิเตอร์การติดตามจะถูกลบออกจากลิงก์ที่แชร์</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">พารามิเตอร์การติดตามไม่ได้ถูกลบออกจากลิงก์ที่แชร์</string>
   <string name="revanced_replace_music_with_youtube_title">เปลี่ยนลิงก์การแชร์เป็น youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">ลิงก์ที่แชร์ใช้ youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">ลิงก์ที่แชร์ใช้ music.youtube.com</string>
@@ -379,15 +379,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">ซ่อนปุ่ม \'สร้าง Shorts\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">ปุ่มสร้าง Short ถูกซ่อน</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">ปุ่มสร้าง Short แสดงอยู่</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">ซ่อนปุ่มอีโมจิและปุ่มการประทับเวลา</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">ปุ่มอีโมจิและปุ่มการประทับเวลาถูกซ่อน</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">ปุ่มอีโมจิและปุ่มการประทับเวลาถูกแสดง</string>
   <string name="revanced_hide_comments_preview_comment_title">ซ่อนความคิดเห็นตัวอย่าง</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">ความคิดเห็นตัวอย่างถูกซ่อนไว้</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">ความคิดเห็นตัวอย่างแสดงอยู่</string>
   <string name="revanced_hide_comments_thanks_button_title">ซ่อนปุ่มขอบคุณ</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">ปุ่มขอบคุณถูกซ่อนไว้</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">ปุ่มขอบคุณจะแสดง</string>
-  <string name="revanced_hide_comments_timestamp_button_title">ซ่อนปุ่มประทับเวลา</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">ปุ่มประทับเวลาถูกซ่อน</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">ปุ่มประทับเวลาแสดงอยู่</string>
   <string name="revanced_custom_filter_screen_title">ตัวกรองแบบกำหนดเอง</string>
   <string name="revanced_custom_filter_screen_summary">ซ่อนส่วนประกอบโดยใช้ตัวกรองแบบกำหนดเอง</string>
   <string name="revanced_custom_filter_title">เปิดใช้งานตัวกรองแบบกำหนดเอง</string>

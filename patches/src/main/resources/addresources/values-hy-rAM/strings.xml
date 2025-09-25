@@ -146,9 +146,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_debug_logs_clear_toast">Մատյանները մաքրվել են</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Հետևողականության  հարցումի  պարամետրը  հեռացնել</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Հետևողականության  հարցումի  պարամետրը  հեռացվում է  հղումներից</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Հետևողականության  հարցումի  պարամետրը  չի  հեռացվում  հղումներից</string>
+  <string name="revanced_sanitize_sharing_links_title">Մաքրել համօգտագործման հղումները</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Հետևման հարցման պարամետրը հեռացված է համօգտագործված հղումներից</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Հետևման հարցման պարամետրը հեռացված չէ համօգտագործված հղումներից</string>
   <string name="revanced_replace_music_with_youtube_title">Փոխել համօգտագործման հղումները youtube.com-ի</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Համօգտագործվող հղումները օգտագործում են youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Համօգտագործվող հղումները օգտագործում են music.youtube.com</string>
@@ -379,15 +379,15 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_comments_create_a_short_button_title">Թաքցնել \"Ստեղծել Shorts\" կոճակը</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">\"Ստեղծել Short\" կոճակը թաքցված է</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">\"Ստեղծել Short\" կոճակը ցուցադրվում է</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Թաքցնել Էմոջիի և Ժամանակի նիշի կոճակները</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Էմոջիի և Ժամանակի նիշի կոճակները թաքցված են</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Էմոջիի և Ժամանակի նիշի կոճակները ցուցադրված են</string>
   <string name="revanced_hide_comments_preview_comment_title">Թաքցնել նախադիտման մեկնաբանությունը</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Նախադիտման մեկնաբանությունը թաքցված է</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Նախադիտման մեկնաբանությունը երևում է</string>
   <string name="revanced_hide_comments_thanks_button_title">Թաքցնել շնորհակալության կոճակը</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">\"Շնորհակալություն\" կոճակը թաքցված է</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">\"Շնորհակալություն\" կոճակը երևում է</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Թաքցնել ժամանակի դրոշմի կոճակը</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Ժամանակային նշումով կոճակը թաքցված է</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Ժամանակային նշումով կոճակը ցուցադրվում է</string>
   <string name="revanced_custom_filter_screen_title">Պատրաստված լրացուցիչ կարգավորումներ</string>
   <string name="revanced_custom_filter_screen_summary">Թաքցնել բաղադրիչները՝ օգտագործելով պատրաստված լրացուցիչ կարգավորումներ</string>
   <string name="revanced_custom_filter_title">Միացնել պատրաստված լրացուցիչ կարգավորումները</string>

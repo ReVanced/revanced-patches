@@ -138,3 +138,17 @@ internal val showFloatingMicrophoneButtonFingerprint by fingerprint {
         opcode(Opcode.IGET_BOOLEAN, maxAfter = 10)
     )
 }
+
+internal val hideViewCountFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returns("Ljava/lang/CharSequence;")
+
+    opcodes(
+        Opcode.RETURN_OBJECT,
+        Opcode.CONST_STRING,
+        Opcode.RETURN_OBJECT,
+    )
+    strings(
+        "Has attachmentRuns but drawableRequester is missing.",
+    )
+}
