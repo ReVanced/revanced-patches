@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_21_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_28_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_39_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.mainActivityOnBackPressedFingerprint
 import app.revanced.util.findFreeRegister
@@ -28,6 +29,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
+import java.util.logging.Logger
 
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/shared/NavigationBar;"
@@ -193,8 +195,14 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             )
         }
 
+        if (is_20_39_or_greater) {
+            return@execute Logger.getLogger(this::class.java.name).warning(
+                "20.39+ Navigation tab activity button selected state is not yet fixed."
+            )
+        }
+
         // Fix YT bug of notification tab missing the filled icon.
-        if (is_19_35_or_greater) {
+        if (is_19_35_or_greater && !is_20_39_or_greater) { // FIXME: 20.39+ needs this fix.
             val cairoNotificationEnumReference = imageEnumConstructorFingerprint
                 .instructionMatches.last().getInstruction<ReferenceInstruction>().reference
 

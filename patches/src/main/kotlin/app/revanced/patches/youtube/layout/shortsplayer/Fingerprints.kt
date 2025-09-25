@@ -1,5 +1,7 @@
 package app.revanced.patches.youtube.layout.shortsplayer
 
+import app.revanced.patcher.checkCast
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
@@ -7,10 +9,12 @@ import app.revanced.patcher.string
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 /**
  * Purpose of this method is not clear, and it's only used to identify
  * the obfuscated name of the videoId() method in PlaybackStartDescriptor.
+ * 20.39 and lower.
  */
 internal val playbackStartFeatureFlagFingerprint by fingerprint {
     returns("Z")
@@ -25,6 +29,32 @@ internal val playbackStartFeatureFlagFingerprint by fingerprint {
         literal(45380134L)
     )
 }
+
+/**
+ * Purpose of this method is not entirely clear, and it's only used to identify
+ * the obfuscated name of the videoId() method in PlaybackStartDescriptor.
+ * 20.39+
+ */
+internal val watchPanelVideoIdFingerprint by fingerprint {
+    returns("Ljava/lang/String;")
+    parameters()
+    instructions(
+        fieldAccess(
+            opcode = Opcode.IGET_OBJECT,
+            type = "Lcom/google/android/apps/youtube/app/common/player/queue/WatchPanelId;"
+        ),
+        checkCast("Lcom/google/android/apps/youtube/app/common/player/queue/DefaultWatchPanelId;"),
+        methodCall(
+            definingClass = "Lcom/google/android/apps/youtube/app/common/player/queue/DefaultWatchPanelId;",
+            returnType = "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;"
+        ),
+        methodCall(
+            definingClass = "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
+            returnType = "Ljava/lang/String;"
+        )
+    )
+}
+
 
 // Pre 19.25
 internal val shortsPlaybackIntentLegacyFingerprint by fingerprint {

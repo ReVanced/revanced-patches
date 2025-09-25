@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.layout.player.fullscreen.openVideosFullscree
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_39_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -67,12 +68,16 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         )
 
         // Find the obfuscated method name for PlaybackStartDescriptor.videoId()
-        val playbackStartVideoIdMethodName = playbackStartFeatureFlagFingerprint.let {
-            val stringMethodIndex = it.instructionMatches.first().index
-            it.method.let {
-                navigate(it).to(stringMethodIndex).stop().name
+        val (videoIdStartMethod, videoIdIndex) = if (is_20_39_or_greater) {
+            watchPanelVideoIdFingerprint.let {
+                it.method to it.instructionMatches.last().index
+            }
+        } else {
+            playbackStartFeatureFlagFingerprint.let {
+                it.method to it.instructionMatches.first().index
             }
         }
+        val playbackStartVideoIdMethodName = navigate(videoIdStartMethod).to(videoIdIndex).stop().name
 
         fun extensionInstructions(playbackStartRegister: Int, freeRegister: Int) =
             """
