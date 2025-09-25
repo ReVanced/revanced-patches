@@ -1,3 +1,10 @@
+# [5.41.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.14...v5.41.0-dev.15) (2025-09-25)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add "Hide view count" and "Hide upload time" settings ([#5983](https://github.com/ReVanced/revanced-patches/issues/5983)) ([7a37d85](https://github.com/ReVanced/revanced-patches/commit/7a37d858fb937c6bdc2219103dac765b62600e6c))
+
 # [5.41.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.13...v5.41.0-dev.14) (2025-09-24)
 
 
