@@ -464,7 +464,7 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_hide_view_count_title">Hide view count</string>
             <string name="revanced_hide_view_count_summary_on">View count is hidden in feed and search results</string>
             <string name="revanced_hide_view_count_summary_off">View count is shown in feed and search results</string>
-            <string name="revanced_hide_view_count_user_dialog_message">View count is not hidden in search results and channel Page.</string>
+            <string name="revanced_hide_view_count_user_dialog_message">On tablet form factors, view counts are not hidden in search results and on channel pages.</string>
 
             <string name="revanced_hide_keyword_content_screen_title">Hide keyword content</string>
             <string name="revanced_hide_keyword_content_screen_summary">Hide feed and search videos using keyword filters</string>
