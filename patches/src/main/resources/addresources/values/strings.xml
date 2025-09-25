@@ -465,14 +465,14 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
             <string name="revanced_hide_view_count_user_dialog_message">"Limitations:
 • Shorts shelves, channel pages, and search results may still show view counts
-• This feature does work with automotive form factor"</string>
+• This feature does not work with automotive form factor"</string>
             <string name="revanced_hide_upload_time_title">Hide upload time</string>
             <string name="revanced_hide_upload_time_summary_on">Upload time is hidden in feed and search results</string>
             <string name="revanced_hide_upload_time_summary_off">Upload time is shown in feed and search results</string>
             <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
             <string name="revanced_hide_upload_time_user_dialog_message">"Limitations:
 • Shorts shelves, channel pages, and search results may still show upload times
-• This feature does work with automotive form factor"</string>
+• This feature does not work with automotive form factor"</string>
             <string name="revanced_hide_keyword_content_screen_title">Hide keyword content</string>
             <string name="revanced_hide_keyword_content_screen_summary">Hide feed and search videos using keyword filters</string>
             <string name="revanced_hide_keyword_content_home_title">Hide Home videos by keywords</string>
