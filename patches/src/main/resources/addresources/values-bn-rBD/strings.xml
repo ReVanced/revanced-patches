@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s দিন আগে প্যাচ করা হয়েছে</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK তৈরির তারিখ ত্রুটিপূর্ণ</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">সতর্কীকরণ</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">আপনার দেখার ইতিহাস সংরক্ষিত হচ্ছে না।&lt;br&gt;&lt;br&gt;এটি সম্ভবত DNS অ্যাড ব্লকার অথবা নেটওয়ার্ক প্রক্সির কারণে।&lt;br&gt;&lt;br&gt;এটি ঠিক করার জন্য, &lt;b&gt;s.youtube.com&lt;/b&gt;  সাদা তালিকাভুক্ত করুন অথবা সকল DNS ব্লকার এবং প্রক্সি বন্ধ করুন।</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">আবার দেখাবেন না</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">সেটিংস</string>
   <string name="revanced_settings_confirm_user_dialog_title">আপনি কি এগিয়ে যেতে চান?</string>
@@ -1439,11 +1444,6 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_announcements_connection_failed">ঘোষনাদাতার সাথে সম্পর্ক স্থাপন ব্যর্থ হয়েছে</string>
   <string name="revanced_announcements_dialog_dismiss">বাতিল করুন</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">সতর্কীকরণ</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">আপনার দেখার ইতিহাস সংরক্ষিত হচ্ছে না।&lt;br&gt;&lt;br&gt;এটি সম্ভবত DNS অ্যাড ব্লকার অথবা নেটওয়ার্ক প্রক্সির কারণে।&lt;br&gt;&lt;br&gt;এটি ঠিক করার জন্য, &lt;b&gt;s.youtube.com&lt;/b&gt;  সাদা তালিকাভুক্ত করুন অথবা সকল DNS ব্লকার এবং প্রক্সি বন্ধ করুন।</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">আবার দেখাবেন না</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">লুপ ভিডিও সক্ষম করুন</string>
   <string name="revanced_loop_video_summary_on">ভিডিও লুপ হবে</string>
@@ -1558,10 +1558,22 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_playback_speed_default_title">প্লেব্যাকের মূল স্পিড</string>
   <string name="revanced_remember_playback_speed_toast">মূল স্পিড পরিবর্তন হচ্ছে: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">HDR ভিডিও নিষ্ক্রিয় করুন</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR ভিডিও নিষ্ক্রিয় করা হয়েছে</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR ভিডিও সক্রিয় হয়েছে</string>
+  <string name="revanced_force_avc_codec_title">AVC (H.264) প্রয়োগ করুন</string>
+  <string name="revanced_force_avc_codec_summary_on">ভিডিও কোডেক AVC (H.264) তে প্রয়োগ করা হয়েছে</string>
+  <string name="revanced_force_avc_codec_summary_off">ভিডিও কোডেক স্বয়ংক্রিয়ভাবে নির্ধারিত হয়</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"সুবিধা:
+• ব্যাটারির আয়ু উন্নত করতে পারে
+• পুরনো ডিভাইসে অনুপস্থিত ভিডিও রেজোলিউশন পুনরুদ্ধার করতে পারে
+
+সীমাবদ্ধতা:
+• সর্বোচ্চ রেজোলিউশন 1080p
+• VP9 বা AV1 এর চেয়ে ভিডিও প্লেব্যাকে বেশি ইন্টারনেট ডেটা ব্যবহার হবে
+• HDR ভিডিও AVC ব্যবহার করবে না
+• কিছু ডিভাইস AVC জোর করে ব্যবহার করতে পারে না"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">উন্নত ভিডিও গুণমান মেনু দেখান</string>

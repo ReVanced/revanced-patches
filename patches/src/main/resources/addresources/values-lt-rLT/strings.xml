@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Pataisyta prieš %s dienas</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK sukurties data yra sugadinta</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Įspėjimas</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsų žiūrėjimo istorija nėra išsaugoma.&lt;br&gt;&lt;br&gt;Tikėtina, kad tai sukelia DNS skelbimų blokatorius arba tinklo tarpinis serveris.&lt;br&gt;&lt;br&gt;Norėdami išspręsti šią problemą, įtraukite į baltąjį sąrašą &lt;b&gt;s.youtube.com&lt;/b&gt; arba išjunkite visus DNS blokatorius ir tarpinį serverį.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerodyti daugiau</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Nustatymai</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ar tikrai norite tęsti?</string>
@@ -1444,11 +1449,6 @@ Palieskite čia, kad sužinotumėte daugiau apie DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Nepavyko prisijungti prie pranešimų teikėjo</string>
   <string name="revanced_announcements_dialog_dismiss">Atmesti</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Įspėjimas</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsų žiūrėjimo istorija nėra išsaugoma.&lt;br&gt;&lt;br&gt;Tikėtina, kad tai sukelia DNS skelbimų blokatorius arba tinklo tarpinis serveris.&lt;br&gt;&lt;br&gt;Norėdami išspręsti šią problemą, įtraukite į baltąjį sąrašą &lt;b&gt;s.youtube.com&lt;/b&gt; arba išjunkite visus DNS blokatorius ir tarpinį serverį.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerodyti daugiau</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Įjungti vaizdo įrašo kartojimą</string>
   <string name="revanced_loop_video_summary_on">Vaizdo įrašas bus kartojamas</string>
@@ -1563,10 +1563,22 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_playback_speed_default_title">Numatytasis atkūrimo greitis</string>
   <string name="revanced_remember_playback_speed_toast">Pakeistas numatytasis greitis į: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Išjungti HDR vaizdo įrašą</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR vaizdo įrašas išjungtas</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR vaizdo įrašas įjungtas</string>
+  <string name="revanced_force_avc_codec_title">Priversti AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Vaizdo kodekas priverstinai nustatytas į AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Vaizdo kodekas nustatomas automatiškai</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Privalumai:
+• Gali pagerinti baterijos veikimo laiką
+• Gali atkurti trūkstamas vaizdo raiškas senesniuose įrenginiuose
+
+Apribojimai:
+• Didžiausia raiška yra 1080p
+• Vaizdo įrašų atkūrimas naudos daugiau interneto duomenų nei VP9 ar AV1
+• HDR vaizdo įrašai nenaudos AVC
+• Kai kurie įrenginiai negali priverstinai naudoti AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Rodyti išplėstinį vaizdo įrašo kokybės meniu</string>

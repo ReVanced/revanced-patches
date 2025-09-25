@@ -5,8 +5,12 @@ import static app.revanced.extension.youtube.settings.Settings.*;
 
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextUtils;
 
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -82,6 +86,8 @@ public enum SegmentCategory {
             FILLER,
             MUSIC_OFFTOPIC,
     };
+
+    public static final String COLOR_DOT_STRING = "⬤";
 
     public static final float CATEGORY_DEFAULT_OPACITY = 0.7f;
 
@@ -322,6 +328,32 @@ public enum SegmentCategory {
      */
     public StringRef getTitle() {
         return title;
+    }
+
+    /**
+     * Creates a {@link SpannableString} that starts with a colored dot followed by the provided text.
+     */
+    private static SpannableString getCategoryColorDotSpan(String text, @ColorInt int color) {
+        SpannableString dotSpan = new SpannableString(COLOR_DOT_STRING + text);
+        dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        dotSpan.setSpan(new RelativeSizeSpan(1.5f), 0, 1,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        return dotSpan;
+    }
+
+    /**
+     * Returns the category title with a colored dot.
+     */
+    public SpannableString getTitleWithColorDot(@ColorInt int categoryColor) {
+        return getCategoryColorDotSpan(" " + title, categoryColor);
+    }
+
+    /**
+     * Returns the category title with a colored dot.
+     */
+    public SpannableString getTitleWithColorDot() {
+        return getTitleWithColorDot(color);
     }
 
     /**

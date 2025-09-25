@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Parandatud %s päeva tagasi</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK ehituskuupäev on rikutud</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Hoiatus</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Teie vaatamise ajalugu ei salvestata.&lt;br&gt;&lt;br&gt;See on tõenäoliselt tingitud DNS-i reklaamiblokeerijast või võrguproksilt.&lt;br&gt;&lt;br&gt;Selle parandamiseks lisage valgesse nimekirja &lt;b&gt;s.youtube.com&lt;/b&gt; või lülitage kõik DNS-i reklaamiblokeerijad ja proksid välja.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ära kuva uuesti</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Seaded</string>
   <string name="revanced_settings_confirm_user_dialog_title">Kas sa oled kindel, et soovid jätkata?</string>
@@ -1443,11 +1448,6 @@ Puudutage siia, et saada lisateavet DeArrow kohta"</string>
   <string name="revanced_announcements_connection_failed">Ühenduse loomine teatepakkujaga ebaõnnestus</string>
   <string name="revanced_announcements_dialog_dismiss">Loobu</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Hoiatus</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Teie vaatamise ajalugu ei salvestata.&lt;br&gt;&lt;br&gt;See on tõenäoliselt tingitud DNS-i reklaamiblokeerijast või võrguproksilt.&lt;br&gt;&lt;br&gt;Selle parandamiseks lisage valgesse nimekirja &lt;b&gt;s.youtube.com&lt;/b&gt; või lülitage kõik DNS-i reklaamiblokeerijad ja proksid välja.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ära kuva uuesti</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Luba video kordamine</string>
   <string name="revanced_loop_video_summary_on">Video kordub</string>
@@ -1562,10 +1562,22 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_playback_speed_default_title">Vaikimisi taasesituse kiirus</string>
   <string name="revanced_remember_playback_speed_toast">Vaikimisi kiirus muudeti: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Keela HDR video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video on keelatud</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video on lubatud</string>
+  <string name="revanced_force_avc_codec_title">Sunni AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Videokodek sunnitakse AVC-le (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Videokodek määratakse automaatselt</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Eelised:
+• Võib parandada aku eluiga
+• Saab taastada puuduvad videolahendused vanematel seadmetel
+
+Piirangud:
+• Maksimaalne resolutsioon on 1080p
+• Video taasesitus kasutab rohkem internetiandmeid kui VP9 või AV1
+• HDR-videod ei kasuta AVC-d
+• Mõned seadmed ei saa AVC-d sundida"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Kuva täiustatud video kvaliteedi menüü</string>

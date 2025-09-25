@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Patched for %s dage siden</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK byggedato er ødelagt</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Advarsel</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Din urhistorik gemmes ikke.&lt;br&gt;&lt;br&gt;Dette skyldes sandsynligvis en DNS-annonceblokker eller netværksproxy.&lt;br&gt;&lt;br&gt;For at løse dette, whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; eller slå alle DNS-blokkere og fuldmagter fra.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Vis ikke igen</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Indstillinger</string>
   <string name="revanced_settings_confirm_user_dialog_title">Er du sikker på, at du vil fortsætte?</string>
@@ -1445,11 +1450,6 @@ Tryk her for at lære mere om DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Kunne ikke forbinde til udbyder af annonceringer</string>
   <string name="revanced_announcements_dialog_dismiss">Luk</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Advarsel</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Din urhistorik gemmes ikke.&lt;br&gt;&lt;br&gt;Dette skyldes sandsynligvis en DNS-annonceblokker eller netværksproxy.&lt;br&gt;&lt;br&gt;For at løse dette, whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; eller slå alle DNS-blokkere og fuldmagter fra.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Vis ikke igen</string>
-  </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   <string name="revanced_loop_video_title">Aktiver loop-video</string>
   <string name="revanced_loop_video_summary_on">Videoen vil loope</string>
@@ -1564,10 +1564,22 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_playback_speed_default_title">Standard afspilningshastighed</string>
   <string name="revanced_remember_playback_speed_toast">Ændrede standardhastighed til: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Deaktiver HDR-video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video er deaktiveret</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video er aktiveret</string>
+  <string name="revanced_force_avc_codec_title">Gennemtving AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Video-codec er tvunget til AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Video-codec bestemmes automatisk</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Fordele:
+• Kan forbedre batterilevetiden
+• Kan gendanne manglende videoopløsninger på ældre enheder
+
+Begrænsninger:
+• Maksimal opløsning er 1080p
+• Videoafspilning vil bruge mere internetdata end VP9 eller AV1
+• HDR-videoer vil ikke bruge AVC
+• Nogle enheder kan ikke tvinge AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Vis avanceret menu for videokvalitet</string>
