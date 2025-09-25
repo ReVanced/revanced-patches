@@ -6,7 +6,7 @@ import app.revanced.extension.shared.privacy.SanitizeSharingLinkPatch;
 
 @SuppressWarnings("unused")
 public final class SanitizeSharingLinksPatch extends SanitizeSharingLinkPatch {
-    private static final SanitizeSharingLinksPatch INSTANCE = new SanitizeSharingLinksPatch();
+    private static final SanitizeSharingLinksPatch sanitizeSharingLinksPatch = new SanitizeSharingLinksPatch();
 
     /**
      * Parameters that are considered undesirable and should be stripped away.
@@ -23,6 +23,6 @@ public final class SanitizeSharingLinksPatch extends SanitizeSharingLinkPatch {
      * Injection point.
      */
     public static String sanitizeSharingLink(String url) {
-        return INSTANCE.sanitizeUrl(url);
+        return sanitizeSharingLinksPatch.sanitizeUrl(url);
     }
 }
