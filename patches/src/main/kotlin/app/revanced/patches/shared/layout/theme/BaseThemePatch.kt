@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.stringOption
 import app.revanced.util.childElementsSequence
 import java.util.Locale
 
@@ -83,6 +84,14 @@ internal fun validateColorName(colorString: String): Boolean {
     return true
 }
 
+val darkThemeBackgroundColorOption = stringOption(
+    key = "darkThemeBackgroundColor",
+    default = PURE_BLACK_COLOR,
+    values = DARK_THEME_COLOR_VALUES,
+    title = "Dark theme background color",
+    description = THEME_COLOR_OPTION_DESCRIPTION
+)
+
 internal fun baseThemePatch(
     extensionClassDescriptor: String,
     block: BytecodePatchBuilder.() -> Unit = {},
@@ -92,6 +101,8 @@ internal fun baseThemePatch(
     description = "Adds options for theming and applies a custom background theme " +
             "(dark background theme defaults to pure black).",
 ) {
+    darkThemeBackgroundColorOption()
+
     block()
 
     dependsOn(lithoColorHookPatch)
@@ -105,7 +116,6 @@ internal fun baseThemePatch(
 
 internal fun baseThemeResourcePatch(
     darkColorNames: Set<String> = THEME_DEFAULT_DARK_COLOR_NAMES,
-    darkColorReplacement: () -> String,
     lightColorNames: Set<String> = THEME_DEFAULT_LIGHT_COLOR_NAMES,
     lightColorReplacement: (() -> String)? = null
 ) = resourcePatch {
@@ -113,8 +123,8 @@ internal fun baseThemeResourcePatch(
     execute {
         // After patch option validators are fixed https://github.com/ReVanced/revanced-patcher/issues/372
         // This should changed to a patch option validator.
-        val darkColor = darkColorReplacement()
-        if (!validateColorName(darkColor)) {
+        val darkColor by darkThemeBackgroundColorOption
+        if (!validateColorName(darkColor!!)) {
             throw PatchException("Invalid dark theme color: $darkColor")
         }
 

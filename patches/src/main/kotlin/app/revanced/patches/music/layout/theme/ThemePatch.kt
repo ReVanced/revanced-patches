@@ -16,14 +16,6 @@ val themePatch = baseThemePatch(
     extensionClassDescriptor = EXTENSION_CLASS_DESCRIPTOR,
 
     block = {
-        val darkThemeBackgroundColor by stringOption(
-            key = "darkThemeBackgroundColor",
-            default = PURE_BLACK_COLOR,
-            values = DARK_THEME_COLOR_VALUES,
-            title = "Dark theme background color",
-            description = THEME_COLOR_OPTION_DESCRIPTION
-        )
-
         dependsOn(
             sharedExtensionPatch,
             baseThemeResourcePatch(
@@ -32,8 +24,7 @@ val themePatch = baseThemePatch(
                     "yt_black_pure_opacity80",
                     "ytm_color_grey_12",
                     "material_grey_800"
-                ),
-                darkColorReplacement = { darkThemeBackgroundColor!! }
+                )
             )
         )
 

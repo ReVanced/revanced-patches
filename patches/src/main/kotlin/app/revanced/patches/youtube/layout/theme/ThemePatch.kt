@@ -12,6 +12,7 @@ import app.revanced.patches.shared.layout.theme.THEME_COLOR_OPTION_DESCRIPTION
 import app.revanced.patches.shared.layout.theme.WHITE_COLOR
 import app.revanced.patches.shared.layout.theme.baseThemePatch
 import app.revanced.patches.shared.layout.theme.baseThemeResourcePatch
+import app.revanced.patches.shared.layout.theme.darkThemeBackgroundColorOption
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.overrideThemeColors
 import app.revanced.patches.shared.misc.settings.preference.InputType
@@ -35,14 +36,6 @@ val themePatch = baseThemePatch(
     extensionClassDescriptor = EXTENSION_CLASS_DESCRIPTOR,
 
     block = {
-        val darkThemeBackgroundColor by stringOption(
-            key = "darkThemeBackgroundColor",
-            default = PURE_BLACK_COLOR,
-            values = DARK_THEME_COLOR_VALUES,
-            title = "Dark theme background color",
-            description = THEME_COLOR_OPTION_DESCRIPTION
-        )
-
         val lightThemeBackgroundColor by stringOption(
             key = "lightThemeBackgroundColor",
             default = WHITE_COLOR,
@@ -55,7 +48,7 @@ val themePatch = baseThemePatch(
             dependsOn(resourceMappingPatch)
 
             execute {
-                overrideThemeColors(lightThemeBackgroundColor!!, darkThemeBackgroundColor!!)
+                overrideThemeColors(lightThemeBackgroundColor!!, darkThemeBackgroundColorOption.value!!)
 
                 fun addColorResource(
                     resourceFile: String,
@@ -86,7 +79,7 @@ val themePatch = baseThemePatch(
                 addColorResource(
                     "res/values-night/colors.xml",
                     splashBackgroundColorKey,
-                    darkThemeBackgroundColor!!
+                    darkThemeBackgroundColorOption.value!!
                 )
 
                 // Edit splash screen files and change the background color.
@@ -147,7 +140,6 @@ val themePatch = baseThemePatch(
             addResourcesPatch,
             seekbarColorPatch,
             baseThemeResourcePatch(
-                darkColorReplacement = { darkThemeBackgroundColor!! },
                 lightColorReplacement = { lightThemeBackgroundColor!! }
             ),
             themeResourcePatch
