@@ -284,12 +284,8 @@ public final class app/revanced/patches/instagram/misc/extension/SharedExtension
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/instagram/misc/share/EditShareLinksPatchKt {
-	public static final fun editShareLinksPatch (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Lapp/revanced/patcher/patch/BytecodePatchContext;Lkotlin/jvm/functions/Function2;)V
-}
-
 public final class app/revanced/patches/instagram/misc/share/domain/CustomShareDomainPatchKt {
-	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getSetCustomShareDomain ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/instagram/misc/share/privacy/SanitizeSharingLinksPatchKt {
