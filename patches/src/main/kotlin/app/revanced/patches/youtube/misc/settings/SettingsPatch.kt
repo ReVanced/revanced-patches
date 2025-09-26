@@ -211,7 +211,8 @@ val settingsPatch = bytecodePatch(
         modifyActivityForSettingsInjection(
             licenseActivityOnCreateFingerprint.classDef,
             licenseActivityOnCreateFingerprint.method,
-            YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR
+            YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR,
+            false
         )
     }
 
@@ -226,7 +227,8 @@ val settingsPatch = bytecodePatch(
 internal fun modifyActivityForSettingsInjection(
     activityOnCreateClass: MutableClass,
     activityOnCreateMethod: MutableMethod,
-    extensionClassType: String
+    extensionClassType: String,
+    isYouTubeMusic: Boolean
 ) {
     // Modify Activity and remove all existing layout code.
     // Must modify an existing activity and cannot add a new activity to the manifest,
@@ -269,7 +271,7 @@ internal fun modifyActivityForSettingsInjection(
     // Override finish() to intercept back gesture.
     ImmutableMethod(
         activityOnCreateClass.type,
-        "finish",
+        if (isYouTubeMusic) "finish" else "onBackPressed",
         emptyList(),
         "V",
         AccessFlags.PUBLIC.value,
@@ -277,13 +279,16 @@ internal fun modifyActivityForSettingsInjection(
         null,
         MutableMethodImplementation(3),
     ).toMutable().apply {
+        // Slightly different hooks are needed, otherwise the back button can behave wrong.
+        val extensionMethodName = if (isYouTubeMusic) "handleFinish" else "handleBackPress"
+        val invokeFinishOpcode = if (isYouTubeMusic) "invoke-super" else "invoke-virtual"
+
         addInstructions(
             """
-                invoke-static {}, $extensionClassType->handleFinish()Z
+                invoke-static {}, $extensionClassType->$extensionMethodName()Z
                 move-result v0
                 if-nez v0, :search_handled
-                invoke-super { p0 }, Landroid/app/Activity;->finish()V
-                return-void
+                $invokeFinishOpcode { p0 }, Landroid/app/Activity;->finish()V
                 :search_handled
                 return-void
             """

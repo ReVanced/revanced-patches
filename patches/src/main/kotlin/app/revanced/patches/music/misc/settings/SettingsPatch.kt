@@ -108,7 +108,8 @@ val settingsPatch = bytecodePatch(
         modifyActivityForSettingsInjection(
             googleApiActivityFingerprint.classDef,
             googleApiActivityFingerprint.method,
-            GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR
+            GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR,
+            true
         )
     }
 
