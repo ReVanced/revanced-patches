@@ -1,3 +1,10 @@
+# [5.41.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.17...v5.41.0-dev.18) (2025-09-26)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Handle on screen back swipe gesture ([#6002](https://github.com/ReVanced/revanced-patches/issues/6002)) ([6f92b6c](https://github.com/ReVanced/revanced-patches/commit/6f92b6c50beab091f5f7ef7386579eda38cb4c66))
+
 # [5.41.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.16...v5.41.0-dev.17) (2025-09-26)
 
 
