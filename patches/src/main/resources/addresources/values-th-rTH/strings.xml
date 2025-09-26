@@ -1351,25 +1351,25 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_miniplayer_type_entry_5">ทันสมัย 2</string>
   <string name="revanced_miniplayer_type_entry_6">ทันสมัย 3</string>
   <string name="revanced_miniplayer_type_entry_7">ทันสมัย 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">เปิดใช้งานมุมโค้งมน</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">มุมโค้งมน</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">มุมเป็นสี่เหลี่ยม</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">ปิดใช้งานมุมโค้งมน</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">มุมเป็นสี่เหลี่ยม</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">มุมโค้งมน</string>
   <string name="revanced_miniplayer_double_tap_action_title">เปิดใช้งานการแตะสองครั้งและการบีบเพื่อปรับขนาด</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"การกระทำแตะสองครั้ง และการบีบเพื่อปรับขนาด เปิดใช้งาน
 
 • แตะสองครั้งเพื่อเพิ่มขนาด miniplayer
 • แตะสองครั้งอีกครั้งเพื่อคืนค่าขนาดเดิม"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">การแตะสองครั้งและการบีบเพื่อปรับขนาดปิดใช้งานแล้ว</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">เปิดใช้งานการลากและวาง</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"ลากและวาง เปิดใช้งาน
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">ปิดใช้งานการลากและวาง</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">การลากและวางปิดใช้งานแล้ว</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"ลากและวาง เปิดใช้งาน
 
 สามารถลาก miniplayer ไปยังมุมใดๆ ของหน้าจอ"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">การลากและวางปิดใช้งานแล้ว</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">เปิดใช้งานท่าทางการลากแบบแนวนอน</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"ท่าทางลากแนวนอน เปิดใช้งาน
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">ปิดใช้งานท่าทางการลากแนวนอน</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">ท่าทางการลากแบบแนวนอนปิดใช้งานแล้ว</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"ท่าทางลากแนวนอน เปิดใช้งาน
 
 สามารถลาก miniplayer ออกจากหน้าจอไปทางซ้ายหรือขวา"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">ท่าทางการลากแบบแนวนอนปิดใช้งานแล้ว</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">ซ่อนปุ่มโอเวอร์เลย์</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">ปุ่มโอเวอร์เลย์ถูกซ่อน</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">ปุ่มโอเวอร์เลย์ถูกแสดง</string>

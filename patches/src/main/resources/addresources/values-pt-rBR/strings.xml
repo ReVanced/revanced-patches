@@ -1349,25 +1349,25 @@ Limitação: usar o botão Voltar na barra de ferramentas pode não funcionar"</
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moderno 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Ativar cantos arredondados</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Os cantos são arredondados</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Os cantos são quadrados</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Desativar cantos arredondados</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Os cantos são quadrados</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Os cantos são arredondados</string>
   <string name="revanced_miniplayer_double_tap_action_title">Ativar toque duplo e pinçar para redimensionar</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"A ação de toque duplo e beliscar para redimensionar está habilitada 
 
 • Toque duas vezes para aumentar o tamanho do miniplayer 
 • Toque duas vezes novamente para restaurar o tamanho original"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Toque duplo e pinçar para redimensionar está desativado</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Ativar arrastar e soltar</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Arrastar e soltar está habilitado 
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Desativar arrastar e soltar</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Arrastar e soltar está desativado</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Arrastar e soltar está habilitado 
 
 O miniplayer pode ser arrastado para qualquer canto da tela"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Arrastar e soltar está desativado</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Ativar o gesto de arrastar horizontal</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"O gesto de arrastar horizontalmente está habilitado 
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Desativar gesto de arrastar horizontal</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Gesto de arrastar horizontal desativado</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"O gesto de arrastar horizontalmente está habilitado 
 
 O miniplayer pode ser arrastado para fora da tela para a esquerda ou direita"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto de arrastar horizontal desativado</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Ocultar botões de sobreposição</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Botões de sobreposição estão ocultos</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Botões de sobreposição são mostrados</string>

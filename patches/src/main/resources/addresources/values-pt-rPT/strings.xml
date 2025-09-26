@@ -1352,25 +1352,25 @@ Limitação: Usar o botão voltar na barra de ferramentas pode não funcionar"</
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moderno 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Ativar cantos arredondados</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Bordas são arredondadas</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Os cantos estão quadrados</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Desativar cantos arredondados</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Os cantos estão quadrados</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Bordas são arredondadas</string>
   <string name="revanced_miniplayer_double_tap_action_title">Ativar toque duplo e pinch para redimensionar</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Hành động chạm hai lần và thu phóng bằng cử chỉ được bật
 
 • Chạm hai lần để tăng kích thước miniplayer
 • Chạm hai lần nữa để khôi phục kích thước ban đầu"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Ação de toque duplo e pinçar para redimensionar está desativado</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Ativar arrastar e soltar</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Kéo và thả được bật
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Desativar arrastar e soltar</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Arrastar e soltar está desativado</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Kéo và thả được bật
 
 Miniplayer có thể được kéo đến bất kỳ góc nào của màn hình"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Arrastar e soltar está desativado</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Ativar o gesto de arrastar horizontal</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Cử chỉ kéo ngang được bật
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Desativar gesto de arrastar horizontal</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Gestos de arrastar horizontais desativados</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Cử chỉ kéo ngang được bật
 
 Miniplayer có thể được kéo ra khỏi màn hình sang trái hoặc phải"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gestos de arrastar horizontais desativados</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Ocultar botões de sobreposição</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Os botões de sobreposição estão ocultos</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Os botões de sobreposição são mostrados</string>

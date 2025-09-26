@@ -1354,25 +1354,25 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_5">מודרני 2</string>
   <string name="revanced_miniplayer_type_entry_6">מודרני 3</string>
   <string name="revanced_miniplayer_type_entry_7">מודרני 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">הפעל פינות מעוגלות</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">הפינות מעוגלות</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">הפינות מרובעות</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">בטל פינות מעוגלות</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">הפינות מרובעות</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">הפינות מעוגלות</string>
   <string name="revanced_miniplayer_double_tap_action_title">הפעל הקשה כפולה וצביטה לשינוי גודל</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"פעולת הקשה כפולה וצביטה לשינוי גודל מופעלת
 
 • הקש פעמיים כדי להגדיל את גודל המיני-נגן
 • הקש פעמיים שוב כדי לשחזר את הגודל המקורי"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">פעולת הקשה כפולה וצביטה לשינוי גודל מושבתת</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">הפעל גרירה ושחרור</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"גרירה ושחרור מופעלים
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">בטל גרירה ושחרור</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">גרירה ושחרור מושבת</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"גרירה ושחרור מופעלים
 
 מיני-נגן ניתן לגרירה לעבר כל פינה של המסך"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">גרירה ושחרור מושבת</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">הפעל מחוות גרירה אופקית</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"מחוות גרירה אופקית מופעלת
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">בטל מחוות גרירה אופקית</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">מחוות גרירה אופקית מושבתת</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"מחוות גרירה אופקית מופעלת
 
 מיני-נגן ניתן לגרירה מחוץ למסך לשמאל או לימין"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">מחוות גרירה אופקית מושבתת</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">הסתר לחצני שכבת-על</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">לחצני שכבת-על מוסתרים</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">לחצני שכבת-על מוצגים</string>

@@ -1355,25 +1355,25 @@ Automotive レイアウト
   <string name="revanced_miniplayer_type_entry_5">モダン 2</string>
   <string name="revanced_miniplayer_type_entry_6">モダン 3</string>
   <string name="revanced_miniplayer_type_entry_7">モダン 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">丸角を有効化</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">ミニプレーヤーの角は丸角です</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">ミニプレーヤーの角は直角です</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">丸角を無効化</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">ミニプレーヤーの角は直角です</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">ミニプレーヤーの角は丸角です</string>
   <string name="revanced_miniplayer_double_tap_action_title">ダブルタップとピンチによるサイズ変更を有効化</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"ダブルタップとピンチによるサイズ変更は有効です
 
 • ダブルタップすると、ミニプレーヤーのサイズが大きくなる
 • もう一度ダブルタップすると、元のサイズに戻る"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">ダブルタップとピンチによるサイズ変更は無効です</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">ドラッグ＆ドロップを有効化</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"ドラッグ＆ドロップは有効です
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">ドラッグ＆ドロップを無効化</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">ドラッグ＆ドロップは無効です</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"ドラッグ＆ドロップは有効です
 
 ミニプレーヤーを画面の四隅に移動できます"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">ドラッグ＆ドロップは無効です</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">横方向ドラッグ ジェスチャーを有効化</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"横方向ドラッグ ジェスチャーは有効です
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">横方向ドラッグ ジェスチャーを無効化</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">横方向ドラッグ ジェスチャーは無効です</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"横方向ドラッグ ジェスチャーは有効です
 
 ミニプレーヤーを画面の左端または右端までドラッグすると最小化されます"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">横方向ドラッグ ジェスチャーは無効です</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">オーバーレイ ボタンを非表示</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">オーバーレイ ボタンは表示されません</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">オーバーレイ ボタンは表示されます</string>

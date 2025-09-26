@@ -1352,25 +1352,25 @@ Rajoitus: Työkalupalkin takaisin-painikkeen käyttäminen ei välttämättä to
   <string name="revanced_miniplayer_type_entry_5">Moderni 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderni 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moderni 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Ota pyöristetyt kulmat käyttöön</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Kulmat on pyöristetty</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Kulmat ovat suorakulmaisia</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Poista pyöristetyt kulmat käytöstä</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Kulmat ovat suorakulmaisia</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Kulmat on pyöristetty</string>
   <string name="revanced_miniplayer_double_tap_action_title">Ota kaksoisnapautus ja koon muuttaminen nipistämällä käyttöön</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Kaksoisnapautustoiminto ja koon muuttaminen nipistämällä ovat käytössä
 
 • Kaksoisnapauta suurentaaksesi minisoittimen kokoa
 • Kaksoisnapauta uudelleen alkuperäisen koon palauttamiseksi"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Kaksoisnapautustoiminto ja koon muuttaminen nipistämällä eivät olet käytössä</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Ota vedä ja pudota käyttöön</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Vedä ja pudota on käytössä
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Poista vedä ja pudota käytöstä</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Vedä ja pudota ei ole käytössä</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Vedä ja pudota on käytössä
 
 Minisoitin voidaan vetää mihin tahansa näytön kulmaan"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Vedä ja pudota ei ole käytössä</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Ota vaakasuuntainen vetoele käyttöön</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Vaakasuuntainen vetoele on käytössä
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Poista vaakasuuntainen vetoele käytöstä</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Vaakasuuntainen vetoele ei ole käytössä</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Vaakasuuntainen vetoele on käytössä
 
 Minisoitin voidaan vetää pois näytöltä vasemmalle tai oikealle"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Vaakasuuntainen vetoele ei ole käytössä</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Piilota peittokuvan painikkeet</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Peittokuvan painikkeet on piilotettu</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Peittokuvan painikkeet näytetään</string>

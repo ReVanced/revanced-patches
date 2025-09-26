@@ -1350,25 +1350,25 @@ Limitasyon: Maaaring hindi gumana ang paggamit ng back button sa toolbar"</strin
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
   <string name="revanced_miniplayer_type_entry_7">Makabagong 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Paganahin ang mga bilugan na sulok</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Bilugan ang mga sulok</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Parihaba ang mga sulok</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Huwag paganahin ang bilog na mga sulok</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Parihaba ang mga sulok</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Bilugan ang mga sulok</string>
   <string name="revanced_miniplayer_double_tap_action_title">Paganahin ang pag-resize gamit ang double-tap at pinch</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Ang pagkilos ng double-tap at pinch upang baguhin ang laki ay pinagana
 
 • Double tap upang dagdagan ang laki ng \"miniplayer\"
 • Double tap muli upang ibalik ang orihinal na laki"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Hindi pinagana ang pagkilos ng double-tap at pag-resize gamit ang pinch</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Paganahin ang drag and drop</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Ang drag and drop ay pinagana
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Huwag paganahin ang pagkaladkad at paghulog</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Hindi pinagana ang drag and drop</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Ang drag and drop ay pinagana
 
 Ang \"miniplayer\" ay maaaring i-drag sa anumang sulok ng screen"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Hindi pinagana ang drag and drop</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Paganahin ang pahalang na drag gesture</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Ang horizontal drag gesture ay pinagana
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Huwag paganahin ang pahalang na kilos ng pagkaladkad</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Hindi pinagana ang pahalang na drag gesture</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Ang horizontal drag gesture ay pinagana
 
 Ang \"miniplayer\" ay maaaring i-drag palabas ng screen sa kaliwa o kanan"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Hindi pinagana ang pahalang na drag gesture</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Itago ang mga button ng overlay</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Nakatago ang mga button ng overlay</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Ipinapakita ang mga button ng overlay</string>
