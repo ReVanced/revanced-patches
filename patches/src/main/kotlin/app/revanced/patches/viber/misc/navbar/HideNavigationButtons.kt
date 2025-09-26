@@ -4,6 +4,18 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import java.util.logging.Logger
+import kotlin.collections.joinToString
+
+
+private const val instructionsFooter = """
+    # If we reach this, it means that this tab has been disabled by user
+    const/4 v0, 0
+    return v0  # return false as "This tab is not enabled"
+           
+    # Proceed with default execution
+    :continue
+    nop
+"""
 
 @Suppress("unused")
 val hideNavigationButtonsPatch = bytecodePatch(
@@ -31,12 +43,15 @@ val hideNavigationButtonsPatch = bytecodePatch(
             )
         }
 
-        shouldShowTabIdMethodFingerprint.method
-            .apply{
-                AllowedNavigationItems
-                    .buildInjectionInstructions(allowedItems.map { it.key })
-                    .let { addInstructionsWithLabels(0, it) }
-            }
+        allowedItems
+            .map { it.key.buildAllowInstruction() }
+            .joinToString("\n") + instructionsFooter
+            .let {
+                shouldShowTabIdMethodFingerprint
+                    .method
+                    .addInstructionsWithLabels(0, it)
+        }
+
     }
 }
 
@@ -68,21 +83,4 @@ private enum class AllowedNavigationItems(
             if-eq p1, v0, :continue
             """
         }
-
-
-    companion object {
-        fun buildInjectionInstructions(allowedItems: List<AllowedNavigationItems>): String =
-            """
-                # If we reach this, it means that this tab has been disabled by user
-                const/4 v0, 0
-                return v0  # return false as "This tab is not enabled"
-                       
-                # Proceed with default execution
-                :continue
-                nop
-            """.let {
-                return allowedItems
-                    .joinToString("\n") { it.buildAllowInstruction() } + "\n" + it
-            }
-    }
 }
