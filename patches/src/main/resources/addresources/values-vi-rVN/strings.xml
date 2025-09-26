@@ -1353,25 +1353,25 @@ Hạn chế: Nút quay lại trên thanh công cụ có thể không hoạt đ�
   <string name="revanced_miniplayer_type_entry_5">Hiện đại 2</string>
   <string name="revanced_miniplayer_type_entry_6">Hiện đại 3</string>
   <string name="revanced_miniplayer_type_entry_7">Hiện đại 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Bật góc bo tròn</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Góc được bo tròn</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Góc vuông</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Tắt góc bo tròn</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Góc vuông</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Góc được bo tròn</string>
   <string name="revanced_miniplayer_double_tap_action_title">Bật chạm hai lần và chụm để thay đổi kích thước</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Thao tác chạm hai lần và chụm để thay đổi kích thước đã bật
 
 • Chạm hai lần để tăng kích thước trình phát thu nhỏ
 • Chạm hai lần nữa để khôi phục kích thước ban đầu"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Thao tác chạm hai lần và chụm để thay đổi kích thước đã tắt</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Bật kéo và thả</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Kéo và thả đã được bật
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Tắt kéo và thả</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Kéo và thả đã tắt</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Kéo và thả đã được bật
 
 Trình phát thu nhỏ có thể được kéo đến bất kỳ góc nào của màn hình"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Kéo và thả đã tắt</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Bật cử chỉ kéo ngang</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Cử chỉ kéo ngang đã được bật
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Tắt cử chỉ kéo ngang</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Cử chỉ kéo ngang đã tắt</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Cử chỉ kéo ngang đã được bật
 
 Trình phát thu nhỏ có thể được kéo ra mép màn hình sang bên trái hoặc phải"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Cử chỉ kéo ngang đã tắt</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Ẩn nút lớp phủ</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Các nút lớp phủ đã bị ẩn</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Các nút lớp phủ được hiển thị</string>

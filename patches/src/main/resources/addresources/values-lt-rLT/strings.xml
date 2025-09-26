@@ -1353,25 +1353,25 @@ Ribojimas: įrankių juostoje esantis atgal mygtukas gali neveikti."</string>
   <string name="revanced_miniplayer_type_entry_5">Modernus 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modernus 3</string>
   <string name="revanced_miniplayer_type_entry_7">Modernus 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Įgalinti suapvalintus kampus</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Kampai yra suapvalinti</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Kampai yra kvadratiniai</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Išjungti suapvalintus kampus</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Kampai yra kvadratiniai</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Kampai yra suapvalinti</string>
   <string name="revanced_miniplayer_double_tap_action_title">Įgalinti dvigubą bakstelėjimą ir suspaudimą, kad būtų galima keisti dydį</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Dvigubas bakstelėjimas ir sugriebimas, kad pakeistumėte dydį, įjungtas
 
 • Dvigubai bakstelėkite, kad padidintumėte \"miniplayer\" dydį
 • Dar kartą dvigubai bakstelėkite, kad atkurtumėte pradinį dydį"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Dvigubo bakstelėjimo veiksmas ir suspaudimas, kad būtų galima keisti dydį, yra išjungtas</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Įgalinti vilkimą ir numetimą</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"„Drag and drop“ įjungtas
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Išjungti vilkimą ir numetimą</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Vilkimas ir numetimas yra išjungtas</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"„Drag and drop“ įjungtas
 
 \"Miniplayer\" galima perkelti į bet kurį ekrano kampą"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Vilkimas ir numetimas yra išjungtas</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Įgalinti horizontalaus vilkimo gestą</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontalus vilkimo gestas įjungtas
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Išjungti horizontalųjį vilkimo gestą</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Horizontalaus vilkimo gestas išjungtas</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Horizontalus vilkimo gestas įjungtas
 
 \"Miniplayer\" galima vilkti nuo ekrano į kairę arba dešinę"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontalaus vilkimo gestas išjungtas</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Slėpti perdangos mygtukus</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Perdangos mygtukai paslėpti</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Perdangos mygtukai rodomi</string>

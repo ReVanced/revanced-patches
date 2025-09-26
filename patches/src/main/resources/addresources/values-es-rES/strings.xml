@@ -1343,25 +1343,25 @@ Limitación: Es posible que el uso del botón de retroceso en la barra de herram
   <string name="revanced_miniplayer_type_entry_5">Moderna 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderna 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moderno 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Habilitar esquinas redondeadas</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Las esquinas están redondeadas</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Las esquinas son cuadradas</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Desactivar esquinas redondeadas</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Las esquinas son cuadradas</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Las esquinas están redondeadas</string>
   <string name="revanced_miniplayer_double_tap_action_title">Habilitar doble toque y pellizco para redimensionar</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"La acción de doble toque y el pellizco para cambiar el tamaño están activados
 
 • Toca dos veces para aumentar el tamaño del minireproductor
 • Toca dos veces de nuevo para restaurar el tamaño original"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Acción de doble toque y pellizco para redimensionar está desactivado</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Activar arrastrar y soltar</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"La función de arrastrar y soltar está activada
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Desactivar arrastrar y soltar</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Arrastre y suelte está desactivado</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"La función de arrastrar y soltar está activada
 
 El minireproductor se puede arrastrar a cualquier esquina de la pantalla"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Arrastre y suelte está desactivado</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Activar gesto de arrastre horizontal</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"El gesto de arrastre horizontal está activado
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Desactivar gesto de arrastre horizontal</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Gesto de arrastre horizontal desactivado</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"El gesto de arrastre horizontal está activado
 
 El minireproductor se puede arrastrar fuera de la pantalla hacia la izquierda o la derecha"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto de arrastre horizontal desactivado</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Ocultar botones de superposición</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Los botones de superposición están ocultos</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Se muestran los botones de superposición</string>

@@ -1349,25 +1349,25 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
   <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Lekerekített sarkok engedélyezése</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">A sarkok lekerekítettek</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">A sarkok négyzet alakúak</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Lekerekített sarkok letiltása</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">A sarkok négyzet alakúak</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">A sarkok lekerekítettek</string>
   <string name="revanced_miniplayer_double_tap_action_title">Az átméretezéshez engedélyezze a dupla koppintást és az összehúzást</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"A dupla koppintásos művelet és a csippentés a méretezéshez engedélyezve van
 
 • Dupla koppintás a miniatűr képernyő méretének növeléséhez
 • Dupla koppintás az eredeti méret visszaállításához"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">A dupla koppintás művelet és az átméretezéshez csípés le van tiltva</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Fogd és vidd engedélyezése</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"A húzás és elengedés engedélyezve van
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Fogd és vidd letiltása</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">A Fogd és vidd letiltva</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"A húzás és elengedés engedélyezve van
 
 A miniatűr képernyőt a képernyő bármely sarkába húzhatja"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">A Fogd és vidd letiltva</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Vízszintes húzási kézmozdulat engedélyezése</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"A vízszintes húzás gesztus engedélyezve van
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Vízszintes húzás letiltása</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">A vízszintes húzómozdulat letiltva</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"A vízszintes húzás gesztus engedélyezve van
 
 A miniatűr képernyőt a képernyő bal vagy jobb szélére húzhatja"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">A vízszintes húzómozdulat letiltva</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Fedőgomb elrejtése</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">A fedőgombok rejtve vannak</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">A fedőgombok láthatók</string>

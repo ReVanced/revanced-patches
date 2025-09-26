@@ -1352,25 +1352,25 @@ Teorainn: Seans nach n-oibreoidh úsáid a bhaint as an gcnaipe cúil ar an mbar
   <string name="revanced_miniplayer_type_entry_5">Nua-Aimseartha 2</string>
   <string name="revanced_miniplayer_type_entry_6">Nua-aimseartha 3</string>
   <string name="revanced_miniplayer_type_entry_7">Nua-aimseartha 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Cumasaigh coirnéil chothromú</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Déantar coirnéil a shlánú</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Tá coirnéil cearnach</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Díchumasaigh coirnéil chruinn</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Tá coirnéil cearnach</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Déantar coirnéil a shlánú</string>
   <string name="revanced_miniplayer_double_tap_action_title">Cumasaigh sconna dúbailte agus pinch chun méid a athrú</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Gníomh tap dúbailte agus pinch le méid a athrú cumasaithe
 
 • Tap dúbailte chun méid an mhion-imreora a mhéadú
 • Tap dúbailte arís chun an méid bunaidh a athchóiriú"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Díchumasaíodh gníomh tapáil faoi dhó agus pinch chun méid a athrú</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Cumasaigh tarraing agus scaoil</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Tá drag-and-drop cumasaithe
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Díchumasaigh tarraing agus scaoil</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Tá tarraing agus scaoil díchumasaithe</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Tá drag-and-drop cumasaithe
 
 Is féidir an mhion-imreoir a tharraingt go haon chúinne den scáileán"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Tá tarraing agus scaoil díchumasaithe</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Cumasaigh gotha ​​tarraingthe cothrománach</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Cumasaithe geastú tarraingthe cothrománach
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Díchumasaigh gotha tarraingthe cothrománach</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Díchumasaíodh an comhartha tarraingthe cothrománach</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Cumasaithe geastú tarraingthe cothrománach
 
 Is féidir an mhion-imreoir a tharraingt as an scáileán ar chlé nó ar dheis"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Díchumasaíodh an comhartha tarraingthe cothrománach</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Folaigh cnaipí forleathana</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tá cnaipí forleathana i bhfolach</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Taispeántar cnaipí forleathana</string>

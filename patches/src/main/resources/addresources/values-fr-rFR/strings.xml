@@ -1353,25 +1353,25 @@ Limitation : Il se peut que le bouton Retour dans la barre d'outils ne fonction
   <string name="revanced_miniplayer_type_entry_5">Moderne 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderne 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moderne 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Activer les coins arrondis</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Les coins sont arrondis</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Les coins sont carrés</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Désactiver les coins arrondis</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Les coins sont carrés</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Les coins sont arrondis</string>
   <string name="revanced_miniplayer_double_tap_action_title">Activer le double appui et Pincer pour redimensionner</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"L'action de double appui et Pincer pour redimensionner sont activés
 
 • Appuyez deux fois pour augmenter la taille du lecteur réduit
 • Appuyez deux fois à nouveau pour rétablir la taille d'origine"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Action de double appui et Pincer pour redimensionner sont désactivés</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Activer le glisser-déposer</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Le glisser-déposer est activé
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Désactiver le glisser-déposer</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Le glisser-déposer est désactivé</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Le glisser-déposer est activé
 
 Le lecteur réduit peut être déplacé vers n'importe quel coin de l'écran"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Le glisser-déposer est désactivé</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Activer le geste de déplacement horizontal</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Le geste de déplacement horizontal est activé
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Désactiver le geste de glissement horizontal</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Geste de déplacement horizontal désactivé</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Le geste de déplacement horizontal est activé
 
 Le lecteur réduit peut être déplacé hors de l'écran, à gauche comme à droite"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Geste de déplacement horizontal désactivé</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Masquer les boutons en superposition</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Les boutons en superposition sont masqués</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Les boutons en superposition sont affichés</string>

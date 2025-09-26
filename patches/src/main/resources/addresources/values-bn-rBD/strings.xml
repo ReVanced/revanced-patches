@@ -1348,25 +1348,25 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_miniplayer_type_entry_5">মর্ডান ২</string>
   <string name="revanced_miniplayer_type_entry_6">মর্ডান ৩</string>
   <string name="revanced_miniplayer_type_entry_7">আধুনিক ৪</string>
-  <string name="revanced_miniplayer_rounded_corners_title">গোলাকার কোণ সক্ষম করুন</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">কোণগুলি গোলাকার</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">কোণগুলি বর্গাকার</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">গোলাকার কোণা নিষ্ক্রিয় করুন</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">কোণগুলি বর্গাকার</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">কোণগুলি গোলাকার</string>
   <string name="revanced_miniplayer_double_tap_action_title">ডাবল-ট্যাপ এবং পিঞ্চ টু রিসাইজ সক্ষম করুন</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"ডাবল-ট্যাপ করার ক্রিয়া এবং আকার পরিবর্তন করার জন্য চিমটি দেওয়া সক্রিয়
 
 • miniplayer আকার বৃদ্ধি করতে ডাবল ট্যাপ করুন
 • মূল আকার পুনরুদ্ধার করতে আবার ডাবল ট্যাপ করুন"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">ডাবল-ট্যাপ অ্যাকশন এবং পিঞ্চ টু রিসাইজ অক্ষম</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">ড্র্যাগ এবং ড্রপ সক্ষম করুন</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"ড্র্যাগ এবং ড্রপ সক্রিয়
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">টেনে-ছেড়ে দেওয়া নিষ্ক্রিয় করুন</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">ড্র্যাগ এবং ড্রপ অক্ষম</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"ড্র্যাগ এবং ড্রপ সক্রিয়
 
 Miniplayer স্ক্রিনের যেকোনো কোণে টানা যাবে"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">ড্র্যাগ এবং ড্রপ অক্ষম</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">অনুভূমিক ড্র্যাগ অঙ্গভঙ্গি সক্ষম করুন</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"ক্ষैতিকভাবে টানার ভঙ্গি সক্রিয়
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">অনুভূমিক টেনে নেওয়ার ভঙ্গি নিষ্ক্রিয় করুন</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">অনুভূমিক ড্র্যাগ অঙ্গভঙ্গি অক্ষম</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"ক্ষैতিকভাবে টানার ভঙ্গি সক্রিয়
 
 Miniplayer স্ক্রিন থেকে বামে বা ডানে টানা যাবে"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">অনুভূমিক ড্র্যাগ অঙ্গভঙ্গি অক্ষম</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">ওভারলে বোতাম লুকান</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">ওভারলে বোতাম লুকানো আছে</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">ওভারলে বোতাম দেখানো হয়েছে</string>

@@ -1351,25 +1351,25 @@ Limitazione: l'utilizzo del pulsante Indietro sulla barra degli strumenti potreb
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moderno 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Abilita angoli arrotondati</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Gli angoli sono arrotondati</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Gli angoli sono quadrati</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Disabilita angoli arrotondati</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Gli angoli sono quadrati</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Gli angoli sono arrotondati</string>
   <string name="revanced_miniplayer_double_tap_action_title">Abilita il doppio tocco e il pizzico per ridimensionare</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"I gesti Doppio Tocco e Pizzico per ridimensionare sono abilitati
 
 • Tocca due volte per aumentare la dimensione del riproduttore minimizzato
 • Tocca di nuovo due volte per ripristinare le dimensioni originali"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">L\'azione a doppio tocco e il pizzico da ridimensionare è disabilitato</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Abilita drag and drop</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Il gesto Trascina e Rilascia è attivato
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Disabilita trascinamento</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Trascinare e rilasciare è disabilitato</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Il gesto Trascina e Rilascia è attivato
 
 Il riproduttore minimizzato può essere trascinato in qualsiasi angolo dello schermo"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Trascinare e rilasciare è disabilitato</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Abilita il gesto di trascinamento orizzontale</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Il gesto Trascina Orizzontalmente è abilitato 
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Disabilita gesto di trascinamento orizzontale</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Gesto di trascinamento orizzontale disabilitato</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Il gesto Trascina Orizzontalmente è abilitato 
 
 Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistra o a destra"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto di trascinamento orizzontale disabilitato</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Nascondi i pulsanti di overlay</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">I pulsanti di overlay sono nascosti</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">I pulsanti di overlay sono visualizzati</string>

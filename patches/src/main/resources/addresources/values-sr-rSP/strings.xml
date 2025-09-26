@@ -1351,25 +1351,25 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_5">Модеран 2</string>
   <string name="revanced_miniplayer_type_entry_6">Модеран 3</string>
   <string name="revanced_miniplayer_type_entry_7">Модеран 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Омогући заобљене углове</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Углови су заобљени</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Углови су квадратни</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Онемогући заобљене углове</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Углови су квадратни</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Углови су заобљени</string>
   <string name="revanced_miniplayer_double_tap_action_title">Омогући двоструки додир и штипање за промену величине</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Радња двоструког додира и штипања за промену величине је омогућена
 
 • Двапут додирните да бисте повећали величину мини-плејера
 • Двапут додирните поново да бисте вратили оригиналну величину"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Радња двоструког додира и штипања за промену величине су онемогућени</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Омогући превлачење и отпуштање</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Превлачење и отпуштање је омогућено
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Онемогући превлачење и отпуштање</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Превлачење и отпуштање је онемогућено</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Превлачење и отпуштање је омогућено
 
 Мини-плејер се може превући у било који угао екрана"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Превлачење и отпуштање је онемогућено</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Омогући покрет хоризонталног превлачења</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Покрет хоризонталног превлачења је омогућен
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Онемогући хоризонтални покрет превлачења</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Покрет хоризонталног превлачења је онемогућен</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Покрет хоризонталног превлачења је омогућен
 
 Мини-плејер се може превући са екрана улево или удесно"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Покрет хоризонталног превлачења је онемогућен</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Сакриј дугмад преклопа</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Дугмад преклопа су скривена</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Дугмад преклопа су приказана</string>

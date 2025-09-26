@@ -1348,25 +1348,25 @@ Ograniczenie: użycie przycisku wstecz na pasku narzędzi może nie działać"</
   <string name="revanced_miniplayer_type_entry_5">Nowoczesny 2</string>
   <string name="revanced_miniplayer_type_entry_6">Nowoczesny 3</string>
   <string name="revanced_miniplayer_type_entry_7">Nowoczesny 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Zaokrąglone narożniki</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Narożniki są zaokrąglone</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Narożniki są kwadratowe</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Wyłącz zaokrąglone rogi</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Narożniki są kwadratowe</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Narożniki są zaokrąglone</string>
   <string name="revanced_miniplayer_double_tap_action_title">Podwójne stuknięcie i uszczypnięcie, aby zmienić rozmiar</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Akcja dwukrotnego dotknięcia i gest szczypania w celu zmiany rozmiaru są włączone
 
 • Dwukrotnie naciśnij, aby powiększyć rozmiar odtwarzacza
 • Ponownie dotknij dwukrotnie, aby przywrócić oryginalny rozmiar"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Wyłączone</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Gest przeciągnięcia i upuszczenia</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Przeciąganie i upuszczanie jest włączone
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Wyłącz przeciąganie i upuszczanie</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Gest przeciągnięcia i upuszczenia wyłączony</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Przeciąganie i upuszczanie jest włączone
 
 Odtwarzacz można przeciągnąć do dowolnego rogu ekranu"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Gest przeciągnięcia i upuszczenia wyłączony</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Gest przeciągania w poziomie</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Włączony gest przeciągania w poziomie
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Wyłącz gest przeciągania w poziomie</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Gest przeciągania w poziomie jest wyłączony</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Włączony gest przeciągania w poziomie
 
 Odtwarzacz można przeciągnąć poza ekran w lewo lub w prawo"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gest przeciągania w poziomie jest wyłączony</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Ukryj przyciski nakładki</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Przyciski nakładki są ukryte</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Przyciski nakładki są widoczne</string>

@@ -1353,25 +1353,25 @@ Ierobežojums: Atpakaļpoga rīkjoslā var nedarboties"</string>
   <string name="revanced_miniplayer_type_entry_5">Moderns 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderns 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moderns 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Iespējot noapaļotus stūrus</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Stūri ir noapaļoti</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Stūri ir kvadrātveida</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Atspējot noapaļotos stūrus</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Stūri ir kvadrātveida</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Stūri ir noapaļoti</string>
   <string name="revanced_miniplayer_double_tap_action_title">Iespējot divkāršu pieskaršanos un saspiešanu, lai mainītu izmēru</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Dubultpieskāriena darbība un saspiešana, lai mainītu izmēru, ir iespējota
 
 • Dubultpieskarieties, lai palielinātu miniatskaņotāja izmēru
 • Atkārtojiet dubultpieskārienu, lai atjaunotu sākotnējo izmēru"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Divkāršas pieskaršanās darbība un saspiešana, lai mainītu izmēru, ir atspējota</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Iespējot velci un nometiet</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Pārvilkšana un nomešana ir iespējota
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Atspējot vilkšanu un nomešanu</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Velciet un nometiet ir atspējots</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Pārvilkšana un nomešana ir iespējota
 
 Miniatskaņotāju var pārvilkt uz jebkuru ekrāna stūri"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Velciet un nometiet ir atspējots</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Iespējot horizontālu velci</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontālas pārvilkšanas žests ir iespējots
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Atspējot horizontālās vilkšanas žestu</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Horizontāls velci ir atspējots</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Horizontālas pārvilkšanas žests ir iespējots
 
 Miniatskaņotāju var pārvilkt no ekrāna uz kreiso vai labo pusi"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontāls velci ir atspējots</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Paslēpt pārklājuma pogas</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Pārklājuma pogas ir paslēptas</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Pārklājuma pogas ir redzamas</string>
