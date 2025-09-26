@@ -11,7 +11,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
     name = "Hide navigation buttons",
     description = "Hides selected navigation bar buttons, e.g. Explore and Marketplace.",
 ) {
-    compatibleWith("com.viber.voip"("26.1.2.0"))
+    compatibleWith("com.viber.voip")
 
     val hideOptions = AllowedNavigationItems.entries.associateWith {
         booleanOption(
@@ -42,10 +42,9 @@ val hideNavigationButtonsPatch = bytecodePatch(
         }
         .method
         .apply{
-            val instructions =
-                AllowedNavigationItems.buildInjectionInstructions(allowedItems.map { it.key })
-
-            addInstructionsWithLabels(0, instructions)
+            AllowedNavigationItems
+                .buildInjectionInstructions(allowedItems.map { it.key })
+                .let { addInstructionsWithLabels(0, it) }
         }
     }
 }
@@ -81,7 +80,7 @@ private enum class AllowedNavigationItems(
 
 
     companion object {
-        fun buildInjectionInstructions(allowedItems: List<AllowedNavigationItems>): String {
+        fun buildInjectionInstructions(allowedItems: List<AllowedNavigationItems>): String =
             """
                 # If we reach this, it means that this tab has been disabled by user
                 const/4 v0, 0
@@ -94,6 +93,5 @@ private enum class AllowedNavigationItems(
                 return allowedItems
                     .joinToString("\n") { it.buildAllowInstruction() } + "\n" + it
             }
-        }
     }
 }
