@@ -1,7 +1,6 @@
 package app.revanced.patches.viber.misc.navbar
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import java.util.logging.Logger
@@ -32,20 +31,12 @@ val hideNavigationButtonsPatch = bytecodePatch(
             )
         }
 
-        val tabClass = tabIdClassFingerprint.classDef
-        fingerprint {
-            parameters("I", "I")
-            returns("Z")
-            custom { methodDef, classDef ->
-                classDef == tabClass
+        shouldShowTabIdMethodFingerprint.method
+            .apply{
+                AllowedNavigationItems
+                    .buildInjectionInstructions(allowedItems.map { it.key })
+                    .let { addInstructionsWithLabels(0, it) }
             }
-        }
-        .method
-        .apply{
-            AllowedNavigationItems
-                .buildInjectionInstructions(allowedItems.map { it.key })
-                .let { addInstructionsWithLabels(0, it) }
-        }
     }
 }
 
