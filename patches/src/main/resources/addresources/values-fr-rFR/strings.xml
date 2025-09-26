@@ -1368,10 +1368,10 @@ Limitation : Il se peut que le bouton Retour dans la barre d'outils ne fonction
 
 Le lecteur réduit peut être déplacé vers n'importe quel coin de l'écran"</string>
   <string name="revanced_miniplayer_disable_horizontal_drag_title">Désactiver le geste de glissement horizontal</string>
-  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Geste de déplacement horizontal désactivé</string>
-  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Le geste de déplacement horizontal est activé
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Geste de glissement horizontal désactivé</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Geste de glissement horizontal activé
 
-Le lecteur réduit peut être déplacé hors de l'écran, à gauche comme à droite"</string>
+Le lecteur réduit peut être glissé hors de l'écran, à gauche comme à droite"</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Masquer les boutons en superposition</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Les boutons en superposition sont masqués</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Les boutons en superposition sont affichés</string>
