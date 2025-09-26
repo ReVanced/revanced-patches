@@ -1,3 +1,10 @@
+# [5.41.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.15...v5.41.0-dev.16) (2025-09-26)
+
+
+### Features
+
+* **YouTube Music:** Add `Theme` patch ([#5984](https://github.com/ReVanced/revanced-patches/issues/5984)) ([3bd76d6](https://github.com/ReVanced/revanced-patches/commit/3bd76d60d664befff29c24c9de56dac1486a6e67))
+
 # [5.41.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.41.0-dev.14...v5.41.0-dev.15) (2025-09-25)
 
 
