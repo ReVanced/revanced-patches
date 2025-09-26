@@ -397,6 +397,20 @@ Jei „Doodle“ šiuo metu rodomas jūsu regione ir šis paslėpimo nustatymas 
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Komponento kelio kūrėjo eilutės, skirtos filtravimui, atskirtos nauja eilute</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Netinkamas pritaikomas filtras: %s</string>
+  <string name="revanced_hide_view_count_title">Slėpti peržiūrų skaičių</string>
+  <string name="revanced_hide_view_count_summary_on">Peržiūrų skaičius paslėptas kanale ir paieškos rezultatuose</string>
+  <string name="revanced_hide_view_count_summary_off">Peržiūrų skaičius rodomas kanale ir paieškos rezultatuose</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Apribojimai:
+• Shorts lentynos, kanalų puslapiai ir paieškos rezultatai vis tiek gali rodyti peržiūrų skaičių
+• Ši funkcija neveikia su automobiline formos išraiška"</string>
+  <string name="revanced_hide_upload_time_title">Slėpti įkėlimo laiką</string>
+  <string name="revanced_hide_upload_time_summary_on">Įkėlimo laikas paslėptas sraute ir paieškos rezultatuose</string>
+  <string name="revanced_hide_upload_time_summary_off">Įkėlimo laikas rodomas sraute ir paieškos rezultatuose</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Apribojimai:
+• „Shorts“ lentynose, kanalų puslapiuose ir paieškos rezultatuose vis dar gali būti rodomi įkėlimo laikai
+• Ši funkcija neveikia su automobilių formos faktoriumi"</string>
   <string name="revanced_hide_keyword_content_screen_title">Slėpti raktinių žodžių turinį</string>
   <string name="revanced_hide_keyword_content_screen_summary">Slėpti paieškos ir sklaidos srauto vaizdo įrašus naudojant raktinių žodžių filtrus</string>
   <string name="revanced_hide_keyword_content_home_title">Slėpti namų vaizdo įrašus pagal raktinius žodžius</string>
@@ -1339,25 +1353,25 @@ Ribojimas: įrankių juostoje esantis atgal mygtukas gali neveikti."</string>
   <string name="revanced_miniplayer_type_entry_5">Modernus 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modernus 3</string>
   <string name="revanced_miniplayer_type_entry_7">Modernus 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Įgalinti suapvalintus kampus</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Kampai yra suapvalinti</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Kampai yra kvadratiniai</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Išjungti suapvalintus kampus</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Kampai yra kvadratiniai</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Kampai yra suapvalinti</string>
   <string name="revanced_miniplayer_double_tap_action_title">Įgalinti dvigubą bakstelėjimą ir suspaudimą, kad būtų galima keisti dydį</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Dvigubas bakstelėjimas ir sugriebimas, kad pakeistumėte dydį, įjungtas
 
 • Dvigubai bakstelėkite, kad padidintumėte \"miniplayer\" dydį
 • Dar kartą dvigubai bakstelėkite, kad atkurtumėte pradinį dydį"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Dvigubo bakstelėjimo veiksmas ir suspaudimas, kad būtų galima keisti dydį, yra išjungtas</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Įgalinti vilkimą ir numetimą</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"„Drag and drop“ įjungtas
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Išjungti vilkimą ir numetimą</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Vilkimas ir numetimas yra išjungtas</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"„Drag and drop“ įjungtas
 
 \"Miniplayer\" galima perkelti į bet kurį ekrano kampą"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Vilkimas ir numetimas yra išjungtas</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Įgalinti horizontalaus vilkimo gestą</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontalus vilkimo gestas įjungtas
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Išjungti horizontalųjį vilkimo gestą</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Horizontalaus vilkimo gestas išjungtas</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Horizontalus vilkimo gestas įjungtas
 
 \"Miniplayer\" galima vilkti nuo ekrano į kairę arba dešinę"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontalaus vilkimo gestas išjungtas</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Slėpti perdangos mygtukus</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Perdangos mygtukai paslėpti</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Perdangos mygtukai rodomi</string>

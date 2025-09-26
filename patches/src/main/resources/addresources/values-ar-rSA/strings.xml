@@ -397,6 +397,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">قائمة سلاسل منشئ مسار المكونات المراد تصفيتها مفصولة بسطر جديد</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">فلتر مخصص غير صالح: %s</string>
+  <string name="revanced_hide_view_count_title">إخفاء عدد المشاهدات</string>
+  <string name="revanced_hide_view_count_summary_on">عدد المشاهدات مخفي في الموجز ونتائج البحث</string>
+  <string name="revanced_hide_view_count_summary_off">عدد المشاهدات ظاهر في الموجز ونتائج البحث</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"قيود:
+• رفوف Shorts وصفحات القنوات ونتائج البحث قد تظل تعرض أعداد المشاهدات
+• هذه الميزة لا تعمل مع عامل الشكل الخاص بالسيارات"</string>
+  <string name="revanced_hide_upload_time_title">إخفاء وقت التحميل</string>
+  <string name="revanced_hide_upload_time_summary_on">وقت التحميل مخفي في الخلاصة ونتائج البحث</string>
+  <string name="revanced_hide_upload_time_summary_off">وقت التحميل معروض في الخلاصة ونتائج البحث</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"القيود:
+• قد تظل أرفف Shorts وصفحات القنوات ونتائج البحث تُظهر أوقات التحميل
+• هذه الميزة لا تعمل مع عامل شكل السيارات"</string>
   <string name="revanced_hide_keyword_content_screen_title">إخفاء محتوى الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_screen_summary">إخفاء فيديوهات البحث والموجز باستخدام فلاتر الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_home_title">إخفاء فيديوهات الصفحة الرئيسية بواسطة الكلمات المفتاحية</string>
@@ -1338,25 +1352,25 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_5">حديث 2</string>
   <string name="revanced_miniplayer_type_entry_6">حديث 3</string>
   <string name="revanced_miniplayer_type_entry_7">حديث 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">تمكين الزوايا المستديرة</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">الزوايا مستديرة</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">الزوايا مربعة</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">تعطيل الزوايا الدائرية</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">الزوايا مربعة</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">الزوايا مستديرة</string>
   <string name="revanced_miniplayer_double_tap_action_title">تمكين النقر المزدوج والضغط لتغيير الحجم</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"تم تمكين إجراء الضغط المزدوج والضغط لتغيير الحجم
 
 • النقر المزدوج لزيادة حجم المشغل المصغر
 • النقر المزدوج مرة أخرى لاستعادة الحجم الأصلي"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">إجراء النقر المزدوج والضغط لتغيير الحجم معطل</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">تمكين السحب والإفلات</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"السحب والإفلات مفعلان
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">تعطيل السحب والإفلات</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">تم تعطيل السحب والإفلات</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"السحب والإفلات مفعلان
 
 يمكن سحب المشغل المصغر إلى أي زاوية من الشاشة"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">تم تعطيل السحب والإفلات</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">تمكين إيماءة السحب الأفقية</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"تم تمكين إيماءة السحب الأفقية
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">تعطيل إيماءة السحب الأفقي</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">تم تعطيل إيماءة السحب الأفقية</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"تم تمكين إيماءة السحب الأفقية
 
 يمكن سحب المشغل المصغر خارج الشاشة إلى اليسار أو اليمين"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">تم تعطيل إيماءة السحب الأفقية</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">إخفاء أزرار الواجهة</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">تم إخفاء أزرار الواجهة</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">يتم عرض أزرار الواجهة</string>

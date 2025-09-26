@@ -397,6 +397,20 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Բաղադրիչների ուղիների կառուցողական լարերը, որոնք պետք է լրացուցիչ կարգավորվեն, միմյանցից բաժանված են նոր տողով</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Անվավեր պատրաստված լրացուցիչ կարգավորումներ։ %s</string>
+  <string name="revanced_hide_view_count_title">Թաքցնել դիտումների քանակը</string>
+  <string name="revanced_hide_view_count_summary_on">Դիտումների քանակը թաքնված է լրահոսում և որոնման արդյունքներում</string>
+  <string name="revanced_hide_view_count_summary_off">Դիտումների քանակը ցուցադրվում է լրահոսում և որոնման արդյունքներում</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Սահմանափակումներ.
+• Shorts-ի բաժինները, ալիքի էջերը և որոնման արդյունքները կարող են դեռևս ցուցադրել դիտումների քանակը
+• Այս գործառույթը չի աշխատում ավտոմոբիլային ձևի գործոնի հետ"</string>
+  <string name="revanced_hide_upload_time_title">Թաքցնել վերբեռնման ժամանակը</string>
+  <string name="revanced_hide_upload_time_summary_on">Վերբեռնման ժամանակը թաքցված է լրահոսում և որոնման արդյունքներում</string>
+  <string name="revanced_hide_upload_time_summary_off">Վերբեռնման ժամանակը ցուցադրված է լրահոսում և որոնման արդյունքներում</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Սահմանափակումներ:
+• Shorts-ի դարակները, ալիքի էջերը և որոնման արդյունքները կարող են դեռևս ցուցադրել վերբեռնման ժամանակները
+• Այս գործառույթը չի աշխատում ավտոմոբիլային ձևի գործոնի հետ"</string>
   <string name="revanced_hide_keyword_content_screen_title">Թաքցնել բանալի բառերի բովանդակությունը</string>
   <string name="revanced_hide_keyword_content_screen_summary">Թաքցնել որոնումը և կերակրման տեսանյութերը՝ օգտագործելով բանալի բառերի լրացուցիչ կարգավորումներ</string>
   <string name="revanced_hide_keyword_content_home_title">Թաքցնել տնային տեսանյութերը բանալի բառերի միջոցով</string>
@@ -1339,25 +1353,25 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_miniplayer_type_entry_5">Ժամանակակից 2</string>
   <string name="revanced_miniplayer_type_entry_6">Ժամանակակից 3</string>
   <string name="revanced_miniplayer_type_entry_7">Ժամանակակից 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Աктиվացնել կլորացված անկյունները</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Անկյունները կլորացված են</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Անկյունները քառակուսի են</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Անջատել կլորացված անկյունները</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Անկյունները քառակուսի են</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Անկյունները կլորացված են</string>
   <string name="revanced_miniplayer_double_tap_action_title">Աктиվացնել կրկնակի սեղմելը և մատների շարժումը չափը փոխելու համար</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Երկու անգամ սեղմելու գործողությունը և չափսի փոփոխման համար սեղմելը միացված են
 
 • Երկու անգամ սեղմել՝ մեծացնելու mini-player-ի չափսը
 • Երկու անգամ սեղմել կրկին՝ վերականգնելու սկզբնական չափսը"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Կրկնակի սեղմելու գործողությունը և մատների շարժումը չափը փոխելու համար անջատված են</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Աктиվացնել քարշել և թողնել</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Գրավել և թողնելը միացված է
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Անջատել քաշել և գցելը</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Քարշել և թողնել անջատված է</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Գրավել և թողնելը միացված է
 
 Mini-player-ը կարող է գրավվել էկրանի ցանկացած անկյուն։"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Քարշել և թողնել անջատված է</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Աктиվացնել հորիզոնական քարշելու ժեստը</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Հորիզոնական գրավելու ժեստը միացված է
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Անջատել հորիզոնական քաշելու ժեստը</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Հորիզոնական քարշելու ժեստը անջատված է</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Հորիզոնական գրավելու ժեստը միացված է
 
 Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի ձախ կամ աջ։"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Հորիզոնական քարշելու ժեստը անջատված է</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Թաքցնել վերադիր կոճակները</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Վերադիր կոճակները թաքցված են</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Վերադիր կոճակները ցուցադրվում են</string>

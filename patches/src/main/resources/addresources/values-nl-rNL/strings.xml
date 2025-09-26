@@ -397,6 +397,20 @@ Als er momenteel een Doodle wordt getoond in je regio en deze instelling voor ve
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Lijst met component pad builder strings om te filteren gescheiden door een nieuwe regel</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Ongeldig aangepast filter: %s</string>
+  <string name="revanced_hide_view_count_title">Aantal weergaven verbergen</string>
+  <string name="revanced_hide_view_count_summary_on">Aantal weergaven is verborgen in feed en zoekresultaten</string>
+  <string name="revanced_hide_view_count_summary_off">Aantal weergaven wordt getoond in feed en zoekresultaten</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Beperkingen:
+• Shorts-planken, kanaalpagina's en zoekresultaten kunnen nog steeds het aantal weergaven tonen
+• Deze functie werkt niet met de automotive form factor"</string>
+  <string name="revanced_hide_upload_time_title">Verberg uploadtijd</string>
+  <string name="revanced_hide_upload_time_summary_on">Uploadtijd is verborgen in feed en zoekresultaten</string>
+  <string name="revanced_hide_upload_time_summary_off">Uploadtijd wordt getoond in feed en zoekresultaten</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Beperkingen:
+• Shorts-schappen, kanaalpagina's en zoekresultaten kunnen nog steeds uploadtijden tonen
+• Deze functie werkt niet met de automotive vormfactor"</string>
   <string name="revanced_hide_keyword_content_screen_title">Keyword content verbergen</string>
   <string name="revanced_hide_keyword_content_screen_summary">Zoek- en feed-video\'s verbergen met behulp van keyword filters</string>
   <string name="revanced_hide_keyword_content_home_title">Home-video\'s verbergen door keywords</string>
@@ -1336,25 +1350,25 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
   <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Schakel afgeronde hoeken in</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Hoeken zijn afgerond</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Hoeken zijn vierkant</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Afgeronde hoeken uitschakelen</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Hoeken zijn vierkant</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Hoeken zijn afgerond</string>
   <string name="revanced_miniplayer_double_tap_action_title">Schakel dubbeltikken en knijpen om te verkleinen in</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Dubbeltikactie en knijpen om te verkleinen is ingeschakeld
 
 • Dubbeltik om de miniplayer-grootte te vergroten
 • Dubbeltik opnieuw om de oorspronkelijke grootte te herstellen"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Dubbeltikken en knijpen om te verkleinen is uitgeschakeld</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Schakel slepen en neerzetten in</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Sleep-en-neerzetten is ingeschakeld
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Slepen en neerzetten uitschakelen</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Slepen en neerzetten is uitgeschakeld</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Sleep-en-neerzetten is ingeschakeld
 
 De miniplayer kan naar elke hoek van het scherm worden gesleept"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Slepen en neerzetten is uitgeschakeld</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Schakel horizontaal sleepgebaar in</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontale sleepbeweging ingeschakeld
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Horizontale sleepbeweging uitschakelen</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Horizontaal sleepgebaar uitgeschakeld</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Horizontale sleepbeweging ingeschakeld
 
 De miniplayer kan naar links of rechts van het scherm worden gesleept"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontaal sleepgebaar uitgeschakeld</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Overlayknoppen verbergen</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlayknoppen zijn verborgen</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlayknoppen worden weergegeven</string>

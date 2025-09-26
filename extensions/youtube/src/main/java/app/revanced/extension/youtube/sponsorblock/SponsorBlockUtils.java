@@ -302,7 +302,7 @@ public class SponsorBlockUtils {
 
                 SpannableStringBuilder spannableBuilder = new SpannableStringBuilder();
 
-                spannableBuilder.append(segment.category.getTitle().toString());
+                spannableBuilder.append(segment.category.getTitleWithColorDot());
                 spannableBuilder.append('\n');
 
                 String startTime = formatSegmentTime(segment.start);

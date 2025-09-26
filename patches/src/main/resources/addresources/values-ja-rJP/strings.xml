@@ -147,8 +147,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">共有リンクを無害化</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">共有リンクからトラッキング クエリ パラメータが削除されます</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">共有リンクからトラッキング クエリ パラメータは削除されません</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">トラッキング クエリ パラメータが共有リンクから削除されます</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">トラッキング クエリ パラメータは共有リンクから削除されません</string>
   <string name="revanced_replace_music_with_youtube_title">共有リンクを youtube.com に変更</string>
   <string name="revanced_replace_music_with_youtube_summary_on">共有リンクには youtube.com が使用されます</string>
   <string name="revanced_replace_music_with_youtube_summary_off">共有リンクには music.youtube.com が使用されます</string>
@@ -399,6 +399,20 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">非表示にするコンポーネントの path builder string のリスト (改行区切り)</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">無効なカスタム フィルタ: %s</string>
+  <string name="revanced_hide_view_count_title">視聴回数を非表示</string>
+  <string name="revanced_hide_view_count_summary_on">視聴回数はフィードと検索結果に表示されません</string>
+  <string name="revanced_hide_view_count_summary_off">視聴回数はフィードと検索結果に表示されます</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"制限事項:
+• ショート欄、チャンネル ページ、検索結果では、引き続き再生回数が表示される場合があります
+• この機能は Automotive レイアウトでは動作しません"</string>
+  <string name="revanced_hide_upload_time_title">アップロード日を非表示</string>
+  <string name="revanced_hide_upload_time_summary_on">アップロード日はフィードと検索結果に表示されません</string>
+  <string name="revanced_hide_upload_time_summary_off">アップロード日はフィードと検索結果に表示されます</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"制限事項:
+• ショート欄、チャンネル ページ、検索結果では、引き続きアップロード日が表示される場合があります
+• この機能は Automotive レイアウトでは動作しません"</string>
   <string name="revanced_hide_keyword_content_screen_title">キーワードでコンテンツを非表示</string>
   <string name="revanced_hide_keyword_content_screen_summary">キーワード フィルタを使用してフィード、検索結果に表示される動画を非表示にします</string>
   <string name="revanced_hide_keyword_content_home_title">ホームの動画をキーワードで非表示</string>
@@ -819,18 +833,18 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_shorts_player_screen_summary">ショート プレーヤーのコンポーネントを表示または非表示にします</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">ホームフィードでショートを非表示</string>
-  <string name="revanced_hide_shorts_home_summary_on">ホームフィードおよび関連動画にショート動画は表示されません</string>
-  <string name="revanced_hide_shorts_home_summary_off">ホームフィードおよび関連動画にショート動画が表示されます</string>
+  <string name="revanced_hide_shorts_home_summary_on">ショート動画はホームフィードおよび関連動画に表示されません</string>
+  <string name="revanced_hide_shorts_home_summary_off">ショート動画はホームフィードおよび関連動画に表示されます</string>
   <string name="revanced_hide_shorts_search_title">検索結果でショートを非表示</string>
-  <string name="revanced_hide_shorts_search_summary_on">検索結果にショート動画は表示されません</string>
-  <string name="revanced_hide_shorts_search_summary_off">検索結果にショート動画が表示されます</string>
+  <string name="revanced_hide_shorts_search_summary_on">ショート動画は検索結果に表示されません</string>
+  <string name="revanced_hide_shorts_search_summary_off">ショート動画は検索結果に表示されます</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">登録チャンネル フィードでショートを非表示</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">登録チャンネル フィードにショート動画は表示されません</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">登録チャンネル フィードにショート動画が表示されます</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">ショート動画は登録チャンネル フィードに表示されません</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">ショート動画は登録チャンネル フィードに表示されます</string>
   <string name="revanced_hide_shorts_history_title">再生履歴でショートを非表示</string>
-  <string name="revanced_hide_shorts_history_summary_on">再生履歴にショート動画は表示されません</string>
-  <string name="revanced_hide_shorts_history_summary_off">再生履歴にショート動画が表示されます</string>
+  <string name="revanced_hide_shorts_history_summary_on">ショート動画は再生履歴に表示されません</string>
+  <string name="revanced_hide_shorts_history_summary_off">ショート動画は再生履歴に表示されます</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">「Super Thanks を購入する」ボタンを非表示</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">「Super Thanks を購入する」ボタンは表示されません</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">「Super Thanks を購入する」ボタンは表示されます</string>
@@ -1341,25 +1355,25 @@ Automotive レイアウト
   <string name="revanced_miniplayer_type_entry_5">モダン 2</string>
   <string name="revanced_miniplayer_type_entry_6">モダン 3</string>
   <string name="revanced_miniplayer_type_entry_7">モダン 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">丸角を有効化</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">ミニプレーヤーの角は丸角です</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">ミニプレーヤーの角は直角です</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">丸角を無効化</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">ミニプレーヤーの角は直角です</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">ミニプレーヤーの角は丸角です</string>
   <string name="revanced_miniplayer_double_tap_action_title">ダブルタップとピンチによるサイズ変更を有効化</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"ダブルタップとピンチによるサイズ変更は有効です
 
 • ダブルタップすると、ミニプレーヤーのサイズが大きくなる
 • もう一度ダブルタップすると、元のサイズに戻る"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">ダブルタップとピンチによるサイズ変更は無効です</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">ドラッグ＆ドロップを有効化</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"ドラッグ＆ドロップは有効です
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">ドラッグ＆ドロップを無効化</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">ドラッグ＆ドロップは無効です</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"ドラッグ＆ドロップは有効です
 
 ミニプレーヤーを画面の四隅に移動できます"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">ドラッグ＆ドロップは無効です</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">横方向ドラッグ ジェスチャーを有効化</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"横方向ドラッグ ジェスチャーは有効です
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">横方向ドラッグ ジェスチャーを無効化</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">横方向ドラッグ ジェスチャーは無効です</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"横方向ドラッグ ジェスチャーは有効です
 
 ミニプレーヤーを画面の左端または右端までドラッグすると最小化されます"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">横方向ドラッグ ジェスチャーは無効です</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">オーバーレイ ボタンを非表示</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">オーバーレイ ボタンは表示されません</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">オーバーレイ ボタンは表示されます</string>
@@ -1577,7 +1591,7 @@ Automotive レイアウト
 
 制限事項:
 • 最大解像度が 1080p
-• 動画再生時に、VP9 または AV1 よりも多くの通信量を使用する
+• 動画再生時に VP9 または AV1 よりも多くの通信量を使用する
 • HDR 動画では AVC が使用されない
 • 一部のデバイスでは AVC を強制できない"</string>
   </patch>

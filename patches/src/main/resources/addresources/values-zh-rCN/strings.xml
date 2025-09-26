@@ -397,6 +397,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">用于过滤的组件路径生成器字符串的列表，按行分隔</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">非法自定义筛选器：%s</string>
+  <string name="revanced_hide_view_count_title">隐藏观看次数</string>
+  <string name="revanced_hide_view_count_summary_on">观看次数已在动态和搜索结果中隐藏</string>
+  <string name="revanced_hide_view_count_summary_off">观看次数已在动态和搜索结果中显示</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"限制:
+• Shorts 栏目、频道页面和搜索结果可能仍会显示观看次数
+• 此功能不适用于车载设备"</string>
+  <string name="revanced_hide_upload_time_title">隐藏上传时间</string>
+  <string name="revanced_hide_upload_time_summary_on">上传时间在动态和搜索结果中已隐藏</string>
+  <string name="revanced_hide_upload_time_summary_off">上传时间在动态和搜索结果中显示</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"限制：
+• Shorts 专区、频道页面和搜索结果可能仍会显示上传时间
+• 此功能不适用于车载设备"</string>
   <string name="revanced_hide_keyword_content_screen_title">隐藏关键字内容</string>
   <string name="revanced_hide_keyword_content_screen_summary">使用关键字过滤隐藏搜索和动态消息中的视频</string>
   <string name="revanced_hide_keyword_content_home_title">过滤首页视频</string>
@@ -1343,25 +1357,25 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_5">现代 2</string>
   <string name="revanced_miniplayer_type_entry_6">现代 3</string>
   <string name="revanced_miniplayer_type_entry_7">现代 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">启用圆角</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">已启用圆角</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">已禁用圆角</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">禁用圆角</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">已禁用圆角</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">已启用圆角</string>
   <string name="revanced_miniplayer_double_tap_action_title">启用双击和捏合缩放</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"已启用双击操作和捏合以调整大小
 
 • 双击以增加迷你播放器大小
 • 再次双击以恢复原始大小"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">已禁用双击操作和捏合缩放</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">启用拖放</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"已启用拖放
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">禁用拖放</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">已禁用拖放</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"已启用拖放
 
 迷你播放器可以拖动到屏幕的任何角落"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">已禁用拖放</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">启用水平拖动</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"已启用水平拖动手势
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">禁用水平拖动手势</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">已禁用水平拖动</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"已启用水平拖动手势
 
 迷你播放器可以拖动到屏幕的左侧或右侧"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">已禁用水平拖动</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">隐藏悬浮窗按钮</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">悬浮窗按钮已隐藏</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">悬浮窗按钮已显示</string>

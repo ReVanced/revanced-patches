@@ -397,6 +397,20 @@ Se al momento un Doodle è visibile nella tua regione e questa impostazione nasc
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">L\'elenco dei componenti da filtrare separati da nuove righe</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizzato non valido: %s</string>
+  <string name="revanced_hide_view_count_title">Nascondi il numero di visualizzazioni</string>
+  <string name="revanced_hide_view_count_summary_on">Il numero di visualizzazioni è nascosto nel feed e nei risultati di ricerca</string>
+  <string name="revanced_hide_view_count_summary_off">Il numero di visualizzazioni è mostrato nel feed e nei risultati di ricerca</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Limitazioni:
+• Le sezioni Shorts, le pagine dei canali e i risultati di ricerca potrebbero mostrare comunque il numero di visualizzazioni
+• Questa funzionalità non è compatibile con i fattori di forma automobilistici"</string>
+  <string name="revanced_hide_upload_time_title">Nascondi l\'ora di caricamento</string>
+  <string name="revanced_hide_upload_time_summary_on">L\'ora di caricamento è nascosta nel feed e nei risultati di ricerca</string>
+  <string name="revanced_hide_upload_time_summary_off">L\'ora di caricamento è mostrata nel feed e nei risultati di ricerca</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Limitazioni:
+• Le sezioni Shorts, le pagine del canale e i risultati di ricerca potrebbero ancora mostrare gli orari di caricamento.
+• Questa funzione non funziona con il fattore di forma automotive."</string>
   <string name="revanced_hide_keyword_content_screen_title">Nascondi contenuto di parole chiave</string>
   <string name="revanced_hide_keyword_content_screen_summary">Nascondi la ricerca e proponi video usando i filtri per le parole chiave</string>
   <string name="revanced_hide_keyword_content_home_title">Nascondi i video della Home in base alle parole chiave</string>
@@ -1337,25 +1351,25 @@ Limitazione: l'utilizzo del pulsante Indietro sulla barra degli strumenti potreb
   <string name="revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderno 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moderno 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Abilita angoli arrotondati</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Gli angoli sono arrotondati</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Gli angoli sono quadrati</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Disabilita angoli arrotondati</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Gli angoli sono quadrati</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Gli angoli sono arrotondati</string>
   <string name="revanced_miniplayer_double_tap_action_title">Abilita il doppio tocco e il pizzico per ridimensionare</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"I gesti Doppio Tocco e Pizzico per ridimensionare sono abilitati
 
 • Tocca due volte per aumentare la dimensione del riproduttore minimizzato
 • Tocca di nuovo due volte per ripristinare le dimensioni originali"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">L\'azione a doppio tocco e il pizzico da ridimensionare è disabilitato</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Abilita drag and drop</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Il gesto Trascina e Rilascia è attivato
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Disabilita trascinamento</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Trascinare e rilasciare è disabilitato</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Il gesto Trascina e Rilascia è attivato
 
 Il riproduttore minimizzato può essere trascinato in qualsiasi angolo dello schermo"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Trascinare e rilasciare è disabilitato</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Abilita il gesto di trascinamento orizzontale</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Il gesto Trascina Orizzontalmente è abilitato 
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Disabilita gesto di trascinamento orizzontale</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Gesto di trascinamento orizzontale disabilitato</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Il gesto Trascina Orizzontalmente è abilitato 
 
 Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistra o a destra"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gesto di trascinamento orizzontale disabilitato</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Nascondi i pulsanti di overlay</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">I pulsanti di overlay sono nascosti</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">I pulsanti di overlay sono visualizzati</string>

@@ -397,6 +397,20 @@ Nëse një Doodle po shfaqet aktualisht në rajonin tuaj dhe kjo fshehje është
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Lista e stringjeve të ndërtuesit të rrugës së komponentit për të filtruar, të ndara me një rresht të ri</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Filtri i personalizuar i pavlefshëm: %s</string>
+  <string name="revanced_hide_view_count_title">Fshih numrin e shikimeve</string>
+  <string name="revanced_hide_view_count_summary_on">Numri i shikimeve është i fshehur në burim dhe rezultatet e kërkimit</string>
+  <string name="revanced_hide_view_count_summary_off">Numri i shikimeve shfaqet në burim dhe rezultatet e kërkimit</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Kufizimet:
+• Raftet e Shorts, faqet e kanaleve dhe rezultatet e kërkimit mund të shfaqin ende numrin e shikimeve
+• Ky funksion nuk funksionon me faktorin e formës së automobilave"</string>
+  <string name="revanced_hide_upload_time_title">Fshih kohën e ngarkimit</string>
+  <string name="revanced_hide_upload_time_summary_on">Koha e ngarkimit fshihet në fluks dhe rezultatet e kërkimit</string>
+  <string name="revanced_hide_upload_time_summary_off">Koha e ngarkimit shfaqet në fluks dhe rezultatet e kërkimit</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Kufizimet:
+• raftet e Shorts, faqet e kanaleve dhe rezultatet e kërkimit mund të shfaqin ende kohën e ngarkimit
+• Kjo veçori nuk funksionon me faktorin e formës automobilistike"</string>
   <string name="revanced_hide_keyword_content_screen_title">Fsheh përmbajtjen e fjalëve kyçe</string>
   <string name="revanced_hide_keyword_content_screen_summary">Fsheh videot e kërkimit dhe të ushqimit duke përdorur filtre fjalësh kyçe</string>
   <string name="revanced_hide_keyword_content_home_title">Fsheh videot e faqes së fillimit sipas fjalëve kyçe</string>
@@ -1336,25 +1350,25 @@ Kufizimi: Përdorimi i butonit të kthimit në shiritin e veglave mund të mos f
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
   <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Aktivizo qoshet e rrumbullakosura</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Qoshet janë të rrumbullakosura</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Qoshet janë katrore</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Çaktivizo qoshet e rrumbullakosura</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Qoshet janë katrore</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Qoshet janë të rrumbullakosura</string>
   <string name="revanced_miniplayer_double_tap_action_title">Aktivizo dy-prekje dhe shtrëngim për të ridimensionuar</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Veprimi i dyfishtë shtypjeje dhe shtrëngimi për të ridimensionuar është aktivizuar
 
 • Dyfishtë shtyp për të rritur madhësinë e miniplayer-it
 • Dyfishtë shtyp përsëri për të rivendosur madhësinë origjinale"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Veprimi i dy-prekjeve dhe shtrëngimi për të ridimensionuar është i çaktivizuar</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Aktivizo tërheqjen dhe lëshimin</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Tërheqja dhe lëshimi është aktivizuar
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Çaktivizo zvarritjen dhe lëshimin</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Tërheqja dhe lëshimi është e çaktivizuar</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Tërheqja dhe lëshimi është aktivizuar
 
 Miniplayer mund të tërhiqet në çdo qoshe të ekranit"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Tërheqja dhe lëshimi është e çaktivizuar</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Aktivizo gjestet e tërheqjes horizontale</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Lëvizja horizontale me tërheqje është aktivizuar
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Çaktivizo gjestin horizontal të zvarritjes</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Gjestet e tërheqjes horizontale janë të çaktivizuara</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Lëvizja horizontale me tërheqje është aktivizuar
 
 Miniplayer mund të tërhiqet jashtë ekranit në të majtë ose në të djathtë"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gjestet e tërheqjes horizontale janë të çaktivizuara</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Fshih butonat e mbivendosjes</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Butonat e mbivendosjes janë të fshehur</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Butonat e mbivendosjes janë të dukshëm</string>

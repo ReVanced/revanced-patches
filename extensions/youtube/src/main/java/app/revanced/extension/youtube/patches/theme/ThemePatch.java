@@ -1,16 +1,13 @@
 package app.revanced.extension.youtube.patches.theme;
 
-import static app.revanced.extension.youtube.patches.theme.ThemePatch.SplashScreenAnimationStyle.styleFromOrdinal;
-
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.theme.BaseThemePatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
-public class ThemePatch {
-
+public class ThemePatch extends BaseThemePatch {
     public enum SplashScreenAnimationStyle {
         DEFAULT(0),
         FPS_60_ONE_SECOND(1),
@@ -43,57 +40,39 @@ public class ThemePatch {
         }
     }
 
-    // color constants used in relation with litho components
+    // Color constants used in relation with litho components.
     private static final int[] WHITE_VALUES = {
-            -1, // comments chip background
-            -394759, // music related results panel background
-            -83886081, // video chapters list background
+            0xFFFFFFFF, // Comments chip background.
+            0xFFF9F9F9, // Music related results panel background.
+            0xFAFFFFFF, // Video chapters list background.
     };
 
     private static final int[] DARK_VALUES = {
-            -14145496, // explore drawer background
-            -14606047, // comments chip background
-            -15198184, // music related results panel background
-            -15790321, // comments chip background (new layout)
-            -98492127 // video chapters list background
+            0xFF282828, // Explore drawer background.
+            0xFF212121, // Comments chip background.
+            0xFF181818, // Music related results panel background.
+            0xFF0F0F0F, // Comments chip background (new layout).
+            0xFA212121, // Video chapters list background.
     };
-
-    // Background colors.
-    private static final int WHITE_COLOR = Utils.getResourceColor("yt_white1");
-    private static final int BLACK_COLOR = Utils.getResourceColor("yt_black1");
-
-    private static final boolean GRADIENT_LOADING_SCREEN_ENABLED = Settings.GRADIENT_LOADING_SCREEN.get();
 
     /**
      * Injection point.
-     *
+     * <p>
      * Change the color of Litho components.
-     * If the color of the component matches one of the values, return the background color .
+     * If the color of the component matches one of the values, return the background color.
      *
      * @param originalValue The original color value.
-     * @return The new or original color value
+     * @return The new or original color value.
      */
     public static int getValue(int originalValue) {
-        if (Utils.isDarkModeEnabled()) {
-            if (anyEquals(originalValue, DARK_VALUES)) return BLACK_COLOR;
-        } else {
-            if (anyEquals(originalValue, WHITE_VALUES)) return WHITE_COLOR;
-        }
-
-        return originalValue;
-    }
-
-    private static boolean anyEquals(int value, int... of) {
-        for (int v : of) if (value == v) return true;
-
-        return false;
+        return processColorValue(originalValue, DARK_VALUES, WHITE_VALUES);
     }
 
     /**
      * Injection point.
      */
     public static boolean gradientLoadingScreenEnabled(boolean original) {
-        return GRADIENT_LOADING_SCREEN_ENABLED;
+        return Settings.GRADIENT_LOADING_SCREEN.get();
     }
 
     /**
@@ -108,7 +87,7 @@ public class ThemePatch {
         final int replacement = style.style;
         if (original != replacement) {
             Logger.printDebug(() -> "Overriding splash screen style from: "
-                    + styleFromOrdinal(original)  + " to: " + style);
+                    + SplashScreenAnimationStyle.styleFromOrdinal(original) + " to: " + style);
         }
 
         return replacement;

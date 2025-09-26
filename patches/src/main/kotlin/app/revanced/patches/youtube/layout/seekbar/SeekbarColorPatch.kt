@@ -67,11 +67,6 @@ private val seekbarColorResourcePatch = resourcePatch {
             scaleNode.replaceChild(replacementNode, shapeNode)
         }
 
-
-        if (!is_19_25_or_greater) {
-            return@execute
-        }
-
         // Add attribute and styles for splash screen custom color.
         // Using a style is the only way to selectively change just the seekbar fill color.
         //
@@ -212,10 +207,6 @@ val seekbarColorPatch = bytecodePatch(
         }
 
         lithoColorOverrideHook(EXTENSION_CLASS_DESCRIPTOR, "getLithoColor")
-
-        if (!is_19_25_or_greater) {
-            return@execute
-        }
 
         // 19.25+ changes
 

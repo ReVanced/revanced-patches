@@ -397,6 +397,20 @@ Bir Doodle şu anda bölgenizde gösteriliyorsa ve bu gizleme ayarı açıksa, a
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Filtrelenecek bileşen yolu oluşturucu dizelerinin yeni satırla ayrılmış şekilde listesi</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Geçersiz özel filtre: %s</string>
+  <string name="revanced_hide_view_count_title">İzlenme sayısını gizle</string>
+  <string name="revanced_hide_view_count_summary_on">İzlenme sayısı akışta ve arama sonuçlarında gizli</string>
+  <string name="revanced_hide_view_count_summary_off">İzlenme sayısı akışta ve arama sonuçlarında görünür</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Sınırlamalar:
+• Shorts rafları, kanal sayfaları ve arama sonuçları yine de izlenme sayılarını gösterebilir
+• Bu özellik otomotiv form faktörüyle çalışmaz"</string>
+  <string name="revanced_hide_upload_time_title">Yüklenme zamanını gizle</string>
+  <string name="revanced_hide_upload_time_summary_on">Yüklenme zamanı akışta ve arama sonuçlarında gizli</string>
+  <string name="revanced_hide_upload_time_summary_off">Yüklenme zamanı akışta ve arama sonuçlarında görünür</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Sınırlamalar:
+• Shorts rafları, kanal sayfaları ve arama sonuçları yine de yüklenme zamanlarını gösterebilir
+• Bu özellik otomotiv form faktörü ile çalışmaz"</string>
   <string name="revanced_hide_keyword_content_screen_title">Anahtar kelimeyle içerik gizle</string>
   <string name="revanced_hide_keyword_content_screen_summary">Anahtar kelime filtreleriyle arama sonuçlarındaki ve akıştaki videoları gizle</string>
   <string name="revanced_hide_keyword_content_home_title">Ana sayfadaki videoları anahtar kelimelerle gizle</string>
@@ -1340,25 +1354,25 @@ Kısıtlama: Araç çubuğundaki geri düğmesini kullanmak işe yaramayabilir"<
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
   <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Yuvarlatılmış köşeleri etkinleştir</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Köşeler yuvarlatılmış</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Köşeler kare şeklinde</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Yuvarlatılmış köşeleri devre dışı bırak</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Köşeler kare şeklinde</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Köşeler yuvarlatılmış</string>
   <string name="revanced_miniplayer_double_tap_action_title">Boyutlandırmak için çift dokunmayı ve sıkıştırmayı etkinleştir</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Boyutlandırmak için çift dokunma ve sıkıştırma etkin
 
 • Mini oynatıcı boyutunu artırmak için çift dokunun
 • Orijinal boyuta geri dönmek için tekrar çift dokunun"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Boyutlandırmak için çift dokunma ve sıkıştırma devre dışı</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Sürükleyip bırakmayı etkinleştir</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Sürükle ve bırak etkin
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Sürükleyip bırakmayı devre dışı bırak</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Sürükle ve bırak devre dışı</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Sürükle ve bırak etkin
 
 Mini oynatıcı, ekranın herhangi bir köşesine sürüklenebilir"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Sürükle ve bırak devre dışı</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Yatay sürükleme hareketini etkinleştir</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Yatay sürükleme hareketi etkin
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Yatay sürükleme hareketini devre dışı bırak</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Yatay sürükleme hareketi devre dışı</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Yatay sürükleme hareketi etkin
 
 Mini oynatıcı, ekranın dışına sağa veya sola sürüklenebilir"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Yatay sürükleme hareketi devre dışı</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Katman düğmelerini gizle</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Katman düğmeleri gizli</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Katman düğmeleri görünür</string>
@@ -1576,8 +1590,8 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_force_avc_codec_title">AVC\'yi (H.264) zorla</string>
   <string name="revanced_force_avc_codec_summary_on">Video kodeği AVC\'ye (H.264) zorlandı</string>
   <string name="revanced_force_avc_codec_summary_off">Video kodeği otomatik olarak belirlenir</string>
-  <string name="revanced_force_avc_codec_user_dialog_message">"Avantajları:
-• Pil ömrünü uzatabilir
+  <string name="revanced_force_avc_codec_user_dialog_message">"Faydaları:
+• Pil ömrünü iyileştirebilir
 • Eski cihazlarda eksik video çözünürlüklerini geri yükleyebilir
 
 Sınırlamalar:

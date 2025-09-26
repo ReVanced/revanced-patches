@@ -393,6 +393,20 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">নতুন লাইন দ্বারা পৃথক করা ফিল্টার করার জন্য উপাদান পাথ বিল্ডার স্ট্রিং এর তালিকা</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">ত্রুটিপূর্ণ কাস্টম ফিল্টার: %s</string>
+  <string name="revanced_hide_view_count_title">দেখার সংখ্যা লুকান</string>
+  <string name="revanced_hide_view_count_summary_on">ফিড এবং অনুসন্ধানের ফলাফলে দেখার সংখ্যা লুকানো আছে</string>
+  <string name="revanced_hide_view_count_summary_off">ফিড এবং অনুসন্ধানের ফলাফলে দেখার সংখ্যা দেখানো আছে</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"সীমাবদ্ধতা:
+• Shorts শেল্ফ, চ্যানেল পেজ এবং অনুসন্ধানের ফলাফলে এখনও দেখার সংখ্যা দেখানো হতে পারে
+• এই বৈশিষ্ট্যটি অটোমোটিভ ফর্ম ফ্যাক্টরের সাথে কাজ করে না"</string>
+  <string name="revanced_hide_upload_time_title">আপলোডের সময় লুকান</string>
+  <string name="revanced_hide_upload_time_summary_on">আপলোডের সময় ফিড এবং সার্চ ফলাফলে লুকানো আছে</string>
+  <string name="revanced_hide_upload_time_summary_off">আপলোডের সময় ফিড এবং সার্চ ফলাফলে দেখানো আছে</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"সীমাবদ্ধতা:
+• Shorts শেলফ, চ্যানেল পেজ এবং সার্চ ফলাফলে এখনও আপলোডের সময় দেখানো হতে পারে
+• এই বৈশিষ্ট্যটি অটোমোটিভ ফর্ম ফ্যাক্টরের সাথে কাজ করে না"</string>
   <string name="revanced_hide_keyword_content_screen_title">কীওয়ার্ড কনটেন্ট লুকান</string>
   <string name="revanced_hide_keyword_content_screen_summary">কীওয়ার্ড ফিল্টার ব্যবহার করে অনুসন্ধান এবং ফিড ভিডিও লুকান</string>
   <string name="revanced_hide_keyword_content_home_title">কীওয়ার্ড ব্যবহার করে প্রধান পাতার ভিডিও লুকান</string>
@@ -1334,25 +1348,25 @@ YouTube সেটিংসে অটো প্লে পরিবর্তন �
   <string name="revanced_miniplayer_type_entry_5">মর্ডান ২</string>
   <string name="revanced_miniplayer_type_entry_6">মর্ডান ৩</string>
   <string name="revanced_miniplayer_type_entry_7">আধুনিক ৪</string>
-  <string name="revanced_miniplayer_rounded_corners_title">গোলাকার কোণ সক্ষম করুন</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">কোণগুলি গোলাকার</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">কোণগুলি বর্গাকার</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">গোলাকার কোণা নিষ্ক্রিয় করুন</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">কোণগুলি বর্গাকার</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">কোণগুলি গোলাকার</string>
   <string name="revanced_miniplayer_double_tap_action_title">ডাবল-ট্যাপ এবং পিঞ্চ টু রিসাইজ সক্ষম করুন</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"ডাবল-ট্যাপ করার ক্রিয়া এবং আকার পরিবর্তন করার জন্য চিমটি দেওয়া সক্রিয়
 
 • miniplayer আকার বৃদ্ধি করতে ডাবল ট্যাপ করুন
 • মূল আকার পুনরুদ্ধার করতে আবার ডাবল ট্যাপ করুন"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">ডাবল-ট্যাপ অ্যাকশন এবং পিঞ্চ টু রিসাইজ অক্ষম</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">ড্র্যাগ এবং ড্রপ সক্ষম করুন</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"ড্র্যাগ এবং ড্রপ সক্রিয়
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">টেনে-ছেড়ে দেওয়া নিষ্ক্রিয় করুন</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">ড্র্যাগ এবং ড্রপ অক্ষম</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"ড্র্যাগ এবং ড্রপ সক্রিয়
 
 Miniplayer স্ক্রিনের যেকোনো কোণে টানা যাবে"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">ড্র্যাগ এবং ড্রপ অক্ষম</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">অনুভূমিক ড্র্যাগ অঙ্গভঙ্গি সক্ষম করুন</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"ক্ষैতিকভাবে টানার ভঙ্গি সক্রিয়
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">অনুভূমিক টেনে নেওয়ার ভঙ্গি নিষ্ক্রিয় করুন</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">অনুভূমিক ড্র্যাগ অঙ্গভঙ্গি অক্ষম</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"ক্ষैতিকভাবে টানার ভঙ্গি সক্রিয়
 
 Miniplayer স্ক্রিন থেকে বামে বা ডানে টানা যাবে"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">অনুভূমিক ড্র্যাগ অঙ্গভঙ্গি অক্ষম</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">ওভারলে বোতাম লুকান</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">ওভারলে বোতাম লুকানো আছে</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">ওভারলে বোতাম দেখানো হয়েছে</string>

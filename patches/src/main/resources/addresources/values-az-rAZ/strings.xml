@@ -146,9 +146,9 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_debug_logs_clear_toast">Qeydlər silindi</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Paylaşım keçidlərini təmizlə</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">İzləmə sorğu parametri paylaşılan keçidlərdən silinir</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">İzləmə sorğu parametri paylaşılan keçidlərdən silinmir</string>
+  <string name="revanced_sanitize_sharing_links_title">Paylaşım linklərin təmizlə</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">İzləmə sorğusu faktoru paylaşılan linklərdən silinir</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">İzləmə sorğusu faktoru paylaşılan linklərdən silinmir</string>
   <string name="revanced_replace_music_with_youtube_title">Paylaşma keçidlərini youtube.com-a dəyişdir</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Paylaşılan keçidlər youtube.com istifadə edir</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Paylaşılan keçidlər music.youtube.com istifadə edir</string>
@@ -381,7 +381,7 @@ Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlum
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Short yarat düyməsi görünür</string>
   <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Emoji və Vaxt damğası düymələrini gizlət</string>
   <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emoji və Vaxt damğası düymələri gizlədilib</string>
-  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emoji və Vaxt damğası düymələri göstərilir</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emoji və Vaxt damğası düymələri görünür</string>
   <string name="revanced_hide_comments_preview_comment_title">Önbaxış şərhin gizlət</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Önbaxış şərhi gizlədilib</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Önbaxış şərhi göstərilir</string>
@@ -397,6 +397,20 @@ Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlum
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Yeni sətirlə ayrılmış filtr üçün element yol qurucusu sətirlərinin siyahısı</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Etibarsız fərdi filtr: %s</string>
+  <string name="revanced_hide_view_count_title">Baxış sayını gizlət</string>
+  <string name="revanced_hide_view_count_summary_on">Baxış sayı lentdə və axtarış nəticələrində gizlədilib</string>
+  <string name="revanced_hide_view_count_summary_off">Baxış sayı lentdə və axtarış nəticələrində göstərilib</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Məhdudiyyətlər:
+• Shorts rəfləri, kanal səhifələri və axtarış nəticələri hələ də baxış saylarını göstərə bilər
+• Bu funksiya avtomobil form faktoru ilə işləmir"</string>
+  <string name="revanced_hide_upload_time_title">Yükləmə vaxtını gizlət</string>
+  <string name="revanced_hide_upload_time_summary_on">Yükləmə vaxtı lentdə və axtarış nəticələrində gizlədilib</string>
+  <string name="revanced_hide_upload_time_summary_off">Yükləmə vaxtı lentdə və axtarış nəticələrində göstərilir</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Məhdudiyyətlər:
+• Shorts rəflərində, kanal səhifələrində və axtarış nəticələrində yükləmə vaxtları hələ də göstərilə bilər
+• Bu funksiya avtomobil form faktoru ilə işləmir"</string>
   <string name="revanced_hide_keyword_content_screen_title">Açar söz məzmununu gizlət</string>
   <string name="revanced_hide_keyword_content_screen_summary">Açar söz filtrləri ilə axtarış və axın videolarını gizlət</string>
   <string name="revanced_hide_keyword_content_home_title">Ev videolarını açar sözlərə görə gizlət</string>
@@ -1337,25 +1351,25 @@ Məhdudiyyət: Alətlər cizgisindəki geri düyməsin istifadə işləməyə bi
   <string name="revanced_miniplayer_type_entry_5">Müasir 2</string>
   <string name="revanced_miniplayer_type_entry_6">Müasir 3</string>
   <string name="revanced_miniplayer_type_entry_7">Müasir 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Dairəvi küncləri aktivləşdir</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Künclər dairəvidir</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Künclər kvadratdır</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Yuvarlaq küncləri söndür</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Künclər kvadratdır</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Künclər dairəvidir</string>
   <string name="revanced_miniplayer_double_tap_action_title">Ölçüsünü dəyişmək üçün cüt toxunmanı və çimdikləməni aktiv et</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Ölçüsün dəyişmək üçün cüt kliklə və çimdiklə
 
 • Kiçik oynadıcı ölçüsün artırmaq üçün cüt toxun
 • Orijinal ölçünü bərpa etmək üçün təkrar cüt toxun"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Ölçüsünü dəyişdirmək üçün cüt toxunma fəaliyyəti və çimdikləmə yoxdur</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">\"Sürüklə və burax\"ı aktivləşdir</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Sürüklə və burax aktivdir
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Sürük-burax funksiyasını söndür</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">\"Sürüklə və burax\" aktiv deyil</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Sürüklə və burax aktivdir
 
 Kiçik oynadıcı ekranın istənilən küncünə sürüklənə bilər"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">\"Sürüklə və burax\" aktiv deyil</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Üfüqi sürükləmə jestini aktivləşdir</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Üfüqi sürükləmə jesti aktivdir
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Üfüqi sürükləmə jestini söndür</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Üfüqi sürükləmə jesti qapatıldı</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Üfüqi sürükləmə jesti aktivdir
 
 Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Üfüqi sürükləmə jesti qapatıldı</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Örtük düymələrini gizlət</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Örtük düymələri gizlidir</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Örtük düymələri görünür</string>

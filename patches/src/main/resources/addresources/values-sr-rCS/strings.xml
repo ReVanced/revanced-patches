@@ -397,6 +397,20 @@ Ako se Doodle trenutno prikazuje u vašem regionu i ova opcija skrivanja je uklj
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Lista stringova za pravljenje putanje komponenti za filtriranje, odvojena novim redom</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Nevažeći prilagođeni filter: %s</string>
+  <string name="revanced_hide_view_count_title">Sakrij broj pregleda</string>
+  <string name="revanced_hide_view_count_summary_on">Broj pregleda je sakriven u feed-u i rezultatima pretrage</string>
+  <string name="revanced_hide_view_count_summary_off">Broj pregleda je prikazan u feed-u i rezultatima pretrage</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Ograničenja:
+• Shorts sekcije, stranice kanala i rezultati pretrage i dalje mogu prikazivati brojeve pregleda
+• Ova funkcija ne radi sa automobilskim faktorom forme"</string>
+  <string name="revanced_hide_upload_time_title">Sakrij vreme otpremanja</string>
+  <string name="revanced_hide_upload_time_summary_on">Vreme otpremanja je skriveno u feed-u i rezultatima pretrage</string>
+  <string name="revanced_hide_upload_time_summary_off">Vreme otpremanja je prikazano u feed-u i rezultatima pretrage</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Ograničenja:
+• Shorts police, stranice kanala i rezultati pretrage mogu i dalje prikazivati vreme otpremanja
+• Ova funkcija ne radi sa automobilskim form faktorom"</string>
   <string name="revanced_hide_keyword_content_screen_title">Sakrij sadržaj ključne reči</string>
   <string name="revanced_hide_keyword_content_screen_summary">Sakrijte videe iz rezultata pretrage i fida koristeći filtere ključnih reči</string>
   <string name="revanced_hide_keyword_content_home_title">Sakrij videe na kartici „Početna” prema ključnim rečima</string>
@@ -1337,25 +1351,25 @@ Ograničenje: Korišćenje dugmeta „Nazad” na traci sa alatkama možda neće
   <string name="revanced_miniplayer_type_entry_5">Moderan 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderan 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moderan 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Omogući zaobljene uglove</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Uglovi su zaobljeni</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Uglovi su kvadratni</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Onemogući zaobljene ivice</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Uglovi su kvadratni</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Uglovi su zaobljeni</string>
   <string name="revanced_miniplayer_double_tap_action_title">Omogući dvostruki dodir i štipanje za promenu veličine</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Radnja dvostrukog dodira i štipanja za promenu veličine je omogućena
 
 • Dvaput dodirnite da biste povećali veličinu mini-plejera
 • Dvaput dodirnite ponovo da biste vratili originalnu veličinu"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Radnja dvostrukog dodira i štipanja za promenu veličine je onemogućena</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Omogući prevlačenje i otpuštanje</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Povlačenje i otpuštanje je omogućeno
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Onemogući prevlačenje i ispuštanje</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Prevlačenje i otpuštanje je onemogućeno</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Povlačenje i otpuštanje je omogućeno
 
 Mini-plejer se može prevući u bilo koji ugao ekrana"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Prevlačenje i otpuštanje je onemogućeno</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Omogući pokret horizontalnog prevlačenja</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Pokret horizontalnog prevlačenja je omogućen
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Onemogući horizontalni gest prevlačenja</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Pokret horizontalnog prevlačenja je onemogućen</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Pokret horizontalnog prevlačenja je omogućen
 
 Mini-plejer se može prevući sa ekrana ulevo ili udesno"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Pokret horizontalnog prevlačenja je onemogućen</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Sakrij dugmad preklopa</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Dugmad preklopa su skrivena</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Dugmad preklopa su prikazana</string>

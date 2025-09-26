@@ -397,6 +397,20 @@ Pokud se Doodle v současné době zobrazuje ve vaší oblasti a toto nastavení
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Seznam řetězců builderu cest komponent oddělených novým řádkem</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Neplatný vlastní filtr: %s</string>
+  <string name="revanced_hide_view_count_title">Skrýt počet zhlédnutí</string>
+  <string name="revanced_hide_view_count_summary_on">Počet zhlédnutí je skrytý ve zdroji a výsledcích vyhledávání</string>
+  <string name="revanced_hide_view_count_summary_off">Počet zhlédnutí je zobrazený ve zdroji a výsledcích vyhledávání</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Omezení:
+• Police Shorts, stránky kanálů a výsledky vyhledávání mohou stále zobrazovat počty zhlédnutí
+• Tato funkce nefunguje s automobilovým provedením"</string>
+  <string name="revanced_hide_upload_time_title">Skrýt čas nahrání</string>
+  <string name="revanced_hide_upload_time_summary_on">Čas nahrání je skryt ve feedu a výsledcích vyhledávání</string>
+  <string name="revanced_hide_upload_time_summary_off">Čas nahrání je zobrazen ve feedu a výsledcích vyhledávání</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Omezení:
+• Police Shorts, stránky kanálů a výsledky vyhledávání mohou stále zobrazovat časy nahrání
+• Tato funkce nefunguje s automobilovým provedením"</string>
   <string name="revanced_hide_keyword_content_screen_title">Skrýt obsah s klíčovými slovy</string>
   <string name="revanced_hide_keyword_content_screen_summary">Skrýt videa ve vyhledávání a feedu pomocí filtrů klíčových slov</string>
   <string name="revanced_hide_keyword_content_home_title">Skrýt domácí videa podle klíčových slov</string>
@@ -1338,25 +1352,25 @@ Omezení: Použití tlačítka zpět na panelu nástrojů nemusí fungovat"</str
   <string name="revanced_miniplayer_type_entry_5">Moderní 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderní 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moderní 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Povolit zaoblené rohy</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Rohy jsou zaoblené</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Rohy jsou čtvercové</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Zakázat zaoblené rohy</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Rohy jsou čtvercové</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Rohy jsou zaoblené</string>
   <string name="revanced_miniplayer_double_tap_action_title">Povolit dvojitý klepnutí a přiblížení pro změnu velikosti</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Aktivováno dvojitým klepnutím a přiblížením pro změnu velikosti
 
 • Dvojitým klepnutím zvětšíte velikost \"miniplayeru\"
 • Dvojitým klepnutím znovu obnovíte původní velikost"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Dvojitý klepnutí a přiblížení pro změnu velikosti je zakázáno</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Povolit přetažení</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Aktivováno přetahování
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Zakázat přetahování</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Přetažení je zakázáno</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Aktivováno přetahování
 
 \"Miniplayer\" lze přetáhnout do libovolného rohu obrazovky"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Přetažení je zakázáno</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Povolit horizontální posun</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Aktivováno horizontální přetahování
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Zakázat horizontální gesto přetahování</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Horizontální posun je zakázán</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Aktivováno horizontální přetahování
 
 \"Miniplayer\" lze přetáhnout z obrazovky doleva nebo doprava"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontální posun je zakázán</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Skrýt tlačítka překrytí</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tlačítka překrytí jsou skrytá</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Tlačítka překrytí jsou zobrazena</string>

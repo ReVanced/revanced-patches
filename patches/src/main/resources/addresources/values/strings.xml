@@ -1427,25 +1427,25 @@ Limitation: Using the back button on the toolbar may not work"</string>
             <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
             <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
             <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
-            <string name="revanced_miniplayer_rounded_corners_title">Enable rounded corners</string>
-            <string name="revanced_miniplayer_rounded_corners_summary_on">Corners are rounded</string>
-            <string name="revanced_miniplayer_rounded_corners_summary_off">Corners are square</string>
+            <string name="revanced_miniplayer_disable_rounded_corners_title">Disable rounded corners</string>
+            <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Corners are square</string>
+            <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Corners are rounded</string>
             <string name="revanced_miniplayer_double_tap_action_title">Enable double-tap and pinch to resize</string>
             <string name="revanced_miniplayer_double_tap_action_summary_on">"Double-tap action and pinch to resize is enabled
 
 • Double tap to increase miniplayer size
 • Double tap again to restore original size"</string>
             <string name="revanced_miniplayer_double_tap_action_summary_off">Double-tap action and pinch to resize is disabled</string>
-            <string name="revanced_miniplayer_drag_and_drop_title">Enable drag and drop</string>
-            <string name="revanced_miniplayer_drag_and_drop_summary_on">"Drag and drop is enabled
+            <string name="revanced_miniplayer_disable_drag_and_drop_title">Disable drag and drop</string>
+            <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Drag and drop is disabled</string>
+            <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Drag and drop is enabled
 
 Miniplayer can be dragged to any corner of the screen"</string>
-            <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and drop is disabled</string>
-            <string name="revanced_miniplayer_horizontal_drag_title">Enable horizontal drag gesture</string>
-            <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontal drag gesture enabled
+            <string name="revanced_miniplayer_disable_horizontal_drag_title">Disable horizontal drag gesture</string>
+            <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Horizontal drag gesture disabled</string>
+            <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Horizontal drag gesture enabled
 
 Miniplayer can be dragged off-screen to the left or right"</string>
-            <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontal drag gesture disabled</string>
             <string name="revanced_miniplayer_hide_overlay_buttons_title">Hide overlay buttons</string>
             <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay buttons are hidden</string>
             <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay buttons are shown</string>

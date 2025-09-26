@@ -397,6 +397,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Спіс радкоў канструктара шляхоў кампанентаў для фільтрацыі, раздзеленых новым радком</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Няправільны карыстацкі фільтр: %s</string>
+  <string name="revanced_hide_view_count_title">Схаваць колькасць праглядаў</string>
+  <string name="revanced_hide_view_count_summary_on">Колькасць праглядаў схавана ў стужцы і выніках пошуку</string>
+  <string name="revanced_hide_view_count_summary_off">Колькасць праглядаў паказана ў стужцы і выніках пошуку</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Абмежаванні:
+• На паліцах Shorts, старонках каналаў і ў выніках пошуку ўсё яшчэ можа адлюстроўвацца колькасць праглядаў
+• Гэта функцыя не працуе з аўтамабільным форм-фактарам"</string>
+  <string name="revanced_hide_upload_time_title">Схаваць час загрузкі</string>
+  <string name="revanced_hide_upload_time_summary_on">Час загрузкі схаваны ў стужцы і выніках пошуку</string>
+  <string name="revanced_hide_upload_time_summary_off">Час загрузкі паказаны ў стужцы і выніках пошуку</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Абмежаванні:
+• На паліцах Shorts, старонках каналаў і ў выніках пошуку ўсё яшчэ можа адлюстроўвацца час загрузкі
+• Гэтая функцыя не працуе з аўтамабільным форм-фактарам"</string>
   <string name="revanced_hide_keyword_content_screen_title">Схаваць змест ключавых слоў</string>
   <string name="revanced_hide_keyword_content_screen_summary">Схавайце відэа для пошуку і стужкі з дапамогай фільтраў па ключавых словах</string>
   <string name="revanced_hide_keyword_content_home_title">Схаваць хатняе відэа па ключавых словах</string>
@@ -1339,25 +1353,25 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_5">Сучасны 2</string>
   <string name="revanced_miniplayer_type_entry_6">Сучасны 3</string>
   <string name="revanced_miniplayer_type_entry_7">Сучасны 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Включить закругленные углы</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Углы закруглены</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Углы квадратные</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Адключыць закругленыя вуглы</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Углы квадратные</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Углы закруглены</string>
   <string name="revanced_miniplayer_double_tap_action_title">Включить двойное нажатие и масштабирование с помощьющипка</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Уключана дзеянне «подвойнае націсканне» і «шчыпкі для змены памеру»
 
 • Подвойнае націсканне, каб павялічыць памер міні-прайгравальніка
 • Подвойнае націсканне яшчэ раз, каб аднавіць першапачатковы памер"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Двойное нажатие и scalewithpinch отключены</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Включить перетаскивание</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Уключана перацягванне і кіданне
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Адключыць перацягванне</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Перетаскивание отключено</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Уключана перацягванне і кіданне
 
 Міні-прайгравальнік можна перацягнуць у любы куток экрана"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Перетаскивание отключено</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Включить горизонтальный жест перетаскивания</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Уключаны жэст гарызантальнага перацягвання
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Адключыць гарызантальны жэст перацягвання</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Горизонтальный жест перетаскивания отключен</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Уключаны жэст гарызантальнага перацягвання
 
 Міні-прайгравальнік можна перацягнуць за межы экрана ўлева ці ўправа"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Горизонтальный жест перетаскивания отключен</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Схаваць кнопкі накладання</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Кнопкі накладання схаваныя</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопкі накладання паказаны</string>

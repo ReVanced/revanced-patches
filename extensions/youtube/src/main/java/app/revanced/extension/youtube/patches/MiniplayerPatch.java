@@ -20,7 +20,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
 
-@SuppressWarnings("SpellCheckingInspection")
+@SuppressWarnings({"unused", "SpellCheckingInspection"})
 public final class MiniplayerPatch {
 
     /**
@@ -130,7 +130,7 @@ public final class MiniplayerPatch {
                     (CURRENT_TYPE.isModern() && Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get());
 
     private static final boolean DRAG_AND_DROP_ENABLED =
-            CURRENT_TYPE.isModern() && Settings.MINIPLAYER_DRAG_AND_DROP.get();
+            CURRENT_TYPE.isModern() && !Settings.MINIPLAYER_DISABLE_DRAG_AND_DROP.get();
 
     private static final boolean HIDE_OVERLAY_BUTTONS_ENABLED =
             Settings.MINIPLAYER_HIDE_OVERLAY_BUTTONS.get()
@@ -146,10 +146,10 @@ public final class MiniplayerPatch {
             && (VersionCheckPatch.IS_19_34_OR_GREATER || Settings.MINIPLAYER_HIDE_REWIND_FORWARD.get());
 
     private static final boolean MINIPLAYER_ROUNDED_CORNERS_ENABLED =
-            CURRENT_TYPE.isModern() && Settings.MINIPLAYER_ROUNDED_CORNERS.get();
+            CURRENT_TYPE.isModern() && !Settings.MINIPLAYER_DISABLE_ROUNDED_CORNERS.get();
 
     private static final boolean MINIPLAYER_HORIZONTAL_DRAG_ENABLED =
-            DRAG_AND_DROP_ENABLED && Settings.MINIPLAYER_HORIZONTAL_DRAG.get();
+            DRAG_AND_DROP_ENABLED && !Settings.MINIPLAYER_DISABLE_HORIZONTAL_DRAG.get();
 
     /**
      * Remove a broken and always present subtitle text that is only
@@ -174,14 +174,14 @@ public final class MiniplayerPatch {
     public static final class MiniplayerHorizontalDragAvailability implements Setting.Availability {
         @Override
         public boolean isAvailable() {
-            return Settings.MINIPLAYER_TYPE.get().isModern() && Settings.MINIPLAYER_DRAG_AND_DROP.get();
+            return Settings.MINIPLAYER_TYPE.get().isModern() && !Settings.MINIPLAYER_DISABLE_DRAG_AND_DROP.get();
         }
 
         @Override
         public List<Setting<?>> getParentSettings() {
             return List.of(
                     Settings.MINIPLAYER_TYPE,
-                    Settings.MINIPLAYER_DRAG_AND_DROP
+                    Settings.MINIPLAYER_DISABLE_DRAG_AND_DROP
             );
         }
     }
@@ -193,7 +193,7 @@ public final class MiniplayerPatch {
             return type == MODERN_4
                     || (!IS_19_20_OR_GREATER && (type == MODERN_1 || type == MODERN_3))
                     || (!IS_19_26_OR_GREATER && type == MODERN_1
-                    && !Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get() && !Settings.MINIPLAYER_DRAG_AND_DROP.get())
+                    && !Settings.MINIPLAYER_DOUBLE_TAP_ACTION.get() && Settings.MINIPLAYER_DISABLE_DRAG_AND_DROP.get())
                     || (IS_19_29_OR_GREATER && type == MODERN_3);
         }
 
@@ -202,7 +202,7 @@ public final class MiniplayerPatch {
             return List.of(
                     Settings.MINIPLAYER_TYPE,
                     Settings.MINIPLAYER_DOUBLE_TAP_ACTION,
-                    Settings.MINIPLAYER_DRAG_AND_DROP
+                    Settings.MINIPLAYER_DISABLE_DRAG_AND_DROP
             );
         }
     }

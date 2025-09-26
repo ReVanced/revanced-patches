@@ -397,6 +397,20 @@ Vendar pa bo omogočitev tega beležila tudi nekatere uporabniške podatke, kot 
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Seznam nizov gradnikov poti komponent za filtriranje, ločenih z novimi vrsticami</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Neveljaven prilagojeni filter: %s</string>
+  <string name="revanced_hide_view_count_title">Skrij število ogledov</string>
+  <string name="revanced_hide_view_count_summary_on">Število ogledov je skrito v viru in rezultatih iskanja</string>
+  <string name="revanced_hide_view_count_summary_off">Število ogledov je prikazano v viru in rezultatih iskanja</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Omejitve:
+• Shorts police, strani kanalov in rezultati iskanja lahko še vedno prikazujejo število ogledov
+• Ta funkcija ne deluje z avtomobilskim oblikovnim faktorjem"</string>
+  <string name="revanced_hide_upload_time_title">Skrij čas nalaganja</string>
+  <string name="revanced_hide_upload_time_summary_on">Čas nalaganja je skrit v viru in rezultatih iskanja</string>
+  <string name="revanced_hide_upload_time_summary_off">Čas nalaganja je prikazan v viru in rezultatih iskanja</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Omejitve:
+• Police s prispevki Shorts, strani kanalov in rezultati iskanja lahko še vedno prikazujejo čase nalaganja
+• Ta funkcija ne deluje z avtomobilsko obliko"</string>
   <string name="revanced_hide_keyword_content_screen_title">Skrij vsebino s ključno besedo</string>
   <string name="revanced_hide_keyword_content_screen_summary">Skrij videoposnetke v iskanju in viru s filtri ključnih besed</string>
   <string name="revanced_hide_keyword_content_home_title">Skrij videoposnetke na domačem zaslonu s ključnimi besedami</string>
@@ -1337,25 +1351,25 @@ Omejitev: uporaba gumba za nazaj v orodni vrstici morda ne bo delovala"</string>
   <string name="revanced_miniplayer_type_entry_5">Sodobno 2</string>
   <string name="revanced_miniplayer_type_entry_6">Sodobno 3</string>
   <string name="revanced_miniplayer_type_entry_7">Sodobno 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Omogoči zaobljene robove</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Robovi so zaobljeni</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Robovi so kvadratni</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Onemogoči zaobljene vogale</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Robovi so kvadratni</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Robovi so zaobljeni</string>
   <string name="revanced_miniplayer_double_tap_action_title">Omogoči dvojni dotik in stiskanje za spreminjanje velikosti</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Dvojni dotik in ščipanje za spremembo velikosti sta omogočena
 
 • Dvakrat tapnite, da povečate velikost minipredvajalnika
 • Znova dvakrat tapnite, da obnovite prvotno velikost"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Dvojni dotik in stiskanje za spreminjanje velikosti je onemogočeno</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Omogoči povleci in spusti</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Povleci in spusti so omogočeni
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Onemogoči vlečenje in spuščanje</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Povleci in spusti je onemogočeno</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Povleci in spusti so omogočeni
 
 Minipredvajalnik lahko povlečete v kateri koli kot zaslona"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Povleci in spusti je onemogočeno</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Omogoči vodoravno kretnjo vlečenja</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Omogočena je kretnja vodoravnega vlečenja
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Onemogoči vodoravno potezo vlečenja</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Vodoravna kretnja vlečenja je onemogočena</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Omogočena je kretnja vodoravnega vlečenja
 
 Minipredvajalnik lahko povlečete z zaslona na levo ali desno"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Vodoravna kretnja vlečenja je onemogočena</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Skrij prekrivne gumbe</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Prekrivni gumbi so skriti</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Prekrivni gumbi so prikazani</string>
