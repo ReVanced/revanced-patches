@@ -388,6 +388,10 @@ public final class app/revanced/patches/music/layout/premium/HideGetPremiumPatch
 	public static final fun getHideGetPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/layout/theme/ThemePatchKt {
+	public static final fun getThemePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/layout/upgradebutton/HideUpgradeButtonPatchKt {
 	public static final fun getHideUpgradeButton ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun getRemoveUpgradeButton ()Lapp/revanced/patcher/patch/BytecodePatch;
@@ -731,6 +735,11 @@ public final class app/revanced/patches/reddit/misc/tracking/url/SanitizeUrlQuer
 
 public final class app/revanced/patches/serviceportalbund/detection/root/RootDetectionPatchKt {
 	public static final fun getRootDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/shared/layout/theme/LithoColorHookPatchKt {
+	public static final fun getLithoColorHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getLithoColorOverrideHook ()Lkotlin/jvm/functions/Function2;
 }
 
 public final class app/revanced/patches/shared/misc/checks/BaseCheckEnvironmentPatchKt {

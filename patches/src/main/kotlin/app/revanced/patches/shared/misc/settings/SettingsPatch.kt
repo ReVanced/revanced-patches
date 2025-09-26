@@ -26,26 +26,26 @@ fun settingsPatch (
     preferences: Set<BasePreference>,
 ) = settingsPatch(listOf(rootPreference), preferences)
 
-private var themeForegroundColor : String? = null
-private var themeBackgroundColor : String? = null
+private var lightThemeColor : String? = null
+private var darkThemeColor : String? = null
 
 /**
  * Sets the default theme colors used in various ReVanced specific settings menus.
  * By default these colors are white and black, but instead can be set to the
  * same color the target app uses for it's own settings.
  */
-fun overrideThemeColors(foregroundColor: String, backgroundColor: String) {
-    themeForegroundColor = foregroundColor
-    themeBackgroundColor = backgroundColor
+fun overrideThemeColors(lightThemeColorString: String?, darkThemeColorString: String) {
+    lightThemeColor = lightThemeColorString
+    darkThemeColor = darkThemeColorString
 }
 
 private val settingsColorPatch = bytecodePatch {
     finalize {
-        if (themeForegroundColor != null) {
-            themeLightColorResourceNameFingerprint.method.returnEarly(themeForegroundColor!!)
+        if (lightThemeColor != null) {
+            themeLightColorResourceNameFingerprint.method.returnEarly(lightThemeColor!!)
         }
-        if (themeBackgroundColor != null) {
-            themeDarkColorResourceNameFingerprint.method.returnEarly(themeBackgroundColor!!)
+        if (darkThemeColor != null) {
+            themeDarkColorResourceNameFingerprint.method.returnEarly(darkThemeColor!!)
         }
     }
 }
