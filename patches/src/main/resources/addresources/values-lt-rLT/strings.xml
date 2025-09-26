@@ -397,6 +397,20 @@ Jei „Doodle“ šiuo metu rodomas jūsu regione ir šis paslėpimo nustatymas 
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Komponento kelio kūrėjo eilutės, skirtos filtravimui, atskirtos nauja eilute</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Netinkamas pritaikomas filtras: %s</string>
+  <string name="revanced_hide_view_count_title">Slėpti peržiūrų skaičių</string>
+  <string name="revanced_hide_view_count_summary_on">Peržiūrų skaičius paslėptas kanale ir paieškos rezultatuose</string>
+  <string name="revanced_hide_view_count_summary_off">Peržiūrų skaičius rodomas kanale ir paieškos rezultatuose</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Apribojimai:
+• Shorts lentynos, kanalų puslapiai ir paieškos rezultatai vis tiek gali rodyti peržiūrų skaičių
+• Ši funkcija neveikia su automobiline formos išraiška"</string>
+  <string name="revanced_hide_upload_time_title">Slėpti įkėlimo laiką</string>
+  <string name="revanced_hide_upload_time_summary_on">Įkėlimo laikas paslėptas sraute ir paieškos rezultatuose</string>
+  <string name="revanced_hide_upload_time_summary_off">Įkėlimo laikas rodomas sraute ir paieškos rezultatuose</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Apribojimai:
+• „Shorts“ lentynose, kanalų puslapiuose ir paieškos rezultatuose vis dar gali būti rodomi įkėlimo laikai
+• Ši funkcija neveikia su automobilių formos faktoriumi"</string>
   <string name="revanced_hide_keyword_content_screen_title">Slėpti raktinių žodžių turinį</string>
   <string name="revanced_hide_keyword_content_screen_summary">Slėpti paieškos ir sklaidos srauto vaizdo įrašus naudojant raktinių žodžių filtrus</string>
   <string name="revanced_hide_keyword_content_home_title">Slėpti namų vaizdo įrašus pagal raktinius žodžius</string>

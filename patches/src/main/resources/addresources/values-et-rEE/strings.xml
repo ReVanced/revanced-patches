@@ -397,6 +397,20 @@ Kui Doodle on teie piirkonnas praegu nähtav ja see peitmise seade on sisse lül
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Rea ridadega eraldatud elementide loendi filtreerimiseks</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Kehtetu kohandatud filter: %s</string>
+  <string name="revanced_hide_view_count_title">Peida vaatamiste arv</string>
+  <string name="revanced_hide_view_count_summary_on">Vaatamiste arv on peidetud voos ja otsingutulemustes</string>
+  <string name="revanced_hide_view_count_summary_off">Vaatamiste arv on nähtav voos ja otsingutulemustes</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Piirangud:
+• Shorts-i riiulid, kanalilehed ja otsingutulemused võivad endiselt kuvada vaatamiste arvu
+• See funktsioon ei tööta autotööstuse vormiteguriga"</string>
+  <string name="revanced_hide_upload_time_title">Peida üleslaadimisaeg</string>
+  <string name="revanced_hide_upload_time_summary_on">Üleslaadimisaeg on peidetud voost ja otsingutulemustest</string>
+  <string name="revanced_hide_upload_time_summary_off">Üleslaadimisaeg on nähtav voos ja otsingutulemustes</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Piirangud:
+• Shorts riiulitel, kanalilehtedel ja otsingutulemustes võib üleslaadimisaeg endiselt nähtav olla
+• See funktsioon ei tööta autodele mõeldud vorminguga"</string>
   <string name="revanced_hide_keyword_content_screen_title">Peida video sisu märksõna abil</string>
   <string name="revanced_hide_keyword_content_screen_summary">Peida otsingu ja voo videod, kasutades märksõna filtreid</string>
   <string name="revanced_hide_keyword_content_home_title">Peida kodu videod märksõnade abil</string>

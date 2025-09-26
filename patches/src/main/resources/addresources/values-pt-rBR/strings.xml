@@ -397,6 +397,20 @@ Se um Doodle estiver sendo exibido atualmente em sua região e esta configuraç�
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Lista de strings de componente de construção de caminhos separados, para filtrar nova linha</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizado inválido: %s</string>
+  <string name="revanced_hide_view_count_title">Ocultar contagem de visualizações</string>
+  <string name="revanced_hide_view_count_summary_on">A contagem de visualizações está oculta no feed e nos resultados da pesquisa</string>
+  <string name="revanced_hide_view_count_summary_off">A contagem de visualizações é mostrada no feed e nos resultados da pesquisa</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Limitações:
+• As prateleiras de Shorts, páginas de canal e resultados de pesquisa ainda podem mostrar as contagens de visualizações
+• Este recurso não funciona com o fator de forma automotivo"</string>
+  <string name="revanced_hide_upload_time_title">Ocultar tempo de upload</string>
+  <string name="revanced_hide_upload_time_summary_on">O tempo de upload está oculto no feed e nos resultados da pesquisa</string>
+  <string name="revanced_hide_upload_time_summary_off">O tempo de upload é mostrado no feed e nos resultados da pesquisa</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Limitações:
+• As prateleiras de Shorts, páginas de canais e resultados da pesquisa ainda podem mostrar os tempos de upload
+• Este recurso não funciona com o fator de forma automotivo"</string>
   <string name="revanced_hide_keyword_content_screen_title">Ocultar conteúdo usando palavra-chave</string>
   <string name="revanced_hide_keyword_content_screen_summary">Ocultar pesquisa e vídeos na tela inicial usando palavras-chave como filtros</string>
   <string name="revanced_hide_keyword_content_home_title">Ocultar vídeos na tela inicial com palavras-chave</string>

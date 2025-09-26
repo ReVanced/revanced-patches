@@ -397,6 +397,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">รายการสตริงตัวสร้างเส้นทางส่วนประกอบที่จะกรองคั่นด้วยบรรทัดใหม่</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">ตัวกรองแบบกำหนดเองไม่ถูกต้อง: %s</string>
+  <string name="revanced_hide_view_count_title">ซ่อนจำนวนการดู</string>
+  <string name="revanced_hide_view_count_summary_on">จำนวนการดูถูกซ่อนอยู่ในฟีดและผลการค้นหา</string>
+  <string name="revanced_hide_view_count_summary_off">จำนวนการดูแสดงอยู่ในฟีดและผลการค้นหา</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"ข้อจำกัด:
+• ชั้นวาง Shorts, หน้าช่อง และผลการค้นหาอาจยังคงแสดงจำนวนการดู
+• ฟีเจอร์นี้ไม่สามารถใช้งานได้กับรูปแบบที่ใช้ในยานยนต์"</string>
+  <string name="revanced_hide_upload_time_title">ซ่อนเวลาอัปโหลด</string>
+  <string name="revanced_hide_upload_time_summary_on">เวลาอัปโหลดถูกซ่อนอยู่ในฟีดและผลการค้นหา</string>
+  <string name="revanced_hide_upload_time_summary_off">เวลาอัปโหลดจะแสดงในฟีดและผลการค้นหา</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"ข้อจำกัด:
+• แถบ Shorts, หน้าช่อง และผลการค้นหา อาจยังคงแสดงเวลาอัปโหลด
+• คุณสมบัตินี้ไม่ทำงานกับฟอร์มแฟกเตอร์ยานยนต์"</string>
   <string name="revanced_hide_keyword_content_screen_title">ซ่อนเนื้อหาคำสำคัญ</string>
   <string name="revanced_hide_keyword_content_screen_summary">ซ่อนวิดีโอการค้นหาและฟีดโดยใช้ตัวกรองคำสำคัญ</string>
   <string name="revanced_hide_keyword_content_home_title">ซ่อนวิดีโอหน้าแรกตามคำสำคัญ</string>

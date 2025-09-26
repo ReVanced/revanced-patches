@@ -397,6 +397,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">قائمة سلاسل منشئ مسار المكونات المراد تصفيتها مفصولة بسطر جديد</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">فلتر مخصص غير صالح: %s</string>
+  <string name="revanced_hide_view_count_title">إخفاء عدد المشاهدات</string>
+  <string name="revanced_hide_view_count_summary_on">عدد المشاهدات مخفي في الموجز ونتائج البحث</string>
+  <string name="revanced_hide_view_count_summary_off">عدد المشاهدات ظاهر في الموجز ونتائج البحث</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"قيود:
+• رفوف Shorts وصفحات القنوات ونتائج البحث قد تظل تعرض أعداد المشاهدات
+• هذه الميزة لا تعمل مع عامل الشكل الخاص بالسيارات"</string>
+  <string name="revanced_hide_upload_time_title">إخفاء وقت التحميل</string>
+  <string name="revanced_hide_upload_time_summary_on">وقت التحميل مخفي في الخلاصة ونتائج البحث</string>
+  <string name="revanced_hide_upload_time_summary_off">وقت التحميل معروض في الخلاصة ونتائج البحث</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"القيود:
+• قد تظل أرفف Shorts وصفحات القنوات ونتائج البحث تُظهر أوقات التحميل
+• هذه الميزة لا تعمل مع عامل شكل السيارات"</string>
   <string name="revanced_hide_keyword_content_screen_title">إخفاء محتوى الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_screen_summary">إخفاء فيديوهات البحث والموجز باستخدام فلاتر الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_home_title">إخفاء فيديوهات الصفحة الرئيسية بواسطة الكلمات المفتاحية</string>

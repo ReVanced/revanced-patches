@@ -397,6 +397,18 @@ Dacă un Doodle este afișat în prezent în regiunea dvs. și această setare d
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Lista șirurilor constructorului traiectoriei componentei pentru filtrarea separată de o linie nouă</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Filtru personalizat nevalid: %s</string>
+  <string name="revanced_hide_view_count_title">Ascunde numărul de vizualizări</string>
+  <string name="revanced_hide_view_count_summary_on">Numărul de vizualizări este ascuns în feed și în rezultatele căutării</string>
+  <string name="revanced_hide_view_count_summary_off">Numărul de vizualizări este afișat în feed și în rezultatele căutării</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Limitări:\n• Secțiunile Shorts, paginile canalelor și rezultatele căutării pot afișa în continuare numărul de vizualizări\n• Această funcție nu funcționează cu factorul de formă auto"</string>
+  <string name="revanced_hide_upload_time_title">Ascunde ora de încărcare</string>
+  <string name="revanced_hide_upload_time_summary_on">Ora de încărcare este ascunsă în feed și în rezultatele căutării</string>
+  <string name="revanced_hide_upload_time_summary_off">Ora de încărcare este afișată în feed și în rezultatele căutării</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Limitări:
+• rafturile Shorts, paginile canalelor și rezultatele căutării pot afișa în continuare orele de încărcare
+• Această funcție nu funcționează cu factorul de formă auto"</string>
   <string name="revanced_hide_keyword_content_screen_title">Ascundeți conținutul cuvântului cheie</string>
   <string name="revanced_hide_keyword_content_screen_summary">Ascundeți căutarea și hrănirea videoclipurilor folosind filtre de cuvinte cheie</string>
   <string name="revanced_hide_keyword_content_home_title">Ascunde videoclipurile de acasă după cuvintele cheie</string>

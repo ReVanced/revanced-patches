@@ -397,6 +397,20 @@ Má tá Doodle á thaispeáint faoi láthair i do réigiún agus má tá an tsu�
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Liosta de na teaghráin tógála cosáin comhpháirteanna le scagadh scartha le líne nua</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Scagaire saincheaptha neamhbhailí: %s</string>
+  <string name="revanced_hide_view_count_title">Folaigh líon radharcanna</string>
+  <string name="revanced_hide_view_count_summary_on">Tá líon radharcanna i bhfolach sa fhotha agus sna torthaí cuardaigh</string>
+  <string name="revanced_hide_view_count_summary_off">Taispeántar líon radharcanna sa fhotha agus sna torthaí cuardaigh</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Teorainneacha:
+• Is féidir le seilfeanna Shorts, leathanaigh cainéil, agus torthaí cuardaigh líon na radharcanna a thaispeáint fós
+• Ní oibríonn an ghné seo le fachtóir foirme feithicleach"</string>
+  <string name="revanced_hide_upload_time_title">Folaigh am uaslódála</string>
+  <string name="revanced_hide_upload_time_summary_on">Tá am uaslódála folaithe i bhfotha agus i dtorthaí cuardaigh</string>
+  <string name="revanced_hide_upload_time_summary_off">Tá am uaslódála le feiceáil i bhfotha agus i dtorthaí cuardaigh</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Teorainneacha:
+• Is féidir le seilfeanna Shorts, leathanaigh chainéal, agus torthaí cuardaigh fós amanna uaslódála a thaispeáint
+• Ní oibríonn an ghné seo le fachtóir foirme feithicleach"</string>
   <string name="revanced_hide_keyword_content_screen_title">Folaigh ábhair eochairfhocal</string>
   <string name="revanced_hide_keyword_content_screen_summary">Folaigh físeáin chuardaigh agus fotha ag baint úsáide as scagairí eochairfhocail</string>
   <string name="revanced_hide_keyword_content_home_title">Folaigh físeáin bhaile de réir eochair</string>

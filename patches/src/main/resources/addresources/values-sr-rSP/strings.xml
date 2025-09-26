@@ -397,6 +397,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Листа стрингова за прављење путање компоненти за филтрирање, одвојена новим редом</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Неважећи прилагођени филтер: %s</string>
+  <string name="revanced_hide_view_count_title">Сакриј број прегледа</string>
+  <string name="revanced_hide_view_count_summary_on">Број прегледа је сакривен у фиду и резултатима претраге</string>
+  <string name="revanced_hide_view_count_summary_off">Број прегледа је приказан у фиду и резултатима претраге</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Ограничења:
+• Shorts секције, странице канала и резултати претраге могу и даље приказивати број прегледа
+• Ова функција не ради са аутомобилским форм фактором"</string>
+  <string name="revanced_hide_upload_time_title">Сакриј време отпремања</string>
+  <string name="revanced_hide_upload_time_summary_on">Време отпремања је скривено у фиду и резултатима претраге</string>
+  <string name="revanced_hide_upload_time_summary_off">Време отпремања је приказано у фиду и резултатима претраге</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Ограничења:
+• Полице за Shorts, странице канала и резултати претраге могу и даље приказивати време отпремања
+• Ова функција не ради са аутомобилским форм фактором"</string>
   <string name="revanced_hide_keyword_content_screen_title">Сакриј садржај кључне речи</string>
   <string name="revanced_hide_keyword_content_screen_summary">Сакријте видее из резултата претраге и фида користећи филтере кључних речи</string>
   <string name="revanced_hide_keyword_content_home_title">Сакриј видее на картици „Почетна” према кључним речима</string>

@@ -397,6 +397,20 @@ Nëse një Doodle po shfaqet aktualisht në rajonin tuaj dhe kjo fshehje është
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Lista e stringjeve të ndërtuesit të rrugës së komponentit për të filtruar, të ndara me një rresht të ri</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Filtri i personalizuar i pavlefshëm: %s</string>
+  <string name="revanced_hide_view_count_title">Fshih numrin e shikimeve</string>
+  <string name="revanced_hide_view_count_summary_on">Numri i shikimeve është i fshehur në burim dhe rezultatet e kërkimit</string>
+  <string name="revanced_hide_view_count_summary_off">Numri i shikimeve shfaqet në burim dhe rezultatet e kërkimit</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Kufizimet:
+• Raftet e Shorts, faqet e kanaleve dhe rezultatet e kërkimit mund të shfaqin ende numrin e shikimeve
+• Ky funksion nuk funksionon me faktorin e formës së automobilave"</string>
+  <string name="revanced_hide_upload_time_title">Fshih kohën e ngarkimit</string>
+  <string name="revanced_hide_upload_time_summary_on">Koha e ngarkimit fshihet në fluks dhe rezultatet e kërkimit</string>
+  <string name="revanced_hide_upload_time_summary_off">Koha e ngarkimit shfaqet në fluks dhe rezultatet e kërkimit</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Kufizimet:
+• raftet e Shorts, faqet e kanaleve dhe rezultatet e kërkimit mund të shfaqin ende kohën e ngarkimit
+• Kjo veçori nuk funksionon me faktorin e formës automobilistike"</string>
   <string name="revanced_hide_keyword_content_screen_title">Fsheh përmbajtjen e fjalëve kyçe</string>
   <string name="revanced_hide_keyword_content_screen_summary">Fsheh videot e kërkimit dhe të ushqimit duke përdorur filtre fjalësh kyçe</string>
   <string name="revanced_hide_keyword_content_home_title">Fsheh videot e faqes së fillimit sipas fjalëve kyçe</string>

@@ -397,6 +397,20 @@ Ja Doodle pašlaik tiek rādīts jūsu reģionā un šis slēpšanas iestatījum
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Komponentu ceļa konstruktoru virkņu saraksts, ko filtrēt, atdalot ar jaunu rindu</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Nederīgs pielāgotais filtrs: %s</string>
+  <string name="revanced_hide_view_count_title">Paslēpt skatījumu skaitu</string>
+  <string name="revanced_hide_view_count_summary_on">Skatījumu skaits ir paslēpts plūsmā un meklēšanas rezultātos</string>
+  <string name="revanced_hide_view_count_summary_off">Skatījumu skaits ir redzams plūsmā un meklēšanas rezultātos</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Ierobežojumi:
+• Shorts sadaļās, kanālu lapās un meklēšanas rezultātos joprojām var tikt rādīts skatījumu skaits
+• Šī funkcija nedarbojas ar automobiļu formas faktoru"</string>
+  <string name="revanced_hide_upload_time_title">Slēpt augšupielādes laiku</string>
+  <string name="revanced_hide_upload_time_summary_on">Augšupielādes laiks ir paslēpts plūsmā un meklēšanas rezultātos</string>
+  <string name="revanced_hide_upload_time_summary_off">Augšupielādes laiks tiek rādīts plūsmā un meklēšanas rezultātos</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Ierobežojumi:
+• Shorts plaukti, kanālu lapas un meklēšanas rezultāti joprojām var rādīt augšupielādes laiku
+• Šī funkcija nedarbojas ar automobiļu formas faktoru"</string>
   <string name="revanced_hide_keyword_content_screen_title">Paslēpt atslēgvārdu saturu</string>
   <string name="revanced_hide_keyword_content_screen_summary">Paslēpt meklēšanas un plūsmas video, izmantojot atslēgvārdu filtrus</string>
   <string name="revanced_hide_keyword_content_home_title">Paslēpt mājas video ar atslēgvārdiem</string>

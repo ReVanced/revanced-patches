@@ -395,6 +395,20 @@ Ak sa Doodle v súčasnosti zobrazuje vo vašom regióne a toto nastavenie skryt
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Zoznam reťazcov tvorcu cesty komponentu na filtrovanie oddelených novým riadkom</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Neplatný vlastný filter: %s</string>
+  <string name="revanced_hide_view_count_title">Skryť počet zhliadnutí</string>
+  <string name="revanced_hide_view_count_summary_on">Počet zhliadnutí je skrytý vo feede a výsledkoch vyhľadávania</string>
+  <string name="revanced_hide_view_count_summary_off">Počet zhliadnutí je zobrazený vo feede a výsledkoch vyhľadávania</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Obmedzenia:
+• Police Shorts, stránky kanálov a výsledky vyhľadávania môžu naďalej zobrazovať počty zhliadnutí
+• Táto funkcia nefunguje s automobilovým form factorom"</string>
+  <string name="revanced_hide_upload_time_title">Skryť čas nahrávania</string>
+  <string name="revanced_hide_upload_time_summary_on">Čas nahrávania je skrytý v informačnom kanáli a výsledkoch vyhľadávania</string>
+  <string name="revanced_hide_upload_time_summary_off">Čas nahrávania je zobrazený v informačnom kanáli a výsledkoch vyhľadávania</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Obmedzenia:
+• Police Shorts, stránky kanálov a výsledky vyhľadávania môžu stále zobrazovať časy nahrávania
+• Táto funkcia nefunguje s automobilovým formátom"</string>
   <string name="revanced_hide_keyword_content_screen_title">Skryť obsah kľúčových slov</string>
   <string name="revanced_hide_keyword_content_screen_summary">Pomocou filtrov kľúčových slov skryte vyhľadávacie a informačné videá</string>
   <string name="revanced_hide_keyword_content_home_title">Skryť domáce videá podľa kľúčových slov</string>
