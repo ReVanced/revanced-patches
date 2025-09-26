@@ -2,8 +2,8 @@ package app.revanced.patches.youtube.layout.theme
 
 import app.revanced.patcher.anyInstruction
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
 import app.revanced.patches.youtube.shared.YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
-import app.revanced.util.literal
 
 internal val useGradientLoadingScreenFingerprint by fingerprint {
     instructions(

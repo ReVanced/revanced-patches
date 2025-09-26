@@ -11,11 +11,10 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patches.shared.layout.theme.lithoColorHookPatch
+import app.revanced.patches.shared.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.youtube.layout.theme.lithoColorHookPatch
-import app.revanced.patches.youtube.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_49_or_greater
