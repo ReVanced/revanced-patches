@@ -12,9 +12,10 @@ public abstract class SanitizeSharingLinkPatch {
         try {
             Uri uri = Uri.parse(url);
             Uri.Builder builder = uri.buildUpon().clearQuery();
+            var parametersToRemove = getParametersToRemove();
 
             for (String paramName : uri.getQueryParameterNames()) {
-                if (!getParametersToRemove().contains(paramName)) {
+                if (!parametersToRemove.contains(paramName)) {
                     for (String value : uri.getQueryParameters(paramName)) {
                         builder.appendQueryParameter(paramName, value);
                     }
