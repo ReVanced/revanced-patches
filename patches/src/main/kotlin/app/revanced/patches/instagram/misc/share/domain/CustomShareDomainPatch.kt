@@ -5,7 +5,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
 import app.revanced.patches.instagram.misc.share.editShareLinksPatch
-import app.revanced.patches.instagram.misc.share.permalinkResponseJsonParserFingerprint
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
@@ -28,16 +27,14 @@ val setCustomShareDomainPatch = bytecodePatch(
 
         getCustomShareDomainFingerprint.method.returnEarly(customDomainHost!!)
 
-        with(permalinkResponseJsonParserFingerprint.method) {
-            editShareLinksPatch { index, register ->
-                addInstructions(
-                    index,
-                    """
+        editShareLinksPatch { index, register ->
+            addInstructions(
+                index,
+                """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setCustomShareDomain(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$register
                     """
-                )
-            }
+            )
         }
     }
 }

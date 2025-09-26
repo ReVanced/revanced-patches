@@ -7,14 +7,25 @@ import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
-context(MutableMethod, BytecodePatchContext)
-internal fun editShareLinksPatch(block: (index: Int, register: Int) -> Unit) {
-    val putSharingUrlIndex = indexOfFirstInstruction(
-        permalinkResponseJsonParserFingerprint.stringMatches!!.first { it.string == "permalink" }.index,
-        Opcode.IPUT_OBJECT
+context(BytecodePatchContext)
+internal fun editShareLinksPatch(block: MutableMethod.(index: Int, register: Int) -> Unit) {
+    val fingerprintsToPatch = arrayOf(
+        permalinkResponseJsonParserFingerprint,
+        storyUrlResponseJsonParserFingerprint,
+        profileUrlResponseJsonParserFingerprint,
+        liveUrlResponseJsonParserFingerprint
     )
 
-    val sharingUrlRegister = getInstruction<TwoRegisterInstruction>(putSharingUrlIndex).registerA
+    for (fingerprint in fingerprintsToPatch) {
+        fingerprint.method.apply {
+            val putSharingUrlIndex = indexOfFirstInstruction(
+                permalinkResponseJsonParserFingerprint.stringMatches!!.first().index,
+                Opcode.IPUT_OBJECT
+            )
 
-    block(putSharingUrlIndex, sharingUrlRegister)
+            val sharingUrlRegister = getInstruction<TwoRegisterInstruction>(putSharingUrlIndex).registerA
+
+            block(putSharingUrlIndex, sharingUrlRegister)
+        }
+    }
 }
