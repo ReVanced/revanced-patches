@@ -52,7 +52,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
 
 /**
  * Navigation items taken from source code.
- * They appear in code like new NavigationItem(0, R.string.bottom_tab_chats, R.drawable.ic_tab_chats)
+ * They appear in code like new NavigationItem(0, R.string.bottom_tab_chats, R.drawable.ic_tab_chats).
  */
 private enum class AllowedNavigationItems(
     val defaultHideOption: Boolean,
