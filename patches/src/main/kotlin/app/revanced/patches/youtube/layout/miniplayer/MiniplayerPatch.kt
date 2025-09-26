@@ -186,15 +186,15 @@ val miniplayerPatch = bytecodePatch(
             if (!is_19_29_or_greater) {
                 preferences += SwitchPreference("revanced_miniplayer_double_tap_action")
             }
-            preferences += SwitchPreference("revanced_miniplayer_drag_and_drop")
+            preferences += SwitchPreference("revanced_miniplayer_disable_drag_and_drop")
         }
 
         if (is_19_43_or_greater) {
-            preferences += SwitchPreference("revanced_miniplayer_horizontal_drag")
+            preferences += SwitchPreference("revanced_miniplayer_disable_horizontal_drag")
         }
 
         if (is_19_36_or_greater) {
-            preferences += SwitchPreference("revanced_miniplayer_rounded_corners")
+            preferences += SwitchPreference("revanced_miniplayer_disable_rounded_corners")
         }
 
         preferences += SwitchPreference("revanced_miniplayer_hide_subtext")
