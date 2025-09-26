@@ -43,15 +43,13 @@ val hideNavigationButtonsPatch = bytecodePatch(
             )
         }
 
-        allowedItems
+        val injectionInstructions = allowedItems
             .map { it.key.buildAllowInstruction() }
             .joinToString("\n") + instructionsFooter
-            .let {
-                shouldShowTabIdMethodFingerprint
-                    .method
-                    .addInstructionsWithLabels(0, it)
-        }
 
+        shouldShowTabIdMethodFingerprint
+            .method
+            .addInstructionsWithLabels(0, injectionInstructions)
     }
 }
 
