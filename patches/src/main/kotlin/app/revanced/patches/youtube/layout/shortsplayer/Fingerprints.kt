@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * Purpose of this method is not clear, and it's only used to identify
  * the obfuscated name of the videoId() method in PlaybackStartDescriptor.
- * 20.39 and lower.
+ * 20.38 and lower.
  */
 internal val playbackStartFeatureFlagFingerprint by fingerprint {
     returns("Z")
