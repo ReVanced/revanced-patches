@@ -397,6 +397,20 @@ Si un Doodle est actuellement affiché dans votre région et que cette option de
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Liste des chemins des composants à filtrer, séparés par un retour à la ligne</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Filtre personnalisé invalide : %s</string>
+  <string name="revanced_hide_view_count_title">Masquer le nombre de vues</string>
+  <string name="revanced_hide_view_count_summary_on">Le nombre de vues est masqué dans le fil d\'actualité et les résultats de recherche</string>
+  <string name="revanced_hide_view_count_summary_off">Le nombre de vues est affiché dans le fil d\'actualité et les résultats de recherche</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Limitations :
+• Les nombres de vues peuvent encore être affichés dans les étagères à Shorts, les pages de chaînes et les résultats de recherche
+• Cette fonctionnalité ne fonctionne pas avec le format de mise en page Automotive"</string>
+  <string name="revanced_hide_upload_time_title">Masquer l\'heure de mise en ligne</string>
+  <string name="revanced_hide_upload_time_summary_on">L\'heure de mise en ligne est masquée dans le flux et les résultats de recherche</string>
+  <string name="revanced_hide_upload_time_summary_off">L\'heure de mise en ligne est affichée dans le flux et les résultats de recherche</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Limitations :
+• Les heures de mise en ligne peuvent encore être affichées dans les étagères à Shorts, les pages de chaînes et les résultats de recherche
+• Cette fonctionnalité ne fonctionne pas avec le format de mise en page Automotive"</string>
   <string name="revanced_hide_keyword_content_screen_title">Masquer des contenus par mot-clé</string>
   <string name="revanced_hide_keyword_content_screen_summary">Filtrez les vidéos par mot-clé dans les recherches et le flux</string>
   <string name="revanced_hide_keyword_content_home_title">Filtrer les vidéos de l\'accueil par mot-clé</string>
@@ -1576,7 +1590,7 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
 
 Limitations :
 • La résolution maximale est 1080p
-• La lecture vidéo utilisera plus de données Internet que VP9 ou AV1
+• La lecture vidéo utilisera plus de données Internet qu'avec VP9 ou AV1
 • Les vidéos HDR n'utiliseront pas AVC
 • Certains appareils ne peuvent pas forcer l'utilisation d'AVC"</string>
   </patch>

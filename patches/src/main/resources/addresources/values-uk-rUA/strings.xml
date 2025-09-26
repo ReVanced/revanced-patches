@@ -397,6 +397,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляхів компонентів для фільтрування, розділених новим рядком</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Недійсний фільтр: %s</string>
+  <string name="revanced_hide_view_count_title">Приховати кількість переглядів</string>
+  <string name="revanced_hide_view_count_summary_on">Кількість переглядів приховано у стрічці та результатах пошуку</string>
+  <string name="revanced_hide_view_count_summary_off">Кількість переглядів відображається у стрічці та результатах пошуку</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Обмеження:
+• Полиці Shorts, сторінки каналів та результати пошуку можуть досі показувати кількість переглядів
+• Ця функція не працює з автомобільним форм-фактором"</string>
+  <string name="revanced_hide_upload_time_title">Приховати час завантаження</string>
+  <string name="revanced_hide_upload_time_summary_on">Час завантаження приховано у стрічці та результатах пошуку</string>
+  <string name="revanced_hide_upload_time_summary_off">Час завантаження відображається у стрічці та результатах пошуку</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Обмеження:
+• Полиці Shorts, сторінки каналів і результати пошуку можуть досі показувати час завантаження
+• Ця функція не працює з автомобільним форм-фактором"</string>
   <string name="revanced_hide_keyword_content_screen_title">Приховати контент за ключовими словами</string>
   <string name="revanced_hide_keyword_content_screen_summary">Приховати відео із результатів пошуку та стрічки за допомогою фільтрів ключових слів</string>
   <string name="revanced_hide_keyword_content_home_title">Приховати відео на головній</string>

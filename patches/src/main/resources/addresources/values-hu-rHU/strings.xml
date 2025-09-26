@@ -397,6 +397,20 @@ Ha a Doodle jelenleg a régiódában látható, és ez a rejtés beállítás be
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">A szűrendő összetevő útvonal építő karakterláncok listája új sorral elválasztva</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Érvénytelen egyedi szűrő: %s</string>
+  <string name="revanced_hide_view_count_title">Megtekintések számának elrejtése</string>
+  <string name="revanced_hide_view_count_summary_on">A megtekintések száma elrejtve a hírfolyamban és a keresési eredményekben</string>
+  <string name="revanced_hide_view_count_summary_off">A megtekintések száma látható a hírfolyamban és a keresési eredményekben</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Korlátozások:
+• Shorts polcok, csatornaoldalak és a keresési eredmények továbbra is mutathatják a megtekintések számát
+• Ez a funkció nem működik autóipari formátummal"</string>
+  <string name="revanced_hide_upload_time_title">Feltöltési idő elrejtése</string>
+  <string name="revanced_hide_upload_time_summary_on">A feltöltési idő el van rejtve a hírfolyamban és a keresési eredményekben</string>
+  <string name="revanced_hide_upload_time_summary_off">A feltöltési idő megjelenik a hírfolyamban és a keresési eredményekben</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Korlátozások:
+• Shorts polcokon, csatornaoldalakon és keresési eredményekben továbbra is megjelenhetnek a feltöltési idők
+• Ez a funkció nem működik az autós formátummal"</string>
   <string name="revanced_hide_keyword_content_screen_title">Kulcsszó alapú tartalom elrejtés</string>
   <string name="revanced_hide_keyword_content_screen_summary">Kulcsszó alapú videó elrejtés keresésnél és a feedekben</string>
   <string name="revanced_hide_keyword_content_home_title">Videók elrejtése a kezdőlapon kulcsszavak alapján</string>

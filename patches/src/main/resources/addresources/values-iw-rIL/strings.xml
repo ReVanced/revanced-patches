@@ -397,6 +397,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">רשימה של מחרוזות בונה נתיב רכיבים לסינון מופרדות על ידי שורה חדשה</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">מסנן מותאם אישית לא חוקי: %s</string>
+  <string name="revanced_hide_view_count_title">הסתר ספירת צפיות</string>
+  <string name="revanced_hide_view_count_summary_on">ספירת הצפיות מוסתרת בפיד ובתוצאות החיפוש</string>
+  <string name="revanced_hide_view_count_summary_off">ספירת הצפיות מוצגת בפיד ובתוצאות החיפוש</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"מגבלות:
+• מדפי Shorts, דפי ערוצים ותוצאות חיפוש עשויים עדיין להציג ספירות צפיות
+• תכונה זו אינה פועלת עם גורם צורה לרכב"</string>
+  <string name="revanced_hide_upload_time_title">הסתר זמן העלאה</string>
+  <string name="revanced_hide_upload_time_summary_on">זמן ההעלאה מוסתר בפיד ובעמודי תוצאות חיפוש</string>
+  <string name="revanced_hide_upload_time_summary_off">זמן ההעלאה מוצג בפיד ובעמודי תוצאות חיפוש</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"הגבלות:
+• מדפי Shorts, דפי ערוץ ותוצאות חיפוש עדיין עשויים להציג זמני העלאה
+• תכונה זו אינה פועלת עם גורם צורה לרכב"</string>
   <string name="revanced_hide_keyword_content_screen_title">הסתר תוכן מילiת מפתח</string>
   <string name="revanced_hide_keyword_content_screen_summary">הסתר סרטוני פיד וחיפוש באמצעות מסנני מילות מפתח</string>
   <string name="revanced_hide_keyword_content_home_title">הסתר סרטוני בית לפי מילות מפתח</string>

@@ -397,6 +397,20 @@ Hvis et Doodle vises i øjeblikket i din region, og denne skjuleindstilling er a
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Liste over stigenereringsstrenge til filtrering adskilt af ny linje</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Ugyldigt brugerdefineret filter: %s</string>
+  <string name="revanced_hide_view_count_title">Skjul antal visninger</string>
+  <string name="revanced_hide_view_count_summary_on">Antal visninger er skjult i feed og søgeresultater</string>
+  <string name="revanced_hide_view_count_summary_off">Antal visninger vises i feed og søgeresultater</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Begrænsninger:
+• Shorts-hylder, kanalsider og søgeresultater kan stadig vise antal visninger
+• Denne funktion virker ikke med bilformat"</string>
+  <string name="revanced_hide_upload_time_title">Skjul uploadtid</string>
+  <string name="revanced_hide_upload_time_summary_on">Uploadtid er skjult i feed og søgeresultater</string>
+  <string name="revanced_hide_upload_time_summary_off">Uploadtid vises i feed og søgeresultater</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Begrænsninger:
+• Shorts hylder, kanalsider og søgeresultater kan stadig vise uploadtider
+• Denne funktion virker ikke med bilformat"</string>
   <string name="revanced_hide_keyword_content_screen_title">Skjul nøgleordsindhold</string>
   <string name="revanced_hide_keyword_content_screen_summary">Skjul søge- og feed videoer ved hjælp af søgeordsfiltre</string>
   <string name="revanced_hide_keyword_content_home_title">Skjul hjemmevideoer med søgeord</string>

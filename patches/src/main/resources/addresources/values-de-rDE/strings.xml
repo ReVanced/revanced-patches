@@ -396,6 +396,20 @@ Wenn ein Doodle zurzeit in Ihrer Region angezeigt wird und diese Einstellung zum
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Liste der Komponenten-Pfad-Generator-Zeichenketten zum Filtern durch neue Zeile getrennt</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Ungültiger benutzerdefinierter Filter: %s</string>
+  <string name="revanced_hide_view_count_title">Aufrufe ausblenden</string>
+  <string name="revanced_hide_view_count_summary_on">Aufrufe sind im Feed und in den Suchergebnissen ausgeblendet</string>
+  <string name="revanced_hide_view_count_summary_off">Aufrufe werden im Feed und in den Suchergebnissen angezeigt</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Einschränkungen:
+• Shorts-Regale, Kanalseiten und Suchergebnisse können weiterhin Aufrufe anzeigen
+• Diese Funktion funktioniert nicht mit dem Automotive-Formfaktor"</string>
+  <string name="revanced_hide_upload_time_title">Upload-Zeit ausblenden</string>
+  <string name="revanced_hide_upload_time_summary_on">Die Upload-Zeit ist im Feed und in den Suchergebnissen ausgeblendet</string>
+  <string name="revanced_hide_upload_time_summary_off">Die Upload-Zeit wird im Feed und in den Suchergebnissen angezeigt</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Einschränkungen:
+• Shorts-Regale, Kanalseiten und Suchergebnisse können weiterhin Upload-Zeiten anzeigen
+• Diese Funktion funktioniert nicht mit dem Automobil-Formfaktor"</string>
   <string name="revanced_hide_keyword_content_screen_title">Keyword-Inhalt ausblenden</string>
   <string name="revanced_hide_keyword_content_screen_summary">Verstecke Such- und Feed-Videos mit Schlüsselwortfilter</string>
   <string name="revanced_hide_keyword_content_home_title">Home-Videos nach Schlüsselwörtern ausblenden</string>

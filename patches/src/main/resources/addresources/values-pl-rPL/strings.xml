@@ -393,6 +393,20 @@ Jeśli Doodle jest obecnie wyświetlany w Twoim regionie, a to ustawienie ukryci
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Lista tekstów tworzących ścieżkę komponentów do filtrowania, oddzielone nowymi wierszami</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Nieprawidłowy niestandardowy filtr: %s</string>
+  <string name="revanced_hide_view_count_title">Ukryj liczbę wyświetleń</string>
+  <string name="revanced_hide_view_count_summary_on">Liczba wyświetleń jest ukryta w kanale i wynikach wyszukiwania</string>
+  <string name="revanced_hide_view_count_summary_off">Liczba wyświetleń jest widoczna w kanale i wynikach wyszukiwania</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Ograniczenia:
+• Półki Shorts, strony kanałów i wyniki wyszukiwania mogą nadal wyświetlać liczby wyświetleń
+• Ta funkcja nie działa z wersją dla pojazdów"</string>
+  <string name="revanced_hide_upload_time_title">Ukryj czas przesłania</string>
+  <string name="revanced_hide_upload_time_summary_on">Czas przesłania jest ukryty w kanale i wynikach wyszukiwania</string>
+  <string name="revanced_hide_upload_time_summary_off">Czas przesłania jest widoczny w kanale i wynikach wyszukiwania</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Ograniczenia:
+• Półki Shorts, strony kanałów i wyniki wyszukiwania mogą nadal wyświetlać czasy przesłania
+• Ta funkcja nie działa z formatem samochodowym"</string>
   <string name="revanced_hide_keyword_content_screen_title">Filtrowanie słów</string>
   <string name="revanced_hide_keyword_content_screen_summary">Ukryj wyszukiwanie i filmy na stronie głównej za pomocą filtrów słów</string>
   <string name="revanced_hide_keyword_content_home_title">Filtruj filmy na stronie głównej</string>

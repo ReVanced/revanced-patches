@@ -397,6 +397,20 @@ Kung ang isang Doodle ay kasalukuyang ipinapakita sa iyong rehiyon at ang settin
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Listahan ng mga string ng tagabuo ng bahagi ng path na i-filter na pinaghihiwalay ng bagong linya</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Di-wastong custom na filter: %s</string>
+  <string name="revanced_hide_view_count_title">Itago ang bilang ng panonood</string>
+  <string name="revanced_hide_view_count_summary_on">Ang bilang ng panonood ay nakatago sa feed at mga resulta ng paghahanap</string>
+  <string name="revanced_hide_view_count_summary_off">Ang bilang ng panonood ay ipinapakita sa feed at mga resulta ng paghahanap</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Mga Limitasyon:
+• Ang mga Shorts shelves, mga pahina ng channel, at mga resulta ng paghahanap ay maaari pa ring magpakita ng mga bilang ng panonood
+• Ang tampok na ito ay hindi gumagana sa automotive form factor"</string>
+  <string name="revanced_hide_upload_time_title">Itago ang oras ng pag-upload</string>
+  <string name="revanced_hide_upload_time_summary_on">Nakatago ang oras ng pag-upload sa feed at mga resulta ng paghahanap</string>
+  <string name="revanced_hide_upload_time_summary_off">Ipinapakita ang oras ng pag-upload sa feed at mga resulta ng paghahanap</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Mga Limitasyon:
+• Ang mga seksyon ng Shorts, mga pahina ng channel, at mga resulta ng paghahanap ay maaaring magpakita pa rin ng mga oras ng pag-upload
+• Hindi gumagana ang feature na ito sa form factor ng sasakyan"</string>
   <string name="revanced_hide_keyword_content_screen_title">Itago ang nilalaman ng keyword</string>
   <string name="revanced_hide_keyword_content_screen_summary">Itago ang paghahanap at feed ng mga video gamit ang mga filter ng keyword</string>
   <string name="revanced_hide_keyword_content_home_title">Itago ang mga home video sa pamamagitan ng mga keyword</string>

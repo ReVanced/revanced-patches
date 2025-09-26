@@ -397,6 +397,20 @@ Pokud se Doodle v současné době zobrazuje ve vaší oblasti a toto nastavení
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Seznam řetězců builderu cest komponent oddělených novým řádkem</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Neplatný vlastní filtr: %s</string>
+  <string name="revanced_hide_view_count_title">Skrýt počet zhlédnutí</string>
+  <string name="revanced_hide_view_count_summary_on">Počet zhlédnutí je skrytý ve zdroji a výsledcích vyhledávání</string>
+  <string name="revanced_hide_view_count_summary_off">Počet zhlédnutí je zobrazený ve zdroji a výsledcích vyhledávání</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Omezení:
+• Police Shorts, stránky kanálů a výsledky vyhledávání mohou stále zobrazovat počty zhlédnutí
+• Tato funkce nefunguje s automobilovým provedením"</string>
+  <string name="revanced_hide_upload_time_title">Skrýt čas nahrání</string>
+  <string name="revanced_hide_upload_time_summary_on">Čas nahrání je skryt ve feedu a výsledcích vyhledávání</string>
+  <string name="revanced_hide_upload_time_summary_off">Čas nahrání je zobrazen ve feedu a výsledcích vyhledávání</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Omezení:
+• Police Shorts, stránky kanálů a výsledky vyhledávání mohou stále zobrazovat časy nahrání
+• Tato funkce nefunguje s automobilovým provedením"</string>
   <string name="revanced_hide_keyword_content_screen_title">Skrýt obsah s klíčovými slovy</string>
   <string name="revanced_hide_keyword_content_screen_summary">Skrýt videa ve vyhledávání a feedu pomocí filtrů klíčových slov</string>
   <string name="revanced_hide_keyword_content_home_title">Skrýt domácí videa podle klíčových slov</string>

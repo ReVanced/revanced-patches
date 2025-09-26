@@ -397,6 +397,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Спіс радкоў канструктара шляхоў кампанентаў для фільтрацыі, раздзеленых новым радком</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Няправільны карыстацкі фільтр: %s</string>
+  <string name="revanced_hide_view_count_title">Схаваць колькасць праглядаў</string>
+  <string name="revanced_hide_view_count_summary_on">Колькасць праглядаў схавана ў стужцы і выніках пошуку</string>
+  <string name="revanced_hide_view_count_summary_off">Колькасць праглядаў паказана ў стужцы і выніках пошуку</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Абмежаванні:
+• На паліцах Shorts, старонках каналаў і ў выніках пошуку ўсё яшчэ можа адлюстроўвацца колькасць праглядаў
+• Гэта функцыя не працуе з аўтамабільным форм-фактарам"</string>
+  <string name="revanced_hide_upload_time_title">Схаваць час загрузкі</string>
+  <string name="revanced_hide_upload_time_summary_on">Час загрузкі схаваны ў стужцы і выніках пошуку</string>
+  <string name="revanced_hide_upload_time_summary_off">Час загрузкі паказаны ў стужцы і выніках пошуку</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Абмежаванні:
+• На паліцах Shorts, старонках каналаў і ў выніках пошуку ўсё яшчэ можа адлюстроўвацца час загрузкі
+• Гэтая функцыя не працуе з аўтамабільным форм-фактарам"</string>
   <string name="revanced_hide_keyword_content_screen_title">Схаваць змест ключавых слоў</string>
   <string name="revanced_hide_keyword_content_screen_summary">Схавайце відэа для пошуку і стужкі з дапамогай фільтраў па ключавых словах</string>
   <string name="revanced_hide_keyword_content_home_title">Схаваць хатняе відэа па ключавых словах</string>

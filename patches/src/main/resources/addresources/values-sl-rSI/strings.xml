@@ -397,6 +397,20 @@ Vendar pa bo omogočitev tega beležila tudi nekatere uporabniške podatke, kot 
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Seznam nizov gradnikov poti komponent za filtriranje, ločenih z novimi vrsticami</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Neveljaven prilagojeni filter: %s</string>
+  <string name="revanced_hide_view_count_title">Skrij število ogledov</string>
+  <string name="revanced_hide_view_count_summary_on">Število ogledov je skrito v viru in rezultatih iskanja</string>
+  <string name="revanced_hide_view_count_summary_off">Število ogledov je prikazano v viru in rezultatih iskanja</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Omejitve:
+• Shorts police, strani kanalov in rezultati iskanja lahko še vedno prikazujejo število ogledov
+• Ta funkcija ne deluje z avtomobilskim oblikovnim faktorjem"</string>
+  <string name="revanced_hide_upload_time_title">Skrij čas nalaganja</string>
+  <string name="revanced_hide_upload_time_summary_on">Čas nalaganja je skrit v viru in rezultatih iskanja</string>
+  <string name="revanced_hide_upload_time_summary_off">Čas nalaganja je prikazan v viru in rezultatih iskanja</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Omejitve:
+• Police s prispevki Shorts, strani kanalov in rezultati iskanja lahko še vedno prikazujejo čase nalaganja
+• Ta funkcija ne deluje z avtomobilsko obliko"</string>
   <string name="revanced_hide_keyword_content_screen_title">Skrij vsebino s ključno besedo</string>
   <string name="revanced_hide_keyword_content_screen_summary">Skrij videoposnetke v iskanju in viru s filtri ključnih besed</string>
   <string name="revanced_hide_keyword_content_home_title">Skrij videoposnetke na domačem zaslonu s ključnimi besedami</string>

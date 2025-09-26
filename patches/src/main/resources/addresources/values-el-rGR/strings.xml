@@ -399,6 +399,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Λίστα από συμβολοσειρές στοιχείων για φιλτράρισμα, διαχωρισμένες σε νέες γραμμές</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Μη έγκυρο προσαρμοσμένο φίλτρο: %s</string>
+  <string name="revanced_hide_view_count_title">Αριθμός προβολών στη ροή και στα αποτελέσματα αναζήτησης</string>
+  <string name="revanced_hide_view_count_summary_on">Κρυμμένος</string>
+  <string name="revanced_hide_view_count_summary_off">Εμφανίζεται</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Περιορισμοί:
+• Οι ενότητες Shorts, οι σελίδες καναλιών και τα αποτελέσματα αναζήτησης ενδέχεται να εξακολουθούν να εμφανίζουν τους αριθμούς προβολών
+• Αυτή η λειτουργία δεν λειτουργεί με την διάταξη αυτοκινήτου"</string>
+  <string name="revanced_hide_upload_time_title">Χρόνος μεταμόρφωσης στη ροή και στα αποτελέσματα αναζήτησης</string>
+  <string name="revanced_hide_upload_time_summary_on">Κρυμμένος</string>
+  <string name="revanced_hide_upload_time_summary_off">Εμφανίζεται</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Περιορισμοί:
+• Οι ενότητες Shorts, οι σελίδες καναλιών και τα αποτελέσματα αναζήτησης ενδέχεται να εξακολουθούν να εμφανίζουν τον χρόνο μεταμόρφωσης
+• Αυτή η λειτουργία δεν λειτουργεί με την διάταξη αυτοκινήτου"</string>
   <string name="revanced_hide_keyword_content_screen_title">Απόκρυψη περιεχομένου λέξεων-κλειδιών</string>
   <string name="revanced_hide_keyword_content_screen_summary">Απόκρυψη βίντεο ροής και αναζήτησης χρησιμοποιώντας φίλτρα λέξεων-κλειδιών</string>
   <string name="revanced_hide_keyword_content_home_title">Φιλτράρισμα αρχικής ροής</string>
