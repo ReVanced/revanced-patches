@@ -1,5 +1,6 @@
 package app.revanced.patches.instagram.misc.privacy
 
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -21,21 +22,32 @@ val sanitizeSharingLinksPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
-        permalinkResponseJsonParserFingerprint.method.apply {
-            val putSharingUrlIndex = indexOfFirstInstruction(
-                permalinkResponseJsonParserFingerprint.stringMatches!!.first { it.string == "permalink" }.index,
-                Opcode.IPUT_OBJECT
-            )
+        fun Fingerprint.sanitizeUrl() {
+            this.method.apply {
+                val putSharingUrlIndex = indexOfFirstInstruction(
+                    this@sanitizeUrl.stringMatches!!.first().index,
+                    Opcode.IPUT_OBJECT
+                )
 
-            val sharingUrlRegister = getInstruction<TwoRegisterInstruction>(putSharingUrlIndex).registerA
+                val sharingUrlRegister = getInstruction<TwoRegisterInstruction>(putSharingUrlIndex).registerA
 
-            addInstructions(
-            	putSharingUrlIndex,
-                """
+                addInstructions(
+                    putSharingUrlIndex,
+                    """
                     invoke-static { v$sharingUrlRegister }, $EXTENSION_CLASS_DESCRIPTOR->sanitizeSharingLink(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$sharingUrlRegister
                 """
-            )
+                )
+            }
         }
+
+        val fingerprintsToPatch = arrayOf(permalinkResponseJsonParserFingerprint,
+            storyUrlResponseJsonParserFingerprint,
+            profileUrlResponseJsonParserFingerprint,
+            liveUrlResponseJsonParserFingerprint
+        )
+
+        for(f in fingerprintsToPatch)
+            f.sanitizeUrl()
     }
 }
