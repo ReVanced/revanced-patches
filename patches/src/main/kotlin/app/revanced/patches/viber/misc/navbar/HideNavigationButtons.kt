@@ -42,7 +42,6 @@ val hideNavigationButtonsPatch = bytecodePatch(
         }
         .method
         .apply{
-            // Build the injection instructions
             val instructions =
                 AllowedNavigationItems.buildInjectionInstructions(allowedItems.map { it.key })
 
