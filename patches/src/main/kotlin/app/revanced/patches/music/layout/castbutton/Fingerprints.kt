@@ -1,8 +1,11 @@
 package app.revanced.patches.music.layout.castbutton
 
-import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.opcode
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 internal val mediaRouteButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
@@ -13,5 +16,8 @@ internal val mediaRouteButtonFingerprint by fingerprint {
 internal val playerOverlayChipFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
-    literal { playerOverlayChip }
+    instructions(
+        resourceLiteral(ResourceType.ID, "player_overlay_chip"),
+        opcode(Opcode.MOVE_RESULT)
+    )
 }

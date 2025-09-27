@@ -9,17 +9,9 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
-import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-
-internal var playerOverlayChip = -1L
-    private set
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideCastButtonPatch;"
 
@@ -43,8 +35,6 @@ val hideCastButton = bytecodePatch(
     )
 
     execute {
-        playerOverlayChip = resourceMappings["id", "player_overlay_chip"]
-
         addResources("music", "layout.castbutton.hideCastButton")
 
         PreferenceScreen.GENERAL.addPreferences(
@@ -64,13 +54,12 @@ val hideCastButton = bytecodePatch(
         }
 
         playerOverlayChipFingerprint.method.apply {
-            val resourceIndex = indexOfFirstLiteralInstructionOrThrow(playerOverlayChip)
-            val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex, Opcode.MOVE_RESULT)
-            val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+            val index = playerOverlayChipFingerprint.instructionMatches.last().index
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
 
             addInstruction(
-                targetIndex + 1,
-                "invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideCastButton(Landroid/view/View;)V"
+                index + 1,
+                "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->hideCastButton(Landroid/view/View;)V"
             )
         }
     }
