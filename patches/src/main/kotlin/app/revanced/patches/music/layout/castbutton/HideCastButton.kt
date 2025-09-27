@@ -65,7 +65,7 @@ val hideCastButton = bytecodePatch(
 
         playerOverlayChipFingerprint.method.apply {
             val resourceIndex = indexOfFirstLiteralInstructionOrThrow(playerOverlayChip)
-            val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex, Opcode.MOVE_RESULT)
+            val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex, Opcode.MOVE_RESULT_OBJECT)
             val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             addInstruction(
