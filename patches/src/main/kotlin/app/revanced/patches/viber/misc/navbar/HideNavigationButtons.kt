@@ -37,7 +37,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
         // Items that won't be forcefully hidden.
         val allowedItems = hideOptions.filter { (option, enabled) -> enabled.value != true }
 
-        if (allowedItems.isEmpty()) {
+        if (allowedItems.size == AllowedNavigationItems.entries.size) {
             return@execute Logger.getLogger(this::class.java.name).warning(
                 "No hide navigation buttons options are enabled. No changes made."
             )
