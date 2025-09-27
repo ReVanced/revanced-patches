@@ -1351,7 +1351,7 @@ Məhdudiyyət: Alətlər cizgisindəki geri düyməsin istifadə işləməyə bi
   <string name="revanced_miniplayer_type_entry_5">Müasir 2</string>
   <string name="revanced_miniplayer_type_entry_6">Müasir 3</string>
   <string name="revanced_miniplayer_type_entry_7">Müasir 4</string>
-  <string name="revanced_miniplayer_disable_rounded_corners_title">Yuvarlaq küncləri söndür</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Dəyirmi küncləri qapat</string>
   <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Künclər kvadratdır</string>
   <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Künclər dairəvidir</string>
   <string name="revanced_miniplayer_double_tap_action_title">Ölçüsünü dəyişmək üçün cüt toxunmanı və çimdikləməni aktiv et</string>
@@ -1360,12 +1360,12 @@ Məhdudiyyət: Alətlər cizgisindəki geri düyməsin istifadə işləməyə bi
 • Kiçik oynadıcı ölçüsün artırmaq üçün cüt toxun
 • Orijinal ölçünü bərpa etmək üçün təkrar cüt toxun"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Ölçüsünü dəyişdirmək üçün cüt toxunma fəaliyyəti və çimdikləmə yoxdur</string>
-  <string name="revanced_miniplayer_disable_drag_and_drop_title">Sürük-burax funksiyasını söndür</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Sürüklə və burax-ı qapat</string>
   <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">\"Sürüklə və burax\" aktiv deyil</string>
   <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Sürüklə və burax aktivdir
 
 Kiçik oynadıcı ekranın istənilən küncünə sürüklənə bilər"</string>
-  <string name="revanced_miniplayer_disable_horizontal_drag_title">Üfüqi sürükləmə jestini söndür</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Üfüqi sürükləmə jestini qapat</string>
   <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Üfüqi sürükləmə jesti qapatıldı</string>
   <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Üfüqi sürükləmə jesti aktivdir
 
