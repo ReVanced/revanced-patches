@@ -1,3 +1,10 @@
+## [5.41.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.41.1-dev.1...v5.41.1-dev.2) (2025-09-27)
+
+
+### Bug Fixes
+
+* **YouTube Music - Hide cast button:** Fix patching error ([28799a5](https://github.com/ReVanced/revanced-patches/commit/28799a548a73651134ef304cb6cb542cf8e55abe))
+
 ## [5.41.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.41.0...v5.41.1-dev.1) (2025-09-27)
 
 
