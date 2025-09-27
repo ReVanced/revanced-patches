@@ -41,8 +41,8 @@ val changeLinkSharingDomainPatch = bytecodePatch(
         "com.twitter.android"(
             "10.86.0-release.0",
             "10.60.0-release.0",
-            "10.48.0-release.0"
-        )
+            "10.48.0-release.0",
+        ),
     )
 
     val domainName by stringOption(

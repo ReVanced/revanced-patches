@@ -20,7 +20,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 val hideNavigationButtonsPatch = bytecodePatch(
     name = "Hide navigation buttons",
     description = "Hides navigation bar buttons, such as the Reels and Create button.",
-    use = false
+    use = false,
 ) {
     compatibleWith("com.instagram.android")
 
@@ -28,20 +28,20 @@ val hideNavigationButtonsPatch = bytecodePatch(
         key = "hideReels",
         default = true,
         title = "Hide Reels",
-        description = "Permanently hides the Reels button."
+        description = "Permanently hides the Reels button.",
     )
 
     val hideCreate by booleanOption(
         key = "hideCreate",
         default = true,
         title = "Hide Create",
-        description = "Permanently hides the Create button."
+        description = "Permanently hides the Create button.",
     )
 
     execute {
         if (!hideReels!! && !hideCreate!!) {
             return@execute Logger.getLogger(this::class.java.name).warning(
-                "No hide navigation buttons options are enabled. No changes made."
+                "No hide navigation buttons options are enabled. No changes made.",
             )
         }
 
@@ -51,7 +51,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
         with(navigationButtonsEnumInitFingerprint.method) {
             enumNameField = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.IPUT_OBJECT &&
-                        (this as TwoRegisterInstruction).registerA == 2 // The p2 register
+                    (this as TwoRegisterInstruction).registerA == 2 // The p2 register
             }.let {
                 getInstruction(it).getReference<FieldReference>()!!.name
             }
@@ -63,26 +63,26 @@ val hideNavigationButtonsPatch = bytecodePatch(
             val freeRegister = findFreeRegister(returnIndex)
             val freeRegister2 = findFreeRegister(returnIndex, freeRegister)
 
-            fun instructionsRemoveButtonByName(buttonEnumName: String): String {
-                return """
+            fun instructionsRemoveButtonByName(buttonEnumName: String): String = """
                     const-string v$freeRegister, "$buttonEnumName"
                     const-string v$freeRegister2, "$enumNameField"
                     invoke-static { v$buttonsListRegister, v$freeRegister, v$freeRegister2 }, $EXTENSION_CLASS_DESCRIPTOR->removeNavigationButtonByName(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
                     move-result-object v$buttonsListRegister
                     """
+
+            if (hideReels!!) {
+                addInstructionsAtControlFlowLabel(
+                    returnIndex,
+                    instructionsRemoveButtonByName("fragment_clips"),
+                )
             }
 
-            if (hideReels!!)
+            if (hideCreate!!) {
                 addInstructionsAtControlFlowLabel(
                     returnIndex,
-                    instructionsRemoveButtonByName("fragment_clips")
+                    instructionsRemoveButtonByName("fragment_share"),
                 )
-
-            if (hideCreate!!)
-                addInstructionsAtControlFlowLabel(
-                    returnIndex,
-                    instructionsRemoveButtonByName("fragment_share")
-                )
+            }
         }
     }
 }
