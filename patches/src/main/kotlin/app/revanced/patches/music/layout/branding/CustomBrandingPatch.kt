@@ -13,12 +13,13 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "Music" to "Music",
         "YT Music" to "YT Music",
     ),
+    resourceFolder = "custom-branding/music",
     iconResourceFileNames = arrayOf(
         "adaptiveproduct_youtube_music_2024_q4_background_color_108",
         "adaptiveproduct_youtube_music_2024_q4_foreground_color_108",
         "ic_launcher_release",
     ),
-    resourceFolder = "custom-branding/music",
+    launchScreenAnimationFileName = "app_launch.json",
 
     block = {
         compatibleWith(

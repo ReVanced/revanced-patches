@@ -1,5 +1,6 @@
 package app.revanced.patches.shared.layout.branding
 
+import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.ResourcePatchBuilder
 import app.revanced.patcher.patch.ResourcePatchContext
 import app.revanced.patcher.patch.resourcePatch
@@ -49,11 +50,12 @@ private fun escapeAppName(name: String): String? {
 internal fun baseCustomBrandingPatch(
     defaultAppName: String,
     appNameValues: Map<String, String>,
-    iconResourceFileNames: Array<String>,
     resourceFolder: String,
+    iconResourceFileNames: Array<String>,
+    launchScreenAnimationFileName: String? = null,
     block: ResourcePatchBuilder.() -> Unit = {},
     executeBlock: ResourcePatchContext.() -> Unit = {}
-) = resourcePatch(
+): ResourcePatch = resourcePatch(
     name = "Custom branding",
     description = "Applies a custom app name and icon. Defaults to \"$defaultAppName\" and the ReVanced logo.",
     use = false,
@@ -119,8 +121,6 @@ internal fun baseCustomBrandingPatch(
             }
         }
 
-        executeBlock() // Must be after the main code to rename the new icons for YouTube 19.34+.
-
         // Change the app name.
         escapeAppName(appName!!)?.let { escapedAppName ->
             val newValue = "android:label=\"$escapedAppName\""
@@ -141,5 +141,17 @@ internal fun baseCustomBrandingPatch(
 
             manifest.writeText(replacement)
         }
+
+        if (launchScreenAnimationFileName != null) {
+            copyResources(
+                resourceFolder,
+                ResourceGroup(
+                    "raw",
+                    launchScreenAnimationFileName
+                )
+            )
+        }
+
+        executeBlock() // Must be after the main code to rename the new icons for YouTube 19.34+.
     }
 }

@@ -20,13 +20,13 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "YT" to "YT",
         "YouTube" to "YouTube",
     ),
+    resourceFolder = "custom-branding/youtube",
     iconResourceFileNames = arrayOf(
         "adaptiveproduct_youtube_background_color_108",
         "adaptiveproduct_youtube_foreground_color_108",
         "ic_launcher",
         "ic_launcher_round",
     ),
-    resourceFolder = "custom-branding/youtube",
 
     block = {
         compatibleWith(
