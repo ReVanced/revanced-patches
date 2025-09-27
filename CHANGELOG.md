@@ -1,3 +1,10 @@
+## [5.41.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.41.0...v5.41.1-dev.1) (2025-09-27)
+
+
+### Bug Fixes
+
+* **YouTube Music - Hide cast button:** Resolve button not hiding ([7817885](https://github.com/ReVanced/revanced-patches/commit/7817885cffed66608039ab45881537cbd3069c9d))
+
 # [5.41.0](https://github.com/ReVanced/revanced-patches/compare/v5.40.0...v5.41.0) (2025-09-27)
 
 
