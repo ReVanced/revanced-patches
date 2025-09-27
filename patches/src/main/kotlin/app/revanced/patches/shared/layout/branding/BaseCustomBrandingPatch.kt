@@ -59,7 +59,7 @@ internal fun appIconOption(iconResourceFileNames: Array<String>) = stringOption(
 /**
  * Attempts to fix unescaped and invalid characters not allowed for an Android app name.
  */
-private fun escapedAppName(name: String?): String? {
+private fun escapeAppName(name: String?): String? {
     if (name == null) return null
 
     // Remove ASCII control characters.
@@ -115,7 +115,9 @@ internal fun baseCustomBrandingPatch(
                     *iconResourceFileNamesPng,
                 )
             }.let { resourceGroups ->
-                if (icon != REVANCED_ICON) {
+                if (icon == REVANCED_ICON) {
+                    resourceGroups.forEach { copyResources(resourceFolder, it) }
+                } else {
                     val path = File(iconPath)
                     val resourceDirectory = get("res")
 
@@ -130,8 +132,6 @@ internal fun baseCustomBrandingPatch(
                             )
                         }
                     }
-                } else {
-                    resourceGroups.forEach { copyResources(resourceFolder, it) }
                 }
             }
         }
@@ -139,7 +139,7 @@ internal fun baseCustomBrandingPatch(
         executeBlock() // Must be after the main code to rename the new icons for YouTube 19.34+.
 
         // Change the app name.
-        escapedAppName(appName)?.let { escapedAppName ->
+        escapeAppName(appName)?.let { escapedAppName ->
             val newValue = "android:label=\"$escapedAppName\""
 
             val manifest = get("AndroidManifest.xml")
