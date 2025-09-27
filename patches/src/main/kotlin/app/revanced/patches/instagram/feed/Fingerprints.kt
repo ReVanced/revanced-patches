@@ -1,20 +1,11 @@
 package app.revanced.patches.instagram.feed
 
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val mainFeedRequestClassFingerprint = fingerprint {
+internal val mainFeedRequestClassFingerprint by fingerprint {
     strings("Request{mReason=", ", mInstanceNumber=")
 }
 
-context(BytecodePatchContext)
-internal val initMainFeedRequestFingerprint get() = fingerprint {
-    custom { method, classDef ->
-        method.name == "<init>" &&
-                classDef == mainFeedRequestClassFingerprint.classDef
-    }
-}
-
-internal val mainFeedHeaderMapFinderFingerprint = fingerprint {
+internal val mainFeedHeaderMapFinderFingerprint by fingerprint {
     strings("pagination_source", "FEED_REQUEST_SENT")
 }

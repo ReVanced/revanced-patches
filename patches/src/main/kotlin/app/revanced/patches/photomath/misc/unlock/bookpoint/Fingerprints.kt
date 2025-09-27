@@ -3,7 +3,7 @@ package app.revanced.patches.photomath.misc.unlock.bookpoint
 import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
 
-internal val isBookpointEnabledFingerprint = fingerprint {
+internal val isBookpointEnabledFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()

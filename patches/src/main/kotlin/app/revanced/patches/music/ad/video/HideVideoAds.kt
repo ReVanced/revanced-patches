@@ -37,7 +37,7 @@ val hideVideoAdsPatch = bytecodePatch(
         )
 
         navigate(showVideoAdsParentFingerprint.originalMethod)
-            .to(showVideoAdsParentFingerprint.patternMatch!!.startIndex + 1)
+            .to(showVideoAdsParentFingerprint.instructionMatches.first().index + 1)
             .stop()
             .addInstructions(
                 0,

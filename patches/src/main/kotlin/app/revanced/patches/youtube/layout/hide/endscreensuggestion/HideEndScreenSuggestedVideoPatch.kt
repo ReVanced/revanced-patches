@@ -32,7 +32,6 @@ val hideEndScreenSuggestedVideoPatch = bytecodePatch(
     compatibleWith(
         "com.google.android.youtube"(
             "19.34.42",
-            "20.07.39",
             "20.13.41",
             "20.14.43",
         )
@@ -46,7 +45,7 @@ val hideEndScreenSuggestedVideoPatch = bytecodePatch(
         )
 
         removeOnLayoutChangeListenerFingerprint.let {
-            val endScreenMethod = navigate(it.originalMethod).to(it.patternMatch!!.endIndex).stop()
+            val endScreenMethod = navigate(it.originalMethod).to(it.instructionMatches.last().index).stop()
 
             endScreenMethod.apply {
                 val autoNavStatusMethodName = autoNavStatusFingerprint.match(

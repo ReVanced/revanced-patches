@@ -40,7 +40,7 @@ val hideCategoryBar = bytecodePatch(
         )
 
         constructCategoryBarFingerprint.method.apply {
-            val insertIndex = constructCategoryBarFingerprint.patternMatch!!.startIndex
+            val insertIndex = constructCategoryBarFingerprint.instructionMatches.first().index
             val register = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
             val freeRegister = findFreeRegister(insertIndex, register)
 

@@ -26,7 +26,6 @@ val hideGetPremiumPatch = bytecodePatch(
     compatibleWith(
         "com.google.android.youtube"(
             "19.34.42",
-            "20.07.39",
             "20.13.41",
             "20.14.43",
         )
@@ -40,7 +39,7 @@ val hideGetPremiumPatch = bytecodePatch(
         )
 
         getPremiumViewFingerprint.method.apply {
-            val startIndex = getPremiumViewFingerprint.patternMatch!!.startIndex
+            val startIndex = getPremiumViewFingerprint.instructionMatches.first().index
             val measuredWidthRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
             val measuredHeightInstruction = getInstruction<TwoRegisterInstruction>(startIndex + 1)
 

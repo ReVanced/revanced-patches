@@ -10,9 +10,7 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMu
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.overrideThemeColors
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
@@ -36,16 +34,13 @@ private const val BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
 private const val YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/settings/YouTubeActivityHook;"
 
-internal var appearanceStringId = -1L
-    private set
-
 private val preferences = mutableSetOf<BasePreference>()
 
 private val settingsResourcePatch = resourcePatch {
     dependsOn(
         resourceMappingPatch,
         settingsPatch(
-            listOf(
+            rootPreferences = listOf(
                 IntentPreference(
                     titleKey = "revanced_settings_title",
                     summaryKey = null,
@@ -65,13 +60,11 @@ private val settingsResourcePatch = resourcePatch {
                     )
                 ) to "settings_fragment_cairo",
             ),
-            preferences
+            preferences = preferences
         )
     )
 
     execute {
-        appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
-
         // Use same colors as stock YouTube.
         overrideThemeColors("@color/yt_white1", "@color/yt_black3")
 
@@ -211,7 +204,7 @@ val settingsPatch = bytecodePatch(
 
         // Add setting to force Cairo settings fragment on/off.
         cairoFragmentConfigFingerprint.method.insertLiteralOverride(
-            CAIRO_CONFIG_LITERAL_VALUE,
+            cairoFragmentConfigFingerprint.instructionMatches.first().index,
             "$YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z"
         )
 
@@ -241,8 +234,9 @@ internal fun modifyActivityForSettingsInjection(
     // Must modify an existing activity and cannot add a new activity to the manifest,
     // as that fails for root installations.
     activityOnCreateMethod.addInstructions(
-        1,
+        0,
         """
+            invoke-super { p0, p1 }, ${activityOnCreateClass.superclass}->onCreate(Landroid/os/Bundle;)V
             invoke-static { p0 }, $extensionClassType->initialize(Landroid/app/Activity;)V
             return-void
         """
