@@ -1,3 +1,24 @@
+# [5.42.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.41.1-dev.2...v5.42.0-dev.1) (2025-09-27)
+
+
+### Features
+
+* **Viber:** Add `Hide navigation buttons` patch ([#5991](https://github.com/ReVanced/revanced-patches/issues/5991)) ([5cb46c4](https://github.com/ReVanced/revanced-patches/commit/5cb46c4e9180ebc16eddb983dad73d137d8ec047))
+
+## [5.41.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.41.1-dev.1...v5.41.1-dev.2) (2025-09-27)
+
+
+### Bug Fixes
+
+* **YouTube Music - Hide cast button:** Fix patching error ([28799a5](https://github.com/ReVanced/revanced-patches/commit/28799a548a73651134ef304cb6cb542cf8e55abe))
+
+## [5.41.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.41.0...v5.41.1-dev.1) (2025-09-27)
+
+
+### Bug Fixes
+
+* **YouTube Music - Hide cast button:** Resolve button not hiding ([7817885](https://github.com/ReVanced/revanced-patches/commit/7817885cffed66608039ab45881537cbd3069c9d))
+
 # [5.41.0](https://github.com/ReVanced/revanced-patches/compare/v5.40.0...v5.41.0) (2025-09-27)
 
 
