@@ -67,9 +67,10 @@ private fun escapedAppName(name: String?): String? {
 
     // Replace invalid XML characters with escaped equivalents.
     val escapedName = cleanedName
-        .replace("&", "&amp;")
+        .replace("&", "&amp;") // Must be first to avoid double-escaping.
         .replace("<", "&lt;")
         .replace(">", "&gt;")
+        .replace(Regex("(?<!&)\""), "&quot;")
 
     // Trim empty spacing.
     val trimmed = escapedName.trim()
