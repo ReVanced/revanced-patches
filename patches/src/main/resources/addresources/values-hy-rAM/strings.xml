@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Մշակվել է %s օր առաջ</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-ի կառուցման ամսաթիվը վնասված է</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Զգուշացում</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Ձեր դիտման պատմությունը չի պահպանվում.&lt;br&gt;&lt;br&gt;Այս  հավանական  պատճառը DNS  գովազդների  բլոկավորիչ կամ ցանցային պրոքսի  է.&lt;br&gt;&lt;br&gt;Խնդրում ենք  գործարկել &lt;b&gt;s.youtube.com&lt;/b&gt;  կամ անջատել  DNS  բլոկավորիչներ  և  պրոքսիներ:</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ավելի  չցուցադրել</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Կարգավորումներ</string>
   <string name="revanced_settings_confirm_user_dialog_title">Վստա՞հ եք, որ ցանկանում եք շարունակել:</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Որոնման կարգավորումներ</string>
   <string name="revanced_settings_search_no_results_title">«%s»-ի համար արդյունքներ չեն գտնվել</string>
   <string name="revanced_settings_search_no_results_summary">Փորձեք այլ հիմնաբառ</string>
+  <string name="revanced_settings_search_recent_searches">Վերջին որոնումները</string>
   <string name="revanced_settings_search_remove_message">Հեռացնե՞լ որոնման պատմությունից:</string>
+  <string name="revanced_settings_search_clear_history">Մաքրել որոնման պատմությունը</string>
+  <string name="revanced_settings_search_clear_history_message">Վստա՞հ եք, որ ցանկանում եք մաքրել որոնման ողջ պատմությունը:</string>
+  <string name="revanced_settings_search_tips_title">Որոնման խորհուրդներ</string>
+  <string name="revanced_settings_search_tips_summary">"• Հպեք ճանապարհին՝ դրանով նավարկելու համար
+• Երկար սեղմեք կարգավորման վրա՝ դրանով նավարկելու համար
+• Սեղմեք Enter՝ որոնման հարցումը պատմության մեջ պահելու համար
+• Որոնումը անտեսում է տառատեսակը և կետադրությունը
+• Ծնողական կարգավորումները հայտնվում են անջատված ենթակարգավորումներից վերև"</string>
+  <string name="revanced_settings_search_empty_history_title">Որոնման պատմությունը դատարկ է</string>
+  <string name="revanced_settings_search_empty_history_summary">Որոնման պատմությունը պահելու համար մուտքագրեք որոնման հարցում և սեղմեք Enter</string>
+  <string name="revanced_settings_search_history_title">Ցույց տալ կարգավորումների որոնման պատմությունը</string>
+  <string name="revanced_settings_search_history_summary_on">Կարգավորումների որոնման պատմությունը ցուցադրվում է</string>
+  <string name="revanced_settings_search_history_summary_off">Կարգավորումների որոնման պատմությունը ցույց չի տրվում</string>
   <string name="revanced_show_menu_icons_title">Ցուցադրել ReVanced-ի կարգավորումների պատկերակները</string>
   <string name="revanced_show_menu_icons_summary_on">Կարգավորումների պատկերակները ցուցադրվում են</string>
   <string name="revanced_show_menu_icons_summary_off">Կարգավորումների պատկերակները ցուցադրված չեն</string>
   <string name="revanced_language_title">ReVanced լեզվի</string>
-  <string name="revanced_language_user_dialog_message">"Որոշ լեզուների թարգմանությունները կարող են լինել բացակայուն կամ անավարտ:
+  <string name="revanced_language_user_dialog_message">"Որոշ լեզուների թարգմանությունները կարող են բացակայել կամ թերի լինել:
 
-Նոր լեզուներ թարգմանելու համար այցելեք translate.revanced.app"</string>
+Նոր լեզուներ թարգմանելու կամ առկա թարգմանությունները բարելավելու համար այցելեք translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Հավելվածի լեզու</string>
   <string name="revanced_pref_import_export_title">Ներմուծում/Արտահանում</string>
   <string name="revanced_pref_import_export_summary">Import / Export ReVanced կարգավորումներ</string>
@@ -126,6 +145,14 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_debug_logs_clear_buffer_summary">Մաքրում է բոլոր պահված ReVanced կարգաբերման մատյանները</string>
   <string name="revanced_debug_logs_clear_toast">Մատյանները մաքրվել են</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Մաքրել համօգտագործման հղումները</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Հետևման հարցման պարամետրը հեռացված է համօգտագործված հղումներից</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Հետևման հարցման պարամետրը հեռացված չէ համօգտագործված հղումներից</string>
+  <string name="revanced_replace_music_with_youtube_title">Փոխել համօգտագործման հղումները youtube.com-ի</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Համօգտագործվող հղումները օգտագործում են youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Համօգտագործվող հղումները օգտագործում են music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_restore_old_settings_menus_title">Վերականգնել հին սահմանումների մենյուները</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Նախկին կարգավորումների մենյուները ցուցադրվում են</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Նախկին կարգավորումների մենյուները չեն ցուցադրվում</string>
-  <string name="revanced_settings_search_history_title">Ցույց տալ կարգավորումների որոնման պատմությունը</string>
-  <string name="revanced_settings_search_history_summary_on">Կարգավորումների որոնման պատմությունը ցուցադրվում է</string>
-  <string name="revanced_settings_search_history_summary_off">Կարգավորումների որոնման պատմությունը ցույց չի տրվում</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Անջատել  Shorts-ի  ֆոնային  վերարտադրությունը</string>
@@ -355,15 +379,15 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_comments_create_a_short_button_title">Թաքցնել \"Ստեղծել Shorts\" կոճակը</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">\"Ստեղծել Short\" կոճակը թաքցված է</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">\"Ստեղծել Short\" կոճակը ցուցադրվում է</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Թաքցնել Էմոջիի և Ժամանակի նիշի կոճակները</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Էմոջիի և Ժամանակի նիշի կոճակները թաքցված են</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Էմոջիի և Ժամանակի նիշի կոճակները ցուցադրված են</string>
   <string name="revanced_hide_comments_preview_comment_title">Թաքցնել նախադիտման մեկնաբանությունը</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Նախադիտման մեկնաբանությունը թաքցված է</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Նախադիտման մեկնաբանությունը երևում է</string>
   <string name="revanced_hide_comments_thanks_button_title">Թաքցնել շնորհակալության կոճակը</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">\"Շնորհակալություն\" կոճակը թաքցված է</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">\"Շնորհակալություն\" կոճակը երևում է</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Թաքցնել ժամանակի դրոշմի կոճակը</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Ժամանակային նշումով կոճակը թաքցված է</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Ժամանակային նշումով կոճակը ցուցադրվում է</string>
   <string name="revanced_custom_filter_screen_title">Պատրաստված լրացուցիչ կարգավորումներ</string>
   <string name="revanced_custom_filter_screen_summary">Թաքցնել բաղադրիչները՝ օգտագործելով պատրաստված լրացուցիչ կարգավորումներ</string>
   <string name="revanced_custom_filter_title">Միացնել պատրաստված լրացուցիչ կարգավորումները</string>
@@ -373,6 +397,20 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Բաղադրիչների ուղիների կառուցողական լարերը, որոնք պետք է լրացուցիչ կարգավորվեն, միմյանցից բաժանված են նոր տողով</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Անվավեր պատրաստված լրացուցիչ կարգավորումներ։ %s</string>
+  <string name="revanced_hide_view_count_title">Թաքցնել դիտումների քանակը</string>
+  <string name="revanced_hide_view_count_summary_on">Դիտումների քանակը թաքնված է լրահոսում և որոնման արդյունքներում</string>
+  <string name="revanced_hide_view_count_summary_off">Դիտումների քանակը ցուցադրվում է լրահոսում և որոնման արդյունքներում</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Սահմանափակումներ.
+• Shorts-ի բաժինները, ալիքի էջերը և որոնման արդյունքները կարող են դեռևս ցուցադրել դիտումների քանակը
+• Այս գործառույթը չի աշխատում ավտոմոբիլային ձևի գործոնի հետ"</string>
+  <string name="revanced_hide_upload_time_title">Թաքցնել վերբեռնման ժամանակը</string>
+  <string name="revanced_hide_upload_time_summary_on">Վերբեռնման ժամանակը թաքցված է լրահոսում և որոնման արդյունքներում</string>
+  <string name="revanced_hide_upload_time_summary_off">Վերբեռնման ժամանակը ցուցադրված է լրահոսում և որոնման արդյունքներում</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Սահմանափակումներ:
+• Shorts-ի դարակները, ալիքի էջերը և որոնման արդյունքները կարող են դեռևս ցուցադրել վերբեռնման ժամանակները
+• Այս գործառույթը չի աշխատում ավտոմոբիլային ձևի գործոնի հետ"</string>
   <string name="revanced_hide_keyword_content_screen_title">Թաքցնել բանալի բառերի բովանդակությունը</string>
   <string name="revanced_hide_keyword_content_screen_summary">Թաքցնել որոնումը և կերակրման տեսանյութերը՝ օգտագործելով բանալի բառերի լրացուցիչ կարգավորումներ</string>
   <string name="revanced_hide_keyword_content_home_title">Թաքցնել տնային տեսանյութերը բանալի բառերի միջոցով</string>
@@ -1061,9 +1099,9 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_sb_guidelines_popup_already_read">Արդեն կարդացել եմ</string>
   <string name="revanced_sb_guidelines_popup_open">Ցույց տվեք ինձ</string>
   <string name="revanced_sb_general">Ընդհանուր</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Ցույց տալ toast, եթե API-ը հասանելի չէ</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Toast ցույց է տրվում, եթե SponsorBlock-ը հասանելի չէ</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Toast չի ցույց տրվում, եթե SponsorBlock-ը հասանելի չէ</string>
+  <string name="revanced_sb_toast_on_connection_error">Ցույց տալ toast, եթե API-ը հասանելի չէ</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Toast ցույց է տրվում, եթե SponsorBlock-ը հասանելի չէ</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Toast չի ցույց տրվում, եթե SponsorBlock-ը հասանելի չէ</string>
   <string name="revanced_sb_general_skipcount">Ակտիվացնել բաց թողնելների հաշվի վարումը</string>
   <string name="revanced_sb_general_skipcount_sum_on">Թույլ է տալիս SponsorBlock-ի առաջատարներին իմանալ, թե որքան ժամանակ է խնայվում: Յուրաքանչյուր անգամ, երբ segment-ը բաց է թողնվում, հաղորդագրություն է ուղարկվում առաջատարներին</string>
   <string name="revanced_sb_general_skipcount_sum_off">Բաց թողնելների հաշվի վարումը չի ակտիվացվել</string>
@@ -1248,8 +1286,9 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
 Եթե հետագայում անջատվի, խորհուրդ է տրվում մաքրել հավելվածի տվյալները՝ UI սխալներից խուսափելու համար։"</string>
   <string name="revanced_spoof_app_version_target_title">Spoof-ի կիրառության տարբերակի նպատակ</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Վերականգնել չծալված տեսանյութի գործողությունների տողը</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Վերականգնել հին Shorts պլեյերի պատկերակները</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Վերականգնել հին նավիգացիոն պատկերակները</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Վերականգնել արտագրման ֆունկցիոնալությունը</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Վերականգնել հին Shorts պլեյերի պատկերակները</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Վերականգնել հին նավիգացիոն պատկերակները</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Փոխել մեկնարկային էջը</string>
@@ -1314,25 +1353,25 @@ Seekbar thumbnails-ները կօգտագործեն նույն որակը, ինչ
   <string name="revanced_miniplayer_type_entry_5">Ժամանակակից 2</string>
   <string name="revanced_miniplayer_type_entry_6">Ժամանակակից 3</string>
   <string name="revanced_miniplayer_type_entry_7">Ժամանակակից 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Աктиվացնել կլորացված անկյունները</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Անկյունները կլորացված են</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Անկյունները քառակուսի են</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Անջատել կլորացված անկյունները</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Անկյունները քառակուսի են</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Անկյունները կլորացված են</string>
   <string name="revanced_miniplayer_double_tap_action_title">Աктиվացնել կրկնակի սեղմելը և մատների շարժումը չափը փոխելու համար</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Երկու անգամ սեղմելու գործողությունը և չափսի փոփոխման համար սեղմելը միացված են
 
 • Երկու անգամ սեղմել՝ մեծացնելու mini-player-ի չափսը
 • Երկու անգամ սեղմել կրկին՝ վերականգնելու սկզբնական չափսը"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Կրկնակի սեղմելու գործողությունը և մատների շարժումը չափը փոխելու համար անջատված են</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Աктиվացնել քարշել և թողնել</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Գրավել և թողնելը միացված է
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Անջատել քաշել և գցելը</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Քարշել և թողնել անջատված է</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Գրավել և թողնելը միացված է
 
 Mini-player-ը կարող է գրավվել էկրանի ցանկացած անկյուն։"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Քարշել և թողնել անջատված է</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Աктиվացնել հորիզոնական քարշելու ժեստը</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Հորիզոնական գրավելու ժեստը միացված է
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Անջատել հորիզոնական քաշելու ժեստը</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Հորիզոնական քարշելու ժեստը անջատված է</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Հորիզոնական գրավելու ժեստը միացված է
 
 Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի ձախ կամ աջ։"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Հորիզոնական քարշելու ժեստը անջատված է</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Թաքցնել վերադիր կոճակները</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Վերադիր կոճակները թաքցված են</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Վերադիր կոճակները ցուցադրվում են</string>
@@ -1424,15 +1463,17 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_announcements_connection_failed">Հայտարարությունների մատակարարի հետ կապի  անհաջողություն</string>
   <string name="revanced_announcements_dialog_dismiss">Մերժել</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Զգուշացում</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Ձեր դիտման պատմությունը չի պահպանվում.&lt;br&gt;&lt;br&gt;Այս  հավանական  պատճառը DNS  գովազդների  բլոկավորիչ կամ ցանցային պրոքսի  է.&lt;br&gt;&lt;br&gt;Խնդրում ենք  գործարկել &lt;b&gt;s.youtube.com&lt;/b&gt;  կամ անջատել  DNS  բլոկավորիչներ  և  պրոքսիներ:</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ավելի  չցուցադրել</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Միացնել տեսանյութի կրկնությունը</string>
+  <string name="revanced_loop_video_summary_on">Տեսանյութը կկրկնվի</string>
+  <string name="revanced_loop_video_summary_off">Տեսանյութը չի կրկնվի</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Ավտոմատ կրկնումը  ակտիվացնել</string>
-  <string name="revanced_auto_repeat_summary_on">Ավտոմատ կրկնումը  ակտիվացված է</string>
-  <string name="revanced_auto_repeat_summary_off">Ավտոմատ կրկնումը  անջատված է</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Ցուցադրել տեսանյութի կրկնության կոճակը</string>
+  <string name="revanced_loop_video_button_summary_on">Կոճակը ցուցադրված է</string>
+  <string name="revanced_loop_video_button_summary_off">Կոճակը ցուցադրված չէ</string>
+  <string name="revanced_loop_video_button_toast_on">Տեսանյութի կրկնությունը միացված է</string>
+  <string name="revanced_loop_video_button_toast_off">Տեսանյութի կրկնությունը անջատված է</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Հեռախոսի  չափերը  հնարավոր է  փոփոխել</string>
@@ -1472,11 +1513,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_external_browser_title">Բրաուզերում  հղումներ  բացել</string>
   <string name="revanced_external_browser_summary_on">Բացել հղումները արտաքին բրաուզերում</string>
   <string name="revanced_external_browser_summary_off">Բացել հղումները ներծրագրային բրաուզերում</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Հետևողականության  հարցումի  պարամետրը  հեռացնել</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Հետևողականության  հարցումի  պարամետրը  հեռացվում է  հղումներից</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Հետևողականության  հարցումի  պարամետրը  չի  հեռացվում  հղումներից</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել լեզուն</string>
@@ -1541,10 +1577,22 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_playback_speed_default_title">Տեսանյութի  վերարտադրման  դեֆոլտ  արագությունը</string>
   <string name="revanced_remember_playback_speed_toast">Փոփոխվել է  դեֆոլտ  արագությունը: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">HDR տեսանյութը անջատված է</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR տեսանյութը անջատված է</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR տեսանյութը միացված է</string>
+  <string name="revanced_force_avc_codec_title">Պարտադրել AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Տեսակոդեկը պարտադրված է AVC-ի (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Տեսակոդեկն ավտոմատաբար որոշվում է</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Առավելությունները.
+• Կարող է բարելավել մարտկոցի կյանքը
+• Կարող է վերականգնել բացակայող տեսանյութի լուծաչափերը հին սարքերում
+
+Սահմանափակումներ.
+• Առավելագույն լուծաչափը 1080p է
+• Տեսանյութի նվագարկումը կօգտագործի ավելի շատ ինտերնետ տվյալներ, քան VP9 կամ AV1-ը
+• HDR տեսանյութերը չեն օգտագործի AVC
+• Որոշ սարքեր չեն կարող պարտադրել AVC-ն"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Ցուցադրել տեսանյութի որակի ընդլայնված մենյուն</string>
@@ -1558,12 +1606,11 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Կեղծելու կողմնակի ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android խաբեության կողմնակի ազդեցություններ</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Ձայնային ուղու մենյուն բացակայում է
-• Կայուն ձայնի մակարդակը հասանելի չէ"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Տեսանյութը կարող է դադարել 1:00-ին կամ հասանելի չլինել որոշ տարածաշրջաններում</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Փորձնական հաճախորդ է և կարող է ցանկացած պահի դադարել աշխատել</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Տեսանյութը կարող է դադարել 1:00-ին կամ հասանելի չլինել որոշ տարածաշրջաններում</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Ձայնային ուղու մենյուն բացակայում է</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Հեռացված բոլոր AV1 վիդեո կոդեկները</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Կայուն ձայնի մակարդակը հասանելի չէ</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">Երեխաների տեսանյութերը կարող են չհամապատասխանել հետևյալ պահանջներին՝ եթե արտոնագրման խախտումներ կան։</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Բնօրինակ ձայնի պարտադրումը հասանելի չէ</string>

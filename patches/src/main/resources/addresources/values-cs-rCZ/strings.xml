@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Vygenerována před %s dny</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Datum sestavení souboru APK je poškozeno</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Varování</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Vaše historie sledování není ukládána.&lt;br&gt;&lt;br&gt;Příčinou je s největší pravděpodobností DNS blokátor reklam nebo síťový proxy server.&lt;br&gt;&lt;br&gt;Chcete-li to opravit, přidejte&lt;b&gt;s.youtube.com&lt;/b&gt; na whitelist nebo vypněte všechny DNS blokátory a proxy servery.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Už nezobrazovat</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Nastavení</string>
   <string name="revanced_settings_confirm_user_dialog_title">Opravdu chcete pokračovat?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Hledat nastavení</string>
   <string name="revanced_settings_search_no_results_title">Nebyly nalezeny žádné výsledky pro \",%s\"</string>
   <string name="revanced_settings_search_no_results_summary">Zkuste jiné klíčové slovo</string>
+  <string name="revanced_settings_search_recent_searches">Nedávná hledání</string>
   <string name="revanced_settings_search_remove_message">Odebrat z historie vyhledávání?</string>
+  <string name="revanced_settings_search_clear_history">Vymazat historii hledání</string>
+  <string name="revanced_settings_search_clear_history_message">Opravdu chcete vymazat celou historii hledání?</string>
+  <string name="revanced_settings_search_tips_title">Tipy pro vyhledávání</string>
+  <string name="revanced_settings_search_tips_summary">"• Klepnutím na cestu k ní přejdete
+• Dlouhým stisknutím nastavení k němu přejdete
+• Stisknutím klávesy Enter uložíte vyhledávací dotaz do historie
+• Vyhledávání ignoruje velikost písmen a interpunkci
+• Nadřazená nastavení se zobrazují nad zakázanými podřízenými nastaveními"</string>
+  <string name="revanced_settings_search_empty_history_title">Historie vyhledávání je prázdná</string>
+  <string name="revanced_settings_search_empty_history_summary">Chcete-li uložit historii vyhledávání, zadejte vyhledávací dotaz a stiskněte Enter</string>
+  <string name="revanced_settings_search_history_title">Zobrazit historii vyhledávání v nastavení</string>
+  <string name="revanced_settings_search_history_summary_on">Historie vyhledávání v nastavení je zobrazena</string>
+  <string name="revanced_settings_search_history_summary_off">Historie vyhledávání nastavení se nezobrazuje</string>
   <string name="revanced_show_menu_icons_title">Zobrazit ikony nastavení ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikony nastavení se zobrazují</string>
   <string name="revanced_show_menu_icons_summary_off">Ikony nastavení se nezobrazují</string>
   <string name="revanced_language_title">Jazyk ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Překlady pro některé jazyky mohou chybět nebo být neúplné.
 
-Nové jazyky přeložíte na translate.revanced.app"</string>
+Chcete-li přeložit nové jazyky nebo zlepšit stávající překlady, navštivte translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Jazyk aplikace</string>
   <string name="revanced_pref_import_export_title">Importovat / Exportovat</string>
   <string name="revanced_pref_import_export_summary">Importovat/exportovat nastavení ReVanced</string>
@@ -126,6 +145,14 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Vymaže všechny uložené ladicí protokoly ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Protokoly vymazány</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Vyčistit sdílené odkazy</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parametr sledování je odstraněn ze sdílených odkazů</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parametr sledování není odstraněn ze sdílených odkazů</string>
+  <string name="revanced_replace_music_with_youtube_title">Změnit odkazy pro sdílení na youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Sdílené odkazy používají youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Sdílené odkazy používají music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Nebudete informováni o žádné neočekávané události."</string>
   <string name="revanced_restore_old_settings_menus_title">Obnovit staré menu nastavení</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Staré menu nastavení se zobrazují</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Staré menu nastavení se nezobrazují</string>
-  <string name="revanced_settings_search_history_title">Zobrazit historii vyhledávání v nastavení</string>
-  <string name="revanced_settings_search_history_summary_on">Historie vyhledávání v nastavení je zobrazena</string>
-  <string name="revanced_settings_search_history_summary_off">Historie vyhledávání nastavení se nezobrazuje</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Zakázat automatické přehrávání Shorts v pozadí</string>
@@ -355,15 +379,15 @@ Pokud se Doodle v současné době zobrazuje ve vaší oblasti a toto nastavení
   <string name="revanced_hide_comments_create_a_short_button_title">Skrýt tlačítko \"Vytvořit Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Tlačítko Vytvořit Short je skryté</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Tlačítko Vytvořit Short je zobrazeno</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Skrýt tlačítka emotikonů a časových značek</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Tlačítka emotikonů a časových značek jsou skryta</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Tlačítka emotikonů a časových značek jsou zobrazena</string>
   <string name="revanced_hide_comments_preview_comment_title">Skrýt náhled komentáře</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Náhled komentáře je skryt</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Náhled komentáře je zobrazen</string>
   <string name="revanced_hide_comments_thanks_button_title">Skrýt tlačítko děk」、「</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tlačítko poděkování je skryto</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tlačítko poděkování je zobrazeno</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Skrýt tlačítko časové značky</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Tlačítko časové osy je skryté</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Tlačítko časové osy je zobrazeno</string>
   <string name="revanced_custom_filter_screen_title">Vlastní filtr</string>
   <string name="revanced_custom_filter_screen_summary">Skrýt komponenty pomocí vlastních filtrů</string>
   <string name="revanced_custom_filter_title">Povolit vlastní filtr</string>
@@ -373,6 +397,20 @@ Pokud se Doodle v současné době zobrazuje ve vaší oblasti a toto nastavení
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Seznam řetězců builderu cest komponent oddělených novým řádkem</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Neplatný vlastní filtr: %s</string>
+  <string name="revanced_hide_view_count_title">Skrýt počet zhlédnutí</string>
+  <string name="revanced_hide_view_count_summary_on">Počet zhlédnutí je skrytý ve zdroji a výsledcích vyhledávání</string>
+  <string name="revanced_hide_view_count_summary_off">Počet zhlédnutí je zobrazený ve zdroji a výsledcích vyhledávání</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Omezení:
+• Police Shorts, stránky kanálů a výsledky vyhledávání mohou stále zobrazovat počty zhlédnutí
+• Tato funkce nefunguje s automobilovým provedením"</string>
+  <string name="revanced_hide_upload_time_title">Skrýt čas nahrání</string>
+  <string name="revanced_hide_upload_time_summary_on">Čas nahrání je skryt ve feedu a výsledcích vyhledávání</string>
+  <string name="revanced_hide_upload_time_summary_off">Čas nahrání je zobrazen ve feedu a výsledcích vyhledávání</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Omezení:
+• Police Shorts, stránky kanálů a výsledky vyhledávání mohou stále zobrazovat časy nahrání
+• Tato funkce nefunguje s automobilovým provedením"</string>
   <string name="revanced_hide_keyword_content_screen_title">Skrýt obsah s klíčovými slovy</string>
   <string name="revanced_hide_keyword_content_screen_summary">Skrýt videa ve vyhledávání a feedu pomocí filtrů klíčových slov</string>
   <string name="revanced_hide_keyword_content_home_title">Skrýt domácí videa podle klíčových slov</string>
@@ -1061,9 +1099,9 @@ Tato funkce funguje nejlépe s kvalitou videa 720p nebo nižší a při použit�
   <string name="revanced_sb_guidelines_popup_already_read">Již jsem si to přečetl</string>
   <string name="revanced_sb_guidelines_popup_open">Ukázat mi</string>
   <string name="revanced_sb_general">Obecné</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Zobrazit \"toast\", pokud rozhraní API není k dispozici</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">\"Toast\" se zobrazí, pokud SponsorBlock není k dispozici</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">\"Toast\" se nezobrazí, pokud SponsorBlock není k dispozici</string>
+  <string name="revanced_sb_toast_on_connection_error">Zobrazit \"toast\", pokud rozhraní API není k dispozici</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">\"Toast\" se zobrazí, pokud SponsorBlock není k dispozici</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">\"Toast\" se nezobrazí, pokud SponsorBlock není k dispozici</string>
   <string name="revanced_sb_general_skipcount">Povolit sledování počtu přeskočení</string>
   <string name="revanced_sb_general_skipcount_sum_on">Nechá žebříček SponsorBlock vědět, kolik času se ušetří. Při každém přeskočení segmentu se na žebříček odešle zpráva</string>
   <string name="revanced_sb_general_skipcount_sum_off">Sledování počtu přeskočení není povoleno</string>
@@ -1247,8 +1285,9 @@ To změní vzhled a funkce aplikace, ale mohou se objevit neznámé vedlejší e
 Pokud bude později vypnuta, doporučujeme vymazat data aplikace, aby se zabránilo chybám uživatelského rozhraní."</string>
   <string name="revanced_spoof_app_version_target_title">Cíl napodobení verze aplikace</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Obnovit nerozbalený panel akcí videa</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Obnovuje staré ikony Shorts přehrávače</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 – Obnovit staré ikony navigace</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Obnovit funkci přepisu</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Obnovuje staré ikony Shorts přehrávače</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 – Obnovit staré ikony navigace</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Změnit úvodní stránku</string>
@@ -1313,25 +1352,25 @@ Omezení: Použití tlačítka zpět na panelu nástrojů nemusí fungovat"</str
   <string name="revanced_miniplayer_type_entry_5">Moderní 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderní 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moderní 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Povolit zaoblené rohy</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Rohy jsou zaoblené</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Rohy jsou čtvercové</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Zakázat zaoblené rohy</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Rohy jsou čtvercové</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Rohy jsou zaoblené</string>
   <string name="revanced_miniplayer_double_tap_action_title">Povolit dvojitý klepnutí a přiblížení pro změnu velikosti</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Aktivováno dvojitým klepnutím a přiblížením pro změnu velikosti
 
 • Dvojitým klepnutím zvětšíte velikost \"miniplayeru\"
 • Dvojitým klepnutím znovu obnovíte původní velikost"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Dvojitý klepnutí a přiblížení pro změnu velikosti je zakázáno</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Povolit přetažení</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Aktivováno přetahování
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Zakázat přetahování</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Přetažení je zakázáno</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Aktivováno přetahování
 
 \"Miniplayer\" lze přetáhnout do libovolného rohu obrazovky"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Přetažení je zakázáno</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Povolit horizontální posun</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Aktivováno horizontální přetahování
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Zakázat horizontální gesto přetahování</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Horizontální posun je zakázán</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Aktivováno horizontální přetahování
 
 \"Miniplayer\" lze přetáhnout z obrazovky doleva nebo doprava"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontální posun je zakázán</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Skrýt tlačítka překrytí</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Tlačítka překrytí jsou skrytá</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Tlačítka překrytí jsou zobrazena</string>
@@ -1423,15 +1462,17 @@ Klepnutím sem se dozvíte více o DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Nepodařilo se připojit k poskytovateli oznámení</string>
   <string name="revanced_announcements_dialog_dismiss">Zrušit</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Varování</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Vaše historie sledování není ukládána.&lt;br&gt;&lt;br&gt;Příčinou je s největší pravděpodobností DNS blokátor reklam nebo síťový proxy server.&lt;br&gt;&lt;br&gt;Chcete-li to opravit, přidejte&lt;b&gt;s.youtube.com&lt;/b&gt; na whitelist nebo vypněte všechny DNS blokátory a proxy servery.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Už nezobrazovat</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Povolit smyčku videa</string>
+  <string name="revanced_loop_video_summary_on">Video se bude přehrávat ve smyčce</string>
+  <string name="revanced_loop_video_summary_off">Video se nebude přehrávat ve smyčce</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Povolit automatické opakování</string>
-  <string name="revanced_auto_repeat_summary_on">Automatické opakování je povoleno</string>
-  <string name="revanced_auto_repeat_summary_off">Automatické opakování je zakázáno</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Zobrazit tlačítko pro smyčku videa</string>
+  <string name="revanced_loop_video_button_summary_on">Tlačítko je zobrazeno</string>
+  <string name="revanced_loop_video_button_summary_off">Tlačítko není zobrazeno</string>
+  <string name="revanced_loop_video_button_toast_on">Smyčka videa je zapnuta</string>
+  <string name="revanced_loop_video_button_toast_off">Smyčka videa je vypnuta</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Napodobovat rozměry zařízení</string>
@@ -1471,11 +1512,6 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_external_browser_title">Otevírat odkazy v prohlížeči</string>
   <string name="revanced_external_browser_summary_on">Otevírání odkazů v externím prohlížeči</string>
   <string name="revanced_external_browser_summary_off">Otevírání odkazů v prohlížeči v aplikaci</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Odstranit sledovací parametr dotazu</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Sledovací parametr dotazu je odstraněn z odkazů</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Sledovací parametr dotazu není odstraněn z odkazů</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Vynutit původní jazyk zvuku</string>
@@ -1540,10 +1576,22 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_playback_speed_default_title">Výchozí rychlost přehrávání</string>
   <string name="revanced_remember_playback_speed_toast">Výchozí rychlost změněna na: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Vypnout HDR video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video je vypnuté.</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video je zapnuté.</string>
+  <string name="revanced_force_avc_codec_title">Vynutit AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Video kodek je vynucen na AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Video kodek je určen automaticky</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Výhody:
+• Může zlepšit životnost baterie
+• Může obnovit chybějící rozlišení videa na starším zařízení
+
+Omezení:
+• Maximální rozlišení je 1080p
+• Přehrávání videa spotřebuje více internetových dat než VP9 nebo AV1
+• HDR videa nebudou používat AVC
+• Některá zařízení nemohou vynutit AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Zobrazit rozšířené menu kvality videa</string>
@@ -1557,12 +1605,11 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Vedlejší účinky maskování</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Vedlejší účinky spoofingu Androidu</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Chybí nabídka zvukové stopy
-• Stabilní hlasitost není k dispozici"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video se může zastavit v 1:00 nebo nemusí být dostupné v některých oblastech</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentální klient a může kdykoli přestat fungovat</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video se může zastavit v 1:00 nebo nemusí být dostupné v některých oblastech</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Chybí nabídka zvukových stop</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabilní hlasitost není k dispozici</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Dětská videa se nemusí přehrávat, když jste odhlášení nebo v anonymním režimu</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Vynutit původní zvuk není k dispozici</string>

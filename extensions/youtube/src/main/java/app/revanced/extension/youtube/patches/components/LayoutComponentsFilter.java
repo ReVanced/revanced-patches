@@ -3,6 +3,9 @@ package app.revanced.extension.youtube.patches.components;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
 import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -499,5 +502,63 @@ public final class LayoutComponentsFilter extends Filter {
         // Only filter if the library tab is not selected.
         // This check is important as the shelf layout is used for the library tab playlists.
         return NavigationButton.getSelectedNavigationButton() != NavigationButton.LIBRARY;
+    }
+
+    /**
+     * Injection point.
+     */
+    public static SpannableString modifyFeedSubtitleSpan(SpannableString original, float truncationDimension) {
+        try {
+            final boolean hideViewCount = Settings.HIDE_VIEW_COUNT.get();
+            final boolean hideUploadTime = Settings.HIDE_UPLOAD_TIME.get();
+            if (!hideViewCount && !hideUploadTime) {
+                return original;
+            }
+
+            // Applies only for these specific dimensions.
+            if (truncationDimension == 16f || truncationDimension == 42f) {
+                String delimiter = " · ";
+                final int delimiterLength = delimiter.length();
+
+                // Index includes the starting delimiter.
+                final int viewCountStartIndex = TextUtils.indexOf(original, delimiter);
+                if (viewCountStartIndex < 0) {
+                    return original;
+                }
+
+                final int uploadTimeStartIndex = TextUtils.indexOf(original, delimiter,
+                        viewCountStartIndex + delimiterLength);
+                if (uploadTimeStartIndex < 0) {
+                    return original;
+                }
+
+                // Ensure there is exactly 2 delimiters.
+                if (TextUtils.indexOf(original, delimiter,
+                        uploadTimeStartIndex + delimiterLength) >= 0) {
+                    return original;
+                }
+
+                // Make a mutable copy that keeps existing span styling.
+                SpannableStringBuilder builder = new SpannableStringBuilder(original);
+
+                // Remove the sections.
+                if (hideUploadTime) {
+                    builder.delete(uploadTimeStartIndex, original.length());
+                }
+
+                if (hideViewCount) {
+                    builder.delete(viewCountStartIndex, uploadTimeStartIndex);
+                }
+
+                SpannableString replacement = new SpannableString(builder);
+                Logger.printDebug(() -> "Replacing feed subtitle span: " + original + " with: " + replacement);
+
+                return replacement;
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "modifyFeedSubtitleSpan failure", ex);
+        }
+
+        return original;
     }
 }

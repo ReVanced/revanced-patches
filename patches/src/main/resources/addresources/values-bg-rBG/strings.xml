@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Коригирано преди %s дни</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Датата на компилация на APK е повредена</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Предупреждение</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Историята ви на гледане не се запазва.&lt;br&gt;&lt;br&gt;Това най-вероятно е причинено от DNS блокиращ реклами или мрежов прокси.&lt;br&gt;&lt;br&gt;За да коригирате това, поставете &lt;b&gt;s.youtube в белия списък.com&lt;/b&gt; или изключете всички DNS блокери и проксита.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не показвай отново</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Настройки</string>
   <string name="revanced_settings_confirm_user_dialog_title">Сигурни ли сте, че искате да продължите?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Търсене на настройки</string>
   <string name="revanced_settings_search_no_results_title">Няма намерени резултати за \",%s\"</string>
   <string name="revanced_settings_search_no_results_summary">Опитайте друга ключова дума</string>
+  <string name="revanced_settings_search_recent_searches">Скорошни търсения</string>
   <string name="revanced_settings_search_remove_message">Премахване от историята на търсенията?</string>
+  <string name="revanced_settings_search_clear_history">Изчистване на историята на търсенията</string>
+  <string name="revanced_settings_search_clear_history_message">Сигурни ли сте, че искате да изчистите цялата история на търсенията?</string>
+  <string name="revanced_settings_search_tips_title">Съвети за търсене</string>
+  <string name="revanced_settings_search_tips_summary">"• Докоснете път, за да отидете до него
+• Натиснете продължително настройка, за да отидете до нея
+• Натиснете Enter, за да запазите заявка за търсене в историята
+• Търсенето не отчита главни/малки букви и препинателни знаци
+• Родителските настройки се появяват над деактивираните дъщерни настройки"</string>
+  <string name="revanced_settings_search_empty_history_title">Историята на търсене е празна</string>
+  <string name="revanced_settings_search_empty_history_summary">За да запазите историята на търсене, въведете заявка за търсене и натиснете Enter</string>
+  <string name="revanced_settings_search_history_title">Показване на историята на търсенията в настройките</string>
+  <string name="revanced_settings_search_history_summary_on">Историята на търсенията в настройките е показана</string>
+  <string name="revanced_settings_search_history_summary_off">Историята на търсенията в настройките не се показва</string>
   <string name="revanced_show_menu_icons_title">Показване на иконите на настройките на ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Иконите на настройките се показват</string>
   <string name="revanced_show_menu_icons_summary_off">Иконите на настройките не се показват</string>
   <string name="revanced_language_title">Език на ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"Преводите на някои езици може да липсват или да са непълни.
+  <string name="revanced_language_user_dialog_message">"Преводите за някои езици може да липсват или да са непълни.
 
-За да преведете нови езици, посетете translate.revanced.app"</string>
+За да преведете нови езици или да подобрите съществуващите преводи, посетете translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Език на приложението</string>
   <string name="revanced_pref_import_export_title">Импортиране / Експортиране</string>
   <string name="revanced_pref_import_export_summary">Импортиране / Експортиране на ReVanced настройките</string>
@@ -126,6 +145,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Изчиства всички съхранени логове за отстраняване на грешки на ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Логовете са изчистени</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Почистване на връзки за споделяне</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметърът за проследяване се премахва от споделените връзки</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметърът за проследяване не се премахва от споделените връзки</string>
+  <string name="revanced_replace_music_with_youtube_title">Промяна на връзките за споделяне към youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Споделените връзки използват youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Споделените връзки използват music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Възстановяване на старите менюта за настройки</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Старите менюта с настройки се показват</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Старите менюта с настройки не се показват</string>
-  <string name="revanced_settings_search_history_title">Показване на историята на търсенията в настройките</string>
-  <string name="revanced_settings_search_history_summary_on">Историята на търсенията в настройките е показана</string>
-  <string name="revanced_settings_search_history_summary_off">Историята на търсенията в настройките не се показва</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Възпроизвеждане на  Shorts в фонов режим</string>
@@ -355,15 +379,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Бутон за създаване на Shorts</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Бутонът \"Създаване на Short\" е скрит</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Бутонът \"Създаване на Short\" е показан</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Скриване на бутоните за емоджи и клеймо за време</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Бутоните за емоджи и клеймо за време са скрити</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Бутоните за емоджи и клеймо за време са показани</string>
   <string name="revanced_hide_comments_preview_comment_title">Преглед на коментари</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Прегледа на коментари е скрит</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Прегледа на коментари се показва</string>
   <string name="revanced_hide_comments_thanks_button_title">Скрий бутона за харесване</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Бутона за благодарност е скрит</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Бутона за благодарност се показва</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Скриване на бутона за клеймо за време</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Бутонът за времеви печат е скрит</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Бутонът за времеви печат е показан</string>
   <string name="revanced_custom_filter_screen_title">Потребителски филтър</string>
   <string name="revanced_custom_filter_screen_summary">Скриване на компоненти с помощта на потребителски филтри</string>
   <string name="revanced_custom_filter_title">Активиране на потребителските филтри</string>
@@ -373,6 +397,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Списък с низове за изграждане на пътя на компонента, които да се филтрират, разделени с нов ред</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Невалиден потребителски филтър: %s</string>
+  <string name="revanced_hide_view_count_title">Скриване на броя на преглежданията</string>
+  <string name="revanced_hide_view_count_summary_on">Броят на преглежданията е скрит във фийда и резултатите от търсенето</string>
+  <string name="revanced_hide_view_count_summary_off">Броят на преглежданията е показан във фийда и резултатите от търсенето</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Ограничения:
+• Рафтовете с Shorts, страниците на каналите и резултатите от търсенето може все още да показват броя на преглежданията
+• Тази функция не работи с автомобилен форм фактор"</string>
+  <string name="revanced_hide_upload_time_title">Скриване на часа на качване</string>
+  <string name="revanced_hide_upload_time_summary_on">Часът на качване е скрит в емисията и резултатите от търсенето</string>
+  <string name="revanced_hide_upload_time_summary_off">Часът на качване е показан в емисията и резултатите от търсенето</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Ограничения:
+• Рафтовете с Shorts, страниците на канали и резултатите от търсене може все още да показват часове на качване
+• Тази функция не работи с автомобилни форм-фактори"</string>
   <string name="revanced_hide_keyword_content_screen_title">Скриване на съдържанието с ключови думи</string>
   <string name="revanced_hide_keyword_content_screen_summary">Скриване на видеоклипове в резултатите от търсенуя и в новинарския поток с помощта на филтри с ключови думи</string>
   <string name="revanced_hide_keyword_content_home_title">Скриване на видеоклипове в началната страница с ключови думи</string>
@@ -1060,9 +1098,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">Вече ги прочетох</string>
   <string name="revanced_sb_guidelines_popup_open">Покажи ми</string>
   <string name="revanced_sb_general">Основен</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Показване на известие, ако API не е наличен</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Показва се известие, ако SponsorBlock не е наличен</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Показва се известие, ако SponsorBlock не е наличен</string>
+  <string name="revanced_sb_toast_on_connection_error">Показване на известие, ако API не е наличен</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Показва се известие, ако SponsorBlock не е наличен</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Показва се известие, ако SponsorBlock не е наличен</string>
   <string name="revanced_sb_general_skipcount">Прослед. на броя пропускания</string>
   <string name="revanced_sb_general_skipcount_sum_on">Показва в класацията на SponsorBlock колко време е спестено. Съобщение се изпраща при всяка пропусната част</string>
   <string name="revanced_sb_general_skipcount_sum_off">Прослед. на броя пропускания е изключен</string>
@@ -1247,8 +1285,9 @@ Second \"item\" text"</string>
 Ако по-късно бъде изключено, препоръчително е да изчистите данните на приложението, за да предотвратите грешки в потребителския интерфейс."</string>
   <string name="revanced_spoof_app_version_target_title">Подлъгване за версията на</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Възстановяване на несгъваема лента с действия за видео</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Възстановете старите икони на Shorts в плейъра</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Възстановяване на стари икони за навигация</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Възстановяване на функционалността на преписа</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Възстановете старите икони на Shorts в плейъра</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Възстановяване на стари икони за навигация</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Промяна на началната страница</string>
@@ -1313,25 +1352,25 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_5">Модерен 2</string>
   <string name="revanced_miniplayer_type_entry_6">Модерен 3</string>
   <string name="revanced_miniplayer_type_entry_7">Модерен 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Активирайте заоблени ъгли</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Ъглите са заоблени</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Ъглите са нормални</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Деактивиране на заоблени ъгли</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Ъглите са нормални</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Ъглите са заоблени</string>
   <string name="revanced_miniplayer_double_tap_action_title">Активирайте двойното докосване и щипване за преоразмеряване</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Активирано е двойно докосване и щипка за преоразмеряване
 
 • Двойно докосване за увеличаване на размера на мини плейъра
 • Двойно докосване отново, за да възстановите оригиналния размер"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Двойно докосване и щипване за преоразмеряване е деактивирано</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Разрешете плъзгане и местене</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Включено е плъзгане и пускане
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Деактивиране на плъзгане и пускане</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Плъзгането и преместването е деактивирано</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Включено е плъзгане и пускане
 
 Мини плейърът може да бъде плъзган до всеки ъгъл на екрана"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Плъзгането и преместването е деактивирано</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Активиране на хоризонтално плъзгане</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Активиран е хоризонтален жест за плъзгане
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Деактивиране на хоризонтален жест за плъзгане</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Жестът за хоризонтално плъзгане е деактивиран</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Активиран е хоризонтален жест за плъзгане
 
 Мини плейърът може да бъде плъзган извън екрана наляво или надясно"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Жестът за хоризонтално плъзгане е деактивиран</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Скриване на бутоните за наслагване</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Бутоните за наслагване са скрити</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Бутоните за наслагване са показани</string>
@@ -1423,15 +1462,17 @@ Second \"item\" text"</string>
   <string name="revanced_announcements_connection_failed">Неуспешно свързване с доставчик на съобщения</string>
   <string name="revanced_announcements_dialog_dismiss">Отхвърли</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Предупреждение</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Историята ви на гледане не се запазва.&lt;br&gt;&lt;br&gt;Това най-вероятно е причинено от DNS блокиращ реклами или мрежов прокси.&lt;br&gt;&lt;br&gt;За да коригирате това, поставете &lt;b&gt;s.youtube в белия списък.com&lt;/b&gt; или изключете всички DNS блокери и проксита.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не показвай отново</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Активиране на повторение на видеото</string>
+  <string name="revanced_loop_video_summary_on">Видеоклипът ще се повтаря</string>
+  <string name="revanced_loop_video_summary_off">Видеоклипът няма да се повтаря</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Автоматично повтаряне на текущия видеоклип</string>
-  <string name="revanced_auto_repeat_summary_on">Включено автоматично повтаряне на текущия видеоклип</string>
-  <string name="revanced_auto_repeat_summary_off">Изключено автоматично повтаряне на текущия видеоклип</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Показване на бутона за повторение на видеото</string>
+  <string name="revanced_loop_video_button_summary_on">Бутонът е показан</string>
+  <string name="revanced_loop_video_button_summary_off">Бутонът не е показан</string>
+  <string name="revanced_loop_video_button_toast_on">Повторението на видеото е включено</string>
+  <string name="revanced_loop_video_button_toast_off">Повторението на видеото е изключено</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Лъжливи параметри на устройството</string>
@@ -1471,11 +1512,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">Отваряне на връзки в браузъра</string>
   <string name="revanced_external_browser_summary_on">Отваряне на връзки във външен браузър</string>
   <string name="revanced_external_browser_summary_off">Отваряне на връзки във вграден браузър</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Премахнете параметъра на заявката за проследяване</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Параметърът на заявката за проследяване е премахнат от връзките</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Параметърът на заявката за проследяване не е премахнат от връзките</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Принудително оригинално аудио език</string>
@@ -1540,10 +1576,22 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_default_title">Скорост на възпроизвеждане по подразбиране</string>
   <string name="revanced_remember_playback_speed_toast">Скоростта по подразбиране е променена на: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Деактивиране на HDR видео</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR видеото е деактивирано</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR видеото е активирано</string>
+  <string name="revanced_force_avc_codec_title">Принуди AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Видео кодекът е принуден да бъде AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Видео кодекът се определя автоматично</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Предимства:
+• Може да подобри живота на батерията
+• Може да възстанови липсващи видео резолюции на по-стари устройства
+
+Ограничения:
+• Максималната резолюция е 1080p
+• Възпроизвеждането на видео ще използва повече интернет данни от VP9 или AV1
+• HDR видеоклиповете няма да използват AVC
+• Някои устройства не могат да принудят AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Показване на менюто за разширено качество на видеото</string>
@@ -1557,12 +1605,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Странични ефекти от подменянето</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Strani4ni efekti na fal6ivoto predstavqne na Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Липсва менюто за аудиозаписи
-• Стабилен звук не е наличен"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Видеото може да спре на 1:00 или може да не е налично в някои региони</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментален клиент и може да спре да работи по всяко време</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Видеото може да спре на 1:00 или може да не е налично в някои региони</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Менюто за аудиозаписи липсва</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Без AV1 видео кодек</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Стабилният звук не е наличен</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Детските видеоклипове може да не се възпроизвеждат, когато сте излезли от профила си или в режим \"инкогнито\"</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Принудителният оригинален звук не е наличен</string>

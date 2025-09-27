@@ -22,6 +22,8 @@ Second \"item\" text"</string>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <!-- Settings about dialog. -->
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
@@ -35,6 +37,8 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_screen_summary">प्लेबैक समस्याओं को रोकने के लिए क्लाइंट वीडियो स्ट्रीम को स्पूफ करें</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
+  </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
   </patch>
   </app>
   <app id="youtube">
@@ -57,6 +61,8 @@ Second \"item\" text"</string>
   <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
   <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
@@ -209,9 +215,9 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <patch id="misc.loopvideo.loopVideoPatch">
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   </patch>
@@ -222,8 +228,6 @@ Second \"item\" text"</string>
   <patch id="misc.links.bypassURLRedirectsPatch">
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
@@ -239,7 +243,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   </patch>

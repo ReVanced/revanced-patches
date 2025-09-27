@@ -46,10 +46,10 @@ private val swipeControlsResourcePatch = resourcePatch {
             ListPreference("revanced_swipe_overlay_style"),
             TextPreference("revanced_swipe_overlay_background_opacity", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_overlay_progress_brightness_color",
-                tag = "app.revanced.extension.shared.settings.preference.ColorPickerPreference",
+                tag = "app.revanced.extension.shared.settings.preference.ColorPickerWithOpacitySliderPreference",
                 inputType = InputType.TEXT_CAP_CHARACTERS),
             TextPreference("revanced_swipe_overlay_progress_volume_color",
-                tag = "app.revanced.extension.shared.settings.preference.ColorPickerPreference",
+                tag = "app.revanced.extension.shared.settings.preference.ColorPickerWithOpacitySliderPreference",
                 inputType = InputType.TEXT_CAP_CHARACTERS),
             TextPreference("revanced_swipe_text_overlay_size", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
@@ -89,7 +89,6 @@ val swipeControlsPatch = bytecodePatch(
     compatibleWith(
         "com.google.android.youtube"(
             "19.34.42",
-            "19.43.41",
             "20.07.39",
             "20.13.41",
             "20.14.43",

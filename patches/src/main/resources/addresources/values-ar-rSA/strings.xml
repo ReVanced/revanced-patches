@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">تم التعديل منذ %s يوم</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">تاريخ بناء APK تالف</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">تحذير</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">لم يتم حفظ سجل المشاهدة الخاص بك.&lt;br&gt;&lt;br&gt;من المرجح أن يكون السبب في ذلك هو مانع إعلانات DNS أو وكيل الشبكة.&lt;br&gt;&lt;br&gt;لإصلاح هذه المشكلة، قم بإضافة &lt;b&gt;s.youtube.com&lt;/b&gt; إلى القائمة البيضاء أو قم بإيقاف تشغيل جميع أدوات حظر DNS ووكلاء البروكسي.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">لا تعرض مرة أخرى</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">الإعدادات</string>
   <string name="revanced_settings_confirm_user_dialog_title">هل أنت متأكد أنك تريد المتابعة؟</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">بحث الإعدادات</string>
   <string name="revanced_settings_search_no_results_title">لم يتم العثور على نتائج لـ \".%s\"</string>
   <string name="revanced_settings_search_no_results_summary">جرّب كلمة مفتاحية أخرى</string>
+  <string name="revanced_settings_search_recent_searches">عمليات البحث الأخيرة</string>
   <string name="revanced_settings_search_remove_message">إزالة من سجل البحث؟</string>
+  <string name="revanced_settings_search_clear_history">مسح سجل البحث</string>
+  <string name="revanced_settings_search_clear_history_message">هل أنت متأكد أنك تريد مسح كل سجل البحث؟</string>
+  <string name="revanced_settings_search_tips_title">نصائح البحث</string>
+  <string name="revanced_settings_search_tips_summary">"• انقر فوق مسار للتنقل إليه
+• اضغط مطولاً على إعداد للتنقل إليه
+• اضغط على Enter لحفظ استعلام بحث في السجل
+• يتجاهل البحث حالة الأحرف وعلامات الترقيم
+• تظهر الإعدادات الرئيسية فوق الإعدادات الفرعية المعطلة"</string>
+  <string name="revanced_settings_search_empty_history_title">سجل البحث فارغ</string>
+  <string name="revanced_settings_search_empty_history_summary">لحفظ سجل البحث، اكتب استعلام بحث واضغط على Enter</string>
+  <string name="revanced_settings_search_history_title">عرض سجل بحث الإعدادات</string>
+  <string name="revanced_settings_search_history_summary_on">يتم عرض سجل البحث في الإعدادات</string>
+  <string name="revanced_settings_search_history_summary_off">لا يتم عرض سجل البحث في الإعدادات</string>
   <string name="revanced_show_menu_icons_title">عرض أيقونات إعدادات ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">يتم عرض أيقونات الإعدادات</string>
   <string name="revanced_show_menu_icons_summary_off">لا يتم عرض أيقونات الإعدادات</string>
   <string name="revanced_language_title">لغة ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"قد تكون الترجمات لبعض اللغات مفقودة أو غير مكتملة.
+  <string name="revanced_language_user_dialog_message">"قد تكون ترجمات بعض اللغات مفقودة أو غير مكتملة.
 
-لترجمة لغات جديدة، تفضل بزيارة translate.revanced.app"</string>
+لترجمة لغات جديدة أو تحسين الترجمات الحالية، تفضل بزيارة translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">لغة التطبيق</string>
   <string name="revanced_pref_import_export_title">استيراد / تصدير</string>
   <string name="revanced_pref_import_export_summary">استيراد / تصدير إعدادات ReVanced</string>
@@ -126,6 +145,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">يمسح جميع سجلات تصحيح أخطاء ReVanced المخزنة</string>
   <string name="revanced_debug_logs_clear_toast">تم مسح السجلات</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">تطهير روابط المشاركة</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">تمت إزالة معلمة استعلام التتبع من الروابط المشتركة</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">لم تتم إزالة معلمة استعلام التتبع من الروابط المشتركة</string>
+  <string name="revanced_replace_music_with_youtube_title">تغيير روابط المشاركة إلى youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">تستخدم الروابط المشتركة youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">تستخدم الروابط المشتركة music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">استعادة قوائم الإعدادات القديمة</string>
   <string name="revanced_restore_old_settings_menus_summary_on">يتم عرض قوائم الإعدادات القديمة</string>
   <string name="revanced_restore_old_settings_menus_summary_off">لا يتم عرض قوائم الإعدادات القديمة</string>
-  <string name="revanced_settings_search_history_title">عرض سجل بحث الإعدادات</string>
-  <string name="revanced_settings_search_history_summary_on">يتم عرض سجل البحث في الإعدادات</string>
-  <string name="revanced_settings_search_history_summary_off">لا يتم عرض سجل البحث في الإعدادات</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">تعطيل تشغيل فيديوهات Shorts في الخلفية</string>
@@ -355,15 +379,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">إخفاء زر \'إنشاء Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">تم إخفاء زر إنشاء Short</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">يتم عرض زر إنشاء Short</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">إخفاء أزرار الرموز التعبيرية والطابع الزمني</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">أزرار الرموز التعبيرية والطابع الزمني مخفية</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">أزرار الرموز التعبيرية والطابع الزمني معروضة</string>
   <string name="revanced_hide_comments_preview_comment_title">إخفاء تعليق المعاينة</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">تم إخفاء تعليق المعاينة</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">يتم عرض تعليق المعاينة</string>
   <string name="revanced_hide_comments_thanks_button_title">إخفاء زر شكرًا</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">تم إخفاء زر شكرًا</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">يتم عرض زر شكرًا</string>
-  <string name="revanced_hide_comments_timestamp_button_title">إخفاء زر الطابع الزمني</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">زر الطابع الزمني مخفي</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">زر الطابع الزمني معروض</string>
   <string name="revanced_custom_filter_screen_title">فلتر مخصص</string>
   <string name="revanced_custom_filter_screen_summary">إخفاء المكونات باستخدام فلاتر مخصصة</string>
   <string name="revanced_custom_filter_title">تمكين الفلتر المخصص</string>
@@ -373,6 +397,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">قائمة سلاسل منشئ مسار المكونات المراد تصفيتها مفصولة بسطر جديد</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">فلتر مخصص غير صالح: %s</string>
+  <string name="revanced_hide_view_count_title">إخفاء عدد المشاهدات</string>
+  <string name="revanced_hide_view_count_summary_on">عدد المشاهدات مخفي في الموجز ونتائج البحث</string>
+  <string name="revanced_hide_view_count_summary_off">عدد المشاهدات ظاهر في الموجز ونتائج البحث</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"قيود:
+• رفوف Shorts وصفحات القنوات ونتائج البحث قد تظل تعرض أعداد المشاهدات
+• هذه الميزة لا تعمل مع عامل الشكل الخاص بالسيارات"</string>
+  <string name="revanced_hide_upload_time_title">إخفاء وقت التحميل</string>
+  <string name="revanced_hide_upload_time_summary_on">وقت التحميل مخفي في الخلاصة ونتائج البحث</string>
+  <string name="revanced_hide_upload_time_summary_off">وقت التحميل معروض في الخلاصة ونتائج البحث</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"القيود:
+• قد تظل أرفف Shorts وصفحات القنوات ونتائج البحث تُظهر أوقات التحميل
+• هذه الميزة لا تعمل مع عامل شكل السيارات"</string>
   <string name="revanced_hide_keyword_content_screen_title">إخفاء محتوى الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_screen_summary">إخفاء فيديوهات البحث والموجز باستخدام فلاتر الكلمات المفتاحية</string>
   <string name="revanced_hide_keyword_content_home_title">إخفاء فيديوهات الصفحة الرئيسية بواسطة الكلمات المفتاحية</string>
@@ -1060,9 +1098,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">تمت قراءتها</string>
   <string name="revanced_sb_guidelines_popup_open">اعرضها لي</string>
   <string name="revanced_sb_general">عام</string>
-  <string name="revanced_sb_toast_on_connection_error_title">عرض ملاحظة إذا كان API غير متاح</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">يتم عرض ملاحظة في حالة عدم توفر SponsorBlock</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">لا يتم عرض ملاحظة في حالة عدم توفر SponsorBlock</string>
+  <string name="revanced_sb_toast_on_connection_error">عرض ملاحظة إذا كان API غير متاح</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">يتم عرض ملاحظة في حالة عدم توفر SponsorBlock</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">لا يتم عرض ملاحظة في حالة عدم توفر SponsorBlock</string>
   <string name="revanced_sb_general_skipcount">تمكين تتبع مرات التخطي</string>
   <string name="revanced_sb_general_skipcount_sum_on">يُتيح لـ SponsorBlock Leaderboard معرفة مقدار الوقت الذي وفره المشاهدين، يتم إعلام الخادم في كل مرة تتخطى فيها مقطعًا</string>
   <string name="revanced_sb_general_skipcount_sum_off">تم تعطيل تتبع مرات التخطي</string>
@@ -1247,8 +1285,9 @@ Second \"item\" text"</string>
 إذا تم إيقاف تشغيله لاحقًا، من المستحسن مسح بيانات التطبيق لمنع حدوث أخطاء في واجهة المستخدم."</string>
   <string name="revanced_spoof_app_version_target_title">الهدف من تغيير إصدار التطبيق</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - استعادة شريط إجراءات الفيديو غير المطوي</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - استعادة أيقونات مشغل Shorts القديمة</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - استعادة أيقونات التنقل القديمة</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - استعادة وظيفة النسخ</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - استعادة أيقونات مشغل Shorts القديمة</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - استعادة أيقونات التنقل القديمة</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">تغيير صفحة البداية</string>
@@ -1313,25 +1352,25 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_5">حديث 2</string>
   <string name="revanced_miniplayer_type_entry_6">حديث 3</string>
   <string name="revanced_miniplayer_type_entry_7">حديث 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">تمكين الزوايا المستديرة</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">الزوايا مستديرة</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">الزوايا مربعة</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">تعطيل الزوايا الدائرية</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">الزوايا مربعة</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">الزوايا مستديرة</string>
   <string name="revanced_miniplayer_double_tap_action_title">تمكين النقر المزدوج والضغط لتغيير الحجم</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"تم تمكين إجراء الضغط المزدوج والضغط لتغيير الحجم
 
 • النقر المزدوج لزيادة حجم المشغل المصغر
 • النقر المزدوج مرة أخرى لاستعادة الحجم الأصلي"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">إجراء النقر المزدوج والضغط لتغيير الحجم معطل</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">تمكين السحب والإفلات</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"السحب والإفلات مفعلان
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">تعطيل السحب والإفلات</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">تم تعطيل السحب والإفلات</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"السحب والإفلات مفعلان
 
 يمكن سحب المشغل المصغر إلى أي زاوية من الشاشة"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">تم تعطيل السحب والإفلات</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">تمكين إيماءة السحب الأفقية</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"تم تمكين إيماءة السحب الأفقية
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">تعطيل إيماءة السحب الأفقي</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">تم تعطيل إيماءة السحب الأفقية</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"تم تمكين إيماءة السحب الأفقية
 
 يمكن سحب المشغل المصغر خارج الشاشة إلى اليسار أو اليمين"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">تم تعطيل إيماءة السحب الأفقية</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">إخفاء أزرار الواجهة</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">تم إخفاء أزرار الواجهة</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">يتم عرض أزرار الواجهة</string>
@@ -1423,15 +1462,17 @@ Second \"item\" text"</string>
   <string name="revanced_announcements_connection_failed">فشل الاتصال بموفر الإعلانات</string>
   <string name="revanced_announcements_dialog_dismiss">تجاهل</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">تحذير</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">لم يتم حفظ سجل المشاهدة الخاص بك.&lt;br&gt;&lt;br&gt;من المرجح أن يكون السبب في ذلك هو مانع إعلانات DNS أو وكيل الشبكة.&lt;br&gt;&lt;br&gt;لإصلاح هذه المشكلة، قم بإضافة &lt;b&gt;s.youtube.com&lt;/b&gt; إلى القائمة البيضاء أو قم بإيقاف تشغيل جميع أدوات حظر DNS ووكلاء البروكسي.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">لا تعرض مرة أخرى</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">تفعيل تكرار الفيديو</string>
+  <string name="revanced_loop_video_summary_on">سيتم تكرار الفيديو</string>
+  <string name="revanced_loop_video_summary_off">لن يتم تكرار الفيديو</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">تمكين التكرار التلقائي</string>
-  <string name="revanced_auto_repeat_summary_on">تم تمكين التكرار التلقائي</string>
-  <string name="revanced_auto_repeat_summary_off">تم تعطيل التكرار التلقائي</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">إظهار زر تكرار الفيديو</string>
+  <string name="revanced_loop_video_button_summary_on">الزر ظاهر</string>
+  <string name="revanced_loop_video_button_summary_off">الزر غير ظاهر</string>
+  <string name="revanced_loop_video_button_toast_on">تكرار الفيديو قيد التشغيل</string>
+  <string name="revanced_loop_video_button_toast_off">تكرار الفيديو متوقف</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">محاكاة أبعاد الجهاز</string>
@@ -1471,11 +1512,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">فتح الروابط في المتصفح</string>
   <string name="revanced_external_browser_summary_on">فتح الروابط في متصفح خارجي</string>
   <string name="revanced_external_browser_summary_off">فتح الروابط في متصفح داخل التطبيق</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">إزالة معلمة تتبع الاستعلام</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">يتم إزالة معلمة استعلام التتبع من الروابط</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">لا يتم إزالة معلمة استعلام التتبع من الروابط</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">فرض لغة الصوت الأصلية</string>
@@ -1540,10 +1576,22 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_default_title">سرعة التشغيل الافتراضية</string>
   <string name="revanced_remember_playback_speed_toast">تغيير السرعة الافتراضية إلى: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">تعطيل فيديو HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">تم تعطيل فيديو HDR</string>
   <string name="revanced_disable_hdr_video_summary_off">تم تمكين فيديو HDR</string>
+  <string name="revanced_force_avc_codec_title">فرض AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">تم فرض برنامج ترميز الفيديو على AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">يتم تحديد برنامج ترميز الفيديو تلقائيًا</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"الفوائد:
+• يمكن أن يحسن عمر البطارية
+• يمكن أن يستعيد دقة الفيديو المفقودة على الأجهزة القديمة
+
+القيود:
+• أقصى دقة هي 1080p
+• تشغيل الفيديو سيستهلك المزيد من بيانات الإنترنت مقارنةً بـ VP9 أو AV1
+• لن تستخدم فيديوهات HDR ترميز AVC
+• لا يمكن لبعض الأجهزة فرض AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">عرض قائمة جودة الفيديو المتقدمة</string>
@@ -1557,12 +1605,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">الآثار الجانبية للتزوير</string>
-  <string name="revanced_spoof_video_streams_about_android_title">الآثار الجانبية لمحاكاة هوية Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• قائمة المسارات الصوتية مفقودة
-• مستوى الصوت المستقر غير متاح"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• قد يتوقف الفيديو عند 1:00، أو قد لا يكون متاحًا في بعض المناطق</string>
   <string name="revanced_spoof_video_streams_about_experimental">• عميل تجريبي وقد يتوقف عن العمل في أي وقت</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• قد يتوقف الفيديو عند 1:00، أو قد لا يكون متاحًا في بعض المناطق</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• قائمة المسارات الصوتية مفقودة</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• لا يوجد ترميز الفيديو AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• مستوى الصوت الثابت غير متاح</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو عند استخدام وضع التصفح المتخفي</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• فرض الصوت الأصلي غير متاح</string>

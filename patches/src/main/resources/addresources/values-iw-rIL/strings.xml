@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">תוקן לפני %s ימים</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">תאריך בניית ה-APK פגום</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">אזהרה</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">היסטוריית הצפייה שלך לא נשמרת.&lt;br&gt;&lt;br&gt;סביר להניח שזה נגרם על ידי חוסם מודעות ברמת DNS או פרוקסי רשת.&lt;br&gt;&lt;br&gt;כדי לתקן זאת, רשום את &lt;b&gt;s.youtube.com&lt;/b&gt; ברשימת ההיתרים או כבה את כל חוסמי ה-DNS והפרוקסים.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">אל תציג שוב</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">הגדרות</string>
   <string name="revanced_settings_confirm_user_dialog_title">האם אתה בטוח שברצונך להמשיך?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">חפש בהגדרות</string>
   <string name="revanced_settings_search_no_results_title">לא נמצאו תוצאות עבור \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">נסה מילת מפתח אחרת</string>
+  <string name="revanced_settings_search_recent_searches">חיפושים אחרונים</string>
   <string name="revanced_settings_search_remove_message">להסיר מהיסטוריית חיפוש?</string>
+  <string name="revanced_settings_search_clear_history">נקה היסטוריית חיפושים</string>
+  <string name="revanced_settings_search_clear_history_message">האם אתה בטוח שברצונך למחוק את כל היסטוריית החיפושים?</string>
+  <string name="revanced_settings_search_tips_title">טיפים לחיפוש</string>
+  <string name="revanced_settings_search_tips_summary">"• הקש על נתיב כדי לנווט אליו
+• לחיצה ארוכה על הגדרה כדי לנווט אליה
+• לחץ על Enter כדי לשמור שאילתת חיפוש להיסטוריה
+• החיפוש מתעלם מאותיות גדולות/קטנות וסימני פיסוק
+• הגדרות הורים מופיעות מעל הגדרות ילדים מושבתות"</string>
+  <string name="revanced_settings_search_empty_history_title">היסטוריית החיפוש ריקה</string>
+  <string name="revanced_settings_search_empty_history_summary">כדי לשמור היסטוריית חיפוש, הקלד שאילתת חיפוש ולחץ על Enter</string>
+  <string name="revanced_settings_search_history_title">הצג הגדרות היסטוריית חיפוש</string>
+  <string name="revanced_settings_search_history_summary_on">הגדרות היסטוריית חיפוש מוצגות</string>
+  <string name="revanced_settings_search_history_summary_off">הגדרות היסטוריית חיפוש אינן מוצגות</string>
   <string name="revanced_show_menu_icons_title">הצג סמלי הגדרות ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">סמלי ההגדרות מוצגים</string>
   <string name="revanced_show_menu_icons_summary_off">סמלי ההגדרות אינם מוצגים</string>
   <string name="revanced_language_title">שפת ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"תרגומים לשפות מסוימות עשויים להיות חסרים או לא שלמים.
+  <string name="revanced_language_user_dialog_message">"תרגומים עבור שפות מסוימות עשויים להיות חסרים או לא מלאים.
 
-כדי לתרגם שפות חדשות בקר ב-translate.revanced.app"</string>
+כדי לתרגם שפות חדשות או לשפר את התרגומים הקיימים, בקר ב-translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">שפת היישום</string>
   <string name="revanced_pref_import_export_title">ייבוא / ייצוא</string>
   <string name="revanced_pref_import_export_summary">ייבוא / ייצוא הגדרות ReVanced</string>
@@ -126,6 +145,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">מנקה את כל היומנים לאיתור באגים של Revanced המאוחסנים</string>
   <string name="revanced_debug_logs_clear_toast">היומנים נוקו</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">פרמטר מעקב מוסר מקישורי שיתוף</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">פרמטר מעקב אינו מוסר מקישורי שיתוף</string>
+  <string name="revanced_replace_music_with_youtube_title">שנה קישורי שיתוף ל-youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">קישורים משותפים משתמשים ב-youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">קישורים משותפים משתמשים ב-music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">שחזר תפריטי הגדרות ישנים</string>
   <string name="revanced_restore_old_settings_menus_summary_on">תפריטי הגדרות ישנים מוצגים</string>
   <string name="revanced_restore_old_settings_menus_summary_off">תפריטי הגדרות ישנים אינם מוצגים</string>
-  <string name="revanced_settings_search_history_title">הצג הגדרות היסטוריית חיפוש</string>
-  <string name="revanced_settings_search_history_summary_on">הגדרות היסטוריית חיפוש מוצגות</string>
-  <string name="revanced_settings_search_history_summary_off">הגדרות היסטוריית חיפוש אינן מוצגות</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">השבת הפעלה ברקע של Shorts</string>
@@ -355,15 +379,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">הסתר לחצן \'יצירת Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">לחצן יצירת Short מוסתר</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">לחצן יצירת Short מוצג</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">הסתר לחצני אימוג\'י וחותמת זמן</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">לחצני אימוג\'י וחותמת זמן מוסתרים</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">לחצני אימוג\'י וחותמת זמן מוצגים</string>
   <string name="revanced_hide_comments_preview_comment_title">הסתר תצוגה מקדימה של תגובה</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">תצוגה מקדימה של תגובה מוסתרת</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">תצוגה מקדימה של תגובה מוצגת</string>
   <string name="revanced_hide_comments_thanks_button_title">הסתר לחצן תודה</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">לחצן תודה מוסתר</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">לחצן תודה מוצג</string>
-  <string name="revanced_hide_comments_timestamp_button_title">הסתר לחצן חותמת זמן</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">לחצן חותם זמן מוסתר</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">לחצן חותם זמן מוצג</string>
   <string name="revanced_custom_filter_screen_title">מסנן מותאם אישית</string>
   <string name="revanced_custom_filter_screen_summary">הסתר רכיבים באמצעות מסננים מותאמים אישית</string>
   <string name="revanced_custom_filter_title">הפעל מסנן מותאם אישית</string>
@@ -373,6 +397,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">רשימה של מחרוזות בונה נתיב רכיבים לסינון מופרדות על ידי שורה חדשה</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">מסנן מותאם אישית לא חוקי: %s</string>
+  <string name="revanced_hide_view_count_title">הסתר ספירת צפיות</string>
+  <string name="revanced_hide_view_count_summary_on">ספירת הצפיות מוסתרת בפיד ובתוצאות החיפוש</string>
+  <string name="revanced_hide_view_count_summary_off">ספירת הצפיות מוצגת בפיד ובתוצאות החיפוש</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"מגבלות:
+• מדפי Shorts, דפי ערוצים ותוצאות חיפוש עשויים עדיין להציג ספירות צפיות
+• תכונה זו אינה פועלת עם גורם צורה לרכב"</string>
+  <string name="revanced_hide_upload_time_title">הסתר זמן העלאה</string>
+  <string name="revanced_hide_upload_time_summary_on">זמן ההעלאה מוסתר בפיד ובעמודי תוצאות חיפוש</string>
+  <string name="revanced_hide_upload_time_summary_off">זמן ההעלאה מוצג בפיד ובעמודי תוצאות חיפוש</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"הגבלות:
+• מדפי Shorts, דפי ערוץ ותוצאות חיפוש עדיין עשויים להציג זמני העלאה
+• תכונה זו אינה פועלת עם גורם צורה לרכב"</string>
   <string name="revanced_hide_keyword_content_screen_title">הסתר תוכן מילiת מפתח</string>
   <string name="revanced_hide_keyword_content_screen_summary">הסתר סרטוני פיד וחיפוש באמצעות מסנני מילות מפתח</string>
   <string name="revanced_hide_keyword_content_home_title">הסתר סרטוני בית לפי מילות מפתח</string>
@@ -1063,9 +1101,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">כבר קראתי</string>
   <string name="revanced_sb_guidelines_popup_open">תראה לי</string>
   <string name="revanced_sb_general">כללי</string>
-  <string name="revanced_sb_toast_on_connection_error_title">הצג הודעה קופצת אם ה-API אינו זמין</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">הודעה קופצת מוצגת אם SponsorBlock אינו זמין</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">הודעה קופצת אינה מוצגת אם SponsorBlock אינו זמין</string>
+  <string name="revanced_sb_toast_on_connection_error">הצג הודעה קופצת אם ה-API אינו זמין</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">הודעה קופצת מוצגת אם SponsorBlock אינו זמין</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">הודעה קופצת אינה מוצגת אם SponsorBlock אינו זמין</string>
   <string name="revanced_sb_general_skipcount">הפעל מעקב ספירת דילוגים</string>
   <string name="revanced_sb_general_skipcount_sum_on">מאפשר ללוח המובילים של SponsorBlock לדעת כמה זמן נחסך. הודעה נשלחת ללוח המובילים בכל פעם שמדלגים על מקטע</string>
   <string name="revanced_sb_general_skipcount_sum_off">מעקב ספירת דילוגים אינו מופעל</string>
@@ -1249,8 +1287,9 @@ Second \"item\" text"</string>
 אם נכבה מאוחר יותר, מומלץ לנקות את נתוני היישום כדי למנוע באגים של ממשק המשתמש."</string>
   <string name="revanced_spoof_app_version_target_title">יעד גרסת יישום מזויפת</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - שחזור סרגל פעולות וידאו לא מכווץ</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - שחזר סמלי נגן Shorts ישנים</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - שחזר סמלי ניווט ישנים</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - שחזור פונקציונליות תמלול</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - שחזר סמלי נגן Shorts ישנים</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - שחזר סמלי ניווט ישנים</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">שנה את דף ההתחלה</string>
@@ -1315,25 +1354,25 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_5">מודרני 2</string>
   <string name="revanced_miniplayer_type_entry_6">מודרני 3</string>
   <string name="revanced_miniplayer_type_entry_7">מודרני 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">הפעל פינות מעוגלות</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">הפינות מעוגלות</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">הפינות מרובעות</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">בטל פינות מעוגלות</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">הפינות מרובעות</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">הפינות מעוגלות</string>
   <string name="revanced_miniplayer_double_tap_action_title">הפעל הקשה כפולה וצביטה לשינוי גודל</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"פעולת הקשה כפולה וצביטה לשינוי גודל מופעלת
 
 • הקש פעמיים כדי להגדיל את גודל המיני-נגן
 • הקש פעמיים שוב כדי לשחזר את הגודל המקורי"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">פעולת הקשה כפולה וצביטה לשינוי גודל מושבתת</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">הפעל גרירה ושחרור</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"גרירה ושחרור מופעלים
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">בטל גרירה ושחרור</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">גרירה ושחרור מושבת</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"גרירה ושחרור מופעלים
 
 מיני-נגן ניתן לגרירה לעבר כל פינה של המסך"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">גרירה ושחרור מושבת</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">הפעל מחוות גרירה אופקית</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"מחוות גרירה אופקית מופעלת
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">בטל מחוות גרירה אופקית</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">מחוות גרירה אופקית מושבתת</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"מחוות גרירה אופקית מופעלת
 
 מיני-נגן ניתן לגרירה מחוץ למסך לשמאל או לימין"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">מחוות גרירה אופקית מושבתת</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">הסתר לחצני שכבת-על</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">לחצני שכבת-על מוסתרים</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">לחצני שכבת-על מוצגים</string>
@@ -1425,15 +1464,17 @@ Second \"item\" text"</string>
   <string name="revanced_announcements_connection_failed">נכשל בהתחברות לספק הכרזות</string>
   <string name="revanced_announcements_dialog_dismiss">דחה</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">אזהרה</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">היסטוריית הצפייה שלך לא נשמרת.&lt;br&gt;&lt;br&gt;סביר להניח שזה נגרם על ידי חוסם מודעות ברמת DNS או פרוקסי רשת.&lt;br&gt;&lt;br&gt;כדי לתקן זאת, רשום את &lt;b&gt;s.youtube.com&lt;/b&gt; ברשימת ההיתרים או כבה את כל חוסמי ה-DNS והפרוקסים.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">אל תציג שוב</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">הפעל סרטון בלולאה</string>
+  <string name="revanced_loop_video_summary_on">הסרטון יופעל בלולאה</string>
+  <string name="revanced_loop_video_summary_off">הסרטון לא יופעל בלולאה</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">הפעל החזרה אוטומטית</string>
-  <string name="revanced_auto_repeat_summary_on">החזרה אוטומטית מופעלת</string>
-  <string name="revanced_auto_repeat_summary_off">החזרה אוטומטית מושבתת</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">הצג לחצן הפעלת סרטון בלולאה</string>
+  <string name="revanced_loop_video_button_summary_on">הלחצן מוצג</string>
+  <string name="revanced_loop_video_button_summary_off">הלחצן אינו מוצג</string>
+  <string name="revanced_loop_video_button_toast_on">הפעלת סרטון בלולאה מופעלת</string>
+  <string name="revanced_loop_video_button_toast_off">הפעלת סרטון בלולאה כבויה</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">זייף ממדי מכשיר</string>
@@ -1473,11 +1514,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">פתח קישורים בדפדפן</string>
   <string name="revanced_external_browser_summary_on">פותח קישורים בדפדפן חיצוני </string>
   <string name="revanced_external_browser_summary_off">פותח קישורים בדפדפן בתוך היישום</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">הסר פרמטר מעקב של שאילתה</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">פרמטר מעקב של שאילתה מוסר מקישורים</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">פרמטר מעקב של שאילתה אינו מוסר מקישורים</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">כפה שפת שמע מקורית</string>
@@ -1542,10 +1578,22 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_default_title">מהירות הפעלה ברירת מחדל</string>
   <string name="revanced_remember_playback_speed_toast">מהירות ברירת המחדל שונתה ל: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">השבת סרטון HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">סרטון HDR מושבת</string>
   <string name="revanced_disable_hdr_video_summary_off">סרטון HDR מופעל</string>
+  <string name="revanced_force_avc_codec_title">כפה AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">קודק הווידאו נכפה ל-AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">קודק הווידאו נקבע אוטומטית</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"יתרונות:
+• יכול לשפר את חיי הסוללה
+• יכול לשחזר רזולוציות וידאו חסרות במכשירים ישנים יותר
+
+מגבלות:
+• הרזולוציה המקסימלית היא 1080p
+• הפעלת וידאו תשתמש ביותר נתוני אינטרנט מאשר VP9 או AV1
+• סרטוני HDR לא ישתמשו ב-AVC
+• התקנים מסוימים אינם יכולים לאכוף AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">הצג תפריט איכות סרטון מתקדם</string>
@@ -1559,12 +1607,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">תופעות לוואי של התחזות</string>
-  <string name="revanced_spoof_video_streams_about_android_title">תופעות לוואי של זיוף Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• תפריט רצועת השמע חסר
-• עוצמת קול יציבה אינה זמינה"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• הווידאו עשוי להיעצר בדקה 1:00, או ייתכן שלא יהיה זמין באזורים מסוימים</string>
   <string name="revanced_spoof_video_streams_about_experimental">• לקוח ניסיוני ועשוי להפסיק לפעול בכל עת</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• הווידאו עשוי להיעצר בדקה 1:00, או ייתכן שלא יהיה זמין באזורים מסוימים</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• תפריט ערוץ השמע חסר</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• אין קודק וידאו מסוג AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• עוצמת קול יציבה אינה זמינה</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ייתכן שסרטוני Kids לא יופעלו כשאתה מנותק או במצב פרטי</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• כפיית שמע מקורי אינה זמינה</string>

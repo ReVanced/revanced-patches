@@ -23,7 +23,6 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
         compatibleWith(
             "com.google.android.youtube"(
                 "19.34.42",
-                "19.43.41",
                 "20.07.39",
                 "20.13.41",
                 "20.14.43",
@@ -58,7 +57,8 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
                     ListPreference("revanced_spoof_video_streams_client_type"),
                     NonInteractivePreference(
                         // Requires a key and title but the actual text is chosen at runtime.
-                        key = "revanced_spoof_video_streams_about_android",
+                        key = "revanced_spoof_video_streams_about",
+                        summaryKey = null,
                         tag = "app.revanced.extension.youtube.settings.preference.SpoofStreamingDataSideEffectsPreference"
                     ),
                     ListPreference(

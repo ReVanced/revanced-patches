@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Gepatcht %s dagen geleden</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-bouwdatum is beschadigd</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Waarschuwing</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Uw kijkgeschiedenis wordt niet opgeslagen.&lt;br&gt;&lt;br&gt;Dit wordt hoogstwaarschijnlijk veroorzaakt door een DNS-adblocker of netwerkproxy.&lt;br&gt;&lt;br&gt;Om dit te verhelpen, voegt u &lt;b&gt;s.youtube.com&lt;/b&gt; toe aan de witte lijst of schakelt u alle DNS-blokkers en proxies uit.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Niet meer weergeven</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Instellingen</string>
   <string name="revanced_settings_confirm_user_dialog_title">Weet je zeker dat je door wilt gaan?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Zoekinstellingen</string>
   <string name="revanced_settings_search_no_results_title">Geen resultaten gevonden voor \", %s\"</string>
   <string name="revanced_settings_search_no_results_summary">Probeer een ander trefwoord</string>
+  <string name="revanced_settings_search_recent_searches">Recente zoekopdrachten</string>
   <string name="revanced_settings_search_remove_message">Verwijderen uit zoekgeschiedenis?</string>
+  <string name="revanced_settings_search_clear_history">Zoekgeschiedenis wissen</string>
+  <string name="revanced_settings_search_clear_history_message">Weet u zeker dat u alle zoekgeschiedenis wilt wissen?</string>
+  <string name="revanced_settings_search_tips_title">Zoektips</string>
+  <string name="revanced_settings_search_tips_summary">"• Tik op een pad om ernaartoe te navigeren
+• Lang indrukken op een instelling om ernaartoe te navigeren
+• Druk op Enter om een zoekopdracht op te slaan in de geschiedenis
+• Zoeken negeert hoofdletters en leestekens
+• Bovenliggende instellingen verschijnen boven uitgeschakelde onderliggende instellingen"</string>
+  <string name="revanced_settings_search_empty_history_title">Zoekgeschiedenis is leeg</string>
+  <string name="revanced_settings_search_empty_history_summary">Om zoekgeschiedenis op te slaan, typ een zoekopdracht en druk op Enter</string>
+  <string name="revanced_settings_search_history_title">Zoekgeschiedenis instellingen weergeven</string>
+  <string name="revanced_settings_search_history_summary_on">Zoekgeschiedenis instellingen wordt weergegeven</string>
+  <string name="revanced_settings_search_history_summary_off">De zoekgeschiedenis van de instellingen wordt niet weergegeven</string>
   <string name="revanced_show_menu_icons_title">Pictogrammen voor ReVanced-instellingen weergeven</string>
   <string name="revanced_show_menu_icons_summary_on">Instellingspictogrammen worden weergegeven</string>
   <string name="revanced_show_menu_icons_summary_off">Pictogrammen voor instellingen worden niet weergegeven</string>
   <string name="revanced_language_title">ReVanced-taal</string>
   <string name="revanced_language_user_dialog_message">"Vertalingen voor sommige talen kunnen ontbreken of onvolledig zijn.
 
-Om nieuwe talen te vertalen, gaat u naar translate.revanced.app"</string>
+Om nieuwe talen te vertalen of bestaande vertalingen te verbeteren, bezoek translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">App-taal</string>
   <string name="revanced_pref_import_export_title">Importeren / Exporteren</string>
   <string name="revanced_pref_import_export_summary">ReVanced-instellingen importeren / exporteren</string>
@@ -126,6 +145,14 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Wist alle opgeslagen ReVanced-foutopsporingslogboeken</string>
   <string name="revanced_debug_logs_clear_toast">Logboeken gewist</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Deelbare links opschonen</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Tracking queryparameter wordt verwijderd uit gedeelde links</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Tracking queryparameter wordt niet verwijderd uit gedeelde links</string>
+  <string name="revanced_replace_music_with_youtube_title">Deelkoppelingen wijzigen naar youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Gedeelde koppelingen gebruiken youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Gedeelde koppelingen gebruiken music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_restore_old_settings_menus_title">Oude instellingenmenu\'s herstellen</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Oude instellingenmenu\'s worden getoond</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Oude instellingenmenu\'s worden niet getoond</string>
-  <string name="revanced_settings_search_history_title">Zoekgeschiedenis instellingen weergeven</string>
-  <string name="revanced_settings_search_history_summary_on">Zoekgeschiedenis instellingen wordt weergegeven</string>
-  <string name="revanced_settings_search_history_summary_off">De zoekgeschiedenis van de instellingen wordt niet weergegeven</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts-achtergrondafspelen uitschakelen</string>
@@ -355,15 +379,15 @@ Als er momenteel een Doodle wordt getoond in je regio en deze instelling voor ve
   <string name="revanced_hide_comments_create_a_short_button_title">Verberg \'Create a Short\' knop</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Knop \'Een Short maken\' is verborgen</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Knop \'Een Short maken\' wordt weergegeven</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Emoji- en tijdstempelknoppen verbergen</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emoji- en tijdstempelknoppen zijn verborgen</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emoji- en tijdstempelknoppen zijn weergegeven</string>
   <string name="revanced_hide_comments_preview_comment_title">Reactie in preview verbergen</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Preview reactie is verborgen</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Preview reactie wordt getoond</string>
   <string name="revanced_hide_comments_thanks_button_title">Verberg de knop \'Bedankt\'</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Bedankknop is verborgen</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">De knop \'Bedankt\' wordt weergegeven</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Tijdstempelknop verbergen</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Knop voor tijdstempel is verborgen</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Knop voor tijdstempel wordt weergegeven</string>
   <string name="revanced_custom_filter_screen_title">Aangepaste filter</string>
   <string name="revanced_custom_filter_screen_summary">Componenten verbergen met aangepaste filters</string>
   <string name="revanced_custom_filter_title">Aangepaste filter inschakelen</string>
@@ -373,6 +397,20 @@ Als er momenteel een Doodle wordt getoond in je regio en deze instelling voor ve
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Lijst met component pad builder strings om te filteren gescheiden door een nieuwe regel</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Ongeldig aangepast filter: %s</string>
+  <string name="revanced_hide_view_count_title">Aantal weergaven verbergen</string>
+  <string name="revanced_hide_view_count_summary_on">Aantal weergaven is verborgen in feed en zoekresultaten</string>
+  <string name="revanced_hide_view_count_summary_off">Aantal weergaven wordt getoond in feed en zoekresultaten</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Beperkingen:
+• Shorts-planken, kanaalpagina's en zoekresultaten kunnen nog steeds het aantal weergaven tonen
+• Deze functie werkt niet met de automotive form factor"</string>
+  <string name="revanced_hide_upload_time_title">Verberg uploadtijd</string>
+  <string name="revanced_hide_upload_time_summary_on">Uploadtijd is verborgen in feed en zoekresultaten</string>
+  <string name="revanced_hide_upload_time_summary_off">Uploadtijd wordt getoond in feed en zoekresultaten</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Beperkingen:
+• Shorts-schappen, kanaalpagina's en zoekresultaten kunnen nog steeds uploadtijden tonen
+• Deze functie werkt niet met de automotive vormfactor"</string>
   <string name="revanced_hide_keyword_content_screen_title">Keyword content verbergen</string>
   <string name="revanced_hide_keyword_content_screen_summary">Zoek- en feed-video\'s verbergen met behulp van keyword filters</string>
   <string name="revanced_hide_keyword_content_home_title">Home-video\'s verbergen door keywords</string>
@@ -1060,9 +1098,9 @@ Deze functie werkt het beste met een videokwaliteit van 720p of lager en wanneer
   <string name="revanced_sb_guidelines_popup_already_read">Al gelezen</string>
   <string name="revanced_sb_guidelines_popup_open">Toon mij</string>
   <string name="revanced_sb_general">Algemeen</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Toon een \"toast\" als de API niet beschikbaar is</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">\"Toast\" wordt weergegeven als SponsorBlock niet beschikbaar is</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">\"Toast\" wordt niet weergegeven als SponsorBlock niet beschikbaar is</string>
+  <string name="revanced_sb_toast_on_connection_error">Toon een \"toast\" als de API niet beschikbaar is</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">\"Toast\" wordt weergegeven als SponsorBlock niet beschikbaar is</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">\"Toast\" wordt niet weergegeven als SponsorBlock niet beschikbaar is</string>
   <string name="revanced_sb_general_skipcount">Schakel het bijhouden van het aantal overslaan in</string>
   <string name="revanced_sb_general_skipcount_sum_on">Laat het SponsorBlock-klassement weten hoeveel tijd wordt bespaard. Er wordt een bericht naar het klassement verzonden telkens wanneer een segment wordt overgeslagen</string>
   <string name="revanced_sb_general_skipcount_sum_off">Het bijhouden van het aantal overslaan is niet ingeschakeld</string>
@@ -1247,8 +1285,9 @@ Dit zal het uiterlijk en de functies van de app veranderen, maar er kunnen onbek
 Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen om UI-fouten te voorkomen."</string>
   <string name="revanced_spoof_app_version_target_title">Doel voor vervalsen app-versie</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Herstel niet-ingeklapte videobalk</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Herstel oude pictogrammen voor Shorts-speler</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Herstel oude navigatie-iconen</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Transcriptfunctionaliteit herstellen</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Herstel oude pictogrammen voor Shorts-speler</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Herstel oude navigatie-iconen</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Startpagina wijzigen</string>
@@ -1311,25 +1350,25 @@ Als het later wordt uitgeschakeld, wordt aanbevolen om de app-gegevens te wissen
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
   <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Schakel afgeronde hoeken in</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Hoeken zijn afgerond</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Hoeken zijn vierkant</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Afgeronde hoeken uitschakelen</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Hoeken zijn vierkant</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Hoeken zijn afgerond</string>
   <string name="revanced_miniplayer_double_tap_action_title">Schakel dubbeltikken en knijpen om te verkleinen in</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Dubbeltikactie en knijpen om te verkleinen is ingeschakeld
 
 • Dubbeltik om de miniplayer-grootte te vergroten
 • Dubbeltik opnieuw om de oorspronkelijke grootte te herstellen"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Dubbeltikken en knijpen om te verkleinen is uitgeschakeld</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Schakel slepen en neerzetten in</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Sleep-en-neerzetten is ingeschakeld
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Slepen en neerzetten uitschakelen</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Slepen en neerzetten is uitgeschakeld</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Sleep-en-neerzetten is ingeschakeld
 
 De miniplayer kan naar elke hoek van het scherm worden gesleept"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Slepen en neerzetten is uitgeschakeld</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Schakel horizontaal sleepgebaar in</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontale sleepbeweging ingeschakeld
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Horizontale sleepbeweging uitschakelen</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Horizontaal sleepgebaar uitgeschakeld</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Horizontale sleepbeweging ingeschakeld
 
 De miniplayer kan naar links of rechts van het scherm worden gesleept"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontaal sleepgebaar uitgeschakeld</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Overlayknoppen verbergen</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlayknoppen zijn verborgen</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlayknoppen worden weergegeven</string>
@@ -1421,15 +1460,17 @@ Tik hier om meer te weten te komen over DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Kan geen verbinding maken met de leverancier van aankondigingen</string>
   <string name="revanced_announcements_dialog_dismiss">Afwijzen</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Waarschuwing</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Uw kijkgeschiedenis wordt niet opgeslagen.&lt;br&gt;&lt;br&gt;Dit wordt hoogstwaarschijnlijk veroorzaakt door een DNS-adblocker of netwerkproxy.&lt;br&gt;&lt;br&gt;Om dit te verhelpen, voegt u &lt;b&gt;s.youtube.com&lt;/b&gt; toe aan de witte lijst of schakelt u alle DNS-blokkers en proxies uit.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Niet meer weergeven</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Loopvideo inschakelen</string>
+  <string name="revanced_loop_video_summary_on">Video zal herhalen</string>
+  <string name="revanced_loop_video_summary_off">Video zal niet herhalen</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Schakel automatisch herhalen in</string>
-  <string name="revanced_auto_repeat_summary_on">Automatisch herhalen is ingeschakeld</string>
-  <string name="revanced_auto_repeat_summary_off">Automatisch herhalen is uitgeschakeld</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Knop voor loopvideo weergeven</string>
+  <string name="revanced_loop_video_button_summary_on">Knop wordt weergegeven</string>
+  <string name="revanced_loop_video_button_summary_off">Knop wordt niet weergegeven</string>
+  <string name="revanced_loop_video_button_toast_on">Loopvideo is ingeschakeld</string>
+  <string name="revanced_loop_video_button_toast_off">Loopvideo is uitgeschakeld</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Spoof apparaatdimensies</string>
@@ -1469,11 +1510,6 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_external_browser_title">Koppelingen openen in browser</string>
   <string name="revanced_external_browser_summary_on">Koppelingen openen in externe browser</string>
   <string name="revanced_external_browser_summary_off">Koppelingen openen in in-app browser</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Verwijder tracking-queryparameter</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking-queryparameter wordt verwijderd uit koppelingen</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking-queryparameter wordt niet verwijderd uit koppelingen</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forceer de originele audiotaal</string>
@@ -1538,10 +1574,22 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_playback_speed_default_title">Standaard afspeelsnelheid</string>
   <string name="revanced_remember_playback_speed_toast">Standaard snelheid gewijzigd naar: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">HDR-video uitschakelen</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video is uitgeschakeld</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video is ingeschakeld</string>
+  <string name="revanced_force_avc_codec_title">Forceer AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Videocodec wordt geforceerd naar AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Videocodec wordt automatisch bepaald</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Voordelen:
+• Kan de levensduur van de batterij verbeteren
+• Kan ontbrekende videoresoluties op oudere apparaten herstellen
+
+Beperkingen:
+• Maximale resolutie is 1080p
+• Het afspelen van video verbruikt meer internetdata dan VP9 of AV1
+• HDR-video's gebruiken geen AVC
+• Sommige apparaten kunnen AVC niet forceren"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Geavanceerd menu voor videokwaliteit weergeven</string>
@@ -1555,12 +1603,11 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Spoofing-neveneffecten</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Bijwerkingen van Android-spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Audiotracks-menu ontbreekt
-• Stabiel volume is niet beschikbaar"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video kan stoppen om 1:00, of is mogelijk niet beschikbaar in sommige regio\'s</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentele client en kan elk moment stoppen met werken</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video kan stoppen om 1:00, of is mogelijk niet beschikbaar in sommige regio\'s</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Audiotrack-menu ontbreekt</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Geen AV1-videocodec</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabiel volume is niet beschikbaar</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• \"Kinder\"​-Video’s worden mogelijk niet afgespeeld wanneer u bent uitgelogd of de incognitomodus gebruikt</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Oorspronkelijke audio forceren is niet beschikbaar</string>

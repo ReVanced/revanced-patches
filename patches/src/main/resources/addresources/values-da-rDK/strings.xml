@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Patched for %s dage siden</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK byggedato er ødelagt</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Advarsel</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Din urhistorik gemmes ikke.&lt;br&gt;&lt;br&gt;Dette skyldes sandsynligvis en DNS-annonceblokker eller netværksproxy.&lt;br&gt;&lt;br&gt;For at løse dette, whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; eller slå alle DNS-blokkere og fuldmagter fra.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Vis ikke igen</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Indstillinger</string>
   <string name="revanced_settings_confirm_user_dialog_title">Er du sikker på, at du vil fortsætte?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Søg i indstillinger</string>
   <string name="revanced_settings_search_no_results_title">Ingen resultater fundet for \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Prøv et andet søgeord</string>
+  <string name="revanced_settings_search_recent_searches">Seneste søgninger</string>
   <string name="revanced_settings_search_remove_message">Fjern fra søgehistorik?</string>
+  <string name="revanced_settings_search_clear_history">Ryd søgehistorik</string>
+  <string name="revanced_settings_search_clear_history_message">Er du sikker på, at du vil rydde al søgehistorik?</string>
+  <string name="revanced_settings_search_tips_title">Søgetips</string>
+  <string name="revanced_settings_search_tips_summary">"• Tryk på en sti for at navigere til den
+• Tryk længe på en indstilling for at navigere til den
+• Tryk på Enter for at gemme en søgeforespørgsel i historikken
+• Søgning ignorerer store/små bogstaver og tegnsætning
+• Overordnede indstillinger vises over deaktiverede underordnede indstillinger"</string>
+  <string name="revanced_settings_search_empty_history_title">Søgehistorikken er tom</string>
+  <string name="revanced_settings_search_empty_history_summary">For at gemme søgehistorik skal du skrive en søgeforespørgsel og trykke på Enter</string>
+  <string name="revanced_settings_search_history_title">Vis indstillingssøgehistorik</string>
+  <string name="revanced_settings_search_history_summary_on">Indstillingssøgehistorik vises</string>
+  <string name="revanced_settings_search_history_summary_off">Søgehistorik for indstillinger vises ikke</string>
   <string name="revanced_show_menu_icons_title">Vis ReVanced-indstillingsikoner</string>
   <string name="revanced_show_menu_icons_summary_on">Indstillingsikoner vises</string>
   <string name="revanced_show_menu_icons_summary_off">Indstillingsikoner vises ikke</string>
   <string name="revanced_language_title">ReVanced-sprog</string>
-  <string name="revanced_language_user_dialog_message">"Oversættelser for nogle sprog mangler muligvis eller er ufuldstændige.
+  <string name="revanced_language_user_dialog_message">"Oversættelser for nogle sprog kan mangle eller være ufuldstændige.
 
-For at oversætte til nye sprog skal du besøge translate.revanced.app"</string>
+For at oversætte nye sprog eller forbedre de eksisterende oversættelser, besøg translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">App-sprog</string>
   <string name="revanced_pref_import_export_title">Importér/Eksportér</string>
   <string name="revanced_pref_import_export_summary">Importér/Eksportér ReVanced-indstillinger</string>
@@ -126,6 +145,14 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Rydder alle gemte ReVanced-fejlsøgningslogfiler</string>
   <string name="revanced_debug_logs_clear_toast">Logfiler ryddet</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Rens delingslinks</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Sporingsforespørgselsparameter er fjernet fra delte links</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Sporingsforespørgselsparameter er ikke fjernet fra delte links</string>
+  <string name="revanced_replace_music_with_youtube_title">Skift delingslinks til youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Delte links bruger youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Delte links bruger music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_restore_old_settings_menus_title">Gendan gamle indstillingsmenuer</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Gamle indstillingsmenuer er vist</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Gamle indstillingsmenuer er ikke vist</string>
-  <string name="revanced_settings_search_history_title">Vis indstillingssøgehistorik</string>
-  <string name="revanced_settings_search_history_summary_on">Indstillingssøgehistorik vises</string>
-  <string name="revanced_settings_search_history_summary_off">Søgehistorik for indstillinger vises ikke</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Deaktiver baggrundsafspilning af Shorts</string>
@@ -355,15 +379,15 @@ Hvis et Doodle vises i øjeblikket i din region, og denne skjuleindstilling er a
   <string name="revanced_hide_comments_create_a_short_button_title">Skjul knappen \"Opret en Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Opret en Short knap er skjult</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Opret en Short knap vises</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Skjul Emoji- og Tidsstempelknapper</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emoji- og Tidsstempelknapper er skjult</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emoji- og Tidsstempelknapper vises</string>
   <string name="revanced_hide_comments_preview_comment_title">Skjul forhåndsvisning kommentar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Forhåndsvisning kommentar er skjult</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Forhåndsvis kommentar er vist</string>
   <string name="revanced_hide_comments_thanks_button_title">Skjul \"Tak\"-knap</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tak knappen er skjult</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tak knappen er vist</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Skjul Tidsstempel-knap</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Tidsstempelknappen er skjult</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Tidsstempelknappen vises</string>
   <string name="revanced_custom_filter_screen_title">Tilpasset filter</string>
   <string name="revanced_custom_filter_screen_summary">Skjul komponenter ved hjælp af brugerdefinerede filtre</string>
   <string name="revanced_custom_filter_title">Aktiver brugerdefineret filter</string>
@@ -373,6 +397,20 @@ Hvis et Doodle vises i øjeblikket i din region, og denne skjuleindstilling er a
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Liste over stigenereringsstrenge til filtrering adskilt af ny linje</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Ugyldigt brugerdefineret filter: %s</string>
+  <string name="revanced_hide_view_count_title">Skjul antal visninger</string>
+  <string name="revanced_hide_view_count_summary_on">Antal visninger er skjult i feed og søgeresultater</string>
+  <string name="revanced_hide_view_count_summary_off">Antal visninger vises i feed og søgeresultater</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Begrænsninger:
+• Shorts-hylder, kanalsider og søgeresultater kan stadig vise antal visninger
+• Denne funktion virker ikke med bilformat"</string>
+  <string name="revanced_hide_upload_time_title">Skjul uploadtid</string>
+  <string name="revanced_hide_upload_time_summary_on">Uploadtid er skjult i feed og søgeresultater</string>
+  <string name="revanced_hide_upload_time_summary_off">Uploadtid vises i feed og søgeresultater</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Begrænsninger:
+• Shorts hylder, kanalsider og søgeresultater kan stadig vise uploadtider
+• Denne funktion virker ikke med bilformat"</string>
   <string name="revanced_hide_keyword_content_screen_title">Skjul nøgleordsindhold</string>
   <string name="revanced_hide_keyword_content_screen_summary">Skjul søge- og feed videoer ved hjælp af søgeordsfiltre</string>
   <string name="revanced_hide_keyword_content_home_title">Skjul hjemmevideoer med søgeord</string>
@@ -1062,9 +1100,9 @@ Denne funktion fungerer bedst med en videokvalitet på 720p eller lavere og ved 
   <string name="revanced_sb_guidelines_popup_already_read">Allerede læst</string>
   <string name="revanced_sb_guidelines_popup_open">Vis mig</string>
   <string name="revanced_sb_general">Generelt</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Vis en toast hvis API ikke er tilgængelig</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Toast vises, hvis SponsorBlock ikke er tilgængelig</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Toast vises ikke, hvis SponsorBlock ikke er tilgængelig</string>
+  <string name="revanced_sb_toast_on_connection_error">Vis en toast hvis API ikke er tilgængelig</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Toast vises, hvis SponsorBlock ikke er tilgængelig</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Toast vises ikke, hvis SponsorBlock ikke er tilgængelig</string>
   <string name="revanced_sb_general_skipcount">Aktiver overspring tæller sporing</string>
   <string name="revanced_sb_general_skipcount_sum_on">Lader SponsorBlock pointtavlen vide, hvor meget tid der er gemt. En besked sendes til pointtavlen, hver gang et segment springes over</string>
   <string name="revanced_sb_general_skipcount_sum_off">Overspring tælling er ikke aktiveret</string>
@@ -1249,8 +1287,9 @@ Dette ændrer appens udseende og funktioner, men ukendte bivirkninger kan foreko
 Hvis det senere slås fra, anbefales det at rydde app-dataene for at forhindre UI-fejl."</string>
   <string name="revanced_spoof_app_version_target_title">Spoof app version mål</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Gendan ikke-kollapset videohandlingslinje</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Gendan gamle Shorts player ikoner</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Gendan gamle navigationsikoner</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Gendan transkriptionsfunktionalitet</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Gendan gamle Shorts player ikoner</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Gendan gamle navigationsikoner</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Skift startside</string>
@@ -1315,25 +1354,25 @@ Begrænsning: Brug af tilbage-knappen på værktøjslinjen fungerer muligvis ikk
   <string name="revanced_miniplayer_type_entry_5">Moderne 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderne 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moderne 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Aktiver afrundede hjørner</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Hjørner er afrundede</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Hjørner er firkantede</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Deaktiver afrundede hjørner</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Hjørner er firkantede</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Hjørner er afrundede</string>
   <string name="revanced_miniplayer_double_tap_action_title">Aktiver dobbelttryk og klemme for at ændre størrelse</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Dobbelttrykshandling og knib for at ændre størrelse er aktiveret
 
 ● Dobbelttryk for at øge miniafspillerstørrelsen
 ● Dobbelttryk igen for at gendanne den oprindelige størrelse"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Dobbelttryk handling og klemme for at ændre størrelse er deaktiveret</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Aktiver træk og slip</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Træk og slip er aktiveret
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Deaktiver træk og slip</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Træk og slip er deaktiveret</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Træk og slip er aktiveret
 
 Miniafspiller kan trækkes til et hvilket som helst hjørne af skærmen"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Træk og slip er deaktiveret</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Aktiver vandret træk-bevægelse</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Vandret træk-bevægelse aktiveret
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Deaktiver vandret trækbevægelse</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Vandret trækbevægelse deaktiveret</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Vandret træk-bevægelse aktiveret
 
 Miniafspiller kan trækkes ud over skærmen til venstre eller højre"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Vandret trækbevægelse deaktiveret</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Skjul overlay-knapper</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay-knapper er skjult</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay-knapper vises</string>
@@ -1425,15 +1464,17 @@ Tryk her for at lære mere om DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Kunne ikke forbinde til udbyder af annonceringer</string>
   <string name="revanced_announcements_dialog_dismiss">Luk</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Advarsel</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Din urhistorik gemmes ikke.&lt;br&gt;&lt;br&gt;Dette skyldes sandsynligvis en DNS-annonceblokker eller netværksproxy.&lt;br&gt;&lt;br&gt;For at løse dette, whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; eller slå alle DNS-blokkere og fuldmagter fra.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Vis ikke igen</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Aktiver loop-video</string>
+  <string name="revanced_loop_video_summary_on">Videoen vil loope</string>
+  <string name="revanced_loop_video_summary_off">Videoen vil ikke loope</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Aktivér auto-gentag</string>
-  <string name="revanced_auto_repeat_summary_on">Auto-gentag er aktiveret</string>
-  <string name="revanced_auto_repeat_summary_off">Auto-gentag er deaktiveret</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Vis knap for loop-video</string>
+  <string name="revanced_loop_video_button_summary_on">Knappen vises</string>
+  <string name="revanced_loop_video_button_summary_off">Knappen vises ikke</string>
+  <string name="revanced_loop_video_button_toast_on">Loop-video er slået til</string>
+  <string name="revanced_loop_video_button_toast_off">Loop-video er slået fra</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Spoof enhedens dimensioner</string>
@@ -1473,11 +1514,6 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_external_browser_title">Åbn links i browser</string>
   <string name="revanced_external_browser_summary_on">Åbner links i ekstern browser</string>
   <string name="revanced_external_browser_summary_off">Åbner links i browser i appen</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Fjern sporingsforespørgselsparameter</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Sporingsparameteren er fjernet fra links</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Sporingsforespørgselsparameteren er ikke fjernet fra links</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Tving originalt lydsprog</string>
@@ -1542,10 +1578,22 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_playback_speed_default_title">Standard afspilningshastighed</string>
   <string name="revanced_remember_playback_speed_toast">Ændrede standardhastighed til: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Deaktiver HDR-video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-video er deaktiveret</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-video er aktiveret</string>
+  <string name="revanced_force_avc_codec_title">Gennemtving AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Video-codec er tvunget til AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Video-codec bestemmes automatisk</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Fordele:
+• Kan forbedre batterilevetiden
+• Kan gendanne manglende videoopløsninger på ældre enheder
+
+Begrænsninger:
+• Maksimal opløsning er 1080p
+• Videoafspilning vil bruge mere internetdata end VP9 eller AV1
+• HDR-videoer vil ikke bruge AVC
+• Nogle enheder kan ikke tvinge AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Vis avanceret menu for videokvalitet</string>
@@ -1559,12 +1607,11 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Bivirkninger ved spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Bivirkninger ved Android-spoofing</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Lydsporsmenuen mangler
-• Stabil lydstyrke er ikke tilgængelig"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Videoen kan stoppe ved 1:00, eller er muligvis ikke tilgængelig i visse regioner</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentel klient og kan stoppe med at fungere når som helst</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Videoen kan stoppe ved 1:00, eller er muligvis ikke tilgængelig i visse regioner</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Lydspormenu mangler</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Intet AV1-videokodek</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabil lydstyrke er ikke tilgængelig</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videoer til børn afspilles muligvis ikke, når du er logget ud eller i inkognitotilstand</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Tving original lyd er ikke tilgængelig</string>

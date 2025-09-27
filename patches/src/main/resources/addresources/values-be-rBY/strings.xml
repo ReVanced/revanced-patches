@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Адкарэктавана %s дзён таму</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Дата стварэння APK пашкоджана</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Увага</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша гісторыя прагляду не захоўваецца.&lt;br&gt;&lt;br&gt;Гэта, хутчэй за ўсё, выклікана DNS-блакіроўшчыкам рэкламы або сеткавым праксі.&lt;br&gt;&lt;br&gt;Каб выправіць гэта, дадайце &lt;b&gt;s.youtube.com&lt;/b&gt; у белы спіс або адключыце ўсе DNS-блакіроўшчыкі і праксі.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Больш не паказваць</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Налады</string>
   <string name="revanced_settings_confirm_user_dialog_title">Вы ўпэўнены, што хочаце працягнуць?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Пошук налад</string>
   <string name="revanced_settings_search_no_results_title">Нічога не знойдзена для \",%s\"</string>
   <string name="revanced_settings_search_no_results_summary">Паспрабуйце іншае ключавое слова</string>
+  <string name="revanced_settings_search_recent_searches">Апошнія пошукі</string>
   <string name="revanced_settings_search_remove_message">Выдаліць з гісторыі пошуку?</string>
+  <string name="revanced_settings_search_clear_history">Ачысціць гісторыю пошуку</string>
+  <string name="revanced_settings_search_clear_history_message">Вы ўпэўнены, што хочаце ачысціць усю гісторыю пошуку?</string>
+  <string name="revanced_settings_search_tips_title">Парады па пошуку</string>
+  <string name="revanced_settings_search_tips_summary">"• Націсніце шлях, каб перайсці да яго
+• Доўга націсніце настройку, каб перайсці да яе
+• Націсніце Enter, каб захаваць пошукавы запыт у гісторыю
+• Пошук ігнаруе рэгістр і пунктуацыю
+• Бацькоўскія налады з'яўляюцца над адключанымі даччынымі наладамі"</string>
+  <string name="revanced_settings_search_empty_history_title">Гісторыя пошуку пустая</string>
+  <string name="revanced_settings_search_empty_history_summary">Каб захаваць гісторыю пошуку, увядзіце пошукавы запыт і націсніце Enter</string>
+  <string name="revanced_settings_search_history_title">Паказваць гісторыю пошуку ў наладах</string>
+  <string name="revanced_settings_search_history_summary_on">Паказваецца гісторыя пошуку ў наладах</string>
+  <string name="revanced_settings_search_history_summary_off">Гісторыя пошуку налад не паказваецца</string>
   <string name="revanced_show_menu_icons_title">Паказваць значкі налад ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Значкі налад паказваюцца</string>
   <string name="revanced_show_menu_icons_summary_off">Значкі налад не паказваюцца</string>
   <string name="revanced_language_title">Мова ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"Пераклады для некаторых моў могуць быць адсутнымі або няпоўнымі.
+  <string name="revanced_language_user_dialog_message">"Пераклады для некаторых моў могуць адсутнічаць або быць няпоўнымі.
 
-Каб дадаць новыя мовы, наведайце translate.revanced.app"</string>
+Каб перакласці новыя мовы або палепшыць існуючыя пераклады, наведайце translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Мова праграмы</string>
   <string name="revanced_pref_import_export_title">Імпарт / Экспарт</string>
   <string name="revanced_pref_import_export_summary">Імпарт / Экспарт налад ReVanced</string>
@@ -126,6 +145,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Ачышчае ўсе захаваныя адладачныя лагі ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Лагі ачышчаны</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Ачысціць спасылкі для абагульвання</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Параметр запыту адсочвання выдалены з абагуленых спасылак</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Параметр запыту адсочвання не выдалены з абагуленых спасылак</string>
+  <string name="revanced_replace_music_with_youtube_title">Змяніць спасылкі для абагульвання на youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Агульныя спасылкі выкарыстоўваюць youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Агульныя спасылкі выкарыстоўваюць music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">Аднавіць старое меню налад</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Старыя меню налад паказваюцца</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Старыя меню налад не паказваюцца</string>
-  <string name="revanced_settings_search_history_title">Паказваць гісторыю пошуку ў наладах</string>
-  <string name="revanced_settings_search_history_summary_on">Паказваецца гісторыя пошуку ў наладах</string>
-  <string name="revanced_settings_search_history_summary_off">Гісторыя пошуку налад не паказваецца</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Адключыць прайграванне Shorts у фонавым</string>
@@ -355,15 +379,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">Схаваць кнопку \"Створиць Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Кнопка «Стварыць Shorts» схаваная</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Кнопка «Стварыць Shorts» паказаная</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Схаваць кнопкі эмодзі і пазнак часу</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Кнопкі эмодзі і пазнак часу схаваны</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Кнопкі эмодзі і пазнак часу паказаны</string>
   <string name="revanced_hide_comments_preview_comment_title">Схаваць каментарый для папярэдняга прагляду</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Каментарый перад праглядам схаваны</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Паказваецца папярэдні прагляд каментарыя</string>
   <string name="revanced_hide_comments_thanks_button_title">Схаваць кнопку \"Дзякуй\"\"</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Кнопка падзякі схавана</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Паказана кнопка падзякі</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Схаваць кнопку \"Пазнака часу\"</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Кнопка часу схаваная</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Кнопка часу паказаная</string>
   <string name="revanced_custom_filter_screen_title">Карыстальніцкі фільтр</string>
   <string name="revanced_custom_filter_screen_summary">Схавайце кампаненты з дапамогай карыстацкіх фільтраў</string>
   <string name="revanced_custom_filter_title">Уключыць карыстальніцкі фільтр</string>
@@ -373,6 +397,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Спіс радкоў канструктара шляхоў кампанентаў для фільтрацыі, раздзеленых новым радком</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Няправільны карыстацкі фільтр: %s</string>
+  <string name="revanced_hide_view_count_title">Схаваць колькасць праглядаў</string>
+  <string name="revanced_hide_view_count_summary_on">Колькасць праглядаў схавана ў стужцы і выніках пошуку</string>
+  <string name="revanced_hide_view_count_summary_off">Колькасць праглядаў паказана ў стужцы і выніках пошуку</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Абмежаванні:
+• На паліцах Shorts, старонках каналаў і ў выніках пошуку ўсё яшчэ можа адлюстроўвацца колькасць праглядаў
+• Гэта функцыя не працуе з аўтамабільным форм-фактарам"</string>
+  <string name="revanced_hide_upload_time_title">Схаваць час загрузкі</string>
+  <string name="revanced_hide_upload_time_summary_on">Час загрузкі схаваны ў стужцы і выніках пошуку</string>
+  <string name="revanced_hide_upload_time_summary_off">Час загрузкі паказаны ў стужцы і выніках пошуку</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Абмежаванні:
+• На паліцах Shorts, старонках каналаў і ў выніках пошуку ўсё яшчэ можа адлюстроўвацца час загрузкі
+• Гэтая функцыя не працуе з аўтамабільным форм-фактарам"</string>
   <string name="revanced_hide_keyword_content_screen_title">Схаваць змест ключавых слоў</string>
   <string name="revanced_hide_keyword_content_screen_summary">Схавайце відэа для пошуку і стужкі з дапамогай фільтраў па ключавых словах</string>
   <string name="revanced_hide_keyword_content_home_title">Схаваць хатняе відэа па ключавых словах</string>
@@ -1060,9 +1098,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">Ужо прачытаў</string>
   <string name="revanced_sb_guidelines_popup_open">Пакажы мне</string>
   <string name="revanced_sb_general">Генерал</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Паказаць тост, калі API недаступны</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Тост паказваецца, калі SponsorBlock недаступны</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Тост не паказваецца, калі SponsorBlock недаступны</string>
+  <string name="revanced_sb_toast_on_connection_error">Паказаць тост, калі API недаступны</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Тост паказваецца, калі SponsorBlock недаступны</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Тост не паказваецца, калі SponsorBlock недаступны</string>
   <string name="revanced_sb_general_skipcount">Уключыць адсочванне колькасці пропускаў</string>
   <string name="revanced_sb_general_skipcount_sum_on">Дазваляе табліцы лідэраў SponsorBlock ведаць, колькі часу зэканомлена. Паведамленне адпраўляецца ў спіс лідэраў кожны раз, калі сегмент прапускаецца</string>
   <string name="revanced_sb_general_skipcount_sum_off">Адсочванне колькасці пропускаў не ўключана</string>
@@ -1248,8 +1286,9 @@ Second \"item\" text"</string>
 Калі пазней будзе адключана, рэкамендуецца ачысціць даныя прыкладання, каб пазбегнуць памылак у інтэрфейсе."</string>
   <string name="revanced_spoof_app_version_target_title">Падробка мэтавай версіі праграмы</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Аднавіць не згорнуты радок дзеянняў відэа</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 — Восстановить старые значки плеера Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Аднаўленне старых значкоў навігацыі</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Аднавіць функцыянальнасць стэнаграмы</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 — Восстановить старые значки плеера Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Аднаўленне старых значкоў навігацыі</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Змяніць стартавую старонку</string>
@@ -1314,25 +1353,25 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_5">Сучасны 2</string>
   <string name="revanced_miniplayer_type_entry_6">Сучасны 3</string>
   <string name="revanced_miniplayer_type_entry_7">Сучасны 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Включить закругленные углы</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Углы закруглены</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Углы квадратные</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Адключыць закругленыя вуглы</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Углы квадратные</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Углы закруглены</string>
   <string name="revanced_miniplayer_double_tap_action_title">Включить двойное нажатие и масштабирование с помощьющипка</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Уключана дзеянне «подвойнае націсканне» і «шчыпкі для змены памеру»
 
 • Подвойнае націсканне, каб павялічыць памер міні-прайгравальніка
 • Подвойнае націсканне яшчэ раз, каб аднавіць першапачатковы памер"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Двойное нажатие и scalewithpinch отключены</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Включить перетаскивание</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Уключана перацягванне і кіданне
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Адключыць перацягванне</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Перетаскивание отключено</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Уключана перацягванне і кіданне
 
 Міні-прайгравальнік можна перацягнуць у любы куток экрана"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Перетаскивание отключено</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Включить горизонтальный жест перетаскивания</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Уключаны жэст гарызантальнага перацягвання
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Адключыць гарызантальны жэст перацягвання</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Горизонтальный жест перетаскивания отключен</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Уключаны жэст гарызантальнага перацягвання
 
 Міні-прайгравальнік можна перацягнуць за межы экрана ўлева ці ўправа"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Горизонтальный жест перетаскивания отключен</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Схаваць кнопкі накладання</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Кнопкі накладання схаваныя</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Кнопкі накладання паказаны</string>
@@ -1424,15 +1463,17 @@ Second \"item\" text"</string>
   <string name="revanced_announcements_connection_failed">Не ўдалося падключыцца да пастаўшчыка аб\"яў</string>
   <string name="revanced_announcements_dialog_dismiss">расслабіцца</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Увага</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша гісторыя прагляду не захоўваецца.&lt;br&gt;&lt;br&gt;Гэта, хутчэй за ўсё, выклікана DNS-блакіроўшчыкам рэкламы або сеткавым праксі.&lt;br&gt;&lt;br&gt;Каб выправіць гэта, дадайце &lt;b&gt;s.youtube.com&lt;/b&gt; у белы спіс або адключыце ўсе DNS-блакіроўшчыкі і праксі.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Больш не паказваць</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Уключыць зацыкленае відэа</string>
+  <string name="revanced_loop_video_summary_on">Відэа будзе зацыклена</string>
+  <string name="revanced_loop_video_summary_off">Відэа не будзе зацыклена</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Уключыць аўтаматычны паўтор</string>
-  <string name="revanced_auto_repeat_summary_on">Аўтаматычны паўтор уключаны</string>
-  <string name="revanced_auto_repeat_summary_off">Аўтаматычны паўтор адключаны</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Паказаць кнопку зацыклення відэа</string>
+  <string name="revanced_loop_video_button_summary_on">Кнопка паказана</string>
+  <string name="revanced_loop_video_button_summary_off">Кнопка не паказваецца</string>
+  <string name="revanced_loop_video_button_toast_on">Зацыкленне відэа ўключана</string>
+  <string name="revanced_loop_video_button_toast_off">Зацыкленне відэа выключана</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Памеры падманнага прылады</string>
@@ -1472,11 +1513,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">Адкрываць спасылкі ў браўзеры</string>
   <string name="revanced_external_browser_summary_on">Адкрыццё спасылак у знешнім браўзеры</string>
   <string name="revanced_external_browser_summary_off">Адкрыццё спасылак ва ўбудаваным браўзеры</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Выдаліць параметр запыту адсочвання</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Параметр запыту адсочвання выдалены са спасылак</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Параметр адсочвання запыту не выдаляецца са спасылак</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Вымушаная арыгінальная мова аўдыё</string>
@@ -1541,10 +1577,22 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_default_title">Стандартная хуткасць прайгравання</string>
   <string name="revanced_remember_playback_speed_toast">Хуткасць па змаўчанні зменена на: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Адключыць відэа ў фармаце HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">Відэа ў фармаце HDR адключана</string>
   <string name="revanced_disable_hdr_video_summary_off">Відэа ў фармаце HDR уключана</string>
+  <string name="revanced_force_avc_codec_title">Прымусіць AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Відэакодэк прымусова ўсталяваны на AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Відэакодэк вызначаецца аўтаматычна</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Перавагі:
+• Можа палепшыць час працы батарэі
+• Можа аднавіць адсутныя разрозненні відэа на старой прыладзе
+
+Абмежаванні:
+• Максімальнае разрозненне - 1080p
+• Прайграванне відэа будзе выкарыстоўваць больш інтэрнэт-дадзеных, чым VP9 або AV1
+• HDR-відэа не будуць выкарыстоўваць AVC
+• Некаторыя прылады не могуць прымусова выкарыстоўваць AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Паказаць пашыранае меню якасці відэа</string>
@@ -1558,12 +1606,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Пабочныя эфекты падробкі</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Побічныя эфекты падробкі Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Меню гукавой дарожкі адсутнічае
-• Стабільная гучнасць недаступна"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Відэа можа спыніцца на 1:00, ці можа быць недаступным у некаторых рэгіёнах</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Эксперыментальны кліент і можа спыніць працу ў любы час</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Відэа можа спыніцца на 1:00, ці можа быць недаступным у некаторых рэгіёнах</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Меню аўдыядарожкі адсутнічае</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Няма відэакідавання AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Стабільная гучнасць недаступная</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Дзіцячыя відэа могуць не прайгравацца ў стане выхаду з акаўнта або ў рэжыме інкогніта</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Прымусовы арыгінальны аўдыё недаступны</string>

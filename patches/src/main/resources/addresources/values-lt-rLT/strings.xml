@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Pataisyta prieš %s dienas</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK sukurties data yra sugadinta</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Įspėjimas</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsų žiūrėjimo istorija nėra išsaugoma.&lt;br&gt;&lt;br&gt;Tikėtina, kad tai sukelia DNS skelbimų blokatorius arba tinklo tarpinis serveris.&lt;br&gt;&lt;br&gt;Norėdami išspręsti šią problemą, įtraukite į baltąjį sąrašą &lt;b&gt;s.youtube.com&lt;/b&gt; arba išjunkite visus DNS blokatorius ir tarpinį serverį.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerodyti daugiau</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Nustatymai</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ar tikrai norite tęsti?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Ieškoti nustatymų</string>
   <string name="revanced_settings_search_no_results_title">Nerasta rezultatų pagal „%s“</string>
   <string name="revanced_settings_search_no_results_summary">Bandykite kitą raktinį žodį</string>
+  <string name="revanced_settings_search_recent_searches">Naujausios paieškos</string>
   <string name="revanced_settings_search_remove_message">Pašalinti iš paieškos istorijos?</string>
+  <string name="revanced_settings_search_clear_history">Išvalyti paieškos istoriją</string>
+  <string name="revanced_settings_search_clear_history_message">Ar tikrai norite išvalyti visą paieškos istoriją?</string>
+  <string name="revanced_settings_search_tips_title">Paieškos patarimai</string>
+  <string name="revanced_settings_search_tips_summary">"• Bakstelėkite kelią, kad pereitumėte į jį
+• Ilgai paspauskite nustatymą, kad pereitumėte į jį
+• Paspauskite „Enter“, kad išsaugotumėte paieškos užklausą istorijoje
+• Paieška ignoruoja didžiąsias/mažąsias raides ir skyrybos ženklus
+• Tėviniai nustatymai rodomi virš išjungtų vaiko nustatymų"</string>
+  <string name="revanced_settings_search_empty_history_title">Paieškos istorija tuščia</string>
+  <string name="revanced_settings_search_empty_history_summary">Norėdami išsaugoti paieškos istoriją, įveskite paieškos užklausą ir paspauskite „Enter“</string>
+  <string name="revanced_settings_search_history_title">Rodyti nustatymų paieškos istoriją</string>
+  <string name="revanced_settings_search_history_summary_on">Nustatymų paieškos istorija rodoma</string>
+  <string name="revanced_settings_search_history_summary_off">Nustatymų paieškos istorija nerodoma</string>
   <string name="revanced_show_menu_icons_title">Rodyti „ReVanced“ nustatymų piktogramas</string>
   <string name="revanced_show_menu_icons_summary_on">Nustatymų piktogramos yra rodomos</string>
   <string name="revanced_show_menu_icons_summary_off">Nenurodomos nustatymų piktogramos</string>
   <string name="revanced_language_title">ReVanced kalba</string>
-  <string name="revanced_language_user_dialog_message">"Kai kurių kalbų vertimai gali būti neišsamūs ar trūkti.
+  <string name="revanced_language_user_dialog_message">"Kai kurių kalbų vertimai gali būti trūkstami arba neišsamūs.
 
-Norėdami išversti naujomis kalbomis apsilankykite translate.revanced.app"</string>
+Norėdami išversti naujas kalbas arba patobulinti esamus vertimus, apsilankykite translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Programų kalba</string>
   <string name="revanced_pref_import_export_title">Importuoti / Eksportuoti</string>
   <string name="revanced_pref_import_export_summary">Importuoti / Eksportuoti ReVanced nustatymus</string>
@@ -126,6 +145,14 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Išvalo visus išsaugotus „ReVanced“ derinimo žurnalus</string>
   <string name="revanced_debug_logs_clear_toast">Žurnalai išvalyti</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Nuvalyti bendrinimo nuorodas</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Stebėjimo užklausos parametras pašalinamas iš bendrinamų nuorodų</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Stebėjimo užklausos parametras nepašalinamas iš bendrinamų nuorodų</string>
+  <string name="revanced_replace_music_with_youtube_title">Pakeisti bendrinimo nuorodas į youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Bendrinamose nuorodose naudojama youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Bendrinamose nuorodose naudojama music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_restore_old_settings_menus_title">Atkurti senus nustatymų meniu</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Rodomi seni nustatymų meniu</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Seni nustatymų meniu nerodomi</string>
-  <string name="revanced_settings_search_history_title">Rodyti nustatymų paieškos istoriją</string>
-  <string name="revanced_settings_search_history_summary_on">Nustatymų paieškos istorija rodoma</string>
-  <string name="revanced_settings_search_history_summary_off">Nustatymų paieškos istorija nerodoma</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Išjungti \"Shorts\" foninį atkūrimą</string>
@@ -355,15 +379,15 @@ Jei „Doodle“ šiuo metu rodomas jūsu regione ir šis paslėpimo nustatymas 
   <string name="revanced_hide_comments_create_a_short_button_title">Slėpti \"Kurti Short\" mygtuką</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Mygtukas „Sukurti Short“ paslėptas</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Mygtukas „Sukurti Short“ rodomas</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Slėpti jaustukų ir laiko žymos mygtukus</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Jaustukų ir laiko žymos mygtukai yra paslėpti</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Jaustukų ir laiko žymos mygtukai yra rodomi</string>
   <string name="revanced_hide_comments_preview_comment_title">Slėpti peržiūros komentarą</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Peržiūros komentaras yra paslėptas</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Peržiūros komentaras yra rodomas</string>
   <string name="revanced_hide_comments_thanks_button_title">PaslÄ—pti „AÄiÅ³“ mygtukÄ…</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">\"Ačiū\" mygtukas yra paslėptas</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">\"Ačiū\" mygtukas yra rodomas</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Slėpti laiko žymės mygtuką</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Datos ir laiko žymos mygtukas paslėptas</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Datos ir laiko žymos mygtukas rodomas</string>
   <string name="revanced_custom_filter_screen_title">Pritaikomas filtras</string>
   <string name="revanced_custom_filter_screen_summary">Slėpti komponentus naudojant pritaikomus filtrus</string>
   <string name="revanced_custom_filter_title">Įjungti pritaikomus filtrus</string>
@@ -373,6 +397,20 @@ Jei „Doodle“ šiuo metu rodomas jūsu regione ir šis paslėpimo nustatymas 
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Komponento kelio kūrėjo eilutės, skirtos filtravimui, atskirtos nauja eilute</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Netinkamas pritaikomas filtras: %s</string>
+  <string name="revanced_hide_view_count_title">Slėpti peržiūrų skaičių</string>
+  <string name="revanced_hide_view_count_summary_on">Peržiūrų skaičius paslėptas kanale ir paieškos rezultatuose</string>
+  <string name="revanced_hide_view_count_summary_off">Peržiūrų skaičius rodomas kanale ir paieškos rezultatuose</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Apribojimai:
+• Shorts lentynos, kanalų puslapiai ir paieškos rezultatai vis tiek gali rodyti peržiūrų skaičių
+• Ši funkcija neveikia su automobiline formos išraiška"</string>
+  <string name="revanced_hide_upload_time_title">Slėpti įkėlimo laiką</string>
+  <string name="revanced_hide_upload_time_summary_on">Įkėlimo laikas paslėptas sraute ir paieškos rezultatuose</string>
+  <string name="revanced_hide_upload_time_summary_off">Įkėlimo laikas rodomas sraute ir paieškos rezultatuose</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Apribojimai:
+• „Shorts“ lentynose, kanalų puslapiuose ir paieškos rezultatuose vis dar gali būti rodomi įkėlimo laikai
+• Ši funkcija neveikia su automobilių formos faktoriumi"</string>
   <string name="revanced_hide_keyword_content_screen_title">Slėpti raktinių žodžių turinį</string>
   <string name="revanced_hide_keyword_content_screen_summary">Slėpti paieškos ir sklaidos srauto vaizdo įrašus naudojant raktinių žodžių filtrus</string>
   <string name="revanced_hide_keyword_content_home_title">Slėpti namų vaizdo įrašus pagal raktinius žodžius</string>
@@ -1060,9 +1098,9 @@ Paieškos juostos miniatiūros bus naudojamos tos pačios kokybės kaip dabartin
   <string name="revanced_sb_guidelines_popup_already_read">Jau perskaičiau</string>
   <string name="revanced_sb_guidelines_popup_open">Rodyti</string>
   <string name="revanced_sb_general">Bendrieji</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Rodyti pranešimą, jei API neprieinama</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Pranešimas rodomas, jei SponsorBlock neprieinama</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Pranešimas nerodomas, jei SponsorBlock neprieinama</string>
+  <string name="revanced_sb_toast_on_connection_error">Rodyti pranešimą, jei API neprieinama</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Pranešimas rodomas, jei SponsorBlock neprieinama</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Pranešimas nerodomas, jei SponsorBlock neprieinama</string>
   <string name="revanced_sb_general_skipcount">Įjungti praleidimo skaičiavimo sekimą</string>
   <string name="revanced_sb_general_skipcount_sum_on">Leidžia SponsorBlock reitingui žinoti, kiek laiko sutaupoma. Žinutė siunčiama į reitingą kaskart, kai praleidžiamas segmentas</string>
   <string name="revanced_sb_general_skipcount_sum_off">Praleidimo skaičiavimo sekimas neišjungtas</string>
@@ -1248,8 +1286,9 @@ Tai pakeis programos išvaizdą ir funkcijas, bet gali atsirasti nežinomų šal
 Jei vėliau išjungta, rekomenduojama išvalyti programos duomenis, kad būtų išvengta vartotojo sąsajos klaidų."</string>
   <string name="revanced_spoof_app_version_target_title">Programėlės versijos apsimetinėjimo tikslas</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 – Atkurti neišskleistą vaizdo veiksmų juostą</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Atkurti senus \"Shorts\" grotuvo piktogramas</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 – Atkurti senas naršymo piktogramas</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Atkurti transkripto funkcionalumą</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Atkurti senus \"Shorts\" grotuvo piktogramas</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 – Atkurti senas naršymo piktogramas</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Keisti pradžios puslapį</string>
@@ -1314,25 +1353,25 @@ Ribojimas: įrankių juostoje esantis atgal mygtukas gali neveikti."</string>
   <string name="revanced_miniplayer_type_entry_5">Modernus 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modernus 3</string>
   <string name="revanced_miniplayer_type_entry_7">Modernus 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Įgalinti suapvalintus kampus</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Kampai yra suapvalinti</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Kampai yra kvadratiniai</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Išjungti suapvalintus kampus</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Kampai yra kvadratiniai</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Kampai yra suapvalinti</string>
   <string name="revanced_miniplayer_double_tap_action_title">Įgalinti dvigubą bakstelėjimą ir suspaudimą, kad būtų galima keisti dydį</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Dvigubas bakstelėjimas ir sugriebimas, kad pakeistumėte dydį, įjungtas
 
 • Dvigubai bakstelėkite, kad padidintumėte \"miniplayer\" dydį
 • Dar kartą dvigubai bakstelėkite, kad atkurtumėte pradinį dydį"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Dvigubo bakstelėjimo veiksmas ir suspaudimas, kad būtų galima keisti dydį, yra išjungtas</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Įgalinti vilkimą ir numetimą</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"„Drag and drop“ įjungtas
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Išjungti vilkimą ir numetimą</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Vilkimas ir numetimas yra išjungtas</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"„Drag and drop“ įjungtas
 
 \"Miniplayer\" galima perkelti į bet kurį ekrano kampą"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Vilkimas ir numetimas yra išjungtas</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Įgalinti horizontalaus vilkimo gestą</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontalus vilkimo gestas įjungtas
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Išjungti horizontalųjį vilkimo gestą</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Horizontalaus vilkimo gestas išjungtas</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Horizontalus vilkimo gestas įjungtas
 
 \"Miniplayer\" galima vilkti nuo ekrano į kairę arba dešinę"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontalaus vilkimo gestas išjungtas</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Slėpti perdangos mygtukus</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Perdangos mygtukai paslėpti</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Perdangos mygtukai rodomi</string>
@@ -1424,15 +1463,17 @@ Palieskite čia, kad sužinotumėte daugiau apie DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Nepavyko prisijungti prie pranešimų teikėjo</string>
   <string name="revanced_announcements_dialog_dismiss">Atmesti</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Įspėjimas</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsų žiūrėjimo istorija nėra išsaugoma.&lt;br&gt;&lt;br&gt;Tikėtina, kad tai sukelia DNS skelbimų blokatorius arba tinklo tarpinis serveris.&lt;br&gt;&lt;br&gt;Norėdami išspręsti šią problemą, įtraukite į baltąjį sąrašą &lt;b&gt;s.youtube.com&lt;/b&gt; arba išjunkite visus DNS blokatorius ir tarpinį serverį.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerodyti daugiau</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Įjungti vaizdo įrašo kartojimą</string>
+  <string name="revanced_loop_video_summary_on">Vaizdo įrašas bus kartojamas</string>
+  <string name="revanced_loop_video_summary_off">Vaizdo įrašas nebus kartojamas</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Įjungti automatinį kartojimą</string>
-  <string name="revanced_auto_repeat_summary_on">Automatinis kartojimas įjungtas</string>
-  <string name="revanced_auto_repeat_summary_off">Automatinis kartojimas išjungtas</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Rodyti vaizdo įrašo kartojimo mygtuką</string>
+  <string name="revanced_loop_video_button_summary_on">Mygtukas rodomas</string>
+  <string name="revanced_loop_video_button_summary_off">Mygtukas nerodomas</string>
+  <string name="revanced_loop_video_button_toast_on">Vaizdo įrašo kartojimas įjungtas</string>
+  <string name="revanced_loop_video_button_toast_off">Vaizdo įrašo kartojimas išjungtas</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Susifalsifikuoti įrenginio matmenis</string>
@@ -1472,11 +1513,6 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_external_browser_title">Atidaryti nuorodas naršyklėje</string>
   <string name="revanced_external_browser_summary_on">Nuorodos atidaromos išorinėje naršyklėje</string>
   <string name="revanced_external_browser_summary_off">Nuorodos atidaromos programėlės naršyklėje</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Pašalinti stebėjimo užklausų parametrą</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Stebėjimo užklausų parametras pašalinamas iš nuorodų</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Stebėjimo užklausų parametras nėra pašalinamas iš nuorodų</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Priversti originalią garso kalbą</string>
@@ -1541,10 +1577,22 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_playback_speed_default_title">Numatytasis atkūrimo greitis</string>
   <string name="revanced_remember_playback_speed_toast">Pakeistas numatytasis greitis į: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Išjungti HDR vaizdo įrašą</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR vaizdo įrašas išjungtas</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR vaizdo įrašas įjungtas</string>
+  <string name="revanced_force_avc_codec_title">Priversti AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Vaizdo kodekas priverstinai nustatytas į AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Vaizdo kodekas nustatomas automatiškai</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Privalumai:
+• Gali pagerinti baterijos veikimo laiką
+• Gali atkurti trūkstamas vaizdo raiškas senesniuose įrenginiuose
+
+Apribojimai:
+• Didžiausia raiška yra 1080p
+• Vaizdo įrašų atkūrimas naudos daugiau interneto duomenų nei VP9 ar AV1
+• HDR vaizdo įrašai nenaudos AVC
+• Kai kurie įrenginiai negali priverstinai naudoti AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Rodyti išplėstinį vaizdo įrašo kokybės meniu</string>
@@ -1558,12 +1606,11 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Klastojimo šalutiniai efektai</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android apsimetinėjimo šalutiniai poveikiai</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Trūksta garso takelio meniu
-• Stabilus garsumas nepasiekiamas"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Vaizdo įrašas gali sustoti ties 1:00 arba gali būti nepasiekiamas kai kuriuose regionuose</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentinis klientas ir bet kada gali nustoti veikti</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Vaizdo įrašas gali sustoti ties 1:00 arba gali būti nepasiekiamas kai kuriuose regionuose</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Trūksta garso takelio meniu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nėra AV1 vaizdo kodeko</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabili garso apimtis nepasiekiama</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Vaikų vaizdo įrašai gali būti neatkuriami, kai atsijungiama arba naudojamas inkognito režimas</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Priverstinai naudoti originalų garsą nepasiekiama</string>

@@ -46,7 +46,6 @@
                         android:iconifiedByDefault="false"
                         android:searchIcon="@null"
                         android:queryBackground="@null"
-                        android:theme="@style/revanced_searchbar_cursor"
                         android:padding="2dp" />
 
             </FrameLayout>

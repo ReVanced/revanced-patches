@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Patch-at acum %s zile în urmă</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data construirii APK-ului este coruptă</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Atenție</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Istoricul de vizionare nu este salvat.&lt;br&gt;&lt;br&gt;Cel mai probabil este cauzată de un DNS de blocare a anunțurilor sau de un proxy de rețea.&lt;br&gt;&lt;br&gt;Pentru a remedia acest lucru, lista albă &lt;b&gt;s.youtube.com&lt;/b&gt; sau pentru a opri toate blocantele DNS și proxy-urile.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nu mai afișa</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Setări</string>
   <string name="revanced_settings_confirm_user_dialog_title">Sigur doriți să continuați?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Caută în setări</string>
   <string name="revanced_settings_search_no_results_title">Nu s-au găsit rezultate pentru „%s”</string>
   <string name="revanced_settings_search_no_results_summary">Încearcă un alt cuvânt cheie</string>
+  <string name="revanced_settings_search_recent_searches">Căutări recente</string>
   <string name="revanced_settings_search_remove_message">Eliminați din istoricul căutărilor?</string>
+  <string name="revanced_settings_search_clear_history">Șterge istoricul căutărilor</string>
+  <string name="revanced_settings_search_clear_history_message">Sigur doriți să ștergeți tot istoricul căutărilor?</string>
+  <string name="revanced_settings_search_tips_title">Sfaturi de căutare</string>
+  <string name="revanced_settings_search_tips_summary">"• Atingeți o cale pentru a naviga la ea
+• Apăsați lung pe o setare pentru a naviga la ea
+• Apăsați Enter pentru a salva o interogare de căutare în istoric
+• Căutarea ignoră majusculele/minusculele și punctuația
+• Setările părinte apar deasupra setărilor copil dezactivate"</string>
+  <string name="revanced_settings_search_empty_history_title">Istoricul căutărilor este gol</string>
+  <string name="revanced_settings_search_empty_history_summary">Pentru a salva istoricul căutărilor, introduceți o interogare de căutare și apăsați Enter</string>
+  <string name="revanced_settings_search_history_title">Afișează istoricul căutărilor în setări</string>
+  <string name="revanced_settings_search_history_summary_on">Se afișează istoricul căutărilor în setări</string>
+  <string name="revanced_settings_search_history_summary_off">Istoricul căutărilor în setări nu este afișat</string>
   <string name="revanced_show_menu_icons_title">Afișați pictogramele de setări ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Pictogramele de setări sunt afișate</string>
   <string name="revanced_show_menu_icons_summary_off">Pictogramele setărilor nu sunt afișate</string>
   <string name="revanced_language_title">Limba ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Traducerile pentru unele limbi pot lipsi sau pot fi incomplete.
 
-Pentru a traduce noi limbi, vizitați translate.revanced.app"</string>
+Pentru a traduce limbi noi sau pentru a îmbunătăți traducerile existente, vizitați translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Limba aplicației</string>
   <string name="revanced_pref_import_export_title">Importă / Exportă</string>
   <string name="revanced_pref_import_export_summary">Import/Export setări ReVanced</string>
@@ -126,6 +145,14 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Șterge toate jurnalele de depanare ReVanced stocate</string>
   <string name="revanced_debug_logs_clear_toast">Jurnale șterse</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Igienizează linkurile de partajare</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parametrul de interogare de urmărire este eliminat din linkurile partajate</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parametrul de interogare de urmărire nu este eliminat din linkurile partajate</string>
+  <string name="revanced_replace_music_with_youtube_title">Schimbați linkurile de partajare la youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Linkurile partajate utilizează youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Linkurile partajate utilizează music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_restore_old_settings_menus_title">Restaurare meniuri setări vechi</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Meniurile de setări vechi sunt afișate</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Meniurile de setări vechi nu sunt afișate</string>
-  <string name="revanced_settings_search_history_title">Afișează istoricul căutărilor în setări</string>
-  <string name="revanced_settings_search_history_summary_on">Se afișează istoricul căutărilor în setări</string>
-  <string name="revanced_settings_search_history_summary_off">Istoricul căutărilor în setări nu este afișat</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Dezactivează redarea în fundal a Shorts</string>
@@ -355,15 +379,15 @@ Dacă un Doodle este afișat în prezent în regiunea dvs. și această setare d
   <string name="revanced_hide_comments_create_a_short_button_title">Ascunde butonul \'Creare Short\'</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Butonul Creează un Short este ascuns</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Butonul Creează un Short este afișat</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Ascunde butoanele Emoji și Marcaj temporal</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Butoanele Emoji și Marcaj temporal sunt ascunse</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Butoanele Emoji și Marcaj temporal sunt afișate</string>
   <string name="revanced_hide_comments_preview_comment_title">Ascunde previzualizarea comentariului</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Previzualizarea comentariului este ascunsă</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Previzualizarea comentariului este afișată</string>
   <string name="revanced_hide_comments_thanks_button_title">Ascunde butonul „Mulțumesc”</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Butonul de multumire este ascuns</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Butonul de multumire este afisat</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Ascunde butonul Marcator de timp</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Butonul de marcaj temporal este ascuns</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Butonul de marcaj temporal este afișat</string>
   <string name="revanced_custom_filter_screen_title">Filtru personalizat</string>
   <string name="revanced_custom_filter_screen_summary">Ascunde componentele folosind filtre personalizate</string>
   <string name="revanced_custom_filter_title">Activează filtru personalizat</string>
@@ -373,6 +397,18 @@ Dacă un Doodle este afișat în prezent în regiunea dvs. și această setare d
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Lista șirurilor constructorului traiectoriei componentei pentru filtrarea separată de o linie nouă</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Filtru personalizat nevalid: %s</string>
+  <string name="revanced_hide_view_count_title">Ascunde numărul de vizualizări</string>
+  <string name="revanced_hide_view_count_summary_on">Numărul de vizualizări este ascuns în feed și în rezultatele căutării</string>
+  <string name="revanced_hide_view_count_summary_off">Numărul de vizualizări este afișat în feed și în rezultatele căutării</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Limitări:\n• Secțiunile Shorts, paginile canalelor și rezultatele căutării pot afișa în continuare numărul de vizualizări\n• Această funcție nu funcționează cu factorul de formă auto"</string>
+  <string name="revanced_hide_upload_time_title">Ascunde ora de încărcare</string>
+  <string name="revanced_hide_upload_time_summary_on">Ora de încărcare este ascunsă în feed și în rezultatele căutării</string>
+  <string name="revanced_hide_upload_time_summary_off">Ora de încărcare este afișată în feed și în rezultatele căutării</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Limitări:
+• rafturile Shorts, paginile canalelor și rezultatele căutării pot afișa în continuare orele de încărcare
+• Această funcție nu funcționează cu factorul de formă auto"</string>
   <string name="revanced_hide_keyword_content_screen_title">Ascundeți conținutul cuvântului cheie</string>
   <string name="revanced_hide_keyword_content_screen_summary">Ascundeți căutarea și hrănirea videoclipurilor folosind filtre de cuvinte cheie</string>
   <string name="revanced_hide_keyword_content_home_title">Ascunde videoclipurile de acasă după cuvintele cheie</string>
@@ -1060,9 +1096,9 @@ Această caracteristică funcționează cel mai bine cu o calitate video de 720p
   <string name="revanced_sb_guidelines_popup_already_read">Deja citite</string>
   <string name="revanced_sb_guidelines_popup_open">Arată-mi</string>
   <string name="revanced_sb_general">Generalități</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Arată un toast dacă API-ul nu este disponibil</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Toast este afișat dacă SponsorBlock nu este disponibil</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Toast nu este afișat dacă SponsorBlock nu este disponibil</string>
+  <string name="revanced_sb_toast_on_connection_error">Arată un toast dacă API-ul nu este disponibil</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Toast este afișat dacă SponsorBlock nu este disponibil</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Toast nu este afișat dacă SponsorBlock nu este disponibil</string>
   <string name="revanced_sb_general_skipcount">Activați omiterea peste urmărire</string>
   <string name="revanced_sb_general_skipcount_sum_on">Lasa clasamentul SponsorBlock sa stie cat de mult timp este salvat. Un mesaj este trimis in clasament de fiecare data cand un segment este sarit</string>
   <string name="revanced_sb_general_skipcount_sum_off">Omiterea numărului de urmărire nu este activată</string>
@@ -1246,8 +1282,9 @@ Acest lucru va schimba aspectul și caracteristicile aplicației, dar pot apăre
 Dacă este dezactivat ulterior, se recomandă să ștergeți datele aplicației pentru a preveni erorile UI."</string>
   <string name="revanced_spoof_app_version_target_title">Țintă versiune falsificată a aplicației</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Restabiliți bara de acțiune video necolapsată</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Restaurează pictogramele vechi ale playerului Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Restaurați pictogramele de navigare vechi</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Restaurare funcționalitate transcriere</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Restaurează pictogramele vechi ale playerului Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Restaurați pictogramele de navigare vechi</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Schimbă pagina de start</string>
@@ -1312,25 +1349,25 @@ Limitare: Utilizarea butonului Înapoi de pe bara de instrumente poate să nu fu
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
   <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Activează colțurile rotunjite</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Colţurile sunt rotunjite</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Colţurile sunt pătrate</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Dezactivează colțurile rotunjite</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Colţurile sunt pătrate</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Colţurile sunt rotunjite</string>
   <string name="revanced_miniplayer_double_tap_action_title">Activează dublu-click și prinde pentru a redimensiona</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Acțiunea de dublu tap și pinch to resize este activată
 
 • Dublu atingeți pentru a mări dimensiunea miniplayer-ului
 • Atingeți din nou de două ori pentru a restabili dimensiunea inițială"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Atingeți de două ori și redimensionarea este dezactivată</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Activează drag and drop</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Drag and drop este activat
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Dezactivează glisarea și plasarea</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Drag and drop este dezactivat</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Drag and drop este activat
 
 Miniplayerul poate fi tras în orice colț al ecranului"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and drop este dezactivat</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Activează Gestul de tragere orizontal</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Gestul de glisare orizontală este activat
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Dezactivează gestul de glisare orizontală</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Gest de tragere orizontal dezactivat</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Gestul de glisare orizontală este activat
 
 Miniplayerul poate fi tras pe ecran spre stânga sau spre dreapta"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gest de tragere orizontal dezactivat</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Ascunde butoanele suprapuse</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Butoanele suprapuse sunt ascunse</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Butoanele suprapuse sunt afișate</string>
@@ -1422,15 +1459,17 @@ Atingeți aici pentru a afla mai multe despre DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Conectarea la furnizorul de anunțuri a eșuat</string>
   <string name="revanced_announcements_dialog_dismiss">Anulare</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Atenție</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Istoricul de vizionare nu este salvat.&lt;br&gt;&lt;br&gt;Cel mai probabil este cauzată de un DNS de blocare a anunțurilor sau de un proxy de rețea.&lt;br&gt;&lt;br&gt;Pentru a remedia acest lucru, lista albă &lt;b&gt;s.youtube.com&lt;/b&gt; sau pentru a opri toate blocantele DNS și proxy-urile.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nu mai afișa</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Activează bucla video</string>
+  <string name="revanced_loop_video_summary_on">Videoclipul se va repeta în buclă</string>
+  <string name="revanced_loop_video_summary_off">Videoclipul nu se va repeta în buclă</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Activare auto-repetare</string>
-  <string name="revanced_auto_repeat_summary_on">Auto-repetarea este activată</string>
-  <string name="revanced_auto_repeat_summary_off">Auto-Repetarea este dezactivată</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Afișează butonul de buclă video</string>
+  <string name="revanced_loop_video_button_summary_on">Butonul este afișat</string>
+  <string name="revanced_loop_video_button_summary_off">Butonul nu este afișat</string>
+  <string name="revanced_loop_video_button_toast_on">Bucla video este activată</string>
+  <string name="revanced_loop_video_button_toast_off">Bucla video este dezactivată</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Spoul dimensiunilor dispozitivului</string>
@@ -1470,11 +1509,6 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_external_browser_title">Deschide link-uri în browser</string>
   <string name="revanced_external_browser_summary_on">Deschiderea linkurilor în browserul extern</string>
   <string name="revanced_external_browser_summary_off">Deschiderea linkurilor în browserul din aplicație</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Elimină parametrul de urmărire interogare</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Parametrul de urmărire a interogării este eliminat din link-uri</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Parametrul de urmărire a interogării nu este eliminat din link-uri</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forțează limba audio originală</string>
@@ -1539,10 +1573,22 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_playback_speed_default_title">Viteza de redare implicită</string>
   <string name="revanced_remember_playback_speed_toast">Viteza implicită a fost modificată la: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Dezactivați videoclipurile HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">Videoclipurile HDR sunt dezactivate</string>
   <string name="revanced_disable_hdr_video_summary_off">Videoclipurile HDR sunt activate</string>
+  <string name="revanced_force_avc_codec_title">Forțare AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Codec-ul video este forțat la AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Codec-ul video este determinat automat</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Beneficii:
+• Poate îmbunătăți durata de viață a bateriei
+• Poate restabili rezoluțiile video lipsă pe dispozitivele mai vechi
+
+Limitări:
+• Rezoluția maximă este 1080p
+• Redarea video va utiliza mai multe date de internet decât VP9 sau AV1
+• Videoclipurile HDR nu vor utiliza AVC
+• Unele dispozitive nu pot forța AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Afișează meniul avansat de calitate video</string>
@@ -1556,12 +1602,11 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Efecte secundare ale simulării</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Efecte secundare spoofing Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Meniul piesei audio lipsește
-• Volumul stabil nu este disponibil"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Videoclipul se poate opri la 1:00, sau poate să nu fie disponibil în unele regiuni</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Client experimental și se poate opri din funcționare oricând</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Videoclipul se poate opri la 1:00, sau poate să nu fie disponibil în unele regiuni</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Meniul pistei audio lipsește</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Fara codec video AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volumul stabil nu este disponibil</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Copiii nu pot urmări videoclipuri atunci când sunt deconectați sau în modul incognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Forțarea sunetului original nu este disponibilă</string>

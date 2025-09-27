@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Labots pirms %s dienām</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK veidošanas datums ir bojāts</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Brīdinājums</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsu skatīšanās vēsture netiek saglabāta.&lt;br&gt;&lt;br&gt;Visticamāk, to izraisa DNS reklāmu bloķētājs vai tīkla starpniekserveris.&lt;br&gt;&lt;br&gt;Lai to novērstu, pievienojiet baltajam sarakstam &lt;b&gt;s.youtube.com&lt;/b&gt; vai izslēdziet visus DNS bloķētājus un starpniekservera serverus.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerādīt vēlreiz</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Iestatījumi</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vai tiešām vēlaties turpināt?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Meklēt iestatījumus</string>
   <string name="revanced_settings_search_no_results_title">Nav atrasts neviens rezultāts atbilstoši \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Mēģiniet citu atslēgvārdu</string>
+  <string name="revanced_settings_search_recent_searches">Pēdējie meklējumi</string>
   <string name="revanced_settings_search_remove_message">Noņemt no meklēšanas vēstures?</string>
+  <string name="revanced_settings_search_clear_history">Notīrīt meklēšanas vēsturi</string>
+  <string name="revanced_settings_search_clear_history_message">Vai tiešām vēlaties notīrīt visu meklēšanas vēsturi?</string>
+  <string name="revanced_settings_search_tips_title">Meklēšanas padomi</string>
+  <string name="revanced_settings_search_tips_summary">"• Pieskarieties ceļam, lai pārietu uz to
+• Turiet nospiestu iestatījumu, lai pārietu uz to
+• Nospiediet taustiņu Enter, lai saglabātu meklēšanas vaicājumu vēsturē
+• Meklēšana ignorē lielo/mazo burtu atšķirības un pieturzīmes
+• Vecāku iestatījumi tiek rādīti virs atspējotiem pakārtotiem iestatījumiem"</string>
+  <string name="revanced_settings_search_empty_history_title">Meklēšanas vēsture ir tukša</string>
+  <string name="revanced_settings_search_empty_history_summary">Lai saglabātu meklēšanas vēsturi, ievadiet meklēšanas vaicājumu un nospiediet taustiņu Enter</string>
+  <string name="revanced_settings_search_history_title">Rādīt iestatījumu meklēšanas vēsturi</string>
+  <string name="revanced_settings_search_history_summary_on">Iestatījumu meklēšanas vēsture tiek rādīta</string>
+  <string name="revanced_settings_search_history_summary_off">Iestatījumu meklēšanas vēsture netiek rādīta</string>
   <string name="revanced_show_menu_icons_title">Rādīt ReVanced iestatījumu ikonas</string>
   <string name="revanced_show_menu_icons_summary_on">Iestatījumu ikonas tiek rādītas</string>
   <string name="revanced_show_menu_icons_summary_off">Ikonas iestatījumos netiek rādītas</string>
   <string name="revanced_language_title">ReVanced valoda</string>
-  <string name="revanced_language_user_dialog_message">"Tulkojuma dažām valodām var būt nepilnīgs vai nebūt vispār.
+  <string name="revanced_language_user_dialog_message">"Dažu valodu tulkojumi var būt trūkstoši vai nepilnīgi.
 
-Lai palīdzētu tulkot jaunās valodās, apmeklējiet vietni translate.revanced.app"</string>
+Lai tulkotu jaunās valodas vai uzlabotu esošos tulkojumus, apmeklējiet translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Lietotnes valoda</string>
   <string name="revanced_pref_import_export_title">Importēt/Eksportēt</string>
   <string name="revanced_pref_import_export_summary">Importēt/Eksportēt ReVanced iestatījumus</string>
@@ -126,6 +145,14 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Notīra visus saglabātos ReVanced atkļūdošanas žurnālus</string>
   <string name="revanced_debug_logs_clear_toast">Žurnāli ir notīrīti</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Tīrīt koplietošanas saites</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Izsekošanas vaicājuma parametrs tiek noņemts no koplietotajām saitēm</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Izsekošanas vaicājuma parametrs netiek noņemts no koplietotajām saitēm</string>
+  <string name="revanced_replace_music_with_youtube_title">Mainīt kopīgošanas saites uz youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Kopīgotās saites izmanto youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Kopīgotās saites izmanto music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_restore_old_settings_menus_title">Atjaunot vecās iestatījumu izvēlnes</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Tiek rādītas vecās iestatījumu izvēlnes</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Vecās iestatījumu izvēlnes netiek rādītas</string>
-  <string name="revanced_settings_search_history_title">Rādīt iestatījumu meklēšanas vēsturi</string>
-  <string name="revanced_settings_search_history_summary_on">Iestatījumu meklēšanas vēsture tiek rādīta</string>
-  <string name="revanced_settings_search_history_summary_off">Iestatījumu meklēšanas vēsture netiek rādīta</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Atspējot Shorts fonu atskaņošanu</string>
@@ -355,15 +379,15 @@ Ja Doodle pašlaik tiek rādīts jūsu reģionā un šis slēpšanas iestatījum
   <string name="revanced_hide_comments_create_a_short_button_title">Paslēpt \"Izveidot īso\" pogu</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Poga Izveidot Short ir paslēpta</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Poga Izveidot Short ir redzama</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Slēpt emocijzīmju un laika zīmogu pogas</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emocijzīmju un laika zīmogu pogas ir paslēptas</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emocijzīmju un laika zīmogu pogas ir redzamas</string>
   <string name="revanced_hide_comments_preview_comment_title">Paslēpt priekšskatījuma komentāru</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Priekšskatījuma komentārs ir paslēpts</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Priekšskatījuma komentārs ir redzams</string>
   <string name="revanced_hide_comments_thanks_button_title">Paslēpt pateicības pogu</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Paldies poga ir paslēpta</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Paldies poga ir redzama</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Paslēpt laika zīmoga pogu</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Laika zīmoga poga ir paslēpta</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Laika zīmoga poga ir redzama</string>
   <string name="revanced_custom_filter_screen_title">Pielāgotais filtrs</string>
   <string name="revanced_custom_filter_screen_summary">Paslēpt komponentus, izmantojot pielāgotos filtrus</string>
   <string name="revanced_custom_filter_title">Aktivizēt pielāgoto filtru</string>
@@ -373,6 +397,20 @@ Ja Doodle pašlaik tiek rādīts jūsu reģionā un šis slēpšanas iestatījum
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Komponentu ceļa konstruktoru virkņu saraksts, ko filtrēt, atdalot ar jaunu rindu</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Nederīgs pielāgotais filtrs: %s</string>
+  <string name="revanced_hide_view_count_title">Paslēpt skatījumu skaitu</string>
+  <string name="revanced_hide_view_count_summary_on">Skatījumu skaits ir paslēpts plūsmā un meklēšanas rezultātos</string>
+  <string name="revanced_hide_view_count_summary_off">Skatījumu skaits ir redzams plūsmā un meklēšanas rezultātos</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Ierobežojumi:
+• Shorts sadaļās, kanālu lapās un meklēšanas rezultātos joprojām var tikt rādīts skatījumu skaits
+• Šī funkcija nedarbojas ar automobiļu formas faktoru"</string>
+  <string name="revanced_hide_upload_time_title">Slēpt augšupielādes laiku</string>
+  <string name="revanced_hide_upload_time_summary_on">Augšupielādes laiks ir paslēpts plūsmā un meklēšanas rezultātos</string>
+  <string name="revanced_hide_upload_time_summary_off">Augšupielādes laiks tiek rādīts plūsmā un meklēšanas rezultātos</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Ierobežojumi:
+• Shorts plaukti, kanālu lapas un meklēšanas rezultāti joprojām var rādīt augšupielādes laiku
+• Šī funkcija nedarbojas ar automobiļu formas faktoru"</string>
   <string name="revanced_hide_keyword_content_screen_title">Paslēpt atslēgvārdu saturu</string>
   <string name="revanced_hide_keyword_content_screen_summary">Paslēpt meklēšanas un plūsmas video, izmantojot atslēgvārdu filtrus</string>
   <string name="revanced_hide_keyword_content_home_title">Paslēpt mājas video ar atslēgvārdiem</string>
@@ -1062,9 +1100,9 @@ Laika skalas miniatūras izmantos tādu pašu kvalitāti kā pašreizējais vide
   <string name="revanced_sb_guidelines_popup_already_read">Jau izlasīts</string>
   <string name="revanced_sb_guidelines_popup_open">Parādīt man</string>
   <string name="revanced_sb_general">Vispārīgi</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Parādīt paziņojumu, ja API nav pieejama</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Paziņojums parādās, ja SponsorBlock nav pieejams</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Paziņojums netiek parādīts, ja SponsorBlock nav pieejams</string>
+  <string name="revanced_sb_toast_on_connection_error">Parādīt paziņojumu, ja API nav pieejama</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Paziņojums parādās, ja SponsorBlock nav pieejams</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Paziņojums netiek parādīts, ja SponsorBlock nav pieejams</string>
   <string name="revanced_sb_general_skipcount">Iespējot izlaides skaita uzskaiti</string>
   <string name="revanced_sb_general_skipcount_sum_on">Atļauj SponsorBlock līderu sarakstam uzzināt, cik daudz laika tiek ietaupīts. Ziņojums tiek nosūtīts līderu sarakstam katru reizi, kad tiek izlaists segments</string>
   <string name="revanced_sb_general_skipcount_sum_off">Izlaides skaita uzskaite nav iespējota</string>
@@ -1248,8 +1286,9 @@ Tas mainīs lietotnes izskatu un funkcijas, taču var rasties nezināmas blakusp
 Ja vēlāk tiks izslēgts, ieteicams notīrīt lietotnes datus, lai novērstu lietotāja saskarnes kļūdas."</string>
   <string name="revanced_spoof_app_version_target_title">Viltot lietotnes versijas mērķis</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Atjaunot nesaspiestu video darbību joslu</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Atjaunot vecās Shorts spēlētāja ikonas</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Atjaunot vecās navigācijas ikonas</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Atjaunot transkripta funkcionalitāti</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Atjaunot vecās Shorts spēlētāja ikonas</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Atjaunot vecās navigācijas ikonas</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Mainīt sākuma lapu</string>
@@ -1314,25 +1353,25 @@ Ierobežojums: Atpakaļpoga rīkjoslā var nedarboties"</string>
   <string name="revanced_miniplayer_type_entry_5">Moderns 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderns 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moderns 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Iespējot noapaļotus stūrus</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Stūri ir noapaļoti</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Stūri ir kvadrātveida</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Atspējot noapaļotos stūrus</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Stūri ir kvadrātveida</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Stūri ir noapaļoti</string>
   <string name="revanced_miniplayer_double_tap_action_title">Iespējot divkāršu pieskaršanos un saspiešanu, lai mainītu izmēru</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Dubultpieskāriena darbība un saspiešana, lai mainītu izmēru, ir iespējota
 
 • Dubultpieskarieties, lai palielinātu miniatskaņotāja izmēru
 • Atkārtojiet dubultpieskārienu, lai atjaunotu sākotnējo izmēru"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Divkāršas pieskaršanās darbība un saspiešana, lai mainītu izmēru, ir atspējota</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Iespējot velci un nometiet</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Pārvilkšana un nomešana ir iespējota
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Atspējot vilkšanu un nomešanu</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Velciet un nometiet ir atspējots</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Pārvilkšana un nomešana ir iespējota
 
 Miniatskaņotāju var pārvilkt uz jebkuru ekrāna stūri"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Velciet un nometiet ir atspējots</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Iespējot horizontālu velci</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontālas pārvilkšanas žests ir iespējots
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Atspējot horizontālās vilkšanas žestu</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Horizontāls velci ir atspējots</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Horizontālas pārvilkšanas žests ir iespējots
 
 Miniatskaņotāju var pārvilkt no ekrāna uz kreiso vai labo pusi"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontāls velci ir atspējots</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Paslēpt pārklājuma pogas</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Pārklājuma pogas ir paslēptas</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Pārklājuma pogas ir redzamas</string>
@@ -1424,15 +1463,17 @@ Nospiediet šeit, lai uzzinātu vairāk par DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Neizdevās izveidot savienojumu ar paziņojumu nodrošinātāju</string>
   <string name="revanced_announcements_dialog_dismiss">Aizvērt</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Brīdinājums</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsu skatīšanās vēsture netiek saglabāta.&lt;br&gt;&lt;br&gt;Visticamāk, to izraisa DNS reklāmu bloķētājs vai tīkla starpniekserveris.&lt;br&gt;&lt;br&gt;Lai to novērstu, pievienojiet baltajam sarakstam &lt;b&gt;s.youtube.com&lt;/b&gt; vai izslēdziet visus DNS bloķētājus un starpniekservera serverus.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerādīt vēlreiz</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Iespējot video atkārtošanu</string>
+  <string name="revanced_loop_video_summary_on">Video tiks atkārtots</string>
+  <string name="revanced_loop_video_summary_off">Video netiks atkārtots</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Iespējot automātisko atkārtošanu</string>
-  <string name="revanced_auto_repeat_summary_on">Automātiskā atkārtošana ir iespējota</string>
-  <string name="revanced_auto_repeat_summary_off">Automātiskā atkārtošana ir atspējota</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Rādīt video atkārtošanas pogu</string>
+  <string name="revanced_loop_video_button_summary_on">Poga ir redzama</string>
+  <string name="revanced_loop_video_button_summary_off">Poga nav redzama</string>
+  <string name="revanced_loop_video_button_toast_on">Video atkārtošana ir ieslēgta</string>
+  <string name="revanced_loop_video_button_toast_off">Video atkārtošana ir izslēgta</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Viltot ierīces izmērus</string>
@@ -1472,11 +1513,6 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_external_browser_title">Atvērt saites pārlūkprogrammā</string>
   <string name="revanced_external_browser_summary_on">Saišu atvēršana ārējā pārlūkprogrammā</string>
   <string name="revanced_external_browser_summary_off">Saišu atvēršana lietotnes pārlūkprogrammā</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Noņemt izsekošanas vaicājuma parametru</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Izsekošanas vaicājuma parametrs tiek noņemts no saitēm</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Izsekošanas vaicājuma parametrs netiek noņemts no saitēm</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Piespiest oriģinālo audio valodu</string>
@@ -1541,10 +1577,22 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_playback_speed_default_title">Noklusējuma atskaņošanas ātrums</string>
   <string name="revanced_remember_playback_speed_toast">Izmainīts noklusējuma ātrums uz: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Deaktivējiet HDR video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video ir deaktivizēts</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video ir aktivizēts</string>
+  <string name="revanced_force_avc_codec_title">Piespiest AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Video kodeks ir piespiests uz AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Video kodeks tiek noteikts automātiski</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Ieguvumi:
+• Var uzlabot akumulatora darbības laiku
+• Var atjaunot trūkstošās video izšķirtspējas vecākās ierīcēs
+
+Ierobežojumi:
+• Maksimālā izšķirtspēja ir 1080p
+• Video atskaņošana patērēs vairāk interneta datu nekā VP9 vai AV1
+• HDR video neizmantos AVC
+• Dažas ierīces nevar piespiest AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Rādīt izvērsto video kvalitātes izvēlni</string>
@@ -1558,12 +1606,11 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Viltotu straumju blakusparādības</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android viltus straumēšanas blakus efekti</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Audio celiņa izvēlne trūkst
-• Nav pieejams stabils skaļums"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video var apstāties pulksten 1:00 vai nebūt pieejams dažos reģionos</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentāls klients un jebkurā brīdī var pārtraukt darbu</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video var apstāties pulksten 1:00 vai nebūt pieejams dažos reģionos</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Trūkst audio celiņa izvēlnes</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nav pieejams AV1 video kodeks</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Nav pieejams stabils skaļums</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Bērnu videoklipi var netikt atskaņoti, kad esat izrakstījies vai inkognito režīmā.</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Piespiest oriģinālo skaņu nav pieejams</string>

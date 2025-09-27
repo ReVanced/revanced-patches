@@ -6,8 +6,11 @@ import app.revanced.extension.youtube.shared.PlayerType;
 @SuppressWarnings("unused")
 final class CommentsFilter extends Filter {
 
+    private static final String COMMENT_COMPOSER_PATH = "comment_composer.eml";
+
     private final StringFilterGroup chipBar;
     private final ByteArrayFilterGroup aiCommentsSummary;
+    private final StringFilterGroup emojiAndTimestampButtons;
     
     public CommentsFilter() {
         var chatSummary = new StringFilterGroup(
@@ -52,6 +55,11 @@ final class CommentsFilter extends Filter {
                 "composer_short_creation_button.eml"
         );
 
+        emojiAndTimestampButtons = new StringFilterGroup(
+                Settings.HIDE_COMMENTS_EMOJI_AND_TIMESTAMP_BUTTONS,
+                "|CellType|ContainerType|ContainerType|ContainerType|ContainerType|ContainerType|"
+        );
+
         var previewComment = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_PREVIEW_COMMENT,
                 "|carousel_item",
@@ -64,11 +72,6 @@ final class CommentsFilter extends Filter {
                 "super_thanks_button.eml"
         );
 
-        StringFilterGroup timestampButton = new StringFilterGroup(
-                Settings.HIDE_COMMENTS_TIMESTAMP_BUTTON,
-                "composer_timestamp_button.eml"
-        );
-
         addPathCallbacks(
                 channelGuidelines,
                 chatSummary,
@@ -77,9 +80,9 @@ final class CommentsFilter extends Filter {
                 comments,
                 communityGuidelines,
                 createAShort,
+                emojiAndTimestampButtons,
                 previewComment,
-                thanksButton,
-                timestampButton
+                thanksButton
 
         );
     }
@@ -91,6 +94,10 @@ final class CommentsFilter extends Filter {
             // Playlist sort button uses same components and must only filter if the player is opened.
             return PlayerType.getCurrent().isMaximizedOrFullscreen()
                     && aiCommentsSummary.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == emojiAndTimestampButtons) {
+            return path.startsWith(COMMENT_COMPOSER_PATH);
         }
 
         return true;

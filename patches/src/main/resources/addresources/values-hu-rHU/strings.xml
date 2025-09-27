@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s napja patchelve</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Az APK build dátuma sérült</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Figyelmeztetés</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">A megtekintési előzmények mentése nem történik meg.&lt;br&gt;&lt;br&gt;Ezt valószínűleg egy DNS-hirdetésblokkoló vagy hálózati proxy okozza.&lt;br&gt;&lt;br&gt;A probléma megoldásához vegye fel az engedélyezőlistára az &lt;b&gt;s.youtube.com&lt;/b&gt; domaint vagy kapcsolja ki az összes DNS-blokkolót és proxyt.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne jelenjen meg többet</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Beállítások</string>
   <string name="revanced_settings_confirm_user_dialog_title">Biztosan folytatni szeretné?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Beállítások keresése</string>
   <string name="revanced_settings_search_no_results_title">Nincs találat erre: „%s”</string>
   <string name="revanced_settings_search_no_results_summary">Próbáljon ki egy másik kulcsszót</string>
+  <string name="revanced_settings_search_recent_searches">Legutóbbi keresések</string>
   <string name="revanced_settings_search_remove_message">Eltávolítja a keresési előzményekből?</string>
+  <string name="revanced_settings_search_clear_history">Keresési előzmények törlése</string>
+  <string name="revanced_settings_search_clear_history_message">Biztosan törölni szeretné az összes keresési előzményt?</string>
+  <string name="revanced_settings_search_tips_title">Keresési tippek</string>
+  <string name="revanced_settings_search_tips_summary">"• Érintse meg az útvonalat az oda navigáláshoz
+• Hosszan nyomja meg a beállítást az oda navigáláshoz
+• Nyomja meg az Entert a keresési lekérdezés előzményekbe mentéséhez
+• A keresés figyelmen kívül hagyja a kis- és nagybetűket, valamint az írásjeleket
+• A szülőbeállítások a letiltott gyermekbeállítások felett jelennek meg"</string>
+  <string name="revanced_settings_search_empty_history_title">A keresési előzmények üresek</string>
+  <string name="revanced_settings_search_empty_history_summary">A keresési előzmények mentéséhez írjon be egy keresési lekérdezést, majd nyomja meg az Entert</string>
+  <string name="revanced_settings_search_history_title">Beállítások keresési előzményeinek megjelenítése</string>
+  <string name="revanced_settings_search_history_summary_on">A beállítások keresési előzményei láthatók</string>
+  <string name="revanced_settings_search_history_summary_off">A beállítások keresési előzményei nincsenek megjelenítve</string>
   <string name="revanced_show_menu_icons_title">ReVanced beállításikonok megjelenítése</string>
   <string name="revanced_show_menu_icons_summary_on">A beállításikonok láthatók</string>
   <string name="revanced_show_menu_icons_summary_off">A beállítások ikonjai nem jelennek meg</string>
   <string name="revanced_language_title">ReVanced nyelve</string>
-  <string name="revanced_language_user_dialog_message">"A fordítások hiányozhatnak vagy hiányosak lehetnek néhány nyelven.
+  <string name="revanced_language_user_dialog_message">"Egyes nyelvek fordításai hiányozhatnak vagy hiányosak lehetnek.
 
-Új nyelvek lefordításához látogasson el ide: translate.revanced.app"</string>
+Új nyelvek fordításához vagy a meglévő fordítások javításához látogasson el a translate.revanced.app oldalra."</string>
   <string name="revanced_language_DEFAULT">Alkalmazás nyelve</string>
   <string name="revanced_pref_import_export_title">Importálás / exportálás</string>
   <string name="revanced_pref_import_export_summary">ReVanced beállítások importálása / exportálása</string>
@@ -126,6 +145,14 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Törli az összes tárolt ReVanced hibakeresési naplót</string>
   <string name="revanced_debug_logs_clear_toast">Naplók törölve</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">A követési lekérdezési paraméter eltávolításra kerül a megosztott linkekből</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">A követési lekérdezési paraméter nem kerül eltávolításra a megosztott linkekből</string>
+  <string name="revanced_replace_music_with_youtube_title">Módosítsa a megosztási linkeket youtube.com-ra</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">A megosztott linkek a youtube.com-ot használják</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">A megosztott linkek a music.youtube.com-ot használják</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_restore_old_settings_menus_title">Régi beállítási menük visszaállítása</string>
   <string name="revanced_restore_old_settings_menus_summary_on">A régi beállítások menüpontok megjelennek</string>
   <string name="revanced_restore_old_settings_menus_summary_off">A régi beállítások menüpontok nem jelennek meg</string>
-  <string name="revanced_settings_search_history_title">Beállítások keresési előzményeinek megjelenítése</string>
-  <string name="revanced_settings_search_history_summary_on">A beállítások keresési előzményei láthatók</string>
-  <string name="revanced_settings_search_history_summary_off">A beállítások keresési előzményei nincsenek megjelenítve</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">A Shorts háttérben történő lejátszásának letiltása</string>
@@ -355,15 +379,15 @@ Ha a Doodle jelenleg a régiódában látható, és ez a rejtés beállítás be
   <string name="revanced_hide_comments_create_a_short_button_title">A „Rövid létrehozása” gomb elrejtése</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">A Rövidfilm létrehozása gomb rejtett</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">A Rövidfilm létrehozása gomb látható</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Emoji és időbélyeg gombok elrejtése</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Az Emoji és időbélyeg gombok elrejtve vannak</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Az Emoji és időbélyeg gombok megjelenítve vannak</string>
   <string name="revanced_hide_comments_preview_comment_title">Megjegyzés előnézet elrejtése</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">A megjegyzés előnézet el van rejtve</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">A megjegyzés előnézet megjelenik</string>
   <string name="revanced_hide_comments_thanks_button_title">Köszönet gomb elrejtése</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">A köszönet gomb el van rejtve</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">A köszönet gomb látható</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Időbélyegző gomb elrejtése</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Az időbélyegző gomb el van rejtve</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Az időbélyegző gomb megjelenik</string>
   <string name="revanced_custom_filter_screen_title">Egyedi szűrő</string>
   <string name="revanced_custom_filter_screen_summary">Komponensek elrejtése egyedi szűrők használatával</string>
   <string name="revanced_custom_filter_title">Egyedi szűrők engedélyezése</string>
@@ -373,6 +397,20 @@ Ha a Doodle jelenleg a régiódában látható, és ez a rejtés beállítás be
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">A szűrendő összetevő útvonal építő karakterláncok listája új sorral elválasztva</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Érvénytelen egyedi szűrő: %s</string>
+  <string name="revanced_hide_view_count_title">Megtekintések számának elrejtése</string>
+  <string name="revanced_hide_view_count_summary_on">A megtekintések száma elrejtve a hírfolyamban és a keresési eredményekben</string>
+  <string name="revanced_hide_view_count_summary_off">A megtekintések száma látható a hírfolyamban és a keresési eredményekben</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Korlátozások:
+• Shorts polcok, csatornaoldalak és a keresési eredmények továbbra is mutathatják a megtekintések számát
+• Ez a funkció nem működik autóipari formátummal"</string>
+  <string name="revanced_hide_upload_time_title">Feltöltési idő elrejtése</string>
+  <string name="revanced_hide_upload_time_summary_on">A feltöltési idő el van rejtve a hírfolyamban és a keresési eredményekben</string>
+  <string name="revanced_hide_upload_time_summary_off">A feltöltési idő megjelenik a hírfolyamban és a keresési eredményekben</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Korlátozások:
+• Shorts polcokon, csatornaoldalakon és keresési eredményekben továbbra is megjelenhetnek a feltöltési idők
+• Ez a funkció nem működik az autós formátummal"</string>
   <string name="revanced_hide_keyword_content_screen_title">Kulcsszó alapú tartalom elrejtés</string>
   <string name="revanced_hide_keyword_content_screen_summary">Kulcsszó alapú videó elrejtés keresésnél és a feedekben</string>
   <string name="revanced_hide_keyword_content_home_title">Videók elrejtése a kezdőlapon kulcsszavak alapján</string>
@@ -1060,9 +1098,9 @@ Ez a funkció a legjobban 720p vagy annál alacsonyabb videóminőség mellett �
   <string name="revanced_sb_guidelines_popup_already_read">Már elolvastam</string>
   <string name="revanced_sb_guidelines_popup_open">Mutasd</string>
   <string name="revanced_sb_general">Általános</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Üzenet megjelenítése, ha az API nem elérhető</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Üzenet látható, ha a SponsorBlock nem elérhető</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Nem látható üzenet, ha a SponsorBlock nem elérhető</string>
+  <string name="revanced_sb_toast_on_connection_error">Üzenet megjelenítése, ha az API nem elérhető</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Üzenet látható, ha a SponsorBlock nem elérhető</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Nem látható üzenet, ha a SponsorBlock nem elérhető</string>
   <string name="revanced_sb_general_skipcount">Átugrásszámláló bekapcsolása</string>
   <string name="revanced_sb_general_skipcount_sum_on">Értesíti a SponsorBlock ranglistáját, hogy mennyi időt takarított meg. Minden egyes szakasz kihagyásakor üzenetet küld a ranglistának</string>
   <string name="revanced_sb_general_skipcount_sum_off">A kihagyások számának követése nem engedélyezett</string>
@@ -1246,8 +1284,9 @@ Ez megváltoztatja az alkalmazás megjelenését és funkcióit, de előfordulha
 Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy megakadályozza a felhasználói felület hibáit."</string>
   <string name="revanced_spoof_app_version_target_title">Hamisított alkalmazásverzió célja</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Nem összecsukott videó műveletsáv visszaállítása</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - A régi Shorts lejátszó ikonok visszaállítása</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Állítsa vissza a régi navigációs ikonokat</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Átirat funkció visszaállítása</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - A régi Shorts lejátszó ikonok visszaállítása</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Állítsa vissza a régi navigációs ikonokat</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Kezdőlap módosítása</string>
@@ -1310,25 +1349,25 @@ Ha később kikapcsolja, akkor ajánlott az alkalmazás adatait törölni, hogy 
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
   <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Lekerekített sarkok engedélyezése</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">A sarkok lekerekítettek</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">A sarkok négyzet alakúak</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Lekerekített sarkok letiltása</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">A sarkok négyzet alakúak</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">A sarkok lekerekítettek</string>
   <string name="revanced_miniplayer_double_tap_action_title">Az átméretezéshez engedélyezze a dupla koppintást és az összehúzást</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"A dupla koppintásos művelet és a csippentés a méretezéshez engedélyezve van
 
 • Dupla koppintás a miniatűr képernyő méretének növeléséhez
 • Dupla koppintás az eredeti méret visszaállításához"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">A dupla koppintás művelet és az átméretezéshez csípés le van tiltva</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Fogd és vidd engedélyezése</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"A húzás és elengedés engedélyezve van
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Fogd és vidd letiltása</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">A Fogd és vidd letiltva</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"A húzás és elengedés engedélyezve van
 
 A miniatűr képernyőt a képernyő bármely sarkába húzhatja"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">A Fogd és vidd letiltva</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Vízszintes húzási kézmozdulat engedélyezése</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"A vízszintes húzás gesztus engedélyezve van
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Vízszintes húzás letiltása</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">A vízszintes húzómozdulat letiltva</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"A vízszintes húzás gesztus engedélyezve van
 
 A miniatűr képernyőt a képernyő bal vagy jobb szélére húzhatja"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">A vízszintes húzómozdulat letiltva</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Fedőgomb elrejtése</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">A fedőgombok rejtve vannak</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">A fedőgombok láthatók</string>
@@ -1420,15 +1459,17 @@ Ha engedélyezve van, akkor a videók URL-jeit elküldjük az API kiszolgálóna
   <string name="revanced_announcements_connection_failed">Nem sikerült csatlakozni a közlemény szolgáltatóhoz</string>
   <string name="revanced_announcements_dialog_dismiss">Elvetés</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Figyelmeztetés</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">A megtekintési előzmények mentése nem történik meg.&lt;br&gt;&lt;br&gt;Ezt valószínűleg egy DNS-hirdetésblokkoló vagy hálózati proxy okozza.&lt;br&gt;&lt;br&gt;A probléma megoldásához vegye fel az engedélyezőlistára az &lt;b&gt;s.youtube.com&lt;/b&gt; domaint vagy kapcsolja ki az összes DNS-blokkolót és proxyt.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne jelenjen meg többet</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Hurokismétlés engedélyezése</string>
+  <string name="revanced_loop_video_summary_on">A videó ismétlődni fog</string>
+  <string name="revanced_loop_video_summary_off">A videó nem fog ismétlődni</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Automatikus ismétlés engedélyezése</string>
-  <string name="revanced_auto_repeat_summary_on">Az automatikus ismétlés be van kapcsolva</string>
-  <string name="revanced_auto_repeat_summary_off">Az automatikus ismétlés ki van kapcsolva</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Hurokismétlés gomb megjelenítése</string>
+  <string name="revanced_loop_video_button_summary_on">A gomb megjelenik</string>
+  <string name="revanced_loop_video_button_summary_off">A gomb nem jelenik meg</string>
+  <string name="revanced_loop_video_button_toast_on">A hurokismétlés be van kapcsolva</string>
+  <string name="revanced_loop_video_button_toast_off">A hurokismétlés ki van kapcsolva</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Eszközméret hamisítása</string>
@@ -1468,11 +1509,6 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_external_browser_title">Hivatkozások megnyitása a böngészőben</string>
   <string name="revanced_external_browser_summary_on">Hivatkozások megnyitása külső böngészőben</string>
   <string name="revanced_external_browser_summary_off">Hivatkozások megnyitása az alkalmazáson belüli böngészőben</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Nyomkövetési lekérdezési paraméter eltávolítása</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">A nyomkövetési lekérdezési paraméter eltávolítva a linkekből</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">A nyomkövetési lekérdezési paraméter nincs eltávolítva a linkekből</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Eredeti hang kikényszerítése</string>
@@ -1537,10 +1573,22 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_playback_speed_default_title">Alapértelmezett lejátszási sebesség</string>
   <string name="revanced_remember_playback_speed_toast">Alapértelmezett sebesség módosítva: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Az HDR videó letiltása</string>
   <string name="revanced_disable_hdr_video_summary_on">Az HDR videó le van tiltva</string>
   <string name="revanced_disable_hdr_video_summary_off">Az HDR videó engedélyezve van</string>
+  <string name="revanced_force_avc_codec_title">AVC kényszerítése (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">A videó kodek kényszerítve van AVC-re (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">A videó kodek automatikusan meghatározásra kerül</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Előnyök:
+• Javíthatja az akkumulátor élettartamát
+• Visszaállíthatja a hiányzó videófelbontásokat régebbi eszközökön
+
+Korlátozások:
+• A maximális felbontás 1080p
+• A videólejátszás több internetadatot fog használni, mint a VP9 vagy az AV1
+• A HDR videók nem fogják használni az AVC-t
+• Néhány eszköz nem tudja kikényszeríteni az AVC-t"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Speciális videóminőség menü megjelenítése</string>
@@ -1554,12 +1602,11 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Hamisítás mellékhatásai</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android hamisítási mellékhatások</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Az hangsáv menü hiányzik
-• Stabil hangerő nem érhető el"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• A videó megállhat 1:00-nál, vagy előfordulhat, hogy egyes régiókban nem elérhető</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Kísérleti kliens, és bármikor leállhat</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• A videó megállhat 1:00-nál, vagy előfordulhat, hogy egyes régiókban nem elérhető</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Hiányzik az hangsáv menü</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nincs AV1 videokodek</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabil hangerő nem elérhető</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• A gyermekeknek szóló videók nem játszódnak le, ha a felhasználó kijelentkezett, vagy inkognitómódban van.</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Eredeti hang kényszerítése nem érhető el</string>

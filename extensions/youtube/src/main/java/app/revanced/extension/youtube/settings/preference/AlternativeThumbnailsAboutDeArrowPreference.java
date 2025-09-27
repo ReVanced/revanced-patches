@@ -2,6 +2,7 @@ package app.revanced.extension.youtube.settings.preference;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import app.revanced.extension.shared.settings.preference.UrlLinkPreference;
 
 /**
  * Allows tapping the DeArrow about preference to open the DeArrow website.

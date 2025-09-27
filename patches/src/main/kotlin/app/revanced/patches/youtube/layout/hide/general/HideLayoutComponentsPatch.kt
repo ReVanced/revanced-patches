@@ -36,6 +36,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 
 var expandButtonDownId = -1L
     private set
@@ -127,7 +128,6 @@ val hideLayoutComponentsPatch = bytecodePatch(
     compatibleWith(
         "com.google.android.youtube"(
             "19.34.42",
-            "19.43.41",
             "20.07.39",
             "20.13.41",
             "20.14.43",
@@ -162,9 +162,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
                     SwitchPreference("revanced_hide_comments_section"),
                     SwitchPreference("revanced_hide_comments_community_guidelines"),
                     SwitchPreference("revanced_hide_comments_create_a_short_button"),
+                    SwitchPreference("revanced_hide_comments_emoji_and_timestamp_buttons"),
                     SwitchPreference("revanced_hide_comments_preview_comment"),
                     SwitchPreference("revanced_hide_comments_thanks_button"),
-                    SwitchPreference("revanced_hide_comments_timestamp_button"),
                 ),
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
             ),
@@ -189,7 +189,10 @@ val hideLayoutComponentsPatch = bytecodePatch(
                     SwitchPreference("revanced_hide_keyword_content_subscriptions"),
                     SwitchPreference("revanced_hide_keyword_content_search"),
                     TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
-                    NonInteractivePreference("revanced_hide_keyword_content_about"),
+                    NonInteractivePreference(
+                        key = "revanced_hide_keyword_content_about",
+                        tag = "app.revanced.extension.shared.settings.preference.BulletPointPreference"
+                    ),
                     NonInteractivePreference(
                         key = "revanced_hide_keyword_content_about_whole_words",
                         tag = "app.revanced.extension.youtube.settings.preference.HtmlPreference",
@@ -223,7 +226,10 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_chips_shelf"),
             SwitchPreference("revanced_hide_expandable_card"),
             SwitchPreference("revanced_hide_floating_microphone_button"),
-            SwitchPreference("revanced_hide_horizontal_shelves"),
+            SwitchPreference(
+                key = "revanced_hide_horizontal_shelves",
+                tag = "app.revanced.extension.shared.settings.preference.BulletPointSwitchPreference"
+            ),
             SwitchPreference("revanced_hide_image_shelf"),
             SwitchPreference("revanced_hide_latest_posts"),
             SwitchPreference("revanced_hide_mix_playlists"),
@@ -234,6 +240,8 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_surveys"),
             SwitchPreference("revanced_hide_ticket_shelf"),
             SwitchPreference("revanced_hide_video_recommendation_labels"),
+            SwitchPreference("revanced_hide_view_count"),
+            SwitchPreference("revanced_hide_upload_time"),
             SwitchPreference("revanced_hide_doodles"),
         )
 
@@ -388,6 +396,39 @@ val hideLayoutComponentsPatch = bytecodePatch(
                             "setDoodleDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V"
                 )
             }
+        }
+
+        // endregion
+
+
+        // region hide view count
+
+        hideViewCountFingerprint.method.apply {
+            val startIndex = hideViewCountFingerprint.patternMatch!!.startIndex
+            var returnStringRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
+
+            // Find the instruction where the text dimension is retrieved.
+            val applyDimensionIndex = indexOfFirstInstructionReversedOrThrow {
+                val reference = getReference<MethodReference>()
+                opcode == Opcode.INVOKE_STATIC &&
+                        reference?.definingClass == "Landroid/util/TypedValue;" &&
+                        reference.returnType == "F" &&
+                        reference.name == "applyDimension" &&
+                        reference.parameterTypes == listOf("I", "F", "Landroid/util/DisplayMetrics;")
+            }
+
+            // A float value is passed which is used to determine subtitle text size.
+            val floatDimensionRegister = getInstruction<OneRegisterInstruction>(
+                applyDimensionIndex + 1
+            ).registerA
+
+            addInstructions(
+                applyDimensionIndex - 1,
+                """
+                    invoke-static { v$returnStringRegister, v$floatDimensionRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->modifyFeedSubtitleSpan(Landroid/text/SpannableString;F)Landroid/text/SpannableString;
+                    move-result-object v$returnStringRegister
+                """
+            )
         }
 
         // endregion

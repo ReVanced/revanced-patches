@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Vor %s Tagen gepatcht</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK Erstellungsdatum ist beschädigt</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Warnung</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Ihr Verlauf wird nicht gespeichert.&lt;br&gt;&lt;br&gt;Dies wird höchstwahrscheinlich durch einen DNS-Werbeblocker oder einen Netzwerkproxy verursacht.&lt;br&gt;&lt;br&gt;Um dies zu beheben, setze &lt;b&gt;s.youtube.com&lt;/b&gt; auf die Whitelist oder schalten Sie alle DNS-Blocker und Proxies aus.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nicht wieder anzeigen</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Einstellungen</string>
   <string name="revanced_settings_confirm_user_dialog_title">Bist du sicher, dass du fortfahren möchtest?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Sucheinstellungen</string>
   <string name="revanced_settings_search_no_results_title">Keine Ergebnisse für „%s“ gefunden</string>
   <string name="revanced_settings_search_no_results_summary">Versuche ein anderes Schlüsselwort</string>
+  <string name="revanced_settings_search_recent_searches">Kürzliche Suchen</string>
   <string name="revanced_settings_search_remove_message">Aus Suchverlauf entfernen?</string>
+  <string name="revanced_settings_search_clear_history">Suchverlauf löschen</string>
+  <string name="revanced_settings_search_clear_history_message">Möchten Sie wirklich den gesamten Suchverlauf löschen?</string>
+  <string name="revanced_settings_search_tips_title">Suchtipps</string>
+  <string name="revanced_settings_search_tips_summary">"• Tippen Sie auf einen Pfad, um dorthin zu navigieren
+• Halten Sie eine Einstellung gedrückt, um dorthin zu navigieren
+• Drücken Sie Enter, um eine Suchanfrage im Verlauf zu speichern
+• Die Suche ignoriert Groß- und Kleinschreibung sowie Satzzeichen
+• Übergeordnete Einstellungen erscheinen über deaktivierten untergeordneten Einstellungen"</string>
+  <string name="revanced_settings_search_empty_history_title">Suchverlauf ist leer</string>
+  <string name="revanced_settings_search_empty_history_summary">Um den Suchverlauf zu speichern, geben Sie eine Suchanfrage ein und drücken Sie Enter</string>
+  <string name="revanced_settings_search_history_title">Suchverlauf der Einstellungen anzeigen</string>
+  <string name="revanced_settings_search_history_summary_on">Suchverlauf der Einstellungen wird angezeigt</string>
+  <string name="revanced_settings_search_history_summary_off">Der Suchverlauf der Einstellungen wird nicht angezeigt</string>
   <string name="revanced_show_menu_icons_title">ReVanced-Einstellungssymbole anzeigen</string>
   <string name="revanced_show_menu_icons_summary_on">Einstellungssymbole werden angezeigt</string>
   <string name="revanced_show_menu_icons_summary_off">Einstellungssymbole werden nicht angezeigt</string>
   <string name="revanced_language_title">ReVanced-Sprache</string>
   <string name="revanced_language_user_dialog_message">"Übersetzungen für einige Sprachen fehlen möglicherweise oder sind unvollständig.
 
-Um neue Sprachen zu übersetzen, besuchen Sie translate.revanced.app"</string>
+Um neue Sprachen zu übersetzen oder die vorhandenen Übersetzungen zu verbessern, besuchen Sie translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">App-Sprache</string>
   <string name="revanced_pref_import_export_title">Import/Export</string>
   <string name="revanced_pref_import_export_summary">ReVanced-Einstellungen importieren/exportieren</string>
@@ -126,6 +145,14 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Löscht alle gespeicherten ReVanced-Debug-Protokolle</string>
   <string name="revanced_debug_logs_clear_toast">Protokolle gelöscht</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Freigabelinks säubern</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Tracking-Abfrageparameter wird aus freigegebenen Links entfernt</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Tracking-Abfrageparameter wird nicht aus freigegebenen Links entfernt</string>
+  <string name="revanced_replace_music_with_youtube_title">Teilen-Links zu youtube.com ändern</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Geteilte Links verwenden youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Geteilte Links verwenden music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_restore_old_settings_menus_title">Alte Einstellungsmenüs wiederherstellen</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Alte Einstellungsmenüs werden angezeigt</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Alte Einstellungsmenüs werden nicht angezeigt</string>
-  <string name="revanced_settings_search_history_title">Suchverlauf der Einstellungen anzeigen</string>
-  <string name="revanced_settings_search_history_summary_on">Suchverlauf der Einstellungen wird angezeigt</string>
-  <string name="revanced_settings_search_history_summary_off">Der Suchverlauf der Einstellungen wird nicht angezeigt</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Hintergrundwiedergabe von Shorts deaktivieren</string>
@@ -354,15 +378,15 @@ Wenn ein Doodle zurzeit in Ihrer Region angezeigt wird und diese Einstellung zum
   <string name="revanced_hide_comments_create_a_short_button_title">\'Verknüpfung erstellen\'-Button ausblenden</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Schaltfläche \" Short erstellen\" ist ausgeblendet</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Schaltfläche \" Short erstellen\" wird angezeigt</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Emoji- und Zeitstempel-Schaltflächen ausblenden</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emoji- und Zeitstempel-Schaltflächen sind ausgeblendet</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emoji- und Zeitstempel-Schaltflächen werden angezeigt</string>
   <string name="revanced_hide_comments_preview_comment_title">Vorschaukommentar ausblenden</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Vorschaukommentar ist ausgeblendet</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Vorschau des Kommentars wird angezeigt</string>
   <string name="revanced_hide_comments_thanks_button_title">Schließe die Dankeschön-Schaltfläche aus</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Dankeschön-Taste ist ausgeblendet</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Dankeschön Button wird angezeigt</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Schaltfläche \'Zeitstempel\' ausblenden</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Timestamp-Button ist ausgeblendet</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Timestamp-Button wird angezeigt</string>
   <string name="revanced_custom_filter_screen_title">Eigener Filter</string>
   <string name="revanced_custom_filter_screen_summary">Komponenten mit benutzerdefinierten Filtern ausblenden</string>
   <string name="revanced_custom_filter_title">Eigenen Filter aktivieren</string>
@@ -372,6 +396,20 @@ Wenn ein Doodle zurzeit in Ihrer Region angezeigt wird und diese Einstellung zum
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Liste der Komponenten-Pfad-Generator-Zeichenketten zum Filtern durch neue Zeile getrennt</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Ungültiger benutzerdefinierter Filter: %s</string>
+  <string name="revanced_hide_view_count_title">Aufrufe ausblenden</string>
+  <string name="revanced_hide_view_count_summary_on">Aufrufe sind im Feed und in den Suchergebnissen ausgeblendet</string>
+  <string name="revanced_hide_view_count_summary_off">Aufrufe werden im Feed und in den Suchergebnissen angezeigt</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Einschränkungen:
+• Shorts-Regale, Kanalseiten und Suchergebnisse können weiterhin Aufrufe anzeigen
+• Diese Funktion funktioniert nicht mit dem Automotive-Formfaktor"</string>
+  <string name="revanced_hide_upload_time_title">Upload-Zeit ausblenden</string>
+  <string name="revanced_hide_upload_time_summary_on">Die Upload-Zeit ist im Feed und in den Suchergebnissen ausgeblendet</string>
+  <string name="revanced_hide_upload_time_summary_off">Die Upload-Zeit wird im Feed und in den Suchergebnissen angezeigt</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Einschränkungen:
+• Shorts-Regale, Kanalseiten und Suchergebnisse können weiterhin Upload-Zeiten anzeigen
+• Diese Funktion funktioniert nicht mit dem Automobil-Formfaktor"</string>
   <string name="revanced_hide_keyword_content_screen_title">Keyword-Inhalt ausblenden</string>
   <string name="revanced_hide_keyword_content_screen_summary">Verstecke Such- und Feed-Videos mit Schlüsselwortfilter</string>
   <string name="revanced_hide_keyword_content_home_title">Home-Videos nach Schlüsselwörtern ausblenden</string>
@@ -1057,9 +1095,9 @@ Diese Funktion funktioniert am besten mit einer Videoqualität von 720p oder nie
   <string name="revanced_sb_guidelines_popup_already_read">Bereits gelesen</string>
   <string name="revanced_sb_guidelines_popup_open">Zeig sie mir</string>
   <string name="revanced_sb_general">Allgemein</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Einen Toast anzeigen, wenn die API nicht verfügbar ist</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Toast wird angezeigt, wenn SponsorBlock nicht verfügbar ist</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Toast wird nicht angezeigt, wenn SponsorBlock nicht verfügbar ist</string>
+  <string name="revanced_sb_toast_on_connection_error">Einen Toast anzeigen, wenn die API nicht verfügbar ist</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Toast wird angezeigt, wenn SponsorBlock nicht verfügbar ist</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Toast wird nicht angezeigt, wenn SponsorBlock nicht verfügbar ist</string>
   <string name="revanced_sb_general_skipcount">Aktiviere Sprungzähler-Tracking</string>
   <string name="revanced_sb_general_skipcount_sum_on">Lässt die SponsorBlock Rangliste wissen, wie viel Zeit gespeichert wird. Jedes Mal, wenn ein Segment übersprungen wird, wird eine Nachricht an die Rangliste gesendet</string>
   <string name="revanced_sb_general_skipcount_sum_off">Überspringungszähler ist nicht aktiviert</string>
@@ -1244,8 +1282,9 @@ Dadurch ändert sich das Erscheinungsbild und die Funktionen der App, es können
 Wenn Sie die Funktion später deaktivieren, wird empfohlen, die App-Daten zu löschen, um UI-Fehler zu vermeiden."</string>
   <string name="revanced_spoof_app_version_target_title">Spoof-App-Versionsziel</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Nicht eingeklappte Video-Aktionsleiste wiederherstellen</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Alte Shorts Spielersymbole wiederherstellen</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Alte Navigations-Symbole wiederherstellen</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Funktionalität der Transkription wiederherstellen</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Alte Shorts Spielersymbole wiederherstellen</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Alte Navigations-Symbole wiederherstellen</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Startseite ändern</string>
@@ -1310,25 +1349,25 @@ Einschränkung: Die Verwendung der Zurück-Taste auf der Symbolleiste funktionie
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
   <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Abgerundete Ecken aktivieren</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Ecken sind abgerundet</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Ecken sind Quadrat</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Abgerundete Ecken deaktivieren</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Ecken sind Quadrat</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Ecken sind abgerundet</string>
   <string name="revanced_miniplayer_double_tap_action_title">Aktiviere doppeltes Tippen und Pratzen um die Größe zu ändern</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Doppeltippen und mit zwei Fingern vergrößern/verkleinern ist aktiviert
 
 • Doppeltippen, um die Größe des Mini-Players zu vergrößern
 • Nochmals doppeltippen, um die ursprüngliche Größe wiederherzustellen"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Doppel-Tipp-Aktion und Pinch um die Größe zu verändern, ist deaktiviert</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Drag and Drop aktivieren</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Drag-and-Drop ist aktiviert
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Drag &amp; Drop deaktivieren</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Drag and Drop ist deaktiviert</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Drag-and-Drop ist aktiviert
 
 Der Mini-Player kann in jede Ecke des Bildschirms gezogen werden"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Drag and Drop ist deaktiviert</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Horizontales Ziehen aktivieren</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horizontale Ziehgeste aktiviert
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Horizontale Ziehgeste deaktivieren</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Horizontale Drag Geste deaktiviert</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Horizontale Ziehgeste aktiviert
 
 Der Mini-Player kann mit einer Wischgeste vom Bildschirm nach links oder rechts gezogen werden"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horizontale Drag Geste deaktiviert</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Overlay-Buttons ausblenden</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Overlay-Buttons sind ausgeblendet</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Overlay-Buttons werden angezeigt</string>
@@ -1420,15 +1459,17 @@ Tippen Sie hier, um mehr über DeArrow zu erfahren"</string>
   <string name="revanced_announcements_connection_failed">Verbindung zum Ankündigungsanbieter fehlgeschlagen</string>
   <string name="revanced_announcements_dialog_dismiss">Verwerfen</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Warnung</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Ihr Verlauf wird nicht gespeichert.&lt;br&gt;&lt;br&gt;Dies wird höchstwahrscheinlich durch einen DNS-Werbeblocker oder einen Netzwerkproxy verursacht.&lt;br&gt;&lt;br&gt;Um dies zu beheben, setze &lt;b&gt;s.youtube.com&lt;/b&gt; auf die Whitelist oder schalten Sie alle DNS-Blocker und Proxies aus.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nicht wieder anzeigen</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Loop-Video aktivieren</string>
+  <string name="revanced_loop_video_summary_on">Video wird wiederholt</string>
+  <string name="revanced_loop_video_summary_off">Video wird nicht wiederholt</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Auto-Wiederholung aktivieren</string>
-  <string name="revanced_auto_repeat_summary_on">Auto-Wiederholung ist aktiviert</string>
-  <string name="revanced_auto_repeat_summary_off">Auto-Wiederholung ist deaktiviert</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Loop-Video-Schaltfläche anzeigen</string>
+  <string name="revanced_loop_video_button_summary_on">Schaltfläche wird angezeigt</string>
+  <string name="revanced_loop_video_button_summary_off">Schaltfläche wird nicht angezeigt</string>
+  <string name="revanced_loop_video_button_toast_on">Loop-Video ist aktiviert</string>
+  <string name="revanced_loop_video_button_toast_off">Loop-Video ist deaktiviert</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Spoof-Gerätegröße</string>
@@ -1468,11 +1509,6 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_external_browser_title">Links im Browser öffnen</string>
   <string name="revanced_external_browser_summary_on">Links im externen Browser öffnen</string>
   <string name="revanced_external_browser_summary_off">Links im In-App-Browser öffnen</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Tracking-Abfrageparameter entfernen</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Tracking-Abfrageparameter wird von Links entfernt</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Tracking-Abfrageparameter wird nicht von Links entfernt</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Original Audio erzwingen</string>
@@ -1537,10 +1573,22 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   <string name="revanced_playback_speed_default_title">Standard Wiedergabegeschwindigkeit</string>
   <string name="revanced_remember_playback_speed_toast">Standardgeschwindigkeit geändert zu: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Deaktiviere HDR-Video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR-Video ist deaktiviert</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR-Video ist aktiviert</string>
+  <string name="revanced_force_avc_codec_title">AVC (H.264) erzwingen</string>
+  <string name="revanced_force_avc_codec_summary_on">Videocodec wird auf AVC (H.264) erzwungen</string>
+  <string name="revanced_force_avc_codec_summary_off">Videocodec wird automatisch bestimmt</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Vorteile:
+• Kann die Akkulaufzeit verbessern
+• Kann fehlende Videoauflösungen auf älteren Geräten wiederherstellen
+
+Einschränkungen:
+• Die maximale Auflösung beträgt 1080p
+• Die Videowiedergabe verbraucht mehr Internetdaten als VP9 oder AV1
+• HDR-Videos verwenden kein AVC
+• Einige Geräte können AVC nicht erzwingen"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Erweitertes Videoqualitätsmenü anzeigen</string>
@@ -1554,12 +1602,11 @@ Durch Aktivieren dieser Option können höhere Videoqualitäten freigeschaltet w
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Nebenwirkungen des Spoofings</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android-Spoofing-Nebenwirkungen</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Audiotrack-Menü fehlt
-• Stabile Lautstärke ist nicht verfügbar"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video kann um 1:00 Uhr stoppen oder ist möglicherweise in einigen Regionen nicht verfügbar</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimenteller Client und kann jederzeit aufhören zu funktionieren</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video kann um 1:00 Uhr stoppen oder ist möglicherweise in einigen Regionen nicht verfügbar</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Audiotrack-Menü fehlt</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Kein AV1-Videocodec</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabile Lautstärke ist nicht verfügbar</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kinder-Videos werden möglicherweise nicht abgespielt, wenn du abgemeldet bist oder den Inkognito-Modus verwendest.</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Originalton erzwingen ist nicht verfügbar</string>

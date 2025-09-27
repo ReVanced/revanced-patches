@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s 일 전에 패치되었습니다</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 빌드 날짜가 손상되었습니다</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">경고</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">시청 기록이 저장되지 않습니다.&lt;br&gt;&lt;br&gt; DNS 광고 차단기 또는 네트워크 프록시로 인하여 발생한 문제일 가능성이 높습니다.&lt;br&gt;&lt;br&gt; 이 문제를 해결하려면 &lt;b&gt;s.youtube.com&lt;/b&gt;을 허용 목록에서 제외하거나 모든 DNS 차단기 및 프록시를 해제하세요.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">다시 보지 않기</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">설정</string>
   <string name="revanced_settings_confirm_user_dialog_title">계속하시겠습니까?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">설정 검색</string>
   <string name="revanced_settings_search_no_results_title">\'%s\'에 대한 검색 결과가 없습니다</string>
   <string name="revanced_settings_search_no_results_summary">다른 키워드를 검색해 보세요</string>
+  <string name="revanced_settings_search_recent_searches">최근 검색어</string>
   <string name="revanced_settings_search_remove_message">검색 기록에서 삭제하시겠습니까?</string>
+  <string name="revanced_settings_search_clear_history">검색 기록 지우기</string>
+  <string name="revanced_settings_search_clear_history_message">모든 검색 기록을 지우시겠습니까?</string>
+  <string name="revanced_settings_search_tips_title">검색 팁</string>
+  <string name="revanced_settings_search_tips_summary">"• 경로를 탭하여 설정 카테고리로 이동할 수 있습니다
+• 설정을 길게 탭하여 설정 위치로 이동할 수 있습니다
+• 엔터키를 눌러서 검색어를 기록에 저장할 수 있습니다
+• 검색할 경우에 대소문자와 구두점이 무시됩니다
+• 상위 설정이 비활성화된 하위 설정 위에 표시됩니다"</string>
+  <string name="revanced_settings_search_empty_history_title">검색 기록이 비어 있습니다</string>
+  <string name="revanced_settings_search_empty_history_summary">검색 기록을 저장하려면 검색어를 입력하고 엔터키를 누르세요</string>
+  <string name="revanced_settings_search_history_title">설정 검색 기록 표시하기</string>
+  <string name="revanced_settings_search_history_summary_on">설정 검색 기록을 표시합니다</string>
+  <string name="revanced_settings_search_history_summary_off">설정 검색 기록을 표시하지 않습니다</string>
   <string name="revanced_show_menu_icons_title">ReVanced 설정 아이콘 표시하기</string>
   <string name="revanced_show_menu_icons_summary_on">설정 아이콘을 표시합니다</string>
   <string name="revanced_show_menu_icons_summary_off">설정 아이콘을 표시하지 않습니다</string>
   <string name="revanced_language_title">ReVanced 언어</string>
   <string name="revanced_language_user_dialog_message">"일부 언어의 번역이 누락되었거나 완료되지 않았을 수 있습니다.
 
-새로운 언어를 번역하려면 translate.revanced.app를 방문하세요."</string>
+새로운 언어를 번역하거나 기존 번역을 개선하려면 translate.revanced.app를 방문하세요."</string>
   <string name="revanced_language_DEFAULT">앱 언어</string>
   <string name="revanced_pref_import_export_title">가져오기 / 내보내기</string>
   <string name="revanced_pref_import_export_summary">ReVanced 설정을 가져오거나 내보낼 수 있습니다</string>
@@ -126,6 +145,14 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_debug_logs_clear_buffer_summary">저장된 모든 ReVanced 디버그 로그를 지울 수 있습니다</string>
   <string name="revanced_debug_logs_clear_toast">디버그 로그가 지워졌습니다</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 삭제합니다</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 삭제하지 않습니다</string>
+  <string name="revanced_replace_music_with_youtube_title">공유 링크를 youtube.com으로 변경하기</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">공유 링크를 youtube.com으로 사용합니다</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">공유 링크를 music.youtube.com으로 사용합니다</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_restore_old_settings_menus_title">이전 설정 메뉴 복원하기</string>
   <string name="revanced_restore_old_settings_menus_summary_on">이전 설정 메뉴를 표시합니다</string>
   <string name="revanced_restore_old_settings_menus_summary_off">이전 설정 메뉴를 표시하지 않습니다</string>
-  <string name="revanced_settings_search_history_title">설정 검색 기록 표시하기</string>
-  <string name="revanced_settings_search_history_summary_on">설정 검색 기록을 표시합니다</string>
-  <string name="revanced_settings_search_history_summary_off">설정 검색 기록을 표시하지 않습니다</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts 백그라운드 재생 비활성화하기</string>
@@ -213,8 +237,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.
                   This item appear in the Subscriptions feed for future livestreams or unreleased videos. -->
   <string name="revanced_hide_notify_me_button_title">\'알림 받기\' 버튼 숨기기</string>
-  <string name="revanced_hide_notify_me_button_summary_on">에정 동영상 하단에서 \'알림 받기\' 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_notify_me_button_summary_off">예전 동영상 하단에서 \'알림 받기\' 버튼이 표시됩니다</string>
+  <string name="revanced_hide_notify_me_button_summary_on">예정 동영상 하단에서 \'알림 받기\' 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_notify_me_button_summary_off">예정 동영상 하단에서 \'알림 받기\' 버튼이 표시됩니다</string>
   <string name="revanced_hide_playables_title">게임 룸 숨기기</string>
   <string name="revanced_hide_playables_summary_on">게임 룸이 숨겨집니다</string>
   <string name="revanced_hide_playables_summary_off">게임 룸이 표시됩니다</string>
@@ -358,15 +382,15 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_comments_create_a_short_button_title">Shorts 만들기 버튼 숨기기</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Shorts 만들기 버튼이 숨겨집니다</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Shorts 만들기 버튼이 표시됩니다</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">이모지 &amp; 타임스탬프 버튼 숨기기</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">이모지 &amp; 타임스탬프 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">이모지 &amp; 타임스탬프 버튼이 표시됩니다</string>
   <string name="revanced_hide_comments_preview_comment_title">댓글 미리보기 숨기기</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">댓글 미리보기가 숨겨집니다</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">댓글 미리보기가 표시됩니다</string>
   <string name="revanced_hide_comments_thanks_button_title">Thanks 버튼 숨기기</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Thanks 버튼이 숨겨집니다</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Thanks 버튼이 표시됩니다</string>
-  <string name="revanced_hide_comments_timestamp_button_title">타임스탬프 버튼 숨기기</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">타임스탬프 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">타임스탬프 버튼이 표시됩니다</string>
   <string name="revanced_custom_filter_screen_title">사용자 정의 필터</string>
   <string name="revanced_custom_filter_screen_summary">사용자 정의 필터를 사용하여 구성요소를 숨길 수 있습니다</string>
   <string name="revanced_custom_filter_title">사용자 정의 필터 활성화하기</string>
@@ -376,6 +400,20 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">필터링할 컴포넌트 패스 빌더 문자열을 줄바꿈으로 구분하여 설정합니다</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">잘못된 사용자 정의 필터 값입니다: %s</string>
+  <string name="revanced_hide_view_count_title">조회수 숨기기</string>
+  <string name="revanced_hide_view_count_summary_on">피드 및 검색 결과에서 조회수가 숨겨집니다</string>
+  <string name="revanced_hide_view_count_summary_off">피드 및 검색 결과에서 조회수가 표시됩니다</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"제한 사항:
+• Shorts 선반, 채널 페이지 그리고 검색 결과에서는 조회수가 여전히 표시될 수 있습니다
+• 이 기능은 오토모티브 폼 팩터에서는 작동하지 않습니다"</string>
+  <string name="revanced_hide_upload_time_title">업로드 시간 숨기기</string>
+  <string name="revanced_hide_upload_time_summary_on">피드 및 검색 결과에서 업로드 시간이 숨겨집니다</string>
+  <string name="revanced_hide_upload_time_summary_off">피드 및 검색 결과에서 업로드 시간이 표시됩니다</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"제한 사항:
+• Shorts 선반, 채널 페이지 그리고 검색 결과에서는 업로드 시간이 여전히 표시될 수 있습니다
+• 이 기능은 오토모티브 폼 팩터에서는 작동하지 않습니다"</string>
   <string name="revanced_hide_keyword_content_screen_title">키워드 필터링</string>
   <string name="revanced_hide_keyword_content_screen_summary">키워드 필터를 사용하여 검색 결과 및 피드에서 동영상을 숨길 수 있습니다</string>
   <string name="revanced_hide_keyword_content_home_title">홈 탭에서 키워드 필터 활성화하기</string>
@@ -399,7 +437,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 
 제한 사항:
 • 채널 이름으로 Shorts는 숨길 수 없습니다
-• 일부 화면 구성요소는 숨겨지지 않을 수 있습니다
+• 일부 UI 구성요소는 숨겨지지 않을 수 있습니다
 • 필터링 키워드를 검색하면 검색 결과가 표시되지 않을 수 있습니다"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">전체 단어 일치시키기</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
@@ -921,8 +959,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   </patch>
   <patch id="layout.panels.popup.playerPopupPanelsPatch">
   <string name="revanced_hide_player_popup_panels_title">플레이어 팝업 패널 숨기기</string>
-  <string name="revanced_hide_player_popup_panels_summary_on">플레이어 팝업 패널이 숨겨집니다</string>
-  <string name="revanced_hide_player_popup_panels_summary_off">플레이어 팝업 패널이 표시됩니다</string>
+  <string name="revanced_hide_player_popup_panels_summary_on">다음 플레이어 팝업 패널이 숨겨집니다:\n실시간 채팅, 재생목록, etc.</string>
+  <string name="revanced_hide_player_popup_panels_summary_off">다음 플레이어 팝업 패널이 표시됩니다:\n실시간 채팅, 재생목록, etc.</string>
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
   <string name="revanced_exit_fullscreen_title">동영상 종료 시 전체 화면에서 나가기</string>
@@ -1062,9 +1100,9 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_sb_guidelines_popup_already_read">이미 읽음</string>
   <string name="revanced_sb_guidelines_popup_open">보기</string>
   <string name="revanced_sb_general">일반</string>
-  <string name="revanced_sb_toast_on_connection_error_title">API 사용 불가 메시지 표시하기</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock을 사용할 수 없을 경우에 팝업 메시지를 표시합니다</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock을 사용할 수 없을 경우에 팝업 메시지를 표시하지 않습니다</string>
+  <string name="revanced_sb_toast_on_connection_error">API 사용 불가 메시지 표시하기</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">SponsorBlock을 사용할 수 없을 경우에 팝업 메시지를 표시합니다</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">SponsorBlock을 사용할 수 없을 경우에 팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_sb_general_skipcount">건너뛴 횟수 기록 활성화하기</string>
   <string name="revanced_sb_general_skipcount_sum_on">구간 건너뛰기를 통해 절약한 시간을 SponsorBlock의 리더보드 시스템에 알려줍니다. 건너뛴 구간에 대한 정보가 서버에 전송됩니다</string>
   <string name="revanced_sb_general_skipcount_sum_off">건너뛴 횟수 기록을 비활성화합니다</string>
@@ -1245,11 +1283,12 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 
 이 경우 앱 레이아웃과 기능이 변경되지만 알려지지 않은 부작용이 발생할 수 있습니다.
 
-나중에 이 기능을 비활성화하면 앱 레이아웃 버그를 방지하기 위해 앱 데이터를 지우는 것이 좋습니다."</string>
+나중에 이 기능을 비활성화하면 앱 UI 버그를 방지하기 위해 앱 데이터를 지우는 것이 좋습니다."</string>
   <string name="revanced_spoof_app_version_target_title">변경할 앱 버전</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - 접히지 않은 동영상 동작바를 복원합니다</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - 이전 Shorts 플레이어 아이콘을 복원합니다</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - 이전 하단바 아이콘을 복원합니다</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - 스크립트 기능을 복원합니다</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - 이전 Shorts 플레이어 아이콘을 복원합니다</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - 이전 하단바 아이콘을 복원합니다</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">앱 시작 페이지 변경하기</string>
@@ -1315,25 +1354,25 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_miniplayer_type_entry_5">모던 스타일 2</string>
   <string name="revanced_miniplayer_type_entry_6">모던 스타일 3</string>
   <string name="revanced_miniplayer_type_entry_7">모던 스타일 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">둥근 모서리 활성화하기</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">모서리를 둥글게 활성화합니다</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">모서리를 각지게 활성화합니다</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">둥근 모서리 비활성화하기</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">모서리를 각지게 활성화합니다</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">모서리를 둥글게 활성화합니다</string>
   <string name="revanced_miniplayer_double_tap_action_title">\'두 번 탭하기\' 및 \'핀치하여 크기 조정\' 활성화하기</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"'두 번 탭하기 동작' 및 '핀치하여 크기 조정'을 활성화합니다
 
 • 두 번 탭하여 미니 플레이어 크기를 늘릴 수 있습니다
 • 다시 두 번 탭하면 원래 크기로 복원됩니다"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">\'두 번 탭하기 동작\' 및 \'핀치하여 크기 조정\'을 비활성화합니다</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">드래그 &amp; 드롭 활성화하기</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"드래그 &amp; 드롭을 활성화합니다
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">드래그 &amp; 드롭 비활성화하기</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">드래그 &amp; 드롭을 비활성화합니다</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"드래그 &amp; 드롭을 활성화합니다
 
 • 미니 플레이어를 화면 구석으로 드래그 할 수 있습니다"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">드래그 &amp; 드롭을 비활성화합니다</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">수평 드래그 제스처 활성화하기</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"수평 드래그 제스처를 활성화합니다
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">수평 드래그 제스처 비활성화하기</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">수평 드래그 제스처를 비활성화합니다</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"수평 드래그 제스처를 활성화합니다
 
 • 미니 플레이어 절반 정도를 왼쪽 밖 또는 오른쪽 밖으로 드래그하여 숨길 수 있습니다"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">수평 드래그 제스처를 비활성화합니다</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">오버레이 버튼 숨기기</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">오버레이 버튼이 숨겨집니다.</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">오버레이 버튼이 표시됩니다.</string>
@@ -1430,15 +1469,17 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_announcements_connection_failed">공지 사항 제공자와 연결할 수 없습니다</string>
   <string name="revanced_announcements_dialog_dismiss">닫기</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">경고</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">시청 기록이 저장되지 않습니다.&lt;br&gt;&lt;br&gt; DNS 광고 차단기 또는 네트워크 프록시로 인하여 발생한 문제일 가능성이 높습니다.&lt;br&gt;&lt;br&gt; 이 문제를 해결하려면 &lt;b&gt;s.youtube.com&lt;/b&gt;을 허용 목록에서 제외하거나 모든 DNS 차단기 및 프록시를 해제하세요.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">다시 보지 않기</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">동영상 연속 재생 활성화하기</string>
+  <string name="revanced_loop_video_summary_on">동영상이 연속 재생됩니다</string>
+  <string name="revanced_loop_video_summary_off">동영상이 연속 재생되지 않습니다</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">자동 반복 활성화하기</string>
-  <string name="revanced_auto_repeat_summary_on">자동 반복을 활성화합니다</string>
-  <string name="revanced_auto_repeat_summary_off">자동 반복을 비활성화합니다</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">동영상 연속 재생 버튼 표시하기</string>
+  <string name="revanced_loop_video_button_summary_on">버튼을 표시합니다</string>
+  <string name="revanced_loop_video_button_summary_off">버튼을 표시하지 않습니다</string>
+  <string name="revanced_loop_video_button_toast_on">동영상 연속 재생이 켜집니다</string>
+  <string name="revanced_loop_video_button_toast_off">동영상 연속 재생이 꺼집니다</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">기기 크기 정보 변경하기</string>
@@ -1478,11 +1519,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_external_browser_title">외부 브라우저 사용하기</string>
   <string name="revanced_external_browser_summary_on">앱 내에서 외부 링크를 열 경우에 외부 브라우저를 사용합니다</string>
   <string name="revanced_external_browser_summary_off">앱 내에서 외부 링크를 열 경우에 내부 브라우저를 사용합니다</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">추적 쿼리를 삭제한 링크 공유하기</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 삭제합니다 (URL의 뒷부분 \'?si=...\' 이 삭제됨)</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">링크를 공유할 경우에 URL에서 추적 쿼리 매개변수를 삭제하지 않습니다</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">원본 오디오 언어 강제로 활성화하기</string>
@@ -1547,10 +1583,22 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_playback_speed_default_title">기본 동영상 재생 속도</string>
   <string name="revanced_remember_playback_speed_toast">기본 동영상 재생 속도 값을 %s 로 변경하였습니다</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">HDR 동영상 비활성화하기</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR 동영상을 비활성화합니다</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR 동영상을 활성화합니다</string>
+  <string name="revanced_force_avc_codec_title">AVC (H.264) 강제로 활성화하기</string>
+  <string name="revanced_force_avc_codec_summary_on">동영상 코덱이 AVC (H.264)로 강제로 결정됩니다</string>
+  <string name="revanced_force_avc_codec_summary_off">동영상 코덱이 자동으로 결정됩니다</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"장점:
+• 배터리 수명을 향상시킬 수 있습니다
+• 구형 기기에서 누락된 동영상 화질을 복원할 수 있습니다
+
+제한 사항:
+• 최대 화질은 1080p입니다
+• 동영상을 재생할 경우에 VP9 또는 AV1보다 더 많은 인터넷 데이터가 사용됩니다
+• HDR 동영상에서는 AVC가 사용되지 않습니다
+• 일부 기기에서는 AVC를 강제로 활성화할 수 없습니다"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">고급 동영상 화질 설정 메뉴 표시하기</string>
@@ -1564,12 +1612,11 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">변경에 따른 부작용</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android 변경에 따른 부작용</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• 오디오 트랙 메뉴가 표시되지 않습니다
-• 안정적인 볼륨을 사용할 수 없습니다"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• 동영상이 1:00에 멈출 수 있으며, 일부 지역에서는 이용이 불가능할 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 실험용 클라이언트이며 언제든지 작동이 중단될 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• 동영상이 1:00에 멈출 수 있으며, 일부 지역에서는 이용이 불가능할 수 있습니다</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• 오디오 트랙 메뉴가 표시되지 않습니다</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• 안정적인 볼륨을 사용할 수 없습니다</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kids 동영상은 로그인을 하지 않았거나 시크릿 모드에서는 재생되지 않을 수 있습니다</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• 원본 오디오를 강제로 활성화할 수 없습니다</string>

@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">上次修补在 %s 天前</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 构建日期已损坏</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">您的观看历史记录未保存。&lt;br&gt;&lt;br&gt;这很可能是由 DNS 广告拦截器或网络代理造成的。&lt;br&gt;&lt;br&gt;要解决此问题，请将 &lt;b&gt;s.youtube.com&lt;/b&gt; 添加到白名单或关闭所有 DNS 广告拦截器和代理。</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再显示</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">设置</string>
   <string name="revanced_settings_confirm_user_dialog_title">确定要继续吗？</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">搜索设置</string>
   <string name="revanced_settings_search_no_results_title">未找到“%s”的结果</string>
   <string name="revanced_settings_search_no_results_summary">尝试其他关键字</string>
+  <string name="revanced_settings_search_recent_searches">最近搜索</string>
   <string name="revanced_settings_search_remove_message">从搜索历史记录中删除？</string>
+  <string name="revanced_settings_search_clear_history">清除搜索历史</string>
+  <string name="revanced_settings_search_clear_history_message">您确定要清除所有搜索历史吗？</string>
+  <string name="revanced_settings_search_tips_title">搜索技巧</string>
+  <string name="revanced_settings_search_tips_summary">"• 点击路径以导航到该位置
+• 长按设置以导航到该位置
+• 按回车键将搜索查询保存到历史记录
+• 搜索忽略大小写和标点符号
+• 父设置显示在禁用的子设置上方"</string>
+  <string name="revanced_settings_search_empty_history_title">搜索历史为空</string>
+  <string name="revanced_settings_search_empty_history_summary">要保存搜索历史，请键入搜索查询并按回车键</string>
+  <string name="revanced_settings_search_history_title">显示设置搜索历史记录</string>
+  <string name="revanced_settings_search_history_summary_on">设置搜索历史记录已显示</string>
+  <string name="revanced_settings_search_history_summary_off">不显示设置搜索历史记录</string>
   <string name="revanced_show_menu_icons_title">显示ReVanced设置图标</string>
   <string name="revanced_show_menu_icons_summary_on">设置图标已显示</string>
   <string name="revanced_show_menu_icons_summary_off">未显示设置图标</string>
   <string name="revanced_language_title">ReVanced 语言</string>
   <string name="revanced_language_user_dialog_message">"某些语言的翻译可能缺失或不完整。
 
-若要翻译为新语言，请访问 translate.revanced.app"</string>
+要翻译新语言或改进现有翻译，请访问 translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">应用语言</string>
   <string name="revanced_pref_import_export_title">导入/导出</string>
   <string name="revanced_pref_import_export_summary">导入/导出 ReVanced 设置</string>
@@ -126,6 +145,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_summary">清除所有存储的 ReVanced 调试日志</string>
   <string name="revanced_debug_logs_clear_toast">日志已清除</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">净化分享链接</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">跟踪查询参数已从分享链接中移除</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">跟踪查询参数未从分享链接中移除</string>
+  <string name="revanced_replace_music_with_youtube_title">将分享链接更改为 youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">分享链接使用 youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">分享链接使用 music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Second \"item\" text"</string>
   <string name="revanced_restore_old_settings_menus_title">恢复旧设置菜单</string>
   <string name="revanced_restore_old_settings_menus_summary_on">显示旧设置菜单</string>
   <string name="revanced_restore_old_settings_menus_summary_off">不显示旧设置菜单</string>
-  <string name="revanced_settings_search_history_title">显示设置搜索历史记录</string>
-  <string name="revanced_settings_search_history_summary_on">设置搜索历史记录已显示</string>
-  <string name="revanced_settings_search_history_summary_off">不显示设置搜索历史记录</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">禁用 Shorts 后台播放</string>
@@ -355,15 +379,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_create_a_short_button_title">隐藏「创建 Short」按钮</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">“创建Shorts”按钮已隐藏</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">“创建Shorts”按钮已显示</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">隐藏表情符号和时间戳按钮</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">表情符号和时间戳按钮已隐藏</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">表情符号和时间戳按钮已显示</string>
   <string name="revanced_hide_comments_preview_comment_title">隐藏评论预览</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">评论预览已隐藏</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">评论预览已显示</string>
   <string name="revanced_hide_comments_thanks_button_title">隐藏感谢按钮</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">感谢按钮已隐藏</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">感谢按钮已显示</string>
-  <string name="revanced_hide_comments_timestamp_button_title">隐藏时间戳按钮</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">时间戳按钮已隐藏</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">时间戳按钮已显示</string>
   <string name="revanced_custom_filter_screen_title">自定义过滤器</string>
   <string name="revanced_custom_filter_screen_summary">使用自定义过滤器隐藏组件</string>
   <string name="revanced_custom_filter_title">启用自定义筛选器</string>
@@ -373,6 +397,20 @@ Second \"item\" text"</string>
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">用于过滤的组件路径生成器字符串的列表，按行分隔</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">非法自定义筛选器：%s</string>
+  <string name="revanced_hide_view_count_title">隐藏观看次数</string>
+  <string name="revanced_hide_view_count_summary_on">观看次数已在动态和搜索结果中隐藏</string>
+  <string name="revanced_hide_view_count_summary_off">观看次数已在动态和搜索结果中显示</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"限制:
+• Shorts 栏目、频道页面和搜索结果可能仍会显示观看次数
+• 此功能不适用于车载设备"</string>
+  <string name="revanced_hide_upload_time_title">隐藏上传时间</string>
+  <string name="revanced_hide_upload_time_summary_on">上传时间在动态和搜索结果中已隐藏</string>
+  <string name="revanced_hide_upload_time_summary_off">上传时间在动态和搜索结果中显示</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"限制：
+• Shorts 专区、频道页面和搜索结果可能仍会显示上传时间
+• 此功能不适用于车载设备"</string>
   <string name="revanced_hide_keyword_content_screen_title">隐藏关键字内容</string>
   <string name="revanced_hide_keyword_content_screen_summary">使用关键字过滤隐藏搜索和动态消息中的视频</string>
   <string name="revanced_hide_keyword_content_home_title">过滤首页视频</string>
@@ -1061,9 +1099,9 @@ Second \"item\" text"</string>
   <string name="revanced_sb_guidelines_popup_already_read">已读</string>
   <string name="revanced_sb_guidelines_popup_open">展示</string>
   <string name="revanced_sb_general">常规</string>
-  <string name="revanced_sb_toast_on_connection_error_title">如果 API 不可用，显示一个\"提示\"</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">如果 SponsorBlock 不可用，显示一个\"提示\"</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">如果 SponsorBlock 不可用，不显示\"提示\"</string>
+  <string name="revanced_sb_toast_on_connection_error">如果 API 不可用，显示一个\"提示\"</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">如果 SponsorBlock 不可用，显示一个\"提示\"</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">如果 SponsorBlock 不可用，不显示\"提示\"</string>
   <string name="revanced_sb_general_skipcount">启用跳过次数跟踪</string>
   <string name="revanced_sb_general_skipcount_sum_on">让 SponsorBlock 排行榜了解节省了多少时间。每次跳过片段时都会向排行榜发送一条消息</string>
   <string name="revanced_sb_general_skipcount_sum_off">未启用跳过次数跟踪</string>
@@ -1252,8 +1290,9 @@ Second \"item\" text"</string>
 如果稍后关闭，建议清除应用程序数据以防止 UI 错误。"</string>
   <string name="revanced_spoof_app_version_target_title">伪装应用程序版本为</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - 恢复未折叠的视频操作栏</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - 恢复旧的 Shorts 播放器图标</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - 还原旧的导航图标</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - 恢复字幕功能</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - 恢复旧的 Shorts 播放器图标</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - 还原旧的导航图标</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">更改起始页</string>
@@ -1318,25 +1357,25 @@ Second \"item\" text"</string>
   <string name="revanced_miniplayer_type_entry_5">现代 2</string>
   <string name="revanced_miniplayer_type_entry_6">现代 3</string>
   <string name="revanced_miniplayer_type_entry_7">现代 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">启用圆角</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">已启用圆角</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">已禁用圆角</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">禁用圆角</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">已禁用圆角</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">已启用圆角</string>
   <string name="revanced_miniplayer_double_tap_action_title">启用双击和捏合缩放</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"已启用双击操作和捏合以调整大小
 
 • 双击以增加迷你播放器大小
 • 再次双击以恢复原始大小"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">已禁用双击操作和捏合缩放</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">启用拖放</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"已启用拖放
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">禁用拖放</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">已禁用拖放</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"已启用拖放
 
 迷你播放器可以拖动到屏幕的任何角落"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">已禁用拖放</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">启用水平拖动</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"已启用水平拖动手势
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">禁用水平拖动手势</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">已禁用水平拖动</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"已启用水平拖动手势
 
 迷你播放器可以拖动到屏幕的左侧或右侧"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">已禁用水平拖动</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">隐藏悬浮窗按钮</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">悬浮窗按钮已隐藏</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">悬浮窗按钮已显示</string>
@@ -1428,15 +1467,17 @@ Second \"item\" text"</string>
   <string name="revanced_announcements_connection_failed">无法连接到公告提供者</string>
   <string name="revanced_announcements_dialog_dismiss">忽略</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">您的观看历史记录未保存。&lt;br&gt;&lt;br&gt;这很可能是由 DNS 广告拦截器或网络代理造成的。&lt;br&gt;&lt;br&gt;要解决此问题，请将 &lt;b&gt;s.youtube.com&lt;/b&gt; 添加到白名单或关闭所有 DNS 广告拦截器和代理。</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再显示</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">启用循环播放视频</string>
+  <string name="revanced_loop_video_summary_on">视频将循环播放</string>
+  <string name="revanced_loop_video_summary_off">视频将不循环播放</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">启用自动重复播放</string>
-  <string name="revanced_auto_repeat_summary_on">自动重复播放已启用</string>
-  <string name="revanced_auto_repeat_summary_off">自动重复播放已禁用</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">显示循环播放视频按钮</string>
+  <string name="revanced_loop_video_button_summary_on">按钮已显示</string>
+  <string name="revanced_loop_video_button_summary_off">按钮未显示</string>
+  <string name="revanced_loop_video_button_toast_on">循环播放视频已开启</string>
+  <string name="revanced_loop_video_button_toast_off">循环播放视频已关闭</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">伪装设备尺寸</string>
@@ -1476,11 +1517,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">在浏览器中打开链接</string>
   <string name="revanced_external_browser_summary_on">在外部浏览器中打开链接</string>
   <string name="revanced_external_browser_summary_off">在应用内浏览器中打开链接</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">删除跟踪查询参数</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">链接中跟踪参数已去除</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">链接中跟踪参数未去除</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">强制使用原始音频语言</string>
@@ -1545,10 +1581,22 @@ Second \"item\" text"</string>
   <string name="revanced_playback_speed_default_title">默认播放速度</string>
   <string name="revanced_remember_playback_speed_toast">已更改默认速度为：%s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">禁用 HDR 视频</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR 视频已禁用</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR 视频已启用</string>
+  <string name="revanced_force_avc_codec_title">强制使用 AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">视频编解码器被强制为 AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">视频编解码器自动确定</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"优点：
+• 可延长电池续航时间
+• 可恢复旧设备上缺失的视频分辨率
+
+限制：
+• 最大分辨率为 1080p
+• 视频播放将比 VP9 或 AV1 消耗更多互联网数据
+• HDR 视频将不使用 AVC
+• 某些设备无法强制使用 AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">显示高级视频质量菜单</string>
@@ -1562,12 +1610,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">欺骗的副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android 模拟的副作用</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• 音轨菜单缺失
-• 稳定音量不可用"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• 视频可能会在 1:00 停止，或者在某些地区可能无法播放</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 实验性客户端，可能随时停止工作</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• 视频可能会在 1:00 停止，或者在某些地区可能无法播放</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• 音轨菜单缺失</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• 不支持 AV1 视频编解码器</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• 稳定音量不可用</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• 注销或使用无痕模式时，儿童视频可能无法播放</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• 强制原始音频不可用</string>

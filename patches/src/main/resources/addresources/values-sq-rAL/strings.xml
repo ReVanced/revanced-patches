@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">E rregulluar para %s ditësh</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data e ndërtimit të APK është e korruptuar</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Kujdes</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Historia juaj e shikimit nuk po ruhet.&lt;br&gt;&lt;br&gt;Kjo me shumë mundësi shkaktohet nga një bllokues DNS reklamash ose një prokuri rrjeti.&lt;br&gt;&lt;br&gt;Për të zgjidhur këtë, shto në listën e bardhë &lt;b&gt;s.youtube.com&lt;/b&gt; ose çaktivizo të gjithë bllokuesit DNS dhe prokuritë.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Mos shfaq përsëri</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Cilësimet</string>
   <string name="revanced_settings_confirm_user_dialog_title">A jeni i sigurt që dëshironi të vazhdoni?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Kërko cilësimet</string>
   <string name="revanced_settings_search_no_results_title">Nuk u gjet asnjë rezultat për \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Provo një fjalë kyçe tjetër</string>
+  <string name="revanced_settings_search_recent_searches">Kërkime të fundit</string>
   <string name="revanced_settings_search_remove_message">Hiq nga historiku i kërkimit?</string>
+  <string name="revanced_settings_search_clear_history">Pastro historikun e kërkimeve</string>
+  <string name="revanced_settings_search_clear_history_message">Jeni i sigurt që dëshironi të pastroni të gjithë historikun e kërkimeve?</string>
+  <string name="revanced_settings_search_tips_title">Këshilla për kërkim</string>
+  <string name="revanced_settings_search_tips_summary">"• Prek një shteg për të lundruar te ai
+• Shtyp gjatë një cilësim për të lundruar te ai
+• Shtyp Enter për të ruajtur një pyetje kërkimi në histori
+• Kërkimi injoron shkronjat e mëdha/vogla dhe shenjat e pikësimit
+• Cilësimet prindërore shfaqen mbi cilësimet fëmijë të çaktivizuara"</string>
+  <string name="revanced_settings_search_empty_history_title">Historia e kërkimit është bosh</string>
+  <string name="revanced_settings_search_empty_history_summary">Për të ruajtur historinë e kërkimit, shkruaj një pyetje kërkimi dhe shtyp Enter</string>
+  <string name="revanced_settings_search_history_title">Shfaq historikun e kërkimeve të cilësimeve</string>
+  <string name="revanced_settings_search_history_summary_on">Historiku i kërkimeve të cilësimeve është shfaqur</string>
+  <string name="revanced_settings_search_history_summary_off">Historia e kërkimit të cilësimeve nuk shfaqet</string>
   <string name="revanced_show_menu_icons_title">Shfaq ikonat e cilësimeve të ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikonat e cilësimeve shfaqen</string>
   <string name="revanced_show_menu_icons_summary_off">Ikonat e cilësimeve nuk shfaqen</string>
   <string name="revanced_language_title">Gjuha e ReVanced</string>
-  <string name="revanced_language_user_dialog_message">"Përkthimet për disa gjuhë mund të jenë të humbura ose të paplota.
+  <string name="revanced_language_user_dialog_message">"Përkthimet për disa gjuhë mund të mungojnë ose të jenë të paplota.
 
-Për të përkthyer gjuhë të reja vizitoni translate.revanced.app"</string>
+Për të përkthyer gjuhë të reja ose për të përmirësuar përkthimet ekzistuese, vizito translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Gjuha e aplikacionit</string>
   <string name="revanced_pref_import_export_title">Importo / Eksporto</string>
   <string name="revanced_pref_import_export_summary">Importo / Eksporto cilësimet e ReVanced</string>
@@ -126,6 +145,14 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Pastro të gjithë regjistrat e ruajtur të korrigjimit të ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Regjistrat u pastruan</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Pastro lidhjet e ndarjes</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parametri i kërkesës së gjurmimit hiqet nga lidhjet e ndara</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parametri i kërkesës së gjurmimit nuk hiqet nga lidhjet e ndara</string>
+  <string name="revanced_replace_music_with_youtube_title">Ndrysho lidhjet e ndarjes në youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Lidhjet e ndara përdorin youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Lidhjet e ndara përdorin music.youtube.com</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_restore_old_settings_menus_title">Rikthe menutë e vjetër të konfigurimeve</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Menutë e vjetër të cilësimeve shfaqen</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Menutë e vjetër të cilësimeve nuk shfaqen</string>
-  <string name="revanced_settings_search_history_title">Shfaq historikun e kërkimeve të cilësimeve</string>
-  <string name="revanced_settings_search_history_summary_on">Historiku i kërkimeve të cilësimeve është shfaqur</string>
-  <string name="revanced_settings_search_history_summary_off">Historia e kërkimit të cilësimeve nuk shfaqet</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Çaktivizo luajtjen në sfond të Shorts</string>
@@ -355,15 +379,15 @@ Nëse një Doodle po shfaqet aktualisht në rajonin tuaj dhe kjo fshehje është
   <string name="revanced_hide_comments_create_a_short_button_title">Fsheh butonin \"Krijo një Short\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Butoni Krijo një Short është i fshehur</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Butoni Krijo një Short është i shfaqur</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Fsheh butonat Emoji dhe Kohëmatës</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Butonat Emoji dhe Kohëmatës janë fshehur</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Butonat Emoji dhe Kohëmatës janë shfaqur</string>
   <string name="revanced_hide_comments_preview_comment_title">Fsheh komentin e parashikimit</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komenti i parashikimit është i fshehur</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Komenti i parashikimit është i dukshëm</string>
   <string name="revanced_hide_comments_thanks_button_title">Fsheh butonin Faleminderit</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Butoni i falënderimit është i fshehur</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Butoni i falënderimit është i dukshëm</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Fsheh butonin e shenjës kohore</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Butoni i kohëshënimit është i fshehur</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Butoni i kohëshënimit është shfaqur</string>
   <string name="revanced_custom_filter_screen_title">Filtri i personalizuar</string>
   <string name="revanced_custom_filter_screen_summary">Fsheh komponentë duke përdorur filtre të personalizuara</string>
   <string name="revanced_custom_filter_title">Aktivizo filtrin e personalizuar</string>
@@ -373,6 +397,20 @@ Nëse një Doodle po shfaqet aktualisht në rajonin tuaj dhe kjo fshehje është
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Lista e stringjeve të ndërtuesit të rrugës së komponentit për të filtruar, të ndara me një rresht të ri</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Filtri i personalizuar i pavlefshëm: %s</string>
+  <string name="revanced_hide_view_count_title">Fshih numrin e shikimeve</string>
+  <string name="revanced_hide_view_count_summary_on">Numri i shikimeve është i fshehur në burim dhe rezultatet e kërkimit</string>
+  <string name="revanced_hide_view_count_summary_off">Numri i shikimeve shfaqet në burim dhe rezultatet e kërkimit</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Kufizimet:
+• Raftet e Shorts, faqet e kanaleve dhe rezultatet e kërkimit mund të shfaqin ende numrin e shikimeve
+• Ky funksion nuk funksionon me faktorin e formës së automobilave"</string>
+  <string name="revanced_hide_upload_time_title">Fshih kohën e ngarkimit</string>
+  <string name="revanced_hide_upload_time_summary_on">Koha e ngarkimit fshihet në fluks dhe rezultatet e kërkimit</string>
+  <string name="revanced_hide_upload_time_summary_off">Koha e ngarkimit shfaqet në fluks dhe rezultatet e kërkimit</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Kufizimet:
+• raftet e Shorts, faqet e kanaleve dhe rezultatet e kërkimit mund të shfaqin ende kohën e ngarkimit
+• Kjo veçori nuk funksionon me faktorin e formës automobilistike"</string>
   <string name="revanced_hide_keyword_content_screen_title">Fsheh përmbajtjen e fjalëve kyçe</string>
   <string name="revanced_hide_keyword_content_screen_summary">Fsheh videot e kërkimit dhe të ushqimit duke përdorur filtre fjalësh kyçe</string>
   <string name="revanced_hide_keyword_content_home_title">Fsheh videot e faqes së fillimit sipas fjalëve kyçe</string>
@@ -1060,9 +1098,9 @@ Kjo veçori funksionon më mirë me një cilësi video prej 720p ose më të ul�
   <string name="revanced_sb_guidelines_popup_already_read">I kam lexuar tashmë</string>
   <string name="revanced_sb_guidelines_popup_open">Trego më</string>
   <string name="revanced_sb_general">Të përgjithshme</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Shfaq një lajmërim nëse API nuk është i disponueshëm</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Lajmërimi shfaqet nëse SponsorBlock nuk është i disponueshëm</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Lajmërimi nuk shfaqet nëse SponsorBlock nuk është i disponueshëm</string>
+  <string name="revanced_sb_toast_on_connection_error">Shfaq një lajmërim nëse API nuk është i disponueshëm</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Lajmërimi shfaqet nëse SponsorBlock nuk është i disponueshëm</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Lajmërimi nuk shfaqet nëse SponsorBlock nuk është i disponueshëm</string>
   <string name="revanced_sb_general_skipcount">Aktivizo ndjekjen e numrit të kalimeve</string>
   <string name="revanced_sb_general_skipcount_sum_on">Lejon që tabela e renditjes së SponsorBlock të dijë se sa kohë është ruajtur. Një mesazh dërgohet në tabelën e renditjes çdo herë që një segment kalon</string>
   <string name="revanced_sb_general_skipcount_sum_off">Ndjekja e numrit të kalimeve nuk është e aktivizuar</string>
@@ -1245,8 +1283,9 @@ Kjo do të ndryshojë pamjen dhe veçoritë e aplikacionit, por mund të ndodhin
 Nëse më vonë është çaktivizuar, është e rekomanduar të fshiheni të dhënat e aplikacionit për të parandaluar gabimet e UI."</string>
   <string name="revanced_spoof_app_version_target_title">Shënjestër e versionit të aplikacionit të mashtuar</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Rivendos shiritin e veprimeve të videos jo të palosur</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Rikthe ikonat e vjetra të lojtarit Shorts</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Ristauro ikonave te vjetra te navigimit</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Rivendos funksionalitetin e transkriptit</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Rikthe ikonat e vjetra të lojtarit Shorts</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Ristauro ikonave te vjetra te navigimit</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Ndrysho faqen e fillimit</string>
@@ -1311,25 +1350,25 @@ Kufizimi: Përdorimi i butonit të kthimit në shiritin e veglave mund të mos f
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
   <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Aktivizo qoshet e rrumbullakosura</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Qoshet janë të rrumbullakosura</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Qoshet janë katrore</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Çaktivizo qoshet e rrumbullakosura</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Qoshet janë katrore</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Qoshet janë të rrumbullakosura</string>
   <string name="revanced_miniplayer_double_tap_action_title">Aktivizo dy-prekje dhe shtrëngim për të ridimensionuar</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Veprimi i dyfishtë shtypjeje dhe shtrëngimi për të ridimensionuar është aktivizuar
 
 • Dyfishtë shtyp për të rritur madhësinë e miniplayer-it
 • Dyfishtë shtyp përsëri për të rivendosur madhësinë origjinale"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Veprimi i dy-prekjeve dhe shtrëngimi për të ridimensionuar është i çaktivizuar</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Aktivizo tërheqjen dhe lëshimin</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Tërheqja dhe lëshimi është aktivizuar
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Çaktivizo zvarritjen dhe lëshimin</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Tërheqja dhe lëshimi është e çaktivizuar</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Tërheqja dhe lëshimi është aktivizuar
 
 Miniplayer mund të tërhiqet në çdo qoshe të ekranit"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Tërheqja dhe lëshimi është e çaktivizuar</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Aktivizo gjestet e tërheqjes horizontale</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Lëvizja horizontale me tërheqje është aktivizuar
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Çaktivizo gjestin horizontal të zvarritjes</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Gjestet e tërheqjes horizontale janë të çaktivizuara</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Lëvizja horizontale me tërheqje është aktivizuar
 
 Miniplayer mund të tërhiqet jashtë ekranit në të majtë ose në të djathtë"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Gjestet e tërheqjes horizontale janë të çaktivizuara</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Fshih butonat e mbivendosjes</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Butonat e mbivendosjes janë të fshehur</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Butonat e mbivendosjes janë të dukshëm</string>
@@ -1421,15 +1460,17 @@ Prekni këtu për të mësuar më shumë rreth DeArrow"</string>
   <string name="revanced_announcements_connection_failed">Lidhja me ofruesin e njoftimeve dështoi</string>
   <string name="revanced_announcements_dialog_dismiss">Anulo</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Kujdes</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Historia juaj e shikimit nuk po ruhet.&lt;br&gt;&lt;br&gt;Kjo me shumë mundësi shkaktohet nga një bllokues DNS reklamash ose një prokuri rrjeti.&lt;br&gt;&lt;br&gt;Për të zgjidhur këtë, shto në listën e bardhë &lt;b&gt;s.youtube.com&lt;/b&gt; ose çaktivizo të gjithë bllokuesit DNS dhe prokuritë.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Mos shfaq përsëri</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Aktivizo përsëritjen e videos</string>
+  <string name="revanced_loop_video_summary_on">Video do të përsëritet</string>
+  <string name="revanced_loop_video_summary_off">Video nuk do të përsëritet</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Aktivizo përsëritjen automatike</string>
-  <string name="revanced_auto_repeat_summary_on">Përsëritja automatike është e aktivizuar</string>
-  <string name="revanced_auto_repeat_summary_off">Përsëritja automatike është e çaktivizuar</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Shfaq butonin e përsëritjes së videos</string>
+  <string name="revanced_loop_video_button_summary_on">Butoni është shfaqur</string>
+  <string name="revanced_loop_video_button_summary_off">Butoni nuk është shfaqur</string>
+  <string name="revanced_loop_video_button_toast_on">Përsëritja e videos është aktivizuar</string>
+  <string name="revanced_loop_video_button_toast_off">Përsëritja e videos është çaktivizuar</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Mashtro dimensionet e pajisjes</string>
@@ -1469,11 +1510,6 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_external_browser_title">Hap linket në shfletues</string>
   <string name="revanced_external_browser_summary_on">Hapja e linkeve në shfletuesin e jashtëm</string>
   <string name="revanced_external_browser_summary_off">Hapja e linkeve në shfletuesin brenda aplikacionit</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Hiq parametrin e gjurmimit të kërkesës</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Parametri i gjurmimit të kërkesës hiqet nga linket</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Parametri i gjurmimit të kërkesës nuk hiqet nga linket</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Forco gjuhën origjinale të audios</string>
@@ -1538,10 +1574,22 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_playback_speed_default_title">Shpejtësia e përsëritjes parazgjedhëse</string>
   <string name="revanced_remember_playback_speed_toast">Ndryshuar shpejtësia parazgjedhëse në: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Çaktivizoni videot HDR</string>
   <string name="revanced_disable_hdr_video_summary_on">Videoja HDR është çaktivizuar</string>
   <string name="revanced_disable_hdr_video_summary_off">Videoja HDR është aktivizuar</string>
+  <string name="revanced_force_avc_codec_title">Detyro AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Kodeku i videos detyrohet në AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Kodeku i videos përcaktohet automatikisht</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Përfitimet:
+• Mund të përmirësojë jetëgjatësinë e baterisë
+• Mund të rivendosë rezolucionet e munguar të videos në pajisjet më të vjetra
+
+Kufizimet:
+• Rezolucioni maksimal është 1080p
+• Riludja e videos do të përdorë më shumë të dhëna interneti se VP9 ose AV1
+• Videot HDR nuk do të përdorin AVC
+• Disa pajisje nuk mund të detyrojnë AVC"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Shfaq menunë e avancuar të cilësisë së videos</string>
@@ -1555,12 +1603,11 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Efektet anësore të falsifikimit</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Efekte anësore të spoofinguit të Android</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Menyja e gjurmës audio mungon
-• Volumi i qëndrueshëm nuk është i disponueshëm"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Videoja mund të ndalojë në 1:00, ose mund të mos jetë e disponueshme në disa rajone</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klient eksperimental dhe mund të ndalojë së funksionuari në çdo kohë</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Videoja mund të ndalojë në 1:00, ose mund të mos jetë e disponueshme në disa rajone</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menuja e gjurmës audio mungon</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nuk ka codec video AV1</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volumi i qëndrueshëm nuk është i disponueshëm</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video për fëmijë mund të mos luajnë kur jeni jashtë llogarisë ose në modalitetin incognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Detyro audio origjinale nuk është i disponueshëm</string>

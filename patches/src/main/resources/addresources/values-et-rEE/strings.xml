@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Parandatud %s päeva tagasi</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK ehituskuupäev on rikutud</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Hoiatus</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Teie vaatamise ajalugu ei salvestata.&lt;br&gt;&lt;br&gt;See on tõenäoliselt tingitud DNS-i reklaamiblokeerijast või võrguproksilt.&lt;br&gt;&lt;br&gt;Selle parandamiseks lisage valgesse nimekirja &lt;b&gt;s.youtube.com&lt;/b&gt; või lülitage kõik DNS-i reklaamiblokeerijad ja proksid välja.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ära kuva uuesti</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Seaded</string>
   <string name="revanced_settings_confirm_user_dialog_title">Kas sa oled kindel, et soovid jätkata?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Otsi seadetest</string>
   <string name="revanced_settings_search_no_results_title">Otsingule „%s” ei leitud tulemusi</string>
   <string name="revanced_settings_search_no_results_summary">Proovi mõnda muud märksõna</string>
+  <string name="revanced_settings_search_recent_searches">Viimased otsingud</string>
   <string name="revanced_settings_search_remove_message">Kas eemaldada otsinguajaloost?</string>
+  <string name="revanced_settings_search_clear_history">Tühjenda otsinguajalugu</string>
+  <string name="revanced_settings_search_clear_history_message">Kas olete kindel, et soovite kogu otsinguajaloo kustutada?</string>
+  <string name="revanced_settings_search_tips_title">Otsingunõuanded</string>
+  <string name="revanced_settings_search_tips_summary">"• Puudutage rada, et sinna navigeerida
+• Vajutage pikalt seadet, et sinna navigeerida
+• Vajutage sisestusklahvi, et salvestada otsingupäring ajalukku
+• Otsing ignoreerib suurtähti ja kirjavahemärke
+• Vanemseaded kuvatakse keelatud alamseadete kohal"</string>
+  <string name="revanced_settings_search_empty_history_title">Otsinguajalugu on tühi</string>
+  <string name="revanced_settings_search_empty_history_summary">Otsinguajaloo salvestamiseks tippige otsingupäring ja vajutage sisestusklahvi</string>
+  <string name="revanced_settings_search_history_title">Kuva seadete otsinguajalugu</string>
+  <string name="revanced_settings_search_history_summary_on">Seadete otsinguajalugu on näidatud</string>
+  <string name="revanced_settings_search_history_summary_off">Seadete otsingu ajalugu ei kuvata</string>
   <string name="revanced_show_menu_icons_title">Näita ReVancedi seadete ikoone</string>
   <string name="revanced_show_menu_icons_summary_on">Seadete ikoonid on näidatud</string>
   <string name="revanced_show_menu_icons_summary_off">Seadete ikoonid ei ole nähtavad</string>
   <string name="revanced_language_title">Revancedi keel</string>
-  <string name="revanced_language_user_dialog_message">"Mõnede keelte tõlked võivad olla puudulikud või ebatäielikud.
+  <string name="revanced_language_user_dialog_message">"Mõnede keelte tõlked võivad olla puudu või mittetäielikud.
 
-Uute keelte tõlkimiseks külastage saiti translate.revanced.app"</string>
+Uute keelte tõlkimiseks või olemasolevate tõlgete parandamiseks külastage translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Rakenduse keel</string>
   <string name="revanced_pref_import_export_title">Impordi / Ekspordi</string>
   <string name="revanced_pref_import_export_summary">Impordi / Ekspordi ReVanced seadeteid</string>
@@ -126,6 +145,14 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Puhastab kõik salvestatud ReVanced silumislogid</string>
   <string name="revanced_debug_logs_clear_toast">Logid puhastatud</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Puhasta jagamislingid</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Jälgimispäringu parameeter on jagatud linkidest eemaldatud</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Jälgimispäringu parameetrit ei eemaldata jagatud linkidest</string>
+  <string name="revanced_replace_music_with_youtube_title">Muuda jagamislingid youtube.com-iks</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Jagatud lingid kasutavad youtube.com-i</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Jagatud lingid kasutavad music.youtube.com-i</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_restore_old_settings_menus_title">Taasta vanad seadete menüüd</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Vanad seadete menüüd on kuvatud</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Vanad seadete menüüd ei ole kuvatud</string>
-  <string name="revanced_settings_search_history_title">Kuva seadete otsinguajalugu</string>
-  <string name="revanced_settings_search_history_summary_on">Seadete otsinguajalugu on näidatud</string>
-  <string name="revanced_settings_search_history_summary_off">Seadete otsingu ajalugu ei kuvata</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts taustavideo esitamine lülitada</string>
@@ -355,15 +379,15 @@ Kui Doodle on teie piirkonnas praegu nähtav ja see peitmise seade on sisse lül
   <string name="revanced_hide_comments_create_a_short_button_title">Peida nupp \"Loo lühis\"</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Nupp Loo lühivideo on peidetud</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Nupp Loo lühivideo on kuvatud</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Peida emotikonide ja ajatempli nupud</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emotikonide ja ajatempli nupud on peidetud</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emotikonide ja ajatempli nupud on nähtavad</string>
   <string name="revanced_hide_comments_preview_comment_title">Peida eelvaate kommentaar</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Eelvaate kommentaar on peidetud</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Eelvaate kommentaar on kuvatud</string>
   <string name="revanced_hide_comments_thanks_button_title">Peida tänunupp</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tänu nupp on peidetud</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tänu nupp on kuvatud</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Peida ajatempli nupp</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Ajatempli nupp on peidetud</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Ajatempli nupp on nähtav</string>
   <string name="revanced_custom_filter_screen_title">Kohandatud filter</string>
   <string name="revanced_custom_filter_screen_summary">Peida komponendid, kasutades kohandatud filtreid</string>
   <string name="revanced_custom_filter_title">Aktiveeri kohandatud filter</string>
@@ -373,6 +397,20 @@ Kui Doodle on teie piirkonnas praegu nähtav ja see peitmise seade on sisse lül
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Rea ridadega eraldatud elementide loendi filtreerimiseks</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Kehtetu kohandatud filter: %s</string>
+  <string name="revanced_hide_view_count_title">Peida vaatamiste arv</string>
+  <string name="revanced_hide_view_count_summary_on">Vaatamiste arv on peidetud voos ja otsingutulemustes</string>
+  <string name="revanced_hide_view_count_summary_off">Vaatamiste arv on nähtav voos ja otsingutulemustes</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Piirangud:
+• Shorts-i riiulid, kanalilehed ja otsingutulemused võivad endiselt kuvada vaatamiste arvu
+• See funktsioon ei tööta autotööstuse vormiteguriga"</string>
+  <string name="revanced_hide_upload_time_title">Peida üleslaadimisaeg</string>
+  <string name="revanced_hide_upload_time_summary_on">Üleslaadimisaeg on peidetud voost ja otsingutulemustest</string>
+  <string name="revanced_hide_upload_time_summary_off">Üleslaadimisaeg on nähtav voos ja otsingutulemustes</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Piirangud:
+• Shorts riiulitel, kanalilehtedel ja otsingutulemustes võib üleslaadimisaeg endiselt nähtav olla
+• See funktsioon ei tööta autodele mõeldud vorminguga"</string>
   <string name="revanced_hide_keyword_content_screen_title">Peida video sisu märksõna abil</string>
   <string name="revanced_hide_keyword_content_screen_summary">Peida otsingu ja voo videod, kasutades märksõna filtreid</string>
   <string name="revanced_hide_keyword_content_home_title">Peida kodu videod märksõnade abil</string>
@@ -1060,9 +1098,9 @@ See funktsioon toimib kõige paremini 720p või madalama video kvaliteedi ja vä
   <string name="revanced_sb_guidelines_popup_already_read">Olen juba lugenud</string>
   <string name="revanced_sb_guidelines_popup_open">Näita mulle</string>
   <string name="revanced_sb_general">Üldine</string>
-  <string name="revanced_sb_toast_on_connection_error_title">Näita teatist, kui API pole saadaval</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">Teatis näidatakse, kui SponsorBlock pole saadaval</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">Teatist ei näidata, kui SponsorBlock pole saadaval</string>
+  <string name="revanced_sb_toast_on_connection_error">Näita teatist, kui API pole saadaval</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">Teatis näidatakse, kui SponsorBlock pole saadaval</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">Teatist ei näidata, kui SponsorBlock pole saadaval</string>
   <string name="revanced_sb_general_skipcount">Luba vahelejätmiste arvu jälgimine</string>
   <string name="revanced_sb_general_skipcount_sum_on">Teavitab SponsorBlocki edetabelit, kui palju aega säästetakse. Iga segmendi vahelejätmisel saadetakse edetabelisse teade</string>
   <string name="revanced_sb_general_skipcount_sum_off">Vahelejätmiste arvu jälgimine pole lubatud</string>
@@ -1247,8 +1285,9 @@ See muudab rakenduse välimust ja funktsioone, kuid võivad esineda tundmatud k�
 Kui see hiljem välja lülitatakse, on soovitatav rakenduse andmed kustutada, et vältida kasutajaliidese vigu."</string>
   <string name="revanced_spoof_app_version_target_title">Võltsitud rakenduse versiooni siht</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Taasta mittekokkuvarisenud video tegevusriba</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Taastage vanad Shortsi esitajaikoonid</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 – Taasta vanad navigeerimisikoonid</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Taasta transkriptsioonifunktsionaalsus</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Taastage vanad Shortsi esitajaikoonid</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 – Taasta vanad navigeerimisikoonid</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Muuda alguslehte</string>
@@ -1313,25 +1352,25 @@ Piirang: tööriistaribal tagasinupp ei pruugi töötada"</string>
   <string name="revanced_miniplayer_type_entry_5">Kaasaegne 2</string>
   <string name="revanced_miniplayer_type_entry_6">Kaasaegne 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moodne 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Lülita ümarate nurkade režiim sisse</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Nurgad on ümarad</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Nurgad on ruudukujulised</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Keela ümarad nurgad</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Nurgad on ruudukujulised</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Nurgad on ümarad</string>
   <string name="revanced_miniplayer_double_tap_action_title">Lülita kahekordne puudutus ja pigistamine suuruse muutmiseks sisse</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Topeltklõpsamise toiming ja tihendamisega suuruse muutmine on lubatud
 
 • Topeltklõpsake, et suurendada minimaalse mängija suurust
 • Topeltklõpsake uuesti, et taastada algne suurus"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Kahekordse puudutuse toiming ja pigistamine suuruse muutmiseks on keelatud</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Lülita lohistamine sisse</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Lohistamine on lubatud
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Keela lohistamine</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Lohistamine on keelatud</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Lohistamine on lubatud
 
 Minimaalset mängijat saab lohistada ekraani mis tahes nurka"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Lohistamine on keelatud</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Lülita horisontaalse lohistamise žest sisse</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Horisontaalne lohistamise žest on lubatud
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Keela horisontaalne lohistamisžest</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Horisontaalse lohistamise žest on keelatud</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Horisontaalne lohistamise žest on lubatud
 
 Minimaalset mängijat saab lohistada ekraanilt vasakule või paremale"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Horisontaalse lohistamise žest on keelatud</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Peida ülekatteliidese nupud</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Ülekatteliidese nupud on peidetud</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Ülekatteliidese nupud on nähtaval</string>
@@ -1423,15 +1462,17 @@ Puudutage siia, et saada lisateavet DeArrow kohta"</string>
   <string name="revanced_announcements_connection_failed">Ühenduse loomine teatepakkujaga ebaõnnestus</string>
   <string name="revanced_announcements_dialog_dismiss">Loobu</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Hoiatus</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Teie vaatamise ajalugu ei salvestata.&lt;br&gt;&lt;br&gt;See on tõenäoliselt tingitud DNS-i reklaamiblokeerijast või võrguproksilt.&lt;br&gt;&lt;br&gt;Selle parandamiseks lisage valgesse nimekirja &lt;b&gt;s.youtube.com&lt;/b&gt; või lülitage kõik DNS-i reklaamiblokeerijad ja proksid välja.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ära kuva uuesti</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Luba video kordamine</string>
+  <string name="revanced_loop_video_summary_on">Video kordub</string>
+  <string name="revanced_loop_video_summary_off">Video ei kordu</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Luba automaatne kordamine</string>
-  <string name="revanced_auto_repeat_summary_on">Automaatne kordamine on lubatud</string>
-  <string name="revanced_auto_repeat_summary_off">Automaatne kordamine on keelatud</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Näita video korduse nuppu</string>
+  <string name="revanced_loop_video_button_summary_on">Nuppu kuvatakse</string>
+  <string name="revanced_loop_video_button_summary_off">Nuppu ei kuvata</string>
+  <string name="revanced_loop_video_button_toast_on">Video kordus on sees</string>
+  <string name="revanced_loop_video_button_toast_off">Video kordus on väljas</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Võltsitud seadme mõõtmed</string>
@@ -1471,11 +1512,6 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_external_browser_title">Ava lingid brauseris</string>
   <string name="revanced_external_browser_summary_on">Linkide avamine välises brauseris</string>
   <string name="revanced_external_browser_summary_off">Linkide avamine rakendusesiseses brauseris</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">Eemalda jälgimise päringuparameeter</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Jälgimise päringuparameeter eemaldatakse linkidest</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Jälgimise päringuparameeter ei eemaldata linkidest</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Sunni originaalheli keel</string>
@@ -1540,10 +1576,22 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_playback_speed_default_title">Vaikimisi taasesituse kiirus</string>
   <string name="revanced_remember_playback_speed_toast">Vaikimisi kiirus muudeti: %s</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">Keela HDR video</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video on keelatud</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video on lubatud</string>
+  <string name="revanced_force_avc_codec_title">Sunni AVC (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_on">Videokodek sunnitakse AVC-le (H.264)</string>
+  <string name="revanced_force_avc_codec_summary_off">Videokodek määratakse automaatselt</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Eelised:
+• Võib parandada aku eluiga
+• Saab taastada puuduvad videolahendused vanematel seadmetel
+
+Piirangud:
+• Maksimaalne resolutsioon on 1080p
+• Video taasesitus kasutab rohkem internetiandmeid kui VP9 või AV1
+• HDR-videod ei kasuta AVC-d
+• Mõned seadmed ei saa AVC-d sundida"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Kuva täiustatud video kvaliteedi menüü</string>
@@ -1557,12 +1605,11 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Võltsimise kõrvalmõjud</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Androidi pettuse kõrvalmõjud</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Heliriba menüü puudub
-• Stabiilne helitugevus pole saadaval"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video võib peatuda kell 1:00 või ei pruugi olla teatud piirkondades saadaval</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentaalne klient ja võib igal ajal töötamast lakata</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video võib peatuda kell 1:00 või ei pruugi olla teatud piirkondades saadaval</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Heliraja menüü puudub</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Puuduv AV1 videokoodek</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabiilne helitugevus pole saadaval</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video lastele ei pruugi taasesitada, kui olete välja logitud või inkognito režiimis</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Sunni algne heli pole saadaval</string>

@@ -174,17 +174,21 @@
                 <item>@string/revanced_spoof_app_version_target_entry_1</item>
                 <item>@string/revanced_spoof_app_version_target_entry_2</item>
                 <item>@string/revanced_spoof_app_version_target_entry_3</item>
+                <item>@string/revanced_spoof_app_version_target_entry_4</item>
             </string-array>
             <string-array name="revanced_spoof_app_version_target_entry_values">
                 <item>20.13.41</item>
+                <item>20.05.46</item>
                 <item>19.35.36</item>
                 <item>19.01.34</item>
             </string-array>
             <string-array name="revanced_spoof_app_version_target_legacy_20_13_entries">
                 <item>@string/revanced_spoof_app_version_target_entry_2</item>
                 <item>@string/revanced_spoof_app_version_target_entry_3</item>
+                <item>@string/revanced_spoof_app_version_target_entry_4</item>
             </string-array>
             <string-array name="revanced_spoof_app_version_target_legacy_20_13_entry_values">
+                <item>20.05.46</item>
                 <item>19.35.36</item>
                 <item>19.01.34</item>
             </string-array>
@@ -382,7 +386,7 @@
             </string-array>
         </patch>
         <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
-            <string-array name="revanced_sb_duration_entries">
+            <string-array name="revanced_sb_auto_hide_skip_button_duration_entries">
                 <item>@string/revanced_sb_duration_1s</item>
                 <item>@string/revanced_sb_duration_2s</item>
                 <item>@string/revanced_sb_duration_3s</item>
@@ -394,7 +398,7 @@
                 <item>@string/revanced_sb_duration_9s</item>
                 <item>@string/revanced_sb_duration_10s</item>
             </string-array>
-            <string-array name="revanced_sb_duration_entry_values">
+            <string-array name="revanced_sb_auto_hide_skip_button_duration_entry_values">
                 <item>ONE_SECOND</item>
                 <item>TWO_SECONDS</item>
                 <item>THREE_SECONDS</item>
@@ -406,6 +410,32 @@
                 <item>NINE_SECONDS</item>
                 <item>TEN_SECONDS</item>
             </string-array>
+            <!-- No easy way to make an alias to another array declaration, so copy it again here. -->
+            <string-array name="revanced_sb_toast_on_skip_duration_entries">
+                <item>@string/revanced_sb_duration_1s</item>
+                <item>@string/revanced_sb_duration_2s</item>
+                <item>@string/revanced_sb_duration_3s</item>
+                <item>@string/revanced_sb_duration_4s</item>
+                <item>@string/revanced_sb_duration_5s</item>
+                <item>@string/revanced_sb_duration_6s</item>
+                <item>@string/revanced_sb_duration_7s</item>
+                <item>@string/revanced_sb_duration_8s</item>
+                <item>@string/revanced_sb_duration_9s</item>
+                <item>@string/revanced_sb_duration_10s</item>
+            </string-array>
+            <string-array name="revanced_sb_toast_on_skip_duration_entry_values">
+                <item>ONE_SECOND</item>
+                <item>TWO_SECONDS</item>
+                <item>THREE_SECONDS</item>
+                <item>FOUR_SECONDS</item>
+                <item>FIVE_SECONDS</item>
+                <item>SIX_SECONDS</item>
+                <item>SEVEN_SECONDS</item>
+                <item>EIGHT_SECONDS</item>
+                <item>NINE_SECONDS</item>
+                <item>TEN_SECONDS</item>
+            </string-array>
+
         </patch>
         <patch id="layout.shortsplayer.shortsPlayerTypePatch">
             <string-array name="revanced_shorts_player_type_legacy_entries">

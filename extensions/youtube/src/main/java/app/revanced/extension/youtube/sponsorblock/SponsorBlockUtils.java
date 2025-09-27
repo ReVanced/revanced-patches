@@ -13,8 +13,6 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.widget.EditText;
 
-import androidx.annotation.NonNull;
-
 import java.lang.ref.WeakReference;
 import java.text.NumberFormat;
 import java.time.Duration;
@@ -53,11 +51,11 @@ public class SponsorBlockUtils {
         public void onClick(DialogInterface dialog, int which) {
             switch (which) {
                 case DialogInterface.BUTTON_NEGATIVE:
-                    // start
+                    // Start.
                     newSponsorSegmentStartMillis = newSponsorSegmentDialogShownMillis;
                     break;
                 case DialogInterface.BUTTON_POSITIVE:
-                    // end
+                    // End.
                     newSponsorSegmentEndMillis = newSponsorSegmentDialogShownMillis;
                     break;
             }
@@ -163,7 +161,7 @@ public class SponsorBlockUtils {
             SponsorSegment segment = segments[which];
 
             SegmentVote[] voteOptions = (segment.category == SegmentCategory.HIGHLIGHT)
-                    ? SegmentVote.voteTypesWithoutCategoryChange // highlight segments cannot change category
+                    ? SegmentVote.voteTypesWithoutCategoryChange // Highlight segments cannot change category.
                     : SegmentVote.values();
             final int voteOptionsLength = voteOptions.length;
             final boolean userIsVip = Settings.SB_USER_IS_VIP.get();
@@ -282,7 +280,7 @@ public class SponsorBlockUtils {
         }
     }
 
-    public static void onVotingClicked(@NonNull Context context) {
+    public static void onVotingClicked(Context context) {
         try {
             Utils.verifyOnMainThread();
             SponsorSegment[] segments = SegmentPlaybackController.getSegments();
@@ -317,7 +315,7 @@ public class SponsorBlockUtils {
                 }
 
                 if (i + 1 != numberOfSegments) {
-                    // prevents trailing new line after last segment
+                    // Prevents trailing new line after last segment.
                     spannableBuilder.append('\n');
                 }
 
@@ -333,7 +331,7 @@ public class SponsorBlockUtils {
         }
     }
 
-    private static void onNewCategorySelect(@NonNull SponsorSegment segment, @NonNull Context context) {
+    private static void onNewCategorySelect(SponsorSegment segment, Context context) {
         try {
             Utils.verifyOnMainThread();
             final SegmentCategory[] values = SegmentCategory.categoriesWithoutHighlights();
@@ -369,7 +367,6 @@ public class SponsorBlockUtils {
             Logger.printException(() -> "onPreviewClicked failure", ex);
         }
     }
-
 
     static void sendViewRequestAsync(SponsorSegment segment) {
         if (segment.recordedAsSkipped || segment.category == SegmentCategory.UNSUBMITTED) {
@@ -423,7 +420,6 @@ public class SponsorBlockUtils {
         String minutesStr = matcher.group(3);
         String secondsStr = matcher.group(4);
         String millisecondsStr = matcher.group(6); // Milliseconds is optional.
-
 
         try {
             final int hours = (hoursStr != null) ? Integer.parseInt(hoursStr) : 0;

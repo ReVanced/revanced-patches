@@ -31,6 +31,11 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_days">%s gün önce yamalanmış</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK derleme tarihi bozuk</string>
   </patch>
+  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Uyarı</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">İzleme geçmişiniz kaydedilmiyor.&lt;br&gt;&lt;br&gt;Bu büyük ihtimalle bir reklam engelleyici DNS\'den veya proxy\'den kaynaklanıyor.&lt;br&gt;&lt;br&gt;Bunu düzeltmek için, &lt;b&gt;s.youtube.com&lt;/b&gt; adresini beyaz listeye ekleyin veya bütün engelleyici DNSleri ve proxy\'leri kapatın.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Bir daha gösterme</string>
+  </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ayarlar</string>
   <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istediğinizden emin misiniz?</string>
@@ -48,14 +53,28 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_hint">Ayarları ara</string>
   <string name="revanced_settings_search_no_results_title">\'%s\' için sonuç bulunamadı</string>
   <string name="revanced_settings_search_no_results_summary">Başka bir anahtar kelime deneyin</string>
+  <string name="revanced_settings_search_recent_searches">Son aramalar</string>
   <string name="revanced_settings_search_remove_message">Arama geçmişinden kaldırılsın mı?</string>
+  <string name="revanced_settings_search_clear_history">Arama geçmişini temizle</string>
+  <string name="revanced_settings_search_clear_history_message">Tüm arama geçmişini temizlemek istediğinizden emin misiniz?</string>
+  <string name="revanced_settings_search_tips_title">Arama İpuçları</string>
+  <string name="revanced_settings_search_tips_summary">"• Bir yola gitmek için ona dokunun
+• Bir ayara gitmek için üzerine uzun basın
+• Bir arama sorgusunu geçmişe kaydetmek için Enter'a basın
+• Arama, büyük/küçük harf ve noktalama işaretlerini dikkate almaz
+• Ana ayarlar, devre dışı bırakılmış alt ayarların üzerinde görünür"</string>
+  <string name="revanced_settings_search_empty_history_title">Arama geçmişi boş</string>
+  <string name="revanced_settings_search_empty_history_summary">Arama geçmişini kaydetmek için bir arama sorgusu yazın ve Enter\'a basın</string>
+  <string name="revanced_settings_search_history_title">Ayarlar arama geçmişini göster</string>
+  <string name="revanced_settings_search_history_summary_on">Ayarlar arama geçmişi gösteriliyor</string>
+  <string name="revanced_settings_search_history_summary_off">Ayarlar arama geçmişi gösterilmiyor</string>
   <string name="revanced_show_menu_icons_title">ReVanced ayar simgelerini göster</string>
   <string name="revanced_show_menu_icons_summary_on">Ayar simgeleri gösteriliyor</string>
   <string name="revanced_show_menu_icons_summary_off">Ayar simgeleri gösterilmiyor</string>
   <string name="revanced_language_title">ReVanced dili</string>
-  <string name="revanced_language_user_dialog_message">"Bazı diller için çeviriler eksik veya tamamlanmamış olabilir. 
+  <string name="revanced_language_user_dialog_message">"Bazı diller için çeviriler eksik veya tamamlanmamış olabilir.
 
-Yeni dilleri çevirmek için translate.revanced.app adresini ziyaret edin"</string>
+Yeni dilleri çevirmek veya mevcut çevirileri geliştirmek için translate.revanced.app adresini ziyaret edin."</string>
   <string name="revanced_language_DEFAULT">Uygulama dili</string>
   <string name="revanced_pref_import_export_title">İçe / Dışa aktar</string>
   <string name="revanced_pref_import_export_summary">ReVanced ayarlarını içe / dışa aktar</string>
@@ -126,6 +145,14 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Kaydedilmiş tüm ReVanced hata ayıklama kayıtlarını temizler</string>
   <string name="revanced_debug_logs_clear_toast">Kayıtlar temizlendi</string>
   </patch>
+  <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılır</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Paylaşılan bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
+  <string name="revanced_replace_music_with_youtube_title">Paylaşım bağlantılarını youtube.com olarak değiştir</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Paylaşılan bağlantılar youtube.com kullanır</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Paylaşılan bağlantılar music.youtube.com kullanır</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
@@ -142,9 +169,6 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_restore_old_settings_menus_title">Eski ayarlar menülerini geri getir</string>
   <string name="revanced_restore_old_settings_menus_summary_on">Eski ayarlar menüleri gösteriliyor</string>
   <string name="revanced_restore_old_settings_menus_summary_off">Eski ayarlar menüleri gösterilmiyor</string>
-  <string name="revanced_settings_search_history_title">Ayarlar arama geçmişini göster</string>
-  <string name="revanced_settings_search_history_summary_on">Ayarlar arama geçmişi gösteriliyor</string>
-  <string name="revanced_settings_search_history_summary_off">Ayarlar arama geçmişi gösterilmiyor</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">Shorts\'un arka planda oynatılmasını devre dışı bırak</string>
@@ -355,15 +379,15 @@ Bir Doodle şu anda bölgenizde gösteriliyorsa ve bu gizleme ayarı açıksa, a
   <string name="revanced_hide_comments_create_a_short_button_title">\'Short oluştur\' düğmesini gizle</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Short oluştur düğmesi gizli</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Short oluştur düğmesi görünür</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Emoji ve Zaman damgası düğmelerini gizle</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Emoji ve Zaman damgası düğmeleri gizli</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Emoji ve Zaman damgası düğmeleri görünür</string>
   <string name="revanced_hide_comments_preview_comment_title">Ön izlenen yorumu gizle</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Ön izlenen yorum gizli</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Ön izlenen yorum görünür</string>
   <string name="revanced_hide_comments_thanks_button_title">Teşekkürler düğmesini gizle</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Teşekkürler düğmesi gizli</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Teşekkürler düğmesi görünür</string>
-  <string name="revanced_hide_comments_timestamp_button_title">Zaman damgası düğmesini gizle</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_on">Zaman damgası düğmesi gizli</string>
-  <string name="revanced_hide_comments_timestamp_button_summary_off">Zaman damgası düğmesi görünür</string>
   <string name="revanced_custom_filter_screen_title">Özel filtre</string>
   <string name="revanced_custom_filter_screen_summary">Özel filtreler kullanarak bileşenleri gizle</string>
   <string name="revanced_custom_filter_title">Özel filtreyi etkinleştir</string>
@@ -373,6 +397,20 @@ Bir Doodle şu anda bölgenizde gösteriliyorsa ve bu gizleme ayarı açıksa, a
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <string name="revanced_custom_filter_strings_summary">Filtrelenecek bileşen yolu oluşturucu dizelerinin yeni satırla ayrılmış şekilde listesi</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Geçersiz özel filtre: %s</string>
+  <string name="revanced_hide_view_count_title">İzlenme sayısını gizle</string>
+  <string name="revanced_hide_view_count_summary_on">İzlenme sayısı akışta ve arama sonuçlarında gizli</string>
+  <string name="revanced_hide_view_count_summary_off">İzlenme sayısı akışta ve arama sonuçlarında görünür</string>
+  <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
+  <string name="revanced_hide_view_count_user_dialog_message">"Sınırlamalar:
+• Shorts rafları, kanal sayfaları ve arama sonuçları yine de izlenme sayılarını gösterebilir
+• Bu özellik otomotiv form faktörüyle çalışmaz"</string>
+  <string name="revanced_hide_upload_time_title">Yüklenme zamanını gizle</string>
+  <string name="revanced_hide_upload_time_summary_on">Yüklenme zamanı akışta ve arama sonuçlarında gizli</string>
+  <string name="revanced_hide_upload_time_summary_off">Yüklenme zamanı akışta ve arama sonuçlarında görünür</string>
+  <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
+  <string name="revanced_hide_upload_time_user_dialog_message">"Sınırlamalar:
+• Shorts rafları, kanal sayfaları ve arama sonuçları yine de yüklenme zamanlarını gösterebilir
+• Bu özellik otomotiv form faktörü ile çalışmaz"</string>
   <string name="revanced_hide_keyword_content_screen_title">Anahtar kelimeyle içerik gizle</string>
   <string name="revanced_hide_keyword_content_screen_summary">Anahtar kelime filtreleriyle arama sonuçlarındaki ve akıştaki videoları gizle</string>
   <string name="revanced_hide_keyword_content_home_title">Ana sayfadaki videoları anahtar kelimelerle gizle</string>
@@ -1062,9 +1100,9 @@ Bu özellik, 720p veya daha düşük video kalitesi ve çok hızlı bir internet
   <string name="revanced_sb_guidelines_popup_already_read">Okudum</string>
   <string name="revanced_sb_guidelines_popup_open">Göster</string>
   <string name="revanced_sb_general">Genel</string>
-  <string name="revanced_sb_toast_on_connection_error_title">API kullanılamadığında bir bildirim göster</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_on">SponsorBlock kullanılamadığında bir bildirim gösterilir</string>
-  <string name="revanced_sb_toast_on_connection_error_summary_off">SponsorBlock kullanılamadığında bildirim gösterilmez</string>
+  <string name="revanced_sb_toast_on_connection_error">API kullanılamadığında bir bildirim göster</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_on">SponsorBlock kullanılamadığında bir bildirim gösterilir</string>
+  <string name="revanced_sb_toast_on_connection_error_sum_off">SponsorBlock kullanılamadığında bildirim gösterilmez</string>
   <string name="revanced_sb_general_skipcount">Atlama sayısı takibini etkinleştir</string>
   <string name="revanced_sb_general_skipcount_sum_on">SponsorBlock liderlik tablosunun ne kadar zaman kazanıldığını bilmesini sağlar. Her bir kısım atlandığında liderlik tablosuna bir mesaj gönderilir</string>
   <string name="revanced_sb_general_skipcount_sum_off">Atlama sayısı izleme etkin değil</string>
@@ -1249,8 +1287,9 @@ Bu, uygulamanın görünümünü ve özelliklerini değiştirecektir, ancak bili
 Daha sonra kapatılırsa, arayüz hatalarını önlemek için uygulama verilerinin temizlenmesi önerilir."</string>
   <string name="revanced_spoof_app_version_target_title">Uygulama sürümü taklidi hedefi</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Daraltılmamış video eylem çubuğunu geri getir</string>
-  <string name="revanced_spoof_app_version_target_entry_2">19.35.36 - Eski Shorts oynatıcı simgelerini geri getir</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.01.34 - Eski gezinti simgelerini geri getir</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Transkript işlevini geri yükle</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Eski Shorts oynatıcı simgelerini geri getir</string>
+  <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Eski gezinti simgelerini geri getir</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
   <string name="revanced_change_start_page_title">Başlangıç sayfasını değiştir</string>
@@ -1315,25 +1354,25 @@ Kısıtlama: Araç çubuğundaki geri düğmesini kullanmak işe yaramayabilir"<
   <string name="revanced_miniplayer_type_entry_5">Modern 2</string>
   <string name="revanced_miniplayer_type_entry_6">Modern 3</string>
   <string name="revanced_miniplayer_type_entry_7">Modern 4</string>
-  <string name="revanced_miniplayer_rounded_corners_title">Yuvarlatılmış köşeleri etkinleştir</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_on">Köşeler yuvarlatılmış</string>
-  <string name="revanced_miniplayer_rounded_corners_summary_off">Köşeler kare şeklinde</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Yuvarlatılmış köşeleri devre dışı bırak</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Köşeler kare şeklinde</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Köşeler yuvarlatılmış</string>
   <string name="revanced_miniplayer_double_tap_action_title">Boyutlandırmak için çift dokunmayı ve sıkıştırmayı etkinleştir</string>
   <string name="revanced_miniplayer_double_tap_action_summary_on">"Boyutlandırmak için çift dokunma ve sıkıştırma etkin
 
 • Mini oynatıcı boyutunu artırmak için çift dokunun
 • Orijinal boyuta geri dönmek için tekrar çift dokunun"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Boyutlandırmak için çift dokunma ve sıkıştırma devre dışı</string>
-  <string name="revanced_miniplayer_drag_and_drop_title">Sürükleyip bırakmayı etkinleştir</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_on">"Sürükle ve bırak etkin
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Sürükleyip bırakmayı devre dışı bırak</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Sürükle ve bırak devre dışı</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Sürükle ve bırak etkin
 
 Mini oynatıcı, ekranın herhangi bir köşesine sürüklenebilir"</string>
-  <string name="revanced_miniplayer_drag_and_drop_summary_off">Sürükle ve bırak devre dışı</string>
-  <string name="revanced_miniplayer_horizontal_drag_title">Yatay sürükleme hareketini etkinleştir</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_on">"Yatay sürükleme hareketi etkin
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Yatay sürükleme hareketini devre dışı bırak</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Yatay sürükleme hareketi devre dışı</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Yatay sürükleme hareketi etkin
 
 Mini oynatıcı, ekranın dışına sağa veya sola sürüklenebilir"</string>
-  <string name="revanced_miniplayer_horizontal_drag_summary_off">Yatay sürükleme hareketi devre dışı</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_title">Katman düğmelerini gizle</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_on">Katman düğmeleri gizli</string>
   <string name="revanced_miniplayer_hide_overlay_buttons_summary_off">Katman düğmeleri görünür</string>
@@ -1430,15 +1469,17 @@ DeArrow hakkında daha fazla bilgi edinmek için buraya dokunun"</string>
   <string name="revanced_announcements_connection_failed">Duyuru sağlayıcısına bağlanılamadı</string>
   <string name="revanced_announcements_dialog_dismiss">Yok say</string>
   </patch>
-  <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Uyarı</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">İzleme geçmişiniz kaydedilmiyor.&lt;br&gt;&lt;br&gt;Bu büyük ihtimalle bir reklam engelleyici DNS\'den veya proxy\'den kaynaklanıyor.&lt;br&gt;&lt;br&gt;Bunu düzeltmek için, &lt;b&gt;s.youtube.com&lt;/b&gt; adresini beyaz listeye ekleyin veya bütün engelleyici DNSleri ve proxy\'leri kapatın.</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Bir daha gösterme</string>
+  <patch id="misc.loopvideo.loopVideoPatch">
+  <string name="revanced_loop_video_title">Videoyu döngüye almayı etkinleştir</string>
+  <string name="revanced_loop_video_summary_on">Video döngüye girecek</string>
+  <string name="revanced_loop_video_summary_off">Video döngüye girmeyecek</string>
   </patch>
-  <patch id="misc.autorepeat.autoRepeatPatch">
-  <string name="revanced_auto_repeat_title">Otomatik tekrarı etkinleştir</string>
-  <string name="revanced_auto_repeat_summary_on">Otomatik tekrar etkin</string>
-  <string name="revanced_auto_repeat_summary_off">Otomatik tekrar devre dışı</string>
+  <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  <string name="revanced_loop_video_button_title">Videoyu döngüye al düğmesini göster</string>
+  <string name="revanced_loop_video_button_summary_on">Düğme görünür</string>
+  <string name="revanced_loop_video_button_summary_off">Düğme gösterilmez</string>
+  <string name="revanced_loop_video_button_toast_on">Videoyu döngüye alma açık</string>
+  <string name="revanced_loop_video_button_toast_off">Videoyu döngüye alma kapalı</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Cihaz boyutlarını taklit et</string>
@@ -1478,11 +1519,6 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_external_browser_title">Bağlantıları tarayıcıda aç</string>
   <string name="revanced_external_browser_summary_on">Bağlantılar harici tarayıcıda açılıyor</string>
   <string name="revanced_external_browser_summary_off">Bağlantılar uygulama içi tarayıcıda açılıyor</string>
-  </patch>
-  <patch id="misc.privacy.removeTrackingQueryParameterPatch">
-  <string name="revanced_remove_tracking_query_parameter_title">İzleyici sorgu parametresini kaldır</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_on">Bağlantılardan izleyici sorgu parametresi kaldırılır</string>
-  <string name="revanced_remove_tracking_query_parameter_summary_off">Bağlantılardan izleyici sorgu parametresi kaldırılmaz</string>
   </patch>
   <patch id="video.audio.forceOriginalAudioPatch">
   <string name="revanced_force_original_audio_title">Orijinal ses dilini zorla</string>
@@ -1547,10 +1583,22 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_playback_speed_default_title">Varsayılan oynatma hızı</string>
   <string name="revanced_remember_playback_speed_toast">Varsayılan hız %s olarak ayarlandı</string>
   </patch>
-  <patch id="video.hdr.disableHdrPatch">
+  <patch id="video.codecs.disableVideoCodecsPatch">
   <string name="revanced_disable_hdr_video_title">HDR videoyu devre dışı bırak</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR video devre dışı</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR video etkin</string>
+  <string name="revanced_force_avc_codec_title">AVC\'yi (H.264) zorla</string>
+  <string name="revanced_force_avc_codec_summary_on">Video kodeği AVC\'ye (H.264) zorlandı</string>
+  <string name="revanced_force_avc_codec_summary_off">Video kodeği otomatik olarak belirlenir</string>
+  <string name="revanced_force_avc_codec_user_dialog_message">"Faydaları:
+• Pil ömrünü iyileştirebilir
+• Eski cihazlarda eksik video çözünürlüklerini geri yükleyebilir
+
+Sınırlamalar:
+• Maksimum çözünürlük 1080p'dir
+• Video oynatma, VP9 veya AV1'den daha fazla internet verisi kullanır
+• HDR videolar AVC kullanmaz
+• Bazı cihazlar AVC'yi zorlayamaz"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
   <string name="revanced_advanced_video_quality_menu_title">Gelişmiş video kalitesi menüsünü göster</string>
@@ -1564,12 +1612,11 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_about_title">Taklit yan etkileri</string>
-  <string name="revanced_spoof_video_streams_about_android_title">Android taklidi yan etkileri</string>
-  <string name="revanced_spoof_video_streams_about_android_summary">"• Ses parçası menüsü eksik
-• Sabit ses özelliği kullanılamaz"</string>
-  <string name="revanced_spoof_video_streams_about_ipados_summary">• Video 1:00\'da durabilir veya bazı bölgelerde kullanılamayabilir</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Deneysel istemci ve her an çalışmayı durdurabilir</string>
+  <string name="revanced_spoof_video_streams_about_playback_failure">• Video 1:00\'da durabilir veya bazı bölgelerde kullanılamayabilir</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Ses parçası menüsü eksik</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
+  <string name="revanced_spoof_video_streams_about_no_stable_volume">• Sabit ses mevcut değil</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Çocuk videoları oturum açılmadığında veya gizli modda oynatılamayabilir</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Orijinal sesi zorlama mevcut değil</string>
@@ -1579,7 +1626,7 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_spoof_video_streams_language_title">Ses akışı dili</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">Belirli bir ses dilini seçmek için \'Orijinal ses dilini zorla\' seçeneğini kapatın</string>
-  <string name="revanced_spoof_video_streams_language_android_studio">Yayın dili seçimi Android Studio ile kullanılamıyor</string>
+  <string name="revanced_spoof_video_streams_language_android_studio">Akış dili seçimi Android Studio ile kullanılamıyor</string>
   </patch>
   </app>
   <app id="music">
@@ -1618,19 +1665,19 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Ana Sayfa düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Ana Sayfa düğmesi görünür</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Örnekleri Gizle</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Örnekler\'i gizle</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Sana Özel düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Sana Özel düğmesi görünür</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_explore_button_title">Keşfet\'i Gizle</string>
+  <string name="revanced_music_hide_navigation_bar_explore_button_title">Keşfet\'i gizle</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Keşfet düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_off">Keşfet düğmesi görünür</string>
   <!-- 'Library' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_library_button_title">Kitaplık\'ı Gizle</string>
+  <string name="revanced_music_hide_navigation_bar_library_button_title">Kitaplık\'ı gizle</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_on">Kitaplık düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_library_button_summary_off">Kitaplık düğmesi görünür</string>
   <!-- 'Upgrade' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Yükselt\'i Gizle</string>
+  <string name="revanced_music_hide_navigation_bar_upgrade_button_title">Yükselt\'i gizle</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_on">Yükselt düğmesi gizli</string>
   <string name="revanced_music_hide_navigation_bar_upgrade_button_summary_off">Yükselt düğmesi görünür</string>
   <string name="revanced_music_hide_navigation_bar_title">Gezinme çubuğunu gizle</string>

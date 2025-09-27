@@ -4,6 +4,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
@@ -31,8 +33,8 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/shared/settings/BaseActivityHook;"
-private const val LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/settings/LicenseActivityHook;"
+private const val YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/settings/YouTubeActivityHook;"
 
 internal var appearanceStringId = -1L
     private set
@@ -73,7 +75,8 @@ private val settingsResourcePatch = resourcePatch {
         // Use same colors as stock YouTube.
         overrideThemeColors("@color/yt_white1", "@color/yt_black3")
 
-        arrayOf(
+        copyResources(
+            "settings",
             ResourceGroup("drawable",
                 "revanced_settings_icon.xml",
                 "revanced_settings_screen_00_about.xml",
@@ -89,30 +92,8 @@ private val settingsResourcePatch = resourcePatch {
                 "revanced_settings_screen_10_sponsorblock.xml",
                 "revanced_settings_screen_11_misc.xml",
                 "revanced_settings_screen_12_video.xml",
-            ),
-            ResourceGroup("layout",
-                "revanced_preference_with_icon_no_search_result.xml",
-                "revanced_search_suggestion_item.xml",
-                "revanced_settings_with_toolbar.xml"
-            ),
-            ResourceGroup("menu", "revanced_search_menu.xml")
-        ).forEach { resourceGroup ->
-            copyResources("settings", resourceGroup)
-        }
-
-        // Copy style properties used to fix over-sized copy menu that appear in EditTextPreference.
-        // For a full explanation of how this fixes the issue, see the comments in this style file
-        // and the comments in the extension code.
-        val targetResource = "values/styles.xml"
-        inputStreamFromBundledResource(
-            "settings/host",
-            targetResource,
-        )!!.let { inputStream ->
-            "resources".copyXmlNode(
-                document(inputStream),
-                document("res/$targetResource"),
-            ).close()
-        }
+            )
+        )
 
         // Remove horizontal divider from the settings Preferences
         // To better match the appearance of the stock YouTube settings.
@@ -215,92 +196,6 @@ val settingsPatch = bytecodePatch(
             )
         )
 
-
-        // Modify the license activity and remove all existing layout code.
-        // Must modify an existing activity and cannot add a new activity to the manifest,
-        // as that fails for root installations.
-
-        licenseActivityOnCreateFingerprint.method.addInstructions(
-            1,
-            """
-                invoke-static {}, $LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->createInstance()Lapp/revanced/extension/youtube/settings/LicenseActivityHook;
-                move-result-object v0
-                invoke-static { v0, p0 }, $BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->initialize(Lapp/revanced/extension/shared/settings/BaseActivityHook;Landroid/app/Activity;)V
-                return-void
-            """
-        )
-
-        // Remove other methods as they will break as the onCreate method is modified above.
-        licenseActivityOnCreateFingerprint.classDef.apply {
-            methods.removeIf { it.name != "onCreate" && !MethodUtil.isConstructor(it) }
-        }
-
-        licenseActivityOnCreateFingerprint.classDef.apply {
-            // Add attachBaseContext method to override the context for setting a specific language.
-            ImmutableMethod(
-                type,
-                "attachBaseContext",
-                listOf(ImmutableMethodParameter("Landroid/content/Context;", null, null)),
-                "V",
-                AccessFlags.PROTECTED.value,
-                null,
-                null,
-                MutableMethodImplementation(3),
-            ).toMutable().apply {
-                addInstructions(
-                    """
-                        invoke-static { p1 }, $LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->getAttachBaseContext(Landroid/content/Context;)Landroid/content/Context;
-                        move-result-object p1
-                        invoke-super { p0, p1 }, $superclass->attachBaseContext(Landroid/content/Context;)V
-                        return-void
-                    """
-                )
-            }.let(methods::add)
-
-            // Add onBackPressed method to handle back button presses, delegating to SearchViewController.
-            ImmutableMethod(
-                type,
-                "onBackPressed",
-                emptyList(),
-                "V",
-                AccessFlags.PUBLIC.value,
-                null,
-                null,
-                MutableMethodImplementation(3),
-            ).toMutable().apply {
-                addInstructions(
-                    """
-                        invoke-static {}, Lapp/revanced/extension/youtube/settings/SearchViewController;->handleBackPress()Z
-                        move-result v0
-                        if-nez v0, :search_handled
-                        invoke-virtual { p0 }, Landroid/app/Activity;->finish()V
-                        :search_handled
-                        return-void
-                    """
-                )
-            }.let(methods::add)
-
-            // Add onConfigurationChanged method to handle configuration changes (e.g., screen orientation).
-            ImmutableMethod(
-                type,
-                "onConfigurationChanged",
-                listOf(ImmutableMethodParameter("Landroid/content/res/Configuration;", null, null)),
-                "V",
-                AccessFlags.PUBLIC.value,
-                null,
-                null,
-                MutableMethodImplementation(3)
-            ).toMutable().apply {
-                addInstructions(
-                    """
-                        invoke-super { p0, p1 }, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
-                        invoke-static { p0, p1 }, $LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->handleConfigurationChanged(Landroid/app/Activity;Landroid/content/res/Configuration;)V
-                        return-void
-                    """
-                )
-            }.let(methods::add)
-        }
-
         // Update shared dark mode status based on YT theme.
         // This is needed because YT allows forcing light/dark mode
         // which then differs from the system dark mode status.
@@ -309,7 +204,7 @@ val settingsPatch = bytecodePatch(
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
                 addInstructionsAtControlFlowLabel(
                     index,
-                    "invoke-static { v$register }, ${LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR}->updateLightDarkModeStatus(Ljava/lang/Enum;)V",
+                    "invoke-static { v$register }, ${YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR}->updateLightDarkModeStatus(Ljava/lang/Enum;)V",
                 )
             }
         }
@@ -317,13 +212,94 @@ val settingsPatch = bytecodePatch(
         // Add setting to force Cairo settings fragment on/off.
         cairoFragmentConfigFingerprint.method.insertLiteralOverride(
             CAIRO_CONFIG_LITERAL_VALUE,
-            "$LICENSE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z"
+            "$YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z"
+        )
+
+        modifyActivityForSettingsInjection(
+            licenseActivityOnCreateFingerprint.classDef,
+            licenseActivityOnCreateFingerprint.method,
+            YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR,
+            false
         )
     }
 
     finalize {
         PreferenceScreen.close()
     }
+}
+
+/**
+ * Modifies the activity to show ReVanced settings instead of it's original purpose.
+ */
+internal fun modifyActivityForSettingsInjection(
+    activityOnCreateClass: MutableClass,
+    activityOnCreateMethod: MutableMethod,
+    extensionClassType: String,
+    isYouTubeMusic: Boolean
+) {
+    // Modify Activity and remove all existing layout code.
+    // Must modify an existing activity and cannot add a new activity to the manifest,
+    // as that fails for root installations.
+    activityOnCreateMethod.addInstructions(
+        1,
+        """
+            invoke-static { p0 }, $extensionClassType->initialize(Landroid/app/Activity;)V
+            return-void
+        """
+    )
+
+    // Remove other methods as they will break as the onCreate method is modified above.
+    activityOnCreateClass.apply {
+        methods.removeIf { it != activityOnCreateMethod && !MethodUtil.isConstructor(it) }
+    }
+
+    // Override base context to allow using ReVanced specific settings.
+    ImmutableMethod(
+        activityOnCreateClass.type,
+        "attachBaseContext",
+        listOf(ImmutableMethodParameter("Landroid/content/Context;", null, null)),
+        "V",
+        AccessFlags.PROTECTED.value,
+        null,
+        null,
+        MutableMethodImplementation(3),
+    ).toMutable().apply {
+        addInstructions(
+            """
+                invoke-static { p1 }, $BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->getAttachBaseContext(Landroid/content/Context;)Landroid/content/Context;
+                move-result-object p1
+                invoke-super { p0, p1 }, ${activityOnCreateClass.superclass}->attachBaseContext(Landroid/content/Context;)V
+                return-void
+            """
+        )
+    }.let(activityOnCreateClass.methods::add)
+
+    // Override finish() to intercept back gesture.
+    ImmutableMethod(
+        activityOnCreateClass.type,
+        if (isYouTubeMusic) "finish" else "onBackPressed",
+        emptyList(),
+        "V",
+        AccessFlags.PUBLIC.value,
+        null,
+        null,
+        MutableMethodImplementation(3),
+    ).toMutable().apply {
+        // Slightly different hooks are needed, otherwise the back button can behave wrong.
+        val extensionMethodName = if (isYouTubeMusic) "handleFinish" else "handleBackPress"
+        val invokeFinishOpcode = if (isYouTubeMusic) "invoke-super" else "invoke-virtual"
+
+        addInstructions(
+            """
+                invoke-static {}, $extensionClassType->$extensionMethodName()Z
+                move-result v0
+                if-nez v0, :search_handled
+                $invokeFinishOpcode { p0 }, Landroid/app/Activity;->finish()V
+                :search_handled
+                return-void
+            """
+        )
+    }.let(activityOnCreateClass.methods::add)
 }
 
 /**

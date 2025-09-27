@@ -1,7 +1,6 @@
 package app.revanced.extension.youtube.sponsorblock.objects;
 
 import static app.revanced.extension.shared.StringRef.sf;
-import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.COLOR_DOT_STRING;
 import static app.revanced.extension.youtube.settings.Settings.*;
 
 import android.graphics.Color;
@@ -9,9 +8,9 @@ import android.graphics.Paint;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
+
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
-
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,40 +25,39 @@ import java.util.Objects;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.StringRef;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.FloatSetting;
 import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.youtube.settings.Settings;
 
 public enum SegmentCategory {
     SPONSOR("sponsor", sf("revanced_sb_segments_sponsor"), sf("revanced_sb_segments_sponsor_sum"), sf("revanced_sb_skip_button_sponsor"), sf("revanced_sb_skipped_sponsor"),
-            SB_CATEGORY_SPONSOR, SB_CATEGORY_SPONSOR_COLOR, SB_CATEGORY_SPONSOR_OPACITY),
+            SB_CATEGORY_SPONSOR, SB_CATEGORY_SPONSOR_COLOR),
     SELF_PROMO("selfpromo", sf("revanced_sb_segments_selfpromo"), sf("revanced_sb_segments_selfpromo_sum"), sf("revanced_sb_skip_button_selfpromo"), sf("revanced_sb_skipped_selfpromo"),
-            SB_CATEGORY_SELF_PROMO, SB_CATEGORY_SELF_PROMO_COLOR, SB_CATEGORY_SELF_PROMO_OPACITY),
+            SB_CATEGORY_SELF_PROMO, SB_CATEGORY_SELF_PROMO_COLOR),
     INTERACTION("interaction", sf("revanced_sb_segments_interaction"), sf("revanced_sb_segments_interaction_sum"), sf("revanced_sb_skip_button_interaction"), sf("revanced_sb_skipped_interaction"),
-            SB_CATEGORY_INTERACTION, SB_CATEGORY_INTERACTION_COLOR, SB_CATEGORY_INTERACTION_OPACITY),
+            SB_CATEGORY_INTERACTION, SB_CATEGORY_INTERACTION_COLOR),
     /**
      * Unique category that is treated differently than the rest.
      */
     HIGHLIGHT("poi_highlight", sf("revanced_sb_segments_highlight"), sf("revanced_sb_segments_highlight_sum"), sf("revanced_sb_skip_button_highlight"), sf("revanced_sb_skipped_highlight"),
-            SB_CATEGORY_HIGHLIGHT, SB_CATEGORY_HIGHLIGHT_COLOR, SB_CATEGORY_HIGHLIGHT_OPACITY),
+            SB_CATEGORY_HIGHLIGHT, SB_CATEGORY_HIGHLIGHT_COLOR),
     INTRO("intro", sf("revanced_sb_segments_intro"), sf("revanced_sb_segments_intro_sum"),
             sf("revanced_sb_skip_button_intro_beginning"), sf("revanced_sb_skip_button_intro_middle"), sf("revanced_sb_skip_button_intro_end"),
             sf("revanced_sb_skipped_intro_beginning"), sf("revanced_sb_skipped_intro_middle"), sf("revanced_sb_skipped_intro_end"),
-            SB_CATEGORY_INTRO, SB_CATEGORY_INTRO_COLOR, SB_CATEGORY_INTRO_OPACITY),
+            SB_CATEGORY_INTRO, SB_CATEGORY_INTRO_COLOR),
     OUTRO("outro", sf("revanced_sb_segments_outro"), sf("revanced_sb_segments_outro_sum"), sf("revanced_sb_skip_button_outro"), sf("revanced_sb_skipped_outro"),
-            SB_CATEGORY_OUTRO, SB_CATEGORY_OUTRO_COLOR, SB_CATEGORY_OUTRO_OPACITY),
+            SB_CATEGORY_OUTRO, SB_CATEGORY_OUTRO_COLOR),
     PREVIEW("preview", sf("revanced_sb_segments_preview"), sf("revanced_sb_segments_preview_sum"),
             sf("revanced_sb_skip_button_preview_beginning"), sf("revanced_sb_skip_button_preview_middle"), sf("revanced_sb_skip_button_preview_end"),
             sf("revanced_sb_skipped_preview_beginning"), sf("revanced_sb_skipped_preview_middle"), sf("revanced_sb_skipped_preview_end"),
-            SB_CATEGORY_PREVIEW, SB_CATEGORY_PREVIEW_COLOR, SB_CATEGORY_PREVIEW_OPACITY),
+            SB_CATEGORY_PREVIEW, SB_CATEGORY_PREVIEW_COLOR),
     HOOK("hook", sf("revanced_sb_segments_hook"), sf("revanced_sb_segments_hook_sum"), sf("revanced_sb_skip_button_hook"), sf("revanced_sb_skipped_hook"),
-            SB_CATEGORY_HOOK, SB_CATEGORY_HOOK_COLOR, SB_CATEGORY_HOOK_OPACITY),
+            SB_CATEGORY_HOOK, SB_CATEGORY_HOOK_COLOR),
     FILLER("filler", sf("revanced_sb_segments_filler"), sf("revanced_sb_segments_filler_sum"), sf("revanced_sb_skip_button_filler"), sf("revanced_sb_skipped_filler"),
-            SB_CATEGORY_FILLER, SB_CATEGORY_FILLER_COLOR, SB_CATEGORY_FILLER_OPACITY),
+            SB_CATEGORY_FILLER, SB_CATEGORY_FILLER_COLOR),
     MUSIC_OFFTOPIC("music_offtopic", sf("revanced_sb_segments_nomusic"), sf("revanced_sb_segments_nomusic_sum"), sf("revanced_sb_skip_button_nomusic"), sf("revanced_sb_skipped_nomusic"),
-            SB_CATEGORY_MUSIC_OFFTOPIC, SB_CATEGORY_MUSIC_OFFTOPIC_COLOR, SB_CATEGORY_MUSIC_OFFTOPIC_OPACITY),
+            SB_CATEGORY_MUSIC_OFFTOPIC, SB_CATEGORY_MUSIC_OFFTOPIC_COLOR),
     UNSUBMITTED("unsubmitted", StringRef.empty, StringRef.empty, sf("revanced_sb_skip_button_unsubmitted"), sf("revanced_sb_skipped_unsubmitted"),
-            SB_CATEGORY_UNSUBMITTED, SB_CATEGORY_UNSUBMITTED_COLOR, SB_CATEGORY_UNSUBMITTED_OPACITY);
+            SB_CATEGORY_UNSUBMITTED, SB_CATEGORY_UNSUBMITTED_COLOR);
 
     private static final StringRef skipSponsorTextCompact = sf("revanced_sb_skip_button_compact");
     private static final StringRef skipSponsorTextCompactHighlight = sf("revanced_sb_skip_button_compact_highlight");
@@ -88,10 +86,15 @@ public enum SegmentCategory {
             FILLER,
             MUSIC_OFFTOPIC,
     };
+
+    public static final String COLOR_DOT_STRING = "⬤";
+
+    public static final float CATEGORY_DEFAULT_OPACITY = 0.7f;
+
     private static final Map<String, SegmentCategory> mValuesMap = new HashMap<>(2 * categoriesWithoutUnsubmitted.length);
 
     /**
-     * Categories currently enabled, formatted for an API call
+     * Categories currently enabled, formatted for an API call.
      */
     public static String sponsorBlockAPIFetchCategories = "[]";
 
@@ -100,21 +103,30 @@ public enum SegmentCategory {
             mValuesMap.put(value.keyValue, value);
     }
 
+    /**
+     * Returns an array of categories excluding the unsubmitted category.
+     */
     public static SegmentCategory[] categoriesWithoutUnsubmitted() {
         return categoriesWithoutUnsubmitted;
     }
 
+    /**
+     * Returns an array of categories excluding the highlight category.
+     */
     public static SegmentCategory[] categoriesWithoutHighlights() {
         return categoriesWithoutHighlights;
     }
 
+    /**
+     * Retrieves a category by its key.
+     */
     @Nullable
     public static SegmentCategory byCategoryKey(@NonNull String key) {
         return mValuesMap.get(key);
     }
 
     /**
-     * Must be called if behavior of any category is changed.
+     * Updates the list of enabled categories for API calls. Must be called when any category's behavior changes.
      */
     public static void updateEnabledCategories() {
         Utils.verifyOnMainThread();
@@ -134,6 +146,9 @@ public enum SegmentCategory {
             sponsorBlockAPIFetchCategories = "[%22" + TextUtils.join("%22,%22", enabledCategories) + "%22]";
     }
 
+    /**
+     * Loads all category settings from persistent storage.
+     */
     public static void loadAllCategoriesFromSettings() {
         for (SegmentCategory category : values()) {
             category.loadFromSettings();
@@ -141,45 +156,35 @@ public enum SegmentCategory {
         updateEnabledCategories();
     }
 
-    @ColorInt
-    public static int applyOpacityToColor(@ColorInt int color, float opacity) {
-        if (opacity < 0 || opacity > 1.0f) {
-            throw new IllegalArgumentException("Invalid opacity: " + opacity);
-        }
-        final int opacityInt = (int) (255 * opacity);
-        return (color & 0x00FFFFFF) | (opacityInt << 24);
-    }
-
     public final String keyValue;
-    public final StringSetting behaviorSetting; // TODO: Replace with EnumSetting.
-    private final StringSetting colorSetting;
-    private final FloatSetting opacitySetting;
+    public final StringSetting behaviorSetting;
+    public final StringSetting colorSetting;
 
     public final StringRef title;
     public final StringRef description;
 
     /**
-     * Skip button text, if the skip occurs in the first quarter of the video
+     * Skip button text, if the skip occurs in the first quarter of the video.
      */
     public final StringRef skipButtonTextBeginning;
     /**
-     * Skip button text, if the skip occurs in the middle half of the video
+     * Skip button text, if the skip occurs in the middle half of the video.
      */
     public final StringRef skipButtonTextMiddle;
     /**
-     * Skip button text, if the skip occurs in the last quarter of the video
+     * Skip button text, if the skip occurs in the last quarter of the video.
      */
     public final StringRef skipButtonTextEnd;
     /**
-     * Skipped segment toast, if the skip occurred in the first quarter of the video
+     * Skipped segment toast, if the skip occurred in the first quarter of the video.
      */
     public final StringRef skippedToastBeginning;
     /**
-     * Skipped segment toast, if the skip occurred in the middle half of the video
+     * Skipped segment toast, if the skip occurred in the middle half of the video.
      */
     public final StringRef skippedToastMiddle;
     /**
-     * Skipped segment toast, if the skip occurred in the last quarter of the video
+     * Skipped segment toast, if the skip occurred in the last quarter of the video.
      */
     public final StringRef skippedToastEnd;
 
@@ -193,7 +198,7 @@ public enum SegmentCategory {
 
     /**
      * Value must be changed using {@link #setBehaviour(CategoryBehaviour)}.
-     * Caller must also {@link #updateEnabledCategories()}.
+     * Caller must also call {@link #updateEnabledCategories()}.
      */
     public CategoryBehaviour behaviour = CategoryBehaviour.IGNORE;
 
@@ -201,19 +206,19 @@ public enum SegmentCategory {
                     StringRef skipButtonText,
                     StringRef skippedToastText,
                     StringSetting behavior,
-                    StringSetting color, FloatSetting opacity) {
+                    StringSetting color) {
         this(keyValue, title, description,
                 skipButtonText, skipButtonText, skipButtonText,
                 skippedToastText, skippedToastText, skippedToastText,
                 behavior,
-                color, opacity);
+                color);
     }
 
     SegmentCategory(String keyValue, StringRef title, StringRef description,
                     StringRef skipButtonTextBeginning, StringRef skipButtonTextMiddle, StringRef skipButtonTextEnd,
                     StringRef skippedToastBeginning, StringRef skippedToastMiddle, StringRef skippedToastEnd,
                     StringSetting behavior,
-                    StringSetting color, FloatSetting opacity) {
+                    StringSetting color) {
         this.keyValue = Objects.requireNonNull(keyValue);
         this.title = Objects.requireNonNull(title);
         this.description = Objects.requireNonNull(description);
@@ -225,11 +230,13 @@ public enum SegmentCategory {
         this.skippedToastEnd = Objects.requireNonNull(skippedToastEnd);
         this.behaviorSetting = Objects.requireNonNull(behavior);
         this.colorSetting = Objects.requireNonNull(color);
-        this.opacitySetting = Objects.requireNonNull(opacity);
         this.paint = new Paint();
         loadFromSettings();
     }
 
+    /**
+     * Loads the category's behavior and color from settings.
+     */
     private void loadFromSettings() {
         String behaviorString = behaviorSetting.get();
         CategoryBehaviour savedBehavior = CategoryBehaviour.byReVancedKeyValue(behaviorString);
@@ -242,95 +249,92 @@ public enum SegmentCategory {
         this.behaviour = savedBehavior;
 
         String colorString = colorSetting.get();
-        final float opacity = opacitySetting.get();
         try {
-            setColor(colorString);
-            setOpacity(opacity);
+            setColorWithOpacity(colorString);
         } catch (Exception ex) {
-            Logger.printException(() -> "Invalid color: " + colorString + " opacity: " + opacity, ex);
+            Logger.printException(() -> "Invalid color: " + colorString, ex);
             colorSetting.resetToDefault();
-            opacitySetting.resetToDefault();
             loadFromSettings();
         }
     }
 
+    /**
+     * Sets the behavior of the category and saves it to settings.
+     */
     public void setBehaviour(CategoryBehaviour behaviour) {
         this.behaviour = Objects.requireNonNull(behaviour);
         this.behaviorSetting.save(behaviour.reVancedKeyValue);
     }
 
-    private void updateColor() {
-        color = applyOpacityToColor(color, opacitySetting.get());
+    /**
+     * Sets the segment color with opacity from a color string in #AARRGGBB format.
+     */
+    public void setColorWithOpacity(String colorString) throws IllegalArgumentException {
+        int colorWithOpacity = Color.parseColor(colorString);
+        colorSetting.save(String.format(Locale.US, "#%08X", colorWithOpacity));
+        color = colorWithOpacity;
         paint.setColor(color);
     }
 
     /**
-     * @param opacity Segment color opacity between [0, 1].
+     * @param opacity [0, 1] opacity value.
      */
-    public void setOpacity(float opacity) throws IllegalArgumentException {
-        if (opacity < 0 || opacity > 1) {
-            throw new IllegalArgumentException("Invalid opacity: " + opacity);
-        }
-
-        opacitySetting.save(opacity);
-        updateColor();
-    }
-
-    public float getOpacity() {
-        return opacitySetting.get();
-    }
-
-    public float getOpacityDefault() {
-        return opacitySetting.defaultValue;
-    }
-
-    public void resetColorAndOpacity() {
-        setColor(colorSetting.defaultValue);
-        setOpacity(opacitySetting.defaultValue);
+    public void setOpacity(double opacity) {
+        color = Color.argb((int) (opacity * 255), Color.red(color), Color.green(color), Color.blue(color));
+        paint.setColor(color);
     }
 
     /**
-     * @param colorString Segment color with #RRGGBB format.
-     */
-    public void setColor(String colorString) throws IllegalArgumentException {
-        color = Color.parseColor(colorString);
-        colorSetting.save(colorString);
-
-        updateColor();
-    }
-
-    /**
-     * @return Integer color of #RRGGBB format.
+     * Gets the color with opacity applied (ARGB).
      */
     @ColorInt
-    public int getColorNoOpacity() {
-        return color & 0x00FFFFFF;
+    public int getColorWithOpacity() {
+        return color;
     }
 
     /**
-     * @return Integer color of #RRGGBB format.
+     * @return The default color with opacity applied.
      */
     @ColorInt
-    public int getColorNoOpacityDefault() {
-        return Color.parseColor(colorSetting.defaultValue) & 0x00FFFFFF;
+    public int getDefaultColorWithOpacity() {
+        return Color.parseColor(colorSetting.defaultValue);
     }
 
     /**
-     * @return Hex color string of #RRGGBB format with no opacity level.
+     * Gets the color as a hex string with opacity (#AARRGGBB).
      */
-    public String getColorString() {
-        return String.format(Locale.US, "#%06X", getColorNoOpacity());
+    public String getColorStringWithOpacity() {
+        return String.format(Locale.US, "#%08X", getColorWithOpacity());
     }
 
+    /**
+     * @return The color as a hex string without opacity (#RRGGBB).
+     */
+    public String getColorStringWithoutOpacity() {
+        final int colorNoOpacity = getColorWithOpacity() & 0x00FFFFFF;
+        return String.format(Locale.US, "#%06X", colorNoOpacity);
+    }
+
+    /**
+     * @return [0, 1] opacity value.
+     */
+    public double getOpacity() {
+        double opacity = Color.alpha(color) / 255.0;
+        return Math.round(opacity * 100.0) / 100.0; // Round to 2 decimal digits.
+    }
+
+    /**
+     * Gets the title of the category.
+     */
+    public StringRef getTitle() {
+        return title;
+    }
+
+    /**
+     * Creates a {@link SpannableString} that starts with a colored dot followed by the provided text.
+     */
     private static SpannableString getCategoryColorDotSpan(String text, @ColorInt int color) {
         SpannableString dotSpan = new SpannableString(COLOR_DOT_STRING + text);
-        dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        return dotSpan;
-    }
-
-    public static SpannableString getCategoryColorDot(@ColorInt int color) {
-        SpannableString dotSpan = new SpannableString(COLOR_DOT_STRING);
         dotSpan.setSpan(new ForegroundColorSpan(color), 0, 1,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         dotSpan.setSpan(new RelativeSizeSpan(1.5f), 0, 1,
@@ -338,22 +342,26 @@ public enum SegmentCategory {
         return dotSpan;
     }
 
-    public SpannableString getCategoryColorDot() {
-        return getCategoryColorDot(color);
-    }
-
+    /**
+     * Returns the category title with a colored dot.
+     */
     public SpannableString getTitleWithColorDot(@ColorInt int categoryColor) {
         return getCategoryColorDotSpan(" " + title, categoryColor);
     }
 
+    /**
+     * Returns the category title with a colored dot.
+     */
     public SpannableString getTitleWithColorDot() {
         return getTitleWithColorDot(color);
     }
 
     /**
-     * @param segmentStartTime video time the segment category started
-     * @param videoLength      length of the video
-     * @return the skip button text
+     * Gets the skip button text based on segment position.
+     *
+     * @param segmentStartTime Video time the segment category started.
+     * @param videoLength      Length of the video.
+     * @return The skip button text.
      */
     StringRef getSkipButtonText(long segmentStartTime, long videoLength) {
         if (Settings.SB_COMPACT_SKIP_BUTTON.get()) {
@@ -375,9 +383,11 @@ public enum SegmentCategory {
     }
 
     /**
-     * @param segmentStartTime video time the segment category started
-     * @param videoLength      length of the video
-     * @return 'skipped segment' toast message
+     * Gets the skipped segment toast message based on segment position.
+     *
+     * @param segmentStartTime Video time the segment category started.
+     * @param videoLength      Length of the video.
+     * @return The skipped segment toast message.
      */
     StringRef getSkippedToastText(long segmentStartTime, long videoLength) {
         if (videoLength == 0) {

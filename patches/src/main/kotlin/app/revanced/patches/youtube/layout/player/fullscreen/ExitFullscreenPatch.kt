@@ -9,8 +9,8 @@ import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.autoRepeatFingerprint
-import app.revanced.patches.youtube.shared.autoRepeatParentFingerprint
+import app.revanced.patches.youtube.shared.loopVideoFingerprint
+import app.revanced.patches.youtube.shared.loopVideoParentFingerprint
 import app.revanced.util.addInstructionsAtControlFlowLabel
 
 @Suppress("unused")
@@ -22,7 +22,6 @@ internal val exitFullscreenPatch = bytecodePatch(
     compatibleWith(
         "com.google.android.youtube"(
             "19.34.42",
-            "19.43.41",
             "20.07.39",
             "20.13.41",
             "20.14.43",
@@ -50,7 +49,7 @@ internal val exitFullscreenPatch = bytecodePatch(
             ListPreference("revanced_exit_fullscreen")
         )
 
-        autoRepeatFingerprint.match(autoRepeatParentFingerprint.originalClassDef).method.apply {
+        loopVideoFingerprint.match(loopVideoParentFingerprint.originalClassDef).method.apply {
             addInstructionsAtControlFlowLabel(
                 implementation!!.instructions.lastIndex,
                 "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->endOfVideoReached()V",

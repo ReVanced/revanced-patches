@@ -14,6 +14,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.settings.preference.BulletPointPreference;
 import app.revanced.extension.shared.spoof.ClientType;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -79,26 +80,32 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
         Logger.printDebug(() -> "Updating spoof stream side effects preference");
         setEnabled(BaseSettings.SPOOF_VIDEO_STREAMS.get());
 
-        setTitle(str("revanced_spoof_video_streams_about_title"));
+        String summary = str("revanced_spoof_video_streams_about_no_audio_tracks");
 
-        String summary = str(clientType == ClientType.IPADOS
-                ? "revanced_spoof_video_streams_about_ipados_summary"
-                // Same base side effects for Android VR, Android Studio, and visionOS.
-                : "revanced_spoof_video_streams_about_android_summary");
-
-        if (clientType == ClientType.IPADOS) {
-            summary += '\n' + str("revanced_spoof_video_streams_about_no_av1");
-        } else if (clientType == ClientType.VISIONOS) {
-            summary = str("revanced_spoof_video_streams_about_experimental")
-                    + '\n' + summary
-                    + '\n' + str("revanced_spoof_video_streams_about_no_av1")
-                    + '\n' + str("revanced_spoof_video_streams_about_kids_videos");
-        } else if (clientType == ClientType.ANDROID_CREATOR) {
-            summary += '\n' + str("revanced_spoof_video_streams_about_no_av1")
-                    + '\n' + str("revanced_spoof_video_streams_about_no_force_original_audio")
-                    + '\n' + str("revanced_spoof_video_streams_about_kids_videos");
+        switch (clientType) {
+            case ANDROID_VR_1_61_48 ->
+                    summary += '\n' + str("revanced_spoof_video_streams_about_no_stable_volume");
+            case ANDROID_CREATOR ->
+                    summary += '\n' + str("revanced_spoof_video_streams_about_no_av1")
+                            + '\n' + str("revanced_spoof_video_streams_about_no_stable_volume")
+                            + '\n' + str("revanced_spoof_video_streams_about_no_force_original_audio");
+            case IPADOS ->
+                    summary = str("revanced_spoof_video_streams_about_playback_failure")
+                            + '\n' + str("revanced_spoof_video_streams_about_no_av1");
+            case VISIONOS ->
+                    summary = str("revanced_spoof_video_streams_about_experimental")
+                            + '\n' + summary
+                            + '\n' + str("revanced_spoof_video_streams_about_no_av1");
         }
 
-        setSummary(summary);
+        // Only iPadOS can play children videos in incognito, but it commonly fails at 1 minute
+        // or doesn't even start playback at all. List the side effect for other clients
+        // since they will fall over to iPadOS.
+        if (clientType != ClientType.IPADOS) {
+            summary += '\n' + str("revanced_spoof_video_streams_about_kids_videos");
+        }
+
+        // Use better formatting for bullet points.
+        setSummary(BulletPointPreference.formatIntoBulletPoints(summary));
     }
 }
