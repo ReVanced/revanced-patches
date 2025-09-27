@@ -71,7 +71,10 @@ private fun escapedAppName(name: String?): String? {
         .replace("<", "&lt;")
         .replace(">", "&gt;")
 
-    return escapedName.ifBlank { null }
+    // Trim empty spacing.
+    val trimmed = escapedName.trim()
+
+    return trimmed.ifBlank { null }
 }
 
 /**
@@ -103,7 +106,7 @@ internal fun baseCustomBrandingPatch(
         val appName by appNameOption
         val icon by appIconOption
 
-        icon?.let { iconPath ->
+        icon?.trim()?.let { iconPath ->
             // Change the app icon.
             mipmapDirectories.map { directory ->
                 ResourceGroup(
