@@ -1,8 +1,8 @@
-package app.revanced.extension.spotify.misc.privacy;
-
-import java.util.List;
+package app.revanced.extension.instagram.misc.share.privacy;
 
 import app.revanced.extension.shared.privacy.SanitizeSharingLinkPatch;
+
+import java.util.List;
 
 @SuppressWarnings("unused")
 public final class SanitizeSharingLinksPatch extends SanitizeSharingLinkPatch {
@@ -13,10 +13,7 @@ public final class SanitizeSharingLinksPatch extends SanitizeSharingLinkPatch {
      */
     @Override
     protected List<String> getParametersToRemove() {
-        return List.of(
-                "si", // Share tracking parameter.
-                "utm_source" // Share source, such as "copy-link".
-        );
+        return List.of("igsh");
     }
 
     /**
