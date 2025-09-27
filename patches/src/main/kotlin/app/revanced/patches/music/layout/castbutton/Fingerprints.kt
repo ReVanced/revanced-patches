@@ -6,6 +6,7 @@ import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import org.stringtemplate.v4.compiler.Bytecode.instructions
 
 internal val mediaRouteButtonFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
@@ -18,6 +19,6 @@ internal val playerOverlayChipFingerprint by fingerprint {
     returns("L")
     instructions(
         resourceLiteral(ResourceType.ID, "player_overlay_chip"),
-        opcode(Opcode.MOVE_RESULT)
+        opcode(Opcode.MOVE_RESULT_OBJECT)
     )
 }
