@@ -1467,7 +1467,7 @@ Second \"item\" text"</string>
   <string name="revanced_loop_video_summary_off">Відео не буде повторюватися</string>
   </patch>
   <patch id="misc.loopvideo.button.loopVideoButtonPatch">
-  <string name="revanced_loop_video_button_title">Показувати кнопку повторення відео</string>
+  <string name="revanced_loop_video_button_title">Кнопка повторення відео</string>
   <string name="revanced_loop_video_button_summary_on">Кнопка показується</string>
   <string name="revanced_loop_video_button_summary_off">Кнопка не показується</string>
   <string name="revanced_loop_video_button_toast_on">Повторення відео ввімкнено</string>
