@@ -20,7 +20,8 @@ private const val instructionsFooter = """
 @Suppress("unused")
 val hideNavigationButtonsPatch = bytecodePatch(
     name = "Hide navigation buttons",
-    description = "Hides selected navigation bar buttons, e.g. Explore and Marketplace.",
+    description = "Permanently hides navigation bar buttons, such as Explore and Marketplace.",
+    use = false
 ) {
     compatibleWith("com.viber.voip")
 
@@ -43,15 +44,13 @@ val hideNavigationButtonsPatch = bytecodePatch(
             )
         }
 
-        allowedItems
+        val injectionInstructions = allowedItems
             .map { it.key.buildAllowInstruction() }
             .joinToString("\n") + instructionsFooter
-            .let {
-                shouldShowTabIdMethodFingerprint
-                    .method
-                    .addInstructionsWithLabels(0, it)
-        }
 
+        shouldShowTabIdMethodFingerprint
+            .method
+            .addInstructionsWithLabels(0, injectionInstructions)
     }
 }
 
