@@ -114,8 +114,10 @@ fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): In
 
             // Somehow every method register was read from before any register was wrote to.
             // In practice this never occurs.
-            throw IllegalArgumentException("Could not find a free register from startIndex: " +
-                    "$startIndex excluding: $registersToExclude")
+            throw IllegalArgumentException(
+                "Could not find a free register from startIndex: " +
+                    "$startIndex excluding: $registersToExclude",
+            )
         }
     }
 
@@ -180,7 +182,7 @@ internal val Instruction.isReturnInstruction: Boolean
  *
  * @param fieldName The name of the field to find.  Partial matches are allowed.
  */
-private fun Method.findInstructionIndexFromToString(fieldName: String) : Int {
+private fun Method.findInstructionIndexFromToString(fieldName: String): Int {
     val stringIndex = indexOfFirstInstruction {
         val reference = getReference<StringReference>()
         reference?.string?.contains(fieldName) == true
@@ -194,7 +196,7 @@ private fun Method.findInstructionIndexFromToString(fieldName: String) : Int {
     val stringUsageIndex = indexOfFirstInstruction(stringIndex) {
         val reference = getReference<MethodReference>()
         reference?.definingClass == "Ljava/lang/StringBuilder;" &&
-                (this as? FiveRegisterInstruction)?.registerD == stringRegister
+            (this as? FiveRegisterInstruction)?.registerD == stringRegister
     }
     if (stringUsageIndex < 0) {
         throw IllegalArgumentException("Could not find StringBuilder usage in: $this")
@@ -220,7 +222,8 @@ private fun Method.findInstructionIndexFromToString(fieldName: String) : Int {
     val fieldSetOpcode = getInstruction(fieldSetIndex).opcode
     if (fieldSetOpcode == MOVE_RESULT ||
         fieldSetOpcode == MOVE_RESULT_WIDE ||
-        fieldSetOpcode == MOVE_RESULT_OBJECT) {
+        fieldSetOpcode == MOVE_RESULT_OBJECT
+    ) {
         fieldSetIndex--
     }
 
@@ -233,7 +236,7 @@ private fun Method.findInstructionIndexFromToString(fieldName: String) : Int {
  * @param fieldName The name of the field to find.  Partial matches are allowed.
  */
 context(BytecodePatchContext)
-internal fun Method.findMethodFromToString(fieldName: String) : MutableMethod {
+internal fun Method.findMethodFromToString(fieldName: String): MutableMethod {
     val methodUsageIndex = findInstructionIndexFromToString(fieldName)
     return navigate(this).to(methodUsageIndex).stop()
 }
@@ -243,7 +246,7 @@ internal fun Method.findMethodFromToString(fieldName: String) : MutableMethod {
  *
  * @param fieldName The name of the field to find.  Partial matches are allowed.
  */
-internal fun Method.findFieldFromToString(fieldName: String) : FieldReference {
+internal fun Method.findFieldFromToString(fieldName: String): FieldReference {
     val methodUsageIndex = findInstructionIndexFromToString(fieldName)
     return getInstruction<ReferenceInstruction>(methodUsageIndex).getReference<FieldReference>()!!
 }
@@ -251,11 +254,9 @@ internal fun Method.findFieldFromToString(fieldName: String) : FieldReference {
 /**
  * Adds public [AccessFlags] and removes private and protected flags (if present).
  */
-internal fun Int.toPublicAccessFlags(): Int {
-    return this.or(AccessFlags.PUBLIC.value)
-        .and(AccessFlags.PROTECTED.value.inv())
-        .and(AccessFlags.PRIVATE.value.inv())
-}
+internal fun Int.toPublicAccessFlags(): Int = this.or(AccessFlags.PUBLIC.value)
+    .and(AccessFlags.PROTECTED.value.inv())
+    .and(AccessFlags.PRIVATE.value.inv())
 
 /**
  * Find the [MutableMethod] from a given [Method] in a [MutableClass].
@@ -296,7 +297,6 @@ fun MutableMethod.injectHideViewCall(
     "invoke-static { v$viewRegister }, $classDescriptor->$targetMethod(Landroid/view/View;)V",
 )
 
-
 /**
  * Inserts instructions at a given index, using the existing control flow label at that index.
  * Inserted instructions can have it's own control flow labels as well.
@@ -313,7 +313,7 @@ fun MutableMethod.injectHideViewCall(
 // TODO: delete this on next major version bump.
 fun MutableMethod.addInstructionsAtControlFlowLabel(
     insertIndex: Int,
-    instructions: String
+    instructions: String,
 ) = addInstructionsAtControlFlowLabel(insertIndex, instructions, *arrayOf<ExternalLabel>())
 
 /**
@@ -332,7 +332,7 @@ fun MutableMethod.addInstructionsAtControlFlowLabel(
 fun MutableMethod.addInstructionsAtControlFlowLabel(
     insertIndex: Int,
     instructions: String,
-    vararg externalLabels: ExternalLabel
+    vararg externalLabels: ExternalLabel,
 ) {
     // Duplicate original instruction and add to +1 index.
     addInstruction(insertIndex + 1, getInstruction(insertIndex))
@@ -772,7 +772,7 @@ internal fun MutableMethod.insertLiteralOverride(literal: Long, extensionMethodD
         """
             $operation, $extensionMethodDescriptor
             move-result v$register
-        """
+        """,
     )
 }
 
@@ -787,7 +787,7 @@ internal fun MutableMethod.insertLiteralOverride(literal: Long, override: Boolea
 
     addInstruction(
         index + 1,
-        "const v$register, $overrideValue"
+        "const v$register, $overrideValue",
     )
 }
 
@@ -835,7 +835,6 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
             }
         }
     }
-
 }
 
 private const val RETURN_TYPE_MISMATCH = "Mismatch between override type and Method return type"
@@ -1065,53 +1064,55 @@ fun MutableMethod.returnLate(value: String) {
 }
 
 private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean) {
-    val instructions = if (returnType == "Ljava/lang/String;" || returnType == "Ljava/lang/CharSequence;" ) {
+    val instructions = if (returnType == "Ljava/lang/String;" || returnType == "Ljava/lang/CharSequence;") {
         """
             const-string v0, "$value"
             return-object v0
         """
-    } else when (returnType.first()) {
-        // If return type is an object, always return null.
-        'L', '[' -> {
-            """
+    } else {
+        when (returnType.first()) {
+            // If return type is an object, always return null.
+            'L', '[' -> {
+                """
                 const/4 v0, 0x0
                 return-object v0
             """
-        }
+            }
 
-        'V' -> {
-            "return-void"
-        }
+            'V' -> {
+                "return-void"
+            }
 
-        'B', 'Z' -> {
-            """
+            'B', 'Z' -> {
+                """
                 const/4 v0, $value
                 return v0
             """
-        }
+            }
 
-        'S', 'C' -> {
-            """
+            'S', 'C' -> {
+                """
                 const/16 v0, $value
                 return v0
             """
-        }
+            }
 
-        'I', 'F' -> {
-            """
+            'I', 'F' -> {
+                """
                 const v0, $value
                 return v0
             """
-        }
+            }
 
-        'J', 'D' -> {
-            """
+            'J', 'D' -> {
+                """
                 const-wide v0, $value
                 return-wide v0
             """
-        }
+            }
 
-        else -> throw Exception("Return type is not supported: $this")
+            else -> throw Exception("Return type is not supported: $this")
+        }
     }
 
     if (returnLate) {
@@ -1138,7 +1139,7 @@ internal fun BytecodePatchContext.addStaticFieldToExtension(
     methodName: String,
     fieldName: String,
     objectClass: String,
-    smaliInstructions: String
+    smaliInstructions: String,
 ) {
     val classDef = classes.find { classDef -> classDef.type == className }
         ?: throw PatchException("No matching methods found in: $className")
@@ -1156,15 +1157,15 @@ internal fun BytecodePatchContext.addStaticFieldToExtension(
                     AccessFlags.PUBLIC.value or AccessFlags.STATIC.value,
                     null,
                     annotations,
-                    null
-                ).toMutable()
+                    null,
+                ).toMutable(),
             )
 
             addInstructionsWithLabels(
                 0,
                 """
                     sget-object v0, $objectCall
-                """ + smaliInstructions
+                """ + smaliInstructions,
             )
         }
     }
@@ -1188,12 +1189,16 @@ private class InstructionUtils {
             GOTO, GOTO_16, GOTO_32,
             IF_EQ, IF_NE, IF_LT, IF_GE, IF_GT, IF_LE,
             IF_EQZ, IF_NEZ, IF_LTZ, IF_GEZ, IF_GTZ, IF_LEZ,
-            PACKED_SWITCH_PAYLOAD, SPARSE_SWITCH_PAYLOAD
+            PACKED_SWITCH_PAYLOAD, SPARSE_SWITCH_PAYLOAD,
         )
 
         val returnOpcodes: EnumSet<Opcode> = EnumSet.of(
-            RETURN_VOID, RETURN, RETURN_WIDE, RETURN_OBJECT, RETURN_VOID_NO_BARRIER,
-            THROW
+            RETURN_VOID,
+            RETURN,
+            RETURN_WIDE,
+            RETURN_OBJECT,
+            RETURN_VOID_NO_BARRIER,
+            THROW,
         )
 
         val writeOpcodes: EnumSet<Opcode> = EnumSet.of(

@@ -11,7 +11,7 @@ context(BytecodePatchContext)
 internal val initMainFeedRequestFingerprint get() = fingerprint {
     custom { method, classDef ->
         method.name == "<init>" &&
-                classDef == mainFeedRequestClassFingerprint.classDef
+            classDef == mainFeedRequestClassFingerprint.classDef
     }
 }
 
