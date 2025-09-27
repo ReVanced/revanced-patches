@@ -20,7 +20,7 @@ private const val instructionsFooter = """
 @Suppress("unused")
 val hideNavigationButtonsPatch = bytecodePatch(
     name = "Hide navigation buttons",
-    description = "Hides selected navigation bar buttons, e.g. Explore and Marketplace.",
+    description = "Permanently hides navigation bar buttons, such as Explore and Marketplace.",
 ) {
     compatibleWith("com.viber.voip")
 
