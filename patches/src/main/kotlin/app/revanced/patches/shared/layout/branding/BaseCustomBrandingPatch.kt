@@ -9,6 +9,7 @@ import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import java.io.File
 import java.nio.file.Files
+import java.util.logging.Logger
 
 private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
 
@@ -135,13 +136,23 @@ internal fun baseCustomBrandingPatch(
 
         // Change the app name.
         escapedAppName(appName)?.let { escapedAppName ->
+            val newValue = "android:label=\"$escapedAppName\""
+
             val manifest = get("AndroidManifest.xml")
-            manifest.writeText(
-                manifest.readText().replace(
-                    "android:label=\"@string/application_name",
-                    "android:label=\"$escapedAppName",
+            val original = manifest.readText()
+            val replacement = original
+                // YouTube
+                .replace("android:label=\"@string/application_name\"", newValue)
+                // YT Music
+                .replace("android:label=\"@string/app_launcher_name\"", newValue)
+
+            if (original == replacement) {
+                Logger.getLogger(this::class.java.name).warning(
+                    "Could not replace manifest app name"
                 )
-            )
+            }
+
+            manifest.writeText(replacement)
         }
     }
 }
