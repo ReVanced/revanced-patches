@@ -133,16 +133,33 @@ internal fun baseCustomBrandingPatch(
 
         executeBlock() // Must be after the main code to rename the new icons for YouTube 19.34+.
 
-        appName?.let { name ->
-            // Change the app name.
+        // Change the app name.
+        escapedAppName(appName)?.let { escapedAppName ->
             val manifest = get("AndroidManifest.xml")
             manifest.writeText(
-                manifest.readText()
-                    .replace(
-                        "android:label=\"@string/application_name",
-                        "android:label=\"$name",
-                    ),
+                manifest.readText().replace(
+                    "android:label=\"@string/application_name",
+                    "android:label=\"$escapedAppName",
+                )
             )
         }
     }
+}
+
+/**
+ * Attempts to fix unescaped and invalid characters not allowed for an Android app name.
+ */
+private fun escapedAppName(name: String?): String? {
+    if (name == null) return null
+
+    // Remove ASCII control characters.
+    val cleanedName = name.filter { it.code >= 32 }
+
+    // Replace invalid XML characters with escaped equivalents.
+    val escapedName = cleanedName
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+
+    return escapedName.ifBlank { null }
 }
