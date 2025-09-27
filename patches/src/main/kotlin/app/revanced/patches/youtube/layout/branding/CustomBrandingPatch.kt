@@ -2,13 +2,16 @@ package app.revanced.patches.youtube.layout.branding
 
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
 import app.revanced.patches.shared.layout.branding.mipmapDirectories
-import app.revanced.patches.shared.layout.branding.youtubeIconResourceFileNames
-import app.revanced.patches.shared.layout.branding.youtubeIconResourceFileNamesNew
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import java.nio.file.Files
 
 private const val APP_NAME = "YouTube ReVanced"
+
+private val youtubeIconResourceFileNames_19_34 = mapOf(
+    "adaptiveproduct_youtube_foreground_color_108" to "adaptiveproduct_youtube_2024_q4_foreground_color_108",
+    "adaptiveproduct_youtube_background_color_108" to "adaptiveproduct_youtube_2024_q4_background_color_108",
+)
 
 @Suppress("unused")
 val customBrandingPatch = baseCustomBrandingPatch(
@@ -19,7 +22,12 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "YT" to "YT",
         "YouTube" to "YouTube",
     ),
-    iconResourceFileNames = youtubeIconResourceFileNames,
+    iconResourceFileNames = arrayOf(
+        "adaptiveproduct_youtube_background_color_108",
+        "adaptiveproduct_youtube_foreground_color_108",
+        "ic_launcher",
+        "ic_launcher_round",
+    ),
     resourceFolder = "custom-branding/youtube",
 
     block = {
@@ -42,7 +50,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
             mipmapDirectories.forEach { directory ->
                 val targetDirectory = resourceDirectory.resolve(directory)
 
-                youtubeIconResourceFileNamesNew.forEach { (old, new) ->
+                youtubeIconResourceFileNames_19_34.forEach { (old, new) ->
                     val oldFile = targetDirectory.resolve("$old.png")
                     val newFile = targetDirectory.resolve("$new.png")
 

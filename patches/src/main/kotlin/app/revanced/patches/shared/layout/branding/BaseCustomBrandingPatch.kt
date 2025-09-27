@@ -12,25 +12,6 @@ import java.nio.file.Files
 
 private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
 
-// After dropping 19.34 support, this should be renamed to 'youtubeIconResourceFileNamesNew' values.
-internal val youtubeIconResourceFileNames = arrayOf(
-    "adaptiveproduct_youtube_background_color_108",
-    "adaptiveproduct_youtube_foreground_color_108",
-    "ic_launcher",
-    "ic_launcher_round",
-).map { "$it.png" }.toTypedArray()
-
-internal val musicIconResourceFileNames = arrayOf(
-    "adaptiveproduct_youtube_music_2024_q4_background_color_108",
-    "adaptiveproduct_youtube_music_2024_q4_foreground_color_108",
-    "ic_launcher_release",
-).map { "$it.png" }.toTypedArray()
-
-internal val youtubeIconResourceFileNamesNew = mapOf(
-    "adaptiveproduct_youtube_foreground_color_108" to "adaptiveproduct_youtube_2024_q4_foreground_color_108",
-    "adaptiveproduct_youtube_background_color_108" to "adaptiveproduct_youtube_2024_q4_background_color_108",
-)
-
 internal val mipmapDirectories = arrayOf(
     "xxxhdpi",
     "xxhdpi",
@@ -75,6 +56,24 @@ internal fun appIconOption(iconResourceFileNames: Array<String>) = stringOption(
 )
 
 /**
+ * Attempts to fix unescaped and invalid characters not allowed for an Android app name.
+ */
+private fun escapedAppName(name: String?): String? {
+    if (name == null) return null
+
+    // Remove ASCII control characters.
+    val cleanedName = name.filter { it.code >= 32 }
+
+    // Replace invalid XML characters with escaped equivalents.
+    val escapedName = cleanedName
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+
+    return escapedName.ifBlank { null }
+}
+
+/**
  * Shared custom branding patch for YouTube and YT Music.
  */
 internal fun baseCustomBrandingPatch(
@@ -89,8 +88,10 @@ internal fun baseCustomBrandingPatch(
     description = "Applies a custom app name and icon. Defaults to \"$defaultAppName\" and the ReVanced logo.",
     use = false,
 ) {
+    val iconResourceFileNamesPng = iconResourceFileNames.map { "$it.png" }.toTypedArray<String>()
+
     val appNameOption = appNameOption(defaultAppName, appNameValues)
-    val appIconOption = appIconOption(iconResourceFileNames)
+    val appIconOption = appIconOption(iconResourceFileNamesPng)
 
     appNameOption()
     appIconOption()
@@ -98,7 +99,6 @@ internal fun baseCustomBrandingPatch(
     block()
 
     execute {
-
         val appName by appNameOption
         val icon by appIconOption
 
@@ -107,7 +107,7 @@ internal fun baseCustomBrandingPatch(
             mipmapDirectories.map { directory ->
                 ResourceGroup(
                     directory,
-                    *iconResourceFileNames,
+                    *iconResourceFileNamesPng,
                 )
             }.let { resourceGroups ->
                 if (icon != REVANCED_ICON) {
@@ -144,22 +144,4 @@ internal fun baseCustomBrandingPatch(
             )
         }
     }
-}
-
-/**
- * Attempts to fix unescaped and invalid characters not allowed for an Android app name.
- */
-private fun escapedAppName(name: String?): String? {
-    if (name == null) return null
-
-    // Remove ASCII control characters.
-    val cleanedName = name.filter { it.code >= 32 }
-
-    // Replace invalid XML characters with escaped equivalents.
-    val escapedName = cleanedName
-        .replace("&", "&amp;")
-        .replace("<", "&lt;")
-        .replace(">", "&gt;")
-
-    return escapedName.ifBlank { null }
 }
