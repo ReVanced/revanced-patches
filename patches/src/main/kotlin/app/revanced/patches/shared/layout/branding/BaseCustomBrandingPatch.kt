@@ -19,49 +19,14 @@ internal val mipmapDirectories = arrayOf(
     "xhdpi",
     "hdpi",
     "mdpi",
-).map { "mipmap-$it" }
+).map { "mipmap-$it" }.toTypedArray()
 
-/**
- * App name option for branding patches.
- */
-internal fun appNameOption(
-    defaultAppName: String,
-    appNameValues: Map<String, String>
-) = stringOption(
-    key = "appName",
-    default = defaultAppName,
-    values = appNameValues,
-    title = "App name",
-    description = "The name of the app.",
-)
-
-/**
- * App icon option for branding patches.
- */
-internal fun appIconOption(iconResourceFileNames: Array<String>) = stringOption(
-    key = "iconPath",
-    default = REVANCED_ICON,
-    values = mapOf("ReVanced Logo" to REVANCED_ICON),
-    title = "App icon",
-    description = """
-        The icon to apply to the app.
-        
-        If a path to a folder is provided, the folder must contain the following folders:
-
-        ${mipmapDirectories.joinToString("\n") { "- $it" }}
-
-        Each of these folders must contain the following files:
-
-        ${iconResourceFileNames.joinToString("\n") { "- $it" }}
-    """.trimIndentMultiline(),
-)
+private fun formatResourceFileList(resourceNames: Array<String>) = resourceNames.joinToString("\n") { "- $it" }
 
 /**
  * Attempts to fix unescaped and invalid characters not allowed for an Android app name.
  */
-private fun escapeAppName(name: String?): String? {
-    if (name == null) return null
-
+private fun escapeAppName(name: String): String? {
     // Remove ASCII control characters.
     val cleanedName = name.filter { it.code >= 32 }
 
@@ -95,43 +60,61 @@ internal fun baseCustomBrandingPatch(
 ) {
     val iconResourceFileNamesPng = iconResourceFileNames.map { "$it.png" }.toTypedArray<String>()
 
-    val appNameOption = appNameOption(defaultAppName, appNameValues)
-    val appIconOption = appIconOption(iconResourceFileNamesPng)
+    val appName by stringOption(
+        key = "appName",
+        default = defaultAppName,
+        values = appNameValues,
+        title = "App name",
+        description = "The name of the app.",
+    )
 
-    appNameOption()
-    appIconOption()
+    val iconPath by stringOption(
+        key = "iconPath",
+        default = REVANCED_ICON,
+        values = mapOf("ReVanced Logo" to REVANCED_ICON),
+        title = "App icon",
+        description = """
+            The icon to apply to the app.
+            
+            If a path to a folder is provided, the folder must contain the following folders:
+    
+            ${formatResourceFileList(mipmapDirectories)}
+    
+            Each of these folders must contain the following files:
+    
+            ${formatResourceFileList(iconResourceFileNamesPng)}
+        """.trimIndentMultiline(),
+    )
 
     block()
 
     execute {
-        val appName by appNameOption
-        val icon by appIconOption
+        // Change the app icon and launch screen.
+        val iconResourceGroups = mipmapDirectories.map { directory ->
+            ResourceGroup(
+                directory,
+                *iconResourceFileNamesPng,
+            )
+        }
 
-        icon?.trim()?.let { iconPath ->
-            // Change the app icon.
-            mipmapDirectories.map { directory ->
-                ResourceGroup(
-                    directory,
-                    *iconResourceFileNamesPng,
-                )
-            }.let { resourceGroups ->
-                if (icon == REVANCED_ICON) {
-                    resourceGroups.forEach { copyResources(resourceFolder, it) }
-                } else {
-                    val path = File(iconPath)
-                    val resourceDirectory = get("res")
+        val iconPathTrimmed = iconPath!!.trim()
+        if (iconPathTrimmed == REVANCED_ICON) {
+            iconResourceGroups.forEach {
+                copyResources(resourceFolder, it)
+            }
+        } else {
+            val filePath = File(iconPathTrimmed)
+            val resourceDirectory = get("res")
 
-                    resourceGroups.forEach { group ->
-                        val fromDirectory = path.resolve(group.resourceDirectoryName)
-                        val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
+            iconResourceGroups.forEach { group ->
+                val fromDirectory = filePath.resolve(group.resourceDirectoryName)
+                val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
 
-                        group.resources.forEach { iconFileName ->
-                            Files.write(
-                                toDirectory.resolve(iconFileName).toPath(),
-                                fromDirectory.resolve(iconFileName).readBytes(),
-                            )
-                        }
-                    }
+                group.resources.forEach { iconFileName ->
+                    Files.write(
+                        toDirectory.resolve(iconFileName).toPath(),
+                        fromDirectory.resolve(iconFileName).readBytes(),
+                    )
                 }
             }
         }
@@ -139,7 +122,7 @@ internal fun baseCustomBrandingPatch(
         executeBlock() // Must be after the main code to rename the new icons for YouTube 19.34+.
 
         // Change the app name.
-        escapeAppName(appName)?.let { escapedAppName ->
+        escapeAppName(appName!!)?.let { escapedAppName ->
             val newValue = "android:label=\"$escapedAppName\""
 
             val manifest = get("AndroidManifest.xml")
