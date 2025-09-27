@@ -2,8 +2,6 @@ package app.revanced.patches.youtube.layout.branding
 
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
 import app.revanced.patches.shared.layout.branding.mipmapDirectories
-import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import java.nio.file.Files
 
 private const val APP_NAME = "YouTube ReVanced"
@@ -31,8 +29,6 @@ val customBrandingPatch = baseCustomBrandingPatch(
     resourceFolder = "custom-branding/youtube",
 
     block = {
-        dependsOn(versionCheckPatch)
-
         compatibleWith(
             "com.google.android.youtube"(
                 "19.34.42",
@@ -44,18 +40,16 @@ val customBrandingPatch = baseCustomBrandingPatch(
     },
 
     executeBlock = {
-        if (is_19_34_or_greater) {
-            val resourceDirectory = get("res")
+        val resourceDirectory = get("res")
 
-            mipmapDirectories.forEach { directory ->
-                val targetDirectory = resourceDirectory.resolve(directory)
+        mipmapDirectories.forEach { directory ->
+            val targetDirectory = resourceDirectory.resolve(directory)
 
-                youtubeIconResourceFileNames_19_34.forEach { (old, new) ->
-                    val oldFile = targetDirectory.resolve("$old.png")
-                    val newFile = targetDirectory.resolve("$new.png")
+            youtubeIconResourceFileNames_19_34.forEach { (old, new) ->
+                val oldFile = targetDirectory.resolve("$old.png")
+                val newFile = targetDirectory.resolve("$new.png")
 
-                    Files.write(newFile.toPath(), oldFile.readBytes())
-                }
+                Files.write(newFile.toPath(), oldFile.readBytes())
             }
         }
     }
