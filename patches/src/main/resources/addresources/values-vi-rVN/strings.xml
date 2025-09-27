@@ -1353,7 +1353,7 @@ Hạn chế: Nút quay lại trên thanh công cụ có thể không hoạt đ�
   <string name="revanced_miniplayer_type_entry_5">Hiện đại 2</string>
   <string name="revanced_miniplayer_type_entry_6">Hiện đại 3</string>
   <string name="revanced_miniplayer_type_entry_7">Hiện đại 4</string>
-  <string name="revanced_miniplayer_disable_rounded_corners_title">Tắt góc bo tròn</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Tắt bo tròn góc</string>
   <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Góc vuông</string>
   <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Góc được bo tròn</string>
   <string name="revanced_miniplayer_double_tap_action_title">Bật chạm hai lần và chụm để thay đổi kích thước</string>
