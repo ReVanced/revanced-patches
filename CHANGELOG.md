@@ -1,3 +1,10 @@
+# [5.42.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.1...v5.42.0-dev.2) (2025-09-27)
+
+
+### Bug Fixes
+
+* **Instagram - Hide navigation buttons:** Resolve app startup crash ([080a226](https://github.com/ReVanced/revanced-patches/commit/080a2266146798be71789c939deef2f289697523))
+
 # [5.42.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.41.1-dev.2...v5.42.0-dev.1) (2025-09-27)
 
 
