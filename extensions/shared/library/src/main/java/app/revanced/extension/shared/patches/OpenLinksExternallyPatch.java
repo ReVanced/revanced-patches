@@ -7,7 +7,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import android.util.Log;
 
-public class OpenLinksExternally {
+public class OpenLinksExternallyPatch {
     public static void openLink(final Context context, Intent intent) {
         try {
             Log.d("ReVanced", "Opening intent with chooser: " + intent);
