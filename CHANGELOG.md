@@ -1,3 +1,10 @@
+# [5.42.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.41.1-dev.2...v5.42.0-dev.1) (2025-09-27)
+
+
+### Features
+
+* **Viber:** Add `Hide navigation buttons` patch ([#5991](https://github.com/ReVanced/revanced-patches/issues/5991)) ([5cb46c4](https://github.com/ReVanced/revanced-patches/commit/5cb46c4e9180ebc16eddb983dad73d137d8ec047))
+
 ## [5.41.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.41.1-dev.1...v5.41.1-dev.2) (2025-09-27)
 
 
