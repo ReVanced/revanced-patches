@@ -50,7 +50,7 @@ internal val layoutVideoFingerprint by fingerprint {
     literal { layoutVideo }
 }
 
-internal val showEndscreenCardsFingerprint = fingerprint {
+internal val showEndscreenCardsFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")

@@ -14,7 +14,7 @@ private val youtubeIconResourceFileNames_19_34 = mapOf(
 @Suppress("unused")
 val customBrandingPatch = baseCustomBrandingPatch(
     defaultAppName = APP_NAME,
-    appNameValues = arrayOf(
+    appNameValues = mapOf(
         "YouTube ReVanced" to APP_NAME,
         "YT ReVanced" to "YT ReVanced",
         "YT" to "YT",

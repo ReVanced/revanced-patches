@@ -5,9 +5,11 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
+
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
+
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversed
@@ -28,14 +30,13 @@ private val disableSplashAnimationPatch = bytecodePatch {
         // but the animation is not always the same size as the launch screen and it's still
         // barely shown. Instead turn off the animation entirely (app will also launch a little faster).
         cairoSplashAnimationConfigFingerprint.method.apply {
-            val mainActivityLaunchAnimation = resourceMappings["layout", "main_activity_launch_animation"]
-            val literalIndex = indexOfFirstLiteralInstructionOrThrow(
-                mainActivityLaunchAnimation
-            )
-            val insertIndex = indexOfFirstInstructionReversed(literalIndex) {
+            val insertIndex = indexOfFirstInstructionReversed(
+                cairoSplashAnimationConfigFingerprint.instructionMatches.first().index
+            ) {
                 this.opcode == Opcode.INVOKE_VIRTUAL &&
                         getReference<MethodReference>()?.name == "setContentView"
             } + 1
+
             val jumpIndex = indexOfFirstInstructionOrThrow(insertIndex) {
                 opcode == Opcode.INVOKE_VIRTUAL &&
                         getReference<MethodReference>()?.parameterTypes?.firstOrNull() == "Ljava/lang/Runnable;"
