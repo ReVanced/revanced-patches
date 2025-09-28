@@ -24,7 +24,7 @@ val sanitizeSharingLinksPatch = bytecodePatch(
     execute {
         fun Fingerprint.sanitizeUrl() {
             this.method.apply {
-                val putSharingUrlIndex = indexOfFirstInstruction(
+                val putSharingUrlIndex = indexOfFirstInstructionOrThrow(
                     this@sanitizeUrl.stringMatches!!.first().index,
                     Opcode.IPUT_OBJECT
                 )
