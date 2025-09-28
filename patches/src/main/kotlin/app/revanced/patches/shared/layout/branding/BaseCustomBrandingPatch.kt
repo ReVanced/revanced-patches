@@ -52,7 +52,6 @@ internal fun baseCustomBrandingPatch(
     appNameValues: Map<String, String>,
     resourceFolder: String,
     iconResourceFileNames: Array<String>,
-    launchScreenAnimationFileName: String? = null,
     block: ResourcePatchBuilder.() -> Unit = {},
     executeBlock: ResourcePatchContext.() -> Unit = {}
 ): ResourcePatch = resourcePatch(
@@ -140,16 +139,6 @@ internal fun baseCustomBrandingPatch(
             }
 
             manifest.writeText(replacement)
-        }
-
-        if (launchScreenAnimationFileName != null) {
-            copyResources(
-                resourceFolder,
-                ResourceGroup(
-                    "raw",
-                    launchScreenAnimationFileName
-                )
-            )
         }
 
         executeBlock() // Must be after the main code to rename the new icons for YouTube 19.34+.
