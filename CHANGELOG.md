@@ -1,3 +1,10 @@
+# [5.42.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.3...v5.42.0-dev.4) (2025-09-28)
+
+
+### Bug Fixes
+
+* **YouTube Music - GmsCore support:** Handle sharing links to certain apps such as Instagram ([#6026](https://github.com/ReVanced/revanced-patches/issues/6026)) ([328234f](https://github.com/ReVanced/revanced-patches/commit/328234f39ada81542e596f04e8ce410c787c15c8))
+
 # [5.42.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.2...v5.42.0-dev.3) (2025-09-28)
 
 
