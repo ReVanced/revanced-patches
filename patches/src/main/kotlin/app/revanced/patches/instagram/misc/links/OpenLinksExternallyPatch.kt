@@ -35,10 +35,10 @@ val openLinksExternallyPatch = bytecodePatch(
             method.addInstructions(
                 urlResultObjIndex + 1,
                 """
-                invoke-static { v$urlRegister }, Lapp/revanced/extension/instagram/misc/links/OpenLinksExternallyPatch;->openExternally(Ljava/lang/String;)Z
-                move-result v$urlRegister
-                return v$urlRegister
-            """,
+                    invoke-static { v$urlRegister }, Lapp/revanced/extension/instagram/misc/links/OpenLinksExternallyPatch;->openExternally(Ljava/lang/String;)Z
+                    move-result v$urlRegister
+                    return v$urlRegister
+                """
             )
         }
     }
