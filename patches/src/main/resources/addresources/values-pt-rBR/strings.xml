@@ -795,7 +795,7 @@ Se alterar esta configuração não fizer efeito, tente mudar para o modo anôni
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Os botões estão ocultos</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Os botões serão exibidos</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ocultar cartões de tela final</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Cartões de tela final estão ocultos</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Cartões de tela final não estão ocultos</string>

@@ -797,7 +797,7 @@ Para mostrar o menu da faixa de áudio, altere 'Falsificar fluxos de vídeo' par
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Botões estão ocultos</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Botões são exibidos</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Esconder cartões de ecrã final</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Cartões de fim de ecrã estão escondidos</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Cartões de fim de ecrã são exibidos</string>

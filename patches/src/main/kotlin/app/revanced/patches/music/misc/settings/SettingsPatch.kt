@@ -6,6 +6,7 @@ import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
+import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
@@ -126,7 +127,7 @@ fun newIntent(settingsName: String) = IntentPreference.Intent(
     targetClass = "com.google.android.gms.common.api.GoogleApiActivity"
 ) {
     // The package name change has to be reflected in the intent.
-    setOrGetFallbackPackageName("com.google.android.apps.youtube.music")
+    setOrGetFallbackPackageName(MUSIC_PACKAGE_NAME)
 }
 
 object PreferenceScreen : BasePreferenceScreen() {

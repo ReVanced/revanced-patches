@@ -795,7 +795,7 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iPad
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Nakatago ang mga pindutan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Ang mga pindutan ay ipinapakita</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Itago ang mga end screen card</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Nakatago ang mga end screen card</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Ipinapakita ang mga end screen card</string>

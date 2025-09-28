@@ -797,7 +797,7 @@ Norėdami parodyti garso takelio meniu, pakeiskite „Klastoti vaizdo srautus“
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Mygtukai yra paslėpti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Mygtukai yra rodomi</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Slėpti ekrano pabaigos korteles</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Ekrano pabaigos kortelės yra paslėptos</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Ekrano pabaigos kortelės yra rodomos</string>

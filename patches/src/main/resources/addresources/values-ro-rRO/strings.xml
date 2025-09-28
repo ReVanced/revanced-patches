@@ -795,7 +795,7 @@ Pentru a afișa meniul de piste audio, modificați „Emulare fluxuri video” l
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Butoanele sunt ascunse</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Butoanele sunt afișate</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ascunde cardurile ecranului final</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Cardurile de pe ecranul de închidere sunt ascunse</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Cardurile de închidere ecran sunt afișate</string>

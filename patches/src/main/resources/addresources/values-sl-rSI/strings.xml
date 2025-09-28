@@ -797,7 +797,7 @@ Za prikaz menija za zvočno skladbo, spremenite \"Ponarejene video tokove\" na i
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Gumbi so skriti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Gumbi so prikazani</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skrij kartice na končnem zaslonu</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Kartice na končnem zaslonu so skrite</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Kartice na končnem zaslonu so prikazane</string>

@@ -797,7 +797,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">按钮已隐藏</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">按钮已显示</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">隐藏片尾卡</string>
   <string name="revanced_hide_endscreen_cards_summary_on">片尾卡已隐藏</string>
   <string name="revanced_hide_endscreen_cards_summary_off">片尾卡已显示</string>

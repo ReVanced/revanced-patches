@@ -402,14 +402,14 @@ Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini 
   <string name="revanced_hide_view_count_summary_off">Jumlah penayangan ditampilkan di umpan dan hasil pencarian</string>
   <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
   <string name="revanced_hide_view_count_user_dialog_message">"Keterbatasan:
-• Rak Shorts, halaman channel, dan hasil pencarian mungkin masih menampilkan jumlah penayangan
+• Rak Shorts, halaman saluran, dan hasil pencarian mungkin masih menampilkan jumlah penayangan
 • Fitur ini tidak berfungsi dengan faktor bentuk otomotif"</string>
   <string name="revanced_hide_upload_time_title">Sembunyikan waktu unggah</string>
   <string name="revanced_hide_upload_time_summary_on">Waktu unggah disembunyikan di umpan dan hasil penelusuran</string>
   <string name="revanced_hide_upload_time_summary_off">Waktu unggah ditampilkan di umpan dan hasil penelusuran</string>
   <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
   <string name="revanced_hide_upload_time_user_dialog_message">"Keterbatasan:
-• Rak Shorts, halaman channel, dan hasil penelusuran mungkin masih menampilkan waktu unggah
+• Rak Shorts, halaman saluran, dan hasil penelusuran mungkin masih menampilkan waktu unggah
 • Fitur ini tidak berfungsi dengan faktor bentuk otomotif"</string>
   <string name="revanced_hide_keyword_content_screen_title">Sembunyikan kata kunci konten</string>
   <string name="revanced_hide_keyword_content_screen_summary">Sembunyikan pencarian dan feed video menggunakan penyaring kata kunci</string>
@@ -797,7 +797,7 @@ Untuk menampilkan menu trek audio, ubah 'Palsukan aliran video' ke iPadOS"</stri
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tombol ditampilkan</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Sembunyikan kartu layar akhir</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Kartu layar akhir disembunyikan</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Kartu layar akhir ditampilkan</string>
