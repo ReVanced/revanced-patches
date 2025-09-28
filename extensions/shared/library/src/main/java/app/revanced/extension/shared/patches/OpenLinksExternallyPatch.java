@@ -14,7 +14,7 @@ public class OpenLinksExternallyPatch {
 
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             Logger.printException(() -> "OpenLinksExternally failure", ex);
         }
     }
