@@ -1,3 +1,10 @@
+# [5.42.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.2...v5.42.0-dev.3) (2025-09-28)
+
+
+### Bug Fixes
+
+* **YouTube - Hide end screen cards:** Hide new type of end screen card ([#6027](https://github.com/ReVanced/revanced-patches/issues/6027)) ([76b0364](https://github.com/ReVanced/revanced-patches/commit/76b0364c5b5562c6a0d178d2bbe5b220f48aaca9))
+
 # [5.42.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.1...v5.42.0-dev.2) (2025-09-27)
 
 
