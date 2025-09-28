@@ -797,7 +797,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">已隱藏「上一部」和「下一部」按鈕</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">已顯示「上一部」和「下一部」按鈕</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">隱藏片尾資訊卡</string>
   <string name="revanced_hide_endscreen_cards_summary_on">已隱藏片尾資訊卡</string>
   <string name="revanced_hide_endscreen_cards_summary_off">已顯示片尾資訊卡</string>

@@ -797,7 +797,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Бутоните са скрити</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Бутоните се показват</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Скриване на препоръките в края</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Препоръките в края са скрити</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Препоръките в края се показват</string>

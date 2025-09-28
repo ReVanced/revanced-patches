@@ -799,7 +799,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_player_previous_next_buttons_summary_on">前の動画ボタンと次の動画ボタンは表示されません</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">前の動画ボタンと次の動画ボタンは表示されます</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">終了画面カードを非表示</string>
   <string name="revanced_hide_endscreen_cards_summary_on">終了画面カードは表示されません</string>
   <string name="revanced_hide_endscreen_cards_summary_off">終了画面カードは表示されます</string>

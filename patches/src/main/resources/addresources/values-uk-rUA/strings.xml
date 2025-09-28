@@ -797,7 +797,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Кнопки попереднього та наступного відео приховано</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Кнопки попереднього та наступного відео показуються</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Приховати картки на кінцевому екрані</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Картки на кінцевому екрані приховано</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Картки на кінцевому екрані показуються</string>
