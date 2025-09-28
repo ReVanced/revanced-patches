@@ -797,7 +797,7 @@ Para mostrar el menú de la pista de audio, cambia 'Suplantar transmisiones de v
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Los botones están ocultos</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Los botones se muestran</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ocultar tarjetas de pantalla final</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Las tarjetas de pantalla de fin están ocultas</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Se muestran las tarjetas de la pantalla final</string>

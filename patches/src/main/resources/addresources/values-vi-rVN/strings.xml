@@ -23,7 +23,7 @@ Second \"item\" text"</string>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Kiểm tra thất bại</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Mở trang web chính thức</string>
-  <string name="revanced_check_environment_dialog_ignore_button">Bỏ qua</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Phớt lờ</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Ứng dụng này xem ra không phải do bạn tự vá.&lt;/h5&gt;&lt;br&gt;Ứng dụng này có thể không hoạt động chính xác, &lt;b&gt;tiềm ẩn rủi ro hoặc thậm chí gây nguy hiểm khi sử dụng&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Những kiểm tra dưới đây cho thấy rằng ứng dụng được vá sẵn hoặc lấy từ nguồn khác;&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Chúng tôi khuyến nghị bạn nên &lt;b&gt;gỡ cài đặt ứng này và tự vá lại&lt;/b&gt; để đảm bảo bạn đang dùng một ứng dụng an toàn và hợp lệ.&lt;p&gt;&lt;br&gt;Cảnh báo này sẽ chỉ hiện hai lần, hãy cân nhắc trước khi bỏ qua.</string>
   <string name="revanced_check_environment_not_same_patching_device">Đã vá trên một thiết bị khác</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Không được cài đặt bởi ReVanced Manager</string>
@@ -50,7 +50,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Đặt lại cài đặt ReVanced về mặc định</string>
   <string name="revanced_settings_import_success">Đã nhập cài đặt %d</string>
   <string name="revanced_settings_import_failure_parse">Nhập thất bại: %s</string>
-  <string name="revanced_settings_search_hint">Tìm kiếm</string>
+  <string name="revanced_settings_search_hint">Cài đặt tìm kiếm</string>
   <string name="revanced_settings_search_no_results_title">Không tìm thấy kết quả nào cho \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Thử từ khóa khác</string>
   <string name="revanced_settings_search_recent_searches">Các tìm kiếm gần đây</string>
@@ -797,7 +797,7 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Các nút đã bị ẩn</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Các nút được hiển thị</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ẩn thẻ màn hình kết thúc</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Thẻ màn hình kết thúc đã bị ẩn</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Thẻ màn hình kết thúc được hiển thị</string>

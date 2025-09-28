@@ -797,7 +797,7 @@ Për të shfaqur menynë e gjurmës audio, ndryshoje 'Falsifiko transmetimet vid
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Butonat janë të fshehur</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Butonat janë të dukshme</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Fsheh kartat e ekranit të fundit</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Kartat e ekranit të fundit janë të fshehura</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Kartat e ekranit të fundit janë të dukshme</string>

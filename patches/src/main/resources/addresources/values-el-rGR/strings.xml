@@ -799,7 +799,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Εμφανίζονται</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Κάρτες τελικής οθόνης</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Εμφανίζονται</string>

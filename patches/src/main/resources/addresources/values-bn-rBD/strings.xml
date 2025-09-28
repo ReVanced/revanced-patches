@@ -793,7 +793,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_player_previous_next_buttons_summary_on">বোতাম লুকানো হয়</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">বোতাম দেখানো হয়</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">শেষ স্ক্রীন কার্ড লুকান</string>
   <string name="revanced_hide_endscreen_cards_summary_on">শেষ স্ক্রীন কার্ড লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_endscreen_cards_summary_off">শেষ স্ক্রীন কার্ড প্রদর্শিত হয়েছে</string>

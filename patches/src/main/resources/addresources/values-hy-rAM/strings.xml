@@ -797,7 +797,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Կոճակները թաքցված են</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Կոճակները երևում են</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Էկրանի վերջում քարտերը թաքցնել</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Էկրանի վերջում քարտերը թաքցված են</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Էկրանի վերջում քարտերը երևում են</string>

@@ -797,7 +797,7 @@ Chcete-li zobrazit nabídku zvukové stopy, změňte 'Zfalšovat streamy videa' 
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tlačítka jsou skryta</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tlačítka jsou zobrazena</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skrýt karty s informacemi o videu</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Karty s informacemi o videu jsou skryty</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Karty s informacemi o videu jsou zobrazeny</string>
