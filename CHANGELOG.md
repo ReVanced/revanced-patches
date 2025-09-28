@@ -1,3 +1,10 @@
+# [5.42.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.4...v5.42.0-dev.5) (2025-09-28)
+
+
+### Features
+
+* **YouTube Music:** Add `Custom branding` patch ([#6007](https://github.com/ReVanced/revanced-patches/issues/6007)) ([4c8b56f](https://github.com/ReVanced/revanced-patches/commit/4c8b56f5466b244737f501654eb7c5d34b6b2f88))
+
 # [5.42.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.3...v5.42.0-dev.4) (2025-09-28)
 
 
