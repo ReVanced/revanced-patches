@@ -9,6 +9,7 @@ import app.revanced.patches.music.misc.gms.Constants.REVANCED_MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.music.misc.spoof.spoofVideoStreamsPatch
+import app.revanced.patches.music.misc.fileprovider.fileProviderPatch
 import app.revanced.patches.shared.castContextFetchFingerprint
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
@@ -60,6 +61,10 @@ private fun gmsCoreSupportResourcePatch(
 ) {
     dependsOn(
         addResourcesPatch,
-        settingsPatch
+        settingsPatch,
+        fileProviderPatch(
+            MUSIC_PACKAGE_NAME,
+            REVANCED_MUSIC_PACKAGE_NAME
+        )
     )
 }
