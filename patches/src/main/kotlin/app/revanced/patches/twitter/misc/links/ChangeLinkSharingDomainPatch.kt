@@ -39,9 +39,9 @@ val changeLinkSharingDomainPatch = bytecodePatch(
 
     compatibleWith(
         "com.twitter.android"(
-            "10.86.0-release.0",
+            "10.48.0-release.0",
             "10.60.0-release.0",
-            "10.48.0-release.0"
+            "10.86.0-release.0",
         )
     )
 
@@ -54,27 +54,27 @@ val changeLinkSharingDomainPatch = bytecodePatch(
     )
 
     execute {
-        val replacementIndex =
-            linkSharingDomainFingerprint.stringMatches!!.first().index
-        val domainRegister =
-            linkSharingDomainFingerprint.method.getInstruction<OneRegisterInstruction>(replacementIndex).registerA
+        linkSharingDomainFingerprint.let {
+            val replacementIndex = it.stringMatches!!.first().index
+            val domainRegister = it.method.getInstruction<OneRegisterInstruction>(
+                replacementIndex
+            ).registerA
 
-        linkSharingDomainFingerprint.method.replaceInstruction(
-            replacementIndex,
-            "const-string v$domainRegister, \"https://$domainName\"",
-        )
-
-        // Replace the domain name when copying a link with "Copy link" button.
-        linkBuilderFingerprint.method.apply {
-            addInstructions(
-                0,
-                """
-                    invoke-static { p0, p1, p2 }, $EXTENSION_CLASS_DESCRIPTOR->formatLink(JLjava/lang/String;)Ljava/lang/String;
-                    move-result-object p0
-                    return-object p0
-                """,
+            it.method.replaceInstruction(
+                replacementIndex,
+                "const-string v$domainRegister, \"https://$domainName\"",
             )
         }
+
+        // Replace the domain name when copying a link with "Copy link" button.
+        linkBuilderFingerprint.method.addInstructions(
+            0,
+            """
+                invoke-static { p0, p1, p2 }, $EXTENSION_CLASS_DESCRIPTOR->formatLink(JLjava/lang/String;)Ljava/lang/String;
+                move-result-object p0
+                return-object p0
+            """
+        )
 
         // Used in the Share via... dialog.
         linkResourceGetterFingerprint.method.apply {

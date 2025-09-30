@@ -15,6 +15,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -693,6 +694,18 @@ public class Utils {
     public static void verifyOffMainThread() throws IllegalStateException {
         if (isCurrentlyOnMainThread()) {
             throw new IllegalStateException("Must call _off_ the main thread");
+        }
+    }
+
+    public static void openLink(final String url) {
+        try {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(url));
+            Logger.printInfo(() -> "Opening intent with chooser: " + intent);
+
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            Utils.getContext().startActivity(intent);
+        } catch (Exception ex) {
+            Logger.printException(() -> "openLink failure", ex);
         }
     }
 
