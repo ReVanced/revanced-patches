@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+@Deprecated(forRemoval = true)
 public final class OpenLinksWithAppChooserPatch {
     public static void openWithChooser(final Context context, final Intent intent) {
         Log.d("ReVanced", "Opening intent with chooser: " + intent);
