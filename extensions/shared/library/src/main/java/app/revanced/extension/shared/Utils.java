@@ -697,13 +697,13 @@ public class Utils {
         }
     }
 
-    public static void openLink(final String url) {
+    public static void openLink(String url) {
         try {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(url));
-            Logger.printInfo(() -> "Opening intent with chooser: " + intent);
-
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            Utils.getContext().startActivity(intent);
+
+            Logger.printInfo(() -> "Opening link with external browser: " + intent);
+            getContext().startActivity(intent);
         } catch (Exception ex) {
             Logger.printException(() -> "openLink failure", ex);
         }
