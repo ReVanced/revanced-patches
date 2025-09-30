@@ -27,6 +27,10 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "ic_launcher",
         "ic_launcher_round",
     ),
+    monochromeIconFileNames = arrayOf(
+        "adaptive_monochrome_ic_youtube_launcher.xml",
+        "ringo2_adaptive_monochrome_ic_youtube_launcher.xml"
+    ),
 
     block = {
         compatibleWith(

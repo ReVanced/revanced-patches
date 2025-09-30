@@ -52,6 +52,7 @@ internal fun baseCustomBrandingPatch(
     appNameValues: Map<String, String>,
     resourceFolder: String,
     iconResourceFileNames: Array<String>,
+    monochromeIconFileNames: Array<String>,
     block: ResourcePatchBuilder.() -> Unit = {},
     executeBlock: ResourcePatchContext.() -> Unit = {}
 ): ResourcePatch = resourcePatch(
@@ -84,6 +85,10 @@ internal fun baseCustomBrandingPatch(
             Each of these folders must contain the following files:
     
             ${formatResourceFileList(iconResourceFileNamesPng)}
+            
+            Optionally, a 'drawable' folder with the monochrome icon files:
+    
+            ${formatResourceFileList(monochromeIconFileNames)}
         """.trimIndentMultiline(),
     )
 
@@ -103,6 +108,14 @@ internal fun baseCustomBrandingPatch(
             iconResourceGroups.forEach {
                 copyResources(resourceFolder, it)
             }
+
+            // Copy all monochrome icons
+            monochromeIconFileNames.forEach { fileName ->
+                copyResources(
+                    resourceFolder,
+                    ResourceGroup("drawable", fileName)
+                )
+            }
         } else {
             val filePath = File(iconPathTrimmed)
             val resourceDirectory = get("res")
@@ -115,6 +128,17 @@ internal fun baseCustomBrandingPatch(
                     Files.write(
                         toDirectory.resolve(iconFileName).toPath(),
                         fromDirectory.resolve(iconFileName).readBytes(),
+                    )
+                }
+            }
+
+            // Copy all monochrome icons if available.
+            monochromeIconFileNames.forEach { fileName ->
+                val monochromeFile = filePath.resolve("drawable").resolve(fileName)
+                if (monochromeFile.exists()) {
+                    Files.write(
+                        resourceDirectory.resolve("drawable").resolve(fileName).toPath(),
+                        monochromeFile.readBytes(),
                     )
                 }
             }
