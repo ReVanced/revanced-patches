@@ -115,3 +115,28 @@ fun extensionHook(
     val fingerprint by FingerprintDelegate(block = fingerprintBuilderBlock)
     ExtensionHook(fingerprint, insertIndexResolver, contextRegisterResolver)
 }
+
+/**
+ * Creates an extension hook from a non-obfuscated activity, which typically is the main activity
+ * defined in the app manifest.xml file.
+ *
+ * @param activityClassType Either the full activity class type such as `Lcom/company/MainActivity;`
+ *                          or the 'ends with' string for the activity such as `/MainActivity;`
+ */
+fun activityOnCreateExtensionHook(activityClassType: String): () -> ExtensionHook {
+    if (!activityClassType.endsWith(';')) {
+        throw IllegalArgumentException("Activity class type does not end with semicolon: $activityClassType")
+    }
+
+    val fullClassType = activityClassType.startsWith('L')
+
+    return extensionHook {
+        returns("V")
+        parameters("Landroid/os/Bundle;")
+        custom { method, classDef ->
+            method.name == "onCreate" &&
+                    if (fullClassType) classDef.type == activityClassType
+                    else classDef.type.endsWith(activityClassType)
+        }
+    }
+}
