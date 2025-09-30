@@ -1067,12 +1067,12 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">건너뛰기 버튼이 몇 초 후에 숨겨집니다</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">건너뛰기 버튼이 해당 구간이 끝날 때까지 표시됩니다</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">건너뛰기 버튼 표시 시간</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">건너뛰기 및 하이라이트로 건너뛰기 버튼이 자동으로 숨겨지기 전까지 표시되는 시간을 설정할 수 있습니다</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">건너뛰기 및 하이라이트로 건너뛰기 버튼이 자동으로 숨겨지기 전까지 표시되는 시간을 지정할 수 있습니다</string>
   <string name="revanced_sb_general_skiptoast">건너뛰기 취소 메시지 표시하기</string>
   <string name="revanced_sb_general_skiptoast_sum_on">구간을 자동으로 건너뛰는 경우에 팝업 메시지를 표시합니다\n\n팝업 메시지를 탭하여 건너뛰기를 취소할 수 있습니다</string>
   <string name="revanced_sb_general_skiptoast_sum_off">팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_sb_toast_on_skip_duration">건너뛰기 취소 메시지 표시 시간</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">건너뛰기 취소 팝업 메시지가 표시되는 시간을 설정할 수 있습니다</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">건너뛰기 취소 팝업 메시지가 표시되는 시간을 지정할 수 있습니다</string>
   <string name="revanced_sb_duration_1s">1 초</string>
   <string name="revanced_sb_duration_2s">2 초</string>
   <string name="revanced_sb_duration_3s">3 초</string>
@@ -1108,7 +1108,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_sb_general_skipcount_sum_off">건너뛴 횟수 기록을 비활성화합니다</string>
   <string name="revanced_sb_general_min_duration">건너뛸 최소 구간 길이</string>
   <string name="revanced_sb_general_min_duration_sum">설정한 값(초)보다 작은 구간은 건너뛰지 않으며, 재생바에도 표시되지 않습니다</string>
-  <string name="revanced_sb_general_min_duration_invalid">잘못된 지속 시간입니다</string>
+  <string name="revanced_sb_general_min_duration_invalid">잘못된 표시 시간입니다</string>
   <string name="revanced_sb_general_uuid">비공개 사용자 아이디</string>
   <string name="revanced_sb_general_uuid_sum">비공개 사용자 아이디는 SponsorBlock 서버에서 구간을 제출하거나 건너뛴 구간 정보를 기록하는데 사용되는 고유 아이디 입니다. 절대 다른 이에게 공개하지 마세요</string>
   <string name="revanced_sb_general_uuid_invalid">비공개 사용자 아이디는 30자 이상이어야 합니다</string>
