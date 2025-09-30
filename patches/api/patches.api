@@ -1298,8 +1298,8 @@ public final class app/revanced/patches/twitter/misc/links/ChangeLinkSharingDoma
 	public static final fun getChangeLinkSharingDomainPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/twitter/misc/links/OpenLinksExternallyPatchKt {
-	public static final fun getOpenLinksExternallyPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/twitter/misc/links/OpenLinksWithAppChooserPatchKt {
+	public static final fun getOpenLinksWithAppChooserPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/twitter/misc/links/SanitizeSharingLinksPatchKt {
