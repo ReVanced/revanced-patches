@@ -8,7 +8,7 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
-internal const val TARGET_STRING = "Tracking.ARG_CLICK_SOURCE"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/instagram/misc/links/OpenLinksExternallyPatch;"
 
 @Suppress("unused")
 val openLinksExternallyPatch = bytecodePatch(
@@ -22,24 +22,26 @@ val openLinksExternallyPatch = bytecodePatch(
     compatibleWith("com.instagram.android")
 
     execute {
-        inAppBrowserFunctionFingerprint.apply {
+        inAppBrowserFunctionFingerprint.let {
+            val stringMatchIndex = it.stringMatches?.first { match -> match.string == TARGET_STRING }!!.index
 
-            val stringMatchIndex =
-                inAppBrowserFunctionFingerprint.stringMatches?.first { it.string == TARGET_STRING }!!.index
+            it.method.apply {
+                val urlResultObjIndex = indexOfFirstInstructionOrThrow(
+                    stringMatchIndex, Opcode.MOVE_OBJECT_FROM16
+                )
 
-            val urlResultObjIndex = method.indexOfFirstInstructionOrThrow(stringMatchIndex, Opcode.MOVE_OBJECT_FROM16)
+                // Register that contains the url after moving from a higher register.
+                val urlRegister = getInstruction<TwoRegisterInstruction>(urlResultObjIndex).registerA
 
-            // Register that contains the url after moving from a higher register.
-            val urlRegister = method.getInstruction<TwoRegisterInstruction>(urlResultObjIndex).registerA
-
-            method.addInstructions(
-                urlResultObjIndex + 1,
-                """
-                    invoke-static { v$urlRegister }, Lapp/revanced/extension/instagram/misc/links/OpenLinksExternallyPatch;->openExternally(Ljava/lang/String;)Z
-                    move-result v$urlRegister
-                    return v$urlRegister
-                """
-            )
+                addInstructions(
+                    urlResultObjIndex + 1,
+                    """
+                        invoke-static { v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->openExternally(Ljava/lang/String;)Z
+                        move-result v$urlRegister
+                        return v$urlRegister
+                    """
+                )
+            }
         }
     }
 }
