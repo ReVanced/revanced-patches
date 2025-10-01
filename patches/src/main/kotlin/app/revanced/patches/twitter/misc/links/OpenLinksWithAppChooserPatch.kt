@@ -9,7 +9,7 @@ import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
 @Suppress("unused")
 val openLinksWithAppChooserPatch = bytecodePatch(
     description = "Instead of opening links directly, open them with an app chooser. " +
-        "As a result you can select a browser to open the link with.",
+            "As a result you can select a browser to open the link with.",
 ) {
     dependsOn(sharedExtensionPatch)
 
@@ -18,7 +18,7 @@ val openLinksWithAppChooserPatch = bytecodePatch(
     execute {
         val methodReference =
             "Lapp/revanced/extension/twitter/patches/links/OpenLinksWithAppChooserPatch;->" +
-                "openWithChooser(Landroid/content/Context;Landroid/content/Intent;)V"
+                    "openWithChooser(Landroid/content/Context;Landroid/content/Intent;)V"
 
         openLinkFingerprint.method.addInstructions(
             0,
