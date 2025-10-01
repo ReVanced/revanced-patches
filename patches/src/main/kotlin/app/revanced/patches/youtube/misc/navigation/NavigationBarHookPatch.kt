@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -17,6 +18,8 @@ import app.revanced.patches.youtube.misc.playservice.is_20_28_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_39_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.mainActivityOnBackPressedFingerprint
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -46,6 +49,27 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         versionCheckPatch,
         playerTypeHookPatch, // Required to detect the search bar in all situations.
         resourceMappingPatch, // Used by fingerprints
+        resourcePatch {
+            // Copy missing notification icon.
+            execute {
+                arrayOf(
+                    // App does not use ldpi icons.
+                    "mdpi",
+                    "hdpi",
+                    "xhdpi",
+                    "xxhdpi",
+                    "xxxhdpi",
+                ).forEach { mipmap ->
+                    copyResources(
+                        "navigationbuttons",
+                        ResourceGroup(
+                            "drawable-$mipmap",
+                            "revanced_fill_bell_cairo_black_24.png"
+                        )
+                    )
+                }
+            }
+        }
     )
 
     execute {
