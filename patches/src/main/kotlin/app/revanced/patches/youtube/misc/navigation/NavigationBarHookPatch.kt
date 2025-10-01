@@ -52,22 +52,13 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         resourcePatch {
             // Copy missing notification icon.
             execute {
-                arrayOf(
-                    // App does not use ldpi icons.
-                    "mdpi",
-                    "hdpi",
-                    "xhdpi",
-                    "xxhdpi",
-                    "xxxhdpi",
-                ).forEach { mipmap ->
-                    copyResources(
-                        "navigationbuttons",
-                        ResourceGroup(
-                            "drawable-$mipmap",
-                            "revanced_fill_bell_cairo_black_24.png"
-                        )
+                copyResources(
+                    "navigationbuttons",
+                    ResourceGroup(
+                        "drawable",
+                        "revanced_fill_bell_cairo_black_24.xml"
                     )
-                }
+                )
             }
         }
     )
