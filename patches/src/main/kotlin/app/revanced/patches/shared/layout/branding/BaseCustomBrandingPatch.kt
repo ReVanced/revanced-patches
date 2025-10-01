@@ -95,8 +95,7 @@ internal fun baseCustomBrandingPatch(
     block()
 
     execute {
-        // Change the app icon and launch screen.
-        val iconResourceGroups = mipmapDirectories.map { directory ->
+        val mipmapIconResourceGroups = mipmapDirectories.map { directory ->
             ResourceGroup(
                 directory,
                 *iconResourceFileNamesPng,
@@ -105,11 +104,12 @@ internal fun baseCustomBrandingPatch(
 
         val iconPathTrimmed = iconPath!!.trim()
         if (iconPathTrimmed == REVANCED_ICON) {
-            iconResourceGroups.forEach {
-                copyResources(resourceFolder, it)
+            // Replace mipmap icons with preset patch icons.
+            mipmapIconResourceGroups.forEach { groupResources ->
+                copyResources(resourceFolder, groupResources)
             }
 
-            // Copy all monochrome icons
+            // Replace monochrome icons.
             monochromeIconFileNames.forEach { fileName ->
                 copyResources(
                     resourceFolder,
@@ -120,11 +120,13 @@ internal fun baseCustomBrandingPatch(
             val filePath = File(iconPathTrimmed)
             val resourceDirectory = get("res")
 
-            iconResourceGroups.forEach { group ->
-                val fromDirectory = filePath.resolve(group.resourceDirectoryName)
-                val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
+            // Replace
+            mipmapIconResourceGroups.forEach { groupResources ->
+                val groupResourceDirectoryName = groupResources.resourceDirectoryName
+                val fromDirectory = filePath.resolve(groupResourceDirectoryName)
+                val toDirectory = resourceDirectory.resolve(groupResourceDirectoryName)
 
-                group.resources.forEach { iconFileName ->
+                groupResources.resources.forEach { iconFileName ->
                     Files.write(
                         toDirectory.resolve(iconFileName).toPath(),
                         fromDirectory.resolve(iconFileName).readBytes(),
@@ -132,13 +134,13 @@ internal fun baseCustomBrandingPatch(
                 }
             }
 
-            // Copy all monochrome icons if available.
+            // Copy all monochrome icons if provided.
             monochromeIconFileNames.forEach { fileName ->
-                val monochromeFile = filePath.resolve("drawable").resolve(fileName)
-                if (monochromeFile.exists()) {
+                val replacementMonochrome = filePath.resolve("drawable").resolve(fileName)
+                if (replacementMonochrome.exists()) {
                     Files.write(
                         resourceDirectory.resolve("drawable").resolve(fileName).toPath(),
-                        monochromeFile.readBytes(),
+                        replacementMonochrome.readBytes(),
                     )
                 }
             }
