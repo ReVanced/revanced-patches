@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
-val enableDevMenuPatch = bytecodePatch(
+val enableDeveloperMenuPatch = bytecodePatch(
     name = "Enable developer menu",
     use = false
 ) {
@@ -16,13 +16,13 @@ val enableDevMenuPatch = bytecodePatch(
 
     execute {
         with(clearNotificationReceiverFingerprint.method) {
-            indexOfFirstInstructionReversedOrThrow {
-                val ref = getReference<MethodReference>()
+            indexOfFirstInstructionReversedOrThrow(clearNotificationReceiverFingerprint.stringMatches!!.first().index) {
+                val reference = getReference<MethodReference>()
                 Opcode.INVOKE_STATIC == opcode &&
-                        ref?.parameterTypes?.size == 1 &&
-                        ref.parameterTypes.first() == "Lcom/instagram/common/session/UserSession;" &&
-                        ref.returnType == "Z"
-            }.also { index ->
+                        reference?.parameterTypes?.size == 1 &&
+                        reference.parameterTypes.first() == "Lcom/instagram/common/session/UserSession;" &&
+                        reference.returnType == "Z"
+            }.let { index ->
                 navigate(this).to(index).stop().returnEarly(true)
             }
         }
