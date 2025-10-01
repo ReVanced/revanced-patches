@@ -120,6 +120,13 @@ A lejátszás nem működhet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Ennek a beállításnak a kikapcsolása lejátszási problémákat okozhat.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Eredeti hang kikényszerítése</string>
+  <string name="revanced_force_original_audio_summary_on">Eredeti hang használata a hang nyelvén</string>
+  <string name="revanced_force_original_audio_summary_off">Alapértelmezett hang használata</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">A funkció használatához módosítsa a \"Videóstreamek hamisítása\" beállítást bármely kliensre, kivéve az Android Studiót</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Hibakeresés</string>
   <string name="revanced_debug_screen_summary">Hibakeresési beállítások engedélyezése vagy letiltása</string>
@@ -1509,13 +1516,6 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_external_browser_title">Hivatkozások megnyitása a böngészőben</string>
   <string name="revanced_external_browser_summary_on">Hivatkozások megnyitása külső böngészőben</string>
   <string name="revanced_external_browser_summary_off">Hivatkozások megnyitása az alkalmazáson belüli böngészőben</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Eredeti hang kikényszerítése</string>
-  <string name="revanced_force_original_audio_summary_on">Eredeti hang használata a hang nyelvén</string>
-  <string name="revanced_force_original_audio_summary_off">Alapértelmezett hang használata</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">A funkció használatához módosítsa a \"Videóstreamek hamisítása\" beállítást bármely kliensre, kivéve az Android Studiót</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

@@ -120,6 +120,13 @@ Afspilning fungerer muligvis ikke"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Deaktivering af denne indstilling kan forårsage afspilningsproblemer.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standard klient</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Tving originalt lydsprog</string>
+  <string name="revanced_force_original_audio_summary_on">Bruger originalt lydsprog</string>
+  <string name="revanced_force_original_audio_summary_off">Brug standard lyd</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">For at bruge denne funktion skal du ændre \"Forfalsk videostreams\" til en hvilken som helst klient undtagen Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Fejlfinding</string>
   <string name="revanced_debug_screen_summary">Aktivér eller deaktiver fejlfindingsindstillinger</string>
@@ -1514,13 +1521,6 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   <string name="revanced_external_browser_title">Åbn links i browser</string>
   <string name="revanced_external_browser_summary_on">Åbner links i ekstern browser</string>
   <string name="revanced_external_browser_summary_off">Åbner links i browser i appen</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Tving originalt lydsprog</string>
-  <string name="revanced_force_original_audio_summary_on">Bruger originalt lydsprog</string>
-  <string name="revanced_force_original_audio_summary_off">Brug standard lyd</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">For at bruge denne funktion skal du ændre \"Forfalsk videostreams\" til en hvilken som helst klient undtagen Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

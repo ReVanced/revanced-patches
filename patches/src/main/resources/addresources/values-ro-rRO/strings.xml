@@ -120,6 +120,13 @@ Redarea poate să nu funcționeze"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client implicit</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Forțează limba audio originală</string>
+  <string name="revanced_force_original_audio_summary_on">Folosind limba audio originală</string>
+  <string name="revanced_force_original_audio_summary_off">Utilizează audio implicit</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Pentru a utiliza această funcție, modificați \"Falsificare fluxuri video\" la orice client, cu excepția Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Depanare</string>
   <string name="revanced_debug_screen_summary">Activează sau dezactivează opțiunile de depanare</string>
@@ -1509,13 +1516,6 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_external_browser_title">Deschide link-uri în browser</string>
   <string name="revanced_external_browser_summary_on">Deschiderea linkurilor în browserul extern</string>
   <string name="revanced_external_browser_summary_off">Deschiderea linkurilor în browserul din aplicație</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Forțează limba audio originală</string>
-  <string name="revanced_force_original_audio_summary_on">Folosind limba audio originală</string>
-  <string name="revanced_force_original_audio_summary_off">Utilizează audio implicit</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Pentru a utiliza această funcție, modificați \"Falsificare fluxuri video\" la orice client, cu excepția Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

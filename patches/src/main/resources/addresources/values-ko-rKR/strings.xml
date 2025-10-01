@@ -120,6 +120,13 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 재생 문제가 발생할 수 있습니다.</string>
   <string name="revanced_spoof_video_streams_client_type_title">기본 클라이언트</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">원본 오디오 언어 강제로 활성화하기</string>
+  <string name="revanced_force_original_audio_summary_on">원본 오디오 언어를 사용 중입니다</string>
+  <string name="revanced_force_original_audio_summary_off">기본 오디오 언어를 사용 중입니다</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 변경하기\'에서 기본 클라이언트를 Android Studio를 제외한 다른 클라이언트로 변경하세요</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">디버깅</string>
   <string name="revanced_debug_screen_summary">디버깅 옵션을 활성화하거나 비활성화할 수 있습니다</string>
@@ -1519,13 +1526,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_external_browser_title">외부 브라우저 사용하기</string>
   <string name="revanced_external_browser_summary_on">앱 내에서 외부 링크를 열 경우에 외부 브라우저를 사용합니다</string>
   <string name="revanced_external_browser_summary_off">앱 내에서 외부 링크를 열 경우에 내부 브라우저를 사용합니다</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">원본 오디오 언어 강제로 활성화하기</string>
-  <string name="revanced_force_original_audio_summary_on">원본 오디오 언어를 사용 중입니다</string>
-  <string name="revanced_force_original_audio_summary_off">기본 오디오 언어를 사용 중입니다</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 변경하기\'에서 기본 클라이언트를 Android Studio를 제외한 다른 클라이언트로 변경하세요</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

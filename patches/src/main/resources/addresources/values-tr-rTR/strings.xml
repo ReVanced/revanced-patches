@@ -120,6 +120,13 @@ Oynatma çalışmayabilir"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu ayarı devre dışı bırakmak oynatma sorunlarına yol açabilir.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Varsayılan istemci</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Orijinal ses dilini zorla</string>
+  <string name="revanced_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
+  <string name="revanced_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Bu özelliği kullanmak için \'Video akışlarını taklit et\' ayarını Android Studio dışındaki herhangi bir istemciye değiştirin</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Hata ayıklama</string>
   <string name="revanced_debug_screen_summary">Hata ayıklama seçeneklerini etkinleştir veya devre dışı bırak</string>
@@ -1519,13 +1526,6 @@ Bunu etkinleştirmek daha yüksek video kalitelerini açabilir"</string>
   <string name="revanced_external_browser_title">Bağlantıları tarayıcıda aç</string>
   <string name="revanced_external_browser_summary_on">Bağlantılar harici tarayıcıda açılıyor</string>
   <string name="revanced_external_browser_summary_off">Bağlantılar uygulama içi tarayıcıda açılıyor</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Orijinal ses dilini zorla</string>
-  <string name="revanced_force_original_audio_summary_on">Orijinal ses dili kullanılıyor</string>
-  <string name="revanced_force_original_audio_summary_off">Varsayılan ses kullanılıyor</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Bu özelliği kullanmak için \'Video akışlarını taklit et\' ayarını Android Studio dışındaki herhangi bir istemciye değiştirin</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

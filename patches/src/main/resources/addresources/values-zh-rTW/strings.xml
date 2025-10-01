@@ -120,6 +120,13 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">關閉此設定可能會導致播放問題。</string>
   <string name="revanced_spoof_video_streams_client_type_title">預設用戶端</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">強制使用原始音訊語言</string>
+  <string name="revanced_force_original_audio_summary_on">正在使用原始音訊語言</string>
+  <string name="revanced_force_original_audio_summary_off">使用預設音訊</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">若要使用此功能，請將「偽造視訊串流」變更為 Android Studio 以外的任何用戶端</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">偵錯</string>
   <string name="revanced_debug_screen_summary">啟用或停用偵錯選項</string>
@@ -1522,13 +1529,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">在瀏覽器中開啟連結</string>
   <string name="revanced_external_browser_summary_on">在外部瀏覽器中開啟連結</string>
   <string name="revanced_external_browser_summary_off">在應用程式內瀏覽器中開啟連結</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">強制使用原始音訊語言</string>
-  <string name="revanced_force_original_audio_summary_on">正在使用原始音訊語言</string>
-  <string name="revanced_force_original_audio_summary_off">使用預設音訊</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">若要使用此功能，請將「偽造視訊串流」變更為 Android Studio 以外的任何用戶端</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

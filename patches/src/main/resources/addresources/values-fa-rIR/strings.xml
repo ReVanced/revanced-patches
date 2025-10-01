@@ -69,6 +69,9 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">عیب‌یابی</string>
   <string name="revanced_debug_screen_summary">فعال یا غیرفعال کردن گزینه‌های عیب یابی</string>
@@ -276,9 +279,6 @@ Second \"item\" text"</string>
   <patch id="misc.links.bypassURLRedirectsPatch">
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

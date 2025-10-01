@@ -120,6 +120,13 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Вымушаная арыгінальная мова аўдыё</string>
+  <string name="revanced_force_original_audio_summary_on">Выкарыстоўваць арыгінальную мову аўдыя</string>
+  <string name="revanced_force_original_audio_summary_off">Выкарыстанне аўдыё па змаўчанні</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Каб выкарыстаць гэтую функцыю, змяніце \'Падмена відэаструменяў\' на любога кліента, акрамя Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Адладка</string>
   <string name="revanced_debug_screen_summary">Уключыць або выключыць параметры адладкі</string>
@@ -1513,13 +1520,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">Адкрываць спасылкі ў браўзеры</string>
   <string name="revanced_external_browser_summary_on">Адкрыццё спасылак у знешнім браўзеры</string>
   <string name="revanced_external_browser_summary_off">Адкрыццё спасылак ва ўбудаваным браўзеры</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Вымушаная арыгінальная мова аўдыё</string>
-  <string name="revanced_force_original_audio_summary_on">Выкарыстоўваць арыгінальную мову аўдыя</string>
-  <string name="revanced_force_original_audio_summary_off">Выкарыстанне аўдыё па змаўчанні</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Каб выкарыстаць гэтую функцыю, змяніце \'Падмена відэаструменяў\' на любога кліента, акрамя Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

@@ -120,6 +120,13 @@ Riprodhimi mund të mos funksionojë"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Fikja e këtij cilësimi mund të shkaktojë probleme riprodhimi.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Klient i përdoruesit</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Forco gjuhën origjinale të audios</string>
+  <string name="revanced_force_original_audio_summary_on">Duke përdorur gjuhën origjinale audio</string>
+  <string name="revanced_force_original_audio_summary_off">Përdorimi i Zërit Parazgjedhur</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Për të përdorur këtë veçori, ndryshoni \'Falsifiko transmetimet e videos\' në çdo klient përveç Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Depurimi</string>
   <string name="revanced_debug_screen_summary">Aktivizo ose çaktivizo opsionet e depurimit</string>
@@ -1510,13 +1517,6 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   <string name="revanced_external_browser_title">Hap linket në shfletues</string>
   <string name="revanced_external_browser_summary_on">Hapja e linkeve në shfletuesin e jashtëm</string>
   <string name="revanced_external_browser_summary_off">Hapja e linkeve në shfletuesin brenda aplikacionit</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Forco gjuhën origjinale të audios</string>
-  <string name="revanced_force_original_audio_summary_on">Duke përdorur gjuhën origjinale audio</string>
-  <string name="revanced_force_original_audio_summary_off">Përdorimi i Zërit Parazgjedhur</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Për të përdorur këtë veçori, ndryshoni \'Falsifiko transmetimet e videos\' në çdo klient përveç Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
