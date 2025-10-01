@@ -32,4 +32,6 @@ public class Settings extends BaseSettings {
     // Miscellaneous
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_video_streams_client_type",
             ClientType.ANDROID_VR_1_43_32, true, parent(SPOOF_VIDEO_STREAMS));
+
+    public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("revanced_force_original_audio", TRUE, true);
 }

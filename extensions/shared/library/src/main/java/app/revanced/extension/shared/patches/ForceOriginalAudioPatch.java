@@ -2,7 +2,6 @@ package app.revanced.extension.shared.patches;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.settings.AppLanguage;
-import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.spoof.ClientType;
 import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 
@@ -11,8 +10,12 @@ public class ForceOriginalAudioPatch {
 
     private static final String DEFAULT_AUDIO_TRACKS_SUFFIX = ".4";
 
-    public static void setPreferredLanguage(ClientType client) {
-        if (BaseSettings.FORCE_ORIGINAL_AUDIO.get()
+    private static volatile boolean enabled = false;
+
+    public static void setEnabled(boolean isEnabled, ClientType client) {
+        enabled = isEnabled;
+
+        if (isEnabled
                 && SpoofVideoStreamsPatch.spoofingToClientWithNoMultiAudioStreams()
                 && !client.useAuth) {
             // If client spoofing does not use authentication and lacks multi-audio streams,
@@ -32,7 +35,7 @@ public class ForceOriginalAudioPatch {
      * Injection point.
      */
     public static boolean ignoreDefaultAudioStream(boolean original) {
-        if (BaseSettings.FORCE_ORIGINAL_AUDIO.get()) {
+        if (enabled) {
             return false;
         }
         return original;
@@ -43,7 +46,7 @@ public class ForceOriginalAudioPatch {
      */
     public static boolean isDefaultAudioStream(boolean isDefault, String audioTrackId, String audioTrackDisplayName) {
         try {
-            if (!BaseSettings.FORCE_ORIGINAL_AUDIO.get()) {
+            if (!enabled) {
                 return isDefault;
             }
 
