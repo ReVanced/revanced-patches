@@ -132,7 +132,7 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
             addInstructions(
                 index + 1,
                 """
-                    invoke-static { v$register }, ${EXTENSION_CLASS_DESCRIPTOR}->overrideBackPressToExit(Z)Z    
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->overrideBackPressToExit(Z)Z    
                     move-result v$register
                 """
             )

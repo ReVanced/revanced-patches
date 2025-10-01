@@ -1,6 +1,6 @@
-package app.revanced.extension.youtube.patches;
+package app.revanced.extension.music.patches;
 
-import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.music.settings.Settings;
 
 @SuppressWarnings("unused")
 public class ForceOriginalAudioPatch {
