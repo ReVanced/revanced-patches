@@ -1,3 +1,15 @@
+# [5.42.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.7...v5.42.0-dev.8) (2025-10-01)
+
+
+### Bug Fixes
+
+* **YouTube - Force original language:** Resolve some videos using Swedish audio track ([9d67316](https://github.com/ReVanced/revanced-patches/commit/9d6731660ba0e19b863d05d54aa04f74a879f69b))
+
+
+### Features
+
+* **YouTube Music:** Add `Force original audio` patch ([#6036](https://github.com/ReVanced/revanced-patches/issues/6036)) ([d0d53d1](https://github.com/ReVanced/revanced-patches/commit/d0d53d109e451759a029326873adfa36fba12b23))
+
 # [5.42.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.6...v5.42.0-dev.7) (2025-10-01)
 
 
