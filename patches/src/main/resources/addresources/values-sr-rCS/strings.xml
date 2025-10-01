@@ -120,6 +120,13 @@ Reprodukcija možda neće raditi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ovog podešavanja može izazvati probleme sa reprodukcijom.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Podrazumevani klijent</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Prisili originalni jezik zvuka</string>
+  <string name="revanced_force_original_audio_summary_on">Korišćenje originalnog jezika zvuka</string>
+  <string name="revanced_force_original_audio_summary_off">Korišćenje podrazumevanog zvuka</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Da biste koristili ovu funkciju, promenite opciju „Lažirani video strimovi” na bilo koji klijent osim Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Otklanjanje grešaka</string>
   <string name="revanced_debug_screen_summary">Omogućite ili onemogućite opcije za otklanjanje grešaka</string>
@@ -1511,13 +1518,6 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_external_browser_title">Otvori linkove u pregledaču</string>
   <string name="revanced_external_browser_summary_on">Otvaranje linkova u spoljnom pregledaču</string>
   <string name="revanced_external_browser_summary_off">Otvaranje linkova u pregledaču u aplikaciji</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Prisili originalni jezik zvuka</string>
-  <string name="revanced_force_original_audio_summary_on">Korišćenje originalnog jezika zvuka</string>
-  <string name="revanced_force_original_audio_summary_off">Korišćenje podrazumevanog zvuka</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Da biste koristili ovu funkciju, promenite opciju „Lažirani video strimovi” na bilo koji klijent osim Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

@@ -120,6 +120,13 @@ Toisto ei välttämättä toimi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Tämän asetuksen poistaminen käytöstä voi aiheuttaa toisto-ongelmia.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Oletusasiakasohjelma</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Pakota alkuperäinen äänen kieli</string>
+  <string name="revanced_force_original_audio_summary_on">Käytetään alkuperäistä ääntä</string>
+  <string name="revanced_force_original_audio_summary_off">Käytetään oletusääntä</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Käyttääksesi tätä ominaisuutta, muuta \"Naamioi videovirrat\" mihin tahansa asiakasohjelmaan paitsi Android Studioon</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Virheenkorjaus</string>
   <string name="revanced_debug_screen_summary">Ota tai poista virheenkorjausasetukset käytöstä</string>
@@ -1512,13 +1519,6 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_external_browser_title">Avaa linkit selaimessa</string>
   <string name="revanced_external_browser_summary_on">Linkit avataan ulkoisessa selaimessa</string>
   <string name="revanced_external_browser_summary_off">Linkit avataan sovelluksen sisäisessä selaimessa</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Pakota alkuperäinen äänen kieli</string>
-  <string name="revanced_force_original_audio_summary_on">Käytetään alkuperäistä ääntä</string>
-  <string name="revanced_force_original_audio_summary_off">Käytetään oletusääntä</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Käyttääksesi tätä ominaisuutta, muuta \"Naamioi videovirrat\" mihin tahansa asiakasohjelmaan paitsi Android Studioon</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

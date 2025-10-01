@@ -120,6 +120,13 @@ Taasesitus ei pruugi töötada"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Selle sätte väljalülitamine võib põhjustada taasesitusprobleeme.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Vaikimisi klient</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Sunni originaalheli keel</string>
+  <string name="revanced_force_original_audio_summary_on">Algse helikeele kasutamine</string>
+  <string name="revanced_force_original_audio_summary_off">Kasutan vaikeheli</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Selle funktsiooni kasutamiseks muutke „Võltsitud videovood” mis tahes muule kliendile peale Android Studio.</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Veaotsing</string>
   <string name="revanced_debug_screen_summary">Veaotsinguvalikud lubamiseks või keelamiseks</string>
@@ -1512,13 +1519,6 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_external_browser_title">Ava lingid brauseris</string>
   <string name="revanced_external_browser_summary_on">Linkide avamine välises brauseris</string>
   <string name="revanced_external_browser_summary_off">Linkide avamine rakendusesiseses brauseris</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Sunni originaalheli keel</string>
-  <string name="revanced_force_original_audio_summary_on">Algse helikeele kasutamine</string>
-  <string name="revanced_force_original_audio_summary_off">Kasutan vaikeheli</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Selle funktsiooni kasutamiseks muutke „Võltsitud videovood” mis tahes muule kliendile peale Android Studio.</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

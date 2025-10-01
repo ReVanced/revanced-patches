@@ -120,6 +120,13 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">כיבוי הגדרה זו עלול לגרום לבעיות השמעה.</string>
   <string name="revanced_spoof_video_streams_client_type_title">לקוח ברירת מחדל</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">כפה שפת שמע מקורית</string>
+  <string name="revanced_force_original_audio_summary_on">שימוש בשפת שמע מקורית</string>
+  <string name="revanced_force_original_audio_summary_off">שימוש בשמע ברירת מחדל</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה את \'זיוף זרמי וידאו\' לכל לקוח מלבד Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">איתור באגים</string>
   <string name="revanced_debug_screen_summary">הפעל או השבת אפשרויות לאיתור באגים</string>
@@ -1514,13 +1521,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">פתח קישורים בדפדפן</string>
   <string name="revanced_external_browser_summary_on">פותח קישורים בדפדפן חיצוני </string>
   <string name="revanced_external_browser_summary_off">פותח קישורים בדפדפן בתוך היישום</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">כפה שפת שמע מקורית</string>
-  <string name="revanced_force_original_audio_summary_on">שימוש בשפת שמע מקורית</string>
-  <string name="revanced_force_original_audio_summary_off">שימוש בשמע ברירת מחדל</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">כדי להשתמש בתכונה זו, שנה את \'זיוף זרמי וידאו\' לכל לקוח מלבד Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

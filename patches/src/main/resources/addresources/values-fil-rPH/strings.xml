@@ -120,6 +120,13 @@ Maaaring hindi gumana ang pag-playback"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Ang pag-off sa setting na ito ay maaaring magdulot ng mga isyu sa pag-playback.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Default na kliyente</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Pilitin ang orihinal na wika ng audio</string>
+  <string name="revanced_force_original_audio_summary_on">Ginagamit ang orihinal na wika ng audio</string>
+  <string name="revanced_force_original_audio_summary_off">Gumagamit ng default audio</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Para magamit ang feature na ito, palitan ang \'Panggagaya ng mga video stream\' sa anumang client maliban sa Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Pagde-debug</string>
   <string name="revanced_debug_screen_summary">Paganahin o huwag paganahin ang mga opsyon sa pag-debug</string>
@@ -1510,13 +1517,6 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_external_browser_title">Buksan ang mga link sa browser</string>
   <string name="revanced_external_browser_summary_on">Binubuksan ang mga link sa panlabas na browser</string>
   <string name="revanced_external_browser_summary_off">Binubuksan ang mga link sa in-app na browser</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Pilitin ang orihinal na wika ng audio</string>
-  <string name="revanced_force_original_audio_summary_on">Ginagamit ang orihinal na wika ng audio</string>
-  <string name="revanced_force_original_audio_summary_off">Gumagamit ng default audio</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Para magamit ang feature na ito, palitan ang \'Panggagaya ng mga video stream\' sa anumang client maliban sa Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

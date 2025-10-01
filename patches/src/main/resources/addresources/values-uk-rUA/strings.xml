@@ -120,6 +120,13 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Вимкнення цієї опції може спричинити проблеми з відтворенням.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клієнт за замовчуванням</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Примусово оригінальна мова звукової доріжки</string>
+  <string name="revanced_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
+  <string name="revanced_force_original_audio_summary_off">Використовується стандартна (регіональна) мова звукової доріжки</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Щоб використовувати цю функцію, змініть клієнт \"Підміни відеопотоків\" на будь-який клієнт, окрім Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Налагодження</string>
   <string name="revanced_debug_screen_summary">Увімкнення або вимкнення параметрів налагодження</string>
@@ -1511,13 +1518,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_title">Відкривати посилання у браузері</string>
   <string name="revanced_external_browser_summary_on">Посилання відкриваються у зовнішньому браузері</string>
   <string name="revanced_external_browser_summary_off">Посилання відкриваються у вбудованому браузері</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Примусово оригінальна мова звукової доріжки</string>
-  <string name="revanced_force_original_audio_summary_on">Використовується оригінальна мова звукової доріжки</string>
-  <string name="revanced_force_original_audio_summary_off">Використовується стандартна (регіональна) мова звукової доріжки</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Щоб використовувати цю функцію, змініть клієнт \"Підміни відеопотоків\" на будь-який клієнт, окрім Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

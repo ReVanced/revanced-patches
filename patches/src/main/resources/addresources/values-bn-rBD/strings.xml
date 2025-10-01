@@ -120,6 +120,13 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_spoof_video_streams_user_dialog_message">এই সেটিং বন্ধ করলে প্লেব্যাক সমস্যা হতে পারে।</string>
   <string name="revanced_spoof_video_streams_client_type_title">ডিফল্ট ক্লায়েন্ট</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">মূল অডিও ভাষা বলপূর্বক চালু করুন</string>
+  <string name="revanced_force_original_audio_summary_on">মূল অডিও ভাষা ব্যবহার করা হচ্ছে</string>
+  <string name="revanced_force_original_audio_summary_off">ডিফল্ট অডিও ব্যবহার করছে</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">এই বৈশিষ্ট্যটি ব্যবহার করতে, \'ভিডিও স্ট্রিম স্পুফ করুন\' অ্যান্ড্রয়েড স্টুডিও ছাড়া অন্য কোনো ক্লায়েন্টে পরিবর্তন করুন</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">ডিবাগিং</string>
   <string name="revanced_debug_screen_summary">ডিবাগিং অপশন সক্রিয় বা নিষ্ক্রিয় করুন</string>
@@ -1508,13 +1515,6 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_external_browser_title">লিংক ব্রাউজারে খুলুন</string>
   <string name="revanced_external_browser_summary_on">বাহ্যিক ব্রাউজারে লিঙ্ক খোলা হচ্ছে</string>
   <string name="revanced_external_browser_summary_off">ইন-অ্যাপ ব্রাউজারে লিঙ্ক খোলা হচ্ছে</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">মূল অডিও ভাষা বলপূর্বক চালু করুন</string>
-  <string name="revanced_force_original_audio_summary_on">মূল অডিও ভাষা ব্যবহার করা হচ্ছে</string>
-  <string name="revanced_force_original_audio_summary_off">ডিফল্ট অডিও ব্যবহার করছে</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">এই বৈশিষ্ট্যটি ব্যবহার করতে, \'ভিডিও স্ট্রিম স্পুফ করুন\' অ্যান্ড্রয়েড স্টুডিও ছাড়া অন্য কোনো ক্লায়েন্টে পরিবর্তন করুন</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->

@@ -120,6 +120,13 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_spoof_video_streams_user_dialog_message">Այս կարգավորումն անջատելը կարող է նվագարկման խնդիրներ առաջացնել։</string>
   <string name="revanced_spoof_video_streams_client_type_title">Դեֆոլտ  կլիենտ</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել լեզուն</string>
+  <string name="revanced_force_original_audio_summary_on">Օգտագործելով ձայնային օրիգինալ լեզուն</string>
+  <string name="revanced_force_original_audio_summary_off">Վերջնական ձայն օգտագործվում է</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Այս հնարավորությունն օգտագործելու համար «Կեղծել վիդեո հոսքերը» տարբերակը փոխեք ցանկացած հաճախորդի, բացի Android Studio-ից</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debug</string>
   <string name="revanced_debug_screen_summary">Միացնել կամ անջատել առաջնորդման ռեժիմի ֆունկցիաները</string>
@@ -1513,13 +1520,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_external_browser_title">Բրաուզերում  հղումներ  բացել</string>
   <string name="revanced_external_browser_summary_on">Բացել հղումները արտաքին բրաուզերում</string>
   <string name="revanced_external_browser_summary_off">Բացել հղումները ներծրագրային բրաուզերում</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել լեզուն</string>
-  <string name="revanced_force_original_audio_summary_on">Օգտագործելով ձայնային օրիգինալ լեզուն</string>
-  <string name="revanced_force_original_audio_summary_off">Վերջնական ձայն օգտագործվում է</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Այս հնարավորությունն օգտագործելու համար «Կեղծել վիդեո հոսքերը» տարբերակը փոխեք ցանկացած հաճախորդի, բացի Android Studio-ից</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
