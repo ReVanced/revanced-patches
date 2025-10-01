@@ -59,7 +59,7 @@ internal fun forceOriginalAudioPatch(
 
         mainActivityOnCreateFingerprint.method.addInstruction(
             0,
-            "invoke-static { }, $subclassExtensionClassDescriptor->setPreferredLanguage()V"
+            "invoke-static { }, $subclassExtensionClassDescriptor->setEnabled()V"
         )
 
         // Disable feature flag that ignores the default track flag
