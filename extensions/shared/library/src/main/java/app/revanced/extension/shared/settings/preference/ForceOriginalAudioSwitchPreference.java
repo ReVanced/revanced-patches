@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.settings.preference;
+package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
 
@@ -6,17 +6,17 @@ import android.content.Context;
 import android.preference.SwitchPreference;
 import android.util.AttributeSet;
 
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.spoof.ClientType;
 import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
-import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings({"deprecation", "unused"})
 public class ForceOriginalAudioSwitchPreference extends SwitchPreference {
 
     // Spoof stream patch is not included, or is not currently spoofing to Android Studio.
     private static final boolean available = !SpoofVideoStreamsPatch.isPatchIncluded()
-            || !(Settings.SPOOF_VIDEO_STREAMS.get()
-            && Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_CREATOR);
+            || !(BaseSettings.SPOOF_VIDEO_STREAMS.get()
+            && SpoofVideoStreamsPatch.getPreferredClient() == ClientType.ANDROID_CREATOR);
 
     {
         if (!available) {
