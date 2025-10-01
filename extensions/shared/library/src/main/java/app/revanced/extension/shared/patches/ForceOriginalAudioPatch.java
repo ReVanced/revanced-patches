@@ -25,7 +25,7 @@ public class ForceOriginalAudioPatch {
             // not auto-dubbed by YouTube: https://support.google.com/youtube/answer/15569972
             // but the language is also supported natively by the Meta Quest device that
             // Android VR is spoofing.
-            AppLanguage override = AppLanguage.SV;
+            AppLanguage override = AppLanguage.NB; // Norwegian Bokmal.
             Logger.printDebug(() -> "Setting language override: " + override);
             SpoofVideoStreamsPatch.setLanguageOverride(override);
         }
