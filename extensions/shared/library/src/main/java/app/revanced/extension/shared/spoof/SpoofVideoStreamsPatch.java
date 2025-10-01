@@ -66,6 +66,10 @@ public class SpoofVideoStreamsPatch {
         StreamingDataRequest.setClientOrderToUse(availableClients, client);
     }
 
+    public static ClientType getPreferredClient() {
+        return preferredClient;
+    }
+
     public static boolean spoofingToClientWithNoMultiAudioStreams() {
         return isPatchIncluded()
                 && SPOOF_STREAMING_DATA

@@ -176,6 +176,13 @@ Playback may not work"</string>
             <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause playback issues.</string>
             <string name="revanced_spoof_video_streams_client_type_title">Default client</string>
         </patch>
+        <patch id="misc.audio.forceOriginalAudioPatch">
+            <string name="revanced_force_original_audio_title">Force original audio language</string>
+            <string name="revanced_force_original_audio_summary_on">Using original audio language</string>
+            <string name="revanced_force_original_audio_summary_off">Using default audio</string>
+            <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+            <string name="revanced_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except Android Studio</string>
+        </patch>
         <patch id="misc.debugging.enableDebuggingPatch">
             <string name="revanced_debug_screen_title">Debugging</string>
             <string name="revanced_debug_screen_summary">Enable or disable debugging options</string>
@@ -1589,13 +1596,6 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_external_browser_title">Open links in browser</string>
             <string name="revanced_external_browser_summary_on">Opening links in external browser</string>
             <string name="revanced_external_browser_summary_off">Opening links in in-app browser</string>
-        </patch>
-        <patch id="video.audio.forceOriginalAudioPatch">
-            <string name="revanced_force_original_audio_title">Force original audio language</string>
-            <string name="revanced_force_original_audio_summary_on">Using original audio language</string>
-            <string name="revanced_force_original_audio_summary_off">Using default audio</string>
-            <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-            <string name="revanced_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except Android Studio</string>
         </patch>
         <patch id="video.quality.rememberVideoQualityPatch">
             <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
