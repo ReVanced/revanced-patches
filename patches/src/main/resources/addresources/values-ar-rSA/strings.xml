@@ -797,7 +797,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">تم إخفاء الأزرار</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">يتم عرض الأزرار</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">إخفاء بطاقات شاشة النهاية</string>
   <string name="revanced_hide_endscreen_cards_summary_on">تم إخفاء بطاقات شاشة النهاية</string>
   <string name="revanced_hide_endscreen_cards_summary_off">يتم عرض بطاقات شاشة النهاية</string>

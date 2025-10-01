@@ -795,7 +795,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">ปุ่มซ่อนอยู่</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">ปุ่มแสดงอยู่</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">ซ่อนการ์ดหน้าจอสิ้นสุด</string>
   <string name="revanced_hide_endscreen_cards_summary_on">การ์ดหน้าจอสิ้นสุดซ่อนอยู่</string>
   <string name="revanced_hide_endscreen_cards_summary_off">การ์ดหน้าจอสิ้นสุดแสดงอยู่</string>

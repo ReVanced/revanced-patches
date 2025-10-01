@@ -4,12 +4,12 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
 
+@Deprecated("Patch is obsolete and no longer needed with the highest supported app target. " +
+        "This patch will soon be deleted.")
 @Suppress("unused")
 val openLinksWithAppChooserPatch = bytecodePatch(
-    name = "Open links with app chooser",
     description = "Instead of opening links directly, open them with an app chooser. " +
             "As a result you can select a browser to open the link with.",
-    use = false,
 ) {
     dependsOn(sharedExtensionPatch)
 

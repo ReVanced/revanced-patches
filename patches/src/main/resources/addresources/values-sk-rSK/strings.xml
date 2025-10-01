@@ -795,7 +795,7 @@ Ak chcete zobraziť menu zvukových stôp, zmeňte \"Falošné video streamy\" n
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tlačidlá sú skryté</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Zobrazia sa tlačidlá</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skryť karty záverečnej obrazovky</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Karty záverečnej obrazovky sú skryté</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Zobrazia sa karty záverečnej obrazovky</string>

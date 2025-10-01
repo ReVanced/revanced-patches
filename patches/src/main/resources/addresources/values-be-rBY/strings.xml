@@ -797,7 +797,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Кнопкі схаваныя</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Паказваюцца кнопкі</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Схаваць карткі канцавога экрана</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Карткі канцавога экрана схаваны</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Паказваюцца карткі канцавога экрана</string>

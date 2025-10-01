@@ -6,6 +6,7 @@ import android.content.Intent;
 import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
+@Deprecated(forRemoval = true)
 public final class OpenLinksWithAppChooserPatch {
 
     /**

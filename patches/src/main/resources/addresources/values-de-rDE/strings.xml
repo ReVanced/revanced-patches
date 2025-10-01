@@ -560,7 +560,7 @@ Passen Sie die Helligkeit an, indem Sie auf der linken Seite des Bildschirms ver
   <string name="revanced_swipe_volume_summary_off">Die Vollbild-Lautstärkegeste ist deaktiviert</string>
   <string name="revanced_swipe_press_to_engage_title">Wischen durch Drücken aktivieren</string>
   <string name="revanced_swipe_press_to_engage_summary_on">Wischen durch Drücken ist aktiviert</string>
-  <string name="revanced_swipe_press_to_engage_summary_off">Wischen durch Drücken ist deaktiviert</string>
+  <string name="revanced_swipe_press_to_engage_summary_off">Wischgeste durch Drücken ist deaktiviert</string>
   <string name="revanced_swipe_haptic_feedback_title">Haptisches Feedback aktivieren</string>
   <string name="revanced_swipe_haptic_feedback_summary_on">Haptisches Feedback ist aktiviert</string>
   <string name="revanced_swipe_haptic_feedback_summary_off">Haptisches Feedback ist deaktiviert</string>
@@ -794,7 +794,7 @@ Um das Audiotrack-Menü anzuzeigen, ändern Sie \"Video-Streams fälschen\" zu i
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Buttons sind ausgeblendet</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tasten werden angezeigt</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Endkarte ausblenden</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Endbildschirmkarten sind ausgeblendet</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Endbildschirmkarten werden angezeigt</string>

@@ -65,9 +65,9 @@ Second \"item\" text"</string>
 • Valideyn tənzimləmələri qapadılan uşaq tənzimləmələrin üstündə görünür"</string>
   <string name="revanced_settings_search_empty_history_title">Axtarış tarixçəsi boşdur</string>
   <string name="revanced_settings_search_empty_history_summary">Axtarış tarixçəsini saxlamaq üçün axtarış sorğusu yazın və Daxil Et basın</string>
-  <string name="revanced_settings_search_history_title">Axtarış tarixçəsi tənzimləməsin göstər</string>
-  <string name="revanced_settings_search_history_summary_on">Axtarış tarixçəsi tənzimləməsi göstərilir</string>
-  <string name="revanced_settings_search_history_summary_off">Axtarış tarixçəsi tənzimləməsi göstərilmir</string>
+  <string name="revanced_settings_search_history_title">Tənzimləmə axtarış tarixçəsin göstər</string>
+  <string name="revanced_settings_search_history_summary_on">Tənzimləmə axtarış tarixçəsi göstərilir</string>
+  <string name="revanced_settings_search_history_summary_off">Tənzimləmə axtarış tarixçəsi görünmür</string>
   <string name="revanced_show_menu_icons_title">ReVanced tənzimləmə nişanların göstər</string>
   <string name="revanced_show_menu_icons_summary_on">Tənzimləmə nişanları göstərilir</string>
   <string name="revanced_show_menu_icons_summary_off">Tənzimləmə nişanları göstərilmir</string>
@@ -797,7 +797,7 @@ Səs treki menyusunu göstərmək üçün \"Video yayımları saxtalaşdır\"ı 
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düymələr gizlidir</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düymələr göstərilir</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Son ekran kartlarını gizlət</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Son ekran kartları gizlidir</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Son ekran kartları göstərilir</string>

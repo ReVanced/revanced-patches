@@ -1,3 +1,38 @@
+# [5.42.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.5...v5.42.0-dev.6) (2025-09-30)
+
+
+### Bug Fixes
+
+* **X / Twitter:** Remove non functional and obsolete patch `Open links with app chooser` ([#6033](https://github.com/ReVanced/revanced-patches/issues/6033)) ([673609c](https://github.com/ReVanced/revanced-patches/commit/673609c2aa87988cdc138eab101b9750fe6a7b62))
+
+# [5.42.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.4...v5.42.0-dev.5) (2025-09-28)
+
+
+### Features
+
+* **YouTube Music:** Add `Custom branding` patch ([#6007](https://github.com/ReVanced/revanced-patches/issues/6007)) ([4c8b56f](https://github.com/ReVanced/revanced-patches/commit/4c8b56f5466b244737f501654eb7c5d34b6b2f88))
+
+# [5.42.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.3...v5.42.0-dev.4) (2025-09-28)
+
+
+### Bug Fixes
+
+* **YouTube Music - GmsCore support:** Handle sharing links to certain apps such as Instagram ([#6026](https://github.com/ReVanced/revanced-patches/issues/6026)) ([328234f](https://github.com/ReVanced/revanced-patches/commit/328234f39ada81542e596f04e8ce410c787c15c8))
+
+# [5.42.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.2...v5.42.0-dev.3) (2025-09-28)
+
+
+### Bug Fixes
+
+* **YouTube - Hide end screen cards:** Hide new type of end screen card ([#6027](https://github.com/ReVanced/revanced-patches/issues/6027)) ([76b0364](https://github.com/ReVanced/revanced-patches/commit/76b0364c5b5562c6a0d178d2bbe5b220f48aaca9))
+
+# [5.42.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.1...v5.42.0-dev.2) (2025-09-27)
+
+
+### Bug Fixes
+
+* **Instagram - Hide navigation buttons:** Resolve app startup crash ([080a226](https://github.com/ReVanced/revanced-patches/commit/080a2266146798be71789c939deef2f289697523))
+
 # [5.42.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.41.1-dev.2...v5.42.0-dev.1) (2025-09-27)
 
 

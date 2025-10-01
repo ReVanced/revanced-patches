@@ -797,7 +797,7 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Các nút đã bị ẩn</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Các nút được hiển thị</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ẩn thẻ màn hình kết thúc</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Thẻ màn hình kết thúc đã bị ẩn</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Thẻ màn hình kết thúc được hiển thị</string>
