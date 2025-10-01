@@ -15,11 +15,12 @@ import java.util.logging.Logger
 private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
 
 internal val mipmapDirectories = arrayOf(
-    "xxxhdpi",
-    "xxhdpi",
-    "xhdpi",
-    "hdpi",
+    // Target app does not have ldpi icons.
     "mdpi",
+    "hdpi",
+    "xhdpi",
+    "xxhdpi",
+    "xxxhdpi",
 ).map { "mipmap-$it" }.toTypedArray()
 
 private fun formatResourceFileList(resourceNames: Array<String>) = resourceNames.joinToString("\n") { "- $it" }
