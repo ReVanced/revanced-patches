@@ -1,3 +1,10 @@
+# [5.42.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.5...v5.42.0-dev.6) (2025-09-30)
+
+
+### Bug Fixes
+
+* **X / Twitter:** Remove non functional and obsolete patch `Open links with app chooser` ([#6033](https://github.com/ReVanced/revanced-patches/issues/6033)) ([673609c](https://github.com/ReVanced/revanced-patches/commit/673609c2aa87988cdc138eab101b9750fe6a7b62))
+
 # [5.42.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.4...v5.42.0-dev.5) (2025-09-28)
 
 
