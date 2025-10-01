@@ -1,3 +1,10 @@
+# [5.42.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.8...v5.42.0-dev.9) (2025-10-01)
+
+
+### Bug Fixes
+
+* **Custom branding:** Update ReVanced logo sizing ([#6029](https://github.com/ReVanced/revanced-patches/issues/6029)) ([ae4b947](https://github.com/ReVanced/revanced-patches/commit/ae4b9474d3fb62528fc21397c19954d31605e9da))
+
 # [5.42.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.7...v5.42.0-dev.8) (2025-10-01)
 
 
