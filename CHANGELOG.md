@@ -1,3 +1,10 @@
+# [5.42.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.6...v5.42.0-dev.7) (2025-10-01)
+
+
+### Features
+
+* **Instagram:** Add `Open links externally` patch ([#6012](https://github.com/ReVanced/revanced-patches/issues/6012)) ([08e8ead](https://github.com/ReVanced/revanced-patches/commit/08e8ead04ffff47a4608a3db7aadc8d5feccd4ad))
+
 # [5.42.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.5...v5.42.0-dev.6) (2025-09-30)
 
 
