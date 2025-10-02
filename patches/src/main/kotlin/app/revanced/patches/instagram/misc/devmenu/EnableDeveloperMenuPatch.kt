@@ -10,6 +10,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Suppress("unused")
 val enableDeveloperMenuPatch = bytecodePatch(
     name = "Enable developer menu",
+    description = "Enables the developer menu, which can be found at the bottom of setting menu with name \"Internal Settings\".",
     use = false
 ) {
     compatibleWith("com.instagram.android")
