@@ -1,3 +1,10 @@
+# [5.42.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.9...v5.42.0-dev.10) (2025-10-02)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Resolve playback dropping frames ([#6051](https://github.com/ReVanced/revanced-patches/issues/6051)) ([a62ee43](https://github.com/ReVanced/revanced-patches/commit/a62ee43441b197f5c8352ae373bb8919ad66f0bd))
+
 # [5.42.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.8...v5.42.0-dev.9) (2025-10-01)
 
 
