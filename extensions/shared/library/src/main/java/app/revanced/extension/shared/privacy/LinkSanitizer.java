@@ -2,7 +2,9 @@ package app.revanced.extension.shared.privacy;
 
 import android.net.Uri;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import app.revanced.extension.shared.Logger;
 
@@ -11,14 +13,18 @@ import app.revanced.extension.shared.Logger;
  */
 public class LinkSanitizer {
 
-    private final List<String> parametersToRemove;
+    private final Collection<String> parametersToRemove;
 
     public LinkSanitizer(String ... parametersToRemove) {
-        if (parametersToRemove.length == 0) {
+        final int parameterCount = parametersToRemove.length;
+        if (parameterCount == 0) {
             throw new IllegalArgumentException("No parameters specified");
         }
 
-        this.parametersToRemove = List.of(parametersToRemove);
+        // List is faster if only checking a few parameters.
+        this.parametersToRemove = parameterCount > 4
+                ? Set.of(parametersToRemove)
+                : List.of(parametersToRemove);
     }
 
     public String sanitizeUrlString(String url) {
