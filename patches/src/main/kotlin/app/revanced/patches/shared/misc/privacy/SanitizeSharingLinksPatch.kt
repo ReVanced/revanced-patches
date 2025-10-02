@@ -10,8 +10,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.PATCH_DESCRIPTION_SANITIZE_SHARING_LINKS
-import app.revanced.patches.shared.PATCH_NAME_SANITIZE_SHARING_LINKS
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
@@ -22,17 +20,14 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/shared/patches/SanitizeSharingLinksPatch;"
 
-/**
- * Patch shared by YouTube and YT Music.
- */
 internal fun sanitizeSharingLinksPatch(
     block: BytecodePatchBuilder.() -> Unit = {},
     executeBlock: BytecodePatchContext.() -> Unit = {},
     preferenceScreen: BasePreferenceScreen.Screen,
     replaceMusicLinksWithYouTube: Boolean = false
 ) = bytecodePatch(
-    name = PATCH_NAME_SANITIZE_SHARING_LINKS,
-    description = PATCH_DESCRIPTION_SANITIZE_SHARING_LINKS,
+    name = "Sanitize sharing links",
+    description = "Adds an option to remove the tracking query parameter from shared links.",
 ) {
     block()
 
