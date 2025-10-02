@@ -1,6 +1,5 @@
 package app.revanced.patches.instagram.misc.privacy
 
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -24,10 +23,15 @@ val sanitizeSharingLinksPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     execute {
-        fun Fingerprint.sanitizeUrl() {
-            this.method.apply {
+        arrayOf(
+            permalinkResponseJsonParserFingerprint,
+            storyUrlResponseJsonParserFingerprint,
+            profileUrlResponseJsonParserFingerprint,
+            liveUrlResponseJsonParserFingerprint
+        ).forEach { fingerprint ->
+            fingerprint.method.apply {
                 val putSharingUrlIndex = indexOfFirstInstructionOrThrow(
-                    this@sanitizeUrl.stringMatches!!.first().index,
+                    fingerprint.stringMatches!!.first().index,
                     Opcode.IPUT_OBJECT
                 )
 
@@ -36,20 +40,11 @@ val sanitizeSharingLinksPatch = bytecodePatch(
                 addInstructions(
                     putSharingUrlIndex,
                     """
-                    invoke-static { v$sharingUrlRegister }, $EXTENSION_CLASS_DESCRIPTOR->sanitizeSharingLink(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$sharingUrlRegister
-                """
+                        invoke-static { v$sharingUrlRegister }, $EXTENSION_CLASS_DESCRIPTOR->sanitizeSharingLink(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$sharingUrlRegister
+                    """
                 )
             }
         }
-
-        val fingerprintsToPatch = arrayOf(permalinkResponseJsonParserFingerprint,
-            storyUrlResponseJsonParserFingerprint,
-            profileUrlResponseJsonParserFingerprint,
-            liveUrlResponseJsonParserFingerprint
-        )
-
-        for(f in fingerprintsToPatch)
-            f.sanitizeUrl()
     }
 }
