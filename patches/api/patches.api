@@ -284,8 +284,8 @@ public final class app/revanced/patches/instagram/misc/extension/SharedExtension
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/instagram/misc/privacy/SanitizeSharingLinksPatchKt {
-	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/instagram/misc/links/OpenLinksExternallyPatchKt {
+	public static final fun getOpenLinksExternallyPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/instagram/misc/signature/SignatureCheckPatchKt {
@@ -376,12 +376,28 @@ public final class app/revanced/patches/music/interaction/permanentshuffle/Perma
 	public static final fun getPermanentShufflePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/layout/branding/CustomBrandingPatchKt {
+	public static final fun getCustomBrandingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
+public final class app/revanced/patches/music/layout/castbutton/HideCastButtonKt {
+	public static final fun getHideCastButton ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/layout/compactheader/HideCategoryBarKt {
 	public static final fun getHideCategoryBar ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/layout/navigationbar/NavigationBarPatchKt {
+	public static final fun getNavigationBarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/layout/premium/HideGetPremiumPatchKt {
 	public static final fun getHideGetPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/layout/theme/ThemePatchKt {
+	public static final fun getThemePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/layout/upgradebutton/HideUpgradeButtonPatchKt {
@@ -397,6 +413,14 @@ public final class app/revanced/patches/music/misc/backgroundplayback/Background
 	public static final fun getBackgroundPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/misc/debugging/EnableDebuggingPatchKt {
+	public static final fun getEnableDebuggingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/misc/dns/CheckWatchHistoryDomainNameResolutionPatchKt {
+	public static final fun getCheckWatchHistoryDomainNameResolutionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/misc/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -407,6 +431,10 @@ public final class app/revanced/patches/music/misc/gms/Constants {
 
 public final class app/revanced/patches/music/misc/gms/GmsCoreSupportPatchKt {
 	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/misc/privacy/SanitizeSharingLinksPatchKt {
+	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/misc/settings/PreferenceScreen : app/revanced/patches/shared/misc/settings/preference/BasePreferenceScreen {
@@ -431,9 +459,14 @@ public final class app/revanced/patches/music/misc/spoof/UserAgentClientSpoofPat
 	public static final fun getUserAgentClientSpoofPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/misc/tracks/ForceOriginalAudioPatchKt {
+	public static final fun getForceOriginalAudioPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/playservice/VersionCheckPatchKt {
 	public static final fun getVersionCheckPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 	public static final fun is_7_33_or_greater ()Z
+	public static final fun is_8_10_or_greater ()Z
 	public static final fun is_8_11_or_greater ()Z
 	public static final fun is_8_15_or_greater ()Z
 }
@@ -715,6 +748,11 @@ public final class app/revanced/patches/reddit/misc/tracking/url/SanitizeUrlQuer
 
 public final class app/revanced/patches/serviceportalbund/detection/root/RootDetectionPatchKt {
 	public static final fun getRootDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/shared/layout/theme/LithoColorHookPatchKt {
+	public static final fun getLithoColorHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getLithoColorOverrideHook ()Lkotlin/jvm/functions/Function2;
 }
 
 public final class app/revanced/patches/shared/misc/checks/BaseCheckEnvironmentPatchKt {
@@ -1157,6 +1195,10 @@ public final class app/revanced/patches/tumblr/annoyances/popups/DisableGiftMess
 	public static final fun getDisableGiftMessagePopupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/tumblr/annoyances/tv/DisableTumblrTvPatchKt {
+	public static final fun getDisableTumblrTvPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/tumblr/featureflags/OverrideFeatureFlagsPatchKt {
 	public static final fun getOverrideFeatureFlagsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1277,6 +1319,10 @@ public final class app/revanced/patches/viber/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/viber/misc/navbar/HideNavigationButtonsKt {
+	public static final fun getHideNavigationButtonsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/vsco/misc/pro/UnlockProPatchKt {
 	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1378,8 +1424,8 @@ public final class app/revanced/patches/youtube/layout/formfactor/ChangeFormFact
 	public static final fun getChangeFormFactorPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/youtube/layout/hide/endscreencards/HideEndscreenCardsPatchKt {
-	public static final fun getHideEndscreenCardsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/youtube/layout/hide/endscreencards/HideEndScreenCardsPatchKt {
+	public static final fun getHideEndScreenCardsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/layout/hide/endscreensuggestion/HideEndScreenSuggestedVideoPatchKt {
@@ -1598,6 +1644,10 @@ public final class app/revanced/patches/youtube/misc/litho/filter/LithoFilterPat
 	public static final fun getLithoFilterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/misc/loopvideo/LoopVideoPatchKt {
+	public static final fun getLoopVideoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/misc/navigation/NavigationBarHookPatchKt {
 	public static field hookNavigationButtonCreated Lkotlin/jvm/functions/Function1;
 	public static final fun getHookNavigationButtonCreated ()Lkotlin/jvm/functions/Function1;
@@ -1656,6 +1706,10 @@ public final class app/revanced/patches/youtube/misc/privacy/RemoveTrackingQuery
 	public static final fun getRemoveTrackingQueryParameterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/misc/privacy/SanitizeSharingLinksPatchKt {
+	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/misc/recyclerviewtree/hook/RecyclerViewTreeHookPatchKt {
 	public static final fun getAddRecyclerViewTreeHook ()Lkotlin/jvm/functions/Function1;
 	public static final fun getRecyclerViewTreeHookPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
@@ -1697,6 +1751,10 @@ public final class app/revanced/patches/youtube/misc/zoomhaptics/ZoomHapticsPatc
 
 public final class app/revanced/patches/youtube/video/audio/ForceOriginalAudioPatchKt {
 	public static final fun getForceOriginalAudioPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/video/codecs/DisableVideoCodecsPatchKt {
+	public static final fun getDisableVideoCodecsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/video/hdr/DisableHdrPatchKt {

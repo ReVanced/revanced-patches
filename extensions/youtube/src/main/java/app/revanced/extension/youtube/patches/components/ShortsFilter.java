@@ -154,6 +154,13 @@ public final class ShortsFilter extends Filter {
                 "reel_dislike_button.eml"
         );
 
+        StringFilterGroup previewComment = new StringFilterGroup(
+                Settings.HIDE_SHORTS_PREVIEW_COMMENT,
+                // Preview comment that can popup while a Short is playing.
+                // Uses no bundled icons, and instead the users profile photo is shown.
+                "participation_bar.eml"
+        );
+
         joinButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_JOIN_BUTTON,
                 "sponsor_button"
@@ -213,7 +220,7 @@ public final class ShortsFilter extends Filter {
 
         addPathCallbacks(
                 shortsCompactFeedVideo, joinButton, subscribeButton, paidPromotionButton,
-                shortsActionBar, suggestedAction, pausedOverlayButtons, channelBar,
+                shortsActionBar, suggestedAction, pausedOverlayButtons, channelBar, previewComment,
                 fullVideoLinkLabel, videoTitle, useSoundButton, reelSoundMetadata, soundButton, infoPanel,
                 stickers, likeFountain, likeButton, dislikeButton
         );
@@ -243,12 +250,6 @@ public final class ShortsFilter extends Filter {
         // Suggested actions.
         //
         suggestedActionsBuffer.addAll(
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_SHORTS_PREVIEW_COMMENT,
-                        // Preview comment that can popup while a Short is playing.
-                        // Uses no bundled icons, and instead the users profile photo is shown.
-                        "shorts-comments-panel"
-                ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SHOP_BUTTON,
                         "yt_outline_bag_"

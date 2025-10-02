@@ -1,6 +1,6 @@
 package app.revanced.extension.youtube.sponsorblock.ui;
 
-import static app.revanced.extension.shared.Utils.getResourceIdentifier;
+import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -63,7 +63,8 @@ public class SponsorBlockViewController {
             Context context = Utils.getContext();
             RelativeLayout layout = new RelativeLayout(context);
             layout.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT));
-            LayoutInflater.from(context).inflate(getResourceIdentifier("revanced_sb_inline_sponsor_overlay", "layout"), layout);
+            LayoutInflater.from(context).inflate(getResourceIdentifierOrThrow(
+                    "revanced_sb_inline_sponsor_overlay", "layout"), layout);
             inlineSponsorOverlayRef = new WeakReference<>(layout);
 
             viewGroup.addView(layout);
@@ -82,14 +83,14 @@ public class SponsorBlockViewController {
             });
             youtubeOverlaysLayoutRef = new WeakReference<>(viewGroup);
 
-            skipHighlightButtonRef = new WeakReference<>(Objects.requireNonNull(
-                    layout.findViewById(getResourceIdentifier("revanced_sb_skip_highlight_button", "id"))));
+            skipHighlightButtonRef = new WeakReference<>(layout.findViewById(getResourceIdentifierOrThrow(
+                    "revanced_sb_skip_highlight_button", "id")));
 
-            skipSponsorButtonRef = new WeakReference<>(Objects.requireNonNull(
-                    layout.findViewById(getResourceIdentifier("revanced_sb_skip_sponsor_button", "id"))));
+            skipSponsorButtonRef = new WeakReference<>(layout.findViewById(getResourceIdentifierOrThrow(
+                    "revanced_sb_skip_sponsor_button", "id")));
 
-            NewSegmentLayout newSegmentLayout = Objects.requireNonNull(
-                    layout.findViewById(getResourceIdentifier("revanced_sb_new_segment_view", "id")));
+            NewSegmentLayout newSegmentLayout = layout.findViewById(getResourceIdentifierOrThrow(
+                    "revanced_sb_new_segment_view", "id"));
             newSegmentLayoutRef = new WeakReference<>(newSegmentLayout);
             newSegmentLayout.updateLayout();
 

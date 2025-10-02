@@ -27,6 +27,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.Setting;
+import app.revanced.extension.shared.ui.CustomDialog;
 
 @SuppressWarnings("deprecation")
 public abstract class AbstractPreferenceFragment extends PreferenceFragment {
@@ -52,7 +53,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * Set by subclasses if Strings cannot be added as a resource.
      */
     @Nullable
-    protected static String restartDialogButtonText, restartDialogTitle, confirmDialogTitle, restartDialogMessage;
+    protected static CharSequence restartDialogTitle, restartDialogMessage, restartDialogButtonText, confirmDialogTitle;
 
     private final SharedPreferences.OnSharedPreferenceChangeListener listener = (sharedPreferences, str) -> {
         try {
@@ -124,10 +125,13 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
 
         showingUserDialogMessage = true;
 
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(
+        CharSequence message = BulletPointPreference.formatIntoBulletPoints(
+                Objects.requireNonNull(setting.userDialogMessage).toString());
+
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 confirmDialogTitle, // Title.
-                Objects.requireNonNull(setting.userDialogMessage).toString(), // No message.
+                message,
                 null, // No EditText.
                 null, // OK button text.
                 () -> {
@@ -151,6 +155,7 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
         );
 
         dialogPair.first.setOnDismissListener(d -> showingUserDialogMessage = false);
+        dialogPair.first.setCancelable(false);
 
         // Show the dialog.
         dialogPair.first.show();
@@ -248,7 +253,8 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
                 Setting.privateSetValueFromString(setting, listPref.getValue());
             }
             updateListPreferenceSummary(listPref, setting);
-        } else {
+        } else if (!pref.getClass().equals(Preference.class)) {
+            // Ignore root preference class because there is no data to sync.
             Logger.printException(() -> "Setting cannot be handled: " + pref.getClass() + ": " + pref);
         }
     }
@@ -302,7 +308,8 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
             restartDialogButtonText = str("revanced_settings_restart");
         }
 
-        Pair<Dialog, LinearLayout> dialogPair = Utils.createCustomDialog(context,
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
+                context,
                 restartDialogTitle,              // Title.
                 restartDialogMessage,            // Message.
                 null,                            // No EditText.

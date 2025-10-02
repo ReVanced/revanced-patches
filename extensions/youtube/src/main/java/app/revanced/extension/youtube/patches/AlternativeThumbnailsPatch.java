@@ -19,6 +19,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
@@ -65,6 +66,17 @@ public final class AlternativeThumbnailsPatch {
         public boolean isAvailable() {
             return usingDeArrowAnywhere();
         }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(
+                    ALT_THUMBNAIL_HOME,
+                    ALT_THUMBNAIL_SUBSCRIPTIONS,
+                    ALT_THUMBNAIL_LIBRARY,
+                    ALT_THUMBNAIL_PLAYER,
+                    ALT_THUMBNAIL_SEARCH
+            );
+        }
     }
 
     public static final class StillImagesAvailability implements Setting.Availability {
@@ -79,6 +91,17 @@ public final class AlternativeThumbnailsPatch {
         @Override
         public boolean isAvailable() {
             return usingStillImagesAnywhere();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(
+                    ALT_THUMBNAIL_HOME,
+                    ALT_THUMBNAIL_SUBSCRIPTIONS,
+                    ALT_THUMBNAIL_LIBRARY,
+                    ALT_THUMBNAIL_PLAYER,
+                    ALT_THUMBNAIL_SEARCH
+            );
         }
     }
 
@@ -451,29 +474,29 @@ public final class AlternativeThumbnailsPatch {
             }
 
             final boolean useFastQuality = Settings.ALT_THUMBNAIL_STILLS_FAST.get();
-            switch (quality) {
-                case SDDEFAULT:
-                    // SD alt images have somewhat worse quality with washed out color and poor contrast.
-                    // But the 720 images look much better and don't suffer from these issues.
-                    // For unknown reasons, the 720 thumbnails are used only for the home feed,
-                    // while SD is used for the search and subscription feed
-                    // (even though search and subscriptions use the exact same layout as the home feed).
-                    // Of note, this image quality issue only appears with the alt thumbnail images,
-                    // and the regular thumbnails have identical color/contrast quality for all sizes.
-                    // Fix this by falling thru and upgrading SD to 720.
-                case HQ720:
+            return switch (quality) {
+                // SD alt images have somewhat worse quality with washed out color and poor contrast.
+                // But the 720 images look much better and don't suffer from these issues.
+                // For unknown reasons, the 720 thumbnails are used only for the home feed,
+                // while SD is used for the search and subscription feed
+                // (even though search and subscriptions use the exact same layout as the home feed).
+                // Of note, this image quality issue only appears with the alt thumbnail images,
+                // and the regular thumbnails have identical color/contrast quality for all sizes.
+                // Fix this by falling thru and upgrading SD to 720.
+                case SDDEFAULT, HQ720 -> {  // SD is max resolution for fast alt images.
                     if (useFastQuality) {
-                        return SDDEFAULT; // SD is max resolution for fast alt images.
+                        yield SDDEFAULT;
                     }
-                    return HQ720;
-                case MAXRESDEFAULT:
+                    yield HQ720;
+                }
+                case MAXRESDEFAULT -> {
                     if (useFastQuality) {
-                        return SDDEFAULT;
+                        yield SDDEFAULT;
                     }
-                    return MAXRESDEFAULT;
-                default:
-                    return quality;
-            }
+                    yield MAXRESDEFAULT;
+                }
+                default -> quality;
+            };
         }
 
         final String originalName;

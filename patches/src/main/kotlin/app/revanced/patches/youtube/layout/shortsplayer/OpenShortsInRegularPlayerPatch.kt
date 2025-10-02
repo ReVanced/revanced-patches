@@ -65,11 +65,9 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
     compatibleWith(
         "com.google.android.youtube"(
             "19.34.42",
-            "19.43.41",
-            "19.47.53",
             "20.07.39",
-            "20.12.46",
             "20.13.41",
+            "20.14.43",
         )
     )
 
@@ -163,7 +161,7 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
             addInstructions(
                 index + 1,
                 """
-                    invoke-static { v$register }, ${EXTENSION_CLASS_DESCRIPTOR}->overrideBackPressToExit(Z)Z    
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->overrideBackPressToExit(Z)Z    
                     move-result v$register
                 """
             )
