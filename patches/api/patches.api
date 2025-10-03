@@ -280,6 +280,10 @@ public final class app/revanced/patches/instagram/hide/stories/HideStoriesKt {
 	public static final fun getHideStoriesPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/instagram/misc/devmenu/EnableDeveloperMenuPatchKt {
+	public static final fun getEnableDeveloperMenuPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/instagram/misc/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
