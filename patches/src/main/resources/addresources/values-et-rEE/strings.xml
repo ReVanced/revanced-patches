@@ -1610,6 +1610,7 @@ Piirangud:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Heliraja menüü puudub</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Puuduv AV1 videokoodek</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabiilne helitugevus pole saadaval</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Taasesitus võib katkendlik olla või kaadreid vahele jätta</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video lastele ei pruugi taasesitada, kui olete välja logitud või inkognito režiimis</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Sunni algne heli pole saadaval</string>

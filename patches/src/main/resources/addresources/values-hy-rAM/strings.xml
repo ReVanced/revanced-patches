@@ -1611,6 +1611,7 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Ձայնային ուղու մենյուն բացակայում է</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Հեռացված բոլոր AV1 վիդեո կոդեկները</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Կայուն ձայնի մակարդակը հասանելի չէ</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Նվագարկումը հնարավոր է ընդհատվի կամ բաց թողնի կադրեր</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">Երեխաների տեսանյութերը կարող են չհամապատասխանել հետևյալ պահանջներին՝ եթե արտոնագրման խախտումներ կան։</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Բնօրինակ ձայնի պարտադրումը հասանելի չէ</string>

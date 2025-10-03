@@ -1616,6 +1616,7 @@ Hạn chế:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Trình đơn bản âm thanh bị thiếu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Không có codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Âm lượng ổn định không khả dụng</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Có thể gặp hiện tượng giật lag hoặc tụt fps khi phát video</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video dành cho trẻ em có thể không phát được khi đăng xuất hoặc ở chế độ ẩn danh</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Buộc âm thanh gốc không khả dụng</string>

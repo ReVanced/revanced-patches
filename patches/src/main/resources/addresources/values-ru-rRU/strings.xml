@@ -1617,6 +1617,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Пункт \"Звуковая дорожка\" отсутствует</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Отсутствует видеокодек AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Постоянный уровень громкости недоступен </string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Воспроизведение может зависать или пропускать кадры</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Видео для детей могут не воспроизводиться при выходе из системы или в режиме инкогнито</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Принудительная оригинальная звуковая дорожка недоступна</string>

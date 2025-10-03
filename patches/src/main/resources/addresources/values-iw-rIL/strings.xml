@@ -1612,6 +1612,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• תפריט ערוץ השמע חסר</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• אין קודק וידאו מסוג AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• עוצמת קול יציבה אינה זמינה</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• ההפעלה עלולה לגמגם או להפיל פריימים</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ייתכן שסרטוני Kids לא יופעלו כשאתה מנותק או במצב פרטי</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• כפיית שמע מקורי אינה זמינה</string>

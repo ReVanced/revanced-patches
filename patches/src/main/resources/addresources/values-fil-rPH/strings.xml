@@ -1608,6 +1608,7 @@ Mga Limitasyon:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Nawawala ang menu ng audio track</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Walang AV1 video codec</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Hindi available ang stable volume</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Maaaring mag-stutter ang pag-playback o bumaba ang mga frame</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Mga video ng mga bata ay maaaring hindi ma-play kapag naka-log out o nasa incognito mode</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Ang Pilitin ang orihinal na audio ay hindi magagamit</string>

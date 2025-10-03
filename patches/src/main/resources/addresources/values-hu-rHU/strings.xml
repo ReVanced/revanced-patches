@@ -1607,6 +1607,7 @@ Korlátozások:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Hiányzik az hangsáv menü</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nincs AV1 videokodek</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabil hangerő nem elérhető</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• A lejátszás akadozhat vagy képkockákat dobhat.</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• A gyermekeknek szóló videók nem játszódnak le, ha a felhasználó kijelentkezett, vagy inkognitómódban van.</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Eredeti hang kényszerítése nem érhető el</string>

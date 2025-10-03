@@ -321,7 +321,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_podcast_section_title">팟캐스트 살펴보기 섹션 숨기기</string>
   <string name="revanced_hide_podcast_section_summary_on">팟캐스트 살펴보기 섹션이 숨겨집니다</string>
   <string name="revanced_hide_podcast_section_summary_off">팟캐스트 살펴보기 섹션이 표시됩니다</string>
-  <string name="revanced_hide_info_cards_section_title">정보 카드 숨기기</string>
+  <string name="revanced_hide_info_cards_section_title">크리에이터 정보 카드 섹션 숨기기</string>
   <string name="revanced_hide_info_cards_section_summary_on">크리에이터 정보 카드 섹션이 숨겨집니다</string>
   <string name="revanced_hide_info_cards_section_summary_off">크리에이터 정보 카드 섹션이 표시됩니다</string>
   <string name="revanced_hide_key_concepts_section_title">주요 개념 섹션 숨기기</string>
@@ -615,7 +615,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">동작 버튼</string>
   <string name="revanced_hide_buttons_screen_summary">플레이어 하단에서 동작 버튼을 숨기거나 표시할 수 있습니다</string>
-  <string name="revanced_disable_like_subscribe_glow_title">빛나는 \'좋아요\' / \'구독\' 비활성화하기</string>
+  <string name="revanced_disable_like_subscribe_glow_title">빛나는 \'좋아요\' / \'구독\' 버튼 비활성화하기</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 경우에 해당 버튼에 빛나는 애니메이션을 적용하지 않습니다</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 경우에 해당 버튼에 빛나는 애니메이션을 적용합니다</string>
   <string name="revanced_hide_like_dislike_button_title">좋아요 &amp; 싫어요 버튼 숨기기</string>
@@ -1617,6 +1617,7 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• 오디오 트랙 메뉴가 표시되지 않습니다</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• 안정적인 볼륨을 사용할 수 없습니다</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• 재생이 끊기거나 프레임이 손실될 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kids 동영상은 로그인을 하지 않았거나 시크릿 모드에서는 재생되지 않을 수 있습니다</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• 원본 오디오를 강제로 활성화할 수 없습니다</string>

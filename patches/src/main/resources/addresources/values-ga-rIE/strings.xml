@@ -1610,6 +1610,7 @@ Teorainneacha:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Tá an roghchlár rian fuaime in easnamh</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Níl aon chóidéir físe AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Níl toirt chobhsaí ar fáil</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• D\'fhéadfadh an athsheinm bacadh nó frámaí a chailleadh</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videos faoi phaistí uaireanta nach imreoidh nuair a bhíonn tú logáilte amach nó i mod incognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Níl Éigean fuaime bunaidh ar fáil</string>

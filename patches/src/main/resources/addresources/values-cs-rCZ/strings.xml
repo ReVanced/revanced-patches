@@ -1610,6 +1610,7 @@ Omezení:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Chybí nabídka zvukových stop</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabilní hlasitost není k dispozici</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Přehrávání se může sekat nebo ztrácet snímky</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Dětská videa se nemusí přehrávat, když jste odhlášení nebo v anonymním režimu</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Vynutit původní zvuk není k dispozici</string>

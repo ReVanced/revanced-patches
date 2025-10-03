@@ -1609,6 +1609,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Το μενού «Κομμάτι ήχου» λείπει</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Δεν υπάρχει ο κωδικοποιητής βίντεο AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Η αναπαραγωγή μπορεί να κομπιάζει ή να χάνει καρέ</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεδεμένοι ή σε λειτουργία ανώνυμης περιήγησης</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Ο εξαναγκασμός αρχικής γλώσσας ήχου δεν είναι διαθέσιμος</string>

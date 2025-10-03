@@ -1609,6 +1609,7 @@ Batasan:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menu trek audio tidak ada</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volume stabil tidak tersedia</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Pemutaran mungkin tersendat atau melewatkan bingkai</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video anak-anak mungkin tidak dapat diputar saat keluar atau dalam mode penyamaran</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Paksa audio asli tidak tersedia</string>

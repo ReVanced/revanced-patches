@@ -1620,6 +1620,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• 音軌選單遺失</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• 沒有 AV1 影片解碼器</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• 穩定音量無法使用</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• 播放可能會卡頓或掉幀</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• 在登出或無痕模式下，兒童影片可能無法播放</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• 強制原始音訊不可用</string>

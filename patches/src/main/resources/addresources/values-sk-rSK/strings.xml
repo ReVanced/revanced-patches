@@ -1603,6 +1603,7 @@ Obmedzenia:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Chýba ponuka zvukovej stopy</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žiadny video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabilná hlasitosť nie je dostupná</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Prehrávanie môže sekať alebo vynechávať snímky</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videá pre deti sa nemusia prehrávať, keď ste odhlásení alebo v režime inkognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Vynútenie pôvodného zvuku nie je k dispozícii</string>

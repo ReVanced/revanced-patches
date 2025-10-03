@@ -1612,6 +1612,7 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• เมนูแทร็กเสียงหายไป</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• ไม่มีตัวแปลงสัญญาณวิดีโอ AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• ระดับเสียงคงที่ไม่พร้อมใช้งาน</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• การเล่นอาจสะดุดหรือเฟรมตก</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• วิดีโอเด็กอาจไม่เล่นเมื่อลงชื่อออกหรืออยู่ในโหมดไม่ระบุตัวตน</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• บังคับใช้เสียงต้นฉบับไม่พร้อมใช้งาน</string>

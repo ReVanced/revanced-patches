@@ -1617,6 +1617,7 @@ Sınırlamalar:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Ses parçası menüsü eksik</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Sabit ses mevcut değil</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Oynatma takılabilir veya kare atlayabilir</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Çocuk videoları oturum açılmadığında veya gizli modda oynatılamayabilir</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Orijinal sesi zorlama mevcut değil</string>

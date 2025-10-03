@@ -109,7 +109,7 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="revanced_spoof_video_streams_screen_title">Naamioi videovirrat</string>
   <string name="revanced_spoof_video_streams_screen_summary">Naamioi asiakasohjelman videovirrat toisto-ongelmien estämiseksi</string>
   <string name="revanced_spoof_video_streams_screen_title">Naamioi videovirrat</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Naamioi asiakkaan videovirrat estääksesi toisto-ongelmat</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Naamioi asiakasohjelman videovirrat toisto-ongelmien estämiseksi</string>
   <string name="revanced_spoof_video_streams_title">Naamioi videovirrat</string>
   <string name="revanced_spoof_video_streams_summary_on">"Videovirrat on naamioitu
 
@@ -1610,6 +1610,7 @@ Rajoitukset:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Ääniraitavalikko puuttuu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ei AV1-videokoodekkia</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Tasainen äänenvoimakkuus ei ole käytettävissä</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Toisto saattaa pätkiä tai pudottaa kuvia</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Lasten videot eivät ehkä toistu, kun olet kirjautunut ulos tai incognito-tilassa</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Pakota alkuperäinen ääni ei ole käytettävissä</string>
