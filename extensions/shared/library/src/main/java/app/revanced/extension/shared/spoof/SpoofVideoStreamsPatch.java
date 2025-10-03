@@ -39,7 +39,7 @@ public class SpoofVideoStreamsPatch {
     @Nullable
     private static volatile AppLanguage languageOverride;
 
-    private static volatile ClientType preferredClient = ClientType.ANDROID_VR_1_61_48;
+    private static volatile ClientType preferredClient = ClientType.ANDROID_VR_1_43_32;
 
     /**
      * @return If this patch was included during patching.

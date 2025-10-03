@@ -10,14 +10,12 @@ public class ForceOriginalAudioPatch {
 
     private static final String DEFAULT_AUDIO_TRACKS_SUFFIX = ".4";
 
-    private static volatile boolean enabled = false;
+    private static volatile boolean enabled;
 
     public static void setEnabled(boolean isEnabled, ClientType client) {
         enabled = isEnabled;
 
-        if (isEnabled
-                && SpoofVideoStreamsPatch.spoofingToClientWithNoMultiAudioStreams()
-                && !client.useAuth) {
+        if (isEnabled && !client.useAuth && !client.supportsMultiAudioTracks) {
             // If client spoofing does not use authentication and lacks multi-audio streams,
             // then can use any language code for the request and if that requested language is
             // not available YT uses the original audio language. Authenticated requests ignore

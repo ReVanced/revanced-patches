@@ -120,6 +120,13 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Отключение этой настройки может вызвать проблемы с воспроизведением.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>
+  <string name="revanced_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
+  <string name="revanced_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Для использования этой функции измените клиент в \"Подмене видеопотоков\" на любой, кроме Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Отладка</string>
   <string name="revanced_debug_screen_summary">Включить или отключить параметры отладки</string>
@@ -1520,13 +1527,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_on">Ссылки открываются во внешнем браузере</string>
   <string name="revanced_external_browser_summary_off">Ссылки открываются во встроенном браузере</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Принудительно оригинальная звуковая дорожка</string>
-  <string name="revanced_force_original_audio_summary_on">Используется оригинальная звуковая дорожка</string>
-  <string name="revanced_force_original_audio_summary_off">Используется звуковая дорожка по умолчанию</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Для использования этой функции измените клиент в \"Подмене видеопотоков\" на любой, кроме Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Авто</string>
@@ -1617,6 +1617,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Пункт \"Звуковая дорожка\" отсутствует</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Отсутствует видеокодек AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Постоянный уровень громкости недоступен </string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Воспроизведение может зависать или пропускать кадры</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Видео для детей могут не воспроизводиться при выходе из системы или в режиме инкогнито</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Принудительная оригинальная звуковая дорожка недоступна</string>

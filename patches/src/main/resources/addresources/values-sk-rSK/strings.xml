@@ -118,6 +118,13 @@ Prehrávanie nemusí fungovať"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutie tohto nastavenia môže spôsobiť problémy s prehrávaním.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Predvolený klient</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Vynútiť pôvodný jazyk zvuku</string>
+  <string name="revanced_force_original_audio_summary_on">Používa sa pôvodný jazyk zvuku</string>
+  <string name="revanced_force_original_audio_summary_off">Používanie predvoleného zvuku</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Ak chcete použiť túto funkciu, zmeňte \"Podvrhnúť video streamy\" na ľubovoľného klienta okrem Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Ladenie</string>
   <string name="revanced_debug_screen_summary">Povoliť alebo zakázať možnosti ladenia</string>
@@ -1506,13 +1513,6 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   <string name="revanced_external_browser_summary_on">Otváranie odkazov v externom prehliadači</string>
   <string name="revanced_external_browser_summary_off">Otváranie odkazov v prehliadači v aplikácii</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Vynútiť pôvodný jazyk zvuku</string>
-  <string name="revanced_force_original_audio_summary_on">Používa sa pôvodný jazyk zvuku</string>
-  <string name="revanced_force_original_audio_summary_off">Používanie predvoleného zvuku</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Ak chcete použiť túto funkciu, zmeňte \"Podvrhnúť video streamy\" na ľubovoľného klienta okrem Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automaticky</string>
@@ -1603,6 +1603,7 @@ Obmedzenia:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Chýba ponuka zvukovej stopy</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žiadny video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabilná hlasitosť nie je dostupná</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Prehrávanie môže sekať alebo vynechávať snímky</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videá pre deti sa nemusia prehrávať, keď ste odhlásení alebo v režime inkognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Vynútenie pôvodného zvuku nie je k dispozícii</string>

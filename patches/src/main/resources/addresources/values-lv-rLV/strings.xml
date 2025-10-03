@@ -120,6 +120,13 @@ Atskaņošana var nedarboties"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Šī iestatījuma izslēgšana var izraisīt atskaņošanas problēmas.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Noklusētā klients</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Piespiest oriģinālo audio valodu</string>
+  <string name="revanced_force_original_audio_summary_on">Izmantot oriģinālo audio valodu</string>
+  <string name="revanced_force_original_audio_summary_off">Tiek izmantots noklusējuma audio</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Lai izmantotu šo funkciju, mainiet \"Viltotās video plūsmas\" uz jebkuru klientu, izņemot Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Atkļūdošana</string>
   <string name="revanced_debug_screen_summary">Iespējot vai atspējot atkļūdošanas opcijas</string>
@@ -1514,13 +1521,6 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_external_browser_summary_on">Saišu atvēršana ārējā pārlūkprogrammā</string>
   <string name="revanced_external_browser_summary_off">Saišu atvēršana lietotnes pārlūkprogrammā</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Piespiest oriģinālo audio valodu</string>
-  <string name="revanced_force_original_audio_summary_on">Izmantot oriģinālo audio valodu</string>
-  <string name="revanced_force_original_audio_summary_off">Tiek izmantots noklusējuma audio</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Lai izmantotu šo funkciju, mainiet \"Viltotās video plūsmas\" uz jebkuru klientu, izņemot Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automātiski</string>
@@ -1611,6 +1611,7 @@ Ierobežojumi:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Trūkst audio celiņa izvēlnes</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nav pieejams AV1 video kodeks</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Nav pieejams stabils skaļums</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Atskaņošana var raustīties vai izlaist kadrus</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Bērnu videoklipi var netikt atskaņoti, kad esat izrakstījies vai inkognito režīmā.</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Piespiest oriģinālo skaņu nav pieejams</string>

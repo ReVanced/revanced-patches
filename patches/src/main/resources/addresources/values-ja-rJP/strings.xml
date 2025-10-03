@@ -120,6 +120,13 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_spoof_video_streams_user_dialog_message">この設定を無効にすると、動画の再生に失敗するようになる可能性があります。</string>
   <string name="revanced_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">オリジナルの音声を強制的に使用</string>
+  <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用しません</string>
+  <string name="revanced_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックを使用する場合があります</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装」のクライアントを Android Studio 以外の任意のクライアントに変更してください</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">デバッグ</string>
   <string name="revanced_debug_screen_summary">デバッグ オプションを有効または無効にします</string>
@@ -1287,7 +1294,7 @@ Automotive レイアウト
 
 再び偽装を無効にする場合には、UI のバグを防ぐためにアプリデータを消去することをお勧めします。"</string>
   <string name="revanced_spoof_app_version_target_title">アプリバージョンの偽装先</string>
-  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - アクション ボタンの文字の常時表示を復元</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - アクション ボタンの文字表示を復元</string>
   <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - 文字起こし機能を復元</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - 古いショート プレーヤーのアイコンを復元</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - 古いナビゲーション アイコンを復元</string>
@@ -1515,13 +1522,6 @@ Automotive レイアウト
   <string name="revanced_external_browser_summary_on">外部ブラウザでリンクを開きます</string>
   <string name="revanced_external_browser_summary_off">アプリ内ブラウザでリンクを開きます</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">オリジナルの音声を強制的に使用</string>
-  <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用しません</string>
-  <string name="revanced_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックを使用する場合があります</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装」のクライアントを Android Studio 以外の任意のクライアントに変更してください</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">自動</string>
@@ -1612,6 +1612,7 @@ Automotive レイアウト
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">•「音声トラック」がフライアウト メニューに表示されない</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 コーデックが利用できない</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">•「一定音量」が利用できない</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• 再生が途切れたり、フレームがスキップされたりする場合があります。</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ログアウト時またはシークレット モード時に、子ども向け動画が再生されない可能性がある</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">•「オリジナルの音声を強制的に使用」が利用できない</string>
@@ -1720,9 +1721,9 @@ Automotive レイアウト
   <string name="revanced_show_deleted_messages_entry_3">削除されたメッセージを取り消し線つきで表示する</string>
   </patch>
   <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
-  <string name="revanced_auto_claim_channel_points_title">チャンネルポイントを自動的に獲得する</string>
-  <string name="revanced_auto_claim_channel_points_summary_on">チャンネルポイントは自動的に請求されます</string>
-  <string name="revanced_auto_claim_channel_points_summary_off">チャンネルポイントは自動的に請求されません</string>
+  <string name="revanced_auto_claim_channel_points_title">チャンネルポイントの受け取りを自動化</string>
+  <string name="revanced_auto_claim_channel_points_summary_on">チャンネルポイントの受け取りは自動的に行われます</string>
+  <string name="revanced_auto_claim_channel_points_summary_off">チャンネルポイントの受け取りは自動的には行われません</string>
   </patch>
   <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->

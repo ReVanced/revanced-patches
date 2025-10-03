@@ -120,6 +120,13 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Изключването на тази настройка може да причини проблеми с възпроизвеждането.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Принудително оригинално аудио език</string>
+  <string name="revanced_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
+  <string name="revanced_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">За да използвате тази функция, променете \'Фалшифициране на видео потоци\' на всеки клиент, освен Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Отстраняване на грешки</string>
   <string name="revanced_debug_screen_summary">Активиране или деактивиране на отстраняването на грешки</string>
@@ -1513,13 +1520,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_on">Отваряне на връзки във външен браузър</string>
   <string name="revanced_external_browser_summary_off">Отваряне на връзки във вграден браузър</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Принудително оригинално аудио език</string>
-  <string name="revanced_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
-  <string name="revanced_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">За да използвате тази функция, променете \'Фалшифициране на видео потоци\' на всеки клиент, освен Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Авто</string>
@@ -1610,6 +1610,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Менюто за аудиозаписи липсва</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Без AV1 видео кодек</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Стабилният звук не е наличен</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Възпроизвеждането може да заеква или да пропуска кадри</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Детските видеоклипове може да не се възпроизвеждат, когато сте излезли от профила си или в режим \"инкогнито\"</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Принудителният оригинален звук не е наличен</string>

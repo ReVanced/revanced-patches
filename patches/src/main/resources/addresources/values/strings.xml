@@ -1693,6 +1693,7 @@ Limitations:
             <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Audio track menu is missing</string>
             <string name="revanced_spoof_video_streams_about_no_av1">• No AV1 video codec</string>
             <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stable volume is not available</string>
+            <string name="revanced_spoof_video_streams_about_dropped_frames">• Playback may stutter or drop frames</string>
             <string name="revanced_spoof_video_streams_about_kids_videos">• Kids videos may not play when logged out or in incognito mode</string>
             <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
             <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Force original audio is not available</string>

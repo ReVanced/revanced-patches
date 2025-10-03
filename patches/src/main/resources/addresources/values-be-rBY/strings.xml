@@ -120,6 +120,13 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Адключэнне гэтай налады можа выклікаць праблемы з прайграваннем.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по умолчанию</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Вымушаная арыгінальная мова аўдыё</string>
+  <string name="revanced_force_original_audio_summary_on">Выкарыстоўваць арыгінальную мову аўдыя</string>
+  <string name="revanced_force_original_audio_summary_off">Выкарыстанне аўдыё па змаўчанні</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Каб выкарыстаць гэтую функцыю, змяніце \'Падмена відэаструменяў\' на любога кліента, акрамя Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Адладка</string>
   <string name="revanced_debug_screen_summary">Уключыць або выключыць параметры адладкі</string>
@@ -1514,13 +1521,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_on">Адкрыццё спасылак у знешнім браўзеры</string>
   <string name="revanced_external_browser_summary_off">Адкрыццё спасылак ва ўбудаваным браўзеры</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Вымушаная арыгінальная мова аўдыё</string>
-  <string name="revanced_force_original_audio_summary_on">Выкарыстоўваць арыгінальную мову аўдыя</string>
-  <string name="revanced_force_original_audio_summary_off">Выкарыстанне аўдыё па змаўчанні</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Каб выкарыстаць гэтую функцыю, змяніце \'Падмена відэаструменяў\' на любога кліента, акрамя Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Аўто</string>
@@ -1611,6 +1611,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Меню аўдыядарожкі адсутнічае</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Няма відэакідавання AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Стабільная гучнасць недаступная</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Прайграванне можа заікацца або прапускаць кадры</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Дзіцячыя відэа могуць не прайгравацца ў стане выхаду з акаўнта або ў рэжыме інкогніта</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Прымусовы арыгінальны аўдыё недаступны</string>

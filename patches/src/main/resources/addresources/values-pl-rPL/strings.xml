@@ -120,6 +120,13 @@ Odtwarzanie może nie działać"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Wyłączenie tego ustawienia może spowodować problemy z odtwarzaniem.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Domyślny klient</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Wymuś język oryginalnego dźwięku</string>
+  <string name="revanced_force_original_audio_summary_on">Używanie oryginalnego języka audio</string>
+  <string name="revanced_force_original_audio_summary_off">Używanie domyślnego dźwięku</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Aby użyć tej funkcji, zmień \'Fałszuj strumienie wideo\' na dowolnego klienta z wyjątkiem Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debugowanie</string>
   <string name="revanced_debug_screen_summary">Włącz lub wyłącz opcje debugowania</string>
@@ -1509,13 +1516,6 @@ Włączenie tego może odblokować wyższe jakości wideo"</string>
   <string name="revanced_external_browser_summary_on">Otwieranie linków w zewnętrznej przeglądarce</string>
   <string name="revanced_external_browser_summary_off">Otwieranie linków w przeglądarce w aplikacji</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Wymuś język oryginalnego dźwięku</string>
-  <string name="revanced_force_original_audio_summary_on">Używanie oryginalnego języka audio</string>
-  <string name="revanced_force_original_audio_summary_off">Używanie domyślnego dźwięku</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Aby użyć tej funkcji, zmień \'Fałszuj strumienie wideo\' na dowolnego klienta z wyjątkiem Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automatycznie</string>
@@ -1606,6 +1606,7 @@ Ograniczenia:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Brakuje menu ścieżek audio</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabilna głośność nie jest dostępna</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Odtwarzanie może się zacinać lub gubić klatki</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Filmy dla dzieci mogą nie być odtwarzane po wylogowaniu lub w trybie incognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Wymuś oryginalny dźwięk jest niedostępny</string>

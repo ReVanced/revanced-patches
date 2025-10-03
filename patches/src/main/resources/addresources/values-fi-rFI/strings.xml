@@ -109,7 +109,7 @@ Napauta jatka-painiketta ja salli optimoinnin muutokset."</string>
   <string name="revanced_spoof_video_streams_screen_title">Naamioi videovirrat</string>
   <string name="revanced_spoof_video_streams_screen_summary">Naamioi asiakasohjelman videovirrat toisto-ongelmien estämiseksi</string>
   <string name="revanced_spoof_video_streams_screen_title">Naamioi videovirrat</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Naamioi asiakkaan videovirrat estääksesi toisto-ongelmat</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Naamioi asiakasohjelman videovirrat toisto-ongelmien estämiseksi</string>
   <string name="revanced_spoof_video_streams_title">Naamioi videovirrat</string>
   <string name="revanced_spoof_video_streams_summary_on">"Videovirrat on naamioitu
 
@@ -119,6 +119,13 @@ Jos olet YouTube Premium -käyttäjä, tätä asetusta ei välttämättä tarvit
 Toisto ei välttämättä toimi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Tämän asetuksen poistaminen käytöstä voi aiheuttaa toisto-ongelmia.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Oletusasiakasohjelma</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Pakota alkuperäinen äänen kieli</string>
+  <string name="revanced_force_original_audio_summary_on">Käytetään alkuperäistä ääntä</string>
+  <string name="revanced_force_original_audio_summary_off">Käytetään oletusääntä</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Käyttääksesi tätä ominaisuutta, muuta \"Naamioi videovirrat\" mihin tahansa asiakasohjelmaan paitsi Android Studioon</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Virheenkorjaus</string>
@@ -1513,13 +1520,6 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <string name="revanced_external_browser_summary_on">Linkit avataan ulkoisessa selaimessa</string>
   <string name="revanced_external_browser_summary_off">Linkit avataan sovelluksen sisäisessä selaimessa</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Pakota alkuperäinen äänen kieli</string>
-  <string name="revanced_force_original_audio_summary_on">Käytetään alkuperäistä ääntä</string>
-  <string name="revanced_force_original_audio_summary_off">Käytetään oletusääntä</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Käyttääksesi tätä ominaisuutta, muuta \"Naamioi videovirrat\" mihin tahansa asiakasohjelmaan paitsi Android Studioon</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automaattinen</string>
@@ -1610,6 +1610,7 @@ Rajoitukset:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Ääniraitavalikko puuttuu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ei AV1-videokoodekkia</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Tasainen äänenvoimakkuus ei ole käytettävissä</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Toisto saattaa pätkiä tai pudottaa kuvia</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Lasten videot eivät ehkä toistu, kun olet kirjautunut ulos tai incognito-tilassa</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Pakota alkuperäinen ääni ei ole käytettävissä</string>

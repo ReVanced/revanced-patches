@@ -120,6 +120,13 @@ Grojimas gali neveikti"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Išjungus šį nustatymą, gali kilti atkūrimo problemų.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Numatytasis klientas</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Priversti originalią garso kalbą</string>
+  <string name="revanced_force_original_audio_summary_on">Naudojama originali garso kalba</string>
+  <string name="revanced_force_original_audio_summary_off">Naudojamas numatytasis garsas</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Kad naudotumėte šią funkciją, pakeiskite „Klastoti vaizdo įrašų srautus“ į bet kurį klientą, išskyrus „Android Studio“</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debugavimas</string>
   <string name="revanced_debug_screen_summary">Įgalinti arba išjungti derinimo parinktis</string>
@@ -1514,13 +1521,6 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_external_browser_summary_on">Nuorodos atidaromos išorinėje naršyklėje</string>
   <string name="revanced_external_browser_summary_off">Nuorodos atidaromos programėlės naršyklėje</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Priversti originalią garso kalbą</string>
-  <string name="revanced_force_original_audio_summary_on">Naudojama originali garso kalba</string>
-  <string name="revanced_force_original_audio_summary_off">Naudojamas numatytasis garsas</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Kad naudotumėte šią funkciją, pakeiskite „Klastoti vaizdo įrašų srautus“ į bet kurį klientą, išskyrus „Android Studio“</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automatinis</string>
@@ -1611,6 +1611,7 @@ Apribojimai:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Trūksta garso takelio meniu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nėra AV1 vaizdo kodeko</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabili garso apimtis nepasiekiama</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Atkūrimas gali strigti arba praleisti kadrus</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Vaikų vaizdo įrašai gali būti neatkuriami, kai atsijungiama arba naudojamas inkognito režimas</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Priverstinai naudoti originalų garsą nepasiekiama</string>

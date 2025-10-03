@@ -120,6 +120,13 @@ Uppspelning kanske inte fungerar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Om du stänger av den här inställningen kan det leda till problem med uppspelning.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standardklient</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Tvinga ursprungligt ljudspråk</string>
+  <string name="revanced_force_original_audio_summary_on">Använder ursprungligt ljudspråk</string>
+  <string name="revanced_force_original_audio_summary_off">Använder standardljud</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Om du vill använda den här funktionen ändrar du \"Förfalska videoströmmar\" till valfri klient utom Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Felsökning</string>
   <string name="revanced_debug_screen_summary">Aktivera eller inaktivera felsökningsalternativ</string>
@@ -1512,13 +1519,6 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   <string name="revanced_external_browser_summary_on">Öppnar länkar i extern webbläsare</string>
   <string name="revanced_external_browser_summary_off">Öppnar länkar i webbläsaren i appen</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Tvinga ursprungligt ljudspråk</string>
-  <string name="revanced_force_original_audio_summary_on">Använder ursprungligt ljudspråk</string>
-  <string name="revanced_force_original_audio_summary_off">Använder standardljud</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Om du vill använda den här funktionen ändrar du \"Förfalska videoströmmar\" till valfri klient utom Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automatiskt</string>
@@ -1609,6 +1609,7 @@ Begränsningar:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menyn Ljudspår saknas</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ingen AV1-videokodek</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabil volym är inte tillgängligt</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Uppspelningen kan hacka eller tappa bildrutor</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videor för barn kanske inte spelas upp när du är utloggad eller i inkognitoläge</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Tvinga ursprungligt ljud är inte tillgängligt</string>

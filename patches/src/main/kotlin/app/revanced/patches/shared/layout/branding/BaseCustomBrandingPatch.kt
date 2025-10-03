@@ -15,11 +15,12 @@ import java.util.logging.Logger
 private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
 
 internal val mipmapDirectories = arrayOf(
-    "xxxhdpi",
-    "xxhdpi",
-    "xhdpi",
-    "hdpi",
+    // Target app does not have ldpi icons.
     "mdpi",
+    "hdpi",
+    "xhdpi",
+    "xxhdpi",
+    "xxxhdpi",
 ).map { "mipmap-$it" }.toTypedArray()
 
 private fun formatResourceFileList(resourceNames: Array<String>) = resourceNames.joinToString("\n") { "- $it" }
@@ -52,6 +53,7 @@ internal fun baseCustomBrandingPatch(
     appNameValues: Map<String, String>,
     resourceFolder: String,
     iconResourceFileNames: Array<String>,
+    monochromeIconFileNames: Array<String>,
     block: ResourcePatchBuilder.() -> Unit = {},
     executeBlock: ResourcePatchContext.() -> Unit = {}
 ): ResourcePatch = resourcePatch(
@@ -84,14 +86,17 @@ internal fun baseCustomBrandingPatch(
             Each of these folders must contain the following files:
     
             ${formatResourceFileList(iconResourceFileNamesPng)}
+            
+            Optionally, a 'drawable' folder with the monochrome icon files:
+    
+            ${formatResourceFileList(monochromeIconFileNames)}
         """.trimIndentMultiline(),
     )
 
     block()
 
     execute {
-        // Change the app icon and launch screen.
-        val iconResourceGroups = mipmapDirectories.map { directory ->
+        val mipmapIconResourceGroups = mipmapDirectories.map { directory ->
             ResourceGroup(
                 directory,
                 *iconResourceFileNamesPng,
@@ -100,21 +105,43 @@ internal fun baseCustomBrandingPatch(
 
         val iconPathTrimmed = iconPath!!.trim()
         if (iconPathTrimmed == REVANCED_ICON) {
-            iconResourceGroups.forEach {
-                copyResources(resourceFolder, it)
+            // Replace mipmap icons with preset patch icons.
+            mipmapIconResourceGroups.forEach { groupResources ->
+                copyResources(resourceFolder, groupResources)
+            }
+
+            // Replace monochrome icons.
+            monochromeIconFileNames.forEach { fileName ->
+                copyResources(
+                    resourceFolder,
+                    ResourceGroup("drawable", fileName)
+                )
             }
         } else {
             val filePath = File(iconPathTrimmed)
             val resourceDirectory = get("res")
 
-            iconResourceGroups.forEach { group ->
-                val fromDirectory = filePath.resolve(group.resourceDirectoryName)
-                val toDirectory = resourceDirectory.resolve(group.resourceDirectoryName)
+            // Replace
+            mipmapIconResourceGroups.forEach { groupResources ->
+                val groupResourceDirectoryName = groupResources.resourceDirectoryName
+                val fromDirectory = filePath.resolve(groupResourceDirectoryName)
+                val toDirectory = resourceDirectory.resolve(groupResourceDirectoryName)
 
-                group.resources.forEach { iconFileName ->
+                groupResources.resources.forEach { iconFileName ->
                     Files.write(
                         toDirectory.resolve(iconFileName).toPath(),
                         fromDirectory.resolve(iconFileName).readBytes(),
+                    )
+                }
+            }
+
+            // Copy all monochrome icons if provided.
+            monochromeIconFileNames.forEach { fileName ->
+                val replacementMonochrome = filePath.resolve("drawable").resolve(fileName)
+                if (replacementMonochrome.exists()) {
+                    Files.write(
+                        resourceDirectory.resolve("drawable").resolve(fileName).toPath(),
+                        replacementMonochrome.readBytes(),
                     )
                 }
             }

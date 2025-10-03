@@ -8,7 +8,7 @@ public class ForceOriginalAudioPatch {
     /**
      * Injection point.
      */
-    public static void setPreferredLanguage() {
+    public static void setEnabled() {
         app.revanced.extension.shared.patches.ForceOriginalAudioPatch.setEnabled(
                 Settings.FORCE_ORIGINAL_AUDIO.get(),
                 Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get()

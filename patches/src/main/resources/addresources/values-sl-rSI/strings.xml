@@ -120,6 +120,13 @@ Predvajanje morda ne bo delovalo"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Izklop te nastavitve lahko povzroči težave z predvajanjem.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Privzeti odjemalec</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Izsili izvirni jezik zvoka</string>
+  <string name="revanced_force_original_audio_summary_on">Uporabi izvirni jezik zvoka</string>
+  <string name="revanced_force_original_audio_summary_off">Uporaba privzetega zvoka</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Za uporabo te funkcije spremenite \"Ponaredi video tokove\" na katerega koli odjemalca, razen na Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Razhroščevanje</string>
   <string name="revanced_debug_screen_summary">Omogoči ali onemogoči možnosti razhroščevanja</string>
@@ -1513,13 +1520,6 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_external_browser_summary_on">Odpiranje povezav v zunanjem brskalniku</string>
   <string name="revanced_external_browser_summary_off">Odpiranje povezav v brskalniku v aplikaciji</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Izsili izvirni jezik zvoka</string>
-  <string name="revanced_force_original_audio_summary_on">Uporabi izvirni jezik zvoka</string>
-  <string name="revanced_force_original_audio_summary_off">Uporaba privzetega zvoka</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Za uporabo te funkcije spremenite \"Ponaredi video tokove\" na katerega koli odjemalca, razen na Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Samodejno</string>
@@ -1610,6 +1610,7 @@ Omejitve:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Meni z zvočnimi posnetki manjka</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Brez kodeka videa AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabilna glasnost ni na voljo</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Predvajanje se lahko zatika ali izpušča sličice</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Posnetki za otroke se mogoče ne bodo predvajali, ko ste odjavljeni ali v načinu brez beleženja zgodovine</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Vsili izvirni zvok ni na voljo</string>
