@@ -116,8 +116,12 @@ public final class LithoFilterPatch {
      */
     public static final boolean DEBUG_EXTRACT_IDENTIFIER_FROM_BUFFER = false;
 
-    private static final String EML_STRING = ".eml";
-    private static final byte[] EML_STRING_BYTES = EML_STRING.getBytes(StandardCharsets.US_ASCII);
+    /**
+     * String suffix for components.
+     * Can be any of: ".eml", ".e-b", ".eml-js", "e-js-b"
+     */
+    private static final String LITHO_COMPONENT_EXTENSION = ".e";
+    private static final byte[] LITHO_COMPONENT_EXTENSION_BYTES = LITHO_COMPONENT_EXTENSION.getBytes(StandardCharsets.US_ASCII);
 
     private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 
@@ -227,11 +231,11 @@ public final class LithoFilterPatch {
         // unique characters, but it seems to be slower since the extra overhead of checking the
         // bad character array negates any performance gain of skipping a few extra subsearches.
         int emlIndex = -1;
-        final int emlStringLength = EML_STRING_BYTES.length;
+        final int emlStringLength = LITHO_COMPONENT_EXTENSION_BYTES.length;
         for (int i = 0, lastStartIndex = buffer.length - emlStringLength; i <= lastStartIndex; i++) {
             boolean match = true;
             for (int j = 0; j < emlStringLength; j++) {
-                if (buffer[i + j] != EML_STRING_BYTES[j]) {
+                if (buffer[i + j] != LITHO_COMPONENT_EXTENSION_BYTES[j]) {
                     match = false;
                     break;
                 }
@@ -251,7 +255,7 @@ public final class LithoFilterPatch {
         while (startIndex > 0) {
             final byte character = buffer[startIndex];
             int startIndexFinal = startIndex;
-            if (isAsciiNumber(character) || isAsciiLowerCaseLetter(character) || character == '_') {
+            if (isAsciiLowerCaseLetter(character) || isAsciiNumber(character) || character == '_') {
                 // Valid character for the first path element.
                 startIndex--;
             } else {
