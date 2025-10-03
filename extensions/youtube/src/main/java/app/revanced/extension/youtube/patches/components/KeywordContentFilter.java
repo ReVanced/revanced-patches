@@ -79,10 +79,10 @@ final class KeywordContentFilter extends Filter {
             "search_vwc_description_transition_key",
             "g-high-recZ",
             // Text and litho components found in the buffer that belong to path filters.
-            "expandable_metadata.eml",
-            "thumbnail.eml",
-            "avatar.eml",
-            "overflow_button.eml",
+            "expandable_metadata.e",
+            "thumbnail.e",
+            "avatar.e",
+            "overflow_button.e",
             "shorts-lockup-image",
             "shorts-lockup.overlay-metadata.secondary-text",
             "YouTubeSans-SemiBold",
@@ -94,16 +94,16 @@ final class KeywordContentFilter extends Filter {
      */
     private final StringFilterGroup startsWithFilter = new StringFilterGroup(
             null, // Multiple settings are used and must be individually checked if active.
-            "home_video_with_context.eml",
-            "search_video_with_context.eml",
-            "video_with_context.eml", // Subscription tab videos.
-            "related_video_with_context.eml",
+            "home_video_with_context.e",
+            "search_video_with_context.e",
+            "video_with_context.e", // Subscription tab videos.
+            "related_video_with_context.e",
             // A/B test for subscribed video, and sometimes when tablet layout is enabled.
-            "video_lockup_with_attachment.eml",
-            "compact_video.eml",
+            "video_lockup_with_attachment.e",
+            "compact_video.e",
             "inline_shorts",
             "shorts_video_cell",
-            "shorts_pivot_item.eml"
+            "shorts_pivot_item.e"
     );
 
     /**
@@ -112,9 +112,9 @@ final class KeywordContentFilter extends Filter {
     @SuppressWarnings("FieldCanBeLocal")
     private final StringFilterGroup containsFilter = new StringFilterGroup(
             null,
-            "modern_type_shelf_header_content.eml",
-            "shorts_lockup_cell.eml", // Part of 'shorts_shelf_carousel.eml'
-            "video_card.eml" // Shorts that appear in a horizontal shelf.
+            "modern_type_shelf_header_content.e",
+            "shorts_lockup_cell.e", // Part of 'shorts_shelf_carousel.e'
+            "video_card.e" // Shorts that appear in a horizontal shelf.
     );
 
     /**
@@ -125,10 +125,10 @@ final class KeywordContentFilter extends Filter {
      * the buffer of the parent component was already searched and passed.
      */
     private final StringTrieSearch exceptions = new StringTrieSearch(
-            "metadata.eml",
-            "thumbnail.eml",
-            "avatar.eml",
-            "overflow_button.eml"
+            "metadata.e",
+            "thumbnail.e",
+            "avatar.e",
+            "overflow_button.e"
     );
 
     /**

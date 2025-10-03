@@ -9,7 +9,7 @@ public final class HideInfoCardsFilter extends Filter {
         addIdentifierCallbacks(
                 new StringFilterGroup(
                         Settings.HIDE_INFO_CARDS,
-                        "info_card_teaser_overlay.eml"
+                        "info_card_teaser_overlay.e"
                 )
         );
     }

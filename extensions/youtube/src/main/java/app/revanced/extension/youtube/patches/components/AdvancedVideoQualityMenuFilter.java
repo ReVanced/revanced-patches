@@ -14,7 +14,7 @@ public final class AdvancedVideoQualityMenuFilter extends Filter {
     public AdvancedVideoQualityMenuFilter() {
         addPathCallbacks(new StringFilterGroup(
                 Settings.ADVANCED_VIDEO_QUALITY_MENU,
-                "quick_quality_sheet_content.eml-js"
+                "quick_quality_sheet_content.e"
         ));
     }
 

@@ -83,12 +83,17 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
         String summary = str("revanced_spoof_video_streams_about_no_audio_tracks");
 
         switch (clientType) {
-            case ANDROID_VR_1_61_48 ->
-                    summary += '\n' + str("revanced_spoof_video_streams_about_no_stable_volume");
             case ANDROID_CREATOR ->
-                    summary += '\n' + str("revanced_spoof_video_streams_about_no_av1")
-                            + '\n' + str("revanced_spoof_video_streams_about_no_stable_volume")
-                            + '\n' + str("revanced_spoof_video_streams_about_no_force_original_audio");
+                    summary += '\n' + str("revanced_spoof_video_streams_about_no_stable_volume")
+                    + '\n' + str("revanced_spoof_video_streams_about_no_av1")
+                    + '\n' + str("revanced_spoof_video_streams_about_no_force_original_audio");
+            case ANDROID_VR_1_43_32 ->
+                    summary += '\n' + str("revanced_spoof_video_streams_about_no_stable_volume")
+                            + '\n' + str("revanced_spoof_video_streams_about_no_av1");
+            case ANDROID_VR_1_61_48 ->
+                    summary = str("revanced_spoof_video_streams_about_dropped_frames")
+                            + '\n' + summary
+                            + '\n' + str("revanced_spoof_video_streams_about_no_stable_volume");
             case IPADOS ->
                     summary = str("revanced_spoof_video_streams_about_playback_failure")
                             + '\n' + str("revanced_spoof_video_streams_about_no_av1");

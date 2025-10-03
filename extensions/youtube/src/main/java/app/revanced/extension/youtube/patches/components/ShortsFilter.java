@@ -18,12 +18,12 @@ import app.revanced.extension.youtube.shared.PlayerType;
 @SuppressWarnings("unused")
 public final class ShortsFilter extends Filter {
     private static final boolean HIDE_SHORTS_NAVIGATION_BAR = Settings.HIDE_SHORTS_NAVIGATION_BAR.get();
-    private static final String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.eml";
+    private static final String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.e";
 
     /**
      * For paid promotion label and subscribe button that appears in the channel bar.
      */
-    private static final String REEL_METAPANEL_PATH = "reel_metapanel.eml";
+    private static final String REEL_METAPANEL_PATH = "reel_metapanel.e";
 
     /**
      * Tags that appears when opening the Shorts player.
@@ -74,7 +74,7 @@ public final class ShortsFilter extends Filter {
         // Use a different filter group for this pattern, as it requires an additional check after matching.
         shelfHeader = new StringFilterGroup(
                 null,
-                "shelf_header.eml"
+                "shelf_header.e"
         );
 
         addIdentifierCallbacks(shortsIdentifiers, shelfHeader);
@@ -85,11 +85,11 @@ public final class ShortsFilter extends Filter {
 
         shortsCompactFeedVideo = new StringFilterGroup(null,
                 // Shorts that appear in the feed/search when the device is using tablet layout.
-                "compact_video.eml",
-                // 'video_lockup_with_attachment.eml' is shown instead of 'compact_video.eml' for some users
-                "video_lockup_with_attachment.eml",
+                "compact_video.e",
+                // 'video_lockup_with_attachment.e' is shown instead of 'compact_video.e' for some users
+                "video_lockup_with_attachment.e",
                 // Search results that appear in a horizontal shelf.
-                "video_card.eml");
+                "video_card.e");
 
         // Filter out items that use the 'frame0' thumbnail.
         // This is a valid thumbnail for both regular videos and Shorts,
@@ -134,31 +134,31 @@ public final class ShortsFilter extends Filter {
 
         StringFilterGroup stickers = new StringFilterGroup(
                 Settings.HIDE_SHORTS_STICKERS,
-                "stickers_layer.eml"
+                "stickers_layer.e"
         );
 
         StringFilterGroup likeFountain = new StringFilterGroup(
                 Settings.HIDE_SHORTS_LIKE_FOUNTAIN,
-                "like_fountain.eml"
+                "like_fountain.e"
         );
 
         StringFilterGroup likeButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_LIKE_BUTTON,
-                "shorts_like_button.eml",
-                "reel_like_button.eml"
+                "shorts_like_button.e",
+                "reel_like_button.e"
         );
 
         StringFilterGroup dislikeButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_DISLIKE_BUTTON,
-                "shorts_dislike_button.eml",
-                "reel_dislike_button.eml"
+                "shorts_dislike_button.e",
+                "reel_dislike_button.e"
         );
 
         StringFilterGroup previewComment = new StringFilterGroup(
                 Settings.HIDE_SHORTS_PREVIEW_COMMENT,
                 // Preview comment that can popup while a Short is playing.
                 // Uses no bundled icons, and instead the users profile photo is shown.
-                "participation_bar.eml"
+                "participation_bar.e"
         );
 
         joinButton = new StringFilterGroup(
@@ -173,20 +173,20 @@ public final class ShortsFilter extends Filter {
 
         paidPromotionButton = new StringFilterGroup(
                 Settings.HIDE_PAID_PROMOTION_LABEL,
-                "reel_player_disclosure.eml"
+                "reel_player_disclosure.e"
         );
 
         shortsActionBar = new StringFilterGroup(
                 null,
-                "shorts_action_bar.eml",
-                "reel_action_bar.eml"
+                "shorts_action_bar.e",
+                "reel_action_bar.e"
         );
 
         useSoundButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_USE_SOUND_BUTTON,
                 // First filter needed for "Use this sound" that can appear when viewing Shorts
                 // through the "Short remixing this video" section.
-                "floating_action_button.eml",
+                "floating_action_button.e",
                 // Second filter needed for "Use this sound" that can appear below the video title.
                 REEL_METAPANEL_PATH
         );
@@ -209,13 +209,13 @@ public final class ShortsFilter extends Filter {
 
         videoActionButton = new StringFilterGroup(
                 null,
-                // Can be simply 'button.eml', 'shorts_video_action_button.eml' or 'reel_action_button.eml'
-                "button.eml"
+                // Can be simply 'button.e', 'shorts_video_action_button.e' or 'reel_action_button.e'
+                "button.e"
         );
 
         suggestedAction = new StringFilterGroup(
                 null,
-                "suggested_action.eml"
+                "suggested_action.e"
         );
 
         addPathCallbacks(

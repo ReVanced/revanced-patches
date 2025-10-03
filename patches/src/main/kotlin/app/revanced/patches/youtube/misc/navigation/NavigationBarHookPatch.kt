@@ -164,7 +164,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
 
             addInstruction(
                 index + 1,
-                "invoke-static { v$register }, ${EXTENSION_CLASS_DESCRIPTOR}->setToolbar(Landroid/widget/FrameLayout;)V"
+                "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setToolbar(Landroid/widget/FrameLayout;)V"
             )
         }
 

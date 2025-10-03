@@ -6,7 +6,7 @@ import app.revanced.extension.youtube.shared.PlayerType;
 @SuppressWarnings("unused")
 final class CommentsFilter extends Filter {
 
-    private static final String COMMENT_COMPOSER_PATH = "comment_composer.eml";
+    private static final String COMMENT_COMPOSER_PATH = "comment_composer.e";
 
     private final StringFilterGroup chipBar;
     private final ByteArrayFilterGroup aiCommentsSummary;
@@ -15,12 +15,12 @@ final class CommentsFilter extends Filter {
     public CommentsFilter() {
         var chatSummary = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_AI_CHAT_SUMMARY,
-                "live_chat_summary_banner.eml"
+                "live_chat_summary_banner.e"
         );
 
         chipBar = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_AI_SUMMARY,
-                "chip_bar.eml"
+                "chip_bar.e"
         );
 
         aiCommentsSummary = new ByteArrayFilterGroup(
@@ -35,8 +35,8 @@ final class CommentsFilter extends Filter {
 
         var commentsByMembers = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_BY_MEMBERS_HEADER,
-                "sponsorships_comments_header.eml",
-                "sponsorships_comments_footer.eml"
+                "sponsorships_comments_header.e",
+                "sponsorships_comments_footer.e"
         );
 
         var comments = new StringFilterGroup(
@@ -52,7 +52,7 @@ final class CommentsFilter extends Filter {
 
         var createAShort = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_CREATE_A_SHORT_BUTTON,
-                "composer_short_creation_button.eml"
+                "composer_short_creation_button.e"
         );
 
         emojiAndTimestampButtons = new StringFilterGroup(
@@ -69,7 +69,7 @@ final class CommentsFilter extends Filter {
 
         var thanksButton = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_THANKS_BUTTON,
-                "super_thanks_button.eml"
+                "super_thanks_button.e"
         );
 
         addPathCallbacks(

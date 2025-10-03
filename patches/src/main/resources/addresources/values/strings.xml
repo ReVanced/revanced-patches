@@ -176,6 +176,13 @@ Playback may not work"</string>
             <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause playback issues.</string>
             <string name="revanced_spoof_video_streams_client_type_title">Default client</string>
         </patch>
+        <patch id="misc.audio.forceOriginalAudioPatch">
+            <string name="revanced_force_original_audio_title">Force original audio language</string>
+            <string name="revanced_force_original_audio_summary_on">Using original audio language</string>
+            <string name="revanced_force_original_audio_summary_off">Using default audio</string>
+            <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+            <string name="revanced_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except Android Studio</string>
+        </patch>
         <patch id="misc.debugging.enableDebuggingPatch">
             <string name="revanced_debug_screen_title">Debugging</string>
             <string name="revanced_debug_screen_summary">Enable or disable debugging options</string>
@@ -859,7 +866,7 @@ To show the Audio track menu, change \'Spoof video streams\' to iPadOS"</string>
             <string name="revanced_hide_player_previous_next_buttons_summary_on">Previous &amp; Next buttons are hidden</string>
             <string name="revanced_hide_player_previous_next_buttons_summary_off">Previous &amp; Next buttons are shown</string>
         </patch>
-        <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
             <string name="revanced_hide_endscreen_cards_title">Hide end screen cards</string>
             <string name="revanced_hide_endscreen_cards_summary_on">End screen cards are hidden</string>
             <string name="revanced_hide_endscreen_cards_summary_off">End screen cards are shown</string>
@@ -1590,13 +1597,6 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_external_browser_summary_on">Opening links in external browser</string>
             <string name="revanced_external_browser_summary_off">Opening links in in-app browser</string>
         </patch>
-        <patch id="video.audio.forceOriginalAudioPatch">
-            <string name="revanced_force_original_audio_title">Force original audio language</string>
-            <string name="revanced_force_original_audio_summary_on">Using original audio language</string>
-            <string name="revanced_force_original_audio_summary_off">Using default audio</string>
-            <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-            <string name="revanced_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except Android Studio</string>
-        </patch>
         <patch id="video.quality.rememberVideoQualityPatch">
             <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
             <string name="revanced_video_quality_default_entry_1">Auto</string>
@@ -1687,6 +1687,7 @@ Limitations:
             <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Audio track menu is missing</string>
             <string name="revanced_spoof_video_streams_about_no_av1">• No AV1 video codec</string>
             <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stable volume is not available</string>
+            <string name="revanced_spoof_video_streams_about_dropped_frames">• Playback may stutter or drop frames</string>
             <string name="revanced_spoof_video_streams_about_kids_videos">• Kids videos may not play when logged out or in incognito mode</string>
             <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
             <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Force original audio is not available</string>

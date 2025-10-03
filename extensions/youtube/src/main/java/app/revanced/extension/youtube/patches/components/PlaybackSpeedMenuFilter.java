@@ -24,13 +24,13 @@ public final class PlaybackSpeedMenuFilter extends Filter {
         // 0.05x litho speed menu.
         var playbackRateSelectorGroup = new StringFilterGroup(
                 Settings.CUSTOM_SPEED_MENU,
-                "playback_rate_selector_menu_sheet.eml-js"
+                "playback_rate_selector_menu_sheet.e"
         );
 
         // Old litho based speed menu.
         oldPlaybackMenuGroup = new StringFilterGroup(
                 Settings.CUSTOM_SPEED_MENU,
-                "playback_speed_sheet_content.eml-js");
+                "playback_speed_sheet_content.e");
 
         addPathCallbacks(playbackRateSelectorGroup, oldPlaybackMenuGroup);
     }
