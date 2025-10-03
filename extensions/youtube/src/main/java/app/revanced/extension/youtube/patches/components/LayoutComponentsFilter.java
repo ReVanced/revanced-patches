@@ -76,18 +76,18 @@ public final class LayoutComponentsFilter extends Filter {
         communityPosts = new StringFilterGroup(
                 Settings.HIDE_COMMUNITY_POSTS,
                 "post_base_wrapper", // may be obsolete and no longer needed.
-                "text_post_root.eml",
-                "images_post_root.eml",
-                "images_post_slim.eml", // may be obsolete and no longer needed.
-                "images_post_root_slim.eml",
-                "text_post_root_slim.eml",
-                "post_base_wrapper_slim.eml",
-                "poll_post_root.eml",
-                "videos_post_root.eml",
-                "post_shelf_slim.eml",
-                "videos_post_responsive_root.eml",
-                "text_post_responsive_root.eml",
-                "poll_post_responsive_root.eml"
+                "text_post_root.e",
+                "images_post_root.e",
+                "images_post_slim.e", // may be obsolete and no longer needed.
+                "images_post_root_slim.e",
+                "text_post_root_slim.e",
+                "post_base_wrapper_slim.e",
+                "poll_post_root.e",
+                "videos_post_root.e",
+                "post_shelf_slim.e",
+                "videos_post_responsive_root.e",
+                "text_post_responsive_root.e",
+                "poll_post_responsive_root.e"
         );
 
         final var subscribersCommunityGuidelines = new StringFilterGroup(
@@ -149,7 +149,7 @@ public final class LayoutComponentsFilter extends Filter {
 
         final var channelLinksPreview = new StringFilterGroup(
                 Settings.HIDE_LINKS_PREVIEW,
-                "attribution.eml"
+                "attribution.e"
         );
 
         final var emergencyBox = new StringFilterGroup(
@@ -190,8 +190,8 @@ public final class LayoutComponentsFilter extends Filter {
 
         final var playables = new StringFilterGroup(
                 Settings.HIDE_PLAYABLES,
-                "horizontal_gaming_shelf.eml",
-                "mini_game_card.eml"
+                "horizontal_gaming_shelf.e",
+                "mini_game_card.e"
         );
 
         // Playable horizontal shelf header.
@@ -228,7 +228,7 @@ public final class LayoutComponentsFilter extends Filter {
 
         compactChannelBarInnerButton = new StringFilterGroup(
                 null,
-                "|button.eml"
+                "|button.e"
         );
 
         joinMembershipButton = new ByteArrayFilterGroup(
@@ -248,13 +248,13 @@ public final class LayoutComponentsFilter extends Filter {
 
         final var videoRecommendationLabels = new StringFilterGroup(
                 Settings.HIDE_VIDEO_RECOMMENDATION_LABELS,
-                "endorsement_header_footer.eml"
+                "endorsement_header_footer.e"
         );
 
         channelProfile = new StringFilterGroup(
                 null,
-                "channel_profile.eml",
-                "page_header.eml"
+                "channel_profile.e",
+                "page_header.e"
         );
         channelProfileBuffer = new ByteArrayFilterGroupList();
         channelProfileBuffer.addAll(new ByteArrayFilterGroup(
@@ -269,15 +269,15 @@ public final class LayoutComponentsFilter extends Filter {
 
         horizontalShelves = new StringFilterGroup(
                 Settings.HIDE_HORIZONTAL_SHELVES,
-                "horizontal_video_shelf.eml",
-                "horizontal_shelf.eml",
-                "horizontal_shelf_inline.eml",
-                "horizontal_tile_shelf.eml"
+                "horizontal_video_shelf.e",
+                "horizontal_shelf.e",
+                "horizontal_shelf_inline.e",
+                "horizontal_tile_shelf.e"
         );
 
         ticketShelf = new ByteArrayFilterGroup(
                 Settings.HIDE_TICKET_SHELF,
-                "ticket_item.eml"
+                "ticket_item.e"
         );
 
         addPathCallbacks(
