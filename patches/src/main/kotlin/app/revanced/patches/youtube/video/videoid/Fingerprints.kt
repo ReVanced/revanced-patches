@@ -36,11 +36,10 @@ internal val videoIdBackgroundPlayFingerprint by fingerprint {
         opcode(Opcode.MONITOR_EXIT),
         opcode(Opcode.RETURN_VOID)
     )
-    // The target snippet of code is buried in a huge switch block and the target method
-    // has been changed many times by YT which makes identifying it more difficult than usual.
     custom { method, classDef ->
-        classDef.methods.count() == 17 &&
-                method.implementation != null
+        method.implementation != null &&
+                (classDef.methods.count() == 17 // 20.39 and lower.
+                        || classDef.methods.count() == 16) // 20.40+
     }
 }
 

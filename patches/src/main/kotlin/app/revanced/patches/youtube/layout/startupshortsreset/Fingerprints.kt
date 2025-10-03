@@ -20,7 +20,8 @@ internal val userWasInShortsAlternativeFingerprint by fingerprint {
         checkCast("Ljava/lang/Boolean;"),
         methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z", maxAfter = 0),
         opcode(Opcode.MOVE_RESULT, maxAfter = 0),
-        string("userIsInShorts: ", maxAfter = 5)
+        // 20.40+ string was merged into another string and is a partial match.
+        string("userIsInShorts: ", partialMatch = true, maxAfter = 15)
     )
 }
 
