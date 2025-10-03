@@ -1,5 +1,6 @@
 package app.revanced.extension.shared.patches;
 
+import app.revanced.extension.shared.privacy.LinkSanitizer;
 import app.revanced.extension.shared.settings.BaseSettings;
 
 /**
@@ -7,17 +8,18 @@ import app.revanced.extension.shared.settings.BaseSettings;
  */
 @SuppressWarnings("unused")
 public final class SanitizeSharingLinksPatch {
-    private static final String NEW_TRACKING_PARAMETER_REGEX = ".si=.+";
-    private static final String OLD_TRACKING_PARAMETER_REGEX = ".feature=.+";
+
+    private static final LinkSanitizer sanitizer = new LinkSanitizer(
+            "si",
+            "feature" // Old tracking parameter name, and may be obsolete.
+    );
 
     /**
      * Injection point.
      */
     public static String sanitize(String url) {
         if (BaseSettings.SANITIZE_SHARED_LINKS.get()) {
-            url = url
-                    .replaceAll(NEW_TRACKING_PARAMETER_REGEX, "")
-                    .replaceAll(OLD_TRACKING_PARAMETER_REGEX, "");
+            url = sanitizer.sanitizeUrlString(url);
         }
 
         if (BaseSettings.REPLACE_MUSIC_LINKS_WITH_YOUTUBE.get()) {

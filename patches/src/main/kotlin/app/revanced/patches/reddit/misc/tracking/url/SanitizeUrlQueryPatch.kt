@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.bytecodePatch
 @Suppress("unused")
 val sanitizeUrlQueryPatch = bytecodePatch(
     name = "Sanitize sharing links",
-    description = "Removes (tracking) query parameters from the URLs when sharing links.",
+    description = "Removes the tracking query parameters from shared links.",
 ) {
     compatibleWith("com.reddit.frontpage")
 
