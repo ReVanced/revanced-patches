@@ -1,3 +1,15 @@
+# [5.42.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.11...v5.42.0-dev.12) (2025-10-03)
+
+
+### Bug Fixes
+
+* **Custom branding:** Update ReVanced logo ([#6049](https://github.com/ReVanced/revanced-patches/issues/6049)) ([9441e7a](https://github.com/ReVanced/revanced-patches/commit/9441e7acb4817e12d1443d438ef6c448518bd614))
+
+
+### Features
+
+* **Instagram:** Add `Sanitize sharing links` patch ([#5986](https://github.com/ReVanced/revanced-patches/issues/5986)) ([963a4ef](https://github.com/ReVanced/revanced-patches/commit/963a4ef43fd513de7a2d7d019992f06b62fdcc10))
+
 # [5.42.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.10...v5.42.0-dev.11) (2025-10-03)
 
 
