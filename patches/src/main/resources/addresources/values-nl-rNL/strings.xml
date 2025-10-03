@@ -1608,6 +1608,7 @@ Beperkingen:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Audiotrack-menu ontbreekt</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Geen AV1-videocodec</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabiel volume is niet beschikbaar</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Het afspelen kan haperen of frames overslaan</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• \"Kinder\"​-Video’s worden mogelijk niet afgespeeld wanneer u bent uitgelogd of de incognitomodus gebruikt</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Oorspronkelijke audio forceren is niet beschikbaar</string>

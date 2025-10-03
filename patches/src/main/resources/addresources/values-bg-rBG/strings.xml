@@ -1610,6 +1610,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Менюто за аудиозаписи липсва</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Без AV1 видео кодек</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Стабилният звук не е наличен</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Възпроизвеждането може да заеква или да пропуска кадри</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Детските видеоклипове може да не се възпроизвеждат, когато сте излезли от профила си или в режим \"инкогнито\"</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Принудителният оригинален звук не е наличен</string>

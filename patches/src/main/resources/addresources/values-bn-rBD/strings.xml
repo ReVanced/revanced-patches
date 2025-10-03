@@ -1606,6 +1606,7 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• অডিও ট্র্যাক মেনু অনুপস্থিত</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• কোনো AV1 ভিডিও কোডেক নেই</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• স্থিতিশীল ভলিউম উপলব্ধ নেই</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• প্লেব্যাক আটকে যেতে পারে বা ফ্রেম বাদ দিতে পারে</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• লগআউট করা হলে বা ছদ্মবেশী মোডে বাচ্চাদের ভিডিও চলতে নাও পারে</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• মূল অডিও জোরপূর্বক উপলব্ধ নেই</string>

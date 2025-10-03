@@ -1606,6 +1606,7 @@ Ograniczenia:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Brakuje menu ścieżek audio</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabilna głośność nie jest dostępna</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Odtwarzanie może się zacinać lub gubić klatki</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Filmy dla dzieci mogą nie być odtwarzane po wylogowaniu lub w trybie incognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Wymuś oryginalny dźwięk jest niedostępny</string>

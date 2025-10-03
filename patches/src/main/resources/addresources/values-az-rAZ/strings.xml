@@ -1609,6 +1609,7 @@ Məhdudiyyətlər:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Səs treki menyusu çatışmır</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodlayıcı yoxdur</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Sabit səs yoxdur</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Oxutma kəsilə bilər və ya kadrlar düşə bilər</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Giriş edilməyəndə və ya gizli rejimdə uşaq videoları oynadıla bilməz</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• \"Orijinal səsi zorla\" əlçatmazdır</string>

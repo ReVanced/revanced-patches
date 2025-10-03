@@ -1609,6 +1609,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Пункт меню \"Звукова доріжка\" відсутній</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Відеокодек AV1 відсутній</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Пункт меню \"Стабілізувати гучність\" недоступний</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Відтворення може заїкатися або пропускати кадри</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Відео для дітей можуть не відтворюватися, якщо вийти з облікового запису або перейти в анонімний режим</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Примусово оригінальна мова звукової доріжки\" недоступна</string>

@@ -125,7 +125,7 @@ Second \"item\" text"</string>
   <string name="revanced_force_original_audio_summary_on">استخدام لغة الصوت الأصلية</string>
   <string name="revanced_force_original_audio_summary_off">استخدام الصوت الافتراضي</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \"تزوير تدفقات الفيديو\" إلى أي عميل باستثناء Android Studio</string>
+  <string name="revanced_force_original_audio_not_available">لاستخدام هذه الميزة، غيّر \'Spoof Video Streams إلى أي عميل باستثناء Android Studio</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">تصحيح الأخطاء</string>
@@ -637,9 +637,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_button_summary_off">يتم عرض زر التعليقات</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
-  <string name="revanced_hide_report_button_title">إخفاء الإبلاغ</string>
-  <string name="revanced_hide_report_button_summary_on">تم إخفاء زر الإبلاغ</string>
-  <string name="revanced_hide_report_button_summary_off">يتم عرض زر الإبلاغ</string>
+  <string name="revanced_hide_report_button_title">إخفاء إبلاغ</string>
+  <string name="revanced_hide_report_button_summary_on">تم إخفاء زر إبلاغ</string>
+  <string name="revanced_hide_report_button_summary_off">يتم عرض زر إبلاغ</string>
   <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_remix_button_title">إخفاء ريمكس</string>
   <string name="revanced_hide_remix_button_summary_on">تم إخفاء زر ريمكس</string>
@@ -728,17 +728,17 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_title">القائمة المنبثقة</string>
   <string name="revanced_hide_player_flyout_summary">إخفاء أو عرض عناصر قائمة المشغل المنبثقة</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_captions_title">اخفاء التَرْجَمَة</string>
-  <string name="revanced_hide_player_flyout_captions_summary_on">تم إخفاء قائمة التَرْجَمَة</string>
-  <string name="revanced_hide_player_flyout_captions_summary_off">يتم عرض قائمة التَرْجَمَة</string>
+  <string name="revanced_hide_player_flyout_captions_title">إخفاء الترجمة</string>
+  <string name="revanced_hide_player_flyout_captions_summary_on">تم إخفاء قائمة الترجمة</string>
+  <string name="revanced_hide_player_flyout_captions_summary_off">يتم عرض قائمة الترجمة</string>
   <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_additional_settings_title">إخفاء الإعدادات الإضافية</string>
-  <string name="revanced_hide_player_flyout_additional_settings_summary_on">تم إخفاء قائمة الإعدادات الإضافية</string>
-  <string name="revanced_hide_player_flyout_additional_settings_summary_off">يتم عرض قائمة الإعدادات الإضافية</string>
+  <string name="revanced_hide_player_flyout_additional_settings_title">إخفاء إعدادات إضافية</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_on">تم إخفاء قائمة إعدادات إضافية</string>
+  <string name="revanced_hide_player_flyout_additional_settings_summary_off">يتم عرض قائمة إعدادات إضافية</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_sleep_timer_title">إخفاء مؤقت النوم</string>
-  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">تم إخفاء قائمة مؤقت النوم</string>
-  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">يتم عرض قائمة مؤقت النوم</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_title">إخفاء مؤقِّت إيقاف التشغيل</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_on">تم إخفاء قائمة مؤقِّت إيقاف التشغيل</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_summary_off">يتم عرض قائمة مؤقِّت إيقاف التشغيل</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_loop_video_title">إخفاء تكرار الفيديو</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">تم إخفاء قائمة تكرار الفيديو</string>
@@ -1610,6 +1610,7 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• قائمة المسارات الصوتية مفقودة</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• لا يوجد ترميز الفيديو AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• مستوى الصوت الثابت غير متاح</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• قد يتوقف التشغيل مؤقتًا أو تسقط الإطارات</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• قد لا يتم تشغيل الفيديوهات المخصصة للأطفال عند تسجيل الخروج أو عند استخدام وضع التصفح المتخفي</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• فرض الصوت الأصلي غير متاح</string>

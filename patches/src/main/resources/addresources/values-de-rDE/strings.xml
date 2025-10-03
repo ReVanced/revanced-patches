@@ -1607,6 +1607,7 @@ Einschränkungen:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Audiotrack-Menü fehlt</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Kein AV1-Videocodec</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabile Lautstärke ist nicht verfügbar</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Die Wiedergabe kann stottern oder Bilder überspringen</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kinder-Videos werden möglicherweise nicht abgespielt, wenn du abgemeldet bist oder den Inkognito-Modus verwendest.</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Originalton erzwingen ist nicht verfügbar</string>

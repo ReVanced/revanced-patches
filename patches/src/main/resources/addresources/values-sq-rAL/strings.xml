@@ -1608,6 +1608,7 @@ Kufizimet:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menuja e gjurmës audio mungon</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nuk ka codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volumi i qëndrueshëm nuk është i disponueshëm</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Riprodhimi mund të ndërpritet ose të humbasë kornizat</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video për fëmijë mund të mos luajnë kur jeni jashtë llogarisë ose në modalitetin incognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Detyro audio origjinale nuk është i disponueshëm</string>

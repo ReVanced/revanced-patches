@@ -1609,6 +1609,7 @@ Begränsningar:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menyn Ljudspår saknas</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ingen AV1-videokodek</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabil volym är inte tillgängligt</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Uppspelningen kan hacka eller tappa bildrutor</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videor för barn kanske inte spelas upp när du är utloggad eller i inkognitoläge</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Tvinga ursprungligt ljud är inte tillgängligt</string>

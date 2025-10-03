@@ -1610,6 +1610,7 @@ Limitações:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• O menu da faixa de áudio está faltando</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nenhum codec de vídeo AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• O volume estável não está disponível</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• A reprodução pode gaguejar ou perder quadros</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Vídeos infantis podem não ser reproduzidos quando desconectado ou no modo anônimo</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Forçar áudio original não está disponível</string>
