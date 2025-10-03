@@ -1,3 +1,10 @@
+# [5.42.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.10...v5.42.0-dev.11) (2025-10-03)
+
+
+### Bug Fixes
+
+* **YouTube:** Resolve UI components not hiding for some users ([#6054](https://github.com/ReVanced/revanced-patches/issues/6054)) ([6b26346](https://github.com/ReVanced/revanced-patches/commit/6b2634691423f5ce25a28b3f2fbc420977b81748))
+
 # [5.42.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.9...v5.42.0-dev.10) (2025-10-02)
 
 
