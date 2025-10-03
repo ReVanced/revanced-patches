@@ -6,9 +6,9 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -21,7 +21,7 @@ internal val changeLinkSharingDomainResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
 
     execute {
-        tweetShareLinkTemplateId = resourceMappings["string", "tweet_share_link"]
+        tweetShareLinkTemplateId = getResourceId(ResourceType.STRING, "tweet_share_link")
     }
 }
 
@@ -54,7 +54,7 @@ val changeLinkSharingDomainPatch = bytecodePatch(
 
     execute {
         linkSharingDomainFingerprint.let {
-            val replacementIndex = it.stringMatches!!.first().index
+            val replacementIndex = it.stringMatches.first().index
             val domainRegister = it.method.getInstruction<OneRegisterInstruction>(
                 replacementIndex
             ).registerA

@@ -12,13 +12,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 private const val EXTENSION_PLAYER_CONTROLS_VISIBILITY_HOOK_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/PlayerControlsVisibilityHookPatch;"
 
-val PlayerControlsOverlayVisibilityPatch = bytecodePatch {
+val playerControlsOverlayVisibilityPatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
 
     execute {
         playerControlsVisibilityEntityModelFingerprint.let {
             it.method.apply {
-                val startIndex = it.patternMatch!!.startIndex
+                val startIndex = it.instructionMatches.first().index
                 val iGetReference = getInstruction<ReferenceInstruction>(startIndex).reference
                 val staticReference = getInstruction<ReferenceInstruction>(startIndex + 1).reference
 

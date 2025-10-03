@@ -7,6 +7,7 @@ import android.preference.PreferenceFragment;
 import android.view.View;
 import android.widget.Toolbar;
 
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseActivityHook;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
@@ -44,7 +45,7 @@ public class YouTubeActivityHook extends BaseActivityHook {
         final var theme = Utils.isDarkModeEnabled()
                 ? "Theme.YouTube.Settings.Dark"
                 : "Theme.YouTube.Settings";
-        activity.setTheme(Utils.getResourceIdentifierOrThrow(theme, "style"));
+        activity.setTheme(Utils.getResourceIdentifierOrThrow(ResourceType.STYLE, theme));
     }
 
     /**

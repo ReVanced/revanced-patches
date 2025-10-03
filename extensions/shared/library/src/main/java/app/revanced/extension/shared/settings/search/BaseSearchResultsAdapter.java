@@ -33,6 +33,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
@@ -54,15 +55,15 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
     protected static final int PAUSE_BETWEEN_BLINKS = 100;
 
     protected static final int ID_PREFERENCE_TITLE = getResourceIdentifierOrThrow(
-            "preference_title", "id");
+            ResourceType.ID, "preference_title");
     protected static final int ID_PREFERENCE_SUMMARY = getResourceIdentifierOrThrow(
-            "preference_summary", "id");
+            ResourceType.ID, "preference_summary");
     protected static final int ID_PREFERENCE_PATH = getResourceIdentifierOrThrow(
-            "preference_path", "id");
+            ResourceType.ID, "preference_path");
     protected static final int ID_PREFERENCE_SWITCH = getResourceIdentifierOrThrow(
-            "preference_switch", "id");
+            ResourceType.ID, "preference_switch");
     protected static final int ID_PREFERENCE_COLOR_DOT = getResourceIdentifierOrThrow(
-            "preference_color_dot", "id");
+            ResourceType.ID, "preference_color_dot");
 
     protected static class RegularViewHolder {
         TextView titleView;

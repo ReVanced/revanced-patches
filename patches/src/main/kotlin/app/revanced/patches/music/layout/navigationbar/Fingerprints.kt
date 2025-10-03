@@ -9,7 +9,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val tabLayoutTextFingerprint = fingerprint {
+internal val tabLayoutTextFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
@@ -24,8 +24,8 @@ internal val tabLayoutTextFingerprint = fingerprint {
     )
     strings("FEmusic_search")
     custom { method, _ ->
-        method.containsLiteralInstruction(text1)
-                && indexOfGetVisibilityInstruction(method) >= 0
+        method.containsLiteralInstruction(text1) &&
+            indexOfGetVisibilityInstruction(method) >= 0
     }
 }
 
