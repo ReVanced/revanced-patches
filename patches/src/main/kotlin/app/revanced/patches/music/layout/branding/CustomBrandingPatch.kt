@@ -75,6 +75,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
     ),
     legacyMipmapFileNames = arrayOf("ic_launcher_release.png"),
     monochromeFileNames = arrayOf("ic_app_icons_themed_youtube_music.xml"),
+    manifestAppLauncherValue = "@string/app_launcher_name",
 
     block = {
         dependsOn(disableSplashAnimationPatch)

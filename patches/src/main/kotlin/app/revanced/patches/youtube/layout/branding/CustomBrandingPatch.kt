@@ -35,6 +35,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "adaptive_monochrome_ic_youtube_launcher.xml",
         "ringo2_adaptive_monochrome_ic_youtube_launcher.xml"
     ),
+    manifestAppLauncherValue = "@string/application_name",
 
     block = {
         compatibleWith(

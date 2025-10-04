@@ -9,9 +9,9 @@ import app.revanced.patcher.patch.stringOption
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
+import app.revanced.util.findElementByAttributeValueOrThrow
 import java.io.File
 import java.nio.file.Files
-import java.util.logging.Logger
 
 private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
 
@@ -27,26 +27,6 @@ internal val mipmapDirectories = arrayOf(
 private fun formatResourceFileList(resourceNames: Array<String>) = resourceNames.joinToString("\n") { "- $it" }
 
 /**
- * Attempts to fix unescaped and invalid characters not allowed for an Android app name.
- */
-private fun escapeAppName(name: String): String? {
-    // Remove ASCII control characters.
-    val cleanedName = name.filter { it.code >= 32 }
-
-    // Replace invalid XML characters with escaped equivalents.
-    val escapedName = cleanedName
-        .replace("&", "&amp;") // Must be first to avoid double-escaping.
-        .replace("<", "&lt;")
-        .replace(">", "&gt;")
-        .replace(Regex("(?<!&)\""), "&quot;")
-
-    // Trim empty spacing.
-    val trimmed = escapedName.trim()
-
-    return trimmed.ifBlank { null }
-}
-
-/**
  * Shared custom branding patch for YouTube and YT Music.
  */
 internal fun baseCustomBrandingPatch(
@@ -57,6 +37,7 @@ internal fun baseCustomBrandingPatch(
     adaptiveMipmapFileNames: Array<String>,
     legacyMipmapFileNames: Array<String>,
     monochromeFileNames: Array<String>,
+    manifestAppLauncherValue: String,
     block: ResourcePatchBuilder.() -> Unit = {},
     executeBlock: ResourcePatchContext.() -> Unit = {}
 ): ResourcePatch = resourcePatch(
@@ -92,6 +73,20 @@ internal fun baseCustomBrandingPatch(
     )
 
     block()
+
+    dependsOn(
+        // Change the app name.
+        resourcePatch {
+            execute {
+                document("AndroidManifest.xml").use { document ->
+                    document.childNodes.findElementByAttributeValueOrThrow(
+                        "android:label",
+                        manifestAppLauncherValue
+                    ).nodeValue = appName!!
+                }
+            }
+        }
+    )
 
     execute {
         val iconPathTrimmed = iconPath!!.trim()
@@ -162,27 +157,6 @@ internal fun baseCustomBrandingPatch(
             if (!replacedResources) {
                 throw PatchException("Could not find any replacement images in patch option path: $iconPathTrimmed")
             }
-        }
-
-        // Change the app name.
-        escapeAppName(appName!!)?.let { escapedAppName ->
-            val newValue = "android:label=\"$escapedAppName\""
-
-            val manifest = get("AndroidManifest.xml")
-            val original = manifest.readText()
-            val replacement = original
-                // YouTube
-                .replace("android:label=\"@string/application_name\"", newValue)
-                // YT Music
-                .replace("android:label=\"@string/app_launcher_name\"", newValue)
-
-            if (original == replacement) {
-                Logger.getLogger(this::class.java.name).warning(
-                    "Could not replace manifest app name"
-                )
-            }
-
-            manifest.writeText(replacement)
         }
 
         executeBlock() // Must be after the main code to rename the new icons for YouTube 19.34+.
