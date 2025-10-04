@@ -180,7 +180,7 @@ val changeHeaderPatch = resourcePatch(
 
             if (!copiedFiles) {
                 throw PatchException("No custom header images found in " +
-                        "the provided path: ${customFile.absolutePath}")
+                        "the provided path: " + customFile.absolutePath)
             }
         }
 
