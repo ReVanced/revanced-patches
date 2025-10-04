@@ -1,15 +1,12 @@
 package app.revanced.patches.youtube.layout.branding
 
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
-import app.revanced.patches.shared.layout.branding.mipmapDirectories
 import java.nio.file.Files
 
 private const val APP_NAME = "YouTube ReVanced"
 
-private val youtubeIconResourceFileNames_19_34 = mapOf(
-    "adaptiveproduct_youtube_foreground_color_108" to "adaptiveproduct_youtube_2024_q4_foreground_color_108",
-    "adaptiveproduct_youtube_background_color_108" to "adaptiveproduct_youtube_2024_q4_background_color_108",
-)
+private const val ADAPTIVE_BACKGROUND_RESOURCE_FILE_NAME = "adaptiveproduct_youtube_background_color_108.xml"
+private const val ADAPTIVE_FOREGROUND_RESOURCE_FILE_NAME = "adaptiveproduct_youtube_foreground_color_108.xml"
 
 @Suppress("unused")
 val customBrandingPatch = baseCustomBrandingPatch(
@@ -32,10 +29,8 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "ringo2_adaptive_monochrome_ic_youtube_launcher.xml"
     ),
     adaptiveIconFileNames = arrayOf(
-        "adaptiveproduct_youtube_2024_q4_background_color_108.xml",
-        "adaptiveproduct_youtube_2024_q4_foreground_color_108.xml",
-        "adaptiveproduct_youtube_background_color_108.xml",
-        "adaptiveproduct_youtube_foreground_color_108.xml",
+        ADAPTIVE_BACKGROUND_RESOURCE_FILE_NAME,
+        ADAPTIVE_FOREGROUND_RESOURCE_FILE_NAME,
     ),
     legacyIconResourceFileNames = arrayOf(
         "ic_launcher",
@@ -54,17 +49,17 @@ val customBrandingPatch = baseCustomBrandingPatch(
     },
 
     executeBlock = {
-        val resourceDirectory = get("res")
+        val resourceDirectory = get("res/mipmap-anydpi")
 
-        mipmapDirectories.forEach { directory ->
-            val targetDirectory = resourceDirectory.resolve(directory)
+        // Copy adaptive icon to secondary adaptive file.
+        arrayOf(
+            ADAPTIVE_BACKGROUND_RESOURCE_FILE_NAME to "adaptiveproduct_youtube_2024_q4_background_color_108.xml",
+            ADAPTIVE_FOREGROUND_RESOURCE_FILE_NAME to "adaptiveproduct_youtube_2024_q4_foreground_color_108.xml",
+        ).forEach { (old, new) ->
+            val oldFile = resourceDirectory.resolve(old)
+            val newFile = resourceDirectory.resolve(new)
 
-            youtubeIconResourceFileNames_19_34.forEach { (old, new) ->
-                val oldFile = targetDirectory.resolve("$old.png")
-                val newFile = targetDirectory.resolve("$new.png")
-
-                Files.write(newFile.toPath(), oldFile.readBytes())
-            }
+            Files.write(newFile.toPath(), oldFile.readBytes())
         }
     }
 )

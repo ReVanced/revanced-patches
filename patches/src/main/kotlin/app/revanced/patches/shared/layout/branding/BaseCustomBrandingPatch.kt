@@ -14,7 +14,7 @@ import java.util.logging.Logger
 
 private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
 
-internal val mipmapDirectories = arrayOf(
+private val mipmapDirectories = arrayOf(
     // Target app does not have ldpi icons.
     "mdpi",
     "hdpi",
@@ -101,6 +101,7 @@ internal fun baseCustomBrandingPatch(
 
     execute {
         val iconPathTrimmed = iconPath!!.trim()
+
         if (iconPathTrimmed == REVANCED_ICON) {
             val mipmapIconResourceGroups = mipmapDirectories.map { directory ->
                 ResourceGroup(
@@ -150,7 +151,7 @@ internal fun baseCustomBrandingPatch(
                 }
             }
 
-            // Copy all monochrome icons if provided.
+            // Replace monochrome icons if provided.
             monochromeIconFileNames.forEach { fileName ->
                 val replacementMonochrome = filePath.resolve("drawable").resolve(fileName)
                 if (replacementMonochrome.exists()) {
