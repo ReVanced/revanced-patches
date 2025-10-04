@@ -63,8 +63,9 @@ internal fun baseCustomBrandingPatch(
     description = "Applies a custom app name and icon. Defaults to \"$defaultAppName\" and the ReVanced logo.",
     use = false,
 ) {
-    val iconResourceFileNamesPng = iconResourceFileNames.map { "$it.png" }.toTypedArray<String>()
-    val legacyIconResourceFileNamesPng = legacyIconResourceFileNames.map { "$it.png" }.toTypedArray<String>()
+    fun Array<String>.addPngExtension() = this.map { "$it.png" }.toTypedArray<String>()
+    val iconResourceFileNamesPng = iconResourceFileNames.addPngExtension()
+    val legacyIconResourceFileNamesPng = legacyIconResourceFileNames.addPngExtension()
 
     val appName by stringOption(
         key = "appName",
@@ -88,7 +89,7 @@ internal fun baseCustomBrandingPatch(
     
             Each of these folders must contain the following files:
     
-            ${formatResourceFileList(iconResourceFileNamesPng)}
+            ${formatResourceFileList((iconResourceFileNamesPng + legacyIconResourceFileNamesPng))}
             
             Optionally, a 'drawable' folder with the monochrome icon files:
     
