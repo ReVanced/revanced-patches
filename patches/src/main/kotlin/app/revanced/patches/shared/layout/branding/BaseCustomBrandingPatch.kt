@@ -55,6 +55,7 @@ internal fun baseCustomBrandingPatch(
     iconResourceFileNames: Array<String>,
     monochromeIconFileNames: Array<String>,
     adaptiveIconFileNames: Array<String>,
+    legacyIconResourceFileNames: Array<String>,
     block: ResourcePatchBuilder.() -> Unit = {},
     executeBlock: ResourcePatchContext.() -> Unit = {}
 ): ResourcePatch = resourcePatch(
@@ -63,6 +64,7 @@ internal fun baseCustomBrandingPatch(
     use = false,
 ) {
     val iconResourceFileNamesPng = iconResourceFileNames.map { "$it.png" }.toTypedArray<String>()
+    val legacyIconResourceFileNamesPng = legacyIconResourceFileNames.map { "$it.png" }.toTypedArray<String>()
 
     val appName by stringOption(
         key = "appName",
@@ -97,40 +99,43 @@ internal fun baseCustomBrandingPatch(
     block()
 
     execute {
-        val mipmapIconResourceGroups = mipmapDirectories.map { directory ->
-            ResourceGroup(
-                directory,
-                *iconResourceFileNamesPng,
-            )
-        }
-
         val iconPathTrimmed = iconPath!!.trim()
         if (iconPathTrimmed == REVANCED_ICON) {
-            // Replace mipmap icons with preset patch icons.
+            val mipmapIconResourceGroups = mipmapDirectories.map { directory ->
+                ResourceGroup(
+                    directory,
+                    *legacyIconResourceFileNamesPng,
+                )
+            }
+
+            // Copy monochrome icons.
+            copyResources(
+                resourceFolder,
+                ResourceGroup("drawable", *monochromeIconFileNames)
+            )
+
+            // Copy legacy icons.
             mipmapIconResourceGroups.forEach { groupResources ->
                 copyResources(resourceFolder, groupResources)
             }
 
-            // Replace monochrome icons.
-            monochromeIconFileNames.forEach { fileName ->
-                copyResources(
-                    resourceFolder,
-                    ResourceGroup("drawable", fileName)
+            // Copy adaptive icons.
+            copyResources(
+                resourceFolder,
+                ResourceGroup("mipmap-anydpi", *adaptiveIconFileNames)
+            )
+        } else {
+            val mipmapIconResourceGroups = mipmapDirectories.map { directory ->
+                ResourceGroup(
+                    directory,
+                    *iconResourceFileNamesPng,
                 )
             }
 
-            // Add SVG adaptive icon.
-            adaptiveIconFileNames.forEach { fileName ->
-                copyResources(
-                    resourceFolder,
-                    ResourceGroup("mipmap-anydpi", fileName)
-                )
-            }
-        } else {
             val filePath = File(iconPathTrimmed)
             val resourceDirectory = get("res")
 
-            // Replace
+            // Replace mipmap icons.
             mipmapIconResourceGroups.forEach { groupResources ->
                 val groupResourceDirectoryName = groupResources.resourceDirectoryName
                 val fromDirectory = filePath.resolve(groupResourceDirectoryName)

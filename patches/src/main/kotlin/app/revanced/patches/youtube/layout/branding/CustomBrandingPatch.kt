@@ -35,6 +35,10 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "adaptiveproduct_youtube_background_color_108.xml",
         "adaptiveproduct_youtube_foreground_color_108.xml",
     ),
+    legacyIconResourceFileNames = arrayOf(
+        "ic_launcher",
+        "ic_launcher_round",
+    ),
 
     block = {
         compatibleWith(
