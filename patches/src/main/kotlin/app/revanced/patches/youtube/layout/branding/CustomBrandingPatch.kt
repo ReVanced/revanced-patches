@@ -18,20 +18,20 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "YT" to "YT",
         "YouTube" to "YouTube",
     ),
-    resourceFolder = "custom-branding/youtube",
-    adaptiveAnydpiFileNames = arrayOf(
+    patchResourceFolder = "custom-branding/youtube",
+    adaptiveAnyDpiFileNames = arrayOf(
         "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.xml",
         "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.xml",
     ),
-    mipmapIconFileNames = arrayOf(
+    adaptiveMipmapFileNames = arrayOf(
         "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.png",
         "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.png",
     ),
-    legacyMipmapIconFileNames = arrayOf(
+    legacyMipmapFileNames = arrayOf(
         "ic_launcher.png",
         // "ic_launcher_round" exists in 19.34, but was removed in later targets.
     ),
-    monochromeIconFileNames = arrayOf(
+    monochromeFileNames = arrayOf(
         "adaptive_monochrome_ic_youtube_launcher.xml",
         "ringo2_adaptive_monochrome_ic_youtube_launcher.xml"
     ),

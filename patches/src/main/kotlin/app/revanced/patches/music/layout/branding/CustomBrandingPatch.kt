@@ -64,17 +64,17 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "Music" to "Music",
         "YT Music" to "YT Music",
     ),
-    resourceFolder = "custom-branding/music",
-    adaptiveAnydpiFileNames = arrayOf(
+    patchResourceFolder = "custom-branding/music",
+    adaptiveAnyDpiFileNames = arrayOf(
         "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.xml",
         "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.xml"
     ),
-    mipmapIconFileNames = arrayOf(
+    adaptiveMipmapFileNames = arrayOf(
         "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.png",
         "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.png"
     ),
-    legacyMipmapIconFileNames = arrayOf("ic_launcher_release.png"),
-    monochromeIconFileNames = arrayOf("ic_app_icons_themed_youtube_music.xml"),
+    legacyMipmapFileNames = arrayOf("ic_launcher_release.png"),
+    monochromeFileNames = arrayOf("ic_app_icons_themed_youtube_music.xml"),
 
     block = {
         dependsOn(disableSplashAnimationPatch)
