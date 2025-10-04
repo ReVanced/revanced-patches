@@ -55,7 +55,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_no_results_summary">Bain triail as eochairfhocal eile</string>
   <string name="revanced_settings_search_recent_searches">Cuardaigh le déanaí</string>
   <string name="revanced_settings_search_remove_message">Bain as stair an chuardaigh?</string>
-  <string name="revanced_settings_search_clear_history">Glan stair an chuardaigh</string>
+  <string name="revanced_settings_search_clear_history">Glan stair chuardaigh</string>
   <string name="revanced_settings_search_clear_history_message">An bhfuil tú cinnte gur mhaith leat stair chuardaigh go léir a ghlanadh?</string>
   <string name="revanced_settings_search_tips_title">Leideanna Cuardaigh</string>
   <string name="revanced_settings_search_tips_summary">"• Tapáil cosán chun dul chuige
@@ -106,14 +106,14 @@ Brúigh an cnaipe leanúnaí agus ligean athruithe optúimíochta."</string>
   <string name="gms_core_dialog_continue_text">Lean ar aghaidh</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_screen_title">Sruthanna físeán spoof</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Spoof na sruthanna físeáin cliant chun saincheisteanna athsheinm a chosc</string>
-  <string name="revanced_spoof_video_streams_screen_title">Sruthanna físeáin bréige</string>
-  <string name="revanced_spoof_video_streams_screen_summary">Déan bréagú ar shruthanna físeáin an chliaint chun saincheisteanna athsheinm a chosc</string>
-  <string name="revanced_spoof_video_streams_title">Sruthanna físeán spoof</string>
-  <string name="revanced_spoof_video_streams_summary_on">"Tá sruthanna físeáin bréagaithe
+  <string name="revanced_spoof_video_streams_screen_title">Sruthanna físe bréige</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Déan sruthanna físe an chliaint a fhalsú chun fadhbanna athsheinm a chosc</string>
+  <string name="revanced_spoof_video_streams_screen_title">Sruthanna físe bréige</string>
+  <string name="revanced_spoof_video_streams_screen_summary">Déan sruthanna físe an chliaint a fhalsú chun fadhbanna athsheinm a chosc</string>
+  <string name="revanced_spoof_video_streams_title">Sruthanna físe bréige</string>
+  <string name="revanced_spoof_video_streams_summary_on">"Déantar sruthanna físe a bhréagnú
 
-Má tá tú i do úsáideoir YouTube Premium, seans nach mbeidh an socrú seo ag teastáil"</string>
+Mura bhfuil tú i d’úsáideoir YouTube Premium, b’fhéidir nach mbeidh an socrú seo ag teastáil"</string>
   <string name="revanced_spoof_video_streams_summary_off">"Ní dhéantar sruthanna físeáin a bhréagnú
 
 Seans nach n-oibreoidh an t-athsheinm"</string>
@@ -230,8 +230,8 @@ Mar sin féin, logálfaidh sé seo roinnt sonraí úsáideora freisin, mar shamp
   <string name="revanced_hide_image_shelf_summary_on">Tá seilf íomhá i dtorthaí cuardaigh i bhfolach</string>
   <string name="revanced_hide_image_shelf_summary_off">Taispeántar seilf íomhánna i dtorthaí cuardaigh</string>
   <string name="revanced_hide_latest_posts_title">Folaigh na poist is déanaí</string>
-  <string name="revanced_hide_latest_posts_summary_on">Tá postanna is déanaí i bhfolach</string>
-  <string name="revanced_hide_latest_posts_summary_off">Taispeántar na postálacha is déanaí</string>
+  <string name="revanced_hide_latest_posts_summary_on">Tá na poist is déanaí i bhfolach</string>
+  <string name="revanced_hide_latest_posts_summary_off">Taispeántar na poist is déanaí</string>
   <string name="revanced_hide_mix_playlists_title">Folaigh seinmliostaí meascán</string>
   <string name="revanced_hide_mix_playlists_summary_on">Tá seinmliostaí measctha i bhfolach</string>
   <string name="revanced_hide_mix_playlists_summary_off">Taispeántar seinmliostaí measctha</string>
@@ -248,9 +248,9 @@ Mar sin féin, logálfaidh sé seo roinnt sonraí úsáideora freisin, mar shamp
   <string name="revanced_hide_playables_summary_off">Taispeántar na heilimintí inseinnte</string>
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
-  <string name="revanced_hide_show_more_button_title">Folaigh cnaipe \'Taispeáin tuilleadh\'</string>
+  <string name="revanced_hide_show_more_button_title">Folaigh an cnaipe \'Taispeáin níos mó\'</string>
   <string name="revanced_hide_show_more_button_summary_on">Cnaipe \'Taispeáin níos mó\' sna torthaí cuardaigh i bhfolach</string>
-  <string name="revanced_hide_show_more_button_summary_off">Cnaipe \'Taispeáin níos mó\' sna torthaí cuardaigh taispeánta</string>
+  <string name="revanced_hide_show_more_button_summary_off">Cnaipe \'Taispeáin níos mó\' sna torthaí cuardaigh thaispeánta</string>
   <string name="revanced_hide_surveys_title">Folaigh suirbhéanna</string>
   <string name="revanced_hide_surveys_summary_on">Tá suirbhéanna i bhfolach</string>
   <string name="revanced_hide_surveys_summary_off">Tá suirbhéanna taispeánta</string>
