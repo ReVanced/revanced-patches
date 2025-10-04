@@ -67,7 +67,7 @@ internal fun baseCustomBrandingPatch(
             Each of these folders must contain the following files:
             ${formatResourceFileList((adaptiveMipmapFileNames + legacyMipmapFileNames))}
             
-            Optionally, a 'drawable' folder with the monochrome icon files:
+            Optionally, the path can contain a 'drawable' folder with the monochrome icon files:
             ${formatResourceFileList(monochromeFileNames)}
         """.trimIndentMultiline(),
     )
@@ -122,7 +122,7 @@ internal fun baseCustomBrandingPatch(
             }
 
             if (!iconPathFile.isDirectory) {
-                throw PatchException("The custom icon path must be a directory: "
+                throw PatchException("The custom icon path must be a folder: "
                         + iconPathFile.absolutePath)
             }
 
