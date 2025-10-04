@@ -34,7 +34,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
     ),
     legacyIconResourceFileNames = arrayOf(
         "ic_launcher",
-        "ic_launcher_round",
+        // "ic_launcher_round" also exists in 19.34, but was removed in later targets.
     ),
 
     block = {
