@@ -35,7 +35,6 @@ internal fun baseCustomBrandingPatch(
     patchResourceFolder: String,
     adaptiveAnyDpiFileNames: Array<String>,
     adaptiveMipmapFileNames: Array<String>,
-    legacyMipmapFileNames: Array<String>,
     monochromeFileNames: Array<String>,
     manifestAppLauncherValue: String,
     block: ResourcePatchBuilder.() -> Unit = {},
@@ -65,7 +64,7 @@ internal fun baseCustomBrandingPatch(
             ${formatResourceFileList(mipmapDirectories)}
     
             Each of these folders must contain the following files:
-            ${formatResourceFileList((adaptiveMipmapFileNames + legacyMipmapFileNames))}
+            ${formatResourceFileList((adaptiveMipmapFileNames))}
             
             Optionally, the path can contain a 'drawable' folder with the monochrome icon files:
             ${formatResourceFileList(monochromeFileNames)}
@@ -97,16 +96,6 @@ internal fun baseCustomBrandingPatch(
                 patchResourceFolder,
                 ResourceGroup("mipmap-anydpi", *adaptiveAnyDpiFileNames)
             )
-
-            // Copy legacy icons.
-            mipmapDirectories.map { directory ->
-                ResourceGroup(
-                    directory,
-                    *legacyMipmapFileNames,
-                )
-            }.forEach { groupResources ->
-                copyResources(patchResourceFolder, groupResources)
-            }
 
             // Copy monochrome icons.
             copyResources(

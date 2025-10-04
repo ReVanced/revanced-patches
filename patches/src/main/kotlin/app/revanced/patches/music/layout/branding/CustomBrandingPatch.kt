@@ -73,7 +73,6 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.png",
         "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.png"
     ),
-    legacyMipmapFileNames = arrayOf("ic_launcher_release.png"),
     monochromeFileNames = arrayOf("ic_app_icons_themed_youtube_music.xml"),
     manifestAppLauncherValue = "@string/app_launcher_name",
 

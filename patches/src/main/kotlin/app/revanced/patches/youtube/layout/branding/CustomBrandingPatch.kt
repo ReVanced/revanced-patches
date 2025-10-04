@@ -18,7 +18,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "YT" to "YT",
         "YouTube" to "YouTube",
     ),
-    patchResourceFolder = "custom-branding/minimal/youtube",
+    patchResourceFolder = "custom-branding/minimal/youtube", // TODO: Change the icon style to a patch option or an in app setting.
     adaptiveAnyDpiFileNames = arrayOf(
         "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.xml",
         "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.xml",
@@ -26,10 +26,6 @@ val customBrandingPatch = baseCustomBrandingPatch(
     adaptiveMipmapFileNames = arrayOf(
         "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.png",
         "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.png",
-    ),
-    legacyMipmapFileNames = arrayOf(
-        "ic_launcher.png",
-        // "ic_launcher_round" exists in 19.34, but was removed in later targets.
     ),
     monochromeFileNames = arrayOf(
         "adaptive_monochrome_ic_youtube_launcher.xml",
