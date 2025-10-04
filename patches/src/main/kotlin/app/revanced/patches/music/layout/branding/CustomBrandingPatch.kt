@@ -64,7 +64,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "Music" to "Music",
         "YT Music" to "YT Music",
     ),
-    patchResourceFolder = "custom-branding/music",
+    patchResourceFolder = "custom-branding/minimal/music",
     adaptiveAnyDpiFileNames = arrayOf(
         "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.xml",
         "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.xml"

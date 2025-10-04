@@ -18,7 +18,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "YT" to "YT",
         "YouTube" to "YouTube",
     ),
-    patchResourceFolder = "custom-branding/youtube",
+    patchResourceFolder = "custom-branding/minimal/youtube",
     adaptiveAnyDpiFileNames = arrayOf(
         "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.xml",
         "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.xml",
