@@ -54,6 +54,7 @@ internal fun baseCustomBrandingPatch(
     resourceFolder: String,
     iconResourceFileNames: Array<String>,
     monochromeIconFileNames: Array<String>,
+    adaptiveIconFileNames: Array<String>,
     block: ResourcePatchBuilder.() -> Unit = {},
     executeBlock: ResourcePatchContext.() -> Unit = {}
 ): ResourcePatch = resourcePatch(
@@ -115,6 +116,14 @@ internal fun baseCustomBrandingPatch(
                 copyResources(
                     resourceFolder,
                     ResourceGroup("drawable", fileName)
+                )
+            }
+
+            // Add SVG adaptive icon.
+            adaptiveIconFileNames.forEach { fileName ->
+                copyResources(
+                    resourceFolder,
+                    ResourceGroup("mipmap-anydpi", fileName)
                 )
             }
         } else {

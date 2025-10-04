@@ -68,6 +68,10 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "ic_launcher_release",
     ),
     monochromeIconFileNames = arrayOf("ic_app_icons_themed_youtube_music.xml"),
+    adaptiveIconFileNames = arrayOf(
+        "adaptiveproduct_youtube_music_2024_q4_background_color_108.xml",
+        "adaptiveproduct_youtube_music_2024_q4_foreground_color_108.xml",
+        ),
 
     block = {
         dependsOn(disableSplashAnimationPatch)
