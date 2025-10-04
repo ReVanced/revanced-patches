@@ -1,5 +1,6 @@
 package app.revanced.patches.shared.layout.branding
 
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.ResourcePatchBuilder
 import app.revanced.patcher.patch.ResourcePatchContext
@@ -14,7 +15,7 @@ import java.util.logging.Logger
 
 private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
 
-private val mipmapDirectories = arrayOf(
+internal val mipmapDirectories = arrayOf(
     // Target app does not have ldpi icons.
     "mdpi",
     "hdpi",
@@ -83,16 +84,13 @@ internal fun baseCustomBrandingPatch(
         description = """
             The icon to apply to the app.
             
-            If a path to a folder is provided, the folder must contain the following folders:
-    
+            If a path to a folder is provided, the folder must contain one or more of the following folders:
             ${formatResourceFileList(mipmapDirectories)}
     
             Each of these folders must contain the following files:
-    
             ${formatResourceFileList((iconResourceFileNamesPng + legacyIconResourceFileNamesPng))}
             
             Optionally, a 'drawable' folder with the monochrome icon files:
-    
             ${formatResourceFileList(monochromeIconFileNames)}
         """.trimIndentMultiline(),
     )
@@ -127,39 +125,47 @@ internal fun baseCustomBrandingPatch(
                 ResourceGroup("mipmap-anydpi", *adaptiveIconFileNames)
             )
         } else {
-            val mipmapIconResourceGroups = mipmapDirectories.map { directory ->
+            val filePath = File(iconPathTrimmed)
+            val resourceDirectory = get("res")
+            var replacedResources = false
+
+            // Replace mipmap icons.
+            mipmapDirectories.map { directory ->
                 ResourceGroup(
                     directory,
                     *iconResourceFileNamesPng,
                 )
-            }
-
-            val filePath = File(iconPathTrimmed)
-            val resourceDirectory = get("res")
-
-            // Replace mipmap icons.
-            mipmapIconResourceGroups.forEach { groupResources ->
+            }.forEach { groupResources ->
                 val groupResourceDirectoryName = groupResources.resourceDirectoryName
                 val fromDirectory = filePath.resolve(groupResourceDirectoryName)
                 val toDirectory = resourceDirectory.resolve(groupResourceDirectoryName)
 
                 groupResources.resources.forEach { iconFileName ->
-                    Files.write(
-                        toDirectory.resolve(iconFileName).toPath(),
-                        fromDirectory.resolve(iconFileName).readBytes(),
-                    )
+                    val replacement = fromDirectory.resolve(iconFileName)
+                    if (replacement.exists()) {
+                        Files.write(
+                            toDirectory.resolve(iconFileName).toPath(),
+                            replacement.readBytes(),
+                        )
+                        replacedResources = true
+                    }
                 }
             }
 
             // Replace monochrome icons if provided.
-            monochromeIconFileNames.forEach { fileName ->
-                val replacementMonochrome = filePath.resolve("drawable").resolve(fileName)
-                if (replacementMonochrome.exists()) {
+            monochromeIconFileNames.forEach { iconFileName ->
+                val replacement = filePath.resolve("drawable").resolve(iconFileName)
+                if (replacement.exists()) {
                     Files.write(
-                        resourceDirectory.resolve("drawable").resolve(fileName).toPath(),
-                        replacementMonochrome.readBytes(),
+                        resourceDirectory.resolve("drawable").resolve(iconFileName).toPath(),
+                        replacement.readBytes(),
                     )
+                    replacedResources = true
                 }
+            }
+
+            if (!replacedResources) {
+                throw PatchException("Could not find any replacement images in patch option path: $iconPathTrimmed")
             }
         }
 
