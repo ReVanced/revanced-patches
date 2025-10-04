@@ -63,16 +63,15 @@ val customBrandingPatch = baseCustomBrandingPatch(
     ),
     resourceFolder = "custom-branding/music",
     iconResourceFileNames = arrayOf(
-        "adaptiveproduct_youtube_music_2024_q4_background_color_108",
-        "adaptiveproduct_youtube_music_2024_q4_foreground_color_108",
-        "ic_launcher_release",
+        "adaptiveproduct_youtube_music_2024_q4_background_color_108.png",
+        "adaptiveproduct_youtube_music_2024_q4_foreground_color_108.png"
     ),
     monochromeIconFileNames = arrayOf("ic_app_icons_themed_youtube_music.xml"),
     adaptiveIconFileNames = arrayOf(
         "adaptiveproduct_youtube_music_2024_q4_background_color_108.xml",
-        "adaptiveproduct_youtube_music_2024_q4_foreground_color_108.xml",
+        "adaptiveproduct_youtube_music_2024_q4_foreground_color_108.xml"
     ),
-    legacyIconResourceFileNames = arrayOf("ic_launcher_release"),
+    legacyIconResourceFileNames = arrayOf("ic_launcher_release.png"),
 
     block = {
         dependsOn(disableSplashAnimationPatch)
