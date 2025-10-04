@@ -53,10 +53,10 @@ internal fun baseCustomBrandingPatch(
     defaultAppName: String,
     appNameValues: Map<String, String>,
     resourceFolder: String,
-    iconResourceFileNames: Array<String>,
+    adaptiveAnydpiFileNames: Array<String>,
+    mipmapIconFileNames: Array<String>,
+    legacyMipmapIconFileNames: Array<String>,
     monochromeIconFileNames: Array<String>,
-    adaptiveIconFileNames: Array<String>,
-    legacyIconResourceFileNames: Array<String>,
     block: ResourcePatchBuilder.() -> Unit = {},
     executeBlock: ResourcePatchContext.() -> Unit = {}
 ): ResourcePatch = resourcePatch(
@@ -84,7 +84,7 @@ internal fun baseCustomBrandingPatch(
             ${formatResourceFileList(mipmapDirectories)}
     
             Each of these folders must contain the following files:
-            ${formatResourceFileList((iconResourceFileNames + legacyIconResourceFileNames))}
+            ${formatResourceFileList((mipmapIconFileNames + legacyMipmapIconFileNames))}
             
             Optionally, a 'drawable' folder with the monochrome icon files:
             ${formatResourceFileList(monochromeIconFileNames)}
@@ -100,14 +100,14 @@ internal fun baseCustomBrandingPatch(
             // Copy adaptive icons.
             copyResources(
                 resourceFolder,
-                ResourceGroup("mipmap-anydpi", *adaptiveIconFileNames)
+                ResourceGroup("mipmap-anydpi", *adaptiveAnydpiFileNames)
             )
 
             // Copy legacy icons.
             mipmapDirectories.map { directory ->
                 ResourceGroup(
                     directory,
-                    *legacyIconResourceFileNames,
+                    *legacyMipmapIconFileNames,
                 )
             }.forEach { groupResources ->
                 copyResources(resourceFolder, groupResources)
@@ -127,7 +127,7 @@ internal fun baseCustomBrandingPatch(
             mipmapDirectories.map { directory ->
                 ResourceGroup(
                     directory,
-                    *iconResourceFileNames,
+                    *mipmapIconFileNames,
                 )
             }.forEach { groupResources ->
                 val groupResourceDirectoryName = groupResources.resourceDirectoryName

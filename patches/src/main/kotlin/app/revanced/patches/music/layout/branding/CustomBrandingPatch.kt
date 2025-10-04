@@ -52,6 +52,9 @@ private val disableSplashAnimationPatch = bytecodePatch {
 
 private const val APP_NAME = "YT Music ReVanced"
 
+private const val ADAPTIVE_BACKGROUND_RESOURCE_NAME = "adaptiveproduct_youtube_music_2024_q4_background_color_108"
+private const val ADAPTIVE_FOREGROUND_RESOURCE_NAME = "adaptiveproduct_youtube_music_2024_q4_foreground_color_108"
+
 @Suppress("unused")
 val customBrandingPatch = baseCustomBrandingPatch(
     defaultAppName = APP_NAME,
@@ -62,16 +65,16 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "YT Music" to "YT Music",
     ),
     resourceFolder = "custom-branding/music",
-    iconResourceFileNames = arrayOf(
-        "adaptiveproduct_youtube_music_2024_q4_background_color_108.png",
-        "adaptiveproduct_youtube_music_2024_q4_foreground_color_108.png"
+    adaptiveAnydpiFileNames = arrayOf(
+        "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.xml",
+        "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.xml"
     ),
+    mipmapIconFileNames = arrayOf(
+        "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.png",
+        "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.png"
+    ),
+    legacyMipmapIconFileNames = arrayOf("ic_launcher_release.png"),
     monochromeIconFileNames = arrayOf("ic_app_icons_themed_youtube_music.xml"),
-    adaptiveIconFileNames = arrayOf(
-        "adaptiveproduct_youtube_music_2024_q4_background_color_108.xml",
-        "adaptiveproduct_youtube_music_2024_q4_foreground_color_108.xml"
-    ),
-    legacyIconResourceFileNames = arrayOf("ic_launcher_release.png"),
 
     block = {
         dependsOn(disableSplashAnimationPatch)
