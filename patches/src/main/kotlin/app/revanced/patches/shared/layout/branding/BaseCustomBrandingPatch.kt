@@ -115,6 +115,17 @@ internal fun baseCustomBrandingPatch(
             )
         } else {
             val iconPathFile = File(iconPathTrimmed)
+            if (!iconPathFile.exists()) {
+                throw PatchException("The custom icon path cannot be found: " +
+                        iconPathFile.absolutePath
+                )
+            }
+
+            if (!iconPathFile.isDirectory) {
+                throw PatchException("The custom icon path must be a directory: "
+                        + iconPathFile.absolutePath)
+            }
+
             val resourceDirectory = get("res")
             var replacedResources = false
 
@@ -155,7 +166,8 @@ internal fun baseCustomBrandingPatch(
             }
 
             if (!replacedResources) {
-                throw PatchException("Could not find any replacement images in patch option path: $iconPathTrimmed")
+                throw PatchException("Could not find any replacement images in " +
+                        "patch option path: " + iconPathFile.absolutePath)
             }
         }
 
