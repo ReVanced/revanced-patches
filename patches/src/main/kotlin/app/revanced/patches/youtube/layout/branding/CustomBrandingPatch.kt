@@ -32,6 +32,8 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "ringo2_adaptive_monochrome_ic_youtube_launcher.xml"
     ),
     adaptiveIconFileNames = arrayOf(
+        "adaptiveproduct_youtube_2024_q4_background_color_108.xml",
+        "adaptiveproduct_youtube_2024_q4_foreground_color_108.xml",
         "adaptiveproduct_youtube_background_color_108.xml",
         "adaptiveproduct_youtube_foreground_color_108.xml",
     ),
