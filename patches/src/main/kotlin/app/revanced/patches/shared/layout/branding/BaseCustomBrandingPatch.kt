@@ -1,5 +1,6 @@
 package app.revanced.patches.shared.layout.branding
 
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.ResourcePatchBuilder
 import app.revanced.patcher.patch.ResourcePatchContext
@@ -8,9 +9,9 @@ import app.revanced.patcher.patch.stringOption
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
+import app.revanced.util.findElementByAttributeValueOrThrow
 import java.io.File
 import java.nio.file.Files
-import java.util.logging.Logger
 
 private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
 
@@ -26,34 +27,17 @@ internal val mipmapDirectories = arrayOf(
 private fun formatResourceFileList(resourceNames: Array<String>) = resourceNames.joinToString("\n") { "- $it" }
 
 /**
- * Attempts to fix unescaped and invalid characters not allowed for an Android app name.
- */
-private fun escapeAppName(name: String): String? {
-    // Remove ASCII control characters.
-    val cleanedName = name.filter { it.code >= 32 }
-
-    // Replace invalid XML characters with escaped equivalents.
-    val escapedName = cleanedName
-        .replace("&", "&amp;") // Must be first to avoid double-escaping.
-        .replace("<", "&lt;")
-        .replace(">", "&gt;")
-        .replace(Regex("(?<!&)\""), "&quot;")
-
-    // Trim empty spacing.
-    val trimmed = escapedName.trim()
-
-    return trimmed.ifBlank { null }
-}
-
-/**
  * Shared custom branding patch for YouTube and YT Music.
  */
 internal fun baseCustomBrandingPatch(
     defaultAppName: String,
     appNameValues: Map<String, String>,
-    resourceFolder: String,
-    iconResourceFileNames: Array<String>,
-    monochromeIconFileNames: Array<String>,
+    patchResourceFolder: String,
+    adaptiveAnyDpiFileNames: Array<String>,
+    adaptiveMipmapFileNames: Array<String>,
+    legacyMipmapFileNames: Array<String>,
+    monochromeFileNames: Array<String>,
+    manifestAppLauncherValue: String,
     block: ResourcePatchBuilder.() -> Unit = {},
     executeBlock: ResourcePatchContext.() -> Unit = {}
 ): ResourcePatch = resourcePatch(
@@ -61,8 +45,6 @@ internal fun baseCustomBrandingPatch(
     description = "Applies a custom app name and icon. Defaults to \"$defaultAppName\" and the ReVanced logo.",
     use = false,
 ) {
-    val iconResourceFileNamesPng = iconResourceFileNames.map { "$it.png" }.toTypedArray<String>()
-
     val appName by stringOption(
         key = "appName",
         default = defaultAppName,
@@ -79,93 +61,114 @@ internal fun baseCustomBrandingPatch(
         description = """
             The icon to apply to the app.
             
-            If a path to a folder is provided, the folder must contain the following folders:
-    
+            If a path to a folder is provided, the folder must contain one or more of the following folders:
             ${formatResourceFileList(mipmapDirectories)}
     
             Each of these folders must contain the following files:
-    
-            ${formatResourceFileList(iconResourceFileNamesPng)}
+            ${formatResourceFileList((adaptiveMipmapFileNames + legacyMipmapFileNames))}
             
-            Optionally, a 'drawable' folder with the monochrome icon files:
-    
-            ${formatResourceFileList(monochromeIconFileNames)}
+            Optionally, the path can contain a 'drawable' folder with the monochrome icon files:
+            ${formatResourceFileList(monochromeFileNames)}
         """.trimIndentMultiline(),
     )
 
     block()
 
-    execute {
-        val mipmapIconResourceGroups = mipmapDirectories.map { directory ->
-            ResourceGroup(
-                directory,
-                *iconResourceFileNamesPng,
-            )
+    dependsOn(
+        // Change the app name.
+        resourcePatch {
+            execute {
+                document("AndroidManifest.xml").use { document ->
+                    document.childNodes.findElementByAttributeValueOrThrow(
+                        "android:label",
+                        manifestAppLauncherValue
+                    ).nodeValue = appName!!
+                }
+            }
         }
+    )
 
+    execute {
         val iconPathTrimmed = iconPath!!.trim()
+
         if (iconPathTrimmed == REVANCED_ICON) {
-            // Replace mipmap icons with preset patch icons.
-            mipmapIconResourceGroups.forEach { groupResources ->
-                copyResources(resourceFolder, groupResources)
+            // Copy adaptive icons.
+            copyResources(
+                patchResourceFolder,
+                ResourceGroup("mipmap-anydpi", *adaptiveAnyDpiFileNames)
+            )
+
+            // Copy legacy icons.
+            mipmapDirectories.map { directory ->
+                ResourceGroup(
+                    directory,
+                    *legacyMipmapFileNames,
+                )
+            }.forEach { groupResources ->
+                copyResources(patchResourceFolder, groupResources)
             }
 
-            // Replace monochrome icons.
-            monochromeIconFileNames.forEach { fileName ->
-                copyResources(
-                    resourceFolder,
-                    ResourceGroup("drawable", fileName)
+            // Copy monochrome icons.
+            copyResources(
+                patchResourceFolder,
+                ResourceGroup("drawable", *monochromeFileNames)
+            )
+        } else {
+            val iconPathFile = File(iconPathTrimmed)
+            if (!iconPathFile.exists()) {
+                throw PatchException("The custom icon path cannot be found: " +
+                        iconPathFile.absolutePath
                 )
             }
-        } else {
-            val filePath = File(iconPathTrimmed)
-            val resourceDirectory = get("res")
 
-            // Replace
-            mipmapIconResourceGroups.forEach { groupResources ->
+            if (!iconPathFile.isDirectory) {
+                throw PatchException("The custom icon path must be a folder: "
+                        + iconPathFile.absolutePath)
+            }
+
+            val resourceDirectory = get("res")
+            var replacedResources = false
+
+            // Replace mipmap icons.
+            mipmapDirectories.map { directory ->
+                ResourceGroup(
+                    directory,
+                    *adaptiveMipmapFileNames,
+                )
+            }.forEach { groupResources ->
                 val groupResourceDirectoryName = groupResources.resourceDirectoryName
-                val fromDirectory = filePath.resolve(groupResourceDirectoryName)
+                val fromDirectory = iconPathFile.resolve(groupResourceDirectoryName)
                 val toDirectory = resourceDirectory.resolve(groupResourceDirectoryName)
 
                 groupResources.resources.forEach { iconFileName ->
-                    Files.write(
-                        toDirectory.resolve(iconFileName).toPath(),
-                        fromDirectory.resolve(iconFileName).readBytes(),
-                    )
+                    val replacement = fromDirectory.resolve(iconFileName)
+                    if (replacement.exists()) {
+                        Files.write(
+                            toDirectory.resolve(iconFileName).toPath(),
+                            replacement.readBytes(),
+                        )
+                        replacedResources = true
+                    }
                 }
             }
 
-            // Copy all monochrome icons if provided.
-            monochromeIconFileNames.forEach { fileName ->
-                val replacementMonochrome = filePath.resolve("drawable").resolve(fileName)
-                if (replacementMonochrome.exists()) {
+            // Replace monochrome icons if provided.
+            monochromeFileNames.forEach { iconFileName ->
+                val resourceType = "drawable"
+                val replacement = iconPathFile.resolve(resourceType).resolve(iconFileName)
+                if (replacement.exists()) {
                     Files.write(
-                        resourceDirectory.resolve("drawable").resolve(fileName).toPath(),
-                        replacementMonochrome.readBytes(),
+                        resourceDirectory.resolve(resourceType).resolve(iconFileName).toPath(),
+                        replacement.readBytes(),
                     )
+                    replacedResources = true
                 }
             }
-        }
 
-        // Change the app name.
-        escapeAppName(appName!!)?.let { escapedAppName ->
-            val newValue = "android:label=\"$escapedAppName\""
-
-            val manifest = get("AndroidManifest.xml")
-            val original = manifest.readText()
-            val replacement = original
-                // YouTube
-                .replace("android:label=\"@string/application_name\"", newValue)
-                // YT Music
-                .replace("android:label=\"@string/app_launcher_name\"", newValue)
-
-            if (original == replacement) {
-                Logger.getLogger(this::class.java.name).warning(
-                    "Could not replace manifest app name"
-                )
+            if (!replacedResources) {
+                throw PatchException("Could not find any replacement images in " +
+                        "patch option path: " + iconPathFile.absolutePath)
             }
-
-            manifest.writeText(replacement)
         }
 
         executeBlock() // Must be after the main code to rename the new icons for YouTube 19.34+.

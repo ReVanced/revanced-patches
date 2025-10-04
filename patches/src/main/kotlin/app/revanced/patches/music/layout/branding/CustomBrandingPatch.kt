@@ -52,6 +52,9 @@ private val disableSplashAnimationPatch = bytecodePatch {
 
 private const val APP_NAME = "YT Music ReVanced"
 
+private const val ADAPTIVE_BACKGROUND_RESOURCE_NAME = "adaptiveproduct_youtube_music_2024_q4_background_color_108"
+private const val ADAPTIVE_FOREGROUND_RESOURCE_NAME = "adaptiveproduct_youtube_music_2024_q4_foreground_color_108"
+
 @Suppress("unused")
 val customBrandingPatch = baseCustomBrandingPatch(
     defaultAppName = APP_NAME,
@@ -61,13 +64,18 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "Music" to "Music",
         "YT Music" to "YT Music",
     ),
-    resourceFolder = "custom-branding/music",
-    iconResourceFileNames = arrayOf(
-        "adaptiveproduct_youtube_music_2024_q4_background_color_108",
-        "adaptiveproduct_youtube_music_2024_q4_foreground_color_108",
-        "ic_launcher_release",
+    patchResourceFolder = "custom-branding/minimal/music",
+    adaptiveAnyDpiFileNames = arrayOf(
+        "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.xml",
+        "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.xml"
     ),
-    monochromeIconFileNames = arrayOf("ic_app_icons_themed_youtube_music.xml"),
+    adaptiveMipmapFileNames = arrayOf(
+        "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.png",
+        "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.png"
+    ),
+    legacyMipmapFileNames = arrayOf("ic_launcher_release.png"),
+    monochromeFileNames = arrayOf("ic_app_icons_themed_youtube_music.xml"),
+    manifestAppLauncherValue = "@string/app_launcher_name",
 
     block = {
         dependsOn(disableSplashAnimationPatch)

@@ -6,10 +6,8 @@ import java.nio.file.Files
 
 private const val APP_NAME = "YouTube ReVanced"
 
-private val youtubeIconResourceFileNames_19_34 = mapOf(
-    "adaptiveproduct_youtube_foreground_color_108" to "adaptiveproduct_youtube_2024_q4_foreground_color_108",
-    "adaptiveproduct_youtube_background_color_108" to "adaptiveproduct_youtube_2024_q4_background_color_108",
-)
+private const val ADAPTIVE_BACKGROUND_RESOURCE_NAME = "adaptiveproduct_youtube_background_color_108"
+private const val ADAPTIVE_FOREGROUND_RESOURCE_NAME = "adaptiveproduct_youtube_foreground_color_108"
 
 @Suppress("unused")
 val customBrandingPatch = baseCustomBrandingPatch(
@@ -20,17 +18,24 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "YT" to "YT",
         "YouTube" to "YouTube",
     ),
-    resourceFolder = "custom-branding/youtube",
-    iconResourceFileNames = arrayOf(
-        "adaptiveproduct_youtube_background_color_108",
-        "adaptiveproduct_youtube_foreground_color_108",
-        "ic_launcher",
-        "ic_launcher_round",
+    patchResourceFolder = "custom-branding/minimal/youtube",
+    adaptiveAnyDpiFileNames = arrayOf(
+        "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.xml",
+        "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.xml",
     ),
-    monochromeIconFileNames = arrayOf(
+    adaptiveMipmapFileNames = arrayOf(
+        "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.png",
+        "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.png",
+    ),
+    legacyMipmapFileNames = arrayOf(
+        "ic_launcher.png",
+        // "ic_launcher_round" exists in 19.34, but was removed in later targets.
+    ),
+    monochromeFileNames = arrayOf(
         "adaptive_monochrome_ic_youtube_launcher.xml",
         "ringo2_adaptive_monochrome_ic_youtube_launcher.xml"
     ),
+    manifestAppLauncherValue = "@string/application_name",
 
     block = {
         compatibleWith(
@@ -41,20 +46,37 @@ val customBrandingPatch = baseCustomBrandingPatch(
                 "20.14.43",
             )
         )
-    },
+    }
 
-    executeBlock = {
-        val resourceDirectory = get("res")
+) {
+    val resourceDirectory = get("res")
 
-        mipmapDirectories.forEach { directory ->
-            val targetDirectory = resourceDirectory.resolve(directory)
+    // Copy adaptive icon to secondary adaptive file.
+    arrayOf(
+        ADAPTIVE_BACKGROUND_RESOURCE_NAME to "adaptiveproduct_youtube_2024_q4_background_color_108",
+        ADAPTIVE_FOREGROUND_RESOURCE_NAME to "adaptiveproduct_youtube_2024_q4_foreground_color_108",
+    ).forEach { (old, new) ->
+        var resourceType = "mipmap-anydpi"
+        val oldFile = resourceDirectory.resolve("$resourceType/$old.xml")
+        if (oldFile.exists()) {
+            val newFile = resourceDirectory.resolve("$resourceType/$new.xml")
+            Files.write(newFile.toPath(), oldFile.readBytes())
+        }
+    }
 
-            youtubeIconResourceFileNames_19_34.forEach { (old, new) ->
-                val oldFile = targetDirectory.resolve("$old.png")
+    // Copy mipmaps to secondary files.
+    mipmapDirectories.forEach { directory ->
+        val targetDirectory = resourceDirectory.resolve(directory)
+
+        arrayOf(
+            ADAPTIVE_BACKGROUND_RESOURCE_NAME to "adaptiveproduct_youtube_2024_q4_background_color_108",
+            ADAPTIVE_FOREGROUND_RESOURCE_NAME to "adaptiveproduct_youtube_2024_q4_foreground_color_108",
+        ).forEach { (old, new) ->
+            val oldFile = targetDirectory.resolve("$old.png")
+            if (oldFile.exists()) {
                 val newFile = targetDirectory.resolve("$new.png")
-
                 Files.write(newFile.toPath(), oldFile.readBytes())
             }
         }
     }
-)
+}
