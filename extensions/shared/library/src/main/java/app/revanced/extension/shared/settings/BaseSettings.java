@@ -2,11 +2,9 @@ package app.revanced.extension.shared.settings;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
-import static app.revanced.extension.shared.patches.CustomBrandingPatch.CustomBrandingTheme;
+import static app.revanced.extension.shared.patches.CustomBrandingPatch.BrandingTheme;
 import static app.revanced.extension.shared.settings.Setting.parent;
 import static app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch.AudioStreamLanguageOverrideAvailability;
-
-import app.revanced.extension.shared.patches.CustomBrandingPatch;
 
 /**
  * Settings shared across multiple apps.
@@ -44,5 +42,5 @@ public class BaseSettings {
 
     public static final BooleanSetting CHECK_WATCH_HISTORY_DOMAIN_NAME = new BooleanSetting("revanced_check_watch_history_domain_name", TRUE, false, false);
 
-    public static final EnumSetting<CustomBrandingTheme> CUSTOM_BRANDING_THEME = new EnumSetting<>("revanced_custom_branding_theme", CustomBrandingTheme.MINIMAL, true);
+    public static final EnumSetting<BrandingTheme> CUSTOM_BRANDING_ICON = new EnumSetting<>("revanced_custom_branding_icon", BrandingTheme.MINIMAL, true);
 }

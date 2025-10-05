@@ -2,6 +2,7 @@ package app.revanced.patches.shared.layout.branding
 
 import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.ResourcePatchBuilder
 import app.revanced.patcher.patch.ResourcePatchContext
@@ -17,23 +18,40 @@ import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import app.revanced.util.findElementByAttributeValueOrThrow
 import org.w3c.dom.Element
-
-private const val REVANCED_ICON = "ReVanced*Logo" // Can never be a valid path.
+import java.io.File
 
 internal val mipmapDirectories = arrayOf(
     // Target app does not have ldpi icons.
-    "mdpi",
-    "hdpi",
-    "xhdpi",
-    "xxhdpi",
-    "xxxhdpi",
-).map { "mipmap-$it" }.toTypedArray()
+    "mipmap-mdpi",
+    "mipmap-hdpi",
+    "mipmap-xhdpi",
+    "mipmap-xxhdpi",
+    "mipmap-xxxhdpi"
+)
 
-private val brandingStyles = arrayOf(
+private val iconStyleNames = arrayOf(
     "minimal", // First declared is the default.
     "rounded",
     "scaled"
 )
+
+/**
+ * Custom icon resource/file name.
+ */
+private const val CUSTOM_USER_ICON_STYLE_NAME = "custom"
+
+private const val LAUNCHER_RESOURCE_NAME_PREFIX = "revanced_launcher_"
+private const val LAUNCHER_ADAPTIVE_BACKGROUND_PREFIX = "revanced_adaptive_background_"
+private const val LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX = "revanced_adaptive_foreground_"
+private const val LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX = "revanced_adaptive_monochrome_"
+
+private val USER_CUSTOM_ADAPTIVE_FILE_NAMES = arrayOf(
+    "$LAUNCHER_ADAPTIVE_BACKGROUND_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.png",
+    "$LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.png"
+)
+
+private const val USER_CUSTOM_MONOCHROME_NAME =
+    "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml"
 
 private fun formatResourceFileList(resourceNames: Array<String>) = resourceNames.joinToString("\n") { "- $it" }
 
@@ -45,8 +63,8 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/p
 internal fun baseCustomBrandingPatch(
     defaultAppName: String,
     appNameValues: Map<String, String>,
+    originalAppName: String,
     originalLauncherIconName: String,
-    manifestAppLauncherValue: String,
     mainActivityOnCreateFingerprint: Fingerprint,
     mainActivityName: String,
     activityAliasNameWithIntentToRemove: String,
@@ -63,26 +81,24 @@ internal fun baseCustomBrandingPatch(
         default = defaultAppName,
         values = appNameValues,
         title = "App name",
-        description = "The name of the app.",
+        description = "The name of the app."
     )
 
-    val iconPath by stringOption(
-        key = "iconPath",
-        default = REVANCED_ICON,
-        values = mapOf("ReVanced Logo" to REVANCED_ICON),
-        title = "App icon",
+    val customIcon by stringOption(
+        key = "customIcon",
+        title = "Custom icon",
         description = """
-            The icon to apply to the app.
+            Folder with images to use as a custom icon.
             
-            If a path to a folder is provided, the folder must contain one or more of the following folders:
+            The folder must contain one or more of the following folders, depending on the DPI of the device:
             ${formatResourceFileList(mipmapDirectories)}
-    
-            Each of these folders must contain the following files:
-            TODO: {formatResourceFileList((adaptiveMipmapFileNames))}
             
-            Optionally, the path can contain a 'drawable' folder with the monochrome icon files:
-            TODO: {formatResourceFileList(monochromeFileNames)}
-        """.trimIndentMultiline(), // TODO
+            Each of the folders must contain all of the following files:
+            ${USER_CUSTOM_ADAPTIVE_FILE_NAMES.joinToString("\n")}
+
+            Optionally, the path can contain a 'drawable' folder with the monochrome icon file:
+            $USER_CUSTOM_MONOCHROME_NAME
+        """.trimIndentMultiline()
     )
 
     block()
@@ -93,7 +109,7 @@ internal fun baseCustomBrandingPatch(
             execute {
                 mainActivityOnCreateFingerprint.method.addInstruction(
                     0,
-                    "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->setBrandingIcon()V",
+                    "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->setBrandingIcon()V"
                 )
             }
         }
@@ -103,30 +119,118 @@ internal fun baseCustomBrandingPatch(
         addResources("shared", "layout.branding.baseCustomBrandingPatch")
 
         preferenceScreen.addPreferences(
-            ListPreference("revanced_custom_branding_theme")
+            if (customIcon == null) {
+                ListPreference("revanced_custom_branding_icon")
+            } else {
+                ListPreference(
+                    key = "revanced_custom_branding_icon",
+                    entriesKey = "revanced_custom_branding_icon_custom_entries",
+                    entryValuesKey = "revanced_custom_branding_icon_custom_entry_values"
+                )
+            }
         )
 
-        brandingStyles.forEach { style ->
+        iconStyleNames.forEach { style ->
             copyResources(
                 "custom-branding",
                 ResourceGroup(
                     "mipmap-anydpi",
-                    "revanced_launcher_$style.xml",
-                    "revanced_adaptive_background_color_$style.xml",
-                    "revanced_adaptive_foreground_color_$style.xml",
+                    "$LAUNCHER_RESOURCE_NAME_PREFIX$style.xml",
+                    "$LAUNCHER_ADAPTIVE_BACKGROUND_PREFIX$style.xml",
+                    "$LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX$style.xml",
                 ),
                 ResourceGroup(
                     "drawable",
-                    "revanced_adaptive_monochrome_$style.xml"
+                    "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$style.xml"
                 )
             )
+        }
+
+        if (customIcon != null) {
+            copyResources(
+                "custom-branding",
+                ResourceGroup(
+                    "mipmap-anydpi",
+                    "$LAUNCHER_RESOURCE_NAME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml",
+                )
+            )
+
+            // Copy user provided files
+            val iconPathFile = File(customIcon!!.trim())
+
+            if (!iconPathFile.exists()) {
+                throw PatchException(
+                    "The custom icon path cannot be found: " + iconPathFile.absolutePath
+                )
+            }
+
+            if (!iconPathFile.isDirectory) {
+                throw PatchException(
+                    "The custom icon path must be a folder: " + iconPathFile.absolutePath
+                )
+            }
+
+            val sourceFolders = iconPathFile.listFiles { file -> file.isDirectory }
+                ?: throw PatchException("The custom icon path contains no subfolders: " +
+                        iconPathFile.absolutePath)
+
+            val resourceDirectory = get("res")
+            var copiedFiles = false
+
+            // For each source folder, copy the files to the target resource directories.
+            sourceFolders.forEach { dpiSourceFolder ->
+                val targetDpiFolder = resourceDirectory.resolve(dpiSourceFolder.name)
+                if (!targetDpiFolder.exists()) return@forEach
+
+                val customFiles = dpiSourceFolder.listFiles { file ->
+                    file.isFile && file.name in USER_CUSTOM_ADAPTIVE_FILE_NAMES
+                }!!
+
+                if (customFiles.size > 0 && customFiles.size != USER_CUSTOM_ADAPTIVE_FILE_NAMES.size) {
+                    throw PatchException("Must include all required icon files " +
+                            "but only found " + customFiles.map { it.name })
+                }
+
+                customFiles.forEach { imgSourceFile ->
+                    val imgTargetFile = targetDpiFolder.resolve(imgSourceFile.name)
+                    imgSourceFile.copyTo(imgTargetFile)
+
+                    copiedFiles = true
+                }
+            }
+
+            // Copy monochrome if it provided.
+            val monochromeRelativePath = "drawable/$USER_CUSTOM_MONOCHROME_NAME"
+            val monochromeFile = iconPathFile.resolve(monochromeRelativePath)
+            if (monochromeFile.exists()) {
+                monochromeFile.copyTo(resourceDirectory.resolve(monochromeRelativePath))
+                copiedFiles = true
+
+                // Modify custom launcher.xml file to use custom monochrome image.
+                val customLauncherXmlFileName = LAUNCHER_RESOURCE_NAME_PREFIX + CUSTOM_USER_ICON_STYLE_NAME
+                document(
+                    resourceDirectory.resolve(
+                        "mipmap-anydpi/$customLauncherXmlFileName.xml"
+                    ).absolutePath
+                ).use { document ->
+                    (document.getElementsByTagName("monochrome").item(0) as Element).setAttribute(
+                        "android:drawable",
+                        "@drawable/$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME"
+                    )
+                }
+            }
+
+            if (!copiedFiles) {
+                throw PatchException("Could not find any replacement images in " +
+                        "patch option path: " + iconPathFile.absolutePath)
+            }
         }
 
         document("AndroidManifest.xml").use { document ->
             // Change the app name.
             document.childNodes.findElementByAttributeValueOrThrow(
                 "android:label",
-                manifestAppLauncherValue
+                originalAppName
             ).nodeValue = appName!!
 
             // Remove the intent from the main activity since an alias will be used instead.
@@ -146,14 +250,14 @@ internal fun baseCustomBrandingPatch(
 
             fun createAlias(
                 name: String,
-                icon: String,
+                iconMipmapName: String,
                 enabled: Boolean
             ): Element {
                 val alias = document.createElement("activity-alias")
                 alias.setAttribute("android:name", name)
                 alias.setAttribute("android:enabled", enabled.toString())
                 alias.setAttribute("android:exported", "true")
-                alias.setAttribute("android:icon", icon)
+                alias.setAttribute("android:icon", "@mipmap/$iconMipmapName")
                 alias.setAttribute("android:label", appName!!)
                 alias.setAttribute("android:targetActivity", mainActivityName)
 
@@ -170,19 +274,32 @@ internal fun baseCustomBrandingPatch(
                 return alias
             }
 
+            val namePrefix = ".revanced_"
+            val iconResourcePrefix = "revanced_launcher_"
+
             application.appendChild(
                 createAlias(
-                    ".revanced_original",
-                    "@mipmap/$originalLauncherIconName",
+                    namePrefix + "original",
+                    originalLauncherIconName,
                     false
                 )
             )
 
-            brandingStyles.forEachIndexed { index, style ->
+            if (customIcon != null) {
                 application.appendChild(
                     createAlias(
-                        ".revanced_$style",
-                        "@mipmap/revanced_launcher_$style",
+                        namePrefix + CUSTOM_USER_ICON_STYLE_NAME,
+                        iconResourcePrefix + CUSTOM_USER_ICON_STYLE_NAME,
+                        false
+                    )
+                )
+            }
+
+            iconStyleNames.forEachIndexed { index, style ->
+                application.appendChild(
+                    createAlias(
+                        namePrefix + style,
+                        iconResourcePrefix + style,
                         if (index == 0) {
                             true
                         } else {
@@ -192,74 +309,6 @@ internal fun baseCustomBrandingPatch(
                 )
             }
         }
-
-        val iconPathTrimmed = iconPath!!.trim()
-
-//        if (iconPathTrimmed == REVANCED_ICON) {
-        // Copy adaptive icons.
-//        // Copy monochrome icons.
-//        copyResources(
-//            patchResourceFolder,
-//            ResourceGroup("drawable", *monochromeFileNames)
-//        )
-//
-//        } else {
-//            val iconPathFile = File(iconPathTrimmed)
-//            if (!iconPathFile.exists()) {
-//                throw PatchException("The custom icon path cannot be found: " +
-//                        iconPathFile.absolutePath
-//                )
-//            }
-//
-//            if (!iconPathFile.isDirectory) {
-//                throw PatchException("The custom icon path must be a folder: "
-//                        + iconPathFile.absolutePath)
-//            }
-//
-//            val resourceDirectory = get("res")
-//            var replacedResources = false
-//
-//            // Replace mipmap icons.
-//            mipmapDirectories.map { directory ->
-//                ResourceGroup(
-//                    directory,
-//                    *adaptiveMipmapFileNames,
-//                )
-//            }.forEach { groupResources ->
-//                val groupResourceDirectoryName = groupResources.resourceDirectoryName
-//                val fromDirectory = iconPathFile.resolve(groupResourceDirectoryName)
-//                val toDirectory = resourceDirectory.resolve(groupResourceDirectoryName)
-//
-//                groupResources.resources.forEach { iconFileName ->
-//                    val replacement = fromDirectory.resolve(iconFileName)
-//                    if (replacement.exists()) {
-//                        Files.write(
-//                            toDirectory.resolve(iconFileName).toPath(),
-//                            replacement.readBytes(),
-//                        )
-//                        replacedResources = true
-//                    }
-//                }
-//            }
-//
-//            // Replace monochrome icons if provided.
-//            monochromeFileNames.forEach { iconFileName ->
-//                val resourceType = "drawable"
-//                val replacement = iconPathFile.resolve(resourceType).resolve(iconFileName)
-//                if (replacement.exists()) {
-//                    Files.write(
-//                        resourceDirectory.resolve(resourceType).resolve(iconFileName).toPath(),
-//                        replacement.readBytes(),
-//                    )
-//                    replacedResources = true
-//                }
-//            }
-//
-//            if (!replacedResources) {
-//                throw PatchException("Could not find any replacement images in " +
-//                        "patch option path: " + iconPathFile.absolutePath)
-//            }
-//        }
 
         executeBlock() // Must be after the main code to rename the new icons for YouTube 19.34+.
     }

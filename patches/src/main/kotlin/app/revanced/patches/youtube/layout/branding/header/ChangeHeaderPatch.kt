@@ -149,7 +149,7 @@ val changeHeaderPatch = resourcePatch(
             }
 
             val sourceFolders = customFile.listFiles { file -> file.isDirectory }
-                ?: throw PatchException("The custom icon path contains no folders: " +
+                ?: throw PatchException("The custom icon path contains no subfolders: " +
                         customFile.absolutePath)
 
             val customResourceFileNames = getLightDarkFileNames(CUSTOM_HEADER_RESOURCE_NAME)

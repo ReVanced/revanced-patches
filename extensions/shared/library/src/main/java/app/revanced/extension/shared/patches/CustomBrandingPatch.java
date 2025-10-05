@@ -14,46 +14,19 @@ import app.revanced.extension.shared.settings.BaseSettings;
 @SuppressWarnings("unused")
 public class CustomBrandingPatch {
 
-    public enum CustomBrandingTheme {
+    public enum BrandingTheme {
         ORIGINAL("revanced_original"),
         ROUNDED("revanced_rounded"),
         MINIMAL("revanced_minimal"),
-        SCALED("revanced_scaled");
+        SCALED("revanced_scaled"),
+        CUSTOM("revanced_custom");
 
         public final String themeAlias;
 
-        CustomBrandingTheme(String themeAlias) {
+        BrandingTheme(String themeAlias) {
             this.themeAlias = themeAlias;
         }
     }
-
-//    private static final String[] BRANDING_ALIAS_NAMES = new String[] {
-//            ".revanced_default",
-//            ".revanced_rounded",
-//            ".revanced_minimal",
-//            ".revanced_scaled"
-//    };
-//
-//    public static void setAppIcon(Context context, String aliasName) {
-//        PackageManager pm = context.getPackageManager();
-//        String packageName = context.getPackageName();
-//
-//        // Disable all aliases first
-//        for (String alias : BRANDING_ALIAS_NAMES) {
-//            pm.setComponentEnabledSetting(
-//                    new ComponentName(packageName, packageName + alias),
-//                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-//                    PackageManager.DONT_KILL_APP
-//            );
-//        }
-//
-//        // Enable the one you want
-//        pm.setComponentEnabledSetting(
-//                new ComponentName(packageName, packageName + "." + aliasName),
-//                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-//                PackageManager.DONT_KILL_APP
-//        );
-//    }
 
     /**
      * Injection point.
@@ -61,12 +34,12 @@ public class CustomBrandingPatch {
     public static void setBrandingIcon() {
         try {
             Context context = Utils.getContext();
-            CustomBrandingTheme selectedTheme = BaseSettings.CUSTOM_BRANDING_THEME.get();
+            BrandingTheme selectedTheme = BaseSettings.CUSTOM_BRANDING_ICON.get();
 
             PackageManager pm = context.getPackageManager();
             String packageName = context.getPackageName();
 
-            for (CustomBrandingTheme theme : CustomBrandingTheme.values()) {
+            for (BrandingTheme theme : BrandingTheme.values()) {
                 final int enabledDisabledState = theme == selectedTheme
                         ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
                         : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
