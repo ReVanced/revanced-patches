@@ -227,12 +227,6 @@ internal fun baseCustomBrandingPatch(
         }
 
         document("AndroidManifest.xml").use { document ->
-            // Change the app name.
-//            val originalAppName = document.childNodes.findElementByAttributeValueOrThrow(
-//                "android:label",
-//                originalAppName
-//            ).nodeValue
-
             // Remove the intent from the main activity since an alias will be used instead.
             document.childNodes.findElementByAttributeValueOrThrow(
                 "android:name",
@@ -243,9 +237,6 @@ internal fun baseCustomBrandingPatch(
             ).let { intent ->
                 intent.parentNode.removeChild(intent)
             }
-
-            val application = document.getElementsByTagName("application")
-                .item(0) as Element
 
             // Create launch aliases that can be programmatically selected in app.
             fun createAlias(
@@ -277,6 +268,8 @@ internal fun baseCustomBrandingPatch(
 
             val namePrefix = ".revanced_"
             val iconResourcePrefix = "revanced_launcher_"
+            val application = document.getElementsByTagName("application")
+                .item(0) as Element
 
             appNames.forEachIndexed { appNameIndex, appName ->
                 fun aliasName(name: String): String = namePrefix + name + '_' + appNameIndex
@@ -314,6 +307,6 @@ internal fun baseCustomBrandingPatch(
             }
         }
 
-        executeBlock() // Must be after the main code to rename the new icons for YouTube 19.34+.
+        executeBlock()
     }
 }
