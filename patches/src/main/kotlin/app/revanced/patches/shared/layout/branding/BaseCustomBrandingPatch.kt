@@ -45,10 +45,6 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/p
 internal fun baseCustomBrandingPatch(
     defaultAppName: String,
     appNameValues: Map<String, String>,
-    patchResourceFolder: String,
-    adaptiveAnyDpiFileNames: Array<String>,
-    adaptiveMipmapFileNames: Array<String>,
-    monochromeFileNames: Array<String>,
     originalLauncherIconName: String,
     manifestAppLauncherValue: String,
     mainActivityOnCreateFingerprint: Fingerprint,
@@ -82,11 +78,11 @@ internal fun baseCustomBrandingPatch(
             ${formatResourceFileList(mipmapDirectories)}
     
             Each of these folders must contain the following files:
-            ${formatResourceFileList((adaptiveMipmapFileNames))}
+            TODO: {formatResourceFileList((adaptiveMipmapFileNames))}
             
             Optionally, the path can contain a 'drawable' folder with the monochrome icon files:
-            ${formatResourceFileList(monochromeFileNames)}
-        """.trimIndentMultiline(),
+            TODO: {formatResourceFileList(monochromeFileNames)}
+        """.trimIndentMultiline(), // TODO
     )
 
     block()

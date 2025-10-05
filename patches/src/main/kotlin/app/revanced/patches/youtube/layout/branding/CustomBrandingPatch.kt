@@ -1,18 +1,12 @@
 package app.revanced.patches.youtube.layout.branding
 
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
-import app.revanced.patches.shared.layout.branding.mipmapDirectories
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_MAIN_ACTIVITY_NAME
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
-import java.nio.file.Files
 
 private const val APP_NAME = "YouTube ReVanced"
-
-private const val ADAPTIVE_BACKGROUND_RESOURCE_NAME = "adaptiveproduct_youtube_background_color_108"
-private const val ADAPTIVE_FOREGROUND_RESOURCE_NAME = "adaptiveproduct_youtube_foreground_color_108"
-private const val ADAPTIVE_MONOCHROME_RESOURCE_NAME = "adaptive_monochrome_ic_youtube_launcher"
 
 @Suppress("unused")
 val customBrandingPatch = baseCustomBrandingPatch(
@@ -22,18 +16,6 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "YT ReVanced" to "YT ReVanced",
         "YT" to "YT",
         "YouTube" to "YouTube",
-    ),
-    patchResourceFolder = "custom-branding/minimal/youtube", // TODO: Change the icon style to a patch option or an in app setting.
-    adaptiveAnyDpiFileNames = arrayOf(
-        "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.xml",
-        "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.xml",
-    ),
-    adaptiveMipmapFileNames = arrayOf(
-        "$ADAPTIVE_BACKGROUND_RESOURCE_NAME.png",
-        "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.png",
-    ),
-    monochromeFileNames = arrayOf(
-        "$ADAPTIVE_MONOCHROME_RESOURCE_NAME.xml"
     ),
     originalLauncherIconName = "ic_launcher",
     manifestAppLauncherValue = "@string/application_name",
@@ -54,51 +36,4 @@ val customBrandingPatch = baseCustomBrandingPatch(
             )
         )
     }
-) {
-    val resourceDirectory = get("res")
-
-    val newAdaptiveBackgroundResourceName = "adaptiveproduct_youtube_2024_q4_background_color_108"
-    val newAdaptiveForegroundResourceName = "adaptiveproduct_youtube_2024_q4_foreground_color_108"
-    val newAdaptiveMonochromeResourceName = "ringo2_adaptive_monochrome_ic_youtube_launcher"
-
-    // Copy adaptive icon to secondary adaptive file.
-    arrayOf(
-        Triple(
-            "mipmap-anydpi",
-            ADAPTIVE_BACKGROUND_RESOURCE_NAME,
-            newAdaptiveBackgroundResourceName
-        ),
-        Triple(
-            "mipmap-anydpi",
-            ADAPTIVE_FOREGROUND_RESOURCE_NAME,
-            newAdaptiveForegroundResourceName
-        ),
-        Triple(
-            "drawable",
-            ADAPTIVE_MONOCHROME_RESOURCE_NAME,
-            newAdaptiveMonochromeResourceName
-        )
-    ).forEach { (resourceType, old, new) ->
-        val oldFile = resourceDirectory.resolve("$resourceType/$old.xml")
-        if (oldFile.exists()) {
-            val newFile = resourceDirectory.resolve("$resourceType/$new.xml")
-            Files.write(newFile.toPath(), oldFile.readBytes())
-        }
-    }
-
-    // Copy mipmaps to secondary files.
-    mipmapDirectories.forEach { directory ->
-        val targetDirectory = resourceDirectory.resolve(directory)
-
-        arrayOf(
-            ADAPTIVE_BACKGROUND_RESOURCE_NAME to newAdaptiveBackgroundResourceName,
-            ADAPTIVE_FOREGROUND_RESOURCE_NAME to newAdaptiveForegroundResourceName,
-        ).forEach { (old, new) ->
-            val oldFile = targetDirectory.resolve("$old.png")
-            if (oldFile.exists()) {
-                val newFile = targetDirectory.resolve("$new.png")
-                Files.write(newFile.toPath(), oldFile.readBytes())
-            }
-        }
-    }
-}
+)
