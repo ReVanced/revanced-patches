@@ -26,7 +26,8 @@ Second \"item\" text"</string>
             <string name="revanced_custom_branding_icon_entry_2">Rounded</string>
             <string name="revanced_custom_branding_icon_entry_3">Minimal</string>
             <string name="revanced_custom_branding_icon_entry_4">Scaled</string>
-            <string name="revanced_custom_branding_entry_custom">Custom</string>
+            <string name="revanced_custom_branding_icon_entry_5">Custom</string>
+            <string name="revanced_custom_branding_name_entry_5">Custom</string>
             <string name="revanced_custom_branding_name_toast">Branding change successful</string>
         </patch>
         <patch id="misc.checks.checkEnvironmentPatch">

@@ -18,7 +18,7 @@
                 <item>@string/revanced_custom_branding_icon_entry_2</item>
                 <item>@string/revanced_custom_branding_icon_entry_3</item>
                 <item>@string/revanced_custom_branding_icon_entry_4</item>
-                <item>@string/revanced_custom_branding_entry_custom</item>
+                <item>@string/revanced_custom_branding_icon_entry_5</item>
             </string-array>
             <string-array name="revanced_custom_branding_icon_custom_entry_values">
                 <item>ORIGINAL</item>
@@ -155,15 +155,30 @@
             <string-array name="revanced_custom_branding_name_entries">
                 <!-- Original must be first. -->
                 <item>@string/app_launcher_name</item>
-                <item>YT Music ReVanced</item>
-                <item>Music ReVanced</item>
-                <item>Music</item>
+                <item>@string/revanced_custom_branding_name_entry_2</item>
+                <item>@string/revanced_custom_branding_name_entry_3</item>
+                <item>@string/revanced_custom_branding_name_entry_4</item>
             </string-array>
             <string-array name="revanced_custom_branding_name_entry_values">
                 <item>1</item>
                 <item>2</item>
                 <item>3</item>
                 <item>4</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_name_custom_entries">
+                <!-- Original must be first. -->
+                <item>@string/app_launcher_name</item>
+                <item>@string/revanced_custom_branding_name_entry_2</item>
+                <item>@string/revanced_custom_branding_name_entry_3</item>
+                <item>@string/revanced_custom_branding_name_entry_4</item>
+                <item>@string/revanced_custom_branding_name_entry_5</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_name_custom_entry_values">
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+                <item>4</item>
+                <item>5</item>
             </string-array>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
@@ -182,15 +197,30 @@
             <string-array name="revanced_custom_branding_name_entries">
                 <!-- Original must be first. -->
                 <item>@string/application_name</item>
-                <item>YouTube ReVanced</item>
-                <item>YT ReVanced</item>
-                <item>YT</item>
+                <item>@string/revanced_custom_branding_name_entry_2</item>
+                <item>@string/revanced_custom_branding_name_entry_3</item>
+                <item>@string/revanced_custom_branding_name_entry_4</item>
             </string-array>
             <string-array name="revanced_custom_branding_name_entry_values">
                 <item>1</item>
                 <item>2</item>
                 <item>3</item>
                 <item>4</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_name_custom_entries">
+                <!-- Original must be first. -->
+                <item>@string/application_name</item>
+                <item>@string/revanced_custom_branding_name_entry_2</item>
+                <item>@string/revanced_custom_branding_name_entry_3</item>
+                <item>@string/revanced_custom_branding_name_entry_4</item>
+                <item>@string/revanced_custom_branding_name_entry_5</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_name_custom_entry_values">
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+                <item>4</item>
+                <item>5</item>
             </string-array>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">

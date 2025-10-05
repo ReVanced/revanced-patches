@@ -74,7 +74,6 @@ internal fun baseCustomBrandingPatch(
     name = "Custom branding",
     description = "Adds options to change the app icon and app name."
 ) {
-    // TODO: make this work
     val customName by stringOption(
         key = "customName",
         title = "App name",
@@ -118,16 +117,27 @@ internal fun baseCustomBrandingPatch(
         addResources("shared", "layout.branding.baseCustomBrandingPatch")
         addResources(addResourcePatchName, "layout.branding.baseCustomBrandingPatch")
 
+        val useCustomName = customName != null
+        val useCustomIcon = customIcon != null
+
         preferenceScreen.addPreferences(
-            ListPreference("revanced_custom_branding_name"),
-            if (customIcon == null) {
-                ListPreference("revanced_custom_branding_icon")
+            if (useCustomName) {
+                ListPreference(
+                    key = "revanced_custom_branding_name",
+                    entriesKey = "revanced_custom_branding_name_custom_entries",
+                    entryValuesKey = "revanced_custom_branding_name_custom_entry_values"
+                )
             } else {
+                ListPreference("revanced_custom_branding_name")
+            },
+            if (useCustomIcon) {
                 ListPreference(
                     key = "revanced_custom_branding_icon",
                     entriesKey = "revanced_custom_branding_icon_custom_entries",
                     entryValuesKey = "revanced_custom_branding_icon_custom_entry_values"
                 )
+            } else {
+                ListPreference("revanced_custom_branding_icon")
             }
         )
 
@@ -147,7 +157,7 @@ internal fun baseCustomBrandingPatch(
             )
         }
 
-        if (customIcon != null) {
+        if (useCustomIcon) {
             copyResources(
                 "custom-branding",
                 ResourceGroup(
@@ -246,6 +256,7 @@ internal fun baseCustomBrandingPatch(
                 appNameIndex: Int,
                 enabled: Boolean
             ): Element {
+                // Indexing starts at 1.
                 val label = if (appNameIndex == 1) {
                     originalAppName
                 } else {
@@ -277,7 +288,12 @@ internal fun baseCustomBrandingPatch(
             val application = document.getElementsByTagName("application")
                 .item(0) as Element
 
-            for (appNameIndex in 1 .. numberOfPresetAppNames) {
+            var numberOfPresetAppNamesPlusCustom = numberOfPresetAppNames
+            if (useCustomName) {
+                numberOfPresetAppNamesPlusCustom++
+            }
+
+            for (appNameIndex in 1 .. numberOfPresetAppNamesPlusCustom) {
                 fun aliasName(name: String): String = namePrefix + name + '_' + appNameIndex
 
                 application.appendChild(
@@ -285,11 +301,11 @@ internal fun baseCustomBrandingPatch(
                         aliasName(ORIGINAL_USER_ICON_STYLE_NAME),
                         originalLauncherIconName,
                         appNameIndex,
-                        true
+                        appNameIndex == 1
                     )
                 )
 
-                if (customIcon != null) {
+                if (useCustomIcon) {
                     application.appendChild(
                         createAlias(
                             aliasName(CUSTOM_USER_ICON_STYLE_NAME),
