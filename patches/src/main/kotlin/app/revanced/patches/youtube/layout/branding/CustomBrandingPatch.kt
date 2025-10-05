@@ -2,6 +2,10 @@ package app.revanced.patches.youtube.layout.branding
 
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
 import app.revanced.patches.shared.layout.branding.mipmapDirectories
+import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_MAIN_ACTIVITY_NAME
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import java.nio.file.Files
 
 private const val APP_NAME = "YouTube ReVanced"
@@ -31,9 +35,16 @@ val customBrandingPatch = baseCustomBrandingPatch(
     monochromeFileNames = arrayOf(
         "$ADAPTIVE_MONOCHROME_RESOURCE_NAME.xml"
     ),
+    originalLauncherIconName = "ic_launcher",
     manifestAppLauncherValue = "@string/application_name",
+    mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
+    mainActivityName = YOUTUBE_MAIN_ACTIVITY_NAME,
+    activityAliasNameWithIntentToRemove = "com.google.android.youtube.app.honeycomb.Shell\$HomeActivity",
+    preferenceScreen = PreferenceScreen.GENERAL_LAYOUT,
 
     block = {
+        dependsOn(sharedExtensionPatch)
+
         compatibleWith(
             "com.google.android.youtube"(
                 "19.34.42",
@@ -42,54 +53,52 @@ val customBrandingPatch = baseCustomBrandingPatch(
                 "20.14.43",
             )
         )
-    },
+    }
+) {
+    val resourceDirectory = get("res")
 
-    executeBlock = {
-        val resourceDirectory = get("res")
+    val newAdaptiveBackgroundResourceName = "adaptiveproduct_youtube_2024_q4_background_color_108"
+    val newAdaptiveForegroundResourceName = "adaptiveproduct_youtube_2024_q4_foreground_color_108"
+    val newAdaptiveMonochromeResourceName = "ringo2_adaptive_monochrome_ic_youtube_launcher"
 
-        val newAdaptiveBackgroundResourceName = "adaptiveproduct_youtube_2024_q4_background_color_108"
-        val newAdaptiveForegroundResourceName = "adaptiveproduct_youtube_2024_q4_foreground_color_108"
-        val newAdaptiveMonochromeResourceName = "ringo2_adaptive_monochrome_ic_youtube_launcher"
+    // Copy adaptive icon to secondary adaptive file.
+    arrayOf(
+        Triple(
+            "mipmap-anydpi",
+            ADAPTIVE_BACKGROUND_RESOURCE_NAME,
+            newAdaptiveBackgroundResourceName
+        ),
+        Triple(
+            "mipmap-anydpi",
+            ADAPTIVE_FOREGROUND_RESOURCE_NAME,
+            newAdaptiveForegroundResourceName
+        ),
+        Triple(
+            "drawable",
+            ADAPTIVE_MONOCHROME_RESOURCE_NAME,
+            newAdaptiveMonochromeResourceName
+        )
+    ).forEach { (resourceType, old, new) ->
+        val oldFile = resourceDirectory.resolve("$resourceType/$old.xml")
+        if (oldFile.exists()) {
+            val newFile = resourceDirectory.resolve("$resourceType/$new.xml")
+            Files.write(newFile.toPath(), oldFile.readBytes())
+        }
+    }
 
-        // Copy adaptive icon to secondary adaptive file.
+    // Copy mipmaps to secondary files.
+    mipmapDirectories.forEach { directory ->
+        val targetDirectory = resourceDirectory.resolve(directory)
+
         arrayOf(
-            Triple(
-                "mipmap-anydpi",
-                ADAPTIVE_BACKGROUND_RESOURCE_NAME,
-                newAdaptiveBackgroundResourceName
-            ),
-            Triple(
-                "mipmap-anydpi",
-                ADAPTIVE_FOREGROUND_RESOURCE_NAME,
-                newAdaptiveForegroundResourceName
-            ),
-            Triple(
-                "drawable",
-                ADAPTIVE_MONOCHROME_RESOURCE_NAME,
-                newAdaptiveMonochromeResourceName
-            )
-        ).forEach { (resourceType, old, new) ->
-            val oldFile = resourceDirectory.resolve("$resourceType/$old.xml")
+            ADAPTIVE_BACKGROUND_RESOURCE_NAME to newAdaptiveBackgroundResourceName,
+            ADAPTIVE_FOREGROUND_RESOURCE_NAME to newAdaptiveForegroundResourceName,
+        ).forEach { (old, new) ->
+            val oldFile = targetDirectory.resolve("$old.png")
             if (oldFile.exists()) {
-                val newFile = resourceDirectory.resolve("$resourceType/$new.xml")
+                val newFile = targetDirectory.resolve("$new.png")
                 Files.write(newFile.toPath(), oldFile.readBytes())
             }
         }
-
-        // Copy mipmaps to secondary files.
-        mipmapDirectories.forEach { directory ->
-            val targetDirectory = resourceDirectory.resolve(directory)
-
-            arrayOf(
-                ADAPTIVE_BACKGROUND_RESOURCE_NAME to newAdaptiveBackgroundResourceName,
-                ADAPTIVE_FOREGROUND_RESOURCE_NAME to newAdaptiveForegroundResourceName,
-            ).forEach { (old, new) ->
-                val oldFile = targetDirectory.resolve("$old.png")
-                if (oldFile.exists()) {
-                    val newFile = targetDirectory.resolve("$new.png")
-                    Files.write(newFile.toPath(), oldFile.readBytes())
-                }
-            }
-        }
     }
-)
+}

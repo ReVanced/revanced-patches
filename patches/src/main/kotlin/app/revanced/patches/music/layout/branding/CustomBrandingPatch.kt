@@ -4,6 +4,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.music.misc.extension.sharedExtensionPatch
+import app.revanced.patches.music.misc.gms.Constants.MUSIC_MAIN_ACTIVITY_NAME
+import app.revanced.patches.music.misc.gms.musicActivityOnCreateFingerprint
+import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -74,10 +78,18 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.png"
     ),
     monochromeFileNames = arrayOf("ic_app_icons_themed_youtube_music.xml"),
+    originalLauncherIconName = "ic_launcher_release",
     manifestAppLauncherValue = "@string/app_launcher_name",
+    mainActivityOnCreateFingerprint = musicActivityOnCreateFingerprint,
+    mainActivityName = MUSIC_MAIN_ACTIVITY_NAME,
+    activityAliasNameWithIntentToRemove = MUSIC_MAIN_ACTIVITY_NAME,
+    preferenceScreen = PreferenceScreen.GENERAL,
 
     block = {
-        dependsOn(disableSplashAnimationPatch)
+        dependsOn(
+            sharedExtensionPatch,
+            disableSplashAnimationPatch
+        )
 
         compatibleWith(
             "com.google.android.apps.youtube.music"(

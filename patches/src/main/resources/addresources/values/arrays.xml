@@ -1,5 +1,19 @@
 <resources>
     <app id="shared">
+        <patch id="layout.branding.baseCustomBrandingPatch">
+            <string-array name="revanced_custom_branding_theme_entries">
+                <item>@string/revanced_custom_branding_theme_entry_1</item>
+                <item>@string/revanced_custom_branding_theme_entry_2</item>
+                <item>@string/revanced_custom_branding_theme_entry_3</item>
+                <item>@string/revanced_custom_branding_theme_entry_4</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_theme_entry_values">
+                <item>ORIGINAL</item>
+                <item>ROUNDED</item>
+                <item>MINIMAL</item>
+                <item>SCALED</item>
+            </string-array>
+        </patch>
         <patch id="misc.settings.settingsResourcePatch">
             <string-array name="revanced_language_entries">
                 <item>@string/revanced_language_DEFAULT</item>
