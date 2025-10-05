@@ -1,7 +1,5 @@
 package app.revanced.extension.shared.patches;
 
-import static app.revanced.extension.shared.StringRef.str;
-
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -59,8 +57,7 @@ public class CustomBrandingPatch {
             BrandingTheme selectedBranding = BaseSettings.CUSTOM_BRANDING_ICON.get();
             final int selectedNameIndex = BaseSettings.CUSTOM_BRANDING_NAME.get();
             final boolean customIconIncluded = customIconIncluded();
-            boolean toastShown = false;
-            boolean foundMatchingSettingAlias = false;
+            ComponentName componentToEnable = null;
 
             for (int index = 1, maxIndex = numberOfCustomNames(); index <= maxIndex; index++) {
                 for (BrandingTheme theme : BrandingTheme.values()) {
@@ -71,32 +68,33 @@ public class CustomBrandingPatch {
                     String aliasClass = packageName + '.' + theme.themeAlias + '_' + index;
                     ComponentName component = new ComponentName(packageName, aliasClass);
 
-                    // Check if the state is different, and show a toast if so.
-                    // Changing the active alias causes the app to restart,
-                    // which can be mistaken for a crash so show a toast to be clear.
-                    final int currentState = pm.getComponentEnabledSetting(component);
-                    final boolean matchesSettingsAlias = theme == selectedBranding && index == selectedNameIndex;
-                    final int desiredState = matchesSettingsAlias
-                            ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-                            : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
-                    if (matchesSettingsAlias) {
-                        foundMatchingSettingAlias = true;
+                    final boolean aliasMatchesSettings = theme == selectedBranding && index == selectedNameIndex;
+                    if (aliasMatchesSettings) {
+                        componentToEnable = component;
                     }
 
+                    final int desiredState = aliasMatchesSettings
+                            ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+                            : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+                    final int currentState = pm.getComponentEnabledSetting(component);
                     if (currentState != desiredState) {
-                        if (!toastShown) {
-                            toastShown = true;
-                            Utils.showToastShort(str("revanced_custom_branding_name_toast"));
+                        // First turn off all aliases, then turn on what is needed.
+                        // This is required otherwise the app can shutdown instead of restarting
+                        // leaving the aliases in a corrupted and conflicting state.
+                        if (desiredState == PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
+                            // Don't allow the app to be killed.
+                            pm.setComponentEnabledSetting(component, desiredState, PackageManager.DONT_KILL_APP);
                         }
-
-                        pm.setComponentEnabledSetting(component, desiredState, 0);
                     }
                 }
             }
 
-            if (!foundMatchingSettingAlias) {
+            if (componentToEnable != null) {
+                pm.setComponentEnabledSetting(componentToEnable,
+                        PackageManager.COMPONENT_ENABLED_STATE_ENABLED, 0);
+            } else {
                 // Settings are for custom user icons but no user icons are present.
-                Utils.showToastLong("Resetting to default branding");
+                Utils.showToastLong("Resetting to default custom branding");
                 BaseSettings.CUSTOM_BRANDING_ICON.resetToDefault();
                 BaseSettings.CUSTOM_BRANDING_NAME.resetToDefault();
                 setBrandingIcon();

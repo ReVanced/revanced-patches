@@ -21,14 +21,13 @@ Second \"item\" text"</string>
     <app id="shared">
         <patch id="layout.branding.baseCustomBrandingPatch">
             <string name="revanced_custom_branding_name_title">App name</string>
+            <string name="revanced_custom_branding_name_entry_5">Custom</string>
             <string name="revanced_custom_branding_icon_title">App icon</string>
             <string name="revanced_custom_branding_icon_entry_1">Original</string>
             <string name="revanced_custom_branding_icon_entry_2">Rounded</string>
             <string name="revanced_custom_branding_icon_entry_3">Minimal</string>
             <string name="revanced_custom_branding_icon_entry_4">Scaled</string>
             <string name="revanced_custom_branding_icon_entry_5">Custom</string>
-            <string name="revanced_custom_branding_name_entry_5">Custom</string>
-            <string name="revanced_custom_branding_name_toast">Branding change successful</string>
         </patch>
         <patch id="misc.checks.checkEnvironmentPatch">
             <string name="revanced_check_environment_failed_title">Checks failed</string>
