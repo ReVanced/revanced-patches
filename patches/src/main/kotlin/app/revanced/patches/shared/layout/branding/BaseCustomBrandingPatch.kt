@@ -112,7 +112,9 @@ internal fun baseCustomBrandingPatch(
                 if (customName != null) {
                     totalNamePresets++
                 }
-                customNameIncludedFingerprint.method.returnEarly(totalNamePresets)
+
+                customNumberOfNamesIncludingDummyAliasesFingerprint.method.returnEarly(numberOfPresetAppNames + 1)
+                customNumberOfNamesFingerprint.method.returnEarly(totalNamePresets)
                 customIconIncludedFingerprint.method.returnEarly(customIcon != null)
             }
         }
@@ -162,15 +164,30 @@ internal fun baseCustomBrandingPatch(
             )
         }
 
-        if (useCustomIcon) {
+        // Copy template user icon, because the aliases must be added even if no user icon is provided.
+        copyResources(
+            "custom-branding",
+            ResourceGroup(
+                "mipmap-anydpi",
+                "$LAUNCHER_RESOURCE_NAME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml",
+            ),
+            ResourceGroup(
+                "drawable",
+                "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml",
+            )
+        )
+        mipmapDirectories.forEach { dpi ->
             copyResources(
                 "custom-branding",
                 ResourceGroup(
-                    "mipmap-anydpi",
-                    "$LAUNCHER_RESOURCE_NAME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml",
+                    dpi,
+                    "$LAUNCHER_ADAPTIVE_BACKGROUND_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.png",
+                    "$LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.png",
                 )
             )
+        }
 
+        if (useCustomIcon) {
             // Copy user provided files
             val iconPathFile = File(customIcon!!.trim())
 
@@ -209,7 +226,7 @@ internal fun baseCustomBrandingPatch(
 
                 customFiles.forEach { imgSourceFile ->
                     val imgTargetFile = targetDpiFolder.resolve(imgSourceFile.name)
-                    imgSourceFile.copyTo(imgTargetFile)
+                    imgSourceFile.copyTo(target = imgTargetFile, overwrite = true)
 
                     copiedFiles = true
                 }
@@ -219,21 +236,11 @@ internal fun baseCustomBrandingPatch(
             val monochromeRelativePath = "drawable/$USER_CUSTOM_MONOCHROME_NAME"
             val monochromeFile = iconPathFile.resolve(monochromeRelativePath)
             if (monochromeFile.exists()) {
-                monochromeFile.copyTo(resourceDirectory.resolve(monochromeRelativePath))
+                monochromeFile.copyTo(
+                    target = resourceDirectory.resolve(monochromeRelativePath),
+                    overwrite = true
+                )
                 copiedFiles = true
-
-                // Modify custom launcher.xml file to use custom monochrome image.
-                val customLauncherXmlFileName = LAUNCHER_RESOURCE_NAME_PREFIX + CUSTOM_USER_ICON_STYLE_NAME
-                document(
-                    resourceDirectory.resolve(
-                        "mipmap-anydpi/$customLauncherXmlFileName.xml"
-                    ).absolutePath
-                ).use { document ->
-                    (document.getElementsByTagName("monochrome").item(0) as Element).setAttribute(
-                        "android:drawable",
-                        "@drawable/$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME"
-                    )
-                }
             }
 
             if (!copiedFiles) {
@@ -263,7 +270,11 @@ internal fun baseCustomBrandingPatch(
                 enabled: Boolean
             ): Element {
                 val label = if (useCustomName) {
-                    customName!!
+                    if (customName == null) {
+                        "Custom" // Dummy text, and normally cannot be seen.
+                    } else {
+                        customName!!
+                    }
                 } else if (appNameIndex == 1) {
                     // Indexing starts at 1.
                     originalAppName
@@ -296,15 +307,11 @@ internal fun baseCustomBrandingPatch(
             val application = document.getElementsByTagName("application")
                 .item(0) as Element
 
-            var numberOfPresetAppNamesPlusCustom = numberOfPresetAppNames
-            if (useCustomName) {
-                numberOfPresetAppNamesPlusCustom++
-            }
-
+            val numberOfPresetAppNamesPlusCustom = numberOfPresetAppNames + 1
             for (appNameIndex in 1 .. numberOfPresetAppNamesPlusCustom) {
-                val useCustomNameLabel = (useCustomName && appNameIndex == numberOfPresetAppNamesPlusCustom)
-
                 fun aliasName(name: String): String = namePrefix + name + '_' + appNameIndex
+
+                val useCustomNameLabel = (useCustomName && appNameIndex == numberOfPresetAppNamesPlusCustom)
 
                 application.appendChild(
                     createAlias(
@@ -312,7 +319,7 @@ internal fun baseCustomBrandingPatch(
                         iconMipmapName = originalLauncherIconName,
                         appNameIndex = appNameIndex,
                         useCustomName = useCustomNameLabel,
-                        enabled = appNameIndex == 1
+                        enabled = (appNameIndex == 1)
                     )
                 )
 
@@ -328,17 +335,21 @@ internal fun baseCustomBrandingPatch(
                     )
                 }
 
-                if (useCustomIcon) {
-                    application.appendChild(
-                        createAlias(
-                            aliasName = aliasName(CUSTOM_USER_ICON_STYLE_NAME),
-                            iconMipmapName = iconResourcePrefix + CUSTOM_USER_ICON_STYLE_NAME,
-                            appNameIndex = appNameIndex,
-                            useCustomName = useCustomNameLabel,
-                            enabled = false
-                        )
+                // Must add all aliases even if the user did not provide option values.
+                // This is because if the user installs with an option, then repatches without the option,
+                // the alias must still exist because if it was previously enabled and then it's removed,
+                // the app will become broken and cannot launch. Even if the app data is cleared,
+                // it still cannot be launched. The only fix is to uninstall the app.
+                // To prevent this, always include all prior aliases and use dummy data if needed.
+                application.appendChild(
+                    createAlias(
+                        aliasName = aliasName(CUSTOM_USER_ICON_STYLE_NAME),
+                        iconMipmapName = iconResourcePrefix + CUSTOM_USER_ICON_STYLE_NAME,
+                        appNameIndex = appNameIndex,
+                        useCustomName = useCustomNameLabel,
+                        enabled = false
                     )
-                }
+                )
             }
         }
 
