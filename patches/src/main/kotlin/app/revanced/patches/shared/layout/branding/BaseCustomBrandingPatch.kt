@@ -17,6 +17,7 @@ import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.returnEarly
 import org.w3c.dom.Element
 import java.io.File
 
@@ -30,14 +31,12 @@ internal val mipmapDirectories = arrayOf(
 )
 
 private val iconStyleNames = arrayOf(
-    "minimal", // First declared is the default.
     "rounded",
+    "minimal",
     "scaled"
 )
 
-/**
- * Custom icon resource/file name.
- */
+private const val ORIGINAL_USER_ICON_STYLE_NAME = "original"
 private const val CUSTOM_USER_ICON_STYLE_NAME = "custom"
 
 private const val LAUNCHER_RESOURCE_NAME_PREFIX = "revanced_launcher_"
@@ -55,15 +54,14 @@ private const val USER_CUSTOM_MONOCHROME_NAME =
 
 private fun formatResourceFileList(resourceNames: Array<String>) = resourceNames.joinToString("\n") { "- $it" }
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/patches/CustomBrandingPatch;"
+internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/patches/CustomBrandingPatch;"
 
 /**
  * Shared custom branding patch for YouTube and YT Music.
  */
 internal fun baseCustomBrandingPatch(
-    defaultAppName: String,
-    appNameValues: Map<String, String>,
-    originalAppName: String,
+    appNames: Array<String>,
+    addResourcePatchName: String,
     originalLauncherIconName: String,
     mainActivityOnCreateFingerprint: Fingerprint,
     mainActivityName: String,
@@ -73,15 +71,13 @@ internal fun baseCustomBrandingPatch(
     executeBlock: ResourcePatchContext.() -> Unit = {}
 ): ResourcePatch = resourcePatch(
     name = "Custom branding",
-    description = "Applies a custom app name and icon. Defaults to \"$defaultAppName\" and the ReVanced logo.",
-    use = false,
+    description = "Adds options to change the app icon and app name."
 ) {
-    val appName by stringOption(
-        key = "appName",
-        default = defaultAppName,
-        values = appNameValues,
+    // TODO: make this work
+    val customName by stringOption(
+        key = "customName",
         title = "App name",
-        description = "The name of the app."
+        description = "Custom app name."
     )
 
     val customIcon by stringOption(
@@ -111,14 +107,18 @@ internal fun baseCustomBrandingPatch(
                     0,
                     "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->setBrandingIcon()V"
                 )
+
+                customIconIncludedFingerprint.method.returnEarly(customIcon != null)
             }
         }
     )
 
     execute {
         addResources("shared", "layout.branding.baseCustomBrandingPatch")
+        addResources(addResourcePatchName, "layout.branding.baseCustomBrandingPatch")
 
         preferenceScreen.addPreferences(
+            ListPreference("revanced_custom_branding_name"),
             if (customIcon == null) {
                 ListPreference("revanced_custom_branding_icon")
             } else {
@@ -228,10 +228,10 @@ internal fun baseCustomBrandingPatch(
 
         document("AndroidManifest.xml").use { document ->
             // Change the app name.
-            document.childNodes.findElementByAttributeValueOrThrow(
-                "android:label",
-                originalAppName
-            ).nodeValue = appName!!
+//            val originalAppName = document.childNodes.findElementByAttributeValueOrThrow(
+//                "android:label",
+//                originalAppName
+//            ).nodeValue
 
             // Remove the intent from the main activity since an alias will be used instead.
             document.childNodes.findElementByAttributeValueOrThrow(
@@ -244,21 +244,22 @@ internal fun baseCustomBrandingPatch(
                 intent.parentNode.removeChild(intent)
             }
 
-            // Create launch aliases that can be programmatically selected in app.
             val application = document.getElementsByTagName("application")
                 .item(0) as Element
 
+            // Create launch aliases that can be programmatically selected in app.
             fun createAlias(
-                name: String,
+                aliasName: String,
                 iconMipmapName: String,
+                appName: String,
                 enabled: Boolean
             ): Element {
                 val alias = document.createElement("activity-alias")
-                alias.setAttribute("android:name", name)
+                alias.setAttribute("android:name", aliasName)
                 alias.setAttribute("android:enabled", enabled.toString())
                 alias.setAttribute("android:exported", "true")
                 alias.setAttribute("android:icon", "@mipmap/$iconMipmapName")
-                alias.setAttribute("android:label", appName!!)
+                alias.setAttribute("android:label", appName)
                 alias.setAttribute("android:targetActivity", mainActivityName)
 
                 val intentFilter = document.createElement("intent-filter")
@@ -277,36 +278,39 @@ internal fun baseCustomBrandingPatch(
             val namePrefix = ".revanced_"
             val iconResourcePrefix = "revanced_launcher_"
 
-            application.appendChild(
-                createAlias(
-                    namePrefix + "original",
-                    originalLauncherIconName,
-                    false
-                )
-            )
+            appNames.forEachIndexed { appNameIndex, appName ->
+                fun aliasName(name: String): String = namePrefix + name + '_' + appNameIndex
 
-            if (customIcon != null) {
                 application.appendChild(
                     createAlias(
-                        namePrefix + CUSTOM_USER_ICON_STYLE_NAME,
-                        iconResourcePrefix + CUSTOM_USER_ICON_STYLE_NAME,
-                        false
+                        aliasName(ORIGINAL_USER_ICON_STYLE_NAME),
+                        originalLauncherIconName,
+                        appName,
+                        true
                     )
                 )
-            }
 
-            iconStyleNames.forEachIndexed { index, style ->
-                application.appendChild(
-                    createAlias(
-                        namePrefix + style,
-                        iconResourcePrefix + style,
-                        if (index == 0) {
-                            true
-                        } else {
+                if (customIcon != null) {
+                    application.appendChild(
+                        createAlias(
+                            aliasName(CUSTOM_USER_ICON_STYLE_NAME),
+                            iconResourcePrefix + CUSTOM_USER_ICON_STYLE_NAME,
+                            appName,
                             false
-                        }
+                        )
                     )
-                )
+                }
+
+                iconStyleNames.forEachIndexed { index, style ->
+                    application.appendChild(
+                        createAlias(
+                            aliasName(style),
+                            iconResourcePrefix + style,
+                            appName,
+                            false,
+                        )
+                    )
+                }
             }
         }
 

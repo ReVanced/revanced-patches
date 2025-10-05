@@ -43,4 +43,5 @@ public class BaseSettings {
     public static final BooleanSetting CHECK_WATCH_HISTORY_DOMAIN_NAME = new BooleanSetting("revanced_check_watch_history_domain_name", TRUE, false, false);
 
     public static final EnumSetting<BrandingTheme> CUSTOM_BRANDING_ICON = new EnumSetting<>("revanced_custom_branding_icon", BrandingTheme.MINIMAL, true);
+    public static final IntegerSetting CUSTOM_BRANDING_NAME = new IntegerSetting("revanced_custom_branding_name", 0, true);
 }

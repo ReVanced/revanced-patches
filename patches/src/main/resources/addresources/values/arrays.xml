@@ -151,6 +151,20 @@
         </patch>
     </app>
     <app id="music">
+        <patch id="layout.branding.baseCustomBrandingPatch">
+            <string-array name="revanced_custom_branding_name_entries">
+                <item>@string/app_launcher_name</item>
+                <item>YT Music ReVanced</item>
+                <item>Music ReVanced</item>
+                <item>Music</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_name_entry_values">
+                <item>0</item>
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+            </string-array>
+        </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string-array name="revanced_spoof_video_streams_client_type_entries">
                 <item>Android VR</item>
@@ -163,6 +177,20 @@
         </patch>
     </app>
     <app id="youtube">
+        <patch id="layout.branding.baseCustomBrandingPatch">
+            <string-array name="revanced_custom_branding_name_entries">
+                <item>@string/application_name</item>
+                <item>YouTube ReVanced</item>
+                <item>YT ReVanced</item>
+                <item>YT</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_name_entry_values">
+                <item>0</item>
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+            </string-array>
+        </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string-array name="revanced_spoof_video_streams_client_type_entries">
                 <item>Android VR 1.43</item>

@@ -6,18 +6,17 @@ import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_MAIN_ACTIVITY_NAM
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
-private const val APP_NAME = "YouTube ReVanced"
-
 @Suppress("unused")
 val customBrandingPatch = baseCustomBrandingPatch(
-    defaultAppName = APP_NAME,
-    appNameValues = mapOf(
-        "YouTube ReVanced" to APP_NAME,
-        "YT ReVanced" to "YT ReVanced",
-        "YT" to "YT",
-        "YouTube" to "YouTube",
+    // App names are duplicated in arrays.xml
+    // Could refactor this so base custom patches adds the array data.
+    appNames = arrayOf(
+        "@string/application_name",
+        "YouTube ReVanced",
+        "YT ReVanced",
+        "YT"
     ),
-    originalAppName = "@string/application_name",
+    addResourcePatchName = "youtube",
     originalLauncherIconName = "ic_launcher",
     mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
     mainActivityName = YOUTUBE_MAIN_ACTIVITY_NAME,
