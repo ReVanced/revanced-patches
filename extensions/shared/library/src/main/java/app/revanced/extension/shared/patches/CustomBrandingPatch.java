@@ -60,8 +60,7 @@ public class CustomBrandingPatch {
             final int selectedNameIndex = BaseSettings.CUSTOM_BRANDING_NAME.get();
             final boolean customIconIncluded = customIconIncluded();
             boolean toastShown = false;
-            boolean foundSettingAlias = false;
-
+            boolean foundMatchingSettingAlias = false;
 
             for (int index = 1, maxIndex = numberOfCustomNames(); index <= maxIndex; index++) {
                 for (BrandingTheme theme : BrandingTheme.values()) {
@@ -81,7 +80,7 @@ public class CustomBrandingPatch {
                             ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
                             : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
                     if (matchesSettingsAlias) {
-                        foundSettingAlias = true;
+                        foundMatchingSettingAlias = true;
                     }
 
                     if (currentState != desiredState) {
@@ -90,12 +89,12 @@ public class CustomBrandingPatch {
                             Utils.showToastShort(str("revanced_custom_branding_name_toast"));
                         }
 
-                        pm.setComponentEnabledSetting(component, desiredState, PackageManager.DONT_KILL_APP);
+                        pm.setComponentEnabledSetting(component, desiredState, 0);
                     }
                 }
             }
 
-            if (!foundSettingAlias) {
+            if (!foundMatchingSettingAlias) {
                 // Settings are for custom user icons but no user icons are present.
                 Utils.showToastLong("Resetting to default branding");
                 BaseSettings.CUSTOM_BRANDING_ICON.resetToDefault();
