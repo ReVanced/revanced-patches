@@ -108,6 +108,11 @@ internal fun baseCustomBrandingPatch(
                     "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->setBrandingIcon()V"
                 )
 
+                var totalNamePresets = numberOfPresetAppNames
+                if (customName != null) {
+                    totalNamePresets++
+                }
+                customNameIncludedFingerprint.method.returnEarly(totalNamePresets)
                 customIconIncludedFingerprint.method.returnEarly(customIcon != null)
             }
         }

@@ -1,7 +1,6 @@
 package app.revanced.extension.shared.patches;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.getResourceStringArray;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -22,7 +21,7 @@ public class CustomBrandingPatch {
         ROUNDED("revanced_rounded"),
         MINIMAL("revanced_minimal"),
         SCALED("revanced_scaled"),
-        /** User provided custom icon */
+        /** User provided custom icon. */
         CUSTOM("revanced_custom");
 
         public final String themeAlias;
@@ -43,43 +42,47 @@ public class CustomBrandingPatch {
     /**
      * Injection point.
      */
+    private static int numberOfCustomNames() {
+        // Modified during patching.
+        throw new IllegalStateException();
+    }
+
+    /**
+     * Injection point.
+     */
     public static void setBrandingIcon() {
         try {
             Context context = Utils.getContext();
             PackageManager pm = context.getPackageManager();
             String packageName = context.getPackageName();
 
-            BrandingTheme selectedTheme = BaseSettings.CUSTOM_BRANDING_ICON.get();
-            String nameIndex = BaseSettings.CUSTOM_BRANDING_NAME.get().toString();
-            String[] nameIndexValues = getResourceStringArray(
-                    "revanced_custom_branding_name_entry_values");
-
+            BrandingTheme selectedBranding = BaseSettings.CUSTOM_BRANDING_ICON.get();
+            final int selectedNameIndex = BaseSettings.CUSTOM_BRANDING_NAME.get();
             final boolean customIconIncluded = customIconIncluded();
             boolean toastShown = false;
             boolean foundSettingAlias = false;
 
-            for (String nameValue : nameIndexValues) {
+
+            for (int index = 1, maxIndex = numberOfCustomNames(); index <= maxIndex; index++) {
                 for (BrandingTheme theme : BrandingTheme.values()) {
                     if (!customIconIncluded && theme == BrandingTheme.CUSTOM) {
                         continue;
                     }
 
-                    String aliasClass = packageName + '.' + theme.themeAlias + '_' + nameValue;
+                    String aliasClass = packageName + '.' + theme.themeAlias + '_' + index;
                     ComponentName component = new ComponentName(packageName, aliasClass);
 
                     // Check if the state is different, and show a toast if so.
                     // Changing the active alias causes the app to restart,
                     // which can be mistaken for a crash so show a toast to be clear.
                     final int currentState = pm.getComponentEnabledSetting(component);
-                    final boolean matchesSettingsAlias = theme == selectedTheme && nameValue.equals(nameIndex);
+                    final boolean matchesSettingsAlias = theme == selectedBranding && index == selectedNameIndex;
                     final int desiredState = matchesSettingsAlias
                             ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
                             : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
                     if (matchesSettingsAlias) {
                         foundSettingAlias = true;
                     }
-
-                    Logger.printDebug(() -> "aliasClass: " + aliasClass + " currentState: " + currentState + " desiredState: " + desiredState);
 
                     if (currentState != desiredState) {
                         if (!toastShown) {
