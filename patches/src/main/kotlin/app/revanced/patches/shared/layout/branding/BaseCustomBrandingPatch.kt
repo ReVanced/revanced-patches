@@ -60,9 +60,10 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/
  * Shared custom branding patch for YouTube and YT Music.
  */
 internal fun baseCustomBrandingPatch(
-    appNames: Array<String>,
     addResourcePatchName: String,
     originalLauncherIconName: String,
+    originalAppName: String,
+    numberOfPresetAppNames: Int,
     mainActivityOnCreateFingerprint: Fingerprint,
     mainActivityName: String,
     activityAliasNameWithIntentToRemove: String,
@@ -242,15 +243,20 @@ internal fun baseCustomBrandingPatch(
             fun createAlias(
                 aliasName: String,
                 iconMipmapName: String,
-                appName: String,
+                appNameIndex: Int,
                 enabled: Boolean
             ): Element {
+                val label = if (appNameIndex == 1) {
+                    originalAppName
+                } else {
+                    "@string/revanced_custom_branding_name_entry_$appNameIndex"
+                }
                 val alias = document.createElement("activity-alias")
                 alias.setAttribute("android:name", aliasName)
                 alias.setAttribute("android:enabled", enabled.toString())
                 alias.setAttribute("android:exported", "true")
                 alias.setAttribute("android:icon", "@mipmap/$iconMipmapName")
-                alias.setAttribute("android:label", appName)
+                alias.setAttribute("android:label",label)
                 alias.setAttribute("android:targetActivity", mainActivityName)
 
                 val intentFilter = document.createElement("intent-filter")
@@ -271,14 +277,14 @@ internal fun baseCustomBrandingPatch(
             val application = document.getElementsByTagName("application")
                 .item(0) as Element
 
-            appNames.forEachIndexed { appNameIndex, appName ->
+            for (appNameIndex in 1 .. numberOfPresetAppNames) {
                 fun aliasName(name: String): String = namePrefix + name + '_' + appNameIndex
 
                 application.appendChild(
                     createAlias(
                         aliasName(ORIGINAL_USER_ICON_STYLE_NAME),
                         originalLauncherIconName,
-                        appName,
+                        appNameIndex,
                         true
                     )
                 )
@@ -288,7 +294,7 @@ internal fun baseCustomBrandingPatch(
                         createAlias(
                             aliasName(CUSTOM_USER_ICON_STYLE_NAME),
                             iconResourcePrefix + CUSTOM_USER_ICON_STYLE_NAME,
-                            appName,
+                            appNameIndex,
                             false
                         )
                     )
@@ -299,7 +305,7 @@ internal fun baseCustomBrandingPatch(
                         createAlias(
                             aliasName(style),
                             iconResourcePrefix + style,
-                            appName,
+                            appNameIndex,
                             false,
                         )
                     )

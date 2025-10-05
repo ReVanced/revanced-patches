@@ -56,16 +56,10 @@ private val disableSplashAnimationPatch = bytecodePatch {
 
 @Suppress("unused")
 val customBrandingPatch = baseCustomBrandingPatch(
-    // App names are duplicated in arrays.xml
-    // Could refactor this so base custom patches adds the array data.
-    appNames = arrayOf(
-        "@string/app_launcher_name",
-        "YT Music ReVanced",
-        "Music ReVanced",
-        "Music",
-    ),
     addResourcePatchName = "music",
     originalLauncherIconName = "ic_launcher_release",
+    originalAppName = "@string/app_launcher_name",
+    numberOfPresetAppNames = 4,
     mainActivityOnCreateFingerprint = musicActivityOnCreateFingerprint,
     mainActivityName = MUSIC_MAIN_ACTIVITY_NAME,
     activityAliasNameWithIntentToRemove = MUSIC_MAIN_ACTIVITY_NAME,

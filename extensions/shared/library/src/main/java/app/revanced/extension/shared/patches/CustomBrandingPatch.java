@@ -80,7 +80,7 @@ public class CustomBrandingPatch {
                             Utils.showToastShort(str("revanced_custom_branding_name_toast"));
                         }
 
-                        pm.setComponentEnabledSetting(component, desiredState, 0);
+                        pm.setComponentEnabledSetting(component, desiredState, PackageManager.DONT_KILL_APP);
                     }
                 }
             }

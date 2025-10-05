@@ -8,16 +8,10 @@ import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
 @Suppress("unused")
 val customBrandingPatch = baseCustomBrandingPatch(
-    // App names are duplicated in arrays.xml
-    // Could refactor this so base custom patches adds the array data.
-    appNames = arrayOf(
-        "@string/application_name",
-        "YouTube ReVanced",
-        "YT ReVanced",
-        "YT"
-    ),
     addResourcePatchName = "youtube",
     originalLauncherIconName = "ic_launcher",
+    originalAppName = "@string/application_name",
+    numberOfPresetAppNames = 4,
     mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
     mainActivityName = YOUTUBE_MAIN_ACTIVITY_NAME,
     activityAliasNameWithIntentToRemove = "com.google.android.youtube.app.honeycomb.Shell\$HomeActivity",

@@ -18,7 +18,7 @@
                 <item>@string/revanced_custom_branding_icon_entry_2</item>
                 <item>@string/revanced_custom_branding_icon_entry_3</item>
                 <item>@string/revanced_custom_branding_icon_entry_4</item>
-                <item>@string/revanced_custom_branding_icon_entry_5</item>
+                <item>@string/revanced_custom_branding_entry_custom</item>
             </string-array>
             <string-array name="revanced_custom_branding_icon_custom_entry_values">
                 <item>ORIGINAL</item>
@@ -160,10 +160,10 @@
                 <item>Music</item>
             </string-array>
             <string-array name="revanced_custom_branding_name_entry_values">
-                <item>0</item>
                 <item>1</item>
                 <item>2</item>
                 <item>3</item>
+                <item>4</item>
             </string-array>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
@@ -187,10 +187,10 @@
                 <item>YT</item>
             </string-array>
             <string-array name="revanced_custom_branding_name_entry_values">
-                <item>0</item>
                 <item>1</item>
                 <item>2</item>
                 <item>3</item>
+                <item>4</item>
             </string-array>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
