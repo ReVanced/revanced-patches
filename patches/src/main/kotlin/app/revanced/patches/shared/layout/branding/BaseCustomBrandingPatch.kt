@@ -242,6 +242,7 @@ internal fun baseCustomBrandingPatch(
             }
         }
 
+        // Create launch aliases that can be programmatically selected in app.
         document("AndroidManifest.xml").use { document ->
             // Remove the intent from the main activity since an alias will be used instead.
             document.childNodes.findElementByAttributeValueOrThrow(
@@ -254,15 +255,17 @@ internal fun baseCustomBrandingPatch(
                 intent.parentNode.removeChild(intent)
             }
 
-            // Create launch aliases that can be programmatically selected in app.
             fun createAlias(
                 aliasName: String,
                 iconMipmapName: String,
                 appNameIndex: Int,
+                useCustomName: Boolean,
                 enabled: Boolean
             ): Element {
-                // Indexing starts at 1.
-                val label = if (appNameIndex == 1) {
+                val label = if (useCustomName) {
+                    customName!!
+                } else if (appNameIndex == 1) {
+                    // Indexing starts at 1.
                     originalAppName
                 } else {
                     "@string/revanced_custom_branding_name_entry_$appNameIndex"
@@ -299,35 +302,40 @@ internal fun baseCustomBrandingPatch(
             }
 
             for (appNameIndex in 1 .. numberOfPresetAppNamesPlusCustom) {
+                val useCustomNameLabel = (useCustomName && appNameIndex == numberOfPresetAppNamesPlusCustom)
+
                 fun aliasName(name: String): String = namePrefix + name + '_' + appNameIndex
 
                 application.appendChild(
                     createAlias(
-                        aliasName(ORIGINAL_USER_ICON_STYLE_NAME),
-                        originalLauncherIconName,
-                        appNameIndex,
-                        appNameIndex == 1
+                        aliasName = aliasName(ORIGINAL_USER_ICON_STYLE_NAME),
+                        iconMipmapName = originalLauncherIconName,
+                        appNameIndex = appNameIndex,
+                        useCustomName = useCustomNameLabel,
+                        enabled = appNameIndex == 1
                     )
                 )
-
-                if (useCustomIcon) {
-                    application.appendChild(
-                        createAlias(
-                            aliasName(CUSTOM_USER_ICON_STYLE_NAME),
-                            iconResourcePrefix + CUSTOM_USER_ICON_STYLE_NAME,
-                            appNameIndex,
-                            false
-                        )
-                    )
-                }
 
                 iconStyleNames.forEachIndexed { index, style ->
                     application.appendChild(
                         createAlias(
-                            aliasName(style),
-                            iconResourcePrefix + style,
-                            appNameIndex,
-                            false,
+                            aliasName = aliasName(style),
+                            iconMipmapName = iconResourcePrefix + style,
+                            appNameIndex = appNameIndex,
+                            useCustomName = useCustomNameLabel,
+                            enabled = false
+                        )
+                    )
+                }
+
+                if (useCustomIcon) {
+                    application.appendChild(
+                        createAlias(
+                            aliasName = aliasName(CUSTOM_USER_ICON_STYLE_NAME),
+                            iconMipmapName = iconResourcePrefix + CUSTOM_USER_ICON_STYLE_NAME,
+                            appNameIndex = appNameIndex,
+                            useCustomName = useCustomNameLabel,
+                            enabled = false
                         )
                     )
                 }
