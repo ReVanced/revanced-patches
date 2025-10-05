@@ -8,6 +8,7 @@ private const val APP_NAME = "YouTube ReVanced"
 
 private const val ADAPTIVE_BACKGROUND_RESOURCE_NAME = "adaptiveproduct_youtube_background_color_108"
 private const val ADAPTIVE_FOREGROUND_RESOURCE_NAME = "adaptiveproduct_youtube_foreground_color_108"
+private const val ADAPTIVE_MONOCHROME_RESOURCE_NAME = "adaptive_monochrome_ic_youtube_launcher"
 
 @Suppress("unused")
 val customBrandingPatch = baseCustomBrandingPatch(
@@ -28,8 +29,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
         "$ADAPTIVE_FOREGROUND_RESOURCE_NAME.png",
     ),
     monochromeFileNames = arrayOf(
-        "adaptive_monochrome_ic_youtube_launcher.xml",
-        "ringo2_adaptive_monochrome_ic_youtube_launcher.xml"
+        "$ADAPTIVE_MONOCHROME_RESOURCE_NAME.xml"
     ),
     manifestAppLauncherValue = "@string/application_name",
 
@@ -42,37 +42,54 @@ val customBrandingPatch = baseCustomBrandingPatch(
                 "20.14.43",
             )
         )
-    }
+    },
 
-) {
-    val resourceDirectory = get("res")
+    executeBlock = {
+        val resourceDirectory = get("res")
 
-    // Copy adaptive icon to secondary adaptive file.
-    arrayOf(
-        ADAPTIVE_BACKGROUND_RESOURCE_NAME to "adaptiveproduct_youtube_2024_q4_background_color_108",
-        ADAPTIVE_FOREGROUND_RESOURCE_NAME to "adaptiveproduct_youtube_2024_q4_foreground_color_108",
-    ).forEach { (old, new) ->
-        var resourceType = "mipmap-anydpi"
-        val oldFile = resourceDirectory.resolve("$resourceType/$old.xml")
-        if (oldFile.exists()) {
-            val newFile = resourceDirectory.resolve("$resourceType/$new.xml")
-            Files.write(newFile.toPath(), oldFile.readBytes())
-        }
-    }
+        val newAdaptiveBackgroundResourceName = "adaptiveproduct_youtube_2024_q4_background_color_108"
+        val newAdaptiveForegroundResourceName = "adaptiveproduct_youtube_2024_q4_foreground_color_108"
+        val newAdaptiveMonochromeResourceName = "ringo2_adaptive_monochrome_ic_youtube_launcher"
 
-    // Copy mipmaps to secondary files.
-    mipmapDirectories.forEach { directory ->
-        val targetDirectory = resourceDirectory.resolve(directory)
-
+        // Copy adaptive icon to secondary adaptive file.
         arrayOf(
-            ADAPTIVE_BACKGROUND_RESOURCE_NAME to "adaptiveproduct_youtube_2024_q4_background_color_108",
-            ADAPTIVE_FOREGROUND_RESOURCE_NAME to "adaptiveproduct_youtube_2024_q4_foreground_color_108",
-        ).forEach { (old, new) ->
-            val oldFile = targetDirectory.resolve("$old.png")
+            Triple(
+                "mipmap-anydpi",
+                ADAPTIVE_BACKGROUND_RESOURCE_NAME,
+                newAdaptiveBackgroundResourceName
+            ),
+            Triple(
+                "mipmap-anydpi",
+                ADAPTIVE_FOREGROUND_RESOURCE_NAME,
+                newAdaptiveForegroundResourceName
+            ),
+            Triple(
+                "drawable",
+                ADAPTIVE_MONOCHROME_RESOURCE_NAME,
+                newAdaptiveMonochromeResourceName
+            )
+        ).forEach { (resourceType, old, new) ->
+            val oldFile = resourceDirectory.resolve("$resourceType/$old.xml")
             if (oldFile.exists()) {
-                val newFile = targetDirectory.resolve("$new.png")
+                val newFile = resourceDirectory.resolve("$resourceType/$new.xml")
                 Files.write(newFile.toPath(), oldFile.readBytes())
             }
         }
+
+        // Copy mipmaps to secondary files.
+        mipmapDirectories.forEach { directory ->
+            val targetDirectory = resourceDirectory.resolve(directory)
+
+            arrayOf(
+                ADAPTIVE_BACKGROUND_RESOURCE_NAME to newAdaptiveBackgroundResourceName,
+                ADAPTIVE_FOREGROUND_RESOURCE_NAME to newAdaptiveForegroundResourceName,
+            ).forEach { (old, new) ->
+                val oldFile = targetDirectory.resolve("$old.png")
+                if (oldFile.exists()) {
+                    val newFile = targetDirectory.resolve("$new.png")
+                    Files.write(newFile.toPath(), oldFile.readBytes())
+                }
+            }
+        }
     }
-}
+)
