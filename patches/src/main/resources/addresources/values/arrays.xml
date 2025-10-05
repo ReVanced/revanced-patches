@@ -151,7 +151,7 @@
         </patch>
     </app>
     <app id="music">
-        <patch id="layout.branding.baseCustomBrandingPatch">
+        <patch id="layout.branding.customBrandingPatch">
             <string-array name="revanced_custom_branding_name_entries">
                 <!-- Original must be first. -->
                 <item>@string/app_launcher_name</item>
@@ -193,7 +193,7 @@
         </patch>
     </app>
     <app id="youtube">
-        <patch id="layout.branding.baseCustomBrandingPatch">
+        <patch id="layout.branding.customBrandingPatch">
             <string-array name="revanced_custom_branding_name_entries">
                 <!-- Original must be first. -->
                 <item>@string/application_name</item>

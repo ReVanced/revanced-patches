@@ -120,7 +120,7 @@ internal fun baseCustomBrandingPatch(
 
     execute {
         addResources("shared", "layout.branding.baseCustomBrandingPatch")
-        addResources(addResourcePatchName, "layout.branding.baseCustomBrandingPatch")
+        addResources(addResourcePatchName, "layout.branding.customBrandingPatch")
 
         val useCustomName = customName != null
         val useCustomIcon = customIcon != null

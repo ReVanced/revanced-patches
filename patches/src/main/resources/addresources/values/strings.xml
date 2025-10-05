@@ -1494,7 +1494,7 @@ Swipe to expand or close"</string>
             <string name="revanced_seekbar_custom_color_accent_summary">The accent color of the seekbar</string>
             <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value</string>
         </patch>
-        <patch id="layout.branding.baseCustomBrandingPatch">
+        <patch id="layout.branding.customBrandingPatch">
             <string name="revanced_custom_branding_name_entry_2" translatable="false">YouTube ReVanced</string>
             <string name="revanced_custom_branding_name_entry_3" translatable="false">YT ReVanced</string>
             <string name="revanced_custom_branding_name_entry_4" translatable="false">YT</string>
@@ -1716,7 +1716,7 @@ Limitations:
         </patch>
     </app>
     <app id="music">
-        <patch id="layout.branding.baseCustomBrandingPatch">
+        <patch id="layout.branding.customBrandingPatch">
             <string name="revanced_custom_branding_name_entry_2" translatable="false">YT Music ReVanced</string>
             <string name="revanced_custom_branding_name_entry_3" translatable="false">Music ReVanced</string>
             <string name="revanced_custom_branding_name_entry_4" translatable="false">Music</string>
