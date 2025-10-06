@@ -8,9 +8,9 @@ import app.revanced.patches.instagram.misc.share.editShareLinksPatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val setCustomShareDomainPatch = bytecodePatch(
-    name = "Set custom share domain",
-    description = "Removes the tracking query parameters from shared links.", //TODO
+val changeLinkSharingDomainPatch = bytecodePatch(
+    name = "Change link sharing domain",
+    description = "Replaces the domain name of Twitter links when sharing them.",
     use = false
 ) {
     compatibleWith("com.instagram.android")
@@ -19,10 +19,10 @@ val setCustomShareDomainPatch = bytecodePatch(
 
     execute {
         val customDomainHost by stringOption(
-            key = "customSearchDomain",
+            key = "domainName",
             default = "imginn.com",
-            title = "Custom share domain",
-            description = "Permanently hides the Reels button." //TODO
+            title = "Domain name",
+            description = "The domain name to use when sharing links."
         )
 
         getCustomShareDomainFingerprint.method.returnEarly(customDomainHost!!)
