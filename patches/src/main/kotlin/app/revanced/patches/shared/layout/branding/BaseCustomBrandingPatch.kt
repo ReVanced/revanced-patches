@@ -166,14 +166,14 @@ internal fun baseCustomBrandingPatch(
             copyResources(
                 "custom-branding",
                 ResourceGroup(
-                    "mipmap-anydpi",
-                    "$LAUNCHER_RESOURCE_NAME_PREFIX$style.xml",
+                    "drawable",
                     "$LAUNCHER_ADAPTIVE_BACKGROUND_PREFIX$style.xml",
                     "$LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX$style.xml",
+                    "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$style.xml"
                 ),
                 ResourceGroup(
-                    "drawable",
-                    "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$style.xml"
+                    "mipmap-anydpi",
+                    "$LAUNCHER_RESOURCE_NAME_PREFIX$style.xml"
                 )
             )
         }
