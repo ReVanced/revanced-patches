@@ -23,7 +23,7 @@ import org.w3c.dom.Element
 import java.io.File
 import java.util.logging.Logger
 
-internal val mipmapDirectories = arrayOf(
+private val mipmapDirectories = arrayOf(
     // Target app does not have ldpi icons.
     "mipmap-mdpi",
     "mipmap-hdpi",
@@ -51,10 +51,7 @@ private val USER_CUSTOM_ADAPTIVE_FILE_NAMES = arrayOf(
     "$LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.png"
 )
 
-private const val USER_CUSTOM_MONOCHROME_NAME =
-    "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml"
-
-private fun formatResourceFileList(resourceNames: Array<String>) = resourceNames.joinToString("\n") { "- $it" }
+private const val USER_CUSTOM_MONOCHROME_NAME = "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml"
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/patches/CustomBrandingPatch;"
 
@@ -91,7 +88,7 @@ internal fun baseCustomBrandingPatch(
             Folder with images to use as a custom icon.
             
             The folder must contain one or more of the following folders, depending on the DPI of the device:
-            ${formatResourceFileList(mipmapDirectories)}
+            ${mipmapDirectories.joinToString("\n") { "- $it" }}
             
             Each of the folders must contain all of the following files:
             ${USER_CUSTOM_ADAPTIVE_FILE_NAMES.joinToString("\n")}
@@ -193,6 +190,7 @@ internal fun baseCustomBrandingPatch(
                 "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml",
             )
         )
+
         mipmapDirectories.forEach { dpi ->
             copyResources(
                 "custom-branding",
