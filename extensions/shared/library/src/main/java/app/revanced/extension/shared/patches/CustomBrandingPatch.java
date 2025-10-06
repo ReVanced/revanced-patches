@@ -27,18 +27,29 @@ public class CustomBrandingPatch {
     //
     // The most that can be done is to hide a theme from the UI and keep the alias with dummy data.
     public enum BrandingTheme {
-        // Original must be first.
+        /**
+         * Original unpatched icon. Must be first enum.
+         */
         ORIGINAL("revanced_original"),
         ROUNDED("revanced_rounded"),
         MINIMAL("revanced_minimal"),
         SCALED("revanced_scaled"),
-        /** User provided custom icon. */
+        /**
+         * User provided custom icon. Must be the last enum.
+         */
         CUSTOM("revanced_custom");
 
         public final String themeAlias;
 
         BrandingTheme(String themeAlias) {
             this.themeAlias = themeAlias;
+        }
+
+        private String packageAndNameIndexToClassAlias(String packageName, int appIndex) {
+            if (appIndex <= 0) {
+                throw new IllegalArgumentException("App index starts at index 1");
+            }
+            return packageName + '.' + themeAlias + '_' + appIndex;
         }
     }
 
@@ -72,17 +83,8 @@ public class CustomBrandingPatch {
             String packageName = context.getPackageName();
 
             BrandingTheme selectedBranding = BaseSettings.CUSTOM_BRANDING_ICON.get();
-
             final int numberOfCustomNames = numberOfCustomNames();
-            int selectedNameIndex = BaseSettings.CUSTOM_BRANDING_NAME.get();
-            if (selectedNameIndex <= 0 || selectedNameIndex > numberOfCustomNames) {
-                // User imported a bad app name index value. Either the imported data
-                // was corrupted, or they previously had custom name enabled and the app
-                // no longer has a custom name specified.
-                Utils.showToastLong("Custom branding reset");
-                selectedNameIndex = BaseSettings.CUSTOM_BRANDING_NAME.resetToDefault();
-            }
-
+            final int selectedNameIndex = BaseSettings.CUSTOM_BRANDING_NAME.get();
             ComponentName componentToEnable = null;
             ComponentName defaultComponent = null;
             List<ComponentName> componentsToDisable = new ArrayList<>();
@@ -93,7 +95,7 @@ public class CustomBrandingPatch {
 
                 // App name indices starts at 1.
                 for (int index = 1; index <= numberOfNamesIncludingDummies; index++) {
-                    String aliasClass = packageName + '.' + theme.themeAlias + '_' + index;
+                    String aliasClass = theme.packageAndNameIndexToClassAlias(packageName, index);
                     ComponentName component = new ComponentName(packageName, aliasClass);
                     if (defaultComponent == null) {
                         // Default is always the first alias.
@@ -109,10 +111,10 @@ public class CustomBrandingPatch {
             }
 
             if (componentToEnable == null) {
-                // Should never be reached, because the branding icon enum
-                // resets itself if the saved enum type is invalid or no longer exists,
-                // and a bad name index is already handled above.
-                Logger.printException(() -> "Could not find alias to enable");
+                // User imported a bad app name index value. Either the imported data
+                // was corrupted, or they previously had custom name enabled and the app
+                // no longer has a custom name specified.
+                Utils.showToastLong("Custom branding reset");
                 BaseSettings.CUSTOM_BRANDING_ICON.resetToDefault();
                 BaseSettings.CUSTOM_BRANDING_NAME.resetToDefault();
 
@@ -121,7 +123,7 @@ public class CustomBrandingPatch {
             }
 
             for (ComponentName disable : componentsToDisable) {
-                // Use info logging because if the alias state become corrupt the app cannot launch.
+                // Use info logging because if the alias status become corrupt the app cannot launch.
                 Logger.printInfo(() -> "Disabling: " + disable.getClassName());
                 pm.setComponentEnabledSetting(disable,
                         PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
