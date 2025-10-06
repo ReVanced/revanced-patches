@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_MAIN_ACTIVITY_NAME
-import app.revanced.patches.music.misc.gms.Constants.REVANCED_MUSIC_PACKAGE_NAME
+import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.musicActivityOnCreateFingerprint
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
@@ -60,7 +60,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
     addResourcePatchName = "music",
     originalLauncherIconName = "ic_launcher_release",
     originalAppName = "@string/app_launcher_name",
-    originalAppPackageName = REVANCED_MUSIC_PACKAGE_NAME,
+    originalAppPackageName = MUSIC_PACKAGE_NAME,
     numberOfPresetAppNames = 4,
     mainActivityOnCreateFingerprint = musicActivityOnCreateFingerprint,
     mainActivityName = MUSIC_MAIN_ACTIVITY_NAME,
