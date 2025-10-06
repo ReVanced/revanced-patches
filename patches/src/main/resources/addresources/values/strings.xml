@@ -25,9 +25,9 @@ Second \"item\" text"</string>
             <string name="revanced_custom_branding_name_entry_5">Custom</string>
             <string name="revanced_custom_branding_icon_title">App icon</string>
             <string name="revanced_custom_branding_icon_entry_1">Original</string>
-            <string name="revanced_custom_branding_icon_entry_2">Rounded</string>
-            <string name="revanced_custom_branding_icon_entry_3">Minimal</string>
-            <string name="revanced_custom_branding_icon_entry_4">Scaled</string>
+            <string name="revanced_custom_branding_icon_entry_2">ReVanced</string>
+            <string name="revanced_custom_branding_icon_entry_3">ReVanced minimal</string>
+            <string name="revanced_custom_branding_icon_entry_4">ReVanced scaled</string>
             <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
             <string name="revanced_custom_branding_icon_entry_5">Custom</string>
         </patch>
