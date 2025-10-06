@@ -4,6 +4,12 @@
     android:height="108dp"
     android:viewportWidth="256"
     android:viewportHeight="256">
+  <!-- Android launcher can hide the background layer if it's black or nearly black.
+   The dark background is needed to see the V shape in day mode. To prevent hiding
+   the layer it must be added to the foreground. -->
+  <path
+      android:pathData="M0,0 L256,0 L256,256 L0,256 Z"
+      android:fillColor="#1B1B1B" />
   <group android:scaleX="0.24"
       android:scaleY="0.24"
       android:translateX="97.28"
