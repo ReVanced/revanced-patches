@@ -285,7 +285,7 @@ internal fun baseCustomBrandingPatch(
                 alias.setAttribute("android:enabled", enabled.toString())
                 alias.setAttribute("android:exported", "true")
                 alias.setAttribute("android:icon", "@mipmap/$iconMipmapName")
-                alias.setAttribute("android:label",label)
+                alias.setAttribute("android:label", label)
                 alias.setAttribute("android:targetActivity", mainActivityName)
 
                 val intentFilter = document.createElement("intent-filter")
