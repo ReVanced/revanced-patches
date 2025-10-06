@@ -10,7 +10,7 @@ import app.revanced.util.returnEarly
 @Suppress("unused")
 val changeLinkSharingDomainPatch = bytecodePatch(
     name = "Change link sharing domain",
-    description = "Replaces the domain name of Twitter links when sharing them.",
+    description = "Replaces the domain name of Instagram links when sharing them.",
     use = false
 ) {
     compatibleWith("com.instagram.android")
