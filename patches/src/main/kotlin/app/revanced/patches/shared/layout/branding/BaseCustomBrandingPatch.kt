@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.ResourcePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
+import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
@@ -20,6 +21,7 @@ import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.returnEarly
 import org.w3c.dom.Element
 import java.io.File
+import java.util.logging.Logger
 
 internal val mipmapDirectories = arrayOf(
     // Target app does not have ldpi icons.
@@ -63,6 +65,7 @@ internal fun baseCustomBrandingPatch(
     addResourcePatchName: String,
     originalLauncherIconName: String,
     originalAppName: String,
+    originalAppPackageName: String,
     numberOfPresetAppNames: Int,
     mainActivityOnCreateFingerprint: Fingerprint,
     mainActivityName: String,
@@ -72,7 +75,8 @@ internal fun baseCustomBrandingPatch(
     executeBlock: ResourcePatchContext.() -> Unit = {}
 ): ResourcePatch = resourcePatch(
     name = "Custom branding",
-    description = "Adds options to change the app icon and app name. This patch may not work with mounted (root) installations."
+    description = "Adds options to change the app icon and app name. " +
+            "Branding cannot be changed for mounted (root) installations."
 ) {
     val customName by stringOption(
         key = "customName",
@@ -119,12 +123,18 @@ internal fun baseCustomBrandingPatch(
         }
     )
 
-    execute {
-        addResources("shared", "layout.branding.baseCustomBrandingPatch")
-        addResources(addResourcePatchName, "layout.branding.customBrandingPatch")
-
+    finalize {
         val useCustomName = customName != null
         val useCustomIcon = customIcon != null
+
+        if (setOrGetFallbackPackageName(originalAppPackageName) == originalAppPackageName) {
+            if (useCustomName || useCustomIcon) {
+                Logger.getLogger(this::class.java.name).warning(
+                    "Custom branding does not work with root installation. No changes applied."
+                )
+            }
+            return@finalize
+        }
 
         preferenceScreen.addPreferences(
             if (useCustomName) {
@@ -146,6 +156,14 @@ internal fun baseCustomBrandingPatch(
                 ListPreference("revanced_custom_branding_icon")
             }
         )
+    }
+
+    execute {
+        addResources("shared", "layout.branding.baseCustomBrandingPatch")
+        addResources(addResourcePatchName, "layout.branding.customBrandingPatch")
+
+        val useCustomName = customName != null
+        val useCustomIcon = customIcon != null
 
         iconStyleNames.forEach { style ->
             copyResources(

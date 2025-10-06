@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.layout.branding
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_MAIN_ACTIVITY_NAME
+import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
@@ -11,6 +12,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
     addResourcePatchName = "youtube",
     originalLauncherIconName = "ic_launcher",
     originalAppName = "@string/application_name",
+    originalAppPackageName = YOUTUBE_PACKAGE_NAME,
     numberOfPresetAppNames = 4,
     mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
     mainActivityName = YOUTUBE_MAIN_ACTIVITY_NAME,
