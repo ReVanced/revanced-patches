@@ -17,11 +17,3 @@ internal val customNumberOfNamesFingerprint = fingerprint {
         method.name == "numberOfCustomNames" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
 }
-
-internal val customIconIncludedFingerprint = fingerprint {
-    returns("Z")
-    parameters()
-    custom { method, classDef ->
-        method.name == "customIconIncluded" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
-}

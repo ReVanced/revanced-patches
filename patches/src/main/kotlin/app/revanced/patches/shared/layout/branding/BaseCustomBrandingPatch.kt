@@ -105,7 +105,7 @@ internal fun baseCustomBrandingPatch(
             execute {
                 mainActivityOnCreateFingerprint.method.addInstruction(
                     0,
-                    "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->setBrandingIcon()V"
+                    "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->setBranding()V"
                 )
 
                 var totalNamePresets = numberOfPresetAppNames
@@ -115,7 +115,6 @@ internal fun baseCustomBrandingPatch(
 
                 customNumberOfNamesIncludingDummyAliasesFingerprint.method.returnEarly(numberOfPresetAppNames + 1)
                 customNumberOfNamesFingerprint.method.returnEarly(totalNamePresets)
-                customIconIncludedFingerprint.method.returnEarly(customIcon != null)
             }
         }
     )

@@ -44,16 +44,8 @@ public class CustomBrandingPatch {
 
     /**
      * Injection point.
-     */
-    private static boolean customIconIncluded() {
-        // Modified during patching.
-        throw new IllegalStateException();
-    }
-
-    /**
-     * Injection point.
      *
-     * The number of app names availabel in the settings UI.
+     * The number of app names available in the settings UI.
      */
     private static int numberOfCustomNames() {
         // Modified during patching.
@@ -70,28 +62,16 @@ public class CustomBrandingPatch {
         throw new IllegalStateException();
     }
 
-    private static ComponentName createComponentName(BrandingTheme theme, String packageName, int index) {
-        return new ComponentName(packageName,
-                packageName + '.' + theme.themeAlias + '_' + index);
-    }
-
     /**
      * Injection point.
      */
-    public static void setBrandingIcon() {
+    public static void setBranding() {
         try {
             Context context = Utils.getContext();
             PackageManager pm = context.getPackageManager();
             String packageName = context.getPackageName();
 
-            String resetToastMessage = "Custom branding reset";
-
             BrandingTheme selectedBranding = BaseSettings.CUSTOM_BRANDING_ICON.get();
-            //noinspection ConstantConditions
-            if (selectedBranding == BrandingTheme.CUSTOM && !customIconIncluded()) {
-                Utils.showToastLong(resetToastMessage);
-                selectedBranding = BaseSettings.CUSTOM_BRANDING_ICON.resetToDefault();
-            }
 
             final int numberOfCustomNames = numberOfCustomNames();
             int selectedNameIndex = BaseSettings.CUSTOM_BRANDING_NAME.get();
@@ -99,7 +79,7 @@ public class CustomBrandingPatch {
                 // User imported a bad app name index value. Either the imported data
                 // was corrupted, or they previously had custom name enabled and the app
                 // no longer has a custom name specified.
-                Utils.showToastLong(resetToastMessage);
+                Utils.showToastLong("Custom branding reset");
                 selectedNameIndex = BaseSettings.CUSTOM_BRANDING_NAME.resetToDefault();
             }
 
@@ -121,13 +101,6 @@ public class CustomBrandingPatch {
                     }
 
                     if (index == selectedNameIndex && theme == selectedBranding) {
-                        if (componentToEnable != null) {
-                            // Should never happen.
-                            ComponentName componentToEnableFinal = componentToEnable;
-                            Logger.printException(() -> "Found duplicate alias: "
-                                    + componentToEnableFinal.getClassName());
-                            componentsToDisable.add(componentToEnable);
-                        }
                         componentToEnable = component;
                     } else {
                         componentsToDisable.add(component);
@@ -148,7 +121,7 @@ public class CustomBrandingPatch {
             }
 
             for (ComponentName disable : componentsToDisable) {
-                // Use info logging because if the aliases state become corrupt the app cannot launch.
+                // Use info logging because if the alias state become corrupt the app cannot launch.
                 Logger.printInfo(() -> "Disabling: " + disable.getClassName());
                 pm.setComponentEnabledSetting(disable,
                         PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
@@ -159,7 +132,7 @@ public class CustomBrandingPatch {
             pm.setComponentEnabledSetting(componentToEnable,
                     PackageManager.COMPONENT_ENABLED_STATE_ENABLED, 0);
         } catch (Exception ex) {
-            Logger.printException(() -> "setBrandingIcon failure", ex);
+            Logger.printException(() -> "setBranding failure", ex);
         }
     }
 }
