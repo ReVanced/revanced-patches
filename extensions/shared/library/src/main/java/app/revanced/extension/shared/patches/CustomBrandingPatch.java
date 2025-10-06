@@ -1,5 +1,8 @@
 package app.revanced.extension.shared.patches;
 
+import static app.revanced.extension.shared.GmsCoreSupport.PACKAGE_NAME_YOUTUBE;
+import static app.revanced.extension.shared.GmsCoreSupport.PACKAGE_NAME_YOUTUBE_MUSIC;
+
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -81,6 +84,11 @@ public class CustomBrandingPatch {
             Context context = Utils.getContext();
             PackageManager pm = context.getPackageManager();
             String packageName = context.getPackageName();
+
+            if (packageName.equals(PACKAGE_NAME_YOUTUBE) || packageName.equals(PACKAGE_NAME_YOUTUBE_MUSIC)) {
+                Logger.printInfo(() -> "App is root mounted. Cannot change dynamically change app icon");
+                return;
+            }
 
             BrandingTheme selectedBranding = BaseSettings.CUSTOM_BRANDING_ICON.get();
             final int numberOfCustomNames = numberOfCustomNames();

@@ -31,8 +31,8 @@ import app.revanced.extension.shared.ui.CustomDialog;
 
 @SuppressWarnings("unused")
 public class GmsCoreSupport {
-    private static final String PACKAGE_NAME_YOUTUBE = "com.google.android.youtube";
-    private static final String PACKAGE_NAME_YOUTUBE_MUSIC = "com.google.android.apps.youtube.music";
+    public static final String PACKAGE_NAME_YOUTUBE = "com.google.android.youtube";
+    public static final String PACKAGE_NAME_YOUTUBE_MUSIC = "com.google.android.apps.youtube.music";
 
     private static final String GMS_CORE_PACKAGE_NAME
             = getGmsCoreVendorGroupId() + ".android.gms";
