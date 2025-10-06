@@ -6,18 +6,21 @@ import app.revanced.extension.youtube.shared.PlayerType;
 @SuppressWarnings("unused")
 final class CommentsFilter extends Filter {
 
+    private static final String COMMENT_COMPOSER_PATH = "comment_composer.e";
+
     private final StringFilterGroup chipBar;
     private final ByteArrayFilterGroup aiCommentsSummary;
+    private final StringFilterGroup emojiAndTimestampButtons;
     
     public CommentsFilter() {
         var chatSummary = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_AI_CHAT_SUMMARY,
-                "live_chat_summary_banner.eml"
+                "live_chat_summary_banner.e"
         );
 
         chipBar = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_AI_SUMMARY,
-                "chip_bar.eml"
+                "chip_bar.e"
         );
 
         aiCommentsSummary = new ByteArrayFilterGroup(
@@ -32,8 +35,8 @@ final class CommentsFilter extends Filter {
 
         var commentsByMembers = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_BY_MEMBERS_HEADER,
-                "sponsorships_comments_header.eml",
-                "sponsorships_comments_footer.eml"
+                "sponsorships_comments_header.e",
+                "sponsorships_comments_footer.e"
         );
 
         var comments = new StringFilterGroup(
@@ -49,7 +52,12 @@ final class CommentsFilter extends Filter {
 
         var createAShort = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_CREATE_A_SHORT_BUTTON,
-                "composer_short_creation_button.eml"
+                "composer_short_creation_button.e"
+        );
+
+        emojiAndTimestampButtons = new StringFilterGroup(
+                Settings.HIDE_COMMENTS_EMOJI_AND_TIMESTAMP_BUTTONS,
+                "|CellType|ContainerType|ContainerType|ContainerType|ContainerType|ContainerType|"
         );
 
         var previewComment = new StringFilterGroup(
@@ -61,12 +69,7 @@ final class CommentsFilter extends Filter {
 
         var thanksButton = new StringFilterGroup(
                 Settings.HIDE_COMMENTS_THANKS_BUTTON,
-                "super_thanks_button.eml"
-        );
-
-        StringFilterGroup timestampButton = new StringFilterGroup(
-                Settings.HIDE_COMMENTS_TIMESTAMP_BUTTON,
-                "composer_timestamp_button.eml"
+                "super_thanks_button.e"
         );
 
         addPathCallbacks(
@@ -77,9 +80,9 @@ final class CommentsFilter extends Filter {
                 comments,
                 communityGuidelines,
                 createAShort,
+                emojiAndTimestampButtons,
                 previewComment,
-                thanksButton,
-                timestampButton
+                thanksButton
 
         );
     }
@@ -91,6 +94,10 @@ final class CommentsFilter extends Filter {
             // Playlist sort button uses same components and must only filter if the player is opened.
             return PlayerType.getCurrent().isMaximizedOrFullscreen()
                     && aiCommentsSummary.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == emojiAndTimestampButtons) {
+            return path.startsWith(COMMENT_COMPOSER_PATH);
         }
 
         return true;

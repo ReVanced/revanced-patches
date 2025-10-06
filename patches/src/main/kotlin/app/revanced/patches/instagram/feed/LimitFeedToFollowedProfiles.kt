@@ -15,6 +15,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/instagr
 val limitFeedToFollowedProfiles = bytecodePatch(
     name = "Limit feed to followed profiles",
     description = "Filters the home feed to display only content from profiles you follow.",
+    use = false
 ) {
     compatibleWith("com.instagram.android")
 

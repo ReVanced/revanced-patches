@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.ReVanced.YouTubeMusic.Settings" parent="@style/Theme.YouTubeMusic">
+        <item name="android:actionBarSize">@dimen/action_bar_height</item>
         <item name="android:listPreferredItemPaddingStart">@dimen/item_extra_extra_large_spacing</item>
         <item name="android:listDivider">@null</item>
     </style>

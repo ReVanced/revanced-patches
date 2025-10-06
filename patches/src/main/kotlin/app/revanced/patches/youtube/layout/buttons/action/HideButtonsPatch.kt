@@ -23,11 +23,9 @@ val hideButtonsPatch = resourcePatch(
     compatibleWith(
         "com.google.android.youtube"(
             "19.34.42",
-            "19.43.41",
-            "19.47.53",
             "20.07.39",
-            "20.12.46",
             "20.13.41",
+            "20.14.43",
         )
     )
 
@@ -41,6 +39,7 @@ val hideButtonsPatch = resourcePatch(
                     SwitchPreference("revanced_disable_like_subscribe_glow"),
                     SwitchPreference("revanced_hide_ask_button"),
                     SwitchPreference("revanced_hide_clip_button"),
+                    SwitchPreference("revanced_hide_comments_button"),
                     SwitchPreference("revanced_hide_download_button"),
                     SwitchPreference("revanced_hide_hype_button"),
                     SwitchPreference("revanced_hide_like_dislike_button"),

@@ -31,6 +31,7 @@ public enum ClientType {
             "132.0.6808.3",
             "1.61.48",
             false,
+            false,
             "Android VR 1.61"
     ),
     /**
@@ -50,6 +51,7 @@ public enum ClientType {
             "107.0.5284.2",
             "1.43.32",
             ANDROID_VR_1_61_48.useAuth,
+            ANDROID_VR_1_61_48.supportsMultiAudioTracks,
             "Android VR 1.43"
     ),
     /**
@@ -69,6 +71,7 @@ public enum ClientType {
             "132.0.6779.0",
             "23.47.101",
             true,
+            false,
             "Android Studio"
     ),
     /**
@@ -82,6 +85,7 @@ public enum ClientType {
             "1.3.21O771",
             "0.1",
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15",
+            false,
             false,
             "visionOS"
     ),
@@ -107,6 +111,7 @@ public enum ClientType {
             "19.22.3",
             "com.google.ios.youtube/19.22.3 (iPad7,6; U; CPU iPadOS 17_7_10 like Mac OS X; " + Locale.getDefault() + ")",
             false,
+            true,
             "iPadOS"
     );
 
@@ -181,6 +186,11 @@ public enum ClientType {
     public final boolean useAuth;
 
     /**
+     * If the client supports multiple audio tracks.
+     */
+    public final boolean supportsMultiAudioTracks;
+
+    /**
      * Friendly name displayed in stats for nerds.
      */
     public final String friendlyName;
@@ -200,6 +210,7 @@ public enum ClientType {
                @NonNull String cronetVersion,
                String clientVersion,
                boolean useAuth,
+               boolean supportsMultiAudioTracks,
                String friendlyName) {
         this.id = id;
         this.clientName = clientName;
@@ -213,6 +224,7 @@ public enum ClientType {
         this.cronetVersion = cronetVersion;
         this.clientVersion = clientVersion;
         this.useAuth = useAuth;
+        this.supportsMultiAudioTracks = supportsMultiAudioTracks;
         this.friendlyName = friendlyName;
 
         Locale defaultLocale = Locale.getDefault();
@@ -238,6 +250,7 @@ public enum ClientType {
                String clientVersion,
                String userAgent,
                boolean useAuth,
+               boolean supportsMultiAudioTracks,
                String friendlyName) {
         this.id = id;
         this.clientName = clientName;
@@ -248,6 +261,7 @@ public enum ClientType {
         this.clientVersion = clientVersion;
         this.userAgent = userAgent;
         this.useAuth = useAuth;
+        this.supportsMultiAudioTracks = supportsMultiAudioTracks;
         this.friendlyName = friendlyName;
         this.packageName = null;
         this.androidSdkVersion = null;

@@ -29,12 +29,12 @@ final class DescriptionComponentsFilter extends Filter {
 
         aiGeneratedVideoSummarySection = new StringFilterGroup(
                 Settings.HIDE_AI_GENERATED_VIDEO_SUMMARY_SECTION,
-                "cell_expandable_metadata.eml"
+                "cell_expandable_metadata.e"
         );
 
         final StringFilterGroup askSection = new StringFilterGroup(
                 Settings.HIDE_ASK_SECTION,
-                "youchat_entrypoint.eml"
+                "youchat_entrypoint.e"
         );
 
         final StringFilterGroup attributesSection = new StringFilterGroup(
@@ -65,7 +65,7 @@ final class DescriptionComponentsFilter extends Filter {
 
         macroMarkersCarousel = new StringFilterGroup(
                 null,
-                "macro_markers_carousel.eml"
+                "macro_markers_carousel.e"
         );
 
         macroMarkersCarouselGroupList.addAll(
@@ -81,7 +81,7 @@ final class DescriptionComponentsFilter extends Filter {
 
         horizontalShelf = new StringFilterGroup(
                 Settings.HIDE_ATTRIBUTES_SECTION,
-                "horizontal_shelf.eml"
+                "horizontal_shelf.e"
         );
 
         cellVideoAttribute = new ByteArrayFilterGroup(

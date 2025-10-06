@@ -4,9 +4,13 @@ import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
 final class ButtonsFilter extends Filter {
-    private static final String COMPACT_CHANNEL_BAR_PATH_PREFIX = "compact_channel_bar.eml";
-    private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.eml";
-    private static final String VIDEO_ACTION_BAR_PATH = "video_action_bar.eml";
+    private static final String COMPACT_CHANNEL_BAR_PATH_PREFIX = "compact_channel_bar.e";
+    private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.e";
+    private static final String VIDEO_ACTION_BAR_PATH = "video_action_bar.e";
+    /**
+     * Video bar path when the video information is collapsed. Seems to shown only with 20.14+
+     */
+    private static final String COMPACTIFY_VIDEO_ACTION_BAR_PATH = "compactify_video_action_bar.e";
     private static final String ANIMATED_VECTOR_TYPE_PATH = "AnimatedVectorType";
 
     private final StringFilterGroup likeSubscribeGlow;
@@ -24,12 +28,12 @@ final class ButtonsFilter extends Filter {
 
         likeSubscribeGlow = new StringFilterGroup(
                 Settings.DISABLE_LIKE_SUBSCRIBE_GLOW,
-                "animated_button_border.eml"
+                "animated_button_border.e"
         );
 
         bufferFilterPathGroup = new StringFilterGroup(
                 null,
-                "|ContainerType|button.eml"
+                "|ContainerType|button.e"
         );
 
         addPathCallbacks(
@@ -41,7 +45,7 @@ final class ButtonsFilter extends Filter {
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_DOWNLOAD_BUTTON,
-                        "|download_button.eml"
+                        "|download_button.e"
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_SAVE_BUTTON,
@@ -49,7 +53,7 @@ final class ButtonsFilter extends Filter {
                 ),
                 new StringFilterGroup(
                         Settings.HIDE_CLIP_BUTTON,
-                        "|clip_button.eml"
+                        "|clip_button.e"
                 )
         );
 
@@ -81,6 +85,10 @@ final class ButtonsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_STOP_ADS_BUTTON,
                         "yt_outline_slash_circle_left"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_COMMENTS_BUTTON,
+                        "yt_outline_message_bubble_right"
                 ),
                 // Check for clip button both here and using a path filter,
                 // as there's a chance the path is a generic action button and won't contain 'clip_button'
@@ -124,9 +132,8 @@ final class ButtonsFilter extends Filter {
         }
 
         if (matchedGroup == bufferFilterPathGroup) {
-            // Make sure the current path is the right one
-            //  to avoid false positives.
-            return path.startsWith(VIDEO_ACTION_BAR_PATH)
+            // Make sure the current path is the right one to avoid false positives.
+            return (path.startsWith(VIDEO_ACTION_BAR_PATH) || path.startsWith(COMPACTIFY_VIDEO_ACTION_BAR_PATH))
                     && bufferButtonsGroupList.check(buffer).isFiltered();
         }
 

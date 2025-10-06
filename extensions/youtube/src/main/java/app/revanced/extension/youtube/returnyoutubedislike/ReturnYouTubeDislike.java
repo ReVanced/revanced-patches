@@ -21,6 +21,7 @@ import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.ReplacementSpan;
+import android.widget.Toast;
 
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
@@ -507,6 +508,11 @@ public class ReturnYouTubeDislike {
         try {
             RYDVoteData votingData = getFetchData(MAX_MILLISECONDS_TO_BLOCK_UI_WAITING_FOR_FETCH);
             if (votingData == null) {
+                // Method automatically prevents showing multiple toasts if the connection failed.
+                // This call is needed here in case the api call did succeed but took too long.
+                ReturnYouTubeDislikeApi.handleConnectionError(
+                        str("revanced_ryd_failure_connection_timeout"),
+                        null, null, Toast.LENGTH_SHORT);
                 Logger.printDebug(() -> "Cannot add dislike to UI (RYD data not available)");
                 return original;
             }

@@ -3,7 +3,7 @@ package app.revanced.extension.youtube.returnyoutubedislike.ui;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import app.revanced.extension.youtube.settings.preference.UrlLinkPreference;
+import app.revanced.extension.shared.settings.preference.UrlLinkPreference;
 
 /**
  * Allows tapping the RYD about preference to open the website.

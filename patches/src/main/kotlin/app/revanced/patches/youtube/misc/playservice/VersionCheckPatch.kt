@@ -38,6 +38,7 @@ var is_19_32_or_greater = false
 @Deprecated("19.34.42 is the lowest supported version")
 var is_19_33_or_greater = false
     private set
+@Deprecated("19.34.42 is the lowest supported version")
 var is_19_34_or_greater = false
     private set
 var is_19_35_or_greater = false

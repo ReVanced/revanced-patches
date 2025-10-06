@@ -1,9 +1,12 @@
 package app.revanced.extension.youtube.patches.components;
 
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.ShortsPlayerState;
+
+import java.util.List;
 
 @SuppressWarnings("unused")
 public class PlayerFlyoutMenuItemsFilter extends Filter {
@@ -16,6 +19,11 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
             // Check conditions of launch and now. Otherwise if spoofing is changed
             // without a restart the setting will show as available when it's not.
             return AVAILABLE_ON_LAUNCH && !SpoofVideoStreamsPatch.spoofingToClientWithNoMultiAudioStreams();
+        }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(BaseSettings.SPOOF_VIDEO_STREAMS);
         }
     }
 
@@ -30,7 +38,7 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
 
         addPathCallbacks(
                 videoQualityMenuFooter,
-                new StringFilterGroup(null, "overflow_menu_item.eml")
+                new StringFilterGroup(null, "overflow_menu_item.e")
         );
 
         flyoutFilterGroupList.addAll(

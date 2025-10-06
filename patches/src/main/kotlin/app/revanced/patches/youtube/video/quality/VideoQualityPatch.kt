@@ -14,22 +14,20 @@ internal val settingsMenuVideoQualityGroup = mutableSetOf<BasePreference>()
 @Suppress("unused")
 val videoQualityPatch = bytecodePatch(
     name = "Video quality",
-    description = "Adds options to use the advanced video quality menu and set default video qualities."
+    description = "Adds options to set default video qualities and always use the advanced video quality menu."
 ) {
     dependsOn(
         rememberVideoQualityPatch,
         advancedVideoQualityMenuPatch,
-        videoQualityDialogButtonPatch,
+        videoQualityDialogButtonPatch
     )
 
     compatibleWith(
         "com.google.android.youtube"(
             "19.34.42",
-            "19.43.41",
-            "19.47.53",
             "20.07.39",
-            "20.12.46",
             "20.13.41",
+            "20.14.43",
         )
     )
 

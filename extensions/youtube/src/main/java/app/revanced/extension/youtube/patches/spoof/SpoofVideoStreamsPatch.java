@@ -18,15 +18,22 @@ public class SpoofVideoStreamsPatch {
      * Injection point.
      */
     public static void setClientOrderToUse() {
+        ClientType client = Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
+
+
+        if (Settings.FORCE_AVC_CODEC.get() && client == ANDROID_VR_1_61_48) {
+            // VR 1.61 uses VP9/AV1, and cannot force AVC. Use 1.43 instead.
+            client = ANDROID_VR_1_43_32;
+        }
+
         List<ClientType> availableClients = List.of(
-                ANDROID_VR_1_61_48,
+                ANDROID_VR_1_43_32,
                 VISIONOS,
                 ANDROID_CREATOR,
-                ANDROID_VR_1_43_32,
-                IPADOS
-        );
+                ANDROID_VR_1_61_48,
+                IPADOS);
 
         app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch.setClientsToUse(
-                availableClients, Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get());
+                availableClients, client);
     }
 }
