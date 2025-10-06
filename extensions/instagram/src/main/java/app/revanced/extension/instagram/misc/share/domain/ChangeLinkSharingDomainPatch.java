@@ -4,7 +4,7 @@ import android.net.Uri;
 import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
-public final class CustomShareDomainPatch {
+public final class ChangeLinkSharingDomainPatch {
     /**
      * This method will be modified by the patch, in order for it to return the share domain name.
      * In the smali code there were no free registers.

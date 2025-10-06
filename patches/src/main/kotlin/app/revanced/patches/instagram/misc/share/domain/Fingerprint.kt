@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/instagram/misc/share/domain/CustomShareDomainPatch;"
+    "Lapp/revanced/extension/instagram/misc/share/domain/ChangeLinkSharingDomainPatch;"
 
 internal val getCustomShareDomainFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
