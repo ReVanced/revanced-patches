@@ -17,7 +17,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 @Suppress("unused")
 val hideCreateButtonPatch = bytecodePatch(
     name = "Hide Create button",
-    description = "Hides the \"Create\" button in the navigation bar. Not needed on latest app versions.",
+    description = "Hides the \"Create\" button in the navigation bar. The latest app targets do not need this patch.",
     use = false
 ) {
     compatibleWith("com.spotify.music")
