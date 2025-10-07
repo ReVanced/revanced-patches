@@ -1,3 +1,10 @@
+# [5.42.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.14...v5.42.0-dev.15) (2025-10-07)
+
+
+### Features
+
+* **Instagram:** Add `Enable developer menu` patch ([#6043](https://github.com/ReVanced/revanced-patches/issues/6043)) ([2154d89](https://github.com/ReVanced/revanced-patches/commit/2154d89242fd8d7f7460145d5d35a4f1986944a3))
+
 # [5.42.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.13...v5.42.0-dev.14) (2025-10-07)
 
 
