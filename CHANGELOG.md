@@ -1,3 +1,10 @@
+# [5.42.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.17...v5.42.0-dev.18) (2025-10-07)
+
+
+### Features
+
+* **Custom branding:** Add in-app settings to change icon and name ([#6059](https://github.com/ReVanced/revanced-patches/issues/6059)) ([a50f3b5](https://github.com/ReVanced/revanced-patches/commit/a50f3b5177808f07d84041c946caccb5a08ad387))
+
 # [5.42.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.16...v5.42.0-dev.17) (2025-10-07)
 
 
