@@ -1,3 +1,10 @@
+# [5.42.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.13...v5.42.0-dev.14) (2025-10-07)
+
+
+### Features
+
+* **Instagram:** Add `Custom share domain` patch ([#5998](https://github.com/ReVanced/revanced-patches/issues/5998)) ([20c4131](https://github.com/ReVanced/revanced-patches/commit/20c413120bad97af6121718e76b22a1b5540aa44))
+
 # [5.42.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.12...v5.42.0-dev.13) (2025-10-07)
 
 
