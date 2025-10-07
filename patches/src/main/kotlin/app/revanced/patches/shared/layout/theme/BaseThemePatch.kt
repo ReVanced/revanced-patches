@@ -79,7 +79,7 @@ internal val darkThemeBackgroundColorOption = stringOption(
  */
 internal fun baseThemePatch(
     extensionClassDescriptor: String,
-    block: BytecodePatchBuilder.() -> Unit = {},
+    block: BytecodePatchBuilder.() -> Unit,
     executeBlock: BytecodePatchContext.() -> Unit = {}
 ) = bytecodePatch(
     name = "Theme",
