@@ -17,9 +17,11 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
+import app.revanced.util.findElementByAttributeValue
 import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.returnEarly
 import org.w3c.dom.Element
+import org.w3c.dom.NodeList
 import java.io.File
 import java.util.logging.Logger
 
@@ -264,25 +266,15 @@ internal fun baseCustomBrandingPatch(
             }
         }
 
-        // Create launch aliases that can be programmatically selected in app.
         document("AndroidManifest.xml").use { document ->
-            // Remove the intent from the main activity since an alias will be used instead.
-            document.childNodes.findElementByAttributeValueOrThrow(
-                "android:name",
-                activityAliasNameWithIntentToRemove
-            ).childNodes.findElementByAttributeValueOrThrow(
-                "android:name",
-                "android.intent.action.MAIN"
-            ).let { intent ->
-                intent.parentNode.removeChild(intent)
-            }
-
+            // Create launch aliases that can be programmatically selected in app.
             fun createAlias(
                 aliasName: String,
                 iconMipmapName: String,
                 appNameIndex: Int,
                 useCustomName: Boolean,
-                enabled: Boolean
+                enabled: Boolean,
+                intents: NodeList
             ): Element {
                 val label = if (useCustomName) {
                     if (customName == null) {
@@ -304,17 +296,32 @@ internal fun baseCustomBrandingPatch(
                 alias.setAttribute("android:label", label)
                 alias.setAttribute("android:targetActivity", mainActivityName)
 
-                val intentFilter = document.createElement("intent-filter")
-                val action = document.createElement("action")
-                action.setAttribute("android:name", "android.intent.action.MAIN")
-                val category = document.createElement("category")
-                category.setAttribute("android:name", "android.intent.category.LAUNCHER")
-
-                intentFilter.appendChild(action)
-                intentFilter.appendChild(category)
-                alias.appendChild(intentFilter)
+                // Copy all intents from the original alias so long press actions still work.
+                for (i in 0 until intents.length) {
+                    alias.appendChild(
+                        intents.item(i).cloneNode(true)
+                    )
+                }
 
                 return alias
+            }
+
+            // Remove the original main alias.
+            val originalIntent = document.childNodes.findElementByAttributeValueOrThrow(
+                "android:name",
+                activityAliasNameWithIntentToRemove
+            )
+            originalIntent.parentNode.removeChild(originalIntent)
+
+            val intentFilters = originalIntent.childNodes
+            for (i in 0 until intentFilters.length) {
+                // Remove the default element from all intents.
+                intentFilters.item(i).childNodes.findElementByAttributeValue(
+                    "android:name",
+                    "android.intent.category.DEFAULT"
+                )?.let { intent ->
+                    intent.parentNode.removeChild(intent)
+                }
             }
 
             val namePrefix = ".revanced_"
@@ -334,7 +341,8 @@ internal fun baseCustomBrandingPatch(
                         iconMipmapName = originalLauncherIconName,
                         appNameIndex = appNameIndex,
                         useCustomName = useCustomNameLabel,
-                        enabled = (appNameIndex == 1)
+                        enabled = (appNameIndex == 1),
+                        intentFilters
                     )
                 )
 
@@ -345,7 +353,8 @@ internal fun baseCustomBrandingPatch(
                             iconMipmapName = iconResourcePrefix + style,
                             appNameIndex = appNameIndex,
                             useCustomName = useCustomNameLabel,
-                            enabled = false
+                            enabled = false,
+                            intentFilters
                         )
                     )
                 }
@@ -362,7 +371,8 @@ internal fun baseCustomBrandingPatch(
                         iconMipmapName = iconResourcePrefix + CUSTOM_USER_ICON_STYLE_NAME,
                         appNameIndex = appNameIndex,
                         useCustomName = useCustomNameLabel,
-                        enabled = false
+                        enabled = false,
+                        intentFilters
                     )
                 )
             }
