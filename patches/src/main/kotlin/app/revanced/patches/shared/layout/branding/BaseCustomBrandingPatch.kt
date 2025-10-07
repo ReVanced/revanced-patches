@@ -18,8 +18,10 @@ import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.removeFromParent
 import app.revanced.util.returnEarly
 import org.w3c.dom.Element
+import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 import java.io.File
 import java.util.logging.Logger
@@ -70,7 +72,7 @@ internal fun baseCustomBrandingPatch(
     mainActivityName: String,
     activityAliasNameWithIntents: String,
     preferenceScreen: BasePreferenceScreen.Screen,
-    block: ResourcePatchBuilder.() -> Unit = {},
+    block: ResourcePatchBuilder.() -> Unit,
     executeBlock: ResourcePatchContext.() -> Unit = {}
 ): ResourcePatch = resourcePatch(
     name = "Custom branding",
@@ -108,16 +110,10 @@ internal fun baseCustomBrandingPatch(
             execute {
                 mainActivityOnCreateFingerprint.method.addInstruction(
                     0,
-                    "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->setBranding()V"
+                    "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setBranding()V"
                 )
 
-                var totalNamePresets = numberOfPresetAppNames
-                if (customName != null) {
-                    totalNamePresets++
-                }
-
-                customNumberOfNamesIncludingDummyAliasesFingerprint.method.returnEarly(numberOfPresetAppNames + 1)
-                customNumberOfNamesFingerprint.method.returnEarly(totalNamePresets)
+                numberOfPresetAppNamesExtensionFingerprint.method.returnEarly(numberOfPresetAppNames)
             }
         }
     )
@@ -325,17 +321,14 @@ internal fun baseCustomBrandingPatch(
                 activityAliasNameWithIntents
             ).childNodes
 
-            val namePrefix = ".revanced_"
-            val iconResourcePrefix = "revanced_launcher_"
-            val application = document.getElementsByTagName("application")
-                .item(0) as Element
+            val application = document.getElementsByTagName("application").item(0) as Element
 
-            val numberOfPresetAppNamesPlusCustom = numberOfPresetAppNames + 1
-            for (appNameIndex in 1 .. numberOfPresetAppNamesPlusCustom) {
-                fun aliasName(name: String): String = namePrefix + name + '_' + appNameIndex
+            for (appNameIndex in 1 .. numberOfPresetAppNames) {
+                fun aliasName(name: String): String = ".revanced_" + name + '_' + appNameIndex
 
-                val useCustomNameLabel = (useCustomName && appNameIndex == numberOfPresetAppNamesPlusCustom)
+                val useCustomNameLabel = (useCustomName && appNameIndex == numberOfPresetAppNames)
 
+                // Original icon.
                 application.appendChild(
                     createAlias(
                         aliasName = aliasName(ORIGINAL_USER_ICON_STYLE_NAME),
@@ -347,11 +340,12 @@ internal fun baseCustomBrandingPatch(
                     )
                 )
 
+                // Bundled icons.
                 iconStyleNames.forEachIndexed { index, style ->
                     application.appendChild(
                         createAlias(
                             aliasName = aliasName(style),
-                            iconMipmapName = iconResourcePrefix + style,
+                            iconMipmapName = LAUNCHER_RESOURCE_NAME_PREFIX + style,
                             appNameIndex = appNameIndex,
                             useCustomName = useCustomNameLabel,
                             enabled = false,
@@ -360,6 +354,8 @@ internal fun baseCustomBrandingPatch(
                     )
                 }
 
+                // User provided custom icon.
+                //
                 // Must add all aliases even if the user did not provide a custom icon of their own.
                 // This is because if the user installs with an option, then repatches without the option,
                 // the alias must still exist because if it was previously enabled and then it's removed
@@ -369,7 +365,7 @@ internal fun baseCustomBrandingPatch(
                 application.appendChild(
                     createAlias(
                         aliasName = aliasName(CUSTOM_USER_ICON_STYLE_NAME),
-                        iconMipmapName = iconResourcePrefix + CUSTOM_USER_ICON_STYLE_NAME,
+                        iconMipmapName = LAUNCHER_RESOURCE_NAME_PREFIX + CUSTOM_USER_ICON_STYLE_NAME,
                         appNameIndex = appNameIndex,
                         useCustomName = useCustomNameLabel,
                         enabled = false,
@@ -379,13 +375,11 @@ internal fun baseCustomBrandingPatch(
             }
 
             // Remove the main action from the original alias, otherwise two apps icons
-            // can be shown in the launcher. Must do this after adding new aliases.
+            // can be shown in the launcher. Can only be done after adding the new aliases.
             intentFilters.findElementByAttributeValueOrThrow(
                 "android:name",
                 "android.intent.action.MAIN"
-            ).let { intent ->
-                intent.parentNode.removeChild(intent)
-            }
+            ).removeFromParent()
         }
 
         executeBlock()

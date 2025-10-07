@@ -57,19 +57,9 @@ public class CustomBrandingPatch {
     /**
      * Injection point.
      *
-     * The number of app names available in the settings UI.
-     */
-    private static int numberOfCustomNames() {
-        // Modified during patching.
-        throw new IllegalStateException();
-    }
-
-    /**
-     * Injection point.
-     *
      * The total number of app name aliases, including dummy aliases.
      */
-    private static int numberOfCustomNamesIncludingDummyAliases() {
+    private static int numberOfPresetAppNames() {
         // Modified during patching.
         throw new IllegalStateException();
     }
@@ -77,6 +67,7 @@ public class CustomBrandingPatch {
     /**
      * Injection point.
      */
+    @SuppressWarnings("ConstantConditions")
     public static void setBranding() {
         try {
             if (GmsCoreSupport.isPackageNameOriginal()) {
@@ -89,7 +80,6 @@ public class CustomBrandingPatch {
             String packageName = context.getPackageName();
 
             BrandingTheme selectedBranding = BaseSettings.CUSTOM_BRANDING_ICON.get();
-            final int numberOfCustomNames = numberOfCustomNames();
             final int selectedNameIndex = BaseSettings.CUSTOM_BRANDING_NAME.get();
             ComponentName componentToEnable = null;
             ComponentName defaultComponent = null;
@@ -97,10 +87,10 @@ public class CustomBrandingPatch {
 
             for (BrandingTheme theme : BrandingTheme.values()) {
                 // Must always update all aliases including custom alias (last index).
-                final int numberOfNamesIncludingDummies = numberOfCustomNamesIncludingDummyAliases();
+                final int numberOfPresetAppNames = numberOfPresetAppNames();
 
                 // App name indices starts at 1.
-                for (int index = 1; index <= numberOfNamesIncludingDummies; index++) {
+                for (int index = 1; index <= numberOfPresetAppNames; index++) {
                     String aliasClass = theme.packageAndNameIndexToClassAlias(packageName, index);
                     ComponentName component = new ComponentName(packageName, aliasClass);
                     if (defaultComponent == null) {

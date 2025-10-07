@@ -1,19 +1,13 @@
 package app.revanced.patches.shared.layout.branding
 
 import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val customNumberOfNamesIncludingDummyAliasesFingerprint = fingerprint {
+internal val numberOfPresetAppNamesExtensionFingerprint = fingerprint {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("I")
     parameters()
     custom { method, classDef ->
-        method.name == "numberOfCustomNamesIncludingDummyAliases" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
-}
-
-internal val customNumberOfNamesFingerprint = fingerprint {
-    returns("I")
-    parameters()
-    custom { method, classDef ->
-        method.name == "numberOfCustomNames" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
+        method.name == "numberOfPresetAppNames" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
 }
