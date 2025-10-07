@@ -1606,13 +1606,20 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">החלק כדי לדלג אינו מופעל</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">אפשר Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"מקודד וידאו הוא AVC (H.264), VP9, או AV1
+
+ההפעלה עשויה לגמגם או לדלג על פריימים"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">מקודד וידאו הוא AVC (H.264) או VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"הפעלת הגדרה זו עשויה להשתמש בפענוח תוכנה של AV1.
+
+הפעלת וידאו עם AV1 עלולה לגרום לגמגום או לדלוג על פריימים."</string>
   <string name="revanced_spoof_video_streams_about_title">תופעות לוואי של התחזות</string>
   <string name="revanced_spoof_video_streams_about_experimental">• לקוח ניסיוני ועשוי להפסיק לפעול בכל עת</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• הווידאו עשוי להיעצר בדקה 1:00, או ייתכן שלא יהיה זמין באזורים מסוימים</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• תפריט ערוץ השמע חסר</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• אין קודק וידאו מסוג AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• עוצמת קול יציבה אינה זמינה</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• ההפעלה עלולה לגמגם או להפיל פריימים</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ייתכן שסרטוני Kids לא יופעלו כשאתה מנותק או במצב פרטי</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• כפיית שמע מקורי אינה זמינה</string>

@@ -1602,13 +1602,20 @@ Mga Limitasyon:
   <string name="revanced_slide_to_seek_summary_off">Hindi pinagana ang slide to seek</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Payagan ang Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Ang video codec ay AVC (H.264), VP9, o AV1
+
+Maaaring mag-stutter o mag-drop ng frames ang playback"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Ang video codec ay AVC (H.264) o VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Ang pagpapagana sa setting na ito ay maaaring gumamit ng software AV1 decoding.
+
+Maaaring mag-stutter o mag-drop ng frames ang pag-playback ng video na may AV1."</string>
   <string name="revanced_spoof_video_streams_about_title">Mga epekto ng pagpapanggap</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Pang-eksperimentong kliyente at maaaring huminto sa paggana anumang oras</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Maaaring huminto ang video sa 1:00, o maaaring hindi available sa ilang rehiyon</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Nawawala ang menu ng audio track</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Walang AV1 video codec</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Hindi available ang stable volume</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Maaaring mag-stutter ang pag-playback o bumaba ang mga frame</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Mga video ng mga bata ay maaaring hindi ma-play kapag naka-log out o nasa incognito mode</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Ang Pilitin ang orihinal na audio ay hindi magagamit</string>

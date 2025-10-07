@@ -1600,13 +1600,20 @@ Ograniczenia:
   <string name="revanced_slide_to_seek_summary_off">Przesuń, aby przeszukiwać nie jest włączony</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Zezwól na Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Kodek wideo to AVC (H.264), VP9 lub AV1
+
+Odtwarzanie może się zacinać lub gubić klatki"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Kodek wideo to AVC (H.264) lub VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Włączenie tego ustawienia może używać programowego dekodowania AV1.
+
+Odtwarzanie wideo z AV1 może powodować zacinanie się lub gubienie klatek."</string>
   <string name="revanced_spoof_video_streams_about_title">Skutki uboczne fałszowania</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperymentalny klient i może przestać działać w każdej chwili</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Wideo może zatrzymać się o 1:00 lub może być niedostępne w niektórych regionach</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Brakuje menu ścieżek audio</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žádný video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabilna głośność nie jest dostępna</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Odtwarzanie może się zacinać lub gubić klatki</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Filmy dla dzieci mogą nie być odtwarzane po wylogowaniu lub w trybie incognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Wymuś oryginalny dźwięk jest niedostępny</string>

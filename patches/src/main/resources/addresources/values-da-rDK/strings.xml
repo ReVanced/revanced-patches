@@ -1606,13 +1606,20 @@ Begrænsninger:
   <string name="revanced_slide_to_seek_summary_off">Dias til søgning er ikke aktiveret</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Tillad Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Videocodec er AVC (H.264), VP9 eller AV1
+
+Afspilning kan hakke eller miste billeder"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Videocodec er AVC (H.264) eller VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Aktivering af denne indstilling kan bruge software AV1-afkodning.
+
+Videoafspilning med AV1 kan hakke eller tabe billeder."</string>
   <string name="revanced_spoof_video_streams_about_title">Bivirkninger ved spoofing</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentel klient og kan stoppe med at fungere når som helst</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Videoen kan stoppe ved 1:00, eller er muligvis ikke tilgængelig i visse regioner</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Lydspormenu mangler</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Intet AV1-videokodek</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabil lydstyrke er ikke tilgængelig</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Afspilning kan hakke eller tabe billeder</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videoer til børn afspilles muligvis ikke, når du er logget ud eller i inkognitotilstand</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Tving original lyd er ikke tilgængelig</string>

@@ -1601,13 +1601,20 @@ Einschränkungen:
   <string name="revanced_slide_to_seek_summary_off">Slide zum Suchen ist nicht aktiviert</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Android VR AV1 zulassen</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Video-Codec ist AVC (H.264), VP9 oder AV1
+
+Die Wiedergabe kann stottern oder Frames verlieren"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Video-Codec ist AVC (H.264) oder VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Durch Aktivierung dieser Einstellung kann Software-AV1-Decodierung verwendet werden.
+
+Die Videowiedergabe mit AV1 kann stottern oder Bilder überspringen."</string>
   <string name="revanced_spoof_video_streams_about_title">Nebenwirkungen des Spoofings</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimenteller Client und kann jederzeit aufhören zu funktionieren</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video kann um 1:00 Uhr stoppen oder ist möglicherweise in einigen Regionen nicht verfügbar</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Audiotrack-Menü fehlt</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Kein AV1-Videocodec</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabile Lautstärke ist nicht verfügbar</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Die Wiedergabe kann stottern oder Bilder überspringen</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kinder-Videos werden möglicherweise nicht abgespielt, wenn du abgemeldet bist oder den Inkognito-Modus verwendest.</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Originalton erzwingen ist nicht verfügbar</string>

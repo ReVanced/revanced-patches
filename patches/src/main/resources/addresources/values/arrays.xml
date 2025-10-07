@@ -225,15 +225,13 @@
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string-array name="revanced_spoof_video_streams_client_type_entries">
-                <item>Android VR 1.43</item>
-                <item>Android VR 1.61</item>
+                <item>Android VR</item>
                 <item>Android Studio</item>
                 <item>visionOS</item>
                 <item>iPadOS</item>
             </string-array>
             <string-array name="revanced_spoof_video_streams_client_type_entry_values">
                 <item>ANDROID_VR_1_43_32</item>
-                <item>ANDROID_VR_1_61_48</item>
                 <item>ANDROID_CREATOR</item>
                 <item>VISIONOS</item>
                 <item>IPADOS</item>

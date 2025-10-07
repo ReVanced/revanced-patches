@@ -1605,13 +1605,20 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">Слайд для пошуку не ўключаны</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Дазволіць Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Відэакодэк — AVC (H.264), VP9 або AV1
+
+Праграмаванне можа заікацца або прапускаць кадры"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Відэакодэк — AVC (H.264) або VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Уключэнне гэтай налады можа выкарыстоўваць праграмнае дэкадаванне AV1.
+
+Прайграванне відэа з AV1 можа заікацца або прапускаць кадры."</string>
   <string name="revanced_spoof_video_streams_about_title">Пабочныя эфекты падробкі</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Эксперыментальны кліент і можа спыніць працу ў любы час</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Відэа можа спыніцца на 1:00, ці можа быць недаступным у некаторых рэгіёнах</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Меню аўдыядарожкі адсутнічае</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Няма відэакідавання AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Стабільная гучнасць недаступная</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Прайграванне можа заікацца або прапускаць кадры</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Дзіцячыя відэа могуць не прайгравацца ў стане выхаду з акаўнта або ў рэжыме інкогніта</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Прымусовы арыгінальны аўдыё недаступны</string>

@@ -508,7 +508,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_copy_video_url_title">「動画の URL をコピー」ボタンを表示</string>
   <string name="revanced_copy_video_url_summary_on">ボタンがプレーヤー オーバーレイに表示されます。タップすると動画の URL が、長押しするとタイムスタンプ付きの URL がそれぞれコピーされます</string>
   <string name="revanced_copy_video_url_summary_off">ボタンはプレーヤー オーバーレイに表示されません</string>
-  <string name="revanced_copy_video_url_timestamp_title">「動画のタイムスタンプ付き URL をコピー」ボタンを表示</string>
+  <string name="revanced_copy_video_url_timestamp_title">「タイムスタンプ付き URL をコピー」ボタンを表示</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">ボタンがプレーヤー オーバーレイに表示されます。タップするとタイムスタンプ付きの URL が、長押しするとタイムスタンプなしの URL がそれぞれコピーされます</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">ボタンはプレーヤー オーバーレイに表示されません</string>
   </patch>
@@ -1483,7 +1483,7 @@ Automotive レイアウト
   <string name="revanced_loop_video_button_toast_off">動画のループ再生がオフになっています</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
-  <string name="revanced_spoof_device_dimensions_title">デバイスの画面サイズを偽装する</string>
+  <string name="revanced_spoof_device_dimensions_title">デバイスの画面サイズを偽装</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"デバイスの画面サイズは偽装されています
 
 より高画質な映像がアンロックされる可能性がありますが、動画のカクつき、バッテリー寿命の悪化、予期せぬ副作用が
@@ -1586,8 +1586,8 @@ Automotive レイアウト
   <string name="revanced_force_avc_codec_summary_on">ビデオ コーデックは強制的に AVC (H.264) になります</string>
   <string name="revanced_force_avc_codec_summary_off">ビデオ コーデックは自動的に決定されます</string>
   <string name="revanced_force_avc_codec_user_dialog_message">"利点:
-• バッテリー寿命を延ばすことができる
-• 古いデバイスで失われた動画解像度を復元できる
+• バッテリー寿命が延びる可能性がある
+• 古いデバイスで失われた動画解像度を復元できる可能性がある
 
 制限事項:
 • 最大解像度が 1080p
@@ -1606,13 +1606,20 @@ Automotive レイアウト
   <string name="revanced_slide_to_seek_summary_off">スライドによるシークは無効です。プレーヤー画面を左右にスライドしても、前後にシークしません</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Android VR AV1 を許可する</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"ビデオコーデックはAVC (H.264)、VP9、またはAV1です
+
+再生中に途切れたり、フレームがドロップすることがあります"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">ビデオコーデックはAVC (H.264) またはVP9です</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"この設定を有効にすると、ソフトウェアAV1デコードが使用される可能性があります。
+
+AV1での動画再生は、途切れたりフレームが落ちたりする場合があります。"</string>
   <string name="revanced_spoof_video_streams_about_title">偽装による副作用</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 実験的なクライアントであり、いつでも動作しなくなる可能性がある</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• 動画が 01:00 で停止する、または一部の地域で利用できない可能性がある</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">•「音声トラック」がフライアウト メニューに表示されない</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 コーデックが利用できない</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">•「一定音量」が利用できない</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• 再生が途切れたり、フレームがスキップされたりする場合があります。</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• ログアウト時またはシークレット モード時に、子ども向け動画が再生されない可能性がある</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">•「オリジナルの音声を強制的に使用」が利用できない</string>

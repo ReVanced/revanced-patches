@@ -1604,13 +1604,20 @@ Piirangud:
   <string name="revanced_slide_to_seek_summary_off">Libistamine otsimiseks on keelatud</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Luba Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Videokodek on AVC (H.264), VP9 või AV1
+
+Taasesitus võib hakata kokutama või kaotada kaadreid"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Videokodek on AVC (H.264) või VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Selle seade lubamine võib kasutada tarkvara AV1 dekodeerimist.
+
+AV1-ga videotaasesitus võib hakitud olla või kaadreid vahele jätta."</string>
   <string name="revanced_spoof_video_streams_about_title">Võltsimise kõrvalmõjud</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentaalne klient ja võib igal ajal töötamast lakata</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video võib peatuda kell 1:00 või ei pruugi olla teatud piirkondades saadaval</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Heliraja menüü puudub</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Puuduv AV1 videokoodek</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabiilne helitugevus pole saadaval</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Taasesitus võib katkendlik olla või kaadreid vahele jätta</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video lastele ei pruugi taasesitada, kui olete välja logitud või inkognito režiimis</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Sunni algne heli pole saadaval</string>

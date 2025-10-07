@@ -1604,13 +1604,20 @@ Omejitve:
   <string name="revanced_slide_to_seek_summary_off">Drsno iskanje ni omogočeno</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Dovoli Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Video kodek je AVC (H.264), VP9 ali AV1
+
+Predvajanje se lahko zatika ali izpušča sličice"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Video kodek je AVC (H.264) ali VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Omogočanje te nastavitve lahko uporablja programsko dekodiranje AV1.
+
+Predvajanje videa z AV1 se lahko zatika ali izpušča sličice."</string>
   <string name="revanced_spoof_video_streams_about_title">Stranski učinki ponarejanja</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentalni odjemalec in lahko kadar koli preneha delovati</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video se lahko ustavi ob 1:00, ali pa morda ne bo na voljo v nekaterih regijah</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Meni z zvočnimi posnetki manjka</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Brez kodeka videa AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabilna glasnost ni na voljo</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Predvajanje se lahko zatika ali izpušča sličice</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Posnetki za otroke se mogoče ne bodo predvajali, ko ste odjavljeni ali v načinu brez beleženja zgodovine</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Vsili izvirni zvok ni na voljo</string>

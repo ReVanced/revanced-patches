@@ -1601,13 +1601,20 @@ Limitações:
   <string name="revanced_slide_to_seek_summary_off">Gesto na barra de busca está desativado</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Permitir Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"O codec de vídeo é AVC (H.264), VP9 ou AV1
+
+A reprodução pode engasgar ou perder quadros"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">O codec de vídeo é AVC (H.264) ou VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Ativar esta configuração pode usar decodificação de software AV1.
+
+A reprodução de vídeo com AV1 pode gaguejar ou perder quadros."</string>
   <string name="revanced_spoof_video_streams_about_title">Efeitos colaterais da falsificação</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Cliente experimental e pode parar de funcionar a qualquer momento</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• O vídeo pode parar em 1:00, ou pode não estar disponível em algumas regiões</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• O menu da faixa de áudio está faltando</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Sem codec de vídeo AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volume estável não está disponível</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• A reprodução pode gaguejar ou perder quadros</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Vídeos infantis podem não ser reproduzidos quando estiver desconectado ou no modo de navegação anônima</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Forçar áudio original não está disponível</string>
