@@ -4,6 +4,10 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.music.misc.gms.Constants.MUSIC_MAIN_ACTIVITY_NAME
+import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
+import app.revanced.patches.music.misc.gms.musicActivityOnCreateFingerprint
+import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -50,24 +54,18 @@ private val disableSplashAnimationPatch = bytecodePatch {
     }
 }
 
-private const val APP_NAME = "YT Music ReVanced"
-
 @Suppress("unused")
 val customBrandingPatch = baseCustomBrandingPatch(
-    defaultAppName = APP_NAME,
-    appNameValues = mapOf(
-        "YT Music ReVanced" to APP_NAME,
-        "Music ReVanced" to "Music ReVanced",
-        "Music" to "Music",
-        "YT Music" to "YT Music",
-    ),
-    resourceFolder = "custom-branding/music",
-    iconResourceFileNames = arrayOf(
-        "adaptiveproduct_youtube_music_2024_q4_background_color_108",
-        "adaptiveproduct_youtube_music_2024_q4_foreground_color_108",
-        "ic_launcher_release",
-    ),
-    monochromeIconFileNames = arrayOf("ic_app_icons_themed_youtube_music.xml"),
+    addResourcePatchName = "music",
+    originalLauncherIconName = "ic_launcher_release",
+    originalAppName = "@string/app_launcher_name",
+    originalAppPackageName = MUSIC_PACKAGE_NAME,
+    copyExistingIntentsToAliases = false,
+    numberOfPresetAppNames = 5,
+    mainActivityOnCreateFingerprint = musicActivityOnCreateFingerprint,
+    mainActivityName = MUSIC_MAIN_ACTIVITY_NAME,
+    activityAliasNameWithIntents = MUSIC_MAIN_ACTIVITY_NAME,
+    preferenceScreen = PreferenceScreen.GENERAL,
 
     block = {
         dependsOn(disableSplashAnimationPatch)

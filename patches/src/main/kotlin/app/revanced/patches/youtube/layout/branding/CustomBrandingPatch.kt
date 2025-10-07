@@ -1,38 +1,28 @@
 package app.revanced.patches.youtube.layout.branding
 
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
-import app.revanced.patches.shared.layout.branding.mipmapDirectories
-import java.nio.file.Files
-
-private const val APP_NAME = "YouTube ReVanced"
-
-private val youtubeIconResourceFileNames_19_34 = mapOf(
-    "adaptiveproduct_youtube_foreground_color_108" to "adaptiveproduct_youtube_2024_q4_foreground_color_108",
-    "adaptiveproduct_youtube_background_color_108" to "adaptiveproduct_youtube_2024_q4_background_color_108",
-)
+import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_MAIN_ACTIVITY_NAME
+import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
+import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
 @Suppress("unused")
 val customBrandingPatch = baseCustomBrandingPatch(
-    defaultAppName = APP_NAME,
-    appNameValues = mapOf(
-        "YouTube ReVanced" to APP_NAME,
-        "YT ReVanced" to "YT ReVanced",
-        "YT" to "YT",
-        "YouTube" to "YouTube",
-    ),
-    resourceFolder = "custom-branding/youtube",
-    iconResourceFileNames = arrayOf(
-        "adaptiveproduct_youtube_background_color_108",
-        "adaptiveproduct_youtube_foreground_color_108",
-        "ic_launcher",
-        "ic_launcher_round",
-    ),
-    monochromeIconFileNames = arrayOf(
-        "adaptive_monochrome_ic_youtube_launcher.xml",
-        "ringo2_adaptive_monochrome_ic_youtube_launcher.xml"
-    ),
+    addResourcePatchName = "youtube",
+    originalLauncherIconName = "ic_launcher",
+    originalAppName = "@string/application_name",
+    originalAppPackageName = YOUTUBE_PACKAGE_NAME,
+    copyExistingIntentsToAliases = true,
+    numberOfPresetAppNames = 5,
+    mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
+    mainActivityName = YOUTUBE_MAIN_ACTIVITY_NAME,
+    activityAliasNameWithIntents = "com.google.android.youtube.app.honeycomb.Shell\$HomeActivity",
+    preferenceScreen = PreferenceScreen.GENERAL_LAYOUT,
 
     block = {
+        dependsOn(sharedExtensionPatch)
+
         compatibleWith(
             "com.google.android.youtube"(
                 "19.34.42",
@@ -41,20 +31,5 @@ val customBrandingPatch = baseCustomBrandingPatch(
                 "20.14.43",
             )
         )
-    },
-
-    executeBlock = {
-        val resourceDirectory = get("res")
-
-        mipmapDirectories.forEach { directory ->
-            val targetDirectory = resourceDirectory.resolve(directory)
-
-            youtubeIconResourceFileNames_19_34.forEach { (old, new) ->
-                val oldFile = targetDirectory.resolve("$old.png")
-                val newFile = targetDirectory.resolve("$new.png")
-
-                Files.write(newFile.toPath(), oldFile.readBytes())
-            }
-        }
     }
 )
