@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.spoof
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
@@ -16,9 +15,20 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/spoof/SpoofVideoStreamsPatch;"
-
 val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
+    extensionClassDescriptor = "Lapp/revanced/extension/youtube/patches/spoof/SpoofVideoStreamsPatch;",
+    mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
+    fixMediaFetchHotConfig = {
+        is_19_34_or_greater
+    },
+    fixMediaFetchHotConfigAlternative = {
+        // In 20.14 the flag was merged with 20.03 start playback flag.
+        is_20_10_or_greater && !is_20_14_or_greater
+    },
+    fixParsePlaybackResponseFeatureFlag = {
+        is_20_03_or_greater
+    },
+
     block = {
         compatibleWith(
             "com.google.android.youtube"(
@@ -35,16 +45,7 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
             versionCheckPatch
         )
     },
-    fixMediaFetchHotConfigChanges = {
-        is_19_34_or_greater
-    },
-    fixMediaFetchHotConfigAlternativeChanges = {
-        // In 20.14 the flag was merged with 20.03 start playback flag.
-        is_20_10_or_greater && !is_20_14_or_greater
-    },
-    fixParsePlaybackResponseFeatureFlag = {
-        is_20_03_or_greater
-    },
+
     executeBlock = {
         addResources("youtube", "misc.fix.playback.spoofVideoStreamsPatch")
 
@@ -61,6 +62,7 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
                         summaryKey = null,
                         tag = "app.revanced.extension.youtube.settings.preference.SpoofStreamingDataSideEffectsPreference"
                     ),
+                    SwitchPreference("revanced_spoof_video_streams_av1"),
                     ListPreference(
                         key = "revanced_spoof_video_streams_language",
                         // Language strings are declared in Setting patch.
@@ -71,11 +73,6 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
                     SwitchPreference("revanced_spoof_streaming_data_stats_for_nerds"),
                 )
             )
-        )
-
-        mainActivityOnCreateFingerprint.method.addInstruction(
-            0,
-            "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setClientOrderToUse()V"
         )
     }
 )
