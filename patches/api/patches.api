@@ -292,10 +292,6 @@ public final class app/revanced/patches/instagram/misc/links/OpenLinksExternally
 	public static final fun getOpenLinksExternallyPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/instagram/misc/privacy/SanitizeSharingLinksPatchKt {
-	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/instagram/misc/share/domain/ChangeLinkSharingDomainPatchKt {
 	public static final fun getChangeLinkSharingDomainPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
