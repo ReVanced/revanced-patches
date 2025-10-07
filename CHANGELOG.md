@@ -1,3 +1,10 @@
+# [5.42.0-dev.19](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.18...v5.42.0-dev.19) (2025-10-07)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Do not allow VR AV1 if "Force AVC" is enabled ([7afeaeb](https://github.com/ReVanced/revanced-patches/commit/7afeaebb5cc22eb4f4512d8aa0cf4e835e7a2daf))
+
 # [5.42.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.17...v5.42.0-dev.18) (2025-10-07)
 
 
