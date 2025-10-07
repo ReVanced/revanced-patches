@@ -5,12 +5,14 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
 import app.revanced.patches.instagram.misc.share.editShareLinksPatch
+import app.revanced.patches.shared.PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN
+import app.revanced.patches.shared.PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val changeLinkSharingDomainPatch = bytecodePatch(
-    name = "Change link sharing domain",
-    description = "Replaces the domain name of Instagram links when sharing them.",
+    name = PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN,
+    description = PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN,
     use = false
 ) {
     compatibleWith("com.instagram.android")
