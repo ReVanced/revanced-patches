@@ -192,6 +192,7 @@ internal fun baseCustomBrandingPatch(
             )
         )
 
+        // Copy template icon png files.
         mipmapDirectories.forEach { dpi ->
             copyResources(
                 "custom-branding",
@@ -348,12 +349,12 @@ internal fun baseCustomBrandingPatch(
                     )
                 }
 
-                // Must add all aliases even if the user did not provide option values.
+                // Must add all aliases even if the user did not provide a custom icon of their own.
                 // This is because if the user installs with an option, then repatches without the option,
-                // the alias must still exist because if it was previously enabled and then it's removed,
-                // the app will become broken and cannot launch. Even if the app data is cleared,
-                // it still cannot be launched. The only fix is to uninstall the app.
-                // To prevent this, always include all prior aliases and use dummy data if needed.
+                // the alias must still exist because if it was previously enabled and then it's removed
+                // the app will become broken and cannot launch. Even if the app data is cleared
+                // it still cannot be launched and the only fix is to uninstall the app.
+                // To prevent this, always include all aliases and use dummy data if needed.
                 application.appendChild(
                     createAlias(
                         aliasName = aliasName(CUSTOM_USER_ICON_STYLE_NAME),
