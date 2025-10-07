@@ -89,8 +89,7 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
                     + '\n' + str("revanced_spoof_video_streams_about_no_force_original_audio");
             // VR 1.61 is not exposed in the UI and should never be reached here.
             case ANDROID_VR_1_43_32, ANDROID_VR_1_61_48 ->
-                    summary += '\n' + str("revanced_spoof_video_streams_about_no_stable_volume")
-                            + '\n' + str("revanced_spoof_video_streams_about_no_av1");
+                    summary += '\n' + str("revanced_spoof_video_streams_about_no_stable_volume");
             case IPADOS ->
                     summary = str("revanced_spoof_video_streams_about_playback_failure")
                             + '\n' + str("revanced_spoof_video_streams_about_no_av1");
