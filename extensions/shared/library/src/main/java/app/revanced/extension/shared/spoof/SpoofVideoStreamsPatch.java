@@ -19,6 +19,14 @@ import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
+
+    public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return BaseSettings.SPOOF_VIDEO_STREAMS.get() && !preferredClient.useAuth;
+        }
+    }
+
     /**
      * Domain used for internet connectivity verification.
      * It has an empty response body and is only used to check for a 204 response code.
@@ -320,12 +328,5 @@ public class SpoofVideoStreamsPatch {
         }
 
         return videoFormat;
-    }
-
-    public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return BaseSettings.SPOOF_VIDEO_STREAMS.get() && !preferredClient.useAuth;
-        }
     }
 }
