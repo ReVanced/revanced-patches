@@ -29,7 +29,11 @@ public class SpoofVideoStreamsPatch {
     public static void setClientOrderToUse() {
         ClientType client = Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get();
 
-        if (client == ANDROID_VR_1_43_32 && Settings.SPOOF_VIDEO_STREAMS_AV1.get()) {
+        // Use VR 1.61 client that has AV1 if user settings allow it.
+        // AVC cannot be forced with VR 1.61 because it uses VP9 and AV1.
+        // If both settings are on, then force AVC takes priority and VR 1.43 is used.
+        if (client == ANDROID_VR_1_43_32 && Settings.SPOOF_VIDEO_STREAMS_AV1.get()
+                && !Settings.FORCE_AVC_CODEC.get()) {
             client = ANDROID_VR_1_61_48;
         }
 
