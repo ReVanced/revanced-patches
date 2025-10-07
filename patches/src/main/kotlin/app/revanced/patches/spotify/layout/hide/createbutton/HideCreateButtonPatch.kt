@@ -88,7 +88,7 @@ val hideCreateButtonPatch = bytecodePatch(
                     // In newer implementations
                     // return null because the method return value is a BottomNavigationItemView.
                     "const/4 v0, 0\n" +
-                            "return-object v0"
+                        "return-object v0"
                 }
 
                 addInstructionsWithLabels(
