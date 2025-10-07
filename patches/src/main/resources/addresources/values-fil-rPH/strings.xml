@@ -20,6 +20,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Pangalan ng app</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Pasadyang</string>
+  <string name="revanced_custom_branding_icon_title">Icon ng app</string>
+  <string name="revanced_custom_branding_icon_entry_1">Orihinal</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimal</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced naka-scale</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Pasadyang</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Nabigo ang mga pagsusuri</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Buksan ang Opisyal na Website</string>
@@ -1408,11 +1420,13 @@ Ang \"miniplayer\" ay maaaring i-drag palabas ng screen sa kaliwa o kanan"</stri
   <string name="revanced_seekbar_custom_color_accent_summary">Ang accent na kulay ng seekbar</string>
   <string name="revanced_seekbar_custom_color_invalid">Hindi wastong halaga ng kulay ng seekbar</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Logo ng Header</string>
   <string name="revanced_header_logo_entry_1">Default</string>
   <string name="revanced_header_logo_entry_2">Regular</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
   <string name="revanced_header_logo_entry_6">Pasadyang</string>
   </patch>
@@ -1629,6 +1643,8 @@ Maaaring mag-stutter o mag-drop ng frames ang pag-playback ng video na may AV1."
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Tungkol</string>
   <string name="revanced_settings_music_screen_1_ads_title">Mga Ad</string>

@@ -20,6 +20,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Alkalmazás neve</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Egyéni</string>
+  <string name="revanced_custom_branding_icon_title">Alkalmazás ikonja</string>
+  <string name="revanced_custom_branding_icon_entry_1">Eredeti</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimális</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced méretezett</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Egyéni</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Az ellenőrzések sikertelenek</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Hivatalos weboldal megnyitása</string>
@@ -1407,11 +1419,13 @@ A miniatűr képernyőt a képernyő bal vagy jobb szélére húzhatja"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">A keresősáv kiemelõ színe</string>
   <string name="revanced_seekbar_custom_color_invalid">Érvénytelen keresősáv színértéke</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Fejléc logó</string>
   <string name="revanced_header_logo_entry_1">Alapértelmezett</string>
   <string name="revanced_header_logo_entry_2">Normál</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimál</string>
   <string name="revanced_header_logo_entry_6">Egyéni</string>
   </patch>
@@ -1628,6 +1642,8 @@ Az AV1-es videólejátszás akadozhat vagy képkockákat ejthet."</string>
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Névjegy</string>
   <string name="revanced_settings_music_screen_1_ads_title">Hirdetések</string>

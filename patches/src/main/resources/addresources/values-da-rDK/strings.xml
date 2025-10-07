@@ -20,6 +20,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Appnavn</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Tilpasset</string>
+  <string name="revanced_custom_branding_icon_title">Appikon</string>
+  <string name="revanced_custom_branding_icon_entry_1">Original</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimal</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced skaleret</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Tilpasset</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Kontrol mislykkedes</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Åbn officiel hjemmeside</string>
@@ -1412,11 +1424,13 @@ Miniafspiller kan trækkes ud over skærmen til venstre eller højre"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Søgelinjens accentfarve</string>
   <string name="revanced_seekbar_custom_color_invalid">Ugyldig søgelinje farveværdi</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Sidehovedlogo</string>
   <string name="revanced_header_logo_entry_1">Standard</string>
   <string name="revanced_header_logo_entry_2">Normal</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
   <string name="revanced_header_logo_entry_6">Brugerdefineret</string>
   </patch>
@@ -1633,6 +1647,8 @@ Videoafspilning med AV1 kan hakke eller tabe billeder."</string>
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Om</string>
   <string name="revanced_settings_music_screen_1_ads_title">Annoncer</string>

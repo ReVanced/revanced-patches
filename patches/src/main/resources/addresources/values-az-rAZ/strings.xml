@@ -20,6 +20,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Tətbiq adı</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Fərdi</string>
+  <string name="revanced_custom_branding_icon_title">Tətbiq ikonu</string>
+  <string name="revanced_custom_branding_icon_entry_1">Orijinal</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">Ən kiçik ReVanced</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced ölçüləndirilmiş</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Fərdi</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Yoxlamalar uğursuz oldu</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Xidməti veb saytı aç</string>
@@ -1409,11 +1421,13 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">İrəliləyiş cizgisi vurğu rəngi</string>
   <string name="revanced_seekbar_custom_color_invalid">Etibarsız irəliləmə cizgisi rəng dəyəri</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Başlıq simvolu</string>
   <string name="revanced_header_logo_entry_1">İlkin</string>
   <string name="revanced_header_logo_entry_2">Müntəzəm</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">Ən kiçik ReVanced</string>
   <string name="revanced_header_logo_entry_6">Fərdi</string>
   </patch>
@@ -1630,6 +1644,8 @@ AV1 ilə video oxutma kəsilə bilər və ya kadrlar atıla bilər."</string>
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Haqqında</string>
   <string name="revanced_settings_music_screen_1_ads_title">Reklamlar</string>

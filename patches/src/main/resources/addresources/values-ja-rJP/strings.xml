@@ -20,6 +20,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">アプリ名</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">カスタム</string>
+  <string name="revanced_custom_branding_icon_title">アプリアイコン</string>
+  <string name="revanced_custom_branding_icon_entry_1">元</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimal</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced スケール</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">カスタム</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">チェックに失敗しました</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">公式サイトを開く</string>
@@ -1413,11 +1425,13 @@ Automotive レイアウト
   <string name="revanced_seekbar_custom_color_accent_summary">シークバーのアクセントカラーを編集します</string>
   <string name="revanced_seekbar_custom_color_invalid">シークバーの色の値が無効です</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">ヘッダーロゴ</string>
   <string name="revanced_header_logo_entry_1">デフォルト</string>
   <string name="revanced_header_logo_entry_2">標準</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
   <string name="revanced_header_logo_entry_6">カスタム</string>
   </patch>
@@ -1633,6 +1647,8 @@ AV1での動画再生は、途切れたりフレームが落ちたりする場�
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">ReVanced について</string>
   <string name="revanced_settings_music_screen_1_ads_title">広告</string>

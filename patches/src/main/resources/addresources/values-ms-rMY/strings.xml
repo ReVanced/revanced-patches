@@ -20,6 +20,11 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
@@ -203,8 +208,10 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.theme.themePatch">
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
   </patch>
@@ -254,6 +261,8 @@ Second \"item\" text"</string>
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   </patch>
   <patch id="ad.video.hideVideoAdsPatch">
