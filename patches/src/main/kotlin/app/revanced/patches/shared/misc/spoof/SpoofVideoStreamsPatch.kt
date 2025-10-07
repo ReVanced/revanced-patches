@@ -38,7 +38,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR =
 private lateinit var buildRequestMethod: MutableMethod
 private var buildRequestMethodUrlRegister = -1
 
-fun spoofVideoStreamsPatch(
+internal fun spoofVideoStreamsPatch(
     extensionClassDescriptor: String,
     mainActivityOnCreateFingerprint: Fingerprint,
     fixMediaFetchHotConfig: BytecodePatchBuilder.() -> Boolean = { false },
