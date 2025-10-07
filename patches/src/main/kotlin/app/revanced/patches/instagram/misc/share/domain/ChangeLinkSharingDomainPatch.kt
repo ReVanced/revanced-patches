@@ -31,9 +31,9 @@ val changeLinkSharingDomainPatch = bytecodePatch(
             addInstructions(
                 index,
                 """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setCustomShareDomain(Ljava/lang/String;)Ljava/lang/String;
-                        move-result-object v$register
-                    """
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setCustomShareDomain(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$register
+                """
             )
         }
     }
