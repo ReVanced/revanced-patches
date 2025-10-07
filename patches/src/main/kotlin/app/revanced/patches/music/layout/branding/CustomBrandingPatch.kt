@@ -61,10 +61,11 @@ val customBrandingPatch = baseCustomBrandingPatch(
     originalLauncherIconName = "ic_launcher_release",
     originalAppName = "@string/app_launcher_name",
     originalAppPackageName = MUSIC_PACKAGE_NAME,
+    copyExistingIntentsToAliases = false,
     numberOfPresetAppNames = 4,
     mainActivityOnCreateFingerprint = musicActivityOnCreateFingerprint,
     mainActivityName = MUSIC_MAIN_ACTIVITY_NAME,
-    activityAliasNameWithIntentToRemove = MUSIC_MAIN_ACTIVITY_NAME,
+    activityAliasNameWithIntents = MUSIC_MAIN_ACTIVITY_NAME,
     preferenceScreen = PreferenceScreen.GENERAL,
 
     block = {

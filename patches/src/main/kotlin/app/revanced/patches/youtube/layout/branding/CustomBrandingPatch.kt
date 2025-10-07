@@ -13,10 +13,11 @@ val customBrandingPatch = baseCustomBrandingPatch(
     originalLauncherIconName = "ic_launcher",
     originalAppName = "@string/application_name",
     originalAppPackageName = YOUTUBE_PACKAGE_NAME,
+    copyExistingIntentsToAliases = true,
     numberOfPresetAppNames = 4,
     mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
     mainActivityName = YOUTUBE_MAIN_ACTIVITY_NAME,
-    activityAliasNameWithIntentToRemove = "com.google.android.youtube.app.honeycomb.Shell\$HomeActivity",
+    activityAliasNameWithIntents = "com.google.android.youtube.app.honeycomb.Shell\$HomeActivity",
     preferenceScreen = PreferenceScreen.GENERAL_LAYOUT,
 
     block = {

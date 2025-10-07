@@ -64,10 +64,11 @@ internal fun baseCustomBrandingPatch(
     originalLauncherIconName: String,
     originalAppName: String,
     originalAppPackageName: String,
+    copyExistingIntentsToAliases: Boolean,
     numberOfPresetAppNames: Int,
     mainActivityOnCreateFingerprint: Fingerprint,
     mainActivityName: String,
-    activityAliasNameWithIntentToRemove: String,
+    activityAliasNameWithIntents: String,
     preferenceScreen: BasePreferenceScreen.Screen,
     block: ResourcePatchBuilder.() -> Unit = {},
     executeBlock: ResourcePatchContext.() -> Unit = {}
@@ -297,25 +298,35 @@ internal fun baseCustomBrandingPatch(
                 alias.setAttribute("android:targetActivity", mainActivityName)
 
                 // Copy all intents from the original alias so long press actions still work.
-                for (i in 0 until intents.length) {
-                    alias.appendChild(
-                        intents.item(i).cloneNode(true)
-                    )
+                if (copyExistingIntentsToAliases) {
+                    for (i in 0 until intents.length) {
+                        alias.appendChild(
+                            intents.item(i).cloneNode(true)
+                        )
+                    }
+                } else {
+                    val intentFilter = document.createElement("intent-filter").apply {
+                        val action = document.createElement("action")
+                        action.setAttribute("android:name", "android.intent.action.MAIN")
+                        appendChild(action)
+
+                        val category = document.createElement("category")
+                        category.setAttribute("android:name", "android.intent.category.LAUNCHER")
+                        appendChild(category)
+                    }
+                    alias.appendChild(intentFilter)
                 }
 
                 return alias
             }
 
-            // Remove the original main alias.
-            val originalIntent = document.childNodes.findElementByAttributeValueOrThrow(
+            val intentFilters = document.childNodes.findElementByAttributeValueOrThrow(
                 "android:name",
-                activityAliasNameWithIntentToRemove
-            )
-            originalIntent.parentNode.removeChild(originalIntent)
+                activityAliasNameWithIntents
+            ).childNodes
 
             val namePrefix = ".revanced_"
             val iconResourcePrefix = "revanced_launcher_"
-            val intentFilters = originalIntent.childNodes
             val application = document.getElementsByTagName("application")
                 .item(0) as Element
 
@@ -365,6 +376,15 @@ internal fun baseCustomBrandingPatch(
                         intentFilters
                     )
                 )
+            }
+
+            // Remove the main action from the original alias, otherwise two apps icons
+            // can be shown in the launcher. Must do this after adding new aliases.
+            intentFilters.findElementByAttributeValueOrThrow(
+                "android:name",
+                "android.intent.action.MAIN"
+            ).let { intent ->
+                intent.parentNode.removeChild(intent)
             }
         }
 
