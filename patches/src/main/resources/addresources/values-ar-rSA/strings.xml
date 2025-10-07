@@ -20,6 +20,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">اسم التطبيق</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">مخصص</string>
+  <string name="revanced_custom_branding_icon_title">أيقونة التطبيق</string>
+  <string name="revanced_custom_branding_icon_entry_1">أصلي</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimal</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced مصغر</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">مخصص</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">فشلت عمليات التحقق</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">فتح الموقع الرسمي</string>
@@ -1410,11 +1422,13 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">لون تمييز شريط التقدم</string>
   <string name="revanced_seekbar_custom_color_invalid">لون شريط التقدم غير صالح</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">علامة الشعار</string>
   <string name="revanced_header_logo_entry_1">الافتراضي</string>
   <string name="revanced_header_logo_entry_2">القياسي</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
   <string name="revanced_header_logo_entry_6">مخصص</string>
   </patch>
@@ -1631,6 +1645,8 @@ Second \"item\" text"</string>
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">لمحة</string>
   <string name="revanced_settings_music_screen_1_ads_title">الإعلانات</string>

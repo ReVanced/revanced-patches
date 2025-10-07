@@ -20,6 +20,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">ชื่อแอป</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">กำหนดเอง</string>
+  <string name="revanced_custom_branding_icon_title">ไอคอนแอป</string>
+  <string name="revanced_custom_branding_icon_entry_1">ต้นฉบับ</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced เรียบง่าย</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced ปรับขนาด</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">กำหนดเอง</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">การตรวจสอบล้มเหลว</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">เปิดเว็บไซต์อย่างเป็นทางการ</string>
@@ -1412,11 +1424,13 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_seekbar_custom_color_accent_summary">สีเน้นของ seekbar</string>
   <string name="revanced_seekbar_custom_color_invalid">ค่าสีแถบเลื่อนไม่ถูกต้อง</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">โลโก้ส่วนหัว</string>
   <string name="revanced_header_logo_entry_1">ค่าเริ่มต้น</string>
   <string name="revanced_header_logo_entry_2">ปกติ</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced แบบย่อ</string>
   <string name="revanced_header_logo_entry_6">กำหนดเอง</string>
   </patch>
@@ -1633,6 +1647,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">เกี่ยวกับ</string>
   <string name="revanced_settings_music_screen_1_ads_title">โฆษณา</string>

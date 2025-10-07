@@ -20,6 +20,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">应用名称</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">自定义</string>
+  <string name="revanced_custom_branding_icon_title">应用图标</string>
+  <string name="revanced_custom_branding_icon_entry_1">原始</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced 极简</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced 缩放</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">自定义</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">检测失败</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">打开官方网站</string>
@@ -1415,11 +1427,13 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">进度条的强调色</string>
   <string name="revanced_seekbar_custom_color_invalid">无效的进度条颜色值</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">标题徽标</string>
   <string name="revanced_header_logo_entry_1">默认</string>
   <string name="revanced_header_logo_entry_2">常规</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced 极简</string>
   <string name="revanced_header_logo_entry_6">自定义</string>
   </patch>
@@ -1636,6 +1650,8 @@ Second \"item\" text"</string>
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">关于</string>
   <string name="revanced_settings_music_screen_1_ads_title">广告</string>

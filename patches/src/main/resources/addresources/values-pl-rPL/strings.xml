@@ -20,6 +20,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Nazwa aplikacji</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Własna</string>
+  <string name="revanced_custom_branding_icon_title">Ikona aplikacji</string>
+  <string name="revanced_custom_branding_icon_entry_1">Oryginalna</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimalna</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced skalowana</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Niestandardowa</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Sprawdzanie nie powiodło się</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Otwórz oficjalną stronę internetową</string>
@@ -1406,11 +1418,13 @@ Odtwarzacz można przeciągnąć poza ekran w lewo lub w prawo"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Kolor akcentu paska postępu</string>
   <string name="revanced_seekbar_custom_color_invalid">Nieprawidłowa wartość koloru paska postępu</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Logo nagłówka</string>
   <string name="revanced_header_logo_entry_1">Domyślne</string>
   <string name="revanced_header_logo_entry_2">Zwykłe</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimalistyczne</string>
   <string name="revanced_header_logo_entry_6">Niestandardowe</string>
   </patch>
@@ -1627,6 +1641,8 @@ Odtwarzanie wideo z AV1 może powodować zacinanie się lub gubienie klatek."</s
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">O programie</string>
   <string name="revanced_settings_music_screen_1_ads_title">Reklamy</string>
