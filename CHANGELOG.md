@@ -1,3 +1,10 @@
+# [5.42.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.16...v5.42.0-dev.17) (2025-10-07)
+
+
+### Bug Fixes
+
+* **YouTube - Force original audio:** Change patch to default on ([#6070](https://github.com/ReVanced/revanced-patches/issues/6070)) ([bd4ba2d](https://github.com/ReVanced/revanced-patches/commit/bd4ba2dae85ee6fd8d7e6078c3de775ca336e0b6))
+
 # [5.42.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.15...v5.42.0-dev.16) (2025-10-07)
 
 
