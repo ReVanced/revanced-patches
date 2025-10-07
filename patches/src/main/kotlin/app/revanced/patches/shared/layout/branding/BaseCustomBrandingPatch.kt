@@ -17,7 +17,6 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
-import app.revanced.util.findElementByAttributeValue
 import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.returnEarly
 import org.w3c.dom.Element
@@ -313,19 +312,9 @@ internal fun baseCustomBrandingPatch(
             )
             originalIntent.parentNode.removeChild(originalIntent)
 
-            val intentFilters = originalIntent.childNodes
-            for (i in 0 until intentFilters.length) {
-                // Remove the default element from all intents.
-                intentFilters.item(i).childNodes.findElementByAttributeValue(
-                    "android:name",
-                    "android.intent.category.DEFAULT"
-                )?.let { intent ->
-                    intent.parentNode.removeChild(intent)
-                }
-            }
-
             val namePrefix = ".revanced_"
             val iconResourcePrefix = "revanced_launcher_"
+            val intentFilters = originalIntent.childNodes
             val application = document.getElementsByTagName("application")
                 .item(0) as Element
 
