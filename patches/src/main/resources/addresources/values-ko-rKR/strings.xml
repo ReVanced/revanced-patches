@@ -1611,13 +1611,20 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_slide_to_seek_summary_off">슬라이드하여 탐색을 비활성화합니다</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Android VR AV1 허용</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"비디오 코덱은 AVC (H.264), VP9 또는 AV1입니다
+
+재생이 끊기거나 프레임이 떨어질 수 있습니다"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">비디오 코덱은 AVC (H.264) 또는 VP9입니다</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"이 설정을 활성화하면 소프트웨어 AV1 디코딩을 사용할 수 있습니다.
+
+AV1을 사용한 비디오 재생 시 끊김 또는 프레임 드롭이 발생할 수 있습니다."</string>
   <string name="revanced_spoof_video_streams_about_title">변경에 따른 부작용</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 실험용 클라이언트이며 언제든지 작동이 중단될 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• 동영상이 1:00에 멈출 수 있으며, 일부 지역에서는 이용이 불가능할 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• 오디오 트랙 메뉴가 표시되지 않습니다</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 코덱이 지원되지 않습니다</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• 안정적인 볼륨을 사용할 수 없습니다</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• 재생이 끊기거나 프레임이 손실될 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Kids 동영상은 로그인을 하지 않았거나 시크릿 모드에서는 재생되지 않을 수 있습니다</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• 원본 오디오를 강제로 활성화할 수 없습니다</string>

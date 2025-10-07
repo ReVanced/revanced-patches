@@ -1597,13 +1597,20 @@ Obmedzenia:
   <string name="revanced_slide_to_seek_summary_off">Nie je povolené posúvanie</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Povoliť Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Videokodek je AVC (H.264), VP9 alebo AV1
+
+Prehrávanie sa môže sekať alebo môžu vypadávať snímky"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Videokodek je AVC (H.264) alebo VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Povolenie tohto nastavenia môže použiť softvérové AV1 dekódovanie.
+
+Prehrávanie videa s AV1 môže sekať alebo vynechávať snímky."</string>
   <string name="revanced_spoof_video_streams_about_title">Vedľajšie účinky podvrhnutia</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentálny klient a môže kedykoľvek prestať fungovať</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video sa môže zastaviť o 1:00, alebo nemusí byť dostupné v niektorých regiónoch</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Chýba ponuka zvukovej stopy</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Žiadny video kodek AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabilná hlasitosť nie je dostupná</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Prehrávanie môže sekať alebo vynechávať snímky</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videá pre deti sa nemusia prehrávať, keď ste odhlásení alebo v režime inkognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Vynútenie pôvodného zvuku nie je k dispozícii</string>

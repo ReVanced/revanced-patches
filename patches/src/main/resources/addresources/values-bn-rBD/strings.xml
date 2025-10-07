@@ -1600,13 +1600,20 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   <string name="revanced_slide_to_seek_summary_off">ভিডিওর নির্দিষ্ট অংশে যেতে টানুন সক্রিয় করা হয়নি</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">অ্যান্ড্রয়েড VR AV1 অনুমতি দিন</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"ভিডিও কোডেক হল AVC (H.264), VP9, অথবা AV1
+
+প্লেব্যাক আটকে যেতে পারে বা ফ্রেম বাদ দিতে পারে"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">ভিডিও কোডেক হল AVC (H.264) অথবা VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"এই সেটিংটি চালু করলে সফটওয়্যার AV1 ডিকোডিং ব্যবহার হতে পারে।
+
+AV1 সহ ভিডিও প্লেব্যাক আটকে যেতে পারে বা ফ্রেম বাদ দিতে পারে।"</string>
   <string name="revanced_spoof_video_streams_about_title">স্পুফিংয়ের পার্শ্বপ্রতিক্রিয়া</string>
   <string name="revanced_spoof_video_streams_about_experimental">• পরীক্ষামূলক ক্লায়েন্ট এবং যেকোনো সময় কাজ করা বন্ধ করতে পারে</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• ভিডিও ১:০০ মিনিটে বন্ধ হতে পারে, অথবা কিছু অঞ্চলে উপলব্ধ নাও হতে পারে</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• অডিও ট্র্যাক মেনু অনুপস্থিত</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• কোনো AV1 ভিডিও কোডেক নেই</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• স্থিতিশীল ভলিউম উপলব্ধ নেই</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• প্লেব্যাক আটকে যেতে পারে বা ফ্রেম বাদ দিতে পারে</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• লগআউট করা হলে বা ছদ্মবেশী মোডে বাচ্চাদের ভিডিও চলতে নাও পারে</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• মূল অডিও জোরপূর্বক উপলব্ধ নেই</string>

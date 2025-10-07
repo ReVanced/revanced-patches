@@ -27,6 +27,8 @@ import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.forEachLiteralValueInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstLiteralInstruction
+import app.revanced.util.removeFromParent
 import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -136,7 +138,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
             )
 
             if (hideShortsAppShortcut == true) {
-                shortsItem.parentNode.removeChild(shortsItem)
+                shortsItem.removeFromParent()
             }
         }
 
@@ -147,7 +149,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
             )
 
             if (hideShortsWidget == true) {
-                shortsItem.parentNode.removeChild(shortsItem)
+                shortsItem.removeFromParent()
             }
         }
     }

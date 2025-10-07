@@ -2,6 +2,7 @@ package app.revanced.extension.shared.settings;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
+import static app.revanced.extension.shared.patches.CustomBrandingPatch.BrandingTheme;
 import static app.revanced.extension.shared.settings.Setting.parent;
 import static app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch.AudioStreamLanguageOverrideAvailability;
 
@@ -40,4 +41,7 @@ public class BaseSettings {
     public static final BooleanSetting REPLACE_MUSIC_LINKS_WITH_YOUTUBE = new BooleanSetting("revanced_replace_music_with_youtube", FALSE);
 
     public static final BooleanSetting CHECK_WATCH_HISTORY_DOMAIN_NAME = new BooleanSetting("revanced_check_watch_history_domain_name", TRUE, false, false);
+
+    public static final EnumSetting<BrandingTheme> CUSTOM_BRANDING_ICON = new EnumSetting<>("revanced_custom_branding_icon", BrandingTheme.ORIGINAL, true);
+    public static final IntegerSetting CUSTOM_BRANDING_NAME = new IntegerSetting("revanced_custom_branding_name", 1, true);
 }

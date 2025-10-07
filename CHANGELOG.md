@@ -1,3 +1,64 @@
+# [5.42.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.17...v5.42.0-dev.18) (2025-10-07)
+
+
+### Features
+
+* **Custom branding:** Add in-app settings to change icon and name ([#6059](https://github.com/ReVanced/revanced-patches/issues/6059)) ([a50f3b5](https://github.com/ReVanced/revanced-patches/commit/a50f3b5177808f07d84041c946caccb5a08ad387))
+
+# [5.42.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.16...v5.42.0-dev.17) (2025-10-07)
+
+
+### Bug Fixes
+
+* **YouTube - Force original audio:** Change patch to default on ([#6070](https://github.com/ReVanced/revanced-patches/issues/6070)) ([bd4ba2d](https://github.com/ReVanced/revanced-patches/commit/bd4ba2dae85ee6fd8d7e6078c3de775ca336e0b6))
+
+# [5.42.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.15...v5.42.0-dev.16) (2025-10-07)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Add "Allow Android VR AV1" setting ([#6071](https://github.com/ReVanced/revanced-patches/issues/6071)) ([f03256c](https://github.com/ReVanced/revanced-patches/commit/f03256c471e1ee6a12267c1b56b531ca8f89278c))
+
+# [5.42.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.14...v5.42.0-dev.15) (2025-10-07)
+
+
+### Features
+
+* **Instagram:** Add `Enable developer menu` patch ([#6043](https://github.com/ReVanced/revanced-patches/issues/6043)) ([2154d89](https://github.com/ReVanced/revanced-patches/commit/2154d89242fd8d7f7460145d5d35a4f1986944a3))
+
+# [5.42.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.13...v5.42.0-dev.14) (2025-10-07)
+
+
+### Features
+
+* **Instagram:** Add `Custom share domain` patch ([#5998](https://github.com/ReVanced/revanced-patches/issues/5998)) ([20c4131](https://github.com/ReVanced/revanced-patches/commit/20c413120bad97af6121718e76b22a1b5540aa44))
+
+# [5.42.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.12...v5.42.0-dev.13) (2025-10-07)
+
+
+### Bug Fixes
+
+* **Spotify:** Change `Hide Create button` patch to default off ([#6067](https://github.com/ReVanced/revanced-patches/issues/6067)) ([19949e1](https://github.com/ReVanced/revanced-patches/commit/19949e1695cc252ff0f94a33b6e3fb62e967d7fd))
+
+# [5.42.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.11...v5.42.0-dev.12) (2025-10-03)
+
+
+### Bug Fixes
+
+* **Custom branding:** Update ReVanced logo ([#6049](https://github.com/ReVanced/revanced-patches/issues/6049)) ([9441e7a](https://github.com/ReVanced/revanced-patches/commit/9441e7acb4817e12d1443d438ef6c448518bd614))
+
+
+### Features
+
+* **Instagram:** Add `Sanitize sharing links` patch ([#5986](https://github.com/ReVanced/revanced-patches/issues/5986)) ([963a4ef](https://github.com/ReVanced/revanced-patches/commit/963a4ef43fd513de7a2d7d019992f06b62fdcc10))
+
+# [5.42.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.10...v5.42.0-dev.11) (2025-10-03)
+
+
+### Bug Fixes
+
+* **YouTube:** Resolve UI components not hiding for some users ([#6054](https://github.com/ReVanced/revanced-patches/issues/6054)) ([6b26346](https://github.com/ReVanced/revanced-patches/commit/6b2634691423f5ce25a28b3f2fbc420977b81748))
+
 # [5.42.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.9...v5.42.0-dev.10) (2025-10-02)
 
 

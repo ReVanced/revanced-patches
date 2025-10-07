@@ -6,6 +6,8 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
+import app.revanced.patches.shared.PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN
+import app.revanced.patches.shared.PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -29,8 +31,8 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/twitter/patches/li
 
 @Suppress("unused")
 val changeLinkSharingDomainPatch = bytecodePatch(
-    name = "Change link sharing domain",
-    description = "Replaces the domain name of Twitter links when sharing them.",
+    name = PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN,
+    description = PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN
 ) {
     dependsOn(
         changeLinkSharingDomainResourcePatch,

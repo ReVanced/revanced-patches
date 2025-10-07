@@ -1602,13 +1602,20 @@ Kufizimet:
   <string name="revanced_slide_to_seek_summary_off">Rrëshqitja për kërkim nuk është e aktivizuar</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Lejo Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Kodeku i videos është AVC (H.264), VP9, ose AV1
+
+Luajtja mund të bllokojë ose të humbasë korniza"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Kodeku i videos është AVC (H.264) ose VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Aktivizimi i këtij cilësimi mund të përdorë dekodimin softuerik AV1.
+
+Luajtja e videos me AV1 mund të ngecë ose të humbasë korniza."</string>
   <string name="revanced_spoof_video_streams_about_title">Efektet anësore të falsifikimit</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klient eksperimental dhe mund të ndalojë së funksionuari në çdo kohë</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Videoja mund të ndalojë në 1:00, ose mund të mos jetë e disponueshme në disa rajone</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menuja e gjurmës audio mungon</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nuk ka codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volumi i qëndrueshëm nuk është i disponueshëm</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Riprodhimi mund të ndërpritet ose të humbasë kornizat</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video për fëmijë mund të mos luajnë kur jeni jashtë llogarisë ose në modalitetin incognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Detyro audio origjinale nuk është i disponueshëm</string>

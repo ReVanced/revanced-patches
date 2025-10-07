@@ -22,6 +22,7 @@ import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerT
 import static app.revanced.extension.youtube.patches.OpenShortsInRegularPlayerPatch.ShortsPlayerType;
 import static app.revanced.extension.youtube.patches.SeekbarThumbnailsPatch.SeekbarThumbnailsHighQualityAvailability;
 import static app.revanced.extension.youtube.patches.components.PlayerFlyoutMenuItemsFilter.HideAudioFlyoutMenuAvailability;
+import static app.revanced.extension.youtube.patches.spoof.SpoofVideoStreamsPatch.SpoofClientAv1Availability;
 import static app.revanced.extension.youtube.patches.theme.ThemePatch.SplashScreenAnimationStyle;
 import static app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController.SponsorBlockDuration;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.IGNORE;
@@ -56,7 +57,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting ADVANCED_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_advanced_video_quality_menu", TRUE);
     public static final BooleanSetting DISABLE_HDR_VIDEO = new BooleanSetting("revanced_disable_hdr_video", FALSE);
     public static final BooleanSetting FORCE_AVC_CODEC = new BooleanSetting("revanced_force_avc_codec", FALSE, true, "revanced_force_avc_codec_user_dialog_message");
-    public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("revanced_force_original_audio", FALSE, true);
+    public static final BooleanSetting FORCE_ORIGINAL_AUDIO = new BooleanSetting("revanced_force_original_audio", TRUE, true);
     public static final IntegerSetting VIDEO_QUALITY_DEFAULT_WIFI = new IntegerSetting("revanced_video_quality_default_wifi", -2);
     public static final IntegerSetting VIDEO_QUALITY_DEFAULT_MOBILE = new IntegerSetting("revanced_video_quality_default_mobile", -2);
     public static final BooleanSetting REMEMBER_VIDEO_QUALITY_LAST_SELECTED = new BooleanSetting("revanced_remember_video_quality_last_selected", FALSE);
@@ -360,6 +361,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting SPOOF_DEVICE_DIMENSIONS = new BooleanSetting("revanced_spoof_device_dimensions", FALSE, true,
             "revanced_spoof_device_dimensions_user_dialog_message");
     public static final EnumSetting<ClientType> SPOOF_VIDEO_STREAMS_CLIENT_TYPE = new EnumSetting<>("revanced_spoof_video_streams_client_type", ClientType.ANDROID_VR_1_43_32, true, parent(SPOOF_VIDEO_STREAMS));
+    public static final BooleanSetting SPOOF_VIDEO_STREAMS_AV1 = new BooleanSetting("revanced_spoof_video_streams_av1", FALSE, true,
+            "revanced_spoof_video_streams_av1_user_dialog_message", new SpoofClientAv1Availability());
     public static final BooleanSetting DEBUG_PROTOBUFFER = new BooleanSetting("revanced_debug_protobuffer", FALSE, false,
             "revanced_debug_protobuffer_user_dialog_message", parent(BaseSettings.DEBUG));
 
@@ -532,6 +535,11 @@ public class Settings extends BaseSettings {
             Logger.printInfo(() -> "Resetting spoof app version");
             SPOOF_APP_VERSION_TARGET.resetToDefault();
             SPOOF_APP_VERSION.resetToDefault();
+        }
+
+        // VR 1.61 is not selectable in the settings, and it's selected by spoof stream patch if needed.
+        if (SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ClientType.ANDROID_VR_1_61_48) {
+            SPOOF_VIDEO_STREAMS_CLIENT_TYPE.resetToDefault();
         }
 
         // RYD requires manually migrating old settings since the lack of

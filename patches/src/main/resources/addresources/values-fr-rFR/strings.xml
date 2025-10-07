@@ -1605,13 +1605,20 @@ Limitations :
   <string name="revanced_slide_to_seek_summary_off">Glisser pour rechercher est désactivé</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Autoriser Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Le codec vidéo est AVC (H.264), VP9 ou AV1
+
+La lecture peut saccader ou perdre des images"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Le codec vidéo est AVC (H.264) ou VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"L'activation de ce paramètre peut utiliser le décodage AV1 logiciel.
+
+La lecture vidéo avec AV1 peut saccader ou perdre des images."</string>
   <string name="revanced_spoof_video_streams_about_title">Effets secondaires de la falsification</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Client expérimental, peut cesser de fonctionner à tout moment</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Les vidéos sont susceptibles de s\'arrêter à 1:00, ou de ne pas être disponibles dans certaines régions</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Le menu Piste audio est absent</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Codec vidéo AV1 indisponible</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Le volume stable n\'est pas disponible</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• La lecture peut saccader ou perdre des images</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• La lecture des vidéos pour enfants peut ne pas fonctionner lorsque vous êtes déconnecté ou en mode navigation privée</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Forcer la langue audio d\'origine n\'est pas disponible</string>

@@ -1602,13 +1602,20 @@ Beperkingen:
   <string name="revanced_slide_to_seek_summary_off">Schuiven om te zoeken is niet ingeschakeld</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Sta Android VR AV1 toe</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Videocodec is AVC (H.264), VP9 of AV1
+
+Afspelen kan haperen of frames overslaan"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Videocodec is AVC (H.264) of VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Het inschakelen van deze instelling kan gebruikmaken van softwarematige AV1-decodering.
+
+Het afspelen van video met AV1 kan haperen of frames overslaan."</string>
   <string name="revanced_spoof_video_streams_about_title">Spoofing-neveneffecten</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentele client en kan elk moment stoppen met werken</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video kan stoppen om 1:00, of is mogelijk niet beschikbaar in sommige regio\'s</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Audiotrack-menu ontbreekt</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Geen AV1-videocodec</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabiel volume is niet beschikbaar</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Het afspelen kan haperen of frames overslaan</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• \"Kinder\"​-Video’s worden mogelijk niet afgespeeld wanneer u bent uitgelogd of de incognitomodus gebruikt</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Oorspronkelijke audio forceren is niet beschikbaar</string>

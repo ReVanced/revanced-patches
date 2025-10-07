@@ -1606,13 +1606,20 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">Превлачење за премотавање није омогућено</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Дозволи Андроид VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Видео кодек је AVC (H.264), VP9 или AV1
+
+Репродукција може сецкати или испуштати кадрове"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Видео кодек је AVC (H.264) или VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Омогућавање ове поставке може користити софтверско AV1 декодирање.
+
+Репродукција видеа са AV1 може успорити или испуштати кадрове."</string>
   <string name="revanced_spoof_video_streams_about_title">Нежељени ефекти лажирања</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментални клијент и може престати да ради било када</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Видео се може зауставити на 1:00 или можда неће бити доступан у неким регионима</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Мени „Аудио снимак” недостаје</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Нема видео кодека AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Опција „Уједначена јачина звука” није доступна</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Репродукција може да сецка или да испушта кадрове</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Видеи за децу се можда неће пуштати када сте одјављени или у режиму без архивирања</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Присиљавање оригиналног звука није доступно</string>

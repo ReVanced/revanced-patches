@@ -268,12 +268,24 @@ public final class app/revanced/patches/instagram/hide/stories/HideStoriesKt {
 	public static final fun getHideStoriesPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/instagram/misc/devmenu/EnableDeveloperMenuPatchKt {
+	public static final fun getEnableDeveloperMenuPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/instagram/misc/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/instagram/misc/links/OpenLinksExternallyPatchKt {
 	public static final fun getOpenLinksExternallyPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/instagram/misc/share/domain/ChangeLinkSharingDomainPatchKt {
+	public static final fun getChangeLinkSharingDomainPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/instagram/misc/share/privacy/SanitizeSharingLinksPatchKt {
+	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/instagram/misc/signature/SignatureCheckPatchKt {
@@ -995,11 +1007,6 @@ public final class app/revanced/patches/shared/misc/settings/preference/TextPref
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/revanced/patches/shared/misc/settings/preference/InputType;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getInputType ()Lapp/revanced/patches/shared/misc/settings/preference/InputType;
 	public fun serialize (Lorg/w3c/dom/Document;Lkotlin/jvm/functions/Function1;)Lorg/w3c/dom/Element;
-}
-
-public final class app/revanced/patches/shared/misc/spoof/SpoofVideoStreamsPatchKt {
-	public static final fun spoofVideoStreamsPatch (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
-	public static synthetic fun spoofVideoStreamsPatch$default (Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/shared/misc/spoof/UserAgentClientSpoofPatchKt {
@@ -1818,6 +1825,7 @@ public final class app/revanced/util/ResourceUtilsKt {
 	public static final fun forEachChildElement (Lorg/w3c/dom/Node;Lkotlin/jvm/functions/Function1;)V
 	public static final fun insertFirst (Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V
 	public static final fun iterateXmlNodeChildren (Lapp/revanced/patcher/patch/ResourcePatchContext;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public static final fun removeFromParent (Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;
 }
 
 public final class app/revanced/util/resource/ArrayResource : app/revanced/util/resource/BaseResource {
