@@ -58,13 +58,13 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_clear_history">Xóa lịch sử tìm kiếm</string>
   <string name="revanced_settings_search_clear_history_message">Bạn có chắc chắn muốn xóa tất cả lịch sử tìm kiếm không?</string>
   <string name="revanced_settings_search_tips_title">Mẹo tìm kiếm</string>
-  <string name="revanced_settings_search_tips_summary">"• Nhấn vào một đường dẫn để điều hướng đến đó
-• Nhấn giữ một cài đặt để điều hướng đến đó
-• Nhấn Enter để lưu truy vấn tìm kiếm vào lịch sử
+  <string name="revanced_settings_search_tips_summary">"• Nhấn vào một đường dẫn để đi đến đó
+• Nhấn giữ một cài đặt để đi đến đó
+• Nhấn Enter để lưu từ khoá tìm kiếm vào lịch sử
 • Tìm kiếm bỏ qua chữ hoa/thường và dấu câu
-• Cài đặt cha xuất hiện phía trên cài đặt con bị vô hiệu hóa"</string>
-  <string name="revanced_settings_search_empty_history_title">Lịch sử tìm kiếm trống</string>
-  <string name="revanced_settings_search_empty_history_summary">Để lưu lịch sử tìm kiếm, nhập truy vấn tìm kiếm và nhấn Enter</string>
+• Cài đặt lớn nằm phía trên cài đặt nhỏ bị vô hiệu hóa"</string>
+  <string name="revanced_settings_search_empty_history_title">Lịch sử tìm kiếm đang trống</string>
+  <string name="revanced_settings_search_empty_history_summary">Để lưu lịch sử tìm kiếm, nhập từ khoá tìm kiếm và nhấn Enter</string>
   <string name="revanced_settings_search_history_title">Hiện lịch sử tìm kiếm cài đặt</string>
   <string name="revanced_settings_search_history_summary_on">Lịch sử tìm kiếm cài đặt đã được hiển thị</string>
   <string name="revanced_settings_search_history_summary_off">Lịch sử tìm kiếm cài đặt không được hiển thị</string>
@@ -157,8 +157,8 @@ Bạn sẽ không được thông báo khi xẩy ra lỗi bất ngờ."</string>
   <string name="revanced_sanitize_sharing_links_summary_on">Tham số truy vấn theo dõi bị loại bỏ khỏi các liên kết được chia sẻ</string>
   <string name="revanced_sanitize_sharing_links_summary_off">Tham số truy vấn theo dõi không bị loại bỏ khỏi các liên kết được chia sẻ</string>
   <string name="revanced_replace_music_with_youtube_title">Thay đổi liên kết chia sẻ thành youtube.com</string>
-  <string name="revanced_replace_music_with_youtube_summary_on">Liên kết được chia sẻ sử dụng youtube.com</string>
-  <string name="revanced_replace_music_with_youtube_summary_off">Liên kết được chia sẻ sử dụng music.youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Liên kết chia sẻ bắt đầu bằng youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Liên kết chia sẻ bắt đầu bằng music.youtube.com</string>
   </patch>
   </app>
   <app id="youtube">
@@ -1481,11 +1481,11 @@ Nhấn vào đây để tìm hiểu thêm về DeArrow"</string>
   <string name="revanced_loop_video_summary_off">Video sẽ không lặp lại</string>
   </patch>
   <patch id="misc.loopvideo.button.loopVideoButtonPatch">
-  <string name="revanced_loop_video_button_title">Hiện nút video lặp lại</string>
+  <string name="revanced_loop_video_button_title">Hiện nút lặp lại video</string>
   <string name="revanced_loop_video_button_summary_on">Nút được hiển thị</string>
   <string name="revanced_loop_video_button_summary_off">Nút không được hiển thị</string>
-  <string name="revanced_loop_video_button_toast_on">Video lặp lại đang bật</string>
-  <string name="revanced_loop_video_button_toast_off">Video lặp lại đang tắt</string>
+  <string name="revanced_loop_video_button_toast_on">Lặp lại video đang bật</string>
+  <string name="revanced_loop_video_button_toast_off">Lặp lại video đang tắt</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Giả mạo kích thước thiết bị</string>
