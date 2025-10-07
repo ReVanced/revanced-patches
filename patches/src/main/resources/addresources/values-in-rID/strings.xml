@@ -22,18 +22,18 @@ Second \"item\" text"</string>
   <app id="shared">
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Pemeriksaan gagal</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">Buka situs resminya</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Buka situs resmi</string>
   <string name="revanced_check_environment_dialog_ignore_button">Abaikan</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Aplikasi ini tampaknya tidak dipatch oleh Anda.&lt;/h5&gt;&lt;br&gt;Aplikasi ini mungkin tidak berfungsi dengan baik, &lt;b&gt;bisa berbahaya atau bahkan membahayakan untuk digunakan&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Pemeriksaan ini berarti bahwa aplikasi ini telah dipatch sebelumnya atau diperoleh dari orang lain:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Sangat disarankan untuk &lt;b&gt;mencopot pemasangan aplikasi ini dan mempatchnya sendiri&lt;/b&gt; guna memastikan Anda menggunakan aplikasi yang tervalidasi dan aman.&lt;p&gt;&lt;br&gt;Jika diabaikan, peringatan ini hanya akan ditampilkan dua kali.</string>
-  <string name="revanced_check_environment_not_same_patching_device">Dipatch pada perangkat yang berbeda</string>
-  <string name="revanced_check_environment_manager_not_expected_installer">Tidak dipasang oleh ReVanced Manager</string>
-  <string name="revanced_check_environment_not_near_patch_time">Dipatch lebih dari 10 menit yang lalu</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">Dipatch %s hari yang lalu</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Aplikasi ini tampaknya tidak ditambal oleh Anda.&lt;/h5&gt;&lt;br&gt;Aplikasi ini mungkin tidak bisa berfungsi dengan baik, &lt;b&gt;bisa berbahaya atau bahkan membahayakan untuk digunakan&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Pemeriksaan ini berarti bahwa aplikasi ini telah ditambal sebelumnya atau diperoleh dari orang lain:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Sangat disarankan untuk &lt;b&gt;mencopot pemasangan aplikasi ini dan menambalnya sendiri&lt;/b&gt; guna memastikan Anda menggunakan aplikasi yang tervalidasi dan aman.&lt;p&gt;&lt;br&gt;Jika diabaikan, peringatan ini hanya akan ditampilkan dua kali.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Ditambal pada perangkat yang berbeda</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Tidak terpasang oleh ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">Ditambal lebih dari 10 menit yang lalu</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Ditambal %s hari yang lalu</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Tanggal pembuatan APK rusak</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Peringatan </string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Riwayat tontonan Anda tidak disimpan.&lt;br&gt;&lt;br&gt;Hal ini kemungkinan besar disebabkan oleh pemblokir iklan DNS atau proksi jaringan.&lt;br&gt;&lt;br&gt;Untuk memperbaikinya, masukkan daftar putih &lt;b&gt;s.youtube.com&lt;/b&gt; atau matikan semua pemblokir DNS dan proksi.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Riwayat tontonan Anda tidak sedanh disimpan.&lt;br&gt;&lt;br&gt;Hal ini kemungkinan besar disebabkan oleh pemblokir iklan DNS atau proksi jaringan.&lt;br&gt;&lt;br&gt;Untuk memperbaikinya, masukkan ke daftar putih &lt;b&gt;s.youtube.com&lt;/b&gt; atau matikan semua pemblokir iklan DNS dan proksi.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Jangan tampilkan lagi</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
@@ -48,7 +48,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import">Impor</string>
   <string name="revanced_settings_import_copy">Salin</string>
   <string name="revanced_settings_import_reset">Pengaturan ReVanced diatur ke bawaan</string>
-  <string name="revanced_settings_import_success">Mengimpor setelan %d</string>
+  <string name="revanced_settings_import_success">Setelan %d terimpor</string>
   <string name="revanced_settings_import_failure_parse">Impor gagal: %s</string>
   <string name="revanced_settings_search_hint">Pengaturan pencarian</string>
   <string name="revanced_settings_search_no_results_title">Tidak ada hasil yang ditemukan untuk \'%s\'</string>
@@ -62,12 +62,12 @@ Second \"item\" text"</string>
 • Tekan lama pada pengaturan untuk menelusuri ke jalur tersebut
 • Tekan Enter untuk menyimpan kueri pencarian ke riwayat
 • Pencarian mengabaikan huruf besar/kecil dan tanda baca
-• Pengaturan orang tua muncul di atas pengaturan anak yang dinonaktifkan"</string>
+• Pengaturan utama muncul di atas pengaturan sampingan yang dinonaktifkan"</string>
   <string name="revanced_settings_search_empty_history_title">Riwayat pencarian kosong</string>
   <string name="revanced_settings_search_empty_history_summary">Untuk menyimpan riwayat pencarian, ketik kueri pencarian dan tekan Enter</string>
-  <string name="revanced_settings_search_history_title">Tampilkan pengaturan riwayat pencarian</string>
-  <string name="revanced_settings_search_history_summary_on">Pengaturan riwayat pencarian ditampilkan</string>
-  <string name="revanced_settings_search_history_summary_off">Pengaturan riwayat pencarian tidak ditampilkan</string>
+  <string name="revanced_settings_search_history_title">Tampilkan riwayat pencarian setelan</string>
+  <string name="revanced_settings_search_history_summary_on">Riwayat pencarian setelan ditampilkan</string>
+  <string name="revanced_settings_search_history_summary_off">Riwayat pencarian setelan tidak ditampilkan</string>
   <string name="revanced_show_menu_icons_title">Tampilkan ikon pengaturan ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikon pengaturan ditampilkan</string>
   <string name="revanced_show_menu_icons_summary_off">Ikon pengaturan tidak ditampilkan</string>
@@ -1609,7 +1609,7 @@ Batasan:
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menu trek audio tidak ada</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volume stabil tidak tersedia</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Pemutaran mungkin tersendat atau melewatkan bingkai</string>
+  <string name="revanced_spoof_video_streams_about_dropped_frames">• Pemutaran mungkin tersendat-sendat atau terjadi penurunan kualitas gambar</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video anak-anak mungkin tidak dapat diputar saat keluar atau dalam mode penyamaran</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Paksa audio asli tidak tersedia</string>
@@ -1658,9 +1658,9 @@ Batasan:
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Tombol Beranda disembunyikan</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Tombol Beranda ditampilkan</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Sembunyikan Cuplikan</string>
-  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Tombol Cuplikan disembunyikan</string>
-  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Tombol Cuplikan ditampilkan</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Sembunyikan Sampel</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Tombol Sampel disembunyikan</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Tombol Sampel ditampilkan</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
   <string name="revanced_music_hide_navigation_bar_explore_button_title">Sembunyikan Jelajahi</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Tombol Jelajahi disembunyikan</string>
