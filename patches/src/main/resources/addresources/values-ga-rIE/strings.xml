@@ -1604,13 +1604,20 @@ Teorainneacha:
   <string name="revanced_slide_to_seek_summary_off">Níl sleamhnán le lorg cumasaithe</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Ceadaigh Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Is é an códac físeáin AVC (H.264), VP9, nó AV1
+
+D'fhéadfadh go mbeadh fadhbanna le hathsheinm nó go gcaillfí frámaí"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Is é an códac físeáin AVC (H.264) nó VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Má chumasaítear an socrú seo, d'fhéadfadh sé díchódú bogearraí AV1 a úsáid.
+
+D'fhéadfadh athsheinm físe AV1 leacadh nó frámaí a scaoileadh."</string>
   <string name="revanced_spoof_video_streams_about_title">Fo-éifeachtaí a fhalsúa</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Cliant turgnamhach é seo agus féadfaidh sé stop a chur ag obair ag am ar bith</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Is féidir go stopfaidh an físeán ag 1:00, nó b\'fhéidir nach mbeidh sé ar fáil i réigiúin áirithe</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Tá an roghchlár rian fuaime in easnamh</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Níl aon cóideac físe AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Níl toirt chobhsaí ar fáil</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• D\'fhéadfadh an athsheinm bacadh nó frámaí a chailleadh</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Seans nach seinnfear físeáin do pháistí nuair a bhíonn siad logáilte amach nó i mód go hanaithnid</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Níl an fuaim bhunaidh iallach ar fáil</string>

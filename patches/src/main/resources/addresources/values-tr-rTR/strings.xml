@@ -1611,13 +1611,20 @@ Sınırlamalar:
   <string name="revanced_slide_to_seek_summary_off">Kaydırarak sardırma etkin değil</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Android VR AV1\'e İzin Ver</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Video kodeği AVC (H.264), VP9 veya AV1'dir
+
+Oynatma takılabilir veya kare atlayabilir"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Video kodeği AVC (H.264) veya VP9\'dur</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Bu ayarı etkinleştirmek yazılım tabanlı AV1 kod çözmeyi kullanabilir.
+
+AV1 ile video oynatma takılabilir veya kare atlayabilir."</string>
   <string name="revanced_spoof_video_streams_about_title">Taklit yan etkileri</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Deneysel istemci ve her an çalışmayı durdurabilir</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video 1:00\'da durabilir veya bazı bölgelerde kullanılamayabilir</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Ses parçası menüsü eksik</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• AV1 video kodeği yok</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Sabit ses mevcut değil</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Oynatma takılabilir veya kare atlayabilir</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Çocuk videoları oturum açılmadığında veya gizli modda oynatılamayabilir</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Orijinal sesi zorlama mevcut değil</string>

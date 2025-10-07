@@ -1610,13 +1610,20 @@ Hạn chế:
   <string name="revanced_slide_to_seek_summary_off">Vuốt để tua không được bật</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Cho phép Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Bộ giải mã video là AVC (H.264), VP9 hoặc AV1
+
+Quá trình phát có thể bị giật hoặc bỏ khung hình"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Bộ giải mã video là AVC (H.264) hoặc VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Bật cài đặt này có thể sử dụng giải mã AV1 bằng phần mềm.
+
+Phát lại video bằng AV1 có thể bị giật hoặc bỏ khung hình."</string>
   <string name="revanced_spoof_video_streams_about_title">Hạn chế khi giả mạo</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Ứng dụng khách đang trong giai đoạn thử nghiệm và có thể ngừng hoạt động bất cứ lúc nào</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video có thể dừng ở 1:00, hoặc có thể không khả dụng ở một số khu vực</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Trình đơn bản âm thanh bị thiếu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Không có codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Âm lượng ổn định không khả dụng</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Có thể gặp hiện tượng giật lag hoặc tụt fps khi phát video</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video dành cho trẻ em có thể không phát được khi đăng xuất hoặc ở chế độ ẩn danh</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Buộc âm thanh gốc không khả dụng</string>

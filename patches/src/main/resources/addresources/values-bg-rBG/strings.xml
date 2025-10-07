@@ -1604,13 +1604,20 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">Слайд за превъртане е деактивиран</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Разрешаване на Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Видеокодекът е AVC (H.264), VP9 или AV1
+
+Възпроизвеждането може да заеква или да пропуска кадри"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Видеокодекът е AVC (H.264) или VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Разрешаването на тази настройка може да използва софтуерно AV1 декодиране.
+
+Възпроизвеждането на видео с AV1 може да заеква или да пропуска кадри."</string>
   <string name="revanced_spoof_video_streams_about_title">Странични ефекти от подменянето</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментален клиент и може да спре да работи по всяко време</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Видеото може да спре на 1:00 или може да не е налично в някои региони</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Менюто за аудиозаписи липсва</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Без AV1 видео кодек</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Стабилният звук не е наличен</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Възпроизвеждането може да заеква или да пропуска кадри</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Детските видеоклипове може да не се възпроизвеждат, когато сте излезли от профила си или в режим \"инкогнито\"</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Принудителният оригинален звук не е наличен</string>

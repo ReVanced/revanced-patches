@@ -1603,13 +1603,20 @@ Begränsningar:
   <string name="revanced_slide_to_seek_summary_off">Dra för att söka är inaktiverat</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Tillåt Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Videokodeken är AVC (H.264), VP9 eller AV1
+
+Uppspelningen kan hacka eller tappa bildrutor"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Videokodeken är AVC (H.264) eller VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Aktivering av denna inställning kan använda programvarubaserad AV1-avkodning.
+
+Videouppspelning med AV1 kan hacka eller tappa bildrutor."</string>
   <string name="revanced_spoof_video_streams_about_title">Bieffekter av förfalskning</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentell klient och kan sluta fungera när som helst</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Videor kan stanna vid 1:00 eller kanske inte är tillgängliga i vissa regioner</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menyn Ljudspår saknas</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ingen AV1-videokodek</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabil volym är inte tillgängligt</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Uppspelningen kan hacka eller tappa bildrutor</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Videor för barn kanske inte spelas upp när du är utloggad eller i inkognitoläge</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Tvinga ursprungligt ljud är inte tillgängligt</string>

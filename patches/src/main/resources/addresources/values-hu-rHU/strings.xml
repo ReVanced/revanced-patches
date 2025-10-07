@@ -1601,13 +1601,20 @@ Korlátozások:
   <string name="revanced_slide_to_seek_summary_off">A csúsztatás a kereséshez nincs engedélyezve</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Android VR AV1 engedélyezése</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"A videó kodek AVC (H.264), VP9 vagy AV1
+
+A lejátszás akadozhat vagy képkockákat ejthet"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">A videokodek AVC (H.264) vagy VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Ennek a beállításnak az engedélyezése szoftveres AV1 dekódolást használhat.
+
+Az AV1-es videólejátszás akadozhat vagy képkockákat ejthet."</string>
   <string name="revanced_spoof_video_streams_about_title">Hamisítás mellékhatásai</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Kísérleti kliens, és bármikor leállhat</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• A videó megállhat 1:00-nál, vagy előfordulhat, hogy egyes régiókban nem elérhető</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Hiányzik az hangsáv menü</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nincs AV1 videokodek</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabil hangerő nem elérhető</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• A lejátszás akadozhat vagy képkockákat dobhat.</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• A gyermekeknek szóló videók nem játszódnak le, ha a felhasználó kijelentkezett, vagy inkognitómódban van.</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Eredeti hang kényszerítése nem érhető el</string>

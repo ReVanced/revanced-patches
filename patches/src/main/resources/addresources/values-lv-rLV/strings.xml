@@ -1605,13 +1605,20 @@ Ierobežojumi:
   <string name="revanced_slide_to_seek_summary_off">Slīdēšana, lai meklētu, nav iespējota</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Atļaut Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Video kodeks ir AVC (H.264), VP9 vai AV1
+
+Atskaņošana var raustīties vai izlaist kadrus"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Video kodeks ir AVC (H.264) vai VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Šī iestatījuma iespējošana var izmantot programmatūras AV1 dekodēšanu.
+
+AV1 video atskaņošana var raustīties vai izlaist kadrus."</string>
   <string name="revanced_spoof_video_streams_about_title">Viltotu straumju blakusparādības</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentāls klients un jebkurā brīdī var pārtraukt darbu</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video var apstāties pulksten 1:00 vai nebūt pieejams dažos reģionos</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Trūkst audio celiņa izvēlnes</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nav pieejams AV1 video kodeks</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Nav pieejams stabils skaļums</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Atskaņošana var raustīties vai izlaist kadrus</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Bērnu videoklipi var netikt atskaņoti, kad esat izrakstījies vai inkognito režīmā.</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Piespiest oriģinālo skaņu nav pieejams</string>

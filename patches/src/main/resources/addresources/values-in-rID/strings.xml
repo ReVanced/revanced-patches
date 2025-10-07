@@ -1603,13 +1603,20 @@ Batasan:
   <string name="revanced_slide_to_seek_summary_off">Geser untuk mencari tidak diaktifkan</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Izinkan Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Codec video adalah AVC (H.264), VP9, atau AV1
+
+Pemutaran mungkin tersendat atau kehilangan bingkai"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Codec video adalah AVC (H.264) atau VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Mengaktifkan pengaturan ini mungkin menggunakan decoding AV1 perangkat lunak.
+
+Pemutaran video dengan AV1 mungkin tersendat atau kehilangan bingkai."</string>
   <string name="revanced_spoof_video_streams_about_title">Efek samping pemalsuan</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klien eksperimental dan dapat berhenti berfungsi kapan saja</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video mungkin berhenti pada 1:00, atau mungkin tidak tersedia di beberapa wilayah</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menu trek audio tidak ada</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volume stabil tidak tersedia</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Pemutaran mungkin tersendat-sendat atau terjadi penurunan kualitas gambar</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video anak-anak mungkin tidak dapat diputar saat keluar atau dalam mode penyamaran</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Paksa audio asli tidak tersedia</string>
