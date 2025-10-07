@@ -1603,13 +1603,20 @@ Limitazioni:
   <string name="revanced_slide_to_seek_summary_off">Scorri per avanzare non è abilitato</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Consenti Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Il codec video è AVC (H.264), VP9 o AV1
+
+La riproduzione potrebbe subire interruzioni o perdere fotogrammi"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Il codec video è AVC (H.264) o VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Abilitando questa impostazione potrebbe essere utilizzata la decodifica AV1 via software.
+
+La riproduzione video con AV1 potrebbe rallentare o perdere fotogrammi."</string>
   <string name="revanced_spoof_video_streams_about_title">Effetti collaterali della falsificazione</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Client sperimentale e potrebbe smettere di funzionare in qualsiasi momento</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Il video potrebbe interrompersi all\'1:00, o potrebbe non essere disponibile in alcune regioni</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Manca il menu delle tracce audio</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nessun codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Il volume stabile non è disponibile</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• La riproduzione potrebbe scattare o perdere fotogrammi</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• I video dei bambini potrebbero non essere riprodotti quando si è disconnessi o in modalità di navigazione in incognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• L\'audio originale forzato non è disponibile</string>

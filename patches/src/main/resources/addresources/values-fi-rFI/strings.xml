@@ -1604,13 +1604,20 @@ Rajoitukset:
   <string name="revanced_slide_to_seek_summary_off">Kelaus liu\'uttamalla ei ole käytössä</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Salli Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Videokoodekki on AVC (H.264), VP9 tai AV1
+
+Toisto voi nykiä tai pudottaa kehyksiä"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Videokoodekki on AVC (H.264) tai VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Tämän asetuksen ottaminen käyttöön saattaa käyttää ohjelmistopohjaista AV1-dekoodausta.
+
+AV1-videon toisto saattaa pätkiä tai pudottaa kuvia."</string>
   <string name="revanced_spoof_video_streams_about_title">Naamioimisen sivuvaikutukset</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Kokeellinen asiakasohjelma, joka saattaa lakata toimimasta milloin tahansa</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video saattaa pysähtyä aikaan 1:00, tai ei välttämättä ole saatavilla joillakin alueilla</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Ääniraitavalikko puuttuu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Ei AV1-videokoodekkia</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Tasainen äänenvoimakkuus ei ole käytettävissä</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Toisto saattaa pätkiä tai pudottaa kuvia</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Lasten videot eivät ehkä toistu, kun olet kirjautunut ulos tai incognito-tilassa</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Pakota alkuperäinen ääni ei ole käytettävissä</string>

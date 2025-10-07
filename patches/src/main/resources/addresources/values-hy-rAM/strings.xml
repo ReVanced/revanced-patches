@@ -1605,13 +1605,20 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_slide_to_seek_summary_off">Սահելը  համար  ընտրելը  անջատված է</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Թույլատրել Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Տեսակոդեկը AVC (H.264), VP9 կամ AV1 է
+
+Նվագարկումը կարող է կանգ առնել կամ կորցնել կադրեր"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Տեսակոդեկը AVC (H.264) կամ VP9 է</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Այս կարգավորումը միացնելը կարող է օգտագործել AV1 ծրագրային ապակոդավորում:
+
+AV1-ով տեսանյութի նվագարկումը կարող է ընդհատվել կամ կորցնել կադրեր:"</string>
   <string name="revanced_spoof_video_streams_about_title">Կեղծելու կողմնակի ազդեցություններ</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Փորձնական հաճախորդ է և կարող է ցանկացած պահի դադարել աշխատել</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Տեսանյութը կարող է դադարել 1:00-ին կամ հասանելի չլինել որոշ տարածաշրջաններում</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Ձայնային ուղու մենյուն բացակայում է</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Հեռացված բոլոր AV1 վիդեո կոդեկները</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Կայուն ձայնի մակարդակը հասանելի չէ</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Նվագարկումը հնարավոր է ընդհատվի կամ բաց թողնի կադրեր</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">Երեխաների տեսանյութերը կարող են չհամապատասխանել հետևյալ պահանջներին՝ եթե արտոնագրման խախտումներ կան։</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Բնօրինակ ձայնի պարտադրումը հասանելի չէ</string>

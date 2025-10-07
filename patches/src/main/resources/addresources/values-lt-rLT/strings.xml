@@ -1605,13 +1605,20 @@ Apribojimai:
   <string name="revanced_slide_to_seek_summary_off">Slinkimas, kad ieškotumėte, neišjungtas</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Leisti Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Vaizdo kodekas yra AVC (H.264), VP9 arba AV1
+
+Gali strigti arba praleisti kadrus"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Vaizdo kodekas yra AVC (H.264) arba VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Įjungus šį nustatymą, gali būti naudojamas programinės įrangos AV1 dekodavimas.
+
+Vaizdo įrašo atkūrimas su AV1 gali strigti arba praleisti kadrus."</string>
   <string name="revanced_spoof_video_streams_about_title">Klastojimo šalutiniai efektai</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentinis klientas ir bet kada gali nustoti veikti</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Vaizdo įrašas gali sustoti ties 1:00 arba gali būti nepasiekiamas kai kuriuose regionuose</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Trūksta garso takelio meniu</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Nėra AV1 vaizdo kodeko</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Stabili garso apimtis nepasiekiama</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Atkūrimas gali strigti arba praleisti kadrus</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Vaikų vaizdo įrašai gali būti neatkuriami, kai atsijungiama arba naudojamas inkognito režimas</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Priverstinai naudoti originalų garsą nepasiekiama</string>

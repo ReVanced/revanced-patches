@@ -1603,13 +1603,20 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">Η χειρονομία συρσίματος για αναζήτηση στη γραμμή προόδου είναι απενεργοποιημένη</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Να επιτρέπεται το Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Ο κωδικοποιητής βίντεο είναι AVC (H.264), VP9 ή AV1
+
+Η αναπαραγωγή ενδέχεται να κολλήσει ή να χάσει καρέ"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Ο κωδικοποιητής βίντεο είναι AVC (H.264) ή VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Η ενεργοποίηση αυτής της ρύθμισης ενδέχεται να χρησιμοποιήσει αποκωδικοποίηση AV1 λογισμικού.
+
+Η αναπαραγωγή βίντεο με AV1 ενδέχεται να έχει διακοπές ή να χάνει καρέ."</string>
   <string name="revanced_spoof_video_streams_about_title">Παρενέργειες παραποίησης</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Πειραματικός πελάτης και μπορεί να σταματήσει να λειτουργεί ανά πάσα στιγμή</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Το βίντεο μπορεί να σταματήσει στο 1:00 ή να μην είναι διαθέσιμο σε ορισμένες περιοχές</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Το μενού «Κομμάτι ήχου» λείπει</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Δεν υπάρχει ο κωδικοποιητής βίντεο AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Η λειτουργία «Σταθερή ένταση» δεν είναι διαθέσιμη</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Η αναπαραγωγή μπορεί να κομπιάζει ή να χάνει καρέ</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Τα βίντεο για παιδιά ενδέχεται να μην αναπαράγονται αν είστε αποσυνδεδεμένοι ή σε λειτουργία ανώνυμης περιήγησης</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Ο εξαναγκασμός αρχικής γλώσσας ήχου δεν είναι διαθέσιμος</string>

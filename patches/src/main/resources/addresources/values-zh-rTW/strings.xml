@@ -1614,13 +1614,20 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">未啟用滑動預覽</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">允許 Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"視訊轉碼器為 AVC (H.264)、VP9 或 AV1
+
+播放可能會卡頓或掉幀"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">視訊轉碼器為 AVC (H.264) 或 VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"啟用此設定可能會使用軟體 AV1 解碼。
+
+AV1 視訊播放可能會卡頓或掉幀。"</string>
   <string name="revanced_spoof_video_streams_about_title">欺騙的副作用</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 實驗性用戶端，隨時可能停止運作</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• 影片可能會在 1:00 停止，或在某些地區無法播放</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• 音軌選單遺失</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• 沒有 AV1 影片解碼器</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• 穩定音量無法使用</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• 播放可能會卡頓或掉幀</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• 在登出或無痕模式下，兒童影片可能無法播放</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• 強制原始音訊不可用</string>

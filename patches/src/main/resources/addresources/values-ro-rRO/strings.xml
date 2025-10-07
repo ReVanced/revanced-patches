@@ -1601,13 +1601,20 @@ Limitări:
   <string name="revanced_slide_to_seek_summary_off">Slide pentru a căuta nu este activat</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Permite Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Codecul video este AVC (H.264), VP9 sau AV1
+
+Redarea poate sacada sau pierde cadre"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Codecul video este AVC (H.264) sau VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Activarea acestei setări poate folosi decodarea software AV1.
+
+Redarea video cu AV1 poate sacada sau pierde cadre."</string>
   <string name="revanced_spoof_video_streams_about_title">Efecte secundare ale simulării</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Client experimental și se poate opri din funcționare oricând</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Videoclipul se poate opri la 1:00, sau poate să nu fie disponibil în unele regiuni</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Meniul pistei audio lipsește</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Fara codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volumul stabil nu este disponibil</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• Redarea poate sacada sau pierde cadre</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Copiii nu pot urmări videoclipuri atunci când sunt deconectați sau în modul incognito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Forțarea sunetului original nu este disponibilă</string>

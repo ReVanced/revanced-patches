@@ -1595,13 +1595,18 @@ Limitaciones:
   <string name="revanced_slide_to_seek_summary_off">Slide to seek no está activado</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Permitir Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"El códec de video es AVC (H.264), VP9 o AV1
+
+La reproducción puede tartamudear o perder fotogramas"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">El códec de video es AVC (H.264) o VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Habilitar esta configuración puede usar la decodificación de software AV1.\n\nLa reproducción de video con AV1 puede tartamudear o perder fotogramas."</string>
   <string name="revanced_spoof_video_streams_about_title">Efectos secundarios de la falsificación</string>
   <string name="revanced_spoof_video_streams_about_experimental">• El cliente es experimental y puede dejar de funcionar en cualquier momento</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• El video puede detenerse en 1:00, o puede no estar disponible en algunas regiones</string>
   <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Falta el menú de la pista de audio</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Sin códec de vídeo AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volumen estable no disponible</string>
-  <string name="revanced_spoof_video_streams_about_dropped_frames">• La reproducción podría tartamudear o perder fotogramas</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Es posible que los vídeos infantiles no se reproduzcan cuando se cierra la sesión o se está en modo incógnito</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">• Forzar audio original no está disponible</string>
