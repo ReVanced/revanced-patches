@@ -1,3 +1,10 @@
+# [5.42.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.15...v5.42.0-dev.16) (2025-10-07)
+
+
+### Bug Fixes
+
+* **YouTube - Spoof video streams:** Add "Allow Android VR AV1" setting ([#6071](https://github.com/ReVanced/revanced-patches/issues/6071)) ([f03256c](https://github.com/ReVanced/revanced-patches/commit/f03256c471e1ee6a12267c1b56b531ca8f89278c))
+
 # [5.42.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.14...v5.42.0-dev.15) (2025-10-07)
 
 
