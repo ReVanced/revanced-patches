@@ -5,12 +5,10 @@ import app.revanced.extension.shared.Logger;
 
 @SuppressWarnings("unused")
 public final class ChangeLinkSharingDomainPatch {
-    /**
-     * This method will be modified by the patch, in order for it to return the share domain name.
-     * In the smali code there were no free registers.
-     */
+
     private static String getCustomShareDomain() {
-        return "";
+        // Method is modified during patching.
+        throw new IllegalStateException();
     }
 
     /**
