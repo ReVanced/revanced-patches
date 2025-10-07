@@ -1,3 +1,10 @@
+# [5.42.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.12...v5.42.0-dev.13) (2025-10-07)
+
+
+### Bug Fixes
+
+* **Spotify:** Change `Hide Create button` patch to default off ([#6067](https://github.com/ReVanced/revanced-patches/issues/6067)) ([19949e1](https://github.com/ReVanced/revanced-patches/commit/19949e1695cc252ff0f94a33b6e3fb62e967d7fd))
+
 # [5.42.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.42.0-dev.11...v5.42.0-dev.12) (2025-10-03)
 
 
