@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
@@ -46,7 +45,7 @@ internal fun spoofVideoStreamsPatch(
     fixParsePlaybackResponseFeatureFlag: BytecodePatchBuilder.() -> Boolean = { false },
     block: BytecodePatchBuilder.() -> Unit = {},
     executeBlock: BytecodePatchContext.() -> Unit = {},
-): BytecodePatch = bytecodePatch(
+) = bytecodePatch(
     name = "Spoof video streams",
     description = "Adds options to spoof the client video streams to fix playback.",
 ) {
