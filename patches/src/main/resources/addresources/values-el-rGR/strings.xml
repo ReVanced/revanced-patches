@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -25,7 +26,7 @@ Second \"item\" text"</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
   <string name="revanced_custom_branding_name_entry_5">Προσαρμοσμένο</string>
   <string name="revanced_custom_branding_icon_title">Εικονίδιο εφαρμογής</string>
-  <string name="revanced_custom_branding_icon_entry_1">Πρωτότυπο</string>
+  <string name="revanced_custom_branding_icon_entry_1">Αρχικό</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
   <string name="revanced_custom_branding_icon_entry_3">ReVanced απλό</string>
   <string name="revanced_custom_branding_icon_entry_4">ReVanced κλιμακωμένο</string>
@@ -971,8 +972,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
   <string name="revanced_hide_related_videos_overlay_title">Σχετικά βίντεο στην πλήρη οθόνη</string>
-  <string name="revanced_hide_related_videos_overlay_summary_on">Κρυμμένα\n\nΑφορά τα σχετικά βίντεο της τελικής οθόνης στη λειτουργία πλήρους οθόνης</string>
-  <string name="revanced_hide_related_videos_overlay_summary_off">Εμφανίζονται\n\nΑφορά τα σχετικά βίντεο της τελικής οθόνης στη λειτουργία πλήρους οθόνης</string>
+  <string name="revanced_hide_related_videos_overlay_summary_on">Κρυμμένα</string>
+  <string name="revanced_hide_related_videos_overlay_summary_off">Εμφανίζονται</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Χρονική πρόοδος βίντεο</string>
