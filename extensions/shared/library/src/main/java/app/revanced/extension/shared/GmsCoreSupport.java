@@ -261,7 +261,6 @@ public class GmsCoreSupport {
     }
 
     private static String getGmsCoreVendorGroupId() {
-        // Modified during patching.
-        throw new IllegalStateException();
+        return "app.revanced"; // Modified during patching.
     }
 }
