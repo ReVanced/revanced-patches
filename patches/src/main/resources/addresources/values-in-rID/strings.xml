@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,7 +46,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Peringatan </string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Riwayat tontonan Anda tidak sedanh disimpan.&lt;br&gt;&lt;br&gt;Hal ini kemungkinan besar disebabkan oleh pemblokir iklan DNS atau proksi jaringan.&lt;br&gt;&lt;br&gt;Untuk memperbaikinya, masukkan ke daftar putih &lt;b&gt;s.youtube.com&lt;/b&gt; atau matikan semua pemblokir iklan DNS dan proksi.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Riwayat tontonan Anda tidak sedang disimpan.&lt;br&gt;&lt;br&gt;Hal ini kemungkinan besar disebabkan oleh pemblokir iklan DNS atau proksi jaringan.&lt;br&gt;&lt;br&gt;Untuk memperbaikinya, masukkan daftar putih &lt;b&gt;s.youtube.com&lt;/b&gt; atau matikan semua pemblokir DNS dan proksi.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Jangan tampilkan lagi</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
@@ -1622,13 +1623,13 @@ Batasan:
 
 Pemutaran mungkin tersendat atau kehilangan bingkai"</string>
   <string name="revanced_spoof_video_streams_av1_summary_off">Codec video adalah AVC (H.264) atau VP9</string>
-  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Mengaktifkan pengaturan ini mungkin menggunakan decoding AV1 perangkat lunak.
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Mengaktifkan pengaturan ini mungkin menggunakan perangkat lunak decoding AV1.
 
 Pemutaran video dengan AV1 mungkin tersendat atau kehilangan bingkai."</string>
   <string name="revanced_spoof_video_streams_about_title">Efek samping pemalsuan</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klien eksperimental dan dapat berhenti berfungsi kapan saja</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video mungkin berhenti pada 1:00, atau mungkin tidak tersedia di beberapa wilayah</string>
-  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menu trek audio tidak ada</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menu trek audio hilang</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volume stabil tidak tersedia</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video anak-anak mungkin tidak dapat diputar saat keluar atau dalam mode penyamaran</string>

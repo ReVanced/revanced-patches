@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1624,14 +1625,14 @@ Hạn chế:
   <string name="revanced_slide_to_seek_summary_off">Vuốt để tua không được bật</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_av1_title">Cho phép Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_title">Cho phép AV1 trên Android VR</string>
   <string name="revanced_spoof_video_streams_av1_summary_on">"Bộ giải mã video là AVC (H.264), VP9 hoặc AV1
 
-Quá trình phát có thể bị giật hoặc bỏ khung hình"</string>
+Quá trình phát có thể bị giật hoặc tụt khung hình"</string>
   <string name="revanced_spoof_video_streams_av1_summary_off">Bộ giải mã video là AVC (H.264) hoặc VP9</string>
   <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Bật cài đặt này có thể sử dụng giải mã AV1 bằng phần mềm.
 
-Phát lại video bằng AV1 có thể bị giật hoặc bỏ khung hình."</string>
+Phát video bằng AV1 có thể bị giật hoặc tụt khung hình."</string>
   <string name="revanced_spoof_video_streams_about_title">Hạn chế khi giả mạo</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Ứng dụng khách đang trong giai đoạn thử nghiệm và có thể ngừng hoạt động bất cứ lúc nào</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video có thể dừng ở 1:00, hoặc có thể không khả dụng ở một số khu vực</string>
