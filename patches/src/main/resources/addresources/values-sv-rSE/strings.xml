@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Appnamn</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Anpassad</string>
+  <string name="revanced_custom_branding_icon_title">Appikon</string>
+  <string name="revanced_custom_branding_icon_entry_1">Original</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimalistisk</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced skalad</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Anpassad</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Kontroller misslyckades</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Öppna officiell hemsida</string>
@@ -119,6 +132,13 @@ Om du är en YouTube Premium-användare kanske den här inställningen inte beh�
 Uppspelning kanske inte fungerar"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Om du stänger av den här inställningen kan det leda till problem med uppspelning.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standardklient</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Tvinga ursprungligt ljudspråk</string>
+  <string name="revanced_force_original_audio_summary_on">Använder ursprungligt ljudspråk</string>
+  <string name="revanced_force_original_audio_summary_off">Använder standardljud</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Om du vill använda den här funktionen ändrar du \"Förfalska videoströmmar\" till valfri klient utom Android Studio</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Felsökning</string>
@@ -797,7 +817,7 @@ För att visa menyn Ljudspår, ändra \"Förfalska videoströmmar\" till iPadOS"
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knapparna är dolda</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Knapparna visas</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Dölj slutskärmskort</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Slutskärmskort är dolda</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Slutskärmskort visas</string>
@@ -1402,11 +1422,13 @@ Minispelaren kan dras utanför skärmen till vänster eller höger"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Accentfärgen på sökreglaget</string>
   <string name="revanced_seekbar_custom_color_invalid">Ogiltigt färgvärde för sökreglaget</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Logotyp i sidhuvudet</string>
   <string name="revanced_header_logo_entry_1">Standard</string>
   <string name="revanced_header_logo_entry_2">Vanlig</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimalistisk</string>
   <string name="revanced_header_logo_entry_6">Anpassad</string>
   </patch>
@@ -1512,13 +1534,6 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   <string name="revanced_external_browser_summary_on">Öppnar länkar i extern webbläsare</string>
   <string name="revanced_external_browser_summary_off">Öppnar länkar i webbläsaren i appen</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Tvinga ursprungligt ljudspråk</string>
-  <string name="revanced_force_original_audio_summary_on">Använder ursprungligt ljudspråk</string>
-  <string name="revanced_force_original_audio_summary_off">Använder standardljud</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Om du vill använda den här funktionen ändrar du \"Förfalska videoströmmar\" till valfri klient utom Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automatiskt</string>
@@ -1603,6 +1618,14 @@ Begränsningar:
   <string name="revanced_slide_to_seek_summary_off">Dra för att söka är inaktiverat</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Tillåt Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Videokodeken är AVC (H.264), VP9 eller AV1
+
+Uppspelningen kan hacka eller tappa bildrutor"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Videokodeken är AVC (H.264) eller VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Aktivering av denna inställning kan använda programvarubaserad AV1-avkodning.
+
+Videouppspelning med AV1 kan hacka eller tappa bildrutor."</string>
   <string name="revanced_spoof_video_streams_about_title">Bieffekter av förfalskning</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentell klient och kan sluta fungera när som helst</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Videor kan stanna vid 1:00 eller kanske inte är tillgängliga i vissa regioner</string>
@@ -1622,6 +1645,8 @@ Begränsningar:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Om</string>
   <string name="revanced_settings_music_screen_1_ads_title">Annonser</string>

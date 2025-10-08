@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Име на приложението</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Персонализиран</string>
+  <string name="revanced_custom_branding_icon_title">Икона на приложението</string>
+  <string name="revanced_custom_branding_icon_entry_1">Оригинален</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced минимален</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced мащабиран</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Персонализиран</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Проверката е неуспешна</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Отворете официалния уебсайт</string>
@@ -119,6 +132,13 @@ Second \"item\" text"</string>
 Възпроизвеждането може да не работи"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Изключването на тази настройка може да причини проблеми с възпроизвеждането.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Клиент по подразбиране</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Принудително оригинално аудио език</string>
+  <string name="revanced_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
+  <string name="revanced_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">За да използвате тази функция, променете \'Фалшифициране на видео потоци\' на всеки клиент, освен Android Studio</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Отстраняване на грешки</string>
@@ -797,7 +817,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Бутоните са скрити</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Бутоните се показват</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Скриване на препоръките в края</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Препоръките в края са скрити</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Препоръките в края се показват</string>
@@ -1403,11 +1423,13 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Цветът на лентата за търсене</string>
   <string name="revanced_seekbar_custom_color_invalid">Невалидна стойност за цвят на лентата на прогреса</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Лого в заглавката</string>
   <string name="revanced_header_logo_entry_1">По подразбиране</string>
   <string name="revanced_header_logo_entry_2">Обикновено</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced минимално</string>
   <string name="revanced_header_logo_entry_6">По избор</string>
   </patch>
@@ -1513,13 +1535,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_on">Отваряне на връзки във външен браузър</string>
   <string name="revanced_external_browser_summary_off">Отваряне на връзки във вграден браузър</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Принудително оригинално аудио език</string>
-  <string name="revanced_force_original_audio_summary_on">Използване на оригиналния език на аудиото</string>
-  <string name="revanced_force_original_audio_summary_off">Използване на аудио по подразбиране</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">За да използвате тази функция, променете \'Фалшифициране на видео потоци\' на всеки клиент, освен Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Авто</string>
@@ -1604,6 +1619,14 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">Слайд за превъртане е деактивиран</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Разрешаване на Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Видеокодекът е AVC (H.264), VP9 или AV1
+
+Възпроизвеждането може да заеква или да пропуска кадри"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Видеокодекът е AVC (H.264) или VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Разрешаването на тази настройка може да използва софтуерно AV1 декодиране.
+
+Възпроизвеждането на видео с AV1 може да заеква или да пропуска кадри."</string>
   <string name="revanced_spoof_video_streams_about_title">Странични ефекти от подменянето</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Експериментален клиент и може да спре да работи по всяко време</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Видеото може да спре на 1:00 или може да не е налично в някои региони</string>
@@ -1623,6 +1646,8 @@ Second \"item\" text"</string>
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Относно</string>
   <string name="revanced_settings_music_screen_1_ads_title">Реклами</string>

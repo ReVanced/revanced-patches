@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Appnaam</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Aangepast</string>
+  <string name="revanced_custom_branding_icon_title">App-pictogram</string>
+  <string name="revanced_custom_branding_icon_entry_1">Origineel</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimaal</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced geschaald</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Aangepast</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Controle mislukt</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Open officiële website</string>
@@ -119,6 +132,13 @@ Als je een YouTube Premium-gebruiker bent, is deze instelling mogelijk niet vere
 Afspeelproblemen kunnen optreden"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Het uitschakelen van deze instelling kan afspeelproblemen veroorzaken.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Standaard client</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Forceer de originele audiotaal</string>
+  <string name="revanced_force_original_audio_summary_on">De oorspronkelijke audiotaal gebruiken</string>
+  <string name="revanced_force_original_audio_summary_off">Standaard audio gebruiken</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Om deze functie te gebruiken, wijzig \'Videostreams spoofen\' naar elke client behalve Android Studio</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debuggen</string>
@@ -797,7 +817,7 @@ Om het audiotracks-menu te tonen, wijzig 'Videostreams spoofen' naar iPadOS"</st
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Knoppen zijn verborgen</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Knoppen worden weergegeven</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Verberg eindschermkaarten</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Eindschermkaarten zijn verborgen</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Eindschermkaarten worden weergegeven</string>
@@ -1401,11 +1421,13 @@ De miniplayer kan naar links of rechts van het scherm worden gesleept"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">De accentkleur van de zoekbalk</string>
   <string name="revanced_seekbar_custom_color_invalid">Ongeldige waarde voor de kleur van de schuifregelaar</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Headerlogo</string>
   <string name="revanced_header_logo_entry_1">Standaard</string>
   <string name="revanced_header_logo_entry_2">Normaal</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimaal</string>
   <string name="revanced_header_logo_entry_6">Aangepast</string>
   </patch>
@@ -1511,13 +1533,6 @@ Het inschakelen hiervan kan hogere videokwaliteiten ontgrendelen"</string>
   <string name="revanced_external_browser_summary_on">Koppelingen openen in externe browser</string>
   <string name="revanced_external_browser_summary_off">Koppelingen openen in in-app browser</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Forceer de originele audiotaal</string>
-  <string name="revanced_force_original_audio_summary_on">De oorspronkelijke audiotaal gebruiken</string>
-  <string name="revanced_force_original_audio_summary_off">Standaard audio gebruiken</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Om deze functie te gebruiken, wijzig \'Videostreams spoofen\' naar elke client behalve Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automatisch</string>
@@ -1602,6 +1617,14 @@ Beperkingen:
   <string name="revanced_slide_to_seek_summary_off">Schuiven om te zoeken is niet ingeschakeld</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Sta Android VR AV1 toe</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Videocodec is AVC (H.264), VP9 of AV1
+
+Afspelen kan haperen of frames overslaan"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Videocodec is AVC (H.264) of VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Het inschakelen van deze instelling kan gebruikmaken van softwarematige AV1-decodering.
+
+Het afspelen van video met AV1 kan haperen of frames overslaan."</string>
   <string name="revanced_spoof_video_streams_about_title">Spoofing-neveneffecten</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentele client en kan elk moment stoppen met werken</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video kan stoppen om 1:00, of is mogelijk niet beschikbaar in sommige regio\'s</string>
@@ -1621,6 +1644,8 @@ Beperkingen:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Over</string>
   <string name="revanced_settings_music_screen_1_ads_title">Advertenties</string>

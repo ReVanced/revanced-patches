@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Lietotnes nosaukums</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Pielāgots</string>
+  <string name="revanced_custom_branding_icon_title">Lietotnes ikona</string>
+  <string name="revanced_custom_branding_icon_entry_1">Oriģināls</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimāls</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced mērogots</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Pielāgots</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Pārbaudes neizdevās</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Atvērt oficiālo vietni</string>
@@ -119,6 +132,13 @@ Ja esat YouTube Premium lietotājs, šis iestatījums, iespējams, nav nepiecie�
 Atskaņošana var nedarboties"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Šī iestatījuma izslēgšana var izraisīt atskaņošanas problēmas.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Noklusētā klients</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Piespiest oriģinālo audio valodu</string>
+  <string name="revanced_force_original_audio_summary_on">Izmantot oriģinālo audio valodu</string>
+  <string name="revanced_force_original_audio_summary_off">Tiek izmantots noklusējuma audio</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Lai izmantotu šo funkciju, mainiet \"Viltotās video plūsmas\" uz jebkuru klientu, izņemot Android Studio</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Atkļūdošana</string>
@@ -797,7 +817,7 @@ Lai parādītu audio celiņa izvēlni, mainiet \"Atdarināt video straumes\" uz 
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Pogas ir paslēptas</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Pogas ir redzamas</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Paslēpt ekrāna beigās esošās kartītes</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Ekrāna beigās esošās kartītes ir paslēptas</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Ekrāna beigās esošās kartītes ir redzamas</string>
@@ -1404,11 +1424,13 @@ Miniatskaņotāju var pārvilkt no ekrāna uz kreiso vai labo pusi"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Meklētājjoslas akcenta krāsa</string>
   <string name="revanced_seekbar_custom_color_invalid">Nederīga meklētāja joslas krāsas vērtība</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Galvenes logotips</string>
   <string name="revanced_header_logo_entry_1">Noklusējums</string>
   <string name="revanced_header_logo_entry_2">Parasts</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimāls</string>
   <string name="revanced_header_logo_entry_6">Pielāgots</string>
   </patch>
@@ -1514,13 +1536,6 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   <string name="revanced_external_browser_summary_on">Saišu atvēršana ārējā pārlūkprogrammā</string>
   <string name="revanced_external_browser_summary_off">Saišu atvēršana lietotnes pārlūkprogrammā</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Piespiest oriģinālo audio valodu</string>
-  <string name="revanced_force_original_audio_summary_on">Izmantot oriģinālo audio valodu</string>
-  <string name="revanced_force_original_audio_summary_off">Tiek izmantots noklusējuma audio</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Lai izmantotu šo funkciju, mainiet \"Viltotās video plūsmas\" uz jebkuru klientu, izņemot Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automātiski</string>
@@ -1605,6 +1620,14 @@ Ierobežojumi:
   <string name="revanced_slide_to_seek_summary_off">Slīdēšana, lai meklētu, nav iespējota</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Atļaut Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Video kodeks ir AVC (H.264), VP9 vai AV1
+
+Atskaņošana var raustīties vai izlaist kadrus"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Video kodeks ir AVC (H.264) vai VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Šī iestatījuma iespējošana var izmantot programmatūras AV1 dekodēšanu.
+
+AV1 video atskaņošana var raustīties vai izlaist kadrus."</string>
   <string name="revanced_spoof_video_streams_about_title">Viltotu straumju blakusparādības</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentāls klients un jebkurā brīdī var pārtraukt darbu</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video var apstāties pulksten 1:00 vai nebūt pieejams dažos reģionos</string>
@@ -1624,6 +1647,8 @@ Ierobežojumi:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Par</string>
   <string name="revanced_settings_music_screen_1_ads_title">Reklāmas</string>

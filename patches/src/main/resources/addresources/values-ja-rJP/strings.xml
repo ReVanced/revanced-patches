@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">アプリ名</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">カスタム</string>
+  <string name="revanced_custom_branding_icon_title">アプリアイコン</string>
+  <string name="revanced_custom_branding_icon_entry_1">オリジナル</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced (シンプル)</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced (シンボル大)</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">カスタム</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">チェックに失敗しました</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">公式サイトを開く</string>
@@ -69,8 +82,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_history_summary_on">設定の検索履歴は表示されます</string>
   <string name="revanced_settings_search_history_summary_off">設定の検索履歴は表示されません</string>
   <string name="revanced_show_menu_icons_title">ReVanced の設定にアイコンを表示</string>
-  <string name="revanced_show_menu_icons_summary_on">ReVanced の設定にアイコンが表示されます</string>
-  <string name="revanced_show_menu_icons_summary_off">ReVanced の設定にアイコンは表示されません</string>
+  <string name="revanced_show_menu_icons_summary_on">ReVanced の設定メニューにはアイコンが表示されます</string>
+  <string name="revanced_show_menu_icons_summary_off">ReVanced の設定メニューにはアイコンは表示されません</string>
   <string name="revanced_language_title">ReVanced 設定の言語</string>
   <string name="revanced_language_user_dialog_message">"一部の言語の翻訳が欠落しているまたは不完全である可能性があります。
 
@@ -94,7 +107,7 @@ Second \"item\" text"</string>
   <string name="gms_core_dialog_title">操作が必要です</string>
   <string name="gms_core_dialog_not_whitelisted_not_allowed_in_background_message">"GmsCore はバックグラウンドで実行する権限がありません。
 
-お使いのデバイスの「Don't kill my app!」ガイドに従い、GmsCore のインストール手順を適用してください。
+お使いのデバイスの「Don't kill my app!」ガイドに従い、GmsCore に対するデバイスの設定を変更してください。
 
 これはアプリが正常に動作するために必要です。"</string>
   <string name="gms_core_dialog_open_website_text">ウェブサイトを開く</string>
@@ -107,7 +120,7 @@ GmsCore の電池の最適化を無効にしても、バッテリーの使用に
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_screen_title">動画ストリームを偽装</string>
-  <string name="revanced_spoof_video_streams_screen_summary">動画再生の失敗を回避するために、クライアントの動画ストリームを偽装します</string>
+  <string name="revanced_spoof_video_streams_screen_summary">動画の再生に失敗しないために、クライアントの動画ストリームを偽装します</string>
   <string name="revanced_spoof_video_streams_screen_title">動画ストリームを偽装</string>
   <string name="revanced_spoof_video_streams_screen_summary">動画再生の失敗を回避するために、クライアントの動画ストリームを偽装します</string>
   <string name="revanced_spoof_video_streams_title">動画ストリームを偽装</string>
@@ -120,35 +133,42 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_spoof_video_streams_user_dialog_message">この設定を無効にすると、動画の再生に失敗するようになる可能性があります。</string>
   <string name="revanced_spoof_video_streams_client_type_title">デフォルトのクライアント</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">オリジナルの音声を強制的に使用</string>
+  <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用しません</string>
+  <string name="revanced_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックを使用する場合があります</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装」のクライアントを Android Studio 以外の任意のクライアントに変更してください</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">デバッグ</string>
-  <string name="revanced_debug_screen_summary">デバッグオプションを有効または無効にします</string>
+  <string name="revanced_debug_screen_summary">デバッグ オプションを有効または無効にします</string>
   <string name="revanced_debug_title">デバッグログを有効化</string>
   <string name="revanced_debug_summary_on">デバッグログは有効です</string>
   <string name="revanced_debug_summary_off">デバッグログは無効です</string>
-  <string name="revanced_debug_stacktrace_title">スタック トレースをログに記録</string>
-  <string name="revanced_debug_stacktrace_summary_on">デバッグログにスタック トレースが含まれます</string>
-  <string name="revanced_debug_stacktrace_summary_off">デバッグログにスタック トレースは含まれません</string>
+  <string name="revanced_debug_stacktrace_title">スタック トレースをログに保存</string>
+  <string name="revanced_debug_stacktrace_summary_on">デバッグログにはスタック トレースが含まれます</string>
+  <string name="revanced_debug_stacktrace_summary_off">デバッグログにはスタック トレースは含まれません</string>
   <string name="revanced_debug_toast_on_error_title">ReVanced のエラー時にトーストを表示</string>
-  <string name="revanced_debug_toast_on_error_summary_on">エラーが発生した場合にトーストが表示されます</string>
-  <string name="revanced_debug_toast_on_error_summary_off">エラーが発生してもトーストは表示されません</string>
-  <string name="revanced_debug_toast_on_error_user_dialog_message">"エラートーストをオフにすると、ReVanced のすべてのエラー通知が非表示になります。
+  <string name="revanced_debug_toast_on_error_summary_on">エラーが発生した場合にトースト通知が表示されます</string>
+  <string name="revanced_debug_toast_on_error_summary_off">エラーが発生した場合にトースト通知は表示されません</string>
+  <string name="revanced_debug_toast_on_error_user_dialog_message">"エラーのトースト通知をオフにすると、ReVanced のすべてのエラー通知が表示されなくなります。
 
 予期しないイベントが発生した場合でも通知されなくなります。"</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">デバッグログのエクスポート</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced のデバッグログをクリップボードにコピーします</string>
-  <string name="revanced_debug_logs_disabled">デバッグログは無効です</string>
+  <string name="revanced_debug_logs_disabled">デバッグログが無効になっています</string>
   <string name="revanced_debug_logs_none_found">ログが見つかりませんでした</string>
   <string name="revanced_debug_logs_copied_to_clipboard">ログをコピーしました</string>
   <string name="revanced_debug_logs_failed_to_export">ログのエクスポートに失敗しました: %s</string>
   <string name="revanced_debug_logs_clear_buffer_title">デバッグログを消去</string>
-  <string name="revanced_debug_logs_clear_buffer_summary">保存されているすべての ReVanced デバッグログを消去します</string>
+  <string name="revanced_debug_logs_clear_buffer_summary">保存されている ReVanced のすべてのデバッグログを消去します</string>
   <string name="revanced_debug_logs_clear_toast">ログを消去しました</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">共有リンクを無害化</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">トラッキング クエリ パラメータが共有リンクから削除されます</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">トラッキング クエリ パラメータは共有リンクから削除されません</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">共有リンクから追跡パラメータが削除されます</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">共有リンクから追跡パラメータは削除されません</string>
   <string name="revanced_replace_music_with_youtube_title">共有リンクを youtube.com に変更</string>
   <string name="revanced_replace_music_with_youtube_summary_on">共有リンクには youtube.com が使用されます</string>
   <string name="revanced_replace_music_with_youtube_summary_off">共有リンクには music.youtube.com が使用されます</string>
@@ -168,8 +188,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_settings_screen_11_misc_title">その他</string>
   <string name="revanced_settings_screen_12_video_title">動画</string>
   <string name="revanced_restore_old_settings_menus_title">古い設定メニューを復元</string>
-  <string name="revanced_restore_old_settings_menus_summary_on">旧バージョンの設定メニューが表示されます</string>
-  <string name="revanced_restore_old_settings_menus_summary_off">旧バージョンの設定メニューは表示されません</string>
+  <string name="revanced_restore_old_settings_menus_summary_on">古いスタイルの設定メニューが表示されます</string>
+  <string name="revanced_restore_old_settings_menus_summary_off">新しいスタイルの設定メニューが表示されます</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   <string name="revanced_shorts_disable_background_playback_title">ショートのバックグラウンド再生を無効化</string>
@@ -177,9 +197,9 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_shorts_disable_background_playback_summary_off">ショート動画のバックグラウンド再生は有効です</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_protobuffer_title">プロトコルバッファを記録</string>
-  <string name="revanced_debug_protobuffer_summary_on">デバッグログに protocol buffer が含まれます</string>
-  <string name="revanced_debug_protobuffer_summary_off">デバッグログに protocol buffer は含まれません</string>
+  <string name="revanced_debug_protobuffer_title">protocol buffer をログに保存</string>
+  <string name="revanced_debug_protobuffer_summary_on">デバッグログには protocol buffer が含まれます</string>
+  <string name="revanced_debug_protobuffer_summary_off">デバッグログには protocol buffer は含まれません</string>
   <string name="revanced_debug_protobuffer_user_dialog_message">"この設定を有効にすると、一部の UI コンポーネントの画面上のテキストを含む、追加のレイアウトデータがログに記録されます。
 
 これは、カスタムフィルターを作成する際にコンポーネントを識別するのに役立ちます。
@@ -501,7 +521,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_copy_video_url_title">「動画の URL をコピー」ボタンを表示</string>
   <string name="revanced_copy_video_url_summary_on">ボタンがプレーヤー オーバーレイに表示されます。タップすると動画の URL が、長押しするとタイムスタンプ付きの URL がそれぞれコピーされます</string>
   <string name="revanced_copy_video_url_summary_off">ボタンはプレーヤー オーバーレイに表示されません</string>
-  <string name="revanced_copy_video_url_timestamp_title">「動画のタイムスタンプ付き URL をコピー」ボタンを表示</string>
+  <string name="revanced_copy_video_url_timestamp_title">「タイムスタンプ付き URL をコピー」ボタンを表示</string>
   <string name="revanced_copy_video_url_timestamp_summary_on">ボタンがプレーヤー オーバーレイに表示されます。タップするとタイムスタンプ付きの URL が、長押しするとタイムスタンプなしの URL がそれぞれコピーされます</string>
   <string name="revanced_copy_video_url_timestamp_summary_off">ボタンはプレーヤー オーバーレイに表示されません</string>
   </patch>
@@ -594,12 +614,12 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_swipe_volume_sensitivity_summary">スワイプによる音量の変化量</string>
   <string name="revanced_swipe_overlay_style_title">オーバーレイのスタイル</string>
   <string name="revanced_swipe_overlay_style_entry_1">横型</string>
-  <string name="revanced_swipe_overlay_style_entry_2">横型 (最小限 - 画面上部)</string>
-  <string name="revanced_swipe_overlay_style_entry_3">横型 (最小限 - 画面中央)</string>
+  <string name="revanced_swipe_overlay_style_entry_2">横型 (シンプル - 画面上部)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">横型 (シンプル - 画面中央)</string>
   <string name="revanced_swipe_overlay_style_entry_4">円形</string>
-  <string name="revanced_swipe_overlay_style_entry_5">円形 (最小限)</string>
+  <string name="revanced_swipe_overlay_style_entry_5">円形 (シンプル)</string>
   <string name="revanced_swipe_overlay_style_entry_6">縦型</string>
-  <string name="revanced_swipe_overlay_style_entry_7">縦型 (最小限)</string>
+  <string name="revanced_swipe_overlay_style_entry_7">縦型 (シンプル)</string>
   <string name="revanced_swipe_change_video_title">スワイプによる動画の切り替えを有効化</string>
   <string name="revanced_swipe_change_video_summary_on">全画面表示中に左 / 右にスワイプすると、前 / 次の動画に切り替わります</string>
   <string name="revanced_swipe_change_video_summary_off">全画面表示中に左 / 右にスワイプしても、前 / 次の動画に切り替わりません</string>
@@ -670,7 +690,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_shop_button_summary_on">購入ボタンは表示されません</string>
   <string name="revanced_hide_shop_button_summary_off">購入ボタンは表示されます</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_save_button_title">「保存」を非表示にする</string>
+  <string name="revanced_hide_save_button_title">保存ボタンを非表示</string>
   <string name="revanced_hide_save_button_summary_on">「保存」ボタンは表示されません</string>
   <string name="revanced_hide_save_button_summary_off">「保存」ボタンは表示されます</string>
   </patch>
@@ -708,16 +728,16 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_navigation_button_labels_title">ボタンをアイコンのみで表示</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">ナビゲーション ボタンはアイコンのみで表示されます</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">ナビゲーション ボタンはアイコンと文字で表示されます</string>
-  <string name="revanced_disable_translucent_status_bar_title">ステータスバーの半透明化を無効化</string>
+  <string name="revanced_disable_translucent_status_bar_title">半透明ステータスバーを無効化</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">ステータスバーは常に透けません</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">ステータスバーは状況に応じて透けます</string>
   <string name="revanced_disable_translucent_status_bar_user_dialog_message">一部のデバイスでは、この機能を有効にすると、システムのナビゲーション バーが半透明になりアプリ内のコンポーネントに重なってしまう可能性があります。</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_title">ライトモード時のナビゲーション バーの半透明化を無効にする</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">ライトモード時にナビゲーション バーは透けません</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">ライトモード時にナビゲーション バーが状況に応じて透けます</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">ダークモード時のナビゲーション バーの半透明化を無効にする</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">ダークモード時にナビゲーション バーは透けません</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">ダークモード時にナビゲーション バーは状況に応じて透けます</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">ライトモード時の半透明バーを無効化</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">ライトモード時にはナビゲーション バーは透けません</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">ライトモード時にはナビゲーション バーが状況に応じて透けます</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">ダークモード時の半透明バーを無効化</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">ダークモード時にはナビゲーション バーは透けません</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">ダークモード時にはナビゲーション バーが状況に応じて透けます</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">フライアウト メニュー</string>
@@ -799,7 +819,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_player_previous_next_buttons_summary_on">前の動画ボタンと次の動画ボタンは表示されません</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">前の動画ボタンと次の動画ボタンは表示されます</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">終了画面カードを非表示</string>
   <string name="revanced_hide_endscreen_cards_summary_on">終了画面カードは表示されません</string>
   <string name="revanced_hide_endscreen_cards_summary_off">終了画面カードは表示されます</string>
@@ -833,18 +853,18 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_shorts_player_screen_summary">ショート プレーヤーのコンポーネントを表示または非表示にします</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
   <string name="revanced_hide_shorts_home_title">ホームフィードでショートを非表示</string>
-  <string name="revanced_hide_shorts_home_summary_on">ショート動画はホームフィードおよび関連動画に表示されません</string>
-  <string name="revanced_hide_shorts_home_summary_off">ショート動画はホームフィードおよび関連動画に表示されます</string>
+  <string name="revanced_hide_shorts_home_summary_on">ホームフィードおよび関連動画にはショート動画は表示されません</string>
+  <string name="revanced_hide_shorts_home_summary_off">ホームフィードおよび関連動画にはショート動画が表示されます</string>
   <string name="revanced_hide_shorts_search_title">検索結果でショートを非表示</string>
-  <string name="revanced_hide_shorts_search_summary_on">ショート動画は検索結果に表示されません</string>
-  <string name="revanced_hide_shorts_search_summary_off">ショート動画は検索結果に表示されます</string>
+  <string name="revanced_hide_shorts_search_summary_on">検索結果にはショート動画は表示されません</string>
+  <string name="revanced_hide_shorts_search_summary_off">検索結果にはショート動画が表示されます</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">登録チャンネル フィードでショートを非表示</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_on">ショート動画は登録チャンネル フィードに表示されません</string>
-  <string name="revanced_hide_shorts_subscriptions_summary_off">ショート動画は登録チャンネル フィードに表示されます</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_on">登録チャンネル フィードにはショート動画は表示されません</string>
+  <string name="revanced_hide_shorts_subscriptions_summary_off">登録チャンネル フィードにはショート動画が表示されます</string>
   <string name="revanced_hide_shorts_history_title">再生履歴でショートを非表示</string>
-  <string name="revanced_hide_shorts_history_summary_on">ショート動画は再生履歴に表示されません</string>
-  <string name="revanced_hide_shorts_history_summary_off">ショート動画は再生履歴に表示されます</string>
+  <string name="revanced_hide_shorts_history_summary_on">再生履歴にはショート動画は表示されません</string>
+  <string name="revanced_hide_shorts_history_summary_off">再生履歴にはショート動画が表示されます</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">「Super Thanks を購入する」ボタンを非表示</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">「Super Thanks を購入する」ボタンは表示されません</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">「Super Thanks を購入する」ボタンは表示されます</string>
@@ -1047,7 +1067,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
 シークバー サムネイルは、再生中の動画と同じ画質になります。
 
 この機能は、非常に高速なインターネット接続を使用して 720P 以下の画質で動画を視聴する場合に最適です。"</string>
-  <string name="revanced_restore_old_seekbar_thumbnails_title">古いスタイルのシークバー サムネイルを復元</string>
+  <string name="revanced_restore_old_seekbar_thumbnails_title">古いシークバー サムネイルを復元</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_on">シーク中のサムネイルはシークバーの上に表示されます</string>
   <string name="revanced_restore_old_seekbar_thumbnails_summary_off">シーク中のサムネイルはプレーヤー画面全体に表示されます</string>
   </patch>
@@ -1406,20 +1426,22 @@ Automotive レイアウト
   <string name="revanced_seekbar_custom_color_accent_summary">シークバーのアクセントカラーを編集します</string>
   <string name="revanced_seekbar_custom_color_invalid">シークバーの色の値が無効です</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">ヘッダーロゴ</string>
   <string name="revanced_header_logo_entry_1">デフォルト</string>
   <string name="revanced_header_logo_entry_2">標準</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
-  <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
+  <string name="revanced_header_logo_entry_5">ReVanced (シンプル)</string>
   <string name="revanced_header_logo_entry_6">カスタム</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
-  <string name="revanced_bypass_image_region_restrictions_title">画像表示の地域制限を回避する</string>
+  <string name="revanced_bypass_image_region_restrictions_title">画像表示の地域制限を回避</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">yt4.ggpht.com から画像を取得します</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"オリジナルの画像ホストから画像を取得します
 
-この機能を有効にすると、一部の地域でブロックされている画像が表示される可能性があります"</string>
+この機能を有効にすると、一部の地域でブロックされている画像が表示されるようになる可能性があります"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
@@ -1456,10 +1478,10 @@ Automotive レイアウト
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow は一時的に利用できません</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
-  <string name="revanced_announcements_title">ReVanced のお知らせを表示する</string>
-  <string name="revanced_announcements_summary_on">お知らせは、アプリ起動時に表示されます</string>
-  <string name="revanced_announcements_summary_off">お知らせは、アプリ起動時に表示されません</string>
-  <string name="revanced_announcements_enabled_summary">アプリ起動時にお知らせを表示する</string>
+  <string name="revanced_announcements_title">ReVanced のお知らせを表示</string>
+  <string name="revanced_announcements_summary_on">アプリの起動時にお知らせが表示されます</string>
+  <string name="revanced_announcements_summary_off">アプリの起動時にお知らせは表示されません</string>
+  <string name="revanced_announcements_enabled_summary">アプリの起動時にお知らせを表示します</string>
   <string name="revanced_announcements_connection_failed">お知らせの取得に失敗しました</string>
   <string name="revanced_announcements_dialog_dismiss">閉じる</string>
   </patch>
@@ -1476,7 +1498,7 @@ Automotive レイアウト
   <string name="revanced_loop_video_button_toast_off">動画のループ再生がオフになっています</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
-  <string name="revanced_spoof_device_dimensions_title">デバイスの画面サイズを偽装する</string>
+  <string name="revanced_spoof_device_dimensions_title">デバイスの画面サイズを偽装</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"デバイスの画面サイズは偽装されています
 
 より高画質な映像がアンロックされる可能性がありますが、動画のカクつき、バッテリー寿命の悪化、予期せぬ副作用が
@@ -1489,16 +1511,16 @@ Automotive レイアウト
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
   <string name="revanced_disable_haptic_feedback_title">触覚フィードバック</string>
   <string name="revanced_disable_haptic_feedback_summary">触覚フィードバックの設定を変更します</string>
-  <string name="revanced_disable_haptic_feedback_chapters_title">チャプターの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_chapters_title">チャプターの触覚フィードバックを無効化</string>
   <string name="revanced_disable_haptic_feedback_chapters_summary_on">チャプターの触覚フィードバックは無効です</string>
   <string name="revanced_disable_haptic_feedback_chapters_summary_off">チャプターの触覚フィードバックは有効です</string>
   <string name="revanced_disable_haptic_feedback_precise_seeking_title">精密シークの触覚フィードバックを無効化</string>
   <string name="revanced_disable_haptic_feedback_precise_seeking_summary_on">精密シークの触覚フィードバックは無効です</string>
   <string name="revanced_disable_haptic_feedback_precise_seeking_summary_off">精密シークの触覚フィードバックは有効です</string>
-  <string name="revanced_disable_haptic_feedback_seek_undo_title">シーク取り消しの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_seek_undo_title">シーク取り消しの触覚フィードバックを無効化</string>
   <string name="revanced_disable_haptic_feedback_seek_undo_summary_on">シーク取り消しの触覚フィードバックは無効です</string>
   <string name="revanced_disable_haptic_feedback_seek_undo_summary_off">シーク取り消しの触覚フィードバックは有効です</string>
-  <string name="revanced_disable_haptic_feedback_zoom_title">ズームの触覚フィードバックを無効にする</string>
+  <string name="revanced_disable_haptic_feedback_zoom_title">ズームの触覚フィードバックを無効化</string>
   <string name="revanced_disable_haptic_feedback_zoom_summary_on">ズームの触覚フィードバックは無効です</string>
   <string name="revanced_disable_haptic_feedback_zoom_summary_off">ズームの触覚フィードバックは有効です</string>
   </patch>
@@ -1506,8 +1528,8 @@ Automotive レイアウト
   <string name="microg_offline_account_login_error">最近アカウントのログイン情報を変更した場合は、MicroG をアンインストールして再インストールしてください。</string>
   </patch>
   <patch id="misc.links.bypassURLRedirectsPatch">
-  <string name="revanced_bypass_url_redirects_title">URL リダイレクトを回避する</string>
-  <string name="revanced_bypass_url_redirects_summary_on">YouTube の URL リダイレクトを経由せずにリンクへ移動します</string>
+  <string name="revanced_bypass_url_redirects_title">URL リダイレクトを回避</string>
+  <string name="revanced_bypass_url_redirects_summary_on">YouTube の URL リダイレクトを経由せずにリンク先へ移動します</string>
   <string name="revanced_bypass_url_redirects_summary_off">YouTube の URL リダイレクトを経由してリンク先へ移動します</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
@@ -1515,33 +1537,26 @@ Automotive レイアウト
   <string name="revanced_external_browser_summary_on">外部ブラウザでリンクを開きます</string>
   <string name="revanced_external_browser_summary_off">アプリ内ブラウザでリンクを開きます</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">オリジナルの音声を強制的に使用</string>
-  <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用しません</string>
-  <string name="revanced_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックを使用する場合があります</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装」のクライアントを Android Studio 以外の任意のクライアントに変更してください</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">自動</string>
-  <string name="revanced_remember_video_quality_last_selected_title">画質の変更を保存する</string>
+  <string name="revanced_remember_video_quality_last_selected_title">画質の変更を保存</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">画質の変更はすべての動画に適用されます</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">画質の変更は現在の動画にのみ適用されます</string>
   <string name="revanced_remember_video_quality_last_selected_toast_title">画質の変更時にトーストを表示</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">デフォルトの画質が変更されたとき、トーストが表示されます</string>
-  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">デフォルトの画質が変更されたとき、トーストは表示されません</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_on">デフォルトの画質が変更された場合にトースト通知が表示されます</string>
+  <string name="revanced_remember_video_quality_last_selected_toast_summary_off">デフォルトの画質が変更された場合にトースト通知は表示されません</string>
   <string name="revanced_video_quality_default_wifi_title">デフォルトの画質（Wi-Fi）</string>
   <string name="revanced_video_quality_default_mobile_title">デフォルトの画質（携帯回線）</string>
-  <string name="revanced_remember_shorts_quality_last_selected_title">ショートの画質の変更を保存する</string>
+  <string name="revanced_remember_shorts_quality_last_selected_title">ショートの画質の変更を保存</string>
   <string name="revanced_remember_shorts_quality_last_selected_summary_on">画質の変更はすべてのショート動画に適用されます</string>
   <string name="revanced_remember_shorts_quality_last_selected_summary_off">画質の変更は現在のショート動画にのみ適用されます</string>
   <string name="revanced_shorts_quality_default_wifi_title">デフォルトのショートの画質（Wi-Fi）</string>
   <string name="revanced_shorts_quality_default_mobile_title">デフォルトのショートの画質（携帯回線）</string>
   <string name="revanced_remember_video_quality_mobile">携帯回線</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
-  <string name="revanced_remember_video_quality_toast">デフォルトの画質 (%1$s): %2$s</string>
-  <string name="revanced_remember_video_quality_toast_shorts">ショートの画質 (%1$s): %2$s</string>
+  <string name="revanced_remember_video_quality_toast">デフォルトの画質の変更 (%1$s): %2$s</string>
+  <string name="revanced_remember_video_quality_toast_shorts">ショートの画質の変更 (%1$s): %2$s</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">再生速度設定ボタンを表示</string>
@@ -1561,33 +1576,33 @@ Automotive レイアウト
   <string name="revanced_restore_old_speed_menu_summary_on">古いスタイルの再生速度メニューが表示されます</string>
   <string name="revanced_restore_old_speed_menu_summary_off">新しいスタイルの再生速度メニューが表示されます</string>
   <string name="revanced_custom_playback_speeds_title">カスタム再生速度リスト</string>
-  <string name="revanced_custom_playback_speeds_summary">カスタム再生速度を追加または変更します</string>
-  <string name="revanced_custom_playback_speeds_invalid">再生速度は %s 未満である必要があります</string>
-  <string name="revanced_custom_playback_speeds_parse_exception">カスタム再生速度が無効です</string>
+  <string name="revanced_custom_playback_speeds_summary">カスタム再生速度リストを編集します</string>
+  <string name="revanced_custom_playback_speeds_invalid">再生速度は %s 未満でなければなりません</string>
+  <string name="revanced_custom_playback_speeds_parse_exception">カスタム再生速度リストの値が無効です</string>
   <string name="revanced_custom_playback_speeds_auto">自動</string>
   <string name="revanced_speed_tap_and_hold_title">長押し倍速再生の速度</string>
   <string name="revanced_speed_tap_and_hold_summary">再生速度の範囲は 0-8 で、0 および 8 は含まれません</string>
   </patch>
   <patch id="video.speed.remember.rememberPlaybackSpeedPatch">
-  <string name="revanced_remember_playback_speed_last_selected_title">再生速度の変更を保存する</string>
+  <string name="revanced_remember_playback_speed_last_selected_title">再生速度の変更を保存</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_on">再生速度の変更はすべての動画に適用されます</string>
   <string name="revanced_remember_playback_speed_last_selected_summary_off">再生速度の変更は現在の動画にのみ適用されます</string>
   <string name="revanced_remember_playback_speed_last_selected_toast_title">再生速度の変更時にトーストを表示</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">デフォルトの再生速度が変更されたとき、トーストが表示されます</string>
-  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">デフォルトの再生速度が変更されたとき、トーストは表示されません</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_on">デフォルトの再生速度が変更されたときにトースト通知が表示されます</string>
+  <string name="revanced_remember_playback_speed_last_selected_toast_summary_off">デフォルトの再生速度が変更されたときにトースト通知は表示されません</string>
   <string name="revanced_playback_speed_default_title">デフォルトの再生速度</string>
-  <string name="revanced_remember_playback_speed_toast">デフォルトの再生速度: %s</string>
+  <string name="revanced_remember_playback_speed_toast">デフォルトの再生速度の変更: %s</string>
   </patch>
   <patch id="video.codecs.disableVideoCodecsPatch">
-  <string name="revanced_disable_hdr_video_title">HDR 動画を無効にする</string>
+  <string name="revanced_disable_hdr_video_title">HDR 動画を無効化</string>
   <string name="revanced_disable_hdr_video_summary_on">HDR 動画は無効です</string>
   <string name="revanced_disable_hdr_video_summary_off">HDR 動画は有効です</string>
   <string name="revanced_force_avc_codec_title">AVC (H.264) を強制的に使用</string>
   <string name="revanced_force_avc_codec_summary_on">ビデオ コーデックは強制的に AVC (H.264) になります</string>
   <string name="revanced_force_avc_codec_summary_off">ビデオ コーデックは自動的に決定されます</string>
   <string name="revanced_force_avc_codec_user_dialog_message">"利点:
-• バッテリー寿命を延ばすことができる
-• 古いデバイスで失われた動画解像度を復元できる
+• バッテリー寿命が延びる可能性がある
+• 古いデバイスで失われた動画解像度を復元できる可能性がある
 
 制限事項:
 • 最大解像度が 1080p
@@ -1606,6 +1621,14 @@ Automotive レイアウト
   <string name="revanced_slide_to_seek_summary_off">スライドによるシークは無効です。プレーヤー画面を左右にスライドしても、前後にシークしません</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Android VR で AV1 を許可</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"ビデオ コーデックは AVC (H.264)、VP9、AV1 のいずれかになります
+
+再生がカクつくまたはコマ落ちが発生する場合があります"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">ビデオ コーデックは AVC (H.264)、VP9 のいずれかになります</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"この設定を有効にすると、AV1 のソフトウェア デコードが使用される場合があります。
+
+AV1 での動画再生は、カクつくまたはコマ落ちが発生する場合があります。"</string>
   <string name="revanced_spoof_video_streams_about_title">偽装による副作用</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 実験的なクライアントであり、いつでも動作しなくなる可能性がある</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• 動画が 01:00 で停止する、または一部の地域で利用できない可能性がある</string>
@@ -1615,9 +1638,9 @@ Automotive レイアウト
   <string name="revanced_spoof_video_streams_about_kids_videos">• ログアウト時またはシークレット モード時に、子ども向け動画が再生されない可能性がある</string>
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_about_no_force_original_audio">•「オリジナルの音声を強制的に使用」が利用できない</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">統計情報に表示する</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">統計情報に現在のクライアントが表示されます</string>
-  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">統計情報に現在のクライアントは表示されません</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_title">統計情報にクライアントを表示</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">統計情報には現在のクライアントが表示されます</string>
+  <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">統計情報には現在のクライアントは表示されません</string>
   <string name="revanced_spoof_video_streams_language_title">音声ストリームの言語</string>
   <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   <string name="revanced_spoof_video_streams_language_not_available">特定の音声言語を選択するには、「オリジナルの音声を強制的に使用」を無効にしてください</string>
@@ -1625,6 +1648,8 @@ Automotive レイアウト
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">ReVanced について</string>
   <string name="revanced_settings_music_screen_1_ads_title">広告</string>
@@ -1640,7 +1665,7 @@ Automotive レイアウト
   <patch id="interaction.permanentrepeat.permanentRepeatPatch">
   <string name="revanced_music_play_permanent_repeat_title">常時リピートを有効化</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">常時リピートは有効です\n\nリピート設定が保存され常時適用されます</string>
-  <string name="revanced_music_play_permanent_repeat_summary_off">常時リピートは無効です\n\nリピート設定は保存されずリセットされます</string>
+  <string name="revanced_music_play_permanent_repeat_summary_off">常時リピートは無効です\n\nリピート設定は保存されず毎回リセットされます</string>
   </patch>
   <patch id="layout.castbutton.hideCastButton">
   <string name="revanced_music_hide_cast_button_title">キャストボタンを非表示</string>
@@ -1714,15 +1739,15 @@ Automotive レイアウト
   </patch>
   <patch id="chat.antidelete.showDeletedMessagesPatch">
   <string name="revanced_deleted_msg">メッセージを削除しました</string>
-  <string name="revanced_show_deleted_messages_title">削除されたメッセージを表示</string>
+  <string name="revanced_show_deleted_messages_title">削除されたメッセージの表示方法</string>
   <string name="revanced_show_deleted_messages_entry_1">削除されたメッセージを表示しない</string>
-  <string name="revanced_show_deleted_messages_entry_2">スポイラーの後ろに削除されたメッセージを非表示にする</string>
-  <string name="revanced_show_deleted_messages_entry_3">クロスアウトテキストとして削除されたメッセージを表示</string>
+  <string name="revanced_show_deleted_messages_entry_2">削除されたメッセージをスポイラー表示で隠して表示する</string>
+  <string name="revanced_show_deleted_messages_entry_3">削除されたメッセージを取り消し線つきで表示する</string>
   </patch>
   <patch id="chat.autoclaim.autoClaimChannelPointsPatch">
-  <string name="revanced_auto_claim_channel_points_title">チャンネルポイントを自動的に獲得する</string>
-  <string name="revanced_auto_claim_channel_points_summary_on">チャンネルポイントは自動的に請求されます</string>
-  <string name="revanced_auto_claim_channel_points_summary_off">チャンネルポイントは自動的に請求されません</string>
+  <string name="revanced_auto_claim_channel_points_title">チャンネルポイントの受け取りを自動化</string>
+  <string name="revanced_auto_claim_channel_points_summary_on">チャンネルポイントの受け取りは自動的に行われます</string>
+  <string name="revanced_auto_claim_channel_points_summary_off">チャンネルポイントの受け取りは自動的には行われません</string>
   </patch>
   <patch id="debug.debugModePatch">
   <!-- Twitch specific internal debug mode, and not the same as 'revanced_debug_title'. -->

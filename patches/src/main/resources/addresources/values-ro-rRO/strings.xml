@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Numele aplicației</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Personalizat</string>
+  <string name="revanced_custom_branding_icon_title">Pictograma aplicației</string>
+  <string name="revanced_custom_branding_icon_entry_1">Original</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimal</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced scalat</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Personalizat</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Verificările au eșuat</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Deschidere site oficial</string>
@@ -119,6 +132,13 @@ Dacă ești utilizator YouTube Premium, această setare ar putea să nu fie nece
 Redarea poate să nu funcționeze"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Dezactivarea acestei setări poate cauza probleme de redare.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client implicit</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Forțează limba audio originală</string>
+  <string name="revanced_force_original_audio_summary_on">Folosind limba audio originală</string>
+  <string name="revanced_force_original_audio_summary_off">Utilizează audio implicit</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Pentru a utiliza această funcție, modificați \"Falsificare fluxuri video\" la orice client, cu excepția Android Studio</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Depanare</string>
@@ -795,7 +815,7 @@ Pentru a afișa meniul de piste audio, modificați „Emulare fluxuri video” l
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Butoanele sunt ascunse</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Butoanele sunt afișate</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ascunde cardurile ecranului final</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Cardurile de pe ecranul de închidere sunt ascunse</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Cardurile de închidere ecran sunt afișate</string>
@@ -1400,11 +1420,13 @@ Miniplayerul poate fi tras pe ecran spre stânga sau spre dreapta"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Culoarea de accent a barei de căutare</string>
   <string name="revanced_seekbar_custom_color_invalid">Valoare culoare bară căutare nevalidă</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Siglă antet</string>
   <string name="revanced_header_logo_entry_1">Implicit</string>
   <string name="revanced_header_logo_entry_2">Normal</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimalist</string>
   <string name="revanced_header_logo_entry_6">Personalizat</string>
   </patch>
@@ -1510,13 +1532,6 @@ Activarea acestei opțiuni poate debloca calități video mai mari"</string>
   <string name="revanced_external_browser_summary_on">Deschiderea linkurilor în browserul extern</string>
   <string name="revanced_external_browser_summary_off">Deschiderea linkurilor în browserul din aplicație</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Forțează limba audio originală</string>
-  <string name="revanced_force_original_audio_summary_on">Folosind limba audio originală</string>
-  <string name="revanced_force_original_audio_summary_off">Utilizează audio implicit</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Pentru a utiliza această funcție, modificați \"Falsificare fluxuri video\" la orice client, cu excepția Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automat</string>
@@ -1601,6 +1616,14 @@ Limitări:
   <string name="revanced_slide_to_seek_summary_off">Slide pentru a căuta nu este activat</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Permite Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Codecul video este AVC (H.264), VP9 sau AV1
+
+Redarea poate sacada sau pierde cadre"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Codecul video este AVC (H.264) sau VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Activarea acestei setări poate folosi decodarea software AV1.
+
+Redarea video cu AV1 poate sacada sau pierde cadre."</string>
   <string name="revanced_spoof_video_streams_about_title">Efecte secundare ale simulării</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Client experimental și se poate opri din funcționare oricând</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Videoclipul se poate opri la 1:00, sau poate să nu fie disponibil în unele regiuni</string>
@@ -1620,6 +1643,8 @@ Limitări:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Despre</string>
   <string name="revanced_settings_music_screen_1_ads_title">Anunțuri</string>

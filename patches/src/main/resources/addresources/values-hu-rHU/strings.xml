@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Alkalmazás neve</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Egyéni</string>
+  <string name="revanced_custom_branding_icon_title">Alkalmazás ikonja</string>
+  <string name="revanced_custom_branding_icon_entry_1">Eredeti</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimális</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced méretezett</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Egyéni</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Az ellenőrzések sikertelenek</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Hivatalos weboldal megnyitása</string>
@@ -119,6 +132,13 @@ Ha Ön YouTube Premium felhasználó, ez a beállítás nem feltétlenül szüks
 A lejátszás nem működhet"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Ennek a beállításnak a kikapcsolása lejátszási problémákat okozhat.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Alapértelmezett kliens</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Eredeti hang kikényszerítése</string>
+  <string name="revanced_force_original_audio_summary_on">Eredeti hang használata a hang nyelvén</string>
+  <string name="revanced_force_original_audio_summary_off">Alapértelmezett hang használata</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">A funkció használatához módosítsa a \"Videóstreamek hamisítása\" beállítást bármely kliensre, kivéve az Android Studiót</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Hibakeresés</string>
@@ -797,7 +817,7 @@ Az hangsáv menü megjelenítéséhez állítsa a 'Videó stream-ek meghamisít�
   <string name="revanced_hide_player_previous_next_buttons_summary_on">A gombok elrejtve</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">A gombok megjelennek</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Záróképernyő kártyák elrejtése</string>
   <string name="revanced_hide_endscreen_cards_summary_on">A záróképernyő kártyák el vannak rejtve</string>
   <string name="revanced_hide_endscreen_cards_summary_off">A záróképernyő kártyák megjelennek</string>
@@ -1400,11 +1420,13 @@ A miniatűr képernyőt a képernyő bal vagy jobb szélére húzhatja"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">A keresősáv kiemelõ színe</string>
   <string name="revanced_seekbar_custom_color_invalid">Érvénytelen keresősáv színértéke</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Fejléc logó</string>
   <string name="revanced_header_logo_entry_1">Alapértelmezett</string>
   <string name="revanced_header_logo_entry_2">Normál</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimál</string>
   <string name="revanced_header_logo_entry_6">Egyéni</string>
   </patch>
@@ -1510,13 +1532,6 @@ Ez a beállítás lehetővé teszi a magasabb videóminőségek feloldását"</s
   <string name="revanced_external_browser_summary_on">Hivatkozások megnyitása külső böngészőben</string>
   <string name="revanced_external_browser_summary_off">Hivatkozások megnyitása az alkalmazáson belüli böngészőben</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Eredeti hang kikényszerítése</string>
-  <string name="revanced_force_original_audio_summary_on">Eredeti hang használata a hang nyelvén</string>
-  <string name="revanced_force_original_audio_summary_off">Alapértelmezett hang használata</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">A funkció használatához módosítsa a \"Videóstreamek hamisítása\" beállítást bármely kliensre, kivéve az Android Studiót</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automatikus</string>
@@ -1601,6 +1616,14 @@ Korlátozások:
   <string name="revanced_slide_to_seek_summary_off">A csúsztatás a kereséshez nincs engedélyezve</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Android VR AV1 engedélyezése</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"A videó kodek AVC (H.264), VP9 vagy AV1
+
+A lejátszás akadozhat vagy képkockákat ejthet"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">A videokodek AVC (H.264) vagy VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Ennek a beállításnak az engedélyezése szoftveres AV1 dekódolást használhat.
+
+Az AV1-es videólejátszás akadozhat vagy képkockákat ejthet."</string>
   <string name="revanced_spoof_video_streams_about_title">Hamisítás mellékhatásai</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Kísérleti kliens, és bármikor leállhat</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• A videó megállhat 1:00-nál, vagy előfordulhat, hogy egyes régiókban nem elérhető</string>
@@ -1620,6 +1643,8 @@ Korlátozások:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Névjegy</string>
   <string name="revanced_settings_music_screen_1_ads_title">Hirdetések</string>

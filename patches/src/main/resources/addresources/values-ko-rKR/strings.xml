@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">앱 이름</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">사용자 정의</string>
+  <string name="revanced_custom_branding_icon_title">앱 아이콘</string>
+  <string name="revanced_custom_branding_icon_entry_1">원본</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced 최소화</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced 크기 조정</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">사용자 정의</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">환경 검사에 실패하였습니다</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">공식 홈페이지 열기</string>
@@ -119,6 +132,13 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 재생 문제가 발생할 수 있습니다"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">이 설정을 비활성화하면 재생 문제가 발생할 수 있습니다.</string>
   <string name="revanced_spoof_video_streams_client_type_title">기본 클라이언트</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">원본 오디오 언어 강제로 활성화하기</string>
+  <string name="revanced_force_original_audio_summary_on">원본 오디오 언어를 사용 중입니다</string>
+  <string name="revanced_force_original_audio_summary_off">기본 오디오 언어를 사용 중입니다</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 변경하기\'에서 기본 클라이언트를 Android Studio를 제외한 다른 클라이언트로 변경하세요</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">디버깅</string>
@@ -314,7 +334,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_podcast_section_title">팟캐스트 살펴보기 섹션 숨기기</string>
   <string name="revanced_hide_podcast_section_summary_on">팟캐스트 살펴보기 섹션이 숨겨집니다</string>
   <string name="revanced_hide_podcast_section_summary_off">팟캐스트 살펴보기 섹션이 표시됩니다</string>
-  <string name="revanced_hide_info_cards_section_title">정보 카드 숨기기</string>
+  <string name="revanced_hide_info_cards_section_title">크리에이터 정보 카드 섹션 숨기기</string>
   <string name="revanced_hide_info_cards_section_summary_on">크리에이터 정보 카드 섹션이 숨겨집니다</string>
   <string name="revanced_hide_info_cards_section_summary_off">크리에이터 정보 카드 섹션이 표시됩니다</string>
   <string name="revanced_hide_key_concepts_section_title">주요 개념 섹션 숨기기</string>
@@ -608,7 +628,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">동작 버튼</string>
   <string name="revanced_hide_buttons_screen_summary">플레이어 하단에서 동작 버튼을 숨기거나 표시할 수 있습니다</string>
-  <string name="revanced_disable_like_subscribe_glow_title">빛나는 \'좋아요\' / \'구독\' 비활성화하기</string>
+  <string name="revanced_disable_like_subscribe_glow_title">빛나는 \'좋아요\' / \'구독\' 버튼 비활성화하기</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 경우에 해당 버튼에 빛나는 애니메이션을 적용하지 않습니다</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 경우에 해당 버튼에 빛나는 애니메이션을 적용합니다</string>
   <string name="revanced_hide_like_dislike_button_title">좋아요 &amp; 싫어요 버튼 숨기기</string>
@@ -796,7 +816,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_player_previous_next_buttons_summary_on">이전 &amp; 다음 동영상 버튼이 숨겨집니다</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">이전 &amp; 다음 동영상 버튼이 표시됩니다</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">최종 화면 카드 숨기기</string>
   <string name="revanced_hide_endscreen_cards_summary_on">최종 화면 카드가 숨겨집니다</string>
   <string name="revanced_hide_endscreen_cards_summary_off">최종 화면 카드가 표시됩니다</string>
@@ -1067,12 +1087,12 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">건너뛰기 버튼이 몇 초 후에 숨겨집니다</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">건너뛰기 버튼이 해당 구간이 끝날 때까지 표시됩니다</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">건너뛰기 버튼 표시 시간</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">건너뛰기 및 하이라이트로 건너뛰기 버튼이 자동으로 숨겨지기 전까지 표시되는 시간을 설정할 수 있습니다</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">건너뛰기 및 하이라이트로 건너뛰기 버튼이 자동으로 숨겨지기 전까지 표시되는 시간을 지정할 수 있습니다</string>
   <string name="revanced_sb_general_skiptoast">건너뛰기 취소 메시지 표시하기</string>
   <string name="revanced_sb_general_skiptoast_sum_on">구간을 자동으로 건너뛰는 경우에 팝업 메시지를 표시합니다\n\n팝업 메시지를 탭하여 건너뛰기를 취소할 수 있습니다</string>
   <string name="revanced_sb_general_skiptoast_sum_off">팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_sb_toast_on_skip_duration">건너뛰기 취소 메시지 표시 시간</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">건너뛰기 취소 팝업 메시지가 표시되는 시간을 설정할 수 있습니다</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">건너뛰기 취소 팝업 메시지가 표시되는 시간을 지정할 수 있습니다</string>
   <string name="revanced_sb_duration_1s">1 초</string>
   <string name="revanced_sb_duration_2s">2 초</string>
   <string name="revanced_sb_duration_3s">3 초</string>
@@ -1108,7 +1128,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_sb_general_skipcount_sum_off">건너뛴 횟수 기록을 비활성화합니다</string>
   <string name="revanced_sb_general_min_duration">건너뛸 최소 구간 길이</string>
   <string name="revanced_sb_general_min_duration_sum">설정한 값(초)보다 작은 구간은 건너뛰지 않으며, 재생바에도 표시되지 않습니다</string>
-  <string name="revanced_sb_general_min_duration_invalid">잘못된 지속 시간입니다</string>
+  <string name="revanced_sb_general_min_duration_invalid">잘못된 표시 시간입니다</string>
   <string name="revanced_sb_general_uuid">비공개 사용자 아이디</string>
   <string name="revanced_sb_general_uuid_sum">비공개 사용자 아이디는 SponsorBlock 서버에서 구간을 제출하거나 건너뛴 구간 정보를 기록하는데 사용되는 고유 아이디 입니다. 절대 다른 이에게 공개하지 마세요</string>
   <string name="revanced_sb_general_uuid_invalid">비공개 사용자 아이디는 30자 이상이어야 합니다</string>
@@ -1410,11 +1430,13 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_seekbar_custom_color_accent_summary">재생바 보조 색상을 지정할 수 있습니다</string>
   <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 색상입니다</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">헤더 로고</string>
   <string name="revanced_header_logo_entry_1">기본값</string>
   <string name="revanced_header_logo_entry_2">일반</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced 최소화</string>
   <string name="revanced_header_logo_entry_6">사용자 정의</string>
   </patch>
@@ -1520,13 +1542,6 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_external_browser_summary_on">앱 내에서 외부 링크를 열 경우에 외부 브라우저를 사용합니다</string>
   <string name="revanced_external_browser_summary_off">앱 내에서 외부 링크를 열 경우에 내부 브라우저를 사용합니다</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">원본 오디오 언어 강제로 활성화하기</string>
-  <string name="revanced_force_original_audio_summary_on">원본 오디오 언어를 사용 중입니다</string>
-  <string name="revanced_force_original_audio_summary_off">기본 오디오 언어를 사용 중입니다</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 변경하기\'에서 기본 클라이언트를 Android Studio를 제외한 다른 클라이언트로 변경하세요</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">자동</string>
@@ -1611,6 +1626,14 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_slide_to_seek_summary_off">슬라이드하여 탐색을 비활성화합니다</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Android VR AV1 허용하기</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"동영상 코덱이 AVC (H.264), VP9 또는 AV1으로 결정됩니다
+
+동영상 재생이 끊기거나 프레임이 손실될 수 있습니다"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">동영상 코덱이 AVC (H.264) 또는 VP9으로 결정됩니다</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"이 설정을 활성화하면, 소프트웨어 AV1 디코딩이 사용될 수 있습니다.
+
+AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있습니다."</string>
   <string name="revanced_spoof_video_streams_about_title">변경에 따른 부작용</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 실험용 클라이언트이며 언제든지 작동이 중단될 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• 동영상이 1:00에 멈출 수 있으며, 일부 지역에서는 이용이 불가능할 수 있습니다</string>
@@ -1630,6 +1653,8 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">정보</string>
   <string name="revanced_settings_music_screen_1_ads_title">광고</string>

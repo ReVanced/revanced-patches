@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Tên ứng dụng</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Tùy chỉnh</string>
+  <string name="revanced_custom_branding_icon_title">Biểu tượng ứng dụng</string>
+  <string name="revanced_custom_branding_icon_entry_1">Gốc</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced tối giản</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced tỉ lệ</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Tùy chỉnh</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Kiểm tra thất bại</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Mở trang web chính thức</string>
@@ -58,13 +71,13 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_clear_history">Xóa lịch sử tìm kiếm</string>
   <string name="revanced_settings_search_clear_history_message">Bạn có chắc chắn muốn xóa tất cả lịch sử tìm kiếm không?</string>
   <string name="revanced_settings_search_tips_title">Mẹo tìm kiếm</string>
-  <string name="revanced_settings_search_tips_summary">"• Nhấn vào một đường dẫn để điều hướng đến đó
-• Nhấn giữ một cài đặt để điều hướng đến đó
-• Nhấn Enter để lưu truy vấn tìm kiếm vào lịch sử
+  <string name="revanced_settings_search_tips_summary">"• Nhấn vào một đường dẫn để đi đến đó
+• Nhấn giữ một cài đặt để đi đến đó
+• Nhấn Enter để lưu từ khoá tìm kiếm vào lịch sử
 • Tìm kiếm bỏ qua chữ hoa/thường và dấu câu
-• Cài đặt cha xuất hiện phía trên cài đặt con bị vô hiệu hóa"</string>
-  <string name="revanced_settings_search_empty_history_title">Lịch sử tìm kiếm trống</string>
-  <string name="revanced_settings_search_empty_history_summary">Để lưu lịch sử tìm kiếm, nhập truy vấn tìm kiếm và nhấn Enter</string>
+• Cài đặt lớn nằm phía trên cài đặt nhỏ bị vô hiệu hóa"</string>
+  <string name="revanced_settings_search_empty_history_title">Lịch sử tìm kiếm đang trống</string>
+  <string name="revanced_settings_search_empty_history_summary">Để lưu lịch sử tìm kiếm, nhập từ khoá tìm kiếm và nhấn Enter</string>
   <string name="revanced_settings_search_history_title">Hiện lịch sử tìm kiếm cài đặt</string>
   <string name="revanced_settings_search_history_summary_on">Lịch sử tìm kiếm cài đặt đã được hiển thị</string>
   <string name="revanced_settings_search_history_summary_off">Lịch sử tìm kiếm cài đặt không được hiển thị</string>
@@ -120,6 +133,13 @@ Có thể gặp lỗi khi phát."</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Tắt cài đặt này có thể gây ra lỗi khi phát.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Ứng dụng khách mặc định</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Buộc ngôn ngữ âm thanh gốc</string>
+  <string name="revanced_force_original_audio_summary_on">Đang dùng ngôn ngữ âm thanh gốc</string>
+  <string name="revanced_force_original_audio_summary_off">Đang dùng âm thanh mặc định</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Để dùng tính năng này, hãy đổi \'Giả mạo luồng video\' thành bất kỳ ứng dụng khách nào ngoại trừ Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Gỡ lỗi</string>
   <string name="revanced_debug_screen_summary">Bật hoặc tắt tùy chọn gỡ lỗi</string>
@@ -150,8 +170,8 @@ Bạn sẽ không được thông báo khi xẩy ra lỗi bất ngờ."</string>
   <string name="revanced_sanitize_sharing_links_summary_on">Tham số truy vấn theo dõi bị loại bỏ khỏi các liên kết được chia sẻ</string>
   <string name="revanced_sanitize_sharing_links_summary_off">Tham số truy vấn theo dõi không bị loại bỏ khỏi các liên kết được chia sẻ</string>
   <string name="revanced_replace_music_with_youtube_title">Thay đổi liên kết chia sẻ thành youtube.com</string>
-  <string name="revanced_replace_music_with_youtube_summary_on">Liên kết được chia sẻ sử dụng youtube.com</string>
-  <string name="revanced_replace_music_with_youtube_summary_off">Liên kết được chia sẻ sử dụng music.youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_on">Liên kết chia sẻ bắt đầu bằng youtube.com</string>
+  <string name="revanced_replace_music_with_youtube_summary_off">Liên kết chia sẻ bắt đầu bằng music.youtube.com</string>
   </patch>
   </app>
   <app id="youtube">
@@ -797,7 +817,7 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Các nút đã bị ẩn</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Các nút được hiển thị</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Ẩn thẻ màn hình kết thúc</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Thẻ màn hình kết thúc đã bị ẩn</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Thẻ màn hình kết thúc được hiển thị</string>
@@ -1409,11 +1429,13 @@ Vuốt để mở rộng hoặc đóng"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Màu sắc nổi bật của thanh tiến trình</string>
   <string name="revanced_seekbar_custom_color_invalid">Giá trị màu của thanh tiến trình không hợp lệ</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Logo đầu trang</string>
   <string name="revanced_header_logo_entry_1">Mặc định</string>
   <string name="revanced_header_logo_entry_2">Thông thường</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced tối giản</string>
   <string name="revanced_header_logo_entry_6">Tùy chỉnh</string>
   </patch>
@@ -1474,11 +1496,11 @@ Nhấn vào đây để tìm hiểu thêm về DeArrow"</string>
   <string name="revanced_loop_video_summary_off">Video sẽ không lặp lại</string>
   </patch>
   <patch id="misc.loopvideo.button.loopVideoButtonPatch">
-  <string name="revanced_loop_video_button_title">Hiện nút video lặp lại</string>
+  <string name="revanced_loop_video_button_title">Hiện nút lặp lại video</string>
   <string name="revanced_loop_video_button_summary_on">Nút được hiển thị</string>
   <string name="revanced_loop_video_button_summary_off">Nút không được hiển thị</string>
-  <string name="revanced_loop_video_button_toast_on">Video lặp lại đang bật</string>
-  <string name="revanced_loop_video_button_toast_off">Video lặp lại đang tắt</string>
+  <string name="revanced_loop_video_button_toast_on">Lặp lại video đang bật</string>
+  <string name="revanced_loop_video_button_toast_off">Lặp lại video đang tắt</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="revanced_spoof_device_dimensions_title">Giả mạo kích thước thiết bị</string>
@@ -1518,13 +1540,6 @@ Bật tính năng này có thể mở khóa chất lượng video cao hơn"</str
   <string name="revanced_external_browser_title">Mở liên kết trong trình duyệt</string>
   <string name="revanced_external_browser_summary_on">Đang mở liên kết trong trình duyệt bên ngoài</string>
   <string name="revanced_external_browser_summary_off">Đang mở liên kết trình duyệt trong ứng dụng</string>
-  </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Buộc ngôn ngữ âm thanh gốc</string>
-  <string name="revanced_force_original_audio_summary_on">Đang dùng ngôn ngữ âm thanh gốc</string>
-  <string name="revanced_force_original_audio_summary_off">Đang dùng âm thanh mặc định</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Để dùng tính năng này, hãy đổi \'Giả mạo luồng video\' thành bất kỳ ứng dụng khách nào ngoại trừ Android Studio</string>
   </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
@@ -1610,6 +1625,14 @@ Hạn chế:
   <string name="revanced_slide_to_seek_summary_off">Vuốt để tua không được bật</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Cho phép AV1 trên Android VR</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Bộ giải mã video là AVC (H.264), VP9 hoặc AV1
+
+Quá trình phát có thể bị giật hoặc tụt khung hình"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Bộ giải mã video là AVC (H.264) hoặc VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Bật cài đặt này có thể sử dụng giải mã AV1 bằng phần mềm.
+
+Phát video bằng AV1 có thể bị giật hoặc tụt khung hình."</string>
   <string name="revanced_spoof_video_streams_about_title">Hạn chế khi giả mạo</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Ứng dụng khách đang trong giai đoạn thử nghiệm và có thể ngừng hoạt động bất cứ lúc nào</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video có thể dừng ở 1:00, hoặc có thể không khả dụng ở một số khu vực</string>
@@ -1629,6 +1652,8 @@ Hạn chế:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Giới thiệu</string>
   <string name="revanced_settings_music_screen_1_ads_title">Quảng cáo</string>

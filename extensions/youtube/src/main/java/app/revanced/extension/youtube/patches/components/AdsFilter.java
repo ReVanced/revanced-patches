@@ -105,17 +105,17 @@ public final class AdsFilter extends Filter {
                 Settings.HIDE_VIEW_PRODUCTS_BANNER,
                 "product_item",
                 "products_in_video",
-                "shopping_overlay.eml" // Video player overlay shopping links.
+                "shopping_overlay.e" // Video player overlay shopping links.
         );
 
         final var shoppingLinks = new StringFilterGroup(
                 Settings.HIDE_SHOPPING_LINKS,
-                "shopping_description_shelf.eml"
+                "shopping_description_shelf.e"
         );
 
         playerShoppingShelf = new StringFilterGroup(
                 Settings.HIDE_CREATOR_STORE_SHELF,
-                "horizontal_shelf.eml"
+                "horizontal_shelf.e"
         );
 
         playerShoppingShelfBuffer = new ByteArrayFilterGroup(
@@ -131,7 +131,7 @@ public final class AdsFilter extends Filter {
         final var merchandise = new StringFilterGroup(
                 Settings.HIDE_MERCHANDISE_BANNERS,
                 "product_carousel",
-                "shopping_carousel.eml" // Channel profile shopping shelf.
+                "shopping_carousel.e" // Channel profile shopping shelf.
         );
 
         final var selfSponsor = new StringFilterGroup(

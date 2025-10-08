@@ -1,3 +1,4 @@
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -19,6 +20,19 @@ Second \"item\" text"</string>
 -->
 <resources>
     <app id="shared">
+        <patch id="layout.branding.baseCustomBrandingPatch">
+            <string name="revanced_custom_branding_name_title">App name</string>
+            <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+            <string name="revanced_custom_branding_name_entry_5">Custom</string>
+            <string name="revanced_custom_branding_icon_title">App icon</string>
+            <string name="revanced_custom_branding_icon_entry_1">Original</string>
+            <string name="revanced_custom_branding_icon_entry_2" translatable="false">ReVanced</string>
+            <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+            <string name="revanced_custom_branding_icon_entry_3">ReVanced minimal</string>
+            <string name="revanced_custom_branding_icon_entry_4">ReVanced scaled</string>
+            <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+            <string name="revanced_custom_branding_icon_entry_5">Custom</string>
+        </patch>
         <patch id="misc.checks.checkEnvironmentPatch">
             <string name="revanced_check_environment_failed_title">Checks failed</string>
             <string name="revanced_check_environment_dialog_open_official_source_button">Open official website</string>
@@ -175,6 +189,13 @@ If you are a YouTube Premium user, this setting may not be required"</string>
 Playback may not work"</string>
             <string name="revanced_spoof_video_streams_user_dialog_message">Turning off this setting may cause playback issues.</string>
             <string name="revanced_spoof_video_streams_client_type_title">Default client</string>
+        </patch>
+        <patch id="misc.audio.forceOriginalAudioPatch">
+            <string name="revanced_force_original_audio_title">Force original audio language</string>
+            <string name="revanced_force_original_audio_summary_on">Using original audio language</string>
+            <string name="revanced_force_original_audio_summary_off">Using default audio</string>
+            <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+            <string name="revanced_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except Android Studio</string>
         </patch>
         <patch id="misc.debugging.enableDebuggingPatch">
             <string name="revanced_debug_screen_title">Debugging</string>
@@ -859,7 +880,7 @@ To show the Audio track menu, change \'Spoof video streams\' to iPadOS"</string>
             <string name="revanced_hide_player_previous_next_buttons_summary_on">Previous &amp; Next buttons are hidden</string>
             <string name="revanced_hide_player_previous_next_buttons_summary_off">Previous &amp; Next buttons are shown</string>
         </patch>
-        <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+        <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
             <string name="revanced_hide_endscreen_cards_title">Hide end screen cards</string>
             <string name="revanced_hide_endscreen_cards_summary_on">End screen cards are hidden</string>
             <string name="revanced_hide_endscreen_cards_summary_off">End screen cards are shown</string>
@@ -1477,13 +1498,18 @@ Swipe to expand or close"</string>
             <string name="revanced_seekbar_custom_color_accent_summary">The accent color of the seekbar</string>
             <string name="revanced_seekbar_custom_color_invalid">Invalid seekbar color value</string>
         </patch>
+        <patch id="layout.branding.customBrandingPatch">
+            <string name="revanced_custom_branding_name_entry_2" translatable="false">YouTube ReVanced</string>
+            <string name="revanced_custom_branding_name_entry_3" translatable="false">YT ReVanced</string>
+            <string name="revanced_custom_branding_name_entry_4" translatable="false">YT</string>
+        </patch>
         <patch id="layout.branding.changeHeaderPatch">
             <string name="revanced_header_logo_title">Header logo</string>
             <string name="revanced_header_logo_entry_1">Default</string>
             <string name="revanced_header_logo_entry_2">Regular</string>
             <string name="revanced_header_logo_entry_3" translatable="false">Premium</string>
             <string name="revanced_header_logo_entry_4" translatable="false">ReVanced</string>
-            <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+            <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
             <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
             <string name="revanced_header_logo_entry_6">Custom</string>
         </patch>
@@ -1590,13 +1616,6 @@ Enabling this can unlock higher video qualities"</string>
             <string name="revanced_external_browser_summary_on">Opening links in external browser</string>
             <string name="revanced_external_browser_summary_off">Opening links in in-app browser</string>
         </patch>
-        <patch id="video.audio.forceOriginalAudioPatch">
-            <string name="revanced_force_original_audio_title">Force original audio language</string>
-            <string name="revanced_force_original_audio_summary_on">Using original audio language</string>
-            <string name="revanced_force_original_audio_summary_off">Using default audio</string>
-            <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-            <string name="revanced_force_original_audio_not_available">To use this feature, change \'Spoof video streams\' to any client except Android Studio</string>
-        </patch>
         <patch id="video.quality.rememberVideoQualityPatch">
             <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
             <string name="revanced_video_quality_default_entry_1">Auto</string>
@@ -1681,6 +1700,14 @@ Limitations:
             <string name="revanced_slide_to_seek_summary_off">Slide to seek is not enabled</string>
         </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+            <string name="revanced_spoof_video_streams_av1_title">Allow Android VR AV1</string>
+            <string name="revanced_spoof_video_streams_av1_summary_on">"Video codec is AVC (H.264), VP9, or AV1
+
+Playback may stutter or drop frames"</string>
+            <string name="revanced_spoof_video_streams_av1_summary_off">Video codec is AVC (H.264) or VP9</string>
+            <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Enabling this setting may use software AV1 decoding.
+
+Video playback with AV1 may stutter or drop frames."</string>
             <string name="revanced_spoof_video_streams_about_title">Spoofing side effects</string>
             <string name="revanced_spoof_video_streams_about_experimental">• Experimental client and may stop working anytime</string>
             <string name="revanced_spoof_video_streams_about_playback_failure">• Video may stop at 1:00, or may not be available in some regions</string>
@@ -1700,6 +1727,11 @@ Limitations:
         </patch>
     </app>
     <app id="music">
+        <patch id="layout.branding.customBrandingPatch">
+            <string name="revanced_custom_branding_name_entry_2" translatable="false">YT Music ReVanced</string>
+            <string name="revanced_custom_branding_name_entry_3" translatable="false">Music ReVanced</string>
+            <string name="revanced_custom_branding_name_entry_4" translatable="false">Music</string>
+        </patch>
         <patch id="misc.settings.settingsPatch">
             <string name="revanced_settings_music_screen_0_about_title">About</string>
             <string name="revanced_settings_music_screen_1_ads_title">Ads</string>

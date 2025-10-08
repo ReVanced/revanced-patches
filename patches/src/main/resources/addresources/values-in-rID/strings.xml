@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,20 +21,32 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Nama aplikasi</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Khusus</string>
+  <string name="revanced_custom_branding_icon_title">Ikon aplikasi</string>
+  <string name="revanced_custom_branding_icon_entry_1">Asli</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimal</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced berskala</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Khusus</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Pemeriksaan gagal</string>
-  <string name="revanced_check_environment_dialog_open_official_source_button">Buka situs resminya</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Buka situs resmi</string>
   <string name="revanced_check_environment_dialog_ignore_button">Abaikan</string>
-  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Aplikasi ini tampaknya tidak dipatch oleh Anda.&lt;/h5&gt;&lt;br&gt;Aplikasi ini mungkin tidak berfungsi dengan baik, &lt;b&gt;bisa berbahaya atau bahkan membahayakan untuk digunakan&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Pemeriksaan ini berarti bahwa aplikasi ini telah dipatch sebelumnya atau diperoleh dari orang lain:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Sangat disarankan untuk &lt;b&gt;mencopot pemasangan aplikasi ini dan mempatchnya sendiri&lt;/b&gt; guna memastikan Anda menggunakan aplikasi yang tervalidasi dan aman.&lt;p&gt;&lt;br&gt;Jika diabaikan, peringatan ini hanya akan ditampilkan dua kali.</string>
-  <string name="revanced_check_environment_not_same_patching_device">Dipatch pada perangkat yang berbeda</string>
-  <string name="revanced_check_environment_manager_not_expected_installer">Tidak dipasang oleh ReVanced Manager</string>
-  <string name="revanced_check_environment_not_near_patch_time">Dipatch lebih dari 10 menit yang lalu</string>
-  <string name="revanced_check_environment_not_near_patch_time_days">Dipatch %s hari yang lalu</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Aplikasi ini tampaknya tidak ditambal oleh Anda.&lt;/h5&gt;&lt;br&gt;Aplikasi ini mungkin tidak bisa berfungsi dengan baik, &lt;b&gt;bisa berbahaya atau bahkan membahayakan untuk digunakan&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Pemeriksaan ini berarti bahwa aplikasi ini telah ditambal sebelumnya atau diperoleh dari orang lain:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Sangat disarankan untuk &lt;b&gt;mencopot pemasangan aplikasi ini dan menambalnya sendiri&lt;/b&gt; guna memastikan Anda menggunakan aplikasi yang tervalidasi dan aman.&lt;p&gt;&lt;br&gt;Jika diabaikan, peringatan ini hanya akan ditampilkan dua kali.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Ditambal pada perangkat yang berbeda</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Tidak terpasang oleh ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">Ditambal lebih dari 10 menit yang lalu</string>
+  <string name="revanced_check_environment_not_near_patch_time_days">Ditambal %s hari yang lalu</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Tanggal pembuatan APK rusak</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Peringatan </string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">Riwayat tontonan Anda tidak disimpan.&lt;br&gt;&lt;br&gt;Hal ini kemungkinan besar disebabkan oleh pemblokir iklan DNS atau proksi jaringan.&lt;br&gt;&lt;br&gt;Untuk memperbaikinya, masukkan daftar putih &lt;b&gt;s.youtube.com&lt;/b&gt; atau matikan semua pemblokir DNS dan proksi.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">Riwayat tontonan Anda tidak sedang disimpan.&lt;br&gt;&lt;br&gt;Hal ini kemungkinan besar disebabkan oleh pemblokir iklan DNS atau proksi jaringan.&lt;br&gt;&lt;br&gt;Untuk memperbaikinya, masukkan daftar putih &lt;b&gt;s.youtube.com&lt;/b&gt; atau matikan semua pemblokir DNS dan proksi.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Jangan tampilkan lagi</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
@@ -48,7 +61,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import">Impor</string>
   <string name="revanced_settings_import_copy">Salin</string>
   <string name="revanced_settings_import_reset">Pengaturan ReVanced diatur ke bawaan</string>
-  <string name="revanced_settings_import_success">Mengimpor setelan %d</string>
+  <string name="revanced_settings_import_success">Setelan %d terimpor</string>
   <string name="revanced_settings_import_failure_parse">Impor gagal: %s</string>
   <string name="revanced_settings_search_hint">Pengaturan pencarian</string>
   <string name="revanced_settings_search_no_results_title">Tidak ada hasil yang ditemukan untuk \'%s\'</string>
@@ -62,12 +75,12 @@ Second \"item\" text"</string>
 • Tekan lama pada pengaturan untuk menelusuri ke jalur tersebut
 • Tekan Enter untuk menyimpan kueri pencarian ke riwayat
 • Pencarian mengabaikan huruf besar/kecil dan tanda baca
-• Pengaturan orang tua muncul di atas pengaturan anak yang dinonaktifkan"</string>
+• Pengaturan utama muncul di atas pengaturan sampingan yang dinonaktifkan"</string>
   <string name="revanced_settings_search_empty_history_title">Riwayat pencarian kosong</string>
   <string name="revanced_settings_search_empty_history_summary">Untuk menyimpan riwayat pencarian, ketik kueri pencarian dan tekan Enter</string>
-  <string name="revanced_settings_search_history_title">Tampilkan pengaturan riwayat pencarian</string>
-  <string name="revanced_settings_search_history_summary_on">Pengaturan riwayat pencarian ditampilkan</string>
-  <string name="revanced_settings_search_history_summary_off">Pengaturan riwayat pencarian tidak ditampilkan</string>
+  <string name="revanced_settings_search_history_title">Tampilkan riwayat pencarian setelan</string>
+  <string name="revanced_settings_search_history_summary_on">Riwayat pencarian setelan ditampilkan</string>
+  <string name="revanced_settings_search_history_summary_off">Riwayat pencarian setelan tidak ditampilkan</string>
   <string name="revanced_show_menu_icons_title">Tampilkan ikon pengaturan ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">Ikon pengaturan ditampilkan</string>
   <string name="revanced_show_menu_icons_summary_off">Ikon pengaturan tidak ditampilkan</string>
@@ -119,6 +132,13 @@ Jika Anda adalah pengguna YouTube Premium, setelan ini mungkin tidak diperlukan"
 Pemutaran mungkin tidak berfungsi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Mematikan pengaturan ini dapat menyebabkan masalah pemutaran.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Klien bawaan</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Paksa bahasa audio asli</string>
+  <string name="revanced_force_original_audio_summary_on">Menggunakan bahasa audio asli</string>
+  <string name="revanced_force_original_audio_summary_off">Menggunakan audio bawaan</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Palsukan aliran video\' ke klien apa pun kecuali Android Studio</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debug</string>
@@ -402,14 +422,14 @@ Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini 
   <string name="revanced_hide_view_count_summary_off">Jumlah penayangan ditampilkan di umpan dan hasil pencarian</string>
   <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
   <string name="revanced_hide_view_count_user_dialog_message">"Keterbatasan:
-• Rak Shorts, halaman channel, dan hasil pencarian mungkin masih menampilkan jumlah penayangan
+• Rak Shorts, halaman saluran, dan hasil pencarian mungkin masih menampilkan jumlah penayangan
 • Fitur ini tidak berfungsi dengan faktor bentuk otomotif"</string>
   <string name="revanced_hide_upload_time_title">Sembunyikan waktu unggah</string>
   <string name="revanced_hide_upload_time_summary_on">Waktu unggah disembunyikan di umpan dan hasil penelusuran</string>
   <string name="revanced_hide_upload_time_summary_off">Waktu unggah ditampilkan di umpan dan hasil penelusuran</string>
   <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
   <string name="revanced_hide_upload_time_user_dialog_message">"Keterbatasan:
-• Rak Shorts, halaman channel, dan hasil penelusuran mungkin masih menampilkan waktu unggah
+• Rak Shorts, halaman saluran, dan hasil penelusuran mungkin masih menampilkan waktu unggah
 • Fitur ini tidak berfungsi dengan faktor bentuk otomotif"</string>
   <string name="revanced_hide_keyword_content_screen_title">Sembunyikan kata kunci konten</string>
   <string name="revanced_hide_keyword_content_screen_summary">Sembunyikan pencarian dan feed video menggunakan penyaring kata kunci</string>
@@ -797,7 +817,7 @@ Untuk menampilkan menu trek audio, ubah 'Palsukan aliran video' ke iPadOS"</stri
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tombol disembunyikan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tombol ditampilkan</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Sembunyikan kartu layar akhir</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Kartu layar akhir disembunyikan</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Kartu layar akhir ditampilkan</string>
@@ -1402,11 +1422,13 @@ Miniplayer dapat diseret keluar layar ke kiri atau kanan"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Warna aksen seekbar</string>
   <string name="revanced_seekbar_custom_color_invalid">Nilai warna seekbar tidak sah</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Logo Header</string>
   <string name="revanced_header_logo_entry_1">Bawaan</string>
   <string name="revanced_header_logo_entry_2">Reguler</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
   <string name="revanced_header_logo_entry_6">Khusus</string>
   </patch>
@@ -1512,13 +1534,6 @@ Mengaktifkan ini dapat membuka kualitas video yang lebih tinggi"</string>
   <string name="revanced_external_browser_summary_on">Membuka tautan di peramban eksternal</string>
   <string name="revanced_external_browser_summary_off">Membuka tautan di peramban dalam aplikasi</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Paksa bahasa audio asli</string>
-  <string name="revanced_force_original_audio_summary_on">Menggunakan bahasa audio asli</string>
-  <string name="revanced_force_original_audio_summary_off">Menggunakan audio bawaan</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Untuk menggunakan fitur ini, ubah \'Palsukan aliran video\' ke klien apa pun kecuali Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Otomatis</string>
@@ -1603,10 +1618,18 @@ Batasan:
   <string name="revanced_slide_to_seek_summary_off">Geser untuk mencari tidak diaktifkan</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Izinkan Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Codec video adalah AVC (H.264), VP9, atau AV1
+
+Pemutaran mungkin tersendat atau kehilangan bingkai"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Codec video adalah AVC (H.264) atau VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Mengaktifkan pengaturan ini mungkin menggunakan perangkat lunak decoding AV1.
+
+Pemutaran video dengan AV1 mungkin tersendat atau kehilangan bingkai."</string>
   <string name="revanced_spoof_video_streams_about_title">Efek samping pemalsuan</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Klien eksperimental dan dapat berhenti berfungsi kapan saja</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video mungkin berhenti pada 1:00, atau mungkin tidak tersedia di beberapa wilayah</string>
-  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menu trek audio tidak ada</string>
+  <string name="revanced_spoof_video_streams_about_no_audio_tracks">• Menu trek audio hilang</string>
   <string name="revanced_spoof_video_streams_about_no_av1">• Tidak ada codec video AV1</string>
   <string name="revanced_spoof_video_streams_about_no_stable_volume">• Volume stabil tidak tersedia</string>
   <string name="revanced_spoof_video_streams_about_kids_videos">• Video anak-anak mungkin tidak dapat diputar saat keluar atau dalam mode penyamaran</string>
@@ -1622,6 +1645,8 @@ Batasan:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Tentang</string>
   <string name="revanced_settings_music_screen_1_ads_title">Iklan</string>
@@ -1657,9 +1682,9 @@ Batasan:
   <string name="revanced_music_hide_navigation_bar_home_button_summary_on">Tombol Beranda disembunyikan</string>
   <string name="revanced_music_hide_navigation_bar_home_button_summary_off">Tombol Beranda ditampilkan</string>
   <!-- 'Samples' should be translated using the same localized wording YouTube Music displays for the tab. -->
-  <string name="revanced_music_hide_navigation_bar_samples_button_title">Sembunyikan Cuplikan</string>
-  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Tombol Cuplikan disembunyikan</string>
-  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Tombol Cuplikan ditampilkan</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_title">Sembunyikan Sampel</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_on">Tombol Sampel disembunyikan</string>
+  <string name="revanced_music_hide_navigation_bar_samples_button_summary_off">Tombol Sampel ditampilkan</string>
   <!-- 'Explore' should be translated using the same localized wording YouTube Music displays for the tab. -->
   <string name="revanced_music_hide_navigation_bar_explore_button_title">Sembunyikan Jelajahi</string>
   <string name="revanced_music_hide_navigation_bar_explore_button_summary_on">Tombol Jelajahi disembunyikan</string>

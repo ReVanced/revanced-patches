@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Rakenduse nimi</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Kohandatud</string>
+  <string name="revanced_custom_branding_icon_title">Rakenduse ikoon</string>
+  <string name="revanced_custom_branding_icon_entry_1">Algne</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimaalne</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced skaleeritud</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Kohandatud</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Kontrollid ebaõnnestusid</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Ava oficial veebileht</string>
@@ -119,6 +132,13 @@ Kui olete YouTube Premiumi kasutaja, ei pruugi see säte vajalik olla"</string>
 Taasesitus ei pruugi töötada"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Selle sätte väljalülitamine võib põhjustada taasesitusprobleeme.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Vaikimisi klient</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Sunni originaalheli keel</string>
+  <string name="revanced_force_original_audio_summary_on">Algse helikeele kasutamine</string>
+  <string name="revanced_force_original_audio_summary_off">Kasutan vaikeheli</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Selle funktsiooni kasutamiseks muutke „Võltsitud videovood” mis tahes muule kliendile peale Android Studio.</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Veaotsing</string>
@@ -797,7 +817,7 @@ Heliraja menüü nägemiseks muutke \"Video voogude võltsimine\" iPadOS-iks"</s
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Nupud on peidetud</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Nupud on nähtavad</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Peida lõpukujunduse kaardid</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Lõpukujunduse kaardid on peidetud</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Lõpukujunduse kaardid on nähtavad</string>
@@ -1403,11 +1423,13 @@ Minimaalset mängijat saab lohistada ekraanilt vasakule või paremale"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Otsinguriba esiletõiduv värv</string>
   <string name="revanced_seekbar_custom_color_invalid">Vigane edastusriba värvi väärtus</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Päise logo</string>
   <string name="revanced_header_logo_entry_1">Vaikimisi</string>
   <string name="revanced_header_logo_entry_2">Tavaline</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimaalne</string>
   <string name="revanced_header_logo_entry_6">Kohandatud</string>
   </patch>
@@ -1513,13 +1535,6 @@ Selle lubamine võib avada kõrgema video kvaliteedi"</string>
   <string name="revanced_external_browser_summary_on">Linkide avamine välises brauseris</string>
   <string name="revanced_external_browser_summary_off">Linkide avamine rakendusesiseses brauseris</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Sunni originaalheli keel</string>
-  <string name="revanced_force_original_audio_summary_on">Algse helikeele kasutamine</string>
-  <string name="revanced_force_original_audio_summary_off">Kasutan vaikeheli</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Selle funktsiooni kasutamiseks muutke „Võltsitud videovood” mis tahes muule kliendile peale Android Studio.</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automaatne</string>
@@ -1604,6 +1619,14 @@ Piirangud:
   <string name="revanced_slide_to_seek_summary_off">Libistamine otsimiseks on keelatud</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Luba Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Videokodek on AVC (H.264), VP9 või AV1
+
+Taasesitus võib hakata kokutama või kaotada kaadreid"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Videokodek on AVC (H.264) või VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Selle seade lubamine võib kasutada tarkvara AV1 dekodeerimist.
+
+AV1-ga videotaasesitus võib hakitud olla või kaadreid vahele jätta."</string>
   <string name="revanced_spoof_video_streams_about_title">Võltsimise kõrvalmõjud</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentaalne klient ja võib igal ajal töötamast lakata</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video võib peatuda kell 1:00 või ei pruugi olla teatud piirkondades saadaval</string>
@@ -1623,6 +1646,8 @@ Piirangud:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Teave</string>
   <string name="revanced_settings_music_screen_1_ads_title">Reklaamid</string>

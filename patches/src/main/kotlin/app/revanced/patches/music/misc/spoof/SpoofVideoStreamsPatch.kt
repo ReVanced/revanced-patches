@@ -1,6 +1,5 @@
 package app.revanced.patches.music.misc.spoof
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
@@ -16,12 +15,13 @@ import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPref
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.spoof.spoofVideoStreamsPatch
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/spoof/SpoofVideoStreamsPatch;"
-
 val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
-    fixMediaFetchHotConfigChanges = { true },
-    fixMediaFetchHotConfigAlternativeChanges = { is_8_11_or_greater && !is_8_15_or_greater },
+    extensionClassDescriptor = "Lapp/revanced/extension/music/patches/spoof/SpoofVideoStreamsPatch;",
+    mainActivityOnCreateFingerprint = musicActivityOnCreateFingerprint,
+    fixMediaFetchHotConfig = { true },
+    fixMediaFetchHotConfigAlternative = { is_8_11_or_greater && !is_8_15_or_greater },
     fixParsePlaybackResponseFeatureFlag = { is_7_33_or_greater },
+
     block = {
         dependsOn(
             sharedExtensionPatch,
@@ -38,6 +38,7 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
             )
         )
     },
+
     executeBlock = {
         addResources("music", "misc.fix.playback.spoofVideoStreamsPatch")
 
@@ -50,11 +51,6 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
                     ListPreference("revanced_spoof_video_streams_client_type"),
                 )
             )
-        )
-
-        musicActivityOnCreateFingerprint.method.addInstruction(
-            0,
-            "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setClientOrderToUse()V"
         )
     }
 )

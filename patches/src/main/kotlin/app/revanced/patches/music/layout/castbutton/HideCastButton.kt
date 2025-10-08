@@ -9,6 +9,9 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
@@ -29,6 +32,7 @@ val hideCastButton = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
+        resourceMappingPatch
     )
 
     compatibleWith(
@@ -39,6 +43,8 @@ val hideCastButton = bytecodePatch(
     )
 
     execute {
+        playerOverlayChip = resourceMappings["id", "player_overlay_chip"]
+
         addResources("music", "layout.castbutton.hideCastButton")
 
         PreferenceScreen.GENERAL.addPreferences(
@@ -59,7 +65,7 @@ val hideCastButton = bytecodePatch(
 
         playerOverlayChipFingerprint.method.apply {
             val resourceIndex = indexOfFirstLiteralInstructionOrThrow(playerOverlayChip)
-            val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex, Opcode.MOVE_RESULT)
+            val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex, Opcode.MOVE_RESULT_OBJECT)
             val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             addInstruction(

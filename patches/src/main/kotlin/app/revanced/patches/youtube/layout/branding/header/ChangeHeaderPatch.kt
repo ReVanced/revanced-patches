@@ -136,8 +136,21 @@ val changeHeaderPatch = resourcePatch(
         )
 
         if (custom != null) {
-            val sourceFolders = File(custom!!).listFiles { file -> file.isDirectory }
-                ?: throw PatchException("The provided path is not a directory: $custom")
+            val customFile = File(custom!!)
+            if (!customFile.exists()) {
+                throw PatchException("The custom icon path cannot be found: " +
+                        customFile.absolutePath
+                )
+            }
+
+            if (!customFile.isDirectory) {
+                throw PatchException("The custom icon path must be a folder: "
+                    + customFile.absolutePath)
+            }
+
+            val sourceFolders = customFile.listFiles { file -> file.isDirectory }
+                ?: throw PatchException("The custom icon path contains no subfolders: " +
+                        customFile.absolutePath)
 
             val customResourceFileNames = getLightDarkFileNames(CUSTOM_HEADER_RESOURCE_NAME)
 
@@ -166,7 +179,8 @@ val changeHeaderPatch = resourcePatch(
             }
 
             if (!copiedFiles) {
-                throw PatchException("No custom header images found in the provided path: $custom")
+                throw PatchException("No custom header images found in " +
+                        "the provided path: " + customFile.absolutePath)
             }
         }
 

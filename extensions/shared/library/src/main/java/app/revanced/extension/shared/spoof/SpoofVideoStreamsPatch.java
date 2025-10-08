@@ -19,6 +19,14 @@ import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
+
+    public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
+        @Override
+        public boolean isAvailable() {
+            return BaseSettings.SPOOF_VIDEO_STREAMS.get() && !preferredClient.useAuth;
+        }
+    }
+
     /**
      * Domain used for internet connectivity verification.
      * It has an empty response body and is only used to check for a 204 response code.
@@ -39,7 +47,7 @@ public class SpoofVideoStreamsPatch {
     @Nullable
     private static volatile AppLanguage languageOverride;
 
-    private static volatile ClientType preferredClient = ClientType.ANDROID_VR_1_61_48;
+    private static volatile ClientType preferredClient = ClientType.ANDROID_VR_1_43_32;
 
     /**
      * @return If this patch was included during patching.
@@ -64,6 +72,10 @@ public class SpoofVideoStreamsPatch {
     public static void setClientsToUse(List<ClientType> availableClients, ClientType client) {
         preferredClient = Objects.requireNonNull(client);
         StreamingDataRequest.setClientOrderToUse(availableClients, client);
+    }
+
+    public static ClientType getPreferredClient() {
+        return preferredClient;
     }
 
     public static boolean spoofingToClientWithNoMultiAudioStreams() {
@@ -316,12 +328,5 @@ public class SpoofVideoStreamsPatch {
         }
 
         return videoFormat;
-    }
-
-    public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return BaseSettings.SPOOF_VIDEO_STREAMS.get() && !preferredClient.useAuth;
-        }
     }
 }

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Ime aplikacije</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Po meri</string>
+  <string name="revanced_custom_branding_icon_title">Ikona aplikacije</string>
+  <string name="revanced_custom_branding_icon_entry_1">Izvirno</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimalno</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced prilagojeno</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Po meri</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Preverjanja so spodletela</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Obiščite uradno spletno mesto</string>
@@ -119,6 +132,13 @@ Tapnite gumb za nadaljevanje in dovolite spremembe optimizacij."</string>
 Predvajanje morda ne bo delovalo"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Izklop te nastavitve lahko povzroči težave z predvajanjem.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Privzeti odjemalec</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Izsili izvirni jezik zvoka</string>
+  <string name="revanced_force_original_audio_summary_on">Uporabi izvirni jezik zvoka</string>
+  <string name="revanced_force_original_audio_summary_off">Uporaba privzetega zvoka</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Za uporabo te funkcije spremenite \"Ponaredi video tokove\" na katerega koli odjemalca, razen na Android Studio</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Razhroščevanje</string>
@@ -797,7 +817,7 @@ Za prikaz menija za zvočno skladbo, spremenite \"Ponarejene video tokove\" na i
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Gumbi so skriti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Gumbi so prikazani</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skrij kartice na končnem zaslonu</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Kartice na končnem zaslonu so skrite</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Kartice na končnem zaslonu so prikazane</string>
@@ -1403,11 +1423,13 @@ Minipredvajalnik lahko povlečete z zaslona na levo ali desno"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Barva poudarka iskalnika</string>
   <string name="revanced_seekbar_custom_color_invalid">Neveljavna vrednost barve drsnika</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Logotip glave</string>
   <string name="revanced_header_logo_entry_1">Privzeto</string>
   <string name="revanced_header_logo_entry_2">Navadno</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimalno</string>
   <string name="revanced_header_logo_entry_6">Po meri</string>
   </patch>
@@ -1513,13 +1535,6 @@ Omogočanje tega lahko odklene višje kakovosti videa"</string>
   <string name="revanced_external_browser_summary_on">Odpiranje povezav v zunanjem brskalniku</string>
   <string name="revanced_external_browser_summary_off">Odpiranje povezav v brskalniku v aplikaciji</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Izsili izvirni jezik zvoka</string>
-  <string name="revanced_force_original_audio_summary_on">Uporabi izvirni jezik zvoka</string>
-  <string name="revanced_force_original_audio_summary_off">Uporaba privzetega zvoka</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Za uporabo te funkcije spremenite \"Ponaredi video tokove\" na katerega koli odjemalca, razen na Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Samodejno</string>
@@ -1604,6 +1619,14 @@ Omejitve:
   <string name="revanced_slide_to_seek_summary_off">Drsno iskanje ni omogočeno</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Dovoli Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Video kodek je AVC (H.264), VP9 ali AV1
+
+Predvajanje se lahko zatika ali izpušča sličice"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Video kodek je AVC (H.264) ali VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Omogočanje te nastavitve lahko uporablja programsko dekodiranje AV1.
+
+Predvajanje videa z AV1 se lahko zatika ali izpušča sličice."</string>
   <string name="revanced_spoof_video_streams_about_title">Stranski učinki ponarejanja</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentalni odjemalec in lahko kadar koli preneha delovati</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video se lahko ustavi ob 1:00, ali pa morda ne bo na voljo v nekaterih regijah</string>
@@ -1623,6 +1646,8 @@ Omejitve:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">O</string>
   <string name="revanced_settings_music_screen_1_ads_title">Oglasi</string>

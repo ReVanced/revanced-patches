@@ -5,6 +5,7 @@ import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.shared.requests.Route.Method.GET;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -125,6 +126,8 @@ public class ReVancedAboutPreference extends Preference {
 
     {
         setOnPreferenceClickListener(pref -> {
+            Context context = pref.getContext();
+
             // Show a progress spinner if the social links are not fetched yet.
             if (!AboutLinksRoutes.hasFetchedLinks() && Utils.isNetworkConnected()) {
                 // Show a progress spinner, but only if the api fetch takes more than a half a second.
@@ -137,17 +140,18 @@ public class ReVancedAboutPreference extends Preference {
                 handler.postDelayed(showDialogRunnable, delayToShowProgressSpinner);
 
                 Utils.runOnBackgroundThread(() ->
-                        fetchLinksAndShowDialog(handler, showDialogRunnable, progress));
+                        fetchLinksAndShowDialog(context, handler, showDialogRunnable, progress));
             } else {
                 // No network call required and can run now.
-                fetchLinksAndShowDialog(null, null, null);
+                fetchLinksAndShowDialog(context, null, null, null);
             }
 
             return false;
         });
     }
 
-    private void fetchLinksAndShowDialog(@Nullable Handler handler,
+    private void fetchLinksAndShowDialog(Context context,
+                                         @Nullable Handler handler,
                                          Runnable showDialogRunnable,
                                          @Nullable ProgressDialog progress) {
         WebLink[] links = AboutLinksRoutes.fetchAboutLinks();
@@ -164,7 +168,17 @@ public class ReVancedAboutPreference extends Preference {
             if (handler != null) {
                 handler.removeCallbacks(showDialogRunnable);
             }
-            if (progress != null) {
+
+            // Don't continue if the activity is done. To test this tap the
+            // about dialog and immediately press back before the dialog can show.
+            if (context instanceof Activity activity) {
+                if (activity.isFinishing() || activity.isDestroyed()) {
+                    Logger.printDebug(() -> "Not showing about dialog, activity is closed");
+                    return;
+                }
+            }
+
+            if (progress != null && progress.isShowing()) {
                 progress.dismiss();
             }
             new WebViewDialog(getContext(), htmlDialog).show();

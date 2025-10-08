@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Naziv aplikacije</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Prilagođeno</string>
+  <string name="revanced_custom_branding_icon_title">Ikonica aplikacije</string>
+  <string name="revanced_custom_branding_icon_entry_1">Originalna</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimalna</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced skalirana</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Prilagođeno</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Provere nisu uspele</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Otvori zvanični veb-sajt</string>
@@ -120,6 +133,13 @@ Reprodukcija možda neće raditi"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Isključivanje ovog podešavanja može izazvati probleme sa reprodukcijom.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Podrazumevani klijent</string>
   </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Prisili originalni jezik zvuka</string>
+  <string name="revanced_force_original_audio_summary_on">Korišćenje originalnog jezika zvuka</string>
+  <string name="revanced_force_original_audio_summary_off">Korišćenje podrazumevanog zvuka</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Da biste koristili ovu funkciju, promenite opciju „Lažirani video strimovi” na bilo koji klijent osim Android Studio</string>
+  </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Otklanjanje grešaka</string>
   <string name="revanced_debug_screen_summary">Omogućite ili onemogućite opcije za otklanjanje grešaka</string>
@@ -146,9 +166,9 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_debug_logs_clear_toast">Evidencije su izbrisane</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
-  <string name="revanced_sanitize_sharing_links_title">Saniraj linkove za deljenje</string>
-  <string name="revanced_sanitize_sharing_links_summary_on">Parametar za praćenje iz upita je uklonjen sa deljenih linkova</string>
-  <string name="revanced_sanitize_sharing_links_summary_off">Parametar za praćenje iz upita nije uklonjen sa deljenih linkova</string>
+  <string name="revanced_sanitize_sharing_links_title">Očisti deljene linkove</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Parametar upita za praćenje je uklonjen iz deljenih linkova</string>
+  <string name="revanced_sanitize_sharing_links_summary_off">Parametar upita za praćenje nije uklonjen iz deljenih linkova</string>
   <string name="revanced_replace_music_with_youtube_title">Promeni linkove za deljenje na youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Deljeni linkovi koriste youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Deljeni linkovi koriste music.youtube.com</string>
@@ -379,9 +399,9 @@ Ako se Doodle trenutno prikazuje u vašem regionu i ova opcija skrivanja je uklj
   <string name="revanced_hide_comments_create_a_short_button_title">Sakrij dugme „Napravi Short”</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_on">Dugme „Napravi Short” je skriveno</string>
   <string name="revanced_hide_comments_create_a_short_button_summary_off">Dugme „Napravi Short” je prikazano</string>
-  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Sakrij dugmad za emodžije i vremensku oznaku</string>
-  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Dugmad za emodžije i vremensku oznaku su skrivena</string>
-  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Dugmad za emodžije i vremensku oznaku su prikazana</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_title">Sakrij dugmad emodžija i vremenske oznake</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_on">Dugmad emodžija i vremenske oznake su skrivena</string>
+  <string name="revanced_hide_comments_emoji_and_timestamp_buttons_summary_off">Dugmad emodžija i vremenske oznake su prikazana</string>
   <string name="revanced_hide_comments_preview_comment_title">Sakrij komentar za pregled</string>
   <string name="revanced_hide_comments_preview_comment_summary_on">Komentar za pregled je skriven</string>
   <string name="revanced_hide_comments_preview_comment_summary_off">Komentar za pregled je prikazan</string>
@@ -398,19 +418,19 @@ Ako se Doodle trenutno prikazuje u vašem regionu i ova opcija skrivanja je uklj
   <string name="revanced_custom_filter_strings_summary">Lista stringova za pravljenje putanje komponenti za filtriranje, odvojena novim redom</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Nevažeći prilagođeni filter: %s</string>
   <string name="revanced_hide_view_count_title">Sakrij broj pregleda</string>
-  <string name="revanced_hide_view_count_summary_on">Broj pregleda je sakriven u feed-u i rezultatima pretrage</string>
-  <string name="revanced_hide_view_count_summary_off">Broj pregleda je prikazan u feed-u i rezultatima pretrage</string>
+  <string name="revanced_hide_view_count_summary_on">Broj pregleda je skriven u fidu i rezultatima pretrage</string>
+  <string name="revanced_hide_view_count_summary_off">Broj pregleda je prikazan u fidu i rezultatima pretrage</string>
   <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
   <string name="revanced_hide_view_count_user_dialog_message">"Ograničenja:
-• Shorts sekcije, stranice kanala i rezultati pretrage i dalje mogu prikazivati brojeve pregleda
+• Police Shorts, stranice kanala i rezultati pretrage mogu i dalje prikazivati broj pregleda
 • Ova funkcija ne radi sa automobilskim faktorom forme"</string>
   <string name="revanced_hide_upload_time_title">Sakrij vreme otpremanja</string>
-  <string name="revanced_hide_upload_time_summary_on">Vreme otpremanja je skriveno u feed-u i rezultatima pretrage</string>
-  <string name="revanced_hide_upload_time_summary_off">Vreme otpremanja je prikazano u feed-u i rezultatima pretrage</string>
+  <string name="revanced_hide_upload_time_summary_on">Vreme otpremanja je skriveno u fidu i rezultatima pretrage</string>
+  <string name="revanced_hide_upload_time_summary_off">Vreme otpremanja je prikazano u fidu i rezultatima pretrage</string>
   <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
   <string name="revanced_hide_upload_time_user_dialog_message">"Ograničenja:
-• Shorts police, stranice kanala i rezultati pretrage mogu i dalje prikazivati vreme otpremanja
-• Ova funkcija ne radi sa automobilskim form faktorom"</string>
+• Police Shorts, stranice kanala i rezultati pretrage mogu i dalje prikazivati vreme otpremanja
+• Ova funkcija ne radi sa automobilskim faktorom forme"</string>
   <string name="revanced_hide_keyword_content_screen_title">Sakrij sadržaj ključne reči</string>
   <string name="revanced_hide_keyword_content_screen_summary">Sakrijte videe iz rezultata pretrage i fida koristeći filtere ključnih reči</string>
   <string name="revanced_hide_keyword_content_home_title">Sakrij videe na kartici „Početna” prema ključnim rečima</string>
@@ -797,7 +817,7 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Dugmad za prethodni i sledeći video su skrivena</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Dugmad za prethodni i sledeći video su prikazana</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Sakrij kartice završnog ekrana</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Kartice završnog ekrana su skrivene</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Kartice završnog ekrana su prikazane</string>
@@ -1351,7 +1371,7 @@ Ograničenje: Korišćenje dugmeta „Nazad” na traci sa alatkama možda neće
   <string name="revanced_miniplayer_type_entry_5">Moderan 2</string>
   <string name="revanced_miniplayer_type_entry_6">Moderan 3</string>
   <string name="revanced_miniplayer_type_entry_7">Moderan 4</string>
-  <string name="revanced_miniplayer_disable_rounded_corners_title">Onemogući zaobljene ivice</string>
+  <string name="revanced_miniplayer_disable_rounded_corners_title">Onemogući zaobljene uglove</string>
   <string name="revanced_miniplayer_disable_rounded_corners_summary_on">Uglovi su kvadratni</string>
   <string name="revanced_miniplayer_disable_rounded_corners_summary_off">Uglovi su zaobljeni</string>
   <string name="revanced_miniplayer_double_tap_action_title">Omogući dvostruki dodir i štipanje za promenu veličine</string>
@@ -1360,12 +1380,12 @@ Ograničenje: Korišćenje dugmeta „Nazad” na traci sa alatkama možda neće
 • Dvaput dodirnite da biste povećali veličinu mini-plejera
 • Dvaput dodirnite ponovo da biste vratili originalnu veličinu"</string>
   <string name="revanced_miniplayer_double_tap_action_summary_off">Radnja dvostrukog dodira i štipanja za promenu veličine je onemogućena</string>
-  <string name="revanced_miniplayer_disable_drag_and_drop_title">Onemogući prevlačenje i ispuštanje</string>
+  <string name="revanced_miniplayer_disable_drag_and_drop_title">Onemogući prevlačenje i otpuštanje</string>
   <string name="revanced_miniplayer_disable_drag_and_drop_summary_on">Prevlačenje i otpuštanje je onemogućeno</string>
   <string name="revanced_miniplayer_disable_drag_and_drop_summary_off">"Povlačenje i otpuštanje je omogućeno
 
 Mini-plejer se može prevući u bilo koji ugao ekrana"</string>
-  <string name="revanced_miniplayer_disable_horizontal_drag_title">Onemogući horizontalni gest prevlačenja</string>
+  <string name="revanced_miniplayer_disable_horizontal_drag_title">Onemogući pokret horizontalnog prevlačenja</string>
   <string name="revanced_miniplayer_disable_horizontal_drag_summary_on">Pokret horizontalnog prevlačenja je onemogućen</string>
   <string name="revanced_miniplayer_disable_horizontal_drag_summary_off">"Pokret horizontalnog prevlačenja je omogućen
 
@@ -1402,11 +1422,13 @@ Mini-plejer se može prevući sa ekrana ulevo ili udesno"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Boja naglašavanja trake za premotavanje</string>
   <string name="revanced_seekbar_custom_color_invalid">Nevažeća vrednost boje trake za premotavanje</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Logotip u zaglavlju</string>
   <string name="revanced_header_logo_entry_1">Podrazumevani</string>
   <string name="revanced_header_logo_entry_2">Obični</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimalistički</string>
   <string name="revanced_header_logo_entry_6">Prilagođeni</string>
   </patch>
@@ -1512,13 +1534,6 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_external_browser_summary_on">Otvaranje linkova u spoljnom pregledaču</string>
   <string name="revanced_external_browser_summary_off">Otvaranje linkova u pregledaču u aplikaciji</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Prisili originalni jezik zvuka</string>
-  <string name="revanced_force_original_audio_summary_on">Korišćenje originalnog jezika zvuka</string>
-  <string name="revanced_force_original_audio_summary_off">Korišćenje podrazumevanog zvuka</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Da biste koristili ovu funkciju, promenite opciju „Lažirani video strimovi” na bilo koji klijent osim Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automatski</string>
@@ -1584,7 +1599,7 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   <string name="revanced_force_avc_codec_summary_off">Video kodek se određuje automatski</string>
   <string name="revanced_force_avc_codec_user_dialog_message">"Prednosti:
 • Može poboljšati trajanje baterije
-• Može vratiti nedostajuće rezolucije videa na starijem uređaju
+• Može vratiti nedostajuće rezolucije videa na starijim uređajima
 
 Ograničenja:
 • Maksimalna rezolucija je 1080p
@@ -1603,6 +1618,14 @@ Ograničenja:
   <string name="revanced_slide_to_seek_summary_off">Prevlaćenje za premotavanje nije omogućeno</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Dozvoli Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Video kodek je AVC (H.264), VP9 ili AV1
+
+Reprodukcija može zastajkivati ili preskakati kadrove"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Video kodek je AVC (H.264) ili VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Omogućavanje ove opcije može koristiti softversko dekodiranje AV1.
+
+Reprodukcija videa s AV1 može zastajkivati ili preskakati kadrove."</string>
   <string name="revanced_spoof_video_streams_about_title">Neželjeni efekti lažiranja</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentalni klijent i može prestati da radi bilo kada</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video se može zaustaviti u 1:00 ili možda neće biti dostupan u nekim regionima</string>
@@ -1622,6 +1645,8 @@ Ograničenja:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">O programu</string>
   <string name="revanced_settings_music_screen_1_ads_title">Oglasi</string>

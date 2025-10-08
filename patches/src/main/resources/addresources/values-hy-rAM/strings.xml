@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Հավելվածի անվանումը</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Մաքսային</string>
+  <string name="revanced_custom_branding_icon_title">Հավելվածի պատկերակը</string>
+  <string name="revanced_custom_branding_icon_entry_1">Բնօրինակ</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced մինիմալ</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced սանդղակավորված</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Անհատականացված</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Վերահսկումները ձախողվել են</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Բացել պաշտոնական կայքը</string>
@@ -119,6 +132,13 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
 Նվագարկումը հնարավոր է՝ չաշխատի"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Այս կարգավորումն անջատելը կարող է նվագարկման խնդիրներ առաջացնել։</string>
   <string name="revanced_spoof_video_streams_client_type_title">Դեֆոլտ  կլիենտ</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել լեզուն</string>
+  <string name="revanced_force_original_audio_summary_on">Օգտագործելով ձայնային օրիգինալ լեզուն</string>
+  <string name="revanced_force_original_audio_summary_off">Վերջնական ձայն օգտագործվում է</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Այս հնարավորությունն օգտագործելու համար «Կեղծել վիդեո հոսքերը» տարբերակը փոխեք ցանկացած հաճախորդի, բացի Android Studio-ից</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debug</string>
@@ -797,7 +817,7 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Կոճակները թաքցված են</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Կոճակները երևում են</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Էկրանի վերջում քարտերը թաքցնել</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Էկրանի վերջում քարտերը թաքցված են</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Էկրանի վերջում քարտերը երևում են</string>
@@ -1404,11 +1424,13 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_seekbar_custom_color_accent_summary">Մարզումից դուրս ողորկության նշման գույնը</string>
   <string name="revanced_seekbar_custom_color_invalid">Սխալ seekbar-ի գույնի արժեք</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Գլխագրի լոգո</string>
   <string name="revanced_header_logo_entry_1">Լռակյաց</string>
   <string name="revanced_header_logo_entry_2">Սովորական</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced մինիմալ</string>
   <string name="revanced_header_logo_entry_6">Անհատական</string>
   </patch>
@@ -1514,13 +1536,6 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_external_browser_summary_on">Բացել հղումները արտաքին բրաուզերում</string>
   <string name="revanced_external_browser_summary_off">Բացել հղումները ներծրագրային բրաուզերում</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Բնօրինակ ձայն օգտագործել լեզուն</string>
-  <string name="revanced_force_original_audio_summary_on">Օգտագործելով ձայնային օրիգինալ լեզուն</string>
-  <string name="revanced_force_original_audio_summary_off">Վերջնական ձայն օգտագործվում է</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Այս հնարավորությունն օգտագործելու համար «Կեղծել վիդեո հոսքերը» տարբերակը փոխեք ցանկացած հաճախորդի, բացի Android Studio-ից</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Ավտո</string>
@@ -1605,6 +1620,14 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   <string name="revanced_slide_to_seek_summary_off">Սահելը  համար  ընտրելը  անջատված է</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Թույլատրել Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Տեսակոդեկը AVC (H.264), VP9 կամ AV1 է
+
+Նվագարկումը կարող է կանգ առնել կամ կորցնել կադրեր"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Տեսակոդեկը AVC (H.264) կամ VP9 է</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Այս կարգավորումը միացնելը կարող է օգտագործել AV1 ծրագրային ապակոդավորում:
+
+AV1-ով տեսանյութի նվագարկումը կարող է ընդհատվել կամ կորցնել կադրեր:"</string>
   <string name="revanced_spoof_video_streams_about_title">Կեղծելու կողմնակի ազդեցություններ</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Փորձնական հաճախորդ է և կարող է ցանկացած պահի դադարել աշխատել</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Տեսանյութը կարող է դադարել 1:00-ին կամ հասանելի չլինել որոշ տարածաշրջաններում</string>
@@ -1624,6 +1647,8 @@ Mini-player-ը կարող է գրավվել էկրանից դուրս՝ դեպի
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Մասին</string>
   <string name="revanced_settings_music_screen_1_ads_title">Գովազդներ</string>

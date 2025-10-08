@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">ชื่อแอป</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">กำหนดเอง</string>
+  <string name="revanced_custom_branding_icon_title">ไอคอนแอป</string>
+  <string name="revanced_custom_branding_icon_entry_1">ต้นฉบับ</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced เรียบง่าย</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced ปรับขนาด</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">กำหนดเอง</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">การตรวจสอบล้มเหลว</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">เปิดเว็บไซต์อย่างเป็นทางการ</string>
@@ -119,6 +132,13 @@ Second \"item\" text"</string>
 การเล่นอาจไม่ทำงาน"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">การปิดการตั้งค่านี้อาจทำให้เกิดปัญหาในการเล่น</string>
   <string name="revanced_spoof_video_streams_client_type_title">ไคลเอ็นต์เริ่มต้น</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">บังคับใช้ภาษาเสียงต้นฉบับ</string>
+  <string name="revanced_force_original_audio_summary_on">กำลังใช้ภาษาเสียงต้นฉบับ</string>
+  <string name="revanced_force_original_audio_summary_off">กำลังใช้ออดิโอเริ่มต้น</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'Spoof video streams\' เป็นไคลเอ็นต์อื่น ๆ ยกเว้น Android Studio</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">ดีบัก</string>
@@ -795,7 +815,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">ปุ่มซ่อนอยู่</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">ปุ่มแสดงอยู่</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">ซ่อนการ์ดหน้าจอสิ้นสุด</string>
   <string name="revanced_hide_endscreen_cards_summary_on">การ์ดหน้าจอสิ้นสุดซ่อนอยู่</string>
   <string name="revanced_hide_endscreen_cards_summary_off">การ์ดหน้าจอสิ้นสุดแสดงอยู่</string>
@@ -1405,11 +1425,13 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_seekbar_custom_color_accent_summary">สีเน้นของ seekbar</string>
   <string name="revanced_seekbar_custom_color_invalid">ค่าสีแถบเลื่อนไม่ถูกต้อง</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">โลโก้ส่วนหัว</string>
   <string name="revanced_header_logo_entry_1">ค่าเริ่มต้น</string>
   <string name="revanced_header_logo_entry_2">ปกติ</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced แบบย่อ</string>
   <string name="revanced_header_logo_entry_6">กำหนดเอง</string>
   </patch>
@@ -1515,13 +1537,6 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_external_browser_summary_on">เปิดลิงก์ในเบราว์เซอร์ภายนอก</string>
   <string name="revanced_external_browser_summary_off">เปิดลิงก์ในเบราว์เซอร์ในแอป</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">บังคับใช้ภาษาเสียงต้นฉบับ</string>
-  <string name="revanced_force_original_audio_summary_on">กำลังใช้ภาษาเสียงต้นฉบับ</string>
-  <string name="revanced_force_original_audio_summary_off">กำลังใช้ออดิโอเริ่มต้น</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">หากต้องการใช้คุณสมบัตินี้ ให้เปลี่ยน \'Spoof video streams\' เป็นไคลเอ็นต์อื่น ๆ ยกเว้น Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">อัตโนมัติ</string>
@@ -1606,6 +1621,14 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_slide_to_seek_summary_off">เลื่อนเพื่อค้นหาไม่ได้เปิดใช้งาน</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">อนุญาต Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"ตัวแปลงสัญญาณวิดีโอคือ AVC (H.264), VP9 หรือ AV1
+
+การเล่นอาจกระตุกหรือเฟรมตก"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">ตัวแปลงสัญญาณวิดีโอคือ AVC (H.264) หรือ VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"การเปิดใช้งานการตั้งค่านี้อาจใช้ซอฟต์แวร์ถอดรหัส AV1
+
+การเล่นวิดีโอด้วย AV1 อาจกระตุกหรือเฟรมตก"</string>
   <string name="revanced_spoof_video_streams_about_title">ผลข้างเคียงของการปลอมแปลง</string>
   <string name="revanced_spoof_video_streams_about_experimental">• ไคลเอนต์ทดลองและอาจหยุดทำงานได้ตลอดเวลา</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• วิดีโออาจหยุดที่ 1:00 หรืออาจไม่สามารถรับชมได้ในบางภูมิภาค</string>
@@ -1625,6 +1648,8 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">เกี่ยวกับ</string>
   <string name="revanced_settings_music_screen_1_ads_title">โฆษณา</string>

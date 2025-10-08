@@ -1,5 +1,33 @@
 <resources>
     <app id="shared">
+        <patch id="layout.branding.baseCustomBrandingPatch">
+            <string-array name="revanced_custom_branding_icon_entries">
+                <item>@string/revanced_custom_branding_icon_entry_1</item>
+                <item>@string/revanced_custom_branding_icon_entry_2</item>
+                <item>@string/revanced_custom_branding_icon_entry_3</item>
+                <item>@string/revanced_custom_branding_icon_entry_4</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_icon_entry_values">
+                <item>ORIGINAL</item>
+                <item>ROUNDED</item>
+                <item>MINIMAL</item>
+                <item>SCALED</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_icon_custom_entries">
+                <item>@string/revanced_custom_branding_icon_entry_1</item>
+                <item>@string/revanced_custom_branding_icon_entry_2</item>
+                <item>@string/revanced_custom_branding_icon_entry_3</item>
+                <item>@string/revanced_custom_branding_icon_entry_4</item>
+                <item>@string/revanced_custom_branding_icon_entry_5</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_icon_custom_entry_values">
+                <item>ORIGINAL</item>
+                <item>ROUNDED</item>
+                <item>MINIMAL</item>
+                <item>SCALED</item>
+                <item>CUSTOM</item>
+            </string-array>
+        </patch>
         <patch id="misc.settings.settingsResourcePatch">
             <string-array name="revanced_language_entries">
                 <item>@string/revanced_language_DEFAULT</item>
@@ -123,6 +151,36 @@
         </patch>
     </app>
     <app id="music">
+        <patch id="layout.branding.customBrandingPatch">
+            <string-array name="revanced_custom_branding_name_entries">
+                <!-- Original must be first. -->
+                <item>@string/app_launcher_name</item>
+                <item>@string/revanced_custom_branding_name_entry_2</item>
+                <item>@string/revanced_custom_branding_name_entry_3</item>
+                <item>@string/revanced_custom_branding_name_entry_4</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_name_entry_values">
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+                <item>4</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_name_custom_entries">
+                <!-- Original must be first. -->
+                <item>@string/app_launcher_name</item>
+                <item>@string/revanced_custom_branding_name_entry_2</item>
+                <item>@string/revanced_custom_branding_name_entry_3</item>
+                <item>@string/revanced_custom_branding_name_entry_4</item>
+                <item>@string/revanced_custom_branding_name_entry_5</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_name_custom_entry_values">
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+                <item>4</item>
+                <item>5</item>
+            </string-array>
+        </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string-array name="revanced_spoof_video_streams_client_type_entries">
                 <item>Android VR</item>
@@ -135,6 +193,36 @@
         </patch>
     </app>
     <app id="youtube">
+        <patch id="layout.branding.customBrandingPatch">
+            <string-array name="revanced_custom_branding_name_entries">
+                <!-- Original must be first. -->
+                <item>@string/application_name</item>
+                <item>@string/revanced_custom_branding_name_entry_2</item>
+                <item>@string/revanced_custom_branding_name_entry_3</item>
+                <item>@string/revanced_custom_branding_name_entry_4</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_name_entry_values">
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+                <item>4</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_name_custom_entries">
+                <!-- Original must be first. -->
+                <item>@string/application_name</item>
+                <item>@string/revanced_custom_branding_name_entry_2</item>
+                <item>@string/revanced_custom_branding_name_entry_3</item>
+                <item>@string/revanced_custom_branding_name_entry_4</item>
+                <item>@string/revanced_custom_branding_name_entry_5</item>
+            </string-array>
+            <string-array name="revanced_custom_branding_name_custom_entry_values">
+                <item>1</item>
+                <item>2</item>
+                <item>3</item>
+                <item>4</item>
+                <item>5</item>
+            </string-array>
+        </patch>
         <patch id="misc.fix.playback.spoofVideoStreamsPatch">
             <string-array name="revanced_spoof_video_streams_client_type_entries">
                 <item>Android VR</item>
@@ -143,7 +231,7 @@
                 <item>iPadOS</item>
             </string-array>
             <string-array name="revanced_spoof_video_streams_client_type_entry_values">
-                <item>ANDROID_VR_1_61_48</item>
+                <item>ANDROID_VR_1_43_32</item>
                 <item>ANDROID_CREATOR</item>
                 <item>VISIONOS</item>
                 <item>IPADOS</item>

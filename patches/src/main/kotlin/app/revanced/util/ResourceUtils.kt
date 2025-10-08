@@ -15,6 +15,13 @@ import java.nio.file.StandardCopyOption
 private val classLoader = object {}.javaClass.classLoader
 
 /**
+ * Removes a node from its parent.
+ *
+ * @return The node that was removed (object this method was called on).
+ */
+fun Node.removeFromParent() : Node = parentNode.removeChild(this)
+
+/**
  * Returns a sequence for all child nodes.
  */
 fun NodeList.asSequence() = (0 until this.length).asSequence().map { this.item(it) }
@@ -70,8 +77,13 @@ fun ResourcePatchContext.copyResources(
     for (resourceGroup in resources) {
         resourceGroup.resources.forEach { resource ->
             val resourceFile = "${resourceGroup.resourceDirectoryName}/$resource"
+            val stream = inputStreamFromBundledResource(sourceResourceDirectory, resourceFile)
+            if (stream == null) {
+                throw IllegalArgumentException("Could not find resource: $resourceFile " +
+                        "in directory: $sourceResourceDirectory")
+            }
             Files.copy(
-                inputStreamFromBundledResource(sourceResourceDirectory, resourceFile)!!,
+                stream,
                 targetResourceDirectory.resolve(resourceFile).toPath(),
                 StandardCopyOption.REPLACE_EXISTING,
             )

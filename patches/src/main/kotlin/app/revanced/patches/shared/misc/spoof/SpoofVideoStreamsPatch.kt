@@ -1,5 +1,6 @@
 package app.revanced.patches.shared.misc.spoof
 
+import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
@@ -36,11 +37,13 @@ internal const val EXTENSION_CLASS_DESCRIPTOR =
 private lateinit var buildRequestMethod: MutableMethod
 private var buildRequestMethodUrlRegister = -1
 
-fun spoofVideoStreamsPatch(
-    block: BytecodePatchBuilder.() -> Unit = {},
-    fixMediaFetchHotConfigChanges: BytecodePatchBuilder.() -> Boolean = { false },
-    fixMediaFetchHotConfigAlternativeChanges: BytecodePatchBuilder.() -> Boolean = { false },
+internal fun spoofVideoStreamsPatch(
+    extensionClassDescriptor: String,
+    mainActivityOnCreateFingerprint: Fingerprint,
+    fixMediaFetchHotConfig: BytecodePatchBuilder.() -> Boolean = { false },
+    fixMediaFetchHotConfigAlternative: BytecodePatchBuilder.() -> Boolean = { false },
     fixParsePlaybackResponseFeatureFlag: BytecodePatchBuilder.() -> Boolean = { false },
+    block: BytecodePatchBuilder.() -> Unit,
     executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
     name = "Spoof video streams",
@@ -52,6 +55,11 @@ fun spoofVideoStreamsPatch(
 
     execute {
         addResources("shared", "misc.fix.playback.spoofVideoStreamsPatch")
+
+        mainActivityOnCreateFingerprint.method.addInstruction(
+            0,
+            "invoke-static { }, $extensionClassDescriptor->setClientOrderToUse()V"
+        )
 
         // region Enable extension helper method used by other patches
 
@@ -308,14 +316,14 @@ fun spoofVideoStreamsPatch(
 
         // region turn off stream config replacement feature flag.
 
-        if (fixMediaFetchHotConfigChanges()) {
+        if (fixMediaFetchHotConfig()) {
             mediaFetchHotConfigFingerprint.method.insertLiteralOverride(
                 MEDIA_FETCH_HOT_CONFIG_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
             )
         }
 
-        if (fixMediaFetchHotConfigAlternativeChanges()) {
+        if (fixMediaFetchHotConfigAlternative()) {
             mediaFetchHotConfigAlternativeFingerprint.method.insertLiteralOverride(
                 MEDIA_FETCH_HOT_CONFIG_ALTERNATIVE_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"

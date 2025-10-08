@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">應用程式名稱</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">自訂</string>
+  <string name="revanced_custom_branding_icon_title">應用程式圖示</string>
+  <string name="revanced_custom_branding_icon_entry_1">原始</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced 精簡版</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced 縮放</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">自訂</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">檢查失敗</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">開啟官方網站</string>
@@ -119,6 +132,13 @@ Second \"item\" text"</string>
 播放可能無法運作"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">關閉此設定可能會導致播放問題。</string>
   <string name="revanced_spoof_video_streams_client_type_title">預設用戶端</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">強制使用原始音訊語言</string>
+  <string name="revanced_force_original_audio_summary_on">正在使用原始音訊語言</string>
+  <string name="revanced_force_original_audio_summary_off">使用預設音訊</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">若要使用此功能，請將「偽造視訊串流」變更為 Android Studio 以外的任何用戶端</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">偵錯</string>
@@ -797,7 +817,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">已隱藏「上一部」和「下一部」按鈕</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">已顯示「上一部」和「下一部」按鈕</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">隱藏片尾資訊卡</string>
   <string name="revanced_hide_endscreen_cards_summary_on">已隱藏片尾資訊卡</string>
   <string name="revanced_hide_endscreen_cards_summary_off">已顯示片尾資訊卡</string>
@@ -1409,11 +1429,13 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">跳轉列強調色彩</string>
   <string name="revanced_seekbar_custom_color_invalid">跳轉列色彩值無效</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">標題標誌</string>
   <string name="revanced_header_logo_entry_1">預設</string>
   <string name="revanced_header_logo_entry_2">一般</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced 精簡版</string>
   <string name="revanced_header_logo_entry_6">自訂</string>
   </patch>
@@ -1523,13 +1545,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_on">在外部瀏覽器中開啟連結</string>
   <string name="revanced_external_browser_summary_off">在應用程式內瀏覽器中開啟連結</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">強制使用原始音訊語言</string>
-  <string name="revanced_force_original_audio_summary_on">正在使用原始音訊語言</string>
-  <string name="revanced_force_original_audio_summary_off">使用預設音訊</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">若要使用此功能，請將「偽造視訊串流」變更為 Android Studio 以外的任何用戶端</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">自動</string>
@@ -1614,6 +1629,14 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">未啟用滑動預覽</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">允許 Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"視訊轉碼器為 AVC (H.264)、VP9 或 AV1
+
+播放可能會卡頓或掉幀"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">視訊轉碼器為 AVC (H.264) 或 VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"啟用此設定可能會使用軟體 AV1 解碼。
+
+AV1 視訊播放可能會卡頓或掉幀。"</string>
   <string name="revanced_spoof_video_streams_about_title">欺騙的副作用</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 實驗性用戶端，隨時可能停止運作</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• 影片可能會在 1:00 停止，或在某些地區無法播放</string>
@@ -1633,6 +1656,8 @@ Second \"item\" text"</string>
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">關於</string>
   <string name="revanced_settings_music_screen_1_ads_title">廣告</string>

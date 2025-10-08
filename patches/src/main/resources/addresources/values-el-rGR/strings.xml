@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Όνομα εφαρμογής</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Προσαρμοσμένο</string>
+  <string name="revanced_custom_branding_icon_title">Εικονίδιο εφαρμογής</string>
+  <string name="revanced_custom_branding_icon_entry_1">Αρχικό</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced απλό</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced κλιμακωμένο</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Προσαρμοσμένο</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Αποτυχία ελέγχων</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Άνοιγμα επίσημης ιστοσελίδας</string>
@@ -119,6 +132,13 @@ Second \"item\" text"</string>
 Η αναπαραγωγή ενδέχεται να μην λειτουργεί"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Η απενεργοποίηση αυτής της ρύθμισης ενδέχεται να προκαλέσει προβλήματα αναπαραγωγής.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Προεπιλεγμένο πρόγραμμα πελάτη</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Εξαναγκασμός αρχικής γλώσσας ήχου</string>
+  <string name="revanced_force_original_audio_summary_on">Χρησιμοποιείται η αρχική γλώσσα ήχου</string>
+  <string name="revanced_force_original_audio_summary_off">Χρησιμοποιείται ο προεπιλεγμένος ήχος</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, αλλάξτε την επιλογή «Παραποίηση ροών βίντεο» σε οποιονδήποτε πελάτη εκτός από το Android Studio</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Εντοπισμός σφαλμάτων</string>
@@ -799,7 +819,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Εμφανίζονται</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Κάρτες τελικής οθόνης</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Κρυμμένες</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Εμφανίζονται</string>
@@ -952,8 +972,8 @@ Second \"item\" text"</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
   <string name="revanced_hide_related_videos_overlay_title">Σχετικά βίντεο στην πλήρη οθόνη</string>
-  <string name="revanced_hide_related_videos_overlay_summary_on">Κρυμμένα\n\nΑφορά τα σχετικά βίντεο της τελικής οθόνης στη λειτουργία πλήρους οθόνης</string>
-  <string name="revanced_hide_related_videos_overlay_summary_off">Εμφανίζονται\n\nΑφορά τα σχετικά βίντεο της τελικής οθόνης στη λειτουργία πλήρους οθόνης</string>
+  <string name="revanced_hide_related_videos_overlay_summary_on">Κρυμμένα</string>
+  <string name="revanced_hide_related_videos_overlay_summary_off">Εμφανίζονται</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Χρονική πρόοδος βίντεο</string>
@@ -1404,11 +1424,13 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Το χρώμα έμφασης της γραμμής προόδου</string>
   <string name="revanced_seekbar_custom_color_invalid">Μη έγκυρη τιμή χρώματος γραμμής προόδου</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Λογότυπο επικεφαλίδας</string>
   <string name="revanced_header_logo_entry_1">Προεπιλογή</string>
   <string name="revanced_header_logo_entry_2">Κανονικό</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced απλό</string>
   <string name="revanced_header_logo_entry_6">Προσαρμοσμένο</string>
   </patch>
@@ -1512,13 +1534,6 @@ Second \"item\" text"</string>
   <string name="revanced_external_browser_summary_on">Οι σύνδεσμοι ανοίγουν σε εξωτερικό πρόγραμμα περιήγησης</string>
   <string name="revanced_external_browser_summary_off">Οι σύνδεσμοι ανοίγουν στο εσωτερικό πρόγραμμα περιήγησης της εφαρμογής</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Εξαναγκασμός αρχικής γλώσσας ήχου</string>
-  <string name="revanced_force_original_audio_summary_on">Χρησιμοποιείται η αρχική γλώσσα ήχου</string>
-  <string name="revanced_force_original_audio_summary_off">Χρησιμοποιείται ο προεπιλεγμένος ήχος</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, αλλάξτε την επιλογή «Παραποίηση ροών βίντεο» σε οποιονδήποτε πελάτη εκτός από το Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Αυτόματη</string>
@@ -1603,6 +1618,14 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">Η χειρονομία συρσίματος για αναζήτηση στη γραμμή προόδου είναι απενεργοποιημένη</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Να επιτρέπεται ο κωδικοποιητής Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Ο κωδικοποιητής βίντεο είναι ο AVC (H.264), ο VP9 ή ο AV1
+
+Η αναπαραγωγή μπορεί να κομπιάζει ή να χάνει καρέ"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Ο κωδικοποιητής βίντεο είναι ο AVC (H.264) ή ο VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Η ενεργοποίηση αυτής της ρύθμισης ενδέχεται να χρησιμοποιήσει αποκωδικοποίηση λογισμικού AV1.
+
+Η αναπαραγωγή βίντεο μπορεί να κομπιάζει ή να χάνει καρέ."</string>
   <string name="revanced_spoof_video_streams_about_title">Παρενέργειες παραποίησης</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Πειραματικός πελάτης και μπορεί να σταματήσει να λειτουργεί ανά πάσα στιγμή</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Το βίντεο μπορεί να σταματήσει στο 1:00 ή να μην είναι διαθέσιμο σε ορισμένες περιοχές</string>
@@ -1622,6 +1645,8 @@ Second \"item\" text"</string>
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Σχετικά με</string>
   <string name="revanced_settings_music_screen_1_ads_title">Διαφημίσεις</string>

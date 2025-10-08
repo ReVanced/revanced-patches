@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Tətbiq adı</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Fərdi</string>
+  <string name="revanced_custom_branding_icon_title">Tətbiq ikonu</string>
+  <string name="revanced_custom_branding_icon_entry_1">Orijinal</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">Ən kiçik ReVanced</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced ölçüləndirilmiş</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Fərdi</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Yoxlamalar uğursuz oldu</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Xidməti veb saytı aç</string>
@@ -65,9 +78,9 @@ Second \"item\" text"</string>
 • Valideyn tənzimləmələri qapadılan uşaq tənzimləmələrin üstündə görünür"</string>
   <string name="revanced_settings_search_empty_history_title">Axtarış tarixçəsi boşdur</string>
   <string name="revanced_settings_search_empty_history_summary">Axtarış tarixçəsini saxlamaq üçün axtarış sorğusu yazın və Daxil Et basın</string>
-  <string name="revanced_settings_search_history_title">Axtarış tarixçəsi tənzimləməsin göstər</string>
-  <string name="revanced_settings_search_history_summary_on">Axtarış tarixçəsi tənzimləməsi göstərilir</string>
-  <string name="revanced_settings_search_history_summary_off">Axtarış tarixçəsi tənzimləməsi göstərilmir</string>
+  <string name="revanced_settings_search_history_title">Tənzimləmə axtarış tarixçəsin göstər</string>
+  <string name="revanced_settings_search_history_summary_on">Tənzimləmə axtarış tarixçəsi göstərilir</string>
+  <string name="revanced_settings_search_history_summary_off">Tənzimləmə axtarış tarixçəsi görünmür</string>
   <string name="revanced_show_menu_icons_title">ReVanced tənzimləmə nişanların göstər</string>
   <string name="revanced_show_menu_icons_summary_on">Tənzimləmə nişanları göstərilir</string>
   <string name="revanced_show_menu_icons_summary_off">Tənzimləmə nişanları göstərilmir</string>
@@ -119,6 +132,13 @@ Davam et düyməsinə toxun və optimallaşdırma dəyişikliklərin qəbul et."
 Oynatma işləməyə bilər"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Bu tənzimləməni qapatmaq oynatma problemlərinə səbəb ola bilər.</string>
   <string name="revanced_spoof_video_streams_client_type_title">İlkin qəbuledici</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Orijinal səs dilini zorla</string>
+  <string name="revanced_force_original_audio_summary_on">Orijinal səs dilini istifadə</string>
+  <string name="revanced_force_original_audio_summary_off">İlkin səs istifadəsi</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Bu funksiyanı istifadə etmək üçün \"Video yayımları saxtalaşdırı\" Android Studio savayı istənilən qəbulediciyə dəyiş</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Sazlama</string>
@@ -361,7 +381,7 @@ Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlum
   <string name="revanced_hide_comments_ai_chat_summary_title">Sİ söhbət xülasəsini gizlət</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_on">Sİ söhbət xülasəsi gizlidir</string>
   <string name="revanced_hide_comments_ai_chat_summary_summary_off">Sİ söhbət xülasəsi görünür</string>
-  <string name="revanced_hide_comments_ai_summary_title">AI Ṣərhlər Xülasəsini Gizlət</string>
+  <string name="revanced_hide_comments_ai_summary_title">AI şərhlər xülasəsini gizlət</string>
   <string name="revanced_hide_comments_ai_summary_summary_on">Sİ şərhlər xülasəsi gizlidir</string>
   <string name="revanced_hide_comments_ai_summary_summary_off">Sİ şərhlər xülasəsi görünür</string>
   <string name="revanced_hide_comments_channel_guidelines_title">Kanal təlimatlarını gizlət</string>
@@ -398,19 +418,19 @@ Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlum
   <string name="revanced_custom_filter_strings_summary">Yeni sətirlə ayrılmış filtr üçün element yol qurucusu sətirlərinin siyahısı</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">Etibarsız fərdi filtr: %s</string>
   <string name="revanced_hide_view_count_title">Baxış sayını gizlət</string>
-  <string name="revanced_hide_view_count_summary_on">Baxış sayı lentdə və axtarış nəticələrində gizlədilib</string>
-  <string name="revanced_hide_view_count_summary_off">Baxış sayı lentdə və axtarış nəticələrində göstərilib</string>
+  <string name="revanced_hide_view_count_summary_on">Baxış sayı axın və axtarış nəticələrində gizlidir</string>
+  <string name="revanced_hide_view_count_summary_off">Baxış sayı axın və axtarış nəticələrində görünür</string>
   <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
   <string name="revanced_hide_view_count_user_dialog_message">"Məhdudiyyətlər:
-• Shorts rəfləri, kanal səhifələri və axtarış nəticələri hələ də baxış saylarını göstərə bilər
-• Bu funksiya avtomobil form faktoru ilə işləmir"</string>
-  <string name="revanced_hide_upload_time_title">Yükləmə vaxtını gizlət</string>
-  <string name="revanced_hide_upload_time_summary_on">Yükləmə vaxtı lentdə və axtarış nəticələrində gizlədilib</string>
-  <string name="revanced_hide_upload_time_summary_off">Yükləmə vaxtı lentdə və axtarış nəticələrində göstərilir</string>
+• Shorts bölmələri, kanal səhifələri və axtarış nəticələri yenə də baxış sayını göstərə bilər
+• Bu xüsusiyyət avtomobil forma göstərici ilə işləmir"</string>
+  <string name="revanced_hide_upload_time_title">Yüklənilmə vaxtını gizlət</string>
+  <string name="revanced_hide_upload_time_summary_on">Yüklənilmə vaxtı axın və axtarış nəticələrində gizlidir</string>
+  <string name="revanced_hide_upload_time_summary_off">Yüklənilmə vaxtı axın və axtarış nəticələrində göstərilir</string>
   <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
   <string name="revanced_hide_upload_time_user_dialog_message">"Məhdudiyyətlər:
-• Shorts rəflərində, kanal səhifələrində və axtarış nəticələrində yükləmə vaxtları hələ də göstərilə bilər
-• Bu funksiya avtomobil form faktoru ilə işləmir"</string>
+• Shorts bölmələri, kanal səhifələri və axtarış nəticələri yüklənilən vaxtı yenə də göstərə bilər
+• Bu xüsusiyyət avtomobil forma göstərici ilə işləmir"</string>
   <string name="revanced_hide_keyword_content_screen_title">Açar söz məzmununu gizlət</string>
   <string name="revanced_hide_keyword_content_screen_summary">Açar söz filtrləri ilə axtarış və axın videolarını gizlət</string>
   <string name="revanced_hide_keyword_content_home_title">Ev videolarını açar sözlərə görə gizlət</string>
@@ -797,7 +817,7 @@ Səs treki menyusunu göstərmək üçün \"Video yayımları saxtalaşdır\"ı 
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Düymələr gizlidir</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Düymələr göstərilir</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Son ekran kartlarını gizlət</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Son ekran kartları gizlidir</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Son ekran kartları göstərilir</string>
@@ -862,7 +882,7 @@ Səs treki menyusunu göstərmək üçün \"Video yayımları saxtalaşdır\"ı 
   <string name="revanced_hide_shorts_location_label_title">Məkan etiketini gizlət</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Məkan etiketi gizlidir</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Məkan etiketi göstərilir</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Yeni elanları gizlət düyməsi</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Yeni elanlar düyməsini gizlət</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_on">Yeni elanlar düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_off">Yeni elanlar düyməsi göstərilir</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Dayandırma örtük düymələrini gizlət</string>
@@ -1402,11 +1422,13 @@ Kiçik oynadıcı ekrandan sola və ya sağa sürüklənə bilər"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">İrəliləyiş cizgisi vurğu rəngi</string>
   <string name="revanced_seekbar_custom_color_invalid">Etibarsız irəliləmə cizgisi rəng dəyəri</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Başlıq simvolu</string>
   <string name="revanced_header_logo_entry_1">İlkin</string>
   <string name="revanced_header_logo_entry_2">Müntəzəm</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">Ən kiçik ReVanced</string>
   <string name="revanced_header_logo_entry_6">Fərdi</string>
   </patch>
@@ -1512,13 +1534,6 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   <string name="revanced_external_browser_summary_on">Xarici brauzerdə bağlantıların açılması</string>
   <string name="revanced_external_browser_summary_off">Tətbiqdaxili brauzerdə bağlantıların açılması</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Orijinal səs dilini zorla</string>
-  <string name="revanced_force_original_audio_summary_on">Orijinal səs dilini istifadə</string>
-  <string name="revanced_force_original_audio_summary_off">İlkin səs istifadəsi</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Bu funksiyanı istifadə etmək üçün \"Video yayımları saxtalaşdırı\" Android Studio savayı istənilən qəbulediciyə dəyiş</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Avtomatik</string>
@@ -1603,6 +1618,14 @@ Məhdudiyyətlər:
   <string name="revanced_slide_to_seek_summary_off">Axtarmaq üçün sürüşdürmə aktiv deyil</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Android VR AV1-ə icazə ver</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Video kodek AVC (H.264), VP9 və ya AV1-dir
+
+Oxutma kəsilə bilər və ya kadrlar atıla bilər"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Video kodek AVC (H.264) və ya VP9-dur</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Bu ayarı aktivləşdirmək proqram təminatı AV1 dekodlaşdırmasından istifadə edə bilər.
+
+AV1 ilə video oxutma kəsilə bilər və ya kadrlar atıla bilər."</string>
   <string name="revanced_spoof_video_streams_about_title">Saxtakarlıq yan təsirləri</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Təcrübi qəbuledici və hər vaxt işləməyi dayandıra bilər</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video 01:00-da dayana bilər və ya bəzi bölgələrdə mövcud olmaya bilər</string>
@@ -1622,6 +1645,8 @@ Məhdudiyyətlər:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Haqqında</string>
   <string name="revanced_settings_music_screen_1_ads_title">Reklamlar</string>

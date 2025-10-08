@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Nome dell\'app</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Personalizzato</string>
+  <string name="revanced_custom_branding_icon_title">Icona dell\'app</string>
+  <string name="revanced_custom_branding_icon_entry_1">Originale</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimale</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced ridimensionato</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Personalizzato</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Controlli non riusciti</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Apri sito ufficiale</string>
@@ -119,6 +132,13 @@ Se sei un utente YouTube Premium, questa impostazione potrebbe non essere necess
 La riproduzione potrebbe non funzionare"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">La disattivazione di questa impostazione potrebbe causare problemi di riproduzione.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Client predefinito</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Forza la lingua audio originale</string>
+  <string name="revanced_force_original_audio_summary_on">Utilizza la lingua audio originale</string>
+  <string name="revanced_force_original_audio_summary_off">Utilizzo audio predefinito</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Per usare questa funzionalità, cambia \"Falsifica i flussi video\" a qualsiasi client eccetto Android Studio</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debug</string>
@@ -797,7 +817,7 @@ Per mostrare il menu della traccia audio, cambia \"Falsifica flussi video\" su i
   <string name="revanced_hide_player_previous_next_buttons_summary_on">I pulsanti sono nascosti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">I pulsanti sono visibili</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Nascondi le schede della schermata finale</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Le schede della schermata finale sono nascoste</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Le schede della schermata finale sono visibili</string>
@@ -1402,11 +1422,13 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
   <string name="revanced_seekbar_custom_color_accent_summary">Il colore primario della barra di avanzamento</string>
   <string name="revanced_seekbar_custom_color_invalid">Valore colore barra di avanzamento non valido</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Logo dell\'intestazione</string>
   <string name="revanced_header_logo_entry_1">Predefinito</string>
   <string name="revanced_header_logo_entry_2">Regolare</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimale</string>
   <string name="revanced_header_logo_entry_6">Personalizzato</string>
   </patch>
@@ -1512,13 +1534,6 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="revanced_external_browser_summary_on">Apertura dei link nel browser esterno</string>
   <string name="revanced_external_browser_summary_off">Apertura dei link nel browser in-app</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Forza la lingua audio originale</string>
-  <string name="revanced_force_original_audio_summary_on">Utilizza la lingua audio originale</string>
-  <string name="revanced_force_original_audio_summary_off">Utilizzo audio predefinito</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Per usare questa funzionalità, cambia \"Falsifica i flussi video\" a qualsiasi client eccetto Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automatico</string>
@@ -1603,6 +1618,14 @@ Limitazioni:
   <string name="revanced_slide_to_seek_summary_off">Scorri per avanzare non è abilitato</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Consenti Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Il codec video è AVC (H.264), VP9 o AV1
+
+La riproduzione potrebbe subire interruzioni o perdere fotogrammi"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Il codec video è AVC (H.264) o VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Abilitando questa impostazione potrebbe essere utilizzata la decodifica AV1 via software.
+
+La riproduzione video con AV1 potrebbe rallentare o perdere fotogrammi."</string>
   <string name="revanced_spoof_video_streams_about_title">Effetti collaterali della falsificazione</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Client sperimentale e potrebbe smettere di funzionare in qualsiasi momento</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Il video potrebbe interrompersi all\'1:00, o potrebbe non essere disponibile in alcune regioni</string>
@@ -1622,6 +1645,8 @@ Limitazioni:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Informazioni</string>
   <string name="revanced_settings_music_screen_1_ads_title">Annunci</string>

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Pangalan ng app</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Pasadyang</string>
+  <string name="revanced_custom_branding_icon_title">Icon ng app</string>
+  <string name="revanced_custom_branding_icon_entry_1">Orihinal</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimal</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced naka-scale</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Pasadyang</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Nabigo ang mga pagsusuri</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Buksan ang Opisyal na Website</string>
@@ -119,6 +132,13 @@ Kung ikaw ay isang user ng YouTube Premium, maaaring hindi kailangan ang setting
 Maaaring hindi gumana ang pag-playback"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Ang pag-off sa setting na ito ay maaaring magdulot ng mga isyu sa pag-playback.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Default na kliyente</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Pilitin ang orihinal na wika ng audio</string>
+  <string name="revanced_force_original_audio_summary_on">Ginagamit ang orihinal na wika ng audio</string>
+  <string name="revanced_force_original_audio_summary_off">Gumagamit ng default audio</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Para magamit ang feature na ito, palitan ang \'Panggagaya ng mga video stream\' sa anumang client maliban sa Android Studio</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Pagde-debug</string>
@@ -795,7 +815,7 @@ Upang ipakita ang menu ng Audio track, baguhin ang 'Spoof video streams' sa iPad
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Nakatago ang mga pindutan</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Ang mga pindutan ay ipinapakita</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Itago ang mga end screen card</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Nakatago ang mga end screen card</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Ipinapakita ang mga end screen card</string>
@@ -1401,11 +1421,13 @@ Ang \"miniplayer\" ay maaaring i-drag palabas ng screen sa kaliwa o kanan"</stri
   <string name="revanced_seekbar_custom_color_accent_summary">Ang accent na kulay ng seekbar</string>
   <string name="revanced_seekbar_custom_color_invalid">Hindi wastong halaga ng kulay ng seekbar</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Logo ng Header</string>
   <string name="revanced_header_logo_entry_1">Default</string>
   <string name="revanced_header_logo_entry_2">Regular</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
   <string name="revanced_header_logo_entry_6">Pasadyang</string>
   </patch>
@@ -1511,13 +1533,6 @@ Ang pagpapagana nito ay maaaring magbukas ng mas mataas na kalidad ng video"</st
   <string name="revanced_external_browser_summary_on">Binubuksan ang mga link sa panlabas na browser</string>
   <string name="revanced_external_browser_summary_off">Binubuksan ang mga link sa in-app na browser</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Pilitin ang orihinal na wika ng audio</string>
-  <string name="revanced_force_original_audio_summary_on">Ginagamit ang orihinal na wika ng audio</string>
-  <string name="revanced_force_original_audio_summary_off">Gumagamit ng default audio</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Para magamit ang feature na ito, palitan ang \'Panggagaya ng mga video stream\' sa anumang client maliban sa Android Studio</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Awtomatik</string>
@@ -1602,6 +1617,14 @@ Mga Limitasyon:
   <string name="revanced_slide_to_seek_summary_off">Hindi pinagana ang slide to seek</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Payagan ang Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Ang video codec ay AVC (H.264), VP9, o AV1
+
+Maaaring mag-stutter o mag-drop ng frames ang playback"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Ang video codec ay AVC (H.264) o VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Ang pagpapagana sa setting na ito ay maaaring gumamit ng software AV1 decoding.
+
+Maaaring mag-stutter o mag-drop ng frames ang pag-playback ng video na may AV1."</string>
   <string name="revanced_spoof_video_streams_about_title">Mga epekto ng pagpapanggap</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Pang-eksperimentong kliyente at maaaring huminto sa paggana anumang oras</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Maaaring huminto ang video sa 1:00, o maaaring hindi available sa ilang rehiyon</string>
@@ -1621,6 +1644,8 @@ Mga Limitasyon:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Tungkol</string>
   <string name="revanced_settings_music_screen_1_ads_title">Mga Ad</string>

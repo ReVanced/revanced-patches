@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Programos pavadinimas</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Pasirinktinis</string>
+  <string name="revanced_custom_branding_icon_title">Programos piktograma</string>
+  <string name="revanced_custom_branding_icon_entry_1">Originalus</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimalus</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced masteliu</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Pasirinktinis</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Patikrinimai nepavyko</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Atidaryti oficialią svetainę</string>
@@ -119,6 +132,13 @@ Jei esate YouTube Premium naudotojas, šis nustatymas gali būti nereikalingas"<
 Grojimas gali neveikti"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Išjungus šį nustatymą, gali kilti atkūrimo problemų.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Numatytasis klientas</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Priversti originalią garso kalbą</string>
+  <string name="revanced_force_original_audio_summary_on">Naudojama originali garso kalba</string>
+  <string name="revanced_force_original_audio_summary_off">Naudojamas numatytasis garsas</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Kad naudotumėte šią funkciją, pakeiskite „Klastoti vaizdo įrašų srautus“ į bet kurį klientą, išskyrus „Android Studio“</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debugavimas</string>
@@ -797,7 +817,7 @@ Norėdami parodyti garso takelio meniu, pakeiskite „Klastoti vaizdo srautus“
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Mygtukai yra paslėpti</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Mygtukai yra rodomi</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Slėpti ekrano pabaigos korteles</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Ekrano pabaigos kortelės yra paslėptos</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Ekrano pabaigos kortelės yra rodomos</string>
@@ -1404,11 +1424,13 @@ Ribojimas: įrankių juostoje esantis atgal mygtukas gali neveikti."</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Ieškojimo juostos akcento spalva</string>
   <string name="revanced_seekbar_custom_color_invalid">Netinkama slankiklio spalvos vertė</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Antraštės logotipas</string>
   <string name="revanced_header_logo_entry_1">Numatytasis</string>
   <string name="revanced_header_logo_entry_2">Įprastas</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimalus</string>
   <string name="revanced_header_logo_entry_6">Pasirinktinis</string>
   </patch>
@@ -1514,13 +1536,6 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   <string name="revanced_external_browser_summary_on">Nuorodos atidaromos išorinėje naršyklėje</string>
   <string name="revanced_external_browser_summary_off">Nuorodos atidaromos programėlės naršyklėje</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Priversti originalią garso kalbą</string>
-  <string name="revanced_force_original_audio_summary_on">Naudojama originali garso kalba</string>
-  <string name="revanced_force_original_audio_summary_off">Naudojamas numatytasis garsas</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Kad naudotumėte šią funkciją, pakeiskite „Klastoti vaizdo įrašų srautus“ į bet kurį klientą, išskyrus „Android Studio“</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automatinis</string>
@@ -1605,6 +1620,14 @@ Apribojimai:
   <string name="revanced_slide_to_seek_summary_off">Slinkimas, kad ieškotumėte, neišjungtas</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Leisti Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Vaizdo kodekas yra AVC (H.264), VP9 arba AV1
+
+Gali strigti arba praleisti kadrus"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Vaizdo kodekas yra AVC (H.264) arba VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Įjungus šį nustatymą, gali būti naudojamas programinės įrangos AV1 dekodavimas.
+
+Vaizdo įrašo atkūrimas su AV1 gali strigti arba praleisti kadrus."</string>
   <string name="revanced_spoof_video_streams_about_title">Klastojimo šalutiniai efektai</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Eksperimentinis klientas ir bet kada gali nustoti veikti</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Vaizdo įrašas gali sustoti ties 1:00 arba gali būti nepasiekiamas kai kuriuose regionuose</string>
@@ -1624,6 +1647,8 @@ Apribojimai:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Apie</string>
   <string name="revanced_settings_music_screen_1_ads_title">Skelbimai</string>

@@ -1,9 +1,4 @@
-<!--
-   Adapted from
-   https://github.com/ReVanced/revanced-branding/blob/761f2107ac7962ed1713b0a8ae8db4c3e72849b4/assets/revanced-logo/revanced-logo-shape-dark.svg
-   Changes made: Resized to 16dp.
--->
-
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Název aplikace</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Vlastní</string>
+  <string name="revanced_custom_branding_icon_title">Ikona aplikace</string>
+  <string name="revanced_custom_branding_icon_entry_1">Původní</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimální</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced škálované</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Vlastní</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Kontrola proběhla neúspěšně</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Otevřít oficiální webovou stránku</string>
@@ -119,6 +132,13 @@ Pokud jste uživatelem YouTube Premium, toto nastavení nemusí být vyžadován
 Přehrávání nemusí fungovat"</string>
   <string name="revanced_spoof_video_streams_user_dialog_message">Vypnutí tohoto nastavení může způsobit problémy s přehráváním.</string>
   <string name="revanced_spoof_video_streams_client_type_title">Výchozí klient</string>
+  </patch>
+  <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Vynutit původní jazyk zvuku</string>
+  <string name="revanced_force_original_audio_summary_on">Použít původní jazyk zvuku</string>
+  <string name="revanced_force_original_audio_summary_off">Používání výchozího zvuku</string>
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <string name="revanced_force_original_audio_not_available">Chcete-li použít tuto funkci, změňte \'Zfalšovat video streamy\' na libovolného klienta kromě Android Studia</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">Debugování</string>
@@ -797,7 +817,7 @@ Chcete-li zobrazit nabídku zvukové stopy, změňte 'Zfalšovat streamy videa' 
   <string name="revanced_hide_player_previous_next_buttons_summary_on">Tlačítka jsou skryta</string>
   <string name="revanced_hide_player_previous_next_buttons_summary_off">Tlačítka jsou zobrazena</string>
   </patch>
-  <patch id="layout.hide.endscreencards.hideEndscreenCardsResourcePatch">
+  <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Skrýt karty s informacemi o videu</string>
   <string name="revanced_hide_endscreen_cards_summary_on">Karty s informacemi o videu jsou skryty</string>
   <string name="revanced_hide_endscreen_cards_summary_off">Karty s informacemi o videu jsou zobrazeny</string>
@@ -1403,11 +1423,13 @@ Omezení: Použití tlačítka zpět na panelu nástrojů nemusí fungovat"</str
   <string name="revanced_seekbar_custom_color_accent_summary">Zvýrazněná barva posuvníku</string>
   <string name="revanced_seekbar_custom_color_invalid">Neplatná hodnota barvy posuvníku</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Logo záhlaví</string>
   <string name="revanced_header_logo_entry_1">Výchozí</string>
   <string name="revanced_header_logo_entry_2">Běžné</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimální</string>
   <string name="revanced_header_logo_entry_6">Vlastní</string>
   </patch>
@@ -1513,13 +1535,6 @@ Povolením této funkce lze odemknout vyšší kvality videa"</string>
   <string name="revanced_external_browser_summary_on">Otevírání odkazů v externím prohlížeči</string>
   <string name="revanced_external_browser_summary_off">Otevírání odkazů v prohlížeči v aplikaci</string>
   </patch>
-  <patch id="video.audio.forceOriginalAudioPatch">
-  <string name="revanced_force_original_audio_title">Vynutit původní jazyk zvuku</string>
-  <string name="revanced_force_original_audio_summary_on">Použít původní jazyk zvuku</string>
-  <string name="revanced_force_original_audio_summary_off">Používání výchozího zvuku</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">Chcete-li použít tuto funkci, změňte \'Zfalšovat video streamy\' na libovolného klienta kromě Android Studia</string>
-  </patch>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automaticky</string>
@@ -1604,6 +1619,14 @@ Omezení:
   <string name="revanced_slide_to_seek_summary_off">Posun pro hledání není povolen</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_av1_title">Povolit Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Video kodek je AVC (H.264), VP9 nebo AV1
+
+Přehrávání se může zasekávat nebo přeskakovat snímky"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Video kodek je AVC (H.264) nebo VP9</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Povolení tohoto nastavení může využívat softwarové dekódování AV1.
+
+Přehrávání videa s AV1 se může sekat nebo vypadávat snímky."</string>
   <string name="revanced_spoof_video_streams_about_title">Vedlejší účinky maskování</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Experimentální klient a může kdykoli přestat fungovat</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video se může zastavit v 1:00 nebo nemusí být dostupné v některých oblastech</string>
@@ -1623,6 +1646,8 @@ Omezení:
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">O aplikaci</string>
   <string name="revanced_settings_music_screen_1_ads_title">Reklamy</string>
