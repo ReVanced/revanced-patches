@@ -16,26 +16,20 @@ val hideSuggestionBlocks = bytecodePatch(
     compatibleWith("com.instagram.android")
 
     execute {
-
         feedItemParseFromJsonFingerprint.let {
-            listOf(
-                FEED_ITEM_SUGGESTED_REELS_BLOCK_KEY,
-                FEED_ITEM_SUGGESTED_STORY_BLOCK_KEY,
-                FEED_ITEM_SUGGESTED_SURVEY_BLOCK_KEY,
-                FEED_ITEM_SPONSORED_POST_BLOCK_KEY,
-                FEED_ITEM_SUGGESTED_THREADS_BLOCK_KEY,
-                FEED_ITEM_SUGGESTED_TOP_ACCOUNTS_BLOCK_KEY,
-                FEED_ITEM_SUGGESTED_USERS_BLOCK_KEY,
-            ).forEach { key ->
+
+            FEED_ITEM_KEYS.asReversed().subList(1, FEED_ITEM_KEYS.size).forEach { key ->
                 val stringMatchIndex = it.stringMatches?.first { match -> match.string == key }!!.index
 
                 it.method.apply {
-                    val equalsCheckResultIndex = indexOfFirstInstruction(stringMatchIndex,Opcode.MOVE_RESULT)
-                    val resultRegister = (getInstruction(equalsCheckResultIndex) as OneRegisterInstruction).registerA
+                    val equalsCheckResultIndex = indexOfFirstInstruction(stringMatchIndex, Opcode.MOVE_RESULT)
+                    val resultRegister = getInstruction<OneRegisterInstruction>(equalsCheckResultIndex).registerA
 
                     // Make sure the equals check fails so that the block doesn't get parsed.
-                    addInstruction(equalsCheckResultIndex+1,
-                        "const v$resultRegister, 0x0")
+                    addInstruction(
+                        equalsCheckResultIndex + 1,
+                        "const v$resultRegister, 0"
+                    )
                 }
             }
         }
