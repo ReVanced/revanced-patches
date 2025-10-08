@@ -1,3 +1,10 @@
+## [5.42.1](https://github.com/ReVanced/revanced-patches/compare/v5.42.0...v5.42.1) (2025-10-08)
+
+
+### Bug Fixes
+
+* **YouTube - Custom Branding:** Resolve startup crash with root installation ([fd4b2e1](https://github.com/ReVanced/revanced-patches/commit/fd4b2e1bb98c6e507178e5b46b896ef7d320bc3d))
+
 ## [5.42.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.42.0...v5.42.1-dev.1) (2025-10-08)
 
 
