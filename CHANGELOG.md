@@ -1,3 +1,10 @@
+## [5.42.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.42.1...v5.42.2-dev.1) (2025-10-09)
+
+
+### Bug Fixes
+
+* **Instagram - Change sharing domain:** Display patch option ([#6089](https://github.com/ReVanced/revanced-patches/issues/6089)) ([be2b144](https://github.com/ReVanced/revanced-patches/commit/be2b144cc9c4108ec37e16f3dd20573d88ffaa2b))
+
 ## [5.42.1](https://github.com/ReVanced/revanced-patches/compare/v5.42.0...v5.42.1) (2025-10-08)
 
 
