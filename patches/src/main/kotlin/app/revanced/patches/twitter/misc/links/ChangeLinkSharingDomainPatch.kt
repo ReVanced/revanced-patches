@@ -16,7 +16,7 @@ import java.util.logging.Logger
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/twitter/patches/links/ChangeLinkSharingDomainPatch;"
 
-val domainNameOption by stringOption(
+internal val domainNameOption by stringOption(
     key = "domainName",
     default = "https://fxtwitter.com",
     title = "Domain name",
