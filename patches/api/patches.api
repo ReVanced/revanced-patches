@@ -1312,6 +1312,8 @@ public final class app/revanced/patches/twitter/misc/hook/json/JsonHookPatchKt {
 
 public final class app/revanced/patches/twitter/misc/links/ChangeLinkSharingDomainPatchKt {
 	public static final fun getChangeLinkSharingDomainPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getChangeLinkSharingDomainResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun getDomainNameOption ()Ljava/lang/String;
 }
 
 public final class app/revanced/patches/twitter/misc/links/OpenLinksWithAppChooserPatchKt {
