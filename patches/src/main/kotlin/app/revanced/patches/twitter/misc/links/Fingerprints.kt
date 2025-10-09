@@ -26,6 +26,8 @@ internal val linkResourceGetterFingerprint = fingerprint {
     literal { tweetShareLinkTemplateId }
 }
 
-internal val linkSharingDomainFingerprint = fingerprint {
-    strings("https://fxtwitter.com")
+internal val linkSharingDomainHelperFingerprint = fingerprint {
+    custom { method, classDef ->
+        method.name == "getShareDomain" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
+    }
 }
