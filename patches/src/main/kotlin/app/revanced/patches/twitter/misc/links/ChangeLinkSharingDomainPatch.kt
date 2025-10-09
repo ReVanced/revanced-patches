@@ -37,7 +37,7 @@ val domainNameOption by stringOption(
     true
 }
 
-val changeLinkSharingDomainResourcePatch = resourcePatch {
+internal val changeLinkSharingDomainResourcePatch = resourcePatch {
     execute {
         val domainName = domainNameOption!!
         val shareLinkTemplate = if (domainName.endsWith("/")) {
