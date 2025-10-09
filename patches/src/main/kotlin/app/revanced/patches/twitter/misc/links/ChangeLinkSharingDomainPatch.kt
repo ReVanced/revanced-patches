@@ -85,10 +85,10 @@ val changeLinkSharingDomainPatch = bytecodePatch(
     )
 
     execute {
-        val domainName = domainNameOption
+        val domainName = domainNameOption!!
 
         // Replace the domain name in the link sharing extension methods.
-        linkSharingDomainHelperFingerprint.method.returnEarly("https://$domainName")
+        linkSharingDomainHelperFingerprint.method.returnEarly(domainName)
 
         // Replace the domain name when copying a link with "Copy link" button.
         linkBuilderFingerprint.method.addInstructions(
