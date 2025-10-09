@@ -19,14 +19,14 @@ val changeLinkSharingDomainPatch = bytecodePatch(
 
     dependsOn(sharedExtensionPatch)
 
-    execute {
-        val customDomainHost by stringOption(
-            key = "domainName",
-            default = "imginn.com",
-            title = "Domain name",
-            description = "The domain name to use when sharing links."
-        )
+    val customDomainHost by stringOption(
+        key = "domainName",
+        default = "imginn.com",
+        title = "Domain name",
+        description = "The domain name to use when sharing links."
+    )
 
+    execute {
         getCustomShareDomainFingerprint.method.returnEarly(customDomainHost!!)
 
         editShareLinksPatch { index, register ->
