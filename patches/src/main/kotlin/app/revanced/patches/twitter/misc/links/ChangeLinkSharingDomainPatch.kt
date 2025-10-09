@@ -1,15 +1,14 @@
 package app.revanced.patches.twitter.misc.links
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.shared.PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN
 import app.revanced.patches.shared.PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN
 import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
+import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.returnEarly
-import org.w3c.dom.Element
 import java.net.InetAddress
 import java.net.UnknownHostException
 import java.util.logging.Logger
@@ -40,30 +39,19 @@ internal val domainNameOption by stringOption(
 internal val changeLinkSharingDomainResourcePatch = resourcePatch {
     execute {
         val domainName = domainNameOption!!
+
         val shareLinkTemplate = if (domainName.endsWith("/")) {
             "$domainName%1\$s/status/%2\$s"
         } else {
             "$domainName/%1\$s/status/%2\$s"
         }
-        var foundShareLinkTemplateResource = false
 
-        document("res/values/strings.xml").use {
-            val resources = it.documentElement.childNodes
-
-            for (i in 0 until resources.length) {
-                val node = resources.item(i)
-                if (node !is Element) continue
-
-                if (node.getAttribute("name") == "tweet_share_link") {
-                    node.textContent = shareLinkTemplate
-                    foundShareLinkTemplateResource = true
-                    break
-                }
-            }
+        document("res/values/strings.xml").use { document ->
+            document.documentElement.childNodes.findElementByAttributeValueOrThrow(
+                "name",
+                "tweet_share_link"
+            ).textContent = shareLinkTemplate
         }
-
-        if (!foundShareLinkTemplateResource)
-            throw PatchException("Failed to find string resource 'tweet_share_link'")
     }
 }
 
