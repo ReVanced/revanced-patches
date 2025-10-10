@@ -29,7 +29,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_branding_icon_entry_1">オリジナル</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
   <string name="revanced_custom_branding_icon_entry_3">ReVanced (シンプル)</string>
-  <string name="revanced_custom_branding_icon_entry_4">ReVanced (シンボル大)</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced (ロゴ拡大)</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
   <string name="revanced_custom_branding_icon_entry_5">カスタム</string>
   </patch>
@@ -1366,15 +1366,15 @@ Automotive レイアウト
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">ミニプレーヤー</string>
   <string name="revanced_miniplayer_screen_summary">アプリ内に表示される小さな画面のプレーヤーのスタイルを変更します</string>
-  <string name="revanced_miniplayer_type_title">ミニプレーヤーのタイプ</string>
+  <string name="revanced_miniplayer_type_title">ミニプレーヤーの種類</string>
   <string name="revanced_miniplayer_type_entry_0">無効</string>
   <string name="revanced_miniplayer_type_entry_1">デフォルト</string>
-  <string name="revanced_miniplayer_type_entry_2">横長</string>
+  <string name="revanced_miniplayer_type_entry_2">横長 (旧タイプ)</string>
   <string name="revanced_miniplayer_type_entry_3">タブレット</string>
-  <string name="revanced_miniplayer_type_entry_4">モダン 1</string>
-  <string name="revanced_miniplayer_type_entry_5">モダン 2</string>
-  <string name="revanced_miniplayer_type_entry_6">モダン 3</string>
-  <string name="revanced_miniplayer_type_entry_7">モダン 4</string>
+  <string name="revanced_miniplayer_type_entry_4">新タイプ 1</string>
+  <string name="revanced_miniplayer_type_entry_5">新タイプ 2</string>
+  <string name="revanced_miniplayer_type_entry_6">新タイプ 3</string>
+  <string name="revanced_miniplayer_type_entry_7">新タイプ 4</string>
   <string name="revanced_miniplayer_disable_rounded_corners_title">ミニプレーヤーを直角化</string>
   <string name="revanced_miniplayer_disable_rounded_corners_summary_on">ミニプレーヤーの角は直角です</string>
   <string name="revanced_miniplayer_disable_rounded_corners_summary_off">ミニプレーヤーの角は丸角です</string>
