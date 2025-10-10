@@ -2,7 +2,7 @@ package app.revanced.patches.instagram.hide.suggestions
 
 import app.revanced.patcher.fingerprint
 
-internal val FEED_ITEM_KEYS_TO_BE_HIDDEN = listOf(
+internal val FEED_ITEM_KEYS_TO_BE_HIDDEN = arrayOf(
     "clips_netego",
     "stories_netego",
     "in_feed_survey",
@@ -13,5 +13,5 @@ internal val FEED_ITEM_KEYS_TO_BE_HIDDEN = listOf(
 )
 
 internal val feedItemParseFromJsonFingerprint = fingerprint {
-    strings(*FEED_ITEM_KEYS_TO_BE_HIDDEN.toTypedArray(), "FeedItem")
+    strings(*FEED_ITEM_KEYS_TO_BE_HIDDEN, "FeedItem")
 }
