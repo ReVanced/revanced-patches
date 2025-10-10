@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">অ্যাপের নাম</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">কাস্টম</string>
+  <string name="revanced_custom_branding_icon_title">অ্যাপ আইকন</string>
+  <string name="revanced_custom_branding_icon_entry_1">মূল</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">রিভ্যান্সড মিনিমাল</string>
+  <string name="revanced_custom_branding_icon_entry_4">রিভ্যান্সড স্কেলড</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">কাস্টম</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">চেক ফেইল করেছে</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">অফিশ্যাল ওয়েবসাইট খুলুন</string>
@@ -1406,11 +1419,13 @@ Miniplayer স্ক্রিন থেকে বামে বা ডানে �
   <string name="revanced_seekbar_custom_color_accent_summary">সিকবারের এক্সেন্ট রঙ</string>
   <string name="revanced_seekbar_custom_color_invalid">অবৈধ সিকবার রঙ মান</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">হেডার লোগো</string>
   <string name="revanced_header_logo_entry_1">ডিফল্ট</string>
   <string name="revanced_header_logo_entry_2">সাধারণ</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">রিভ্যান্সড মিনিমাল</string>
   <string name="revanced_header_logo_entry_6">কাস্টম</string>
   </patch>
@@ -1627,6 +1642,8 @@ AV1 সহ ভিডিও প্লেব্যাক আটকে যেতে
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">সম্পর্কে</string>
   <string name="revanced_settings_music_screen_1_ads_title">বিজ্ঞাপন</string>

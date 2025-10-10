@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">앱 이름</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">사용자 정의</string>
+  <string name="revanced_custom_branding_icon_title">앱 아이콘</string>
+  <string name="revanced_custom_branding_icon_entry_1">원본</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced 최소화</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced 스케일</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">사용자 정의</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">환경 검사에 실패하였습니다</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">공식 홈페이지 열기</string>
@@ -1417,11 +1430,13 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_seekbar_custom_color_accent_summary">재생바 보조 색상을 지정할 수 있습니다</string>
   <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 색상입니다</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">헤더 로고</string>
   <string name="revanced_header_logo_entry_1">기본값</string>
   <string name="revanced_header_logo_entry_2">일반</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced 최소화</string>
   <string name="revanced_header_logo_entry_6">사용자 정의</string>
   </patch>
@@ -1492,10 +1507,10 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_spoof_device_dimensions_title">기기 크기 정보 변경하기</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"기기 크기 정보를 변경합니다
 
-이 설정을 활성화하면 더 높은 화질 동영상 값을 잠금 해제할 수 있지만, 동영상 재생이 끊기거나 배터리 수명이 단축될 수 있으며, 알려지지 않은 부작용도 발생할 수 있습니다"</string>
+이 설정을 활성화하면 더 높은 동영상 화질 값을 잠금 해제할 수 있지만, 동영상 재생이 끊기거나 배터리 수명이 단축될 수 있으며, 알려지지 않은 부작용도 발생할 수 있습니다"</string>
   <string name="revanced_spoof_device_dimensions_summary_off">"기기 크기 정보를 변경하지 않습니다
 
-이 설정을 활성화하면 더 높은 화질 동영상 값을 잠금 해제할 수 있습니다"</string>
+이 설정을 활성화하면 더 높은 동영상 화질 값을 잠금 해제할 수 있습니다"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">이 설정을 활성화하면 동영상 재생이 끊기거나 배터리 수명이 단축되고 알려지지 않은 부작용이 발생할 수 있습니다.</string>
   </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
@@ -1611,14 +1626,14 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_slide_to_seek_summary_off">슬라이드하여 탐색을 비활성화합니다</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_av1_title">Android VR AV1 허용</string>
-  <string name="revanced_spoof_video_streams_av1_summary_on">"비디오 코덱은 AVC (H.264), VP9 또는 AV1입니다
+  <string name="revanced_spoof_video_streams_av1_title">Android VR AV1 허용하기</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"동영상 코덱이 AVC (H.264), VP9 또는 AV1으로 결정됩니다
 
-재생이 끊기거나 프레임이 떨어질 수 있습니다"</string>
-  <string name="revanced_spoof_video_streams_av1_summary_off">비디오 코덱은 AVC (H.264) 또는 VP9입니다</string>
-  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"이 설정을 활성화하면 소프트웨어 AV1 디코딩을 사용할 수 있습니다.
+동영상 재생이 끊기거나 프레임이 손실될 수 있습니다"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">동영상 코덱이 AVC (H.264) 또는 VP9으로 결정됩니다</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"이 설정을 활성화하면, 소프트웨어 AV1 디코딩이 사용될 수 있습니다.
 
-AV1을 사용한 비디오 재생 시 끊김 또는 프레임 드롭이 발생할 수 있습니다."</string>
+AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있습니다."</string>
   <string name="revanced_spoof_video_streams_about_title">변경에 따른 부작용</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 실험용 클라이언트이며 언제든지 작동이 중단될 수 있습니다</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• 동영상이 1:00에 멈출 수 있으며, 일부 지역에서는 이용이 불가능할 수 있습니다</string>
@@ -1638,6 +1653,8 @@ AV1을 사용한 비디오 재생 시 끊김 또는 프레임 드롭이 발생�
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">정보</string>
   <string name="revanced_settings_music_screen_1_ads_title">광고</string>

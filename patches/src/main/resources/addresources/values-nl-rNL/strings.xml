@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Appnaam</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Aangepast</string>
+  <string name="revanced_custom_branding_icon_title">App-pictogram</string>
+  <string name="revanced_custom_branding_icon_entry_1">Origineel</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimaal</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced geschaald</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Aangepast</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Controle mislukt</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Open officiële website</string>
@@ -1408,11 +1421,13 @@ De miniplayer kan naar links of rechts van het scherm worden gesleept"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">De accentkleur van de zoekbalk</string>
   <string name="revanced_seekbar_custom_color_invalid">Ongeldige waarde voor de kleur van de schuifregelaar</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Headerlogo</string>
   <string name="revanced_header_logo_entry_1">Standaard</string>
   <string name="revanced_header_logo_entry_2">Normaal</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimaal</string>
   <string name="revanced_header_logo_entry_6">Aangepast</string>
   </patch>
@@ -1629,6 +1644,8 @@ Het afspelen van video met AV1 kan haperen of frames overslaan."</string>
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Over</string>
   <string name="revanced_settings_music_screen_1_ads_title">Advertenties</string>

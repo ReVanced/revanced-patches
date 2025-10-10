@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Nome da aplicação</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Personalizado</string>
+  <string name="revanced_custom_branding_icon_title">Ícone da aplicação</string>
+  <string name="revanced_custom_branding_icon_entry_1">Original</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced mínimo</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced dimensionado</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Personalizado</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Falha na verificação</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Abrir site oficial</string>
@@ -1410,11 +1423,13 @@ Miniplayer có thể được kéo ra khỏi màn hình sang trái hoặc phải
   <string name="revanced_seekbar_custom_color_accent_summary">A cor de destaque da barra de progresso</string>
   <string name="revanced_seekbar_custom_color_invalid">Valor de cor de seekbar inválido</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Logotipo do cabeçalho</string>
   <string name="revanced_header_logo_entry_1">Padrão</string>
   <string name="revanced_header_logo_entry_2">Regular</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced mínimo</string>
   <string name="revanced_header_logo_entry_6">Personalizado</string>
   </patch>
@@ -1631,6 +1646,8 @@ A reprodução de vídeo com AV1 pode apresentar soluços ou perder quadros."</s
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Sobre</string>
   <string name="revanced_settings_music_screen_1_ads_title">Anúncios</string>

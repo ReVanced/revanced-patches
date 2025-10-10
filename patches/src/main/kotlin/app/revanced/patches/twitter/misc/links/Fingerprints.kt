@@ -1,8 +1,6 @@
 package app.revanced.patches.twitter.misc.links
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
-import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val openLinkFingerprint by fingerprint {
     returns("V")
@@ -19,13 +17,8 @@ internal val linkBuilderFingerprint by fingerprint {
     strings("/%1\$s/status/%2\$d")
 }
 
-// Gets Resource string for share link view available by pressing "Share via" button.
-internal val linkResourceGetterFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Landroid/content/res/Resources;")
-    literal { tweetShareLinkTemplateId }
-}
-
-internal val linkSharingDomainFingerprint by fingerprint {
-    strings("https://fxtwitter.com")
+internal val linkSharingDomainHelperFingerprint by fingerprint {
+    custom { method, classDef ->
+        method.name == "getShareDomain" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
+    }
 }

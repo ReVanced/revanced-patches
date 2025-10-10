@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Tên ứng dụng</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Tùy chỉnh</string>
+  <string name="revanced_custom_branding_icon_title">Biểu tượng ứng dụng</string>
+  <string name="revanced_custom_branding_icon_entry_1">Gốc</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced tối giản</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced tỉ lệ</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Tùy chỉnh</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Kiểm tra thất bại</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Mở trang web chính thức</string>
@@ -1416,11 +1429,13 @@ Vuốt để mở rộng hoặc đóng"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Màu sắc nổi bật của thanh tiến trình</string>
   <string name="revanced_seekbar_custom_color_invalid">Giá trị màu của thanh tiến trình không hợp lệ</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Logo đầu trang</string>
   <string name="revanced_header_logo_entry_1">Mặc định</string>
   <string name="revanced_header_logo_entry_2">Thông thường</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced tối giản</string>
   <string name="revanced_header_logo_entry_6">Tùy chỉnh</string>
   </patch>
@@ -1610,14 +1625,14 @@ Hạn chế:
   <string name="revanced_slide_to_seek_summary_off">Vuốt để tua không được bật</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_av1_title">Cho phép Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_title">Cho phép AV1 trên Android VR</string>
   <string name="revanced_spoof_video_streams_av1_summary_on">"Bộ giải mã video là AVC (H.264), VP9 hoặc AV1
 
-Quá trình phát có thể bị giật hoặc bỏ khung hình"</string>
+Quá trình phát có thể bị giật hoặc tụt khung hình"</string>
   <string name="revanced_spoof_video_streams_av1_summary_off">Bộ giải mã video là AVC (H.264) hoặc VP9</string>
   <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Bật cài đặt này có thể sử dụng giải mã AV1 bằng phần mềm.
 
-Phát lại video bằng AV1 có thể bị giật hoặc bỏ khung hình."</string>
+Phát video bằng AV1 có thể bị giật hoặc tụt khung hình."</string>
   <string name="revanced_spoof_video_streams_about_title">Hạn chế khi giả mạo</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Ứng dụng khách đang trong giai đoạn thử nghiệm và có thể ngừng hoạt động bất cứ lúc nào</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video có thể dừng ở 1:00, hoặc có thể không khả dụng ở một số khu vực</string>
@@ -1637,6 +1652,8 @@ Phát lại video bằng AV1 có thể bị giật hoặc bỏ khung hình."</st
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Giới thiệu</string>
   <string name="revanced_settings_music_screen_1_ads_title">Quảng cáo</string>

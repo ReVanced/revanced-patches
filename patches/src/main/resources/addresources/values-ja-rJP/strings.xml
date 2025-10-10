@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">アプリ名</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">カスタム</string>
+  <string name="revanced_custom_branding_icon_title">アプリアイコン</string>
+  <string name="revanced_custom_branding_icon_entry_1">オリジナル</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced (シンプル)</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced (ロゴ拡大)</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">カスタム</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">チェックに失敗しました</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">公式サイトを開く</string>
@@ -601,12 +614,12 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_swipe_volume_sensitivity_summary">スワイプによる音量の変化量</string>
   <string name="revanced_swipe_overlay_style_title">オーバーレイのスタイル</string>
   <string name="revanced_swipe_overlay_style_entry_1">横型</string>
-  <string name="revanced_swipe_overlay_style_entry_2">横型 (最小限 - 画面上部)</string>
-  <string name="revanced_swipe_overlay_style_entry_3">横型 (最小限 - 画面中央)</string>
+  <string name="revanced_swipe_overlay_style_entry_2">横型 (シンプル - 画面上部)</string>
+  <string name="revanced_swipe_overlay_style_entry_3">横型 (シンプル - 画面中央)</string>
   <string name="revanced_swipe_overlay_style_entry_4">円形</string>
-  <string name="revanced_swipe_overlay_style_entry_5">円形 (最小限)</string>
+  <string name="revanced_swipe_overlay_style_entry_5">円形 (シンプル)</string>
   <string name="revanced_swipe_overlay_style_entry_6">縦型</string>
-  <string name="revanced_swipe_overlay_style_entry_7">縦型 (最小限)</string>
+  <string name="revanced_swipe_overlay_style_entry_7">縦型 (シンプル)</string>
   <string name="revanced_swipe_change_video_title">スワイプによる動画の切り替えを有効化</string>
   <string name="revanced_swipe_change_video_summary_on">全画面表示中に左 / 右にスワイプすると、前 / 次の動画に切り替わります</string>
   <string name="revanced_swipe_change_video_summary_off">全画面表示中に左 / 右にスワイプしても、前 / 次の動画に切り替わりません</string>
@@ -1353,15 +1366,15 @@ Automotive レイアウト
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">ミニプレーヤー</string>
   <string name="revanced_miniplayer_screen_summary">アプリ内に表示される小さな画面のプレーヤーのスタイルを変更します</string>
-  <string name="revanced_miniplayer_type_title">ミニプレーヤーのタイプ</string>
+  <string name="revanced_miniplayer_type_title">ミニプレーヤーの種類</string>
   <string name="revanced_miniplayer_type_entry_0">無効</string>
   <string name="revanced_miniplayer_type_entry_1">デフォルト</string>
-  <string name="revanced_miniplayer_type_entry_2">横長</string>
+  <string name="revanced_miniplayer_type_entry_2">横長 (旧タイプ)</string>
   <string name="revanced_miniplayer_type_entry_3">タブレット</string>
-  <string name="revanced_miniplayer_type_entry_4">モダン 1</string>
-  <string name="revanced_miniplayer_type_entry_5">モダン 2</string>
-  <string name="revanced_miniplayer_type_entry_6">モダン 3</string>
-  <string name="revanced_miniplayer_type_entry_7">モダン 4</string>
+  <string name="revanced_miniplayer_type_entry_4">新タイプ 1</string>
+  <string name="revanced_miniplayer_type_entry_5">新タイプ 2</string>
+  <string name="revanced_miniplayer_type_entry_6">新タイプ 3</string>
+  <string name="revanced_miniplayer_type_entry_7">新タイプ 4</string>
   <string name="revanced_miniplayer_disable_rounded_corners_title">ミニプレーヤーを直角化</string>
   <string name="revanced_miniplayer_disable_rounded_corners_summary_on">ミニプレーヤーの角は直角です</string>
   <string name="revanced_miniplayer_disable_rounded_corners_summary_off">ミニプレーヤーの角は丸角です</string>
@@ -1413,12 +1426,14 @@ Automotive レイアウト
   <string name="revanced_seekbar_custom_color_accent_summary">シークバーのアクセントカラーを編集します</string>
   <string name="revanced_seekbar_custom_color_invalid">シークバーの色の値が無効です</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">ヘッダーロゴ</string>
   <string name="revanced_header_logo_entry_1">デフォルト</string>
   <string name="revanced_header_logo_entry_2">標準</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
-  <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
+  <string name="revanced_header_logo_entry_5">ReVanced (シンプル)</string>
   <string name="revanced_header_logo_entry_6">カスタム</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1606,14 +1621,14 @@ Automotive レイアウト
   <string name="revanced_slide_to_seek_summary_off">スライドによるシークは無効です。プレーヤー画面を左右にスライドしても、前後にシークしません</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_av1_title">Android VR AV1 を許可する</string>
-  <string name="revanced_spoof_video_streams_av1_summary_on">"ビデオコーデックはAVC (H.264)、VP9、またはAV1です
+  <string name="revanced_spoof_video_streams_av1_title">Android VR で AV1 を許可</string>
+  <string name="revanced_spoof_video_streams_av1_summary_on">"ビデオ コーデックは AVC (H.264)、VP9、AV1 のいずれかになります
 
-再生中に途切れたり、フレームがドロップすることがあります"</string>
-  <string name="revanced_spoof_video_streams_av1_summary_off">ビデオコーデックはAVC (H.264) またはVP9です</string>
-  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"この設定を有効にすると、ソフトウェアAV1デコードが使用される可能性があります。
+再生がカクつくまたはコマ落ちが発生する場合があります"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">ビデオ コーデックは AVC (H.264)、VP9 のいずれかになります</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"この設定を有効にすると、AV1 のソフトウェア デコードが使用される場合があります。
 
-AV1での動画再生は、途切れたりフレームが落ちたりする場合があります。"</string>
+AV1 での動画再生は、カクつくまたはコマ落ちが発生する場合があります。"</string>
   <string name="revanced_spoof_video_streams_about_title">偽装による副作用</string>
   <string name="revanced_spoof_video_streams_about_experimental">• 実験的なクライアントであり、いつでも動作しなくなる可能性がある</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• 動画が 01:00 で停止する、または一部の地域で利用できない可能性がある</string>
@@ -1633,6 +1648,8 @@ AV1での動画再生は、途切れたりフレームが落ちたりする場�
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">ReVanced について</string>
   <string name="revanced_settings_music_screen_1_ads_title">広告</string>

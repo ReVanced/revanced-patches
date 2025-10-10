@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">اسم التطبيق</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">مخصص</string>
+  <string name="revanced_custom_branding_icon_title">أيقونة التطبيق</string>
+  <string name="revanced_custom_branding_icon_entry_1">الأصلية</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimal</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced scaled</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">مخصص</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">فشلت عمليات التحقق</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">فتح الموقع الرسمي</string>
@@ -1410,11 +1423,13 @@ Second \"item\" text"</string>
   <string name="revanced_seekbar_custom_color_accent_summary">لون تمييز شريط التقدم</string>
   <string name="revanced_seekbar_custom_color_invalid">لون شريط التقدم غير صالح</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">علامة الشعار</string>
   <string name="revanced_header_logo_entry_1">الافتراضي</string>
   <string name="revanced_header_logo_entry_2">القياسي</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
   <string name="revanced_header_logo_entry_6">مخصص</string>
   </patch>
@@ -1604,14 +1619,14 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">تم تعطيل التمرير للتقديم أو الترجيع</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_av1_title">السماح لـ Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_title">السماح بـ Android VR AV1</string>
   <string name="revanced_spoof_video_streams_av1_summary_on">"برنامج ترميز الفيديو هو AVC (H.264) أو VP9 أو AV1
 
 قد يحدث تقطيع أو فقدان للإطارات أثناء التشغيل"</string>
   <string name="revanced_spoof_video_streams_av1_summary_off">برنامج ترميز الفيديو هو AVC (H.264) أو VP9</string>
-  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"قد يؤدي تمكين هذا الإعداد إلى استخدام فك ترميز AV1 برمجيًا.
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"قد يؤدي تمكين هذا الإعداد إلى استخدام فك تشفير AV1 البرمجي.
 
-قد يتلعثم تشغيل الفيديو بتقنية AV1 أو يفقد بعض الإطارات."</string>
+قد يتسبب تشغيل الفيديو باستخدام AV1 في التقطيع أو إسقاط الإطارات."</string>
   <string name="revanced_spoof_video_streams_about_title">التأثيرات الجانبية للتزييف</string>
   <string name="revanced_spoof_video_streams_about_experimental">• عميل تجريبي وقد يتوقف عن العمل في أي وقت</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• قد يتوقف الفيديو عند 1:00، أو قد لا يكون متاحًا في بعض المناطق</string>
@@ -1631,6 +1646,8 @@ Second \"item\" text"</string>
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">لمحة</string>
   <string name="revanced_settings_music_screen_1_ads_title">الإعلانات</string>

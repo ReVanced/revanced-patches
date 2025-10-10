@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -20,6 +21,18 @@ Second \"item\" text"</string>
 -->
 <resources>
   <app id="shared">
+  <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Programos pavadinimas</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Pasirinktinis</string>
+  <string name="revanced_custom_branding_icon_title">Programos piktograma</string>
+  <string name="revanced_custom_branding_icon_entry_1">Originalus</string>
+  <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimalus</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced masteliu</string>
+  <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Pasirinktinis</string>
+  </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Patikrinimai nepavyko</string>
   <string name="revanced_check_environment_dialog_open_official_source_button">Atidaryti oficialią svetainę</string>
@@ -1411,11 +1424,13 @@ Ribojimas: įrankių juostoje esantis atgal mygtukas gali neveikti."</string>
   <string name="revanced_seekbar_custom_color_accent_summary">Ieškojimo juostos akcento spalva</string>
   <string name="revanced_seekbar_custom_color_invalid">Netinkama slankiklio spalvos vertė</string>
   </patch>
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="revanced_header_logo_title">Antraštės logotipas</string>
   <string name="revanced_header_logo_entry_1">Numatytasis</string>
   <string name="revanced_header_logo_entry_2">Įprastas</string>
-  <!-- For this situation "Minimal" means minimalistic. It does not mean small or tiny. -->
+  <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="revanced_header_logo_entry_5">ReVanced minimalus</string>
   <string name="revanced_header_logo_entry_6">Pasirinktinis</string>
   </patch>
@@ -1632,6 +1647,8 @@ Vaizdo įrašo atkūrimas su AV1 gali strigti arba praleisti kadrus."</string>
   </patch>
   </app>
   <app id="music">
+  <patch id="layout.branding.customBrandingPatch">
+  </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_music_screen_0_about_title">Apie</string>
   <string name="revanced_settings_music_screen_1_ads_title">Skelbimai</string>
