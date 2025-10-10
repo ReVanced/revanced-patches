@@ -1,3 +1,10 @@
+## [5.42.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.42.2-dev.1...v5.42.2-dev.2) (2025-10-10)
+
+
+### Bug Fixes
+
+* **X / Twitter - Change Link Sharing Domain:** Change link domain of share copy action ([#6091](https://github.com/ReVanced/revanced-patches/issues/6091)) ([5484625](https://github.com/ReVanced/revanced-patches/commit/54846253d748f4e7e30b2bba427c7d2fb9c341e2))
+
 ## [5.42.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.42.1...v5.42.2-dev.1) (2025-10-09)
 
 
