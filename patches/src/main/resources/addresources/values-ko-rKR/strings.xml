@@ -29,7 +29,7 @@ Second \"item\" text"</string>
   <string name="revanced_custom_branding_icon_entry_1">원본</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
   <string name="revanced_custom_branding_icon_entry_3">ReVanced 최소화</string>
-  <string name="revanced_custom_branding_icon_entry_4">ReVanced 크기 조정</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced 스케일</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
   <string name="revanced_custom_branding_icon_entry_5">사용자 정의</string>
   </patch>
@@ -1507,10 +1507,10 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   <string name="revanced_spoof_device_dimensions_title">기기 크기 정보 변경하기</string>
   <string name="revanced_spoof_device_dimensions_summary_on">"기기 크기 정보를 변경합니다
 
-이 설정을 활성화하면 더 높은 화질 동영상 값을 잠금 해제할 수 있지만, 동영상 재생이 끊기거나 배터리 수명이 단축될 수 있으며, 알려지지 않은 부작용도 발생할 수 있습니다"</string>
+이 설정을 활성화하면 더 높은 동영상 화질 값을 잠금 해제할 수 있지만, 동영상 재생이 끊기거나 배터리 수명이 단축될 수 있으며, 알려지지 않은 부작용도 발생할 수 있습니다"</string>
   <string name="revanced_spoof_device_dimensions_summary_off">"기기 크기 정보를 변경하지 않습니다
 
-이 설정을 활성화하면 더 높은 화질 동영상 값을 잠금 해제할 수 있습니다"</string>
+이 설정을 활성화하면 더 높은 동영상 화질 값을 잠금 해제할 수 있습니다"</string>
   <string name="revanced_spoof_device_dimensions_user_dialog_message">이 설정을 활성화하면 동영상 재생이 끊기거나 배터리 수명이 단축되고 알려지지 않은 부작용이 발생할 수 있습니다.</string>
   </patch>
   <patch id="misc.hapticfeedback.disableHapticFeedbackPatch">
