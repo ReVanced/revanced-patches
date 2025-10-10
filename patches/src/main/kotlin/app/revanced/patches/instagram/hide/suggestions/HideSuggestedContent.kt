@@ -1,9 +1,7 @@
 package app.revanced.patches.instagram.hide.suggestions
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import app.revanced.patches.instagram.hide.shared.replaceStringWithBogus
 
 @Suppress("unused")
 val hideSuggestedContent = bytecodePatch(
@@ -14,21 +12,8 @@ val hideSuggestedContent = bytecodePatch(
     compatibleWith("com.instagram.android")
 
     execute {
-        feedItemParseFromJsonFingerprint.let {
-
-            FEED_ITEM_KEYS.forEach { key ->
-                val stringMatchIndex = it.stringMatches?.first { match -> match.string == key }!!.index
-
-                it.method.apply {
-                    val stringRegister = getInstruction<OneRegisterInstruction>(stringMatchIndex).registerA
-
-                    // Have a dummy key such that the comparison fails eventually the data is not parsed.
-                    addInstruction(
-                        stringMatchIndex + 1,
-                        "const-string/jumbo v$stringRegister, \"revanced_dummy\"",
-                    )
-                }
-            }
+        FEED_ITEM_KEYS_TO_BE_HIDDEN.forEach { key ->
+            feedItemParseFromJsonFingerprint.replaceStringWithBogus(key)
         }
     }
 }
