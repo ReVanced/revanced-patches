@@ -1,7 +1,7 @@
 package app.revanced.patches.instagram.hide.suggestions
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.instagram.hide.explore.replaceStringWithBogus
+import app.revanced.patches.instagram.hide.explore.replaceJsonFieldWithBogus
 
 @Suppress("unused")
 val hideSuggestedContent = bytecodePatch(
@@ -13,7 +13,7 @@ val hideSuggestedContent = bytecodePatch(
 
     execute {
         FEED_ITEM_KEYS_TO_BE_HIDDEN.forEach { key ->
-            feedItemParseFromJsonFingerprint.replaceStringWithBogus(key)
+            feedItemParseFromJsonFingerprint.replaceJsonFieldWithBogus(key)
         }
     }
 }

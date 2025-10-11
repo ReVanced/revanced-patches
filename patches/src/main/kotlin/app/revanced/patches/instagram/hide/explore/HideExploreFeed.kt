@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 context(BytecodePatchContext)
-internal fun Fingerprint.replaceStringWithBogus(
+internal fun Fingerprint.replaceJsonFieldWithBogus(
     key: String,
 ) {
     val targetStringIndex = stringMatches!!.first { match -> match.string == key }.index
@@ -34,6 +34,6 @@ val hideExploreFeedPatch = bytecodePatch(
     compatibleWith("com.instagram.android")
 
     execute {
-        exploreResponseJsonParserFingerprint.replaceStringWithBogus(EXPLORE_KEY_TO_BE_HIDDEN)
+        exploreResponseJsonParserFingerprint.replaceJsonFieldWithBogus(EXPLORE_KEY_TO_BE_HIDDEN)
     }
 }
