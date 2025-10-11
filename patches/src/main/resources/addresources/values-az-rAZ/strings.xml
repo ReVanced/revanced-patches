@@ -25,10 +25,10 @@ Second \"item\" text"</string>
   <string name="revanced_custom_branding_name_title">Tətbiq adı</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
   <string name="revanced_custom_branding_name_entry_5">Fərdi</string>
-  <string name="revanced_custom_branding_icon_title">Tətbiq ikonu</string>
+  <string name="revanced_custom_branding_icon_title">Tətbiq simvolu</string>
   <string name="revanced_custom_branding_icon_entry_1">Orijinal</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
-  <string name="revanced_custom_branding_icon_entry_3">Ən kiçik ReVanced</string>
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced ən kiçik</string>
   <string name="revanced_custom_branding_icon_entry_4">ReVanced ölçüləndirilmiş</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
   <string name="revanced_custom_branding_icon_entry_5">Fərdi</string>
@@ -1619,13 +1619,13 @@ Məhdudiyyətlər:
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="revanced_spoof_video_streams_av1_title">Android VR AV1-ə icazə ver</string>
-  <string name="revanced_spoof_video_streams_av1_summary_on">"Video kodek AVC (H.264), VP9 və ya AV1-dir
+  <string name="revanced_spoof_video_streams_av1_summary_on">"Video kodlayıcı AVC (H.264), VP9 və ya AV1-dir
 
-Oxutma kəsilə bilər və ya kadrlar atıla bilər"</string>
-  <string name="revanced_spoof_video_streams_av1_summary_off">Video kodek AVC (H.264) və ya VP9-dur</string>
-  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Bu ayarı aktivləşdirmək proqram təminatı AV1 dekodlaşdırmasından istifadə edə bilər.
+Oynatma ilişə bilər və ya kadrlar buraxıla bilər"</string>
+  <string name="revanced_spoof_video_streams_av1_summary_off">Video kodlayıcı AVC (H.264) və ya VP9-dur</string>
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Bu tənzimləməni aktivləşdirmə proqram təminatlı AV1 kodlayıcı istifadə edə bilər.
 
-AV1 ilə video oxutma kəsilə bilər və ya kadrlar atıla bilər."</string>
+Video oynatma AV1 ilə ilişə bilər və ya kadrlar buraxıla bilər."</string>
   <string name="revanced_spoof_video_streams_about_title">Saxtakarlıq yan təsirləri</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Təcrübi qəbuledici və hər vaxt işləməyi dayandıra bilər</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video 01:00-da dayana bilər və ya bəzi bölgələrdə mövcud olmaya bilər</string>

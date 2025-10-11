@@ -21,7 +21,6 @@ import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.removeFromParent
 import app.revanced.util.returnEarly
 import org.w3c.dom.Element
-import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 import java.io.File
 import java.util.logging.Logger
@@ -106,6 +105,7 @@ internal fun baseCustomBrandingPatch(
 
     dependsOn(
         addResourcesPatch,
+
         bytecodePatch {
             execute {
                 mainActivityOnCreateFingerprint.method.addInstruction(
@@ -201,6 +201,135 @@ internal fun baseCustomBrandingPatch(
             )
         }
 
+        document("AndroidManifest.xml").use { document ->
+            // Create launch aliases that can be programmatically selected in app.
+            fun createAlias(
+                aliasName: String,
+                iconMipmapName: String,
+                appNameIndex: Int,
+                useCustomName: Boolean,
+                enabled: Boolean,
+                intents: NodeList
+            ): Element {
+                val label = if (useCustomName) {
+                    if (customName == null) {
+                        "Custom" // Dummy text, and normally cannot be seen.
+                    } else {
+                        customName!!
+                    }
+                } else if (appNameIndex == 1) {
+                    // Indexing starts at 1.
+                    originalAppName
+                } else {
+                    "@string/revanced_custom_branding_name_entry_$appNameIndex"
+                }
+                val alias = document.createElement("activity-alias")
+                alias.setAttribute("android:name", aliasName)
+                alias.setAttribute("android:enabled", enabled.toString())
+                alias.setAttribute("android:exported", "true")
+                alias.setAttribute("android:icon", "@mipmap/$iconMipmapName")
+                alias.setAttribute("android:label", label)
+                alias.setAttribute("android:targetActivity", mainActivityName)
+
+                // Copy all intents from the original alias so long press actions still work.
+                if (copyExistingIntentsToAliases) {
+                    for (i in 0 until intents.length) {
+                        alias.appendChild(
+                            intents.item(i).cloneNode(true)
+                        )
+                    }
+                } else {
+                    val intentFilter = document.createElement("intent-filter").apply {
+                        val action = document.createElement("action")
+                        action.setAttribute("android:name", "android.intent.action.MAIN")
+                        appendChild(action)
+
+                        val category = document.createElement("category")
+                        category.setAttribute("android:name", "android.intent.category.LAUNCHER")
+                        appendChild(category)
+                    }
+                    alias.appendChild(intentFilter)
+                }
+
+                return alias
+            }
+
+            val application = document.getElementsByTagName("application").item(0) as Element
+            val intentFilters = document.childNodes.findElementByAttributeValueOrThrow(
+                "android:name",
+                activityAliasNameWithIntents
+            ).childNodes
+
+            // The YT application name can appear in some places along side the system
+            // YouTube app, such as the settings app list and in the "open with" file picker.
+            // Because the YouTube app cannot be completely uninstalled and only disabled,
+            // use a custom name for this situation to disambiguate which app is which.
+            application.setAttribute(
+                "android:label",
+                "@string/revanced_custom_branding_name_entry_2"
+            )
+
+            for (appNameIndex in 1 .. numberOfPresetAppNames) {
+                fun aliasName(name: String): String = ".revanced_" + name + '_' + appNameIndex
+
+                val useCustomNameLabel = (useCustomName && appNameIndex == numberOfPresetAppNames)
+
+                // Original icon.
+                application.appendChild(
+                    createAlias(
+                        aliasName = aliasName(ORIGINAL_USER_ICON_STYLE_NAME),
+                        iconMipmapName = originalLauncherIconName,
+                        appNameIndex = appNameIndex,
+                        useCustomName = useCustomNameLabel,
+                        enabled = (appNameIndex == 1),
+                        intentFilters
+                    )
+                )
+
+                // Bundled icons.
+                iconStyleNames.forEachIndexed { index, style ->
+                    application.appendChild(
+                        createAlias(
+                            aliasName = aliasName(style),
+                            iconMipmapName = LAUNCHER_RESOURCE_NAME_PREFIX + style,
+                            appNameIndex = appNameIndex,
+                            useCustomName = useCustomNameLabel,
+                            enabled = false,
+                            intentFilters
+                        )
+                    )
+                }
+
+                // User provided custom icon.
+                //
+                // Must add all aliases even if the user did not provide a custom icon of their own.
+                // This is because if the user installs with an option, then repatches without the option,
+                // the alias must still exist because if it was previously enabled and then it's removed
+                // the app will become broken and cannot launch. Even if the app data is cleared
+                // it still cannot be launched and the only fix is to uninstall the app.
+                // To prevent this, always include all aliases and use dummy data if needed.
+                application.appendChild(
+                    createAlias(
+                        aliasName = aliasName(CUSTOM_USER_ICON_STYLE_NAME),
+                        iconMipmapName = LAUNCHER_RESOURCE_NAME_PREFIX + CUSTOM_USER_ICON_STYLE_NAME,
+                        appNameIndex = appNameIndex,
+                        useCustomName = useCustomNameLabel,
+                        enabled = false,
+                        intentFilters
+                    )
+                )
+            }
+
+            // Remove the main action from the original alias, otherwise two apps icons
+            // can be shown in the launcher. Can only be done after adding the new aliases.
+            intentFilters.findElementByAttributeValueOrThrow(
+                "android:name",
+                "android.intent.action.MAIN"
+            ).removeFromParent()
+        }
+
+        // Copy custom icons last, so if the user enters an invalid icon path
+        // and an exception is thrown then the critical manifest changes are still made.
         if (useCustomIcon) {
             // Copy user provided files
             val iconPathFile = File(customIcon!!.trim())
@@ -261,125 +390,6 @@ internal fun baseCustomBrandingPatch(
                 throw PatchException("Could not find any replacement images in " +
                         "patch option path: " + iconPathFile.absolutePath)
             }
-        }
-
-        document("AndroidManifest.xml").use { document ->
-            // Create launch aliases that can be programmatically selected in app.
-            fun createAlias(
-                aliasName: String,
-                iconMipmapName: String,
-                appNameIndex: Int,
-                useCustomName: Boolean,
-                enabled: Boolean,
-                intents: NodeList
-            ): Element {
-                val label = if (useCustomName) {
-                    if (customName == null) {
-                        "Custom" // Dummy text, and normally cannot be seen.
-                    } else {
-                        customName!!
-                    }
-                } else if (appNameIndex == 1) {
-                    // Indexing starts at 1.
-                    originalAppName
-                } else {
-                    "@string/revanced_custom_branding_name_entry_$appNameIndex"
-                }
-                val alias = document.createElement("activity-alias")
-                alias.setAttribute("android:name", aliasName)
-                alias.setAttribute("android:enabled", enabled.toString())
-                alias.setAttribute("android:exported", "true")
-                alias.setAttribute("android:icon", "@mipmap/$iconMipmapName")
-                alias.setAttribute("android:label", label)
-                alias.setAttribute("android:targetActivity", mainActivityName)
-
-                // Copy all intents from the original alias so long press actions still work.
-                if (copyExistingIntentsToAliases) {
-                    for (i in 0 until intents.length) {
-                        alias.appendChild(
-                            intents.item(i).cloneNode(true)
-                        )
-                    }
-                } else {
-                    val intentFilter = document.createElement("intent-filter").apply {
-                        val action = document.createElement("action")
-                        action.setAttribute("android:name", "android.intent.action.MAIN")
-                        appendChild(action)
-
-                        val category = document.createElement("category")
-                        category.setAttribute("android:name", "android.intent.category.LAUNCHER")
-                        appendChild(category)
-                    }
-                    alias.appendChild(intentFilter)
-                }
-
-                return alias
-            }
-
-            val intentFilters = document.childNodes.findElementByAttributeValueOrThrow(
-                "android:name",
-                activityAliasNameWithIntents
-            ).childNodes
-
-            val application = document.getElementsByTagName("application").item(0) as Element
-
-            for (appNameIndex in 1 .. numberOfPresetAppNames) {
-                fun aliasName(name: String): String = ".revanced_" + name + '_' + appNameIndex
-
-                val useCustomNameLabel = (useCustomName && appNameIndex == numberOfPresetAppNames)
-
-                // Original icon.
-                application.appendChild(
-                    createAlias(
-                        aliasName = aliasName(ORIGINAL_USER_ICON_STYLE_NAME),
-                        iconMipmapName = originalLauncherIconName,
-                        appNameIndex = appNameIndex,
-                        useCustomName = useCustomNameLabel,
-                        enabled = (appNameIndex == 1),
-                        intentFilters
-                    )
-                )
-
-                // Bundled icons.
-                iconStyleNames.forEachIndexed { index, style ->
-                    application.appendChild(
-                        createAlias(
-                            aliasName = aliasName(style),
-                            iconMipmapName = LAUNCHER_RESOURCE_NAME_PREFIX + style,
-                            appNameIndex = appNameIndex,
-                            useCustomName = useCustomNameLabel,
-                            enabled = false,
-                            intentFilters
-                        )
-                    )
-                }
-
-                // User provided custom icon.
-                //
-                // Must add all aliases even if the user did not provide a custom icon of their own.
-                // This is because if the user installs with an option, then repatches without the option,
-                // the alias must still exist because if it was previously enabled and then it's removed
-                // the app will become broken and cannot launch. Even if the app data is cleared
-                // it still cannot be launched and the only fix is to uninstall the app.
-                // To prevent this, always include all aliases and use dummy data if needed.
-                application.appendChild(
-                    createAlias(
-                        aliasName = aliasName(CUSTOM_USER_ICON_STYLE_NAME),
-                        iconMipmapName = LAUNCHER_RESOURCE_NAME_PREFIX + CUSTOM_USER_ICON_STYLE_NAME,
-                        appNameIndex = appNameIndex,
-                        useCustomName = useCustomNameLabel,
-                        enabled = false,
-                        intentFilters
-                    )
-                )
-            }
-
-            // Remove the main action from the original alias, otherwise two apps icons
-            // can be shown in the launcher. Can only be done after adding the new aliases.
-            intentFilters.findElementByAttributeValueOrThrow(
-                "android:name",
-                "android.intent.action.MAIN"
-            ).removeFromParent()
         }
 
         executeBlock()

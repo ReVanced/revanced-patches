@@ -25,11 +25,11 @@ Second \"item\" text"</string>
   <string name="revanced_custom_branding_name_title">Sovelluksen nimi</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
   <string name="revanced_custom_branding_name_entry_5">Mukautettu</string>
-  <string name="revanced_custom_branding_icon_title">Sovelluksen kuvake</string>
+  <string name="revanced_custom_branding_icon_title">Sovelluskuvake</string>
   <string name="revanced_custom_branding_icon_entry_1">Alkuperäinen</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
-  <string name="revanced_custom_branding_icon_entry_3">ReVanced-minimaalinen</string>
-  <string name="revanced_custom_branding_icon_entry_4">ReVanced skaalattu</string>
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced, minimaalinen</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced, skaalattu</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
   <string name="revanced_custom_branding_icon_entry_5">Mukautettu</string>
   </patch>
@@ -1430,7 +1430,7 @@ Minisoitin voidaan vetää pois näytöltä vasemmalle tai oikealle"</string>
   <string name="revanced_header_logo_entry_1">Oletus</string>
   <string name="revanced_header_logo_entry_2">Tavallinen</string>
   <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
-  <string name="revanced_header_logo_entry_5">ReVanced-minimaalinen</string>
+  <string name="revanced_header_logo_entry_5">ReVanced, minimaalinen</string>
   <string name="revanced_header_logo_entry_6">Mukautettu</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1622,11 +1622,11 @@ Rajoitukset:
   <string name="revanced_spoof_video_streams_av1_title">Salli Android VR AV1</string>
   <string name="revanced_spoof_video_streams_av1_summary_on">"Videokoodekki on AVC (H.264), VP9 tai AV1
 
-Toisto voi nykiä tai pudottaa kehyksiä"</string>
+Toisto saattaa pätkiä"</string>
   <string name="revanced_spoof_video_streams_av1_summary_off">Videokoodekki on AVC (H.264) tai VP9</string>
-  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Tämän asetuksen ottaminen käyttöön saattaa käyttää ohjelmistopohjaista AV1-dekoodausta.
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"Tämän asetuksen käyttöönotto saattaa käyttää ohjelmistopohjaista AV1-dekoodausta.
 
-AV1-videon toisto saattaa pätkiä tai pudottaa kuvia."</string>
+AV1-videon toisto saattaa pätkiä."</string>
   <string name="revanced_spoof_video_streams_about_title">Naamioimisen sivuvaikutukset</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Kokeellinen asiakasohjelma, joka saattaa lakata toimimasta milloin tahansa</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Video saattaa pysähtyä aikaan 1:00, tai ei välttämättä ole saatavilla joillakin alueilla</string>
