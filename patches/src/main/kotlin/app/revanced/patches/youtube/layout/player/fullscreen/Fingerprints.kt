@@ -1,21 +1,49 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.literal
+import app.revanced.patcher.opcode
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
-internal const val OPEN_VIDEOS_FULLSCREEN_PORTRAIT_FEATURE_FLAG = 45666112L
-
-internal val openVideosFullscreenPortraitFingerprint = fingerprint {
+/**
+ * 19.46+
+ */
+internal val openVideosFullscreenPortraitFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "Lj\$/util/Optional;")
-    literal {
-        OPEN_VIDEOS_FULLSCREEN_PORTRAIT_FEATURE_FLAG
-    }
+    instructions(
+        opcode(Opcode.MOVE_RESULT), // Conditional check to modify.
+        // Open videos fullscreen portrait feature flag.
+        literal(45666112L, maxAfter = 5), // Cannot be more than 5.
+        opcode(Opcode.MOVE_RESULT, maxAfter = 10),
+    )
 }
 
-internal val openVideosFullscreenHookPatchExtensionFingerprint = fingerprint {
+/**
+ * Pre 19.46.
+ */
+internal val openVideosFullscreenPortraitLegacyFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters("L", "Lj\$/util/Optional;")
+    opcodes(
+        Opcode.GOTO,
+        Opcode.SGET_OBJECT,
+        Opcode.GOTO,
+        Opcode.SGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT,
+        Opcode.IF_EQ,
+        Opcode.IF_EQ,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT  // Conditional check to modify.
+    )
+}
+
+internal val openVideosFullscreenHookPatchExtensionFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Z")
     parameters()

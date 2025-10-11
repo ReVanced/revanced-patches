@@ -20,15 +20,6 @@ public class OpenShortsInRegularPlayerPatch {
         REGULAR_PLAYER_FULLSCREEN
     }
 
-    static {
-        if (!VersionCheckPatch.IS_19_46_OR_GREATER
-                && Settings.SHORTS_PLAYER_TYPE.get() == ShortsPlayerType.REGULAR_PLAYER_FULLSCREEN) {
-            // User imported newer settings to an older app target.
-            Logger.printInfo(() -> "Resetting " + Settings.SHORTS_PLAYER_TYPE);
-            Settings.SHORTS_PLAYER_TYPE.resetToDefault();
-        }
-    }
-
     private static WeakReference<Activity> mainActivityRef = new WeakReference<>(null);
 
     private static volatile boolean overrideBackPressToExit;

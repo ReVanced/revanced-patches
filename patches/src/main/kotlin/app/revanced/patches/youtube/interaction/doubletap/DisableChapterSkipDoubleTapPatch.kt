@@ -28,7 +28,6 @@ val disableDoubleTapActionsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "20.07.39",
             "20.13.41",
             "20.14.43",
         )
@@ -41,7 +40,7 @@ val disableDoubleTapActionsPatch = bytecodePatch(
             SwitchPreference("revanced_disable_chapter_skip_double_tap"),
         )
 
-        val doubleTapInfoGetSeekSourceFingerprint = fingerprint {
+        val doubleTapInfoGetSeekSourceFingerprint by fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             parameters("Z")
             returns(seekTypeEnumFingerprint.originalClassDef.type)
@@ -76,9 +75,4 @@ val disableDoubleTapActionsPatch = bytecodePatch(
             """
         )
     }
-}
-
-@Deprecated("Patch was renamed", ReplaceWith("disableDoubleTapActionsPatch"))
-val disableChapterSkipDoubleTapPatch = bytecodePatch {
-    dependsOn(disableDoubleTapActionsPatch)
 }

@@ -2,7 +2,7 @@ package app.revanced.patches.music.misc.settings
 
 import app.revanced.patcher.fingerprint
 
-internal val googleApiActivityFingerprint = fingerprint {
+internal val googleApiActivityFingerprint by fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
     custom { method, classDef ->

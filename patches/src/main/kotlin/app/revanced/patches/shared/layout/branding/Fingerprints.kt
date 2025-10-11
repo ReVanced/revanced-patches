@@ -3,7 +3,7 @@ package app.revanced.patches.shared.layout.branding
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val numberOfPresetAppNamesExtensionFingerprint = fingerprint {
+internal val numberOfPresetAppNamesExtensionFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("I")
     parameters()

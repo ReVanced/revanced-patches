@@ -9,6 +9,9 @@ import app.revanced.patches.shared.PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN
 import app.revanced.patches.shared.PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN
 import app.revanced.util.returnEarly
 
+internal const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/instagram/misc/share/domain/ChangeLinkSharingDomainPatch;"
+
 @Suppress("unused")
 val changeLinkSharingDomainPatch = bytecodePatch(
     name = PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN,

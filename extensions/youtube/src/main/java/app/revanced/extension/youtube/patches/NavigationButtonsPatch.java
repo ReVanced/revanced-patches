@@ -65,6 +65,13 @@ public final class NavigationButtonsPatch {
     /**
      * Injection point.
      */
+    public static boolean useAnimatedNavigationButtons(boolean original) {
+        return Settings.NAVIGATION_BAR_ANIMATIONS.get();
+    }
+
+    /**
+     * Injection point.
+     */
     public static boolean useTranslucentNavigationStatusBar(boolean original) {
         // Must check Android version, as forcing this on Android 11 or lower causes app hang and crash.
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {

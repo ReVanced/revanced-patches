@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.youtube.settings.Settings;
@@ -115,7 +116,7 @@ public final class MiniplayerPatch {
      * Resource is not present in older targets, and this field will be zero.
      */
     private static final int MODERN_OVERLAY_SUBTITLE_TEXT
-            = Utils.getResourceIdentifier("modern_miniplayer_subtitle_text", "id");
+            = Utils.getResourceIdentifier(ResourceType.ID, "modern_miniplayer_subtitle_text");
 
     private static final MiniplayerType CURRENT_TYPE = Settings.MINIPLAYER_TYPE.get();
 
