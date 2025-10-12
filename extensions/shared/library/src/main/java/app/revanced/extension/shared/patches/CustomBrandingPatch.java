@@ -78,7 +78,7 @@ public class CustomBrandingPatch {
         try {
             if (notificationSmallIcon != 0) {
                 builder.setSmallIcon(notificationSmallIcon)
-                        .setColor(Color.WHITE);
+                        .setColor(Color.BLACK);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "setNotificationIcon failure", ex);
