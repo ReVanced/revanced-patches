@@ -2,6 +2,7 @@ package app.revanced.patches.shared.layout.branding
 
 import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.ResourcePatchBuilder
@@ -12,14 +13,24 @@ import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.copyResources
 import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.findInstructionIndicesReversedOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.removeFromParent
 import app.revanced.util.returnEarly
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import org.w3c.dom.Element
 import org.w3c.dom.NodeList
 import java.io.File
@@ -47,13 +58,15 @@ private const val LAUNCHER_RESOURCE_NAME_PREFIX = "revanced_launcher_"
 private const val LAUNCHER_ADAPTIVE_BACKGROUND_PREFIX = "revanced_adaptive_background_"
 private const val LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX = "revanced_adaptive_foreground_"
 private const val LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX = "revanced_adaptive_monochrome_"
+private const val NOTIFICATION_ICON_SMALL = "revanced_notification_icon_small"
 
 private val USER_CUSTOM_ADAPTIVE_FILE_NAMES = arrayOf(
     "$LAUNCHER_ADAPTIVE_BACKGROUND_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.png",
     "$LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.png"
 )
 
-private const val USER_CUSTOM_MONOCHROME_NAME = "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml"
+private const val USER_CUSTOM_MONOCHROME_FILE_NAME = "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml"
+private const val USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME = "${NOTIFICATION_ICON_SMALL}_$CUSTOM_USER_ICON_STYLE_NAME.xml"
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/patches/CustomBrandingPatch;"
 
@@ -96,8 +109,9 @@ internal fun baseCustomBrandingPatch(
             Each of the folders must contain all of the following files:
             ${USER_CUSTOM_ADAPTIVE_FILE_NAMES.joinToString("\n")}
 
-            Optionally, the path can contain a 'drawable' folder with the monochrome icon file:
-            $USER_CUSTOM_MONOCHROME_NAME
+            Optionally, the path contains a 'drawable' folder with any of the monochrome icon files:
+            $USER_CUSTOM_MONOCHROME_FILE_NAME
+            $USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME
         """.trimIndentMultiline()
     )
 
@@ -105,7 +119,7 @@ internal fun baseCustomBrandingPatch(
 
     dependsOn(
         addResourcesPatch,
-
+        resourceMappingPatch,
         bytecodePatch {
             execute {
                 mainActivityOnCreateFingerprint.method.addInstruction(
@@ -114,6 +128,34 @@ internal fun baseCustomBrandingPatch(
                 )
 
                 numberOfPresetAppNamesExtensionFingerprint.method.returnEarly(numberOfPresetAppNames)
+
+                notificationFingerprint.method.apply {
+                    // Find the field name of the notification builder. Field is an Object type.
+                    val builderCastIndex = indexOfFirstInstructionOrThrow {
+                        val reference = getReference<TypeReference>()
+                        opcode == Opcode.CHECK_CAST &&
+                                reference?.type == "Landroid/app/Notification\$Builder;"
+                    }
+                    val getBuilderIndex = indexOfFirstInstructionReversedOrThrow(builderCastIndex) {
+                        getReference<FieldReference>()?.type == "Ljava/lang/Object;"
+                    }
+                    val builderFieldName = getInstruction<ReferenceInstruction>(getBuilderIndex)
+                        .getReference<FieldReference>()
+
+                    findInstructionIndicesReversedOrThrow(
+                        Opcode.RETURN_VOID
+                    ).forEach { index ->
+                        addInstructionsAtControlFlowLabel(
+                            index,
+                            """
+                                move-object/from16 v0, p0
+                                iget-object v0, v0, $builderFieldName
+                                check-cast v0, Landroid/app/Notification${'$'}Builder;
+                                invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->setNotificationIcon(Landroid/app/Notification${'$'}Builder;)V
+                            """
+                        )
+                    }
+                }
             }
         }
     )
@@ -176,20 +218,27 @@ internal fun baseCustomBrandingPatch(
             )
         }
 
-        // Copy template user icon, because the aliases must be added even if no user icon is provided.
         copyResources(
             "custom-branding",
+            // ReVanced notification icon (all branding styles use the same icon).
+            ResourceGroup(
+                "drawable",
+                "$NOTIFICATION_ICON_SMALL.xml"
+            ),
+
+            // Copy template user icon, because the aliases must be added even if no user icon is provided.
+            ResourceGroup(
+                "drawable",
+                USER_CUSTOM_MONOCHROME_FILE_NAME,
+                USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME
+            ),
             ResourceGroup(
                 "mipmap-anydpi",
                 "$LAUNCHER_RESOURCE_NAME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml",
-            ),
-            ResourceGroup(
-                "drawable",
-                "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml",
             )
         )
 
-        // Copy template icon png files.
+        // Copy template icon files.
         mipmapDirectories.forEach { dpi ->
             copyResources(
                 "custom-branding",
@@ -375,15 +424,20 @@ internal fun baseCustomBrandingPatch(
                 }
             }
 
-            // Copy monochrome if it provided.
-            val monochromeRelativePath = "drawable/$USER_CUSTOM_MONOCHROME_NAME"
-            val monochromeFile = iconPathFile.resolve(monochromeRelativePath)
-            if (monochromeFile.exists()) {
-                monochromeFile.copyTo(
-                    target = resourceDirectory.resolve(monochromeRelativePath),
-                    overwrite = true
-                )
-                copiedFiles = true
+            // Copy monochrome and small notification icon if it provided.
+            arrayOf(
+                USER_CUSTOM_MONOCHROME_FILE_NAME,
+                USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME
+            ).forEach { fileName ->
+                val relativePath = "drawable/$fileName"
+                val file = iconPathFile.resolve(relativePath)
+                if (file.exists()) {
+                    file.copyTo(
+                        target = resourceDirectory.resolve(relativePath),
+                        overwrite = true
+                    )
+                    copiedFiles = true
+                }
             }
 
             if (!copiedFiles) {
