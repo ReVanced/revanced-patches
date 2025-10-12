@@ -63,7 +63,7 @@ public class CustomBrandingPatch {
             }
 
             // Original icon is quantum_ic_video_youtube_white_24
-            notificationSmallIcon = Utils.getResourceIdentifier(fileName, "drawable");
+            notificationSmallIcon = Utils.getResourceIdentifier(fileName, "mipmap");
             if (notificationSmallIcon == 0) {
                 Logger.printException(() -> "Could not load notification small icon");
             }

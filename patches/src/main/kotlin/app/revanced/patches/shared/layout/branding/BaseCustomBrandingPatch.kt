@@ -220,9 +220,9 @@ internal fun baseCustomBrandingPatch(
 
         copyResources(
             "custom-branding",
-            // ReVanced notification icon (all branding styles use the same icon).
+            // ReVanced notification icon (all preset styles use the same icon).
             ResourceGroup(
-                "drawable",
+                "mipmap-anydpi",
                 "$NOTIFICATION_ICON_SMALL.xml"
             ),
 
@@ -230,11 +230,12 @@ internal fun baseCustomBrandingPatch(
             ResourceGroup(
                 "drawable",
                 USER_CUSTOM_MONOCHROME_FILE_NAME,
-                USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME
+
             ),
             ResourceGroup(
                 "mipmap-anydpi",
                 "$LAUNCHER_RESOURCE_NAME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml",
+                USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME
             )
         )
 
