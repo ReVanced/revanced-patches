@@ -58,7 +58,7 @@ private const val LAUNCHER_RESOURCE_NAME_PREFIX = "revanced_launcher_"
 private const val LAUNCHER_ADAPTIVE_BACKGROUND_PREFIX = "revanced_adaptive_background_"
 private const val LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX = "revanced_adaptive_foreground_"
 private const val LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX = "revanced_adaptive_monochrome_"
-private const val NOTIFICATION_ICON_SMALL = "revanced_notification_icon_small"
+private const val NOTIFICATION_ICON_PREFIX = "revanced_notification_icon_"
 
 private val USER_CUSTOM_ADAPTIVE_FILE_NAMES = arrayOf(
     "$LAUNCHER_ADAPTIVE_BACKGROUND_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.png",
@@ -66,7 +66,7 @@ private val USER_CUSTOM_ADAPTIVE_FILE_NAMES = arrayOf(
 )
 
 private const val USER_CUSTOM_MONOCHROME_FILE_NAME = "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml"
-private const val USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME = "${NOTIFICATION_ICON_SMALL}_$CUSTOM_USER_ICON_STYLE_NAME.xml"
+private const val USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME = "$NOTIFICATION_ICON_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml"
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/patches/CustomBrandingPatch;"
 
@@ -209,7 +209,8 @@ internal fun baseCustomBrandingPatch(
                     "drawable",
                     "$LAUNCHER_ADAPTIVE_BACKGROUND_PREFIX$style.xml",
                     "$LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX$style.xml",
-                    "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$style.xml"
+                    "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$style.xml",
+                    "$NOTIFICATION_ICON_PREFIX$style.xml"
                 ),
                 ResourceGroup(
                     "mipmap-anydpi",
@@ -218,24 +219,17 @@ internal fun baseCustomBrandingPatch(
             )
         }
 
+        // Copy template user icon, because the aliases must be added even if no user icon is provided.
         copyResources(
             "custom-branding",
-            // ReVanced notification icon (all preset styles use the same icon).
-            ResourceGroup(
-                "mipmap-anydpi",
-                "$NOTIFICATION_ICON_SMALL.xml"
-            ),
-
-            // Copy template user icon, because the aliases must be added even if no user icon is provided.
             ResourceGroup(
                 "drawable",
                 USER_CUSTOM_MONOCHROME_FILE_NAME,
-
+                USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME
             ),
             ResourceGroup(
                 "mipmap-anydpi",
-                "$LAUNCHER_RESOURCE_NAME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml",
-                USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME
+                "$LAUNCHER_RESOURCE_NAME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml"
             )
         )
 
