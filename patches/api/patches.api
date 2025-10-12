@@ -764,6 +764,14 @@ public final class app/revanced/patches/reddit/misc/tracking/url/SanitizeUrlQuer
 	public static final fun getSanitizeUrlQueryPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/samsungradio/misc/fix/crash/AddManifestPermissionsPatchKt {
+	public static final fun getAddManifestPermissionsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
+public final class app/revanced/patches/samsungradio/misc/fix/crash/FixCrashPatchKt {
+	public static final fun getFixCrashPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/samsungradio/restrictions/device/BypassDeviceChecksPatchKt {
 	public static final fun getBypassDeviceChecksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
