@@ -1,12 +1,12 @@
 @file:Suppress("unused")
 
-package app.revanced.patches.samsungradio.misc.fix.crash
+package app.revanced.patches.samsung.radio.misc.fix.crash
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.samsungradio.restrictions.device.bypassDeviceChecksPatch
+import app.revanced.patches.samsung.radio.restrictions.device.bypassDeviceChecksPatch
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow

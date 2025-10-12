@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package app.revanced.patches.samsungradio.misc.fix.crash
+package app.revanced.patches.samsung.radio.misc.fix.crash
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patches.all.misc.transformation.IMethodCall

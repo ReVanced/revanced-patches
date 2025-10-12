@@ -1,4 +1,4 @@
-package app.revanced.patches.samsungradio.restrictions.device
+package app.revanced.patches.samsung.radio.restrictions.device
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patches.all.misc.transformation.IMethodCall

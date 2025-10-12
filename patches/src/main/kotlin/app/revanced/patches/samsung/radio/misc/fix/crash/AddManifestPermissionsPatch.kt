@@ -1,4 +1,4 @@
-package app.revanced.patches.samsungradio.misc.fix.crash
+package app.revanced.patches.samsung.radio.misc.fix.crash
 
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.asSequence

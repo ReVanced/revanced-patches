@@ -1,4 +1,4 @@
-package app.revanced.patches.samsungradio.restrictions.device
+package app.revanced.patches.samsung.radio.restrictions.device
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
