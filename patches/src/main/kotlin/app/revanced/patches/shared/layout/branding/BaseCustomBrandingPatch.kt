@@ -165,43 +165,45 @@ internal fun baseCustomBrandingPatch(
                     }
                 }
             }
+        },
+        resourcePatch {
+            // Use a second resource patch so patching doesn't show custom branding finishing last.
+            finalize {
+                val useCustomName = customName != null
+                val useCustomIcon = customIcon != null
+
+                if (setOrGetFallbackPackageName(originalAppPackageName) == originalAppPackageName) {
+                    if (useCustomName || useCustomIcon) {
+                        Logger.getLogger(this::class.java.name).warning(
+                            "Custom branding does not work with root installation. No changes applied."
+                        )
+                    }
+                    return@finalize
+                }
+
+                preferenceScreen.addPreferences(
+                    if (useCustomName) {
+                        ListPreference(
+                            key = "revanced_custom_branding_name",
+                            entriesKey = "revanced_custom_branding_name_custom_entries",
+                            entryValuesKey = "revanced_custom_branding_name_custom_entry_values"
+                        )
+                    } else {
+                        ListPreference("revanced_custom_branding_name")
+                    },
+                    if (useCustomIcon) {
+                        ListPreference(
+                            key = "revanced_custom_branding_icon",
+                            entriesKey = "revanced_custom_branding_icon_custom_entries",
+                            entryValuesKey = "revanced_custom_branding_icon_custom_entry_values"
+                        )
+                    } else {
+                        ListPreference("revanced_custom_branding_icon")
+                    }
+                )
+            }
         }
     )
-
-    finalize {
-        val useCustomName = customName != null
-        val useCustomIcon = customIcon != null
-
-        if (setOrGetFallbackPackageName(originalAppPackageName) == originalAppPackageName) {
-            if (useCustomName || useCustomIcon) {
-                Logger.getLogger(this::class.java.name).warning(
-                    "Custom branding does not work with root installation. No changes applied."
-                )
-            }
-            return@finalize
-        }
-
-        preferenceScreen.addPreferences(
-            if (useCustomName) {
-                ListPreference(
-                    key = "revanced_custom_branding_name",
-                    entriesKey = "revanced_custom_branding_name_custom_entries",
-                    entryValuesKey = "revanced_custom_branding_name_custom_entry_values"
-                )
-            } else {
-                ListPreference("revanced_custom_branding_name")
-            },
-            if (useCustomIcon) {
-                ListPreference(
-                    key = "revanced_custom_branding_icon",
-                    entriesKey = "revanced_custom_branding_icon_custom_entries",
-                    entryValuesKey = "revanced_custom_branding_icon_custom_entry_values"
-                )
-            } else {
-                ListPreference("revanced_custom_branding_icon")
-            }
-        )
-    }
 
     execute {
         addResources("shared", "layout.branding.baseCustomBrandingPatch")
