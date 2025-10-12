@@ -78,7 +78,7 @@ internal fun baseCustomBrandingPatch(
     originalLauncherIconName: String,
     originalAppName: String,
     originalAppPackageName: String,
-    copyExistingIntentsToAliases: Boolean,
+    isYouTubeMusic: Boolean,
     numberOfPresetAppNames: Int,
     mainActivityOnCreateFingerprint: Fingerprint,
     mainActivityName: String,
@@ -130,15 +130,23 @@ internal fun baseCustomBrandingPatch(
                 numberOfPresetAppNamesExtensionFingerprint.method.returnEarly(numberOfPresetAppNames)
 
                 notificationFingerprint.method.apply {
-                    // Find the field name of the notification builder. Field is an Object type.
-                    val builderCastIndex = indexOfFirstInstructionOrThrow {
-                        val reference = getReference<TypeReference>()
-                        opcode == Opcode.CHECK_CAST &&
-                                reference?.type == "Landroid/app/Notification\$Builder;"
+                    val getBuilderIndex = if (isYouTubeMusic) {
+                        // YT Music the field is not a plain object type.
+                        indexOfFirstInstructionOrThrow {
+                            getReference<FieldReference>()?.type == "Landroid/app/Notification\$Builder;"
+                        }
+                    } else {
+                        // Find the field name of the notification builder. Field is an Object type.
+                        val builderCastIndex = indexOfFirstInstructionOrThrow {
+                            val reference = getReference<TypeReference>()
+                            opcode == Opcode.CHECK_CAST &&
+                                    reference?.type == "Landroid/app/Notification\$Builder;"
+                        }
+                        indexOfFirstInstructionReversedOrThrow(builderCastIndex) {
+                            getReference<FieldReference>()?.type == "Ljava/lang/Object;"
+                        }
                     }
-                    val getBuilderIndex = indexOfFirstInstructionReversedOrThrow(builderCastIndex) {
-                        getReference<FieldReference>()?.type == "Ljava/lang/Object;"
-                    }
+
                     val builderFieldName = getInstruction<ReferenceInstruction>(getBuilderIndex)
                         .getReference<FieldReference>()
 
@@ -282,13 +290,7 @@ internal fun baseCustomBrandingPatch(
                 alias.setAttribute("android:targetActivity", mainActivityName)
 
                 // Copy all intents from the original alias so long press actions still work.
-                if (copyExistingIntentsToAliases) {
-                    for (i in 0 until intents.length) {
-                        alias.appendChild(
-                            intents.item(i).cloneNode(true)
-                        )
-                    }
-                } else {
+                if (isYouTubeMusic) {
                     val intentFilter = document.createElement("intent-filter").apply {
                         val action = document.createElement("action")
                         action.setAttribute("android:name", "android.intent.action.MAIN")
@@ -299,6 +301,12 @@ internal fun baseCustomBrandingPatch(
                         appendChild(category)
                     }
                     alias.appendChild(intentFilter)
+                } else {
+                    for (i in 0 until intents.length) {
+                        alias.appendChild(
+                            intents.item(i).cloneNode(true)
+                        )
+                    }
                 }
 
                 return alias
