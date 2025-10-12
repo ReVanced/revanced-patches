@@ -166,48 +166,48 @@ internal fun baseCustomBrandingPatch(
                 }
             }
         },
-        resourcePatch {
-            // Use a second resource patch so patching doesn't show custom branding finishing last.
-            finalize {
-                val useCustomName = customName != null
-                val useCustomIcon = customIcon != null
+    )
 
-                if (setOrGetFallbackPackageName(originalAppPackageName) == originalAppPackageName) {
-                    if (useCustomName || useCustomIcon) {
-                        Logger.getLogger(this::class.java.name).warning(
-                            "Custom branding does not work with root installation. No changes applied."
-                        )
-                    }
-                    return@finalize
-                }
-
-                preferenceScreen.addPreferences(
-                    if (useCustomName) {
-                        ListPreference(
-                            key = "revanced_custom_branding_name",
-                            entriesKey = "revanced_custom_branding_name_custom_entries",
-                            entryValuesKey = "revanced_custom_branding_name_custom_entry_values"
-                        )
-                    } else {
-                        ListPreference("revanced_custom_branding_name")
-                    },
-                    if (useCustomIcon) {
-                        ListPreference(
-                            key = "revanced_custom_branding_icon",
-                            entriesKey = "revanced_custom_branding_icon_custom_entries",
-                            entryValuesKey = "revanced_custom_branding_icon_custom_entry_values"
-                        )
-                    } else {
-                        ListPreference("revanced_custom_branding_icon")
-                    }
+    finalize {
+        // Can only check if app is root installation by checking if change package name patch is in use.
+        // and can only do that in the finalize block here.
+        // The UI preferences cannot be selectively added here, because the settings finalize block
+        // may have already run and the settings are already wrote to file.
+        // Instead, show a warning if any patch option was used (A rooted device launcher ignores the manifest changes),
+        // and the non-functional in-app settings are removed on app startup by extension code.
+        if (customName != null || customIcon != null) {
+            if (setOrGetFallbackPackageName(originalAppPackageName) == originalAppPackageName) {
+                Logger.getLogger(this::class.java.name).warning(
+                    "Custom branding does not work with root installation. No changes applied."
                 )
             }
         }
-    )
+    }
 
     execute {
         addResources("shared", "layout.branding.baseCustomBrandingPatch")
         addResources(addResourcePatchName, "layout.branding.customBrandingPatch")
+
+        preferenceScreen.addPreferences(
+            if (customName != null ) {
+                ListPreference(
+                    key = "revanced_custom_branding_name",
+                    entriesKey = "revanced_custom_branding_name_custom_entries",
+                    entryValuesKey = "revanced_custom_branding_name_custom_entry_values"
+                )
+            } else {
+                ListPreference("revanced_custom_branding_name")
+            },
+            if (customIcon != null) {
+                ListPreference(
+                    key = "revanced_custom_branding_icon",
+                    entriesKey = "revanced_custom_branding_icon_custom_entries",
+                    entryValuesKey = "revanced_custom_branding_icon_custom_entry_values"
+                )
+            } else {
+                ListPreference("revanced_custom_branding_icon")
+            }
+        )
 
         val useCustomName = customName != null
         val useCustomIcon = customIcon != null
@@ -227,7 +227,6 @@ internal fun baseCustomBrandingPatch(
                 )
             )
         }
-
 
         copyResources(
             "custom-branding",
