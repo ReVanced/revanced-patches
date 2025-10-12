@@ -43,27 +43,11 @@ public class CustomBrandingPatch {
          */
         CUSTOM;
 
-        private final String alias;
-
-        BrandingTheme() {
-            alias = name().toLowerCase(Locale.US);
-        }
-
         private String packageAndNameIndexToClassAlias(String packageName, int appIndex) {
             if (appIndex <= 0) {
                 throw new IllegalArgumentException("App index starts at index 1");
             }
-            return packageName + ".revanced_" + alias + '_' + appIndex;
-        }
-
-        private int getNotificationIcon() {
-            // Original icon is quantum_ic_video_youtube_white_24
-            final int iconResource = Utils.getResourceIdentifier(
-                    "revanced_notification_icon_" + alias, "drawable");
-            if (iconResource == 0) {
-                Logger.printException(() -> "Could not load notification small icon");
-            }
-            return iconResource;
+            return packageName + ".revanced_" + name().toLowerCase(Locale.US) + '_' + appIndex;
         }
     }
 
@@ -74,7 +58,16 @@ public class CustomBrandingPatch {
         if (branding == BrandingTheme.ORIGINAL) {
             notificationSmallIcon = 0;
         } else {
-            notificationSmallIcon = branding.getNotificationIcon();
+            // Original icon is quantum_ic_video_youtube_white_24
+            String iconName = "revanced_notification_icon";
+            if (branding == BrandingTheme.CUSTOM) {
+                iconName += "_custom";
+            }
+
+            notificationSmallIcon = Utils.getResourceIdentifier(iconName, "drawable");
+            if (notificationSmallIcon == 0) {
+                Logger.printException(() -> "Could not load notification small icon");
+            }
         }
     }
 
