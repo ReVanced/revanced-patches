@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,7 +84,8 @@ public class CustomBrandingPatch {
     public static void setNotificationIcon(Notification.Builder builder) {
         try {
             if (notificationSmallIcon != 0) {
-                builder.setSmallIcon(notificationSmallIcon);
+                builder.setSmallIcon(notificationSmallIcon)
+                        .setColor(Color.WHITE);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "setNotificationIcon failure", ex);
