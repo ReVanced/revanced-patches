@@ -28,14 +28,13 @@ public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
      * Removes the list of preferences from this fragment, if they exist.
      * @param keys Preference keys.
      */
-    protected void removePreferencesIfRooted(String ... keys) {
+    protected void removePreferences(String ... keys) {
         for (String key : keys) {
             Preference pref = findPreference(key);
             if (pref != null) {
-                Logger.printDebug(() -> "Removing root incompatible preference: " + key);
-                // remove the preference
                 PreferenceGroup parent = pref.getParent();
                 if (parent != null) {
+                    Logger.printDebug(() -> "Removing preference: " + key);
                     parent.removePreference(pref);
                 }
             }

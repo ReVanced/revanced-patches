@@ -38,7 +38,7 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
             // a root install. So instead the non-functional preferences are removed during runtime
             // if the app is mount (root) installation.
             if (GmsCoreSupport.isPackageNameOriginal()) {
-                removePreferencesIfRooted(
+                removePreferences(
                         "revanced_custom_branding_name",
                         "revanced_custom_branding_icon");
             }
