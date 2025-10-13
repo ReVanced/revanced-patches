@@ -78,7 +78,7 @@ public class CustomBrandingPatch {
         try {
             if (notificationSmallIcon != 0) {
                 builder.setSmallIcon(notificationSmallIcon)
-                        .setColor(0x00000000); // Remove YT red tint.
+                        .setColor(Color.TRANSPARENT); // Remove YT red tint.
             }
         } catch (Exception ex) {
             Logger.printException(() -> "setNotificationIcon failure", ex);

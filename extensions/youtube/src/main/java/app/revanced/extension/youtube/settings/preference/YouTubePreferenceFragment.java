@@ -7,6 +7,7 @@ import android.widget.Toolbar;
 import app.revanced.extension.shared.GmsCoreSupport;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
 import app.revanced.extension.youtube.settings.YouTubeActivityHook;
 
@@ -35,12 +36,12 @@ public class YouTubePreferenceFragment extends ToolbarPreferenceFragment {
             // Clunky work around until preferences are custom classes that manage themselves.
             // Custom branding only works with non-root install. But the preferences must be
             // added during patched because of difficulties detecting during patching if it's
-            // a root install. So instead the non-functional preferences are removed during runtime
-            // if the app is mount (root) installation.
+            // a root install. So instead the non-functional preferences are removed during
+            // runtime if the app is mount (root) installation.
             if (GmsCoreSupport.isPackageNameOriginal()) {
                 removePreferences(
-                        "revanced_custom_branding_name",
-                        "revanced_custom_branding_icon");
+                        BaseSettings.CUSTOM_BRANDING_ICON.key,
+                        BaseSettings.CUSTOM_BRANDING_NAME.key);
             }
         } catch (Exception ex) {
             Logger.printException(() -> "initialize failure", ex);
