@@ -31,15 +31,20 @@ val fixCrashPatch = bytecodePatch(
             }
             val notificationPermRegister = getInstruction<OneRegisterInstruction>(notificationPermStrIndex).registerA
 
+            // Find the next "filled-new-array" instruction after it
+            var filledNewArrayIndex = indexOfFirstInstructionOrThrow(notificationPermStrIndex) {
+                opcode == Opcode.FILLED_NEW_ARRAY
+            }
+
             // Find a free register to load our new permission string
-            val phoneStatePermRegister = findFreeRegister(notificationPermStrIndex + 1) // +1 to avoid messing with the previous instruction
+            val phoneStatePermRegister = findFreeRegister(filledNewArrayIndex)
             addInstruction(
                 notificationPermStrIndex,
                 "const-string v$phoneStatePermRegister, \"android.permission.READ_PHONE_STATE\""
             )
 
-            // Replace the next "filled-new-array" instruction with our new arrray
-            val filledNewArrayIndex = indexOfFirstInstructionOrThrow(notificationPermStrIndex) {
+            // Find the new index of "filled-new-array" and replace it with our new array
+            filledNewArrayIndex = indexOfFirstInstructionOrThrow(notificationPermStrIndex) {
                 opcode == Opcode.FILLED_NEW_ARRAY
             }
             replaceInstruction(

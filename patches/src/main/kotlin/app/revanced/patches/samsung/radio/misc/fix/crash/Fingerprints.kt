@@ -18,4 +18,5 @@ internal val permissionRequestListFingerprint = fingerprint {
         "android.permission.READ_MEDIA_AUDIO",
         "android.permission.RECORD_AUDIO"
     )
+    custom { method, _ ->  method.name == "<clinit>" }
 }
