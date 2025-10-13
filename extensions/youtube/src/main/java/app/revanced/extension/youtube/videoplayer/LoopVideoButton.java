@@ -73,7 +73,7 @@ public class LoopVideoButton {
             instance.setIcon(newState
                     ? LOOP_VIDEO_ON
                     : LOOP_VIDEO_OFF);
-            Utils.showToastShort(str(newState
+            Utils.showToastSingle(str(newState
                     ? "revanced_loop_video_button_toast_on"
                     : "revanced_loop_video_button_toast_off"));
         } catch (Exception ex) {

@@ -35,7 +35,7 @@ public class CopyVideoUrlPatch {
             // But if the user copied with a timestamp then show a toast.
             // Unfortunately this will show 2 toasts on Android 13+, but no way around this.
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2 || (withTimestamp && currentVideoTimeInSeconds > 0)) {
-                Utils.showToastShort(withTimestamp && currentVideoTimeInSeconds > 0
+                Utils.showToastSingle(withTimestamp && currentVideoTimeInSeconds > 0
                         ? str("revanced_share_copy_url_timestamp_success")
                         : str("revanced_share_copy_url_success"));
             }

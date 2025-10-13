@@ -79,6 +79,8 @@ public class Utils {
     @Nullable
     private static Boolean isDarkModeEnabled;
 
+    private static Toast currentToast = null;
+
     private Utils() {
     } // utility class
 
@@ -579,32 +581,49 @@ public class Utils {
      * Safe to call from any thread.
      */
     public static void showToastShort(String messageToToast) {
-        showToast(messageToToast, Toast.LENGTH_SHORT);
+        showToast(messageToToast, Toast.LENGTH_SHORT, false);
     }
 
     /**
      * Safe to call from any thread.
      */
     public static void showToastLong(String messageToToast) {
-        showToast(messageToToast, Toast.LENGTH_LONG);
+        showToast(messageToToast, Toast.LENGTH_LONG, false);
+    }
+
+    /**
+     * Show only one toast at a time. Previous toast will be cancelled.
+     * Safe to call from any thread.
+     */
+    public static void showToastSingle(String messageToToast) {
+        showToast(messageToToast, Toast.LENGTH_SHORT, true);
     }
 
     /**
      * Safe to call from any thread.
      *
      * @param messageToToast Message to show.
-     * @param toastDuration Either {@link Toast#LENGTH_SHORT} or {@link Toast#LENGTH_LONG}.
+     * @param toastDuration  Either {@link Toast#LENGTH_SHORT} or {@link Toast#LENGTH_LONG}.
+     * @param singleOnly     If true, only one toast will be shown at a time.
      */
-    public static void showToast(String messageToToast, int toastDuration) {
+    public static void showToast(String messageToToast, int toastDuration, boolean singleOnly) {
         Objects.requireNonNull(messageToToast);
         runOnMainThreadNowOrLater(() -> {
+            if (singleOnly && currentToast != null) {
+                currentToast.cancel();
+            }
+
             Context currentContext = context;
 
             if (currentContext == null) {
                 Logger.printException(() -> "Cannot show toast (context is null): " + messageToToast);
             } else {
                 Logger.printDebug(() -> "Showing toast: " + messageToToast);
-                Toast.makeText(currentContext, messageToToast, toastDuration).show();
+                Toast toast = Toast.makeText(currentContext, messageToToast, toastDuration);
+                if (singleOnly) {
+                    currentToast = toast;
+                }
+                toast.show();
             }
         });
     }
