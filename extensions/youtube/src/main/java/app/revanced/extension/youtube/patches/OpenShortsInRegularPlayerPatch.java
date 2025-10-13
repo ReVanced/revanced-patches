@@ -33,6 +33,8 @@ public class OpenShortsInRegularPlayerPatch {
 
     private static volatile boolean overrideBackPressToExit;
 
+    private static volatile boolean appLaunched;
+
     /**
      * Injection point.
      */
@@ -109,6 +111,46 @@ public class OpenShortsInRegularPlayerPatch {
             OpenVideosFullscreenHookPatch.setOpenNextVideoFullscreen(null);
             Logger.printException(() -> "openShort failure", ex);
             return false;
+        }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void overrideIntentAction(Intent intent) {
+        try {
+            // Forcing fullscreen regular player doesn't work on cold launch. This situation
+            // does not need this fix because an external device cannot be currently connected.
+            if (!appLaunched) {
+                appLaunched = true;
+                return;
+            }
+
+            if (Settings.SHORTS_PLAYER_TYPE.get() == ShortsPlayerType.SHORTS_PLAYER) {
+                return;
+            }
+
+            Uri data = intent.getData();
+            if (data == null) {
+                return;
+            }
+
+            String path = data.getPath();
+            if (path == null) {
+                return;
+            }
+
+            String shortsPath = "/shorts/";
+            if (path.startsWith(shortsPath)) {
+                String videoId = path.substring(shortsPath.length());
+
+                if (!videoId.isEmpty()) {
+                    Logger.printDebug(() -> "Changing intent Short link to a regular link: " + data);
+                    intent.setData(Uri.parse("https://youtu.be.com/" + videoId));
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "overrideIntentAction failure");
         }
     }
 }

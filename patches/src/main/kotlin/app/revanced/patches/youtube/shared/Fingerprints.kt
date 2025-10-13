@@ -151,3 +151,8 @@ internal val videoQualityChangedFingerprint = fingerprint {
         Opcode.IGET,
     )
 }
+
+internal val intentActionFingerprint = fingerprint {
+    parameters("Landroid/content/Intent;")
+    strings("has_handled_intent")
+}

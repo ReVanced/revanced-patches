@@ -20,6 +20,7 @@ import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.intentActionFingerprint
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
@@ -84,6 +85,13 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
                     entryValuesKey = "revanced_shorts_player_type_legacy_entry_values"
                 )
             }
+        )
+
+        // Fix issue with connected devices disconnecting if a Short outside YouTube
+        // is redirected to the running app. http://github.com/ReVanced/revanced-patches/issues/6086
+        intentActionFingerprint.method.addInstruction(
+            0,
+            "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->overrideIntentAction(Landroid/content/Intent;)V",
         )
 
         // Activity is used as the context to launch an Intent.
