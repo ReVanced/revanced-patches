@@ -15,9 +15,9 @@ import java.util.logging.Logger
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/twitter/patches/links/ChangeLinkSharingDomainPatch;"
 
-internal val domainNameOption by stringOption(
+internal val domainNameOption = stringOption(
     key = "domainName",
-    default = "https://fxtwitter.com",
+    default = "fxtwitter.com",
     title = "Domain name",
     description = "The domain name to use when sharing links.",
     required = true,
@@ -28,7 +28,7 @@ internal val domainNameOption by stringOption(
     // may not allow network connections or the network may be down.
     try {
         InetAddress.getByName(it)
-    } catch (e: UnknownHostException) {
+    } catch (_: UnknownHostException) {
         Logger.getLogger(this::class.java.name).warning(
             "Host \"$it\" did not resolve to any domain."
         )
@@ -38,13 +38,9 @@ internal val domainNameOption by stringOption(
 
 internal val changeLinkSharingDomainResourcePatch = resourcePatch {
     execute {
-        val domainName = domainNameOption!!
+        val domainName = domainNameOption.value!!
 
-        val shareLinkTemplate = if (domainName.endsWith("/")) {
-            "$domainName%1\$s/status/%2\$s"
-        } else {
-            "$domainName/%1\$s/status/%2\$s"
-        }
+        val shareLinkTemplate = "https://$domainName/%1\$s/status/%2\$s"
 
         document("res/values/strings.xml").use { document ->
             document.documentElement.childNodes.findElementByAttributeValueOrThrow(
@@ -58,7 +54,8 @@ internal val changeLinkSharingDomainResourcePatch = resourcePatch {
 @Suppress("unused")
 val changeLinkSharingDomainPatch = bytecodePatch(
     name = PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN,
-    description = PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN
+    description = PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN,
+    use = false
 ) {
     dependsOn(
         changeLinkSharingDomainResourcePatch,
@@ -72,11 +69,11 @@ val changeLinkSharingDomainPatch = bytecodePatch(
         )
     )
 
-    execute {
-        val domainName = domainNameOption!!
+    val domainName by domainNameOption()
 
+    execute {
         // Replace the domain name in the link sharing extension methods.
-        linkSharingDomainHelperFingerprint.method.returnEarly(domainName)
+        linkSharingDomainHelperFingerprint.method.returnEarly(domainName!!)
 
         // Replace the domain name when copying a link with "Copy link" button.
         linkBuilderFingerprint.method.addInstructions(
