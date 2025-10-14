@@ -124,12 +124,14 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // This hook handles all situations, as it's where the created Spans are stored and later reused.
 
         // Find the field name of the conversion context.
-        val conversionContextField = textComponentConstructorFingerprint.originalClassDef.fields.find {
-            it.type == conversionContextFingerprintToString.originalClassDef.type
+        val conversionContextClass = conversionContextFingerprintToString.originalClassDef
+        val textComponentConversionContextField = textComponentConstructorFingerprint.originalClassDef.fields.find {
+            it.type == conversionContextClass.type
+                    // 20.41+ uses superclass field type.
+                    || it.type == conversionContextClass.superclass
         } ?: throw PatchException("Could not find conversion context field")
 
-        textComponentLookupFingerprint.match(textComponentConstructorFingerprint.originalClassDef)
-            .method.apply {
+        textComponentLookupFingerprint.match(textComponentConstructorFingerprint.originalClassDef).method.apply {
             // Find the instruction for creating the text data object.
             val textDataClassType = textComponentDataFingerprint.originalClassDef.type
 
@@ -161,16 +163,26 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 charSequenceRegister = getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
             }
 
-            val tempRegister = findFreeRegister(insertIndex, charSequenceRegister)
+            val free1 = findFreeRegister(insertIndex, charSequenceRegister)
+            val free2 = findFreeRegister(insertIndex, charSequenceRegister, free1)
 
             addInstructionsAtControlFlowLabel(
                 insertIndex,
                 """
                     # Copy conversion context
-                    move-object/from16 v$tempRegister, p0
-                    iget-object v$tempRegister, v$tempRegister, $conversionContextField
-                    invoke-static { v$tempRegister, v$charSequenceRegister }, $EXTENSION_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                    move-object/from16 v$free1, p0
+                    
+                    # 20.41 field is the abstract superclass.
+                    # Verify it's the expected subclass just in case. 
+                    instance-of v$free2, v$free1, ${textComponentConversionContextField.type}
+                    if-eqz v$free2, :ignore
+                    
+                    check-cast v$free1, $conversionContextClass
+                    invoke-static { v$free1, v$charSequenceRegister }, $EXTENSION_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
                     move-result-object v$charSequenceRegister
+                    
+                    :ignore
+                    nop
                 """
             )
         }

@@ -17,7 +17,7 @@ internal const val YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE = "Lcom/google/android/apps/
 internal val conversionContextFingerprintToString by fingerprint {
     parameters()
     strings(
-        "ConversionContext{containerInternal=",
+        "ConversionContext{", // Partial string match.
         ", widthConstraint=",
         ", heightConstraint=",
         ", templateLoggerFactory=",

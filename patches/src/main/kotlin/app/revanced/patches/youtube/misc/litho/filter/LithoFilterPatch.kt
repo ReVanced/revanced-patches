@@ -4,7 +4,6 @@ package app.revanced.patches.youtube.misc.litho.filter
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -16,16 +15,13 @@ import app.revanced.patches.youtube.misc.playservice.is_20_22_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
 import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.findFieldFromToString
 import app.revanced.util.findFreeRegister
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.insertLiteralOverride
 import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import java.util.logging.Logger
 
 lateinit var addLithoFilter: (String) -> Unit
@@ -125,18 +121,9 @@ val lithoFilterPatch = bytecodePatch(
         // if the component is filtered then return an empty component.
 
         // Find the identifier/path fields of the conversion context.
-        val conversionContextIdentifierField = componentContextParserFingerprint.match().let {
-            // Identifier field is loaded just before the string declaration.
-            val index = it.method.indexOfFirstInstructionReversedOrThrow(
-                it.instructionMatches.first().index
-            ) {
-                val reference = getReference<FieldReference>()
-                reference?.definingClass == conversionContextFingerprintToString.originalClassDef.type
-                        && reference.type == "Ljava/lang/String;"
-            }
 
-            it.method.getInstruction<ReferenceInstruction>(index).getReference<FieldReference>()!!
-        }
+        val conversionContextIdentifierField = conversionContextFingerprintToString.method
+            .findFieldFromToString("identifierProperty=")
 
         val conversionContextPathBuilderField = conversionContextFingerprintToString.originalClassDef
             .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
@@ -167,6 +154,12 @@ val lithoFilterPatch = bytecodePatch(
                 insertIndex,
                 """
                     move-object/from16 v$freeRegister, p2
+                    
+                    # 20.41 field is the abstract superclass.
+                    # Verify it's the expected subclass just in case. 
+                    instance-of v$identifierRegister, v$freeRegister, ${conversionContextFingerprintToString.classDef.type}
+                    if-eqz v$identifierRegister, :unfiltered
+                    
                     iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
                     iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
                     invoke-static { v$identifierRegister, v$pathRegister }, $EXTENSION_CLASS_DESCRIPTOR->isFiltered(Ljava/lang/String;Ljava/lang/StringBuilder;)Z

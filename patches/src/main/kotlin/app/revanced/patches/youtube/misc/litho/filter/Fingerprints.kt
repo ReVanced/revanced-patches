@@ -9,12 +9,6 @@ import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val componentContextParserFingerprint by fingerprint {
-    instructions(
-        string("Number of bits must be positive")
-    )
-}
-
 internal val componentCreateFingerprint by fingerprint {
     instructions(
         string("Element missing correct type extension"),
