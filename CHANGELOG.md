@@ -1,3 +1,10 @@
+# [5.43.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.43.0-dev.1...v5.43.0-dev.2) (2025-10-14)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding:** Use ReVanced icon for status bar notification icon ([#6108](https://github.com/ReVanced/revanced-patches/issues/6108)) ([10ea250](https://github.com/ReVanced/revanced-patches/commit/10ea250d4a91f8ab3b7f865612a403fc93a857b5))
+
 # [5.43.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.42.2-dev.3...v5.43.0-dev.1) (2025-10-11)
 
 
