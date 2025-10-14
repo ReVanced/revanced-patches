@@ -24,14 +24,14 @@ Second \"item\" text"</string>
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Nom de l\'application</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
-  <string name="revanced_custom_branding_name_entry_5">Personnalisé</string>
+  <string name="revanced_custom_branding_name_entry_5">Personnalisée</string>
   <string name="revanced_custom_branding_icon_title">Icône de l\'application</string>
-  <string name="revanced_custom_branding_icon_entry_1">Original</string>
+  <string name="revanced_custom_branding_icon_entry_1">Originale</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
   <string name="revanced_custom_branding_icon_entry_3">ReVanced minimaliste</string>
-  <string name="revanced_custom_branding_icon_entry_4">ReVanced mis à l\'échelle</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced mise à l\'échelle</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
-  <string name="revanced_custom_branding_icon_entry_5">Personnalisé</string>
+  <string name="revanced_custom_branding_icon_entry_5">Personnalisée</string>
   </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Les vérifications ont échoué</string>
@@ -1363,7 +1363,7 @@ Limitation : Il se peut que le bouton Retour dans la barre d'outils ne fonction
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
   <string name="revanced_miniplayer_screen_title">Lecteur réduit</string>
-  <string name="revanced_miniplayer_screen_summary">Modifier le style du lecteur réduit à l\'intérieur de l\'application</string>
+  <string name="revanced_miniplayer_screen_summary">Modifiez le style du lecteur réduit intégré à l\'application</string>
   <string name="revanced_miniplayer_type_title">Type de lecteur réduit</string>
   <string name="revanced_miniplayer_type_entry_0">Désactivé</string>
   <string name="revanced_miniplayer_type_entry_1">Par défaut</string>
@@ -1623,11 +1623,11 @@ Limitations :
   <string name="revanced_spoof_video_streams_av1_title">Autoriser Android VR AV1</string>
   <string name="revanced_spoof_video_streams_av1_summary_on">"Le codec vidéo est AVC (H.264), VP9 ou AV1
 
-La lecture peut saccader ou perdre des images"</string>
+La lecture peut être saccadée et des images peuvent être perdues"</string>
   <string name="revanced_spoof_video_streams_av1_summary_off">Le codec vidéo est AVC (H.264) ou VP9</string>
-  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"L'activation de ce paramètre peut utiliser le décodage AV1 logiciel.
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"L'activation de ce paramètre permet l'utilisation du décodage AV1 logiciel.
 
-La lecture vidéo avec AV1 peut saccader ou perdre des images."</string>
+La lecture vidéo avec AV1 peut être saccadée et des images peuvent être perdues."</string>
   <string name="revanced_spoof_video_streams_about_title">Effets secondaires de la falsification</string>
   <string name="revanced_spoof_video_streams_about_experimental">• Client expérimental, peut cesser de fonctionner à tout moment</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• Les vidéos sont susceptibles de s\'arrêter à 1:00, ou de ne pas être disponibles dans certaines régions</string>
