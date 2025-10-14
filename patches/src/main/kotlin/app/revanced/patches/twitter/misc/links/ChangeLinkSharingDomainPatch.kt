@@ -15,7 +15,7 @@ import java.util.logging.Logger
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/twitter/patches/links/ChangeLinkSharingDomainPatch;"
 
-internal val domainNameOption by stringOption(
+internal val domainNameOption = stringOption(
     key = "domainName",
     default = "https://fxtwitter.com",
     title = "Domain name",
@@ -37,9 +37,9 @@ internal val domainNameOption by stringOption(
 }
 
 internal val changeLinkSharingDomainResourcePatch = resourcePatch {
-    execute {
-        val domainName = domainNameOption!!
+    val domainName = domainNameOption().value!!
 
+    execute {
         val shareLinkTemplate = if (domainName.endsWith("/")) {
             "$domainName%1\$s/status/%2\$s"
         } else {
@@ -72,9 +72,9 @@ val changeLinkSharingDomainPatch = bytecodePatch(
         )
     )
 
-    execute {
-        val domainName = domainNameOption!!
+    val domainName = domainNameOption().value!!
 
+    execute {
         // Replace the domain name in the link sharing extension methods.
         linkSharingDomainHelperFingerprint.method.returnEarly(domainName)
 
