@@ -28,7 +28,7 @@ internal val domainNameOption = stringOption(
     // may not allow network connections or the network may be down.
     try {
         InetAddress.getByName(it)
-    } catch (e: UnknownHostException) {
+    } catch (_: UnknownHostException) {
         Logger.getLogger(this::class.java.name).warning(
             "Host \"$it\" did not resolve to any domain."
         )
@@ -58,7 +58,8 @@ internal val changeLinkSharingDomainResourcePatch = resourcePatch {
 @Suppress("unused")
 val changeLinkSharingDomainPatch = bytecodePatch(
     name = PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN,
-    description = PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN
+    description = PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN,
+    use = false
 ) {
     dependsOn(
         changeLinkSharingDomainResourcePatch,
