@@ -37,9 +37,9 @@ internal val domainNameOption = stringOption(
 }
 
 internal val changeLinkSharingDomainResourcePatch = resourcePatch {
-    val domainName = domainNameOption().value!!
-
     execute {
+        val domainName = domainNameOption.value!!
+
         val shareLinkTemplate = if (domainName.endsWith("/")) {
             "$domainName%1\$s/status/%2\$s"
         } else {
@@ -72,9 +72,11 @@ val changeLinkSharingDomainPatch = bytecodePatch(
         )
     )
 
-    val domainName = domainNameOption().value!!
+    val domainName by domainNameOption()
 
     execute {
+        val domainName = domainName!!
+
         // Replace the domain name in the link sharing extension methods.
         linkSharingDomainHelperFingerprint.method.returnEarly(domainName)
 
