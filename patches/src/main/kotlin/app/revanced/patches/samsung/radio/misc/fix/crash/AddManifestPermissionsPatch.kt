@@ -11,6 +11,8 @@ val addManifestPermissionsPatch = resourcePatch(
 ) {
     val requiredPermissions = listOf(
         "android.permission.READ_PHONE_STATE",
+        "android.permission.FOREGROUND_SERVICE_MICROPHONE",
+        "android.permission.RECORD_AUDIO",
     )
 
     execute {
