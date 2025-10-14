@@ -17,7 +17,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/twitter/patches/l
 
 internal val domainNameOption = stringOption(
     key = "domainName",
-    default = "https://fxtwitter.com",
+    default = "fxtwitter.com",
     title = "Domain name",
     description = "The domain name to use when sharing links.",
     required = true,
