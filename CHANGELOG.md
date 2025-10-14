@@ -1,3 +1,10 @@
+# [5.43.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.43.0-dev.3...v5.43.0-dev.4) (2025-10-14)
+
+
+### Bug Fixes
+
+* **YouTube - Force original audio:** Do not use translated audio if stream spoofing is off and force audio is on ([0c19dba](https://github.com/ReVanced/revanced-patches/commit/0c19dbaf30bcb95a29448d98b028ebeea54cc7d3))
+
 # [5.43.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.43.0-dev.2...v5.43.0-dev.3) (2025-10-14)
 
 
