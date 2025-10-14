@@ -1,3 +1,10 @@
+## [5.43.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.43.0...v5.43.1-dev.1) (2025-10-14)
+
+
+### Bug Fixes
+
+* **X / Twitter - Change link sharing domain:** Resolve duplicate patch option ([#6119](https://github.com/ReVanced/revanced-patches/issues/6119)) ([7563990](https://github.com/ReVanced/revanced-patches/commit/75639907502382f63fa127a886362d4a4573e6e3))
+
 # [5.43.0](https://github.com/ReVanced/revanced-patches/compare/v5.42.1...v5.43.0) (2025-10-14)
 
 
