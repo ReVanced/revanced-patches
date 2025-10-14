@@ -27,4 +27,3 @@ internal val selectAudioStreamFingerprint = fingerprint {
                 && method.containsLiteralInstruction(AUDIO_STREAM_IGNORE_DEFAULT_FEATURE_FLAG)
     }
 }
-

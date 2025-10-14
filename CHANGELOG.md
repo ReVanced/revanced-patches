@@ -1,3 +1,52 @@
+# [5.43.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.43.0-dev.3...v5.43.0-dev.4) (2025-10-14)
+
+
+### Bug Fixes
+
+* **YouTube - Force original audio:** Do not use translated audio if stream spoofing is off and force audio is on ([0c19dba](https://github.com/ReVanced/revanced-patches/commit/0c19dbaf30bcb95a29448d98b028ebeea54cc7d3))
+
+# [5.43.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.43.0-dev.2...v5.43.0-dev.3) (2025-10-14)
+
+
+### Bug Fixes
+
+* **Custom branding:** Use white notification icon for expanded status bar panel ([95eee59](https://github.com/ReVanced/revanced-patches/commit/95eee59a87a680e212a3ba06e1afefee8d91ee9d))
+
+# [5.43.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.43.0-dev.1...v5.43.0-dev.2) (2025-10-14)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding:** Use ReVanced icon for status bar notification icon ([#6108](https://github.com/ReVanced/revanced-patches/issues/6108)) ([10ea250](https://github.com/ReVanced/revanced-patches/commit/10ea250d4a91f8ab3b7f865612a403fc93a857b5))
+
+# [5.43.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.42.2-dev.3...v5.43.0-dev.1) (2025-10-11)
+
+
+### Features
+
+* **Instagram:** Add `Hide suggested content` patch ([#6075](https://github.com/ReVanced/revanced-patches/issues/6075)) ([50f0b9c](https://github.com/ReVanced/revanced-patches/commit/50f0b9c5eee95ff5f9974e344802e1d2a4aab47b))
+
+## [5.42.2-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.42.2-dev.2...v5.42.2-dev.3) (2025-10-11)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding:** Do not add a broken custom icon if the user provides an invalid custom icon path ([6555f6e](https://github.com/ReVanced/revanced-patches/commit/6555f6e6f8b52c2f1ddab1f52c6704cd2d8cfc12))
+
+## [5.42.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.42.2-dev.1...v5.42.2-dev.2) (2025-10-10)
+
+
+### Bug Fixes
+
+* **X / Twitter - Change Link Sharing Domain:** Change link domain of share copy action ([#6091](https://github.com/ReVanced/revanced-patches/issues/6091)) ([5484625](https://github.com/ReVanced/revanced-patches/commit/54846253d748f4e7e30b2bba427c7d2fb9c341e2))
+
+## [5.42.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.42.1...v5.42.2-dev.1) (2025-10-09)
+
+
+### Bug Fixes
+
+* **Instagram - Change sharing domain:** Display patch option ([#6089](https://github.com/ReVanced/revanced-patches/issues/6089)) ([be2b144](https://github.com/ReVanced/revanced-patches/commit/be2b144cc9c4108ec37e16f3dd20573d88ffaa2b))
+
 ## [5.42.1](https://github.com/ReVanced/revanced-patches/compare/v5.42.0...v5.42.1) (2025-10-08)
 
 

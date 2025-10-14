@@ -26,10 +26,10 @@ Second \"item\" text"</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
   <string name="revanced_custom_branding_name_entry_5">مخصص</string>
   <string name="revanced_custom_branding_icon_title">أيقونة التطبيق</string>
-  <string name="revanced_custom_branding_icon_entry_1">أصلي</string>
+  <string name="revanced_custom_branding_icon_entry_1">الأصلية</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
   <string name="revanced_custom_branding_icon_entry_3">ReVanced minimal</string>
-  <string name="revanced_custom_branding_icon_entry_4">ReVanced مصغر</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced scaled</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
   <string name="revanced_custom_branding_icon_entry_5">مخصص</string>
   </patch>
@@ -1619,14 +1619,14 @@ Second \"item\" text"</string>
   <string name="revanced_slide_to_seek_summary_off">تم تعطيل التمرير للتقديم أو الترجيع</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_av1_title">السماح لـ Android VR AV1</string>
+  <string name="revanced_spoof_video_streams_av1_title">السماح بـ Android VR AV1</string>
   <string name="revanced_spoof_video_streams_av1_summary_on">"برنامج ترميز الفيديو هو AVC (H.264) أو VP9 أو AV1
 
 قد يحدث تقطيع أو فقدان للإطارات أثناء التشغيل"</string>
   <string name="revanced_spoof_video_streams_av1_summary_off">برنامج ترميز الفيديو هو AVC (H.264) أو VP9</string>
-  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"قد يؤدي تمكين هذا الإعداد إلى استخدام فك ترميز AV1 برمجيًا.
+  <string name="revanced_spoof_video_streams_av1_user_dialog_message">"قد يؤدي تمكين هذا الإعداد إلى استخدام فك تشفير AV1 البرمجي.
 
-قد يتلعثم تشغيل الفيديو بتقنية AV1 أو يفقد بعض الإطارات."</string>
+قد يتسبب تشغيل الفيديو باستخدام AV1 في التقطيع أو إسقاط الإطارات."</string>
   <string name="revanced_spoof_video_streams_about_title">التأثيرات الجانبية للتزييف</string>
   <string name="revanced_spoof_video_streams_about_experimental">• عميل تجريبي وقد يتوقف عن العمل في أي وقت</string>
   <string name="revanced_spoof_video_streams_about_playback_failure">• قد يتوقف الفيديو عند 1:00، أو قد لا يكون متاحًا في بعض المناطق</string>

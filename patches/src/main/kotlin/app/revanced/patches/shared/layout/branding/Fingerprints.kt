@@ -11,3 +11,11 @@ internal val numberOfPresetAppNamesExtensionFingerprint = fingerprint {
         method.name == "numberOfPresetAppNames" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
 }
+
+// A much simpler fingerprint exists that can set the small icon (contains string "414843287017"),
+// but that has limited usage and this fingerprint allows changing any part of the notification.
+internal val notificationFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters("L")
+    strings("key_action_priority")
+}

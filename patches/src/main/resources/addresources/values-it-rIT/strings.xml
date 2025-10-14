@@ -40,13 +40,13 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_failed_message">&lt;h5&gt;Quest\'app non sembra essere stata patchata da te.&lt;/h5&gt;&lt;br&gt;Quest\'app potrebbe non funzionare correttamente, &lt;b&gt;potrebbe essere dannosa o addirittura pericolosa&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Questi controlli implicano che quest\'app sia pre-patchata o ottenuta da qualcun altro:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Si consiglia vivamente di &lt;b&gt;disinstallare quest\'app&lt;/b&gt; per assicurarsi di utilizzare un\'app valida e sicura.&lt;p&gt;&lt;br&gt;Se ignorato, questo avviso verrà visualizzato solo due volte.</string>
   <string name="revanced_check_environment_not_same_patching_device">Patchato su un altro dispositivo</string>
   <string name="revanced_check_environment_manager_not_expected_installer">Non installato da ReVanced Manager</string>
-  <string name="revanced_check_environment_not_near_patch_time">Patchato da più di 10 minuti fa</string>
+  <string name="revanced_check_environment_not_near_patch_time">Patchato più di 10 minuti fa</string>
   <string name="revanced_check_environment_not_near_patch_time_days">Patchato %s giorni fa</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La data di compilazione dell\'APK è corrotta</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   <string name="revanced_check_watch_history_domain_name_dialog_title">Attenzione</string>
-  <string name="revanced_check_watch_history_domain_name_dialog_message">La tua cronologia di visualizzazione non è stata salvata.&lt;br&gt;&lt;br&gt;Questo è molto probabilmente dovuto da un blocco annunci DNS o da un proxy di rete.&lt;br&gt;&lt;br&gt;Per risolvere questo problema, inserisci nella whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; o disattiva tutti i DNS bloccanti e proxy.</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_message">La tua cronologia di visualizzazione non sta venendo salvata.&lt;br&gt;&lt;br&gt;Questo è molto probabilmente causato da un blocco annunci DNS o da un proxy di rete.&lt;br&gt;&lt;br&gt;Per risolvere, inserisci nella whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; o disattiva tutti i blocchi DNS e proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Non mostrare più</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">

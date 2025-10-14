@@ -1626,7 +1626,7 @@ Sınırlamalar:
   <string name="revanced_slide_to_seek_summary_off">Kaydırarak sardırma etkin değil</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
-  <string name="revanced_spoof_video_streams_av1_title">Android VR AV1\'e İzin Ver</string>
+  <string name="revanced_spoof_video_streams_av1_title">Android VR AV1\'e izin ver</string>
   <string name="revanced_spoof_video_streams_av1_summary_on">"Video kodeği AVC (H.264), VP9 veya AV1'dir
 
 Oynatma takılabilir veya kare atlayabilir"</string>

@@ -4,72 +4,75 @@ package app.revanced.patches.youtube.misc.playservice
 
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.findPlayStoreServicesVersion
+import kotlin.properties.Delegates
+
+// Use notNull delegate so an exception is thrown if these fields are accessed before they are set.
 
 @Deprecated("19.34.42 is the lowest supported version")
-var is_19_03_or_greater = false
+var is_19_03_or_greater : Boolean by Delegates.notNull()
     private set
 @Deprecated("19.34.42 is the lowest supported version")
-var is_19_04_or_greater = false
+var is_19_04_or_greater : Boolean by Delegates.notNull()
     private set
 @Deprecated("19.34.42 is the lowest supported version")
-var is_19_16_or_greater = false
+var is_19_16_or_greater : Boolean by Delegates.notNull()
     private set
 @Deprecated("19.34.42 is the lowest supported version")
-var is_19_17_or_greater = false
+var is_19_17_or_greater : Boolean by Delegates.notNull()
     private set
 @Deprecated("19.34.42 is the lowest supported version")
-var is_19_18_or_greater = false
+var is_19_18_or_greater : Boolean by Delegates.notNull()
     private set
 @Deprecated("19.34.42 is the lowest supported version")
-var is_19_23_or_greater = false
+var is_19_23_or_greater : Boolean by Delegates.notNull()
     private set
 @Deprecated("19.34.42 is the lowest supported version")
-var is_19_25_or_greater = false
+var is_19_25_or_greater : Boolean by Delegates.notNull()
     private set
 @Deprecated("19.34.42 is the lowest supported version")
-var is_19_26_or_greater = false
+var is_19_26_or_greater : Boolean by Delegates.notNull()
     private set
 @Deprecated("19.34.42 is the lowest supported version")
-var is_19_29_or_greater = false
+var is_19_29_or_greater : Boolean by Delegates.notNull()
     private set
 @Deprecated("19.34.42 is the lowest supported version")
-var is_19_32_or_greater = false
+var is_19_32_or_greater : Boolean by Delegates.notNull()
     private set
 @Deprecated("19.34.42 is the lowest supported version")
-var is_19_33_or_greater = false
+var is_19_33_or_greater : Boolean by Delegates.notNull()
     private set
 @Deprecated("19.34.42 is the lowest supported version")
-var is_19_34_or_greater = false
+var is_19_34_or_greater : Boolean by Delegates.notNull()
     private set
-var is_19_35_or_greater = false
+var is_19_35_or_greater : Boolean by Delegates.notNull()
     private set
-var is_19_36_or_greater = false
+var is_19_36_or_greater : Boolean by Delegates.notNull()
     private set
-var is_19_41_or_greater = false
+var is_19_41_or_greater : Boolean by Delegates.notNull()
     private set
-var is_19_43_or_greater = false
+var is_19_43_or_greater : Boolean by Delegates.notNull()
     private set
-var is_19_46_or_greater = false
+var is_19_46_or_greater : Boolean by Delegates.notNull()
     private set
-var is_19_47_or_greater = false
+var is_19_47_or_greater : Boolean by Delegates.notNull()
     private set
-var is_19_49_or_greater = false
+var is_19_49_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_02_or_greater = false
+var is_20_02_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_03_or_greater = false
+var is_20_03_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_05_or_greater = false
+var is_20_05_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_07_or_greater = false
+var is_20_07_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_09_or_greater = false
+var is_20_09_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_10_or_greater = false
+var is_20_10_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_14_or_greater = false
+var is_20_14_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_15_or_greater = false
+var is_20_15_or_greater : Boolean by Delegates.notNull()
     private set
 
 val versionCheckPatch = resourcePatch(

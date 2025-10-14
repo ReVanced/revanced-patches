@@ -29,7 +29,7 @@ val forceOriginalAudioPatch = forceOriginalAudioPatch(
             )
         )
     },
-    fixUseLocalizedAudioTrackFlag = is_20_07_or_greater,
+    fixUseLocalizedAudioTrackFlag = { is_20_07_or_greater },
     mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
     subclassExtensionClassDescriptor = EXTENSION_CLASS_DESCRIPTOR,
     preferenceScreen = PreferenceScreen.VIDEO,

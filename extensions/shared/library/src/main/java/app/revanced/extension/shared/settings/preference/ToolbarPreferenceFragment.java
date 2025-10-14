@@ -6,6 +6,7 @@ import android.graphics.Insets;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.preference.Preference;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.util.TypedValue;
 import android.view.ViewGroup;
@@ -22,6 +23,24 @@ import app.revanced.extension.shared.settings.BaseActivityHook;
 
 @SuppressWarnings({"deprecation", "NewApi"})
 public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
+
+    /**
+     * Removes the list of preferences from this fragment, if they exist.
+     * @param keys Preference keys.
+     */
+    protected void removePreferences(String ... keys) {
+        for (String key : keys) {
+            Preference pref = findPreference(key);
+            if (pref != null) {
+                PreferenceGroup parent = pref.getParent();
+                if (parent != null) {
+                    Logger.printDebug(() -> "Removing preference: " + key);
+                    parent.removePreference(pref);
+                }
+            }
+        }
+    }
+
     /**
      * Sets toolbar for all nested preference screens.
      */

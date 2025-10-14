@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_MAIN_ACTIVITY_NAME
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.musicActivityOnCreateFingerprint
@@ -60,7 +61,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
     originalLauncherIconName = "ic_launcher_release",
     originalAppName = "@string/app_launcher_name",
     originalAppPackageName = MUSIC_PACKAGE_NAME,
-    copyExistingIntentsToAliases = false,
+    isYouTubeMusic = true,
     numberOfPresetAppNames = 5,
     mainActivityOnCreateFingerprint = musicActivityOnCreateFingerprint,
     mainActivityName = MUSIC_MAIN_ACTIVITY_NAME,
@@ -68,7 +69,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
     preferenceScreen = PreferenceScreen.GENERAL,
 
     block = {
-        dependsOn(disableSplashAnimationPatch)
+        dependsOn(sharedExtensionPatch, disableSplashAnimationPatch)
 
         compatibleWith(
             "com.google.android.apps.youtube.music"(

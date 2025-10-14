@@ -2,6 +2,7 @@ package app.revanced.patches.shared.layout.branding
 
 import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.ResourcePatchBuilder
@@ -12,16 +13,25 @@ import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.copyResources
 import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.findInstructionIndicesReversedOrThrow
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.removeFromParent
 import app.revanced.util.returnEarly
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import org.w3c.dom.Element
-import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 import java.io.File
 import java.util.logging.Logger
@@ -48,13 +58,15 @@ private const val LAUNCHER_RESOURCE_NAME_PREFIX = "revanced_launcher_"
 private const val LAUNCHER_ADAPTIVE_BACKGROUND_PREFIX = "revanced_adaptive_background_"
 private const val LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX = "revanced_adaptive_foreground_"
 private const val LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX = "revanced_adaptive_monochrome_"
+private const val NOTIFICATION_ICON_NAME = "revanced_notification_icon"
 
 private val USER_CUSTOM_ADAPTIVE_FILE_NAMES = arrayOf(
     "$LAUNCHER_ADAPTIVE_BACKGROUND_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.png",
     "$LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.png"
 )
 
-private const val USER_CUSTOM_MONOCHROME_NAME = "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml"
+private const val USER_CUSTOM_MONOCHROME_FILE_NAME = "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml"
+private const val USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME = "${NOTIFICATION_ICON_NAME}_$CUSTOM_USER_ICON_STYLE_NAME.xml"
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/patches/CustomBrandingPatch;"
 
@@ -66,7 +78,7 @@ internal fun baseCustomBrandingPatch(
     originalLauncherIconName: String,
     originalAppName: String,
     originalAppPackageName: String,
-    copyExistingIntentsToAliases: Boolean,
+    isYouTubeMusic: Boolean,
     numberOfPresetAppNames: Int,
     mainActivityOnCreateFingerprint: Fingerprint,
     mainActivityName: String,
@@ -97,8 +109,9 @@ internal fun baseCustomBrandingPatch(
             Each of the folders must contain all of the following files:
             ${USER_CUSTOM_ADAPTIVE_FILE_NAMES.joinToString("\n")}
 
-            Optionally, the path can contain a 'drawable' folder with the monochrome icon file:
-            $USER_CUSTOM_MONOCHROME_NAME
+            Optionally, the path contains a 'drawable' folder with any of the monochrome icon files:
+            $USER_CUSTOM_MONOCHROME_FILE_NAME
+            $USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME
         """.trimIndentMultiline()
     )
 
@@ -106,6 +119,7 @@ internal fun baseCustomBrandingPatch(
 
     dependsOn(
         addResourcesPatch,
+        resourceMappingPatch,
         bytecodePatch {
             execute {
                 mainActivityOnCreateFingerprint.method.addInstruction(
@@ -114,25 +128,68 @@ internal fun baseCustomBrandingPatch(
                 )
 
                 numberOfPresetAppNamesExtensionFingerprint.method.returnEarly(numberOfPresetAppNames)
+
+                notificationFingerprint.method.apply {
+                    val getBuilderIndex = if (isYouTubeMusic) {
+                        // YT Music the field is not a plain object type.
+                        indexOfFirstInstructionOrThrow {
+                            getReference<FieldReference>()?.type == "Landroid/app/Notification\$Builder;"
+                        }
+                    } else {
+                        // Find the field name of the notification builder. Field is an Object type.
+                        val builderCastIndex = indexOfFirstInstructionOrThrow {
+                            val reference = getReference<TypeReference>()
+                            opcode == Opcode.CHECK_CAST &&
+                                    reference?.type == "Landroid/app/Notification\$Builder;"
+                        }
+                        indexOfFirstInstructionReversedOrThrow(builderCastIndex) {
+                            getReference<FieldReference>()?.type == "Ljava/lang/Object;"
+                        }
+                    }
+
+                    val builderFieldName = getInstruction<ReferenceInstruction>(getBuilderIndex)
+                        .getReference<FieldReference>()
+
+                    findInstructionIndicesReversedOrThrow(
+                        Opcode.RETURN_VOID
+                    ).forEach { index ->
+                        addInstructionsAtControlFlowLabel(
+                            index,
+                            """
+                                move-object/from16 v0, p0
+                                iget-object v0, v0, $builderFieldName
+                                check-cast v0, Landroid/app/Notification${'$'}Builder;
+                                invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->setNotificationIcon(Landroid/app/Notification${'$'}Builder;)V
+                            """
+                        )
+                    }
+                }
             }
-        }
+        },
     )
 
     finalize {
-        val useCustomName = customName != null
-        val useCustomIcon = customIcon != null
-
-        if (setOrGetFallbackPackageName(originalAppPackageName) == originalAppPackageName) {
-            if (useCustomName || useCustomIcon) {
+        // Can only check if app is root installation by checking if change package name patch is in use.
+        // and can only do that in the finalize block here.
+        // The UI preferences cannot be selectively added here, because the settings finalize block
+        // may have already run and the settings are already wrote to file.
+        // Instead, show a warning if any patch option was used (A rooted device launcher ignores the manifest changes),
+        // and the non-functional in-app settings are removed on app startup by extension code.
+        if (customName != null || customIcon != null) {
+            if (setOrGetFallbackPackageName(originalAppPackageName) == originalAppPackageName) {
                 Logger.getLogger(this::class.java.name).warning(
                     "Custom branding does not work with root installation. No changes applied."
                 )
             }
-            return@finalize
         }
+    }
+
+    execute {
+        addResources("shared", "layout.branding.baseCustomBrandingPatch")
+        addResources(addResourcePatchName, "layout.branding.customBrandingPatch")
 
         preferenceScreen.addPreferences(
-            if (useCustomName) {
+            if (customName != null ) {
                 ListPreference(
                     key = "revanced_custom_branding_name",
                     entriesKey = "revanced_custom_branding_name_custom_entries",
@@ -141,7 +198,7 @@ internal fun baseCustomBrandingPatch(
             } else {
                 ListPreference("revanced_custom_branding_name")
             },
-            if (useCustomIcon) {
+            if (customIcon != null) {
                 ListPreference(
                     key = "revanced_custom_branding_icon",
                     entriesKey = "revanced_custom_branding_icon_custom_entries",
@@ -151,11 +208,6 @@ internal fun baseCustomBrandingPatch(
                 ListPreference("revanced_custom_branding_icon")
             }
         )
-    }
-
-    execute {
-        addResources("shared", "layout.branding.baseCustomBrandingPatch")
-        addResources(addResourcePatchName, "layout.branding.customBrandingPatch")
 
         val useCustomName = customName != null
         val useCustomIcon = customIcon != null
@@ -167,7 +219,7 @@ internal fun baseCustomBrandingPatch(
                     "drawable",
                     "$LAUNCHER_ADAPTIVE_BACKGROUND_PREFIX$style.xml",
                     "$LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX$style.xml",
-                    "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$style.xml"
+                    "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$style.xml",
                 ),
                 ResourceGroup(
                     "mipmap-anydpi",
@@ -176,20 +228,27 @@ internal fun baseCustomBrandingPatch(
             )
         }
 
-        // Copy template user icon, because the aliases must be added even if no user icon is provided.
         copyResources(
             "custom-branding",
-            ResourceGroup(
-                "mipmap-anydpi",
-                "$LAUNCHER_RESOURCE_NAME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml",
-            ),
+            // Push notification 'small' icon.
             ResourceGroup(
                 "drawable",
-                "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml",
+                "$NOTIFICATION_ICON_NAME.xml"
+            ),
+
+            // Copy template user icon, because the aliases must be added even if no user icon is provided.
+            ResourceGroup(
+                "drawable",
+                USER_CUSTOM_MONOCHROME_FILE_NAME,
+                USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME
+            ),
+            ResourceGroup(
+                "mipmap-anydpi",
+                "$LAUNCHER_RESOURCE_NAME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml"
             )
         )
 
-        // Copy template icon png files.
+        // Copy template icon files.
         mipmapDirectories.forEach { dpi ->
             copyResources(
                 "custom-branding",
@@ -199,68 +258,6 @@ internal fun baseCustomBrandingPatch(
                     "$LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.png",
                 )
             )
-        }
-
-        if (useCustomIcon) {
-            // Copy user provided files
-            val iconPathFile = File(customIcon!!.trim())
-
-            if (!iconPathFile.exists()) {
-                throw PatchException(
-                    "The custom icon path cannot be found: " + iconPathFile.absolutePath
-                )
-            }
-
-            if (!iconPathFile.isDirectory) {
-                throw PatchException(
-                    "The custom icon path must be a folder: " + iconPathFile.absolutePath
-                )
-            }
-
-            val sourceFolders = iconPathFile.listFiles { file -> file.isDirectory }
-                ?: throw PatchException("The custom icon path contains no subfolders: " +
-                        iconPathFile.absolutePath)
-
-            val resourceDirectory = get("res")
-            var copiedFiles = false
-
-            // For each source folder, copy the files to the target resource directories.
-            sourceFolders.forEach { dpiSourceFolder ->
-                val targetDpiFolder = resourceDirectory.resolve(dpiSourceFolder.name)
-                if (!targetDpiFolder.exists()) return@forEach
-
-                val customFiles = dpiSourceFolder.listFiles { file ->
-                    file.isFile && file.name in USER_CUSTOM_ADAPTIVE_FILE_NAMES
-                }!!
-
-                if (customFiles.size > 0 && customFiles.size != USER_CUSTOM_ADAPTIVE_FILE_NAMES.size) {
-                    throw PatchException("Must include all required icon files " +
-                            "but only found " + customFiles.map { it.name })
-                }
-
-                customFiles.forEach { imgSourceFile ->
-                    val imgTargetFile = targetDpiFolder.resolve(imgSourceFile.name)
-                    imgSourceFile.copyTo(target = imgTargetFile, overwrite = true)
-
-                    copiedFiles = true
-                }
-            }
-
-            // Copy monochrome if it provided.
-            val monochromeRelativePath = "drawable/$USER_CUSTOM_MONOCHROME_NAME"
-            val monochromeFile = iconPathFile.resolve(monochromeRelativePath)
-            if (monochromeFile.exists()) {
-                monochromeFile.copyTo(
-                    target = resourceDirectory.resolve(monochromeRelativePath),
-                    overwrite = true
-                )
-                copiedFiles = true
-            }
-
-            if (!copiedFiles) {
-                throw PatchException("Could not find any replacement images in " +
-                        "patch option path: " + iconPathFile.absolutePath)
-            }
         }
 
         document("AndroidManifest.xml").use { document ->
@@ -294,13 +291,7 @@ internal fun baseCustomBrandingPatch(
                 alias.setAttribute("android:targetActivity", mainActivityName)
 
                 // Copy all intents from the original alias so long press actions still work.
-                if (copyExistingIntentsToAliases) {
-                    for (i in 0 until intents.length) {
-                        alias.appendChild(
-                            intents.item(i).cloneNode(true)
-                        )
-                    }
-                } else {
+                if (isYouTubeMusic) {
                     val intentFilter = document.createElement("intent-filter").apply {
                         val action = document.createElement("action")
                         action.setAttribute("android:name", "android.intent.action.MAIN")
@@ -311,17 +302,31 @@ internal fun baseCustomBrandingPatch(
                         appendChild(category)
                     }
                     alias.appendChild(intentFilter)
+                } else {
+                    for (i in 0 until intents.length) {
+                        alias.appendChild(
+                            intents.item(i).cloneNode(true)
+                        )
+                    }
                 }
 
                 return alias
             }
 
+            val application = document.getElementsByTagName("application").item(0) as Element
             val intentFilters = document.childNodes.findElementByAttributeValueOrThrow(
                 "android:name",
                 activityAliasNameWithIntents
             ).childNodes
 
-            val application = document.getElementsByTagName("application").item(0) as Element
+            // The YT application name can appear in some places along side the system
+            // YouTube app, such as the settings app list and in the "open with" file picker.
+            // Because the YouTube app cannot be completely uninstalled and only disabled,
+            // use a custom name for this situation to disambiguate which app is which.
+            application.setAttribute(
+                "android:label",
+                "@string/revanced_custom_branding_name_entry_2"
+            )
 
             for (appNameIndex in 1 .. numberOfPresetAppNames) {
                 fun aliasName(name: String): String = ".revanced_" + name + '_' + appNameIndex
@@ -380,6 +385,75 @@ internal fun baseCustomBrandingPatch(
                 "android:name",
                 "android.intent.action.MAIN"
             ).removeFromParent()
+        }
+
+        // Copy custom icons last, so if the user enters an invalid icon path
+        // and an exception is thrown then the critical manifest changes are still made.
+        if (useCustomIcon) {
+            // Copy user provided files
+            val iconPathFile = File(customIcon!!.trim())
+
+            if (!iconPathFile.exists()) {
+                throw PatchException(
+                    "The custom icon path cannot be found: " + iconPathFile.absolutePath
+                )
+            }
+
+            if (!iconPathFile.isDirectory) {
+                throw PatchException(
+                    "The custom icon path must be a folder: " + iconPathFile.absolutePath
+                )
+            }
+
+            val sourceFolders = iconPathFile.listFiles { file -> file.isDirectory }
+                ?: throw PatchException("The custom icon path contains no subfolders: " +
+                        iconPathFile.absolutePath)
+
+            val resourceDirectory = get("res")
+            var copiedFiles = false
+
+            // For each source folder, copy the files to the target resource directories.
+            sourceFolders.forEach { dpiSourceFolder ->
+                val targetDpiFolder = resourceDirectory.resolve(dpiSourceFolder.name)
+                if (!targetDpiFolder.exists()) return@forEach
+
+                val customFiles = dpiSourceFolder.listFiles { file ->
+                    file.isFile && file.name in USER_CUSTOM_ADAPTIVE_FILE_NAMES
+                }!!
+
+                if (customFiles.size > 0 && customFiles.size != USER_CUSTOM_ADAPTIVE_FILE_NAMES.size) {
+                    throw PatchException("Must include all required icon files " +
+                            "but only found " + customFiles.map { it.name })
+                }
+
+                customFiles.forEach { imgSourceFile ->
+                    val imgTargetFile = targetDpiFolder.resolve(imgSourceFile.name)
+                    imgSourceFile.copyTo(target = imgTargetFile, overwrite = true)
+
+                    copiedFiles = true
+                }
+            }
+
+            // Copy monochrome and small notification icon if it provided.
+            arrayOf(
+                USER_CUSTOM_MONOCHROME_FILE_NAME,
+                USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME
+            ).forEach { fileName ->
+                val relativePath = "drawable/$fileName"
+                val file = iconPathFile.resolve(relativePath)
+                if (file.exists()) {
+                    file.copyTo(
+                        target = resourceDirectory.resolve(relativePath),
+                        overwrite = true
+                    )
+                    copiedFiles = true
+                }
+            }
+
+            if (!copiedFiles) {
+                throw PatchException("Could not find any replacement images in " +
+                        "patch option path: " + iconPathFile.absolutePath)
+            }
         }
 
         executeBlock()
