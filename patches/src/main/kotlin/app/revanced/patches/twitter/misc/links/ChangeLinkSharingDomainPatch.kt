@@ -32,7 +32,11 @@ internal val domainNameOption = stringOption(
         Logger.getLogger(this::class.java.name).warning(
             "Host \"$it\" did not resolve to any domain."
         )
+    } catch (_: Exception) {
+        // Must ignore any kind of exception. Trying to resolve network
+        // on Manager throws android.os.NetworkOnMainThreadException
     }
+
     true
 }
 
