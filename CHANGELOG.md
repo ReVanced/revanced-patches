@@ -1,3 +1,17 @@
+# [5.43.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.42.2-dev.3...v5.43.0-dev.1) (2025-10-11)
+
+
+### Features
+
+* **Instagram:** Add `Hide suggested content` patch ([#6075](https://github.com/ReVanced/revanced-patches/issues/6075)) ([50f0b9c](https://github.com/ReVanced/revanced-patches/commit/50f0b9c5eee95ff5f9974e344802e1d2a4aab47b))
+
+## [5.42.2-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.42.2-dev.2...v5.42.2-dev.3) (2025-10-11)
+
+
+### Bug Fixes
+
+* **YouTube - Custom branding:** Do not add a broken custom icon if the user provides an invalid custom icon path ([6555f6e](https://github.com/ReVanced/revanced-patches/commit/6555f6e6f8b52c2f1ddab1f52c6704cd2d8cfc12))
+
 ## [5.42.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.42.2-dev.1...v5.42.2-dev.2) (2025-10-10)
 
 

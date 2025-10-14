@@ -257,7 +257,7 @@ public final class app/revanced/patches/instagram/feed/LimitFeedToFollowedProfil
 }
 
 public final class app/revanced/patches/instagram/hide/explore/HideExploreFeedKt {
-	public static final fun getHideExportFeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getHideExploreFeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/instagram/hide/navigation/HideNavigationButtonsKt {
@@ -266,6 +266,10 @@ public final class app/revanced/patches/instagram/hide/navigation/HideNavigation
 
 public final class app/revanced/patches/instagram/hide/stories/HideStoriesKt {
 	public static final fun getHideStoriesPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/instagram/hide/suggestions/HideSuggestedContentKt {
+	public static final fun getHideSuggestedContent ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/instagram/misc/devmenu/EnableDeveloperMenuPatchKt {
