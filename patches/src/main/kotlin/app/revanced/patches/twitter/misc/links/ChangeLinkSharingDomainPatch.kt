@@ -40,11 +40,7 @@ internal val changeLinkSharingDomainResourcePatch = resourcePatch {
     execute {
         val domainName = domainNameOption.value!!
 
-        val shareLinkTemplate = if (domainName.endsWith("/")) {
-            "$domainName%1\$s/status/%2\$s"
-        } else {
-            "$domainName/%1\$s/status/%2\$s"
-        }
+        val shareLinkTemplate = "https://$domainName/%1\$s/status/%2\$s"
 
         document("res/values/strings.xml").use { document ->
             document.documentElement.childNodes.findElementByAttributeValueOrThrow(
