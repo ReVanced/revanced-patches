@@ -4,14 +4,17 @@ package app.revanced.patches.music.playservice
 
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.findPlayStoreServicesVersion
+import kotlin.properties.Delegates
 
-var is_7_33_or_greater = false
+// Use notNull delegate so an exception is thrown if these fields are accessed before they are set.
+
+var is_7_33_or_greater: Boolean by Delegates.notNull()
     private set
-var is_8_10_or_greater = false
+var is_8_10_or_greater: Boolean by Delegates.notNull()
     private set
-var is_8_11_or_greater = false
+var is_8_11_or_greater: Boolean by Delegates.notNull()
     private set
-var is_8_15_or_greater = false
+var is_8_15_or_greater: Boolean by Delegates.notNull()
     private set
 
 val versionCheckPatch = resourcePatch(

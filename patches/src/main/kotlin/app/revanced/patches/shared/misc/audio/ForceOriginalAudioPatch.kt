@@ -34,7 +34,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 internal fun forceOriginalAudioPatch(
     block: BytecodePatchBuilder.() -> Unit = {},
     executeBlock: BytecodePatchContext.() -> Unit = {},
-    fixUseLocalizedAudioTrackFlag: Boolean,
+    fixUseLocalizedAudioTrackFlag: () -> Boolean,
     mainActivityOnCreateFingerprint: Fingerprint,
     subclassExtensionClassDescriptor: String,
     preferenceScreen: BasePreferenceScreen.Screen
@@ -64,7 +64,7 @@ internal fun forceOriginalAudioPatch(
 
         // Disable feature flag that ignores the default track flag
         // and instead overrides to the user region language.
-        if (fixUseLocalizedAudioTrackFlag) {
+        if (fixUseLocalizedAudioTrackFlag()) {
             selectAudioStreamFingerprint.method.insertLiteralOverride(
                 AUDIO_STREAM_IGNORE_DEFAULT_FEATURE_FLAG,
                 "$EXTENSION_CLASS_DESCRIPTOR->ignoreDefaultAudioStream(Z)Z"
