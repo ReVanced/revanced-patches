@@ -1,11 +1,14 @@
 package app.revanced.extension.shared.patches;
 
+import android.app.Notification;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import app.revanced.extension.shared.GmsCoreSupport;
 import app.revanced.extension.shared.Logger;
@@ -29,28 +32,56 @@ public class CustomBrandingPatch {
     // The most that can be done is to hide a theme from the UI and keep the alias with dummy data.
     public enum BrandingTheme {
         /**
-         * Original unpatched icon. Must be first enum.
+         * Original unpatched icon.
          */
-        ORIGINAL("revanced_original"),
-        ROUNDED("revanced_rounded"),
-        MINIMAL("revanced_minimal"),
-        SCALED("revanced_scaled"),
+        ORIGINAL,
+        ROUNDED,
+        MINIMAL,
+        SCALED,
         /**
-         * User provided custom icon. Must be the last enum.
+         * User provided custom icon.
          */
-        CUSTOM("revanced_custom");
-
-        public final String themeAlias;
-
-        BrandingTheme(String themeAlias) {
-            this.themeAlias = themeAlias;
-        }
+        CUSTOM;
 
         private String packageAndNameIndexToClassAlias(String packageName, int appIndex) {
             if (appIndex <= 0) {
                 throw new IllegalArgumentException("App index starts at index 1");
             }
-            return packageName + '.' + themeAlias + '_' + appIndex;
+            return packageName + ".revanced_" + name().toLowerCase(Locale.US) + '_' + appIndex;
+        }
+    }
+
+    private static final int notificationSmallIcon;
+
+    static {
+        BrandingTheme branding = BaseSettings.CUSTOM_BRANDING_ICON.get();
+        if (branding == BrandingTheme.ORIGINAL) {
+            notificationSmallIcon = 0;
+        } else {
+            // Original icon is quantum_ic_video_youtube_white_24
+            String iconName = "revanced_notification_icon";
+            if (branding == BrandingTheme.CUSTOM) {
+                iconName += "_custom";
+            }
+
+            notificationSmallIcon = Utils.getResourceIdentifier(iconName, "drawable");
+            if (notificationSmallIcon == 0) {
+                Logger.printException(() -> "Could not load notification small icon");
+            }
+        }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static void setNotificationIcon(Notification.Builder builder) {
+        try {
+            if (notificationSmallIcon != 0) {
+                builder.setSmallIcon(notificationSmallIcon)
+                        .setColor(Color.TRANSPARENT); // Remove YT red tint.
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "setNotificationIcon failure", ex);
         }
     }
 
