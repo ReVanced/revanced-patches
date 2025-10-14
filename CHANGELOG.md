@@ -1,3 +1,10 @@
+# [5.43.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.43.0-dev.2...v5.43.0-dev.3) (2025-10-14)
+
+
+### Bug Fixes
+
+* **Custom branding:** Use white notification icon for expanded status bar panel ([95eee59](https://github.com/ReVanced/revanced-patches/commit/95eee59a87a680e212a3ba06e1afefee8d91ee9d))
+
 # [5.43.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.43.0-dev.1...v5.43.0-dev.2) (2025-10-14)
 
 
