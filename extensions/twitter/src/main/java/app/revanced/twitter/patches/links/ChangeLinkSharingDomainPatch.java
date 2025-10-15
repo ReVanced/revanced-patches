@@ -11,6 +11,7 @@ public final class ChangeLinkSharingDomainPatch {
         return "";
     }
 
+    // TODO remove this once changeLinkSharingDomainResourcePatch is restored
     /**
      * Injection point.
      */
