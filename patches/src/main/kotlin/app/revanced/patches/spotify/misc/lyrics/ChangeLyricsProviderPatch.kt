@@ -47,11 +47,15 @@ val changeLyricsProviderPatch = bytecodePatch(
         // may not allow network connections or the network may be down.
         try {
             InetAddress.getByName(host)
-        } catch (e: UnknownHostException) {
+        } catch (_: UnknownHostException) {
             Logger.getLogger(this::class.java.name).warning(
                 "Host \"$host\" did not resolve to any domain."
             )
+        } catch (_: Exception) {
+            // Must ignore any kind of exception. Trying to resolve network
+            // on Manager throws android.os.NetworkOnMainThreadException
         }
+
         true
     }
 
