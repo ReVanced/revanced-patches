@@ -17,6 +17,7 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_33_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_07_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_10_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_41_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -38,6 +39,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/ReturnYouTubeDislikePatch;"
@@ -169,7 +171,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
             addInstructionsAtControlFlowLabel(
                 insertIndex,
                 """
-                    # Copy conversion context
+                    # Copy conversion context.
                     move-object/from16 v$free1, p0
                     
                     # 20.41 field is the abstract superclass.
@@ -199,7 +201,15 @@ val returnYouTubeDislikePatch = bytecodePatch(
             // If enabled then the litho text span hook is never called.
             // Target code is very obfuscated and exactly what the code does is not clear.
             // Return late so debug patch logs if the flag is enabled.
-            textComponentFeatureFlagFingerprint.method.returnLate(false)
+            if (is_20_41_or_greater) {
+                // TODO: Support the new non litho Shorts layout.
+                // Turning off this flag on later versions can break the Shorts overlay and nothing is shown.
+                Logger.getLogger(this::class.java.name).warning(
+                    "20.40+ Shorts player is not fully supported yet. Shorts Dislikes may not show."
+                )
+            } else {
+                textComponentFeatureFlagFingerprint.method.returnLate(false)
+            }
         }
 
         // Player response video id is needed to search for the video ids in Shorts litho components.

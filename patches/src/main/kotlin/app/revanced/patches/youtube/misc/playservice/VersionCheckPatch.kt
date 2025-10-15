@@ -65,27 +65,29 @@ var is_20_14_or_greater : Boolean by Delegates.notNull()
     private set
 var is_20_15_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_19_or_greater = false
+var is_20_19_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_20_or_greater = false
+var is_20_20_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_21_or_greater = false
+var is_20_21_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_22_or_greater = false
+var is_20_22_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_26_or_greater = false
+var is_20_26_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_28_or_greater = false
+var is_20_28_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_30_or_greater = false
+var is_20_30_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_31_or_greater = false
+var is_20_31_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_34_or_greater = false
+var is_20_34_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_37_or_greater = false
+var is_20_37_or_greater : Boolean by Delegates.notNull()
     private set
-var is_20_39_or_greater = false
+var is_20_39_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_41_or_greater : Boolean by Delegates.notNull()
     private set
 
 val versionCheckPatch = resourcePatch(
@@ -132,5 +134,6 @@ val versionCheckPatch = resourcePatch(
         is_20_34_or_greater = 253505000 <= playStoreServicesVersion
         is_20_37_or_greater = 253805000 <= playStoreServicesVersion
         is_20_39_or_greater = 253980000 <= playStoreServicesVersion
+        is_20_41_or_greater = 254205000 <= playStoreServicesVersion
     }
 }
