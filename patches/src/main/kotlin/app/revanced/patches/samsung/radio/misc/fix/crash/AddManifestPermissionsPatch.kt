@@ -5,10 +5,7 @@ import app.revanced.util.asSequence
 import org.w3c.dom.Element
 
 @Suppress("unused")
-val addManifestPermissionsPatch = resourcePatch(
-    name = "Add manifest permissions",
-    description = "Adds required manifest permissions to prevent crashes.",
-) {
+internal val addManifestPermissionsPatch = resourcePatch {
     compatibleWith("com.sec.android.app.fm"("12.4.00.7"))
 
     val requiredPermissions = listOf(
