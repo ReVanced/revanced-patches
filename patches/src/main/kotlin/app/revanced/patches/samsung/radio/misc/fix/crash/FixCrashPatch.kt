@@ -29,6 +29,7 @@ val fixCrashPatch = bytecodePatch(
 ) {
     dependsOn(addManifestPermissionsPatch, bypassDeviceChecksPatch, sharedExtensionPatch())
     sharedExtensionPatch()
+    dependsOn(addManifestPermissionsPatch, bypassDeviceChecksPatch, sharedExtensionPatch("samsung/radio"))
     compatibleWith("com.sec.android.app.fm")
 
     execute {
