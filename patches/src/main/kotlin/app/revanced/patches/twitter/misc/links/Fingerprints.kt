@@ -1,9 +1,7 @@
 package app.revanced.patches.twitter.misc.links
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
-import com.android.tools.smali.dexlib2.Opcode
 
 internal val openLinkFingerprint = fingerprint {
     returns("V")
@@ -24,14 +22,13 @@ internal val linkBuilderFingerprint = fingerprint {
 internal val linkResourceGetterFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Landroid/content/res/Resources;")
-    literal { tweetShareLinkTemplateId }
-    opcodes(
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT_OBJECT
-    )
+    // TODO restore once Manager uses a fixed version of Patcher
+    //literal { tweetShareLinkTemplateId }
+    custom { _, classDef ->
+        classDef.fields.any { field ->
+            field.type.startsWith("Lcom/twitter/model/core/")
+        }
+    }
 }
 
 internal val linkSharingDomainHelperFingerprint = fingerprint {
