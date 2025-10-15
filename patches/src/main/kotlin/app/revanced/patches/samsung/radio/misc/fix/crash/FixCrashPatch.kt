@@ -22,10 +22,11 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/samsung/
 
 val fixCrashPatch = bytecodePatch(
     name = "Fix Crashes",
-    description = "Stops the app from crashing because of missing system permissions.",
+    description = "Stops the app from crashing because of missing system permissions." +
+            "This is not required if you plan to install it as a system app.",
 ) {
     dependsOn(addManifestPermissionsPatch, bypassDeviceChecksPatch, sharedExtensionPatch("samsung/radio"))
-    compatibleWith("com.sec.android.app.fm")
+    compatibleWith("com.sec.android.app.fm"("12.4.00.7"))
 
     execute {
         permissionRequestListFingerprint.method.apply {

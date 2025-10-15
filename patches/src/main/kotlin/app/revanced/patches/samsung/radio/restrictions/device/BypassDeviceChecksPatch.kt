@@ -8,7 +8,7 @@ val bypassDeviceChecksPatch = bytecodePatch(
     name = "Bypass device checks",
     description = "Removes the restriction to use the app on blacklisted phones.",
 ) {
-    compatibleWith("com.sec.android.app.fm")
+    compatibleWith("com.sec.android.app.fm"("12.4.00.7"))
 
     execute {
         // Return false = The device is not blacklisted

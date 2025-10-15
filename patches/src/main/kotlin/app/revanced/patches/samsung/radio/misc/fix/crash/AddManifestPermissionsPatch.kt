@@ -9,6 +9,8 @@ val addManifestPermissionsPatch = resourcePatch(
     name = "Add manifest permissions",
     description = "Adds required manifest permissions to prevent crashes.",
 ) {
+    compatibleWith("com.sec.android.app.fm"("12.4.00.7"))
+
     val requiredPermissions = listOf(
         "android.permission.READ_PHONE_STATE",
         "android.permission.FOREGROUND_SERVICE_MICROPHONE",
