@@ -1,6 +1,5 @@
 package app.revanced.extension.samsung.radio.patches;
 
-import com.reddit.domain.model.ILink;
 import app.revanced.extension.shared.Utils;
 import java.util.ArrayList;
 import java.util.List;
