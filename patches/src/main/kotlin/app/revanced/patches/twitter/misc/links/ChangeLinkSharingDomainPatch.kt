@@ -1,17 +1,25 @@
 package app.revanced.patches.twitter.misc.links
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.shared.PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN
 import app.revanced.patches.shared.PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
-import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import app.revanced.util.returnEarly
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import java.net.InetAddress
 import java.net.UnknownHostException
 import java.util.logging.Logger
+
+internal var tweetShareLinkTemplateId = -1L
+    private set
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/twitter/patches/links/ChangeLinkSharingDomainPatch;"
 
@@ -40,6 +48,8 @@ internal val domainNameOption = stringOption(
     true
 }
 
+// TODO restore resource patch once Patcher is fixed
+/*
 internal val changeLinkSharingDomainResourcePatch = resourcePatch {
     execute {
         val domainName = domainNameOption.value!!
@@ -54,6 +64,7 @@ internal val changeLinkSharingDomainResourcePatch = resourcePatch {
         }
     }
 }
+*/
 
 @Suppress("unused")
 val changeLinkSharingDomainPatch = bytecodePatch(
@@ -62,7 +73,7 @@ val changeLinkSharingDomainPatch = bytecodePatch(
     use = false
 ) {
     dependsOn(
-        changeLinkSharingDomainResourcePatch,
+        resourceMappingPatch,
         sharedExtensionPatch,
     )
 
@@ -76,6 +87,8 @@ val changeLinkSharingDomainPatch = bytecodePatch(
     val domainName by domainNameOption()
 
     execute {
+        tweetShareLinkTemplateId = resourceMappings["string", "tweet_share_link"]
+
         // Replace the domain name in the link sharing extension methods.
         linkSharingDomainHelperFingerprint.method.returnEarly(domainName!!)
 
@@ -88,5 +101,21 @@ val changeLinkSharingDomainPatch = bytecodePatch(
                 return-object p0
             """
         )
+
+        // Replace the domain name in the "Share via..." dialog.
+        linkResourceGetterFingerprint.method.apply {
+            val templateIdConstIndex = indexOfFirstLiteralInstructionOrThrow(tweetShareLinkTemplateId)
+
+            // Format the link with the new domain name register (1 instruction below the const).
+            val formatLinkCallIndex = templateIdConstIndex + 1
+            val register = getInstruction<FiveRegisterInstruction>(formatLinkCallIndex).registerE
+
+            // Replace the original method call with the new method call.
+            replaceInstruction(
+                formatLinkCallIndex,
+                "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                        "formatResourceLink([Ljava/lang/Object;)Ljava/lang/String;",
+            )
+        }
     }
 }
