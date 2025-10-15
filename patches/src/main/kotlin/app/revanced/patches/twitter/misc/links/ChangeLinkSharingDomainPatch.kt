@@ -16,12 +16,6 @@ import java.net.InetAddress
 import java.net.UnknownHostException
 import java.util.logging.Logger
 
-// TODO restore once Manager uses a fixed version of Patcher
-/*
-internal var tweetShareLinkTemplateId = -1L
-    private set
-*/
-
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/twitter/patches/links/ChangeLinkSharingDomainPatch;"
 
 internal val domainNameOption = stringOption(
@@ -49,7 +43,7 @@ internal val domainNameOption = stringOption(
     true
 }
 
-// TODO restore once Manager uses a fixed version of Patcher
+// TODO restore this once Manager uses a fixed version of Patcher
 /*
 internal val changeLinkSharingDomainResourcePatch = resourcePatch {
     execute {
@@ -87,9 +81,6 @@ val changeLinkSharingDomainPatch = bytecodePatch(
     val domainName by domainNameOption()
 
     execute {
-        // TODO restore once Manager uses a fixed version of Patcher
-        //tweetShareLinkTemplateId = resourceMappings["string", "tweet_share_link"]
-
         // Replace the domain name in the link sharing extension methods.
         linkSharingDomainHelperFingerprint.method.returnEarly(domainName!!)
 
@@ -103,11 +94,9 @@ val changeLinkSharingDomainPatch = bytecodePatch(
             """
         )
 
+        // TODO remove this once changeLinkSharingDomainResourcePatch is restored
         // Replace the domain name in the "Share via..." dialog.
         linkResourceGetterFingerprint.method.apply {
-            // TODO restore once Manager uses a fixed version of Patcher
-            //val templateIdConstIndex = indexOfFirstLiteralInstructionOrThrow(tweetShareLinkTemplateId)
-
             val templateIdConstIndex = indexOfFirstInstructionOrThrow(Opcode.CONST)
 
             // Format the link with the new domain name register (1 instruction below the const).

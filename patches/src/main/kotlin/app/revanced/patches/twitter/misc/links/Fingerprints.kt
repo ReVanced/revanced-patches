@@ -18,12 +18,11 @@ internal val linkBuilderFingerprint = fingerprint {
     strings("/%1\$s/status/%2\$d")
 }
 
+// TODO remove this once changeLinkSharingDomainResourcePatch is restored
 // Returns a shareable link for the "Share via..." dialog.
 internal val linkResourceGetterFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Landroid/content/res/Resources;")
-    // TODO restore once Manager uses a fixed version of Patcher
-    //literal { tweetShareLinkTemplateId }
     custom { _, classDef ->
         classDef.fields.any { field ->
             field.type.startsWith("Lcom/twitter/model/core/")
