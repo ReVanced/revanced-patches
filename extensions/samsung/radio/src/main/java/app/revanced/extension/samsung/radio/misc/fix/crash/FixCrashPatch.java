@@ -1,6 +1,7 @@
-package app.revanced.extension.samsung.radio.patches;
+package app.revanced.extension.samsung.radio.misc.fix.crash;
 
 import app.revanced.extension.shared.Utils;
+
 import java.util.ArrayList;
 import java.util.List;
 
