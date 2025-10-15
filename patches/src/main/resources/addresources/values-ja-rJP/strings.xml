@@ -304,8 +304,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_medical_panels_summary_on">医療情報パネルは表示されません</string>
   <string name="revanced_hide_medical_panels_summary_off">医療情報パネルは表示されます</string>
   <string name="revanced_hide_quick_actions_title">クイック アクションを非表示</string>
-  <string name="revanced_hide_quick_actions_summary_on">全画面表示のクイック アクションは表示されません</string>
-  <string name="revanced_hide_quick_actions_summary_off">全画面表示のクイック アクションは表示されます</string>
+  <string name="revanced_hide_quick_actions_summary_on">全画面表示モードのクイック アクションは表示されません</string>
+  <string name="revanced_hide_quick_actions_summary_off">全画面表示モードのクイック アクションは表示されます</string>
   <string name="revanced_hide_related_videos_title">関連動画を非表示</string>
   <string name="revanced_hide_related_videos_summary_on">クイック アクション内の関連動画は表示されません</string>
   <string name="revanced_hide_related_videos_summary_off">クイック アクション内の関連動画は表示されます</string>
@@ -972,8 +972,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
   <string name="revanced_hide_related_videos_overlay_title">関連動画オーバーレイを非表示</string>
-  <string name="revanced_hide_related_videos_overlay_summary_on">全画面表示の関連動画オーバーレイは表示されません</string>
-  <string name="revanced_hide_related_videos_overlay_summary_off">全画面表示の関連動画オーバーレイは表示されます</string>
+  <string name="revanced_hide_related_videos_overlay_summary_on">全画面表示モードの関連動画オーバーレイは表示されません</string>
+  <string name="revanced_hide_related_videos_overlay_summary_off">全画面表示モードの関連動画オーバーレイは表示されます</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">動画のタイムスタンプを非表示</string>
