@@ -3,20 +3,14 @@
 package app.revanced.patches.samsung.radio.misc.fix.crash
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.samsung.radio.restrictions.device.bypassDeviceChecksPatch
 import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
 import app.revanced.util.indexOfFirstInstruction
-import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
-import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/samsung/radio/misc/fix/crash/FixCrashPatch;"
 
@@ -53,11 +47,6 @@ val fixCrashPatch = bytecodePatch(
 
                 searchIndex = moveResultIndex + 1 + 2 // 2 = number of instructions we added
             }
-        }
-
-        checkCallStateFingerprint.method.apply {
-            addInstruction(0, "const/4 v0, 0x0")
-            addInstruction(1, "return v0")
         }
     }
 }

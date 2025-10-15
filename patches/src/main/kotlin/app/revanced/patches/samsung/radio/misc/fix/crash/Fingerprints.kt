@@ -8,10 +8,6 @@ import app.revanced.patches.all.misc.transformation.fromMethodReference
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val checkCallStateFingerprint = fingerprint {
-    returns("Z")
-    strings("phone", "isOnCall. callState: ")
-}
 internal val permissionRequestListFingerprint = fingerprint {
     strings(
         "android.permission.POST_NOTIFICATIONS",
