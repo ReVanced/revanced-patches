@@ -18,80 +18,16 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-private const val PERMISSION_POST_NOTIFICATIONS = "android.permission.POST_NOTIFICATIONS"
-private const val PERMISSION_RECORD_AUDIO = "android.permission.RECORD_AUDIO"
-private const val PERMISSION_READ_PHONE_STATE = "android.permission.READ_PHONE_STATE"
-private const val PERMISSION_FOREGROUND_SERVICE_MICROPHONE = "android.permission.FOREGROUND_SERVICE_MICROPHONE"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/samsung/radio/patches/FixCrashPatch;"
 
 val fixCrashPatch = bytecodePatch(
     name = "Fix Crashes",
     description = "Stops the app from crashing because of missing system permissions.",
 ) {
-    dependsOn(addManifestPermissionsPatch, bypassDeviceChecksPatch, sharedExtensionPatch())
-    sharedExtensionPatch()
     dependsOn(addManifestPermissionsPatch, bypassDeviceChecksPatch, sharedExtensionPatch("samsung/radio"))
     compatibleWith("com.sec.android.app.fm")
 
     execute {
-        // Use a helper method to avoid the need of picking out multiple free registers from the hooked code.
-        permissionRequestListFingerprint.classDef.methods.add(
-            ImmutableMethod(
-                permissionRequestListFingerprint.classDef.type,
-                "__fixPermissionRequestList",
-                listOf(ImmutableMethodParameter("[Ljava/lang/String;", null, "p0")),
-                "[Ljava/lang/String;",
-                AccessFlags.PRIVATE.value or AccessFlags.FINAL.value or AccessFlags.STATIC.value,
-                null,
-                null,
-                MutableMethodImplementation(9),
-            ).toMutable().apply {
-                addInstructionsWithLabels(
-                    0, """
-                            # Permission to find
-                            const-string v0, "$PERMISSION_POST_NOTIFICATIONS"
-
-                            # Check if the array contains the permission
-                            invoke-static {p0, v0}, Lapp/revanced/extension/shared/Utils;->arrayContains([Ljava/lang/Object;Ljava/lang/Object;)Z
-                            move-result v0
-                            if-eqz v0, :check_record_audio
-
-                            # Array of permissions to add
-                            const-string v0, "$PERMISSION_RECORD_AUDIO"
-                            const-string v1, "$PERMISSION_READ_PHONE_STATE"
-                            const-string v2, "$PERMISSION_FOREGROUND_SERVICE_MICROPHONE"
-                            filled-new-array {v0, v1, v2}, [Ljava/lang/String;
-                            move-result-object v1
-
-                            # Merge the two arrays
-                            invoke-static {p0, v1}, Lapp/revanced/extension/shared/Utils;->mergeArrays([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
-                            move-result-object p0
-                            check-cast p0, [Ljava/lang/String;
-
-                            :check_record_audio
-                            # Permission to find
-                            const-string v0, "$PERMISSION_RECORD_AUDIO"
-
-                            # Check if the array contains the permission
-                            invoke-static {p0, v0}, Lapp/revanced/extension/shared/Utils;->arrayContains([Ljava/lang/Object;Ljava/lang/Object;)Z
-                            move-result v0
-                            if-eqz v0, :end
-
-                            # Array of permissions to add
-                            const-string v1, "$PERMISSION_FOREGROUND_SERVICE_MICROPHONE"
-                            filled-new-array {v1}, [Ljava/lang/String;
-                            move-result-object v1
-
-                            # Merge the two arrays
-                            invoke-static {p0, v1}, Lapp/revanced/extension/shared/Utils;->mergeArrays([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
-                            move-result-object p0
-                            check-cast p0, [Ljava/lang/String;
-
-                            :end
-                            return-object p0
-                        """
-                )
-            })
-
         permissionRequestListFingerprint.method.apply {
             var searchIndex = 0
             while (searchIndex < instructions.size) {
@@ -108,7 +44,7 @@ val fixCrashPatch = bytecodePatch(
                 // Invoke the method that we added to the class earlier
                 addInstruction(
                     moveResultIndex + 1,
-                    "invoke-static {v$arrayRegister}, ${definingClass}->__fixPermissionRequestList([Ljava/lang/String;)[Ljava/lang/String;"
+                    "invoke-static {v$arrayRegister}, ${EXTENSION_CLASS_DESCRIPTOR}->fixPermissionRequestList([Ljava/lang/String;)[Ljava/lang/String;"
                 )
                 addInstruction(
                     moveResultIndex + 2, "move-result-object v$arrayRegister"
