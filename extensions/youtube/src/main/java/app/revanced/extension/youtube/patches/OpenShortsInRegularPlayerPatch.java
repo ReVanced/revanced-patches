@@ -146,7 +146,7 @@ public class OpenShortsInRegularPlayerPatch {
 
                 if (!videoId.isEmpty()) {
                     Logger.printDebug(() -> "Changing intent Short link to a regular link: " + data);
-                    intent.setData(Uri.parse("https://youtu.be.com/" + videoId));
+                    intent.setData(Uri.parse("https://www.youtube.com/watch?v=" + videoId));
                 }
             }
         } catch (Exception ex) {
