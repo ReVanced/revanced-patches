@@ -11,6 +11,16 @@ public final class ChangeLinkSharingDomainPatch {
         return "";
     }
 
+    // TODO remove this once changeLinkSharingDomainResourcePatch is restored
+    /**
+     * Injection point.
+     */
+    public static String formatResourceLink(Object... formatArgs) {
+        String username = (String) formatArgs[0];
+        String tweetId = (String) formatArgs[1];
+        return String.format(LINK_FORMAT, getShareDomain(), username, tweetId);
+    }
+
     /**
      * Injection point.
      */
