@@ -1,20 +1,54 @@
 package app.revanced.patches.samsung.radio.restrictions.device
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
+import app.revanced.util.findFreeRegister
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstruction
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
+
+private const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/samsung/radio/restrictions/device/BypassDeviceChecksPatch;"
 
 @Suppress("unused")
 val bypassDeviceChecksPatch = bytecodePatch(
     name = "Bypass device checks",
-    description = "Removes the restriction to use the app on blacklisted phones.",
+    description = "Removes firmware and region blacklisting. " +
+            "This patch will still not allow the app to run on devices that do not have the required hardware.",
 ) {
+    dependsOn(sharedExtensionPatch("samsung/radio"))
     compatibleWith("com.sec.android.app.fm"("12.4.00.7"))
 
     execute {
         // Return false = The device is not blacklisted
         checkDeviceFingerprint.method.apply {
-            addInstruction(0, "const/4 v0, 0x0")
-            addInstruction(1, "return v0")
+            // Find the first string that start with "SM-", that's the list of incompatible devices
+            val firstStringIndex = indexOfFirstInstruction {
+                opcode == Opcode.CONST_STRING &&
+                        getReference<StringReference>()?.string?.startsWith("SM-") == true
+            }
+
+            // Find the following filled-new-array (or filled-new-array/range) instruction
+            val filledNewArrayIndex = indexOfFirstInstruction(firstStringIndex + 1) {
+                opcode == Opcode.FILLED_NEW_ARRAY || opcode == Opcode.FILLED_NEW_ARRAY_RANGE
+            }
+
+            // Find an available register for our use
+            val resultRegister = findFreeRegister(filledNewArrayIndex + 1)
+
+            // Store the array there and invoke the method that we added to the class earlier
+            addInstructions(filledNewArrayIndex + 1, """
+                move-result-object v$resultRegister
+                invoke-static {v$resultRegister}, ${EXTENSION_CLASS_DESCRIPTOR}->checkIfDeviceIsIncompatible([Ljava/lang/String;)Z
+                move-result v$resultRegister
+                return v$resultRegister
+            """.trimIndent())
+
+            // Remove the instructions before our strings
+            removeInstructions(0, firstStringIndex)
         }
     }
 }
