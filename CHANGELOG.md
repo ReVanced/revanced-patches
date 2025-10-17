@@ -1,3 +1,10 @@
+## [5.43.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.43.2-dev.1...v5.43.2-dev.2) (2025-10-17)
+
+
+### Bug Fixes
+
+* **YouTube Music:** Resolve patching 7.29 target ([2e4c6fd](https://github.com/ReVanced/revanced-patches/commit/2e4c6fdcadeef45a80733e374421d52e5e8af910))
+
 ## [5.43.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.43.1...v5.43.2-dev.1) (2025-10-16)
 
 
