@@ -1,3 +1,39 @@
+## [5.43.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.43.2-dev.1...v5.43.2-dev.2) (2025-10-17)
+
+
+### Bug Fixes
+
+* **YouTube Music:** Resolve patching 7.29 target ([2e4c6fd](https://github.com/ReVanced/revanced-patches/commit/2e4c6fdcadeef45a80733e374421d52e5e8af910))
+
+## [5.43.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.43.1...v5.43.2-dev.1) (2025-10-16)
+
+
+### Bug Fixes
+
+* **X / Twitter - Change link sharing domain:** Use bytecode patching to resolve patching with Manager ([#6125](https://github.com/ReVanced/revanced-patches/issues/6125)) ([0af8c8a](https://github.com/ReVanced/revanced-patches/commit/0af8c8a766ae4ba6926404d59da2f14d649f91f7))
+
+## [5.43.1](https://github.com/ReVanced/revanced-patches/compare/v5.43.0...v5.43.1) (2025-10-15)
+
+
+### Bug Fixes
+
+* **X / Twitter - Change link sharing domain:** Resolve duplicate patch option ([#6119](https://github.com/ReVanced/revanced-patches/issues/6119)) ([7563990](https://github.com/ReVanced/revanced-patches/commit/75639907502382f63fa127a886362d4a4573e6e3))
+* **X / Twitter:** Do not crash Manager when clicking on domain patch option ([2a1e318](https://github.com/ReVanced/revanced-patches/commit/2a1e31860f22f537d51b40a5b71d9ad9d538789e))
+
+## [5.43.1-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.43.1-dev.1...v5.43.1-dev.2) (2025-10-14)
+
+
+### Bug Fixes
+
+* **X / Twitter:** Do not crash Manager when clicking on domain patch option ([2a1e318](https://github.com/ReVanced/revanced-patches/commit/2a1e31860f22f537d51b40a5b71d9ad9d538789e))
+
+## [5.43.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.43.0...v5.43.1-dev.1) (2025-10-14)
+
+
+### Bug Fixes
+
+* **X / Twitter - Change link sharing domain:** Resolve duplicate patch option ([#6119](https://github.com/ReVanced/revanced-patches/issues/6119)) ([7563990](https://github.com/ReVanced/revanced-patches/commit/75639907502382f63fa127a886362d4a4573e6e3))
+
 # [5.43.0](https://github.com/ReVanced/revanced-patches/compare/v5.42.1...v5.43.0) (2025-10-14)
 
 

@@ -1158,13 +1158,13 @@ UserID on kuin salasana, eikä sitä pidä jakaa kenellekään.
   <string name="revanced_sb_segments_highlight_sum">Se osa videota, jota useimmat ihmiset etsivät</string>
   <string name="revanced_sb_segments_intro">Tauko/Introanimaatio</string>
   <string name="revanced_sb_segments_intro_sum">Aikaväli ilman varsinaista sisältöä. Voi olla tauko, staattinen kehys tai toistuva animaatio. Ei sisällä siirtymiä, jotka sisältävät tietoa</string>
-  <string name="revanced_sb_segments_outro">Loppukortit / Tekijätiedot</string>
+  <string name="revanced_sb_segments_outro">Loppukortit / -tekstit</string>
   <string name="revanced_sb_segments_outro_sum">Lopputekstit tai kun YouTuben loppukortit tulevat näkyviin. Ei lopetuksille, joissa on tietoa</string>
   <string name="revanced_sb_segments_hook">Koukku / Tervehdykset</string>
   <string name="revanced_sb_segments_hook_sum">Kertovat trailerit tulevasta videosta, tervehdykset ja hyvästelyt. Ei sisällä osioita, jotka lisäävät lisäsisältöä</string>
-  <string name="revanced_sb_segments_preview">Esikatselu / Yhteenveto</string>
+  <string name="revanced_sb_segments_preview">Esikatselu / Kertaus</string>
   <string name="revanced_sb_segments_preview_sum">Kokoelma leikkeitä, jotka osoittavat, mitä on tulossa tai mitä tapahtui videossa tai muissa sarjan videoissa,  joiden kaikki informaatio toistuu muualla</string>
-  <string name="revanced_sb_segments_filler">Tangentti / Vitsit</string>
+  <string name="revanced_sb_segments_filler">Toissijaiset kohtaukset / Vitsit</string>
   <string name="revanced_sb_segments_filler_sum">Epäolennaiset kohtaukset tai vitsit, joita ei tarvita videon pääsisällön ymmärtämiseen. Ei sisällä osioita, jotka tarjoavat kontekstia tai taustatietoja</string>
   <string name="revanced_sb_segments_nomusic">Musiikki: Musiikiton osa</string>
   <string name="revanced_sb_segments_nomusic_sum">Vain musiikkivideoille. Musiikkivideoiden osiot ilman musiikkia, jotka eivät jo kuulu toiseen kategoriaan</string>
@@ -1182,7 +1182,7 @@ UserID on kuin salasana, eikä sitä pidä jakaa kenellekään.
   <string name="revanced_sb_skip_button_preview_beginning">Ohita esikatselu</string>
   <string name="revanced_sb_skip_button_preview_middle">Ohita esikatselu</string>
   <string name="revanced_sb_skip_button_preview_end">Ohita kertaus</string>
-  <string name="revanced_sb_skip_button_filler">Ohita Tangentti</string>
+  <string name="revanced_sb_skip_button_filler">Ohita toissijainen kohtaus</string>
   <string name="revanced_sb_skip_button_nomusic">Ohita musiikiton</string>
   <string name="revanced_sb_skip_button_unsubmitted">Ohita osio</string>
   <string name="revanced_sb_skipped_sponsor">Sponsori ohitettiin</string>
@@ -1193,11 +1193,11 @@ UserID on kuin salasana, eikä sitä pidä jakaa kenellekään.
   <string name="revanced_sb_skipped_intro_middle">Tauko ohitettiin</string>
   <string name="revanced_sb_skipped_intro_end">Tauko ohitettiin</string>
   <string name="revanced_sb_skipped_outro">Outro ohitettiin</string>
-  <string name="revanced_sb_skipped_hook">Ohitettu koukku</string>
+  <string name="revanced_sb_skipped_hook">Koukku ohitettiin</string>
   <string name="revanced_sb_skipped_preview_beginning">Esikatselu ohitettiin</string>
   <string name="revanced_sb_skipped_preview_middle">Esikatselu ohitettiin</string>
   <string name="revanced_sb_skipped_preview_end">Kertaus ohitettiin</string>
-  <string name="revanced_sb_skipped_filler">Ohitettu tangentti</string>
+  <string name="revanced_sb_skipped_filler">Toissijainen kohtaus ohitettiin</string>
   <string name="revanced_sb_skipped_nomusic">Musiikiton osio ohitettiin</string>
   <string name="revanced_sb_skipped_unsubmitted">Lähettämätön osio ohitettiin</string>
   <string name="revanced_sb_skipped_multiple_segments">Useita osioita ohitettiin</string>
@@ -1254,7 +1254,7 @@ Oletko valmis lähettämään?"</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Annettu aika on virheellinen</string>
   <string name="revanced_sb_stats_title">Tilastot</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
-  <string name="revanced_sb_stats_connection_failure">Tilastot eivät tilapäisesti saatavilla (API ei ole käytettävissä)</string>
+  <string name="revanced_sb_stats_connection_failure">Tilastot eivät ole tilapäisesti saatavilla (API ei ole käytettävissä)</string>
   <string name="revanced_sb_stats_loading">Ladataan...</string>
   <string name="revanced_sb_stats_sb_disabled">SponsorBlock ei ole käytössä</string>
   <string name="revanced_sb_stats_username">Käyttäjänimesi: &lt;b&gt;%s&lt;/b&gt;</string>
@@ -1265,11 +1265,11 @@ Oletko valmis lähettämään?"</string>
   <string name="revanced_sb_stats_submissions">Olet luonut &lt;b&gt;%s&lt;/b&gt; osiota</string>
   <string name="revanced_sb_stats_submissions_sum">Napauta tästä nähdäksesi osiosi</string>
   <string name="revanced_sb_stats_saved_zero">SponsorBlock-tulostaulu</string>
-  <string name="revanced_sb_stats_saved">Olet pelastanut ihmisiä &lt;b&gt;%s&lt;/b&gt; segmentiltä</string>
+  <string name="revanced_sb_stats_saved">Olet pelastanut ihmisiä &lt;b&gt;%s&lt;/b&gt; osiolta</string>
   <string name="revanced_sb_stats_saved_sum_zero">Napauta tästä nähdäksesi globaalit tilastot ja parhaat osallistujat</string>
   <string name="revanced_sb_stats_saved_sum">Se on &lt;b&gt;%s&lt;/b&gt; heidän elämistään.&lt;br&gt;Napauta tästä nähdäksesi tulostaulun</string>
   <string name="revanced_sb_stats_self_saved">Olet ohittanut &lt;b&gt;%s&lt;/b&gt; osiota</string>
-  <string name="revanced_sb_stats_self_saved_sum">Tuo on &lt;b&gt;%s&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_self_saved_sum">Se on &lt;b&gt;%s&lt;/b&gt;</string>
   <string name="revanced_sb_stats_self_saved_reset_title">Nollataanko ohitettujen osioiden laskuri?</string>
   <string name="revanced_sb_stats_saved_hour_format">%1$s tuntia %2$s minuuttia</string>
   <string name="revanced_sb_stats_saved_minute_format">%1$s minuuttia %2$s sekuntia</string>

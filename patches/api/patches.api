@@ -444,7 +444,9 @@ public final class app/revanced/patches/music/misc/tracks/ForceOriginalAudioPatc
 
 public final class app/revanced/patches/music/playservice/VersionCheckPatchKt {
 	public static final fun getVersionCheckPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+	public static final fun is_7_16_or_greater ()Z
 	public static final fun is_7_33_or_greater ()Z
+	public static final fun is_8_05_or_greater ()Z
 	public static final fun is_8_10_or_greater ()Z
 	public static final fun is_8_11_or_greater ()Z
 	public static final fun is_8_15_or_greater ()Z
