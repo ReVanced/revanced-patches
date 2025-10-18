@@ -10,7 +10,6 @@ import com.android.tools.smali.dexlib2.Opcode
  * 19.46+
  */
 internal val openVideosFullscreenPortraitFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "Lj\$/util/Optional;")
     instructions(
