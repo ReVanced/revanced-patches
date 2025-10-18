@@ -20,7 +20,7 @@ val fixCrashPatch = bytecodePatch(
             "This is not required if you plan to install it as a system app.",
 ) {
     dependsOn(addManifestPermissionsPatch, bypassDeviceChecksPatch, sharedExtensionPatch("samsung/radio"))
-    compatibleWith("com.sec.android.app.fm"("12.4.00.7"))
+    compatibleWith("com.sec.android.app.fm"("12.4.00.7", "12.3.00.13", "12.3.00.11"))
 
     execute {
         permissionRequestListFingerprint.method.apply {

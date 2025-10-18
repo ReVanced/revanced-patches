@@ -20,7 +20,7 @@ val bypassDeviceChecksPatch = bytecodePatch(
             "This patch will still not allow the app to run on devices that do not have the required hardware.",
 ) {
     dependsOn(sharedExtensionPatch("samsung/radio"))
-    compatibleWith("com.sec.android.app.fm"("12.4.00.7"))
+    compatibleWith("com.sec.android.app.fm"("12.4.00.7", "12.3.00.13", "12.3.00.11"))
 
     execute {
         // Return false = The device is not blacklisted
