@@ -34,7 +34,7 @@ val fixCrashPatch = bytecodePatch(
                     moveResultIndex + 1, """
                         invoke-static {v$arrayRegister}, ${EXTENSION_CLASS_DESCRIPTOR}->fixPermissionRequestList([Ljava/lang/String;)[Ljava/lang/String;
                         move-result-object v$arrayRegister
-                    """.trimIndent()
+                    """
                 )
             }
         }

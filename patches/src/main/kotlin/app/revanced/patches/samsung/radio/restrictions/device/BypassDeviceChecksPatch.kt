@@ -45,7 +45,7 @@ val bypassDeviceChecksPatch = bytecodePatch(
                 invoke-static {v$resultRegister}, ${EXTENSION_CLASS_DESCRIPTOR}->checkIfDeviceIsIncompatible([Ljava/lang/String;)Z
                 move-result v$resultRegister
                 return v$resultRegister
-            """.trimIndent()
+            """
             )
 
             // Remove the instructions before our strings
