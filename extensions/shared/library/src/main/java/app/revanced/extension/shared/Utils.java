@@ -46,7 +46,6 @@ import androidx.annotation.Nullable;
 
 import java.text.Bidi;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -1183,44 +1182,5 @@ public class Utils {
 
     public static float clamp(float value, float lower, float upper) {
         return Math.max(lower, Math.min(value, upper));
-    }
-
-    /**
-     * Checks if an array contains a specific element.
-     *
-     * @param array   The array to search.
-     * @param element The element to find.
-     * @param <T>     The type of the elements of the array.
-     */
-    public static <T> boolean arrayContains(T[] array, T element) {
-        for (Object item : array) {
-            if (Objects.equals(item, element)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Merges two arrays into a new array.
-     * <p>
-     * If either array is null or empty, the other array is returned.
-     * If both arrays are null or empty, null is returned.
-     *
-     * @param first   The first array.
-     * @param second  The second array.
-     * @param <T>     The type of the elements of the two arrays.
-     */
-    public static <T> T[] mergeArrays(T[] first, T[] second) {
-        if (first == null || first.length == 0) {
-            return second;
-        }
-        if (second == null || second.length == 0) {
-            return first;
-        }
-
-        T[] newArray = (T[]) Arrays.copyOf(first, first.length + second.length);
-        System.arraycopy(second, 0, newArray, first.length, second.length);
-        return newArray;
     }
 }

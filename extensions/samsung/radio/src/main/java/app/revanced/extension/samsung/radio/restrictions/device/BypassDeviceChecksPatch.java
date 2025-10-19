@@ -1,11 +1,8 @@
 package app.revanced.extension.samsung.radio.restrictions.device;
 
-import app.revanced.extension.shared.Utils;
-
 import android.os.SemSystemProperties;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 @SuppressWarnings("unused")
 public final class BypassDeviceChecksPatch {
@@ -17,6 +14,6 @@ public final class BypassDeviceChecksPatch {
      **/
     public static final boolean checkIfDeviceIsIncompatible(String[] deviceList) {
         String currentDevice = SemSystemProperties.getSalesCode();
-        return Utils.arrayContains(deviceList, currentDevice);
+        return Arrays.asList(deviceList).contains(currentDevice);
     }
 }
