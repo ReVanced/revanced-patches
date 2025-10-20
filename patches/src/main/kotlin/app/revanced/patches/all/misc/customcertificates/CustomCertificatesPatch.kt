@@ -54,7 +54,8 @@ val customNetworkSecurityPatch = resourcePatch(
     val allowUserCerts by booleanOption(
         key = "allowUserCerts",
         title = "Trust User-Added CAs",
-        description = "Makes an app trust certificates from the Android user store for the specified domains and their subdomains if the option \"Include Subdomains\" is enabled.",
+        description = "Makes an app trust certificates from the Android user store for the specified domains, and if the option \"Include Subdomains\" is enabled then also the subdomains.",
+
         default = false,
         required = true
     )
