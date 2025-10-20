@@ -37,7 +37,7 @@ val customNetworkSecurityPatch = resourcePatch(
     )
 
     val customCAFilePaths by stringsOption(
-        key = "customCaFilePaths",
+        key = "customCAFilePaths",
         title = "Custom Root CAs",
         description = """
             List of paths to files in PEM or DER format (one file path per entry).
