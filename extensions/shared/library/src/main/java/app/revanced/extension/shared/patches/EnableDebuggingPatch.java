@@ -1,5 +1,7 @@
 package app.revanced.extension.shared.patches;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -21,14 +23,39 @@ public final class EnableDebuggingPatch {
             ? new ConcurrentHashMap<>(800, 0.5f, 1)
             : null;
 
+    private static final Set<Long> DISABLED_FEATURE_FLAGS = parseFlags(BaseSettings.DISABLED_FEATURE_FLAGS.get());
+    private static final Set<Long> ENABLED_FEATURE_FLAGS = parseFlags(BaseSettings.ENABLED_FEATURE_FLAGS.get());
+
+    // Parse the string of flags.
+    private static Set<Long> parseFlags(String flags) {
+        Set<Long> parsedFlags = new HashSet<>();
+        if (flags != null && !flags.trim().isEmpty()) {
+            for (String flag : flags.split("\n")) {
+                String trimmedFlag = flag.trim();
+                try {
+                    parsedFlags.add(Long.parseLong(trimmedFlag));
+                } catch (NumberFormatException e) {
+                    Logger.printDebug(() -> "Invalid flag ID: " + flag);
+                }
+            }
+        }
+        return parsedFlags;
+    }
+
     /**
      * Injection point.
      */
     public static boolean isBooleanFeatureFlagEnabled(boolean value, Long flag) {
-        if (LOG_FEATURE_FLAGS && value) {
-            if (featureFlags.putIfAbsent(flag, true) == null) {
-                Logger.printDebug(() -> "boolean feature is enabled: " + flag);
-            }
+        if (ENABLED_FEATURE_FLAGS.contains(flag)) {
+            Logger.printDebug(() -> "Flag enabled: " + flag);
+            return true;
+        }
+        if (DISABLED_FEATURE_FLAGS.contains(flag)) {
+            Logger.printDebug(() -> "Flag disabled: " + flag);
+            return false;
+        }
+        if (LOG_FEATURE_FLAGS && value && featureFlags.putIfAbsent(flag, true) == null) {
+            Logger.printDebug(() -> "boolean feature is enabled: " + flag);
         }
 
         return value;
