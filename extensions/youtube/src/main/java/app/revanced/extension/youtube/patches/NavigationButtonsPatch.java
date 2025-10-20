@@ -5,11 +5,10 @@ import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButt
 
 import android.os.Build;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.EnumMap;
 import java.util.Map;
-
-import android.widget.TextView;
 
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
@@ -39,6 +38,9 @@ public final class NavigationButtonsPatch {
     private static final Boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
             = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK.get();
 
+    private static final Boolean NAVIGATION_BAR_DISABLE_BOLD_ICONS
+            = Settings.NAVIGATION_BAR_DISABLE_BOLD_ICONS.get();
+
     /**
      * Injection point.
      */
@@ -67,6 +69,13 @@ public final class NavigationButtonsPatch {
      */
     public static boolean useAnimatedNavigationButtons(boolean original) {
         return Settings.NAVIGATION_BAR_ANIMATIONS.get();
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean useBoldIcons(boolean original) {
+        return !NAVIGATION_BAR_DISABLE_BOLD_ICONS;
     }
 
     /**

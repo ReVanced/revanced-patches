@@ -14,6 +14,7 @@ import app.revanced.patches.youtube.misc.navigation.hookNavigationButtonCreated
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_15_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_31_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -69,6 +70,12 @@ val navigationButtonsPatch = bytecodePatch(
         if (is_20_15_or_greater) {
             PreferenceScreen.GENERAL_LAYOUT.addPreferences(
                 SwitchPreference("revanced_navigation_bar_animations")
+            )
+        }
+
+        if (is_20_31_or_greater) {
+            PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+                SwitchPreference("revanced_navigation_bar_disable_bold_icons")
             )
         }
 
@@ -143,6 +150,17 @@ val navigationButtonsPatch = bytecodePatch(
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useAnimatedNavigationButtons(Z)Z"
+                )
+            }
+        }
+
+        // Bold icon resources are found starting in 20.23, but many YT icons are not bold.
+        // 20.31 is the first version that seems to have all the bold icons.
+        if (is_20_31_or_greater) {
+            boldIconsFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useBoldIcons(Z)Z"
                 )
             }
         }

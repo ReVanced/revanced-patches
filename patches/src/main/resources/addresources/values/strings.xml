@@ -792,6 +792,9 @@ If changing this setting does not take effect, try switching to Incognito mode."
             <string name="revanced_navigation_bar_animations_title">Enable navigation bar animations</string>
             <string name="revanced_navigation_bar_animations_summary_on">Navigation transitions are animated</string>
             <string name="revanced_navigation_bar_animations_summary_off">Navigation transitions are not animated</string>
+            <string name="revanced_navigation_bar_disable_bold_icons_title">Disable bold icons</string>
+            <string name="revanced_navigation_bar_disable_bold_icons_summary_on">Icons are not bold</string>
+            <string name="revanced_navigation_bar_disable_bold_icons_summary_off">Icons are bold</string>
             <string name="revanced_disable_translucent_status_bar_title">Disable translucent status bar</string>
             <string name="revanced_disable_translucent_status_bar_summary_on">Status bar is opaque</string>
             <string name="revanced_disable_translucent_status_bar_summary_off">Status bar is opaque or translucent</string>
