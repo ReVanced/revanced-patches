@@ -29,16 +29,16 @@ public final class NavigationButtonsPatch {
     private static final boolean SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON
             = Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON.get();
 
-    private static final Boolean DISABLE_TRANSLUCENT_STATUS_BAR
+    private static final boolean DISABLE_TRANSLUCENT_STATUS_BAR
             = Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get();
 
-    private static final Boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT
+    private static final boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT
             = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT.get();
 
-    private static final Boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
+    private static final boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
             = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK.get();
 
-    private static final Boolean NAVIGATION_BAR_DISABLE_BOLD_ICONS
+    private static final boolean NAVIGATION_BAR_DISABLE_BOLD_ICONS
             = Settings.NAVIGATION_BAR_DISABLE_BOLD_ICONS.get();
 
     /**
