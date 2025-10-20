@@ -207,3 +207,13 @@ internal val playerOverlaysLayoutFingerprint by fingerprint {
         method.definingClass == YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME
     }
 }
+
+internal val miniplayerSetIconsFingerprint by fingerprint {
+    returns("V")
+    parameters("I", "Ljava/lang/Runnable;")
+    instructions(
+        resourceLiteral(ResourceType.DRAWABLE, "yt_fill_pause_white_36"),
+        resourceLiteral(ResourceType.DRAWABLE, "yt_fill_pause_black_36")
+    )
+}
+

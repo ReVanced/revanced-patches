@@ -382,6 +382,19 @@ public final class MiniplayerPatch {
     /**
      * Injection point.
      */
+    public static boolean allowBoldIcons(boolean original) {
+        if (CURRENT_TYPE == MINIMAL) {
+            // Minimal player does not have the correct pause/play icon (it's too large).
+            // Use the non bold icons instead.
+            return false;
+        }
+
+        return original;
+    }
+
+    /**
+     * Injection point.
+     */
     public static void hideMiniplayerExpandClose(View view) {
         Utils.hideViewByRemovingFromParentUnderCondition(HIDE_OVERLAY_BUTTONS_ENABLED, view);
     }

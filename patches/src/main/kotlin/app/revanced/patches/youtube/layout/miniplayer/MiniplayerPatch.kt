@@ -29,6 +29,7 @@ import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
@@ -321,7 +322,7 @@ val miniplayerPatch = bytecodePatch(
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDefaultSize(I)I
                         move-result v$register
-                    """,
+                    """
                 )
             }
 
@@ -380,6 +381,30 @@ val miniplayerPatch = bytecodePatch(
                     val register = getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
 
                     replaceInstruction(imageResourceIndex, "const v$register, $replacementResource")
+                }
+            }
+        }
+
+        // endregion
+
+        // region fix minimal miniplayer using the wrong pause/play bold icons.
+
+        if (is_20_31_or_greater) {
+            miniplayerSetIconsFingerprint.method.apply {
+                findInstructionIndicesReversedOrThrow {
+                    val reference = getReference<MethodReference>()
+                    opcode == Opcode.INVOKE_INTERFACE
+                        && reference?.returnType == "Z" && reference.parameterTypes.isEmpty()
+                }.forEach { index ->
+                    val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
+
+                    addInstructions(
+                        index + 2,
+                        """
+                            invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->allowBoldIcons(Z)Z
+                            move-result v$register
+                        """
+                    )
                 }
             }
         }
