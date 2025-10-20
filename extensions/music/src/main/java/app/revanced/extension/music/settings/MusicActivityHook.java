@@ -51,14 +51,6 @@ public class MusicActivityHook extends BaseActivityHook {
     }
 
     /**
-     * Returns the resource ID for the YouTube Music settings layout.
-     */
-    @Override
-    protected int getContentViewResourceId() {
-        return LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR;
-    }
-
-    /**
      * Returns the fixed background color for the toolbar.
      */
     @Override

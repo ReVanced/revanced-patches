@@ -126,14 +126,16 @@ public abstract class BaseActivityHook extends Activity {
     }
 
     /**
+     * Returns the resource ID for the content view layout.
+     */
+    protected int getContentViewResourceId() {
+        return LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR;
+    }
+
+    /**
      * Customizes the activity's theme.
      */
     protected abstract void customizeActivityTheme(Activity activity);
-
-    /**
-     * Returns the resource ID for the content view layout.
-     */
-    protected abstract int getContentViewResourceId();
 
     /**
      * Returns the background color for the toolbar.

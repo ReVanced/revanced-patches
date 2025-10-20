@@ -49,14 +49,6 @@ public class YouTubeActivityHook extends BaseActivityHook {
     }
 
     /**
-     * Returns the resource ID for the YouTube settings layout.
-     */
-    @Override
-    protected int getContentViewResourceId() {
-        return LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR;
-    }
-
-    /**
      * Returns the toolbar background color based on dark/light mode.
      */
     @Override
