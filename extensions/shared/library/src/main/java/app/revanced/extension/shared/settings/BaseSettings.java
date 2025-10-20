@@ -25,7 +25,7 @@ public class BaseSettings {
      * Use the icons declared in the preferences created during patching. If no icons or styles are declared then this setting does nothing.
      */
     public static final BooleanSetting SHOW_MENU_ICONS = new BooleanSetting("revanced_show_menu_icons", TRUE, true);
-    public static final BooleanSetting SETTINGS_DISABLE_BOLD_ICONS = new BooleanSetting("revanced_settings_disable_bold_icons", TRUE, true, parent(SHOW_MENU_ICONS));
+    public static final BooleanSetting SETTINGS_DISABLE_BOLD_ICONS = new BooleanSetting("revanced_settings_disable_bold_icons", TRUE, true);
 
     public static final BooleanSetting SETTINGS_SEARCH_HISTORY = new BooleanSetting("revanced_settings_search_history", TRUE, true);
     public static final StringSetting SETTINGS_SEARCH_ENTRIES = new StringSetting("revanced_settings_search_entries", "");
