@@ -72,7 +72,8 @@ val customNetworkSecurityPatch = resourcePatch(
     val allowCleartextTraffic by booleanOption(
         key = "allowCleartextTraffic",
         title = "Allow Cleartext Traffic (HTTP)",
-        description = "Allows unencrypted HTTP traffic for the specified domains and their subdomains if the option \"Include Subdomains\" is enabled",
+        description = "Allows unencrypted HTTP traffic for the specified domains, and if \"Include Subdomains\" is enabled then also the subdomains.",
+
         default = false,
         required = true
     )
