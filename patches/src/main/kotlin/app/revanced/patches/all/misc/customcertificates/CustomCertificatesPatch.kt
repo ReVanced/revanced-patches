@@ -43,7 +43,8 @@ val customNetworkSecurityPatch = resourcePatch(
             List of paths to files in PEM or DER format (one file path per entry).
                         
             Makes an app trust the provided custom Certificate Authorities (CAs),
-            for the specified domains and their subdomains if the option "Include Subdomains" is enabled.
+            for the specified domains, and if the option "Include Subdomains" is enabled then also the subdomains.
+
         
             CA files will be bundled in res/raw/ of resulting APK
         """.trimIndentMultiline(),
