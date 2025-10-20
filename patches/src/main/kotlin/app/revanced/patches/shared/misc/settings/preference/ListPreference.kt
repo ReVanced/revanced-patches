@@ -20,11 +20,12 @@ class ListPreference(
     key: String? = null,
     titleKey: String = "${key}_title",
     icon: String? = null,
+    iconBold: String? = null,
     layout: String? = null,
     tag: String = "app.revanced.extension.shared.settings.preference.CustomDialogListPreference",
     val entriesKey: String? = "${key}_entries",
     val entryValuesKey: String? = "${key}_entry_values"
-) : BasePreference(key, titleKey, null, icon, layout, tag) {
+) : BasePreference(key, titleKey, null, icon, iconBold, layout, tag) {
     var entries: ArrayResource? = null
         private set
     var entryValues: ArrayResource? = null

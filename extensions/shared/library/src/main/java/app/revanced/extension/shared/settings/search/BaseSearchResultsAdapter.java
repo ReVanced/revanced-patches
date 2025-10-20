@@ -1,7 +1,6 @@
 package app.revanced.extension.shared.settings.search;
 
 import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
-import static app.revanced.extension.shared.settings.search.BaseSearchViewController.DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
 
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
@@ -276,7 +275,7 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
         holder.titleView.setText(item.highlightedTitle);
         holder.summaryView.setText(item.highlightedSummary);
         holder.summaryView.setVisibility(TextUtils.isEmpty(item.highlightedSummary) ? View.GONE : View.VISIBLE);
-        holder.iconView.setImageResource(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
+        holder.iconView.setImageResource(BaseSearchViewController.getSearchIcon());
     }
 
     /**

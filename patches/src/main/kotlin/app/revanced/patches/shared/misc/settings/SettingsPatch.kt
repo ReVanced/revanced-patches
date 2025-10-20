@@ -56,8 +56,14 @@ fun settingsPatch (
     execute {
         copyResources(
             "settings",
-            ResourceGroup("xml", "revanced_prefs.xml", "revanced_prefs_icons.xml"),
-            ResourceGroup("menu", "revanced_search_menu.xml"),
+            ResourceGroup("xml",
+                "revanced_prefs.xml",
+                "revanced_prefs_icons.xml",
+                "revanced_prefs_icons_bold.xml"
+            ),
+            ResourceGroup("menu",
+                "revanced_search_menu.xml"
+            ),
             ResourceGroup("drawable",
                 // CustomListPreference resources.
                 "revanced_ic_dialog_alert.xml",
@@ -65,8 +71,11 @@ fun settingsPatch (
                 "revanced_settings_arrow_time.xml",
                 "revanced_settings_custom_checkmark.xml",
                 "revanced_settings_search_icon.xml",
+                "revanced_settings_search_icon_bold.xml",
                 "revanced_settings_search_remove.xml",
+                "revanced_settings_search_remove_bold.xml",
                 "revanced_settings_toolbar_arrow_left.xml",
+                "revanced_settings_toolbar_arrow_left_bold.xml",
             ),
             ResourceGroup("layout",
                 "revanced_custom_list_item_checked.xml",
@@ -127,19 +136,30 @@ fun settingsPatch (
         // there is no easy way to change to the Android default preference layout
         // after the preference is inflated.
         // Using two different preference files is the simplest and most robust solution.
-        fun removeIconsAndLayout(preferences: Collection<BasePreference>) {
+        fun removeIconsAndLayout(preferences: Collection<BasePreference>, removeAllIconsAndLayout: Boolean) {
             preferences.forEach { preference ->
                 preference.icon = null
-                preference.layout = null
+                if (removeAllIconsAndLayout) {
+                    preference.iconBold = null
+                    preference.layout = null
+                }
 
                 if (preference is PreferenceCategory) {
-                    removeIconsAndLayout(preference.preferences)
+                    removeIconsAndLayout(preference.preferences, removeAllIconsAndLayout)
                 } else if (preference is PreferenceScreenPreference) {
-                    removeIconsAndLayout(preference.preferences)
+                    removeIconsAndLayout(preference.preferences, removeAllIconsAndLayout)
                 }
             }
         }
-        removeIconsAndLayout(preferences)
+
+        // Bold icons.
+        removeIconsAndLayout(preferences, false)
+        document("res/xml/revanced_prefs_icons_bold.xml").use { document ->
+            val revancedPreferenceScreenNode = document.getNode("PreferenceScreen")
+            preferences.forEach { revancedPreferenceScreenNode.addPreference(it) }
+        }
+
+        removeIconsAndLayout(preferences, true)
 
         document("res/xml/revanced_prefs.xml").use { document ->
             val revancedPreferenceScreenNode = document.getNode("PreferenceScreen")

@@ -25,6 +25,7 @@ import java.util.LinkedList;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.ResourceType;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.preference.BulletPointPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
 
@@ -57,6 +58,10 @@ public class SearchHistoryManager {
             ResourceType.LAYOUT, "revanced_preference_search_history_item");
     private static final int ID_SEARCH_HISTORY_LIST = getResourceIdentifierOrThrow(
             ResourceType.ID, "search_history_list");
+    private static final int ID_SEARCH_REMOVE_ICON = getResourceIdentifierOrThrow(
+            ResourceType.DRAWABLE, "revanced_settings_search_remove");
+    private static final int ID_SEARCH_REMOVE_ICON_BOLD = getResourceIdentifierOrThrow(
+            ResourceType.DRAWABLE, "revanced_settings_search_remove_bold");
 
     private final Deque<String> searchHistory;
     private final Activity activity;
@@ -324,14 +329,20 @@ public class SearchHistoryManager {
                 View view = inflater.inflate(LAYOUT_REVANCED_PREFERENCE_SEARCH_HISTORY_ITEM, container, false);
 
                 TextView historyText = view.findViewById(ID_HISTORY_TEXT);
-                ImageView deleteIcon = view.findViewById(ID_DELETE_ICON);
-
                 historyText.setText(query);
 
                 // Set click listener for main item (select query).
                 view.setOnClickListener(v -> onSelectHistoryItemListener.onSelectHistoryItem(query));
 
                 // Set click listener for delete icon.
+                ImageView deleteIcon = view.findViewById(ID_DELETE_ICON);
+
+                deleteIcon.setImageResource(
+                        BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.get()
+                                ? ID_SEARCH_REMOVE_ICON
+                                : ID_SEARCH_REMOVE_ICON_BOLD
+                );
+
                 deleteIcon.setOnClickListener(v -> createAndShowDialog(
                         query,
                         str("revanced_settings_search_remove_message"),

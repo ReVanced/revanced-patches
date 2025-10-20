@@ -79,10 +79,21 @@ public abstract class BaseSearchViewController {
             ResourceType.ID, "action_search");
     protected static final int ID_REVANCED_SETTINGS_FRAGMENTS = getResourceIdentifierOrThrow(
             ResourceType.ID, "revanced_settings_fragments");
-    public static final int DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON = getResourceIdentifierOrThrow(
+    private static final int DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON = getResourceIdentifierOrThrow(
             ResourceType.DRAWABLE, "revanced_settings_search_icon");
+    private static final int DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON_BOLD = getResourceIdentifierOrThrow(
+            ResourceType.DRAWABLE, "revanced_settings_search_icon_bold");
     protected static final int MENU_REVANCED_SEARCH_MENU = getResourceIdentifierOrThrow(
             ResourceType.MENU, "revanced_search_menu");
+
+    /**
+     * @return The search icon, either bold or not bold, depending on the ReVanced UI setting.
+     */
+    public static int getSearchIcon() {
+        return BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.get()
+                ? DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON
+                : DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON_BOLD;
+    }
 
     /**
      * Constructs a new BaseSearchViewController instance.
@@ -529,7 +540,7 @@ public abstract class BaseSearchViewController {
             noResultsPreference.setTitle(str("revanced_settings_search_no_results_title", query));
             noResultsPreference.setSummary(str("revanced_settings_search_no_results_summary"));
             noResultsPreference.setSelectable(false);
-            noResultsPreference.setIcon(DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON);
+            noResultsPreference.setIcon(getSearchIcon());
             filteredSearchItems.add(new BaseSearchResultItem.PreferenceSearchItem(noResultsPreference, "", Collections.emptyList()));
         }
 

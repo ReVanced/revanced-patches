@@ -104,9 +104,15 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * so all app specific {@link Setting} instances are loaded before this method returns.
      */
     protected void initialize() {
-        String preferenceResourceName = BaseSettings.SHOW_MENU_ICONS.get()
-                ? "revanced_prefs_icons"
-                : "revanced_prefs";
+        String preferenceResourceName;
+        if (BaseSettings.SHOW_MENU_ICONS.get()) {
+            preferenceResourceName = BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.get()
+                    ? "revanced_prefs_icons"
+                    : "revanced_prefs_icons_bold";
+        } else {
+            preferenceResourceName = "revanced_prefs";
+        }
+
         final var identifier = Utils.getResourceIdentifier(ResourceType.XML, preferenceResourceName);
         if (identifier == 0) return;
         addPreferencesFromResource(identifier);

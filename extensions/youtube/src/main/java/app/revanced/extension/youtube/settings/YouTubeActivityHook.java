@@ -21,6 +21,9 @@ import app.revanced.extension.youtube.settings.search.YouTubeSearchViewControlle
 @SuppressWarnings("deprecation")
 public class YouTubeActivityHook extends BaseActivityHook {
 
+    private static final boolean SETTINGS_DISABLE_BOLD_ICONS
+            = Settings.SETTINGS_DISABLE_BOLD_ICONS.get();
+
     private static int currentThemeValueOrdinal = -1; // Must initially be a non-valid enum ordinal value.
 
     /**
@@ -147,5 +150,13 @@ public class YouTubeActivityHook extends BaseActivityHook {
     @SuppressWarnings("unused")
     public static boolean handleBackPress() {
         return YouTubeSearchViewController.handleFinish(searchViewController);
+    }
+
+    /**
+     * Injection point.
+     */
+    @SuppressWarnings("unused")
+    public static boolean useBoldIcons(boolean original) {
+        return !SETTINGS_DISABLE_BOLD_ICONS;
     }
 }

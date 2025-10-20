@@ -212,7 +212,7 @@ val lithoFilterPatch = bytecodePatch(
         lithoConverterBufferUpbFeatureFlagFingerprint.let {
             // Procool buffer has changed in 20.22, and UPB native code is now always enabled.
             if (is_20_22_or_greater) {
-                Logger.getLogger(this::class.java.name).severe(
+                Logger.getLogger(this::class.java.name).warning(
                     "\n!!!" +
                             "\n!!! Litho filtering is not yet fully supported when patching 20.22+" +
                             "\n!!! Action buttons, Shorts shelves, and possibly other components cannot be set hidden." +

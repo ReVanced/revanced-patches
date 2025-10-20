@@ -66,13 +66,3 @@ internal val translucentNavigationButtonsSystemFeatureFlagFingerprint by fingerp
         literal(45632194L) // Translucent system buttons feature flag.
     )
 }
-
-// Flag is present in 20.23, but icons are missing and forcing bold icons crashes the app.
-internal val boldIconsFeatureFlagFingerprint by fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
-    instructions(
-        literal(45685201L)
-    )
-}
