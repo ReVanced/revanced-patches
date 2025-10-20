@@ -46,7 +46,7 @@ val customNetworkSecurityPatch = resourcePatch(
             for the specified domains and their subdomains if the option "Include Subdomains" is enabled.
         
             CA files will be bundled in res/raw/ of resulting APK
-        """.trimIndent(),
+        """.trimIndentMultiline(),
         default = null,
         required = false
     )
@@ -92,7 +92,7 @@ val customNetworkSecurityPatch = resourcePatch(
                     .getElementsByTagName("application")
                     .item(0) as Element
 
-            applicationNode.setAttribute("android:networkSecurityConfig", "@xml/${NSC_FILE_NAME_BARE}")
+            applicationNode.setAttribute("android:networkSecurityConfig", "@xml/$NSC_FILE_NAME_BARE")
         }
 
         val nscXmlContent = generateNetworkSecurityConfig(
@@ -105,12 +105,10 @@ val customNetworkSecurityPatch = resourcePatch(
             overridePins = overridePins ?: false
         )
 
-        println(nscXmlContent)
         File(get(RES_XML_DIR), NSC_FILE_NAME_WITH_SUFFIX).apply {
             writeText(nscXmlContent)
         }
 
-        println(customCAFilePaths)
 
 
         for (customCAFilePath in customCAFilePaths ?: emptyList()) {
@@ -152,7 +150,6 @@ private fun generateNetworkSecurityConfig(
 ): String {
     val domainsXMLString = StringBuilder()
     domains.forEachIndexed { index, domain ->
-        println("^${domain}^") // a debug printl to see the entered domain string beginning and end with possible whitespaces
         val domainLine = """                <domain includeSubdomains="$includeSubdomains">$domain</domain>"""
         if (index < domains.lastIndex) {
             domainsXMLString.appendLine(domainLine)
