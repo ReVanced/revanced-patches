@@ -78,7 +78,8 @@ val customNetworkSecurityPatch = resourcePatch(
     val overridePins by booleanOption(
         key = "overridePins",
         title = "Override Certificate Pinning",
-        description = "Overrides certificate pinning for the specified domains and their subdomains if the option \"Include Subdomains\" is enabled to allow inspecting a traffic via a proxy.",
+        description = "Overrides certificate pinning for the specified domains and their subdomains if the option \"Include Subdomains\" is enabled to allow inspecting app traffic via a proxy.",
+
         default = false,
         required = true
     )
