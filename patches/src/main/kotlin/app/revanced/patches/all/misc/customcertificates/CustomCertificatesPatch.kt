@@ -63,7 +63,8 @@ val customNetworkSecurityPatch = resourcePatch(
     val allowSystemCerts by booleanOption(
         key = "allowSystemCerts",
         title = "Trust System CAs",
-        description = "Makes an app trust certificates from the Android system store for the specified domains and their subdomains if the option \"Include Subdomains\" is enabled.",
+        description = "Makes an app trust certificates from the Android system store for the specified domains, and and if the option \"Include Subdomains\" is enabled then also the subdomains.",
+
         default = true,
         required = true
     )
