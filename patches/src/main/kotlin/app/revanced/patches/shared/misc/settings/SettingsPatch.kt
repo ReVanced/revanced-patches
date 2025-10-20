@@ -67,9 +67,12 @@ fun settingsPatch (
             ResourceGroup("drawable",
                 // CustomListPreference resources.
                 "revanced_ic_dialog_alert.xml",
+                "revanced_ic_dialog_alert_bold.xml",
                 // Search resources.
                 "revanced_settings_arrow_time.xml",
+                "revanced_settings_arrow_time_bold.xml",
                 "revanced_settings_custom_checkmark.xml",
+                "revanced_settings_custom_checkmark_bold.xml",
                 "revanced_settings_search_icon.xml",
                 "revanced_settings_search_icon_bold.xml",
                 "revanced_settings_search_remove.xml",
