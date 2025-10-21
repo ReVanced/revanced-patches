@@ -133,10 +133,8 @@ val lithoFilterPatch = bytecodePatch(
             // The only static method in the class.
                 method -> AccessFlags.STATIC.isSet(method.accessFlags)
         }
-        val emptyComponentField = classBy {
-            // Only one field that matches.
-            it.type == builderMethodDescriptor.returnType
-        }.fields.single()
+
+        val emptyComponentField = classBy(builderMethodDescriptor.returnType).fields.single()
 
         componentCreateFingerprint.method.apply {
             val insertIndex = if (is_19_17_or_greater) {
