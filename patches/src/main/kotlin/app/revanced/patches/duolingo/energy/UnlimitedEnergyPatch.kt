@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Suppress("unused")
 val disableAdsPatch = bytecodePatch(
-    "Unlimited energy",
+    name = "Unlimited energy",
 ) {
     compatibleWith("com.duolingo")
 
@@ -20,7 +20,7 @@ val disableAdsPatch = bytecodePatch(
 
                 addInstructions(
                     insertIndex,
-                    "const/16 v$register, 0x63", // Set to 99
+                    "const/16 v$register, 99",
                 )
             }
     }

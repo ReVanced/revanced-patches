@@ -6,8 +6,6 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val initializeEnergyConfigFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
-    // Parameters have not been reliable for fingerprinting between versions.
     opcodes(Opcode.IPUT)
 }
 
