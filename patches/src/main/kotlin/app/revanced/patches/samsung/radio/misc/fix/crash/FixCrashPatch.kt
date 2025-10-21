@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/samsung/radio/misc/fix/crash/FixCrashPatch;"
 
 val fixCrashPatch = bytecodePatch(
-    name = "Fix Crashes", description = "Prevents the app from crashing because of missing system permissions."
+    name = "Fix crashes", description = "Prevents the app from crashing because of missing system permissions."
 ) {
     dependsOn(addManifestPermissionsPatch, bypassDeviceChecksPatch)
     extendWith("extensions/samsung/radio.rve")
