@@ -15,6 +15,7 @@ import android.preference.PreferenceScreen;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
@@ -264,6 +265,10 @@ public abstract class BaseSearchViewController {
             }
             return false;
         });
+
+        // Set bold icon if needed.
+        MenuItem search = toolbar.getMenu().findItem(ID_ACTION_SEARCH);
+        search.setIcon(getSearchIcon());
     }
 
     /**
