@@ -6,7 +6,6 @@ import org.w3c.dom.Element
 
 @Suppress("unused")
 internal val addManifestPermissionsPatch = resourcePatch {
-    compatibleWith("com.sec.android.app.fm")
 
     val requiredPermissions = listOf(
         "android.permission.READ_PHONE_STATE",
