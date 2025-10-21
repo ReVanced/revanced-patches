@@ -42,7 +42,7 @@ val bypassDeviceChecksPatch = bytecodePatch(
             addInstructions(
                 filledNewArrayIndex + 1, """
                 move-result-object v$resultRegister
-                invoke-static {v$resultRegister}, ${EXTENSION_CLASS_DESCRIPTOR}->checkIfDeviceIsIncompatible([Ljava/lang/String;)Z
+                invoke-static { v$resultRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->checkIfDeviceIsIncompatible([Ljava/lang/String;)Z
                 move-result v$resultRegister
                 return v$resultRegister
             """
