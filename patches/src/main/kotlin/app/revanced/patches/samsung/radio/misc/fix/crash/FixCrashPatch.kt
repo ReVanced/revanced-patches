@@ -32,7 +32,7 @@ val fixCrashPatch = bytecodePatch(
                 // Invoke the method from the extension
                 addInstructions(
                     moveResultIndex + 1, """
-                        invoke-static {v$arrayRegister}, ${EXTENSION_CLASS_DESCRIPTOR}->fixPermissionRequestList([Ljava/lang/String;)[Ljava/lang/String;
+                        invoke-static { v$arrayRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->fixPermissionRequestList([Ljava/lang/String;)[Ljava/lang/String;
                         move-result-object v$arrayRegister
                     """
                 )
