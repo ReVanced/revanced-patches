@@ -24,7 +24,7 @@ val fixCrashPatch = bytecodePatch(
         permissionRequestListFingerprint.method.apply {
             findInstructionIndicesReversedOrThrow(Opcode.FILLED_NEW_ARRAY).forEach { filledNewArrayIndex ->
                 val moveResultIndex = indexOfFirstInstruction(filledNewArrayIndex, Opcode.MOVE_RESULT_OBJECT)
-                if (moveResultIndex == -1) return@forEach // No move-result-object found after the filled-new-array
+                if (moveResultIndex < 0) return@forEach // No move-result-object found after the filled-new-array
 
                 // Get the register where the array is saved
                 val arrayRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
