@@ -1,3 +1,38 @@
+# [5.44.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.44.0-dev.1...v5.44.0-dev.2) (2025-10-22)
+
+
+### Bug Fixes
+
+* **Google Photos - Spoof features:** Add support for Pixel 10 devices ([#6161](https://github.com/ReVanced/revanced-patches/issues/6161)) ([754b719](https://github.com/ReVanced/revanced-patches/commit/754b71959a0155413eb33cf1bdc2c8976eaca634))
+
+# [5.44.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.43.2-dev.3...v5.44.0-dev.1) (2025-10-22)
+
+
+### Features
+
+* **Samsung Radio:** Add `Disable device checks` patch ([#6145](https://github.com/ReVanced/revanced-patches/issues/6145)) ([de97562](https://github.com/ReVanced/revanced-patches/commit/de97562c5ddc8ec707761c1e04e74c4e18f9c158))
+
+## [5.43.2-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.43.2-dev.2...v5.43.2-dev.3) (2025-10-19)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Hide new kind of community post ([#6146](https://github.com/ReVanced/revanced-patches/issues/6146)) ([cfd244b](https://github.com/ReVanced/revanced-patches/commit/cfd244b4088daacd2788ec38357ac521e4b296d5))
+
+## [5.43.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.43.2-dev.1...v5.43.2-dev.2) (2025-10-17)
+
+
+### Bug Fixes
+
+* **YouTube Music:** Resolve patching 7.29 target ([2e4c6fd](https://github.com/ReVanced/revanced-patches/commit/2e4c6fdcadeef45a80733e374421d52e5e8af910))
+
+## [5.43.2-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.43.1...v5.43.2-dev.1) (2025-10-16)
+
+
+### Bug Fixes
+
+* **X / Twitter - Change link sharing domain:** Use bytecode patching to resolve patching with Manager ([#6125](https://github.com/ReVanced/revanced-patches/issues/6125)) ([0af8c8a](https://github.com/ReVanced/revanced-patches/commit/0af8c8a766ae4ba6926404d59da2f14d649f91f7))
+
 ## [5.43.1](https://github.com/ReVanced/revanced-patches/compare/v5.43.0...v5.43.1) (2025-10-15)
 
 
