@@ -17,12 +17,12 @@ private const val NSC_FILE_NAME_WITH_SUFFIX = "$NSC_FILE_NAME_BARE.xml"
 
 val customNetworkSecurityPatch = resourcePatch(
     name = "Custom network security",
-    description = "Allows trusting custom Certificate Authorities (CAs) for a specific domain.",
+    description = "Allows trusting custom certificate authorities for a specific domain.",
     use = false
 ) {
 
     val domains by stringsOption(
-        key = "domains",
+        key = "targetDomains",
         title = "Target Domains",
         description = "List of domains to which the custom trust configuration will be applied (one domain per entry).",
         default = listOf("example.com"),
@@ -31,7 +31,7 @@ val customNetworkSecurityPatch = resourcePatch(
 
     val includeSubdomains by booleanOption(
         key = "includeSubdomains",
-        title = "Include Subdomains",
+        title = "Include subdomains",
         description = "Applies the configuration to all subdomains of the target domains.",
         default = false,
         required = true
@@ -39,11 +39,11 @@ val customNetworkSecurityPatch = resourcePatch(
 
     val customCAFilePaths by stringsOption(
         key = "customCAFilePaths",
-        title = "Custom Root CAs",
+        title = "Custom CA file paths",
         description = """
             List of paths to files in PEM or DER format (one file path per entry).
                         
-            Makes an app trust the provided custom Certificate Authorities (CAs),
+            Makes an app trust the provided custom certificate authorities (CAs),
             for the specified domains, and if the option "Include Subdomains" is enabled then also the subdomains.
 
         
@@ -89,6 +89,57 @@ val customNetworkSecurityPatch = resourcePatch(
         required = true
     )
 
+    fun generateNetworkSecurityConfig(): String {
+        val domains = domains ?: emptyList()
+        val includeSubdomains = includeSubdomains ?: false
+        val customCAFilePaths = customCAFilePaths ?: emptyList()
+        val allowUser = allowUserCerts ?: false
+        val allowSystem = allowSystemCerts ?: true
+        val allowCleartextTraffic = allowCleartextTraffic ?: false
+        val overridePins = overridePins ?: false
+
+
+        val domainsXMLString = StringBuilder()
+        domains.forEachIndexed { index, domain ->
+            val domainLine = """                <domain includeSubdomains="$includeSubdomains">$domain</domain>"""
+            if (index < domains.lastIndex) {
+                domainsXMLString.appendLine(domainLine)
+            } else {
+                domainsXMLString.append(domainLine)
+            }
+        }
+
+        val trustAnchorsXMLString = StringBuilder()
+        if (allowSystem) {
+            trustAnchorsXMLString.appendLine()
+            trustAnchorsXMLString.append("""                    <certificates src="system" overridePins="$overridePins" />""")
+        }
+        if (allowUser) {
+            trustAnchorsXMLString.appendLine()
+            trustAnchorsXMLString.append("""                    <certificates src="user" overridePins="$overridePins" />""")
+        }
+
+        for (caFilePath in customCAFilePaths) {
+            val caFileNameWithoutSuffix = caFilePath.substringAfterLast('/').substringBeforeLast('.')
+            trustAnchorsXMLString.appendLine()
+            trustAnchorsXMLString.append("""                    <certificates src="@raw/$caFileNameWithoutSuffix" overridePins="$overridePins"/>""")
+        }
+
+        if (trustAnchorsXMLString.isBlank()) {
+            throw PatchException("At least one trust anchor (System, User, or Custom CA) must be enabled.")
+        }
+
+        return """
+        <?xml version="1.0" encoding="utf-8"?>
+        <network-security-config>
+            <domain-config cleartextTrafficPermitted="$allowCleartextTraffic">
+$domainsXMLString
+                <trust-anchors>$trustAnchorsXMLString
+                </trust-anchors>
+            </domain-config>
+        </network-security-config>
+    """.trimIndent()
+    }
 
 
     execute {
@@ -101,18 +152,9 @@ val customNetworkSecurityPatch = resourcePatch(
             applicationNode.setAttribute("android:networkSecurityConfig", "@xml/$NSC_FILE_NAME_BARE")
         }
 
-        val nscXmlContent = generateNetworkSecurityConfig(
-            domains = domains ?: emptyList(),
-            includeSubdomains = includeSubdomains ?: false,
-            customCAFilePaths = customCAFilePaths ?: emptyList(),
-            allowUser = allowUserCerts ?: false,
-            allowSystem = allowSystemCerts ?: true,
-            allowCleartextTraffic = allowCleartextTraffic ?: false,
-            overridePins = overridePins ?: false
-        )
 
         File(get(RES_XML_DIR), NSC_FILE_NAME_WITH_SUFFIX).apply {
-            writeText(nscXmlContent)
+            writeText(generateNetworkSecurityConfig())
         }
 
 
@@ -143,55 +185,4 @@ val customNetworkSecurityPatch = resourcePatch(
 
 
     }
-}
-
-private fun generateNetworkSecurityConfig(
-    domains: List<String>,
-    includeSubdomains: Boolean,
-    customCAFilePaths: List<String>,
-    allowUser: Boolean,
-    allowSystem: Boolean,
-    allowCleartextTraffic: Boolean,
-    overridePins: Boolean
-): String {
-    val domainsXMLString = StringBuilder()
-    domains.forEachIndexed { index, domain ->
-        val domainLine = """                <domain includeSubdomains="$includeSubdomains">$domain</domain>"""
-        if (index < domains.lastIndex) {
-            domainsXMLString.appendLine(domainLine)
-        } else {
-            domainsXMLString.append(domainLine)
-        }
-    }
-
-    val trustAnchorsXMLString = StringBuilder()
-    if (allowSystem) {
-        trustAnchorsXMLString.appendLine()
-        trustAnchorsXMLString.append("""                    <certificates src="system" overridePins="$overridePins" />""")
-    }
-    if (allowUser) {
-        trustAnchorsXMLString.appendLine()
-        trustAnchorsXMLString.append("""                    <certificates src="user" overridePins="$overridePins" />""")
-    }
-
-    for (caFilePath in customCAFilePaths) {
-        val caFileNameWithoutSuffix = caFilePath.substringAfterLast('/').substringBeforeLast('.')
-        trustAnchorsXMLString.appendLine()
-        trustAnchorsXMLString.append("""                    <certificates src="@raw/$caFileNameWithoutSuffix" overridePins="$overridePins"/>""")
-    }
-
-    if (trustAnchorsXMLString.isBlank()) {
-        throw PatchException("At least one trust anchor (System, User, or Custom CA) must be enabled.")
-    }
-
-    return """
-        <?xml version="1.0" encoding="utf-8"?>
-        <network-security-config>
-            <domain-config cleartextTrafficPermitted="$allowCleartextTraffic">
-$domainsXMLString
-                <trust-anchors>$trustAnchorsXMLString
-                </trust-anchors>
-            </domain-config>
-        </network-security-config>
-    """.trimIndent()
 }
