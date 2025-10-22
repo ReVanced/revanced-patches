@@ -179,7 +179,10 @@ $domainsXMLString
             File(
                 get(RES_RAW_DIR),
                 caFileNameWithoutSuffix
-            ).writeText(File(customCAFilePath).readText())
+            ).writeText(
+                File(customCAFilePath)
+                    .readText()
+            )
 
         }
 
