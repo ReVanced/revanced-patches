@@ -2,6 +2,7 @@ package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.redgifs
 
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.opcode
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.writeRegister
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -9,7 +10,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction11n
 
 
-internal val createOkHttpClientFingerprint = fingerprint {
+internal val createOkHttpClientFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("V")
     parameters()
@@ -25,13 +26,13 @@ internal val createOkHttpClientFingerprint = fingerprint {
     }
 }
 
-internal val getDefaultUserAgentFingerprint = fingerprint {
+internal val getDefaultUserAgentFingerprint by fingerprint {
     custom { method, classDef ->
         method.name == "getDefaultUserAgent" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
 }
 
-internal val getOriginalUserAgentFingerprint = fingerprint {
+internal val getOriginalUserAgentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()

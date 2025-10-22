@@ -6,7 +6,7 @@ import app.revanced.patches.all.misc.transformation.fromMethodReference
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val checkDeviceFingerprint = fingerprint {
+internal val checkDeviceFingerprint by fingerprint {
     returns("Z")
     custom { method, _ ->
         /* Check for methods call to:
@@ -57,5 +57,5 @@ private enum class MethodCall(
         "getCountryIso",
         arrayOf(),
         "Ljava/lang/String;",
-    ),
+    )
 }

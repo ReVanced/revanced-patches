@@ -1,12 +1,9 @@
 package app.revanced.patches.shared.misc.gms
 
 import app.revanced.patcher.fingerprint
-import app.revanced.patches.shared.misc.gms.EXTENSION_CLASS_DESCRIPTOR
 import com.android.tools.smali.dexlib2.AccessFlags
 
-const val GET_GMS_CORE_VENDOR_GROUP_ID_METHOD_NAME = "getGmsCoreVendorGroupId"
-
-internal val googlePlayUtilityFingerprint = fingerprint {
+internal val googlePlayUtilityFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("I")
     parameters("L", "I")
@@ -17,14 +14,14 @@ internal val googlePlayUtilityFingerprint = fingerprint {
     )
 }
 
-internal val serviceCheckFingerprint = fingerprint {
+internal val serviceCheckFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("V")
     parameters("L", "I")
     strings("Google Play Services not available")
 }
 
-internal val gmsCoreSupportFingerprint = fingerprint {
+internal val gmsCoreSupportFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()
@@ -33,7 +30,7 @@ internal val gmsCoreSupportFingerprint = fingerprint {
     }
 }
 
-internal val originalPackageNameExtensionFingerprint = fingerprint {
+internal val originalPackageNameExtensionFingerprint by fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()

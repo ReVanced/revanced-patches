@@ -3,7 +3,7 @@ package app.revanced.patches.primevideo.video.speed
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val playbackUserControlsInitializeFingerprint = fingerprint {
+internal val playbackUserControlsInitializeFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     parameters("Lcom/amazon/avod/playbackclient/PlaybackInitializationContext;")
     returns("V")
@@ -12,7 +12,7 @@ internal val playbackUserControlsInitializeFingerprint = fingerprint {
     }
 }
 
-internal val playbackUserControlsPrepareForPlaybackFingerprint = fingerprint {
+internal val playbackUserControlsPrepareForPlaybackFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     parameters("Lcom/amazon/avod/playbackclient/PlaybackContext;")
     returns("V")

@@ -1,14 +1,11 @@
 package app.revanced.patches.tiktok.misc.extension
 
+import app.revanced.patches.shared.misc.extension.activityOnCreateExtensionHook
 import app.revanced.patches.shared.misc.extension.extensionHook
-import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val initHook = extensionHook {
-    custom { method, classDef ->
-        classDef.type == "Lcom/ss/android/ugc/aweme/main/MainActivity;" &&
-                method.name == "onCreate"
-    }
-}
+internal val initHook = activityOnCreateExtensionHook(
+    "Lcom/ss/android/ugc/aweme/main/MainActivity;"
+)
 
 /**
  * In some cases the extension code can be called before

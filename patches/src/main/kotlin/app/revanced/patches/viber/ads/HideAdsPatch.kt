@@ -2,7 +2,6 @@ package app.revanced.patches.viber.ads
 
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.returnEarly
@@ -30,12 +29,13 @@ val hideAdsPatch = bytecodePatch(
         val targetClass = method.getInstruction<ReferenceInstruction>(typeRefIndex).reference as TypeReference
 
         // Patch the ads-free method to always return true
-        fingerprint {
+        val adFreeFingerprint by fingerprint {
             returns("I")
             parameters()
             custom { method, classDef ->
                 classDef == targetClass
             }
-        }.method.returnEarly(1)
+        }
+        adFreeFingerprint.method.returnEarly(1)
     }
 }

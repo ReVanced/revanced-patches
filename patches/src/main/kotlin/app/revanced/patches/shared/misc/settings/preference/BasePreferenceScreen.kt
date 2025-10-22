@@ -25,11 +25,12 @@ abstract class BasePreferenceScreen(
         titleKey: String = "${key}_title",
         private val summaryKey: String? = "${key}_summary",
         icon: String? = null,
+        iconBold: String? = null,
         layout: String? = null,
         preferences: MutableSet<BasePreference> = mutableSetOf(),
         val categories: MutableSet<Category> = mutableSetOf(),
         private val sorting: Sorting = Sorting.BY_TITLE,
-    ) : BasePreferenceCollection(key, titleKey, icon, layout, preferences) {
+    ) : BasePreferenceCollection(key, titleKey, icon, iconBold, layout, preferences) {
 
         override fun transform(): PreferenceScreenPreference {
             return PreferenceScreenPreference(
@@ -37,6 +38,7 @@ abstract class BasePreferenceScreen(
                 titleKey,
                 summaryKey,
                 icon,
+                iconBold,
                 layout,
                 sorting,
                 // Screens and preferences are sorted at runtime by extension code,
@@ -61,16 +63,18 @@ abstract class BasePreferenceScreen(
             key: String? = null,
             titleKey: String = "${key}_title",
             icon: String? = null,
+            iconBold: String? = null,
             layout: String? = null,
             preferences: MutableSet<BasePreference> = mutableSetOf(),
-        ) : BasePreferenceCollection(key, titleKey, icon, layout, preferences) {
+        ) : BasePreferenceCollection(key, titleKey, icon, iconBold, layout, preferences) {
             override fun transform(): PreferenceCategory {
                 return PreferenceCategory(
-                    key,
-                    titleKey,
-                    icon,
-                    layout,
-                    sorting,
+                    key = key,
+                    titleKey = titleKey,
+                    icon = icon,
+                    iconBold = iconBold,
+                    layout = layout,
+                    sorting = sorting,
                     preferences = preferences,
                 )
             }
@@ -92,6 +96,7 @@ abstract class BasePreferenceScreen(
         val key: String? = null,
         val titleKey: String = "${key}_title",
         val icon: String? = null,
+        val iconBold: String? = null,
         val layout: String? = null,
         val preferences: MutableSet<BasePreference> = mutableSetOf(),
     ) {

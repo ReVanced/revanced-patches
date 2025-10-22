@@ -1,6 +1,7 @@
 package app.revanced.extension.spotify.layout.hide.createbutton;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.spotify.shared.ComponentFilters.ComponentFilter;
 import app.revanced.extension.spotify.shared.ComponentFilters.ResourceIdComponentFilter;
 import app.revanced.extension.spotify.shared.ComponentFilters.StringComponentFilter;
@@ -15,7 +16,7 @@ public final class HideCreateButtonPatch {
      * The main approach used is matching the resource id for the Create button title.
      */
     private static final List<ComponentFilter> CREATE_BUTTON_COMPONENT_FILTERS = List.of(
-            new ResourceIdComponentFilter("navigationbar_musicappitems_create_title", "string"),
+            new ResourceIdComponentFilter(ResourceType.STRING, "navigationbar_musicappitems_create_title"),
             // Temporary fallback and fix for APKs merged with AntiSplit-M not having resources properly encoded,
             // and thus getting the resource identifier for the Create button title always return 0.
             // FIXME: Remove this once the above issue is no longer relevant.
@@ -27,7 +28,7 @@ public final class HideCreateButtonPatch {
      * Used in older versions of the app.
      */
     private static final ResourceIdComponentFilter OLD_CREATE_BUTTON_COMPONENT_FILTER =
-            new ResourceIdComponentFilter("bottom_navigation_bar_create_tab_title", "string");
+            new ResourceIdComponentFilter(ResourceType.STRING, "bottom_navigation_bar_create_tab_title");
 
     /**
      * Injection point. This method is called on every navigation bar item to check whether it is the Create button.

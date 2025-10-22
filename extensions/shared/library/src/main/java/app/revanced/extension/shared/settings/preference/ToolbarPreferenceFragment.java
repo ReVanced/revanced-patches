@@ -18,8 +18,10 @@ import android.widget.Toolbar;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseActivityHook;
+import app.revanced.extension.shared.settings.BaseSettings;
 
 @SuppressWarnings({"deprecation", "NewApi"})
 public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
@@ -134,8 +136,10 @@ public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
      */
     @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
-        final int backButtonResource = Utils.getResourceIdentifierOrThrow(
-                "revanced_settings_toolbar_arrow_left", "drawable");
+        final int backButtonResource = Utils.getResourceIdentifierOrThrow(ResourceType.DRAWABLE,
+                BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.get()
+                        ? "revanced_settings_toolbar_arrow_left"
+                        : "revanced_settings_toolbar_arrow_left_bold");
         Drawable drawable = Utils.getContext().getResources().getDrawable(backButtonResource);
         customizeBackButtonDrawable(drawable);
         return drawable;

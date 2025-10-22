@@ -20,10 +20,11 @@ class SwitchPreference(
     titleKey: String = "${key}_title",
     tag: String = "SwitchPreference",
     icon: String? = null,
+    iconBold: String? = null,
     layout: String? = null,
     val summaryOnKey: String = "${key}_summary_on",
     val summaryOffKey: String = "${key}_summary_off"
-) : BasePreference(key, titleKey, null, icon, layout, tag) {
+) : BasePreference(key, titleKey, null, icon, iconBold, layout, tag) {
     override fun serialize(ownerDocument: Document, resourceCallback: (BaseResource) -> Unit) =
         super.serialize(ownerDocument, resourceCallback).apply {
             addSummary(summaryOnKey, SummaryType.ON)
