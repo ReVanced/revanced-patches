@@ -1,3 +1,10 @@
+# [5.44.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.44.0-dev.2...v5.44.0-dev.3) (2025-10-22)
+
+
+### Features
+
+* **Duolingo - Enable debug menu:** Support latest app target ([#6163](https://github.com/ReVanced/revanced-patches/issues/6163)) ([08baa19](https://github.com/ReVanced/revanced-patches/commit/08baa19b4a62e62bd103d177c3f4454de199cf16))
+
 # [5.44.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.44.0-dev.1...v5.44.0-dev.2) (2025-10-22)
 
 
