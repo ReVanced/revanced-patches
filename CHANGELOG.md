@@ -1,3 +1,17 @@
+# [5.44.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.43.2-dev.3...v5.44.0-dev.1) (2025-10-22)
+
+
+### Features
+
+* **Samsung Radio:** Add `Disable device checks` patch ([#6145](https://github.com/ReVanced/revanced-patches/issues/6145)) ([de97562](https://github.com/ReVanced/revanced-patches/commit/de97562c5ddc8ec707761c1e04e74c4e18f9c158))
+
+## [5.43.2-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.43.2-dev.2...v5.43.2-dev.3) (2025-10-19)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Hide new kind of community post ([#6146](https://github.com/ReVanced/revanced-patches/issues/6146)) ([cfd244b](https://github.com/ReVanced/revanced-patches/commit/cfd244b4088daacd2788ec38357ac521e4b296d5))
+
 ## [5.43.2-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.43.2-dev.1...v5.43.2-dev.2) (2025-10-17)
 
 
