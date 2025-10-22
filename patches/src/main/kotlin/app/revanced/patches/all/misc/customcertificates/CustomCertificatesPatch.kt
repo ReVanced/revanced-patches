@@ -24,7 +24,7 @@ val customNetworkSecurityPatch = resourcePatch(
 
     val targetDomains by stringsOption(
         key = "targetDomains",
-        title = "Target Domains",
+        title = "Target domains",
         description = "List of domains to which the custom trust configuration will be applied (one domain per entry).",
         default = listOf("example.com"),
         required = true
