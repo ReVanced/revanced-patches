@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringsOption
 import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.getNode
 import org.w3c.dom.Element
 import java.io.File
 
@@ -144,11 +145,7 @@ $domainsXMLString
 
     execute {
         document("AndroidManifest.xml").use { document ->
-            val applicationNode =
-                document
-                    .getElementsByTagName("application")
-                    .item(0) as Element
-
+            val applicationNode = document.getNode("application") as Element
             applicationNode.setAttribute("android:networkSecurityConfig", "@xml/$NSC_FILE_NAME_BARE")
         }
 
