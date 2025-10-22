@@ -159,20 +159,19 @@ $domainsXMLString
 
 
         for (customCAFilePath in customCAFilePaths ?: emptyList()) {
-            File(customCAFilePath).apply {
-                if (!exists()) {
-                    throw PatchException(
-                        "The custom CA file path cannot be found: " +
-                                absolutePath
-                    )
-                }
+            val file = File(customCAFilePath)
+            if (!file.exists()) {
+                throw PatchException(
+                    "The custom CA file path cannot be found: " +
+                            file.absolutePath
+                )
+            }
 
-                if (!isFile) {
-                    throw PatchException(
-                        "The custom CA file path must be a file: "
-                                + absolutePath
-                    )
-                }
+            if (!file.isFile) {
+                throw PatchException(
+                    "The custom CA file path must be a file: "
+                            + file.absolutePath
+                )
             }
             val caFileNameWithoutSuffix = customCAFilePath.substringAfterLast('/').substringBefore('.')
             val caFile = File(customCAFilePath)
