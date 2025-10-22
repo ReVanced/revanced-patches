@@ -56,7 +56,7 @@ val customNetworkSecurityPatch = resourcePatch(
 
     val allowUserCerts by booleanOption(
         key = "allowUserCerts",
-        title = "Trust User-Added CAs",
+        title = "Trust user added CAs",
         description = "Makes an app trust certificates from the Android user store for the specified domains, and if the option \"Include Subdomains\" is enabled then also the subdomains.",
 
         default = false,
@@ -65,7 +65,7 @@ val customNetworkSecurityPatch = resourcePatch(
 
     val allowSystemCerts by booleanOption(
         key = "allowSystemCerts",
-        title = "Trust System CAs",
+        title = "Trust system CAs",
         description = "Makes an app trust certificates from the Android system store for the specified domains, and and if the option \"Include Subdomains\" is enabled then also the subdomains.",
 
         default = true,
@@ -74,7 +74,7 @@ val customNetworkSecurityPatch = resourcePatch(
 
     val allowCleartextTraffic by booleanOption(
         key = "allowCleartextTraffic",
-        title = "Allow Cleartext Traffic (HTTP)",
+        title = "Allow cleartext traffic (HTTP)",
         description = "Allows unencrypted HTTP traffic for the specified domains, and if \"Include Subdomains\" is enabled then also the subdomains.",
 
         default = false,
@@ -83,7 +83,7 @@ val customNetworkSecurityPatch = resourcePatch(
 
     val overridePins by booleanOption(
         key = "overridePins",
-        title = "Override Certificate Pinning",
+        title = "Override certificate pinning",
         description = "Overrides certificate pinning for the specified domains and their subdomains if the option \"Include Subdomains\" is enabled to allow inspecting app traffic via a proxy.",
 
         default = false,
