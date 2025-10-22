@@ -22,7 +22,7 @@ val customNetworkSecurityPatch = resourcePatch(
     use = false
 ) {
 
-    val domains by stringsOption(
+    val targetDomains by stringsOption(
         key = "targetDomains",
         title = "Target Domains",
         description = "List of domains to which the custom trust configuration will be applied (one domain per entry).",
@@ -91,7 +91,7 @@ val customNetworkSecurityPatch = resourcePatch(
     )
 
     fun generateNetworkSecurityConfig(): String {
-        val domains = domains ?: emptyList()
+        val targetDomains = targetDomains ?: emptyList()
         val includeSubdomains = includeSubdomains ?: false
         val customCAFilePaths = customCAFilePaths ?: emptyList()
         val allowUser = allowUserCerts ?: false
@@ -101,9 +101,9 @@ val customNetworkSecurityPatch = resourcePatch(
 
 
         val domainsXMLString = StringBuilder()
-        domains.forEachIndexed { index, domain ->
+        targetDomains.forEachIndexed { index, domain ->
             val domainLine = """                <domain includeSubdomains="$includeSubdomains">$domain</domain>"""
-            if (index < domains.lastIndex) {
+            if (index < targetDomains.lastIndex) {
                 domainsXMLString.appendLine(domainLine)
             } else {
                 domainsXMLString.append(domainLine)
