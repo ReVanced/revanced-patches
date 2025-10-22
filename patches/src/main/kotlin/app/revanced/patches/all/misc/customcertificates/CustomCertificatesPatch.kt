@@ -10,10 +10,6 @@ import org.w3c.dom.Element
 import java.io.File
 
 
-private const val NSC_FILE_NAME_BARE = "network_security_config"
-private const val RES_XML_DIR = "res/xml"
-private const val RES_RAW_DIR = "res/raw"
-private const val NSC_FILE_NAME_WITH_SUFFIX = "$NSC_FILE_NAME_BARE.xml"
 
 
 val customNetworkSecurityPatch = resourcePatch(
@@ -144,13 +140,19 @@ $domainsXMLString
 
 
     execute {
+        val nscFileNameBare = "network_security_config"
+        val resXmlDir = "res/xml"
+        val resRawDir = "res/raw"
+        val nscFileNameWithSuffix = "$nscFileNameBare.xml"
+
+
         document("AndroidManifest.xml").use { document ->
             val applicationNode = document.getNode("application") as Element
-            applicationNode.setAttribute("android:networkSecurityConfig", "@xml/$NSC_FILE_NAME_BARE")
+            applicationNode.setAttribute("android:networkSecurityConfig", "@xml/$nscFileNameBare")
         }
 
 
-        File(get(RES_XML_DIR), NSC_FILE_NAME_WITH_SUFFIX).apply {
+        File(get(resXmlDir), nscFileNameWithSuffix).apply {
             writeText(generateNetworkSecurityConfig())
         }
 
@@ -175,7 +177,7 @@ $domainsXMLString
             val caFileNameWithoutSuffix = customCAFilePath.substringAfterLast('/').substringBefore('.')
             val caFile = File(customCAFilePath)
             File(
-                get(RES_RAW_DIR),
+                get(resRawDir),
                 caFileNameWithoutSuffix
             ).writeText(
                 caFile.readText()
