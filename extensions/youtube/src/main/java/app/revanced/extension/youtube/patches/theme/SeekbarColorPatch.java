@@ -4,9 +4,7 @@ import static app.revanced.extension.shared.StringRef.str;
 import static app.revanced.extension.shared.Utils.clamp;
 import static app.revanced.extension.youtube.patches.theme.ThemePatch.SplashScreenAnimationStyle;
 
-import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.drawable.AnimatedVectorDrawable;
 
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -15,7 +13,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
-import java.util.Locale;
 import java.util.Scanner;
 
 import app.revanced.extension.shared.Logger;
@@ -104,27 +101,6 @@ public final class SeekbarColorPatch {
         return customSeekbarColor;
     }
 
-    private static int colorChannelTo3Bits(int channel8Bits) {
-        final float channel3Bits = channel8Bits * 7 / 255f;
-
-        // If a color channel is near zero, then allow rounding up so values between
-        // 0x12 and 0x23 will show as 0x24. But always round down when the channel is
-        // near full saturation, otherwise rounding to nearest will cause all values
-        // between 0xEC and 0xFE to always show as full saturation (0xFF).
-        return channel3Bits < 6
-                ? Math.round(channel3Bits)
-                : (int) channel3Bits;
-    }
-
-    @SuppressWarnings("SameParameterValue")
-    private static String get9BitStyleIdentifier(int color24Bit) {
-        final int r3 = colorChannelTo3Bits(Color.red(color24Bit));
-        final int g3 = colorChannelTo3Bits(Color.green(color24Bit));
-        final int b3 = colorChannelTo3Bits(Color.blue(color24Bit));
-
-        return String.format(Locale.US, "splash_seekbar_color_style_%d_%d_%d", r3, g3, b3);
-    }
-
     /**
      * injection point.
      */
@@ -133,36 +109,6 @@ public final class SeekbarColorPatch {
         // Forcing this off on some devices can cause unexplained startup crashes,
         // where the lottie animation is still used even though this condition appears to bypass it.
         return original; // false = drawable style, true = lottie style.
-    }
-
-    /**
-     * Injection point.
-     * Old drawable style launch screen.
-     */
-    public static void setSplashAnimationDrawableTheme(AnimatedVectorDrawable vectorDrawable) {
-        // Alternatively a ColorMatrixColorFilter can be used to change the color of the drawable
-        // without using any styles, but a color filter cannot selectively change the seekbar
-        // while keeping the red YT logo untouched.
-        // Even if the seekbar color xml value is changed to a completely different color (such as green),
-        // a color filter still cannot be selectively applied when the drawable has more than 1 color.
-        try {
-            // Must set the color even if custom seekbar is off,
-            // because the xml color was replaced with a themed value.
-            String seekbarStyle = get9BitStyleIdentifier(customSeekbarColor);
-            Logger.printDebug(() -> "Using splash seekbar style: " + seekbarStyle);
-
-            final int styleIdentifierDefault = Utils.getResourceIdentifierOrThrow(
-                    seekbarStyle,
-                    "style"
-            );
-
-            Resources.Theme theme = Utils.getContext().getResources().newTheme();
-            theme.applyStyle(styleIdentifierDefault, true);
-
-            vectorDrawable.applyTheme(theme);
-        } catch (Exception ex) {
-            Logger.printException(() -> "setSplashAnimationDrawableTheme failure", ex);
-        }
     }
 
     /**
