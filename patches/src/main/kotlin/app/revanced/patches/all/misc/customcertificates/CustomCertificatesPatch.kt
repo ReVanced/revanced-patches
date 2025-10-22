@@ -176,12 +176,12 @@ $domainsXMLString
                 }
             }
             val caFileNameWithoutSuffix = customCAFilePath.substringAfterLast('/').substringBefore('.')
+            val caFile = File(customCAFilePath)
             File(
                 get(RES_RAW_DIR),
                 caFileNameWithoutSuffix
             ).writeText(
-                File(customCAFilePath)
-                    .readText()
+                caFile.readText()
             )
 
         }
