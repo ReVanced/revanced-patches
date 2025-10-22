@@ -1,13 +1,13 @@
 package app.revanced.patches.duolingo.energy
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import app.revanced.util.findFieldFromToString
 
 @Suppress("unused")
-val disableAdsPatch = bytecodePatch(
+val unlimitedEnergyPatch = bytecodePatch(
     name = "Unlimited energy",
+    description = "Skips watching ads to recharge energy."
 ) {
     compatibleWith("com.duolingo")
 
@@ -15,12 +15,16 @@ val disableAdsPatch = bytecodePatch(
         initializeEnergyConfigFingerprint
             .match(energyConfigToStringFingerprint.classDef)
             .method.apply {
+                val energyField = energyConfigToStringFingerprint.method
+                    .findFieldFromToString("energy=")
                 val insertIndex = initializeEnergyConfigFingerprint.patternMatch!!.startIndex
-                val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstructions(
                     insertIndex,
-                    "const/16 v$register, 99",
+                    """
+                        const/16 v0, 99
+                        iput v0, p0, $energyField
+                    """
                 )
             }
     }
