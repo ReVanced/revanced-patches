@@ -1,3 +1,10 @@
+# [5.44.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.44.0-dev.1...v5.44.0-dev.2) (2025-10-22)
+
+
+### Bug Fixes
+
+* **Google Photos - Spoof features:** Add support for Pixel 10 devices ([#6161](https://github.com/ReVanced/revanced-patches/issues/6161)) ([754b719](https://github.com/ReVanced/revanced-patches/commit/754b71959a0155413eb33cf1bdc2c8976eaca634))
+
 # [5.44.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.43.2-dev.3...v5.44.0-dev.1) (2025-10-22)
 
 
