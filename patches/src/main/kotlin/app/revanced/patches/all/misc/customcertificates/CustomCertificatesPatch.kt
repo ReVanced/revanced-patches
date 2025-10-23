@@ -90,39 +90,31 @@ val customNetworkSecurityPatch = resourcePatch(
         val targetDomains = targetDomains ?: emptyList()
         val includeSubdomains = includeSubdomains ?: false
         val customCAFilePaths = customCAFilePaths ?: emptyList()
-        val allowUser = allowUserCerts ?: false
-        val allowSystem = allowSystemCerts ?: true
+        val allowUserCerts = allowUserCerts ?: false
+        val allowSystemCerts = allowSystemCerts ?: true
         val allowCleartextTraffic = allowCleartextTraffic ?: false
         val overridePins = overridePins ?: false
 
+        val domainsXML = buildString {
+            targetDomains.forEach {
+                appendLine("""                <domain includeSubdomains="$includeSubdomains">$it</domain>""")
+            }
+        }.trimEnd()
 
-        val domainsXMLString = StringBuilder()
-        targetDomains.forEachIndexed { index, domain ->
-            val domainLine = """                <domain includeSubdomains="$includeSubdomains">$domain</domain>"""
-            if (index < targetDomains.lastIndex) {
-                domainsXMLString.appendLine(domainLine)
-            } else {
-                domainsXMLString.append(domainLine)
+        val trustAnchorsXML = buildString {
+            if (allowSystemCerts) {
+                appendLine("""                    <certificates src="system" overridePins="$overridePins" />""")
+            }
+            if (allowUserCerts) {
+                appendLine("""                    <certificates src="user" overridePins="$overridePins" />""")
+            }
+            customCAFilePaths.forEach { path ->
+                val fileName = path.substringAfterLast('/').substringBeforeLast('.')
+                appendLine("""                    <certificates src="@raw/$fileName" overridePins="$overridePins" />""")
             }
         }
 
-        val trustAnchorsXMLString = StringBuilder()
-        if (allowSystem) {
-            trustAnchorsXMLString.appendLine()
-            trustAnchorsXMLString.append("""                    <certificates src="system" overridePins="$overridePins" />""")
-        }
-        if (allowUser) {
-            trustAnchorsXMLString.appendLine()
-            trustAnchorsXMLString.append("""                    <certificates src="user" overridePins="$overridePins" />""")
-        }
-
-        for (caFilePath in customCAFilePaths) {
-            val caFileNameWithoutSuffix = caFilePath.substringAfterLast('/').substringBeforeLast('.')
-            trustAnchorsXMLString.appendLine()
-            trustAnchorsXMLString.append("""                    <certificates src="@raw/$caFileNameWithoutSuffix" overridePins="$overridePins"/>""")
-        }
-
-        if (trustAnchorsXMLString.isBlank()) {
+        if (trustAnchorsXML.isBlank()) {
             throw PatchException("At least one trust anchor (System, User, or Custom CA) must be enabled.")
         }
 
@@ -130,8 +122,9 @@ val customNetworkSecurityPatch = resourcePatch(
         <?xml version="1.0" encoding="utf-8"?>
         <network-security-config>
             <domain-config cleartextTrafficPermitted="$allowCleartextTraffic">
-$domainsXMLString
-                <trust-anchors>$trustAnchorsXMLString
+$domainsXML
+                <trust-anchors>
+${trustAnchorsXML.trimEnd()}
                 </trust-anchors>
             </domain-config>
         </network-security-config>
