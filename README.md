@@ -95,7 +95,7 @@ Thank you for considering contributing to ReVanced Patches. You can find the con
 
 ### 🛠️ Building
 
-To build ReVanced Patches, you can follow the [ReVanced documentation](https://github.com/ReVanced/revanced-documentation).
+To build ReVanced Patches, you can follow the [ReVanced documentation](https://github.com/ReVanced/revanced-documentation). 
 
 ## 📜 Licence
 
