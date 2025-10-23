@@ -5,8 +5,8 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.findFieldFromToString
 
 @Suppress("unused")
-val unlimitedEnergyPatch = bytecodePatch(
-    name = "Unlimited energy",
+val skipEnergyRechargeAdsPatch = bytecodePatch(
+    name = "Skip energy recharge ads",
     description = "Skips watching ads to recharge energy."
 ) {
     compatibleWith("com.duolingo")
