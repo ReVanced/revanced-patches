@@ -66,7 +66,7 @@ internal fun forceOriginalAudioPatch(
         // and instead overrides to the user region language.
         if (fixUseLocalizedAudioTrackFlag()) {
             selectAudioStreamFingerprint.method.insertLiteralOverride(
-                AUDIO_STREAM_IGNORE_DEFAULT_FEATURE_FLAG,
+                selectAudioStreamFingerprint.instructionMatches.first().index,
                 "$EXTENSION_CLASS_DESCRIPTOR->ignoreDefaultAudioStream(Z)Z"
             )
         }

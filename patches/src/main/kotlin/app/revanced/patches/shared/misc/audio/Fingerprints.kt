@@ -1,7 +1,7 @@
 package app.revanced.patches.shared.misc.audio
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
+import app.revanced.patcher.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val formatStreamModelToStringFingerprint by fingerprint {
@@ -17,12 +17,8 @@ internal val formatStreamModelToStringFingerprint by fingerprint {
     )
 }
 
-internal const val AUDIO_STREAM_IGNORE_DEFAULT_FEATURE_FLAG = 45666189L
-
 internal val selectAudioStreamFingerprint by fingerprint {
-    returns("L")
-    custom { method, _ ->
-        method.parameters.size > 1 // Method has a large number of parameters and may change.
-                && method.containsLiteralInstruction(AUDIO_STREAM_IGNORE_DEFAULT_FEATURE_FLAG)
-    }
+    instructions(
+        literal(45666189L)
+    )
 }
