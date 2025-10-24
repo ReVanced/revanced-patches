@@ -1,3 +1,11 @@
+# [5.44.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.44.0-dev.3...v5.44.0-dev.4) (2025-10-24)
+
+
+### Features
+
+* Add `Custom network security` patch ([#6151](https://github.com/ReVanced/revanced-patches/issues/6151)) ([e7336d2](https://github.com/ReVanced/revanced-patches/commit/e7336d2ef361cc5d6fe6e8442b36d9cf1f542931))
+* **Duolingo:** Add `Skip energy recharge ads` patch ([#6167](https://github.com/ReVanced/revanced-patches/issues/6167)) ([591e106](https://github.com/ReVanced/revanced-patches/commit/591e106098c6eff431b8b7ac7d985ce7373d701e))
+
 # [5.44.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.44.0-dev.2...v5.44.0-dev.3) (2025-10-22)
 
 
