@@ -756,7 +756,7 @@ Mura dtagann aon athrú ar an socrú seo, bain triail as mód Incognito a chur a
   <string name="revanced_hide_player_flyout_loop_video_summary_off">Taispeántar roghchlár físe lúb</string>
   <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_ambient_mode_title">Folaigh modh comhthimpeallach</string>
-  <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Tá roghchlár mód chomhthimpeallach</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_summary_on">Tá roghchlár mód comhthimpeallach i bhfolach</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">Taispeántar roghchlár mód comhthimpeallach</string>
   <string name="revanced_hide_player_flyout_stable_volume_title">Folaigh toirt cobhsaí</string>
   <string name="revanced_hide_player_flyout_stable_volume_summary_off">Taispeántar roghchlár toirte cobhsaí</string>
@@ -764,7 +764,7 @@ Mura dtagann aon athrú ar an socrú seo, bain triail as mód Incognito a chur a
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_help_title">Folaigh Cabhair &amp; aiseolas</string>
   <string name="revanced_hide_player_flyout_help_summary_on">Cabhair &amp; Tá an roghchlár aiseolais i bhfolach</string>
-  <string name="revanced_hide_player_flyout_help_summary_off">Cabhair &amp; Taispeántar roghchlár aiseolais</string>
+  <string name="revanced_hide_player_flyout_help_summary_off">Taispeántar roghchlár Cabhrach &amp; Aiseolais</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_speed_title">Folaigh luas athsheinm</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Tá roghchlár luas athsheinm i bhfolach</string>
@@ -773,11 +773,11 @@ Mura dtagann aon athrú ar an socrú seo, bain triail as mód Incognito a chur a
                   This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <string name="revanced_hide_player_flyout_more_info_title">Folaigh Tuilleadh eolais</string>
   <string name="revanced_hide_player_flyout_more_info_summary_on">Tá tuilleadh eolais i bhfolach</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Taispeántar roghchlár níos mó faisnéise</string>
+  <string name="revanced_hide_player_flyout_more_info_summary_off">Taispeántar roghchlár tuilleadh eolais</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Folaigh scáileán Glas</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Tá roghchlár scáileán glas i bhfolach</string>
-  <string name="revanced_hide_player_flyout_lock_screen_summary_off">Taispeántar roghchlár scáileáin glas</string>
+  <string name="revanced_hide_player_flyout_lock_screen_summary_off">Taispeántar roghchlár an scáileáin ghlasála</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Folaigh Rian Fuaime</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Tá roghchlár rian fuaime i bhfolach</string>
@@ -788,32 +788,32 @@ Mura dtagann aon athrú ar an socrú seo, bain triail as mód Incognito a chur a
 Chun roghchlár an rian fuaime a thaispeáint, athraigh 'Sruthanna físeáin bhréige' go iPadOS"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Folaigh Watch i VR</string>
-  <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Tá faire i roghchlár VR i bhfolach</string>
-  <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Taispeántar an faire sa roghchlár VR</string>
+  <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Tá an roghchlár Féach i VR i bhfolach</string>
+  <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Taispeántar an roghchlár Féach i VR</string>
   <string name="revanced_hide_player_flyout_video_quality_title">Folaigh roghchlár cáilíocht físe</string>
   <string name="revanced_hide_player_flyout_video_quality_summary_on">Tá roghchlár cháilíocht na físeáin i bhfolach</string>
-  <string name="revanced_hide_player_flyout_video_quality_summary_off">Tá roghchlár cháilíocht na físeáin ar taispeáint</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Taispeántar roghchlár cáilíochta físe</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Folaigh buntásc roghchlár cáilíochta físe</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Tá buntásc an roghchláir cáilíochta físeáin folaithe</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Tá buntásc roghchláir cáilíochta físe i bhfolach</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Taispeántar buntásc roghchlár cáilíochta físeáin</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
-  <string name="revanced_hide_autoplay_button_title">Folaigh cnaipe an Uathoimh</string>
-  <string name="revanced_hide_autoplay_button_summary_on">Tá cnaipe Autoplay i bhfolach</string>
+  <string name="revanced_hide_autoplay_button_title">Folaigh an cnaipe Uath-imirt</string>
+  <string name="revanced_hide_autoplay_button_summary_on">Tá an cnaipe uath-sheinm i bhfolach</string>
   <string name="revanced_hide_autoplay_button_summary_off">Taispeántar cnaipe Autoplay</string>
   <!-- This button does not display any text, but 'Captions' should be translated using the same wording used as the translation of 'revanced_hide_player_flyout_captions_title'. -->
-  <string name="revanced_hide_captions_button_title">Folaigh cnaipe na dTeidil</string>
+  <string name="revanced_hide_captions_button_title">Folaigh cnaipe fotheidil</string>
   <string name="revanced_hide_captions_button_summary_on">Tá cnaipe fotheidil i bhfolach</string>
   <string name="revanced_hide_captions_button_summary_off">Taispeántar cnaipe fotheidil</string>
-  <string name="revanced_hide_cast_button_title">Folaigh cnaipe an Chasta</string>
-  <string name="revanced_hide_cast_button_summary_on">Tá cnaipe teilgthe i bhfolach</string>
-  <string name="revanced_hide_cast_button_summary_off">Taispeántar cnaipe teilgthe</string>
+  <string name="revanced_hide_cast_button_title">Folaigh cnaipe Cast</string>
+  <string name="revanced_hide_cast_button_summary_on">Tá cnaipe Cast i bhfolach</string>
+  <string name="revanced_hide_cast_button_summary_off">Taispeántar cnaipe Cast</string>
   <string name="revanced_hide_player_control_buttons_background_title">Folaigh cúlra rialuithe an imreora</string>
   <string name="revanced_hide_player_control_buttons_background_summary_on">Tá cúlra rialuithe an imreora i bhfolach</string>
   <string name="revanced_hide_player_control_buttons_background_summary_off">Taispeántar cúlra rialuithe an imreora</string>
-  <string name="revanced_hide_player_previous_next_buttons_title">Folaigh Cnaipí Roimhe &amp; Ar Aghaidh</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_on">Tá cnaipí i bhfolach</string>
-  <string name="revanced_hide_player_previous_next_buttons_summary_off">Taispeántar cnaipí</string>
+  <string name="revanced_hide_player_previous_next_buttons_title">Folaigh cnaipí Roimhe Seo &amp; Ar Aghaidh</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_on">Tá cnaipí Roimhe Seo &amp; Ar Aghaidh  i bhfolach</string>
+  <string name="revanced_hide_player_previous_next_buttons_summary_off">Taispeántar cnaipí Roimhe Seo &amp; Ar Aghaidh</string>
   </patch>
   <patch id="layout.hide.endscreencards.hideEndScreenCardsResourcePatch">
   <string name="revanced_hide_endscreen_cards_title">Folaigh cártaí scáileáin deireadh</string>
@@ -821,7 +821,7 @@ Chun roghchlár an rian fuaime a thaispeáint, athraigh 'Sruthanna físeáin bhr
   <string name="revanced_hide_endscreen_cards_summary_off">Taispeántar cártaí scáileáin deireadh</string>
   </patch>
   <patch id="layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch">
-  <string name="revanced_disable_fullscreen_ambient_mode_title">Díchumasaigh mód Timpeallachta i scáileán iomlán</string>
+  <string name="revanced_disable_fullscreen_ambient_mode_title">Díchumasaigh mód comhthimpeallach i lánscáileán</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_on">Díchumasaíodh mód comhthimpeallach</string>
   <string name="revanced_disable_fullscreen_ambient_mode_summary_off">Mód comhthimpeallach cumasaithe</string>
   </patch>
@@ -831,8 +831,8 @@ Chun roghchlár an rian fuaime a thaispeáint, athraigh 'Sruthanna físeáin bhr
   <string name="revanced_hide_info_cards_summary_off">Taispeántar cártaí faisnéise</string>
   </patch>
   <patch id="layout.hide.rollingnumber.disableRollingNumberAnimationPatch">
-  <string name="revanced_disable_rolling_number_animations_title">Díchumasaigh beochan uimhreacha</string>
-  <string name="revanced_disable_rolling_number_animations_summary_on">Níl uimhreacha rollta beoite</string>
+  <string name="revanced_disable_rolling_number_animations_title">Díchumasaigh beochana uimhreacha rollta</string>
+  <string name="revanced_disable_rolling_number_animations_summary_on">Ní bhíonn uimhreacha rollta beoite</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Tá uimhreacha rollta beoite</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
@@ -840,9 +840,9 @@ Chun roghchlár an rian fuaime a thaispeáint, athraigh 'Sruthanna físeáin bhr
   <string name="revanced_hide_seekbar_summary_on">Tá barra cuardaigh seinnteoir físe i bhfolach</string>
   <string name="revanced_hide_seekbar_summary_off">Taispeántar barra cuardaigh an t-imreoir físeán</string>
   <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
-  <string name="revanced_hide_seekbar_thumbnail_title">Folaigh barra cuardaigh mionsamhlaí físeáin</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_on">Tá barra cuardaigh mionsamhlaí físeáin i bhfolach</string>
-  <string name="revanced_hide_seekbar_thumbnail_summary_off">Tá barra cuardaigh mionsamhlaí físeáin taispeánta</string>
+  <string name="revanced_hide_seekbar_thumbnail_title">Folaigh barra cuardaigh mionsamhlacha físeáin</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_on">Tá barra cuardaigh mionsamhlacha físeáin i bhfolach</string>
+  <string name="revanced_hide_seekbar_thumbnail_summary_off">Taispeántar barra cuardaigh mionsamhlacha físe</string>
   </patch>
   <patch id="layout.hide.shorts.hideShortsComponentsResourcePatch">
   <string name="revanced_shorts_player_screen_title">Shorts seinnteoir</string>
@@ -852,91 +852,91 @@ Chun roghchlár an rian fuaime a thaispeáint, athraigh 'Sruthanna físeáin bhr
   <string name="revanced_hide_shorts_home_summary_on">I bhfolach sa fhotha Baile agus físeáin ghaolmhara</string>
   <string name="revanced_hide_shorts_home_summary_off">Taispeánta sa fhotha Baile agus físeáin ghaolmhara</string>
   <string name="revanced_hide_shorts_search_title">Folaigh Shorts i dtorthaí cuardaigh</string>
-  <string name="revanced_hide_shorts_search_summary_on">Folaithe i dtorthaí cuardaigh</string>
-  <string name="revanced_hide_shorts_search_summary_off">Tá ar taispeáint sna torthaí cuardaigh</string>
+  <string name="revanced_hide_shorts_search_summary_on">Folaigh i dtorthaí cuardaigh</string>
+  <string name="revanced_hide_shorts_search_summary_off">Taispeáin i dtorthaí cuardaigh</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
   <string name="revanced_hide_shorts_subscriptions_title">Folaigh Shorts sa fhotha Liostálaí</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">I bhfolach sa fhotha Liostálaí</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">Taispeánta sa fhotha Liostálaí</string>
   <string name="revanced_hide_shorts_history_title">Folaigh Shorts i stair féachana</string>
-  <string name="revanced_hide_shorts_history_summary_on">Faolithe sa stair féachana</string>
+  <string name="revanced_hide_shorts_history_summary_on">I bhfolach i stair féachana</string>
   <string name="revanced_hide_shorts_history_summary_off">Taispeántar i stair féachana</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Folaigh cnaipe \'Ceannaigh Super Thanks\'</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Cnaipe \'Ceannaigh Super Thanks\' i bhfolach</string>
-  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Cnaipe \'Ceannaigh Super Thanks\' taispeánta</string>
-  <string name="revanced_hide_shorts_effect_button_title">Folaigh cnaipe éifeachta</string>
-  <string name="revanced_hide_shorts_effect_button_summary_on">Tá an cnaipe Éifeacht i bhfolach</string>
-  <string name="revanced_hide_shorts_effect_button_summary_off">Tá an cnaipe Éifeacht taispeánta</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Folaigh cnaipe \'Scáileán glas\'</string>
-  <string name="revanced_hide_shorts_green_screen_button_summary_on">Tá cnaipe an scáileáin glas i bhfolach</string>
-  <string name="revanced_hide_shorts_green_screen_button_summary_off">Taispeántar cnaipe an scáileáin glas</string>
-  <string name="revanced_hide_shorts_hashtag_button_title">Folaigh an cnaipe hashtag</string>
-  <string name="revanced_hide_shorts_hashtag_button_summary_on">Tá cnaipe hashtag i bhfolach</string>
-  <string name="revanced_hide_shorts_hashtag_button_summary_off">Taispeántar an cnaipe hashtag</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Folaigh cnaipe Ceannaigh Super Thanks</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_on">Cnaipe Ceannaigh Super Thanks i bhfolach</string>
+  <string name="revanced_hide_shorts_super_thanks_button_summary_off">Taispeántar an cnaipe Ceannaigh Super Thanks</string>
+  <string name="revanced_hide_shorts_effect_button_title">Folaigh cnaipe Éifeacht</string>
+  <string name="revanced_hide_shorts_effect_button_summary_on">Tá cnaipe Éifeacht i bhfolach</string>
+  <string name="revanced_hide_shorts_effect_button_summary_off">Taispeántar cnaipe Éifeacht</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Folaigh cnaipe Scáileáin Ghlais</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_on">Tá cnaipe Scáileáin Ghlais i bhfolach</string>
+  <string name="revanced_hide_shorts_green_screen_button_summary_off">Taispeántar cnaipe Scáileáin Ghlais</string>
+  <string name="revanced_hide_shorts_hashtag_button_title">Folaigh cnaipe Hashtag</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_on">Tá cnaipe Hashtag i bhfolach</string>
+  <string name="revanced_hide_shorts_hashtag_button_summary_off">Taispeántar cnaipe hashtag</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_join_button_title">Folaigh cnaipe \'Bí\'</string>
-  <string name="revanced_hide_shorts_join_button_summary_on">Tá an cnaipe Bí i bhfolach</string>
-  <string name="revanced_hide_shorts_join_button_summary_off">Taispeántar an cnaipe Bí isteach</string>
+  <string name="revanced_hide_shorts_join_button_title">Folaigh cnaipe Glac páirt</string>
+  <string name="revanced_hide_shorts_join_button_summary_on">Tá cnaipe Glac páirt i bhfolach</string>
+  <string name="revanced_hide_shorts_join_button_summary_off">Taispeántar cnaipe Glac páirt</string>
   <string name="revanced_hide_shorts_location_label_title">Folaigh lipéad suímh</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Tá lipéad suímh i bhfolach</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Taispeántar lipéad suímh</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Folaigh cnaipe na bpostálacha nua</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_on">Tá cnaipe na bpostálacha nua i bhfolach</string>
-  <string name="revanced_hide_shorts_new_posts_button_summary_off">Taispeántar cnaipe na bpostálacha nua</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Folaigh na cnaipí forleagan sosaithe</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Tá cnaipí forleagtha sos i bhfolach</string>
-  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Taispeántar cnaipí forleagtha sos</string>
-  <string name="revanced_hide_shorts_preview_comment_title">Folaigh réamhamharc ar an nóta tráchta</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_on">Tá réamhamharc ar an nóta tráchta i bhfolach</string>
-  <string name="revanced_hide_shorts_preview_comment_summary_off">Taispeántar réamhamharc ar an nóta tráchta</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Folaigh cnaipe \'Sábháil ceol\'</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_on">Tá an cnaipe Sábháil ceoil i bhfolach</string>
-  <string name="revanced_hide_shorts_save_sound_button_summary_off">Taispeántar an cnaipe Sábháil ceoil</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Folaigh Cnaipe Poist nua</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_on">Tá cnaipe Poist nua i bhfolach</string>
+  <string name="revanced_hide_shorts_new_posts_button_summary_off">Taispeántar cnaipe Poist nua</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_title">Folaigh cnaipí forleagan ar sos</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_on">Tá cnaipí forleagan ar sos i bhfolach</string>
+  <string name="revanced_hide_shorts_paused_overlay_buttons_summary_off">Taispeántar cnaipí forleagan ar sos</string>
+  <string name="revanced_hide_shorts_preview_comment_title">Folaigh trácht réamhamhairc</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_on">Tá an trácht réamhamhairc i bhfolach</string>
+  <string name="revanced_hide_shorts_preview_comment_summary_off">Taispeántar réamhamharc tráchta</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Folaigh an cnaipe Sábháil Ceoil</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_on">Tá an cnaipe sábháil ceoil i bhfolach</string>
+  <string name="revanced_hide_shorts_save_sound_button_summary_off">Taispeántar an cnaipe sábháil ceoil</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Folaigh moltaí cuardaigh</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_on">Tá moltaí cuardaigh i bhfolach</string>
   <string name="revanced_hide_shorts_search_suggestions_summary_off">Taispeántar moltaí cuardaigh</string>
-  <string name="revanced_hide_shorts_shop_button_title">Folaigh cnaipe an Siopa</string>
+  <string name="revanced_hide_shorts_shop_button_title">Folaigh cnaipe Siopa</string>
   <string name="revanced_hide_shorts_shop_button_summary_on">Tá cnaipe siopa i bhfolach</string>
   <string name="revanced_hide_shorts_shop_button_summary_off">Taispeántar cnaipe siopa</string>
   <string name="revanced_hide_shorts_stickers_title">Folaigh greamáin</string>
   <string name="revanced_hide_shorts_stickers_summary_on">Tá greamáin i bhfolach</string>
   <string name="revanced_hide_shorts_stickers_summary_off">Taispeántar greamáin</string>
-  <string name="revanced_hide_shorts_subscribe_button_title">Folaigh cnaipe \'Liostáil\'</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_on">Tá cnaipe liostáil i bhfolach</string>
-  <string name="revanced_hide_shorts_subscribe_button_summary_off">Taispeántar cnaipe liostáil</string>
+  <string name="revanced_hide_shorts_subscribe_button_title">Folaigh cnaipe Liostáil</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_on">Tá an cnaipe Liostáil i bhfolach</string>
+  <string name="revanced_hide_shorts_subscribe_button_summary_off">Taispeántar cnaipe Liostáil</string>
   <string name="revanced_hide_shorts_tagged_products_title">Folaigh táirgí clibeáilte</string>
-  <string name="revanced_hide_shorts_tagged_products_summary_on">Tá táirgí clib i bhfolach</string>
+  <string name="revanced_hide_shorts_tagged_products_summary_on">Tá táirgí clibeáilte i bhfolach</string>
   <string name="revanced_hide_shorts_tagged_products_summary_off">Taispeántar táirgí clibeáilte</string>
-  <string name="revanced_hide_shorts_upcoming_button_title">Folaigh cnaipe \'Le teacht\'</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_on">Tá cnaipe atá le teacht i bhfolach</string>
-  <string name="revanced_hide_shorts_upcoming_button_summary_off">Taispeántar an cnaipe atá le teacht</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Folaigh an cnaipe \"Úsáid an fhuaim seo\"</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_on">Tá an cnaipe \"Úsáid an fhuaim seo\" folaithe</string>
-  <string name="revanced_hide_shorts_use_sound_button_summary_off">Tá an cnaipe \"Úsáid an fhuaim seo\" taispeánta</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Folaigh an cnaipe Bain úsáid as an teimpléad seo</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_on">Tá an cnaipe \"Úsáid an teimpléad seo\" folaithe</string>
-  <string name="revanced_hide_shorts_use_template_button_summary_off">Taispeántar an cnaipe Bain úsáid as an teimpléad seo</string>
-  <string name="revanced_hide_shorts_like_fountain_title">Folaigh an beochan fhoinse cnaipe Cosúil</string>
-  <string name="revanced_hide_shorts_like_fountain_summary_on">Cosúil le beochan tobair cnaipe i bhfolach</string>
-  <string name="revanced_hide_shorts_like_fountain_summary_off">Taispeántar beochan tobair cnaipe cosúil le cnaipe</string>
-  <string name="revanced_hide_shorts_like_button_title">Folaigh cnaipe Cosúil</string>
-  <string name="revanced_hide_shorts_like_button_summary_on">Tá an cnaipe Cosúil i bhfolach</string>
-  <string name="revanced_hide_shorts_like_button_summary_off">Taispeántar an cnaipe Cosúil</string>
-  <string name="revanced_hide_shorts_dislike_button_title">Folaigh cnaipe Mhíchlú</string>
-  <string name="revanced_hide_shorts_dislike_button_summary_on">Taispeántar an cnaipe nach dtaitníonn leis</string>
-  <string name="revanced_hide_shorts_dislike_button_summary_off">Taispeántar an cnaipe nach dtaitníonn leis</string>
+  <string name="revanced_hide_shorts_upcoming_button_title">Folaigh cnaipe Ag Teacht</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_on">Tá cnaipe Ag Teacht i bhfolach</string>
+  <string name="revanced_hide_shorts_upcoming_button_summary_off">Taispeántar an cnaipe Ag Teacht</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Folaigh Úsáid an cnaipe fuaime seo</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_on">Tá an cnaipe Úsáid an fhuaim seo i bhfolach</string>
+  <string name="revanced_hide_shorts_use_sound_button_summary_off">Taispeántar an cnaipe Úsáid an fhuaim seo</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Folaigh an cnaipe Úsáid an teimpléad seo</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_on">Tá an cnaipe Úsáid an teimpléid seo i bhfolach</string>
+  <string name="revanced_hide_shorts_use_template_button_summary_off">Taispeántar an cnaipe Úsáid an teimpléid seo</string>
+  <string name="revanced_hide_shorts_like_fountain_title">Folaigh an cnaipe Is maith liom \'beochan tobair\'</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_on">Tá an cnaipe Is maith liom \'beochan tobair\' i bhfolach</string>
+  <string name="revanced_hide_shorts_like_fountain_summary_off">Taispeántar an cnaipe Is maith liom \'beochan tobair\'</string>
+  <string name="revanced_hide_shorts_like_button_title">Folaigh cnaipe Is maith liom</string>
+  <string name="revanced_hide_shorts_like_button_summary_on">Tá an cnaipe Is maith liom i bhfolach</string>
+  <string name="revanced_hide_shorts_like_button_summary_off">Taispeántar an cnaipe Is maith liom</string>
+  <string name="revanced_hide_shorts_dislike_button_title">Folaigh cnaipe Ní maith liom</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_on">Tá an cnaipe Ní maith liom i bhfolach</string>
+  <string name="revanced_hide_shorts_dislike_button_summary_off">Taispeántar an cnaipe Ní maith liom</string>
   <string name="revanced_hide_shorts_comments_button_title">Folaigh cnaipe na Tuairimí</string>
   <string name="revanced_hide_shorts_comments_button_summary_on">Tá an cnaipe tuairimí i bhfolach</string>
   <string name="revanced_hide_shorts_comments_button_summary_off">Taispeántar cnaipe tuairimí</string>
   <!-- 'Share' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_share_button_title">Folaigh cnaipe \'Roinn\'</string>
-  <string name="revanced_hide_shorts_share_button_summary_on">Tá cnaipe Comhroinn i bhfolach</string>
-  <string name="revanced_hide_shorts_share_button_summary_off">Taispeántar an cnaipe Comhroinn</string>
+  <string name="revanced_hide_shorts_share_button_title">Folaigh cnaipe Roinn</string>
+  <string name="revanced_hide_shorts_share_button_summary_on">Tá cnaipe Roinn i bhfolach</string>
+  <string name="revanced_hide_shorts_share_button_summary_off">Taispeántar an cnaipe Roinn</string>
   <!-- 'Remix' should be translated using the same localized wording YouTube displays for the button. -->
-  <string name="revanced_hide_shorts_remix_button_title">Folaigh cnaipe an Athchóiriú</string>
-  <string name="revanced_hide_shorts_remix_button_summary_on">Tá cnaipe Remix i bhfolach</string>
-  <string name="revanced_hide_shorts_remix_button_summary_off">Taispeántar cnaipe Remix</string>
-  <string name="revanced_hide_shorts_sound_button_title">Folaigh an cnaipe fuaime</string>
+  <string name="revanced_hide_shorts_remix_button_title">Folaigh cnaipe Athmheasc</string>
+  <string name="revanced_hide_shorts_remix_button_summary_on">Tá cnaipe Athmheasc i bhfolach</string>
+  <string name="revanced_hide_shorts_remix_button_summary_off">Taispeántar cnaipe Athmheasc</string>
+  <string name="revanced_hide_shorts_sound_button_title">Folaigh cnaipe Fuaime</string>
   <string name="revanced_hide_shorts_sound_button_summary_on">Tá cnaipe fuaime i bhfolach</string>
   <string name="revanced_hide_shorts_sound_button_summary_off">Taispeántar cnaipe fuaime</string>
   <string name="revanced_hide_shorts_info_panel_title">Folaigh painéal faisnéise</string>
@@ -947,29 +947,29 @@ Chun roghchlár an rian fuaime a thaispeáint, athraigh 'Sruthanna físeáin bhr
   <string name="revanced_hide_shorts_channel_bar_summary_off">Taispeántar barra cainéal</string>
   <string name="revanced_hide_shorts_video_title_title">Folaigh teideal físeáin</string>
   <string name="revanced_hide_shorts_video_title_summary_on">Teideal físeáin i bhfolach</string>
-  <string name="revanced_hide_shorts_video_title_summary_off">Teideal físeáin taispeánta</string>
+  <string name="revanced_hide_shorts_video_title_summary_off">Taispeántar teideal físeáin</string>
   <string name="revanced_hide_shorts_sound_metadata_label_title">Folaigh lipéad meiteashonraí fuaime</string>
   <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Lipéad meiteashonraí fuaime i bhfolach</string>
-  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Lipéad meiteashonraí fuaime taispeánta</string>
+  <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Taispeántar Lipéad meiteashonraí fuaime</string>
   <string name="revanced_hide_shorts_full_video_link_label_title">Folaigh lipéad nasc físeáin</string>
-  <string name="revanced_hide_shorts_full_video_link_label_summary_on">Tá lipéad nasc físe i bhfolach</string>
-  <string name="revanced_hide_shorts_full_video_link_label_summary_off">Taispeántar lipéad nasc físe</string>
+  <string name="revanced_hide_shorts_full_video_link_label_summary_on">Tá lipéad nasc físeáin i bhfolach</string>
+  <string name="revanced_hide_shorts_full_video_link_label_summary_off">Taispeántar lipéad nasc físeáin</string>
   <string name="revanced_hide_shorts_navigation_bar_title">Folaigh barra nascleanúna</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_on">Tá barra nascleanúna i bhfolach</string>
   <string name="revanced_hide_shorts_navigation_bar_summary_off">Taispeántar barra nascleanúna</string>
   </patch>
   <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
   <string name="revanced_end_screen_suggested_video_title">Folaigh físeán molta deireadh scáileáin</string>
-  <string name="revanced_end_screen_suggested_video_summary_on">"Folaítear físeán molta deireadh scáileáin nuair a bhíonn an uathshein múchta
+  <string name="revanced_end_screen_suggested_video_summary_on">"Bíonn an físeán molta don scáileán deiridh i bhfolach nuair a bhíonn an t-uathsheinm múchta
 
-Is féidir an uathshein a athrú i socruithe YouTube:
-Socruithe → Athsheinm → Uathshein físeán eile"</string>
+Is féidir an t-uathsheinm a athrú i socruithe YouTube:
+Socruithe → Athsheinm → Uathsheinm an chéad fhíseán eile"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">Taispeántar físeán molta deireadh scáileáin</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
   <string name="revanced_hide_related_videos_overlay_title">Folaigh forleagan físeáin ghaolmhara</string>
-  <string name="revanced_hide_related_videos_overlay_summary_on">Forleagan físeáin ghaolmhara i scáileán iomlán i bhfolach</string>
-  <string name="revanced_hide_related_videos_overlay_summary_off">Forleagan físeáin ghaolmhara i scáileán iomlán taispeánta</string>
+  <string name="revanced_hide_related_videos_overlay_summary_on">Tá forleagan físeáin ghaolmhara i lánscáileán i bhfolach</string>
+  <string name="revanced_hide_related_videos_overlay_summary_off">Taispeántar forleagan físeáin ghaolmhara i lánscáileán</string>
   </patch>
   <patch id="layout.hide.time.hideTimestampPatch">
   <string name="revanced_hide_timestamp_title">Folaigh stampa ama an fhíseáin</string>
@@ -977,85 +977,85 @@ Socruithe → Athsheinm → Uathshein físeán eile"</string>
   <string name="revanced_hide_timestamp_summary_off">Taispeántar stampa ama</string>
   </patch>
   <patch id="layout.panels.popup.playerPopupPanelsPatch">
-  <string name="revanced_hide_player_popup_panels_title">Folaigh painéil aníos imreoir</string>
-  <string name="revanced_hide_player_popup_panels_summary_on">Tá painéil aníos imreoirí i bhfolach</string>
-  <string name="revanced_hide_player_popup_panels_summary_off">Taispeántar painéil aníos imreoirí</string>
+  <string name="revanced_hide_player_popup_panels_title">Folaigh painéil preab aníos imreoir</string>
+  <string name="revanced_hide_player_popup_panels_summary_on">Tá painéil preab aníos imreoir i bhfolach</string>
+  <string name="revanced_hide_player_popup_panels_summary_off">Taispeántar painéil preab aníos imreoir</string>
   </patch>
   <patch id="layout.player.fullscreen.exitFullscreenPatch">
-  <string name="revanced_exit_fullscreen_title">Baint á âmód éadaéin iomlán lán iomlán ar deireadh na físe</string>
-  <string name="revanced_exit_fullscreen_entry_1">Déchumasaithe</string>
-  <string name="revanced_exit_fullscreen_entry_2">Portait</string>
-  <string name="revanced_exit_fullscreen_entry_3">Téacscaoileadh</string>
-  <string name="revanced_exit_fullscreen_entry_4">Portait agus téacscaoileadh</string>
+  <string name="revanced_exit_fullscreen_title">Scoir an mód lánscáileáin ag deireadh an fhíseáin</string>
+  <string name="revanced_exit_fullscreen_entry_1">Díchumasaithe</string>
+  <string name="revanced_exit_fullscreen_entry_2">Portráid</string>
+  <string name="revanced_exit_fullscreen_entry_3">Tírdhreach</string>
+  <string name="revanced_exit_fullscreen_entry_4">Portráid agus tírdhreach</string>
   </patch>
   <patch id="layout.player.fullscreen.openVideosFullscreen">
-  <string name="revanced_open_videos_fullscreen_portrait_title">Oscail físeáin i módh scáileáin iomláin portráit</string>
-  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Osclaítear físeáin i scáileán iomlán</string>
-  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Ní osclaítear físeáin i scáileán iomlán</string>
+  <string name="revanced_open_videos_fullscreen_portrait_title">Oscail físeáin i bportráid lánscáileáin</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_on">Osclaítear físeáin i mód lánscáileáin</string>
+  <string name="revanced_open_videos_fullscreen_portrait_summary_off">Ní osclaítear físeáin i mód lánscáileáin</string>
   </patch>
   <patch id="layout.player.overlay.customPlayerOverlayOpacityResourcePatch">
-  <string name="revanced_player_overlay_opacity_title">Trédhearcacht forleagtha an imreoir</string>
-  <string name="revanced_player_overlay_opacity_summary">Luach trédhearcachta idir 0-100, áit a bhfuil 0 trédhearcach</string>
-  <string name="revanced_player_overlay_opacity_invalid_toast">Caithfidh trédhearcacht forleagtha imreoirí a bheith idir 0-100</string>
+  <string name="revanced_player_overlay_opacity_title">Teimhneacht fhorleagan imreora</string>
+  <string name="revanced_player_overlay_opacity_summary">Luach teimhneachta idir 0-100, áit a seasann 0 do thrédhearcacht</string>
+  <string name="revanced_player_overlay_opacity_invalid_toast">Teimhneacht fhorleagan an imreora idir 0-100</string>
   </patch>
   <patch id="layout.returnyoutubedislike.returnYouTubeDislikePatch">
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_ryd_failure_connection_timeout">Ní dtaitníonn sé ar fáil go sealadach (API amuigh amach)</string>
-  <string name="revanced_ryd_failure_connection_status_code">Ní dtaitníonn sé ar fáil (stádas %d)</string>
-  <string name="revanced_ryd_failure_client_rate_limit_requested">Níl easaontais ar fáil (teorainn API an chliaint)</string>
-  <string name="revanced_ryd_failure_generic">Ní dtaitníonn sé ar fáil (%s)</string>
+  <string name="revanced_ryd_failure_connection_timeout">Níl dí-mhaith ar fáil faoi láthair (API am istigh)</string>
+  <string name="revanced_ryd_failure_connection_status_code">Níl \'Ní maith liom\' ar fáil (stádas %d)</string>
+  <string name="revanced_ryd_failure_client_rate_limit_requested">Níl \'Ní maith liom\' ar fáil (teorainn API cliaint)</string>
+  <string name="revanced_ryd_failure_generic">Níl \'Ní maith liom\' ar fáil (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
-  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Athlódáil físeán chun vótáil ag baint úsáide as Return YouTube Dislike</string>
+  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Athlódáil físeán vótáil trí Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
-  <string name="revanced_ryd_video_likes_hidden_by_video_owner">I bhfolach ag úinéir</string>
-  <string name="revanced_ryd_enabled_summary_on">Taispeántar rudaí nach dtaitníonn leo</string>
-  <string name="revanced_ryd_enabled_summary_off">Ní thaispeántar nach dtaitníonn leat</string>
-  <string name="revanced_ryd_shorts_title">Taispeáin neamhthaitníonn ar Shorts</string>
-  <string name="revanced_ryd_shorts_summary_on">"Taispeántar easaontais ar Shorts
+  <string name="revanced_ryd_video_likes_hidden_by_video_owner">I bhfolach ag an úinéir</string>
+  <string name="revanced_ryd_enabled_summary_on">Taispeántar \'Ní maith liom\'</string>
+  <string name="revanced_ryd_enabled_summary_off">Ní thaispeántar \'Ní maith liom\'</string>
+  <string name="revanced_ryd_shorts_title">Taispeáin \'ní maith liom\' ar Shorts</string>
+  <string name="revanced_ryd_shorts_summary_on">"Taispeántar 'Ní thaitníonn' ar Shorts
 
-Srianadh: Bíodh easaontais gan teacht ar taispeáint sa mhodh incognito"</string>
-  <string name="revanced_ryd_shorts_summary_off">Ní thaispeántar easaontais ar Shorts</string>
-  <string name="revanced_ryd_dislike_percentage_title">Ní dtaitníonn mar chéatadán</string>
-  <string name="revanced_ryd_dislike_percentage_summary_on">Taispeántar easaontais mar chéatadán</string>
-  <string name="revanced_ryd_dislike_percentage_summary_off">Taispeántar easaontais mar uimhir</string>
+Teorainn: B’fhéidir nach dtaispeánfar 'Ní thaitníonn' i mód incognito"</string>
+  <string name="revanced_ryd_shorts_summary_off">Ní thaispeántar \'Ní maith liom\' ar Shorts</string>
+  <string name="revanced_ryd_dislike_percentage_title">\'Ní maith liom\' mar chéatadán</string>
+  <string name="revanced_ryd_dislike_percentage_summary_on">Taispeántar \'Ní thaitníonn\' mar chéatadán</string>
+  <string name="revanced_ryd_dislike_percentage_summary_off">Taispeántar \'Ní maith liom\' mar uimhir</string>
   <!-- Translations should use language similar to 'revanced_sb_enable_compact_skip_button'. -->
-  <string name="revanced_ryd_compact_layout_title">Cnaipe Cosúil dlúth</string>
-  <string name="revanced_ryd_compact_layout_summary_on">Cosúil le cnaipe stíleáilte don leithead íosta</string>
-  <string name="revanced_ryd_compact_layout_summary_off">Cosúil le cnaipe stíleáilte don chuma is fearr</string>
-  <string name="revanced_ryd_estimated_like_title">Taispeáin na rudaí is maith leis</string>
-  <string name="revanced_ryd_estimated_like_summary_on">Taispeánann físeáin le maith díchumasaithe comhaireamh measta maith</string>
-  <string name="revanced_ryd_estimated_like_summary_off">Ní thaispeántar maith measta</string>
+  <string name="revanced_ryd_compact_layout_title">Cnaipe dlúth \'Is maith liom\'</string>
+  <string name="revanced_ryd_compact_layout_summary_on">Cnaipe \'Is maith liom\' stílithe don leithead íosta</string>
+  <string name="revanced_ryd_compact_layout_summary_off">Cnaipe \'Is maith liom\' stílithe le haghaidh cuma is fearr</string>
+  <string name="revanced_ryd_estimated_like_title">Taispeáin \'is maith liom\' measta</string>
+  <string name="revanced_ryd_estimated_like_summary_on">Taispeánann físeáin a bhfuil \'is maith liom\' díchumasaithe iontu líon measta is maith leo</string>
+  <string name="revanced_ryd_estimated_like_summary_off">Ní thaispeántar líon na \'is maith leis\' measta</string>
   <string name="revanced_ryd_toast_on_connection_error_title">Taispeáin tósta mura bhfuil API ar fáil</string>
   <string name="revanced_ryd_toast_on_connection_error_summary_on">Taispeántar tósta mura bhfuil Return YouTube Dislike ar fáil</string>
-  <string name="revanced_ryd_toast_on_connection_error_summary_off">Ní thaispeántar tóst mura bhfuil Return YouTube Dislike ar fáil</string>
-  <string name="revanced_ryd_attribution_summary">Soláthraíonn an API Return YouTube Dislike sonraí. Tapáil anseo chun tuilleadh a fhoghlaim</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_off">Ní thaispeántar tósta mura bhfuil Return YouTube Dislike ar fáil</string>
+  <string name="revanced_ryd_attribution_summary">Cuirtear sonraí ar fáil ag an Return YouTube Dislike API. Beartaíonn anseo le tuilleadh eolais a fháil</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
-  <string name="revanced_ryd_statistics_category_title">Staitisticí API returnieYouTubeDislike den fheiste seo</string>
+  <string name="revanced_ryd_statistics_category_title">Staitisticí API ReturnYouTubeDislike an ghléis seo</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeAverage_title">Am freagartha API, meán</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeMin_title">Am freagartha API, íosmhéid</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeMax_title">Am freagartha API, uasmhéid</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_title">Am freagartha API, físeán deireanach</string>
   <string name="revanced_ryd_statistics_getFetchCallResponseTimeLast_rate_limit_summary">Ní dtaitníonn sé ar fáil go sealadach - Teorainn ráta API cliant i bhfeidhm</string>
-  <string name="revanced_ryd_statistics_getFetchCallCount_title">Vótaí a fháil API, líon na nglaonna</string>
-  <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">Ní dhéantar aon ghlaonna líonra</string>
+  <string name="revanced_ryd_statistics_getFetchCallCount_title">Vótaí aisghabhála API, líon na nglaonna</string>
+  <string name="revanced_ryd_statistics_getFetchCallCount_zero_summary">Níor rinneadh aon ghlaonna líonra</string>
   <string name="revanced_ryd_statistics_getFetchCallCount_non_zero_summary">%d glaonna líonra déanta</string>
-  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">Vótaí a fháil API, líon na n-imeachtaí ama</string>
-  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">Níor aimsíodh aon ghlaonna líonra</string>
-  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">Chuaigh %d glaoch líonra thar am</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_title">Vótaí aisghabhála API, líon na sosanna ama</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_zero_summary">Níl aon ghlaonna líonra imithe in éag</string>
+  <string name="revanced_ryd_statistics_getFetchCallNumberOfFailures_non_zero_summary">%d glaonna líonra imithe thar an am</string>
   <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_title">Teorainneacha ráta cliant API</string>
-  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Níor tharla aon teorainneacha rátaí cliant</string>
-  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Bhí teorainn ráta cliant ag teacht %d uair</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_zero_summary">Níor aimsíodh aon teorainneacha ráta cliant</string>
+  <string name="revanced_ryd_statistics_getNumberOfRateLimitRequestsEncountered_non_zero_summary">Teorainn ráta cliant a bhíonn le fáil %d uair</string>
   <string name="revanced_ryd_statistics_millisecond_text">%d milleasoicind</string>
   </patch>
   <patch id="layout.searchbar.wideSearchbarPatch">
   <string name="revanced_wide_searchbar_title">Cumasaigh barra cuardaigh leathan</string>
   <string name="revanced_wide_searchbar_summary_on">Tá barra cuardaigh leathan cumasaithe</string>
-  <string name="revanced_wide_searchbar_summary_off">Tá barra cuardaigh leathan míchumasaithe</string>
+  <string name="revanced_wide_searchbar_summary_off">Tá an barra cuardaigh leathan díchumasaithe</string>
   </patch>
   <patch id="layout.seekbar.seekbarThumbnailsPatch">
   <string name="revanced_seekbar_thumbnails_high_quality_title">Cumasaigh mionsamhlacha ardchaighdeáin</string>
   <string name="revanced_seekbar_thumbnails_high_quality_summary_on">Tá mionsamhlacha Seekbar ardchaighdeáin</string>
-  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Tá mionsamhlacha barra cuardaigh de chaighdeán meánach</string>
+  <string name="revanced_seekbar_thumbnails_high_quality_summary_off">Tá mionsamhlacha Seekbar ar chaighdeán meánach</string>
   <string name="revanced_seekbar_thumbnails_high_quality_dialog_message">"Cuirfidh sé seo na miontaispeántais ar ais ar shruth beo nach bhfuil miontaispeántais cuardaigh acu.
 
 Úsáidfidh miontaispeántais cuardaigh an caighdeán céanna leis an bhfíseán reatha.
@@ -1069,65 +1069,65 @@ Oibríonn an ghné seo is fearr le caighdeán físeáin 720p nó níos ísle agu
   <string name="revanced_sb_enable_sb">Cumasaigh SponsorBlock</string>
   <string name="revanced_sb_enable_sb_sum">Is córas sruthaíodh ó lucht an phobail é SponsorBlock le haghaidh codanna do-áisiúla físeán YouTube a leag thar n-ais</string>
   <string name="revanced_sb_appearance_category">Dealramh</string>
-  <string name="revanced_sb_enable_voting">Taispeáin cnaipe vótá</string>
-  <string name="revanced_sb_enable_voting_sum_on">Taispeántar cnaipe vótála deigh</string>
-  <string name="revanced_sb_enable_voting_sum_off">Ní thaispeántar cnaipe vótála deireadh</string>
-  <string name="revanced_sb_square_layout">Úsáid leagan amach cearnógach</string>
+  <string name="revanced_sb_enable_voting">Taispeáin an cnaipe vótála</string>
+  <string name="revanced_sb_enable_voting_sum_on">Taispeántar cnaipe vótála deighleog</string>
+  <string name="revanced_sb_enable_voting_sum_off">Ní thaispeántar cnaipe vótála deighleog</string>
+  <string name="revanced_sb_square_layout">Úsáid leagan amach cearnach</string>
   <string name="revanced_sb_square_layout_sum_on">Tá cnaipí agus rialtáin cearnach</string>
   <string name="revanced_sb_square_layout_sum_off">Tá cnaipí agus rialuithe cruinn</string>
   <!-- Translations should use language similar to 'revanced_ryd_compact_layout_title'. -->
-  <string name="revanced_sb_enable_compact_skip_button">Úsáid cnaipe Dlúthscipeála</string>
-  <string name="revanced_sb_enable_compact_skip_button_sum_on">Sceip cnaipe stíleáilte don leithead íosta</string>
-  <string name="revanced_sb_enable_compact_skip_button_sum_off">Sceip cnaipe stíleáilte chun an chuma is fearr</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Folaigh cnaipe Scipeála go huathoibríoch</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Folaíonn cnaipe scipeáil tar éis cúpla soicindí</string>
-  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Taispeántar cnaipe Scipeála don deighleog iomlán</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration">Fad an chnaipe scipeála</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Cá fhad chun na cnaipí scipeála agus scipeála go dtí an aibhsigh a thaispeáint sula bhfolóidh siad go huathoibríoch</string>
-  <string name="revanced_sb_general_skiptoast">Taispeáin teast cealaigh scipeála</string>
-  <string name="revanced_sb_general_skiptoast_sum_on">Taispeántar teast nuair a scipeáiltear deighleog go huathoibríoch. Tapáil an fógra teast chun an scipeáil a chealú</string>
-  <string name="revanced_sb_general_skiptoast_sum_off">Ní thaispeántar an tóstas</string>
-  <string name="revanced_sb_toast_on_skip_duration">Fad an tóstais scipeála</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Cá fhad chun an fógra dísciption a thaispeáint</string>
+  <string name="revanced_sb_enable_compact_skip_button">Úsáid an cnaipe Scipeáil dlúth</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_on">Cnaipe Scipeáil stílithe don leithead íosta</string>
+  <string name="revanced_sb_enable_compact_skip_button_sum_off">Cnaipe Scipeáil stílithe le haghaidh an chuma is fearr</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button">Folaigh an cnaipe Scipeáil go huathoibríoch</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Folaítear an cnaipe Scipeáil tar éis cúpla soicind</string>
+  <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Taispeántar an cnaipe Scipeáil don deighleog iomlán</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">Fad an chnaipe Scipeáil</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">Cá fhad a thaispeánfar na cnaipí scipeáil agus scipeáil chun aibhsiú sula bhfolachar go huathoibríoch iad</string>
+  <string name="revanced_sb_general_skiptoast">Taispeáin an tósta cealaithe scipeáilte</string>
+  <string name="revanced_sb_general_skiptoast_sum_on">Taispeántar tósta nuair a scipeáiltear deighleog go huathoibríoch. Tapáil an fógra tósta chun an scipeáil a chealú</string>
+  <string name="revanced_sb_general_skiptoast_sum_off">Ní thaispeántar tósta</string>
+  <string name="revanced_sb_toast_on_skip_duration">Scipeáil fad an tósta</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Cá fhad a thaispeántar an tósta cealaithe scipeála</string>
   <string name="revanced_sb_duration_1s">1 soicind</string>
   <string name="revanced_sb_duration_2s">2 soicind</string>
   <string name="revanced_sb_duration_3s">3 soicind</string>
   <string name="revanced_sb_duration_4s">4 soicind</string>
   <string name="revanced_sb_duration_5s">5 soicind</string>
   <string name="revanced_sb_duration_6s">6 soicind</string>
-  <string name="revanced_sb_duration_7s">7 soicindí</string>
-  <string name="revanced_sb_duration_8s">8 soicindí</string>
-  <string name="revanced_sb_duration_9s">9 soicindí</string>
-  <string name="revanced_sb_duration_10s">10 soicindí</string>
-  <string name="revanced_sb_general_time_without">Taispeáin fad físeáin gan codanna</string>
+  <string name="revanced_sb_duration_7s">7 soicind</string>
+  <string name="revanced_sb_duration_8s">8 soicind</string>
+  <string name="revanced_sb_duration_9s">9 soicind</string>
+  <string name="revanced_sb_duration_10s">10 soicind</string>
+  <string name="revanced_sb_general_time_without">Taispeáin fad an fhíseáin gan deighleog</string>
   <string name="revanced_sb_general_time_without_sum_on">Taispeántar fad an fhíseáin lúide na deighleoga uile ar an mbarra cuardaigh</string>
   <string name="revanced_sb_general_time_without_sum_off">Taispeántar fad físe iomlán</string>
   <string name="revanced_sb_create_segment_category">Deighleoga nua a chruthú</string>
   <string name="revanced_sb_enable_create_segment">Taispeáin cnaipe Cruthaigh deighleog nua</string>
-  <string name="revanced_sb_enable_create_segment_sum_on">Taispeántar cnaipe deighleog nua Cruthaigh</string>
-  <string name="revanced_sb_enable_create_segment_sum_off">Ní thaispeántar cnaipe deighleog nua Cruthaigh</string>
+  <string name="revanced_sb_enable_create_segment_sum_on">Taispeántar an cnaipe cruthaigh deighleog nua</string>
+  <string name="revanced_sb_enable_create_segment_sum_off">Ní thaispeántar an cnaipe cruthaigh deighleog nua</string>
   <string name="revanced_sb_general_adjusting">Coigeartaigh céim deighleog nua</string>
   <string name="revanced_sb_general_adjusting_sum">Líon na milleasoicind a ghluaiseann na cnaipí coigeartaithe ama nuair a bhíonn teascáin nua á gcruthú</string>
   <string name="revanced_sb_general_adjusting_invalid">Caithfidh luach a bheith ina uimhir dheimhneach</string>
-  <string name="revanced_sb_guidelines_preference_title">Féach treoirlín</string>
+  <string name="revanced_sb_guidelines_preference_title">Féach ar threoirlínte</string>
   <string name="revanced_sb_guidelines_preference_sum">Tá rialacha agus leideanna i dtreoirlínte chun deighleoga nua</string>
   <string name="revanced_sb_guidelines_popup_title">Lean na treoirlínte</string>
-  <string name="revanced_sb_guidelines_popup_content">Léigh na treoirlínte SponsorBlock sula gcruthóidh tú</string>
+  <string name="revanced_sb_guidelines_popup_content">Léigh treoirlínte SponsorBlock sula gcruthaíonn tú deighleoga nua</string>
   <string name="revanced_sb_guidelines_popup_already_read">Léigh cheana féin</string>
   <string name="revanced_sb_guidelines_popup_open">Taispeáin dom</string>
   <string name="revanced_sb_general">Ginearálta</string>
   <string name="revanced_sb_toast_on_connection_error">Taispeáin tósta mura bhfuil API ar fáil</string>
   <string name="revanced_sb_toast_on_connection_error_sum_on">Taispeántar tósta mura bhfuil SponsorBlock ar fáil</string>
   <string name="revanced_sb_toast_on_connection_error_sum_off">Ní thaispeántar tósta mura bhfuil SponsorBlock ar fáil</string>
-  <string name="revanced_sb_general_skipcount">Cumasaigh scip-rianú comhairimh</string>
-  <string name="revanced_sb_general_skipcount_sum_on">Ligeann sí do chlár ceannairí SponsorBlock cá mhéad ama a shábháiltear. Seoltar teachtaireacht chuig an gclár ceannairí gach uair a fhágtar mírlíne</string>
+  <string name="revanced_sb_general_skipcount">Cumasaigh rianú comhaireamh scipeála</string>
+  <string name="revanced_sb_general_skipcount_sum_on">Cuireann sé ar an eolas é don chlár ceannaireachta SponsorBlock cé mhéad ama a shábháiltear. Seoltar teachtaireacht chuig an gclár ceannaireachta gach uair a scipeáiltear deighleog</string>
   <string name="revanced_sb_general_skipcount_sum_off">Níl rianú comhaireamh scipeála cumasaithe</string>
   <string name="revanced_sb_general_min_duration">Fad íosta deighleog</string>
   <string name="revanced_sb_general_min_duration_sum">Ní thaispeánfar ná ní scipeánfar deighleoga níos giorra ná an luach seo (i soicindí)</string>
   <string name="revanced_sb_general_min_duration_invalid">Fad ama neamhbhailí</string>
-  <string name="revanced_sb_general_uuid">Do id úsáideora príobháideach</string>
+  <string name="revanced_sb_general_uuid">D\'aitheantas úsáideora príobháideach</string>
   <string name="revanced_sb_general_uuid_sum">Ba cheart é seo a choinneáil príobháideach. Is cosúil le pasfhocal é seo agus níor cheart é a roinnt le haon duine. Má tá sé seo ag duine, is féidir leo aithris a dhéanamh ort</string>
-  <string name="revanced_sb_general_uuid_invalid">Caithfidh id úsáideora príobháideach a bheith 30 carachtar ar a laghad</string>
+  <string name="revanced_sb_general_uuid_invalid">Caithfidh Id príobháideach a bheith ≥30 carachtar</string>
   <string name="revanced_sb_general_api_url">Athraigh URL API</string>
   <string name="revanced_sb_general_api_url_sum">An seoladh a úsáideann SponsorBlock chun glaonna a dhéanamh ar an bhfreastalaí</string>
   <string name="revanced_sb_api_url_reset">Athshocrú URL API</string>
@@ -1148,75 +1148,75 @@ Is cosúil le pasfhocal é do ID úsáideora agus níor cheart é a roinnt riamh
   <string name="revanced_sb_diff_segments">Athraigh iompar deighleog</string>
   <string name="revanced_sb_segments_sponsor">Urraitheoir</string>
   <string name="revanced_sb_segments_sponsor_sum">Ardú céime íoctha, atreoruithe íoctha agus fógraí díreacha Ní le haghaidh féin-chur chun cinn nó tuairimí saor in aisce do chúisea/cruthaitheoirí/láithreáin ghréasáin agus táirgí is maith leo</string>
-  <string name="revanced_sb_segments_selfpromo">Neamhíocta/Féin-Chur Chun Cinn</string>
-  <string name="revanced_sb_segments_selfpromo_sum">Cosúil le Fear gnótha ach amháin le haghaidh cur chun cinn neamhíoctha nó féin-thacaíochta. Áirítear roinntí faoi earraí, bronntanais, nó faisnéis faoi cé a oibrigh siad le chéile</string>
+  <string name="revanced_sb_segments_selfpromo">Neamhíoctha/Féin-chur chun cinn</string>
+  <string name="revanced_sb_segments_selfpromo_sum">Cosúil le hUrraitheoir ach amháin i gcás neamhíoctha nó féin-chur chun cinn. Áirítear leis rannóga faoi earraí, síntiúis nó faisnéis faoi cé leis ar chomhoibrigh siad</string>
   <string name="revanced_sb_segments_interaction">Meabhrúchán Idirghníomhaíochta (Liostáil)</string>
-  <string name="revanced_sb_segments_interaction_sum">Meabhrúchán gairid ar mhaith leat, liostáil leo nó iad a leanúint i lár an ábhair. Má tá sé fada nó thart ar rud éigin ar leith, ba chóir é a chur chun cinn féin</string>
+  <string name="revanced_sb_segments_interaction_sum">Meabhrúchán gearr chun iad a thaitin, liostáil nó leanúint i lár ábhair. Más fada é nó má bhaineann sé le rud éigin ar leith, ba chóir é a bheith faoi fhéin-chur chun cinn ina ionad sin</string>
   <string name="revanced_sb_segments_highlight">Aibhsigh</string>
   <string name="revanced_sb_segments_highlight_sum">An chuid den fhíseán atá ag cuardach mórchuid na ndaoine</string>
-  <string name="revanced_sb_segments_intro">Beochan Idirmheán/Intro</string>
+  <string name="revanced_sb_segments_intro">Beochan Eatramh / Réamhrá</string>
   <string name="revanced_sb_segments_intro_sum">Eatraimh gan ábhar iarbhír. D\'fhéadfadh sé a bheith ina sos, fráma statach, nó beochan athrá. Ní chuimsíonn sé aistrithe ina bhfuil faisnéis</string>
-  <string name="revanced_sb_segments_outro">Cártaí Deiridh / Creidiúintí</string>
+  <string name="revanced_sb_segments_outro">Cártaí Deiridh / Creidmheasanna</string>
   <string name="revanced_sb_segments_outro_sum">Creidmheasanna nó nuair a thaispeántar na cártaí YouTube. Ní le haghaidh conclúidí le faisnéis</string>
-  <string name="revanced_sb_segments_hook">Hook / Beannachtaí</string>
+  <string name="revanced_sb_segments_hook">Crúca / Beannachtaí</string>
   <string name="revanced_sb_segments_hook_sum">Leantóirí inste don fhíseán atá le teacht, beannachtaí agus slán. Ní chuimsíonn sé ailt a chuireann ábhar breise leis</string>
   <string name="revanced_sb_segments_preview">Réamhamharc / Achoimre</string>
   <string name="revanced_sb_segments_preview_sum">Bailiúchán gearrthóga a thaispeánann cad atá ag teacht suas nó cad a tharla san fhíseán nó i bhfíseáin eile de shraith, áit a ndéantar gach faisnéis arís eile in áit eile</string>
   <string name="revanced_sb_segments_filler">Seachrán / Scéalta Grinn</string>
   <string name="revanced_sb_segments_filler_sum">Radhairc nó scéalta grinn imeallacha nach gá chun príomhábhar an fhíseáin a thuiscint. Níor cheart go n-áireofaí anseo deighleoga a sholáthraíonn comhthéacs nó sonraí cúlra</string>
   <string name="revanced_sb_segments_nomusic">Ceol: Rannóg Neamh-Cheoil</string>
-  <string name="revanced_sb_segments_nomusic_sum">Le húsáid amháin i bhfíseáin ceoil. Rannóga d\'fhíseáin ceoil gan ceol, nach bhfuil clúdaithe ag catagóir eile cheana féin</string>
-  <string name="revanced_sb_skip_button_compact">Scip</string>
+  <string name="revanced_sb_segments_nomusic_sum">Le húsáid i bhfíseáin cheoil amháin. Codanna de fhíseáin cheoil gan cheol, nach bhfuil clúdaithe cheana féin ag catagóir eile</string>
+  <string name="revanced_sb_skip_button_compact">Scipeáil</string>
   <string name="revanced_sb_skip_button_compact_highlight">Aibhsigh</string>
-  <string name="revanced_sb_skip_button_sponsor">Scip urraitheoir</string>
-  <string name="revanced_sb_skip_button_selfpromo">Scip réamhfhógrán</string>
-  <string name="revanced_sb_skip_button_interaction">Scip idirghníomhú</string>
-  <string name="revanced_sb_skip_button_highlight">Scip go dtí an buaicphointe</string>
-  <string name="revanced_sb_skip_button_intro_beginning">Scip intreoir</string>
-  <string name="revanced_sb_skip_button_intro_middle">Scip idirghabháil</string>
-  <string name="revanced_sb_skip_button_intro_end">Scip idirghabháil</string>
-  <string name="revanced_sb_skip_button_outro">Scip an forchríoch</string>
+  <string name="revanced_sb_skip_button_sponsor">Scipeáil urraitheoir</string>
+  <string name="revanced_sb_skip_button_selfpromo">Scipeáil promóisean</string>
+  <string name="revanced_sb_skip_button_interaction">Scipeáil idirghníomhú</string>
+  <string name="revanced_sb_skip_button_highlight">Scipeáil go dtí aird a tharraingt</string>
+  <string name="revanced_sb_skip_button_intro_beginning">Scipeáil réamhrá</string>
+  <string name="revanced_sb_skip_button_intro_middle">Scipeáil briseadh</string>
+  <string name="revanced_sb_skip_button_intro_end">Scipeáil briseadh</string>
+  <string name="revanced_sb_skip_button_outro">Scipeáil an chuid deiridh</string>
   <string name="revanced_sb_skip_button_hook">Scipeáil crúca</string>
-  <string name="revanced_sb_skip_button_preview_beginning">Scip réamhamharc</string>
-  <string name="revanced_sb_skip_button_preview_middle">Scip réamhamharc</string>
-  <string name="revanced_sb_skip_button_preview_end">Scip an achoimre</string>
-  <string name="revanced_sb_skip_button_filler">Scipeáil imeall</string>
-  <string name="revanced_sb_skip_button_nomusic">Scip neamh-cheol</string>
-  <string name="revanced_sb_skip_button_unsubmitted">Scip deighleog</string>
-  <string name="revanced_sb_skipped_sponsor">Urra scipeáilte</string>
-  <string name="revanced_sb_skipped_selfpromo">Féin-chur chun cinn scipeáilte</string>
-  <string name="revanced_sb_skipped_interaction">Meabhrúchán ciapach scipeáilte</string>
-  <string name="revanced_sb_skipped_highlight">Scipeáilte chun aird a tharraingt</string>
-  <string name="revanced_sb_skipped_intro_beginning">Réamhrá scipeáilte</string>
-  <string name="revanced_sb_skipped_intro_middle">Idirmheas scipeáilte</string>
-  <string name="revanced_sb_skipped_intro_end">Idirmheas scipeáilte</string>
-  <string name="revanced_sb_skipped_outro">Scipeáilte an forchríoch</string>
-  <string name="revanced_sb_skipped_hook">Crúca scipeáilte</string>
-  <string name="revanced_sb_skipped_preview_beginning">Scipeáilte an réamhléiriú</string>
-  <string name="revanced_sb_skipped_preview_middle">Scipeáilte an réamhléiriú</string>
-  <string name="revanced_sb_skipped_preview_end">Athbhreithniú scipeáilte</string>
-  <string name="revanced_sb_skipped_filler">Imeall scipeáilte</string>
-  <string name="revanced_sb_skipped_nomusic">Scaoileadh rannán neamh-cheoil</string>
+  <string name="revanced_sb_skip_button_preview_beginning">Scipeáil réamhamharc</string>
+  <string name="revanced_sb_skip_button_preview_middle">Scipeáil réamhamharc</string>
+  <string name="revanced_sb_skip_button_preview_end">Scipeáil achoimre</string>
+  <string name="revanced_sb_skip_button_filler">Scipeáil tadhlaí</string>
+  <string name="revanced_sb_skip_button_nomusic">Scipeáil neamh-cheol</string>
+  <string name="revanced_sb_skip_button_unsubmitted">Scipeáil deighleog</string>
+  <string name="revanced_sb_skipped_sponsor">Scipeáilte urraitheoir</string>
+  <string name="revanced_sb_skipped_selfpromo">Scipeáilte féin-chur chun cinn</string>
+  <string name="revanced_sb_skipped_interaction">Scipeáilte meabhrúchán cráite</string>
+  <string name="revanced_sb_skipped_highlight">Scipeáilte aird a tharraingt</string>
+  <string name="revanced_sb_skipped_intro_beginning">Scipeáilte réamhrá</string>
+  <string name="revanced_sb_skipped_intro_middle">Scipeáilte briseadh</string>
+  <string name="revanced_sb_skipped_intro_end">Scipeáilte briseadh</string>
+  <string name="revanced_sb_skipped_outro">Scipeáilte  an chuid deiridh</string>
+  <string name="revanced_sb_skipped_hook">Scipeáilte crúca</string>
+  <string name="revanced_sb_skipped_preview_beginning">Scipeáilte réamhamharc</string>
+  <string name="revanced_sb_skipped_preview_middle">Scipeáilte réamhamharc</string>
+  <string name="revanced_sb_skipped_preview_end">Achoimre scipeáilte</string>
+  <string name="revanced_sb_skipped_filler">Tadhlaí scipeáilte</string>
+  <string name="revanced_sb_skipped_nomusic">Scipeáladh cuid nach ceolmhar í</string>
   <string name="revanced_sb_skipped_unsubmitted">Deighleog gan curtha isteach scipeáilte</string>
-  <string name="revanced_sb_skipped_multiple_segments">Scipeáilte go leor deighleoga</string>
-  <string name="revanced_sb_skip_automatically">Scip go huathoibríoch</string>
-  <string name="revanced_sb_skip_automatically_once">Scip go huathoibríoch uair amháin</string>
-  <string name="revanced_sb_skip_showbutton">Taispeáin cnaipe Scipeála</string>
+  <string name="revanced_sb_skipped_multiple_segments">Scipeáilte iomadúil deighleoga</string>
+  <string name="revanced_sb_skip_automatically">Scipeáil go huathoibríoch</string>
+  <string name="revanced_sb_skip_automatically_once">Scipeáil go huathoibríoch uair amháin</string>
+  <string name="revanced_sb_skip_showbutton">Taispeáin cnaipe Scipeáil</string>
   <string name="revanced_sb_skip_seekbaronly">Taispeáin i mbarra lorg</string>
   <string name="revanced_sb_skip_ignore">Díchumasaigh</string>
   <string name="revanced_sb_submit_failed_invalid">Ní féidir deighleog a chur isteach: %s</string>
   <string name="revanced_sb_submit_failed_timeout">Tá SponsorBlock síos go sealadach</string>
   <string name="revanced_sb_submit_failed_unknown_error">Ní féidir deighleog a chur isteach (stádas: %1$d %2$s)</string>
-  <string name="revanced_sb_submit_failed_rate_limit">Ní féidir an chuid a chur isteach. Teoranta (ró-iomadú ó úsáideoir nó ó IP céanna)</string>
+  <string name="revanced_sb_submit_failed_rate_limit">Ní féidir deighleog a chur isteach. Ráta Teoranta (an iomarca ón úsáideoir nó IP céanna)</string>
   <string name="revanced_sb_submit_failed_forbidden">Ní féidir an deighleog a chur isteach: %s</string>
-  <string name="revanced_sb_submit_failed_duplicate">"Ní féidir an chuid a chur isteach.
+  <string name="revanced_sb_submit_failed_duplicate">"Ní féidir deighleog a chur isteach.
 Tá sé ann cheana féin"</string>
-  <string name="revanced_sb_submit_succeeded">Déileog curtha isteach go rathúil</string>
+  <string name="revanced_sb_submit_succeeded">Cuireadh an deighleog isteach go rathúil</string>
   <!-- Toast shown if network connection times out. Translations of this should not be longer than the original English or the text can be clipped and not entirely shown. -->
-  <string name="revanced_sb_sponsorblock_connection_failure_timeout">Níl SponsorBlock ar fáil go sealadach (API amuigh amach)</string>
+  <string name="revanced_sb_sponsorblock_connection_failure_timeout">Níl SponsorBlock ar fáil go sealadach (API am istigh)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_status">Níl SponsorBlock ar fáil go sealadach (stádas %d)</string>
   <string name="revanced_sb_sponsorblock_connection_failure_generic">Níl SponsorBlock ar fáil go sealadach</string>
-  <string name="revanced_sb_vote_failed_timeout">Ní féidir vótáil a dhéanamh don deighleog (API amuigh amach)</string>
+  <string name="revanced_sb_vote_failed_timeout">Ní féidir vótáil don deighleog (API am istigh)</string>
   <string name="revanced_sb_vote_failed_unknown_error">Ní féidir vótáil a dhéanamh don deighleog (stádas: %1$d %2$s)</string>
   <string name="revanced_sb_vote_failed_forbidden">Ní féidir vótáil a dhéanamh don deighleog: %s</string>
   <string name="revanced_sb_vote_upvote">Vótáil suas</string>
@@ -1226,7 +1226,7 @@ Tá sé ann cheana féin"</string>
   <!-- A segment start and end time, such as "02:10 to 03:40". -->
   <string name="revanced_sb_vote_segment_time_to_from">%1$s go %2$s</string>
   <string name="revanced_sb_new_segment_choose_category">Roghnaigh catagóir deighleog</string>
-  <string name="revanced_sb_new_segment_disabled_category">Tá catagóir díchumasaithe i socruithe. Cumasaigh catagóir a chur isteach.</string>
+  <string name="revanced_sb_new_segment_disabled_category">Catagóir díchumasaithe. Cumasaigh í le cur isteach.</string>
   <string name="revanced_sb_new_segment_title">Deighleog nua SponsorBlock</string>
   <string name="revanced_sb_new_segment_mark_time_as_question">Socraigh %s mar thús nó deireadh deighleog nua?</string>
   <string name="revanced_sb_new_segment_mark_start">Tosaigh</string>
@@ -1235,36 +1235,36 @@ Tá sé ann cheana féin"</string>
   <string name="revanced_sb_new_segment_time_start">Am a thosaíonn an deighleog ag</string>
   <string name="revanced_sb_new_segment_time_end">Am a chríochnaíonn an deighleog ag</string>
   <string name="revanced_sb_new_segment_confirm_title">An bhfuil na hamanna ceart?</string>
-  <string name="revanced_sb_new_segment_confirm_content">"Tagann an clipe
+  <string name="revanced_sb_new_segment_confirm_content">"Tá an deighleog ó
 
 %1$s
-gu chuig
+go
 %2$s
 
 (%3$s)
 
-Maithe chun cur isteach?"</string>
+Réidh le cur isteach?"</string>
   <string name="revanced_sb_new_segment_start_is_before_end">Caithfidh an tús a bheith roimh an deireadh</string>
   <string name="revanced_sb_new_segment_mark_locations_first">Marcáil dhá shuíomh ar an mbarra ama ar dtús</string>
-  <string name="revanced_sb_new_segment_preview_segment_first">Réamhamharc ar an deighleog, agus cinntigh go scipeánann sé</string>
-  <string name="revanced_sb_new_segment_edit_by_hand_title">Cuir uainiú deighleog in eagar</string>
+  <string name="revanced_sb_new_segment_preview_segment_first">Féach ar an deighleog agus cinntigh léim réidh</string>
+  <string name="revanced_sb_new_segment_edit_by_hand_title">Cuir am an deighleog in eagar de láimh</string>
   <string name="revanced_sb_new_segment_edit_by_hand_content">Ar mhaith leat an t-am a chur in eagar do thús nó deireadh an deighleog?</string>
   <string name="revanced_sb_new_segment_edit_by_hand_parse_error">Am neamhbhailí tugtha</string>
   <string name="revanced_sb_stats_title">Staitisticí</string>
   <!-- Shown in the settings preferences, and translations can be any text length. -->
-  <string name="revanced_sb_stats_connection_failure">Níl stats ar fáil go sealadach (tá API síos)</string>
-  <string name="revanced_sb_stats_loading">Á lódáil...</string>
-  <string name="revanced_sb_stats_sb_disabled">Tá SponsorBlock míchumasaithe</string>
+  <string name="revanced_sb_stats_connection_failure">Níl staitisticí ar fáil faoi láthair (tá an API síos)</string>
+  <string name="revanced_sb_stats_loading">Ag lódáil...</string>
+  <string name="revanced_sb_stats_sb_disabled">Tá SponsorBlock díchumasaithe</string>
   <string name="revanced_sb_stats_username">D\'ainm úsáideora: &lt;b&gt;%s&lt;/b&gt;</string>
   <string name="revanced_sb_stats_username_change">Tapáil anseo chun d\'ainm úsáideora a athrú</string>
   <string name="revanced_sb_stats_username_change_unknown_error">Ní féidir ainm úsáideora a athrú: Stádas: %1$d %2$s</string>
-  <string name="revanced_sb_stats_username_changed">Athraíodh ainm úsáideora</string>
-  <string name="revanced_sb_stats_reputation">Tá do chlú &lt;b&gt;%.2f&lt;/b&gt;</string>
+  <string name="revanced_sb_stats_username_changed">Athraíodh ainm úsáideora go rathúil</string>
+  <string name="revanced_sb_stats_reputation">Is é do chlú  &lt;b&gt;%.2f&lt;/b&gt;</string>
   <string name="revanced_sb_stats_submissions">Chruthaigh tú &lt;b&gt;%s&lt;/b&gt; deighleoga</string>
-  <string name="revanced_sb_stats_submissions_sum">Tapáil anseo chun do mhíreanna a fheiceáil</string>
+  <string name="revanced_sb_stats_submissions_sum">Tapáil anseo chun do dheighleoga a fheiceáil</string>
   <string name="revanced_sb_stats_saved_zero">Clár ceannairí SponsorBlock</string>
   <string name="revanced_sb_stats_saved">Tá daoine sábháilte agat ó &lt;b&gt;%s&lt;/b&gt; deighleoga</string>
-  <string name="revanced_sb_stats_saved_sum_zero">Tapáil anseo chun na stats domhanda agus na rannpháirtithe is fearr a fheiceáil</string>
+  <string name="revanced_sb_stats_saved_sum_zero">Tapáil anseo chun na staitisticí domhanda agus na rannpháirtithe is fearr a fheiceáil</string>
   <string name="revanced_sb_stats_saved_sum">Sin é &lt;b&gt;%s&lt;/b&gt; dá saol.&lt;br&gt;Tapáil anseo chun an clár ceannairí a fheiceáil</string>
   <string name="revanced_sb_stats_self_saved">Rinne tú scipeáil ar &lt;b&gt;%s&lt;/b&gt; deighleoga</string>
   <string name="revanced_sb_stats_self_saved_sum">Sin é &lt;b&gt;%s&lt;/b&gt;</string>
@@ -1275,36 +1275,36 @@ Maithe chun cur isteach?"</string>
   <string name="revanced_sb_color_opacity_label">Teimhneacht:</string>
   <string name="revanced_sb_color_dot_label">Dath:</string>
   <string name="revanced_sb_about_title">Maidir</string>
-  <string name="revanced_sb_about_api_summary">Soláthraíonn an API SponsorBlock sonraí. Tapáil anseo chun níos mó a fhoghlaim agus íoslódálacha a fheiceáil d\'ardáin eile</string>
+  <string name="revanced_sb_about_api_summary">Cuirtear sonraí ar fáil ag API SponsorBlock. Tapáil anseo chun tuilleadh eolais a fháil agus íoslódálacha le haghaidh ardáin eile a fheiceáil</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
-  <string name="revanced_change_form_factor_title">Fábos fóirmeanna foirmiúin</string>
-  <string name="revanced_change_form_factor_entry_1">Réamhshocrúch</string>
-  <string name="revanced_change_form_factor_entry_2">Fón</string>
-  <string name="revanced_change_form_factor_entry_3">Táibhléad</string>
+  <string name="revanced_change_form_factor_title">Fachtóir foirme leagan amach</string>
+  <string name="revanced_change_form_factor_entry_1">Réamhshocrú</string>
+  <string name="revanced_change_form_factor_entry_2">Guthán</string>
+  <string name="revanced_change_form_factor_entry_3">Táibléad</string>
   <string name="revanced_change_form_factor_entry_4">Gluaisteán</string>
-  <string name="revanced_change_form_factor_user_dialog_message">"Áirítear ar na hathruithe:
+  <string name="revanced_change_form_factor_user_dialog_message">"Áirítear leis na hathruithe:
 
-Leagan amach an táibléid
-• Tá postálacha pobail i bhfolach
+Leagan amach táibléid
+• Tá poist phobail i bhfolach
 
-Leagan amach feithicleach
-• Osclaítear Shorts sa ghnáthsheinnteoir
-• Eagraítear an fotha de réir topaicí agus bealaí"</string>
+Leagan amach gluaisteán
+• Gearrscannáin oscailte sa ghnáth-imreoir
+• Tá an fotha eagraithe de réir topaicí agus bealaí"</string>
   </patch>
   <patch id="layout.spoofappversion.spoofAppVersionPatch">
-  <string name="revanced_spoof_app_version_title">Leagan aip spoof</string>
-  <string name="revanced_spoof_app_version_summary_on">Leagan spoofed</string>
-  <string name="revanced_spoof_app_version_summary_off">Leagan gan bhfoláiste</string>
-  <string name="revanced_spoof_app_version_user_dialog_message">"Déanfar leagan an aip a spoofadh go leagan níos sine de YouTube.
+  <string name="revanced_spoof_app_version_title">Leagan aip bréige</string>
+  <string name="revanced_spoof_app_version_summary_on">Leagan bréagach</string>
+  <string name="revanced_spoof_app_version_summary_off">Leagan gan bréag</string>
+  <string name="revanced_spoof_app_version_user_dialog_message">"Déanfar leagan aip a bréagach chuig leagan níos sine de YouTube.
 
-Athróidh sé seo cuma agus gnéithe an aip, ach d'fhéadfadh fo-iarsmaí anaithnid a bheith ann.
+Athróidh sé seo cuma agus gnéithe na haipe, ach d'fhéadfadh fo-iarsmaí anaithnide tarlú.
 
-Má dhiúltaítear é níos déanaí, moltar sonraí an aip a ghlanadh chun buganna UI a chosc."</string>
-  <string name="revanced_spoof_app_version_target_title">Sprioc leagan aip spoof</string>
-  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Cuir an barra gníomhaíochta físe neamhchomhbhrúite ar ais</string>
-  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Athchóirigh feidhmiúlacht tras-scríbhinne</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Athchóirigh sean-deilbhíní imreoir Shorts</string>
+Má mhúchtar é níos déanaí, moltar sonraí na haipe a ghlanadh chun fabhtanna UI a chosc."</string>
+  <string name="revanced_spoof_app_version_target_title">Sprioc leagan aip bréagach</string>
+  <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - Barra gníomhaíochta físe neamh-fhillte a athchóiriú</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - Athchóirigh feidhmiúlacht an trascríbhinn</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - Athchóirigh deilbhíní sean-imreoir Shorts</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - Athchóirigh deilbhíní nascleanúna sean</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
