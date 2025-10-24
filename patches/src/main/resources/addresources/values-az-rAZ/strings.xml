@@ -218,9 +218,9 @@ Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlum
   <string name="revanced_hide_community_posts_title">İcma elanların gizlət</string>
   <string name="revanced_hide_community_posts_summary_on">İcma elanları gizlədilib</string>
   <string name="revanced_hide_community_posts_summary_off">İcma elanları göstərilir</string>
-  <string name="revanced_hide_compact_banner_title">Yığcam etiketləri gizlət</string>
-  <string name="revanced_hide_compact_banner_summary_on">Yığcam etiketlər gizlidir</string>
-  <string name="revanced_hide_compact_banner_summary_off">Yığcam etiketlər göstərilir</string>
+  <string name="revanced_hide_compact_banner_title">Yığcam afişaları gizlət</string>
+  <string name="revanced_hide_compact_banner_summary_on">Yığcam afişalar gizlidir</string>
+  <string name="revanced_hide_compact_banner_summary_off">Yığcam afişalar görünür</string>
   <string name="revanced_hide_crowdfunding_box_title">İanə qutusunu gizlət</string>
   <string name="revanced_hide_crowdfunding_box_summary_on">İanə qutusu gizlidir</string>
   <string name="revanced_hide_crowdfunding_box_summary_off">İanə qutusu göstərilir</string>
@@ -471,9 +471,9 @@ Məhdudiyyətlər
   <string name="revanced_hide_creator_store_shelf_title">Yaradıcı mağaza bölümün gizlət</string>
   <string name="revanced_hide_creator_store_shelf_summary_on">Yaradıcı alış-veriş cərgəsi video oynadıcı altında gizlidir</string>
   <string name="revanced_hide_creator_store_shelf_summary_off">Yaradıcı alış-veriş cərgəsi video oynadıcı altında görünür</string>
-  <string name="revanced_hide_end_screen_store_banner_title">Son ekran mağaza etiketini gizlət</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Son ekran alış-veriş etiketi gizlədilib</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Son ekran alış-veriş etiketi görünür</string>
+  <string name="revanced_hide_end_screen_store_banner_title">Son ekran mağaza afişasın gizlət</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Son ekran mağaza afişası gizlidir</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Son ekran mağaza afişası görünür</string>
   <string name="revanced_hide_fullscreen_ads_title">Tam ekran reklamlarını gizlət</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Tam ekran reklamları gizlidir
 
@@ -484,9 +484,9 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_hide_general_ads_title">Ümumi reklamları gizlət</string>
   <string name="revanced_hide_general_ads_summary_on">Ümumi reklamlar gizlidir</string>
   <string name="revanced_hide_general_ads_summary_off">Ümumi reklamlar göstərilir</string>
-  <string name="revanced_hide_merchandise_banners_title">Məhsul etiketlərini gizlət</string>
-  <string name="revanced_hide_merchandise_banners_summary_on">Məhsul etiketləri gizlədilir</string>
-  <string name="revanced_hide_merchandise_banners_summary_off">Məhsul etiketləri göstərilir</string>
+  <string name="revanced_hide_merchandise_banners_title">Məhsul afişaların gizlət</string>
+  <string name="revanced_hide_merchandise_banners_summary_on">Məhsul afişaları gizlədilir</string>
+  <string name="revanced_hide_merchandise_banners_summary_off">Məhsul afişaları görünür</string>
   <string name="revanced_hide_paid_promotion_label_title">Ödənişli tanıtım etiketini gizlət</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">Ödənişli reklam etiketi gizlədilib</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">Ödənişli reklam etiketi göstərilir</string>
@@ -496,7 +496,7 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_hide_shopping_links_title">Alış-veriş linklərini gizlət</string>
   <string name="revanced_hide_shopping_links_summary_on">Alış-veriş linkləri video təsvirdə gizlidir</string>
   <string name="revanced_hide_shopping_links_summary_off">Alış-veriş linkləri video təsvirdə görünür</string>
-  <string name="revanced_hide_view_products_banner_title">“Məhsullara baxın” panelin gizlət</string>
+  <string name="revanced_hide_view_products_banner_title">“Məhsullara baxın” afişasın gizlət</string>
   <string name="revanced_hide_view_products_banner_summary_on">Məhsullara baxış etiketi video örtüyündə gizlidir</string>
   <string name="revanced_hide_view_products_banner_summary_off">Məhsullara baxış etiketi video örtüyündə görünür</string>
   <string name="revanced_hide_web_search_results_title">Veb axtarış nəticələrini gizlət</string>
