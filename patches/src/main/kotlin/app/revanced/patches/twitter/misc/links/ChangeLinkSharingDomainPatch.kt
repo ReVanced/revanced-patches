@@ -64,7 +64,7 @@ internal val changeLinkSharingDomainResourcePatch = resourcePatch {
 @Suppress("unused")
 val changeLinkSharingDomainPatch = bytecodePatch(
     name = PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN,
-    description = PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN,
+    description = "$PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN Including this patch can prevent making posts that quote other posts.",
     use = false
 ) {
     dependsOn(
