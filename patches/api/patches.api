@@ -184,7 +184,7 @@ public final class app/revanced/patches/duolingo/debug/EnableDebugMenuPatchKt {
 	public static final fun getEnableDebugMenuPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/duolingo/energy/UnlimitedEnergyPatchKt {
+public final class app/revanced/patches/duolingo/energy/SkipEnergyRechargeAdsPatchKt {
 	public static final fun getSkipEnergyRechargeAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
