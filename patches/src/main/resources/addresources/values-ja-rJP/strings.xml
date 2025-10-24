@@ -28,8 +28,8 @@ Second \"item\" text"</string>
   <string name="revanced_custom_branding_icon_title">アプリアイコン</string>
   <string name="revanced_custom_branding_icon_entry_1">オリジナル</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
-  <string name="revanced_custom_branding_icon_entry_3">ReVanced (シンプル)</string>
-  <string name="revanced_custom_branding_icon_entry_4">ReVanced (ロゴ拡大)</string>
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced（シンプル）</string>
+  <string name="revanced_custom_branding_icon_entry_4">ReVanced（ロゴ拡大）</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
   <string name="revanced_custom_branding_icon_entry_5">カスタム</string>
   </patch>
@@ -342,8 +342,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_transcript_section_title">文字起こしセクションを非表示</string>
   <string name="revanced_hide_transcript_section_summary_on">文字起こしセクションは表示されません</string>
   <string name="revanced_hide_transcript_section_summary_off">文字起こしセクションは表示されます</string>
-  <string name="revanced_hide_description_components_screen_title">動画の概要欄</string>
-  <string name="revanced_hide_description_components_screen_summary">動画の概要欄のコンポーネントを表示または非表示にします</string>
+  <string name="revanced_hide_description_components_screen_title">概要欄</string>
+  <string name="revanced_hide_description_components_screen_summary">概要欄のコンポーネントを表示または非表示にします</string>
   <string name="revanced_hide_filter_bar_screen_title">フィルタバー</string>
   <string name="revanced_hide_filter_bar_screen_summary">フィード、関連動画、検索結果、および再生履歴でフィルタバーを表示または非表示にします</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_title">フィードで非表示</string>
@@ -496,8 +496,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_self_sponsor_ads_summary_on">自己スポンサー カードは表示されません</string>
   <string name="revanced_hide_self_sponsor_ads_summary_off">自己スポンサー カードは表示されます</string>
   <string name="revanced_hide_shopping_links_title">商品へのリンクを非表示</string>
-  <string name="revanced_hide_shopping_links_summary_on">動画の概要欄にある商品へのリンクは表示されません</string>
-  <string name="revanced_hide_shopping_links_summary_off">動画の概要欄にある商品へのリンクは表示されます</string>
+  <string name="revanced_hide_shopping_links_summary_on">動画の概要欄の商品へのリンクは表示されません</string>
+  <string name="revanced_hide_shopping_links_summary_off">動画の概要欄の商品へのリンクは表示されます</string>
   <string name="revanced_hide_view_products_banner_title">「商品を表示」バナーを非表示</string>
   <string name="revanced_hide_view_products_banner_summary_on">動画オーバーレイの「商品を表示」バナーは表示されません</string>
   <string name="revanced_hide_view_products_banner_summary_off">動画オーバーレイの「商品を表示」バナーは表示されます</string>
@@ -614,12 +614,12 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_swipe_volume_sensitivity_summary">スワイプによる音量の変化量</string>
   <string name="revanced_swipe_overlay_style_title">オーバーレイのスタイル</string>
   <string name="revanced_swipe_overlay_style_entry_1">横型</string>
-  <string name="revanced_swipe_overlay_style_entry_2">横型 (シンプル - 画面上部)</string>
-  <string name="revanced_swipe_overlay_style_entry_3">横型 (シンプル - 画面中央)</string>
+  <string name="revanced_swipe_overlay_style_entry_2">横型（シンプル - 画面上部）</string>
+  <string name="revanced_swipe_overlay_style_entry_3">横型（シンプル - 画面中央）</string>
   <string name="revanced_swipe_overlay_style_entry_4">円形</string>
-  <string name="revanced_swipe_overlay_style_entry_5">円形 (シンプル)</string>
+  <string name="revanced_swipe_overlay_style_entry_5">円形（シンプル）</string>
   <string name="revanced_swipe_overlay_style_entry_6">縦型</string>
-  <string name="revanced_swipe_overlay_style_entry_7">縦型 (シンプル)</string>
+  <string name="revanced_swipe_overlay_style_entry_7">縦型（シンプル）</string>
   <string name="revanced_swipe_change_video_title">スワイプによる動画の切り替えを有効化</string>
   <string name="revanced_swipe_change_video_summary_on">全画面表示中に左 / 右にスワイプすると、前 / 次の動画に切り替わります</string>
   <string name="revanced_swipe_change_video_summary_off">全画面表示中に左 / 右にスワイプしても、前 / 次の動画に切り替わりません</string>
@@ -967,7 +967,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_end_screen_suggested_video_summary_on">"終了画面の「関連動画」は表示されませんが、自動再生がオンの場合は関連動画が自動で再生されます
 
 自動再生の設定は YouTube の設定で変更できます:
-[設定] → [再生] → [次の動画を自動再生]"</string>
+[設定] > [再生] > [次の動画を自動再生]"</string>
   <string name="revanced_end_screen_suggested_video_summary_off">終了画面の「関連動画」は表示されます</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
@@ -1159,9 +1159,9 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_sb_segments_interaction_sum">動画内に挿入される視聴者への高評価、チャンネル登録、フォローなどの時間的に短い催促。時間的に長い催促またはイベントなどの個別具体的なものに関する催促は、「視聴者への催促」ではなく「自己宣伝」に分類すべきです</string>
   <string name="revanced_sb_segments_highlight">ハイライト</string>
   <string name="revanced_sb_segments_highlight_sum">動画の中で最も重要な場面</string>
-  <string name="revanced_sb_segments_intro">幕間 / オープニング</string>
+  <string name="revanced_sb_segments_intro">幕間 / オープニング (OP)</string>
   <string name="revanced_sb_segments_intro_sum">実際のコンテンツを含まない区間。一時停止、静止画、繰り返しアニメーションなど。情報を含むトランジッション (場面転換) は、このカテゴリーではありません</string>
-  <string name="revanced_sb_segments_outro">終了画面 / クレジット</string>
+  <string name="revanced_sb_segments_outro">終了画面 / クレジット (ED)</string>
   <string name="revanced_sb_segments_outro_sum">クレジット、または YouTube の終了画面が表示される場面。情報を含む結論、まとめ部分は、このカテゴリーには含まれません</string>
   <string name="revanced_sb_segments_hook">フック / あいさつ</string>
   <string name="revanced_sb_segments_hook_sum">今後の動画のナレーション付きの予告編、および開幕と別れのあいさつ。重複しない内容や情報を追加する場面は含まれません</string>
@@ -1177,10 +1177,10 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_sb_skip_button_selfpromo">自己宣伝をスキップ</string>
   <string name="revanced_sb_skip_button_interaction">催促をスキップ</string>
   <string name="revanced_sb_skip_button_highlight">ハイライトまでスキップ</string>
-  <string name="revanced_sb_skip_button_intro_beginning">オープニングをスキップ</string>
+  <string name="revanced_sb_skip_button_intro_beginning">OP をスキップ</string>
   <string name="revanced_sb_skip_button_intro_middle">幕間をスキップ</string>
   <string name="revanced_sb_skip_button_intro_end">幕間をスキップ</string>
-  <string name="revanced_sb_skip_button_outro">エンディングをスキップ</string>
+  <string name="revanced_sb_skip_button_outro">ED をスキップ</string>
   <string name="revanced_sb_skip_button_hook">フックをスキップ</string>
   <string name="revanced_sb_skip_button_preview_beginning">予告編をスキップ</string>
   <string name="revanced_sb_skip_button_preview_middle">予告編をスキップ</string>
@@ -1192,10 +1192,10 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_sb_skipped_selfpromo">自己宣伝をスキップしました</string>
   <string name="revanced_sb_skipped_interaction">催促をスキップしました</string>
   <string name="revanced_sb_skipped_highlight">ハイライトまでスキップしました</string>
-  <string name="revanced_sb_skipped_intro_beginning">オープニングをスキップしました</string>
+  <string name="revanced_sb_skipped_intro_beginning">OP をスキップしました</string>
   <string name="revanced_sb_skipped_intro_middle">幕間をスキップしました</string>
   <string name="revanced_sb_skipped_intro_end">幕間をスキップしました</string>
-  <string name="revanced_sb_skipped_outro">エンディングをスキップしました</string>
+  <string name="revanced_sb_skipped_outro">ED をスキップしました</string>
   <string name="revanced_sb_skipped_hook">フックをスキップしました</string>
   <string name="revanced_sb_skipped_preview_beginning">予告編をスキップしました</string>
   <string name="revanced_sb_skipped_preview_middle">予告編をスキップしました</string>
@@ -1309,7 +1309,7 @@ Automotive レイアウト
   <string name="revanced_spoof_app_version_target_title">アプリバージョンの偽装先</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 - アクション ボタンの文字表示を復元</string>
   <string name="revanced_spoof_app_version_target_entry_2">20.05.46 - 文字起こし機能を復元</string>
-  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - 古いショート プレーヤーのアイコンを復元</string>
+  <string name="revanced_spoof_app_version_target_entry_3">19.35.36 - ショート プレーヤーの古いアイコンを復元</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 - 古いナビゲーション アイコンを復元</string>
   </patch>
   <patch id="layout.startpage.changeStartPagePatch">
@@ -1359,7 +1359,7 @@ Automotive レイアウト
   <string name="revanced_shorts_autoplay_title">ショート動画の自動再生</string>
   <string name="revanced_shorts_autoplay_summary_on">ショート動画は自動再生されます</string>
   <string name="revanced_shorts_autoplay_summary_off">ショート動画はループ再生されます</string>
-  <string name="revanced_shorts_autoplay_background_title">ショート動画の自動再生（バックグラウンド）</string>
+  <string name="revanced_shorts_autoplay_background_title">ショート動画の自動再生 (バックグラウンド)</string>
   <string name="revanced_shorts_autoplay_background_summary_on">バックグラウンドのショート動画は自動再生されます</string>
   <string name="revanced_shorts_autoplay_background_summary_off">バックグラウンドのショート動画はループ再生されます</string>
   </patch>
@@ -1433,7 +1433,7 @@ Automotive レイアウト
   <string name="revanced_header_logo_entry_1">デフォルト</string>
   <string name="revanced_header_logo_entry_2">標準</string>
   <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
-  <string name="revanced_header_logo_entry_5">ReVanced (シンプル)</string>
+  <string name="revanced_header_logo_entry_5">ReVanced（シンプル）</string>
   <string name="revanced_header_logo_entry_6">カスタム</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
@@ -1546,13 +1546,13 @@ Automotive レイアウト
   <string name="revanced_remember_video_quality_last_selected_toast_title">画質の変更時にトーストを表示</string>
   <string name="revanced_remember_video_quality_last_selected_toast_summary_on">デフォルトの画質が変更された場合にトースト通知が表示されます</string>
   <string name="revanced_remember_video_quality_last_selected_toast_summary_off">デフォルトの画質が変更された場合にトースト通知は表示されません</string>
-  <string name="revanced_video_quality_default_wifi_title">デフォルトの画質（Wi-Fi）</string>
-  <string name="revanced_video_quality_default_mobile_title">デフォルトの画質（携帯回線）</string>
+  <string name="revanced_video_quality_default_wifi_title">デフォルトの画質 (Wi-Fi)</string>
+  <string name="revanced_video_quality_default_mobile_title">デフォルトの画質 (携帯回線)</string>
   <string name="revanced_remember_shorts_quality_last_selected_title">ショートの画質の変更を保存</string>
   <string name="revanced_remember_shorts_quality_last_selected_summary_on">画質の変更はすべてのショート動画に適用されます</string>
   <string name="revanced_remember_shorts_quality_last_selected_summary_off">画質の変更は現在のショート動画にのみ適用されます</string>
-  <string name="revanced_shorts_quality_default_wifi_title">デフォルトのショートの画質（Wi-Fi）</string>
-  <string name="revanced_shorts_quality_default_mobile_title">デフォルトのショートの画質（携帯回線）</string>
+  <string name="revanced_shorts_quality_default_wifi_title">デフォルトのショートの画質 (Wi-Fi)</string>
+  <string name="revanced_shorts_quality_default_mobile_title">デフォルトのショートの画質 (携帯回線)</string>
   <string name="revanced_remember_video_quality_mobile">携帯回線</string>
   <string name="revanced_remember_video_quality_wifi">Wi-Fi</string>
   <string name="revanced_remember_video_quality_toast">デフォルトの画質の変更 (%1$s): %2$s</string>

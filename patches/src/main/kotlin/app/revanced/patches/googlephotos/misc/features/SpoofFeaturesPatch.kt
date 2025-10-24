@@ -47,6 +47,7 @@ val spoofFeaturesPatch = bytecodePatch(
             "com.google.android.feature.PIXEL_2024_MIDYEAR_EXPERIENCE",
             "com.google.android.feature.PIXEL_2024_EXPERIENCE",
             "com.google.android.feature.PIXEL_2025_MIDYEAR_EXPERIENCE",
+            "com.google.android.feature.PIXEL_2025_EXPERIENCE",
         ),
         title = "Features to disable",
         description = "Google Pixel exclusive features to disable." +

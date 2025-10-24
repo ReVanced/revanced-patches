@@ -4,16 +4,25 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-/**
- * The `BuildConfigProvider` class has two booleans:
- *
- * - `isChina`: (usually) compares "play" with "china"...except for builds in China
- * - `isDebug`: compares "release" with "debug" <-- we want to force this to `true`
- */
+internal val debugCategoryAllowOnReleaseBuildsFingerprint = fingerprint {
+    returns("Z")
+    parameters()
+    custom { method, classDef ->
+        method.name == "getAllowOnReleaseBuilds" && classDef.type == "Lcom/duolingo/debug/DebugCategory;"
+    }
+}
 
-internal val initializeBuildConfigProviderFingerprint = fingerprint {
+internal val buildConfigProviderConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
-    opcodes(Opcode.IPUT_BOOLEAN)
-    strings("debug", "release", "china")
+    parameters()
+    opcodes(Opcode.CONST_4)
+}
+
+internal val buildConfigProviderToStringFingerprint = fingerprint {
+    parameters()
+    returns("Ljava/lang/String;")
+    strings("BuildConfigProvider(") // Partial string match.
+    custom { method, _ ->
+        method.name == "toString"
+    }
 }

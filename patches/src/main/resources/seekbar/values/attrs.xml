@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <attr format="reference|color" name="splash_custom_seekbar_color"/>
-</resources>

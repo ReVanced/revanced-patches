@@ -8,9 +8,6 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
-private const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/ForceOriginalAudioPatch;"
-
 @Suppress("unused")
 val forceOriginalAudioPatch = forceOriginalAudioPatch(
     block = {
@@ -31,6 +28,6 @@ val forceOriginalAudioPatch = forceOriginalAudioPatch(
     },
     fixUseLocalizedAudioTrackFlag = { is_20_07_or_greater },
     mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
-    subclassExtensionClassDescriptor = EXTENSION_CLASS_DESCRIPTOR,
+    subclassExtensionClassDescriptor = "Lapp/revanced/extension/youtube/patches/ForceOriginalAudioPatch;",
     preferenceScreen = PreferenceScreen.VIDEO,
 )

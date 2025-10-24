@@ -34,7 +34,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 internal fun forceOriginalAudioPatch(
     block: BytecodePatchBuilder.() -> Unit = {},
     executeBlock: BytecodePatchContext.() -> Unit = {},
-    fixUseLocalizedAudioTrackFlag: () -> Boolean,
+    fixUseLocalizedAudioTrackFlag: BytecodePatchContext.() -> Boolean,
     mainActivityOnCreateFingerprint: Fingerprint,
     subclassExtensionClassDescriptor: String,
     preferenceScreen: BasePreferenceScreen.Screen

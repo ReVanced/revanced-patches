@@ -1,14 +1,17 @@
 package app.revanced.patches.twitter.misc.links
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.shared.PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN
 import app.revanced.patches.shared.PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN
 import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
-import app.revanced.util.findElementByAttributeValueOrThrow
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.returnEarly
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import java.net.InetAddress
 import java.net.UnknownHostException
 import java.util.logging.Logger
@@ -40,6 +43,8 @@ internal val domainNameOption = stringOption(
     true
 }
 
+// TODO restore this once Manager uses a fixed version of Patcher
+/*
 internal val changeLinkSharingDomainResourcePatch = resourcePatch {
     execute {
         val domainName = domainNameOption.value!!
@@ -54,15 +59,15 @@ internal val changeLinkSharingDomainResourcePatch = resourcePatch {
         }
     }
 }
+*/
 
 @Suppress("unused")
 val changeLinkSharingDomainPatch = bytecodePatch(
     name = PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN,
-    description = PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN,
+    description = "$PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN Including this patch can prevent making posts that quote other posts.",
     use = false
 ) {
     dependsOn(
-        changeLinkSharingDomainResourcePatch,
         sharedExtensionPatch,
     )
 
@@ -88,5 +93,22 @@ val changeLinkSharingDomainPatch = bytecodePatch(
                 return-object p0
             """
         )
+
+        // TODO remove this once changeLinkSharingDomainResourcePatch is restored
+        // Replace the domain name in the "Share via..." dialog.
+        linkResourceGetterFingerprint.method.apply {
+            val templateIdConstIndex = indexOfFirstInstructionOrThrow(Opcode.CONST)
+
+            // Format the link with the new domain name register (1 instruction below the const).
+            val formatLinkCallIndex = templateIdConstIndex + 1
+            val register = getInstruction<FiveRegisterInstruction>(formatLinkCallIndex).registerE
+
+            // Replace the original method call with the new method call.
+            replaceInstruction(
+                formatLinkCallIndex,
+                "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                        "formatResourceLink([Ljava/lang/Object;)Ljava/lang/String;",
+            )
+        }
     }
 }

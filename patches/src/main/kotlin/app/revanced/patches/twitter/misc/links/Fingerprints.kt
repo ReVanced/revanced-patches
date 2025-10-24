@@ -1,6 +1,7 @@
 package app.revanced.patches.twitter.misc.links
 
 import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val openLinkFingerprint = fingerprint {
     returns("V")
@@ -15,6 +16,18 @@ internal val sanitizeSharingLinksFingerprint = fingerprint {
 // Returns a shareable link string based on a tweet ID and a username.
 internal val linkBuilderFingerprint = fingerprint {
     strings("/%1\$s/status/%2\$d")
+}
+
+// TODO remove this once changeLinkSharingDomainResourcePatch is restored
+// Returns a shareable link for the "Share via..." dialog.
+internal val linkResourceGetterFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters("Landroid/content/res/Resources;")
+    custom { _, classDef ->
+        classDef.fields.any { field ->
+            field.type.startsWith("Lcom/twitter/model/core/")
+        }
+    }
 }
 
 internal val linkSharingDomainHelperFingerprint = fingerprint {

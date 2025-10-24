@@ -24,7 +24,7 @@ Second \"item\" text"</string>
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Nom de l\'application</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
-  <string name="revanced_custom_branding_name_entry_5">Personnalisée</string>
+  <string name="revanced_custom_branding_name_entry_5">Personnalisé</string>
   <string name="revanced_custom_branding_icon_title">Icône de l\'application</string>
   <string name="revanced_custom_branding_icon_entry_1">Originale</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
