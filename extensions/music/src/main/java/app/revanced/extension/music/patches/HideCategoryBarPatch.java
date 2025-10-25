@@ -12,6 +12,6 @@ public class HideCategoryBarPatch {
      * Injection point
      */
     public static void hideCategoryBar(View view) {
-        hideViewBy0dpUnderCondition(Settings.HIDE_CATEGORY_BAR.get(), view);
+        hideViewBy0dpUnderCondition(Settings.HIDE_CATEGORY_BAR, view);
     }
 }
