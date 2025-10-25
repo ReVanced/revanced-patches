@@ -24,6 +24,12 @@ public class ExtensionPreferenceCategory extends ConditionalPreferenceCategory {
         addPreference(new ReVancedTikTokAboutPreference(context));
 
         addPreference(new TogglePreference(context,
+                "Sanitize sharing links",
+                "Remove tracking parameters from shared links.",
+                BaseSettings.SANITIZE_SHARED_LINKS
+        ));
+
+        addPreference(new TogglePreference(context,
                 "Enable debug log",
                 "Show extension debug log.",
                 BaseSettings.DEBUG

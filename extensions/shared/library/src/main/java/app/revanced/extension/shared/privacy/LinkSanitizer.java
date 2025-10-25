@@ -17,9 +17,6 @@ public class LinkSanitizer {
 
     public LinkSanitizer(String ... parametersToRemove) {
         final int parameterCount = parametersToRemove.length;
-        if (parameterCount == 0) {
-            throw new IllegalArgumentException("No parameters specified");
-        }
 
         // List is faster if only checking a few parameters.
         this.parametersToRemove = parameterCount > 4
@@ -40,10 +37,12 @@ public class LinkSanitizer {
         try {
             Uri.Builder builder = uri.buildUpon().clearQuery();
 
-            for (String paramName : uri.getQueryParameterNames()) {
-                if (!parametersToRemove.contains(paramName)) {
-                    for (String value : uri.getQueryParameters(paramName)) {
-                        builder.appendQueryParameter(paramName, value);
+            if (!parametersToRemove.isEmpty()) {
+                for (String paramName : uri.getQueryParameterNames()) {
+                    if (!parametersToRemove.contains(paramName)) {
+                        for (String value : uri.getQueryParameters(paramName)) {
+                            builder.appendQueryParameter(paramName, value);
+                        }
                     }
                 }
             }
