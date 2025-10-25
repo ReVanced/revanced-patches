@@ -76,7 +76,8 @@ private val targetResourceDirectoryNames = mapOf(
  */
 private val logoResourceNames = arrayOf(
     "revanced_header_logo_minimal",
-    "revanced_header_logo",
+    "revanced_header_logo_rounded",
+    //"revanced_header_logo_scaled",
 )
 
 /**
@@ -125,9 +126,16 @@ val changeHeaderPatch = resourcePatch(
                 resourceNames.map { resource -> "${resource}_$variant.png" }
             }.toTypedArray()
 
+        fun getLightDarkFileNamesXml(vararg resourceNames: String): Array<String> =
+            variants.flatMap { variant ->
+                resourceNames.map { resource -> "${resource}_$variant.xml" }
+            }.toTypedArray()
+
         val logoResourceFileNames = getLightDarkFileNames(*logoResourceNames)
+        val logoResourceFileNamesScaled = getLightDarkFileNamesXml("revanced_header_logo_scaled") // TODO: For test
         copyResources(
             "change-header",
+            ResourceGroup("drawable", *logoResourceFileNamesScaled),
             ResourceGroup("drawable-hdpi", *logoResourceFileNames),
             ResourceGroup("drawable-mdpi", *logoResourceFileNames),
             ResourceGroup("drawable-xhdpi", *logoResourceFileNames),

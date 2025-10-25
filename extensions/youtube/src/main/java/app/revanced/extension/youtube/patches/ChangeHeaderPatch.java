@@ -17,8 +17,9 @@ public class ChangeHeaderPatch {
         DEFAULT(null, null),
         REGULAR("ytWordmarkHeader", "yt_ringo2_wordmark_header"),
         PREMIUM("ytPremiumWordmarkHeader", "yt_ringo2_premium_wordmark_header"),
-        REVANCED("revanced_header_logo", "revanced_header_logo"),
-        REVANCED_MINIMAL("revanced_header_logo_minimal", "revanced_header_logo_minimal"),
+        ROUNDED("revanced_header_logo_rounded", "revanced_header_logo_rounded"),
+        MINIMAL("revanced_header_logo_minimal", "revanced_header_logo_minimal"),
+        SCALED("revanced_header_logo_scaled", "revanced_header_logo_scaled"),
         CUSTOM("custom_header", "custom_header");
 
         @Nullable
