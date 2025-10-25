@@ -5,7 +5,6 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val initializeNavigationButtonsListFingerprint = fingerprint {
-    strings("Nav3")
     parameters("Lcom/instagram/common/session/UserSession;", "Z")
     returns("Ljava/util/List;")
 }
