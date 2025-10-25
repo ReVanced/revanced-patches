@@ -1170,6 +1170,10 @@ public final class app/revanced/patches/tiktok/misc/settings/SettingsPatchKt {
 	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/tiktok/misc/share/SanitizeShareUrlsPatchKt {
+	public static final fun getSanitizeShareUrlsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/tiktok/misc/spoof/sim/SpoofSimPatchKt {
 	public static final fun getSpoofSimPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
