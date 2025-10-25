@@ -19,6 +19,6 @@ public class HideCastButtonPatch {
      * Injection point
      */
     public static void hideCastButton(View view) {
-        hideViewBy0dpUnderCondition(Settings.HIDE_CAST_BUTTON.get(), view);
+        hideViewBy0dpUnderCondition(Settings.HIDE_CAST_BUTTON, view);
     }
 }
