@@ -22,13 +22,13 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
-  <string name="revanced_custom_branding_name_title">Nome do aplicativo</string>
+  <string name="revanced_custom_branding_name_title">YouTube</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
   <string name="revanced_custom_branding_name_entry_5">Personalizado</string>
-  <string name="revanced_custom_branding_icon_title">Ícone do aplicativo</string>
+  <string name="revanced_custom_branding_icon_title">Ícone do Aplicativo</string>
   <string name="revanced_custom_branding_icon_entry_1">Original</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
-  <string name="revanced_custom_branding_icon_entry_3">ReVanced mínimo</string>
+  <string name="revanced_custom_branding_icon_entry_3">ReVanced minimal</string>
   <string name="revanced_custom_branding_icon_entry_4">ReVanced escalado</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
   <string name="revanced_custom_branding_icon_entry_5">Personalizado</string>
@@ -87,7 +87,7 @@ Second \"item\" text"</string>
   <string name="revanced_language_title">Idioma do ReVanced</string>
   <string name="revanced_language_user_dialog_message">"Traduções para alguns idiomas podem estar faltando ou incompletas.
 
-Para traduzir novos idiomas ou melhorar as traduções existentes, visite translate.revanced.app"</string>
+Para traduzir novos idiomas ou melhorar as traduções existentes, visite Translate.revanced.app"</string>
   <string name="revanced_language_DEFAULT">Idioma do aplicativo</string>
   <string name="revanced_pref_import_export_title">Importar / Exportar</string>
   <string name="revanced_pref_import_export_summary">Importar / Exportar Configurações do ReVanced</string>
@@ -275,7 +275,7 @@ No entanto, ativar isso também registrará alguns dados do usuário, como seu e
   <string name="revanced_hide_video_recommendation_labels_summary_on">Os marcadores \'As pessoas também assistiram\' e \'Você pode gostar também\' nos resultados da pesquisa estão ocultos</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">Os marcadores \'As pessoas também assistiram\' e \'Você pode gostar também\' nos resultados da pesquisa são exibidos</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
-  <string name="revanced_hide_doodles_title">Ocultar Doodles do YouTube</string>
+  <string name="revanced_hide_doodles_title">Ocultar \"Doodles\" do YouTube</string>
   <string name="revanced_hide_doodles_summary_on">A animação de Doodles do YouTube no logotipo está oculta</string>
   <string name="revanced_hide_doodles_summary_off">A animação dos Doodles do YouTube no logotipo é exibida</string>
   <string name="revanced_hide_doodles_user_dialog_message">"Os Doodles do YouTube são exibidos alguns dias por ano. 
