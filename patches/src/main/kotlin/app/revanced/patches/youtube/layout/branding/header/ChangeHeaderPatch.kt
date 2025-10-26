@@ -227,7 +227,10 @@ val changeHeaderPatch = resourcePatch(
                 file -> file.isDirectory && file.name in targetResourceDirectoryNames
             }!!.forEach { dpiSourceFolder ->
                 val targetDpiFolder = get("res").resolve(dpiSourceFolder.name)
-                if (!targetDpiFolder.exists()) return@forEach
+                if (!targetDpiFolder.exists()) {
+                    // Should never happen.
+                    throw IllegalStateException("Resource not found: $dpiSourceFolder")
+                }
 
                 val customFiles = dpiSourceFolder.listFiles { file ->
                     file.isFile && file.name in customHeaderResourceFileNames

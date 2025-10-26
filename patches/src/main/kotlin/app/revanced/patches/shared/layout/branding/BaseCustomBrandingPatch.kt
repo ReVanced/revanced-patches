@@ -416,7 +416,10 @@ internal fun baseCustomBrandingPatch(
                 file -> file.isDirectory && file.name in mipmapDirectories
             }!!.forEach { dpiSourceFolder ->
                 val targetDpiFolder = resourceDirectory.resolve(dpiSourceFolder.name)
-                if (!targetDpiFolder.exists()) return@forEach
+                if (!targetDpiFolder.exists()) {
+                    // Should never happen.
+                    throw IllegalStateException("Resource not found: $dpiSourceFolder")
+                }
 
                 val customFiles = dpiSourceFolder.listFiles { file ->
                     file.isFile && file.name in USER_CUSTOM_ADAPTIVE_FILE_NAMES
