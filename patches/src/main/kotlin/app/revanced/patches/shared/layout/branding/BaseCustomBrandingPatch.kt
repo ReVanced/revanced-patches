@@ -451,8 +451,9 @@ internal fun baseCustomBrandingPatch(
             }
 
             if (!copiedFiles) {
-                throw PatchException("Could not find any replacement images in " +
-                        "patch option path: " + iconPathFile.absolutePath)
+                throw PatchException("Expected to find files: "
+                        + USER_CUSTOM_ADAPTIVE_FILE_NAMES.contentToString()
+                        + "\nBut none were found in the provided option file path: " + iconPathFile.absolutePath)
             }
         }
 

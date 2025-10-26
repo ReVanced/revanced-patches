@@ -125,6 +125,18 @@ val changeHeaderPatch = resourcePatch(
     execute {
         addResources("youtube", "layout.branding.changeHeaderPatch")
 
+        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            if (custom == null) {
+                ListPreference("revanced_header_logo")
+            } else {
+                ListPreference(
+                    key = "revanced_header_logo",
+                    entriesKey = "revanced_header_logo_custom_entries",
+                    entryValuesKey = "revanced_header_logo_custom_entry_values"
+                )
+            }
+        )
+
         logoResourceNames.forEach { logo ->
             variants.forEach { variant ->
                 copyResources(
@@ -148,57 +160,6 @@ val changeHeaderPatch = resourcePatch(
                         *customHeaderResourceFileNames
                     )
                 )
-            }
-        }
-
-        if (custom != null) {
-            val customFile = File(custom!!)
-            if (!customFile.exists()) {
-                throw PatchException("The custom header path cannot be found: " +
-                        customFile.absolutePath
-                )
-            }
-
-            if (!customFile.isDirectory) {
-                throw PatchException("The custom header path must be a folder: "
-                    + customFile.absolutePath)
-            }
-
-            val sourceFolders = customFile.listFiles { file -> file.isDirectory }
-                ?: throw PatchException("The custom header path contains no subfolders: " +
-                        customFile.absolutePath)
-
-            var copiedFiles = false
-
-            // For each source folder, copy the files to the target resource directories.
-            sourceFolders.forEach { dpiSourceFolder ->
-                if (dpiSourceFolder.name !in targetResourceDirectoryNames) {
-                    return@forEach
-                }
-
-                val targetDpiFolder = get("res").resolve(dpiSourceFolder.name)
-                if (!targetDpiFolder.exists()) return@forEach
-
-                val customFiles = dpiSourceFolder.listFiles { file ->
-                    file.isFile && file.name in customHeaderResourceFileNames
-                }!!
-
-                if (customFiles.size > 0 && customFiles.size != variants.size) {
-                    throw PatchException("Both light/dark mode images " +
-                                "must be specified but only found: " + customFiles.map { it.name })
-                }
-
-                customFiles.forEach { imgSourceFile ->
-                    val imgTargetFile = targetDpiFolder.resolve(imgSourceFile.name)
-                    imgSourceFile.copyTo(target = imgTargetFile, overwrite = true)
-
-                    copiedFiles = true
-                }
-            }
-
-            if (!copiedFiles) {
-                throw PatchException("No custom header images found in " +
-                        "the provided path: " + customFile.absolutePath)
             }
         }
 
@@ -247,16 +208,57 @@ val changeHeaderPatch = resourcePatch(
             }
         }
 
-        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            if (custom == null) {
-                ListPreference("revanced_header_logo")
-            } else {
-                ListPreference(
-                    key = "revanced_header_logo",
-                    entriesKey = "revanced_header_logo_custom_entries",
-                    entryValuesKey = "revanced_header_logo_custom_entry_values"
+        // Copy user provided images last, so if an exception is thrown due to bad input.
+        if (custom != null) {
+            val customFile = File(custom!!)
+            if (!customFile.exists()) {
+                throw PatchException("The custom header path cannot be found: " +
+                        customFile.absolutePath
                 )
             }
-        )
+
+            if (!customFile.isDirectory) {
+                throw PatchException("The custom header path must be a folder: "
+                        + customFile.absolutePath)
+            }
+
+            val sourceFolders = customFile.listFiles { file -> file.isDirectory }
+                ?: throw PatchException("The custom header path contains no subfolders: " +
+                        customFile.absolutePath)
+
+            var copiedFiles = false
+
+            // For each source folder, copy the files to the target resource directories.
+            sourceFolders.forEach { dpiSourceFolder ->
+                if (dpiSourceFolder.name !in targetResourceDirectoryNames) {
+                    return@forEach
+                }
+
+                val targetDpiFolder = get("res").resolve(dpiSourceFolder.name)
+                if (!targetDpiFolder.exists()) return@forEach
+
+                val customFiles = dpiSourceFolder.listFiles { file ->
+                    file.isFile && file.name in customHeaderResourceFileNames
+                }!!
+
+                if (customFiles.size > 0 && customFiles.size != variants.size) {
+                    throw PatchException("Both light/dark mode images " +
+                            "must be specified but only found: " + customFiles.map { it.name })
+                }
+
+                customFiles.forEach { imgSourceFile ->
+                    val imgTargetFile = targetDpiFolder.resolve(imgSourceFile.name)
+                    imgSourceFile.copyTo(target = imgTargetFile, overwrite = true)
+
+                    copiedFiles = true
+                }
+            }
+
+            if (!copiedFiles) {
+                throw PatchException("Expected to find files: "
+                        + customHeaderResourceFileNames.contentToString()
+                        + "\nBut none were found in the provided option file path: " + customFile.absolutePath)
+            }
+        }
     }
 }
