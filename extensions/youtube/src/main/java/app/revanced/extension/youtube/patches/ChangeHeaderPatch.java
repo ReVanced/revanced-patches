@@ -52,9 +52,8 @@ public class ChangeHeaderPatch {
 
             final int identifier = Utils.getResourceIdentifier(attributeName, "attr");
             if (identifier == 0) {
-                // Identifier is zero if custom header setting was included in imported settings
-                // and a custom image was not included during patching.
-                Logger.printDebug(() -> "Could not find attribute: " + drawableName);
+                // Should never happen.
+                Logger.printException(() -> "Could not find attribute: " + drawableName);
                 Settings.HEADER_LOGO.resetToDefault();
                 return null;
             }
@@ -77,7 +76,8 @@ public class ChangeHeaderPatch {
                 return Utils.getContext().getDrawable(identifier);
             }
 
-            Logger.printDebug(() -> "Could not find drawable: " + drawableFullName);
+            // Should never happen.
+            Logger.printException(() -> "Could not find drawable: " + drawableFullName);
             Settings.HEADER_LOGO.resetToDefault();
             return null;
         }
