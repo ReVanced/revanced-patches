@@ -28,8 +28,7 @@ private val targetResourceDirectoryNames = mapOf(
     "xxxhdpi" to "512px x 192px",
     "xxhdpi" to "387px x 144px",
     "xhdpi" to "258px x 96px",
-    "hdpi" to "194px x 72px",
-    "mdpi" to "129px x 48px"
+    "hdpi" to "194px x 72px"
 ).mapKeys { (dpi, _) -> "drawable-$dpi" }
 
 /**
