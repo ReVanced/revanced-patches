@@ -25,10 +25,10 @@ import java.io.File
 private val variants = arrayOf("light", "dark")
 
 private val targetResourceDirectoryNames = mapOf(
-    "xxxhdpi" to "512px x 192px",
-    "xxhdpi" to "387px x 144px",
-    "xhdpi" to "258px x 96px",
-    "hdpi" to "194px x 72px"
+    "xxxhdpi" to "512x192 px",
+    "xxhdpi" to "387x144 px",
+    "xhdpi" to "258x96 px",
+    "hdpi" to "194x72 px"
 ).mapKeys { (dpi, _) -> "drawable-$dpi" }
 
 /**
