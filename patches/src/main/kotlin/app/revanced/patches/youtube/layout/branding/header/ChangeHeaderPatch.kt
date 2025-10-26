@@ -24,8 +24,29 @@ import java.io.File
 
 private val variants = arrayOf("light", "dark")
 
-private const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/ChangeHeaderPatch;"
+private val targetResourceDirectoryNames = mapOf(
+    "xxxhdpi" to "512px x 192px",
+    "xxhdpi" to "387px x 144px",
+    "xhdpi" to "258px x 96px",
+    "hdpi" to "194px x 72px",
+    "mdpi" to "129px x 48px"
+).mapKeys { (dpi, _) -> "drawable-$dpi" }
+
+/**
+ * Header logos built into this patch.
+ */
+private val logoResourceNames = arrayOf(
+    "revanced_header_logo_minimal",
+    "revanced_header_logo_rounded",
+    "revanced_header_logo_scaled",
+)
+
+/**
+ * Custom header resource/file name.
+ */
+private const val CUSTOM_HEADER_RESOURCE_NAME = "custom_header"
+
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ChangeHeaderPatch;"
 
 private val changeHeaderBytecodePatch = bytecodePatch {
     dependsOn(resourceMappingPatch)
@@ -61,29 +82,6 @@ private val changeHeaderBytecodePatch = bytecodePatch {
         }
     }
 }
-
-private val targetResourceDirectoryNames = mapOf(
-    "xxxhdpi" to "512px x 192px",
-    "xxhdpi" to "387px x 144px",
-    "xhdpi" to "258px x 96px",
-    "hdpi" to "194px x 72px",
-    "mdpi" to "129px x 48px"
-).mapKeys { (dpi, _) -> "drawable-$dpi" }
-
-
-/**
- * Header logos built into this patch.
- */
-private val logoResourceNames = arrayOf(
-    "revanced_header_logo_minimal",
-    "revanced_header_logo_rounded",
-    //"revanced_header_logo_scaled",
-)
-
-/**
- * Custom header resource/file name.
- */
-private const val CUSTOM_HEADER_RESOURCE_NAME = "custom_header"
 
 @Suppress("unused")
 val changeHeaderPatch = resourcePatch(
@@ -121,56 +119,66 @@ val changeHeaderPatch = resourcePatch(
     execute {
         addResources("youtube", "layout.branding.changeHeaderPatch")
 
-        fun getLightDarkFileNames(vararg resourceNames: String): Array<String> =
-            variants.flatMap { variant ->
-                resourceNames.map { resource -> "${resource}_$variant.png" }
-            }.toTypedArray()
+        logoResourceNames.forEach { logo ->
+            variants.forEach { variant ->
+                copyResources(
+                    "change-header",
+                    ResourceGroup(
+                        "drawable",
+                        logo + "_" + variant + ".xml"
+                    )
+                )
+            }
+        }
 
-        fun getLightDarkFileNamesXml(vararg resourceNames: String): Array<String> =
-            variants.flatMap { variant ->
-                resourceNames.map { resource -> "${resource}_$variant.xml" }
-            }.toTypedArray()
+        // Copy custom template. Images are only used if settings
+        // are imported and a custom header is enabled.
+        val customHeaderResourceFileNames = variants.map { variant ->
+            CUSTOM_HEADER_RESOURCE_NAME + "_" + variant + ".png"
+        }.toTypedArray()
 
-        val logoResourceFileNames = getLightDarkFileNames(*logoResourceNames)
-        val logoResourceFileNamesScaled = getLightDarkFileNamesXml("revanced_header_logo_scaled") // TODO: For test
-        copyResources(
-            "change-header",
-            ResourceGroup("drawable", *logoResourceFileNamesScaled),
-            ResourceGroup("drawable-hdpi", *logoResourceFileNames),
-            ResourceGroup("drawable-mdpi", *logoResourceFileNames),
-            ResourceGroup("drawable-xhdpi", *logoResourceFileNames),
-            ResourceGroup("drawable-xxhdpi", *logoResourceFileNames),
-            ResourceGroup("drawable-xxxhdpi", *logoResourceFileNames),
-        )
+        targetResourceDirectoryNames.keys.forEach { dpi ->
+            variants.forEach { variant ->
+                copyResources(
+                    "change-header",
+                    ResourceGroup(
+                        dpi,
+                        *customHeaderResourceFileNames
+                    )
+                )
+            }
+        }
 
         if (custom != null) {
             val customFile = File(custom!!)
             if (!customFile.exists()) {
-                throw PatchException("The custom icon path cannot be found: " +
+                throw PatchException("The custom header path cannot be found: " +
                         customFile.absolutePath
                 )
             }
 
             if (!customFile.isDirectory) {
-                throw PatchException("The custom icon path must be a folder: "
+                throw PatchException("The custom header path must be a folder: "
                     + customFile.absolutePath)
             }
 
             val sourceFolders = customFile.listFiles { file -> file.isDirectory }
-                ?: throw PatchException("The custom icon path contains no subfolders: " +
+                ?: throw PatchException("The custom header path contains no subfolders: " +
                         customFile.absolutePath)
-
-            val customResourceFileNames = getLightDarkFileNames(CUSTOM_HEADER_RESOURCE_NAME)
 
             var copiedFiles = false
 
             // For each source folder, copy the files to the target resource directories.
             sourceFolders.forEach { dpiSourceFolder ->
+                if (dpiSourceFolder.name !in targetResourceDirectoryNames) {
+                    return@forEach
+                }
+
                 val targetDpiFolder = get("res").resolve(dpiSourceFolder.name)
                 if (!targetDpiFolder.exists()) return@forEach
 
                 val customFiles = dpiSourceFolder.listFiles { file ->
-                    file.isFile && file.name in customResourceFileNames
+                    file.isFile && file.name in customHeaderResourceFileNames
                 }!!
 
                 if (customFiles.size > 0 && customFiles.size != variants.size) {
@@ -180,7 +188,7 @@ val changeHeaderPatch = resourcePatch(
 
                 customFiles.forEach { imgSourceFile ->
                     val imgTargetFile = targetDpiFolder.resolve(imgSourceFile.name)
-                    imgSourceFile.copyTo(imgTargetFile)
+                    imgSourceFile.copyTo(target = imgTargetFile, overwrite = true)
 
                     copiedFiles = true
                 }
@@ -207,9 +215,7 @@ val changeHeaderPatch = resourcePatch(
                 addAttributeReference(logoName)
             }
 
-            if (custom != null) {
-                addAttributeReference(CUSTOM_HEADER_RESOURCE_NAME)
-            }
+            addAttributeReference(CUSTOM_HEADER_RESOURCE_NAME)
         }
 
         // Add custom drawables to all styles that use the regular and premium logo.
@@ -235,9 +241,7 @@ val changeHeaderPatch = resourcePatch(
                     addDrawableElement(document, logoName, mode)
                 }
 
-                if (custom != null) {
-                    addDrawableElement(document, CUSTOM_HEADER_RESOURCE_NAME, mode)
-                }
+                addDrawableElement(document, CUSTOM_HEADER_RESOURCE_NAME, mode)
             }
         }
 

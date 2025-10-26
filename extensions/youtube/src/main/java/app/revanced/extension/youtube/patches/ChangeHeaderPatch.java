@@ -17,15 +17,19 @@ public class ChangeHeaderPatch {
         DEFAULT(null, null),
         REGULAR("ytWordmarkHeader", "yt_ringo2_wordmark_header"),
         PREMIUM("ytPremiumWordmarkHeader", "yt_ringo2_premium_wordmark_header"),
-        ROUNDED("revanced_header_logo_rounded", "revanced_header_logo_rounded"),
-        MINIMAL("revanced_header_logo_minimal", "revanced_header_logo_minimal"),
-        SCALED("revanced_header_logo_scaled", "revanced_header_logo_scaled"),
-        CUSTOM("custom_header", "custom_header");
+        ROUNDED("revanced_header_logo_rounded"),
+        MINIMAL("revanced_header_logo_minimal"),
+        SCALED("revanced_header_logo_scaled"),
+        CUSTOM("custom_header");
 
         @Nullable
         private final String attributeName;
         @Nullable
         private final String drawableName;
+
+        HeaderLogo(String attributeName) {
+            this(Objects.requireNonNull(attributeName), Objects.requireNonNull(attributeName));
+        }
 
         HeaderLogo(@Nullable String attributeName, @Nullable String drawableName) {
             this.attributeName = attributeName;
@@ -64,12 +68,13 @@ public class ChangeHeaderPatch {
                     : "_light");
 
             final int identifier = Utils.getResourceIdentifier(drawableFullName, "drawable");
-            if (identifier == 0) {
-                Logger.printDebug(() -> "Could not find drawable: " + drawableFullName);
-                Settings.HEADER_LOGO.resetToDefault();
-                return null;
+            if (identifier != 0) {
+                return Utils.getContext().getDrawable(identifier);
             }
-            return Utils.getContext().getDrawable(identifier);
+
+            Logger.printDebug(() -> "Could not find drawable: " + drawableFullName);
+            Settings.HEADER_LOGO.resetToDefault();
+            return null;
         }
     }
 
