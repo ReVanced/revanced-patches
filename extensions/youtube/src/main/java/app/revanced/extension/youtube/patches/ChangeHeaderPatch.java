@@ -20,7 +20,13 @@ public class ChangeHeaderPatch {
         ROUNDED("revanced_header_rounded"),
         MINIMAL("revanced_header_minimal"),
         SCALED("revanced_header_scaled"),
-        CUSTOM("revanced_header_custom");
+        CUSTOM("revanced_header_custom"),
+
+        // Old enum names for data migration. TODO: Eventually delete these.
+        @Deprecated
+        REVANCED(ROUNDED.attributeName),
+        @Deprecated
+        REVANCED_MINIMAL(MINIMAL.attributeName);
 
         @Nullable
         private final String attributeName;

@@ -488,6 +488,14 @@ public class Settings extends BaseSettings {
             MINIPLAYER_TYPE.save(MINIMAL);
         }
 
+        // Migrate renamed change header enums.
+        if (HEADER_LOGO.get() == HeaderLogo.REVANCED) {
+            HEADER_LOGO.save(HeaderLogo.ROUNDED);
+        }
+        if (HEADER_LOGO.get() == HeaderLogo.REVANCED_MINIMAL) {
+            HEADER_LOGO.save(HeaderLogo.MINIMAL);
+        }
+
         // Migrate old single color seekbar with a slightly brighter accent color based on the primary.
         // Eventually delete this logic.
         if (!DEPRECATED_SEEKBAR_CUSTOM_COLOR_PRIMARY.isSetToDefault()) {
