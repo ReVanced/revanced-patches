@@ -15,7 +15,7 @@ internal val urlShorteningFingerprint = fingerprint {
     )
     opcodes(Opcode.RETURN_OBJECT)
 
-    // Same Kotlin intrinsics literal on both variants
+    // Same Kotlin intrinsics literal on both variants.
     strings("getShortShareUrlObservab\u2026ongUrl, subBizSceneValue)")
 
     custom { method, _ ->
