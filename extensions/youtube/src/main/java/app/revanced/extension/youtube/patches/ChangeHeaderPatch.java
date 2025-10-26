@@ -17,10 +17,10 @@ public class ChangeHeaderPatch {
         DEFAULT(null, null),
         REGULAR("ytWordmarkHeader", "yt_ringo2_wordmark_header"),
         PREMIUM("ytPremiumWordmarkHeader", "yt_ringo2_premium_wordmark_header"),
-        ROUNDED("revanced_header_logo_rounded"),
-        MINIMAL("revanced_header_logo_minimal"),
-        SCALED("revanced_header_logo_scaled"),
-        CUSTOM("custom_header");
+        ROUNDED("revanced_header_rounded"),
+        MINIMAL("revanced_header_minimal"),
+        SCALED("revanced_header_scaled"),
+        CUSTOM("revanced_header_custom");
 
         @Nullable
         private final String attributeName;

@@ -20,6 +20,7 @@ import app.revanced.util.copyResources
 import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.forEachLiteralValueInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import sun.awt.www.content.image.png
 import java.io.File
 
 private val variants = arrayOf("light", "dark")
@@ -35,15 +36,22 @@ private val targetResourceDirectoryNames = mapOf(
  * Header logos built into this patch.
  */
 private val logoResourceNames = arrayOf(
-    "revanced_header_logo_minimal",
-    "revanced_header_logo_rounded",
-    "revanced_header_logo_scaled",
+    "revanced_header_minimal",
+    "revanced_header_rounded",
+    "revanced_header_scaled",
 )
 
 /**
  * Custom header resource/file name.
  */
-private const val CUSTOM_HEADER_RESOURCE_NAME = "custom_header"
+private const val CUSTOM_HEADER_RESOURCE_NAME = "revanced_header_custom"
+
+/**
+ * Custom header resource/file names.
+ */
+private val customHeaderResourceFileNames = variants.map { variant ->
+    "${CUSTOM_HEADER_RESOURCE_NAME}_$variant.png"
+}.toTypedArray()
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ChangeHeaderPatch;"
 
@@ -108,7 +116,7 @@ val changeHeaderPatch = resourcePatch(
             ${targetResourceDirectoryNames.keys.joinToString("\n") { "- $it" }}
             
             Each of the folders must contain all of the following files:
-            ${variants.joinToString("\n") { variant -> "- ${CUSTOM_HEADER_RESOURCE_NAME}_$variant.png" }}
+            ${customHeaderResourceFileNames.joinToString("\n")} 
 
             The image dimensions must be as follows:
             ${targetResourceDirectoryNames.map { (dpi, dim) -> "- $dpi: $dim" }.joinToString("\n")}
@@ -132,10 +140,6 @@ val changeHeaderPatch = resourcePatch(
 
         // Copy custom template. Images are only used if settings
         // are imported and a custom header is enabled.
-        val customHeaderResourceFileNames = variants.map { variant ->
-            CUSTOM_HEADER_RESOURCE_NAME + "_" + variant + ".png"
-        }.toTypedArray()
-
         targetResourceDirectoryNames.keys.forEach { dpi ->
             variants.forEach { variant ->
                 copyResources(
