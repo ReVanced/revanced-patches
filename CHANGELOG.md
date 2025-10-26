@@ -1,3 +1,15 @@
+# [5.45.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.44.0...v5.45.0-dev.1) (2025-10-26)
+
+
+### Bug Fixes
+
+* **Instagram:** Update failing fingerprints on newer versions ([#6181](https://github.com/ReVanced/revanced-patches/issues/6181)) ([c73a03c](https://github.com/ReVanced/revanced-patches/commit/c73a03c9e18a12262939c974cdf16221221d1487))
+
+
+### Features
+
+* **TikTok:** Add `Sanitize sharing links` patch ([#6176](https://github.com/ReVanced/revanced-patches/issues/6176)) ([ef44eaa](https://github.com/ReVanced/revanced-patches/commit/ef44eaa119b9d6c5faec051e22d20f883d0da4f1))
+
 # [5.44.0](https://github.com/ReVanced/revanced-patches/compare/v5.43.1...v5.44.0) (2025-10-24)
 
 
