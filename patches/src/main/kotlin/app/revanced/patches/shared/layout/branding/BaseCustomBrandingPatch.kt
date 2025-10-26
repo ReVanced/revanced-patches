@@ -120,7 +120,7 @@ internal fun baseCustomBrandingPatch(
     dependsOn(
         addResourcesPatch,
         resourceMappingPatch,
-        addBrandLicensesPatch,
+        addBrandLicensePatch,
         bytecodePatch {
             execute {
                 mainActivityOnCreateFingerprint.method.addInstruction(

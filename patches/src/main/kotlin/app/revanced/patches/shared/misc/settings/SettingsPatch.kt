@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResource
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.layout.branding.addBrandLicensesPatch
+import app.revanced.patches.shared.layout.branding.addBrandLicensePatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
@@ -65,7 +65,7 @@ fun settingsPatch (
     dependsOn(
         addResourcesPatch,
         settingsColorPatch,
-        addBrandLicensesPatch
+        addBrandLicensePatch
     )
 
     execute {
