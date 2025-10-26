@@ -25,11 +25,11 @@ import java.io.File
 private val variants = arrayOf("light", "dark")
 
 private val targetResourceDirectoryNames = mapOf(
-    "xxxhdpi" to "512x192 px",
-    "xxhdpi" to "387x144 px",
-    "xhdpi" to "258x96 px",
-    "hdpi" to "194x72 px"
-).mapKeys { (dpi, _) -> "drawable-$dpi" }
+    "drawable-hdpi" to "194x72 px",
+    "drawable-xhdpi" to "258x96 px",
+    "drawable-xxhdpi" to "387x144 px",
+    "drawable-xxxhdpi" to "512x192 px"
+)
 
 /**
  * Header logos built into this patch.

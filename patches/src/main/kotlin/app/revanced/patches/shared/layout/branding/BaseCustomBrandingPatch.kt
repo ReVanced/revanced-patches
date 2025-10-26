@@ -36,13 +36,13 @@ import org.w3c.dom.NodeList
 import java.io.File
 import java.util.logging.Logger
 
-private val mipmapDirectories = arrayOf(
+private val mipmapDirectories = mapOf(
     // Target app does not have ldpi icons.
-    "mipmap-mdpi",
-    "mipmap-hdpi",
-    "mipmap-xhdpi",
-    "mipmap-xxhdpi",
-    "mipmap-xxxhdpi"
+    "mipmap-mdpi" to "108x108 px",
+    "mipmap-hdpi" to "162x162 px",
+    "mipmap-xhdpi" to "216x216 px",
+    "mipmap-xxhdpi" to "324x324 px",
+    "mipmap-xxxhdpi" to "432x432 px"
 )
 
 private val iconStyleNames = arrayOf(
@@ -104,10 +104,13 @@ internal fun baseCustomBrandingPatch(
             Folder with images to use as a custom icon.
             
             The folder must contain one or more of the following folders, depending on the DPI of the device:
-            ${mipmapDirectories.joinToString("\n") { "- $it" }}
+            ${mipmapDirectories.keys.joinToString("\n") { "- $it" }}
             
             Each of the folders must contain all of the following files:
             ${USER_CUSTOM_ADAPTIVE_FILE_NAMES.joinToString("\n")}
+            
+            The image dimensions must be as follows:
+            ${mipmapDirectories.map { (dpi, dim) -> "- $dpi: $dim" }.joinToString("\n")}
 
             Optionally, the path contains a 'drawable' folder with any of the monochrome icon files:
             $USER_CUSTOM_MONOCHROME_FILE_NAME
@@ -249,7 +252,7 @@ internal fun baseCustomBrandingPatch(
         )
 
         // Copy template icon files.
-        mipmapDirectories.forEach { dpi ->
+        mipmapDirectories.keys.forEach { dpi ->
             copyResources(
                 "custom-branding",
                 ResourceGroup(
