@@ -208,7 +208,7 @@ val changeHeaderPatch = resourcePatch(
 
         // Copy user provided images last, so if an exception is thrown due to bad input.
         if (custom != null) {
-            val customFile = File(custom!!)
+            val customFile = File(custom!!.trim())
             if (!customFile.exists()) {
                 throw PatchException("The custom header path cannot be found: " +
                         customFile.absolutePath
