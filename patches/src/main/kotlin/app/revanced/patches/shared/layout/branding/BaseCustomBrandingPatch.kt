@@ -405,15 +405,13 @@ internal fun baseCustomBrandingPatch(
                 )
             }
 
-            val sourceFolders = iconPathFile.listFiles { file -> file.isDirectory }
-                ?: throw PatchException("The custom icon path contains no subfolders: " +
-                        iconPathFile.absolutePath)
-
             val resourceDirectory = get("res")
             var copiedFiles = false
 
             // For each source folder, copy the files to the target resource directories.
-            sourceFolders.forEach { dpiSourceFolder ->
+            iconPathFile.listFiles {
+                file -> file.isDirectory && file.name in mipmapDirectories
+            }!!.forEach { dpiSourceFolder ->
                 val targetDpiFolder = resourceDirectory.resolve(dpiSourceFolder.name)
                 if (!targetDpiFolder.exists()) return@forEach
 
@@ -421,7 +419,7 @@ internal fun baseCustomBrandingPatch(
                     file.isFile && file.name in USER_CUSTOM_ADAPTIVE_FILE_NAMES
                 }!!
 
-                if (customFiles.size > 0 && customFiles.size != USER_CUSTOM_ADAPTIVE_FILE_NAMES.size) {
+                if (customFiles.isNotEmpty() && customFiles.size != USER_CUSTOM_ADAPTIVE_FILE_NAMES.size) {
                     throw PatchException("Must include all required icon files " +
                             "but only found " + customFiles.map { it.name })
                 }

@@ -220,18 +220,12 @@ val changeHeaderPatch = resourcePatch(
                         + customFile.absolutePath)
             }
 
-            val sourceFolders = customFile.listFiles { file -> file.isDirectory }
-                ?: throw PatchException("The custom header path contains no subfolders: " +
-                        customFile.absolutePath)
-
             var copiedFiles = false
 
             // For each source folder, copy the files to the target resource directories.
-            sourceFolders.forEach { dpiSourceFolder ->
-                if (dpiSourceFolder.name !in targetResourceDirectoryNames) {
-                    return@forEach
-                }
-
+            customFile.listFiles {
+                file -> file.isDirectory && file.name in targetResourceDirectoryNames
+            }!!.forEach { dpiSourceFolder ->
                 val targetDpiFolder = get("res").resolve(dpiSourceFolder.name)
                 if (!targetDpiFolder.exists()) return@forEach
 
@@ -239,7 +233,7 @@ val changeHeaderPatch = resourcePatch(
                     file.isFile && file.name in customHeaderResourceFileNames
                 }!!
 
-                if (customFiles.size > 0 && customFiles.size != variants.size) {
+                if (customFiles.isNotEmpty() && customFiles.size != variants.size) {
                     throw PatchException("Both light/dark mode images " +
                             "must be specified but only found: " + customFiles.map { it.name })
                 }
