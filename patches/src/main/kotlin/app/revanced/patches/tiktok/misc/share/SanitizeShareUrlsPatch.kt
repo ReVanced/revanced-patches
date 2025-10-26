@@ -58,7 +58,7 @@ val sanitizeShareUrlsPatch = bytecodePatch(
 
             val wrapperRegister = findFreeRegister(moveResultIndex + 1, urlRegister)
 
-            // Check setting and conditionally sanitize share URL
+            // Check setting and conditionally sanitize share URL.
             addInstructionsWithLabels(
                 moveResultIndex + 1,
                 """
