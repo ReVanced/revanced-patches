@@ -9,7 +9,7 @@ import app.revanced.util.copyResources
  *
  * This patch must be a dependency for all patches that add ReVanced branding to the target app.
  */
-internal val brandingLicensePatch = resourcePatch {
+internal val addBrandLicensesPatch = resourcePatch {
     execute {
         copyResources(
             "branding-license",

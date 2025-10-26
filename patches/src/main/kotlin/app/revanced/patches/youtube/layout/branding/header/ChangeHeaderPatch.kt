@@ -9,7 +9,7 @@ import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.Document
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.layout.branding.brandingLicensePatch
+import app.revanced.patches.shared.layout.branding.addBrandLicensesPatch
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
@@ -31,7 +31,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 private val changeHeaderBytecodePatch = bytecodePatch {
     dependsOn(
         resourceMappingPatch,
-        brandingLicensePatch
+        addBrandLicensesPatch
     )
 
     execute {
