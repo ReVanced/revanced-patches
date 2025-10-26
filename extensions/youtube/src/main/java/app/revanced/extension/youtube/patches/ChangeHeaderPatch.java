@@ -19,7 +19,6 @@ public class ChangeHeaderPatch {
         PREMIUM("ytPremiumWordmarkHeader", "yt_ringo2_premium_wordmark_header"),
         ROUNDED("revanced_header_rounded"),
         MINIMAL("revanced_header_minimal"),
-        SCALED("revanced_header_scaled"),
         CUSTOM("revanced_header_custom"),
 
         // Old enum names for data migration. TODO: Eventually delete these.

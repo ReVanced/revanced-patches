@@ -37,7 +37,6 @@ private val targetResourceDirectoryNames = mapOf(
 private val logoResourceNames = arrayOf(
     "revanced_header_minimal",
     "revanced_header_rounded",
-    "revanced_header_scaled",
 )
 
 /**
@@ -58,8 +57,7 @@ private val changeHeaderBytecodePatch = bytecodePatch {
     dependsOn(resourceMappingPatch)
 
     execute {
-        // Resources are not used during patching, but extension code uses these
-        // images so verify they exist.
+        // Verify images exist. Resources are not used during patching but extension code does.
         arrayOf(
             "yt_ringo2_wordmark_header",
             "yt_ringo2_premium_wordmark_header"
@@ -255,7 +253,7 @@ val changeHeaderPatch = resourcePatch(
             }
 
             if (!copiedFiles) {
-                throw PatchException("Expected to find files: "
+                throw PatchException("Expected to find directories and files: "
                         + customHeaderResourceFileNames.contentToString()
                         + "\nBut none were found in the provided option file path: " + customFile.absolutePath)
             }

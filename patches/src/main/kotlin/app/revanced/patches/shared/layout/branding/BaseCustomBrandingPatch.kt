@@ -451,7 +451,7 @@ internal fun baseCustomBrandingPatch(
             }
 
             if (!copiedFiles) {
-                throw PatchException("Expected to find files: "
+                throw PatchException("Expected to find directories and files: "
                         + USER_CUSTOM_ADAPTIVE_FILE_NAMES.contentToString()
                         + "\nBut none were found in the provided option file path: " + iconPathFile.absolutePath)
             }
