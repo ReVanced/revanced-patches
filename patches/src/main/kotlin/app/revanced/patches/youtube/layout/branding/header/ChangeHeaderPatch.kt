@@ -20,7 +20,6 @@ import app.revanced.util.copyResources
 import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.forEachLiteralValueInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import sun.awt.www.content.image.png
 import java.io.File
 
 private val variants = arrayOf("light", "dark")
