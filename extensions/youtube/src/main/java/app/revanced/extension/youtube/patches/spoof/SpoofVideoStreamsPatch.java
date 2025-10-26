@@ -38,9 +38,9 @@ public class SpoofVideoStreamsPatch {
         }
 
         List<ClientType> availableClients = List.of(
+                VISIONOS,
                 ANDROID_CREATOR,
                 ANDROID_VR_1_43_32,
-                VISIONOS,
                 IPADOS);
 
         app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch.setClientsToUse(
