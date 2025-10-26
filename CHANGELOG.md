@@ -1,3 +1,11 @@
+# [5.45.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.45.0-dev.1...v5.45.0-dev.2) (2025-10-26)
+
+
+### Bug Fixes
+
+* **YouTube - Force original audio:** Fall back to visionOS and not Android Studio if Android VR is not available ([6d01863](https://github.com/ReVanced/revanced-patches/commit/6d01863ec70617d9abc864ce6686ed9764dd151d))
+* **YouTube Music - Hide category bar:** Correctly hide the category bar in newer app targets ([#6175](https://github.com/ReVanced/revanced-patches/issues/6175)) ([13cf172](https://github.com/ReVanced/revanced-patches/commit/13cf1724bf2f946c7129cab0db96721c90f9fe89))
+
 # [5.45.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.44.0...v5.45.0-dev.1) (2025-10-26)
 
 
