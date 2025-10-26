@@ -1512,9 +1512,7 @@ Swipe to expand or close"</string>
             <string name="revanced_header_logo_entry_4" translatable="false">ReVanced</string>
             <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
             <string name="revanced_header_logo_entry_5">ReVanced minimal</string>
-            <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_4 -->
-            <string name="revanced_header_logo_entry_6">ReVanced scaled</string>
-            <string name="revanced_header_logo_entry_7">Custom</string>
+            <string name="revanced_header_logo_entry_6">Custom</string>
         </patch>
         <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
             <string name="revanced_bypass_image_region_restrictions_title">Bypass image region restrictions</string>

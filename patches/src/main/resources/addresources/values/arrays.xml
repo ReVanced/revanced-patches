@@ -392,7 +392,6 @@
                 <item>@string/revanced_header_logo_entry_3</item>
                 <item>@string/revanced_header_logo_entry_4</item>
                 <item>@string/revanced_header_logo_entry_5</item>
-                <item>@string/revanced_header_logo_entry_6</item>
             </string-array>
             <string-array name="revanced_header_logo_entry_values">
                 <item>DEFAULT</item>
@@ -400,7 +399,6 @@
                 <item>PREMIUM</item>
                 <item>ROUNDED</item>
                 <item>MINIMAL</item>
-                <item>SCALED</item>
             </string-array>
             <string-array name="revanced_header_logo_custom_entries">
                 <item>@string/revanced_header_logo_entry_1</item>
@@ -409,7 +407,6 @@
                 <item>@string/revanced_header_logo_entry_4</item>
                 <item>@string/revanced_header_logo_entry_5</item>
                 <item>@string/revanced_header_logo_entry_6</item>
-                <item>@string/revanced_header_logo_entry_7</item>
             </string-array>
             <string-array name="revanced_header_logo_custom_entry_values">
                 <item>DEFAULT</item>
@@ -417,7 +414,6 @@
                 <item>PREMIUM</item>
                 <item>ROUNDED</item>
                 <item>MINIMAL</item>
-                <item>SCALED</item>
                 <item>CUSTOM</item>
             </string-array>
         </patch>
