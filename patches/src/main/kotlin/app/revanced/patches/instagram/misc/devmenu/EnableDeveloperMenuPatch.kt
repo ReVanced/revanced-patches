@@ -24,7 +24,7 @@ val enableDeveloperMenuPatch = bytecodePatch(
         with(clearNotificationReceiverFingerprint.method) {
             indexOfFirstInstructionReversedOrThrow(clearNotificationReceiverFingerprint.stringMatches!!.first().index) {
                 val reference = getReference<MethodReference>()
-                Opcode.INVOKE_STATIC == opcode &&
+                opcode in listOf(Opcode.INVOKE_STATIC, Opcode.INVOKE_STATIC_RANGE) &&
                         reference?.parameterTypes?.size == 1 &&
                         reference.parameterTypes.first() == "Lcom/instagram/common/session/UserSession;" &&
                         reference.returnType == "Z"

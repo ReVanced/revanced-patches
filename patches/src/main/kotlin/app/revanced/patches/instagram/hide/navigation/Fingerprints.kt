@@ -2,13 +2,15 @@
 package app.revanced.patches.instagram.hide.navigation
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.patch.BytecodePatchContext
+import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val initializeNavigationButtonsListFingerprint by fingerprint {
-    returns("Ljava/util/List;")
+internal val initializeNavigationButtonsListFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Lcom/instagram/common/session/UserSession;", "Z")
-    strings("Nav3")
+    returns("Ljava/util/List;")
 }
 
-internal val navigationButtonsEnumClassDef by fingerprint {
+private val navigationButtonsEnumClassDef = fingerprint {
     strings("FEED", "fragment_feed", "SEARCH", "fragment_search")
 }
