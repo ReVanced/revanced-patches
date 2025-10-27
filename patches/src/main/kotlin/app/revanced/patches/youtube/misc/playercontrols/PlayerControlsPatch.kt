@@ -72,6 +72,18 @@ internal val playerControlsResourcePatch = resourcePatch {
             bottomLastLeftOf,
         )
 
+        // Modify the fullscreen button stub attributes for correct positioning.
+        // The fullscreen button is lower than the ReVanced buttons (unpatched app bug).
+        // Issue is only present in later app targets, but this change seems to
+        // do no harm to earlier releases.
+        bottomTargetDocumentChildNodes.findElementByAttributeValueOrThrow(
+            "android:id",
+            "@id/youtube_controls_fullscreen_button_stub"
+        ).apply {
+            setAttribute("android:layout_marginBottom", "6.0dip")
+            setAttribute("android:layout_width", "48.0dip")
+        }
+
         addTopControl = { resourceDirectoryName ->
             val resourceFileName = "host/layout/youtube_controls_layout.xml"
             val hostingResourceStream = inputStreamFromBundledResource(
