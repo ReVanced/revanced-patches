@@ -63,7 +63,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
         with(navigationButtonsEnumInitFingerprint.method) {
             enumNameField = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.IPUT_OBJECT &&
-                        (this as TwoRegisterInstruction).registerA == 2 // The p2 register
+                        (this as TwoRegisterInstruction).registerA == 2 // p2 register.
             }.let {
                 getInstruction(it).getReference<FieldReference>()!!.name
             }
