@@ -416,8 +416,8 @@
                 <item>DEFAULT</item>
                 <item>REGULAR</item>
                 <item>PREMIUM</item>
-                <item>REVANCED</item>
-                <item>REVANCED_MINIMAL</item>
+                <item>ROUNDED</item>
+                <item>MINIMAL</item>
             </string-array>
             <string-array name="revanced_header_logo_custom_entries">
                 <item>@string/revanced_header_logo_entry_1</item>
@@ -431,8 +431,8 @@
                 <item>DEFAULT</item>
                 <item>REGULAR</item>
                 <item>PREMIUM</item>
-                <item>REVANCED</item>
-                <item>REVANCED_MINIMAL</item>
+                <item>ROUNDED</item>
+                <item>MINIMAL</item>
                 <item>CUSTOM</item>
             </string-array>
         </patch>
