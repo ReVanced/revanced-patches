@@ -2,7 +2,6 @@ package app.revanced.extension.youtube.settings;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
-import static app.revanced.extension.shared.settings.Setting.migrateOldSettingToNew;
 import static app.revanced.extension.shared.settings.Setting.parent;
 import static app.revanced.extension.shared.settings.Setting.parentsAll;
 import static app.revanced.extension.shared.settings.Setting.parentsAny;
@@ -17,7 +16,6 @@ import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerH
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerHideSubtextsAvailability;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerHorizontalDragAvailability;
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType;
-import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType.MINIMAL;
 import static app.revanced.extension.youtube.patches.OpenShortsInRegularPlayerPatch.ShortsPlayerType;
 import static app.revanced.extension.youtube.patches.SeekbarThumbnailsPatch.SeekbarThumbnailsHighQualityAvailability;
 import static app.revanced.extension.youtube.patches.components.PlayerFlyoutMenuItemsFilter.HideAudioFlyoutMenuAvailability;
@@ -41,7 +39,6 @@ import app.revanced.extension.shared.settings.IntegerSetting;
 import app.revanced.extension.shared.settings.LongSetting;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
-import app.revanced.extension.shared.settings.preference.SharedPrefCategory;
 import app.revanced.extension.shared.spoof.ClientType;
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.DeArrowAvailability;
 import app.revanced.extension.youtube.patches.AlternativeThumbnailsPatch.StillImagesAvailability;
@@ -452,14 +449,7 @@ public class Settings extends BaseSettings {
     public static final StringSetting SB_CATEGORY_UNSUBMITTED_COLOR = new StringSetting("sb_unsubmitted_color", "#FFFFFFFF", false, false);
 
     // Deprecated migrations
-    private static final BooleanSetting DEPRECATED_AUTO_REPEAT = new BooleanSetting("revanced_auto_repeat", FALSE);
-    private static final BooleanSetting DEPRECATED_HIDE_PLAYER_BUTTONS = new BooleanSetting("revanced_hide_player_buttons", FALSE, true);
-    private static final BooleanSetting DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER = new BooleanSetting("revanced_hide_video_quality_menu_footer", FALSE);
-    private static final IntegerSetting DEPRECATED_SWIPE_OVERLAY_BACKGROUND_ALPHA = new IntegerSetting("revanced_swipe_overlay_background_alpha", 127);
     private static final StringSetting  DEPRECATED_SEEKBAR_CUSTOM_COLOR_PRIMARY = new StringSetting("revanced_seekbar_custom_color_value", "#FF0033");
-    private static final BooleanSetting DEPRECATED_DISABLE_SUGGESTED_VIDEO_END_SCREEN = new BooleanSetting("revanced_disable_suggested_video_end_screen", FALSE);
-    private static final BooleanSetting DEPRECATED_RESTORE_OLD_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_restore_old_video_quality_menu", TRUE);
-    private static final BooleanSetting DEPRECATED_AUTO_CAPTIONS = new BooleanSetting("revanced_auto_captions", FALSE);
 
     private static final FloatSetting DEPRECATED_SB_CATEGORY_SPONSOR_OPACITY = new FloatSetting("sb_sponsor_opacity", 0.8f, false, false);
     private static final FloatSetting DEPRECATED_SB_CATEGORY_SELF_PROMO_OPACITY = new FloatSetting("sb_selfpromo_opacity", 0.8f, false, false);
@@ -475,17 +465,12 @@ public class Settings extends BaseSettings {
     static {
         // region Migration
 
-        migrateOldSettingToNew(DEPRECATED_AUTO_REPEAT, LOOP_VIDEO);
-        migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_BUTTONS, HIDE_PLAYER_PREVIOUS_NEXT_BUTTONS);
-        migrateOldSettingToNew(DEPRECATED_HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER, HIDE_PLAYER_FLYOUT_VIDEO_QUALITY_FOOTER);
-        migrateOldSettingToNew(DEPRECATED_DISABLE_SUGGESTED_VIDEO_END_SCREEN, HIDE_END_SCREEN_SUGGESTED_VIDEO);
-        migrateOldSettingToNew(DEPRECATED_RESTORE_OLD_VIDEO_QUALITY_MENU, ADVANCED_VIDEO_QUALITY_MENU);
-        migrateOldSettingToNew(DEPRECATED_AUTO_CAPTIONS, DISABLE_AUTO_CAPTIONS);
-
-        // Migrate renamed enum.
-        //noinspection deprecation
-        if (MINIPLAYER_TYPE.get() == MiniplayerType.PHONE) {
-            MINIPLAYER_TYPE.save(MINIMAL);
+        // Migrate renamed change header enums.
+        if (HEADER_LOGO.get() == HeaderLogo.REVANCED) {
+            HEADER_LOGO.save(HeaderLogo.ROUNDED);
+        }
+        if (HEADER_LOGO.get() == HeaderLogo.REVANCED_MINIMAL) {
+            HEADER_LOGO.save(HeaderLogo.MINIMAL);
         }
 
         // Migrate old single color seekbar with a slightly brighter accent color based on the primary.
@@ -512,11 +497,6 @@ public class Settings extends BaseSettings {
             DEPRECATED_SEEKBAR_CUSTOM_COLOR_PRIMARY.resetToDefault();
         }
 
-        if (!DEPRECATED_SWIPE_OVERLAY_BACKGROUND_ALPHA.isSetToDefault()) {
-            SWIPE_OVERLAY_OPACITY.save(DEPRECATED_SWIPE_OVERLAY_BACKGROUND_ALPHA.get() / 255);
-            DEPRECATED_SWIPE_OVERLAY_BACKGROUND_ALPHA.resetToDefault();
-        }
-
         // Old spoof versions that no longer work,
         // or is spoofing to a version the same or newer than this app.
         if (!SPOOF_APP_VERSION_TARGET.isSetToDefault() &&
@@ -534,13 +514,7 @@ public class Settings extends BaseSettings {
 
         // RYD requires manually migrating old settings since the lack of
         // a "revanced_" on the old setting causes duplicate key exceptions during export.
-        SharedPrefCategory revancedPrefs = Setting.preferences;
-        Setting.migrateFromOldPreferences(revancedPrefs, RYD_USER_ID, "ryd_user_id");
-        Setting.migrateFromOldPreferences(revancedPrefs, RYD_ENABLED, "ryd_enabled");
-        Setting.migrateFromOldPreferences(revancedPrefs, RYD_DISLIKE_PERCENTAGE, "ryd_dislike_percentage");
-        Setting.migrateFromOldPreferences(revancedPrefs, RYD_COMPACT_LAYOUT, "ryd_compact_layout");
-        Setting.migrateFromOldPreferences(revancedPrefs, RYD_ESTIMATED_LIKE, "ryd_estimated_like");
-        Setting.migrateFromOldPreferences(revancedPrefs, RYD_TOAST_ON_CONNECTION_ERROR, "ryd_toast_on_connection_error");
+        Setting.migrateFromOldPreferences(Setting.preferences, RYD_USER_ID, "ryd_user_id");
 
         // Migrate old saved data. Must be done here before the settings can be used by any other code.
         applyOldSbOpacityToColor(SB_CATEGORY_SPONSOR_COLOR, DEPRECATED_SB_CATEGORY_SPONSOR_OPACITY);
