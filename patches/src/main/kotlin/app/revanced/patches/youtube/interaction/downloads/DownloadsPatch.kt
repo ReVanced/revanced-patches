@@ -73,7 +73,7 @@ val downloadsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
+            "19.43.41",
             "20.13.41",
             "20.14.43",
         )

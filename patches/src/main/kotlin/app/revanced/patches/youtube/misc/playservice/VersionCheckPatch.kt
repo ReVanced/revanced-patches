@@ -8,39 +8,43 @@ import kotlin.properties.Delegates
 
 // Use notNull delegate so an exception is thrown if these fields are accessed before they are set.
 
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_17_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_18_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_23_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_25_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_26_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_29_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_32_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_33_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_34_or_greater : Boolean by Delegates.notNull()
     private set
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_35_or_greater : Boolean by Delegates.notNull()
     private set
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_36_or_greater : Boolean by Delegates.notNull()
     private set
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_41_or_greater : Boolean by Delegates.notNull()
     private set
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_43_or_greater : Boolean by Delegates.notNull()
     private set
 var is_19_46_or_greater : Boolean by Delegates.notNull()
