@@ -517,7 +517,7 @@ public class Settings extends BaseSettings {
         }
 
         if (!BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.get()
-                && SPOOF_APP_VERSION_TARGET.get().compareTo("19.35.00") <= 0) {
+                && SPOOF_APP_VERSION.get() && SPOOF_APP_VERSION_TARGET.get().compareTo("19.35.00") <= 0) {
             Logger.printInfo(() -> "Disabling bold icons that don't work with old spoof targets");
             BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.save(true);
         }
