@@ -86,9 +86,9 @@ val downloadsPatch = bytecodePatch(
                 addInstructions(
                     fieldIndex,
                     """
-                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->getDownloadPath()Ljava/lang/String;
-                    move-result-object v$pathRegister
-                    invoke-virtual {v$builderRegister, v$pathRegister}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->getDownloadPath()Ljava/lang/String;
+                        move-result-object v$pathRegister
+                        invoke-virtual { v$builderRegister, v$pathRegister }, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
                     """,
                 )
             }
