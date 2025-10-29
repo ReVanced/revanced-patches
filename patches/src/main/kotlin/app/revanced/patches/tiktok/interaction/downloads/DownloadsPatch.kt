@@ -10,10 +10,10 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
 import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
-import app.revanced.util.findInstructionIndicesReversed
+import app.revanced.util.findInstructionIndicesReversedOrThrow
+import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/tiktok/download/DownloadsPatch;"
@@ -66,19 +66,13 @@ val downloadsPatch = bytecodePatch(
 
         // Change the download path patch.
         downloadUriFingerprint.method.apply {
-            val blocks = findInstructionIndicesReversed {
-                val ref = (this as? ReferenceInstruction)?.reference as? FieldReference
-                ref?.definingClass == "Landroid/os/Environment;" && ref.name.startsWith("DIRECTORY_")
-            }
-
-            blocks.forEach { fieldIndex ->
+            findInstructionIndicesReversedOrThrow {
+                getReference<FieldReference>().let {
+                    it?.definingClass == "Landroid/os/Environment;" && it?.name?.startsWith("DIRECTORY_") == true
+                }
+            }.forEach { fieldIndex ->
                 val pathRegister = getInstruction<OneRegisterInstruction>(fieldIndex).registerA
                 val builderRegister = getInstruction<FiveRegisterInstruction>(fieldIndex + 1).registerC
-
-                // Guard to catch future changes in the append sequence.
-                check(getInstruction<FiveRegisterInstruction>(fieldIndex + 3).registerC == builderRegister) {
-                    "TikTok changed path construction at $fieldIndex"
-                }
 
                 // Remove 'field load → append → "/Camera/" → append' block.
                 removeInstructions(fieldIndex, 4)
