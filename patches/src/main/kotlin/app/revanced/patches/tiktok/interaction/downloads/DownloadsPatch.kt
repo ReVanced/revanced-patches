@@ -10,9 +10,10 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
 import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
+import app.revanced.util.findInstructionIndicesReversed
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/tiktok/download/DownloadsPatch;"
@@ -65,22 +66,17 @@ val downloadsPatch = bytecodePatch(
 
         // Change the download path patch.
         downloadUriFingerprint.method.apply {
-            val instructions = implementation!!.instructions
-
-            val blocks = instructions.withIndex()
-                .filter {
-                    val ref = (it.value as? ReferenceInstruction)?.reference as? FieldReference
-                    ref?.definingClass == "Landroid/os/Environment;" && ref.name.startsWith("DIRECTORY_")
-                }
-                .map { it.index }
-                .asReversed()
+            val blocks = findInstructionIndicesReversed {
+                val ref = (this as? ReferenceInstruction)?.reference as? FieldReference
+                ref?.definingClass == "Landroid/os/Environment;" && ref.name.startsWith("DIRECTORY_")
+            }
 
             blocks.forEach { fieldIndex ->
-                val pathRegister = getInstruction<Instruction21c>(fieldIndex).registerA
-                val builderRegister = getInstruction<Instruction35c>(fieldIndex + 1).registerC
+                val pathRegister = getInstruction<OneRegisterInstruction>(fieldIndex).registerA
+                val builderRegister = getInstruction<FiveRegisterInstruction>(fieldIndex + 1).registerC
 
                 // Guard to catch future changes in the append sequence.
-                check(getInstruction<Instruction35c>(fieldIndex + 3).registerC == builderRegister) {
+                check(getInstruction<FiveRegisterInstruction>(fieldIndex + 3).registerC == builderRegister) {
                     "TikTok changed path construction at $fieldIndex"
                 }
 
