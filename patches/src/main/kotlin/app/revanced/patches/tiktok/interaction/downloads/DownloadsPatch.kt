@@ -3,14 +3,21 @@ package app.revanced.patches.tiktok.interaction.downloads
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
 import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
+
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/tiktok/download/DownloadsPatch;"
 
 @Suppress("unused")
 val downloadsPatch = bytecodePatch(
@@ -48,7 +55,7 @@ val downloadsPatch = bytecodePatch(
         aclCommonShare3Fingerprint.method.addInstructionsWithLabels(
             0,
             """
-                    invoke-static {}, Lapp/revanced/extension/tiktok/download/DownloadsPatch;->shouldRemoveWatermark()Z
+                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->shouldRemoveWatermark()Z
                     move-result v0
                     if-eqz v0, :noremovewatermark
                     const/4 v0, 0x1
@@ -60,28 +67,37 @@ val downloadsPatch = bytecodePatch(
 
         // Change the download path patch.
         downloadUriFingerprint.method.apply {
-            val firstIndex = indexOfFirstInstructionOrThrow {
-                getReference<MethodReference>()?.name == "<init>"
-            }
-            val secondIndex = indexOfFirstInstructionOrThrow {
-                getReference<MethodReference>()?.returnType?.contains("Uri") == true
-            }
+            val instructions = implementation!!.instructions
 
-            addInstructions(
-                secondIndex,
-                """
-                    invoke-static {}, Lapp/revanced/extension/tiktok/download/DownloadsPatch;->getDownloadPath()Ljava/lang/String;
-                    move-result-object v0
-                """,
-            )
+            val blocks = instructions.withIndex()
+                .filter {
+                    val ref = (it.value as? ReferenceInstruction)?.reference as? FieldReference
+                    ref?.definingClass == "Landroid/os/Environment;" && ref.name.startsWith("DIRECTORY_")
+                }
+                .map { it.index }
+                .asReversed()
 
-            addInstructions(
-                firstIndex,
-                """
-                    invoke-static {}, Lapp/revanced/extension/tiktok/download/DownloadsPatch;->getDownloadPath()Ljava/lang/String;
-                    move-result-object v0
-                """,
-            )
+            blocks.forEach { fieldIndex ->
+                val pathRegister = getInstruction<Instruction21c>(fieldIndex).registerA
+                val builderRegister = getInstruction<Instruction35c>(fieldIndex + 1).registerC
+
+                // Guard to catch future changes in the append sequence.
+                check(getInstruction<Instruction35c>(fieldIndex + 3).registerC == builderRegister) {
+                    "TikTok changed path construction at $fieldIndex"
+                }
+
+                // Remove 'field load → append → "/Camera/" → append' block.
+                removeInstructions(fieldIndex, 4)
+
+                addInstructions(
+                    fieldIndex,
+                    """
+                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->getDownloadPath()Ljava/lang/String;
+                    move-result-object v$pathRegister
+                    invoke-virtual {v$builderRegister, v$pathRegister}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+                    """,
+                )
+            }
         }
 
         settingsStatusLoadFingerprint.method.addInstruction(
