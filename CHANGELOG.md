@@ -1,3 +1,10 @@
+# [5.45.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.45.0-dev.2...v5.45.0-dev.3) (2025-10-27)
+
+
+### Features
+
+* **YouTube - Change Header:** Use SVG for header logo ([#6178](https://github.com/ReVanced/revanced-patches/issues/6178)) ([e9f45ce](https://github.com/ReVanced/revanced-patches/commit/e9f45ce92695d5857473ff71c14b190bded28a73))
+
 # [5.45.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.45.0-dev.1...v5.45.0-dev.2) (2025-10-26)
 
 
