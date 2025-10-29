@@ -5,13 +5,13 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
 import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -34,34 +34,21 @@ val downloadsPatch = bytecodePatch(
     )
 
     execute {
-        aclCommonShareFingerprint.method.replaceInstructions(
-            0,
-            """
-                const/4 v0, 0x0
-                return v0
-            """,
-        )
-
-        aclCommonShare2Fingerprint.method.replaceInstructions(
-            0,
-            """
-                const/4 v0, 0x2
-                return v0
-            """,
-        )
+        aclCommonShareFingerprint.method.returnEarly(0)
+        aclCommonShare2Fingerprint.method.returnEarly(2)
 
         // Download videos without watermark.
         aclCommonShare3Fingerprint.method.addInstructionsWithLabels(
             0,
             """
-                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->shouldRemoveWatermark()Z
-                    move-result v0
-                    if-eqz v0, :noremovewatermark
-                    const/4 v0, 0x1
-                    return v0
-                    :noremovewatermark
-                    nop
-                """,
+                invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->shouldRemoveWatermark()Z
+                move-result v0
+                if-eqz v0, :noremovewatermark
+                const/4 v0, 0x1
+                return v0
+                :noremovewatermark
+                nop
+            """,
         )
 
         // Change the download path patch.
