@@ -9,6 +9,7 @@ import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.Document
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
+import app.revanced.patches.shared.layout.branding.addBrandLicensePatch
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
@@ -54,7 +55,10 @@ private val customHeaderResourceFileNames = variants.map { variant ->
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ChangeHeaderPatch;"
 
 private val changeHeaderBytecodePatch = bytecodePatch {
-    dependsOn(resourceMappingPatch)
+    dependsOn(
+        resourceMappingPatch,
+        addBrandLicensePatch
+    )
 
     execute {
         // Verify images exist. Resources are not used during patching but extension code does.
