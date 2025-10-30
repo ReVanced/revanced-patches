@@ -1,3 +1,10 @@
+# [5.45.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.45.0-dev.3...v5.45.0-dev.4) (2025-10-30)
+
+
+### Bug Fixes
+
+* **YouTube - Change header:** Do not mirror header graphic with RTL languages ([a0c5604](https://github.com/ReVanced/revanced-patches/commit/a0c56049510ce040e1ccd49257864672c343344d))
+
 # [5.45.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.45.0-dev.2...v5.45.0-dev.3) (2025-10-27)
 
 
