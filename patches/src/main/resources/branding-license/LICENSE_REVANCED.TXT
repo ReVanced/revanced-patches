@@ -1,0 +1,5 @@
+The ReVanced branding found in this software is copyrighted and not covered under the GPL.
+
+To use or distribute ReVanced branding, you must obtain permission by contacting branding@revanced.app
+
+For more information see https://github.com/ReVanced/revanced-branding

@@ -3,6 +3,7 @@
     xmlns:aapt="http://schemas.android.com/aapt"
     android:width="129dp"
     android:height="48dp"
+    android:autoMirrored="false"
     android:viewportWidth="129"
     android:viewportHeight="48">
 
