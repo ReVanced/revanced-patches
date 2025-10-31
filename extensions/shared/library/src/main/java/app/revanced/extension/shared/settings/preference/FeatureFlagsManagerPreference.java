@@ -346,7 +346,7 @@ public class FeatureFlagsManagerPreference extends Preference {
     private void moveSelectedFlags(@Nullable ListView fromListView, @Nullable ListView toListView,
                                    List<Long> fromFlags, List<Long> toFlags,
                                    TextView fromCountText, TextView toCountText,
-                                   boolean toBlocked, boolean moveAll) {
+                                   boolean moveAll) {
         List<Long> toMove = new ArrayList<>();
         SparseBooleanArray checked;
 
