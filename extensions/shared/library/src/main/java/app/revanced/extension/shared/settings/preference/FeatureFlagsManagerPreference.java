@@ -49,9 +49,9 @@ public class FeatureFlagsManagerPreference extends Preference {
         WHITELIST_FLAGS.add(12345678L); // Example hidden flag.
     }
 
-    // Track last long-pressed position for shift-selection.
-    private int lastLongPressedPosition = -1;
-    private boolean isShiftSelecting = false;
+    // Positions for range selection.
+    private int lastClickedPosition = -1; // Position of the last clicked item.
+    private boolean isRangeSelecting = false; // True while a range is being selected.
 
     {
         setOnPreferenceClickListener(pref -> {
@@ -84,7 +84,7 @@ public class FeatureFlagsManagerPreference extends Preference {
         Set<Long> disabledFlags = EnableDebuggingPatch.parseFlags(BaseSettings.DISABLED_FEATURE_FLAGS.get());
 
         if (allKnownFlags.isEmpty()) {
-            Utils.showToastShort("No feature flags logged yet. Enable debugging and restart the app");
+            Utils.showToastShort(str("revanced_debug_feature_flags_manager_no_flags_logged"));
             return;
         }
 
@@ -130,7 +130,7 @@ public class FeatureFlagsManagerPreference extends Preference {
                 1.0f
         );
 
-        // Create content first.
+        // Insert content before the dialog button row.
         View contentView = createContentView(context, availableFlags, blockedFlags);
         mainLayout.addView(contentView, mainLayout.getChildCount() - 1, listViewParams);
 
@@ -143,16 +143,15 @@ public class FeatureFlagsManagerPreference extends Preference {
         }
     }
 
-    @SuppressLint("SetTextI18n")
     private View createContentView(Context context, List<Long> availableFlags, List<Long> blockedFlags) {
         LinearLayout contentLayout = new LinearLayout(context);
         contentLayout.setOrientation(LinearLayout.VERTICAL);
         contentLayout.setPadding(20, 20, 20, 20);
 
         // Headers.
-        LinearLayout headersLayout = createHeaders(context, availableFlags, blockedFlags);
+        LinearLayout headersLayout = createHeaders(context, availableFlags.size(), blockedFlags.size());
 
-        // Content with columns and buttons.
+        // Columns + move buttons.
         LinearLayout columnsLayout = new LinearLayout(context);
         columnsLayout.setOrientation(LinearLayout.HORIZONTAL);
         columnsLayout.setLayoutParams(new LinearLayout.LayoutParams(
@@ -183,25 +182,33 @@ public class FeatureFlagsManagerPreference extends Preference {
         return contentLayout;
     }
 
-    @SuppressLint("SetTextI18n")
-    private LinearLayout createHeaders(Context context, List<Long> availableFlags, List<Long> blockedFlags) {
+    private LinearLayout createHeaders(Context context, int activeCount, int blockedCount) {
         LinearLayout headersLayout = new LinearLayout(context);
         headersLayout.setOrientation(LinearLayout.HORIZONTAL);
 
+        // Active header.
         TextView availableCountText = new TextView(context);
-        availableCountText.setText("Active Flags (" + availableFlags.size() + ")");
-        availableCountText.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
+        availableCountText.setText(str("revanced_debug_feature_flags_manager_active_header", activeCount));
+        availableCountText.setLayoutParams(new LinearLayout.LayoutParams(
+                0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
         availableCountText.setTextSize(14);
-        availableCountText.setPadding(10, 0, 10, 10);
+        availableCountText.setGravity(Gravity.CENTER);
+        availableCountText.setPadding(0, 0, 0, 0);
+        availableCountText.setTag("revanced_debug_feature_flags_manager_active_header");
 
         TextView spacer = new TextView(context);
-        spacer.setLayoutParams(new LinearLayout.LayoutParams(100, LinearLayout.LayoutParams.WRAP_CONTENT));
+        spacer.setLayoutParams(new LinearLayout.LayoutParams(
+                Utils.dipToPixels(56), LinearLayout.LayoutParams.WRAP_CONTENT));
 
+        // Blocked header.
         TextView blockedCountText = new TextView(context);
-        blockedCountText.setText("Blocked Flags (" + blockedFlags.size() + ")");
-        blockedCountText.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
+        blockedCountText.setText(str("revanced_debug_feature_flags_manager_blocked_header", blockedCount));
+        blockedCountText.setLayoutParams(new LinearLayout.LayoutParams(
+                0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
         blockedCountText.setTextSize(14);
-        blockedCountText.setPadding(10, 0, 0, 10);
+        blockedCountText.setGravity(Gravity.CENTER);
+        blockedCountText.setPadding(0, 0, 0, 0);
+        blockedCountText.setTag("revanced_debug_feature_flags_manager_blocked_header");
 
         headersLayout.addView(availableCountText);
         headersLayout.addView(spacer);
@@ -232,42 +239,49 @@ public class FeatureFlagsManagerPreference extends Preference {
                     textView.setEllipsize(android.text.TextUtils.TruncateAt.END);
                     textView.setPadding(10, 0, 0, 0);
                 }
+
                 return view;
             }
         };
 
         listView.setAdapter(adapter);
 
-        // Long click for shift selection.
-        listView.setOnItemLongClickListener((parent, view, position, id) -> {
-            if (lastLongPressedPosition == -1) {
-                lastLongPressedPosition = position;
-                isShiftSelecting = true;
-                toggleSelectionRange(listView, position, position);
+        // Click: remember the position for a future range.
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            if (!isRangeSelecting) {
+                lastClickedPosition = position;
             } else {
-                int start = Math.min(lastLongPressedPosition, position);
-                int end = Math.max(lastLongPressedPosition, position);
-                toggleSelectionRange(listView, start, end);
-                lastLongPressedPosition = position;
+                isRangeSelecting = false;
             }
+        });
+
+        // Long click: select range from lastClickedPosition to current.
+        listView.setOnItemLongClickListener((parent, view, position, id) -> {
+            if (lastClickedPosition == -1) {
+                listView.setItemChecked(position, true);
+                lastClickedPosition = position;
+            } else {
+                int start = Math.min(lastClickedPosition, position);
+                int end = Math.max(lastClickedPosition, position);
+                for (int i = start; i <= end; i++) {
+                    listView.setItemChecked(i, true);
+                }
+                isRangeSelecting = true;
+            }
+
             return true;
         });
 
-        // Reset on touch outside long press.
+        // Reset range mode when touching outside the list.
         listView.setOnTouchListener((v, event) -> {
-            if (event.getAction() == MotionEvent.ACTION_UP && isShiftSelecting) {
-                isShiftSelecting = false;
+            if (event.getAction() == MotionEvent.ACTION_UP && isRangeSelecting) {
+                isRangeSelecting = false;
             }
+
             return false;
         });
 
         return listView;
-    }
-
-    private void toggleSelectionRange(ListView listView, int start, int end) {
-        for (int i = start; i <= end; i++) {
-            listView.setItemChecked(i, true);
-        }
     }
 
     private LinearLayout createMoveButtons(Context context,
@@ -320,7 +334,8 @@ public class FeatureFlagsManagerPreference extends Preference {
         button.setText(text);
         button.setSingleLine(true);
         button.setEllipsize(android.text.TextUtils.TruncateAt.END);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Utils.dipToPixels(40), LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                Utils.dipToPixels(48), LinearLayout.LayoutParams.WRAP_CONTENT);
         params.gravity = Gravity.CENTER;
         button.setLayoutParams(params);
         button.setOnClickListener(v -> action.run());
@@ -363,8 +378,9 @@ public class FeatureFlagsManagerPreference extends Preference {
             toListView.clearChoices();
         }
 
-        lastLongPressedPosition = -1;
-        isShiftSelecting = false;
+        // Reset selection state after moving.
+        lastClickedPosition = -1;
+        isRangeSelecting = false;
     }
 
     private void moveAllFlags(ListView fromListView, ListView toListView,
@@ -373,7 +389,6 @@ public class FeatureFlagsManagerPreference extends Preference {
         moveSelectedFlags(fromListView, toListView, fromFlags, toFlags, fromCountText, toCountText, toBlocked, true);
     }
 
-    @SuppressLint("SetTextI18n")
     private void updateListView(@Nullable ListView listView, List<Long> flags, TextView countText, boolean moveAll) {
         if (listView == null) return;
 
@@ -383,9 +398,9 @@ public class FeatureFlagsManagerPreference extends Preference {
         adapter.addAll(convertFlagsToStrings(flags));
         adapter.notifyDataSetChanged();
 
-        String currentText = countText.getText().toString();
-        String prefix = currentText.contains("Active") ? "Active" : "Blocked";
-        countText.setText(prefix + " Flags (" + flags.size() + ")");
+        // Update header using saved key from tag.
+        String headerKey = (String) countText.getTag();
+        countText.setText(str(headerKey, flags.size()));
     }
 
     private List<String> convertFlagsToStrings(List<Long> flags) {
@@ -407,13 +422,17 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         BaseSettings.DISABLED_FEATURE_FLAGS.save(flagsString.toString());
 
-        Utils.showToastShort("Flags saved. Restart the app to apply changes");
+        Utils.showToastShort(str("revanced_debug_feature_flags_manager_saved") + " " +
+                str("revanced_settings_restart_dialog_message")
+        );
 
         Logger.printDebug(() -> "Feature flags saved. Blocked: " + blockedFlags.size());
     }
 
     private void resetFlags() {
         BaseSettings.DISABLED_FEATURE_FLAGS.save("");
-        Utils.showToastShort("Flags reset. Restart the app to apply changes");
+        Utils.showToastShort(str("revanced_debug_feature_flags_manager_reset") + " " +
+                str("revanced_settings_restart_dialog_message")
+        );
     }
 }
