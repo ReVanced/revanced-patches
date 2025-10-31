@@ -1,6 +1,9 @@
 package app.revanced.extension.shared.settings.preference;
 
+import static app.revanced.extension.shared.StringRef.str;
+
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.preference.Preference;
 import android.util.AttributeSet;
@@ -8,13 +11,14 @@ import android.util.SparseBooleanArray;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Space;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,11 +27,13 @@ import java.util.List;
 import java.util.Set;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.patches.EnableDebuggingPatch;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.ui.CustomDialog;
 import android.util.Pair;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 /**
@@ -37,10 +43,10 @@ import androidx.annotation.Nullable;
 @SuppressWarnings({"deprecation", "unused"})
 public class FeatureFlagsManagerPreference extends Preference {
 
-    // Hardcoded whitelist of flags to hide from the UI.
-    private static final Set<Long> HIDDEN_FLAGS = new HashSet<>();
+    // Whitelist of flags to hide from the UI.
+    private static final Set<Long> WHITELIST_FLAGS = new HashSet<>();
     static {
-        HIDDEN_FLAGS.add(12345678L); // Example hidden flag.
+        WHITELIST_FLAGS.add(12345678L); // Example hidden flag.
     }
 
     // Track last long-pressed position for shift-selection.
@@ -78,19 +84,21 @@ public class FeatureFlagsManagerPreference extends Preference {
         Set<Long> disabledFlags = EnableDebuggingPatch.parseFlags(BaseSettings.DISABLED_FEATURE_FLAGS.get());
 
         if (allKnownFlags.isEmpty()) {
-            Toast.makeText(context,
-                    "No feature flags logged yet. Enable debugging and restart the app.",
-                    Toast.LENGTH_LONG).show();
+            Utils.showToastShort("No feature flags logged yet. Enable debugging and restart the app");
             return;
         }
 
         // Filter out hidden flags.
-        allKnownFlags.removeAll(HIDDEN_FLAGS);
+        allKnownFlags.removeAll(WHITELIST_FLAGS);
+
+        // Include all disabled flags, even if not logged in this session.
+        Set<Long> allFlags = new HashSet<>(allKnownFlags);
+        allFlags.addAll(disabledFlags);
 
         List<Long> availableFlags = new ArrayList<>();
         List<Long> blockedFlags = new ArrayList<>();
 
-        for (Long flag : allKnownFlags) {
+        for (Long flag : allFlags) {
             if (disabledFlags.contains(flag)) {
                 blockedFlags.add(flag);
             } else {
@@ -102,42 +110,53 @@ public class FeatureFlagsManagerPreference extends Preference {
         Collections.sort(blockedFlags);
 
         // Use CustomDialog for styled appearance.
-        Pair<android.app.Dialog, LinearLayout> dialogPair = CustomDialog.create(
+        Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
-                "Feature Flags Manager",
+                getTitle() != null ? getTitle().toString() : "",
                 null,
                 null,
-                "Save",
+                str("revanced_settings_save"),
                 () -> saveFlags(blockedFlags),
-                () -> {}, // Cancel does nothing
-                "Reset",
+                () -> {},
+                str("revanced_settings_reset"),
                 this::resetFlags,
                 true
         );
 
-        android.app.Dialog dialog = dialogPair.first;
         LinearLayout mainLayout = dialogPair.second;
+        LinearLayout.LayoutParams listViewParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                0,
+                1.0f
+        );
 
-        View dialogView = createDialogView(context, availableFlags, blockedFlags, dialog);
-        mainLayout.addView(dialogView);
+        // Create content first.
+        View contentView = createContentView(context, availableFlags, blockedFlags);
+        mainLayout.addView(contentView, mainLayout.getChildCount() - 1, listViewParams);
 
+        Dialog dialog = dialogPair.first;
         dialog.show();
+
+        Window window = dialog.getWindow();
+        if (window != null) {
+            Utils.setDialogWindowParameters(window, Gravity.CENTER, 0, 100, false);
+        }
     }
 
     @SuppressLint("SetTextI18n")
-    private View createDialogView(Context context, List<Long> availableFlags, List<Long> blockedFlags, android.app.Dialog dialog) {
-        LinearLayout mainLayout = new LinearLayout(context);
-        mainLayout.setOrientation(LinearLayout.VERTICAL);
-        mainLayout.setPadding(20, 20, 20, 20);
+    private View createContentView(Context context, List<Long> availableFlags, List<Long> blockedFlags) {
+        LinearLayout contentLayout = new LinearLayout(context);
+        contentLayout.setOrientation(LinearLayout.VERTICAL);
+        contentLayout.setPadding(20, 20, 20, 20);
 
         // Headers.
         LinearLayout headersLayout = createHeaders(context, availableFlags, blockedFlags);
 
         // Content with columns and buttons.
-        LinearLayout contentLayout = new LinearLayout(context);
-        contentLayout.setOrientation(LinearLayout.HORIZONTAL);
-        contentLayout.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, 600));
+        LinearLayout columnsLayout = new LinearLayout(context);
+        columnsLayout.setOrientation(LinearLayout.HORIZONTAL);
+        columnsLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f));
 
         // Left: Active flags.
         ListView availableListView = createFlagsListView(context, availableFlags, true);
@@ -154,16 +173,17 @@ public class FeatureFlagsManagerPreference extends Preference {
                 availableCountText, blockedCountText
         );
 
-        contentLayout.addView(availableListView);
-        contentLayout.addView(buttonsLayout);
-        contentLayout.addView(blockedListView);
+        columnsLayout.addView(availableListView);
+        columnsLayout.addView(buttonsLayout);
+        columnsLayout.addView(blockedListView);
 
-        mainLayout.addView(headersLayout);
-        mainLayout.addView(contentLayout);
+        contentLayout.addView(headersLayout);
+        contentLayout.addView(columnsLayout);
 
-        return mainLayout;
+        return contentLayout;
     }
 
+    @SuppressLint("SetTextI18n")
     private LinearLayout createHeaders(Context context, List<Long> availableFlags, List<Long> blockedFlags) {
         LinearLayout headersLayout = new LinearLayout(context);
         headersLayout.setOrientation(LinearLayout.HORIZONTAL);
@@ -171,8 +191,8 @@ public class FeatureFlagsManagerPreference extends Preference {
         TextView availableCountText = new TextView(context);
         availableCountText.setText("Active Flags (" + availableFlags.size() + ")");
         availableCountText.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
-        availableCountText.setTextSize(16);
-        availableCountText.setPadding(0, 0, 10, 10);
+        availableCountText.setTextSize(14);
+        availableCountText.setPadding(10, 0, 10, 10);
 
         TextView spacer = new TextView(context);
         spacer.setLayoutParams(new LinearLayout.LayoutParams(100, LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -180,7 +200,7 @@ public class FeatureFlagsManagerPreference extends Preference {
         TextView blockedCountText = new TextView(context);
         blockedCountText.setText("Blocked Flags (" + blockedFlags.size() + ")");
         blockedCountText.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
-        blockedCountText.setTextSize(16);
+        blockedCountText.setTextSize(14);
         blockedCountText.setPadding(10, 0, 0, 10);
 
         headersLayout.addView(availableCountText);
@@ -190,14 +210,32 @@ public class FeatureFlagsManagerPreference extends Preference {
         return headersLayout;
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private ListView createFlagsListView(Context context, List<Long> flags, boolean isAvailable) {
         ListView listView = new ListView(context);
         listView.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1f));
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        listView.setPadding(0, 0, 0, 0);
+        listView.setDividerHeight(0);
 
+        // Custom adapter to control text size and no wrap.
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context,
-                android.R.layout.simple_list_item_multiple_choice,
-                convertFlagsToStrings(flags));
+                android.R.layout.simple_list_item_multiple_choice, convertFlagsToStrings(flags)) {
+            @NonNull
+            @Override
+            public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView textView = view.findViewById(android.R.id.text1);
+                if (textView != null) {
+                    textView.setTextSize(14);
+                    textView.setSingleLine(true);
+                    textView.setEllipsize(android.text.TextUtils.TruncateAt.END);
+                    textView.setPadding(10, 0, 0, 0);
+                }
+                return view;
+            }
+        };
+
         listView.setAdapter(adapter);
 
         // Long click for shift selection.
@@ -244,7 +282,7 @@ public class FeatureFlagsManagerPreference extends Preference {
         buttonsLayout.setPadding(10, 0, 10, 0);
 
         Button moveOneRight = createMoveButton(context, ">", () ->
-                moveSelectedFlags(availableListView, blockedListView, availableFlags,blockedFlags,
+                moveSelectedFlags(availableListView, blockedListView, availableFlags, blockedFlags,
                         availableCountText, blockedCountText, true, false));
 
         Button moveAllRight = createMoveButton(context, ">>", () ->
@@ -280,7 +318,11 @@ public class FeatureFlagsManagerPreference extends Preference {
     private Button createMoveButton(Context context, String text, Runnable action) {
         Button button = new Button(context);
         button.setText(text);
-        button.setLayoutParams(new LinearLayout.LayoutParams(80, LinearLayout.LayoutParams.WRAP_CONTENT));
+        button.setSingleLine(true);
+        button.setEllipsize(android.text.TextUtils.TruncateAt.END);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Utils.dipToPixels(40), LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.gravity = Gravity.CENTER;
+        button.setLayoutParams(params);
         button.setOnClickListener(v -> action.run());
         return button;
     }
@@ -311,7 +353,6 @@ public class FeatureFlagsManagerPreference extends Preference {
         toFlags.addAll(toMove);
         Collections.sort(toFlags);
 
-        // Use stored adapters instead of casting
         updateListView(fromListView, fromFlags, fromCountText, moveAll);
         updateListView(toListView, toFlags, toCountText, moveAll);
 
@@ -326,14 +367,13 @@ public class FeatureFlagsManagerPreference extends Preference {
         isShiftSelecting = false;
     }
 
-    // New: moveAllFlags now uses actual ListView references
     private void moveAllFlags(ListView fromListView, ListView toListView,
                               List<Long> fromFlags, List<Long> toFlags,
                               TextView fromCountText, TextView toCountText, boolean toBlocked) {
         moveSelectedFlags(fromListView, toListView, fromFlags, toFlags, fromCountText, toCountText, toBlocked, true);
     }
 
-    // Replace updateListView to avoid unchecked cast
+    @SuppressLint("SetTextI18n")
     private void updateListView(@Nullable ListView listView, List<Long> flags, TextView countText, boolean moveAll) {
         if (listView == null) return;
 
@@ -343,8 +383,6 @@ public class FeatureFlagsManagerPreference extends Preference {
         adapter.addAll(convertFlagsToStrings(flags));
         adapter.notifyDataSetChanged();
 
-        String label = listView.getId() == android.R.id.list ? "Active" : "Blocked"; // fallback
-        // Better: determine by count text
         String currentText = countText.getText().toString();
         String prefix = currentText.contains("Active") ? "Active" : "Blocked";
         countText.setText(prefix + " Flags (" + flags.size() + ")");
@@ -362,24 +400,20 @@ public class FeatureFlagsManagerPreference extends Preference {
         StringBuilder flagsString = new StringBuilder();
         for (Long flag : blockedFlags) {
             if (flagsString.length() > 0) {
-                flagsString.append('\n'); // Use actual newline.
+                flagsString.append("\n");
             }
             flagsString.append(flag);
         }
 
         BaseSettings.DISABLED_FEATURE_FLAGS.save(flagsString.toString());
 
-        Toast.makeText(getContext(),
-                "Flags saved. Restart the app to apply changes.",
-                Toast.LENGTH_LONG).show();
+        Utils.showToastShort("Flags saved. Restart the app to apply changes");
 
         Logger.printDebug(() -> "Feature flags saved. Blocked: " + blockedFlags.size());
     }
 
     private void resetFlags() {
         BaseSettings.DISABLED_FEATURE_FLAGS.save("");
-        Toast.makeText(getContext(),
-                "Flags reset. Restart the app to apply changes.",
-                Toast.LENGTH_LONG).show();
+        Utils.showToastShort("Flags reset. Restart the app to apply changes");
     }
 }
