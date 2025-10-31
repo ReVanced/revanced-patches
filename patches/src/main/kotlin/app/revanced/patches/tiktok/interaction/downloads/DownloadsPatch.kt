@@ -55,7 +55,7 @@ val downloadsPatch = bytecodePatch(
         downloadUriFingerprint.method.apply {
             findInstructionIndicesReversedOrThrow {
                 getReference<FieldReference>().let {
-                    it?.definingClass == "Landroid/os/Environment;" && it?.name?.startsWith("DIRECTORY_") == true
+                    it?.definingClass == "Landroid/os/Environment;" && it.name.startsWith("DIRECTORY_")
                 }
             }.forEach { fieldIndex ->
                 val pathRegister = getInstruction<OneRegisterInstruction>(fieldIndex).registerA
