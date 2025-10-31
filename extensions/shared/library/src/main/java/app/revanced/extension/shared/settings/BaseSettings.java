@@ -46,5 +46,4 @@ public class BaseSettings {
     public static final IntegerSetting CUSTOM_BRANDING_NAME = new IntegerSetting("revanced_custom_branding_name", 1, true);
 
     public static final StringSetting DISABLED_FEATURE_FLAGS = new StringSetting("revanced_disabled_feature_flags", "", true, parent(DEBUG));
-    public static final StringSetting ENABLED_FEATURE_FLAGS = new StringSetting("revanced_enabled_feature_flags", "", true, parent(DEBUG));
 }

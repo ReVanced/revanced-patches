@@ -31,9 +31,5 @@ val enableDebuggingPatch = enableDebuggingPatch(
     },
     hookStringFeatureFlag = true,
     preferenceScreen = PreferenceScreen.MISC,
-    additionalDebugPreferences = listOf(
-        SwitchPreference("revanced_debug_protobuffer"),
-        TextPreference("revanced_disabled_feature_flags", inputType = InputType.TEXT_MULTI_LINE),
-        TextPreference("revanced_enabled_feature_flags", inputType = InputType.TEXT_MULTI_LINE),
-    )
+    additionalDebugPreferences = listOf(SwitchPreference("revanced_debug_protobuffer"))
 )

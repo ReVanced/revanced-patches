@@ -221,10 +221,8 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_debug_logs_clear_buffer_title">Clear debug logs</string>
             <string name="revanced_debug_logs_clear_buffer_summary">Clears all stored ReVanced debug logs</string>
             <string name="revanced_debug_logs_clear_toast">Logs cleared</string>
-            <string name="revanced_disabled_feature_flags_title">Disable feature flags</string>
-            <string name="revanced_disabled_feature_flags_summary">List of boolean feature flags to block list separated by new line</string>
-            <string name="revanced_enabled_feature_flags_title">Enable feature flags</string>
-            <string name="revanced_enabled_feature_flags_summary">List of boolean feature flags to enable list separated by new line</string>
+            <string name="revanced_debug_feature_flags_manager_title">Feature flags manager</string>
+            <string name="revanced_debug_feature_flags_manager_summary">Manage boolean feature flags</string>
         </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch">
             <string name="revanced_sanitize_sharing_links_title">Sanitize sharing links</string>

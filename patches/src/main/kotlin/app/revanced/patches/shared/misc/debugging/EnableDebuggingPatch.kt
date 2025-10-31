@@ -64,6 +64,11 @@ internal fun enableDebuggingPatch(
                     "revanced_debug_logs_clear_buffer",
                     tag = "app.revanced.extension.shared.settings.preference.ClearLogBufferPreference",
                     selectable = true
+                ),
+                NonInteractivePreference(
+                    "revanced_debug_feature_flags_manager",
+                    tag = "app.revanced.extension.shared.settings.preference.FeatureFlagsManagerPreference",
+                    selectable = true
                 )
             )
         )

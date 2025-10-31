@@ -24,32 +24,11 @@ public final class EnableDebuggingPatch {
             : null;
 
     private static final Set<Long> DISABLED_FEATURE_FLAGS = parseFlags(BaseSettings.DISABLED_FEATURE_FLAGS.get());
-    private static final Set<Long> ENABLED_FEATURE_FLAGS = parseFlags(BaseSettings.ENABLED_FEATURE_FLAGS.get());
-
-    // Parse the string of flags.
-    private static Set<Long> parseFlags(String flags) {
-        Set<Long> parsedFlags = new HashSet<>();
-        if (flags != null && !flags.trim().isEmpty()) {
-            for (String flag : flags.split("\n")) {
-                String trimmedFlag = flag.trim();
-                try {
-                    parsedFlags.add(Long.parseLong(trimmedFlag));
-                } catch (NumberFormatException e) {
-                    Logger.printDebug(() -> "Invalid flag ID: " + flag);
-                }
-            }
-        }
-        return parsedFlags;
-    }
 
     /**
      * Injection point.
      */
     public static boolean isBooleanFeatureFlagEnabled(boolean value, Long flag) {
-        if (ENABLED_FEATURE_FLAGS.contains(flag)) {
-            Logger.printDebug(() -> "Flag enabled: " + flag);
-            return true;
-        }
         if (DISABLED_FEATURE_FLAGS.contains(flag)) {
             Logger.printDebug(() -> "Flag disabled: " + flag);
             return false;
@@ -102,5 +81,38 @@ public final class EnableDebuggingPatch {
         }
 
         return value;
+    }
+
+    /**
+     * Get all logged feature flags.
+     * @return Set of all known flags
+     */
+    public static Set<Long> getAllLoggedFlags() {
+        if (featureFlags != null) {
+            return new HashSet<>(featureFlags.keySet());
+        }
+
+        return new HashSet<>();
+    }
+
+    /**
+     * Public method for parsing flags.
+     * @param flags String containing newline-separated flag IDs
+     * @return Set of parsed flag IDs
+     */
+    public static Set<Long> parseFlags(String flags) {
+        Set<Long> parsedFlags = new HashSet<>();
+        if (flags != null && !flags.trim().isEmpty()) {
+            for (String flag : flags.split("\n")) {
+                String trimmedFlag = flag.trim();
+                try {
+                    parsedFlags.add(Long.parseLong(trimmedFlag));
+                } catch (NumberFormatException e) {
+                    Logger.printDebug(() -> "Invalid flag ID: " + flag);
+                }
+            }
+        }
+
+        return parsedFlags;
     }
 }
