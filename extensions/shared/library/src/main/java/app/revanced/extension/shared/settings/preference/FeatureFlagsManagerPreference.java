@@ -218,7 +218,7 @@ public class FeatureFlagsManagerPreference extends Preference {
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private ListView createFlagsListView(Context context, List<Long> flags, boolean isAvailable) {
+    private ListView createFlagsListView(Context context, List<Long> flags) {
         ListView listView = new ListView(context);
         listView.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1f));
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
