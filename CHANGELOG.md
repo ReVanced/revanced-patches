@@ -1,3 +1,11 @@
+# [5.45.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.45.0-dev.4...v5.45.0-dev.5) (2025-11-01)
+
+
+### Bug Fixes
+
+* **TikTok - Downloads:** Fix download path setting  ([#6191](https://github.com/ReVanced/revanced-patches/issues/6191)) ([3e4990a](https://github.com/ReVanced/revanced-patches/commit/3e4990afff4c86b93970b153db713ad0f813124d))
+* **YouTube - Spoof video streams:** Remove spoof stream audio selector that no longer works ([292fae4](https://github.com/ReVanced/revanced-patches/commit/292fae440c6d5694c5e84407becec2d91f1fd156))
+
 # [5.45.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.45.0-dev.3...v5.45.0-dev.4) (2025-10-30)
 
 
