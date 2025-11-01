@@ -50,6 +50,11 @@ internal fun enableDebuggingPatch(
                         "revanced_settings_copy_all.xml",
                         "revanced_settings_deselect_all.xml",
                         "revanced_settings_select_all.xml",
+                        // Move buttons.
+                        "revanced_settings_arrow_left_double.xml",
+                        "revanced_settings_arrow_left_one.xml",
+                        "revanced_settings_arrow_right_double.xml",
+                        "revanced_settings_arrow_right_one.xml"
                     )
                 )
             }

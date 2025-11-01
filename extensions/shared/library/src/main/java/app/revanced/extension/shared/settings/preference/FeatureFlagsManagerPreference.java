@@ -56,16 +56,23 @@ public class FeatureFlagsManagerPreference extends Preference {
 
     public static final int DRAWABLE_REVANCED_SETTINGS_SELECT_ALL =
             getResourceIdentifierOrThrow("revanced_settings_select_all", "drawable");
-
     public static final int DRAWABLE_REVANCED_SETTINGS_DESELECT_ALL =
             getResourceIdentifierOrThrow("revanced_settings_deselect_all", "drawable");
-
     public static final int DRAWABLE_REVANCED_SETTINGS_COPY_ALL =
             getResourceIdentifierOrThrow("revanced_settings_copy_all", "drawable");
+    public static final int DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_ONE =
+            getResourceIdentifierOrThrow("revanced_settings_arrow_right_one", "drawable");
+    public static final int DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_DOUBLE =
+            getResourceIdentifierOrThrow("revanced_settings_arrow_right_double", "drawable");
+    public static final int DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_ONE =
+            getResourceIdentifierOrThrow("revanced_settings_arrow_left_one", "drawable");
+    public static final int DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_DOUBLE =
+            getResourceIdentifierOrThrow("revanced_settings_arrow_left_double", "drawable");
 
     static final int dip4 = Utils.dipToPixels(4);
-    static final int dip12 = Utils.dipToPixels(12);
-    static final int dip48 = Utils.dipToPixels(48);
+    static final int dip24 = Utils.dipToPixels(24);
+    static final int dip36 = Utils.dipToPixels(36);
+    static final int dip44 = Utils.dipToPixels(44);
 
     // Flags to hide from the UI.
     private static final Set<Long> HIDDEN_FLAGS = new HashSet<>();
@@ -215,7 +222,7 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         TextView spacer = new TextView(context);
         spacer.setLayoutParams(new LinearLayout.LayoutParams(
-                Utils.dipToPixels(56), LinearLayout.LayoutParams.WRAP_CONTENT));
+                dip44, LinearLayout.LayoutParams.WRAP_CONTENT));
 
         headersLayout.addView(availableCountText);
         headersLayout.addView(spacer);
@@ -230,7 +237,7 @@ public class FeatureFlagsManagerPreference extends Preference {
         EditText searchAvailable = createSearchBox(context, availableAdapter, availableListView, availableCountText);
         leftWrapper.addView(searchAvailable);
 
-        LinearLayout buttonsRowAvailable = createActionButtonsRow(context, availableListView, availableAdapter);
+        LinearLayout buttonsRowAvailable = createActionButtons(context, availableListView, availableAdapter);
         leftWrapper.addView(buttonsRowAvailable);
 
         availableListView.setLayoutParams(new LinearLayout.LayoutParams(
@@ -246,7 +253,7 @@ public class FeatureFlagsManagerPreference extends Preference {
         EditText searchBlocked = createSearchBox(context, blockedAdapter, blockedListView, blockedCountText);
         rightWrapper.addView(searchBlocked);
 
-        LinearLayout buttonsRowBlocked = createActionButtonsRow(context, blockedListView, blockedAdapter);
+        LinearLayout buttonsRowBlocked = createActionButtons(context, blockedListView, blockedAdapter);
         rightWrapper.addView(buttonsRowBlocked);
 
         blockedListView.setLayoutParams(new LinearLayout.LayoutParams(
@@ -309,29 +316,27 @@ public class FeatureFlagsManagerPreference extends Preference {
     /**
      * Creates action buttons.
      */
-    private LinearLayout createActionButtonsRow(Context context, ListView listView, FlagAdapter adapter) {
+    private LinearLayout createActionButtons(Context context, ListView listView, FlagAdapter adapter) {
         LinearLayout row = new LinearLayout(context);
         row.setOrientation(LinearLayout.HORIZONTAL);
+        row.setGravity(Gravity.CENTER);
         row.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
-        ImageButton selectAll = createActionButton(context,
-                DRAWABLE_REVANCED_SETTINGS_SELECT_ALL,
+        ImageButton selectAll = createButton(context, DRAWABLE_REVANCED_SETTINGS_SELECT_ALL,
                 () -> {
                     for (int i = 0; i < adapter.getCount(); i++) {
                         listView.setItemChecked(i, true);
                     }
                 });
 
-        ImageButton clearAll = createActionButton(context,
-                DRAWABLE_REVANCED_SETTINGS_DESELECT_ALL,
+        ImageButton clearAll = createButton(context, DRAWABLE_REVANCED_SETTINGS_DESELECT_ALL,
                 () -> {
                     listView.clearChoices();
                     adapter.notifyDataSetChanged();
                 });
 
-        ImageButton copy = createActionButton(context,
-                DRAWABLE_REVANCED_SETTINGS_COPY_ALL,
+        ImageButton copy = createButton(context, DRAWABLE_REVANCED_SETTINGS_COPY_ALL,
                 () -> {
                     SparseBooleanArray checked = listView.getCheckedItemPositions();
                     StringBuilder stringBuilder = new StringBuilder();
@@ -364,7 +369,7 @@ public class FeatureFlagsManagerPreference extends Preference {
     }
 
     /**
-     * Creates the central move buttons: > >> < <<.
+     * Creates the central move buttons.
      */
     private LinearLayout createMoveButtons(Context context,
                                            ListView availableListView, ListView blockedListView,
@@ -375,25 +380,24 @@ public class FeatureFlagsManagerPreference extends Preference {
         buttonsLayout.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT));
         buttonsLayout.setGravity(Gravity.CENTER);
-        buttonsLayout.setPadding(dip4, 0, dip4, 0);
 
-        Button moveOneRight = createMoveButton(context, ">", () ->
-                moveSelectedFlags(availableListView, blockedListView, availableFlags, blockedFlags,
+        ImageButton moveOneRight = createButton(context, DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_ONE,
+                () -> moveSelectedFlags(availableListView, blockedListView, availableFlags, blockedFlags,
                         availableCountText, blockedCountText, false));
 
-        Button moveAllRight = createMoveButton(context, ">>", () ->
-                moveSelectedFlags(availableListView, blockedListView, availableFlags, blockedFlags,
+        ImageButton moveAllRight = createButton(context, DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_DOUBLE,
+                () -> moveSelectedFlags(availableListView, blockedListView, availableFlags, blockedFlags,
                         availableCountText, blockedCountText, true));
 
         Space space = new Space(context);
-        space.setLayoutParams(new LinearLayout.LayoutParams(0, Utils.dipToPixels(24)));
+        space.setLayoutParams(new LinearLayout.LayoutParams(0, dip24));
 
-        Button moveOneLeft = createMoveButton(context, "<", () ->
-                moveSelectedFlags(blockedListView, availableListView, blockedFlags, availableFlags,
+        ImageButton moveOneLeft = createButton(context, DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_ONE,
+                () -> moveSelectedFlags(blockedListView, availableListView, blockedFlags, availableFlags,
                         blockedCountText, availableCountText, false));
 
-        Button moveAllLeft = createMoveButton(context, "<<", () ->
-                moveSelectedFlags(blockedListView, availableListView, blockedFlags, availableFlags,
+        ImageButton moveAllLeft = createButton(context, DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_DOUBLE,
+                () -> moveSelectedFlags(blockedListView, availableListView, blockedFlags, availableFlags,
                         blockedCountText, availableCountText, true));
 
         buttonsLayout.addView(moveOneRight);
@@ -406,28 +410,10 @@ public class FeatureFlagsManagerPreference extends Preference {
     }
 
     /**
-     * Creates a styled move button.
-     */
-    private Button createMoveButton(Context context, String text, Runnable action) {
-        Button button = new Button(context);
-        button.setText(text);
-        button.setTextSize(14);
-        button.setSingleLine(true);
-        button.setEllipsize(TextUtils.TruncateAt.END);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                dip48, dip48);
-        params.gravity = Gravity.CENTER;
-        button.setLayoutParams(params);
-        button.setOnClickListener(v -> action.run());
-
-        return button;
-    }
-
-    /**
-     * Creates a styled action button.
+     * Creates a styled ImageButton.
      */
     @SuppressLint("ResourceType")
-    private ImageButton createActionButton(Context context, int drawableResId, Runnable action) {
+    private ImageButton createButton(Context context, int drawableResId, Runnable action) {
         ImageButton button = new ImageButton(context);
 
         button.setImageResource(drawableResId);
@@ -438,11 +424,11 @@ public class FeatureFlagsManagerPreference extends Preference {
         ripple.recycle();
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                0, LinearLayout.LayoutParams.MATCH_PARENT, 1f);
+                dip36, dip36);
         params.setMargins(dip4, dip4, dip4, dip4);
         button.setLayoutParams(params);
 
-        button.setMinimumHeight(Utils.dipToPixels(36));
+        button.setMinimumHeight(dip36);
         button.setOnClickListener(v -> action.run());
 
         return button;
