@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
+<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1635,10 +1635,6 @@ AV1 সহ ভিডিও প্লেব্যাক আটকে যেতে
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">স্ট্যাটস ফর নার্ডসে দেখান</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">স্ট্যাটস ফর নার্ডসে ক্লায়েন্ট প্রকার দেখানো হবে</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">স্ট্যাটস ফর নার্ডসে ক্লায়েন্ট লুকানো হবে</string>
-  <string name="revanced_spoof_video_streams_language_title">অডিও স্ট্রিম ভাষা</string>
-  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">একটি নির্দিষ্ট অডিও ভাষা নির্বাচন করতে, \'মূল অডিও ভাষা জোর করে চালু রাখুন\' বন্ধ করুন</string>
-  <string name="revanced_spoof_video_streams_language_android_studio">অ্যান্ড্রয়েড স্টুডিও সহ স্ট্রিম ভাষার নির্বাচন উপলব্ধ নেই</string>
   </patch>
   </app>
   <app id="music">

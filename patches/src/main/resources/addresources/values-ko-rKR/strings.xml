@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
+<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1441,11 +1441,11 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_header_logo_entry_6">사용자 정의</string>
   </patch>
   <patch id="layout.thumbnails.bypassImageRegionRestrictionsPatch">
-  <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 국가 우회하기</string>
+  <string name="revanced_bypass_image_region_restrictions_title">이미지 표시 제한 지역 우회하기</string>
   <string name="revanced_bypass_image_region_restrictions_summary_on">이미지 호스트로 yt4.ggpht.com를 사용합니다</string>
   <string name="revanced_bypass_image_region_restrictions_summary_off">"기본 이미지 호스트를 사용합니다
 
-이 기능을 활성화하면 일부 국가에서 차단된 이미지를 수신할 수 있습니다"</string>
+이 기능을 활성화하면 일부 지역에서 차단된 이미지를 수신할 수 있습니다"</string>
   </patch>
   <patch id="layout.thumbnails.alternativeThumbnailsPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
@@ -1646,10 +1646,6 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">전문 통계에서 표시하기</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">동영상 스트림을 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시됩니다</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">동영상 스트림을 가져오는 데 사용되는 클라이언트가 전문 통계에서 표시되지 않습니다</string>
-  <string name="revanced_spoof_video_streams_language_title">오디오 스트림 언어</string>
-  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">특정 오디오 언어를 선택하려면, \'원본 오디오 언어 강제로 활성화하기\'를 끄세요</string>
-  <string name="revanced_spoof_video_streams_language_android_studio">Android Studio에서는 스트림 언어를 선택할 수 없습니다</string>
   </patch>
   </app>
   <app id="music">

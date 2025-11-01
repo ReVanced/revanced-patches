@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
+<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -259,7 +259,6 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <!-- "Force original audio" should use the same text as revanced_force_original_audio_title -->
-  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
   </patch>
   </app>
   <app id="music">
