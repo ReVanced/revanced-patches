@@ -50,10 +50,10 @@ import androidx.annotation.Nullable;
 @SuppressWarnings({"deprecation", "unused"})
 public class FeatureFlagsManagerPreference extends Preference {
 
-    // Whitelist of flags to hide from the UI.
-    private static final Set<Long> WHITELIST_FLAGS = new HashSet<>();
+    // Flags to hide from the UI.
+    private static final Set<Long> HIDDEN_FLAGS = new HashSet<>();
     static {
-        WHITELIST_FLAGS.add(12345678L); // Example hidden flag.
+        HIDDEN_FLAGS.add(45386834L); // Blocks settings button.
     }
 
     /**
@@ -103,7 +103,7 @@ public class FeatureFlagsManagerPreference extends Preference {
         }
 
         // Filter out hidden flags.
-        allKnownFlags.removeAll(WHITELIST_FLAGS);
+        allKnownFlags.removeAll(HIDDEN_FLAGS);
 
         // Include all disabled flags, even if not logged in this session.
         Set<Long> allFlags = new HashSet<>(allKnownFlags);
