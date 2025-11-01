@@ -338,26 +338,21 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         ImageButton copy = createButton(context, DRAWABLE_REVANCED_SETTINGS_COPY_ALL,
                 () -> {
+                    List<String> items = new ArrayList<>();
                     SparseBooleanArray checked = listView.getCheckedItemPositions();
-                    StringBuilder stringBuilder = new StringBuilder();
 
                     if (checked.size() > 0) {
                         for (int i = 0; i < adapter.getCount(); i++) {
                             if (checked.get(i)) {
-                                if (stringBuilder.length() > 0) stringBuilder.append("\n");
-                                stringBuilder.append(adapter.getItem(i));
+                                items.add(adapter.getItem(i).toString());
                             }
                         }
                     } else {
-                        for (Long flag : adapter.getFullFlags()) {
-                            if (stringBuilder.length() > 0) stringBuilder.append("\n");
-                            stringBuilder.append(flag);
-                        }
+                        adapter.getFullFlags().forEach(flag -> items.add(flag.toString()));
                     }
 
-                    ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-                    ClipData clip = ClipData.newPlainText("Feature Flags", stringBuilder.toString());
-                    clipboard.setPrimaryClip(clip);
+                    Utils.setClipboard(TextUtils.join("\n", items));
+
                     Utils.showToastShort(str("revanced_debug_feature_flags_manager_toast_copied"));
                 });
 
