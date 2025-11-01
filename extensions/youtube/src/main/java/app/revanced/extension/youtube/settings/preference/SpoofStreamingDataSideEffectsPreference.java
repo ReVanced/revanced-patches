@@ -80,29 +80,34 @@ public class SpoofStreamingDataSideEffectsPreference extends Preference {
         Logger.printDebug(() -> "Updating spoof stream side effects preference");
         setEnabled(BaseSettings.SPOOF_VIDEO_STREAMS.get());
 
-        String summary = str("revanced_spoof_video_streams_about_no_audio_tracks");
+        String summary = "";
 
         switch (clientType) {
             case ANDROID_CREATOR ->
-                    summary += '\n' + str("revanced_spoof_video_streams_about_no_stable_volume")
-                    + '\n' + str("revanced_spoof_video_streams_about_no_av1")
-                    + '\n' + str("revanced_spoof_video_streams_about_no_force_original_audio");
+                    summary = str("revanced_spoof_video_streams_about_no_audio_tracks")
+                            + '\n' + str("revanced_spoof_video_streams_about_no_stable_volume")
+                            + '\n' + str("revanced_spoof_video_streams_about_no_av1")
+                            + '\n' + str("revanced_spoof_video_streams_about_no_force_original_audio");
             // VR 1.61 is not exposed in the UI and should never be reached here.
             case ANDROID_VR_1_43_32, ANDROID_VR_1_61_48 ->
-                    summary += '\n' + str("revanced_spoof_video_streams_about_no_stable_volume");
+                    summary = str("revanced_spoof_video_streams_about_no_audio_tracks")
+                            + '\n' + str("revanced_spoof_video_streams_about_no_stable_volume");
+            case ANDROID_NO_SDK ->
+                    summary = str("revanced_spoof_video_streams_about_playback_failure");
             case IPADOS ->
                     summary = str("revanced_spoof_video_streams_about_playback_failure")
                             + '\n' + str("revanced_spoof_video_streams_about_no_av1");
             case VISIONOS ->
                     summary = str("revanced_spoof_video_streams_about_experimental")
-                            + '\n' + summary
+                            + '\n' + str("revanced_spoof_video_streams_about_no_audio_tracks")
                             + '\n' + str("revanced_spoof_video_streams_about_no_av1");
+            default -> Logger.printException(() -> "Unknown client: " + clientType);
         }
 
         // Only iPadOS can play children videos in incognito, but it commonly fails at 1 minute
-        // or doesn't even start playback at all. List the side effect for other clients
+        // or doesn't start playback at all. List the side effect for other clients
         // since they will fall over to iPadOS.
-        if (clientType != ClientType.IPADOS) {
+        if (clientType != ClientType.IPADOS && clientType != ClientType.ANDROID_NO_SDK) {
             summary += '\n' + str("revanced_spoof_video_streams_about_kids_videos");
         }
 
