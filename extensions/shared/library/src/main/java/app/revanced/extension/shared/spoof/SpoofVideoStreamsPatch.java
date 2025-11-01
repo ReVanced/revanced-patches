@@ -14,18 +14,10 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.requests.StreamingDataRequest;
 
 @SuppressWarnings("unused")
 public class SpoofVideoStreamsPatch {
-
-    public static final class AudioStreamLanguageOverrideAvailability implements Setting.Availability {
-        @Override
-        public boolean isAvailable() {
-            return BaseSettings.SPOOF_VIDEO_STREAMS.get() && !preferredClient.useAuth;
-        }
-    }
 
     /**
      * Domain used for internet connectivity verification.
@@ -62,8 +54,7 @@ public class SpoofVideoStreamsPatch {
     }
 
     /**
-     * @param language Language override for non-authenticated requests. If this is null then
-     *                 {@link BaseSettings#SPOOF_VIDEO_STREAMS_LANGUAGE} is used.
+     * @param language Language override for non-authenticated requests.
      */
     public static void setLanguageOverride(@Nullable AppLanguage language) {
         languageOverride = language;
