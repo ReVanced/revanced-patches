@@ -185,10 +185,12 @@
             <string-array name="revanced_spoof_video_streams_client_type_entries">
                 <item>Android VR</item>
                 <item>visionOS</item>
+                <item>Android No SDK</item>
             </string-array>
             <string-array name="revanced_spoof_video_streams_client_type_entry_values">
                 <item>ANDROID_VR_1_43_32</item>
                 <item>VISIONOS</item>
+                <item>ANDROID_NO_SDK</item>
             </string-array>
         </patch>
     </app>
@@ -227,12 +229,14 @@
             <string-array name="revanced_spoof_video_streams_client_type_entries">
                 <item>Android VR</item>
                 <item>Android Studio</item>
+                <item>Android No SDK</item>
                 <item>visionOS</item>
                 <item>iPadOS</item>
             </string-array>
             <string-array name="revanced_spoof_video_streams_client_type_entry_values">
                 <item>ANDROID_VR_1_43_32</item>
                 <item>ANDROID_CREATOR</item>
+                <item>ANDROID_NO_SDK</item>
                 <item>VISIONOS</item>
                 <item>IPADOS</item>
             </string-array>
@@ -397,8 +401,8 @@
                 <item>DEFAULT</item>
                 <item>REGULAR</item>
                 <item>PREMIUM</item>
-                <item>REVANCED</item>
-                <item>REVANCED_MINIMAL</item>
+                <item>ROUNDED</item>
+                <item>MINIMAL</item>
             </string-array>
             <string-array name="revanced_header_logo_custom_entries">
                 <item>@string/revanced_header_logo_entry_1</item>
@@ -412,8 +416,8 @@
                 <item>DEFAULT</item>
                 <item>REGULAR</item>
                 <item>PREMIUM</item>
-                <item>REVANCED</item>
-                <item>REVANCED_MINIMAL</item>
+                <item>ROUNDED</item>
+                <item>MINIMAL</item>
                 <item>CUSTOM</item>
             </string-array>
         </patch>

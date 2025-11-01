@@ -55,6 +55,33 @@ public enum ClientType {
             "Android VR 1.43"
     ),
     /**
+     * Video not playable: Paid / Movie / Private / Age-restricted.
+     * Note: The 'Authorization' key must be excluded from the header.
+     *
+     * According to TeamNewPipe in 2022, if the 'androidSdkVersion' field is missing,
+     * the GVS did not return a valid response:
+     * [NewPipe#8713 (comment)](https://github.com/TeamNewPipe/NewPipe/issues/8713#issuecomment-1207443550).
+     *
+     * According to the latest commit in yt-dlp, the GVS returns a valid response
+     * even if the 'androidSdkVersion' field is missing:
+     * [yt-dlp#14693](https://github.com/yt-dlp/yt-dlp/pull/14693).
+     *
+     * For some reason, PoToken is not required.
+     */
+    ANDROID_NO_SDK(
+            3,
+            "ANDROID",
+            "",
+            "",
+            "",
+            Build.VERSION.RELEASE,
+            "20.05.46",
+            "com.google.android.youtube/20.05.46 (Linux; U; Android " + Build.VERSION.RELEASE + ") gzip",
+            false,
+            true,
+            "Android No SDK"
+    ),
+    /**
      * Cannot play livestreams and lacks HDR, but can play videos with music and labeled "for children".
      * <a href="https://dumps.tadiphone.dev/dumps/google/barbet">Google Pixel 9 Pro Fold</a>
      */

@@ -60,6 +60,10 @@ public final class app/revanced/patches/all/misc/connectivity/wifi/spoof/SpoofWi
 	public static final fun getSpoofWifiPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/all/misc/customcertificates/CustomCertificatesPatchKt {
+	public static final fun getCustomNetworkSecurityPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
 public final class app/revanced/patches/all/misc/debugging/EnableAndroidDebuggingPatchKt {
 	public static final fun getEnableAndroidDebuggingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
@@ -1182,6 +1186,10 @@ public final class app/revanced/patches/tiktok/misc/login/fixgoogle/FixGoogleLog
 
 public final class app/revanced/patches/tiktok/misc/settings/SettingsPatchKt {
 	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/tiktok/misc/share/SanitizeShareUrlsPatchKt {
+	public static final fun getSanitizeShareUrlsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/tiktok/misc/spoof/sim/SpoofSimPatchKt {

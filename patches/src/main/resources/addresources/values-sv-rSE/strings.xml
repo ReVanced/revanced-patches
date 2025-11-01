@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
+<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -313,9 +313,9 @@ Om en doodle visas för närvarande i din region och den här döljningsinställ
   <string name="revanced_hide_timed_reactions_title">Dölj tidsbaserade reaktioner</string>
   <string name="revanced_hide_timed_reactions_summary_on">Tidsbaserade reaktioner är dolda</string>
   <string name="revanced_hide_timed_reactions_summary_off">Tidsbaserade reaktioner visas</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_title">Dölj AI-genererad videosammanfattning</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Avsnittet för AI-genererad videosammanfattning är dolt</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Avsnittet för AI-genererad videosammanfattning visas</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">Dölj AI-genererad videoöversikt</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_on">Avsnittet AI-genererad videoöversikt är dolt</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_summary_off">Avsnittet AI-genererad videoöversikt visas</string>
   <string name="revanced_hide_ask_section_title">Dölj Fråga</string>
   <string name="revanced_hide_ask_section_summary_on">Avsnittet Fråga är dolt</string>
   <string name="revanced_hide_ask_section_summary_off">Avsnittet Fråga visas</string>
@@ -1638,10 +1638,6 @@ Videouppspelning med AV1 kan hacka eller tappa bildrutor."</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Visa i Statistik för nördar</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienttypen visas i Statistik för nördar</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klienten är dold i Statistik för nördar</string>
-  <string name="revanced_spoof_video_streams_language_title">Ljudströmmens språk</string>
-  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">Om du vill välja ett specifikt ljudspråk inaktiverar du \"Tvinga ursprungligt ljudspråk\"</string>
-  <string name="revanced_spoof_video_streams_language_android_studio">Val av strömspråk är inte tillgängligt med Android Studio</string>
   </patch>
   </app>
   <app id="music">

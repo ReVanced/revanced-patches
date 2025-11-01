@@ -1,6 +1,7 @@
 package app.revanced.extension.youtube.patches.spoof;
 
 import static app.revanced.extension.shared.spoof.ClientType.ANDROID_CREATOR;
+import static app.revanced.extension.shared.spoof.ClientType.ANDROID_NO_SDK;
 import static app.revanced.extension.shared.spoof.ClientType.ANDROID_VR_1_43_32;
 import static app.revanced.extension.shared.spoof.ClientType.ANDROID_VR_1_61_48;
 import static app.revanced.extension.shared.spoof.ClientType.IPADOS;
@@ -38,9 +39,10 @@ public class SpoofVideoStreamsPatch {
         }
 
         List<ClientType> availableClients = List.of(
+                VISIONOS,
                 ANDROID_CREATOR,
                 ANDROID_VR_1_43_32,
-                VISIONOS,
+                ANDROID_NO_SDK,
                 IPADOS);
 
         app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch.setClientsToUse(

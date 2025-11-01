@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
+<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1638,10 +1638,6 @@ La riproduzione video con AV1 potrebbe rallentare o perdere fotogrammi."</string
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Mostra nelle statistiche per nerd</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Il tipo di client è mostrato nelle statistiche per nerd</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Il client è nascosto nelle statistiche per nerd</string>
-  <string name="revanced_spoof_video_streams_language_title">Lingua del flusso audio</string>
-  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">Per selezionare una lingua audio specifica, disattiva \'Forza lingua audio originale\'</string>
-  <string name="revanced_spoof_video_streams_language_android_studio">La selezione della lingua dello stream non è disponibile con Android Studio</string>
   </patch>
   </app>
   <app id="music">

@@ -150,14 +150,14 @@ public class CustomBrandingPatch {
             }
 
             for (ComponentName disable : componentsToDisable) {
-                // Use info logging because if the alias status become corrupt the app cannot launch.
-                Logger.printInfo(() -> "Disabling: " + disable.getClassName());
                 pm.setComponentEnabledSetting(disable,
                         PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
             }
 
+            // Use info logging because if the alias status become corrupt the app cannot launch.
             ComponentName componentToEnableFinal = componentToEnable;
             Logger.printInfo(() -> "Enabling:  " + componentToEnableFinal.getClassName());
+
             pm.setComponentEnabledSetting(componentToEnable,
                     PackageManager.COMPONENT_ENABLED_STATE_ENABLED, 0);
         } catch (Exception ex) {

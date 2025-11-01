@@ -17,14 +17,24 @@ public class ChangeHeaderPatch {
         DEFAULT(null, null),
         REGULAR("ytWordmarkHeader", "yt_ringo2_wordmark_header"),
         PREMIUM("ytPremiumWordmarkHeader", "yt_ringo2_premium_wordmark_header"),
-        REVANCED("revanced_header_logo", "revanced_header_logo"),
-        REVANCED_MINIMAL("revanced_header_logo_minimal", "revanced_header_logo_minimal"),
-        CUSTOM("custom_header", "custom_header");
+        ROUNDED("revanced_header_rounded"),
+        MINIMAL("revanced_header_minimal"),
+        CUSTOM("revanced_header_custom"),
+
+        // Old enum names for data migration. TODO: Eventually delete these.
+        @Deprecated
+        REVANCED(ROUNDED.attributeName),
+        @Deprecated
+        REVANCED_MINIMAL(MINIMAL.attributeName);
 
         @Nullable
         private final String attributeName;
         @Nullable
         private final String drawableName;
+
+        HeaderLogo(String attributeName) {
+            this(Objects.requireNonNull(attributeName), Objects.requireNonNull(attributeName));
+        }
 
         HeaderLogo(@Nullable String attributeName, @Nullable String drawableName) {
             this.attributeName = attributeName;
@@ -42,9 +52,8 @@ public class ChangeHeaderPatch {
 
             final int identifier = Utils.getResourceIdentifier(attributeName, "attr");
             if (identifier == 0) {
-                // Identifier is zero if custom header setting was included in imported settings
-                // and a custom image was not included during patching.
-                Logger.printDebug(() -> "Could not find attribute: " + drawableName);
+                // Should never happen.
+                Logger.printException(() -> "Could not find attribute: " + drawableName);
                 Settings.HEADER_LOGO.resetToDefault();
                 return null;
             }
@@ -63,12 +72,14 @@ public class ChangeHeaderPatch {
                     : "_light");
 
             final int identifier = Utils.getResourceIdentifier(drawableFullName, "drawable");
-            if (identifier == 0) {
-                Logger.printDebug(() -> "Could not find drawable: " + drawableFullName);
-                Settings.HEADER_LOGO.resetToDefault();
-                return null;
+            if (identifier != 0) {
+                return Utils.getContext().getDrawable(identifier);
             }
-            return Utils.getContext().getDrawable(identifier);
+
+            // Should never happen.
+            Logger.printException(() -> "Could not find drawable: " + drawableFullName);
+            Settings.HEADER_LOGO.resetToDefault();
+            return null;
         }
     }
 
