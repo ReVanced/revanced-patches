@@ -4,9 +4,15 @@ import static app.revanced.extension.shared.StringRef.str;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.preference.Preference;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Pair;
 import android.util.SparseBooleanArray;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -15,6 +21,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Space;
@@ -24,6 +31,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import app.revanced.extension.shared.Logger;
@@ -31,7 +39,6 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.patches.EnableDebuggingPatch;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.ui.CustomDialog;
-import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -49,9 +56,13 @@ public class FeatureFlagsManagerPreference extends Preference {
         WHITELIST_FLAGS.add(12345678L); // Example hidden flag.
     }
 
-    // Positions for range selection.
-    private int lastClickedPosition = -1; // Position of the last clicked item.
-    private boolean isRangeSelecting = false; // True while a range is being selected.
+    /**
+     * Tracks state for range selection in ListView.
+     */
+    private static class ListViewSelectionState {
+        int lastClickedPosition = -1; // Position of the last clicked item.
+        boolean isRangeSelecting = false; // True while a range is being selected.
+    }
 
     {
         setOnPreferenceClickListener(pref -> {
@@ -76,6 +87,9 @@ public class FeatureFlagsManagerPreference extends Preference {
         super(context);
     }
 
+    /**
+     * Shows the main dialog for managing feature flags.
+     */
     private void showFlagsManagerDialog() {
         Context context = getContext();
 
@@ -84,7 +98,7 @@ public class FeatureFlagsManagerPreference extends Preference {
         Set<Long> disabledFlags = EnableDebuggingPatch.parseFlags(BaseSettings.DISABLED_FEATURE_FLAGS.get());
 
         if (allKnownFlags.isEmpty()) {
-            Utils.showToastShort(str("revanced_debug_feature_flags_manager_no_flags_logged"));
+            Utils.showToastShort("No feature flags logged yet");
             return;
         }
 
@@ -109,7 +123,6 @@ public class FeatureFlagsManagerPreference extends Preference {
         Collections.sort(availableFlags);
         Collections.sort(blockedFlags);
 
-        // Use CustomDialog for styled appearance.
         Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
                 getTitle() != null ? getTitle().toString() : "",
@@ -124,7 +137,7 @@ public class FeatureFlagsManagerPreference extends Preference {
         );
 
         LinearLayout mainLayout = dialogPair.second;
-        LinearLayout.LayoutParams listViewParams = new LinearLayout.LayoutParams(
+        LinearLayout.LayoutParams contentParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 0,
                 1.0f
@@ -132,7 +145,7 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         // Insert content before the dialog button row.
         View contentView = createContentView(context, availableFlags, blockedFlags);
-        mainLayout.addView(contentView, mainLayout.getChildCount() - 1, listViewParams);
+        mainLayout.addView(contentView, mainLayout.getChildCount() - 1, contentParams);
 
         Dialog dialog = dialogPair.first;
         dialog.show();
@@ -143,38 +156,102 @@ public class FeatureFlagsManagerPreference extends Preference {
         }
     }
 
+    /**
+     * Creates the main content view with two columns.
+     */
     private View createContentView(Context context, List<Long> availableFlags, List<Long> blockedFlags) {
         LinearLayout contentLayout = new LinearLayout(context);
         contentLayout.setOrientation(LinearLayout.VERTICAL);
-        contentLayout.setPadding(20, 20, 20, 20);
+
+        // Header count TextViews.
+        TextView availableCountText = new TextView(context);
+        availableCountText.setTag("revanced_debug_feature_flags_manager_active_header");
+        availableCountText.setTextSize(14);
+        availableCountText.setGravity(Gravity.CENTER);
+
+        TextView blockedCountText = new TextView(context);
+        blockedCountText.setTag("revanced_debug_feature_flags_manager_blocked_header");
+        blockedCountText.setTextSize(14);
+        blockedCountText.setGravity(Gravity.CENTER);
+
+        // Create ListViews and Adapters.
+        Pair<ListView, FlagAdapter> availablePair = createFilterableFlagsListView(context, availableFlags, availableCountText);
+        ListView availableListView = availablePair.first;
+        FlagAdapter availableAdapter = availablePair.second;
+
+        Pair<ListView, FlagAdapter> blockedPair = createFilterableFlagsListView(context, blockedFlags, blockedCountText);
+        ListView blockedListView = blockedPair.first;
+        FlagAdapter blockedAdapter = blockedPair.second;
+
+        // Update initial counts.
+        updateHeaderCount(availableCountText, availableFlags.size());
+        updateHeaderCount(blockedCountText, blockedFlags.size());
 
         // Headers.
-        LinearLayout headersLayout = createHeaders(context, availableFlags.size(), blockedFlags.size());
+        LinearLayout headersLayout = new LinearLayout(context);
+        headersLayout.setOrientation(LinearLayout.HORIZONTAL);
 
-        // Columns + move buttons.
-        LinearLayout columnsLayout = new LinearLayout(context);
-        columnsLayout.setOrientation(LinearLayout.HORIZONTAL);
-        columnsLayout.setLayoutParams(new LinearLayout.LayoutParams(
+        LinearLayout.LayoutParams headerParams = new LinearLayout.LayoutParams(
+                0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+        availableCountText.setLayoutParams(headerParams);
+        blockedCountText.setLayoutParams(headerParams);
+
+        TextView spacer = new TextView(context);
+        spacer.setLayoutParams(new LinearLayout.LayoutParams(
+                Utils.dipToPixels(80), LinearLayout.LayoutParams.WRAP_CONTENT));
+
+        headersLayout.addView(availableCountText);
+        headersLayout.addView(spacer);
+        headersLayout.addView(blockedCountText);
+
+        // Left column: Active Flags.
+        LinearLayout leftWrapper = new LinearLayout(context);
+        leftWrapper.setOrientation(LinearLayout.VERTICAL);
+        leftWrapper.setLayoutParams(new LinearLayout.LayoutParams(
+                0, LinearLayout.LayoutParams.MATCH_PARENT, 1f));
+
+        EditText searchAvailable = createSearchBox(context, availableAdapter, availableListView, availableCountText);
+        leftWrapper.addView(searchAvailable);
+
+        LinearLayout buttonsRowAvailable = createActionButtonsRow(context, availableListView, availableAdapter);
+        leftWrapper.addView(buttonsRowAvailable);
+
+        availableListView.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f));
+        leftWrapper.addView(availableListView);
 
-        // Left: Active flags.
-        ListView availableListView = createFlagsListView(context, availableFlags, true);
-        TextView availableCountText = (TextView) headersLayout.getChildAt(0);
+        // Right column: Blocked Flags.
+        LinearLayout rightWrapper = new LinearLayout(context);
+        rightWrapper.setOrientation(LinearLayout.VERTICAL);
+        rightWrapper.setLayoutParams(new LinearLayout.LayoutParams(
+                0, LinearLayout.LayoutParams.MATCH_PARENT, 1f));
 
-        // Right: Blocked flags.
-        ListView blockedListView = createFlagsListView(context, blockedFlags, false);
-        TextView blockedCountText = (TextView) headersLayout.getChildAt(2);
+        EditText searchBlocked = createSearchBox(context, blockedAdapter, blockedListView, blockedCountText);
+        rightWrapper.addView(searchBlocked);
 
-        // Button panel: > >> < <<
-        LinearLayout buttonsLayout = createMoveButtons(
+        LinearLayout buttonsRowBlocked = createActionButtonsRow(context, blockedListView, blockedAdapter);
+        rightWrapper.addView(buttonsRowBlocked);
+
+        blockedListView.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f));
+        rightWrapper.addView(blockedListView);
+
+        // Move buttons: > >> < <<
+        LinearLayout moveButtonsLayout = createMoveButtons(
                 context, availableListView, blockedListView,
                 availableFlags, blockedFlags,
                 availableCountText, blockedCountText
         );
 
-        columnsLayout.addView(availableListView);
-        columnsLayout.addView(buttonsLayout);
-        columnsLayout.addView(blockedListView);
+        // Main columns layout.
+        LinearLayout columnsLayout = new LinearLayout(context);
+        columnsLayout.setOrientation(LinearLayout.HORIZONTAL);
+        columnsLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f));
+
+        columnsLayout.addView(leftWrapper);
+        columnsLayout.addView(moveButtonsLayout);
+        columnsLayout.addView(rightWrapper);
 
         contentLayout.addView(headersLayout);
         contentLayout.addView(columnsLayout);
@@ -182,108 +259,90 @@ public class FeatureFlagsManagerPreference extends Preference {
         return contentLayout;
     }
 
-    private LinearLayout createHeaders(Context context, int activeCount, int blockedCount) {
-        LinearLayout headersLayout = new LinearLayout(context);
-        headersLayout.setOrientation(LinearLayout.HORIZONTAL);
-
-        // Active header.
-        TextView availableCountText = new TextView(context);
-        availableCountText.setText(str("revanced_debug_feature_flags_manager_active_header", activeCount));
-        availableCountText.setLayoutParams(new LinearLayout.LayoutParams(
-                0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
-        availableCountText.setTextSize(14);
-        availableCountText.setGravity(Gravity.CENTER);
-        availableCountText.setPadding(0, 0, 0, 0);
-        availableCountText.setTag("revanced_debug_feature_flags_manager_active_header");
-
-        TextView spacer = new TextView(context);
-        spacer.setLayoutParams(new LinearLayout.LayoutParams(
-                Utils.dipToPixels(56), LinearLayout.LayoutParams.WRAP_CONTENT));
-
-        // Blocked header.
-        TextView blockedCountText = new TextView(context);
-        blockedCountText.setText(str("revanced_debug_feature_flags_manager_blocked_header", blockedCount));
-        blockedCountText.setLayoutParams(new LinearLayout.LayoutParams(
-                0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
-        blockedCountText.setTextSize(14);
-        blockedCountText.setGravity(Gravity.CENTER);
-        blockedCountText.setPadding(0, 0, 0, 0);
-        blockedCountText.setTag("revanced_debug_feature_flags_manager_blocked_header");
-
-        headersLayout.addView(availableCountText);
-        headersLayout.addView(spacer);
-        headersLayout.addView(blockedCountText);
-
-        return headersLayout;
+    /**
+     * Updates the header text with the current count.
+     */
+    private void updateHeaderCount(TextView header, int count) {
+        header.setText(str((String) header.getTag(), count));
     }
 
-    @SuppressLint("ClickableViewAccessibility")
-    private ListView createFlagsListView(Context context, List<Long> flags) {
-        ListView listView = new ListView(context);
-        listView.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1f));
-        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
-        listView.setPadding(0, 0, 0, 0);
-        listView.setDividerHeight(0);
+    /**
+     * Creates a search box that filters the list.
+     */
+    private EditText createSearchBox(Context context, FlagAdapter adapter, ListView listView, TextView countText) {
+        EditText search = new EditText(context);
+        search.setTextSize(14);
+        search.setHint("Search flags...");
+        search.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
-        // Custom adapter to control text size and no wrap.
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(context,
-                android.R.layout.simple_list_item_multiple_choice, convertFlagsToStrings(flags)) {
-            @NonNull
-            @Override
-            public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
-                TextView textView = view.findViewById(android.R.id.text1);
-                if (textView != null) {
-                    textView.setTextSize(14);
-                    textView.setSingleLine(true);
-                    textView.setEllipsize(android.text.TextUtils.TruncateAt.END);
-                    textView.setPadding(10, 0, 0, 0);
-                }
-
-                return view;
+        search.addTextChangedListener(new TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
+                adapter.setSearchQuery(s.toString());
+                listView.clearChoices();
+                updateHeaderCount(countText, adapter.getCount());
             }
-        };
-
-        listView.setAdapter(adapter);
-
-        // Click: remember the position for a future range.
-        listView.setOnItemClickListener((parent, view, position, id) -> {
-            if (!isRangeSelecting) {
-                lastClickedPosition = position;
-            } else {
-                isRangeSelecting = false;
-            }
+            @Override public void afterTextChanged(Editable s) {}
         });
 
-        // Long click: select range from lastClickedPosition to current.
-        listView.setOnItemLongClickListener((parent, view, position, id) -> {
-            if (lastClickedPosition == -1) {
-                listView.setItemChecked(position, true);
-                lastClickedPosition = position;
-            } else {
-                int start = Math.min(lastClickedPosition, position);
-                int end = Math.max(lastClickedPosition, position);
-                for (int i = start; i <= end; i++) {
-                    listView.setItemChecked(i, true);
-                }
-                isRangeSelecting = true;
-            }
-
-            return true;
-        });
-
-        // Reset range mode when touching outside the list.
-        listView.setOnTouchListener((v, event) -> {
-            if (event.getAction() == MotionEvent.ACTION_UP && isRangeSelecting) {
-                isRangeSelecting = false;
-            }
-
-            return false;
-        });
-
-        return listView;
+        return search;
     }
 
+    /**
+     * Creates action buttons.
+     */
+    private LinearLayout createActionButtonsRow(Context context, ListView listView, FlagAdapter adapter) {
+        LinearLayout row = new LinearLayout(context);
+        row.setOrientation(LinearLayout.HORIZONTAL);
+        row.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+
+        Button selectAll = createActionButton(context, "All", () -> {
+            for (int i = 0; i < adapter.getCount(); i++) {
+                listView.setItemChecked(i, true);
+            }
+        });
+
+        Button clearAll = createActionButton(context, "None", () -> {
+            listView.clearChoices();
+            adapter.notifyDataSetChanged();
+        });
+
+        Button copy = createActionButton(context, "Copy", () -> {
+            SparseBooleanArray checked = listView.getCheckedItemPositions();
+            StringBuilder stringBuilder = new StringBuilder();
+
+            if (checked.size() > 0) {
+                for (int i = 0; i < adapter.getCount(); i++) {
+                    if (checked.get(i)) {
+                        if (stringBuilder.length() > 0) stringBuilder.append("\n");
+                        stringBuilder.append(adapter.getItem(i));
+                    }
+                }
+            } else {
+                for (Long flag : adapter.getFullFlags()) {
+                    if (stringBuilder.length() > 0) stringBuilder.append("\n");
+                    stringBuilder.append(flag);
+                }
+            }
+
+            ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip = ClipData.newPlainText("Feature Flags", stringBuilder.toString());
+            clipboard.setPrimaryClip(clip);
+            Utils.showToastShort("Copied to clipboard");
+        });
+
+        row.addView(selectAll);
+        row.addView(clearAll);
+        row.addView(copy);
+
+        return row;
+    }
+
+    /**
+     * Creates the central move buttons: > >> < <<.
+     */
     private LinearLayout createMoveButtons(Context context,
                                            ListView availableListView, ListView blockedListView,
                                            List<Long> availableFlags, List<Long> blockedFlags,
@@ -297,43 +356,41 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         Button moveOneRight = createMoveButton(context, ">", () ->
                 moveSelectedFlags(availableListView, blockedListView, availableFlags, blockedFlags,
-                        availableCountText, blockedCountText, true, false));
+                        availableCountText, blockedCountText, false));
 
         Button moveAllRight = createMoveButton(context, ">>", () ->
-                moveAllFlags(availableListView, blockedListView, availableFlags, blockedFlags,
+                moveSelectedFlags(availableListView, blockedListView, availableFlags, blockedFlags,
                         availableCountText, blockedCountText, true));
 
-        Space space1 = new Space(context);
-        space1.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT, 20));
+        Space space = new Space(context);
+        space.setLayoutParams(new LinearLayout.LayoutParams(0, 20));
 
         Button moveOneLeft = createMoveButton(context, "<", () ->
                 moveSelectedFlags(blockedListView, availableListView, blockedFlags, availableFlags,
-                        blockedCountText, availableCountText, false, false));
-
-        Button moveAllLeft = createMoveButton(context, "<<", () ->
-                moveAllFlags(blockedListView, availableListView, blockedFlags, availableFlags,
                         blockedCountText, availableCountText, false));
 
-        Space space2 = new Space(context);
-        space2.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT, 20));
+        Button moveAllLeft = createMoveButton(context, "<<", () ->
+                moveSelectedFlags(blockedListView, availableListView, blockedFlags, availableFlags,
+                        blockedCountText, availableCountText, true));
 
         buttonsLayout.addView(moveOneRight);
         buttonsLayout.addView(moveAllRight);
-        buttonsLayout.addView(space1);
+        buttonsLayout.addView(space);
         buttonsLayout.addView(moveOneLeft);
         buttonsLayout.addView(moveAllLeft);
-        buttonsLayout.addView(space2);
 
         return buttonsLayout;
     }
 
+    /**
+     * Creates a styled move button.
+     */
     private Button createMoveButton(Context context, String text, Runnable action) {
         Button button = new Button(context);
         button.setText(text);
+        button.setTextSize(14);
         button.setSingleLine(true);
-        button.setEllipsize(android.text.TextUtils.TruncateAt.END);
+        button.setEllipsize(TextUtils.TruncateAt.END);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 Utils.dipToPixels(48), LinearLayout.LayoutParams.WRAP_CONTENT);
         params.gravity = Gravity.CENTER;
@@ -342,75 +399,176 @@ public class FeatureFlagsManagerPreference extends Preference {
         return button;
     }
 
-    @SuppressLint("SetTextI18n")
+    /**
+     * Creates a styled action button.
+     */
+    private Button createActionButton(Context context, String text, Runnable action) {
+        Button button = new Button(context);
+        button.setText(text);
+        button.setTextSize(12);
+        button.setSingleLine(true);
+        button.setEllipsize(TextUtils.TruncateAt.END);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
+        params.setMargins(4, 4, 4, 4);
+        button.setLayoutParams(params);
+        button.setOnClickListener(v -> action.run());
+        return button;
+    }
+
+    /**
+     * Custom adapter with search filtering.
+     */
+    private static class FlagAdapter extends ArrayAdapter<String> {
+        private final List<Long> fullFlags;
+        private final List<Long> filteredFlags;
+        private String searchQuery = "";
+
+        public FlagAdapter(Context context, List<Long> fullFlags) {
+            super(context, android.R.layout.simple_list_item_multiple_choice, new ArrayList<>());
+            this.fullFlags = fullFlags;
+            this.filteredFlags = new ArrayList<>();
+            updateFiltered();
+        }
+
+        public void setSearchQuery(String query) {
+            searchQuery = query == null ? "" : query.toLowerCase().trim();
+            updateFiltered();
+        }
+
+        private void updateFiltered() {
+            clear();
+            filteredFlags.clear();
+            for (Long flag : fullFlags) {
+                String flagString = String.valueOf(flag);
+                if (searchQuery.isEmpty() || flagString.toLowerCase().contains(searchQuery)) {
+                    add(flagString);
+                    filteredFlags.add(flag);
+                }
+            }
+            notifyDataSetChanged();
+        }
+
+        public void refresh() {
+            updateFiltered();
+        }
+
+        public List<Long> getFullFlags() {
+            return new ArrayList<>(fullFlags);
+        }
+
+        public List<Long> getFilteredFlags() {
+            return new ArrayList<>(filteredFlags);
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            View view = super.getView(position, convertView, parent);
+            TextView textView = view.findViewById(android.R.id.text1);
+            if (textView != null) {
+                textView.setTextSize(14);
+                textView.setSingleLine(true);
+                textView.setEllipsize(TextUtils.TruncateAt.END);
+                textView.setPadding(10, 0, 0, 0);
+            }
+
+            return view;
+        }
+    }
+
+    /**
+     * Creates a ListView with filtering, multi-select, and range selection.
+     */
+    @SuppressLint("ClickableViewAccessibility")
+    private Pair<ListView, FlagAdapter> createFilterableFlagsListView(Context context, List<Long> flags, TextView countText) {
+        ListView listView = new ListView(context);
+        listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        listView.setDividerHeight(0);
+
+        FlagAdapter adapter = new FlagAdapter(context, flags);
+        listView.setAdapter(adapter);
+
+        final ListViewSelectionState state = new ListViewSelectionState();
+
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            if (!state.isRangeSelecting) {
+                state.lastClickedPosition = position;
+            } else {
+                state.isRangeSelecting = false;
+            }
+        });
+
+        listView.setOnItemLongClickListener((parent, view, position, id) -> {
+            if (state.lastClickedPosition == -1) {
+                listView.setItemChecked(position, true);
+                state.lastClickedPosition = position;
+            } else {
+                int start = Math.min(state.lastClickedPosition, position);
+                int end = Math.max(state.lastClickedPosition, position);
+                for (int i = start; i <= end; i++) {
+                    listView.setItemChecked(i, true);
+                }
+                state.isRangeSelecting = true;
+            }
+            return true;
+        });
+
+        listView.setOnTouchListener((view, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_UP && state.isRangeSelecting) {
+                state.isRangeSelecting = false;
+            }
+            return false;
+        });
+
+        return new Pair<>(listView, adapter);
+    }
+
+    /**
+     * Moves selected or all flags from one list to another.
+     */
     private void moveSelectedFlags(@Nullable ListView fromListView, @Nullable ListView toListView,
                                    List<Long> fromFlags, List<Long> toFlags,
                                    TextView fromCountText, TextView toCountText,
                                    boolean moveAll) {
-        List<Long> toMove = new ArrayList<>();
-        SparseBooleanArray checked;
+        if (fromListView == null || toListView == null) return;
+
+        List<Long> flagsToMove = new ArrayList<>();
+        FlagAdapter fromAdapter = (FlagAdapter) fromListView.getAdapter();
 
         if (moveAll) {
-            toMove.addAll(fromFlags);
+            flagsToMove.addAll(fromFlags);
         } else {
-            if (fromListView == null) return;
-            checked = fromListView.getCheckedItemPositions();
-            for (int i = 0; i < fromFlags.size(); i++) {
+            SparseBooleanArray checked = fromListView.getCheckedItemPositions();
+            for (int i = 0; i < fromAdapter.getCount(); i++) {
                 if (checked.get(i)) {
-                    toMove.add(fromFlags.get(i));
+                    flagsToMove.add(Long.parseLong(Objects.requireNonNull(fromAdapter.getItem(i))));
                 }
             }
         }
 
-        if (toMove.isEmpty()) return;
+        if (flagsToMove.isEmpty()) return;
 
-        fromFlags.removeAll(toMove);
-        toFlags.addAll(toMove);
+        fromFlags.removeAll(flagsToMove);
+        toFlags.addAll(flagsToMove);
         Collections.sort(toFlags);
 
-        updateListView(fromListView, fromFlags, fromCountText, moveAll);
-        updateListView(toListView, toFlags, toCountText, moveAll);
+        // Refresh both adapters.
+        fromAdapter.refresh();
+        ((FlagAdapter) toListView.getAdapter()).refresh();
 
-        if (!moveAll) {
-            fromListView.clearChoices();
-        }
-        if (!moveAll && toListView != null) {
-            toListView.clearChoices();
-        }
+        // Clear selections.
+        fromListView.clearChoices();
+        toListView.clearChoices();
 
-        // Reset selection state after moving.
-        lastClickedPosition = -1;
-        isRangeSelecting = false;
+        // Update headers.
+        updateHeaderCount(fromCountText, fromFlags.size());
+        updateHeaderCount(toCountText, toFlags.size());
     }
 
-    private void moveAllFlags(ListView fromListView, ListView toListView,
-                              List<Long> fromFlags, List<Long> toFlags,
-                              TextView fromCountText, TextView toCountText, boolean toBlocked) {
-        moveSelectedFlags(fromListView, toListView, fromFlags, toFlags, fromCountText, toCountText, toBlocked, true);
-    }
-
-    private void updateListView(@Nullable ListView listView, List<Long> flags, TextView countText, boolean moveAll) {
-        if (listView == null) return;
-
-        @SuppressWarnings("unchecked")
-        ArrayAdapter<String> adapter = (ArrayAdapter<String>) listView.getAdapter();
-        adapter.clear();
-        adapter.addAll(convertFlagsToStrings(flags));
-        adapter.notifyDataSetChanged();
-
-        // Update header using saved key from tag.
-        String headerKey = (String) countText.getTag();
-        countText.setText(str(headerKey, flags.size()));
-    }
-
-    private List<String> convertFlagsToStrings(List<Long> flags) {
-        List<String> result = new ArrayList<>();
-        for (Long flag : flags) {
-            result.add(String.valueOf(flag));
-        }
-        return result;
-    }
-
+    /**
+     * Saves blocked flags to settings.
+     */
     private void saveFlags(List<Long> blockedFlags) {
         StringBuilder flagsString = new StringBuilder();
         for (Long flag : blockedFlags) {
@@ -423,16 +581,16 @@ public class FeatureFlagsManagerPreference extends Preference {
         BaseSettings.DISABLED_FEATURE_FLAGS.save(flagsString.toString());
 
         Utils.showToastShort(str("revanced_debug_feature_flags_manager_saved") + " " +
-                str("revanced_settings_restart_dialog_message")
-        );
-
+                str("revanced_settings_restart_dialog_message"));
         Logger.printDebug(() -> "Feature flags saved. Blocked: " + blockedFlags.size());
     }
 
+    /**
+     * Resets all blocked flags.
+     */
     private void resetFlags() {
         BaseSettings.DISABLED_FEATURE_FLAGS.save("");
         Utils.showToastShort(str("revanced_debug_feature_flags_manager_reset") + " " +
-                str("revanced_settings_restart_dialog_message")
-        );
+                str("revanced_settings_restart_dialog_message"));
     }
 }

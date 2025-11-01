@@ -226,7 +226,6 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_debug_feature_flags_manager_summary">Manage boolean feature flags</string>
             <string name="revanced_debug_feature_flags_manager_active_header">Active Flags (%d)</string>
             <string name="revanced_debug_feature_flags_manager_blocked_header">Blocked Flags (%d)</string>
-            <string name="revanced_debug_feature_flags_manager_no_flags_logged">No feature flags logged yet. Enable debugging and restart the app</string>
             <string name="revanced_debug_feature_flags_manager_saved">Flags saved.</string>
             <string name="revanced_debug_feature_flags_manager_reset">Flags reset.</string>
         </patch>
