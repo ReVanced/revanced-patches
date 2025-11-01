@@ -1,3 +1,10 @@
+# [5.45.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.45.0-dev.5...v5.45.0-dev.6) (2025-11-01)
+
+
+### Features
+
+* **Spoof video streams:** Add experimental "Android No SDK" client type ([5f23bfe](https://github.com/ReVanced/revanced-patches/commit/5f23bfe833c6e01617a7dbc5325b4a3fb931e53e))
+
 # [5.45.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.45.0-dev.4...v5.45.0-dev.5) (2025-11-01)
 
 
