@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
@@ -13,6 +14,8 @@ import app.revanced.patches.shared.misc.settings.preference.NonInteractivePrefer
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.util.ResourceGroup
+import app.revanced.util.copyResources
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
@@ -36,7 +39,22 @@ internal fun enableDebuggingPatch(
     description = "Adds options for debugging and exporting ReVanced logs to the clipboard.",
 ) {
 
-    dependsOn(addResourcesPatch)
+    dependsOn(
+        addResourcesPatch,
+        resourcePatch {
+            execute {
+                copyResources(
+                    "settings",
+                    ResourceGroup("drawable",
+                        // Action buttons.
+                        "revanced_settings_copy_all.xml",
+                        "revanced_settings_deselect_all.xml",
+                        "revanced_settings_select_all.xml",
+                    )
+                )
+            }
+        }
+    )
 
     block()
 

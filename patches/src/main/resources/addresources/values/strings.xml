@@ -224,10 +224,11 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_debug_logs_clear_toast">Logs cleared</string>
             <string name="revanced_debug_feature_flags_manager_title">Feature flags manager</string>
             <string name="revanced_debug_feature_flags_manager_summary">Manage boolean feature flags</string>
-            <string name="revanced_debug_feature_flags_manager_active_header">Active Flags (%d)</string>
-            <string name="revanced_debug_feature_flags_manager_blocked_header">Blocked Flags (%d)</string>
-            <string name="revanced_debug_feature_flags_manager_saved">Flags saved.</string>
-            <string name="revanced_debug_feature_flags_manager_reset">Flags reset.</string>
+            <string name="revanced_debug_feature_flags_manager_active_header">Active flags (%d)</string>
+            <string name="revanced_debug_feature_flags_manager_blocked_header">Blocked flags (%d)</string>
+            <string name="revanced_debug_feature_flags_manager_toast_saved">Flags saved</string>
+            <string name="revanced_debug_feature_flags_manager_toast_reset">Flags reset</string>
+            <string name="revanced_debug_feature_flags_manager_toast_copied">Flags copied to clipboard</string>
         </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch">
             <string name="revanced_sanitize_sharing_links_title">Sanitize sharing links</string>

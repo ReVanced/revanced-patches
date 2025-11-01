@@ -1,12 +1,14 @@
 package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
+import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.preference.Preference;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -22,10 +24,15 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Space;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,15 +47,25 @@ import app.revanced.extension.shared.patches.EnableDebuggingPatch;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.ui.CustomDialog;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 /**
  * A custom preference that opens a dialog for managing feature flags.
  * Allows moving boolean flags between active and blocked states with advanced selection.
  */
 @SuppressWarnings({"deprecation", "unused"})
 public class FeatureFlagsManagerPreference extends Preference {
+
+    public static final int DRAWABLE_REVANCED_SETTINGS_SELECT_ALL =
+            getResourceIdentifierOrThrow("revanced_settings_select_all", "drawable");
+
+    public static final int DRAWABLE_REVANCED_SETTINGS_DESELECT_ALL =
+            getResourceIdentifierOrThrow("revanced_settings_deselect_all", "drawable");
+
+    public static final int DRAWABLE_REVANCED_SETTINGS_COPY_ALL =
+            getResourceIdentifierOrThrow("revanced_settings_copy_all", "drawable");
+
+    static final int dip4 = Utils.dipToPixels(4);
+    static final int dip12 = Utils.dipToPixels(12);
+    static final int dip48 = Utils.dipToPixels(48);
 
     // Flags to hide from the UI.
     private static final Set<Long> HIDDEN_FLAGS = new HashSet<>();
@@ -198,7 +215,7 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         TextView spacer = new TextView(context);
         spacer.setLayoutParams(new LinearLayout.LayoutParams(
-                Utils.dipToPixels(80), LinearLayout.LayoutParams.WRAP_CONTENT));
+                Utils.dipToPixels(56), LinearLayout.LayoutParams.WRAP_CONTENT));
 
         headersLayout.addView(availableCountText);
         headersLayout.addView(spacer);
@@ -298,40 +315,46 @@ public class FeatureFlagsManagerPreference extends Preference {
         row.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
-        Button selectAll = createActionButton(context, "All", () -> {
-            for (int i = 0; i < adapter.getCount(); i++) {
-                listView.setItemChecked(i, true);
-            }
-        });
-
-        Button clearAll = createActionButton(context, "None", () -> {
-            listView.clearChoices();
-            adapter.notifyDataSetChanged();
-        });
-
-        Button copy = createActionButton(context, "Copy", () -> {
-            SparseBooleanArray checked = listView.getCheckedItemPositions();
-            StringBuilder stringBuilder = new StringBuilder();
-
-            if (checked.size() > 0) {
-                for (int i = 0; i < adapter.getCount(); i++) {
-                    if (checked.get(i)) {
-                        if (stringBuilder.length() > 0) stringBuilder.append("\n");
-                        stringBuilder.append(adapter.getItem(i));
+        ImageButton selectAll = createActionButton(context,
+                DRAWABLE_REVANCED_SETTINGS_SELECT_ALL,
+                () -> {
+                    for (int i = 0; i < adapter.getCount(); i++) {
+                        listView.setItemChecked(i, true);
                     }
-                }
-            } else {
-                for (Long flag : adapter.getFullFlags()) {
-                    if (stringBuilder.length() > 0) stringBuilder.append("\n");
-                    stringBuilder.append(flag);
-                }
-            }
+                });
 
-            ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newPlainText("Feature Flags", stringBuilder.toString());
-            clipboard.setPrimaryClip(clip);
-            Utils.showToastShort("Copied to clipboard");
-        });
+        ImageButton clearAll = createActionButton(context,
+                DRAWABLE_REVANCED_SETTINGS_DESELECT_ALL,
+                () -> {
+                    listView.clearChoices();
+                    adapter.notifyDataSetChanged();
+                });
+
+        ImageButton copy = createActionButton(context,
+                DRAWABLE_REVANCED_SETTINGS_COPY_ALL,
+                () -> {
+                    SparseBooleanArray checked = listView.getCheckedItemPositions();
+                    StringBuilder stringBuilder = new StringBuilder();
+
+                    if (checked.size() > 0) {
+                        for (int i = 0; i < adapter.getCount(); i++) {
+                            if (checked.get(i)) {
+                                if (stringBuilder.length() > 0) stringBuilder.append("\n");
+                                stringBuilder.append(adapter.getItem(i));
+                            }
+                        }
+                    } else {
+                        for (Long flag : adapter.getFullFlags()) {
+                            if (stringBuilder.length() > 0) stringBuilder.append("\n");
+                            stringBuilder.append(flag);
+                        }
+                    }
+
+                    ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("Feature Flags", stringBuilder.toString());
+                    clipboard.setPrimaryClip(clip);
+                    Utils.showToastShort(str("revanced_debug_feature_flags_manager_toast_copied"));
+                });
 
         row.addView(selectAll);
         row.addView(clearAll);
@@ -352,7 +375,7 @@ public class FeatureFlagsManagerPreference extends Preference {
         buttonsLayout.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT));
         buttonsLayout.setGravity(Gravity.CENTER);
-        buttonsLayout.setPadding(10, 0, 10, 0);
+        buttonsLayout.setPadding(dip4, 0, dip4, 0);
 
         Button moveOneRight = createMoveButton(context, ">", () ->
                 moveSelectedFlags(availableListView, blockedListView, availableFlags, blockedFlags,
@@ -363,7 +386,7 @@ public class FeatureFlagsManagerPreference extends Preference {
                         availableCountText, blockedCountText, true));
 
         Space space = new Space(context);
-        space.setLayoutParams(new LinearLayout.LayoutParams(0, 20));
+        space.setLayoutParams(new LinearLayout.LayoutParams(0, Utils.dipToPixels(24)));
 
         Button moveOneLeft = createMoveButton(context, "<", () ->
                 moveSelectedFlags(blockedListView, availableListView, blockedFlags, availableFlags,
@@ -392,27 +415,36 @@ public class FeatureFlagsManagerPreference extends Preference {
         button.setSingleLine(true);
         button.setEllipsize(TextUtils.TruncateAt.END);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                Utils.dipToPixels(48), LinearLayout.LayoutParams.WRAP_CONTENT);
+                dip48, dip48);
         params.gravity = Gravity.CENTER;
         button.setLayoutParams(params);
         button.setOnClickListener(v -> action.run());
+
         return button;
     }
 
     /**
      * Creates a styled action button.
      */
-    private Button createActionButton(Context context, String text, Runnable action) {
-        Button button = new Button(context);
-        button.setText(text);
-        button.setTextSize(12);
-        button.setSingleLine(true);
-        button.setEllipsize(TextUtils.TruncateAt.END);
+    @SuppressLint("ResourceType")
+    private ImageButton createActionButton(Context context, int drawableResId, Runnable action) {
+        ImageButton button = new ImageButton(context);
+
+        button.setImageResource(drawableResId);
+        button.setScaleType(ImageView.ScaleType.CENTER);
+        int[] attrs = {android.R.attr.selectableItemBackgroundBorderless};
+        TypedArray ripple = context.obtainStyledAttributes(attrs);
+        button.setBackgroundDrawable(ripple.getDrawable(0));
+        ripple.recycle();
+
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
-        params.setMargins(4, 4, 4, 4);
+                0, LinearLayout.LayoutParams.MATCH_PARENT, 1f);
+        params.setMargins(dip4, dip4, dip4, dip4);
         button.setLayoutParams(params);
+
+        button.setMinimumHeight(Utils.dipToPixels(36));
         button.setOnClickListener(v -> action.run());
+
         return button;
     }
 
@@ -468,9 +500,7 @@ public class FeatureFlagsManagerPreference extends Preference {
             TextView textView = view.findViewById(android.R.id.text1);
             if (textView != null) {
                 textView.setTextSize(14);
-                textView.setSingleLine(true);
-                textView.setEllipsize(TextUtils.TruncateAt.END);
-                textView.setPadding(10, 0, 0, 0);
+                textView.setPadding(dip4, 0, 0, 0);
             }
 
             return view;
@@ -580,7 +610,7 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         BaseSettings.DISABLED_FEATURE_FLAGS.save(flagsString.toString());
 
-        Utils.showToastShort(str("revanced_debug_feature_flags_manager_saved") + " " +
+        Utils.showToastShort(str("revanced_debug_feature_flags_manager_toast_saved") + ". " +
                 str("revanced_settings_restart_dialog_message"));
         Logger.printDebug(() -> "Feature flags saved. Blocked: " + blockedFlags.size());
     }
@@ -590,7 +620,7 @@ public class FeatureFlagsManagerPreference extends Preference {
      */
     private void resetFlags() {
         BaseSettings.DISABLED_FEATURE_FLAGS.save("");
-        Utils.showToastShort(str("revanced_debug_feature_flags_manager_reset") + " " +
+        Utils.showToastShort(str("revanced_debug_feature_flags_manager_toast_reset") + ". " +
                 str("revanced_settings_restart_dialog_message"));
     }
 }
