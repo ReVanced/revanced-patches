@@ -36,10 +36,10 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.TreeSet;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
@@ -75,10 +75,9 @@ public class FeatureFlagsManagerPreference extends Preference {
     static final int dip44 = Utils.dipToPixels(44);
 
     // Flags to hide from the UI.
-    private static final Set<Long> HIDDEN_FLAGS = new HashSet<>();
-    static {
-        HIDDEN_FLAGS.add(45386834L); // Blocks settings button.
-    }
+    private static final Set<Long> HIDDEN_FLAGS = Set.of(
+            45386834L // Blocks settings button.
+    );
 
     /**
      * Tracks state for range selection in ListView.
@@ -118,34 +117,20 @@ public class FeatureFlagsManagerPreference extends Preference {
         Context context = getContext();
 
         // Load all known and disabled flags.
-        Set<Long> allKnownFlags = EnableDebuggingPatch.getAllLoggedFlags();
-        Set<Long> disabledFlags = EnableDebuggingPatch.parseFlags(BaseSettings.DISABLED_FEATURE_FLAGS.get());
+        TreeSet<Long> allKnownFlags = new TreeSet<>(EnableDebuggingPatch.getAllLoggedFlags());
+        allKnownFlags.removeAll(HIDDEN_FLAGS);
 
-        if (allKnownFlags.isEmpty()) {
+        TreeSet<Long> disabledFlags = new TreeSet<>(EnableDebuggingPatch.parseFlags(BaseSettings.DISABLED_FEATURE_FLAGS.get()));
+        disabledFlags.removeAll(HIDDEN_FLAGS);
+
+        if (allKnownFlags.isEmpty() && disabledFlags.isEmpty()) {
             Utils.showToastShort("No feature flags logged yet");
             return;
         }
 
-        // Filter out hidden flags.
-        allKnownFlags.removeAll(HIDDEN_FLAGS);
-
-        // Include all disabled flags, even if not logged in this session.
-        Set<Long> allFlags = new HashSet<>(allKnownFlags);
-        allFlags.addAll(disabledFlags);
-
-        List<Long> availableFlags = new ArrayList<>();
-        List<Long> blockedFlags = new ArrayList<>();
-
-        for (Long flag : allFlags) {
-            if (disabledFlags.contains(flag)) {
-                blockedFlags.add(flag);
-            } else {
-                availableFlags.add(flag);
-            }
-        }
-
-        Collections.sort(availableFlags);
-        Collections.sort(blockedFlags);
+        TreeSet<Long> availableFlags = new TreeSet<>(allKnownFlags);
+        availableFlags.removeAll(disabledFlags);
+        TreeSet<Long> blockedFlags = new TreeSet<>(disabledFlags);
 
         Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
                 context,
@@ -183,7 +168,7 @@ public class FeatureFlagsManagerPreference extends Preference {
     /**
      * Creates the main content view with two columns.
      */
-    private View createContentView(Context context, List<Long> availableFlags, List<Long> blockedFlags) {
+    private View createContentView(Context context, TreeSet<Long> availableFlags, TreeSet<Long> blockedFlags) {
         LinearLayout contentLayout = new LinearLayout(context);
         contentLayout.setOrientation(LinearLayout.VERTICAL);
 
@@ -344,11 +329,13 @@ public class FeatureFlagsManagerPreference extends Preference {
                     if (checked.size() > 0) {
                         for (int i = 0; i < adapter.getCount(); i++) {
                             if (checked.get(i)) {
-                                items.add(adapter.getItem(i).toString());
+                                items.add(adapter.getItem(i));
                             }
                         }
                     } else {
-                        adapter.getFullFlags().forEach(flag -> items.add(flag.toString()));
+                        for (Long flag : adapter.getFullFlags()) {
+                            items.add(String.valueOf(flag));
+                        }
                     }
 
                     Utils.setClipboard(TextUtils.join("\n", items));
@@ -368,7 +355,7 @@ public class FeatureFlagsManagerPreference extends Preference {
      */
     private LinearLayout createMoveButtons(Context context,
                                            ListView availableListView, ListView blockedListView,
-                                           List<Long> availableFlags, List<Long> blockedFlags,
+                                           TreeSet<Long> availableFlags, TreeSet<Long> blockedFlags,
                                            TextView availableCountText, TextView blockedCountText) {
         LinearLayout buttonsLayout = new LinearLayout(context);
         buttonsLayout.setOrientation(LinearLayout.VERTICAL);
@@ -418,12 +405,10 @@ public class FeatureFlagsManagerPreference extends Preference {
         button.setBackgroundDrawable(ripple.getDrawable(0));
         ripple.recycle();
 
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                dip36, dip36);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(dip36, dip36);
         params.setMargins(dip4, dip4, dip4, dip4);
         button.setLayoutParams(params);
 
-        button.setMinimumHeight(dip36);
         button.setOnClickListener(v -> action.run());
 
         return button;
@@ -433,14 +418,13 @@ public class FeatureFlagsManagerPreference extends Preference {
      * Custom adapter with search filtering.
      */
     private static class FlagAdapter extends ArrayAdapter<String> {
-        private final List<Long> fullFlags;
-        private final List<Long> filteredFlags;
+        private final TreeSet<Long> fullFlags;
+        private final List<Long> filteredFlags = new ArrayList<>();
         private String searchQuery = "";
 
-        public FlagAdapter(Context context, List<Long> fullFlags) {
+        public FlagAdapter(Context context, TreeSet<Long> fullFlags) {
             super(context, android.R.layout.simple_list_item_multiple_choice, new ArrayList<>());
             this.fullFlags = fullFlags;
-            this.filteredFlags = new ArrayList<>();
             updateFiltered();
         }
 
@@ -470,10 +454,6 @@ public class FeatureFlagsManagerPreference extends Preference {
             return new ArrayList<>(fullFlags);
         }
 
-        public List<Long> getFilteredFlags() {
-            return new ArrayList<>(filteredFlags);
-        }
-
         @NonNull
         @Override
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -492,7 +472,9 @@ public class FeatureFlagsManagerPreference extends Preference {
      * Creates a ListView with filtering, multi-select, and range selection.
      */
     @SuppressLint("ClickableViewAccessibility")
-    private Pair<ListView, FlagAdapter> createFilterableFlagsListView(Context context, List<Long> flags, TextView countText) {
+    private Pair<ListView, FlagAdapter> createFilterableFlagsListView(Context context,
+                                                                      TreeSet<Long> flags,
+                                                                      TextView countText) {
         ListView listView = new ListView(context);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setDividerHeight(0);
@@ -539,7 +521,7 @@ public class FeatureFlagsManagerPreference extends Preference {
      * Moves selected or all flags from one list to another.
      */
     private void moveSelectedFlags(@Nullable ListView fromListView, @Nullable ListView toListView,
-                                   List<Long> fromFlags, List<Long> toFlags,
+                                   TreeSet<Long> fromFlags, TreeSet<Long> toFlags,
                                    TextView fromCountText, TextView toCountText,
                                    boolean moveAll) {
         if (fromListView == null || toListView == null) return;
@@ -562,7 +544,6 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         fromFlags.removeAll(flagsToMove);
         toFlags.addAll(flagsToMove);
-        Collections.sort(toFlags);
 
         // Refresh both adapters.
         fromAdapter.refresh();
@@ -580,7 +561,7 @@ public class FeatureFlagsManagerPreference extends Preference {
     /**
      * Saves blocked flags to settings.
      */
-    private void saveFlags(List<Long> blockedFlags) {
+    private void saveFlags(TreeSet<Long> blockedFlags) {
         StringBuilder flagsString = new StringBuilder();
         for (Long flag : blockedFlags) {
             if (flagsString.length() > 0) {
