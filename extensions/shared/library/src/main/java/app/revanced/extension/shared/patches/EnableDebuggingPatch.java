@@ -25,12 +25,22 @@ public final class EnableDebuggingPatch {
 
     private static final Set<Long> DISABLED_FEATURE_FLAGS = parseFlags(BaseSettings.DISABLED_FEATURE_FLAGS.get());
 
+    // Log all disabled flags on app startup.
+    static {
+        if (LOG_FEATURE_FLAGS && !DISABLED_FEATURE_FLAGS.isEmpty()) {
+            StringBuilder sb = new StringBuilder("Disabled feature flags:\n");
+            for (Long flag : DISABLED_FEATURE_FLAGS) {
+                sb.append("  ").append(flag).append('\n');
+            }
+            Logger.printDebug(sb::toString);
+        }
+    }
+
     /**
      * Injection point.
      */
     public static boolean isBooleanFeatureFlagEnabled(boolean value, Long flag) {
         if (DISABLED_FEATURE_FLAGS.contains(flag)) {
-            Logger.printDebug(() -> "Flag disabled: " + flag);
             return false;
         }
         if (LOG_FEATURE_FLAGS && value && featureFlags.putIfAbsent(flag, true) == null) {
@@ -76,7 +86,7 @@ public final class EnableDebuggingPatch {
         if (LOG_FEATURE_FLAGS && !defaultValue.equals(value)) {
             if (featureFlags.putIfAbsent(flag, true) == null) {
                 Logger.printDebug(() -> " string feature is enabled: " + flag
-                        + " value: " + value +  (defaultValue.isEmpty() ? "" : " default: " + defaultValue));
+                        + " value: " + value + (defaultValue.isEmpty() ? "" : " default: " + defaultValue));
             }
         }
 
@@ -102,13 +112,13 @@ public final class EnableDebuggingPatch {
      */
     public static Set<Long> parseFlags(String flags) {
         Set<Long> parsedFlags = new HashSet<>();
-        if (flags != null && !flags.trim().isEmpty()) {
+        if (!flags.isBlank()) {
             for (String flag : flags.split("\n")) {
                 String trimmedFlag = flag.trim();
                 try {
                     parsedFlags.add(Long.parseLong(trimmedFlag));
                 } catch (NumberFormatException e) {
-                    Logger.printDebug(() -> "Invalid flag ID: " + flag);
+                    Logger.printException(() -> "Invalid flag ID: " + flag);
                 }
             }
         }
