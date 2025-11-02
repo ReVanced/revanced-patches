@@ -73,8 +73,6 @@ public class FeatureFlagsManagerPreference extends Preference {
     static final int dip36 = Utils.dipToPixels(36);
     static final int dip44 = Utils.dipToPixels(44);
 
-    private static Drawable cachedRippleBackground;
-
     /**
      * Flags to hide from the UI.
      */
@@ -401,7 +399,10 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         button.setImageResource(drawableResId);
         button.setScaleType(ImageView.ScaleType.CENTER);
-        button.setBackgroundDrawable(getRippleBackground(context));
+        int[] attrs = {android.R.attr.selectableItemBackgroundBorderless};
+        TypedArray ripple = context.obtainStyledAttributes(attrs);
+        button.setBackgroundDrawable(ripple.getDrawable(0));
+        ripple.recycle();
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(dip36, dip36);
         params.setMargins(dip4, dip4, dip4, dip4);
@@ -410,20 +411,6 @@ public class FeatureFlagsManagerPreference extends Preference {
         button.setOnClickListener(v -> action.run());
 
         return button;
-    }
-
-    /**
-     * Returns a ripple background drawable with caching.
-     */
-    private Drawable getRippleBackground(Context context) {
-        if (cachedRippleBackground == null) {
-            int[] attrs = {android.R.attr.selectableItemBackgroundBorderless};
-            TypedArray ta = context.obtainStyledAttributes(attrs);
-            cachedRippleBackground = ta.getDrawable(0);
-            ta.recycle();
-        }
-
-        return cachedRippleBackground;
     }
 
     /**
