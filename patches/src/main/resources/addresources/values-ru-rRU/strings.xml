@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
+<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -265,8 +265,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_show_more_button_summary_on">Кнопка \"Показать еще\" в результатах поиска скрыта</string>
   <string name="revanced_hide_show_more_button_summary_off">Кнопка \"Показать еще\" в результатах поиска показана</string>
   <string name="revanced_hide_surveys_title">Скрыть опросы</string>
-  <string name="revanced_hide_surveys_summary_on">Опросы скрыты</string>
-  <string name="revanced_hide_surveys_summary_off">Опросы показаны</string>
+  <string name="revanced_hide_surveys_summary_on">Опросы в ленте скрыты</string>
+  <string name="revanced_hide_surveys_summary_off">Опросы в ленте показаны</string>
   <string name="revanced_hide_ticket_shelf_title">Скрыть секцию билетов</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Секция билетов под плеером скрыта</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Секция билетов под плеером показана</string>
@@ -295,7 +295,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_info_panels_summary_off">Информационные панели в ленте, результатах поиска и видео показаны</string>
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                   This appears in the video player for certain videos. -->
-  <string name="revanced_hide_join_membership_button_title">Скрыть кнопку \"Стать спонсором\"</string>
+  <string name="revanced_hide_join_membership_button_title">Скрыть кнопку \"Подписаться\"</string>
   <string name="revanced_hide_join_membership_button_summary_on">Кнопка \"Подписаться\" скрыта</string>
   <string name="revanced_hide_join_membership_button_summary_off">Кнопка \"Подписаться\" показана</string>
   <string name="revanced_hide_medical_panels_title">Скрыть медицинские панели</string>
@@ -360,22 +360,22 @@ Second \"item\" text"</string>
   <string name="revanced_channel_screen_summary">Скрыть или показать компоненты страницы канала</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Скрыть секцию \"Для вас\"</string>
-  <string name="revanced_hide_for_you_shelf_summary_on">Секция \"Для вас\" скрыта</string>
-  <string name="revanced_hide_for_you_shelf_summary_off">Секция \"Для вас\" показана</string>
+  <string name="revanced_hide_for_you_shelf_summary_on">Секция \"Для вас\" на странице канала скрыта</string>
+  <string name="revanced_hide_for_you_shelf_summary_off">Секция \"Для вас\" на странице канала показана</string>
   <string name="revanced_hide_links_preview_title">Скрыть предпросмотр ссылок</string>
-  <string name="revanced_hide_links_preview_summary_on">Предпросмотр ссылок скрыт</string>
-  <string name="revanced_hide_links_preview_summary_off">Предпросмотр ссылок показан</string>
+  <string name="revanced_hide_links_preview_summary_on">Предпросмотр ссылок на странице канала скрыт</string>
+  <string name="revanced_hide_links_preview_summary_off">Предпросмотр ссылок на странице канала показан</string>
   <string name="revanced_hide_members_shelf_title">Скрыть секцию участников</string>
-  <string name="revanced_hide_members_shelf_summary_on">Секция участников скрыта</string>
-  <string name="revanced_hide_members_shelf_summary_off">Секция участников показана</string>
+  <string name="revanced_hide_members_shelf_summary_on">Секция участников на странице канала скрыта</string>
+  <string name="revanced_hide_members_shelf_summary_off">Секция участников на странице канала показана</string>
   <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_visit_community_button_title">Скрыть кнопку \"Посетить сообщество\"</string>
-  <string name="revanced_hide_visit_community_button_summary_on">Кнопка \"Посетить сообщество\" скрыта</string>
-  <string name="revanced_hide_visit_community_button_summary_off">Кнопка \"Перейти в сообщество\" показана</string>
+  <string name="revanced_hide_visit_community_button_summary_on">Кнопка \"Посетить сообщество\" на странице канала скрыта</string>
+  <string name="revanced_hide_visit_community_button_summary_off">Кнопка \"Посетить сообщество\" на странице канала показана</string>
   <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Скрыть кнопку \"Посетить магазин\"</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Кнопка \"Перейти в магазин\" скрыта</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Кнопка \"Перейти в магазин\" показана</string>
+  <string name="revanced_hide_visit_store_button_title">Скрыть кнопку \"Перейти в магазин\"</string>
+  <string name="revanced_hide_visit_store_button_summary_on">Кнопка \"Перейти в магазин\" на странице канала скрыта</string>
+  <string name="revanced_hide_visit_store_button_summary_off">Кнопка \"Перейти в магазин\" на странице канала показана</string>
   <string name="revanced_comments_screen_title">Комментарии</string>
   <string name="revanced_comments_screen_summary">Скрыть или показать компоненты раздела комментариев</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Скрыть секцию ИИ сводки чата</string>
@@ -469,11 +469,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_creator_store_shelf_title">Скрыть секцию магазина автора</string>
-  <string name="revanced_hide_creator_store_shelf_summary_on">Секция магазина автора под видеоплеером скрыта</string>
-  <string name="revanced_hide_creator_store_shelf_summary_off">Секция магазина автора под видеоплеером показана</string>
+  <string name="revanced_hide_creator_store_shelf_summary_on">Секция магазина автора под плеером скрыта</string>
+  <string name="revanced_hide_creator_store_shelf_summary_off">Секция магазина автора под плеером показана</string>
   <string name="revanced_hide_end_screen_store_banner_title">Скрыть баннер магазина</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_on">Баннер магазина на конечном экране скрыт</string>
-  <string name="revanced_hide_end_screen_store_banner_summary_off">Баннер магазина на конечном экране показан</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_on">Баннер магазина в конце просмотра скрыт</string>
+  <string name="revanced_hide_end_screen_store_banner_summary_off">Баннер магазина в конце просмотра показан</string>
   <string name="revanced_hide_fullscreen_ads_title">Скрыть полноэкранную рекламу</string>
   <string name="revanced_hide_fullscreen_ads_summary_on">"Полноэкранная реклама при запуске приложения скрыта
 
@@ -793,8 +793,8 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Пункт \"Смотреть в VR-режиме\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Пункт \"Смотреть в VR-режиме\" в выдвижном меню плеера показан</string>
   <string name="revanced_hide_player_flyout_video_quality_title">Скрыть меню качества видео</string>
-  <string name="revanced_hide_player_flyout_video_quality_summary_on">Меню качества видео скрыто</string>
-  <string name="revanced_hide_player_flyout_video_quality_summary_off">Меню качества видео показано</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Меню качества видео в выдвижном меню плеера скрыто</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Меню качества видео в выдвижном меню плеера показано</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_title">Скрыть колонтитул меню качества видео</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Нижний колонтитул старого меню качества видео в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Нижний колонтитул старого меню качества видео в выдвижном меню плеера показан</string>
@@ -838,7 +838,7 @@ Second \"item\" text"</string>
   <string name="revanced_disable_rolling_number_animations_summary_off">Анимированные счетчики просмотров, лайков и дизлайков включены</string>
   </patch>
   <patch id="layout.hide.seekbar.hideSeekbarPatch">
-  <string name="revanced_hide_seekbar_title">Скрыть полосу прогресса видеоплеера</string>
+  <string name="revanced_hide_seekbar_title">Скрыть полосу прогресса плеера</string>
   <string name="revanced_hide_seekbar_summary_on">Полоса прогресса в плеере скрыта</string>
   <string name="revanced_hide_seekbar_summary_off">Полоса прогресса в плеере показана</string>
   <!-- Seekbar shown inside video thumbnails found the home/feed/search/history.  The seekbar shows the prior watch progress when the video was last open. -->
@@ -1086,13 +1086,13 @@ Second \"item\" text"</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button">Автоскрытие кнопки пропуска</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">Кнопка пропуска автоматически скрывается через несколько секунд</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">Кнопка пропуска показывается для всего сегмента</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration">Длительность кнопки пропуска</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration">Длительность показа кнопки пропуска</string>
   <string name="revanced_sb_auto_hide_skip_button_duration_sum">Длительность показа кнопок пропуска и перехода к основному моменту до автоматического скрытия</string>
   <string name="revanced_sb_general_skiptoast">Показывать уведомление отмены пропуска</string>
   <string name="revanced_sb_general_skiptoast_sum_on">Всплывающее уведомление показано при автоматическом пропуске сегмента. Нажмите на всплывающее уведомление для отмены пропуска</string>
   <string name="revanced_sb_general_skiptoast_sum_off">Всплывающее уведомление скрыто</string>
   <string name="revanced_sb_toast_on_skip_duration">Длительность всплывающего уведомления при пропуске</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">Как долго показывать всплывающее сообщение об отмене пропуска</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">Длительность показа всплывающего сообщения об отмене пропуска</string>
   <string name="revanced_sb_duration_1s">1 секунда</string>
   <string name="revanced_sb_duration_2s">2 секунды</string>
   <string name="revanced_sb_duration_3s">3 секунды</string>
@@ -1538,7 +1538,7 @@ Second \"item\" text"</string>
   <string name="revanced_bypass_url_redirects_summary_off">Перенаправления URL-адресов (youtube.com/redirect) не обходятся и исходные URL-адреса не открываются напрямую</string>
   </patch>
   <patch id="misc.links.openLinksExternallyPatch">
-  <string name="revanced_external_browser_title">Открыть ссылки в браузере</string>
+  <string name="revanced_external_browser_title">Открывать ссылки в браузере</string>
   <string name="revanced_external_browser_summary_on">Ссылки открываются во внешнем браузере</string>
   <string name="revanced_external_browser_summary_off">Ссылки открываются во встроенном браузере</string>
   </patch>
@@ -1646,10 +1646,6 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Показать в \"Статистике для сисадминов\"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Тип клиента в \"Статистике для сисадминов\" показан</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Тип клиента в \"Статистике для сисадминов\" скрыт</string>
-  <string name="revanced_spoof_video_streams_language_title">Язык аудиопотока</string>
-  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">Для выбора определенного языка аудио отключите \"Принудительный язык оригинального аудио\"</string>
-  <string name="revanced_spoof_video_streams_language_android_studio">Выбор языка трансляции недоступен с Android Studio</string>
   </patch>
   </app>
   <app id="music">

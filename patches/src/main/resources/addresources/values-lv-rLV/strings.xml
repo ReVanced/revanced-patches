@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
+<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1640,10 +1640,6 @@ AV1 video atskaņošana var raustīties vai izlaist kadrus."</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Rādīt statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Klienta tips tiek rādīts statistiskos datos entuziastiem</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Klients ir paslēpts statistiskos datos entuziastiem</string>
-  <string name="revanced_spoof_video_streams_language_title">Audio straumes valoda</string>
-  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">Lai atlasītu konkrētu audio valodu, izslēdziet “Piespiest oriģinālo audio valodu”</string>
-  <string name="revanced_spoof_video_streams_language_android_studio">Straumju valodas izvēle nav pieejama ar Android Studio</string>
   </patch>
   </app>
   <app id="music">

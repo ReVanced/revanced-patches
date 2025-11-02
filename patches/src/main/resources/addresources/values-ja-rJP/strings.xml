@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
+<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -282,7 +282,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_doodles_summary_off">ロゴの YouTube Doodle アニメーションは表示されます</string>
   <string name="revanced_hide_doodles_user_dialog_message">"YouTube Doodle は、年に数日、祝日や記念日などの特別な日に表示されます。
 
-あなたの地域で Doodle が表示されているとき、この設定をオンにすると検索結果にカテゴリー バーが表示されなくなります。"</string>
+あなたの地域で Doodle が表示されているとき、この設定をオンにすると検索結果にフィルタバーが表示されなくなります。"</string>
   <string name="revanced_hide_channel_bar_title">チャンネルバーを非表示</string>
   <string name="revanced_hide_channel_bar_summary_on">チャンネルバーは表示されません</string>
   <string name="revanced_hide_channel_bar_summary_off">チャンネルバーは表示されます</string>
@@ -350,11 +350,11 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_on">フィードに表示されません</string>
   <string name="revanced_hide_filter_bar_feed_in_feed_summary_off">フィードに表示されます</string>
   <string name="revanced_hide_filter_bar_feed_in_related_videos_title">関連動画で非表示</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">関連動画に表示されません</string>
-  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">関連動画に表示されます</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_on">関連動画には表示されません</string>
+  <string name="revanced_hide_filter_bar_feed_in_related_videos_summary_off">関連動画には表示されます</string>
   <string name="revanced_hide_filter_bar_feed_in_search_title">検索結果で非表示</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">検索結果に表示されません</string>
-  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">検索結果に表示されます</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_on">検索結果には表示されません</string>
+  <string name="revanced_hide_filter_bar_feed_in_search_summary_off">検索結果には表示されます</string>
   <string name="revanced_hide_filter_bar_feed_in_history_title">再生履歴で非表示</string>
   <string name="revanced_hide_filter_bar_feed_in_history_summary_on">再生履歴に表示されません</string>
   <string name="revanced_hide_filter_bar_feed_in_history_summary_off">再生履歴に表示されます</string>
@@ -492,9 +492,9 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_paid_promotion_label_title">「プロモーションを含みます」ラベルを非表示</string>
   <string name="revanced_hide_paid_promotion_label_summary_on">「プロモーションを含みます」ラベルは表示されません</string>
   <string name="revanced_hide_paid_promotion_label_summary_off">「プロモーションを含みます」ラベルは表示されます</string>
-  <string name="revanced_hide_self_sponsor_ads_title">自己スポンサー カードを非表示</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_on">自己スポンサー カードは表示されません</string>
-  <string name="revanced_hide_self_sponsor_ads_summary_off">自己スポンサー カードは表示されます</string>
+  <string name="revanced_hide_self_sponsor_ads_title">自己宣伝カードを非表示</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_on">自己宣伝カードは表示されません</string>
+  <string name="revanced_hide_self_sponsor_ads_summary_off">自己宣伝カードは表示されます</string>
   <string name="revanced_hide_shopping_links_title">商品へのリンクを非表示</string>
   <string name="revanced_hide_shopping_links_summary_on">動画の概要欄の商品へのリンクは表示されません</string>
   <string name="revanced_hide_shopping_links_summary_off">動画の概要欄の商品へのリンクは表示されます</string>
@@ -1142,7 +1142,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_sb_settings_ie">設定のインポート / エクスポート</string>
   <string name="revanced_sb_settings_copy">コピー</string>
   <string name="revanced_sb_settings_ie_sum">SponsorBlock の設定を JSON 形式のテキストでインポート / エクスポートします。この JSON テキストは他のプラットフォームでも利用可能です</string>
-  <string name="revanced_sb_settings_ie_sum_warning">SponsorBlock の設定を他のプラットフォームでも利用可能な JSON 形式のテキストでインポート / エクスポートします。この JSON テキストには非公開ユーザー ID が含まれています。共有する際は十分注意してください</string>
+  <string name="revanced_sb_settings_ie_sum_warning">SponsorBlock の設定を他のプラットフォームでも利用可能な JSON 形式のテキストでインポート / エクスポートします。この JSON テキストには非公開ユーザー ID が含まれています。このテキストを共有する際は十分注意してください</string>
   <string name="revanced_sb_settings_import_successful">設定のインポートに成功しました</string>
   <string name="revanced_sb_settings_import_failed">インポートに失敗しました: %s</string>
   <string name="revanced_sb_settings_export_failed">エクスポートに失敗しました: %s</string>
@@ -1151,18 +1151,18 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
 このユーザー ID は、パスワードのようなものであり、決して共有すべきではありません。"</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">今後表示しない</string>
   <string name="revanced_sb_diff_segments">セグメントに対する動作を変更</string>
-  <string name="revanced_sb_segments_sponsor">スポンサー</string>
+  <string name="revanced_sb_segments_sponsor">広告</string>
   <string name="revanced_sb_segments_sponsor_sum">有料の宣伝 、有料の紹介、直接的な広告。自己宣伝や好意をもって行う、慈善活動、クリエーター、ウェブサイト、製品などの無償の紹介は含まれません</string>
   <string name="revanced_sb_segments_selfpromo">無報酬の宣伝 / 自己宣伝</string>
-  <string name="revanced_sb_segments_selfpromo_sum">無報酬または自己宣伝である、という点以外は「スポンサー」と同様です。商品、寄付、コラボ相手に関する宣伝などを含みます</string>
+  <string name="revanced_sb_segments_selfpromo_sum">無報酬または自己宣伝である、という点以外は「広告」と同様です。商品、寄付、コラボ相手に関する宣伝などを含みます</string>
   <string name="revanced_sb_segments_interaction">視聴者への催促 (登録など)</string>
   <string name="revanced_sb_segments_interaction_sum">動画内に挿入される視聴者への高評価、チャンネル登録、フォローなどの時間的に短い催促。時間的に長い催促またはイベントなどの個別具体的なものに関する催促は、「視聴者への催促」ではなく「自己宣伝」に分類すべきです</string>
   <string name="revanced_sb_segments_highlight">ハイライト</string>
   <string name="revanced_sb_segments_highlight_sum">動画の中で最も重要な場面</string>
   <string name="revanced_sb_segments_intro">幕間 / オープニング (OP)</string>
-  <string name="revanced_sb_segments_intro_sum">実際のコンテンツを含まない区間。一時停止、静止画、繰り返しアニメーションなど。情報を含むトランジッション (場面転換) は、このカテゴリーではありません</string>
+  <string name="revanced_sb_segments_intro_sum">実際のコンテンツを含まない区間。一時停止、静止画、繰り返しアニメーションなど。情報を含むトランジッション (場面転換) は、このカテゴリではありません</string>
   <string name="revanced_sb_segments_outro">終了画面 / クレジット (ED)</string>
-  <string name="revanced_sb_segments_outro_sum">クレジット、または YouTube の終了画面が表示される場面。情報を含む結論、まとめ部分は、このカテゴリーには含まれません</string>
+  <string name="revanced_sb_segments_outro_sum">クレジット、または YouTube の終了画面が表示される場面。情報を含む結論、まとめ部分は、このカテゴリには含まれません</string>
   <string name="revanced_sb_segments_hook">フック / あいさつ</string>
   <string name="revanced_sb_segments_hook_sum">今後の動画のナレーション付きの予告編、および開幕と別れのあいさつ。重複しない内容や情報を追加する場面は含まれません</string>
   <string name="revanced_sb_segments_preview">予告編 / 総集編</string>
@@ -1173,7 +1173,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_sb_segments_nomusic_sum">ミュージック ビデオ専用。ミュージック ビデオの中で楽曲が流れていない区間であり、公式や他のメディアの音源に存在しない区間</string>
   <string name="revanced_sb_skip_button_compact">スキップ</string>
   <string name="revanced_sb_skip_button_compact_highlight">ハイライト</string>
-  <string name="revanced_sb_skip_button_sponsor"> スポンサーをスキップ</string>
+  <string name="revanced_sb_skip_button_sponsor"> 広告をスキップ</string>
   <string name="revanced_sb_skip_button_selfpromo">自己宣伝をスキップ</string>
   <string name="revanced_sb_skip_button_interaction">催促をスキップ</string>
   <string name="revanced_sb_skip_button_highlight">ハイライトまでスキップ</string>
@@ -1188,7 +1188,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_sb_skip_button_filler">余談をスキップ</string>
   <string name="revanced_sb_skip_button_nomusic">楽曲以外をスキップ</string>
   <string name="revanced_sb_skip_button_unsubmitted">セグメントをスキップ</string>
-  <string name="revanced_sb_skipped_sponsor">スポンサーをスキップしました</string>
+  <string name="revanced_sb_skipped_sponsor">広告をスキップしました</string>
   <string name="revanced_sb_skipped_selfpromo">自己宣伝をスキップしました</string>
   <string name="revanced_sb_skipped_interaction">催促をスキップしました</string>
   <string name="revanced_sb_skipped_highlight">ハイライトまでスキップしました</string>
@@ -1226,13 +1226,13 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_sb_vote_failed_forbidden">セグメントへの投票に失敗しました: %s</string>
   <string name="revanced_sb_vote_upvote">高評価</string>
   <string name="revanced_sb_vote_downvote">低評価</string>
-  <string name="revanced_sb_vote_category">カテゴリーの変更</string>
-  <string name="revanced_sb_vote_no_segments">投票先のセグメントが指定されていません</string>
+  <string name="revanced_sb_vote_category">カテゴリの変更</string>
+  <string name="revanced_sb_vote_no_segments">投票可能なセグメントがありません</string>
   <!-- A segment start and end time, such as "02:10 to 03:40". -->
   <string name="revanced_sb_vote_segment_time_to_from">%1$s ～ %2$s</string>
-  <string name="revanced_sb_new_segment_choose_category">セグメントのカテゴリーを選択してください</string>
-  <string name="revanced_sb_new_segment_disabled_category">カテゴリーが設定で無効になっています。送信するには、このカテゴリーを有効にしてください。</string>
-  <string name="revanced_sb_new_segment_title">新しいセグメント</string>
+  <string name="revanced_sb_new_segment_choose_category">セグメントのカテゴリを選択してください</string>
+  <string name="revanced_sb_new_segment_disabled_category">カテゴリが「無効」に設定されています。送信するには、設定を変更してください。</string>
+  <string name="revanced_sb_new_segment_title">新しいセグメント </string>
   <string name="revanced_sb_new_segment_mark_time_as_question">%s を新しいセグメント (SponsorBlock) の開始位置 / 終了位置に設定しますか？</string>
   <string name="revanced_sb_new_segment_mark_start">開始位置</string>
   <string name="revanced_sb_new_segment_mark_end">終了位置</string>
@@ -1641,10 +1641,6 @@ AV1 での動画再生は、カクつくまたはコマ落ちが発生する場�
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">統計情報にクライアントを表示</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">統計情報には現在のクライアントが表示されます</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">統計情報には現在のクライアントは表示されません</string>
-  <string name="revanced_spoof_video_streams_language_title">音声ストリームの言語</string>
-  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">特定の音声言語を選択するには、「オリジナルの音声を強制的に使用」を無効にしてください</string>
-  <string name="revanced_spoof_video_streams_language_android_studio">Android Studio では、ストリームの言語を選択できません</string>
   </patch>
   </app>
   <app id="music">
