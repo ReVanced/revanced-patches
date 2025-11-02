@@ -115,6 +115,11 @@ public class FeatureFlagsManagerPreference extends Preference {
      * Shows the main dialog for managing feature flags.
      */
     private void showFlagsManagerDialog() {
+        if (!BaseSettings.DEBUG.get()) {
+            Utils.showToastShort(str("revanced_debug_logs_disabled"));
+            return;
+        }
+
         Context context = getContext();
 
         // Load all known and disabled flags.
@@ -579,10 +584,10 @@ public class FeatureFlagsManagerPreference extends Preference {
         }
 
         BaseSettings.DISABLED_FEATURE_FLAGS.save(flagsString.toString());
-
-        Utils.showToastShort(str("revanced_debug_feature_flags_manager_toast_saved") + ". " +
-                str("revanced_settings_restart_dialog_message"));
+        Utils.showToastShort(str("revanced_debug_feature_flags_manager_toast_saved"));
         Logger.printDebug(() -> "Feature flags saved. Blocked: " + blockedFlags.size());
+
+        AbstractPreferenceFragment.showRestartDialog(getContext());
     }
 
     /**
@@ -590,7 +595,8 @@ public class FeatureFlagsManagerPreference extends Preference {
      */
     private void resetFlags() {
         BaseSettings.DISABLED_FEATURE_FLAGS.save("");
-        Utils.showToastShort(str("revanced_debug_feature_flags_manager_toast_reset") + ". " +
-                str("revanced_settings_restart_dialog_message"));
+        Utils.showToastShort(str("revanced_debug_feature_flags_manager_toast_reset"));
+
+        AbstractPreferenceFragment.showRestartDialog(getContext());
     }
 }
