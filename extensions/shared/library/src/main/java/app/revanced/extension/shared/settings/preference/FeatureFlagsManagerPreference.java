@@ -5,11 +5,8 @@ import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
 import android.preference.Preference;
 import android.text.Editable;
 import android.text.InputType;
@@ -24,7 +21,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -34,9 +30,7 @@ import android.widget.Space;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
