@@ -226,6 +226,7 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_debug_feature_flags_manager_summary">Manage boolean feature flags</string>
             <string name="revanced_debug_feature_flags_manager_active_header">Active flags (%d)</string>
             <string name="revanced_debug_feature_flags_manager_blocked_header">Blocked flags (%d)</string>
+            <string name="revanced_debug_feature_flags_manager_search_hint">Search flags...</string>
             <string name="revanced_debug_feature_flags_manager_toast_saved">Flags saved</string>
             <string name="revanced_debug_feature_flags_manager_toast_reset">Flags reset</string>
             <string name="revanced_debug_feature_flags_manager_toast_copied">Flags copied to clipboard</string>

@@ -115,6 +115,7 @@ public final class EnableDebuggingPatch {
         if (!flags.isBlank()) {
             for (String flag : flags.split("\n")) {
                 String trimmedFlag = flag.trim();
+                if (trimmedFlag.isEmpty()) continue; // Skip empty lines.
                 try {
                     parsedFlags.add(Long.parseLong(trimmedFlag));
                 } catch (NumberFormatException e) {

@@ -9,8 +9,10 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.preference.Preference;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -30,9 +32,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Space;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -74,7 +73,11 @@ public class FeatureFlagsManagerPreference extends Preference {
     static final int dip36 = Utils.dipToPixels(36);
     static final int dip44 = Utils.dipToPixels(44);
 
-    // Flags to hide from the UI.
+    private static Drawable cachedRippleBackground;
+
+    /**
+     * Flags to hide from the UI.
+     */
     private static final Set<Long> HIDDEN_FLAGS = Set.of(
             45386834L // Blocks settings button.
     );
@@ -147,10 +150,7 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         LinearLayout mainLayout = dialogPair.second;
         LinearLayout.LayoutParams contentParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                0,
-                1.0f
-        );
+                LinearLayout.LayoutParams.MATCH_PARENT, 0, 1.0f);
 
         // Insert content before the dialog button row.
         View contentView = createContentView(context, availableFlags, blockedFlags);
@@ -184,11 +184,11 @@ public class FeatureFlagsManagerPreference extends Preference {
         blockedCountText.setGravity(Gravity.CENTER);
 
         // Create ListViews and Adapters.
-        Pair<ListView, FlagAdapter> availablePair = createFilterableFlagsListView(context, availableFlags, availableCountText);
+        Pair<ListView, FlagAdapter> availablePair = createListView(context, availableFlags, availableCountText);
         ListView availableListView = availablePair.first;
         FlagAdapter availableAdapter = availablePair.second;
 
-        Pair<ListView, FlagAdapter> blockedPair = createFilterableFlagsListView(context, blockedFlags, blockedCountText);
+        Pair<ListView, FlagAdapter> blockedPair = createListView(context, blockedFlags, blockedCountText);
         ListView blockedListView = blockedPair.first;
         FlagAdapter blockedAdapter = blockedPair.second;
 
@@ -280,8 +280,9 @@ public class FeatureFlagsManagerPreference extends Preference {
      */
     private EditText createSearchBox(Context context, FlagAdapter adapter, ListView listView, TextView countText) {
         EditText search = new EditText(context);
+        search.setInputType(InputType.TYPE_CLASS_NUMBER);
         search.setTextSize(14);
-        search.setHint("Search flags...");
+        search.setHint(str("revanced_debug_feature_flags_manager_search_hint"));
         search.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
@@ -364,22 +365,22 @@ public class FeatureFlagsManagerPreference extends Preference {
         buttonsLayout.setGravity(Gravity.CENTER);
 
         ImageButton moveOneRight = createButton(context, DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_ONE,
-                () -> moveSelectedFlags(availableListView, blockedListView, availableFlags, blockedFlags,
+                () -> moveFlags(availableListView, blockedListView, availableFlags, blockedFlags,
                         availableCountText, blockedCountText, false));
 
         ImageButton moveAllRight = createButton(context, DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_DOUBLE,
-                () -> moveSelectedFlags(availableListView, blockedListView, availableFlags, blockedFlags,
+                () -> moveFlags(availableListView, blockedListView, availableFlags, blockedFlags,
                         availableCountText, blockedCountText, true));
 
         Space space = new Space(context);
         space.setLayoutParams(new LinearLayout.LayoutParams(0, dip24));
 
         ImageButton moveOneLeft = createButton(context, DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_ONE,
-                () -> moveSelectedFlags(blockedListView, availableListView, blockedFlags, availableFlags,
+                () -> moveFlags(blockedListView, availableListView, blockedFlags, availableFlags,
                         blockedCountText, availableCountText, false));
 
         ImageButton moveAllLeft = createButton(context, DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_DOUBLE,
-                () -> moveSelectedFlags(blockedListView, availableListView, blockedFlags, availableFlags,
+                () -> moveFlags(blockedListView, availableListView, blockedFlags, availableFlags,
                         blockedCountText, availableCountText, true));
 
         buttonsLayout.addView(moveOneRight);
@@ -400,10 +401,7 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         button.setImageResource(drawableResId);
         button.setScaleType(ImageView.ScaleType.CENTER);
-        int[] attrs = {android.R.attr.selectableItemBackgroundBorderless};
-        TypedArray ripple = context.obtainStyledAttributes(attrs);
-        button.setBackgroundDrawable(ripple.getDrawable(0));
-        ripple.recycle();
+        button.setBackgroundDrawable(getRippleBackground(context));
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(dip36, dip36);
         params.setMargins(dip4, dip4, dip4, dip4);
@@ -412,6 +410,20 @@ public class FeatureFlagsManagerPreference extends Preference {
         button.setOnClickListener(v -> action.run());
 
         return button;
+    }
+
+    /**
+     * Returns a ripple background drawable with caching.
+     */
+    private Drawable getRippleBackground(Context context) {
+        if (cachedRippleBackground == null) {
+            int[] attrs = {android.R.attr.selectableItemBackgroundBorderless};
+            TypedArray ta = context.obtainStyledAttributes(attrs);
+            cachedRippleBackground = ta.getDrawable(0);
+            ta.recycle();
+        }
+
+        return cachedRippleBackground;
     }
 
     /**
@@ -429,7 +441,7 @@ public class FeatureFlagsManagerPreference extends Preference {
         }
 
         public void setSearchQuery(String query) {
-            searchQuery = query == null ? "" : query.toLowerCase().trim();
+            searchQuery = query == null ? "" : query.trim();
             updateFiltered();
         }
 
@@ -438,7 +450,7 @@ public class FeatureFlagsManagerPreference extends Preference {
             filteredFlags.clear();
             for (Long flag : fullFlags) {
                 String flagString = String.valueOf(flag);
-                if (searchQuery.isEmpty() || flagString.toLowerCase().contains(searchQuery)) {
+                if (searchQuery.isEmpty() || flagString.contains(searchQuery)) {
                     add(flagString);
                     filteredFlags.add(flag);
                 }
@@ -454,9 +466,8 @@ public class FeatureFlagsManagerPreference extends Preference {
             return new ArrayList<>(fullFlags);
         }
 
-        @NonNull
         @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        public View getView(int position, View convertView, ViewGroup parent) {
             View view = super.getView(position, convertView, parent);
             TextView textView = view.findViewById(android.R.id.text1);
             if (textView != null) {
@@ -472,9 +483,8 @@ public class FeatureFlagsManagerPreference extends Preference {
      * Creates a ListView with filtering, multi-select, and range selection.
      */
     @SuppressLint("ClickableViewAccessibility")
-    private Pair<ListView, FlagAdapter> createFilterableFlagsListView(Context context,
-                                                                      TreeSet<Long> flags,
-                                                                      TextView countText) {
+    private Pair<ListView, FlagAdapter> createListView(Context context,
+                                                       TreeSet<Long> flags, TextView countText) {
         ListView listView = new ListView(context);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setDividerHeight(0);
@@ -519,11 +529,19 @@ public class FeatureFlagsManagerPreference extends Preference {
 
     /**
      * Moves selected or all flags from one list to another.
+     *
+     * @param fromListView  Source ListView.
+     * @param toListView    Destination ListView.
+     * @param fromFlags     Source flag set.
+     * @param toFlags       Destination flag set.
+     * @param fromCountText Header showing count of source items.
+     * @param toCountText   Header showing count of destination items.
+     * @param moveAll       If true, move all items; if false, move only selected.
      */
-    private void moveSelectedFlags(@Nullable ListView fromListView, @Nullable ListView toListView,
-                                   TreeSet<Long> fromFlags, TreeSet<Long> toFlags,
-                                   TextView fromCountText, TextView toCountText,
-                                   boolean moveAll) {
+    private void moveFlags(ListView fromListView, ListView toListView,
+                           TreeSet<Long> fromFlags, TreeSet<Long> toFlags,
+                           TextView fromCountText, TextView toCountText,
+                           boolean moveAll) {
         if (fromListView == null || toListView == null) return;
 
         List<Long> flagsToMove = new ArrayList<>();
@@ -535,7 +553,10 @@ public class FeatureFlagsManagerPreference extends Preference {
             SparseBooleanArray checked = fromListView.getCheckedItemPositions();
             for (int i = 0; i < fromAdapter.getCount(); i++) {
                 if (checked.get(i)) {
-                    flagsToMove.add(Long.parseLong(Objects.requireNonNull(fromAdapter.getItem(i))));
+                    String item = fromAdapter.getItem(i);
+                    if (item != null) {
+                        flagsToMove.add(Long.parseLong(item));
+                    }
                 }
             }
         }
@@ -545,13 +566,13 @@ public class FeatureFlagsManagerPreference extends Preference {
         fromFlags.removeAll(flagsToMove);
         toFlags.addAll(flagsToMove);
 
+        // Clear selections before refreshing.
+        fromListView.clearChoices();
+        toListView.clearChoices();
+
         // Refresh both adapters.
         fromAdapter.refresh();
         ((FlagAdapter) toListView.getAdapter()).refresh();
-
-        // Clear selections.
-        fromListView.clearChoices();
-        toListView.clearChoices();
 
         // Update headers.
         updateHeaderCount(fromCountText, fromFlags.size());
