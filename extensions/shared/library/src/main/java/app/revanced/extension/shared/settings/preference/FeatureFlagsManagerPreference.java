@@ -189,15 +189,18 @@ public class FeatureFlagsManagerPreference extends Preference {
         headersLayout.addView(blockedHeader, new LinearLayout.LayoutParams(
                 0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 
-        updateHeaderCount(availableHeader, availableFlags.size());
-        updateHeaderCount(blockedHeader, blockedFlags.size());
-
         // Columns.
         View leftColumn = createColumn(context, availableFlags, availableHeader);
         View rightColumn = createColumn(context, blockedFlags, blockedHeader);
 
+        ColumnViews leftViews = (ColumnViews) leftColumn.getTag();
+        ColumnViews rightViews = (ColumnViews) rightColumn.getTag();
+
+        updateHeaderCount(availableHeader, leftViews.adapter);
+        updateHeaderCount(blockedHeader, rightViews.adapter);
+
         LinearLayout moveButtons = createMoveButtons(context,
-                ((ColumnViews) leftColumn.getTag()).listView, ((ColumnViews) rightColumn.getTag()).listView,
+                leftViews.listView, rightViews.listView,
                 availableFlags, blockedFlags, availableHeader, blockedHeader);
 
         // Main columns layout.
@@ -260,8 +263,8 @@ public class FeatureFlagsManagerPreference extends Preference {
     /**
      * Updates the header text with the current count.
      */
-    private void updateHeaderCount(TextView header, int count) {
-        header.setText(str((String) header.getTag(), count));
+    private void updateHeaderCount(TextView header, FlagAdapter adapter) {
+        header.setText(str((String) header.getTag(), adapter.getCount()));
     }
 
     /**
@@ -280,7 +283,7 @@ public class FeatureFlagsManagerPreference extends Preference {
             @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
                 adapter.setSearchQuery(s.toString());
                 listView.clearChoices();
-                updateHeaderCount(countText, adapter.getCount());
+                updateHeaderCount(countText, adapter);
             }
             @Override public void afterTextChanged(Editable s) {}
         });
@@ -553,8 +556,8 @@ public class FeatureFlagsManagerPreference extends Preference {
         ((FlagAdapter) toListView.getAdapter()).refresh();
 
         // Update headers.
-        updateHeaderCount(fromCountText, fromFlags.size());
-        updateHeaderCount(toCountText, toFlags.size());
+        updateHeaderCount(fromCountText, fromAdapter);
+        updateHeaderCount(toCountText, (FlagAdapter) toListView.getAdapter());
     }
 
     /**
