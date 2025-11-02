@@ -29,6 +29,8 @@ import android.widget.ListView;
 import android.widget.Space;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -173,11 +175,13 @@ public class FeatureFlagsManagerPreference extends Preference {
         TextView availableCountText = new TextView(context);
         availableCountText.setTag("revanced_debug_feature_flags_manager_active_header");
         availableCountText.setTextSize(14);
+        availableCountText.setTextColor(Utils.getAppForegroundColor());
         availableCountText.setGravity(Gravity.CENTER);
 
         TextView blockedCountText = new TextView(context);
         blockedCountText.setTag("revanced_debug_feature_flags_manager_blocked_header");
         blockedCountText.setTextSize(14);
+        blockedCountText.setTextColor(Utils.getAppForegroundColor());
         blockedCountText.setGravity(Gravity.CENTER);
 
         // Create ListViews and Adapters.
@@ -417,7 +421,6 @@ public class FeatureFlagsManagerPreference extends Preference {
      */
     private static class FlagAdapter extends ArrayAdapter<String> {
         private final TreeSet<Long> fullFlags;
-        private final List<Long> filteredFlags = new ArrayList<>();
         private String searchQuery = "";
 
         public FlagAdapter(Context context, TreeSet<Long> fullFlags) {
@@ -433,12 +436,10 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         private void updateFiltered() {
             clear();
-            filteredFlags.clear();
             for (Long flag : fullFlags) {
                 String flagString = String.valueOf(flag);
                 if (searchQuery.isEmpty() || flagString.contains(searchQuery)) {
                     add(flagString);
-                    filteredFlags.add(flag);
                 }
             }
             notifyDataSetChanged();
@@ -452,8 +453,9 @@ public class FeatureFlagsManagerPreference extends Preference {
             return new ArrayList<>(fullFlags);
         }
 
+        @NonNull
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
             View view = super.getView(position, convertView, parent);
             TextView textView = view.findViewById(android.R.id.text1);
             if (textView != null) {
@@ -549,8 +551,10 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         if (flagsToMove.isEmpty()) return;
 
-        fromFlags.removeAll(flagsToMove);
-        toFlags.addAll(flagsToMove);
+        for (Long flag : flagsToMove) {
+            fromFlags.remove(flag);
+            toFlags.add(flag);
+        }
 
         // Clear selections before refreshing.
         fromListView.clearChoices();
