@@ -84,6 +84,11 @@ public class FeatureFlagsManagerPreference extends Preference {
         boolean isRangeSelecting = false; // True while a range is being selected.
     }
 
+    /**
+     * Helper class to pass ListView and Adapter together.
+     */
+    private record ColumnViews(ListView listView, FlagAdapter adapter) {}
+
     {
         setOnPreferenceClickListener(pref -> {
             showFlagsManagerDialog();
@@ -171,102 +176,85 @@ public class FeatureFlagsManagerPreference extends Preference {
         LinearLayout contentLayout = new LinearLayout(context);
         contentLayout.setOrientation(LinearLayout.VERTICAL);
 
-        // Header count TextViews.
-        TextView availableCountText = new TextView(context);
-        availableCountText.setTag("revanced_debug_feature_flags_manager_active_header");
-        availableCountText.setTextSize(14);
-        availableCountText.setTextColor(Utils.getAppForegroundColor());
-        availableCountText.setGravity(Gravity.CENTER);
-
-        TextView blockedCountText = new TextView(context);
-        blockedCountText.setTag("revanced_debug_feature_flags_manager_blocked_header");
-        blockedCountText.setTextSize(14);
-        blockedCountText.setTextColor(Utils.getAppForegroundColor());
-        blockedCountText.setGravity(Gravity.CENTER);
-
-        // Create ListViews and Adapters.
-        Pair<ListView, FlagAdapter> availablePair = createListView(context, availableFlags, availableCountText);
-        ListView availableListView = availablePair.first;
-        FlagAdapter availableAdapter = availablePair.second;
-
-        Pair<ListView, FlagAdapter> blockedPair = createListView(context, blockedFlags, blockedCountText);
-        ListView blockedListView = blockedPair.first;
-        FlagAdapter blockedAdapter = blockedPair.second;
-
-        // Update initial counts.
-        updateHeaderCount(availableCountText, availableFlags.size());
-        updateHeaderCount(blockedCountText, blockedFlags.size());
-
         // Headers.
+        TextView availableHeader = createHeader(context, "revanced_debug_feature_flags_manager_active_header");
+        TextView blockedHeader = createHeader(context, "revanced_debug_feature_flags_manager_blocked_header");
+
         LinearLayout headersLayout = new LinearLayout(context);
         headersLayout.setOrientation(LinearLayout.HORIZONTAL);
+        headersLayout.addView(availableHeader, new LinearLayout.LayoutParams(
+                0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
+        headersLayout.addView(new Space(context), new LinearLayout.LayoutParams(
+                dip44, ViewGroup.LayoutParams.WRAP_CONTENT));
+        headersLayout.addView(blockedHeader, new LinearLayout.LayoutParams(
+                0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 
-        LinearLayout.LayoutParams headerParams = new LinearLayout.LayoutParams(
-                0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
-        availableCountText.setLayoutParams(headerParams);
-        blockedCountText.setLayoutParams(headerParams);
+        updateHeaderCount(availableHeader, availableFlags.size());
+        updateHeaderCount(blockedHeader, blockedFlags.size());
 
-        TextView spacer = new TextView(context);
-        spacer.setLayoutParams(new LinearLayout.LayoutParams(
-                dip44, LinearLayout.LayoutParams.WRAP_CONTENT));
+        // Columns.
+        View leftColumn = createColumn(context, availableFlags, availableHeader);
+        View rightColumn = createColumn(context, blockedFlags, blockedHeader);
 
-        headersLayout.addView(availableCountText);
-        headersLayout.addView(spacer);
-        headersLayout.addView(blockedCountText);
-
-        // Left column: Active Flags.
-        LinearLayout leftWrapper = new LinearLayout(context);
-        leftWrapper.setOrientation(LinearLayout.VERTICAL);
-        leftWrapper.setLayoutParams(new LinearLayout.LayoutParams(
-                0, LinearLayout.LayoutParams.MATCH_PARENT, 1f));
-
-        EditText searchAvailable = createSearchBox(context, availableAdapter, availableListView, availableCountText);
-        leftWrapper.addView(searchAvailable);
-
-        LinearLayout buttonsRowAvailable = createActionButtons(context, availableListView, availableAdapter);
-        leftWrapper.addView(buttonsRowAvailable);
-
-        availableListView.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f));
-        leftWrapper.addView(availableListView);
-
-        // Right column: Blocked Flags.
-        LinearLayout rightWrapper = new LinearLayout(context);
-        rightWrapper.setOrientation(LinearLayout.VERTICAL);
-        rightWrapper.setLayoutParams(new LinearLayout.LayoutParams(
-                0, LinearLayout.LayoutParams.MATCH_PARENT, 1f));
-
-        EditText searchBlocked = createSearchBox(context, blockedAdapter, blockedListView, blockedCountText);
-        rightWrapper.addView(searchBlocked);
-
-        LinearLayout buttonsRowBlocked = createActionButtons(context, blockedListView, blockedAdapter);
-        rightWrapper.addView(buttonsRowBlocked);
-
-        blockedListView.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f));
-        rightWrapper.addView(blockedListView);
-
-        // Move buttons: > >> < <<
-        LinearLayout moveButtonsLayout = createMoveButtons(
-                context, availableListView, blockedListView,
-                availableFlags, blockedFlags,
-                availableCountText, blockedCountText
-        );
+        LinearLayout moveButtons = createMoveButtons(context,
+                ((ColumnViews) leftColumn.getTag()).listView, ((ColumnViews) rightColumn.getTag()).listView,
+                availableFlags, blockedFlags, availableHeader, blockedHeader);
 
         // Main columns layout.
         LinearLayout columnsLayout = new LinearLayout(context);
         columnsLayout.setOrientation(LinearLayout.HORIZONTAL);
         columnsLayout.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f));
-
-        columnsLayout.addView(leftWrapper);
-        columnsLayout.addView(moveButtonsLayout);
-        columnsLayout.addView(rightWrapper);
+                ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
+        columnsLayout.addView(leftColumn, new LinearLayout.LayoutParams(
+                0, ViewGroup.LayoutParams.MATCH_PARENT, 1f));
+        columnsLayout.addView(moveButtons);
+        columnsLayout.addView(rightColumn, new LinearLayout.LayoutParams(
+                0, ViewGroup.LayoutParams.MATCH_PARENT, 1f));
 
         contentLayout.addView(headersLayout);
         contentLayout.addView(columnsLayout);
 
         return contentLayout;
+    }
+
+    /**
+     * Creates a header TextView.
+     */
+    private TextView createHeader(Context context, String tag) {
+        TextView textview = new TextView(context);
+        textview.setTag(tag);
+        textview.setTextSize(14);
+        textview.setTextColor(Utils.getAppForegroundColor());
+        textview.setGravity(Gravity.CENTER);
+
+        return textview;
+    }
+
+    /**
+     * Creates a single column (search + buttons + list).
+     */
+    private View createColumn(Context context, TreeSet<Long> flags, TextView countText) {
+        LinearLayout wrapper = new LinearLayout(context);
+        wrapper.setOrientation(LinearLayout.VERTICAL);
+
+        Pair<ListView, FlagAdapter> pair = createListView(context, flags, countText);
+        ListView listView = pair.first;
+        FlagAdapter adapter = pair.second;
+
+        EditText search = createSearchBox(context, adapter, listView, countText);
+        LinearLayout buttons = createActionButtons(context, listView, adapter);
+
+        listView.setLayoutParams(new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
+
+        wrapper.addView(search);
+        wrapper.addView(buttons);
+        wrapper.addView(listView);
+
+        // Save references for move buttons.
+        wrapper.setTag(new ColumnViews(listView, adapter));
+
+        return wrapper;
     }
 
     /**
