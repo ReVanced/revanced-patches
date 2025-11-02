@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
+<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1638,10 +1638,6 @@ Second \"item\" text"</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Εμφάνιση στο μενού «Στατιστικά για σπασίκλες»</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Το πρόγραμμα πελάτη εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Το πρόγραμμα πελάτη δεν εμφανίζεται στο μενού «Στατιστικά για σπασίκλες»</string>
-  <string name="revanced_spoof_video_streams_language_title">Γλώσσα ροής ήχου</string>
-  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">Για να επιλέξετε μια συγκεκριμένη γλώσσα ήχου, απενεργοποιήστε το «Εξαναγκασμός αρχικής γλώσσας ήχου»</string>
-  <string name="revanced_spoof_video_streams_language_android_studio">Η επιλογή γλώσσας ροής δεν είναι διαθέσιμη με το Android Studio</string>
   </patch>
   </app>
   <app id="music">

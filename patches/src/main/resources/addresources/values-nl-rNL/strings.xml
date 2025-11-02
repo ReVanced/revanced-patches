@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. Not licensed under GPL. See https://github.com/ReVanced/revanced-branding -->
+<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1637,10 +1637,6 @@ Het afspelen van video met AV1 kan haperen of frames overslaan."</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_title">Weergeven in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_on">Het clienttype wordt getoond in Stats for nerds</string>
   <string name="revanced_spoof_streaming_data_stats_for_nerds_summary_off">Client is verborgen in Stats for nerds</string>
-  <string name="revanced_spoof_video_streams_language_title">Audiostreamtaal</string>
-  <!-- 'Force original audio language' should use the same text as revanced_force_original_audio_title -->
-  <string name="revanced_spoof_video_streams_language_not_available">Om een specifieke audiotaal te selecteren, schakel \"Oorspronkelijke audiotaal forceren\" uit</string>
-  <string name="revanced_spoof_video_streams_language_android_studio">Streamtaalselectie is niet beschikbaar met Android Studio</string>
   </patch>
   </app>
   <app id="music">
