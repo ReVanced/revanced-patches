@@ -7,6 +7,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.preference.Preference;
 import android.text.Editable;
 import android.text.InputType;
@@ -28,8 +29,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Space;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +64,7 @@ public class FeatureFlagsManagerPreference extends Preference {
             getResourceIdentifierOrThrow("revanced_settings_arrow_left_double", "drawable");
 
     static final int dip4 = Utils.dipToPixels(4);
-    static final int dip24 = Utils.dipToPixels(24);
+    static final int dip20 = Utils.dipToPixels(20);
     static final int dip36 = Utils.dipToPixels(36);
     static final int dip44 = Utils.dipToPixels(44);
 
@@ -226,7 +225,7 @@ public class FeatureFlagsManagerPreference extends Preference {
     private TextView createHeader(Context context, String tag) {
         TextView textview = new TextView(context);
         textview.setTag(tag);
-        textview.setTextSize(14);
+        textview.setTextSize(16);
         textview.setTextColor(Utils.getAppForegroundColor());
         textview.setGravity(Gravity.CENTER);
 
@@ -273,8 +272,9 @@ public class FeatureFlagsManagerPreference extends Preference {
     private EditText createSearchBox(Context context, FlagAdapter adapter, ListView listView, TextView countText) {
         EditText search = new EditText(context);
         search.setInputType(InputType.TYPE_CLASS_NUMBER);
-        search.setTextSize(14);
+        search.setTextSize(16);
         search.setHint(str("revanced_debug_feature_flags_manager_search_hint"));
+        search.setHapticFeedbackEnabled(false);
         search.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
@@ -284,8 +284,22 @@ public class FeatureFlagsManagerPreference extends Preference {
                 adapter.setSearchQuery(s.toString());
                 listView.clearChoices();
                 updateHeaderCount(countText, adapter);
+                Drawable clearIcon = context.getResources().getDrawable(android.R.drawable.ic_menu_close_clear_cancel);
+                clearIcon.setBounds(0, 0, dip20, dip20);
+                search.setCompoundDrawables(null, null, TextUtils.isEmpty(s) ? null : clearIcon, null);
             }
             @Override public void afterTextChanged(Editable s) {}
+        });
+
+        search.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                if (search.getCompoundDrawables()[2] != null &&
+                        event.getRawX() >= (search.getRight() - search.getCompoundDrawables()[2].getBounds().width())) {
+                    search.setText("");
+                    return true;
+                }
+            }
+            return false;
         });
 
         return search;
@@ -365,7 +379,7 @@ public class FeatureFlagsManagerPreference extends Preference {
                         availableCountText, blockedCountText, true));
 
         Space space = new Space(context);
-        space.setLayoutParams(new LinearLayout.LayoutParams(0, dip24));
+        space.setLayoutParams(new LinearLayout.LayoutParams(0, dip20));
 
         ImageButton moveOneLeft = createButton(context, DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_ONE,
                 () -> moveFlags(blockedListView, availableListView, blockedFlags, availableFlags,
@@ -442,19 +456,6 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         public List<Long> getFullFlags() {
             return new ArrayList<>(fullFlags);
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
-            View view = super.getView(position, convertView, parent);
-            TextView textView = view.findViewById(android.R.id.text1);
-            if (textView != null) {
-                textView.setTextSize(14);
-                textView.setPadding(dip4, 0, 0, 0);
-            }
-
-            return view;
         }
     }
 
