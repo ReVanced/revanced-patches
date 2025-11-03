@@ -45,6 +45,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.text.Bidi;
+import java.text.Collator;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -980,7 +981,7 @@ public class Utils {
     private static final Pattern punctuationPattern = Pattern.compile("\\p{P}+");
 
     /**
-     * Strips all punctuation and converts to lower case.  A null parameter returns an empty string.
+     * Removes punctuation and converts text to lowercase. Returns an empty string if input is null.
      */
     public static String removePunctuationToLowercase(@Nullable CharSequence original) {
         if (original == null) return "";
@@ -989,8 +990,8 @@ public class Utils {
     }
 
     /**
-     * Normalizes text for search: Unicode Unicode NFD decomposition, removes diacritics, and converts to lowercase.
-     * Ensures correct matching for Korean (jamo), Japanese, Vietnamese, Arabic, etc.
+     * Normalizes text for search: applies NFD, removes diacritics, and lowercases (locale-neutral).
+     * Returns an empty string if input is null.
      */
     public static String normalizeTextToLowercase(@Nullable CharSequence original) {
         if (original == null) return "";
@@ -999,17 +1000,25 @@ public class Utils {
     }
 
     /**
-     * Sort a PreferenceGroup and all it's sub groups by title or key.
+     * Sorts a {@link PreferenceGroup} and all nested subgroups by title or key.
      * <p>
-     * Sort order is determined by the preferences key {@link Sort} suffix.
+     * The sort order is controlled by the {@link Sort} suffix present in the preference key.
+     * Preferences without a key or without a {@link Sort} suffix remain in their original order.
      * <p>
-     * If a preference has no key or no {@link Sort} suffix,
-     * then the preferences are left unsorted.
+     * Sorting is performed using {@link Collator} with the current user locale,
+     * ensuring correct alphabetical ordering for all supported languages
+     * (e.g., Ukrainian "і", German "ß", French accented characters, etc.).
+     *
+     * @param group the {@link PreferenceGroup} to sort
      */
     @SuppressWarnings("deprecation")
     public static void sortPreferenceGroups(PreferenceGroup group) {
         Sort groupSort = Sort.fromKey(group.getKey(), Sort.UNSORTED);
         List<Pair<String, Preference>> preferences = new ArrayList<>();
+
+        // Obtain Collator for locale-aware string comparison.
+        Collator collator = Collator.getInstance(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
+        collator.setStrength(Collator.SECONDARY); // Case-insensitive, diacritic-insensitive.
 
         for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
             Preference preference = group.getPreference(i);
@@ -1041,10 +1050,19 @@ public class Utils {
             preferences.add(new Pair<>(sortValue, preference));
         }
 
-        //noinspection ComparatorCombinators
-        Collections.sort(preferences, (pair1, pair2)
-                -> pair1.first.compareTo(pair2.first));
+        // Sort the list using locale-specific collation rules.
+        Collections.sort(preferences, (a, b) -> {
+            String s1 = a.first;
+            String s2 = b.first;
 
+            if (s1 == null && s2 == null) return 0;
+            if (s1 == null) return -1;
+            if (s2 == null) return 1;
+
+            return collator.compare(s1, s2);
+        });
+
+        // Reassign order values to reflect the new sorted sequence
         int index = 0;
         for (Pair<String, Preference> pair : preferences) {
             int order = index++;
