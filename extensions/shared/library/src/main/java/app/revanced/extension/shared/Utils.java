@@ -45,6 +45,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.text.Bidi;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -984,6 +985,17 @@ public class Utils {
     public static String removePunctuationToLowercase(@Nullable CharSequence original) {
         if (original == null) return "";
         return punctuationPattern.matcher(original).replaceAll("")
+                .toLowerCase(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
+    }
+
+    /**
+     * Normalizes text for search: Unicode Unicode NFD decomposition, removes diacritics, and converts to lowercase.
+     * Ensures correct matching for Korean (jamo), Japanese, Vietnamese, Arabic, etc.
+     */
+    public static String normalizeTextToLowercase(CharSequence original) {
+        if (original == null) return "";
+        String normalized = Normalizer.normalize(original.toString(), Normalizer.Form.NFD);
+        return normalized.replaceAll("\\p{M}", "")
                 .toLowerCase(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
     }
 

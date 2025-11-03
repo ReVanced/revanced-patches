@@ -227,10 +227,14 @@ public abstract class BaseSearchResultItem {
             return searchBuilder.toString();
         }
 
+        /**
+         * Appends normalized searchable text to the builder.
+         * Uses full Unicode normalization for accurate search across all languages.
+         */
         private void appendText(StringBuilder builder, CharSequence text) {
             if (!TextUtils.isEmpty(text)) {
                 if (builder.length() > 0) builder.append(" ");
-                builder.append(Utils.removePunctuationToLowercase(text));
+                builder.append(Utils.normalizeTextToLowercase(text));
             }
         }
 
@@ -275,7 +279,7 @@ public abstract class BaseSearchResultItem {
          */
         @Override
         boolean matchesQuery(String query) {
-            return searchableText.contains(Utils.removePunctuationToLowercase(query));
+            return searchableText.contains(Utils.normalizeTextToLowercase(query));
         }
 
         /**
