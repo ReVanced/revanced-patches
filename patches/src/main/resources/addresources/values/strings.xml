@@ -388,6 +388,9 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_hide_how_this_was_made_section_title">Hide \'How this content was made\'</string>
             <string name="revanced_hide_how_this_was_made_section_summary_on">How this content was made section is hidden</string>
             <string name="revanced_hide_how_this_was_made_section_summary_off">How this content was made section is shown</string>
+            <string name="revanced_hide_hype_points_title">Hide Hype points</string>
+            <string name="revanced_hide_hype_points_summary_on">Hype points are hidden</string>
+            <string name="revanced_hide_hype_points_summary_off">hype points are shown</string>
             <string name="revanced_hide_podcast_section_title">Hide \'Explore the podcast\'</string>
             <string name="revanced_hide_podcast_section_summary_on">Explore the podcast section is hidden</string>
             <string name="revanced_hide_podcast_section_summary_off">Explore the podcast section is shown</string>

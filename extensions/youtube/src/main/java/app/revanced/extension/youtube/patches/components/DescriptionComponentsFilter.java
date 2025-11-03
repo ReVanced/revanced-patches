@@ -63,6 +63,11 @@ final class DescriptionComponentsFilter extends Filter {
                 "how_this_was_made_section"
         );
 
+        final StringFilterGroup hypePoints = new StringFilterGroup(
+                Settings.HIDE_HYPE_POINTS,
+                "hype_points_factoid"
+        );
+
         macroMarkersCarousel = new StringFilterGroup(
                 null,
                 "macro_markers_carousel.e"
@@ -96,6 +101,7 @@ final class DescriptionComponentsFilter extends Filter {
                 infoCardsSection,
                 horizontalShelf,
                 howThisWasMadeSection,
+                hypePoints,
                 macroMarkersCarousel,
                 podcastSection,
                 transcriptSection
