@@ -994,9 +994,8 @@ public class Utils {
      */
     public static String normalizeTextToLowercase(CharSequence original) {
         if (original == null) return "";
-        String normalized = Normalizer.normalize(original.toString(), Normalizer.Form.NFD);
-        return normalized.replaceAll("\\p{M}", "")
-                .toLowerCase(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
+        return Normalizer.normalize(original.toString(), Normalizer.Form.NFD)
+                .replaceAll("\\p{M}", "").toLowerCase(Locale.ROOT);
     }
 
     /**
