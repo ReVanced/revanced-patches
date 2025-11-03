@@ -81,6 +81,12 @@ public class Utils {
     @Nullable
     private static Boolean isDarkModeEnabled;
 
+    // Cached Collator instance with its locale.
+    @Nullable
+    private static Locale cachedCollatorLocale;
+    @Nullable
+    private static Collator cachedCollator;
+
     private Utils() {
     } // utility class
 
@@ -978,14 +984,12 @@ public class Utils {
         }
     }
 
-    private static final Pattern punctuationPattern = Pattern.compile("\\p{P}+");
-
     /**
      * Removes punctuation and converts text to lowercase. Returns an empty string if input is null.
      */
     public static String removePunctuationToLowercase(@Nullable CharSequence original) {
         if (original == null) return "";
-        return punctuationPattern.matcher(original).replaceAll("")
+        return Pattern.compile("\\p{P}+").matcher(original).replaceAll("")
                 .toLowerCase(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
     }
 
@@ -997,6 +1001,21 @@ public class Utils {
         if (original == null) return "";
         return Normalizer.normalize(original.toString(), Normalizer.Form.NFD)
                 .replaceAll("\\p{M}", "").toLowerCase(Locale.ROOT);
+    }
+
+    /**
+     * Returns a cached Collator for the current locale, or creates a new one if locale changed.
+     */
+    private static Collator getCollator() {
+        Locale currentLocale = BaseSettings.REVANCED_LANGUAGE.get().getLocale();
+
+        if (cachedCollator == null || !currentLocale.equals(cachedCollatorLocale)) {
+            cachedCollatorLocale = currentLocale;
+            cachedCollator = Collator.getInstance(currentLocale);
+            cachedCollator.setStrength(Collator.SECONDARY); // Case-insensitive, diacritic-insensitive.
+        }
+
+        return cachedCollator;
     }
 
     /**
@@ -1016,9 +1035,8 @@ public class Utils {
         Sort groupSort = Sort.fromKey(group.getKey(), Sort.UNSORTED);
         List<Pair<String, Preference>> preferences = new ArrayList<>();
 
-        // Obtain Collator for locale-aware string comparison.
-        Collator collator = Collator.getInstance(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
-        collator.setStrength(Collator.SECONDARY); // Case-insensitive, diacritic-insensitive.
+        // Get cached Collator for locale-aware string comparison.
+        Collator collator = getCollator();
 
         for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
             Preference preference = group.getPreference(i);
@@ -1051,16 +1069,8 @@ public class Utils {
         }
 
         // Sort the list using locale-specific collation rules.
-        Collections.sort(preferences, (a, b) -> {
-            String s1 = a.first;
-            String s2 = b.first;
-
-            if (s1 == null && s2 == null) return 0;
-            if (s1 == null) return -1;
-            if (s2 == null) return 1;
-
-            return collator.compare(s1, s2);
-        });
+        Collections.sort(preferences, (pair1, pair2)
+                -> collator.compare(pair1.first, pair2.first));
 
         // Reassign order values to reflect the new sorted sequence
         int index = 0;
