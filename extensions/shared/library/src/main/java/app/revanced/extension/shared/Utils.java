@@ -992,7 +992,7 @@ public class Utils {
      * Normalizes text for search: Unicode Unicode NFD decomposition, removes diacritics, and converts to lowercase.
      * Ensures correct matching for Korean (jamo), Japanese, Vietnamese, Arabic, etc.
      */
-    public static String normalizeTextToLowercase(CharSequence original) {
+    public static String normalizeTextToLowercase(@Nullable CharSequence original) {
         if (original == null) return "";
         return Normalizer.normalize(original.toString(), Normalizer.Form.NFD)
                 .replaceAll("\\p{M}", "").toLowerCase(Locale.ROOT);
