@@ -45,6 +45,7 @@ val hidePlayerFlyoutMenuPatch = bytecodePatch(
                     SwitchPreference("revanced_hide_player_flyout_loop_video"),
                     SwitchPreference("revanced_hide_player_flyout_ambient_mode"),
                     SwitchPreference("revanced_hide_player_flyout_stable_volume"),
+                    SwitchPreference("revanced_hide_player_flyout_listen_with_youtube_music"),
                     SwitchPreference("revanced_hide_player_flyout_help"),
                     SwitchPreference("revanced_hide_player_flyout_speed"),
                     SwitchPreference("revanced_hide_player_flyout_lock_screen"),

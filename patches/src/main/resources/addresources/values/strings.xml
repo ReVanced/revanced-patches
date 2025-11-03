@@ -843,6 +843,10 @@ If changing this setting does not take effect, try switching to Incognito mode."
             <string name="revanced_hide_player_flyout_lock_screen_title">Hide Lock screen</string>
             <string name="revanced_hide_player_flyout_lock_screen_summary_on">Lock screen menu is hidden</string>
             <string name="revanced_hide_player_flyout_lock_screen_summary_off">Lock screen menu is shown</string>
+            <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+            <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Hide Listen with YouTube Music</string>
+            <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Listen with YouTube Music menu is hidden</string>
+            <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Listen with YouTube Music menu is shown</string>
             <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
             <string name="revanced_hide_player_flyout_audio_track_title">Hide Audio track</string>
             <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio track menu is hidden</string>
