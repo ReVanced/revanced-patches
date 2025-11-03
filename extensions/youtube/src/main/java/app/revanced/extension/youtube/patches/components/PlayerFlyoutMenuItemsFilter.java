@@ -63,10 +63,6 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
                         "volume_stable_"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_PLAYER_FLYOUT_LISTEN_WITH_YOUTUBE_MUSIC,
-                        "yt_outline_youtube_music_"
-                ),
-                new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_HELP,
                         "yt_outline_question_circle_"
                 ),
