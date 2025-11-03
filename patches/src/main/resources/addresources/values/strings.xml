@@ -834,11 +834,6 @@ If changing this setting does not take effect, try switching to Incognito mode."
             <string name="revanced_hide_player_flyout_speed_title">Hide Playback speed</string>
             <string name="revanced_hide_player_flyout_speed_summary_on">Playback speed menu is hidden</string>
             <string name="revanced_hide_player_flyout_speed_summary_off">Playback speed menu is shown</string>
-            <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-            <string name="revanced_hide_player_flyout_more_info_title">Hide More info</string>
-            <string name="revanced_hide_player_flyout_more_info_summary_on">More info menu is hidden</string>
-            <string name="revanced_hide_player_flyout_more_info_summary_off">More info menu is shown</string>
             <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
             <string name="revanced_hide_player_flyout_lock_screen_title">Hide Lock screen</string>
             <string name="revanced_hide_player_flyout_lock_screen_summary_on">Lock screen menu is hidden</string>

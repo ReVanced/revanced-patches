@@ -71,10 +71,6 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
                         "yt_outline_question_circle_"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_PLAYER_FLYOUT_MORE_INFO,
-                        "yt_outline_info_circle_"
-                ),
-                new ByteArrayFilterGroup(
                         Settings.HIDE_PLAYER_FLYOUT_LOCK_SCREEN,
                         "yt_outline_lock_"
                 ),

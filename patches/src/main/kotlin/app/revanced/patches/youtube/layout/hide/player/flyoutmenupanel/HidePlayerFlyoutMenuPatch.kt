@@ -49,7 +49,6 @@ val hidePlayerFlyoutMenuPatch = bytecodePatch(
                     SwitchPreference("revanced_hide_player_flyout_help"),
                     SwitchPreference("revanced_hide_player_flyout_speed"),
                     SwitchPreference("revanced_hide_player_flyout_lock_screen"),
-                    SwitchPreference("revanced_hide_player_flyout_more_info"),
                     SwitchPreference(
                         key = "revanced_hide_player_flyout_audio_track",
                         tag = "app.revanced.extension.youtube.settings.preference.HideAudioFlyoutMenuPreference"
