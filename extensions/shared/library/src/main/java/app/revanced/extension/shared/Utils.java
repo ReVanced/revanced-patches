@@ -87,6 +87,9 @@ public class Utils {
     @Nullable
     private static Collator cachedCollator;
 
+    private static final Pattern PUNCTUATION_PATTERN = Pattern.compile("\\p{P}+");
+    private static final Pattern DIACRITICS_PATTERN = Pattern.compile("\\p{M}");
+
     private Utils() {
     } // utility class
 
@@ -989,7 +992,7 @@ public class Utils {
      */
     public static String removePunctuationToLowercase(@Nullable CharSequence original) {
         if (original == null) return "";
-        return Pattern.compile("\\p{P}+").matcher(original).replaceAll("")
+        return PUNCTUATION_PATTERN.matcher(original).replaceAll("")
                 .toLowerCase(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
     }
 
@@ -999,8 +1002,8 @@ public class Utils {
      */
     public static String normalizeTextToLowercase(@Nullable CharSequence original) {
         if (original == null) return "";
-        return Normalizer.normalize(original.toString(), Normalizer.Form.NFD)
-                .replaceAll("\\p{M}", "").toLowerCase(Locale.ROOT);
+        return DIACRITICS_PATTERN.matcher(Normalizer.normalize(original, Normalizer.Form.NFD))
+                .replaceAll("").toLowerCase(Locale.ROOT);
     }
 
     /**
