@@ -328,6 +328,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">הסתר את \'איך התוכן הזה נוצר\'</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">מדור \'איך התוכן הזה נוצר\' מוסתר</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">מדור \'איך התוכן הזה נוצר\' מוצג</string>
+  <string name="revanced_hide_hype_points_title">הסתר נקודות הייפ</string>
+  <string name="revanced_hide_hype_points_summary_on">נקודות הייפ מוסתרות</string>
+  <string name="revanced_hide_hype_points_summary_off">נקודות הייפ מוצגות</string>
   <string name="revanced_hide_podcast_section_title">הסתר את \'גלה את הפודקאסט\'</string>
   <string name="revanced_hide_podcast_section_summary_on">מדור \'גלה את הפודקאסט\' מוסתר</string>
   <string name="revanced_hide_podcast_section_summary_off">מדור \'גלה את הפודקאסט\' מוצג</string>
@@ -771,15 +774,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">הסתר מהירות ההפעלה</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">תפריט מהירות ההפעלה מוסתר</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">תפריט מהירות ההפעלה מוצג</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">הסתר מידע נוסף</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">תפריט מידע נוסף מוסתר</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">תפריט מידע נוסף מוצג</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">הסתר נעילת מגע</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">תפריט נעילת מגע מוסתר</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">תפריט נעילת מגע מוצג</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">הסתר האזנה עם YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">תפריט \"האזנה עם YouTube Music\" מוסתר</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">תפריט \"האזנה עם YouTube Music\" מוצג</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">הסתר טראק אודיו</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">תפריט טראק אודיו מוסתר</string>

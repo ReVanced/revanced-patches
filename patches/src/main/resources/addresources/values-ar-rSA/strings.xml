@@ -328,6 +328,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">إخفاء \'كيف تم إنشاء هذا المحتوى\'</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">تم إخفاء قسم كيف تم إنشاء هذا المحتوى</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">يتم عرض قسم كيف تم إنشاء هذا المحتوى</string>
+  <string name="revanced_hide_hype_points_title">إخفاء نقاط الإثارة</string>
+  <string name="revanced_hide_hype_points_summary_on">تم إخفاء نقاط الإثارة</string>
+  <string name="revanced_hide_hype_points_summary_off">يتم عرض نقاط الإثارة</string>
   <string name="revanced_hide_podcast_section_title">إخفاء \'استكشاف البودكاست\'</string>
   <string name="revanced_hide_podcast_section_summary_on">تم إخفاء قسم استكشاف البودكاست</string>
   <string name="revanced_hide_podcast_section_summary_off">يتم عرض قسم استكشاف البودكاست</string>
@@ -771,15 +774,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">إخفاء سرعة التشغيل</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">تم إخفاء قائمة سرعة التشغيل</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">يتم عرض قائمة سرعة التشغيل</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">إخفاء المزيد من المعلومات</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">تم إخفاء قائمة المزيد من المعلومات</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">يتم عرض قائمة المزيد من المعلومات</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">إخفاء شاشة القفل</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">تم إخفاء قائمة شاشة القفل</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">يتم عرض قائمة شاشة القفل</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">إخفاء الاستماع باستخدام YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">قائمة الاستماع باستخدام YouTube Music مخفية</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">قائمة الاستماع باستخدام YouTube Music ظاهرة</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">إخفاء المقطع الصوتي</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">تم إخفاء قائمة المقطع الصوتي</string>

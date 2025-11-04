@@ -328,6 +328,9 @@ Ha a Doodle jelenleg a régiódában látható, és ez a rejtés beállítás be
   <string name="revanced_hide_how_this_was_made_section_title">A „Hogyan készült ez a tartalom” elrejtése</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">A Hogyan készült ez a tartalom szakasz rejtett</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">A Hogyan készült ez a tartalom szakasz látható</string>
+  <string name="revanced_hide_hype_points_title">Hype pontok elrejtése</string>
+  <string name="revanced_hide_hype_points_summary_on">A Hype pontok el vannak rejtve</string>
+  <string name="revanced_hide_hype_points_summary_off">A Hype pontok láthatóak</string>
   <string name="revanced_hide_podcast_section_title">A „Podcast felfedezése” elrejtése</string>
   <string name="revanced_hide_podcast_section_summary_on">A Podcast felfedezése szakasz rejtett</string>
   <string name="revanced_hide_podcast_section_summary_off">A Podcast felfedezése szakasz látható</string>
@@ -771,15 +774,14 @@ Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó mó
   <string name="revanced_hide_player_flyout_speed_title">Lejátszási sebesség elrejtése</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">A lejátszási sebesség menü el van rejtve</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">A lejátszási sebesség menü látható</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">További információk elrejtése</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on"> A további információ menü el van rejtve</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">A további információ menü megjelenik</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Lezárási képernyő elrejtése</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">A lezárási képernyő menü el van rejtve</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">A lezárási képernyő menü megjelenik</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">\"Meghallgatás YouTube Music alkalmazással\" elrejtése</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">A(z) \"Meghallgatás YouTube Music alkalmazással\" menü rejtett</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">A(z) \"Meghallgatás YouTube Music alkalmazással\" menü megjelenítve</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Hangsáv elrejtése</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">A hangsáv menü el van rejtve</string>

@@ -328,6 +328,9 @@ Kui Doodle on teie piirkonnas praegu nähtav ja see peitmise seade on sisse lül
   <string name="revanced_hide_how_this_was_made_section_title">Peida \"Kuidas see sisu loodi\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Kuidas see sisu loodi jaotis on peidetud</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Kuidas see sisu loodi jaotis on kuvatud</string>
+  <string name="revanced_hide_hype_points_title">Peida Hype\'i punktid</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype\'i punktid on peidetud</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype\'i punktid on nähtavad</string>
   <string name="revanced_hide_podcast_section_title">Peida \"Avasta taskuhäälingut\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Avasta taskuhäälingut jaotis on peidetud</string>
   <string name="revanced_hide_podcast_section_summary_off">Avasta taskuhäälingut jaotis on kuvatud</string>
@@ -771,15 +774,14 @@ Kui selle sätte muutmine ei avalda mõju, proovige lülituda Inkognito režiimi
   <string name="revanced_hide_player_flyout_speed_title">Peida Esituse kiirus</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Esituse kiiruse menüü on peidetud</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Esituse kiiruse menüü on nähtav</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Peida Lisateave</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Lisateabe menüü on peidetud</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Lisateabe menüü on nähtav</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Peida Ekraani lukustus</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Ekraani lukustuse menüü on peidetud</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Ekraani lukustuse menüü on nähtav</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Peida Kuula YouTube Musicuga</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Kuula YouTube Musicuga menüü on peidetud</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Kuula YouTube Musicuga menüü on nähtav</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Peida Helitraek</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Helitraekide menüü on peidetud</string>

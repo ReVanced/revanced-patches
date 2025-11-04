@@ -328,6 +328,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">Скриване на \"Как е създадено това съдържание\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Секцията \"Как е създадено това съдържание\" е скрита</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Секцията \"Как е създадено това съдържание\" е показана</string>
+  <string name="revanced_hide_hype_points_title">Скриване на точките на хайп</string>
+  <string name="revanced_hide_hype_points_summary_on">Точките на хайп са скрити</string>
+  <string name="revanced_hide_hype_points_summary_off">Точките на хайп са показани</string>
   <string name="revanced_hide_podcast_section_title">Скриване на \"Разгледайте подкаста\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Секцията \"Разгледайте подкаста\" е скрита</string>
   <string name="revanced_hide_podcast_section_summary_off">Секцията \"Разгледайте подкаста\" е показана</string>
@@ -771,15 +774,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">Скриване на скоростта на възпроизвеждане</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Менюто за скорост на видеото е скрито</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Менюто за скорост на видеото се показва</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">\"Допълнителна информация\"</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">\"Допълнителна информация\" е скрита</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">\"Допълнителна информация\" се показва</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">\"Заключен екран\"</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Менюто на заключен екран е скрито</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Менюто на заключен екран се показва</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Скриване на Слушане с YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Менюто Слушане с YouTube Music е скрито</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Менюто Слушане с YouTube Music е показано</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Избор на Аудио</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Менюто за избор на Аудио е скрито</string>

@@ -328,6 +328,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">Сакриј одељак „Како је направљен овај садржај”</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Одељак „Како је направљен овај садржај” је скривен</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Одељак „Како је направљен овај садржај” је приказан</string>
+  <string name="revanced_hide_hype_points_title">Сакриј Хајп поене</string>
+  <string name="revanced_hide_hype_points_summary_on">Хајп поени су скривени</string>
+  <string name="revanced_hide_hype_points_summary_off">Хајп поени су приказани</string>
   <string name="revanced_hide_podcast_section_title">Сакриј одељак „Истражите подкаст”</string>
   <string name="revanced_hide_podcast_section_summary_on">Одељак „Истражите подкаст” је скривен</string>
   <string name="revanced_hide_podcast_section_summary_off">Одељак „Истражите подкаст” је приказан</string>
@@ -771,15 +774,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">Сакриј мени „Брзина репродукције”</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Мени „Брзина репродукције” је скривен</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Мени „Брзина репродукције” је приказан</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Сакриј дугме „Више информација”</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Дугме „Више информација” је скривено</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Дугме „Више информација” је приказано</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Сакриј дугме „Закључај екран”</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Дугме „Закључај екран” је скривено</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Дугме „Закључај екран” је приказано</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Сакриј „Слушај помоћу YouTube музике“</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Мени „Слушај помоћу YouTube музике“ је скривен</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Мени „Слушај помоћу YouTube музике“ је приказан</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Сакриј мени „Аудио снимак”</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Мени „Аудио снимак” је скривен</string>

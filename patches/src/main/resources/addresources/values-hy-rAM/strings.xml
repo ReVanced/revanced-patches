@@ -328,6 +328,9 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_how_this_was_made_section_title">Թաքցնել \"Ինչպես է պատրաստվել այս բովանդակությունը\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Ինչպես է պատրաստվել այս բովանդակությունը բաժինը թաքցված է</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Ինչպես է պատրաստվել այս բովանդակությունը բաժինը ցուցադրվում է</string>
+  <string name="revanced_hide_hype_points_title">Թաքցնել Hype միավորները</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype միավորները թաքնված են</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype միավորները ցուցադրվում են</string>
   <string name="revanced_hide_podcast_section_title">Թաքցնել \"Բացահայտեք փոդքասթը\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Բացահայտեք փոդքասթը բաժինը թաքցված է</string>
   <string name="revanced_hide_podcast_section_summary_off">Բացահայտեք փոդքասթը բաժինը ցուցադրվում է</string>
@@ -771,15 +774,14 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_player_flyout_speed_title">Վերարտադրման արագությունը թաքցնել</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Վերարտադրման արագության մենյուը թաքցված է</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Վերարտադրման արագության մենյուը երևում է</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Լրացուցիչ տեղեկությունը թաքցնել</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Լրացուցիչ տեղեկությունների մենյուը թաքցված է</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Լրացուցիչ տեղեկությունների մենյուը երևում է</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Էկրանի արգելափակումը թաքցնել</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Էկրանի արգելափակման մենյուը թաքցված է</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Էկրանի արգելափակման մենյուը երևում է</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Թաքցնել Լսել YouTube Music-ով</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Լսել YouTube Music-ով մենյուն թաքցված է</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Լսել YouTube Music-ով մենյուն ցուցադրված է</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Աուդիո ձայնագրությունը թաքցնել</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Աուդիո ձայնագրման մենյուը թաքցված է</string>
