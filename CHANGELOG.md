@@ -1,3 +1,10 @@
+# [5.46.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.1...v5.46.0-dev.2) (2025-11-04)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Resolve settings search crash when searching for specific words ([#6231](https://github.com/ReVanced/revanced-patches/issues/6231)) ([76dcfae](https://github.com/ReVanced/revanced-patches/commit/76dcfaefd8679e45a70f265b0239436e60c055cf))
+
 # [5.46.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.45.0...v5.46.0-dev.1) (2025-11-04)
 
 
