@@ -8,6 +8,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.preference.Preference;
 import android.text.Editable;
 import android.text.InputType;
@@ -179,8 +181,6 @@ public class FeatureFlagsManagerPreference extends Preference {
         headersLayout.setOrientation(LinearLayout.HORIZONTAL);
         headersLayout.addView(availableHeader, new LinearLayout.LayoutParams(
                 0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
-        headersLayout.addView(new Space(context), new LinearLayout.LayoutParams(
-                Dim.dp(44), ViewGroup.LayoutParams.WRAP_CONTENT));
         headersLayout.addView(blockedHeader, new LinearLayout.LayoutParams(
                 0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 
@@ -194,10 +194,6 @@ public class FeatureFlagsManagerPreference extends Preference {
         updateHeaderCount(availableHeader, leftViews.adapter);
         updateHeaderCount(blockedHeader, rightViews.adapter);
 
-        LinearLayout moveButtons = createMoveButtons(context,
-                leftViews.listView, rightViews.listView,
-                availableFlags, blockedFlags, availableHeader, blockedHeader);
-
         // Main columns layout.
         LinearLayout columnsLayout = new LinearLayout(context);
         columnsLayout.setOrientation(LinearLayout.HORIZONTAL);
@@ -205,12 +201,38 @@ public class FeatureFlagsManagerPreference extends Preference {
                 ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
         columnsLayout.addView(leftColumn, new LinearLayout.LayoutParams(
                 0, ViewGroup.LayoutParams.MATCH_PARENT, 1f));
-        columnsLayout.addView(moveButtons);
+
+        Space spaceBetweenColumns = new Space(context);
+        spaceBetweenColumns.setLayoutParams(new LinearLayout.LayoutParams(Dim.dp8, ViewGroup.LayoutParams.MATCH_PARENT));
+        columnsLayout.addView(spaceBetweenColumns);
+
         columnsLayout.addView(rightColumn, new LinearLayout.LayoutParams(
                 0, ViewGroup.LayoutParams.MATCH_PARENT, 1f));
 
+        // Move buttons below columns.
+        Pair<LinearLayout, LinearLayout> moveButtons = createMoveButtons(context,
+                leftViews.listView, rightViews.listView,
+                availableFlags, blockedFlags, availableHeader, blockedHeader);
+
+        // Layout for buttons row.
+        LinearLayout buttonsRow = new LinearLayout(context);
+        buttonsRow.setOrientation(LinearLayout.HORIZONTAL);
+        buttonsRow.setLayoutParams(new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        buttonsRow.addView(moveButtons.first, new LinearLayout.LayoutParams(
+                0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
+
+        Space spaceBetweenButtons = new Space(context);
+        spaceBetweenButtons.setLayoutParams(new LinearLayout.LayoutParams(Dim.dp8, ViewGroup.LayoutParams.WRAP_CONTENT));
+        buttonsRow.addView(spaceBetweenButtons);
+
+        buttonsRow.addView(moveButtons.second, new LinearLayout.LayoutParams(
+                0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
+
         contentLayout.addView(headersLayout);
         contentLayout.addView(columnsLayout);
+        contentLayout.addView(buttonsRow);
 
         return contentLayout;
     }
@@ -244,6 +266,12 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         listView.setLayoutParams(new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f));
+        ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
+                Dim.roundedCorners(10), null, null));
+        background.getPaint().setColor(Utils.getEditTextBackground());
+        listView.setPadding(0, Dim.dp4, 0, Dim.dp4);
+        listView.setBackground(background);
+        listView.setOverScrollMode(View.OVER_SCROLL_NEVER);
 
         wrapper.addView(search);
         wrapper.addView(buttons);
@@ -355,28 +383,32 @@ public class FeatureFlagsManagerPreference extends Preference {
     }
 
     /**
-     * Creates the central move buttons.
+     * Creates the move buttons (left and right groups).
      */
-    private LinearLayout createMoveButtons(Context context,
-                                           ListView availableListView, ListView blockedListView,
-                                           TreeSet<Long> availableFlags, TreeSet<Long> blockedFlags,
-                                           TextView availableCountText, TextView blockedCountText) {
-        LinearLayout buttonsLayout = new LinearLayout(context);
-        buttonsLayout.setOrientation(LinearLayout.VERTICAL);
-        buttonsLayout.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT));
-        buttonsLayout.setGravity(Gravity.CENTER);
-
-        ImageButton moveOneRight = createButton(context, DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_ONE,
-                () -> moveFlags(availableListView, blockedListView, availableFlags, blockedFlags,
-                        availableCountText, blockedCountText, false));
+    private Pair<LinearLayout, LinearLayout> createMoveButtons(Context context,
+                                                               ListView availableListView, ListView blockedListView,
+                                                               TreeSet<Long> availableFlags, TreeSet<Long> blockedFlags,
+                                                               TextView availableCountText, TextView blockedCountText) {
+        // Left group: >> >
+        LinearLayout leftButtons = new LinearLayout(context);
+        leftButtons.setOrientation(LinearLayout.HORIZONTAL);
+        leftButtons.setGravity(Gravity.CENTER);
 
         ImageButton moveAllRight = createButton(context, DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_DOUBLE,
                 () -> moveFlags(availableListView, blockedListView, availableFlags, blockedFlags,
                         availableCountText, blockedCountText, true));
 
-        Space space = new Space(context);
-        space.setLayoutParams(new LinearLayout.LayoutParams(0, Dim.dp20));
+        ImageButton moveOneRight = createButton(context, DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_ONE,
+                () -> moveFlags(availableListView, blockedListView, availableFlags, blockedFlags,
+                        availableCountText, blockedCountText, false));
+
+        leftButtons.addView(moveAllRight);
+        leftButtons.addView(moveOneRight);
+
+        // Right group: < <<
+        LinearLayout rightButtons = new LinearLayout(context);
+        rightButtons.setOrientation(LinearLayout.HORIZONTAL);
+        rightButtons.setGravity(Gravity.CENTER);
 
         ImageButton moveOneLeft = createButton(context, DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_ONE,
                 () -> moveFlags(blockedListView, availableListView, blockedFlags, availableFlags,
@@ -386,13 +418,10 @@ public class FeatureFlagsManagerPreference extends Preference {
                 () -> moveFlags(blockedListView, availableListView, blockedFlags, availableFlags,
                         blockedCountText, availableCountText, true));
 
-        buttonsLayout.addView(moveOneRight);
-        buttonsLayout.addView(moveAllRight);
-        buttonsLayout.addView(space);
-        buttonsLayout.addView(moveOneLeft);
-        buttonsLayout.addView(moveAllLeft);
+        rightButtons.addView(moveOneLeft);
+        rightButtons.addView(moveAllLeft);
 
-        return buttonsLayout;
+        return new Pair<>(leftButtons, rightButtons);
     }
 
     /**
@@ -409,8 +438,8 @@ public class FeatureFlagsManagerPreference extends Preference {
         button.setBackgroundDrawable(ripple.getDrawable(0));
         ripple.recycle();
 
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Dim.dp36, Dim.dp36);
-        params.setMargins(Dim.dp4, Dim.dp4, Dim.dp4, Dim.dp4);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Dim.dp32, Dim.dp32);
+        params.setMargins(Dim.dp8, Dim.dp8, Dim.dp8, Dim.dp8);
         button.setLayoutParams(params);
 
         button.setOnClickListener(v -> action.run());
