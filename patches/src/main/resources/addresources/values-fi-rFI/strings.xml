@@ -328,6 +328,9 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <string name="revanced_hide_how_this_was_made_section_title">Piilota \"Miten sisältö on luotu\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Miten sisältö on luotu -osio piilotetaan</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Miten sisältö on luotu -osio näytetään</string>
+  <string name="revanced_hide_hype_points_title">Piilota Hype-pisteet</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype-pisteet piilotetaan</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype-pisteet näytetään</string>
   <string name="revanced_hide_podcast_section_title">Piilota \"Tutustu podcastiin\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Tutustu podcastiin -osio piilotetaan</string>
   <string name="revanced_hide_podcast_section_summary_off">Tutustu podcastiin -osio näytetään</string>
@@ -771,15 +774,14 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_player_flyout_speed_title">Piilota Toistonopeus</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Toistonopeusvalikko piilotetaan</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Toistonopeusvalikko näytetään</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Piilota Lisätietoja</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Lisätietoja-valinta piilotetaan</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Lisätietoja-valinta näytetään </string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Piilota Näytön lukitus</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Näytön lukitus -valinta piilotetaan</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Näytön lukitus -valinta näytetään</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Piilota Kuuntele YouTube Musicilla</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Kuuntele YouTube Musicilla -valikko on piilotettu</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Kuuntele YouTube Musicilla -valikko on näkyvissä</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Piilota Ääniraita</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ääniraitavalikko piilotetaan</string>

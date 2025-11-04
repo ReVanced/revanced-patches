@@ -392,10 +392,13 @@ public abstract class Setting<T> {
 
     /**
      * Get the parent Settings that this setting depends on.
-     * @return List of parent Settings (e.g., BooleanSetting or EnumSetting), or empty list if no dependencies exist.
+     * @return List of parent Settings, or empty list if no dependencies exist.
+     *         Defensive: handles null availability or missing getParentSettings() override.
      */
     public List<Setting<?>> getParentSettings() {
-        return availability == null ? Collections.emptyList() : availability.getParentSettings();
+        return availability == null
+                ? Collections.emptyList()
+                : Objects.requireNonNullElse(availability.getParentSettings(), Collections.emptyList());
     }
 
     /**

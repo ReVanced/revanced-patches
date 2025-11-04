@@ -397,6 +397,9 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_hide_how_this_was_made_section_title">Hide \'How this content was made\'</string>
             <string name="revanced_hide_how_this_was_made_section_summary_on">How this content was made section is hidden</string>
             <string name="revanced_hide_how_this_was_made_section_summary_off">How this content was made section is shown</string>
+            <string name="revanced_hide_hype_points_title">Hide Hype points</string>
+            <string name="revanced_hide_hype_points_summary_on">Hype points are hidden</string>
+            <string name="revanced_hide_hype_points_summary_off">Hype points are shown</string>
             <string name="revanced_hide_podcast_section_title">Hide \'Explore the podcast\'</string>
             <string name="revanced_hide_podcast_section_summary_on">Explore the podcast section is hidden</string>
             <string name="revanced_hide_podcast_section_summary_off">Explore the podcast section is shown</string>
@@ -843,15 +846,14 @@ If changing this setting does not take effect, try switching to Incognito mode."
             <string name="revanced_hide_player_flyout_speed_title">Hide Playback speed</string>
             <string name="revanced_hide_player_flyout_speed_summary_on">Playback speed menu is hidden</string>
             <string name="revanced_hide_player_flyout_speed_summary_off">Playback speed menu is shown</string>
-            <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-            <string name="revanced_hide_player_flyout_more_info_title">Hide More info</string>
-            <string name="revanced_hide_player_flyout_more_info_summary_on">More info menu is hidden</string>
-            <string name="revanced_hide_player_flyout_more_info_summary_off">More info menu is shown</string>
             <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
             <string name="revanced_hide_player_flyout_lock_screen_title">Hide Lock screen</string>
             <string name="revanced_hide_player_flyout_lock_screen_summary_on">Lock screen menu is hidden</string>
             <string name="revanced_hide_player_flyout_lock_screen_summary_off">Lock screen menu is shown</string>
+            <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+            <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Hide Listen with YouTube Music</string>
+            <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Listen with YouTube Music menu is hidden</string>
+            <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Listen with YouTube Music menu is shown</string>
             <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
             <string name="revanced_hide_player_flyout_audio_track_title">Hide Audio track</string>
             <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio track menu is hidden</string>

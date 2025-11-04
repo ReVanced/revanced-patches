@@ -1,3 +1,18 @@
+# [5.46.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.1...v5.46.0-dev.2) (2025-11-04)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Resolve settings search crash when searching for specific words ([#6231](https://github.com/ReVanced/revanced-patches/issues/6231)) ([76dcfae](https://github.com/ReVanced/revanced-patches/commit/76dcfaefd8679e45a70f265b0239436e60c055cf))
+
+# [5.46.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.45.0...v5.46.0-dev.1) (2025-11-04)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add "Hide Hype points" ([#6230](https://github.com/ReVanced/revanced-patches/issues/6230)) ([a52c015](https://github.com/ReVanced/revanced-patches/commit/a52c0153b12c3f6f0ad260e03d2e9850c0466392))
+* **YouTube - Hide player flyout menu items:** Add "Hide Listen with YouTube Music" ([#6232](https://github.com/ReVanced/revanced-patches/issues/6232)) ([858edbf](https://github.com/ReVanced/revanced-patches/commit/858edbf3e7f394fcc766d767c8dc54cf5ba24370))
+
 # [5.45.0](https://github.com/ReVanced/revanced-patches/compare/v5.44.0...v5.45.0) (2025-11-01)
 
 

@@ -328,6 +328,9 @@ Bir Doodle şu anda bölgenizde gösteriliyorsa ve bu gizleme ayarı açıksa, a
   <string name="revanced_hide_how_this_was_made_section_title">\'Bu içerik nasıl yapıldı\'yı gizle</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Bu içerik nasıl yapıldı kısmı gizli</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Bu içerik nasıl yapıldı kısmı görünür</string>
+  <string name="revanced_hide_hype_points_title">Hype puanlarını gizle</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype puanları gizli</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype puanları görünür</string>
   <string name="revanced_hide_podcast_section_title">\"Podcast\'i keşfedin\"i gizle</string>
   <string name="revanced_hide_podcast_section_summary_on">Podcast\'i keşfedin kısmı gizli</string>
   <string name="revanced_hide_podcast_section_summary_off">Podcast\'i keşfedin kısmı görünür</string>
@@ -771,15 +774,14 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <string name="revanced_hide_player_flyout_speed_title">Oynatma hızını gizle</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Oynatma hızı menüsü gizli</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Oynatma hızı menüsü görünür</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Daha fazla bilgiyi gizle</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Daha fazla bilgi menüsü gizli</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Daha fazla bilgi menüsü görünür</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Ekranı kilitlemeyi gizle</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Ekranı kilitle menüsü gizli</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Ekranı kilitle menüsü görünür</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">YouTube Music ile dinle\'yi Gizle</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">YouTube Music ile dinle menüsü gizli</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">YouTube Music ile dinle menüsü gösteriliyor</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Ses parçasını gizle</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ses parçası menüsü gizli</string>

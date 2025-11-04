@@ -43,6 +43,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.text.Bidi;
+import java.text.Collator;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -77,6 +79,15 @@ public class Utils {
 
     @Nullable
     private static Boolean isDarkModeEnabled;
+
+    // Cached Collator instance with its locale.
+    @Nullable
+    private static Locale cachedCollatorLocale;
+    @Nullable
+    private static Collator cachedCollator;
+
+    private static final Pattern PUNCTUATION_PATTERN = Pattern.compile("\\p{P}+");
+    private static final Pattern DIACRITICS_PATTERN = Pattern.compile("\\p{M}");
 
     private Utils() {
     } // utility class
@@ -960,29 +971,59 @@ public class Utils {
         }
     }
 
-    private static final Pattern punctuationPattern = Pattern.compile("\\p{P}+");
-
     /**
-     * Strips all punctuation and converts to lower case.  A null parameter returns an empty string.
+     * Removes punctuation and converts text to lowercase. Returns an empty string if input is null.
      */
     public static String removePunctuationToLowercase(@Nullable CharSequence original) {
         if (original == null) return "";
-        return punctuationPattern.matcher(original).replaceAll("")
+        return PUNCTUATION_PATTERN.matcher(original).replaceAll("")
                 .toLowerCase(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
     }
 
     /**
-     * Sort a PreferenceGroup and all it's sub groups by title or key.
+     * Normalizes text for search: applies NFD, removes diacritics, and lowercases (locale-neutral).
+     * Returns an empty string if input is null.
+     */
+    public static String normalizeTextToLowercase(@Nullable CharSequence original) {
+        if (original == null) return "";
+        return DIACRITICS_PATTERN.matcher(Normalizer.normalize(original, Normalizer.Form.NFD))
+                .replaceAll("").toLowerCase(Locale.ROOT);
+    }
+
+    /**
+     * Returns a cached Collator for the current locale, or creates a new one if locale changed.
+     */
+    private static Collator getCollator() {
+        Locale currentLocale = BaseSettings.REVANCED_LANGUAGE.get().getLocale();
+
+        if (cachedCollator == null || !currentLocale.equals(cachedCollatorLocale)) {
+            cachedCollatorLocale = currentLocale;
+            cachedCollator = Collator.getInstance(currentLocale);
+            cachedCollator.setStrength(Collator.SECONDARY); // Case-insensitive, diacritic-insensitive.
+        }
+
+        return cachedCollator;
+    }
+
+    /**
+     * Sorts a {@link PreferenceGroup} and all nested subgroups by title or key.
      * <p>
-     * Sort order is determined by the preferences key {@link Sort} suffix.
+     * The sort order is controlled by the {@link Sort} suffix present in the preference key.
+     * Preferences without a key or without a {@link Sort} suffix remain in their original order.
      * <p>
-     * If a preference has no key or no {@link Sort} suffix,
-     * then the preferences are left unsorted.
+     * Sorting is performed using {@link Collator} with the current user locale,
+     * ensuring correct alphabetical ordering for all supported languages
+     * (e.g., Ukrainian "і", German "ß", French accented characters, etc.).
+     *
+     * @param group the {@link PreferenceGroup} to sort
      */
     @SuppressWarnings("deprecation")
     public static void sortPreferenceGroups(PreferenceGroup group) {
         Sort groupSort = Sort.fromKey(group.getKey(), Sort.UNSORTED);
         List<Pair<String, Preference>> preferences = new ArrayList<>();
+
+        // Get cached Collator for locale-aware string comparison.
+        Collator collator = getCollator();
 
         for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
             Preference preference = group.getPreference(i);
@@ -1014,10 +1055,11 @@ public class Utils {
             preferences.add(new Pair<>(sortValue, preference));
         }
 
-        //noinspection ComparatorCombinators
+        // Sort the list using locale-specific collation rules.
         Collections.sort(preferences, (pair1, pair2)
-                -> pair1.first.compareTo(pair2.first));
+                -> collator.compare(pair1.first, pair2.first));
 
+        // Reassign order values to reflect the new sorted sequence
         int index = 0;
         for (Pair<String, Preference> pair : preferences) {
             int order = index++;

@@ -450,7 +450,7 @@ public abstract class BaseSearchViewController {
 
         filteredSearchItems.clear();
 
-        String queryLower = Utils.removePunctuationToLowercase(query);
+        String queryLower = Utils.normalizeTextToLowercase(query);
         Pattern queryPattern = Pattern.compile(Pattern.quote(queryLower), Pattern.CASE_INSENSITIVE);
 
         // Clear highlighting only for items that were previously visible.

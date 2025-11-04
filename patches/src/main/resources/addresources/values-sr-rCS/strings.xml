@@ -328,6 +328,9 @@ Ako se Doodle trenutno prikazuje u vašem regionu i ova opcija skrivanja je uklj
   <string name="revanced_hide_how_this_was_made_section_title">Sakrij odeljak „Kako je napravljen ovaj sadržaj”</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Odeljak „Kako je napravljen ovaj sadržaj” je skriven</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Odeljak „Kako je napravljen ovaj sadržaj” je prikazan</string>
+  <string name="revanced_hide_hype_points_title">Sakrij Hype poene</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype poeni su skriveni</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype poeni su prikazani</string>
   <string name="revanced_hide_podcast_section_title">Sakrij odeljak „Istražite podkast”</string>
   <string name="revanced_hide_podcast_section_summary_on">Odeljak „Istražite podkast” je skriven</string>
   <string name="revanced_hide_podcast_section_summary_off">Odeljak „Istražite podkast” je prikazan</string>
@@ -771,15 +774,14 @@ Ako se promena ove opcije ne primeni, pokušajte da pređete u režim bez arhivi
   <string name="revanced_hide_player_flyout_speed_title">Sakrij meni „Brzina reprodukcije”</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Meni „Brzina reprodukcije” je skriven</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Meni „Brzina reprodukcije” je prikazan</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Sakrij dugme „Više informacija”</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Dugme „Više informacija” je skriveno</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Dugme „Više informacija” je prikazano</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Sakrij dugme „Zaključaj ekran”</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Dugme „Zaključaj ekran” je skriveno</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Dugme „Zaključaj ekran” je prikazano</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Sakrij Slušaj uz YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Meni Slušaj uz YouTube Music je sakriven</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Meni Slušaj uz YouTube Music je prikazan</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Sakrij meni „Audio snimak”</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meni „Audio snimak” je skriven</string>

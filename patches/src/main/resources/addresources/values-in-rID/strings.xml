@@ -328,6 +328,9 @@ Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini 
   <string name="revanced_hide_how_this_was_made_section_title">Sembunyikan \'Cara konten ini dibuat\'</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Bagian Cara konten ini dibuat disembunyikan</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Bagian Cara konten ini dibuat ditampilkan</string>
+  <string name="revanced_hide_hype_points_title">Sembunyikan Poin Hype</string>
+  <string name="revanced_hide_hype_points_summary_on">Poin Hype disembunyikan</string>
+  <string name="revanced_hide_hype_points_summary_off">Poin Hype ditampilkan</string>
   <string name="revanced_hide_podcast_section_title">Sembunyikan \'Jelajahi podcast\'</string>
   <string name="revanced_hide_podcast_section_summary_on">Bagian Jelajahi podcast disembunyikan</string>
   <string name="revanced_hide_podcast_section_summary_off">Bagian Jelajahi podcast ditampilkan</string>
@@ -771,15 +774,14 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <string name="revanced_hide_player_flyout_speed_title">Sembunyikan Kecepatan pemutaran</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Menu kecepatan pemutaran disembunyikan</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Menu kecepatan pemutaran ditampilkan</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Sembunyikan Info selengkapnya</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Menu info selengkapnya disembunyikan</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Menu info selengkapnya ditampilkan</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Sembunyikan Kunci layar</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Menu kunci layar disembunyikan</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Menu kunci layar ditampilkan</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Sembunyikan Dengarkan dengan YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Menu Dengarkan dengan YouTube Music disembunyikan</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Menu Dengarkan dengan YouTube Music ditampilkan</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Sembunyikan trek Audio</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu trek audio disembunyikan</string>

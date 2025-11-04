@@ -328,6 +328,9 @@ Kung ang isang Doodle ay kasalukuyang ipinapakita sa iyong rehiyon at ang settin
   <string name="revanced_hide_how_this_was_made_section_title">Itago ang \'Paano ginawa ang content na ito\'</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Nakatago ang seksyon ng Paano ginawa ang content na ito</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Ipinapakita ang seksyon ng Paano ginawa ang content na ito</string>
+  <string name="revanced_hide_hype_points_title">Itago ang mga Puntos ng Hype</string>
+  <string name="revanced_hide_hype_points_summary_on">Nakatago ang mga Puntos ng Hype</string>
+  <string name="revanced_hide_hype_points_summary_off">Ipinapakita ang mga Puntos ng Hype</string>
   <string name="revanced_hide_podcast_section_title">Itago ang \'I-explore ang podcast\'</string>
   <string name="revanced_hide_podcast_section_summary_on">Nakatago ang seksyon ng I-explore ang podcast</string>
   <string name="revanced_hide_podcast_section_summary_off">Ipinapakita ang seksyon ng I-explore ang podcast</string>
@@ -769,15 +772,14 @@ Tandaan: Ang pagpapagana nito ay nagtatago rin ng mga ad ng video"</string>
   <string name="revanced_hide_player_flyout_speed_title">Itago ang bilis ng pag-playback</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Nakatago ang menu ng bilis ng pag-playback</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Ang menu ng bilis ng pag-playback ay ipinapakita</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Itago ang Higit pang impormasyon</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Nakatago ang menu ng higit pang impormasyon</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Ang menu ng higit pang impormasyon ay ipinapakita</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Itago ang Lock screen</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Nakatago ang menu ng lock screen</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Ipinapakita ang menu ng lock screen</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Itago ang Makinig gamit ang YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Nakatago ang menu ng Makinig gamit ang YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Ipinapakita ang menu ng Makinig gamit ang YouTube Music</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Itago ang Audio track</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Nakatago ang menu ng audio track</string>

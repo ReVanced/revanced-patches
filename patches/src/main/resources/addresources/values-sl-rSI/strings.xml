@@ -328,6 +328,9 @@ Vendar pa bo omogočitev tega beležila tudi nekatere uporabniške podatke, kot 
   <string name="revanced_hide_how_this_was_made_section_title">Skrij »Kako je bila ta vsebina ustvarjena«</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Razdelek »Kako je bila ta vsebina ustvarjena« je skrit</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Razdelek »Kako je bila ta vsebina ustvarjena« je prikazan</string>
+  <string name="revanced_hide_hype_points_title">Skrij točke Hype</string>
+  <string name="revanced_hide_hype_points_summary_on">Točke Hype so skrite</string>
+  <string name="revanced_hide_hype_points_summary_off">Točke Hype so prikazane</string>
   <string name="revanced_hide_podcast_section_title">Skrij »Raziščite podcast«</string>
   <string name="revanced_hide_podcast_section_summary_on">Razdelek »Raziščite podcast« je skrit</string>
   <string name="revanced_hide_podcast_section_summary_off">Razdelek »Raziščite podcast« je prikazan</string>
@@ -771,15 +774,14 @@ Opomba: Omogočanje tega tudi prisilno skrije video oglase"</string>
   <string name="revanced_hide_player_flyout_speed_title">Skrij hitrost predvajanja</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Meni s hitrostjo predvajanja je skrit</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Meni s hitrostjo predvajanja je prikazan</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Skrij več informacij</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Meni z več informacijami je skrit</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Meni z več informacijami je prikazan</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Skrij zaklepanje zaslona</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Meni z zaklepanjem zaslona je skrit</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Meni z zaklepanjem zaslona je prikazan</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Skrij Poslušaj z YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Meni Poslušaj z YouTube Music je skrit</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Meni Poslušaj z YouTube Music je prikazan</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Skrij zvočni posnetek</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meni z zvočnim posnetkom je skrit</string>
