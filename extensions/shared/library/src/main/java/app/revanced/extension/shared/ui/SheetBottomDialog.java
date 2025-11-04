@@ -1,7 +1,5 @@
 package app.revanced.extension.shared.ui;
 
-import static app.revanced.extension.shared.Utils.dipToPixels;
-
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
@@ -63,9 +61,8 @@ public class SheetBottomDialog {
 
         // Add top spacer.
         View spacer = new View(context);
-        final int dip40 = dipToPixels(40);
         LinearLayout.LayoutParams spacerParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, dip40);
+                LinearLayout.LayoutParams.MATCH_PARENT, Dim.dp40);
         spacer.setLayoutParams(spacerParams);
         spacer.setClickable(true);
         dragContainer.addView(spacer);
@@ -105,20 +102,15 @@ public class SheetBottomDialog {
      * @return A configured {@link DraggableLinearLayout} with a handle bar and styled background.
      */
     public static DraggableLinearLayout createMainLayout(@NonNull Context context, @Nullable Integer backgroundColor) {
-        // Preset size constants.
-        final int dip4 = dipToPixels(4);   // Handle bar height.
-        final int dip8 = dipToPixels(8);   // Dialog padding.
-        final int dip40 = dipToPixels(40); // Handle bar width.
-
         DraggableLinearLayout mainLayout = new DraggableLinearLayout(context);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(dip8, 0, dip8, dip8);
+        layoutParams.setMargins(Dim.dp8, 0, Dim.dp8, Dim.dp8);
         mainLayout.setLayoutParams(layoutParams);
 
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(12), null, null));
+                Dim.roundedCorners(12), null, null));
         int color = (backgroundColor != null) ? backgroundColor : Utils.getDialogBackgroundColor();
         background.getPaint().setColor(color);
         mainLayout.setBackground(background);
@@ -127,14 +119,14 @@ public class SheetBottomDialog {
         LinearLayout handleContainer = new LinearLayout(context);
         LinearLayout.LayoutParams containerParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        containerParams.setMargins(0, dip8, 0, 0);
+        containerParams.setMargins(0, Dim.dp8, 0, 0);
         handleContainer.setLayoutParams(containerParams);
         handleContainer.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
         View handleBar = new View(context);
         ShapeDrawable handleBackground = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(4), null, null));
+                Dim.roundedCorners(4), null, null));
         handleBackground.getPaint().setColor(Utils.adjustColorBrightness(color, 0.9f, 1.25f));
-        LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(dip40, dip4);
+        LinearLayout.LayoutParams handleParams = new LinearLayout.LayoutParams(Dim.dp40, Dim.dp4);
         handleBar.setLayoutParams(handleParams);
         handleBar.setBackground(handleBackground);
 

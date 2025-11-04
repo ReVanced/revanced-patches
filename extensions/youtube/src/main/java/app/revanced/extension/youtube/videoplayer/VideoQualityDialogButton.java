@@ -1,7 +1,6 @@
 package app.revanced.extension.youtube.videoplayer;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.shared.settings.preference.CustomDialogListPreference.*;
 import static app.revanced.extension.youtube.patches.VideoInformation.AUTOMATIC_VIDEO_QUALITY_VALUE;
 import static app.revanced.extension.youtube.patches.VideoInformation.VIDEO_QUALITY_PREMIUM_NAME;
@@ -21,6 +20,7 @@ import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.shared.ui.SheetBottomDialog;
 import app.revanced.extension.youtube.shared.PlayerType;
 import com.google.android.libraries.youtube.innertube.model.media.VideoQuality;
@@ -214,11 +214,6 @@ public class VideoQualityDialogButton {
                 }
             }
 
-            // Preset size constants.
-            final int dip8 = dipToPixels(8);
-            final int dip12 = dipToPixels(12);
-            final int dip16 = dipToPixels(16);
-
             // Create main layout.
             SheetBottomDialog.DraggableLinearLayout mainLayout =
                     SheetBottomDialog.createMainLayout(context, getDialogBackgroundColor());
@@ -269,7 +264,7 @@ public class VideoQualityDialogButton {
             LinearLayout.LayoutParams titleParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT);
-            titleParams.setMargins(dip12, dip16, 0, dip16);
+            titleParams.setMargins(Dim.dp12, Dim.dp16, 0, Dim.dp16);
             titleView.setLayoutParams(titleParams);
             mainLayout.addView(titleView);
 

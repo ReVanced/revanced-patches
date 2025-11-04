@@ -40,6 +40,7 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.patches.EnableDebuggingPatch;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.ui.CustomDialog;
+import app.revanced.extension.shared.ui.Dim;
 
 /**
  * A custom preference that opens a dialog for managing feature flags.
@@ -62,11 +63,6 @@ public class FeatureFlagsManagerPreference extends Preference {
             getResourceIdentifierOrThrow("revanced_settings_arrow_left_one", "drawable");
     public static final int DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_DOUBLE =
             getResourceIdentifierOrThrow("revanced_settings_arrow_left_double", "drawable");
-
-    static final int dip4 = Utils.dipToPixels(4);
-    static final int dip20 = Utils.dipToPixels(20);
-    static final int dip36 = Utils.dipToPixels(36);
-    static final int dip44 = Utils.dipToPixels(44);
 
     /**
      * Flags to hide from the UI.
@@ -184,7 +180,7 @@ public class FeatureFlagsManagerPreference extends Preference {
         headersLayout.addView(availableHeader, new LinearLayout.LayoutParams(
                 0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
         headersLayout.addView(new Space(context), new LinearLayout.LayoutParams(
-                dip44, ViewGroup.LayoutParams.WRAP_CONTENT));
+                Dim.dp(44), ViewGroup.LayoutParams.WRAP_CONTENT));
         headersLayout.addView(blockedHeader, new LinearLayout.LayoutParams(
                 0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 
@@ -269,6 +265,7 @@ public class FeatureFlagsManagerPreference extends Preference {
     /**
      * Creates a search box that filters the list.
      */
+    @SuppressLint("ClickableViewAccessibility")
     private EditText createSearchBox(Context context, FlagAdapter adapter, ListView listView, TextView countText) {
         EditText search = new EditText(context);
         search.setInputType(InputType.TYPE_CLASS_NUMBER);
@@ -285,7 +282,7 @@ public class FeatureFlagsManagerPreference extends Preference {
                 listView.clearChoices();
                 updateHeaderCount(countText, adapter);
                 Drawable clearIcon = context.getResources().getDrawable(android.R.drawable.ic_menu_close_clear_cancel);
-                clearIcon.setBounds(0, 0, dip20, dip20);
+                clearIcon.setBounds(0, 0, Dim.dp20, Dim.dp20);
                 search.setCompoundDrawables(null, null, TextUtils.isEmpty(s) ? null : clearIcon, null);
             }
             @Override public void afterTextChanged(Editable s) {}
@@ -379,7 +376,7 @@ public class FeatureFlagsManagerPreference extends Preference {
                         availableCountText, blockedCountText, true));
 
         Space space = new Space(context);
-        space.setLayoutParams(new LinearLayout.LayoutParams(0, dip20));
+        space.setLayoutParams(new LinearLayout.LayoutParams(0, Dim.dp20));
 
         ImageButton moveOneLeft = createButton(context, DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_ONE,
                 () -> moveFlags(blockedListView, availableListView, blockedFlags, availableFlags,
@@ -412,8 +409,8 @@ public class FeatureFlagsManagerPreference extends Preference {
         button.setBackgroundDrawable(ripple.getDrawable(0));
         ripple.recycle();
 
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(dip36, dip36);
-        params.setMargins(dip4, dip4, dip4, dip4);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Dim.dp36, Dim.dp36);
+        params.setMargins(Dim.dp4, Dim.dp4, Dim.dp4, Dim.dp4);
         button.setLayoutParams(params);
 
         button.setOnClickListener(v -> action.run());

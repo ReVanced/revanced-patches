@@ -2,7 +2,6 @@ package app.revanced.extension.youtube.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.sf;
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.dipToPixels;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -15,9 +14,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.Pair;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -37,6 +34,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
+import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.youtube.settings.Settings;
 
 /**
@@ -267,7 +265,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 0 // Initial height, will be updated.
         );
-        listViewParams.bottomMargin = dipToPixels(16);
+        listViewParams.bottomMargin = Dim.dp16;
         contentLayout.addView(listView, listViewParams);
 
         // Add EditText for custom package name.
@@ -276,7 +274,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         editText.setSelection(packageName.length());
         editText.setHint(str("revanced_external_downloader_other_item_hint"));
         editText.setSingleLine(true); // Restrict EditText to a single line.
-        editText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        editText.setTextSize(16);
         // Set initial EditText state based on selected downloader.
         editText.setEnabled(usingCustomDownloader);
         editText.addTextChangedListener(new TextWatcher() {
@@ -294,10 +292,9 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         });
 
         ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(10), null, null));
+                Dim.roundedCorners(10), null, null));
         editTextBackground.getPaint().setColor(Utils.getEditTextBackground());
-        final int dip8 = dipToPixels(8);
-        editText.setPadding(dip8, dip8, dip8, dip8);
+        editText.setPadding(Dim.dp8, Dim.dp8, Dim.dp8, Dim.dp8);
         editText.setBackground(editTextBackground);
         editText.setClipToOutline(true);
         contentLayout.addView(editText);
@@ -359,12 +356,11 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
             int totalHeight = 0;
             ListAdapter listAdapter = listView.getAdapter();
             if (listAdapter != null) {
-                DisplayMetrics metrics = context.getResources().getDisplayMetrics();
                 final int listAdapterCount = listAdapter.getCount();
                 for (int i = 0; i < listAdapterCount; i++) {
                     View item = listAdapter.getView(i, null, listView);
                     item.measure(
-                            View.MeasureSpec.makeMeasureSpec(metrics.widthPixels, View.MeasureSpec.AT_MOST),
+                            View.MeasureSpec.makeMeasureSpec(Dim.SCREEN_WIDTH, View.MeasureSpec.AT_MOST),
                             View.MeasureSpec.UNSPECIFIED
                     );
                     totalHeight += item.getMeasuredHeight();
@@ -378,7 +374,7 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
                 listViewParams.height = LinearLayout.LayoutParams.WRAP_CONTENT;
             } else {
                 // In landscape orientation, limit ListView height to 30% of screen height.
-                final int maxHeight = Utils.percentageHeightToPixels(30);
+                final int maxHeight = Dim.pctHeight(30);
                 listViewParams.height = Math.min(totalHeight, maxHeight);
             }
             listView.setLayoutParams(listViewParams);

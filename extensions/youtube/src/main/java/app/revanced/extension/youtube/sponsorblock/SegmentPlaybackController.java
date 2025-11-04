@@ -1,7 +1,6 @@
 package app.revanced.extension.youtube.sponsorblock;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.youtube.sponsorblock.objects.CategoryBehaviour.SKIP_AUTOMATICALLY;
 
 import android.annotation.SuppressLint;
@@ -34,6 +33,7 @@ import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -82,7 +82,7 @@ public class SegmentPlaybackController {
      * Highlight segments have zero length as they are a point in time.
      * Draw them on screen using a fixed width bar.
      */
-    private static final int HIGHLIGHT_SEGMENT_DRAW_BAR_WIDTH = dipToPixels(7);
+    private static final int HIGHLIGHT_SEGMENT_DRAW_BAR_WIDTH = Dim.dp7;
 
     @Nullable
     private static String currentVideoId;
@@ -808,14 +808,12 @@ public class SegmentPlaybackController {
 
         LinearLayout mainLayout = new LinearLayout(currentContext);
         mainLayout.setOrientation(LinearLayout.VERTICAL);
-        final int dip8 = dipToPixels(8);
-        final int dip16 = dipToPixels(16);
-        mainLayout.setPadding(dip16, dip8, dip16, dip8);
+        mainLayout.setPadding(Dim.dp16, Dim.dp8, Dim.dp16, Dim.dp8);
         mainLayout.setGravity(Gravity.CENTER);
-        mainLayout.setMinimumHeight(dipToPixels(48));
+        mainLayout.setMinimumHeight(Dim.dp48);
 
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(20), null, null));
+                Dim.roundedCorners(20), null, null));
         background.getPaint().setColor(Utils.getDialogBackgroundColor());
         mainLayout.setBackground(background);
 
