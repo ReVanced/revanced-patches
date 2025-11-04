@@ -328,6 +328,9 @@ Si un doodle se está mostrando actualmente en tu región y este ajuste de ocult
   <string name="revanced_hide_how_this_was_made_section_title">Ocultar \"Cómo se hizo este contenido\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">La sección Cómo se hizo este contenido está oculta</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Se muestra la sección Cómo se hizo este contenido</string>
+  <string name="revanced_hide_hype_points_title">Ocultar puntos de Hype</string>
+  <string name="revanced_hide_hype_points_summary_on">Los puntos de Hype están ocultos</string>
+  <string name="revanced_hide_hype_points_summary_off">Los puntos de Hype están visibles</string>
   <string name="revanced_hide_podcast_section_title">Ocultar \"Explora el pódcast\"</string>
   <string name="revanced_hide_podcast_section_summary_on">La sección Explora el pódcast está oculta</string>
   <string name="revanced_hide_podcast_section_summary_off">Se muestra la sección Explora el pódcast</string>
@@ -771,15 +774,14 @@ Si cambiar este ajuste no tiene efecto, intenta cambiar al modo incógnito."</st
   <string name="revanced_hide_player_flyout_speed_title">Ocultar velocidad de reproducción</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Menú de velocidad de reproducción oculto</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Mostrar menú de velocidad de reproducción</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Ocultar Más información</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">El menú Más información está oculto</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Se muestra el menú Más información</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Ocultar pantalla de bloqueo</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">El menú de la pantalla de bloqueo está oculto</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Se muestra el menú de pantalla de bloqueo</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Ocultar Escuchar con YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">El menú Escuchar con YouTube Music está oculto</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">El menú Escuchar con YouTube Music está visible</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Ocultar pista de audio</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">El menú de pista de audio está oculto</string>

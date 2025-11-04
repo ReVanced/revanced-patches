@@ -328,6 +328,9 @@ Pokud se Doodle v současné době zobrazuje ve vaší oblasti a toto nastavení
   <string name="revanced_hide_how_this_was_made_section_title">Skrýt „Jak tento obsah vznikl“</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Sekce Jak tento obsah vznikl je skrytá</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Sekce Jak tento obsah vznikl je zobrazena</string>
+  <string name="revanced_hide_hype_points_title">Skrýt Hype body</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype body jsou skryté</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype body jsou zobrazené</string>
   <string name="revanced_hide_podcast_section_title">Skrýt „Prozkoumat podcast“</string>
   <string name="revanced_hide_podcast_section_summary_on">Sekce Prozkoumat podcast je skrytá</string>
   <string name="revanced_hide_podcast_section_summary_off">Sekce Prozkoumat podcast je zobrazena</string>
@@ -771,15 +774,14 @@ Pokud změna tohoto nastavení nemá žádný účinek, zkuste přepnout do rež
   <string name="revanced_hide_player_flyout_speed_title">Skrýt Rychlost přehrávání</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Menu Rychlost přehrávání je skryto</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Menu Rychlost přehrávání je zobrazeno</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Skrýt Více informací</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Menu Více informací je skryto</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Menu Více informací je zobrazeno</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Skrýt Zamknout obrazovku</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Menu Zamknout obrazovku je skryto</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Menu Zamknout obrazovku je zobrazeno</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Skrýt Poslouchat v YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Nabídka Poslouchat v YouTube Music je skrytá</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Nabídka Poslouchat v YouTube Music je zobrazena</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Skrýt Zvuková stopa</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu Zvuková stopa je skryto</string>

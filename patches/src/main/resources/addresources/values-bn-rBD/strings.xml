@@ -324,6 +324,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_how_this_was_made_section_title">\'How this content was made\' লুকান</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">How this content was made বিভাগটি লুকানো আছে</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">How this content was made বিভাগটি দেখানো হয়েছে</string>
+  <string name="revanced_hide_hype_points_title">হাইপ পয়েন্ট লুকান</string>
+  <string name="revanced_hide_hype_points_summary_on">হাইপ পয়েন্ট লুকানো আছে</string>
+  <string name="revanced_hide_hype_points_summary_off">হাইপ পয়েন্ট দেখানো আছে</string>
   <string name="revanced_hide_podcast_section_title">\'Explore the podcast\' লুকান</string>
   <string name="revanced_hide_podcast_section_summary_on">Explore the podcast বিভাগটি লুকানো আছে</string>
   <string name="revanced_hide_podcast_section_summary_off">Explore the podcast বিভাগটি দেখানো হয়েছে</string>
@@ -767,15 +770,14 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_player_flyout_speed_title">প্লেব্যাকের স্পিড লুকান</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">প্লেব্যাকের স্পিড মেনু লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">প্লেব্যাকের স্পিড মেনু প্রদর্শিত হয়েছে</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">আরো তথ্য লুকান</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">আরও তথ্য মেনু লুকানো আছে</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">আরও তথ্য মেনু দেখানো হয়</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">লক স্ক্রীন লুকান</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">লক স্ক্রীন মেনু লুকানো আছে</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">লক স্ক্রিন মেনু দেখানো হয়েছে</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">ইউটিউব মিউজিক দিয়ে শুনুন লুকান</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">ইউটিউব মিউজিক দিয়ে শুনুন মেনু লুকানো আছে</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">ইউটিউব মিউজিক দিয়ে শুনুন মেনু দেখানো আছে</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">অডিও ট্র্যাক লুকান</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">অডিও ট্র্যাক মেনু লুকানো আছে</string>

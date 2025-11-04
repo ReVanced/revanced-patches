@@ -328,6 +328,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">Схаваць «Як быў створаны гэты кантэнт»</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Раздзел «Як быў створаны гэты кантэнт» схаваны</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Раздзел «Як быў створаны гэты кантэнт» паказаны</string>
+  <string name="revanced_hide_hype_points_title">Схаваць Hype балы</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype балы схаваны</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype балы паказаны</string>
   <string name="revanced_hide_podcast_section_title">Схаваць «Пазнаёмцеся з падкастам»</string>
   <string name="revanced_hide_podcast_section_summary_on">Раздзел «Пазнаёмцеся з падкастам» схаваны</string>
   <string name="revanced_hide_podcast_section_summary_off">Раздзел «Пазнаёмцеся з падкастам» паказаны</string>
@@ -771,15 +774,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">Схаваць хуткасць прайгравання</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Меню хуткасці прайгравання схавана</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Адлюструецца меню хуткасці прайгравання</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Схаваць Дадатковая інфармацыя</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Меню дадатковай інфармацыі схавана</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Паказана меню дадатковай інфармацыі</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Схаваць экран блакіроўкі</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Меню экрана блакіроўкі схавана</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Адлюстроўваецца меню блакіроўкі экрана</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Схаваць \'Слухаць у YouTube Music\'</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Меню \'Слухаць у YouTube Music\' схавана</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Меню \'Слухаць у YouTube Music\' паказана</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Схаваць гукавую дарожку</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Меню гукавой дарожкі схавана</string>

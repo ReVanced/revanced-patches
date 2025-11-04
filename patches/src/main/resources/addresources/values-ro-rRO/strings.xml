@@ -328,6 +328,9 @@ Dacă un Doodle este afișat în prezent în regiunea dvs. și această setare d
   <string name="revanced_hide_how_this_was_made_section_title">Ascunde „Cum a fost creat acest conținut”</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Secțiunea Cum a fost creat acest conținut este ascunsă</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Secțiunea Cum a fost creat acest conținut este afișată</string>
+  <string name="revanced_hide_hype_points_title">Ascunde Puncte Hype</string>
+  <string name="revanced_hide_hype_points_summary_on">Punctele Hype sunt ascunse</string>
+  <string name="revanced_hide_hype_points_summary_off">Punctele Hype sunt afișate</string>
   <string name="revanced_hide_podcast_section_title">Ascunde „Explorează podcastul”</string>
   <string name="revanced_hide_podcast_section_summary_on">Secțiunea Explorează podcastul este ascunsă</string>
   <string name="revanced_hide_podcast_section_summary_off">Secțiunea Explorează podcastul este afișată</string>
@@ -769,15 +772,14 @@ Dacă modificarea acestei setări nu are efect, încercați să comutați la mod
   <string name="revanced_hide_player_flyout_speed_title">Ascunde viteza de redare</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Meniul vitezei de redare este ascuns</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Meniul de redare a vitezei este afișat</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Ascunde mai multe informații</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Mai multe informații meniu sunt ascunse</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Mai multe informații sunt afișate</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Ascunde ecranul de blocare</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Meniul ecranului de blocare este ascuns</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Meniul de blocare este afișat</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Ascunde Ascultă cu YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Meniul Ascultă cu YouTube Music este ascuns</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Meniul Ascultă cu YouTube Music este afișat</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Ascunde piesa audio</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meniul piesei audio este ascuns</string>

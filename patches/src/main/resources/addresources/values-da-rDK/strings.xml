@@ -328,6 +328,9 @@ Hvis et Doodle vises i øjeblikket i din region, og denne skjuleindstilling er a
   <string name="revanced_hide_how_this_was_made_section_title">Skjul \"Hvordan dette indhold blev lavet\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Sektionen Sådan blev dette indhold lavet er skjult</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Sektionen Sådan blev dette indhold lavet vises</string>
+  <string name="revanced_hide_hype_points_title">Skjul Hype-point</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype-point er skjult</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype-point er vist</string>
   <string name="revanced_hide_podcast_section_title">Skjul \"Udforsk podcasten\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Sektionen Udforsk podcasten er skjult</string>
   <string name="revanced_hide_podcast_section_summary_off">Sektionen Udforsk podcasten vises</string>
@@ -771,15 +774,14 @@ Hvis ændring af denne indstilling ikke træder i kraft, kan du prøve at skifte
   <string name="revanced_hide_player_flyout_speed_title">Skjul afspilningshastighed</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Afspilningshastighedsmenu er skjult</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Afspilningshastighed menuen vises</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Skjul Mere info</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Mere info menu er skjult</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Mere info menu er vist</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Skjul låseskærm</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Menuen Låseskærm er skjult</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Låseskærmsmenuen vises</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Skjul Lyt med YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Lyt med YouTube Music-menuen er skjult</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Lyt med YouTube Music-menuen vises</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Skjul lydspor</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menuen for lydspor er skjult</string>
