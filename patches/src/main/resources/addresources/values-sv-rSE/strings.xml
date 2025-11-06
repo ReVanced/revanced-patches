@@ -232,6 +232,7 @@ Men om du aktiverar detta kommer även vissa användardata, t.ex. din IP-adress,
   <string name="revanced_hide_floating_microphone_button_summary_off">Flytande mikrofonknapp i sökning visas</string>
   <string name="revanced_hide_horizontal_shelves_title">Dölj horisontella hyllor</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"Horisontella hyllor är dolda, till exempel:
+
 • Senaste nytt
 • Fortsätt att titta
 • Utforska fler kanaler
@@ -328,9 +329,9 @@ Om en doodle visas för närvarande i din region och den här döljningsinställ
   <string name="revanced_hide_how_this_was_made_section_title">Dölj Hur det här innehållet skapades</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Avsnittet Hur det här innehållet skapades är dolt</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Avsnittet Hur det här innehållet skapades visas</string>
-  <string name="revanced_hide_hype_points_title">Dölj Hype-poäng</string>
-  <string name="revanced_hide_hype_points_summary_on">Hype-poäng är dolda</string>
-  <string name="revanced_hide_hype_points_summary_off">Hype-poäng visas</string>
+  <string name="revanced_hide_hype_points_title">Dölj hajppoäng</string>
+  <string name="revanced_hide_hype_points_summary_on">Hajppoäng är dolda</string>
+  <string name="revanced_hide_hype_points_summary_off">Hajppoäng visas</string>
   <string name="revanced_hide_podcast_section_title">Dölj Utforska podden</string>
   <string name="revanced_hide_podcast_section_summary_on">Avsnittet Utforska podden är dolt</string>
   <string name="revanced_hide_podcast_section_summary_off">Avsnittet Utforska podden visas</string>
@@ -780,8 +781,8 @@ Om du ändrar den här inställningen utan att det träder i kraft kan du testa 
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Menyn Låsa skärmen visas</string>
   <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Dölj Lyssna med YouTube Music</string>
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Lyssna med YouTube Music-menyn är dold</string>
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Lyssna med YouTube Music-menyn visas</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Menyn Lyssna med YouTube Music är dold</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Menyn Lyssna med YouTube Music visas</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Dölj Ljudspår</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menyn Ljudspår är dold</string>
