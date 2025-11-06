@@ -1,3 +1,10 @@
+# [5.46.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.2...v5.46.0-dev.3) (2025-11-06)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Fix "Hide Hype points" ([#6247](https://github.com/ReVanced/revanced-patches/issues/6247)) ([5821440](https://github.com/ReVanced/revanced-patches/commit/582144026d28e57bb7adcbba39244f3c7cdbc0f3))
+
 # [5.46.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.1...v5.46.0-dev.2) (2025-11-04)
 
 
