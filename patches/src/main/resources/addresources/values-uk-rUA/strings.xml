@@ -328,6 +328,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">Приховати секцію \"Як створювався цей контент\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Секцію \"Як створювався цей контент\" приховано</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Секція \"Як створювався цей контент\" показується</string>
+  <string name="revanced_hide_hype_points_title">Приховати очки голосів</string>
+  <string name="revanced_hide_hype_points_summary_on">Очки голосів приховано</string>
+  <string name="revanced_hide_hype_points_summary_off">Очки голосів показуються</string>
   <string name="revanced_hide_podcast_section_title">Приховати секцію \"Послухайте подкаст\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Секцію \"Послухайте подкаст\" приховано</string>
   <string name="revanced_hide_podcast_section_summary_off">Секція \"Послухайте подкаст\" показується</string>
@@ -663,9 +666,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_download_button_summary_off">Кнопка \"Завантажити\" показується</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Приховати \"Хайп\"</string>
-  <string name="revanced_hide_hype_button_summary_on">Кнопку \"Хайп\" приховано</string>
-  <string name="revanced_hide_hype_button_summary_off">Кнопка \"Хайп\" показується</string>
+  <string name="revanced_hide_hype_button_title">Приховати \"Голосувати\"</string>
+  <string name="revanced_hide_hype_button_summary_on">Кнопку \"Голосувати\" приховано</string>
+  <string name="revanced_hide_hype_button_summary_off">Кнопка \"Голосувати\" показується</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_promote_button_title">Приховати \"Рекламувати\"</string>
   <string name="revanced_hide_promote_button_summary_on">Кнопку \"Рекламувати\" приховано</string>
@@ -771,15 +774,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">Приховати \"Швидкість відтворення\"</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Пункт меню \"Швидкість відтворення\" приховано</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Пункт меню \"Швидкість відтворення\" показується</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Приховати \"Додаткова інформація\"</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Пункт меню \"Додаткова інформація\" приховано</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Пункт меню \"Додаткова інформація\" показується</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Приховати \"Заблокувати екран\"</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Пункт меню \"Заблокувати екран\" приховано</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Пункт меню \"Заблокувати екран\" приховано</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Приховати \"Слухати в YouTube Music\"</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Пункт меню \"Слухати в YouTube Music\" приховано</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Пункт меню \"Слухати в YouTube Music\" показується</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Приховати \"Звукова доріжка\"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Пункт меню \"Звукова доріжка\" приховано</string>

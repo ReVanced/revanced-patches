@@ -328,6 +328,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">隱藏「這項內容的製作方式」</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">已隱藏這項內容的製作方式區塊</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">已顯示這項內容的製作方式區塊</string>
+  <string name="revanced_hide_hype_points_title">隱藏Hype點數</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype點數已隱藏</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype點數已顯示</string>
   <string name="revanced_hide_podcast_section_title">隱藏「探索 Podcast」</string>
   <string name="revanced_hide_podcast_section_summary_on">已隱藏探索 Podcast 區塊</string>
   <string name="revanced_hide_podcast_section_summary_off">已顯示探索 Podcast 區塊</string>
@@ -771,15 +774,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">隱藏「播放速度」</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">已隱藏「播放速度」選單</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">已顯示「播放速度」選單</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">隱藏「更多資訊」</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">已隱藏「更多資訊」選單</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">已顯示「更多資訊」選單</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">隱藏「鎖定畫面」</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">已隱藏「鎖定畫面」選單</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">已顯示「鎖定畫面」選單</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">隱藏「透過 YouTube Music 收聽」</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">「透過 YouTube Music 收聽」選單已隱藏</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">「使用 YouTube Music 聆聽」選單已顯示</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">隱藏「音軌」</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">已隱藏「音軌」選單</string>

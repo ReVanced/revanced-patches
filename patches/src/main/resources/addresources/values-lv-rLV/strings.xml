@@ -328,6 +328,9 @@ Ja Doodle pašlaik tiek rādīts jūsu reģionā un šis slēpšanas iestatījum
   <string name="revanced_hide_how_this_was_made_section_title">Paslēpt \"Kā šis saturs tika veidots\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Sadaļa \"Kā šis saturs tika veidots\" ir paslēpta</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Sadaļa \"Kā šis saturs tika veidots\" ir redzama</string>
+  <string name="revanced_hide_hype_points_title">Slēpt Hype punktus</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype punkti ir slēpti</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype punkti ir redzami</string>
   <string name="revanced_hide_podcast_section_title">Paslēpt sadaļu \"Izpētiet podkāstu\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Sadaļa \"Izpētiet podkāstu\" ir paslēpta</string>
   <string name="revanced_hide_podcast_section_summary_off">Sadaļa \"Izpētiet podkāstu\" ir redzama</string>
@@ -771,15 +774,14 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <string name="revanced_hide_player_flyout_speed_title">Paslēpt Atskaņošanas ātrumu</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Atskaņošanas ātruma izvēlne ir paslēpta</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Atskaņošanas ātruma izvēlne ir redzama</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Paslēpt Papildus informāciju</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Papildus informācijas izvēlne ir paslēpta</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Papildus informācijas izvēlne ir redzama</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Paslēpt Bloķēt ekrānu</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Bloķēt ekrāna izvēlne ir paslēpta</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Bloķēt ekrāna izvēlne ir redzama</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Paslēpt klausīties ar YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Izvēlne \"Klausīties ar YouTube Music\" ir paslēpta</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Izvēlne \"Klausīties ar YouTube Music\" ir redzama</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Paslēpt Audio ceļu</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio ceļa izvēlne ir paslēpta</string>

@@ -328,6 +328,9 @@ Nëse një Doodle po shfaqet aktualisht në rajonin tuaj dhe kjo fshehje është
   <string name="revanced_hide_how_this_was_made_section_title">Fshih \'Si u krijua ky përmbajtje\'</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Seksioni si u krijua kjo përmbajtje është i fshehur</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Seksioni si u krijua kjo përmbajtje është i shfaqur</string>
+  <string name="revanced_hide_hype_points_title">Fsheh pikët e Hype-it</string>
+  <string name="revanced_hide_hype_points_summary_on">Pikët e Hype-it janë të fshehura</string>
+  <string name="revanced_hide_hype_points_summary_off">Pikët e Hype-it janë të shfaqura</string>
   <string name="revanced_hide_podcast_section_title">Fshih \'Eksploro podkastin\'</string>
   <string name="revanced_hide_podcast_section_summary_on">Seksioni eksploro podkastin është i fshehur</string>
   <string name="revanced_hide_podcast_section_summary_off">Seksioni eksploro podkastin është i shfaqur</string>
@@ -771,15 +774,14 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <string name="revanced_hide_player_flyout_speed_title">Fsheh \"Shpejtësia e riprodhimit\"</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Menyja \"Shpejtësia e riprodhimit\" është e fshehur</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Menyja \"Shpejtësia e riprodhimit\" është e dukshme</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Fsheh \"Më shumë info\"</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Menyja \"Më shumë info\" është e fshehur</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Menyja \"Më shumë info\" është e dukshme</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Fsheh \"Ekrani i kyçjes\"</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Menyja \"Ekrani i kyçjes\" është e fshehur</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Menyja \"Ekrani i kyçjes\" është e dukshme</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Fsheh Dëgjo me YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Menyja Dëgjo me YouTube Music është fshehur</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Menyja Dëgjo me YouTube Music është shfaqur</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Fsheh \"Shina e audios\"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menyja \"Shina e audios\" është e fshehur</string>

@@ -328,6 +328,9 @@ Jei „Doodle“ šiuo metu rodomas jūsu regione ir šis paslėpimo nustatymas 
   <string name="revanced_hide_how_this_was_made_section_title">Slėpti „Kaip buvo sukurtas šis turinys“</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Skyrius „Kaip buvo sukurtas šis turinys“ yra paslėptas</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Skyrius „Kaip buvo sukurtas šis turinys“ yra rodomas</string>
+  <string name="revanced_hide_hype_points_title">Slėpti „Hype“ taškus</string>
+  <string name="revanced_hide_hype_points_summary_on">„Hype“ taškai paslėpti</string>
+  <string name="revanced_hide_hype_points_summary_off">„Hype“ taškai rodomi</string>
   <string name="revanced_hide_podcast_section_title">Slėpti „Naršyti podcast\'ą“</string>
   <string name="revanced_hide_podcast_section_summary_on">Skyrius „Naršyti podcast\'ą“ yra paslėptas</string>
   <string name="revanced_hide_podcast_section_summary_off">Skyrius „Naršyti podcast\'ą“ yra rodomas</string>
@@ -771,15 +774,14 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_player_flyout_speed_title">Slėpti Vaizdo įrašo atkūrimo greitį</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Vaizdo įrašo atkūrimo greičio meniu yra paslėptas</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Vaizdo įrašo atkūrimo greičio meniu yra rodomas</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Slėpti Daugiau informacijos</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Daugiau informacijos meniu yra paslėptas</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Daugiau informacijos meniu yra rodomas</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Slėpti Ekrano užraktą</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Ekrano užrakto meniu yra paslėptas</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Ekrano užrakto meniu yra rodomas</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Slėpti Klausytis su „YouTube Music“</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">„Klausytis su „YouTube Music““ meniu yra paslėptas</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">„Klausytis su „YouTube Music““ meniu yra rodomas</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Slėpti Garso takelius</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Garso takelių meniu yra paslėptas</string>

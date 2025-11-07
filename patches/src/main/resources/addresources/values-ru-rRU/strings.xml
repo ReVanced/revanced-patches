@@ -328,6 +328,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">Скрыть раздел \"Как был создан этот контент\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Раздел \"Как был создан этот контент\" в описании видео скрыт</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Раздел \"Как был создан этот контент\" в описании видео показан</string>
+  <string name="revanced_hide_hype_points_title">Скрыть очки голосов</string>
+  <string name="revanced_hide_hype_points_summary_on">Очки голосов скрыты</string>
+  <string name="revanced_hide_hype_points_summary_off">Очки голосов показаны</string>
   <string name="revanced_hide_podcast_section_title">Скрыть раздел \"Другие выпуски подкаста\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Раздел \"Другие выпуски подкаста\" в описании видео скрыт</string>
   <string name="revanced_hide_podcast_section_summary_off">Раздел \"Другие выпуски подкаста\" в описании видео показан</string>
@@ -771,15 +774,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">Скрыть пункт \"Скорость воспроизведения\"</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Пункт \"Скорость воспроизведения\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Пункт \"Скорость воспроизведения\" в выдвижном меню плеера показан</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Скрыть пункт \"Дополнительная информация\"</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Пункт \"Дополнительная информация\" в выдвижном меню плеера скрыт</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Пункт \"Дополнительная информация\" в выдвижном меню плеера показан</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Скрыть пункт \"Блокировка экрана\"</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Пункт \"Блокировка экрана\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Пункт \"Блокировка экрана\" в выдвижном меню плеера показан</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Скрыть пункт \"Слушать в YouTube Music\"</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Пункт \"Слушать в YouTube Music\" в выдвижном меню плеера скрыт</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Пункт \"Слушать в YouTube Music\" в выдвижном меню плеера показан</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Скрыть пункт \"Звуковая дорожка\"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Пункт \"Звуковая дорожка\" в выдвижном меню плеера скрыт</string>
