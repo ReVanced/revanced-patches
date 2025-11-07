@@ -9,6 +9,8 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/DisablePlayerPopupPanelsPatch;"
+
 val playerPopupPanelsPatch = bytecodePatch(
     name = "Disable player popup panels",
     description = "Adds an option to disable panels (such as live chat) from opening automatically.",
@@ -37,7 +39,7 @@ val playerPopupPanelsPatch = bytecodePatch(
         engagementPanelControllerFingerprint.method.addInstructionsWithLabels(
             0,
             """
-                invoke-static { }, Lapp/revanced/extension/youtube/patches/DisablePlayerPopupPanelsPatch;->disablePlayerPopupPanels()Z
+                invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disablePlayerPopupPanels()Z
                 move-result v0
                 if-eqz v0, :player_popup_panels
                 if-eqz p4, :player_popup_panels
@@ -45,7 +47,7 @@ val playerPopupPanelsPatch = bytecodePatch(
                 return-object v0
                 :player_popup_panels
                 nop
-            """,
+            """
         )
     }
 }

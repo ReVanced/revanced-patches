@@ -1660,6 +1660,7 @@ public final class app/revanced/patches/youtube/misc/playservice/VersionCheckPat
 	public static final fun is_20_37_or_greater ()Z
 	public static final fun is_20_39_or_greater ()Z
 	public static final fun is_20_41_or_greater ()Z
+	public static final fun is_20_45_or_greater ()Z
 }
 
 public final class app/revanced/patches/youtube/misc/privacy/SanitizeSharingLinksPatchKt {

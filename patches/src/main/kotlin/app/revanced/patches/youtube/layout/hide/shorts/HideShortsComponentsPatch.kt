@@ -20,6 +20,7 @@ import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_41_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_07_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_22_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_45_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
@@ -27,7 +28,6 @@ import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.forEachLiteralValueInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstLiteralInstruction
 import app.revanced.util.removeFromParent
 import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -224,11 +224,13 @@ val hideShortsComponentsPatch = bytecodePatch(
 
         // Hook to hide the shared navigation bar when the Shorts player is opened.
         renderBottomNavigationBarFingerprint.match(
-            if (is_19_41_or_greater) {
+            (if (is_20_45_or_greater) {
                 renderBottomNavigationBarParentFingerprint
+            } else if (is_19_41_or_greater) {
+                renderBottomNavigationBarLegacy1941ParentFingerprint
             } else {
-                legacyRenderBottomNavigationBarParentFingerprint
-            }.originalClassDef,
+                legacyRenderBottomNavigationBarLegacyParentFingerprint
+            }).originalClassDef
         ).method.addInstruction(
             0,
             "invoke-static { p1 }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Ljava/lang/String;)V",

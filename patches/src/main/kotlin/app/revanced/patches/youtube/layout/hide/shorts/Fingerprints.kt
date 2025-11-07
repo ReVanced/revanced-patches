@@ -10,20 +10,6 @@ import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val legacyRenderBottomNavigationBarParentFingerprint by fingerprint {
-    parameters(
-        "I",
-        "I",
-        "L",
-        "L",
-        "J",
-        "L",
-    )
-    instructions(
-        string("aa")
-    )
-}
-
 internal val shortsBottomBarContainerFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
@@ -36,28 +22,49 @@ internal val shortsBottomBarContainerFingerprint by fingerprint {
     )
 }
 
+/**
+ * 19.41 to 20.44.
+ */
 internal val renderBottomNavigationBarFingerprint by fingerprint {
     returns("V")
     parameters("Ljava/lang/String;")
-    opcodes(
-        Opcode.IGET_OBJECT,
-        Opcode.MONITOR_ENTER,
-        Opcode.IGET_OBJECT,
-        Opcode.IF_EQZ,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MONITOR_EXIT,
-        Opcode.RETURN_VOID,
-        Opcode.MOVE_EXCEPTION,
-        Opcode.MONITOR_EXIT,
-        Opcode.THROW,
+    instructions(
+        opcode(Opcode.IGET_OBJECT, maxAfter = 0),
+        opcode(Opcode.MONITOR_ENTER, maxAfter = 0),
+        opcode(Opcode.IGET_OBJECT, maxAfter = 0),
+        opcode(Opcode.IF_EQZ, maxAfter = 0),
+        opcode(Opcode.INVOKE_INTERFACE, maxAfter = 0),
+
+        opcode(Opcode.MONITOR_EXIT),
+        opcode(Opcode.RETURN_VOID, maxAfter = 0),
+        opcode(Opcode.MOVE_EXCEPTION, maxAfter = 0),
+        opcode(Opcode.MONITOR_EXIT, maxAfter = 0),
+        opcode(Opcode.THROW, maxAfter = 0),
     )
 }
 
 /**
- * Identical to [legacyRenderBottomNavigationBarParentFingerprint]
+ * Less than 19.41.
+ */
+internal val legacyRenderBottomNavigationBarLegacyParentFingerprint by fingerprint {
+    parameters(
+        "I",
+        "I",
+        "L",
+        "L",
+        "J",
+        "L",
+    )
+    instructions(
+        string("aa")
+    )
+}
+
+/**
+ * Identical to [legacyRenderBottomNavigationBarLegacyParentFingerprint]
  * except this has an extra parameter.
  */
-internal val renderBottomNavigationBarParentFingerprint by fingerprint {
+internal val renderBottomNavigationBarLegacy1941ParentFingerprint by fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters(
         "I",
@@ -70,6 +77,19 @@ internal val renderBottomNavigationBarParentFingerprint by fingerprint {
     )
     instructions(
         string("aa")
+    )
+}
+
+internal val renderBottomNavigationBarParentFingerprint by fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("[Ljava/lang/Class;")
+    parameters(
+        "Ljava/lang/Class;",
+        "Ljava/lang/Object;",
+        "I"
+    )
+    instructions(
+        string("RPCAC")
     )
 }
 
