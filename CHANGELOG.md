@@ -1,3 +1,12 @@
+# [5.46.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.4...v5.46.0-dev.5) (2025-11-07)
+
+
+### Bug Fixes
+
+* **Duolingo - Disable ads:** Constrain patch to last working app target ([f238ae9](https://github.com/ReVanced/revanced-patches/commit/f238ae9895000f01d1dccb800cc8efde0d5362bd))
+* **Instagram - Hide navigation buttons:** Constrain patch to last working app target ([e030e9c](https://github.com/ReVanced/revanced-patches/commit/e030e9c07a7748e117ac44f6776a9f6317b20623))
+* **Spotify - Hide Create button:** Remove obsolete patch that is no longer needed ([#6252](https://github.com/ReVanced/revanced-patches/issues/6252)) ([59d85b2](https://github.com/ReVanced/revanced-patches/commit/59d85b28a7fcb285ff5f2bb6ae654020d76b2019))
+
 # [5.46.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.3...v5.46.0-dev.4) (2025-11-07)
 
 
