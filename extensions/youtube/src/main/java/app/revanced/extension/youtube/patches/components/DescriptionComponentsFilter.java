@@ -143,7 +143,9 @@ final class DescriptionComponentsFilter extends Filter {
         }
 
         if (matchedGroup == infoCardsSection) {
-            return subscribeButton.check(buffer).isFiltered();
+            return contentIndex == 0
+                    && PlayerType.getCurrent().isMaximizedOrFullscreen()
+                    && subscribeButton.check(buffer).isFiltered();
         }
 
         return true;
