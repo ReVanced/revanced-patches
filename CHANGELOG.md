@@ -1,3 +1,10 @@
+# [5.46.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.3...v5.46.0-dev.4) (2025-11-07)
+
+
+### Bug Fixes
+
+* **YouTube - Check watch history domain name resolution:** Fix false positive warning message if the internet connection fails halfway into the DNS check ([5726353](https://github.com/ReVanced/revanced-patches/commit/57263538c79f5a561c449229ac8e068c641285d3))
+
 # [5.46.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.2...v5.46.0-dev.3) (2025-11-06)
 
 
