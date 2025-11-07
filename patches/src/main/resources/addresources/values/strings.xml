@@ -1762,6 +1762,11 @@ Video playback with AV1 may stutter or drop frames."</string>
             <string name="revanced_music_hide_history_button_summary_on">History button is hidden</string>
             <string name="revanced_music_hide_history_button_summary_off">History button is shown</string>
         </patch>
+        <patch id="layout.searchbutton.hideSearchButton">
+            <string name="revanced_music_hide_search_button_title">Hide search button</string>
+            <string name="revanced_music_hide_search_button_summary_on">Search button is hidden</string>
+            <string name="revanced_music_hide_search_button_summary_off">Search button is shown</string>
+        </patch>
         <patch id="layout.navigationbar.navigationBarPatch">
             <string name="revanced_music_navigation_bar_screen_title">Navigation bar</string>
             <string name="revanced_music_navigation_bar_screen_summary">Hide or change navigation bar buttons</string>

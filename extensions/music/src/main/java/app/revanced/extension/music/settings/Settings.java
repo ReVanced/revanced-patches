@@ -19,6 +19,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_music_hide_cast_button", TRUE, false);
     public static final BooleanSetting HIDE_CATEGORY_BAR = new BooleanSetting("revanced_music_hide_category_bar", FALSE, true);
     public static final BooleanSetting HIDE_HISTORY_BUTTON = new BooleanSetting("revanced_music_hide_history_button", FALSE, true);
+    public static final BooleanSetting HIDE_SEARCH_BUTTON = new BooleanSetting("revanced_music_hide_search_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR_HOME_BUTTON = new BooleanSetting("revanced_music_hide_navigation_bar_home_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR_SAMPLES_BUTTON = new BooleanSetting("revanced_music_hide_navigation_bar_samples_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR_EXPLORE_BUTTON = new BooleanSetting("revanced_music_hide_navigation_bar_explore_button", FALSE, true);

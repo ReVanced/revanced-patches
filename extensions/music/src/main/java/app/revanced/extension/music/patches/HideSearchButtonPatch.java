@@ -7,12 +7,12 @@ import android.view.View;
 import app.revanced.extension.music.settings.Settings;
 
 @SuppressWarnings("unused")
-public class HideCategoryBarPatch {
+public class HideSearchButtonPatch {
 
     /**
      * Injection point
      */
-    public static void hideCategoryBar(View view) {
-        hideViewBy0dpUnderCondition(Settings.HIDE_CATEGORY_BAR, view);
+    public static void hideSearchButton(View view) {
+        hideViewBy0dpUnderCondition(Settings.HIDE_SEARCH_BUTTON, view);
     }
 }
