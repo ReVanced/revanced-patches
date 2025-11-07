@@ -779,9 +779,9 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Ekranı kilitle menüsü gizli</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Ekranı kilitle menüsü görünür</string>
   <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">YouTube Music ile dinle\'yi Gizle</string>
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">YouTube Music ile dinle menüsü gizli</string>
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">YouTube Music ile dinle menüsü gösteriliyor</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">YouTube Müzik ile Dinle\'yi gizle</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">YouTube Müzik ile dinle menüsü gizli</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">YouTube Müzik ile dinle menüsü görünür</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Ses parçasını gizle</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ses parçası menüsü gizli</string>

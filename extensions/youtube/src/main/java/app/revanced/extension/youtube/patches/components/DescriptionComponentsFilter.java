@@ -17,6 +17,7 @@ final class DescriptionComponentsFilter extends Filter {
     private final ByteArrayFilterGroup cellVideoAttribute;
 
     private final StringFilterGroup aiGeneratedVideoSummarySection;
+    private final StringFilterGroup hypePoints;
 
     public DescriptionComponentsFilter() {
         exceptions.addPatterns(
@@ -63,7 +64,7 @@ final class DescriptionComponentsFilter extends Filter {
                 "how_this_was_made_section"
         );
 
-        final StringFilterGroup hypePoints = new StringFilterGroup(
+        hypePoints = new StringFilterGroup(
                 Settings.HIDE_HYPE_POINTS,
                 "hype_points_factoid"
         );
@@ -112,7 +113,7 @@ final class DescriptionComponentsFilter extends Filter {
     boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
 
-        if (matchedGroup == aiGeneratedVideoSummarySection) {
+        if (matchedGroup == aiGeneratedVideoSummarySection || matchedGroup == hypePoints) {
             // Only hide if player is open, in case this component is used somewhere else.
             return PlayerType.getCurrent().isMaximizedOrFullscreen();
         }

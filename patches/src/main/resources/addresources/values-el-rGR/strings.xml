@@ -330,9 +330,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">Ενότητα «Πως δημιουργήθηκε αυτό το περιεχόμενο»</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_hype_points_title">Απόκρυψη πόντων Hype</string>
-  <string name="revanced_hide_hype_points_summary_on">Οι πόντοι Hype είναι κρυμμένοι</string>
-  <string name="revanced_hide_hype_points_summary_off">Οι πόντοι Hype εμφανίζονται</string>
+  <string name="revanced_hide_hype_points_title">Πόντοι Hype</string>
+  <string name="revanced_hide_hype_points_summary_on">Κρυμμένοι</string>
+  <string name="revanced_hide_hype_points_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_podcast_section_title">Ενότητα «Εξερευνήστε το podcast»</string>
   <string name="revanced_hide_podcast_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_podcast_section_summary_off">Εμφανίζεται</string>
@@ -781,9 +781,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Εμφανίζεται</string>
   <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Απόκρυψη Ακρόασης με YouTube Music</string>
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Το μενού Ακρόαση με YouTube Music είναι κρυμμένο</string>
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Το μενού Ακρόαση με YouTube Music εμφανίζεται</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Μενού «Ακρόαση με YouTube Music»</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Εμφανίζεται</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Μενού «Κομμάτι ήχου»</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Κρυμμένο</string>

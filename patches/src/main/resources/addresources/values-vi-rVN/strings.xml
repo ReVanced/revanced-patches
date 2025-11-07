@@ -63,7 +63,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import_reset">Đặt lại cài đặt ReVanced về mặc định</string>
   <string name="revanced_settings_import_success">Đã nhập cài đặt %d</string>
   <string name="revanced_settings_import_failure_parse">Nhập thất bại: %s</string>
-  <string name="revanced_settings_search_hint">Tìm kiếm</string>
+  <string name="revanced_settings_search_hint">Tìm kiếm cài đặt</string>
   <string name="revanced_settings_search_no_results_title">Không tìm thấy kết quả nào cho \'%s\'</string>
   <string name="revanced_settings_search_no_results_summary">Thử từ khóa khác</string>
   <string name="revanced_settings_search_recent_searches">Các tìm kiếm gần đây</string>
@@ -328,9 +328,9 @@ Nếu cài đặt này được bật và Doodle đang hiển thị tại khu v�
   <string name="revanced_hide_how_this_was_made_section_title">Ẩn \'Cách nội dung này được tạo ra\'</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Phần cách nội dung được tạo ra đã bị ẩn</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Phần cách nội dung được tạo ra được hiển thị</string>
-  <string name="revanced_hide_hype_points_title">Ẩn điểm Khuấy động</string>
-  <string name="revanced_hide_hype_points_summary_on">Điểm Khuấy động đã bị ẩn</string>
-  <string name="revanced_hide_hype_points_summary_off">Điểm Khuấy động được hiển thị</string>
+  <string name="revanced_hide_hype_points_title">Ẩn Điểm khuấy động</string>
+  <string name="revanced_hide_hype_points_summary_on">Điểm khuấy động đã bị ẩn</string>
+  <string name="revanced_hide_hype_points_summary_off">Điểm khuấy động được hiển thị</string>
   <string name="revanced_hide_podcast_section_title">Ẩn \'Khám phá podcast\'</string>
   <string name="revanced_hide_podcast_section_summary_on">Phần Khám phá podcast đã bị ẩn</string>
   <string name="revanced_hide_podcast_section_summary_off">Phần Khám phá podcast được hiển thị</string>
@@ -779,9 +779,9 @@ Nếu thay đổi cài đặt này không có hiệu lực, hãy thử chuyển 
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Trình đơn khóa màn hình đã bị ẩn</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Trình đơn khóa màn hình được hiển thị</string>
   <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Ẩn Nghe bằng YouTube Music</string>
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Menu Nghe bằng YouTube Music đã bị ẩn</string>
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Menu Nghe bằng YouTube Music đã hiển thị</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Ẩn Nghe nhạc trên YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Trình đơn Nghe nhạc trên YouTube Music đã bị ẩn</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Trình đơn Nghe nhạc trên YouTube Music được hiển thị</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Ẩn Bản âm thanh</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Trình đơn bản âm thanh đã bị ẩn</string>
