@@ -15,6 +15,8 @@ final class DescriptionComponentsFilter extends Filter {
 
     private final StringFilterGroup horizontalShelf;
     private final ByteArrayFilterGroup cellVideoAttribute;
+    private final StringFilterGroup infoCardsSection;
+    private final ByteArrayFilterGroup subscribeButton;
 
     private final StringFilterGroup aiGeneratedVideoSummarySection;
     private final StringFilterGroup hypePoints;
@@ -44,9 +46,20 @@ final class DescriptionComponentsFilter extends Filter {
                 "video_attributes_section"
         );
 
-        final StringFilterGroup infoCardsSection = new StringFilterGroup(
+        infoCardsSection = new StringFilterGroup(
                 Settings.HIDE_INFO_CARDS_SECTION,
-                "infocards_section"
+                "infocards_section.e"
+        );
+
+        subscribeButton = new ByteArrayFilterGroup(
+                Settings.HIDE_DESCRIPTION_SUBSCRIBE_BUTTON,
+                "subscribe_button"
+        );
+
+        final StringFilterGroup featuredSection = new StringFilterGroup(
+                Settings.HIDE_FEATURED_SECTION,
+                // "media_lockup", "structured_description_video_lockup"
+                "compact_infocard"
         );
 
         final StringFilterGroup podcastSection = new StringFilterGroup(
@@ -99,6 +112,7 @@ final class DescriptionComponentsFilter extends Filter {
                 aiGeneratedVideoSummarySection,
                 askSection,
                 attributesSection,
+                featuredSection,
                 infoCardsSection,
                 horizontalShelf,
                 howThisWasMadeSection,
@@ -126,6 +140,10 @@ final class DescriptionComponentsFilter extends Filter {
 
         if (matchedGroup == horizontalShelf) {
             return cellVideoAttribute.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == infoCardsSection) {
+            return subscribeButton.check(buffer).isFiltered();
         }
 
         return true;
