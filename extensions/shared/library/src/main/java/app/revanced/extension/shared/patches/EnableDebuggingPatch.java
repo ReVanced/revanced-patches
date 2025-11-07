@@ -1,5 +1,7 @@
 package app.revanced.extension.shared.patches;
 
+import static java.lang.Boolean.TRUE;
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -40,11 +42,13 @@ public final class EnableDebuggingPatch {
      * Injection point.
      */
     public static boolean isBooleanFeatureFlagEnabled(boolean value, Long flag) {
-        if (DISABLED_FEATURE_FLAGS.contains(flag)) {
-            return false;
-        }
-        if (LOG_FEATURE_FLAGS && value && featureFlags.putIfAbsent(flag, true) == null) {
-            Logger.printDebug(() -> "boolean feature is enabled: " + flag);
+        if (LOG_FEATURE_FLAGS && value) {
+            if (DISABLED_FEATURE_FLAGS.contains(flag)) {
+                return false;
+            }
+            if (featureFlags.putIfAbsent(flag, TRUE) == null) {
+                Logger.printDebug(() -> "boolean feature is enabled: " + flag);
+            }
         }
 
         return value;

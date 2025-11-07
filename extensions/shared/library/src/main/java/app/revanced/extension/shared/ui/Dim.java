@@ -71,7 +71,7 @@ public final class Dim {
      * @return The pixel value.
      */
     public static int pctPortraitWidth(int percent) {
-        int portraitWidth = Math.min(SCREEN_WIDTH, SCREEN_HEIGHT);
+        final int portraitWidth = Math.min(SCREEN_WIDTH, SCREEN_HEIGHT);
         return (int) (portraitWidth * (percent / 100.0f));
     }
 

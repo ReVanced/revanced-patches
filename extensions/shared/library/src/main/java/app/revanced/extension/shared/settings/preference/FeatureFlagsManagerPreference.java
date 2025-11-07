@@ -51,26 +51,26 @@ import app.revanced.extension.shared.ui.Dim;
 @SuppressWarnings({"deprecation", "unused"})
 public class FeatureFlagsManagerPreference extends Preference {
 
-    public static final int DRAWABLE_REVANCED_SETTINGS_SELECT_ALL =
+    private static final int DRAWABLE_REVANCED_SETTINGS_SELECT_ALL =
             getResourceIdentifierOrThrow("revanced_settings_select_all", "drawable");
-    public static final int DRAWABLE_REVANCED_SETTINGS_DESELECT_ALL =
+    private static final int DRAWABLE_REVANCED_SETTINGS_DESELECT_ALL =
             getResourceIdentifierOrThrow("revanced_settings_deselect_all", "drawable");
-    public static final int DRAWABLE_REVANCED_SETTINGS_COPY_ALL =
+    private static final int DRAWABLE_REVANCED_SETTINGS_COPY_ALL =
             getResourceIdentifierOrThrow("revanced_settings_copy_all", "drawable");
-    public static final int DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_ONE =
+    private static final int DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_ONE =
             getResourceIdentifierOrThrow("revanced_settings_arrow_right_one", "drawable");
-    public static final int DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_DOUBLE =
+    private static final int DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_DOUBLE =
             getResourceIdentifierOrThrow("revanced_settings_arrow_right_double", "drawable");
-    public static final int DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_ONE =
+    private static final int DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_ONE =
             getResourceIdentifierOrThrow("revanced_settings_arrow_left_one", "drawable");
-    public static final int DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_DOUBLE =
+    private static final int DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_DOUBLE =
             getResourceIdentifierOrThrow("revanced_settings_arrow_left_double", "drawable");
 
     /**
      * Flags to hide from the UI.
      */
-    private static final Set<Long> HIDDEN_FLAGS = Set.of(
-            45386834L // Blocks settings button.
+    private static final Set<Long> FLAGS_TO_IGNORE = Set.of(
+            45386834L // 'You' tab settings icon.
     );
 
     /**
@@ -122,12 +122,15 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         // Load all known and disabled flags.
         TreeSet<Long> allKnownFlags = new TreeSet<>(EnableDebuggingPatch.getAllLoggedFlags());
-        allKnownFlags.removeAll(HIDDEN_FLAGS);
+        allKnownFlags.removeAll(FLAGS_TO_IGNORE);
 
-        TreeSet<Long> disabledFlags = new TreeSet<>(EnableDebuggingPatch.parseFlags(BaseSettings.DISABLED_FEATURE_FLAGS.get()));
-        disabledFlags.removeAll(HIDDEN_FLAGS);
+        TreeSet<Long> disabledFlags = new TreeSet<>(EnableDebuggingPatch.parseFlags(
+                BaseSettings.DISABLED_FEATURE_FLAGS.get()));
+        disabledFlags.removeAll(FLAGS_TO_IGNORE);
 
         if (allKnownFlags.isEmpty() && disabledFlags.isEmpty()) {
+            // String does not need to be localized because it's basically impossible
+            // to reach the settings menu without encountering at least 1 flag.
             Utils.showToastShort("No feature flags logged yet");
             return;
         }
@@ -318,8 +321,9 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         search.setOnTouchListener((v, event) -> {
             if (event.getAction() == MotionEvent.ACTION_UP) {
-                if (search.getCompoundDrawables()[2] != null &&
-                        event.getRawX() >= (search.getRight() - search.getCompoundDrawables()[2].getBounds().width())) {
+                Drawable[] compoundDrawables = search.getCompoundDrawables();
+                if (compoundDrawables[2] != null &&
+                        event.getRawX() >= (search.getRight() - compoundDrawables[2].getBounds().width())) {
                     search.setText("");
                     return true;
                 }
@@ -342,7 +346,7 @@ public class FeatureFlagsManagerPreference extends Preference {
 
         ImageButton selectAll = createButton(context, DRAWABLE_REVANCED_SETTINGS_SELECT_ALL,
                 () -> {
-                    for (int i = 0; i < adapter.getCount(); i++) {
+                    for (int i = 0, count = adapter.getCount(); i < count; i++) {
                         listView.setItemChecked(i, true);
                     }
                 });
@@ -359,7 +363,7 @@ public class FeatureFlagsManagerPreference extends Preference {
                     SparseBooleanArray checked = listView.getCheckedItemPositions();
 
                     if (checked.size() > 0) {
-                        for (int i = 0; i < adapter.getCount(); i++) {
+                        for (int i = 0, count = adapter.getCount(); i < count; i++) {
                             if (checked.get(i)) {
                                 items.add(adapter.getItem(i));
                             }
@@ -434,10 +438,9 @@ public class FeatureFlagsManagerPreference extends Preference {
         button.setImageResource(drawableResId);
         button.setScaleType(ImageView.ScaleType.CENTER);
         int[] attrs = {android.R.attr.selectableItemBackgroundBorderless};
-        TypedArray ripple = context.obtainStyledAttributes(attrs);
-        button.setBackgroundDrawable(ripple.getDrawable(0));
-        ripple.recycle();
-
+        try (TypedArray ripple = context.obtainStyledAttributes(attrs)) {
+            button.setBackgroundDrawable(ripple.getDrawable(0));
+        }
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Dim.dp32, Dim.dp32);
         params.setMargins(Dim.dp8, Dim.dp8, Dim.dp8, Dim.dp8);
         button.setLayoutParams(params);
@@ -557,7 +560,7 @@ public class FeatureFlagsManagerPreference extends Preference {
             flagsToMove.addAll(fromFlags);
         } else {
             SparseBooleanArray checked = fromListView.getCheckedItemPositions();
-            for (int i = 0; i < fromAdapter.getCount(); i++) {
+            for (int i = 0, count = fromAdapter.getCount(); i < count; i++) {
                 if (checked.get(i)) {
                     String item = fromAdapter.getItem(i);
                     if (item != null) {
