@@ -3,23 +3,13 @@ package app.revanced.patches.viber.misc.navbar
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.shared.PATCH_NAME_HIDE_NAVIGATION_BUTTONS
 import java.util.logging.Logger
 import kotlin.collections.joinToString
 
-
-private const val instructionsFooter = """
-    # If we reach this, it means that this tab has been disabled by user
-    const/4 v0, 0
-    return v0  # return false as "This tab is not enabled"
-           
-    # Proceed with default execution
-    :continue
-    nop
-"""
-
 @Suppress("unused")
 val hideNavigationButtonsPatch = bytecodePatch(
-    name = "Hide navigation buttons",
+    name = PATCH_NAME_HIDE_NAVIGATION_BUTTONS,
     description = "Permanently hides navigation bar buttons, such as Explore and Marketplace.",
     use = false
 ) {
@@ -40,13 +30,21 @@ val hideNavigationButtonsPatch = bytecodePatch(
 
         if (allowedItems.size == AllowedNavigationItems.entries.size) {
             return@execute Logger.getLogger(this::class.java.name).warning(
-                "No hide navigation buttons options are enabled. No changes made."
+                "No hide navigation buttons options are enabled. No changes applied."
             )
         }
 
         val injectionInstructions = allowedItems
             .map { it.key.buildAllowInstruction() }
-            .joinToString("\n") + instructionsFooter
+            .joinToString("\n") + """
+                # If we reach this, it means that this tab has been disabled by user
+                const/4 v0, 0
+                return v0  # return false as "This tab is not enabled"
+                       
+                # Proceed with default execution
+                :continue
+                nop
+            """
 
         shouldShowTabIdMethodFingerprint
             .method
@@ -78,8 +76,8 @@ private enum class AllowedNavigationItems(
     fun buildAllowInstruction(): String =
         ids.joinToString("\n") { id ->
             """
-            const/4 v0, $id  # If tabId == $id ($itemName), don't hide it
-            if-eq p1, v0, :continue
+                const/4 v0, $id  # If tabId == $id ($itemName), don't hide it
+                if-eq p1, v0, :continue
             """
         }
 }
