@@ -132,6 +132,10 @@ final class DescriptionComponentsFilter extends Filter {
             return PlayerType.getCurrent().isMaximizedOrFullscreen();
         }
 
+        if (matchedGroup == infoCardsSection) {
+            return subscribeButton.check(buffer).isFiltered();
+        }
+
         if (exceptions.matches(path)) return false;
 
         if (matchedGroup == macroMarkersCarousel) {
@@ -140,12 +144,6 @@ final class DescriptionComponentsFilter extends Filter {
 
         if (matchedGroup == horizontalShelf) {
             return cellVideoAttribute.check(buffer).isFiltered();
-        }
-
-        if (matchedGroup == infoCardsSection) {
-            return contentIndex == 0
-                    && PlayerType.getCurrent().isMaximizedOrFullscreen()
-                    && subscribeButton.check(buffer).isFiltered();
         }
 
         return true;
