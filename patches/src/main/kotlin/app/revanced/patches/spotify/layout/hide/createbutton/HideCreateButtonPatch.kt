@@ -14,11 +14,11 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/spotify/layout/hide/createbutton/HideCreateButtonPatch;"
 
+@Deprecated("Patch no longer works with the latest version of Spotify, " +
+        "and Spotify has added this functionality to the app")
 @Suppress("unused")
 val hideCreateButtonPatch = bytecodePatch(
-    name = "Hide Create button",
     description = "Hides the \"Create\" button in the navigation bar. The latest app targets do not need this patch.",
-    use = false
 ) {
     compatibleWith("com.spotify.music")
 
