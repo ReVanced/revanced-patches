@@ -1747,30 +1747,24 @@ Video playback with AV1 may stutter or drop frames."</string>
             <string name="revanced_music_play_permanent_repeat_summary_on">Permanent repeat is enabled</string>
             <string name="revanced_music_play_permanent_repeat_summary_off">Permanent repeat is disabled</string>
         </patch>
-        <patch id="layout.castbutton.hideCastButton">
+        <patch id="layout.buttons.hideButtons">
             <string name="revanced_music_hide_cast_button_title">Hide cast button</string>
             <string name="revanced_music_hide_cast_button_summary_on">Cast button is hidden</string>
             <string name="revanced_music_hide_cast_button_summary_off">Cast button is shown</string>
+            <string name="revanced_music_hide_history_button_title">Hide history button</string>
+            <string name="revanced_music_hide_history_button_summary_on">History button is hidden</string>
+            <string name="revanced_music_hide_history_button_summary_off">History button is shown</string>
+            <string name="revanced_music_hide_notification_button_title">Hide notification button</string>
+            <string name="revanced_music_hide_notification_button_summary_on">Notification button is hidden</string>
+            <string name="revanced_music_hide_notification_button_summary_off">Notification button is shown</string>
+            <string name="revanced_music_hide_search_button_title">Hide search button</string>
+            <string name="revanced_music_hide_search_button_summary_on">Search button is hidden</string>
+            <string name="revanced_music_hide_search_button_summary_off">Search button is shown</string>
         </patch>
         <patch id="layout.compactheader.hideCategoryBar">
             <string name="revanced_music_hide_category_bar_title">Hide category bar</string>
             <string name="revanced_music_hide_category_bar_summary_on">Category bar is hidden</string>
             <string name="revanced_music_hide_category_bar_summary_off">Category bar is shown</string>
-        </patch>
-        <patch id="layout.historybutton.hideHistoryButton">
-            <string name="revanced_music_hide_history_button_title">Hide history button</string>
-            <string name="revanced_music_hide_history_button_summary_on">History button is hidden</string>
-            <string name="revanced_music_hide_history_button_summary_off">History button is shown</string>
-        </patch>
-        <patch id="layout.searchbutton.hideSearchButton">
-            <string name="revanced_music_hide_search_button_title">Hide search button</string>
-            <string name="revanced_music_hide_search_button_summary_on">Search button is hidden</string>
-            <string name="revanced_music_hide_search_button_summary_off">Search button is shown</string>
-        </patch>
-        <patch id="layout.notificationbutton.hideNotificationButton">
-            <string name="revanced_music_hide_notification_button_title">Hide notification button</string>
-            <string name="revanced_music_hide_notification_button_summary_on">Notification button is hidden</string>
-            <string name="revanced_music_hide_notification_button_summary_off">Notification button is shown</string>
         </patch>
         <patch id="layout.navigationbar.navigationBarPatch">
             <string name="revanced_music_navigation_bar_screen_title">Navigation bar</string>
