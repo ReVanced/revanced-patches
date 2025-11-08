@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data e ndërtimit të APK është e korruptuar</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Kujdes</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Njoftim ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Historia juaj e shikimit nuk po ruhet.&lt;br&gt;&lt;br&gt;Kjo me shumë mundësi shkaktohet nga një bllokues DNS reklamash ose një prokuri rrjeti.&lt;br&gt;&lt;br&gt;Për të zgjidhur këtë, shto në listën e bardhë &lt;b&gt;s.youtube.com&lt;/b&gt; ose çaktivizo të gjithë bllokuesit DNS dhe prokuritë.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Mos shfaq përsëri</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Cilësimet</string>
   <string name="revanced_settings_confirm_user_dialog_title">A jeni i sigurt që dëshironi të vazhdoni?</string>
+  <string name="revanced_settings_save">Ruaj</string>
   <string name="revanced_settings_reset">Rivendos</string>
   <string name="revanced_settings_reset_color">Rikthe ngjyrën</string>
   <string name="revanced_settings_color_invalid">Ngjyrë e pavlefshme</string>
@@ -164,6 +165,14 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Pastro regjistrat e korrigjimit</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Pastro të gjithë regjistrat e ruajtur të korrigjimit të ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Regjistrat u pastruan</string>
+  <string name="revanced_debug_feature_flags_manager_title">Manager i sinjaleve të veçorive</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Menaxhoni sinjalet boolean të veçorive</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Flamuj aktivë (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Flamuj të bllokuar (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Kërko flamuj...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Flamujt u ruajtën</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Flamujt u rivendosën</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Flamujt u kopjuan në kujtesën e punës</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Pastro lidhjet e ndarjes</string>

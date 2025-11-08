@@ -29,7 +29,6 @@ Second \"item\" text"</string>
   <patch id="misc.checks.checkEnvironmentPatch">
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">সকীয়নি</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <!-- Settings about dialog. -->

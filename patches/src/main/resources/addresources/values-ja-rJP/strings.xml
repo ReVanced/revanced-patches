@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK の作成日時データが破損している</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced からのお知らせ</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">再生履歴が保存されていません。&lt;br&gt;&lt;br&gt;これはおそらく、DNS 広告ブロッカーまたはネットワーク プロキシが原因です。&lt;br&gt;&lt;br&gt;この問題を解決するには、&lt;b&gt;s.youtube.com&lt;/b&gt; をホワイトリストに追加するか、すべての DNS ブロッカーとプロキシをオフにしてください。</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">今後表示しない</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">設定</string>
   <string name="revanced_settings_confirm_user_dialog_title">続行してもよろしいですか？</string>
+  <string name="revanced_settings_save">保存</string>
   <string name="revanced_settings_reset">リセット</string>
   <string name="revanced_settings_reset_color">色をリセット</string>
   <string name="revanced_settings_color_invalid">色の値が無効です</string>
@@ -164,6 +165,14 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_debug_logs_clear_buffer_title">デバッグログを消去</string>
   <string name="revanced_debug_logs_clear_buffer_summary">保存されている ReVanced のすべてのデバッグログを消去します</string>
   <string name="revanced_debug_logs_clear_toast">ログを消去しました</string>
+  <string name="revanced_debug_feature_flags_manager_title">機能フラグ Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">ブール機能フラグを管理</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">有効なフラグ (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">ブロックされたフラグ (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">フラグを検索...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">フラグを保存しました</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">フラグをリセットしました</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">フラグをクリップボードにコピーしました</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">共有リンクを無害化</string>

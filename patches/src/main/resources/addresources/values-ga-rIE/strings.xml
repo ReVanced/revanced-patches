@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Tá dáta tógála APK truaillithe</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Rabhadh</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Fógra ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Níl do stair faire á sábháil.&lt;br&gt;&lt;br&gt;Is é is dóichí gur seachfhreastalaí fógraí DNS nó seachfhreastalaí líonra is cúis leis seo.&lt;br&gt;&lt;br&gt; Chun é seo a réiteach, déan liosta bán &lt;b&gt;s.youtube.com&lt;/b&gt; nó gach seachfhreastalaí DNS a mhúchadh.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ná taispeáin arís</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Socruithe</string>
   <string name="revanced_settings_confirm_user_dialog_title">An bhfuil tú cinnte gur mhaith leat dul ar aghaidh?</string>
+  <string name="revanced_settings_save">Sábháil</string>
   <string name="revanced_settings_reset">Athshocrú</string>
   <string name="revanced_settings_reset_color">Dath a athshocrú</string>
   <string name="revanced_settings_color_invalid">Dath neamhbhailí</string>
@@ -164,6 +165,14 @@ Ní chuirfear ar an eolas thú faoi aon imeachtaí gan choinne."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Glan logaí dífhabhtaithe</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Glanann sé gach loga dífhabhtaithe ReVanced stóráilte</string>
   <string name="revanced_debug_logs_clear_toast">Lógaí glanta</string>
+  <string name="revanced_debug_feature_flags_manager_title">Bainisteoir bratacha gnéithe</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Bainistigh bratacha gné booléacha</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Bratacha gníomhacha (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Bratacha blocáilte (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Cuardaigh bratacha...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Bratacha sábháilte</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Bratacha athshocraithe</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Bratacha cóipeáilte chuig an ngearrthaisce</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Glan na naisc roinnte</string>

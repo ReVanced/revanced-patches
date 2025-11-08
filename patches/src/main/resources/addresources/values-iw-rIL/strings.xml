@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">תאריך בניית ה-APK פגום</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">אזהרה</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">הודעת ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">היסטוריית הצפייה שלך לא נשמרת.&lt;br&gt;&lt;br&gt;סביר להניח שזה נגרם על ידי חוסם מודעות ברמת DNS או פרוקסי רשת.&lt;br&gt;&lt;br&gt;כדי לתקן זאת, רשום את &lt;b&gt;s.youtube.com&lt;/b&gt; ברשימת ההיתרים או כבה את כל חוסמי ה-DNS והפרוקסים.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">אל תציג שוב</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">הגדרות</string>
   <string name="revanced_settings_confirm_user_dialog_title">האם אתה בטוח שברצונך להמשיך?</string>
+  <string name="revanced_settings_save">שמור</string>
   <string name="revanced_settings_reset">איפוס</string>
   <string name="revanced_settings_reset_color">אפס צבע</string>
   <string name="revanced_settings_color_invalid">צבע לא חוקי</string>
@@ -164,6 +165,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">נקה יומני איתור באגים</string>
   <string name="revanced_debug_logs_clear_buffer_summary">מנקה את כל היומנים לאיתור באגים של Revanced המאוחסנים</string>
   <string name="revanced_debug_logs_clear_toast">היומנים נוקו</string>
+  <string name="revanced_debug_feature_flags_manager_title">Manager דגלי תכונות</string>
+  <string name="revanced_debug_feature_flags_manager_summary">נהל דגלי תכונות בוליאניים</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">דגלים פעילים (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">דגלים חסומים (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">חפש דגלים...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">הדגלים נשמרו</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">הדגלים אופסו</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">הדגלים הועתקו ללוח</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>

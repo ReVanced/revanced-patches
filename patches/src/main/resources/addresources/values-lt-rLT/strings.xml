@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK sukurties data yra sugadinta</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Įspėjimas</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced pranešimas</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsų žiūrėjimo istorija nėra išsaugoma.&lt;br&gt;&lt;br&gt;Tikėtina, kad tai sukelia DNS skelbimų blokatorius arba tinklo tarpinis serveris.&lt;br&gt;&lt;br&gt;Norėdami išspręsti šią problemą, įtraukite į baltąjį sąrašą &lt;b&gt;s.youtube.com&lt;/b&gt; arba išjunkite visus DNS blokatorius ir tarpinį serverį.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerodyti daugiau</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Nustatymai</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ar tikrai norite tęsti?</string>
+  <string name="revanced_settings_save">Išsaugoti</string>
   <string name="revanced_settings_reset">Atstatyti</string>
   <string name="revanced_settings_reset_color">Atkurti spalvą</string>
   <string name="revanced_settings_color_invalid">Neteisinga spalva</string>
@@ -164,6 +165,14 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Išvalyti derinimo žurnalus</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Išvalo visus išsaugotus „ReVanced“ derinimo žurnalus</string>
   <string name="revanced_debug_logs_clear_toast">Žurnalai išvalyti</string>
+  <string name="revanced_debug_feature_flags_manager_title">Funkcijų žymių Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Tvarkyti logines funkcijų žymes</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktyviosios vėliavėlės (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Užblokuotos vėliavėlės (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Ieškoti vėliavėlių...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Vėliavėlės išsaugotos</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Vėliavėlės nustatytos iš naujo</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Vėliavėlės nukopijuotos į iškarpinę</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Nuvalyti bendrinimo nuorodas</string>

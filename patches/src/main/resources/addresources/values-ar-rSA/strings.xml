@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">تاريخ بناء APK تالف</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">تحذير</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">إشعار ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">لم يتم حفظ سجل المشاهدة الخاص بك.&lt;br&gt;&lt;br&gt;من المرجح أن يكون السبب في ذلك هو مانع إعلانات DNS أو وكيل الشبكة.&lt;br&gt;&lt;br&gt;لإصلاح هذه المشكلة، قم بإضافة &lt;b&gt;s.youtube.com&lt;/b&gt; إلى القائمة البيضاء أو قم بإيقاف تشغيل جميع أدوات حظر DNS ووكلاء البروكسي.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">لا تعرض مرة أخرى</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">الإعدادات</string>
   <string name="revanced_settings_confirm_user_dialog_title">هل أنت متأكد أنك تريد المتابعة؟</string>
+  <string name="revanced_settings_save">حفظ</string>
   <string name="revanced_settings_reset">إعادة التعيين</string>
   <string name="revanced_settings_reset_color">إعادة تعيين اللون</string>
   <string name="revanced_settings_color_invalid">لون غير صالح</string>
@@ -164,6 +165,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">مسح سجلات تصحيح الأخطاء</string>
   <string name="revanced_debug_logs_clear_buffer_summary">يمسح جميع سجلات تصحيح أخطاء ReVanced المخزنة</string>
   <string name="revanced_debug_logs_clear_toast">تم مسح السجلات</string>
+  <string name="revanced_debug_feature_flags_manager_title">مدير علامات الميزات</string>
+  <string name="revanced_debug_feature_flags_manager_summary">إدارة علامات الميزات المنطقية</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">علامات نشطة (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">علامات محظورة (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">البحث عن علامات...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">تم حفظ العلامات</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">تم إعادة تعيين العلامات</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">تم نسخ العلامات إلى الحافظة</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">تطهير روابط المشاركة</string>

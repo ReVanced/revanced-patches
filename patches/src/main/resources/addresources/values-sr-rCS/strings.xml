@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Datum izrade APK-a je oštećen</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Upozorenje</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced obaveštenje</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Vaša istorija gledanja se ne čuva.&lt;br&gt;&lt;br&gt;Ovo je najverovatnije uzrokovano DNS blokatorom oglasa ili mrežnim proksijem.&lt;br&gt;&lt;br&gt;Da biste ovo popravili, stavite na belu listu &lt;b&gt;s.youtube.com&lt;/b&gt; ili isključite sve DNS blokatore i proksije.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne prikazuj ponovo</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Podešavanja</string>
   <string name="revanced_settings_confirm_user_dialog_title">Želite li zaista da nastavite?</string>
+  <string name="revanced_settings_save">Sačuvaj</string>
   <string name="revanced_settings_reset">Resetuj</string>
   <string name="revanced_settings_reset_color">Resetuj boju</string>
   <string name="revanced_settings_color_invalid">Nevažeća boja</string>
@@ -164,6 +165,14 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Izbriši evidencije otklanjanja grešaka</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Briše sve sačuvane evidencije otklanjanja grešaka ReVanceda</string>
   <string name="revanced_debug_logs_clear_toast">Evidencije su izbrisane</string>
+  <string name="revanced_debug_feature_flags_manager_title">Feature flags Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Upravljajte bulovim zastavicama funkcija</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktivne zastavice (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Blokirane zastavice (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Pretraži zastavice...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Zastavice sačuvane</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Zastavice resetovane</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Zastavice kopirane u međumemoriju</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Očisti deljene linkove</string>
@@ -328,9 +337,9 @@ Ako se Doodle trenutno prikazuje u vašem regionu i ova opcija skrivanja je uklj
   <string name="revanced_hide_how_this_was_made_section_title">Sakrij odeljak „Kako je napravljen ovaj sadržaj”</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Odeljak „Kako je napravljen ovaj sadržaj” je skriven</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Odeljak „Kako je napravljen ovaj sadržaj” je prikazan</string>
-  <string name="revanced_hide_hype_points_title">Sakrij Hype poene</string>
-  <string name="revanced_hide_hype_points_summary_on">Hype poeni su skriveni</string>
-  <string name="revanced_hide_hype_points_summary_off">Hype poeni su prikazani</string>
+  <string name="revanced_hide_hype_points_title">Sakrij hajp poene</string>
+  <string name="revanced_hide_hype_points_summary_on">Hajp poeni su skriveni</string>
+  <string name="revanced_hide_hype_points_summary_off">Hajp poeni su prikazani</string>
   <string name="revanced_hide_podcast_section_title">Sakrij odeljak „Istražite podkast”</string>
   <string name="revanced_hide_podcast_section_summary_on">Odeljak „Istražite podkast” je skriven</string>
   <string name="revanced_hide_podcast_section_summary_off">Odeljak „Istražite podkast” je prikazan</string>
@@ -779,9 +788,9 @@ Ako se promena ove opcije ne primeni, pokušajte da pređete u režim bez arhivi
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Dugme „Zaključaj ekran” je skriveno</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Dugme „Zaključaj ekran” je prikazano</string>
   <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Sakrij Slušaj uz YouTube Music</string>
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Meni Slušaj uz YouTube Music je sakriven</string>
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Meni Slušaj uz YouTube Music je prikazan</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Sakrij meni „Slušajte na YouTube Musicu”</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Meni „Slušajte na YouTube Musicu” je skriven</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Meni „Slušajte na YouTube Musicu” je prikazan</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Sakrij meni „Audio snimak”</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meni „Audio snimak” je skriven</string>
