@@ -1759,7 +1759,7 @@ Video playback with AV1 may stutter or drop frames."</string>
         </patch>
         <patch id="layout.miniplayercolor.changeMiniplayerColor">
             <string name="revanced_music_change_miniplayer_color_title">Change miniplayer color</string>
-            <string name="revanced_music_change_miniplayer_color_summary_on">Miniplayer matches fullscreen player color</string>
+            <string name="revanced_music_change_miniplayer_color_summary_on">Miniplayer color matches fullscreen player</string>
             <string name="revanced_music_change_miniplayer_color_summary_off">Miniplayer uses default color</string>
         </patch>
         <patch id="layout.navigationbar.navigationBarPatch">
