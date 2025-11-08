@@ -46,16 +46,6 @@ final class DescriptionComponentsFilter extends Filter {
                 "video_attributes_section"
         );
 
-        infoCardsSection = new StringFilterGroup(
-                Settings.HIDE_INFO_CARDS_SECTION,
-                "infocards_section.e"
-        );
-
-        subscribeButton = new ByteArrayFilterGroup(
-                Settings.HIDE_DESCRIPTION_SUBSCRIBE_BUTTON,
-                "subscribe_button"
-        );
-
         final StringFilterGroup featuredSection = new StringFilterGroup(
                 Settings.HIDE_FEATURED_SECTION,
                 // "media_lockup", "structured_description_video_lockup"
@@ -80,6 +70,16 @@ final class DescriptionComponentsFilter extends Filter {
         hypePoints = new StringFilterGroup(
                 Settings.HIDE_HYPE_POINTS,
                 "hype_points_factoid"
+        );
+
+        infoCardsSection = new StringFilterGroup(
+                Settings.HIDE_INFO_CARDS_SECTION,
+                "infocards_section.e"
+        );
+
+        subscribeButton = new ByteArrayFilterGroup(
+                Settings.HIDE_DESCRIPTION_SUBSCRIBE_BUTTON,
+                "subscribe_button"
         );
 
         macroMarkersCarousel = new StringFilterGroup(
@@ -113,10 +113,10 @@ final class DescriptionComponentsFilter extends Filter {
                 askSection,
                 attributesSection,
                 featuredSection,
-                infoCardsSection,
                 horizontalShelf,
                 howThisWasMadeSection,
                 hypePoints,
+                infoCardsSection,
                 macroMarkersCarousel,
                 podcastSection,
                 transcriptSection
@@ -132,11 +132,12 @@ final class DescriptionComponentsFilter extends Filter {
             return PlayerType.getCurrent().isMaximizedOrFullscreen();
         }
 
-        if (matchedGroup == infoCardsSection) {
-            return subscribeButton.check(buffer).isFiltered();
-        }
-
         if (exceptions.matches(path)) return false;
+
+        if (matchedGroup == infoCardsSection) {
+            return contentIndex == 0 && (hideInfoCards()
+                    || subscribeButton.check(buffer).isFiltered());
+        }
 
         if (matchedGroup == macroMarkersCarousel) {
             return contentIndex == 0 && macroMarkersCarouselGroupList.check(buffer).isFiltered();
@@ -147,5 +148,9 @@ final class DescriptionComponentsFilter extends Filter {
         }
 
         return true;
+    }
+
+    private static boolean hideInfoCards() {
+        return PlayerType.getCurrent().isMaximizedOrFullscreen();
     }
 }
