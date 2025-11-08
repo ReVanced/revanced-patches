@@ -29,7 +29,6 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
  * 6. Resume the video
  * 7. Playback speed will incorrectly change to 1.0x.
  */
-@Suppress("unused")
 val fixPlaybackSpeedWhilePlayingPatch = bytecodePatch{
     dependsOn(
         sharedExtensionPatch,
