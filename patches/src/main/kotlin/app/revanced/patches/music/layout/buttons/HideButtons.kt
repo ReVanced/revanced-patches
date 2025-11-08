@@ -105,16 +105,13 @@ val hideButtons = bytecodePatch(
         }
 
         // Region for hide cast button in the player.
-        mediaRouteButtonFingerprint.classDef.apply {
-            val setVisibilityMethod = methods.single { method -> method.name == "setVisibility" }
-
-            setVisibilityMethod.addInstructions(
-                0,
-                """
-                    invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->hideCastButton(I)I
-                    move-result p1
-                """
-            )
-        }
-    }
+        mediaRouteButtonFingerprint.classDef.methods.single {
+            method -> method.name == "setVisibility"
+        }.addInstructions(
+            0,
+            """
+                invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->hideCastButton(I)I
+                move-result p1
+            """
+        )
 }
