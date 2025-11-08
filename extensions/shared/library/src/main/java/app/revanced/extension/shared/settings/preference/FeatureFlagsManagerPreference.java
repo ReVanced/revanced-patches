@@ -439,9 +439,11 @@ public class FeatureFlagsManagerPreference extends Preference {
         button.setImageResource(drawableResId);
         button.setScaleType(ImageView.ScaleType.CENTER);
         int[] attrs = {android.R.attr.selectableItemBackgroundBorderless};
-        try (TypedArray ripple = context.obtainStyledAttributes(attrs)) {
-            button.setBackgroundDrawable(ripple.getDrawable(0));
-        }
+        //noinspection Recycle
+        TypedArray ripple = context.obtainStyledAttributes(attrs);
+        button.setBackgroundDrawable(ripple.getDrawable(0));
+        ripple.close();
+
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Dim.dp32, Dim.dp32);
         params.setMargins(Dim.dp8, Dim.dp8, Dim.dp8, Dim.dp8);
         button.setLayoutParams(params);
