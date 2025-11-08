@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Ang petsa ng pagbuo ng APK ay sira</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Babala</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Paunawa ng ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Hindi nai-save ang iyong kasaysayan ng panonood.&lt;br&gt;&lt;br&gt;Karaniwang sanhi nito ay ang DNS ad blocker o network proxy.&lt;br&gt;&lt;br&gt;Para maayos ito, i-whitelist ang &lt;b&gt;s.youtube.com&lt;/b&gt; o i-off ang lahat ng DNS blocker at proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Huwag ipakitang muli</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Mga Setting</string>
   <string name="revanced_settings_confirm_user_dialog_title">Sigurado ka bang gusto mong magpatuloy?</string>
+  <string name="revanced_settings_save">I-save</string>
   <string name="revanced_settings_reset">I-reset</string>
   <string name="revanced_settings_reset_color">I-reset ang kulay</string>
   <string name="revanced_settings_color_invalid">Hindi wasto ang kulay</string>
@@ -164,6 +165,14 @@ Hindi ka aabisuhan ng anumang hindi inaasahang mga kaganapan."</string>
   <string name="revanced_debug_logs_clear_buffer_title">I-clear ang mga debug log</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Iki-clear ang lahat ng nakaimbak na ReVanced debug log</string>
   <string name="revanced_debug_logs_clear_toast">Na-clear ang mga log</string>
+  <string name="revanced_debug_feature_flags_manager_title">Manager ng Mga Flag ng Tampok</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Pamahalaan ang mga boolean na flag ng tampok</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Mga aktibong flag (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Mga harang na flag (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Maghanap ng mga flag...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Na-save ang mga flag</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Na-reset ang mga flag</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Nakopya ang mga flag sa clipboard</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Linisin ang mga link sa pagbabahagi</string>

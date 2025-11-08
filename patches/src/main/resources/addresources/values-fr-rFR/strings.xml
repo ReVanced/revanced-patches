@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La date de construction de l\'APK est corrompue</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Avertissement</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Avis ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Les vidéos que vous regardez ne sont pas enregistrées dans votre historique.&lt;br&gt;&lt;br&gt;La cause la plus probable est l\'utilisation d\'un serveur DNS bloqueur de publicités ou d\'un proxy.&lt;br&gt;&lt;br&gt;Pour résoudre ce problème, autorisez l\'accès à &lt;b&gt;s.youtube.com&lt;/b&gt; ou désactivez tous vos bloqueurs DNS et proxys.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne plus afficher</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Paramètres</string>
   <string name="revanced_settings_confirm_user_dialog_title">Voulez-vous vraiment continuer ?</string>
+  <string name="revanced_settings_save">Enregistrer</string>
   <string name="revanced_settings_reset">Réinitialiser</string>
   <string name="revanced_settings_reset_color">Réinitialiser la couleur</string>
   <string name="revanced_settings_color_invalid">Couleur invalide</string>
@@ -164,6 +165,14 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Effacer les journaux de débogage</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Efface tous les journaux de débogage ReVanced stockés</string>
   <string name="revanced_debug_logs_clear_toast">Journaux effacés</string>
+  <string name="revanced_debug_feature_flags_manager_title">Gestionnaire des indicateurs de fonctionnalités</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Gérer les indicateurs de fonctionnalités booléens</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Drapeaux actifs (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Drapeaux bloqués (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Rechercher des drapeaux...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Drapeaux enregistrés</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Drapeaux réinitialisés</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Drapeaux copiés dans le presse-papiers</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Nettoyer les liens de partage</string>

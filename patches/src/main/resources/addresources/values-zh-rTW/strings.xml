@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 建構日期已損毀</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced 通知</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">你的觀看記錄未被儲存。&lt;br&gt;&lt;br&gt;這很可能是由於 DNS 廣告封鎖器或網路代理所導致。&lt;br&gt;&lt;br&gt;若要解決此問題，請將 &lt;b&gt;s.youtube.com&lt;/b&gt; 加入白名單，或關閉所有 DNS 封鎖器和代理。</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再顯示</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">設定</string>
   <string name="revanced_settings_confirm_user_dialog_title">你確定要繼續嗎？</string>
+  <string name="revanced_settings_save">儲存</string>
   <string name="revanced_settings_reset">重設</string>
   <string name="revanced_settings_reset_color">重設顏色</string>
   <string name="revanced_settings_color_invalid">無效的顏色</string>
@@ -164,6 +165,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">清除偵錯記錄</string>
   <string name="revanced_debug_logs_clear_buffer_summary">清除所有儲存的 ReVanced 偵錯記錄</string>
   <string name="revanced_debug_logs_clear_toast">記錄已清除</string>
+  <string name="revanced_debug_feature_flags_manager_title">功能旗標 Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">管理布林功能旗標</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">啟用的旗標 (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">已封鎖的旗標 (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">搜尋旗標...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">旗標已儲存</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">旗標已重設</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">旗標已複製到剪貼簿</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">清理分享連結</string>

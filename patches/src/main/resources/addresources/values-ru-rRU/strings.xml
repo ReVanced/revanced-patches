@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Дата сборки APK повреждена</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Внимание</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Уведомление ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша история просмотра не сохраняется.&lt;br&gt;&lt;br&gt;Вероятнее всего это вызвано DNS блокировщиком рекламы или сетевым прокси.&lt;br&gt;&lt;br&gt;Чтобы это исправить, добавьте &lt;b&gt;s.youtube.com&lt;/b&gt; в белый список блокировщика рекламы или отключите все блокировщики DNS и прокси.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не показывать снова</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Настройки</string>
   <string name="revanced_settings_confirm_user_dialog_title">Вы уверены, что хотите продолжить?</string>
+  <string name="revanced_settings_save">Сохранить</string>
   <string name="revanced_settings_reset">Сбросить</string>
   <string name="revanced_settings_reset_color">Сбросить цвет</string>
   <string name="revanced_settings_color_invalid">Неверный цвет</string>
@@ -164,6 +165,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">Очистить журналы отладки</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Очищает все сохраненные журналы отладки ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Журналы очищены</string>
+  <string name="revanced_debug_feature_flags_manager_title">Флаги функций Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Управление логическими флагами функций</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Активные флаги (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Заблокированные флаги (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Поиск флагов...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Флаги сохранены</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Флаги сброшены</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Флаги скопированы в буфер обмена</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Очищать ссылки для обмена</string>

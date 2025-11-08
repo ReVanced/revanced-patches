@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK veidošanas datums ir bojāts</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Brīdinājums</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced paziņojums</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsu skatīšanās vēsture netiek saglabāta.&lt;br&gt;&lt;br&gt;Visticamāk, to izraisa DNS reklāmu bloķētājs vai tīkla starpniekserveris.&lt;br&gt;&lt;br&gt;Lai to novērstu, pievienojiet baltajam sarakstam &lt;b&gt;s.youtube.com&lt;/b&gt; vai izslēdziet visus DNS bloķētājus un starpniekservera serverus.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerādīt vēlreiz</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Iestatījumi</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vai tiešām vēlaties turpināt?</string>
+  <string name="revanced_settings_save">Saglabāt</string>
   <string name="revanced_settings_reset">Atiestatīt</string>
   <string name="revanced_settings_reset_color">Atiestatīt krāsu</string>
   <string name="revanced_settings_color_invalid">Nederīga krāsa</string>
@@ -164,6 +165,14 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Notīrīt atkļūdošanas žurnālus</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Notīra visus saglabātos ReVanced atkļūdošanas žurnālus</string>
   <string name="revanced_debug_logs_clear_toast">Žurnāli ir notīrīti</string>
+  <string name="revanced_debug_feature_flags_manager_title">Funkciju karodziņu Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Pārvaldīt Būla funkciju karodziņus</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktīvie karodziņi (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Bloķētie karodziņi (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Meklēt karodziņus...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Karodziņi saglabāti</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Karodziņi atiestatīti</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Karodziņi kopēti starpliktuvē</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Tīrīt koplietošanas saites</string>

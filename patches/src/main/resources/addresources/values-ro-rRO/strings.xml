@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data construirii APK-ului este coruptă</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Atenție</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Notificare ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Istoricul de vizionare nu este salvat.&lt;br&gt;&lt;br&gt;Cel mai probabil este cauzată de un DNS de blocare a anunțurilor sau de un proxy de rețea.&lt;br&gt;&lt;br&gt;Pentru a remedia acest lucru, lista albă &lt;b&gt;s.youtube.com&lt;/b&gt; sau pentru a opri toate blocantele DNS și proxy-urile.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nu mai afișa</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Setări</string>
   <string name="revanced_settings_confirm_user_dialog_title">Sigur doriți să continuați?</string>
+  <string name="revanced_settings_save">Salvați</string>
   <string name="revanced_settings_reset">Resetare</string>
   <string name="revanced_settings_reset_color">Resetează culoarea</string>
   <string name="revanced_settings_color_invalid">Culoare nevalidă</string>
@@ -164,6 +165,14 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Șterge jurnalele de depanare</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Șterge toate jurnalele de depanare ReVanced stocate</string>
   <string name="revanced_debug_logs_clear_toast">Jurnale șterse</string>
+  <string name="revanced_debug_feature_flags_manager_title">Manager de funcții</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Gestionați funcțiile booleene</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Steaguri active (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Steaguri blocate (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Căutați steaguri...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Steaguri salvate</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Steaguri resetate</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Steaguri copiate în clipboard</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Igienizează linkurile de partajare</string>
