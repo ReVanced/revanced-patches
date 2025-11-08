@@ -26,6 +26,7 @@ import app.revanced.patches.youtube.misc.recyclerviewtree.hook.recyclerViewTreeH
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.speed.settingsMenuVideoSpeedGroup
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
@@ -33,7 +34,7 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableField
 private const val FILTER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/components/PlaybackSpeedMenuFilter;"
 
-internal const val EXTENSION_CLASS_DESCRIPTOR =
+private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/playback/speed/CustomPlaybackSpeedPatch;"
 
 internal val customPlaybackSpeedPatch = bytecodePatch(
@@ -59,7 +60,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                 TextPreference(
                     "revanced_custom_playback_speeds",
                     inputType = InputType.TEXT_MULTI_LINE
-                ),
+                )
             )
         )
 
@@ -80,6 +81,11 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
             replaceInstruction(limitMinIndex, "const/high16 v$limitMinRegister, 0.0f")
             replaceInstruction(limitMaxIndex, "const/high16 v$limitMaxRegister, 8.0f")
+        }
+
+        // Turn off client side flag that use server provided min/max speeds.
+        if (is_20_34_or_greater) {
+            serverSideMaxSpeedFeatureFlagFingerprint.method.returnEarly(false)
         }
 
         // region Force old video quality menu.
@@ -173,9 +179,9 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                     addInstructions(
                         index + 1,
                         """
-                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->tapAndHoldSpeed()F
-                        move-result v$register
-                    """
+                            invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->tapAndHoldSpeed()F
+                            move-result v$register
+                        """
                     )
                 }
             }

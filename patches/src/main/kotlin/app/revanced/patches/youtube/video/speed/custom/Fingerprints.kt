@@ -28,6 +28,14 @@ internal val showOldPlaybackSpeedMenuExtensionFingerprint = fingerprint {
     custom { method, _ -> method.name == "showOldPlaybackSpeedMenu" }
 }
 
+internal val serverSideMaxSpeedFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    instructions(
+        literal(45719140L)
+    )
+}
+
 internal val speedArrayGeneratorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("[L")
