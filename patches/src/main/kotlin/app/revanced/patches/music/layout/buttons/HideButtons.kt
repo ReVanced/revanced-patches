@@ -35,7 +35,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/pa
 @Suppress("unused")
 val hideButtons = bytecodePatch(
     name = "Hide buttons",
-    description = "Adds an option to hide the cast, history, notification and search buttons."
+    description = "Adds options to hide the cast, history, notification, and search buttons."
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -88,17 +88,10 @@ val hideButtons = bytecodePatch(
 
         // Region for hide cast, search and notification buttons in the top bar.
         arrayOf(
-            playerOverlayChip to "hideCastButton",
-            searchButton to "hideSearchButton",
-            topBarMenuItemImageView to "hideNotificationButton"
-        ).forEach { (resourceIdLiteral, methodName) ->
-            val fingerprint = when (resourceIdLiteral) {
-                playerOverlayChip -> playerOverlayChipFingerprint
-                searchButton -> searchActionViewFingerprint
-                topBarMenuItemImageView -> topBarMenuItemImageViewFingerprint
-                else -> return@forEach
-            }
-
+            Triple(playerOverlayChipFingerprint, playerOverlayChip, "hideCastButton"),
+            Triple(searchActionViewFingerprint, searchButton, "hideSearchButton"),
+            Triple(topBarMenuItemImageViewFingerprint, topBarMenuItemImageView, "hideNotificationButton")
+        ).forEach { (fingerprint, resourceIdLiteral, methodName) ->
             fingerprint.method.apply {
                 val resourceIndex = indexOfFirstLiteralInstructionOrThrow(resourceIdLiteral)
                 val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex, Opcode.MOVE_RESULT_OBJECT)
@@ -113,12 +106,12 @@ val hideButtons = bytecodePatch(
 
         // Region for hide cast button in the player.
         mediaRouteButtonFingerprint.classDef.apply {
-            val setVisibilityMethod = methods.first { method -> method.name == "setVisibility" }
+            val setVisibilityMethod = methods.single { method -> method.name == "setVisibility" }
 
             setVisibilityMethod.addInstructions(
                 0,
                 """
-                    invoke-static { p1 }, ${EXTENSION_CLASS_DESCRIPTOR}->hideCastButton(I)I
+                    invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->hideCastButton(I)I
                     move-result p1
                 """
             )
