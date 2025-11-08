@@ -94,19 +94,22 @@ val hideButtons = bytecodePatch(
         ).forEach { (fingerprint, resourceIdLiteral, methodName) ->
             fingerprint.method.apply {
                 val resourceIndex = indexOfFirstLiteralInstructionOrThrow(resourceIdLiteral)
-                val targetIndex = indexOfFirstInstructionOrThrow(resourceIndex, Opcode.MOVE_RESULT_OBJECT)
+                val targetIndex = indexOfFirstInstructionOrThrow(
+                    resourceIndex, Opcode.MOVE_RESULT_OBJECT
+                )
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
                     targetIndex + 1,
-                    "invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V"
+                    "invoke-static { v$targetRegister }, " +
+                            "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V"
                 )
             }
         }
 
         // Region for hide cast button in the player.
-        mediaRouteButtonFingerprint.classDef.methods.single {
-            method -> method.name == "setVisibility"
+        mediaRouteButtonFingerprint.classDef.methods.single { method ->
+            method.name == "setVisibility"
         }.addInstructions(
             0,
             """
@@ -114,4 +117,5 @@ val hideButtons = bytecodePatch(
                 move-result p1
             """
         )
+    }
 }
