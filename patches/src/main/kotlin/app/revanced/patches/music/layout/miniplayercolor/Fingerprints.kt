@@ -8,9 +8,12 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val miniPlayerConstructorFingerprint = fingerprint {
     returns("V")
     strings("sharedToggleMenuItemMutations")
-    literal { colorGrey }
+    literal { mpp_player_bottom_sheet }
 }
 
+/**
+ * Matches to the class found in [miniPlayerConstructorFingerprint].
+ */
 internal val switchToggleColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
