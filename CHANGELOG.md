@@ -1,3 +1,10 @@
+# [5.46.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.6...v5.46.0-dev.7) (2025-11-08)
+
+
+### Bug Fixes
+
+* **YouTube - Settings:** Add additional languages to ReVanced language preference ([d390b54](https://github.com/ReVanced/revanced-patches/commit/d390b54dab92d75b4e0d3e38344eae489dd69d98))
+
 # [5.46.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.5...v5.46.0-dev.6) (2025-11-08)
 
 
