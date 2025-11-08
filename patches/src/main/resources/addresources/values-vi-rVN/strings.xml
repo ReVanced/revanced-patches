@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Ngày dựng APK bị hỏng</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Cảnh báo</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Thông báo ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Nhật ký xem của bạn hiện không được lưu lại.&lt;br&gt;&lt;br&gt;Nguyên nhân có thể là do trình chặn quảng cáo DNS hoặc proxy mạng.&lt;br&gt;&lt;br&gt;Để khắc phục, hãy thêm &lt;b&gt;s.youtube.com&lt;/b&gt; vào danh sách cho phép, hoặc tắt tất cả trình chặn DNS và proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Không hiện lại</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Thiết lập</string>
   <string name="revanced_settings_confirm_user_dialog_title">Bạn có chắc chắn muốn tiếp tục không?</string>
+  <string name="revanced_settings_save">Lưu</string>
   <string name="revanced_settings_reset">Đặt lại</string>
   <string name="revanced_settings_reset_color">Đặt lại màu</string>
   <string name="revanced_settings_color_invalid">Màu không hợp lệ</string>
@@ -164,6 +165,14 @@ Bạn sẽ không được thông báo khi xẩy ra lỗi bất ngờ."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Xóa nhật ký gỡ lỗi</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Xóa tất cả nhật ký gỡ lỗi ReVanced đã lưu trữ</string>
   <string name="revanced_debug_logs_clear_toast">Đã xóa nhật ký</string>
+  <string name="revanced_debug_feature_flags_manager_title">Manager cờ tính năng</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Quản lý các cờ tính năng boolean</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Cờ đang hoạt động (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Cờ bị chặn (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Tìm kiếm cờ...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Đã lưu cờ</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Đã đặt lại cờ</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Đã sao chép cờ vào bảng nhớ tạm</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Rút gọn liên kết chia sẻ</string>

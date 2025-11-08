@@ -1,7 +1,6 @@
 package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.shared.Utils.getResourceIdentifierOrThrow;
 
 import android.app.Dialog;
@@ -37,6 +36,7 @@ import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
 import app.revanced.extension.shared.ui.ColorDot;
 import app.revanced.extension.shared.ui.CustomDialog;
+import app.revanced.extension.shared.ui.Dim;
 
 /**
  * A custom preference for selecting a color via a hexadecimal code or a color picker dialog.
@@ -310,11 +310,8 @@ public class ColorPickerPreference extends EditTextPreference {
         inputLayout.setGravity(Gravity.CENTER_VERTICAL);
 
         dialogColorDot = new View(context);
-        LinearLayout.LayoutParams previewParams = new LinearLayout.LayoutParams(
-                dipToPixels(20),
-                dipToPixels(20)
-        );
-        previewParams.setMargins(dipToPixels(16), 0, dipToPixels(10), 0);
+        LinearLayout.LayoutParams previewParams = new LinearLayout.LayoutParams(Dim.dp20,Dim.dp20);
+        previewParams.setMargins(Dim.dp16, 0, Dim.dp10, 0);
         dialogColorDot.setLayoutParams(previewParams);
         inputLayout.addView(dialogColorDot);
         updateDialogColorDot();

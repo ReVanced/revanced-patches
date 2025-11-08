@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK তৈরির তারিখ ত্রুটিপূর্ণ</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">সতর্কীকরণ</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced নোটিশ</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">আপনার দেখার ইতিহাস সংরক্ষিত হচ্ছে না।&lt;br&gt;&lt;br&gt;এটি সম্ভবত DNS অ্যাড ব্লকার অথবা নেটওয়ার্ক প্রক্সির কারণে।&lt;br&gt;&lt;br&gt;এটি ঠিক করার জন্য, &lt;b&gt;s.youtube.com&lt;/b&gt;  সাদা তালিকাভুক্ত করুন অথবা সকল DNS ব্লকার এবং প্রক্সি বন্ধ করুন।</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">আবার দেখাবেন না</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">সেটিংস</string>
   <string name="revanced_settings_confirm_user_dialog_title">আপনি কি এগিয়ে যেতে চান?</string>
+  <string name="revanced_settings_save">সংরক্ষণ করুন</string>
   <string name="revanced_settings_reset">আবার সেট করুন</string>
   <string name="revanced_settings_reset_color">রঙ রিসেট করুন</string>
   <string name="revanced_settings_color_invalid">অবৈধ রঙ</string>
@@ -164,6 +165,14 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_debug_logs_clear_buffer_title">ডিবাগ লগগুলি সাফ করুন</string>
   <string name="revanced_debug_logs_clear_buffer_summary">সমস্ত সঞ্চিত ReVanced ডিবাগ লগ সাফ করে</string>
   <string name="revanced_debug_logs_clear_toast">লগ সাফ করা হয়েছে</string>
+  <string name="revanced_debug_feature_flags_manager_title">ফিচার ফ্ল্যাগ Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">বুলিয়ান ফিচার ফ্ল্যাগ পরিচালনা করুন</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">সক্রিয় ফ্ল্যাগ (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">ব্লক করা ফ্ল্যাগ (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">ফ্ল্যাগ খুঁজুন...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">ফ্ল্যাগ সংরক্ষণ করা হয়েছে</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">ফ্ল্যাগ রিসেট করা হয়েছে</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">ফ্ল্যাগ ক্লিপবোর্ডে কপি করা হয়েছে</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">শেয়ারিং লিঙ্ক স্যানিটাইজ করুন</string>

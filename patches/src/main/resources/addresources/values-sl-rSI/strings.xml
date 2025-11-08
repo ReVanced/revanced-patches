@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Datum izgradnje APK je poškodovan</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Opozorilo</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Obvestilo ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Vaš zgodovine gledanja se ne shranjuje.&lt;br&gt;&lt;br&gt;To najverjetneje povzroči DNS blokiralnik oglasov ali omrežni posrednik.&lt;br&gt;&lt;br&gt;Za odpravo težave dodajte na beli seznam &lt;b&gt;s.youtube.com&lt;/b&gt; ali izklopite vse blokiralnike oglasov DNS in posrednike.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne prikazuj več</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Nastavitve</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ali ste prepričani, da želite nadaljevati?</string>
+  <string name="revanced_settings_save">Shrani</string>
   <string name="revanced_settings_reset">Ponastavi</string>
   <string name="revanced_settings_reset_color">Ponastavi barvo</string>
   <string name="revanced_settings_color_invalid">Neveljavna barva</string>
@@ -164,6 +165,14 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Počisti dnevnike napak</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Počisti vse shranjene dnevnike napak ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Dnevniki so bili izbrisani</string>
+  <string name="revanced_debug_feature_flags_manager_title">Zastavice funkcij Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Upravljanje logičnih zastavic funkcij</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktivne zastavice (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Blokirane zastavice (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Iskanje zastavic...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Zastavice shranjene</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Zastavice ponastavljene</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Zastavice kopirane v odložišče</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Sanitiziraj povezave za deljenje</string>

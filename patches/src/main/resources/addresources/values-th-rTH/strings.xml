@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">วันที่สร้าง APK เสียหาย</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">คำเตือน</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ประกาศ ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">ประวัติการรับชมของคุณไม่ได้ถูกบันทึก&lt;br&gt;&lt;br&gt;สาเหตุที่เป็นไปได้มากที่สุดคือตัวบล็อกโฆษณา DNS หรือพร็อกซีเครือข่าย&lt;br&gt;&lt;br&gt;เพื่อแก้ไขปัญหานี้ ให้เพิ่ม &lt;b&gt;s.youtube.com&lt;/b&gt; ในรายการที่อนุญาต หรือปิดตัวบล็อกโฆษณา DNS และพร็อกซีทั้งหมด</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">อย่าแสดงอีก</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">การตั้งค่า</string>
   <string name="revanced_settings_confirm_user_dialog_title">คุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อ</string>
+  <string name="revanced_settings_save">บันทึก</string>
   <string name="revanced_settings_reset">รีเซ็ต</string>
   <string name="revanced_settings_reset_color">รีเซ็ตสี</string>
   <string name="revanced_settings_color_invalid">สีไม่ถูกต้อง</string>
@@ -164,6 +165,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">ล้างบันทึกการแก้ไขข้อบกพร่อง</string>
   <string name="revanced_debug_logs_clear_buffer_summary">ล้างบันทึกการแก้ไขข้อบกพร่องของ ReVanced ที่จัดเก็บไว้ทั้งหมด</string>
   <string name="revanced_debug_logs_clear_toast">ล้างบันทึกแล้ว</string>
+  <string name="revanced_debug_feature_flags_manager_title">แฟล็กคุณสมบัติ Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">จัดการแฟล็กคุณสมบัติบูลีน</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">แฟล็กที่ใช้งานอยู่ (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">แฟล็กที่ถูกบล็อก (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">ค้นหาแฟล็ก...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">บันทึกแฟล็กแล้ว</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">รีเซ็ตแฟล็กแล้ว</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">คัดลอกแฟล็กไปยังคลิปบอร์ดแล้ว</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">ล้างข้อมูลลิงก์ที่แชร์</string>

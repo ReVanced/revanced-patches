@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Дата збірки APK пошкоджена</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Увага</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Повідомлення ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша історія переглядів не зберігається.&lt;br&gt;&lt;br&gt;Швидше за все, це спричинено блокувальником реклами DNS або мережевим проксі.&lt;br&gt;&lt;br&gt;Щоб це виправити, додайте &lt;b&gt;s.youtube.com&lt;/b&gt; у білий список блокувальника або вимкніть усі DNS блокувальники та проксі.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Більше не показувати</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Налаштування</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ви впевнені, що хочете продовжити?</string>
+  <string name="revanced_settings_save">Зберегти</string>
   <string name="revanced_settings_reset">Скинути</string>
   <string name="revanced_settings_reset_color">Скинути колір</string>
   <string name="revanced_settings_color_invalid">Недійсний колір</string>
@@ -164,6 +165,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">Очистити журнали налагодження</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Очищує всі збережені журнали налагодження ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Журнали очищено</string>
+  <string name="revanced_debug_feature_flags_manager_title">Функціональні прапорці Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Керувати логічними функціональними прапорцями</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Активні прапорці (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Заблоковані прапорці (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Пошук прапорців...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Прапорці збережено</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Прапорці скинуто</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Прапорці скопійовано до буфера обміну</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Очищення посилань для поширення</string>

@@ -15,6 +15,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockUtils;
@@ -132,9 +133,7 @@ public final class NewSegmentLayout extends FrameLayout {
 
         GradientDrawable backgroundDrawable = new GradientDrawable();
         backgroundDrawable.setColor(getResourceColor("skip_ad_button_background_color"));
-        final float cornerRadius = squareLayout
-                ? 0
-                : 16 * getResources().getDisplayMetrics().density;
+        final float cornerRadius = squareLayout ? 0f : Dim.dp16;
         backgroundDrawable.setCornerRadius(cornerRadius);
         setBackground(backgroundDrawable);
     }

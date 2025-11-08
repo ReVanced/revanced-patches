@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK ehituskuupäev on rikutud</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Hoiatus</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVancedi Teade</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Teie vaatamise ajalugu ei salvestata.&lt;br&gt;&lt;br&gt;See on tõenäoliselt tingitud DNS-i reklaamiblokeerijast või võrguproksilt.&lt;br&gt;&lt;br&gt;Selle parandamiseks lisage valgesse nimekirja &lt;b&gt;s.youtube.com&lt;/b&gt; või lülitage kõik DNS-i reklaamiblokeerijad ja proksid välja.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ära kuva uuesti</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Seaded</string>
   <string name="revanced_settings_confirm_user_dialog_title">Kas sa oled kindel, et soovid jätkata?</string>
+  <string name="revanced_settings_save">Salvesta</string>
   <string name="revanced_settings_reset">Lähtesta</string>
   <string name="revanced_settings_reset_color">Lähtesta värv</string>
   <string name="revanced_settings_color_invalid">Vigane värv</string>
@@ -164,6 +165,14 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Puhasta silumislogid</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Puhastab kõik salvestatud ReVanced silumislogid</string>
   <string name="revanced_debug_logs_clear_toast">Logid puhastatud</string>
+  <string name="revanced_debug_feature_flags_manager_title">Funktsioonilipikute Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Halda booleani funktsioonilipikuid</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktiivsed lipud (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Blokeeritud lipud (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Otsi lippe...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Lipud salvestatud</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Lipud lähtestatud</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Lipud kopeeritud lõikelauale</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Puhasta jagamislingid</string>

@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK byggedato er ødelagt</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Advarsel</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Meddelelse</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Din urhistorik gemmes ikke.&lt;br&gt;&lt;br&gt;Dette skyldes sandsynligvis en DNS-annonceblokker eller netværksproxy.&lt;br&gt;&lt;br&gt;For at løse dette, whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; eller slå alle DNS-blokkere og fuldmagter fra.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Vis ikke igen</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Indstillinger</string>
   <string name="revanced_settings_confirm_user_dialog_title">Er du sikker på, at du vil fortsætte?</string>
+  <string name="revanced_settings_save">Gem</string>
   <string name="revanced_settings_reset">Nulstil</string>
   <string name="revanced_settings_reset_color">Nulstil farve</string>
   <string name="revanced_settings_color_invalid">Ugyldig farve</string>
@@ -164,6 +165,14 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Ryd fejlsøgningslogfiler</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Rydder alle gemte ReVanced-fejlsøgningslogfiler</string>
   <string name="revanced_debug_logs_clear_toast">Logfiler ryddet</string>
+  <string name="revanced_debug_feature_flags_manager_title">Funktionsflag Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Administrer booleske funktionsflag</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktive flag (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Blokerede flag (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Søg flag...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Flag gemt</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Flag nulstillet</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Flag kopieret til udklipsholder</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Rens delingslinks</string>

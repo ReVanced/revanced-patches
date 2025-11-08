@@ -1,7 +1,6 @@
 package app.revanced.extension.youtube.patches.playback.speed;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.fadeInDuration;
 import static app.revanced.extension.youtube.videoplayer.PlayerControlButton.getDialogBackgroundColor;
 
@@ -30,6 +29,7 @@ import java.util.function.Function;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.shared.ui.SheetBottomDialog;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.components.PlaybackSpeedMenuFilter;
@@ -264,14 +264,6 @@ public class CustomPlaybackSpeedPatch {
             SheetBottomDialog.DraggableLinearLayout mainLayout =
                     SheetBottomDialog.createMainLayout(context, getDialogBackgroundColor());
 
-            // Preset size constants.
-            final int dip4 = dipToPixels(4);
-            final int dip8 = dipToPixels(8);
-            final int dip12 = dipToPixels(12);
-            final int dip20 = dipToPixels(20);
-            final int dip32 = dipToPixels(32);
-            final int dip60 = dipToPixels(60);
-
             // Display current playback speed.
             TextView currentSpeedText = new TextView(context);
             float currentSpeed = VideoInformation.getPlaybackSpeed();
@@ -283,7 +275,7 @@ public class CustomPlaybackSpeedPatch {
             currentSpeedText.setGravity(Gravity.CENTER);
             LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            textParams.setMargins(0, dip20, 0, 0);
+            textParams.setMargins(0, Dim.dp20, 0, 0);
             currentSpeedText.setLayoutParams(textParams);
             // Add current speed text view to main layout.
             mainLayout.addView(currentSpeedText);
@@ -294,8 +286,8 @@ public class CustomPlaybackSpeedPatch {
             sliderLayout.setGravity(Gravity.CENTER_VERTICAL);
 
             // Create +/- buttons.
-            Button minusButton = createStyledButton(context, false, dip8, dip8);
-            Button plusButton = createStyledButton(context, true, dip8, dip8);
+            Button minusButton = createStyledButton(context, false);
+            Button plusButton = createStyledButton(context, true);
 
             // Create slider for speed adjustment.
             SeekBar speedSlider = new SeekBar(context);
@@ -363,7 +355,7 @@ public class CustomPlaybackSpeedPatch {
             gridLayout.setRowCount((int) Math.ceil(customPlaybackSpeeds.length / 5.0));
             LinearLayout.LayoutParams gridParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            gridParams.setMargins(dip4, dip12, dip4, dip12); // Speed buttons container.
+            gridParams.setMargins(Dim.dp4, Dim.dp12, Dim.dp4, Dim.dp12); // Speed buttons container.
             gridLayout.setLayoutParams(gridParams);
 
             // For button use 1 digit minimum.
@@ -378,8 +370,8 @@ public class CustomPlaybackSpeedPatch {
                 GridLayout.LayoutParams containerParams = new GridLayout.LayoutParams();
                 containerParams.width = 0; // Equal width for columns.
                 containerParams.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1, 1f);
-                containerParams.setMargins(dip4, 0, dip4, 0); // Button margins.
-                containerParams.height = dip60; // Fixed height for button and label.
+                containerParams.setMargins(Dim.dp4, 0, Dim.dp4, 0); // Button margins.
+                containerParams.height = Dim.dp(60); // Fixed height for button and label.
                 buttonContainer.setLayoutParams(containerParams);
 
                 // Create speed button.
@@ -391,14 +383,14 @@ public class CustomPlaybackSpeedPatch {
                 speedButton.setGravity(Gravity.CENTER);
 
                 ShapeDrawable buttonBackground = new ShapeDrawable(new RoundRectShape(
-                        Utils.createCornerRadii(20), null, null));
+                        Dim.roundedCorners(20), null, null));
                 buttonBackground.getPaint().setColor(getAdjustedBackgroundColor(false));
                 speedButton.setBackground(buttonBackground);
-                speedButton.setPadding(dip4, dip4, dip4, dip4);
+                speedButton.setPadding(Dim.dp4, Dim.dp4, Dim.dp4, Dim.dp4);
 
                 // Center button vertically and stretch horizontally in container.
                 FrameLayout.LayoutParams buttonParams = new FrameLayout.LayoutParams(
-                        FrameLayout.LayoutParams.MATCH_PARENT, dip32, Gravity.CENTER);
+                        FrameLayout.LayoutParams.MATCH_PARENT, Dim.dp32, Gravity.CENTER);
                 speedButton.setLayoutParams(buttonParams);
 
                 // Add speed buttons view to buttons container layout.
@@ -475,21 +467,18 @@ public class CustomPlaybackSpeedPatch {
      *
      * @param context The Android context used to create the button.
      * @param isPlus  True to display a plus symbol, false to display a minus symbol.
-     * @param marginStart The start margin in pixels (left for LTR, right for RTL).
-     * @param marginEnd The end margin in pixels (right for LTR, left for RTL).
      * @return A configured {@link Button} with the specified styling and layout parameters.
      */
-    private static Button createStyledButton(Context context, boolean isPlus, int marginStart, int marginEnd) {
+    private static Button createStyledButton(Context context, boolean isPlus) {
         Button button = new Button(context, null, 0); // Disable default theme style.
         button.setText(""); // No text on button.
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(20), null, null));
+                Dim.roundedCorners(20), null, null));
         background.getPaint().setColor(getAdjustedBackgroundColor(false));
         button.setBackground(background);
         button.setForeground(new OutlineSymbolDrawable(isPlus)); // Plus or minus symbol.
-        final int dip36 = dipToPixels(36);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(dip36, dip36);
-        params.setMargins(marginStart, 0, marginEnd, 0); // Set margins.
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Dim.dp36, Dim.dp36);
+        params.setMargins(Dim.dp8, 0, Dim.dp8, 0); // Set margins.
         button.setLayoutParams(params);
         return button;
     }
@@ -554,7 +543,7 @@ class OutlineSymbolDrawable extends Drawable {
         paint = new Paint(Paint.ANTI_ALIAS_FLAG); // Enable anti-aliasing for smooth rendering.
         paint.setColor(Utils.getAppForegroundColor());
         paint.setStyle(Paint.Style.STROKE); // Use stroke style for outline.
-        paint.setStrokeWidth(dipToPixels(1)); // 1dp stroke width.
+        paint.setStrokeWidth(Dim.dp1); // 1dp stroke width.
     }
 
     @Override

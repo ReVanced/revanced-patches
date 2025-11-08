@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">A data da compilação da APK está corrompida</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Atenção</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Aviso do ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">O teu histórico de visualização não está a ser guardado.&lt;br&gt;&lt;br&gt;Isto é mais provávelmente causado por um bloqueador de anúncios DNS ou proxy de rede.&lt;br&gt;&lt;br&gt;Para reparar isto, adiciona às exceções &lt;b&gt;s.youtube.com&lt;/b&gt; ou desativa todos os bloqueadores DNS e proxies.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Não mostrar novamente</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Configurações</string>
   <string name="revanced_settings_confirm_user_dialog_title">Tem certeza de que deseja prosseguir?</string>
+  <string name="revanced_settings_save">Salvar</string>
   <string name="revanced_settings_reset">Repor</string>
   <string name="revanced_settings_reset_color">Redefinir cor</string>
   <string name="revanced_settings_color_invalid">Cor inválida</string>
@@ -164,6 +165,14 @@ Não será notificado de quaisquer eventos inesperados."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Limpar registos de depuração</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Limpa todos os registos de depuração do ReVanced armazenados</string>
   <string name="revanced_debug_logs_clear_toast">Registos limpos</string>
+  <string name="revanced_debug_feature_flags_manager_title">Manager de sinalizadores de recurso</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Gerenciar sinalizadores de recurso booleanos</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Sinalizadores ativos (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Sinalizadores bloqueados (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Pesquisar sinalizadores...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Sinalizadores salvos</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Sinalizadores redefinidos</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Sinalizadores copiados para a área de transferência</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Sanitizar links de partilha</string>

@@ -1,7 +1,6 @@
 package app.revanced.extension.youtube.sponsorblock.objects;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings.migrateOldColorString;
 
 import android.content.Context;
@@ -17,6 +16,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.ui.ColorDot;
+import app.revanced.extension.shared.ui.Dim;
 
 @SuppressWarnings("deprecation")
 public class SegmentCategoryPreference extends ColorPickerPreference {
@@ -110,7 +110,7 @@ public class SegmentCategoryPreference extends ColorPickerPreference {
         }
 
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> selectedDialogEntryIndex = checkedId);
-        radioGroup.setPadding(dipToPixels(10), 0, dipToPixels(10), dipToPixels(10));
+        radioGroup.setPadding(Dim.dp10, 0, Dim.dp10, Dim.dp10);
         return radioGroup;
     }
 
