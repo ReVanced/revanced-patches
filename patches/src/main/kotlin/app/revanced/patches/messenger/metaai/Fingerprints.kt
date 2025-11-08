@@ -3,7 +3,7 @@ package app.revanced.patches.messenger.metaai
 import com.android.tools.smali.dexlib2.Opcode
 import app.revanced.patcher.fingerprint
 
-internal val getMobileConfigBoolFingerprint by fingerprint {
+internal val getMobileConfigBoolFingerprint = fingerprint {
     parameters("J")
     returns("Z")
     opcodes(Opcode.RETURN)
@@ -12,12 +12,12 @@ internal val getMobileConfigBoolFingerprint by fingerprint {
     }
 }
 
-internal val metaAIKillSwitchCheckFingerprint by fingerprint {
+internal val metaAIKillSwitchCheckFingerprint = fingerprint {
     opcodes(Opcode.CONST_WIDE)
     strings("SearchAiagentImplementationsKillSwitch")
 }
 
-internal val extensionMethodFingerprint by fingerprint {
+internal val extensionMethodFingerprint = fingerprint {
     strings("REPLACED_BY_PATCH")
     custom { method, classDef ->
         method.name == EXTENSION_METHOD_NAME && classDef.type == EXTENSION_CLASS_DESCRIPTOR

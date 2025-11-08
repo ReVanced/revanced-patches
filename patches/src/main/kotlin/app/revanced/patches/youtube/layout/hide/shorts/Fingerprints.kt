@@ -10,7 +10,7 @@ import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val shortsBottomBarContainerFingerprint by fingerprint {
+internal val shortsBottomBarContainerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/view/View;", "Landroid/os/Bundle;")
@@ -25,7 +25,7 @@ internal val shortsBottomBarContainerFingerprint by fingerprint {
 /**
  * 19.41 to 20.44.
  */
-internal val renderBottomNavigationBarFingerprint by fingerprint {
+internal val renderBottomNavigationBarFingerprint = fingerprint {
     returns("V")
     parameters("Ljava/lang/String;")
     instructions(
@@ -46,7 +46,7 @@ internal val renderBottomNavigationBarFingerprint by fingerprint {
 /**
  * Less than 19.41.
  */
-internal val legacyRenderBottomNavigationBarLegacyParentFingerprint by fingerprint {
+internal val legacyRenderBottomNavigationBarLegacyParentFingerprint = fingerprint {
     parameters(
         "I",
         "I",
@@ -64,7 +64,7 @@ internal val legacyRenderBottomNavigationBarLegacyParentFingerprint by fingerpri
  * Identical to [legacyRenderBottomNavigationBarLegacyParentFingerprint]
  * except this has an extra parameter.
  */
-internal val renderBottomNavigationBarLegacy1941ParentFingerprint by fingerprint {
+internal val renderBottomNavigationBarLegacy1941ParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters(
         "I",
@@ -80,7 +80,7 @@ internal val renderBottomNavigationBarLegacy1941ParentFingerprint by fingerprint
     )
 }
 
-internal val renderBottomNavigationBarParentFingerprint by fingerprint {
+internal val renderBottomNavigationBarParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("[Ljava/lang/Class;")
     parameters(
@@ -93,7 +93,7 @@ internal val renderBottomNavigationBarParentFingerprint by fingerprint {
     )
 }
 
-internal val setPivotBarVisibilityFingerprint by fingerprint {
+internal val setPivotBarVisibilityFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
     parameters("Z")
@@ -103,14 +103,14 @@ internal val setPivotBarVisibilityFingerprint by fingerprint {
     )
 }
 
-internal val setPivotBarVisibilityParentFingerprint by fingerprint {
+internal val setPivotBarVisibilityParentFingerprint = fingerprint {
     parameters("Z")
     instructions(
         string("FEnotifications_inbox")
     )
 }
 
-internal val shortsExperimentalPlayerFeatureFlagFingerprint by fingerprint {
+internal val shortsExperimentalPlayerFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
@@ -119,7 +119,7 @@ internal val shortsExperimentalPlayerFeatureFlagFingerprint by fingerprint {
     )
 }
 
-internal val renderNextUIFeatureFlagFingerprint by fingerprint {
+internal val renderNextUIFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()

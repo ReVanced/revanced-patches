@@ -3,7 +3,7 @@ package app.revanced.patches.shared.misc.extension
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val revancedUtilsPatchesVersionFingerprint by fingerprint {
+internal val revancedUtilsPatchesVersionFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()

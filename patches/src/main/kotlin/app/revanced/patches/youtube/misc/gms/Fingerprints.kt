@@ -8,7 +8,7 @@ import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val specificNetworkErrorViewControllerFingerprint by fingerprint {
+internal val specificNetworkErrorViewControllerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -22,7 +22,7 @@ internal val specificNetworkErrorViewControllerFingerprint by fingerprint {
 
 // It's not clear if this second class is ever used and it may be dead code,
 // but it the layout image/text is identical to the network error fingerprint above.
-internal val loadingFrameLayoutControllerFingerprint by fingerprint {
+internal val loadingFrameLayoutControllerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")

@@ -5,7 +5,7 @@ import app.revanced.patches.music.shared.YOUTUBE_MUSIC_MAIN_ACTIVITY_CLASS_TYPE
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 
-internal val cairoSplashAnimationConfigFingerprint by fingerprint {
+internal val cairoSplashAnimationConfigFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
     instructions(

@@ -4,11 +4,11 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.util.literal
 
-internal val katanaProxyLoginMethodHandlerClassFingerprint by fingerprint {
+internal val katanaProxyLoginMethodHandlerClassFingerprint = fingerprint {
     strings("katana_proxy_auth")
 }
 
-internal val katanaProxyLoginMethodTryAuthorizeFingerprint by fingerprint {
+internal val katanaProxyLoginMethodTryAuthorizeFingerprint = fingerprint {
     strings("e2e")
     literal { 0 }
 }

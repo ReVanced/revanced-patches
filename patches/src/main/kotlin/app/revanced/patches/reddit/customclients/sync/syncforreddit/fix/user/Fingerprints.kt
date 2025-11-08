@@ -9,28 +9,28 @@ internal fun userEndpointFingerprint(source: String, accessFlags: Set<AccessFlag
     accessFlags(*accessFlags?.toTypedArray() ?: return@fingerprint)
 }
 
-internal val oAuthFriendRequestFingerprint by userEndpointFingerprint(
+internal val oAuthFriendRequestFingerprint = userEndpointFingerprint(
     "OAuthFriendRequest.java",
 )
 
-internal val oAuthUnfriendRequestFingerprint by userEndpointFingerprint(
+internal val oAuthUnfriendRequestFingerprint = userEndpointFingerprint(
     "OAuthUnfriendRequest.java",
 )
 
-internal val oAuthUserIdRequestFingerprint by userEndpointFingerprint(
+internal val oAuthUserIdRequestFingerprint = userEndpointFingerprint(
     "OAuthUserIdRequest.java",
 )
 
-internal val oAuthUserInfoRequestFingerprint by userEndpointFingerprint(
+internal val oAuthUserInfoRequestFingerprint = userEndpointFingerprint(
     "OAuthUserInfoRequest.java",
 )
 
-internal val oAuthSubredditInfoRequestConstructorFingerprint by userEndpointFingerprint(
+internal val oAuthSubredditInfoRequestConstructorFingerprint = userEndpointFingerprint(
     "OAuthSubredditInfoRequest.java",
     setOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
 )
 
-internal val oAuthSubredditInfoRequestHelperFingerprint by userEndpointFingerprint(
+internal val oAuthSubredditInfoRequestHelperFingerprint = userEndpointFingerprint(
     "OAuthSubredditInfoRequest.java",
     setOf(AccessFlags.PRIVATE, AccessFlags.STATIC),
 )

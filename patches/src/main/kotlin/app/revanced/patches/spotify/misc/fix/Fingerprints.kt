@@ -8,11 +8,11 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val loadOrbitLibraryFingerprint by fingerprint {
+internal val loadOrbitLibraryFingerprint = fingerprint {
     strings("/liborbit-jni-spotify.so")
 }
 
-internal val setClientIdFingerprint by fingerprint {
+internal val setClientIdFingerprint = fingerprint {
     parameters("Ljava/lang/String;")
     custom { method, classDef ->
         classDef.type == "Lcom/spotify/connectivity/ApplicationScopeConfiguration;"
@@ -20,7 +20,7 @@ internal val setClientIdFingerprint by fingerprint {
     }
 }
 
-internal val setUserAgentFingerprint by fingerprint {
+internal val setUserAgentFingerprint = fingerprint {
     parameters("Ljava/lang/String;")
     custom { method, classDef ->
         classDef.type == "Lcom/spotify/connectivity/ApplicationScopeConfiguration;"
@@ -28,11 +28,11 @@ internal val setUserAgentFingerprint by fingerprint {
     }
 }
 
-internal val extensionFixConstantsFingerprint by fingerprint {
+internal val extensionFixConstantsFingerprint = fingerprint {
     custom { _, classDef -> classDef.type == "Lapp/revanced/extension/spotify/misc/fix/Constants;" }
 }
 
-internal val runIntegrityVerificationFingerprint by fingerprint {
+internal val runIntegrityVerificationFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     opcodes(

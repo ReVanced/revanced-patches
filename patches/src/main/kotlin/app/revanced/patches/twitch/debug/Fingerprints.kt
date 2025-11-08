@@ -2,19 +2,19 @@ package app.revanced.patches.twitch.debug
 
 import app.revanced.patcher.fingerprint
 
-internal val isDebugConfigEnabledFingerprint by fingerprint {
+internal val isDebugConfigEnabledFingerprint = fingerprint {
     custom { method, classDef ->
         classDef.endsWith("/BuildConfigUtil;") && method.name == "isDebugConfigEnabled"
     }
 }
 
-internal val isOmVerificationEnabledFingerprint by fingerprint {
+internal val isOmVerificationEnabledFingerprint = fingerprint {
     custom { method, classDef ->
         classDef.endsWith("/BuildConfigUtil;") && method.name == "isOmVerificationEnabled"
     }
 }
 
-internal val shouldShowDebugOptionsFingerprint by fingerprint {
+internal val shouldShowDebugOptionsFingerprint = fingerprint {
     custom { method, classDef ->
         classDef.endsWith("/BuildConfigUtil;") && method.name == "shouldShowDebugOptions"
     }

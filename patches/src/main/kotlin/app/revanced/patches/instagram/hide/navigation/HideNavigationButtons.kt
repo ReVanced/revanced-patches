@@ -53,7 +53,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
 
         // Get the field name which contains the name of the enum for the navigation button
         // ("fragment_clips", "fragment_share", ...)
-        val navigationButtonsEnumInitFingerprint by fingerprint {
+        val navigationButtonsEnumInitFingerprint = fingerprint {
             custom { method, classDef ->
                 method.name == "<init>"
                         && classDef == navigationButtonsEnumClassDef.classDef

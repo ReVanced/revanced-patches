@@ -5,7 +5,6 @@ import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.PATCH_NAME_HIDE_NAVIGATION_BUTTONS
 import java.util.logging.Logger
-import kotlin.collections.joinToString
 
 @Suppress("unused")
 val hideNavigationButtonsPatch = bytecodePatch(
@@ -46,7 +45,6 @@ val hideNavigationButtonsPatch = bytecodePatch(
                 nop
             """
 
-        val shouldShowTabIdMethodFingerprint by shouldShowTabIdMethodFingerprint
         shouldShowTabIdMethodFingerprint.method
             .addInstructionsWithLabels(0, injectionInstructions)
     }

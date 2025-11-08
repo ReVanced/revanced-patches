@@ -2,7 +2,7 @@ package app.revanced.patches.reddit.layout.disablescreenshotpopup
 
 import app.revanced.patcher.fingerprint
 
-internal val disableScreenshotPopupFingerprint by fingerprint {
+internal val disableScreenshotPopupFingerprint = fingerprint {
     returns("V")
     parameters("Landroidx/compose/runtime/", "I")
     custom { method, classDef ->

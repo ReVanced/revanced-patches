@@ -4,7 +4,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
 
-internal val backgroundPlaybackDisableFingerprint by fingerprint {
+internal val backgroundPlaybackDisableFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Z")
     parameters("L")
@@ -21,7 +21,7 @@ internal val backgroundPlaybackDisableFingerprint by fingerprint {
     )
 }
 
-internal val kidsBackgroundPlaybackPolicyControllerFingerprint by fingerprint {
+internal val kidsBackgroundPlaybackPolicyControllerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("I", "L", "Z")

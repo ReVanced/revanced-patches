@@ -8,12 +8,12 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Deprecated("Obsolete")
-internal val navigationBarItemSetClassFingerprint by fingerprint {
+internal val navigationBarItemSetClassFingerprint = fingerprint {
     strings("NavigationBarItemSet(")
 }
 
 @Deprecated("Obsolete")
-internal val navigationBarItemSetConstructorFingerprint by fingerprint {
+internal val navigationBarItemSetConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     // Make sure the method checks whether navigation bar items are null before adding them.
     // If this is not true, then we cannot patch the method and potentially transform the parameters into null.
@@ -26,6 +26,6 @@ internal val navigationBarItemSetConstructorFingerprint by fingerprint {
 }
 
 @Deprecated("Obsolete")
-internal val oldNavigationBarAddItemFingerprint by fingerprint {
+internal val oldNavigationBarAddItemFingerprint = fingerprint {
     strings("Bottom navigation tabs exceeds maximum of 5 tabs")
 }

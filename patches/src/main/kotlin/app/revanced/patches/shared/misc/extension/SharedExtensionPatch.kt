@@ -2,8 +2,8 @@ package app.revanced.patches.shared.misc.extension
 
 import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.FingerprintBuilder
-import app.revanced.patcher.FingerprintDelegate
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
@@ -112,8 +112,7 @@ fun extensionHook(
     contextRegisterResolver: BytecodePatchContext.(Method) -> String = { "p0" },
     fingerprintBuilderBlock: FingerprintBuilder.() -> Unit,
 ) = {
-    val fingerprint by FingerprintDelegate(block = fingerprintBuilderBlock)
-    ExtensionHook(fingerprint, insertIndexResolver, contextRegisterResolver)
+    ExtensionHook(fingerprint(block = fingerprintBuilderBlock), insertIndexResolver, contextRegisterResolver)
 }
 
 /**

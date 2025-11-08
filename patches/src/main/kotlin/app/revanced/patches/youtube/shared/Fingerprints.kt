@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal const val YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE = "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
 
-internal val conversionContextFingerprintToString by fingerprint {
+internal val conversionContextFingerprintToString = fingerprint {
     parameters()
     strings(
         "ConversionContext{", // Partial string match.
@@ -32,7 +32,7 @@ internal val conversionContextFingerprintToString by fingerprint {
 /**
  * Resolves to class found in [loopVideoParentFingerprint].
  */
-internal val loopVideoFingerprint by fingerprint {
+internal val loopVideoFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -41,7 +41,7 @@ internal val loopVideoFingerprint by fingerprint {
     }
 }
 
-internal val loopVideoParentFingerprint by fingerprint {
+internal val loopVideoParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     instructions(
@@ -50,7 +50,7 @@ internal val loopVideoParentFingerprint by fingerprint {
     )
 }
 
-internal val layoutConstructorFingerprint by fingerprint {
+internal val layoutConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     instructions(
@@ -61,7 +61,7 @@ internal val layoutConstructorFingerprint by fingerprint {
     )
 }
 
-internal val mainActivityConstructorFingerprint by fingerprint {
+internal val mainActivityConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters()
     custom { _, classDef ->
@@ -69,7 +69,7 @@ internal val mainActivityConstructorFingerprint by fingerprint {
     }
 }
 
-internal val mainActivityOnBackPressedFingerprint by fingerprint {
+internal val mainActivityOnBackPressedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -78,7 +78,7 @@ internal val mainActivityOnBackPressedFingerprint by fingerprint {
     }
 }
 
-internal val mainActivityOnCreateFingerprint by fingerprint {
+internal val mainActivityOnCreateFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
     custom { method, classDef ->
@@ -86,7 +86,7 @@ internal val mainActivityOnCreateFingerprint by fingerprint {
     }
 }
 
-internal val rollingNumberTextViewAnimationUpdateFingerprint by fingerprint {
+internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/graphics/Bitmap;")
@@ -112,7 +112,7 @@ internal val rollingNumberTextViewAnimationUpdateFingerprint by fingerprint {
     }
 }
 
-internal val seekbarFingerprint by fingerprint {
+internal val seekbarFingerprint = fingerprint {
     returns("V")
     instructions(
         string("timed_markers_width"),
@@ -122,7 +122,7 @@ internal val seekbarFingerprint by fingerprint {
 /**
  * Matches to _mutable_ class found in [seekbarFingerprint].
  */
-internal val seekbarOnDrawFingerprint by fingerprint {
+internal val seekbarOnDrawFingerprint = fingerprint {
     instructions(
         methodCall(smali = "Ljava/lang/Math;->round(F)I"),
         opcode(Opcode.MOVE_RESULT, maxAfter = 0)
@@ -130,7 +130,7 @@ internal val seekbarOnDrawFingerprint by fingerprint {
     custom { method, _ -> method.name == "onDraw" }
 }
 
-internal val subtitleButtonControllerFingerprint by fingerprint {
+internal val subtitleButtonControllerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")
@@ -140,7 +140,7 @@ internal val subtitleButtonControllerFingerprint by fingerprint {
     )
 }
 
-internal val videoQualityChangedFingerprint by fingerprint {
+internal val videoQualityChangedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L")

@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val experimentalFeatureFlagParentFingerprint by fingerprint {
+internal val experimentalFeatureFlagParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("L")
     parameters("L", "J", "[B")
@@ -13,25 +13,25 @@ internal val experimentalFeatureFlagParentFingerprint by fingerprint {
     )
 }
 
-internal val experimentalBooleanFeatureFlagFingerprint by fingerprint {
+internal val experimentalBooleanFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Z")
     parameters("L", "J", "Z")
 }
 
-internal val experimentalDoubleFeatureFlagFingerprint by fingerprint {
+internal val experimentalDoubleFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("D")
     parameters("J", "D")
 }
 
-internal val experimentalLongFeatureFlagFingerprint by fingerprint {
+internal val experimentalLongFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("J")
     parameters("J", "J")
 }
 
-internal val experimentalStringFeatureFlagFingerprint by fingerprint {
+internal val experimentalStringFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters("J", "Ljava/lang/String;")

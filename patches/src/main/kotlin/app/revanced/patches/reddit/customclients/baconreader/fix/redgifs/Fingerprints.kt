@@ -2,7 +2,7 @@ package app.revanced.patches.reddit.customclients.baconreader.fix.redgifs
 
 import app.revanced.patcher.fingerprint
 
-internal val getOkHttpClientFingerprint by fingerprint {
+internal val getOkHttpClientFingerprint = fingerprint {
     returns("Lokhttp3/OkHttpClient;")
     parameters()
     custom { method, classDef ->

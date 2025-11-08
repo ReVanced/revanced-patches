@@ -47,7 +47,7 @@ val changeFormFactorPatch = bytecodePatch(
 
         hookNavigationButtonCreated(EXTENSION_CLASS_DESCRIPTOR)
 
-        val createPlayerRequestBodyWithModelFingerprint by fingerprint {
+        val createPlayerRequestBodyWithModelFingerprint = fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             returns("L")
             parameters()

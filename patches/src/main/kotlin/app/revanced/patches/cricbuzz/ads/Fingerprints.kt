@@ -3,12 +3,12 @@ package app.revanced.patches.cricbuzz.ads
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val userStateSwitchFingerprint by fingerprint {
+internal val userStateSwitchFingerprint = fingerprint {
     opcodes(Opcode.SPARSE_SWITCH)
     strings("key.user.state", "NA")
 }
 
-internal val cb11ConstructorFingerprint by fingerprint {
+internal val cb11ConstructorFingerprint = fingerprint {
     parameters(
         "Ljava/lang/String;",
         "Ljava/lang/String;",
@@ -26,7 +26,7 @@ internal val cb11ConstructorFingerprint by fingerprint {
     }
 }
 
-internal val getBottomBarFingerprint by fingerprint {
+internal val getBottomBarFingerprint = fingerprint {
     custom { method, classDef ->
         method.name == "getBottomBar" && classDef.endsWith("HomeMenu;")
     }

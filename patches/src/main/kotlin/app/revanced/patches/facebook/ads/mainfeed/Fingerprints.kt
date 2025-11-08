@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val baseModelMapperFingerprint by fingerprint {
+internal val baseModelMapperFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Lcom/facebook/graphql/modelutil/BaseModelWithTree;")
     parameters("Ljava/lang/Class", "I", "I")
@@ -17,7 +17,7 @@ internal val baseModelMapperFingerprint by fingerprint {
     )
 }
 
-internal val getSponsoredDataModelTemplateFingerprint by fingerprint {
+internal val getSponsoredDataModelTemplateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters()
@@ -33,7 +33,7 @@ internal val getSponsoredDataModelTemplateFingerprint by fingerprint {
     }
 }
 
-internal val getStoryVisibilityFingerprint by fingerprint {
+internal val getStoryVisibilityFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     opcodes(

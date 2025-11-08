@@ -8,7 +8,7 @@ import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val reelEnumConstructorFingerprint by fingerprint {
+internal val reelEnumConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
         string("REEL_LOOP_BEHAVIOR_UNKNOWN"),
@@ -19,7 +19,7 @@ internal val reelEnumConstructorFingerprint by fingerprint {
     )
 }
 
-internal val reelPlaybackRepeatParentFingerprint by fingerprint {
+internal val reelPlaybackRepeatParentFingerprint = fingerprint {
     returns("V")
     parameters("Ljava/lang/String;", "J")
     instructions(
@@ -30,7 +30,7 @@ internal val reelPlaybackRepeatParentFingerprint by fingerprint {
 /**
  * Matches class found in [reelPlaybackRepeatParentFingerprint].
  */
-internal val reelPlaybackRepeatFingerprint by fingerprint {
+internal val reelPlaybackRepeatFingerprint = fingerprint {
     returns("V")
     parameters("L")
     instructions(
@@ -38,7 +38,7 @@ internal val reelPlaybackRepeatFingerprint by fingerprint {
     )
 }
 
-internal val reelPlaybackFingerprint by fingerprint {
+internal val reelPlaybackFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("J")
     returns("V")

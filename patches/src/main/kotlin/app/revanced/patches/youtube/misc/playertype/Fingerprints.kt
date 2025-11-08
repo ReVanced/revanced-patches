@@ -8,7 +8,7 @@ import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val playerTypeEnumFingerprint by fingerprint {
+internal val playerTypeEnumFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     strings(
         "NONE",
@@ -25,7 +25,7 @@ internal val playerTypeEnumFingerprint by fingerprint {
     )
 }
 
-internal val reelWatchPagerFingerprint by fingerprint {
+internal val reelWatchPagerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     instructions(
@@ -34,7 +34,7 @@ internal val reelWatchPagerFingerprint by fingerprint {
     )
 }
 
-internal val videoStateEnumFingerprint by fingerprint {
+internal val videoStateEnumFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     parameters()
     strings(
@@ -48,7 +48,7 @@ internal val videoStateEnumFingerprint by fingerprint {
 }
 
 // 20.33 and lower class name ControlsState. 20.34+ class name is obfuscated.
-internal val controlsStateToStringFingerprint by fingerprint {
+internal val controlsStateToStringFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     returns("Ljava/lang/String;")

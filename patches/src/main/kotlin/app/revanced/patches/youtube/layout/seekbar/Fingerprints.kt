@@ -12,7 +12,7 @@ import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val fullscreenSeekbarThumbnailsFingerprint by fingerprint {
+internal val fullscreenSeekbarThumbnailsFingerprint = fingerprint {
     returns("Z")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
@@ -21,7 +21,7 @@ internal val fullscreenSeekbarThumbnailsFingerprint by fingerprint {
     )
 }
 
-internal val playerSeekbarColorFingerprint by fingerprint {
+internal val playerSeekbarColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         resourceLiteral(ResourceType.COLOR, "inline_time_bar_played_not_highlighted_color"),
@@ -30,19 +30,19 @@ internal val playerSeekbarColorFingerprint by fingerprint {
 }
 
 // class is ControlsOverlayStyle in 20.32 and lower, and obfuscated in 20.33+
-internal val setSeekbarClickedColorFingerprint by fingerprint {
+internal val setSeekbarClickedColorFingerprint = fingerprint {
     opcodes(Opcode.CONST_HIGH16)
     strings("YOUTUBE", "PREROLL", "POSTROLL", "REMOTE_LIVE", "AD_LARGE_CONTROLS")
 }
 
-internal val shortsSeekbarColorFingerprint by fingerprint {
+internal val shortsSeekbarColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         resourceLiteral(ResourceType.COLOR, "reel_time_bar_played_color")
     )
 }
 
-internal val playerSeekbarHandle1ColorFingerprint by fingerprint {
+internal val playerSeekbarHandle1ColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         resourceLiteral(ResourceType.COLOR, "inline_time_bar_live_seekable_range"),
@@ -50,7 +50,7 @@ internal val playerSeekbarHandle1ColorFingerprint by fingerprint {
     )
 }
 
-internal val playerSeekbarHandle2ColorFingerprint by fingerprint {
+internal val playerSeekbarHandle2ColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("Landroid/content/Context;")
     instructions(
@@ -59,7 +59,7 @@ internal val playerSeekbarHandle2ColorFingerprint by fingerprint {
     )
 }
 
-internal val watchHistoryMenuUseProgressDrawableFingerprint by fingerprint {
+internal val watchHistoryMenuUseProgressDrawableFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
@@ -70,7 +70,7 @@ internal val watchHistoryMenuUseProgressDrawableFingerprint by fingerprint {
     )
 }
 
-internal val lithoLinearGradientFingerprint by fingerprint {
+internal val lithoLinearGradientFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC)
     returns("Landroid/graphics/LinearGradient;")
     parameters("F", "F", "F", "F", "[I", "[F")
@@ -79,7 +79,7 @@ internal val lithoLinearGradientFingerprint by fingerprint {
 /**
  * 19.49+
  */
-internal val playerLinearGradientFingerprint by fingerprint {
+internal val playerLinearGradientFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     parameters("I", "I", "I", "I", "Landroid/content/Context;", "I")
     returns("Landroid/graphics/LinearGradient;")
@@ -94,7 +94,7 @@ internal val playerLinearGradientFingerprint by fingerprint {
 /**
  * 19.25 - 19.47
  */
-internal val playerLinearGradientLegacyFingerprint by fingerprint {
+internal val playerLinearGradientLegacyFingerprint = fingerprint {
     returns("V")
     instructions(
         resourceLiteral(ResourceType.COLOR, "yt_youtube_magenta"),
@@ -107,7 +107,7 @@ internal val playerLinearGradientLegacyFingerprint by fingerprint {
 internal const val launchScreenLayoutTypeLotteFeatureLegacyFlag = 268507948L
 internal const val launchScreenLayoutTypeLotteFeatureFlag = 1073814316L
 
-internal val launchScreenLayoutTypeFingerprint by fingerprint {
+internal val launchScreenLayoutTypeFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         anyInstruction(
@@ -125,7 +125,7 @@ internal val launchScreenLayoutTypeFingerprint by fingerprint {
 
 internal const val LOTTIE_ANIMATION_VIEW_CLASS_TYPE = "Lcom/airbnb/lottie/LottieAnimationView;"
 
-internal val lottieAnimationViewSetAnimationIntFingerprint by fingerprint {
+internal val lottieAnimationViewSetAnimationIntFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("I")
     returns("V")
@@ -137,7 +137,7 @@ internal val lottieAnimationViewSetAnimationIntFingerprint by fingerprint {
     }
 }
 
-internal val lottieCompositionFactoryZipFingerprint by fingerprint {
+internal val lottieCompositionFactoryZipFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     parameters("Landroid/content/Context;", "Ljava/util/zip/ZipInputStream;", "Ljava/lang/String;")
     returns("L")
@@ -152,7 +152,7 @@ internal val lottieCompositionFactoryZipFingerprint by fingerprint {
  *
  * [Original method](https://github.com/airbnb/lottie-android/blob/26ad8bab274eac3f93dccccfa0cafc39f7408d13/lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java#L386)
  */
-internal val lottieCompositionFactoryFromJsonInputStreamFingerprint by fingerprint {
+internal val lottieCompositionFactoryFromJsonInputStreamFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     parameters("Ljava/io/InputStream;", "Ljava/lang/String;")
     returns("L")

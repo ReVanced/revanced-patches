@@ -297,7 +297,7 @@ internal fun spoofVideoStreamsPatch(
             )
         }
 
-        val sabrFingerprint by fingerprint {
+        val sabrFingerprint = fingerprint {
             returns(mediaFetchEnumClass)
             opcodes(
                 Opcode.SGET_OBJECT,

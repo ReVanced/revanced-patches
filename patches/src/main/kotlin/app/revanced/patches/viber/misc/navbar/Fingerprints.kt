@@ -2,7 +2,7 @@ package app.revanced.patches.viber.misc.navbar
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val tabIdClassFingerprint by fingerprint {
+internal val tabIdClassFingerprint = fingerprint {
     strings("shouldShowTabId")
 }
 

@@ -29,7 +29,7 @@ val hideAdsPatch = bytecodePatch(
         val targetClass = method.getInstruction<ReferenceInstruction>(typeRefIndex).reference as TypeReference
 
         // Patch the ads-free method to always return true
-        val adFreeFingerprint by fingerprint {
+        val adFreeFingerprint = fingerprint {
             returns("I")
             parameters()
             custom { method, classDef ->

@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.interaction.dialog
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 
-internal val createDialogFingerprint by fingerprint {
+internal val createDialogFingerprint = fingerprint {
     returns("V")
     parameters("L", "L", "Ljava/lang/String;")
     instructions(

@@ -9,21 +9,21 @@ import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val componentCreateFingerprint by fingerprint {
+internal val componentCreateFingerprint = fingerprint {
     instructions(
         string("Element missing correct type extension"),
         string("Element missing type")
     )
 }
 
-internal val lithoFilterFingerprint by fingerprint {
+internal val lithoFilterFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     custom { _, classDef ->
         classDef.endsWith("/LithoFilterPatch;")
     }
 }
 
-internal val protobufBufferReferenceFingerprint by fingerprint {
+internal val protobufBufferReferenceFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("[B")
@@ -40,7 +40,7 @@ internal val protobufBufferReferenceFingerprint by fingerprint {
     )
 }
 
-internal val protobufBufferReferenceLegacyFingerprint by fingerprint {
+internal val protobufBufferReferenceLegacyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("I", "Ljava/nio/ByteBuffer;")
@@ -52,7 +52,7 @@ internal val protobufBufferReferenceLegacyFingerprint by fingerprint {
     )
 }
 
-internal val emptyComponentFingerprint by fingerprint {
+internal val emptyComponentFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
     parameters()
     instructions(
@@ -63,7 +63,7 @@ internal val emptyComponentFingerprint by fingerprint {
     }
 }
 
-internal val lithoThreadExecutorFingerprint by fingerprint {
+internal val lithoThreadExecutorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("I", "I", "I")
     custom { method, classDef ->
@@ -72,7 +72,7 @@ internal val lithoThreadExecutorFingerprint by fingerprint {
     }
 }
 
-internal val lithoComponentNameUpbFeatureFlagFingerprint by fingerprint {
+internal val lithoComponentNameUpbFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
@@ -81,7 +81,7 @@ internal val lithoComponentNameUpbFeatureFlagFingerprint by fingerprint {
     )
 }
 
-internal val lithoConverterBufferUpbFeatureFlagFingerprint by fingerprint {
+internal val lithoConverterBufferUpbFeatureFlagFingerprint = fingerprint {
     returns("L")
     instructions(
         literal(45419603L)

@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val enterServerInsertedAdBreakStateFingerprint by fingerprint {
+internal val enterServerInsertedAdBreakStateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     parameters("Lcom/amazon/avod/fsm/Trigger;")
     returns("V")
@@ -19,7 +19,7 @@ internal val enterServerInsertedAdBreakStateFingerprint by fingerprint {
     }
 }
 
-internal val doTriggerFingerprint by fingerprint {
+internal val doTriggerFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED)
     returns("V")
     opcodes(

@@ -42,7 +42,7 @@ val limitFeedToFollowedProfiles = bytecodePatch(
             }
         }
 
-        val initMainFeedRequestFingerprint by fingerprint {
+        val initMainFeedRequestFingerprint = fingerprint {
             custom { method, classDef ->
                 method.name == "<init>" &&
                         classDef == mainFeedRequestClassFingerprint.classDef

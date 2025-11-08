@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patches.shared.misc.extension.EXTENSION_CLASS_DESCRIPTOR
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val themeLightColorResourceNameFingerprint by fingerprint {
+internal val themeLightColorResourceNameFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()
@@ -13,7 +13,7 @@ internal val themeLightColorResourceNameFingerprint by fingerprint {
     }
 }
 
-internal val themeDarkColorResourceNameFingerprint by fingerprint {
+internal val themeDarkColorResourceNameFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()

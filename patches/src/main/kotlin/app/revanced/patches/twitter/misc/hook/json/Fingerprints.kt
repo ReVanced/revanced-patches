@@ -3,7 +3,7 @@ package app.revanced.patches.twitter.misc.hook.json
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val jsonHookPatchFingerprint by fingerprint {
+internal val jsonHookPatchFingerprint = fingerprint {
     opcodes(
         Opcode.INVOKE_INTERFACE, // Add dummy hook to hooks list.
         // Add hooks to the hooks list.
@@ -12,7 +12,7 @@ internal val jsonHookPatchFingerprint by fingerprint {
     custom { method, _ -> method.name == "<clinit>" }
 }
 
-internal val jsonInputStreamFingerprint by fingerprint {
+internal val jsonInputStreamFingerprint = fingerprint {
     custom { method, _ ->
         if (method.parameterTypes.isEmpty()) {
             false
@@ -22,6 +22,6 @@ internal val jsonInputStreamFingerprint by fingerprint {
     }
 }
 
-internal val loganSquareFingerprint by fingerprint {
+internal val loganSquareFingerprint = fingerprint {
     custom { _, classDef -> classDef.endsWith("LoganSquare;") }
 }

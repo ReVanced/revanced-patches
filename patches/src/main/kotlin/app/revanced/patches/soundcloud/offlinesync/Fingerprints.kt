@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val downloadOperationsURLBuilderFingerprint by fingerprint {
+internal val downloadOperationsURLBuilderFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String")
     parameters("L", "L")
@@ -15,7 +15,7 @@ internal val downloadOperationsURLBuilderFingerprint by fingerprint {
     )
 }
 
-internal val downloadOperationsHeaderVerificationFingerprint by fingerprint {
+internal val downloadOperationsHeaderVerificationFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "L")

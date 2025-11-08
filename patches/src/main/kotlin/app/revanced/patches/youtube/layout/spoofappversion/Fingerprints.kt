@@ -9,7 +9,7 @@ import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val toolBarButtonFingerprint by fingerprint {
+internal val toolBarButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     instructions(
@@ -28,7 +28,7 @@ internal val toolBarButtonFingerprint by fingerprint {
     }
 }
 
-internal val spoofAppVersionFingerprint by fingerprint {
+internal val spoofAppVersionFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("L")
     parameters("L")

@@ -6,7 +6,7 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val videoQualityItemOnClickParentFingerprint by fingerprint {
+internal val videoQualityItemOnClickParentFingerprint = fingerprint {
     returns("V")
     instructions(
         string("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT"),
@@ -16,7 +16,7 @@ internal val videoQualityItemOnClickParentFingerprint by fingerprint {
 /**
  * Resolves to class found in [videoQualityItemOnClickFingerprint].
  */
-internal val videoQualityItemOnClickFingerprint by fingerprint {
+internal val videoQualityItemOnClickFingerprint = fingerprint {
     returns("V")
     parameters(
         "Landroid/widget/AdapterView;",
@@ -29,7 +29,7 @@ internal val videoQualityItemOnClickFingerprint by fingerprint {
     }
 }
 
-internal val videoQualityMenuOptionsFingerprint by fingerprint {
+internal val videoQualityMenuOptionsFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC)
     returns("[L")
     parameters("Landroid/content/Context", "L", "L")
@@ -43,7 +43,7 @@ internal val videoQualityMenuOptionsFingerprint by fingerprint {
     literal { videoQualityQuickMenuAdvancedMenuDescription }
 }
 
-internal val videoQualityMenuViewInflateFingerprint by fingerprint {
+internal val videoQualityMenuViewInflateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L", "L", "L")

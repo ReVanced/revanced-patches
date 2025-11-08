@@ -8,7 +8,7 @@ import app.revanced.patcher.opcode
 import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val youTubeCopyTextFingerprint by fingerprint {
+internal val youTubeCopyTextFingerprint = fingerprint {
     returns("V")
     parameters("L", "Ljava/util/Map;")
     instructions(
@@ -26,7 +26,7 @@ internal val youTubeCopyTextFingerprint by fingerprint {
     )
 }
 
-internal val youTubeSystemShareSheetFingerprint by fingerprint {
+internal val youTubeSystemShareSheetFingerprint = fingerprint {
     returns("V")
     parameters("L", "Ljava/util/Map;")
     instructions(
@@ -52,7 +52,7 @@ internal val youTubeSystemShareSheetFingerprint by fingerprint {
     )
 }
 
-internal val youTubeShareSheetFingerprint by fingerprint {
+internal val youTubeShareSheetFingerprint = fingerprint {
     returns("V")
     parameters("L", "Ljava/util/Map;")
     instructions(

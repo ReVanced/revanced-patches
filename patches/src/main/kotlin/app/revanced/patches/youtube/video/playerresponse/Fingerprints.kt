@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 /**
  * For targets 20.26 and later.
  */
-internal val playerParameterBuilderFingerprint by fingerprint {
+internal val playerParameterBuilderFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(
@@ -36,7 +36,7 @@ internal val playerParameterBuilderFingerprint by fingerprint {
 /**
  * For targets 20.15 to 20.25
  */
-internal val playerParameterBuilder2015Fingerprint by fingerprint {
+internal val playerParameterBuilder2015Fingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(
@@ -64,7 +64,7 @@ internal val playerParameterBuilder2015Fingerprint by fingerprint {
 /**
  * For targets 20.10 to 20.14.
  */
-internal val playerParameterBuilder2010Fingerprint by fingerprint {
+internal val playerParameterBuilder2010Fingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(
@@ -93,7 +93,7 @@ internal val playerParameterBuilder2010Fingerprint by fingerprint {
 /**
  * For targets 20.02 to 20.09.
  */
-internal val playerParameterBuilder2002Fingerprint by fingerprint {
+internal val playerParameterBuilder2002Fingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(
@@ -121,7 +121,7 @@ internal val playerParameterBuilder2002Fingerprint by fingerprint {
 /**
  * For targets 19.25 to 19.50.
  */
-internal val playerParameterBuilder1925Fingerprint by fingerprint {
+internal val playerParameterBuilder1925Fingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(
@@ -148,7 +148,7 @@ internal val playerParameterBuilder1925Fingerprint by fingerprint {
 /**
  * For targets 19.01 to 19.24.
  */
-internal val playerParameterBuilderLegacyFingerprint by fingerprint {
+internal val playerParameterBuilderLegacyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters(

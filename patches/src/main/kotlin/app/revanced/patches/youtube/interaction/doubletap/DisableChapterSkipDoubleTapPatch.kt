@@ -40,7 +40,7 @@ val disableDoubleTapActionsPatch = bytecodePatch(
             SwitchPreference("revanced_disable_chapter_skip_double_tap"),
         )
 
-        val doubleTapInfoGetSeekSourceFingerprint by fingerprint {
+        val doubleTapInfoGetSeekSourceFingerprint = fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             parameters("Z")
             returns(seekTypeEnumFingerprint.originalClassDef.type)

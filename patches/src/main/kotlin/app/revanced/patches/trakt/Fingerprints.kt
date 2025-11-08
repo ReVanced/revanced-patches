@@ -2,7 +2,7 @@ package app.revanced.patches.trakt
 
 import app.revanced.patcher.fingerprint
 
-internal val isVIPEPFingerprint by fingerprint {
+internal val isVIPEPFingerprint = fingerprint {
     custom { method, classDef ->
         if (!classDef.endsWith("RemoteUser;")) return@custom false
 
@@ -10,7 +10,7 @@ internal val isVIPEPFingerprint by fingerprint {
     }
 }
 
-internal val isVIPFingerprint by fingerprint {
+internal val isVIPFingerprint = fingerprint {
     custom { method, classDef ->
         if (!classDef.endsWith("RemoteUser;")) return@custom false
 
@@ -18,7 +18,7 @@ internal val isVIPFingerprint by fingerprint {
     }
 }
 
-internal val remoteUserFingerprint by fingerprint {
+internal val remoteUserFingerprint = fingerprint {
     custom { _, classDef ->
         classDef.endsWith("RemoteUser;")
     }

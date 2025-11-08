@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * 20.02+
  */
-internal val userWasInShortsAlternativeFingerprint by fingerprint {
+internal val userWasInShortsAlternativeFingerprint = fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Ljava/lang/Object;")
@@ -28,7 +28,7 @@ internal val userWasInShortsAlternativeFingerprint by fingerprint {
 /**
  * Pre 20.02
  */
-internal val userWasInShortsLegacyFingerprint by fingerprint {
+internal val userWasInShortsLegacyFingerprint = fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Ljava/lang/Object;")
@@ -40,7 +40,7 @@ internal val userWasInShortsLegacyFingerprint by fingerprint {
 /**
  * 18.15.40+
  */
-internal val userWasInShortsConfigFingerprint by fingerprint {
+internal val userWasInShortsConfigFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()

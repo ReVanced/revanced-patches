@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsP
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val actionBarSearchResultsFingerprint by fingerprint {
+internal val actionBarSearchResultsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     instructions(
@@ -20,7 +20,7 @@ internal val actionBarSearchResultsFingerprint by fingerprint {
     )
 }
 
-internal val toolbarLayoutFingerprint by fingerprint {
+internal val toolbarLayoutFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.CONSTRUCTOR)
     instructions(
         resourceLiteral(ResourceType.ID, "toolbar_container"),
@@ -31,7 +31,7 @@ internal val toolbarLayoutFingerprint by fingerprint {
 /**
  * Matches to https://android.googlesource.com/platform/frameworks/support/+/9eee6ba/v7/appcompat/src/android/support/v7/widget/Toolbar.java#963
  */
-internal val appCompatToolbarBackButtonFingerprint by fingerprint {
+internal val appCompatToolbarBackButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/graphics/drawable/Drawable;")
     parameters()
@@ -43,7 +43,7 @@ internal val appCompatToolbarBackButtonFingerprint by fingerprint {
 /**
  * Matches to the class found in [pivotBarConstructorFingerprint].
  */
-internal val initializeButtonsFingerprint by fingerprint {
+internal val initializeButtonsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     instructions(
@@ -55,7 +55,7 @@ internal val initializeButtonsFingerprint by fingerprint {
  * Extension method, used for callback into to other patches.
  * Specifically, [navigationButtonsPatch].
  */
-internal val navigationBarHookCallbackFingerprint by fingerprint {
+internal val navigationBarHookCallbackFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("V")
     parameters(EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR, "Landroid/view/View;")
@@ -68,7 +68,7 @@ internal val navigationBarHookCallbackFingerprint by fingerprint {
 /**
  * Matches to the Enum class that looks up ordinal -> instance.
  */
-internal val navigationEnumFingerprint by fingerprint {
+internal val navigationEnumFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     strings(
         "PIVOT_HOME",
@@ -81,7 +81,7 @@ internal val navigationEnumFingerprint by fingerprint {
     )
 }
 
-internal val pivotBarButtonsCreateDrawableViewFingerprint by fingerprint {
+internal val pivotBarButtonsCreateDrawableViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     custom { method, _ ->
@@ -91,7 +91,7 @@ internal val pivotBarButtonsCreateDrawableViewFingerprint by fingerprint {
     }
 }
 
-internal val pivotBarButtonsCreateResourceStyledViewFingerprint by fingerprint {
+internal val pivotBarButtonsCreateResourceStyledViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     parameters("L", "Z", "I", "L")
@@ -103,7 +103,7 @@ internal val pivotBarButtonsCreateResourceStyledViewFingerprint by fingerprint {
 /**
  * 20.21+
  */
-internal val pivotBarButtonsCreateResourceIntViewFingerprint by fingerprint {
+internal val pivotBarButtonsCreateResourceIntViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     custom { method, _ ->
@@ -113,7 +113,7 @@ internal val pivotBarButtonsCreateResourceIntViewFingerprint by fingerprint {
     }
 }
 
-internal val pivotBarButtonsViewSetSelectedFingerprint by fingerprint {
+internal val pivotBarButtonsViewSetSelectedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("I", "Z")
@@ -125,14 +125,14 @@ internal val pivotBarButtonsViewSetSelectedFingerprint by fingerprint {
     }
 }
 
-internal val pivotBarConstructorFingerprint by fingerprint {
+internal val pivotBarConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         string("com.google.android.apps.youtube.app.endpoint.flags"),
     )
 }
 
-internal val imageEnumConstructorFingerprint by fingerprint {
+internal val imageEnumConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
         string("TAB_ACTIVITY_CAIRO"),
@@ -140,7 +140,7 @@ internal val imageEnumConstructorFingerprint by fingerprint {
     )
 }
 
-internal val setEnumMapFingerprint by fingerprint {
+internal val setEnumMapFingerprint = fingerprint {
     instructions(
         resourceLiteral(ResourceType.DRAWABLE, "yt_fill_bell_black_24"),
         methodCall(smali = "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;", maxAfter = 10),

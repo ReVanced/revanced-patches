@@ -8,7 +8,7 @@ import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val licenseActivityOnCreateFingerprint by fingerprint {
+internal val licenseActivityOnCreateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/os/Bundle;")
@@ -17,7 +17,7 @@ internal val licenseActivityOnCreateFingerprint by fingerprint {
     }
 }
 
-internal val setThemeFingerprint by fingerprint {
+internal val setThemeFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters()
@@ -26,7 +26,7 @@ internal val setThemeFingerprint by fingerprint {
     )
 }
 
-internal val cairoFragmentConfigFingerprint by fingerprint {
+internal val cairoFragmentConfigFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(
@@ -37,7 +37,7 @@ internal val cairoFragmentConfigFingerprint by fingerprint {
 
 // Flag is present in 20.23, but bold icons are missing and forcing them crashes the app.
 // 20.31 is the first target with all the bold icons present.
-internal val boldIconsFeatureFlagFingerprint by fingerprint {
+internal val boldIconsFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()

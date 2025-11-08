@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.interaction.doubletap
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val seekTypeEnumFingerprint by fingerprint {
+internal val seekTypeEnumFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     strings(
         "SEEK_SOURCE_SEEK_TO_NEXT_CHAPTER",
@@ -11,7 +11,7 @@ internal val seekTypeEnumFingerprint by fingerprint {
     )
 }
 
-internal val doubleTapInfoCtorFingerprint by fingerprint {
+internal val doubleTapInfoCtorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters(
         "Landroid/view/MotionEvent;",

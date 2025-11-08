@@ -2,7 +2,7 @@ package app.revanced.patches.instagram.hide.stories
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val getOrCreateAvatarViewFingerprint by fingerprint {
+internal val getOrCreateAvatarViewFingerprint = fingerprint {
         parameters()
         returns("L")
         custom { method, classDef ->

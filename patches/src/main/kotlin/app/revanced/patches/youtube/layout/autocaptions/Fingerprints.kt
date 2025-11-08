@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val startVideoInformerFingerprint by fingerprint {
+internal val startVideoInformerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     opcodes(
@@ -14,14 +14,14 @@ internal val startVideoInformerFingerprint by fingerprint {
     strings("pc")
 }
 
-internal val storyboardRendererDecoderRecommendedLevelFingerprint by fingerprint {
+internal val storyboardRendererDecoderRecommendedLevelFingerprint = fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("L")
     strings("#-1#")
 }
 
-internal val subtitleTrackFingerprint by fingerprint {
+internal val subtitleTrackFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()

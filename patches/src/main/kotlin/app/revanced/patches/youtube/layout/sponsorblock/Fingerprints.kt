@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val appendTimeFingerprint by fingerprint {
+internal val appendTimeFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;")
@@ -26,7 +26,7 @@ internal val appendTimeFingerprint by fingerprint {
     )
 }
 
-internal val controlsOverlayFingerprint by fingerprint {
+internal val controlsOverlayFingerprint = fingerprint {
     returns("V")
     parameters()
     instructions(
@@ -38,7 +38,7 @@ internal val controlsOverlayFingerprint by fingerprint {
 /**
  * Resolves to the class found in [seekbarFingerprint].
  */
-internal val rectangleFieldInvalidatorFingerprint by fingerprint {
+internal val rectangleFieldInvalidatorFingerprint = fingerprint {
     returns("V")
     parameters()
     instructions(
@@ -46,7 +46,7 @@ internal val rectangleFieldInvalidatorFingerprint by fingerprint {
     )
 }
 
-internal val adProgressTextViewVisibilityFingerprint by fingerprint {
+internal val adProgressTextViewVisibilityFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Z")

@@ -5,7 +5,7 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val httpClientBuilderFingerprint by fingerprint {
+internal val httpClientBuilderFingerprint = fingerprint {
     strings("client == null", "scheduler == null")
 }
 

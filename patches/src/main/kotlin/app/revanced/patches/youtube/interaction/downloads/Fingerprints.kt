@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val offlineVideoEndpointFingerprint by fingerprint {
+internal val offlineVideoEndpointFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters(

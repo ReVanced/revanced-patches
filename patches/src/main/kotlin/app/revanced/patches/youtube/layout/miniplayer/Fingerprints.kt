@@ -24,14 +24,14 @@ internal const val MINIPLAYER_INITIAL_SIZE_FEATURE_KEY = 45640023L
 internal const val MINIPLAYER_DISABLED_FEATURE_KEY = 45657015L
 internal const val MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY = 45644360L
 
-internal val miniplayerModernConstructorFingerprint by fingerprint {
+internal val miniplayerModernConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         literal(45623000L) // Magic number found in the constructor.
     )
 }
 
-internal val miniplayerDimensionsCalculatorParentFingerprint by fingerprint {
+internal val miniplayerDimensionsCalculatorParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
@@ -40,7 +40,7 @@ internal val miniplayerDimensionsCalculatorParentFingerprint by fingerprint {
     )
 }
 
-internal val miniplayerModernViewParentFingerprint by fingerprint {
+internal val miniplayerModernViewParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters()
@@ -52,7 +52,7 @@ internal val miniplayerModernViewParentFingerprint by fingerprint {
 /**
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernAddViewListenerFingerprint by fingerprint {
+internal val miniplayerModernAddViewListenerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/view/View;")
@@ -61,7 +61,7 @@ internal val miniplayerModernAddViewListenerFingerprint by fingerprint {
 /**
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernCloseButtonFingerprint by fingerprint {
+internal val miniplayerModernCloseButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters()
@@ -74,7 +74,7 @@ internal val miniplayerModernCloseButtonFingerprint by fingerprint {
 /**
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernExpandButtonFingerprint by fingerprint {
+internal val miniplayerModernExpandButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters()
@@ -87,7 +87,7 @@ internal val miniplayerModernExpandButtonFingerprint by fingerprint {
 /**
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernExpandCloseDrawablesFingerprint by fingerprint {
+internal val miniplayerModernExpandCloseDrawablesFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L")
@@ -99,7 +99,7 @@ internal val miniplayerModernExpandCloseDrawablesFingerprint by fingerprint {
 /**
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernForwardButtonFingerprint by fingerprint {
+internal val miniplayerModernForwardButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters()
@@ -109,7 +109,7 @@ internal val miniplayerModernForwardButtonFingerprint by fingerprint {
     )
 }
 
-internal val miniplayerModernOverlayViewFingerprint by fingerprint {
+internal val miniplayerModernOverlayViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     instructions(
@@ -121,7 +121,7 @@ internal val miniplayerModernOverlayViewFingerprint by fingerprint {
 /**
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernRewindButtonFingerprint by fingerprint {
+internal val miniplayerModernRewindButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters()
@@ -134,7 +134,7 @@ internal val miniplayerModernRewindButtonFingerprint by fingerprint {
 /**
  * Matches using the class found in [miniplayerModernViewParentFingerprint].
  */
-internal val miniplayerModernActionButtonFingerprint by fingerprint {
+internal val miniplayerModernActionButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters()
@@ -144,7 +144,7 @@ internal val miniplayerModernActionButtonFingerprint by fingerprint {
     )
 }
 
-internal val miniplayerMinimumSizeFingerprint by fingerprint {
+internal val miniplayerMinimumSizeFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         resourceLiteral(ResourceType.DIMEN, "miniplayer_max_size"),
@@ -153,7 +153,7 @@ internal val miniplayerMinimumSizeFingerprint by fingerprint {
     )
 }
 
-internal val miniplayerOverrideFingerprint by fingerprint {
+internal val miniplayerOverrideFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     instructions(
@@ -166,7 +166,7 @@ internal val miniplayerOverrideFingerprint by fingerprint {
     )
 }
 
-internal val miniplayerOverrideNoContextFingerprint by fingerprint {
+internal val miniplayerOverrideNoContextFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("Z")
     instructions(
@@ -177,7 +177,7 @@ internal val miniplayerOverrideNoContextFingerprint by fingerprint {
 /**
  * 20.36 and lower. Codes appears to be removed in 20.37+
  */
-internal val miniplayerResponseModelSizeCheckFingerprint by fingerprint {
+internal val miniplayerResponseModelSizeCheckFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("Ljava/lang/Object;", "Ljava/lang/Object;")
@@ -191,7 +191,7 @@ internal val miniplayerResponseModelSizeCheckFingerprint by fingerprint {
     )
 }
 
-internal val miniplayerOnCloseHandlerFingerprint by fingerprint {
+internal val miniplayerOnCloseHandlerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(
@@ -202,13 +202,13 @@ internal val miniplayerOnCloseHandlerFingerprint by fingerprint {
 internal const val YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME =
     "Lcom/google/android/apps/youtube/app/common/player/overlay/YouTubePlayerOverlaysLayout;"
 
-internal val playerOverlaysLayoutFingerprint by fingerprint {
+internal val playerOverlaysLayoutFingerprint = fingerprint {
     custom { method, _ ->
         method.definingClass == YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME
     }
 }
 
-internal val miniplayerSetIconsFingerprint by fingerprint {
+internal val miniplayerSetIconsFingerprint = fingerprint {
     returns("V")
     parameters("I", "Ljava/lang/Runnable;")
     instructions(

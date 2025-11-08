@@ -9,15 +9,15 @@ internal fun baseClientIdFingerprint(string: String) = fingerprint {
     strings("yyOCBp.RHJhDKd", string)
 }
 
-internal val basicAuthorizationFingerprint by baseClientIdFingerprint(
+internal val basicAuthorizationFingerprint = baseClientIdFingerprint(
     string = "fJOxVwBUyo*=f:<OoejWs:AqmIJ", // Encrypted basic authorization string.
 )
 
-internal val buildAuthorizationStringFingerprint by baseClientIdFingerprint(
+internal val buildAuthorizationStringFingerprint = baseClientIdFingerprint(
     string = "client_id",
 )
 
-internal val getUserAgentFingerprint by fingerprint {
+internal val getUserAgentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters()

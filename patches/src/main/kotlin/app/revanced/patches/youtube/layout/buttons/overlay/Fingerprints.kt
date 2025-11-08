@@ -7,28 +7,28 @@ import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val mediaRouteButtonFingerprint by fingerprint {
+internal val mediaRouteButtonFingerprint = fingerprint {
     parameters("I")
     custom { methodDef, _ ->
         methodDef.definingClass.endsWith("/MediaRouteButton;") && methodDef.name == "setVisibility"
     }
 }
 
-internal val castButtonPlayerFeatureFlagFingerprint by fingerprint {
+internal val castButtonPlayerFeatureFlagFingerprint = fingerprint {
     returns("Z")
     instructions(
         literal(45690091)
     )
 }
 
-internal val castButtonActionFeatureFlagFingerprint by fingerprint {
+internal val castButtonActionFeatureFlagFingerprint = fingerprint {
     returns("Z")
     instructions(
         literal(45690090)
     )
 }
 
-internal val inflateControlsGroupLayoutStubFingerprint by fingerprint {
+internal val inflateControlsGroupLayoutStubFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     returns("V")

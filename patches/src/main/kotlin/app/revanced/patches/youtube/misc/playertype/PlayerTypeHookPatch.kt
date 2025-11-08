@@ -22,7 +22,7 @@ val playerTypeHookPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch, resourceMappingPatch)
 
     execute {
-        val playerOverlaysSetPlayerTypeFingerprint by fingerprint {
+        val playerOverlaysSetPlayerTypeFingerprint = fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             returns("V")
             parameters(playerTypeEnumFingerprint.originalClassDef.type)
@@ -50,7 +50,7 @@ val playerTypeHookPatch = bytecodePatch(
 
         val controlStateType = controlsStateToStringFingerprint.originalClassDef.type
 
-        val videoStateFingerprint by fingerprint {
+        val videoStateFingerprint = fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             returns("V")
             parameters(controlStateType)

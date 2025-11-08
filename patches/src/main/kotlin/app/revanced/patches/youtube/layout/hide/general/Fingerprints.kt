@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * 20.26+
  */
-internal val hideShowMoreButtonFingerprint by fingerprint {
+internal val hideShowMoreButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL, AccessFlags.SYNTHETIC)
     returns("V")
     parameters("L", "Ljava/lang/Object;")
@@ -26,7 +26,7 @@ internal val hideShowMoreButtonFingerprint by fingerprint {
     )
 }
 
-internal val hideShowMoreLegacyButtonFingerprint by fingerprint {
+internal val hideShowMoreLegacyButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         resourceLiteral(ResourceType.LAYOUT, "expand_button_down"),
@@ -35,7 +35,7 @@ internal val hideShowMoreLegacyButtonFingerprint by fingerprint {
     )
 }
 
-internal val parseElementFromBufferFingerprint by fingerprint {
+internal val parseElementFromBufferFingerprint = fingerprint {
     parameters("L", "L", "[B", "L", "L")
     instructions(
         opcode(Opcode.IGET_OBJECT),
@@ -46,7 +46,7 @@ internal val parseElementFromBufferFingerprint by fingerprint {
     )
 }
 
-internal val playerOverlayFingerprint by fingerprint {
+internal val playerOverlayFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     instructions(
@@ -54,7 +54,7 @@ internal val playerOverlayFingerprint by fingerprint {
     )
 }
 
-internal val showWatermarkFingerprint by fingerprint {
+internal val showWatermarkFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "L")
@@ -63,7 +63,7 @@ internal val showWatermarkFingerprint by fingerprint {
 /**
  * Matches same method as [wideSearchbarLayoutFingerprint].
  */
-internal val yoodlesImageViewFingerprint by fingerprint {
+internal val yoodlesImageViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     parameters("L", "L")
@@ -72,7 +72,7 @@ internal val yoodlesImageViewFingerprint by fingerprint {
     )
 }
 
-internal val crowdfundingBoxFingerprint by fingerprint {
+internal val crowdfundingBoxFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.INVOKE_VIRTUAL,
@@ -82,7 +82,7 @@ internal val crowdfundingBoxFingerprint by fingerprint {
     literal { crowdfundingBoxId }
 }
 
-internal val albumCardsFingerprint by fingerprint {
+internal val albumCardsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.MOVE_RESULT_OBJECT,
@@ -95,7 +95,7 @@ internal val albumCardsFingerprint by fingerprint {
     literal { albumCardId }
 }
 
-internal val filterBarHeightFingerprint by fingerprint {
+internal val filterBarHeightFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.CONST,
@@ -106,7 +106,7 @@ internal val filterBarHeightFingerprint by fingerprint {
     literal { filterBarHeightId }
 }
 
-internal val relatedChipCloudFingerprint by fingerprint {
+internal val relatedChipCloudFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.CONST,
@@ -116,7 +116,7 @@ internal val relatedChipCloudFingerprint by fingerprint {
     literal { relatedChipCloudMarginId }
 }
 
-internal val searchResultsChipBarFingerprint by fingerprint {
+internal val searchResultsChipBarFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.CONST,
@@ -128,7 +128,7 @@ internal val searchResultsChipBarFingerprint by fingerprint {
     literal { barContainerHeightId }
 }
 
-internal val showFloatingMicrophoneButtonFingerprint by fingerprint {
+internal val showFloatingMicrophoneButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -139,7 +139,7 @@ internal val showFloatingMicrophoneButtonFingerprint by fingerprint {
     )
 }
 
-internal val hideViewCountFingerprint by fingerprint {
+internal val hideViewCountFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/CharSequence;")
 

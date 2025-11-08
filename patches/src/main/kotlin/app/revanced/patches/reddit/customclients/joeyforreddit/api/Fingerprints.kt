@@ -4,7 +4,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
 
-internal val authUtilityUserAgentFingerprint by fingerprint {
+internal val authUtilityUserAgentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     opcodes(Opcode.APUT_OBJECT)
@@ -13,7 +13,7 @@ internal val authUtilityUserAgentFingerprint by fingerprint {
     }
 }
 
-internal val getClientIdFingerprint by fingerprint {
+internal val getClientIdFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("L")
     opcodes(

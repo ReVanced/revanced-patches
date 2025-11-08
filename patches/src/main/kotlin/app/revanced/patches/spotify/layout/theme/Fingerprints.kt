@@ -4,21 +4,21 @@ import app.revanced.patcher.fingerprint
 import app.revanced.util.containsLiteralInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val colorSpaceUtilsClassFingerprint by fingerprint {
+internal val colorSpaceUtilsClassFingerprint = fingerprint {
     strings("The specified color must be encoded in an RGB color space.") // Partial string match.
 }
 
-internal val convertArgbToRgbaFingerprint by fingerprint {
+internal val convertArgbToRgbaFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL)
     returns("J")
     parameters("J")
 }
 
-internal val parseLottieJsonFingerprint by fingerprint {
+internal val parseLottieJsonFingerprint = fingerprint {
     strings("Unsupported matte type: ")
 }
 
-internal val parseAnimatedColorFingerprint by fingerprint {
+internal val parseAnimatedColorFingerprint = fingerprint {
     parameters("L", "F")
     returns("Ljava/lang/Object;")
     custom { method, _ ->

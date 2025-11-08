@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val onFailureFingerprint by fingerprint {
+internal val onFailureFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters(
@@ -19,7 +19,7 @@ internal val onFailureFingerprint by fingerprint {
 }
 
 // Acts as a parent fingerprint.
-internal val onResponseStartedFingerprint by fingerprint {
+internal val onResponseStartedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
@@ -34,7 +34,7 @@ internal val onResponseStartedFingerprint by fingerprint {
     }
 }
 
-internal val onSucceededFingerprint by fingerprint {
+internal val onSucceededFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
@@ -45,19 +45,19 @@ internal val onSucceededFingerprint by fingerprint {
 
 internal const val CRONET_URL_REQUEST_CLASS_DESCRIPTOR = "Lorg/chromium/net/impl/CronetUrlRequest;"
 
-internal val requestFingerprint by fingerprint {
+internal val requestFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     custom { _, classDef ->
         classDef.type == CRONET_URL_REQUEST_CLASS_DESCRIPTOR
     }
 }
 
-internal val messageDigestImageUrlFingerprint by fingerprint {
+internal val messageDigestImageUrlFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("Ljava/lang/String;", "L")
 }
 
-internal val messageDigestImageUrlParentFingerprint by fingerprint {
+internal val messageDigestImageUrlParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters()

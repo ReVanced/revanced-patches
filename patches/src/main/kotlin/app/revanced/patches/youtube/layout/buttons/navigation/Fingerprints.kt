@@ -8,7 +8,7 @@ import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val addCreateButtonViewFingerprint by fingerprint {
+internal val addCreateButtonViewFingerprint = fingerprint {
     instructions(
         string("Android Wear"),
         opcode(Opcode.IF_EQZ),
@@ -16,7 +16,7 @@ internal val addCreateButtonViewFingerprint by fingerprint {
     )
 }
 
-internal val createPivotBarFingerprint by fingerprint {
+internal val createPivotBarFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters(
         "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;",
@@ -29,7 +29,7 @@ internal val createPivotBarFingerprint by fingerprint {
     )
 }
 
-internal val animatedNavigationTabsFeatureFlagFingerprint by fingerprint {
+internal val animatedNavigationTabsFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(
@@ -37,7 +37,7 @@ internal val animatedNavigationTabsFeatureFlagFingerprint by fingerprint {
     )
 }
 
-internal val translucentNavigationStatusBarFeatureFlagFingerprint by fingerprint {
+internal val translucentNavigationStatusBarFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(
@@ -48,7 +48,7 @@ internal val translucentNavigationStatusBarFeatureFlagFingerprint by fingerprint
 /**
  * YouTube nav buttons.
  */
-internal val translucentNavigationButtonsFeatureFlagFingerprint by fingerprint {
+internal val translucentNavigationButtonsFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     instructions(
@@ -59,7 +59,7 @@ internal val translucentNavigationButtonsFeatureFlagFingerprint by fingerprint {
 /**
  * Device on screen back/home/recent buttons.
  */
-internal val translucentNavigationButtonsSystemFeatureFlagFingerprint by fingerprint {
+internal val translucentNavigationButtonsSystemFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(

@@ -6,7 +6,7 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val infocardsIncognitoFingerprint by fingerprint {
+internal val infocardsIncognitoFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/Boolean;")
     parameters("L", "J")
@@ -15,7 +15,7 @@ internal val infocardsIncognitoFingerprint by fingerprint {
     )
 }
 
-internal val infocardsIncognitoParentFingerprint by fingerprint {
+internal val infocardsIncognitoParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     instructions(
@@ -23,7 +23,7 @@ internal val infocardsIncognitoParentFingerprint by fingerprint {
     )
 }
 
-internal val infocardsMethodCallFingerprint by fingerprint {
+internal val infocardsMethodCallFingerprint = fingerprint {
     opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.IGET_OBJECT,

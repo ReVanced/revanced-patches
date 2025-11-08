@@ -225,7 +225,7 @@ val seekbarColorPatch = bytecodePatch(
                 factoryStreamReturnType = returnType
             }
 
-            val lottieAnimationViewSetAnimationStreamFingerprint by fingerprint {
+            val lottieAnimationViewSetAnimationStreamFingerprint = fingerprint {
                 accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
                 parameters(factoryStreamReturnType.toString())
                 returns("V")

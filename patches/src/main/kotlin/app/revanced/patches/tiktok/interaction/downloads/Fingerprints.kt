@@ -3,7 +3,7 @@ package app.revanced.patches.tiktok.interaction.downloads
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val aclCommonShareFingerprint by fingerprint {
+internal val aclCommonShareFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("I")
     custom { method, classDef ->
@@ -12,7 +12,7 @@ internal val aclCommonShareFingerprint by fingerprint {
     }
 }
 
-internal val aclCommonShare2Fingerprint by fingerprint {
+internal val aclCommonShare2Fingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("I")
     custom { method, classDef ->
@@ -21,7 +21,7 @@ internal val aclCommonShare2Fingerprint by fingerprint {
     }
 }
 
-internal val aclCommonShare3Fingerprint by fingerprint {
+internal val aclCommonShare3Fingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("I")
     custom { method, classDef ->
@@ -30,7 +30,7 @@ internal val aclCommonShare3Fingerprint by fingerprint {
     }
 }
 
-internal val downloadUriFingerprint by fingerprint {
+internal val downloadUriFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Landroid/net/Uri;")
     parameters(

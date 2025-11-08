@@ -8,13 +8,13 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import org.stringtemplate.v4.compiler.Bytecode.instructions
 
-internal val mediaRouteButtonFingerprint by fingerprint {
+internal val mediaRouteButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("Z")
     strings("MediaRouteButton")
 }
 
-internal val playerOverlayChipFingerprint by fingerprint {
+internal val playerOverlayChipFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     instructions(

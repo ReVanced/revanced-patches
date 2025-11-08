@@ -10,7 +10,7 @@ import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val playerControlsVisibilityEntityModelFingerprint by fingerprint {
+internal val playerControlsVisibilityEntityModelFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("L")
     parameters()
@@ -23,7 +23,7 @@ internal val playerControlsVisibilityEntityModelFingerprint by fingerprint {
     }
 }
 
-internal val youtubeControlsOverlayFingerprint by fingerprint {
+internal val youtubeControlsOverlayFingerprint = fingerprint {
     returns("V")
     parameters()
     instructions(
@@ -33,7 +33,7 @@ internal val youtubeControlsOverlayFingerprint by fingerprint {
     )
 }
 
-internal val motionEventFingerprint by fingerprint {
+internal val motionEventFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/view/MotionEvent;")
     instructions(
@@ -41,7 +41,7 @@ internal val motionEventFingerprint by fingerprint {
     )
 }
 
-internal val playerControlsExtensionHookListenersExistFingerprint by fingerprint {
+internal val playerControlsExtensionHookListenersExistFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("Z")
     parameters()
@@ -51,7 +51,7 @@ internal val playerControlsExtensionHookListenersExistFingerprint by fingerprint
     }
 }
 
-internal val playerControlsExtensionHookFingerprint by fingerprint {
+internal val playerControlsExtensionHookFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returns("V")
     parameters("Z")
@@ -61,7 +61,7 @@ internal val playerControlsExtensionHookFingerprint by fingerprint {
     }
 }
 
-internal val playerTopControlsInflateFingerprint by fingerprint {
+internal val playerTopControlsInflateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()
@@ -72,7 +72,7 @@ internal val playerTopControlsInflateFingerprint by fingerprint {
     )
 }
 
-internal val playerBottomControlsInflateFingerprint by fingerprint {
+internal val playerBottomControlsInflateFingerprint = fingerprint {
     returns("Ljava/lang/Object;")
     parameters()
     instructions(
@@ -82,7 +82,7 @@ internal val playerBottomControlsInflateFingerprint by fingerprint {
     )
 }
 
-internal val overlayViewInflateFingerprint by fingerprint {
+internal val overlayViewInflateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/view/View;")
@@ -96,13 +96,13 @@ internal val overlayViewInflateFingerprint by fingerprint {
 /**
  * Resolves to the class found in [playerTopControlsInflateFingerprint].
  */
-internal val controlsOverlayVisibilityFingerprint by fingerprint {
+internal val controlsOverlayVisibilityFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
     parameters("Z", "Z")
 }
 
-internal val playerBottomControlsExploderFeatureFlagFingerprint by fingerprint {
+internal val playerBottomControlsExploderFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
@@ -111,7 +111,7 @@ internal val playerBottomControlsExploderFeatureFlagFingerprint by fingerprint {
     )
 }
 
-internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint by fingerprint {
+internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("I")
     parameters()
@@ -120,7 +120,7 @@ internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint by finger
     )
 }
 
-internal val playerControlsLargeOverlayButtonsFeatureFlagFingerprint by fingerprint {
+internal val playerControlsLargeOverlayButtonsFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
@@ -129,7 +129,7 @@ internal val playerControlsLargeOverlayButtonsFeatureFlagFingerprint by fingerpr
     )
 }
 
-internal val playerControlsFullscreenLargeButtonsFeatureFlagFingerprint by fingerprint {
+internal val playerControlsFullscreenLargeButtonsFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
@@ -138,7 +138,7 @@ internal val playerControlsFullscreenLargeButtonsFeatureFlagFingerprint by finge
     )
 }
 
-internal val playerControlsButtonStrokeFeatureFlagFingerprint by fingerprint {
+internal val playerControlsButtonStrokeFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()

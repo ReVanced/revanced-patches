@@ -6,7 +6,7 @@ import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.youtube.layout.hide.general.yoodlesImageViewFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val setWordmarkHeaderFingerprint by fingerprint {
+internal val setWordmarkHeaderFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/widget/ImageView;")
@@ -19,7 +19,7 @@ internal val setWordmarkHeaderFingerprint by fingerprint {
 /**
  * Matches the same method as [yoodlesImageViewFingerprint].
  */
-internal val wideSearchbarLayoutFingerprint by fingerprint {
+internal val wideSearchbarLayoutFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     parameters("L", "L")

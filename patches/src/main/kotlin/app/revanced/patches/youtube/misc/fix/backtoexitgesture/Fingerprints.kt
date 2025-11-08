@@ -8,7 +8,7 @@ import app.revanced.patcher.opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val scrollPositionFingerprint by fingerprint {
+internal val scrollPositionFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("V")
     parameters("L")
@@ -20,7 +20,7 @@ internal val scrollPositionFingerprint by fingerprint {
     strings("scroll_position")
 }
 
-internal val recyclerViewTopScrollingFingerprint by fingerprint {
+internal val recyclerViewTopScrollingFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters()

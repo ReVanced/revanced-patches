@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 
 internal const val YOUTUBE_MUSIC_MAIN_ACTIVITY_CLASS_TYPE = "Lcom/google/android/apps/youtube/music/activities/MusicActivity;"
 
-internal val mainActivityOnCreateFingerprint by fingerprint {
+internal val mainActivityOnCreateFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/os/Bundle;")
     custom { method, classDef ->

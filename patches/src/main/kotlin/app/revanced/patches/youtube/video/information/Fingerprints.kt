@@ -9,14 +9,14 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-internal val createVideoPlayerSeekbarFingerprint by fingerprint {
+internal val createVideoPlayerSeekbarFingerprint = fingerprint {
     returns("V")
     instructions(
         string("timed_markers_width"),
     )
 }
 
-internal val onPlaybackSpeedItemClickFingerprint by fingerprint {
+internal val onPlaybackSpeedItemClickFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "L", "I", "J")
@@ -29,12 +29,12 @@ internal val onPlaybackSpeedItemClickFingerprint by fingerprint {
     }
 }
 
-internal val playerControllerSetTimeReferenceFingerprint by fingerprint {
+internal val playerControllerSetTimeReferenceFingerprint = fingerprint {
     opcodes(Opcode.INVOKE_DIRECT_RANGE, Opcode.IGET_OBJECT)
     strings("Media progress reported outside media playback: ")
 }
 
-internal val playerInitFingerprint by fingerprint {
+internal val playerInitFingerprint = fingerprint {
     instructions(
         string("playVideo called on player response with no videoStreamingData."),
     )
@@ -43,13 +43,13 @@ internal val playerInitFingerprint by fingerprint {
 /**
  * Matched using class found in [playerInitFingerprint].
  */
-internal val seekFingerprint by fingerprint {
+internal val seekFingerprint = fingerprint {
     instructions(
         string("Attempting to seek during an ad"),
     )
 }
 
-internal val videoLengthFingerprint by fingerprint {
+internal val videoLengthFingerprint = fingerprint {
     opcodes(
         Opcode.MOVE_RESULT_WIDE,
         Opcode.CMP_LONG,
@@ -69,7 +69,7 @@ internal val videoLengthFingerprint by fingerprint {
 /**
  * Matches using class found in [mdxPlayerDirectorSetVideoStageFingerprint].
  */
-internal val mdxSeekFingerprint by fingerprint {
+internal val mdxSeekFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters("J", "L")
@@ -86,7 +86,7 @@ internal val mdxSeekFingerprint by fingerprint {
     }
 }
 
-internal val mdxPlayerDirectorSetVideoStageFingerprint by fingerprint {
+internal val mdxPlayerDirectorSetVideoStageFingerprint = fingerprint {
     instructions(
         string("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state "),
     )
@@ -95,7 +95,7 @@ internal val mdxPlayerDirectorSetVideoStageFingerprint by fingerprint {
 /**
  * Matches using class found in [mdxPlayerDirectorSetVideoStageFingerprint].
  */
-internal val mdxSeekRelativeFingerprint by fingerprint {
+internal val mdxSeekRelativeFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     // Return type is boolean up to 19.39, and void with 19.39+.
     parameters("J", "L")
@@ -108,7 +108,7 @@ internal val mdxSeekRelativeFingerprint by fingerprint {
 /**
  * Matches using class found in [playerInitFingerprint].
  */
-internal val seekRelativeFingerprint by fingerprint {
+internal val seekRelativeFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     // Return type is boolean up to 19.39, and void with 19.39+.
     parameters("J", "L")
@@ -121,7 +121,7 @@ internal val seekRelativeFingerprint by fingerprint {
 /**
  * Resolves with the class found in [videoQualityChangedFingerprint].
  */
-internal val playbackSpeedMenuSpeedChangedFingerprint by fingerprint {
+internal val playbackSpeedMenuSpeedChangedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L")
@@ -130,7 +130,7 @@ internal val playbackSpeedMenuSpeedChangedFingerprint by fingerprint {
     )
 }
 
-internal val playbackSpeedClassFingerprint by fingerprint {
+internal val playbackSpeedClassFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("L")
     parameters("L")
@@ -146,7 +146,7 @@ internal const val YOUTUBE_VIDEO_QUALITY_CLASS_TYPE = "Lcom/google/android/libra
 /**
  * YouTube 20.19 and lower.
  */
-internal val videoQualityLegacyFingerprint by fingerprint {
+internal val videoQualityLegacyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters(
         "I", // Resolution.
@@ -159,7 +159,7 @@ internal val videoQualityLegacyFingerprint by fingerprint {
     }
 }
 
-internal val videoQualityFingerprint by fingerprint {
+internal val videoQualityFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters(
         "I", // Resolution.
@@ -173,7 +173,7 @@ internal val videoQualityFingerprint by fingerprint {
     }
 }
 
-internal val videoQualitySetterFingerprint by fingerprint {
+internal val videoQualitySetterFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("[L", "I", "Z")
@@ -190,7 +190,7 @@ internal val videoQualitySetterFingerprint by fingerprint {
 /**
  * Matches with the class found in [videoQualitySetterFingerprint].
  */
-internal val setVideoQualityFingerprint by fingerprint {
+internal val setVideoQualityFingerprint = fingerprint {
     returns("V")
     parameters("L")
     opcodes(

@@ -12,6 +12,6 @@ internal val FEED_ITEM_KEYS_TO_BE_HIDDEN = arrayOf(
     "suggested_users",
 )
 
-internal val feedItemParseFromJsonFingerprint by fingerprint {
+internal val feedItemParseFromJsonFingerprint = fingerprint {
     strings(*FEED_ITEM_KEYS_TO_BE_HIDDEN, "FeedItem")
 }

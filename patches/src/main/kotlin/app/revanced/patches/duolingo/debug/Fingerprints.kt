@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val debugCategoryAllowOnReleaseBuildsFingerprint by fingerprint {
+internal val debugCategoryAllowOnReleaseBuildsFingerprint = fingerprint {
     returns("Z")
     parameters()
     custom { method, classDef ->
@@ -12,13 +12,13 @@ internal val debugCategoryAllowOnReleaseBuildsFingerprint by fingerprint {
     }
 }
 
-internal val buildConfigProviderConstructorFingerprint by fingerprint {
+internal val buildConfigProviderConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters()
     opcodes(Opcode.CONST_4)
 }
 
-internal val buildConfigProviderToStringFingerprint by fingerprint {
+internal val buildConfigProviderToStringFingerprint = fingerprint {
     parameters()
     returns("Ljava/lang/String;")
     strings("BuildConfigProvider(") // Partial string match.

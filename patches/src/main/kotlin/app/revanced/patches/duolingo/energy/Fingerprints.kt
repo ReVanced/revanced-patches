@@ -7,13 +7,13 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * Matches the class found in [energyConfigToStringFingerprint].
  */
-internal val initializeEnergyConfigFingerprint by fingerprint {
+internal val initializeEnergyConfigFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(Opcode.RETURN_VOID)
 }
 
 // Class name currently is not obfuscated but it may be in the future.
-internal val energyConfigToStringFingerprint by fingerprint {
+internal val energyConfigToStringFingerprint = fingerprint {
     parameters()
     returns("Ljava/lang/String;")
     strings("EnergyConfig(", "maxEnergy=") // Partial string matches.

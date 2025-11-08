@@ -7,7 +7,7 @@ import app.revanced.patcher.opcode
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val timeCounterFingerprint by fingerprint {
+internal val timeCounterFingerprint = fingerprint {
     returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()

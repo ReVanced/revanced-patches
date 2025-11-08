@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.Opcode
  * the obfuscated name of the videoId() method in PlaybackStartDescriptor.
  * 20.38 and lower.
  */
-internal val playbackStartFeatureFlagFingerprint by fingerprint {
+internal val playbackStartFeatureFlagFingerprint = fingerprint {
     returns("Z")
     parameters(
         "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
@@ -35,7 +35,7 @@ internal val playbackStartFeatureFlagFingerprint by fingerprint {
  * the obfuscated name of the videoId() method in PlaybackStartDescriptor.
  * 20.39+
  */
-internal val watchPanelVideoIdFingerprint by fingerprint {
+internal val watchPanelVideoIdFingerprint = fingerprint {
     returns("Ljava/lang/String;")
     parameters()
     instructions(
@@ -57,7 +57,7 @@ internal val watchPanelVideoIdFingerprint by fingerprint {
 
 
 // Pre 19.25
-internal val shortsPlaybackIntentLegacyFingerprint by fingerprint {
+internal val shortsPlaybackIntentLegacyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters(
@@ -77,7 +77,7 @@ internal val shortsPlaybackIntentLegacyFingerprint by fingerprint {
     )
 }
 
-internal val shortsPlaybackIntentFingerprint by fingerprint {
+internal val shortsPlaybackIntentFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("V")
     parameters(
@@ -94,7 +94,7 @@ internal val shortsPlaybackIntentFingerprint by fingerprint {
     )
 }
 
-internal val exitVideoPlayerFingerprint by fingerprint {
+internal val exitVideoPlayerFingerprint = fingerprint {
     returns("V")
     parameters()
     instructions(

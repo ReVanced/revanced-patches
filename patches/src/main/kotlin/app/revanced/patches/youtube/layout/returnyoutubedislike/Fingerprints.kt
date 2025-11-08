@@ -6,28 +6,28 @@ import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val dislikeFingerprint by fingerprint {
+internal val dislikeFingerprint = fingerprint {
     returns("V")
     instructions(
         string("like/dislike")
     )
 }
 
-internal val likeFingerprint by fingerprint {
+internal val likeFingerprint = fingerprint {
     returns("V")
     instructions(
         string("like/like")
     )
 }
 
-internal val removeLikeFingerprint by fingerprint {
+internal val removeLikeFingerprint = fingerprint {
     returns("V")
     instructions(
         string("like/removelike")
     )
 }
 
-internal val rollingNumberMeasureAnimatedTextFingerprint by fingerprint {
+internal val rollingNumberMeasureAnimatedTextFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Lj\$/util/Optional;")
     parameters("L", "Ljava/lang/String;", "L")
@@ -48,7 +48,7 @@ internal val rollingNumberMeasureAnimatedTextFingerprint by fingerprint {
 /**
  * Matches to class found in [rollingNumberMeasureStaticLabelParentFingerprint].
  */
-internal val rollingNumberMeasureStaticLabelFingerprint by fingerprint {
+internal val rollingNumberMeasureStaticLabelFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("F")
     parameters("Ljava/lang/String;")
@@ -60,7 +60,7 @@ internal val rollingNumberMeasureStaticLabelFingerprint by fingerprint {
     )
 }
 
-internal val rollingNumberMeasureStaticLabelParentFingerprint by fingerprint {
+internal val rollingNumberMeasureStaticLabelParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters()
@@ -69,7 +69,7 @@ internal val rollingNumberMeasureStaticLabelParentFingerprint by fingerprint {
     )
 }
 
-internal val rollingNumberSetterFingerprint by fingerprint {
+internal val rollingNumberSetterFingerprint = fingerprint {
     opcodes(
         Opcode.INVOKE_DIRECT,
         Opcode.IGET_OBJECT,
@@ -78,7 +78,7 @@ internal val rollingNumberSetterFingerprint by fingerprint {
     strings("RollingNumberType required properties missing! Need")
 }
 
-internal val rollingNumberTextViewFingerprint by fingerprint {
+internal val rollingNumberTextViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("L", "F", "F")
@@ -96,14 +96,14 @@ internal val rollingNumberTextViewFingerprint by fingerprint {
     }
 }
 
-internal val textComponentConstructorFingerprint by fingerprint {
+internal val textComponentConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PRIVATE)
     instructions(
         string("TextComponent")
     )
 }
 
-internal val textComponentDataFingerprint by fingerprint {
+internal val textComponentDataFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("L", "L")
     instructions(
@@ -117,7 +117,7 @@ internal val textComponentDataFingerprint by fingerprint {
 /**
  * Matches against the same class found in [textComponentConstructorFingerprint].
  */
-internal val textComponentLookupFingerprint by fingerprint {
+internal val textComponentLookupFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("L")
     parameters("L")
@@ -126,7 +126,7 @@ internal val textComponentLookupFingerprint by fingerprint {
     )
 }
 
-internal val textComponentFeatureFlagFingerprint by fingerprint {
+internal val textComponentFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.FINAL)
     returns("Z")
     parameters()

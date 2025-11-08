@@ -4,7 +4,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 
-internal val chipCloudFingerprint by fingerprint {
+internal val chipCloudFingerprint = fingerprint {
     returns("V")
     opcodes(
         Opcode.CONST,

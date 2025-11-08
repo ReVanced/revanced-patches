@@ -5,7 +5,7 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val backgroundPlaybackManagerFingerprint by fingerprint {
+internal val backgroundPlaybackManagerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Z")
     parameters("L")
@@ -38,7 +38,7 @@ internal val backgroundPlaybackManagerFingerprint by fingerprint {
     )
 }
 
-internal val backgroundPlaybackSettingsFingerprint by fingerprint {
+internal val backgroundPlaybackSettingsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters()
@@ -54,7 +54,7 @@ internal val backgroundPlaybackSettingsFingerprint by fingerprint {
     literal { prefBackgroundAndOfflineCategoryId }
 }
 
-internal val kidsBackgroundPlaybackPolicyControllerFingerprint by fingerprint {
+internal val kidsBackgroundPlaybackPolicyControllerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("I", "L", "L")
@@ -71,7 +71,7 @@ internal val kidsBackgroundPlaybackPolicyControllerFingerprint by fingerprint {
     literal { 5 }
 }
 
-internal val backgroundPlaybackManagerShortsFingerprint by fingerprint {
+internal val backgroundPlaybackManagerShortsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Z")
     parameters("L")
@@ -80,7 +80,7 @@ internal val backgroundPlaybackManagerShortsFingerprint by fingerprint {
     )
 }
 
-internal val shortsBackgroundPlaybackFeatureFlagFingerprint by fingerprint {
+internal val shortsBackgroundPlaybackFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
@@ -90,7 +90,7 @@ internal val shortsBackgroundPlaybackFeatureFlagFingerprint by fingerprint {
 }
 
 // Fix 'E/InputDispatcher: Window handle pip_input_consumer has no registered input channel'
-internal val pipInputConsumerFeatureFlagFingerprint by fingerprint {
+internal val pipInputConsumerFeatureFlagFingerprint = fingerprint {
     instructions(
         // PiP input consumer feature flag.
         app.revanced.patcher.literal(45638483L)
