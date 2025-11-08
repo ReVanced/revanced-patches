@@ -40,6 +40,7 @@ import java.util.concurrent.TimeoutException;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.youtube.returnyoutubedislike.requests.RYDVoteData;
 import app.revanced.extension.youtube.returnyoutubedislike.requests.ReturnYouTubeDislikeApi;
 import app.revanced.extension.youtube.settings.Settings;
@@ -124,12 +125,12 @@ public class ReturnYouTubeDislike {
 
     static {
         leftSeparatorBounds = new Rect(0, 0,
-                Utils.dipToPixels(1.2f),
-                Utils.dipToPixels(14f));
-        final int middleSeparatorSize = Utils.dipToPixels(3.7f);
+                Dim.dp(1.2f),
+                Dim.dp(14f));
+        final int middleSeparatorSize = Dim.dp(3.7f);
         middleSeparatorBounds = new Rect(0, 0, middleSeparatorSize, middleSeparatorSize);
 
-        leftSeparatorShapePaddingPixels = Utils.dipToPixels(8.4f);
+        leftSeparatorShapePaddingPixels = Dim.dp(8.4f);
 
         leftSeparatorShape = new ShapeDrawable(new RectShape());
         leftSeparatorShape.setBounds(leftSeparatorBounds);

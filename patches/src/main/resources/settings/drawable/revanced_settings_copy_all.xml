@@ -1,0 +1,28 @@
+<!--
+    https://github.com/google/material-design-icons/blob/bb04090f930e272697f2a1f0d7b352d92dfeee43/symbols/android/copy_all/materialsymbolsoutlined/copy_all_wght200_24px.xml
+
+    Copyright 2022 Google
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+
+    <path
+        android:fillColor="?android:attr/textColorPrimary"
+        android:pathData="M4,17.4219 L4,16.1914 L5.23047,16.1914 L5.23047,17.4219 Z M4,13.8477 L4,12.6172 L5.23047,12.6172 L5.23047,13.8477 Z M4,10.2695 L4,9.03906 L5.23047,9.03906 L5.23047,10.2695 Z M7.57813,21 L7.57813,19.7695 L8.80859,19.7695 L8.80859,21 Z M9.30859,17.3086 C8.84766,17.3086,8.46484,17.1523,8.15625,16.8438 C7.84766,16.5352,7.69141,16.1523,7.69141,15.6914 L7.69141,4.61719 C7.69141,4.15625,7.84766,3.76953,8.15625,3.46094 C8.46484,3.15234,8.84766,3,9.30859,3 L17.3828,3 C17.8438,3,18.2305,3.15234,18.5391,3.46094 C18.8477,3.76953,19,4.15625,19,4.61719 L19,15.6914 C19,16.1523,18.8477,16.5352,18.5391,16.8438 C18.2305,17.1523,17.8438,17.3086,17.3828,17.3086 Z M9.30859,16.3086 L17.3828,16.3086 C17.5391,16.3086,17.6797,16.2422,17.8086,16.1172 C17.9375,15.9883,18,15.8477,18,15.6914 L18,4.61719 C18,4.46094,17.9375,4.32031,17.8086,4.19141 C17.6797,4.0625,17.5391,4,17.3828,4 L9.30859,4 C9.15234,4,9.01172,4.0625,8.88281,4.19141 C8.75781,4.32031,8.69141,4.46094,8.69141,4.61719 L8.69141,15.6914 C8.69141,15.8477,8.75781,15.9883,8.88281,16.1172 C9.01172,16.2422,9.15234,16.3086,9.30859,16.3086 Z M11.1523,21 L11.1523,19.7695 L12.3828,19.7695 L12.3828,21 Z M5.23047,21 C4.89063,21,4.60156,20.8789,4.36328,20.6367 C4.12109,20.3984,4,20.1094,4,19.7695 L5.23047,19.7695 Z M14.7305,21 L14.7305,19.7695 L15.9609,19.7695 C15.9609,20.1133,15.8398,20.4063,15.6016,20.6445 C15.3594,20.8828,15.0703,21,14.7305,21 Z M4,6.69141 C4,6.35547,4.12109,6.0625,4.36328,5.82422 C4.60156,5.58203,4.89063,5.46094,5.23047,5.46094 L5.23047,6.69141 Z M13.3477,10.1523 Z M13.3477,10.1523" />
+</vector>

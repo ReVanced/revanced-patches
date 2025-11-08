@@ -1,7 +1,5 @@
 package app.revanced.extension.shared.ui;
 
-import static app.revanced.extension.shared.Utils.dipToPixels;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
@@ -37,7 +35,6 @@ public class CustomDialog {
     private final Context context;
     private final Dialog dialog;
     private final LinearLayout mainLayout;
-    private final int dip4, dip8, dip16, dip24, dip36;
 
     /**
      * Creates a custom dialog with a styled layout, including a title, message, buttons, and an optional EditText.
@@ -93,13 +90,6 @@ public class CustomDialog {
         this.dialog = new Dialog(context);
         this.dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // Remove default title bar.
 
-        // Preset size constants.
-        dip4 = dipToPixels(4);
-        dip8 = dipToPixels(8);
-        dip16 = dipToPixels(16);
-        dip24 = dipToPixels(24);
-        dip36 = dipToPixels(36);
-
         // Create main layout.
         mainLayout = createMainLayout();
         addTitle(title);
@@ -122,11 +112,11 @@ public class CustomDialog {
     private LinearLayout createMainLayout() {
         LinearLayout layout = new LinearLayout(context);
         layout.setOrientation(LinearLayout.VERTICAL);
-        layout.setPadding(dip24, dip16, dip24, dip24);
+        layout.setPadding(Dim.dp24, Dim.dp16, Dim.dp24, Dim.dp24);
 
         // Set rounded rectangle background.
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(28), null, null));
+                Dim.roundedCorners(28), null, null));
         // Dialog background.
         background.getPaint().setColor(Utils.getDialogBackgroundColor());
         layout.setBackground(background);
@@ -152,7 +142,7 @@ public class CustomDialog {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.setMargins(0, 0, 0, dip16);
+        params.setMargins(0, 0, 0, Dim.dp16);
         titleView.setLayoutParams(params);
 
         mainLayout.addView(titleView);
@@ -180,9 +170,9 @@ public class CustomDialog {
         // EditText (if provided).
         if (editText != null) {
             ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
-                    Utils.createCornerRadii(10), null, null));
+                    Dim.roundedCorners(10), null, null));
             background.getPaint().setColor(Utils.getEditTextBackground());
-            scrollView.setPadding(dip8, dip8, dip8, dip8);
+            scrollView.setPadding(Dim.dp8, Dim.dp8, Dim.dp8, Dim.dp8);
             scrollView.setBackground(background);
             scrollView.setClipToOutline(true);
 
@@ -241,7 +231,7 @@ public class CustomDialog {
         LinearLayout.LayoutParams buttonContainerParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        buttonContainerParams.setMargins(0, dip16, 0, 0);
+        buttonContainerParams.setMargins(0, Dim.dp16, 0, 0);
         buttonContainer.setLayoutParams(buttonContainerParams);
 
         List<Button> buttons = new ArrayList<>();
@@ -289,12 +279,12 @@ public class CustomDialog {
         button.setEllipsize(TextUtils.TruncateAt.END);
         button.setGravity(Gravity.CENTER);
         // Set internal padding.
-        button.setPadding(dip16, 0, dip16, 0);
+        button.setPadding(Dim.dp16, 0, Dim.dp16, 0);
 
         // Background color for OK button (inversion).
         // Background color for Cancel or Neutral buttons.
         ShapeDrawable background = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(20), null, null));
+                Dim.roundedCorners(20), null, null));
         background.getPaint().setColor(isOkButton
                 ? Utils.getOkButtonBackgroundColor()
                 : Utils.getCancelOrNeutralButtonBackgroundColor());
@@ -331,20 +321,19 @@ public class CustomDialog {
         if (buttons.isEmpty()) return;
 
         // Check if buttons fit in one row.
-        int screenWidth = context.getResources().getDisplayMetrics().widthPixels;
         int totalWidth = 0;
         for (Integer width : buttonWidths) {
             totalWidth += width;
         }
         if (buttonWidths.size() > 1) {
             // Add margins for gaps.
-            totalWidth += (buttonWidths.size() - 1) * dip8;
+            totalWidth += (buttonWidths.size() - 1) * Dim.dp8;
         }
 
         // Single button: stretch to full width.
         if (buttons.size() == 1) {
             layoutSingleButton(buttonContainer, buttons.get(0));
-        } else if (totalWidth <= screenWidth * 0.8) {
+        } else if (totalWidth <= Dim.pctWidth(80)) {
             // Single row: Neutral, Cancel, OK.
             layoutButtonsInRow(buttonContainer, buttons, buttonWidths);
         } else {
@@ -369,7 +358,7 @@ public class CustomDialog {
 
         button.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
-                dip36));
+                Dim.dp36));
         singleContainer.addView(button);
         buttonContainer.addView(singleContainer);
     }
@@ -405,17 +394,17 @@ public class CustomDialog {
         if (parent != null) parent.removeView(button);
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                0, dip36, buttonWidths.get(i));
+                0, Dim.dp36, buttonWidths.get(i));
 
         // Set margins based on button type and combination.
         if (buttons.size() == 2) {
             // Neutral + OK or Cancel + OK.
-            params.setMargins(i == 0 ? 0 : dip4, 0, i == 0 ? dip4 : 0, 0);
+            params.setMargins(i == 0 ? 0 : Dim.dp4, 0, i == 0 ? Dim.dp4 : 0, 0);
         } else if (buttons.size() == 3) {
             // Neutral.
             // Cancel.
             // OK.
-            params.setMargins(i == 0 ? 0 : dip4, 0, i == 2 ? 0 : dip4, 0);
+            params.setMargins(i == 0 ? 0 : Dim.dp4, 0, i == 2 ? 0 : Dim.dp4, 0);
         }
 
         button.setLayoutParams(params);
@@ -447,14 +436,14 @@ public class CustomDialog {
             singleContainer.setGravity(Gravity.CENTER);
             singleContainer.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
-                    dip36));
+                    Dim.dp36));
 
             ViewGroup parent = (ViewGroup) button.getParent();
             if (parent != null) parent.removeView(button);
 
             button.setLayoutParams(new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
-                    dip36));
+                    Dim.dp36));
             singleContainer.addView(button);
             buttonContainer.addView(singleContainer);
 
@@ -463,7 +452,7 @@ public class CustomDialog {
                 View spacer = new View(context);
                 LinearLayout.LayoutParams spacerParams = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
-                        dip8);
+                        Dim.dp8);
                 spacer.setLayoutParams(spacerParams);
                 buttonContainer.addView(spacer);
             }

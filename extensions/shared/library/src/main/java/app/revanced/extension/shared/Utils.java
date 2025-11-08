@@ -23,9 +23,7 @@ import android.os.Looper;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
-import android.util.DisplayMetrics;
 import android.util.Pair;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +61,7 @@ import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.preference.ReVancedAboutPreference;
+import app.revanced.extension.shared.ui.Dim;
 
 @SuppressWarnings("NewApi")
 public class Utils {
@@ -801,31 +800,16 @@ public class Utils {
     public static void setDialogWindowParameters(Window window, int gravity, int yOffsetDip, int widthPercentage, boolean dimAmount) {
         WindowManager.LayoutParams params = window.getAttributes();
 
-        DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
-        int portraitWidth = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
-
-        params.width = (int) (portraitWidth * (widthPercentage / 100.0f)); // Set width based on parameters.
+        params.width = Dim.pctPortraitWidth(widthPercentage);
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
         params.gravity = gravity;
-        params.y = yOffsetDip > 0 ? dipToPixels(yOffsetDip) : 0;
+        params.y = yOffsetDip > 0 ? Dim.dp(yOffsetDip) : 0;
         if (dimAmount) {
             params.dimAmount = 0f;
         }
 
         window.setAttributes(params); // Apply window attributes.
         window.setBackgroundDrawable(null); // Remove default dialog background
-    }
-
-    /**
-     * Creates an array of corner radii for a rounded rectangle shape.
-     *
-     * @param dp Radius in density-independent pixels (dip) to apply to all corners.
-     * @return An array of eight float values representing the corner radii
-     * (top-left, top-right, bottom-right, bottom-left).
-     */
-    public static float[] createCornerRadii(float dp) {
-        final float radius = dipToPixels(dp);
-        return new float[]{radius, radius, radius, radius, radius, radius, radius, radius};
     }
 
     /**
@@ -1130,42 +1114,6 @@ public class Utils {
             return Color.parseColor(colorString);
         }
         return getResourceColor(colorString);
-    }
-
-    /**
-     * Converts dip value to actual device pixels.
-     *
-     * @param dip The density-independent pixels value.
-     * @return The device pixel value.
-     */
-    public static int dipToPixels(float dip) {
-        return (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                dip,
-                Resources.getSystem().getDisplayMetrics()
-        );
-    }
-
-    /**
-     * Converts a percentage of the screen height to actual device pixels.
-     *
-     * @param percentage The percentage of the screen height (e.g., 30 for 30%).
-     * @return The device pixel value corresponding to the percentage of screen height.
-     */
-    public static int percentageHeightToPixels(int percentage) {
-        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-        return (int) (metrics.heightPixels * (percentage / 100.0f));
-    }
-
-    /**
-     * Converts a percentage of the screen width to actual device pixels.
-     *
-     * @param percentage The percentage of the screen width (e.g., 30 for 30%).
-     * @return The device pixel value corresponding to the percentage of screen width.
-     */
-    public static int percentageWidthToPixels(int percentage) {
-        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-        return (int) (metrics.widthPixels * (percentage / 100.0f));
     }
 
     /**

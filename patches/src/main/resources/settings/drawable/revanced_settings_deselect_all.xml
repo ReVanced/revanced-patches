@@ -1,0 +1,28 @@
+<!--
+    https://github.com/google/material-design-icons/blob/bb04090f930e272697f2a1f0d7b352d92dfeee43/symbols/android/deselect/materialsymbolsoutlined/deselect_wght200_24px.xml
+
+    Copyright 2022 Google
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+
+    <path
+        android:fillColor="?android:attr/textColorPrimary"
+        android:pathData="M19.832,21.2539 L14.8867,16.3086 L7.69141,16.3086 L7.69141,9.11328 L2.74609,4.16797 L3.45313,3.45313 L20.5469,20.5469 Z M8.69141,15.3086 L13.8867,15.3086 L8.69141,10.1133 Z M16.3086,13.4844 L15.3086,12.4844 L15.3086,8.69141 L11.5156,8.69141 L10.5156,7.69141 L16.3086,7.69141 Z M5.23047,18.7695 L5.23047,20 C4.89063,20,4.60156,19.8789,4.36328,19.6367 C4.12109,19.3984,4,19.1094,4,18.7695 Z M4,16.3086 L4,15.0781 L5.23047,15.0781 L5.23047,16.3086 Z M4,12.6172 L4,11.3828 L5.23047,11.3828 L5.23047,12.6172 Z M4,8.92188 L4,7.69141 L5.23047,7.69141 L5.23047,8.92188 Z M7.69141,20 L7.69141,18.7695 L8.92188,18.7695 L8.92188,20 Z M7.69141,5.23047 L7.69141,4 L8.92188,4 L8.92188,5.23047 Z M11.3828,20 L11.3828,18.7695 L12.6172,18.7695 L12.6172,20 Z M11.3828,5.23047 L11.3828,4 L12.6172,4 L12.6172,5.23047 Z M15.0781,20 L15.0781,18.7695 L16.3086,18.7695 L16.3086,20 Z M15.0781,5.23047 L15.0781,4 L16.3086,4 L16.3086,5.23047 Z M18.7695,16.3086 L18.7695,15.0781 L20,15.0781 L20,16.3086 Z M18.7695,12.6172 L18.7695,11.3828 L20,11.3828 L20,12.6172 Z M18.7695,8.92188 L18.7695,7.69141 L20,7.69141 L20,8.92188 Z M18.7695,5.23047 L18.7695,4 C19.1094,4,19.3984,4.12109,19.6367,4.36328 C19.8789,4.60156,20,4.89063,20,5.23047 Z M18.7695,5.23047" />
+</vector>

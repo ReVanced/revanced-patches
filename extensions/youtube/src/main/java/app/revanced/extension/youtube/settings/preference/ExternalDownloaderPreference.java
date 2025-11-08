@@ -2,7 +2,6 @@ package app.revanced.extension.youtube.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.sf;
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.dipToPixels;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -15,13 +14,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.Pair;
-import android.util.TypedValue;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import androidx.annotation.Nullable;
@@ -37,6 +32,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
+import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.youtube.settings.Settings;
 
 /**
@@ -264,42 +260,12 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
 
         // Add ListView to content layout with initial height.
         LinearLayout.LayoutParams listViewParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                0 // Initial height, will be updated.
-        );
-        listViewParams.bottomMargin = dipToPixels(16);
+                LinearLayout.LayoutParams.MATCH_PARENT, 0, 1.0f);
+        listViewParams.bottomMargin = Dim.dp16;
         contentLayout.addView(listView, listViewParams);
 
         // Add EditText for custom package name.
-        editText = new EditText(context);
-        editText.setText(packageName);
-        editText.setSelection(packageName.length());
-        editText.setHint(str("revanced_external_downloader_other_item_hint"));
-        editText.setSingleLine(true); // Restrict EditText to a single line.
-        editText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        // Set initial EditText state based on selected downloader.
-        editText.setEnabled(usingCustomDownloader);
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-            @Override
-            public void afterTextChanged(Editable edit) {
-                String updatedPackageName = edit.toString().trim();
-                updateListViewSelection.apply(updatedPackageName);
-            }
-        });
-
-        ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(10), null, null));
-        editTextBackground.getPaint().setColor(Utils.getEditTextBackground());
-        final int dip8 = dipToPixels(8);
-        editText.setPadding(dip8, dip8, dip8, dip8);
-        editText.setBackground(editTextBackground);
-        editText.setClipToOutline(true);
+        editText = createEditText(context, packageName, usingCustomDownloader, updateListViewSelection);
         contentLayout.addView(editText);
 
         // Create the custom dialog.
@@ -350,50 +316,59 @@ public class ExternalDownloaderPreference extends CustomDialogListPreference {
         );
 
         // Add the content layout directly to the dialog's main layout.
-        LinearLayout dialogMainLayout = dialogPair.second;
-        dialogMainLayout.addView(contentLayout, dialogMainLayout.getChildCount() - 1);
+        LinearLayout mainLayout = dialogPair.second;
+        LinearLayout.LayoutParams contentParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, 0, 1.0f);
 
-        // Update ListView height dynamically based on orientation.
-        //noinspection ExtractMethodRecommender
-        Runnable updateListViewHeight = () -> {
-            int totalHeight = 0;
-            ListAdapter listAdapter = listView.getAdapter();
-            if (listAdapter != null) {
-                DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-                final int listAdapterCount = listAdapter.getCount();
-                for (int i = 0; i < listAdapterCount; i++) {
-                    View item = listAdapter.getView(i, null, listView);
-                    item.measure(
-                            View.MeasureSpec.makeMeasureSpec(metrics.widthPixels, View.MeasureSpec.AT_MOST),
-                            View.MeasureSpec.UNSPECIFIED
-                    );
-                    totalHeight += item.getMeasuredHeight();
-                }
-                totalHeight += listView.getDividerHeight() * (listAdapterCount - 1);
+        // Insert content before the dialog button row.
+        mainLayout.addView(contentLayout, mainLayout.getChildCount() - 1, contentParams);
+
+        Dialog dialog = dialogPair.first;
+        dialog.show();
+    }
+
+    /**
+     * Creates and configures the EditText for the custom package name.
+     *
+     * @param context            Context for creating views.
+     * @param initialPackageName The package name to pre-fill.
+     * @param isCustom           Whether the "Other" option is selected.
+     * @param textChangeCallback Callback to run when text changes.
+     * @return A configured EditText.
+     */
+    private EditText createEditText(Context context,
+                                    String initialPackageName, boolean isCustom,
+                                    Function<String, Void> textChangeCallback) {
+        EditText editText = new EditText(context);
+        editText.setText(initialPackageName);
+        editText.setSelection(initialPackageName.length());
+        editText.setHint(str("revanced_external_downloader_other_item_hint"));
+        editText.setSingleLine(true);
+        editText.setTextSize(16);
+        editText.setEnabled(isCustom);
+
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable edit) {
+                String updatedPackageName = edit.toString().trim();
+                textChangeCallback.apply(updatedPackageName);
             }
+        });
 
-            final int orientation = context.getResources().getConfiguration().orientation;
-            if (orientation == android.content.res.Configuration.ORIENTATION_PORTRAIT) {
-                // In portrait orientation, use WRAP_CONTENT for ListView height.
-                listViewParams.height = LinearLayout.LayoutParams.WRAP_CONTENT;
-            } else {
-                // In landscape orientation, limit ListView height to 30% of screen height.
-                final int maxHeight = Utils.percentageHeightToPixels(30);
-                listViewParams.height = Math.min(totalHeight, maxHeight);
-            }
-            listView.setLayoutParams(listViewParams);
-        };
+        ShapeDrawable editTextBackground = new ShapeDrawable(new RoundRectShape(
+                Dim.roundedCorners(10), null, null));
+        editTextBackground.getPaint().setColor(Utils.getEditTextBackground());
+        editText.setPadding(Dim.dp8, Dim.dp8, Dim.dp8, Dim.dp8);
+        editText.setBackground(editTextBackground);
+        editText.setClipToOutline(true);
 
-        // Initial height calculation.
-        updateListViewHeight.run();
-
-        // Listen for configuration changes (e.g., orientation).
-        View dialogView = dialogPair.second;
-        // Recalculate height when layout changes (e.g., orientation change).
-        dialogView.getViewTreeObserver().addOnGlobalLayoutListener(updateListViewHeight::run);
-
-        // Show the dialog.
-        dialogPair.first.show();
+        return editText;
     }
 
     /**

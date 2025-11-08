@@ -1,7 +1,6 @@
 package app.revanced.extension.shared.settings.preference;
 
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.shared.requests.Route.Method.GET;
 
 import android.annotation.SuppressLint;
@@ -41,6 +40,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.requests.Requester;
 import app.revanced.extension.shared.requests.Route;
+import app.revanced.extension.shared.ui.Dim;
 
 /**
  * Opens a dialog showing official links.
@@ -222,11 +222,10 @@ class WebViewDialog extends Dialog {
         LinearLayout mainLayout = new LinearLayout(getContext());
         mainLayout.setOrientation(LinearLayout.VERTICAL);
 
-        final int padding = dipToPixels(10);
-        mainLayout.setPadding(padding, padding, padding, padding);
+        mainLayout.setPadding(Dim.dp10, Dim.dp10, Dim.dp10, Dim.dp10);
         // Set rounded rectangle background.
         ShapeDrawable mainBackground = new ShapeDrawable(new RoundRectShape(
-                Utils.createCornerRadii(28), null, null));
+                Dim.roundedCorners(28), null, null));
         mainBackground.getPaint().setColor(Utils.getDialogBackgroundColor());
         mainLayout.setBackground(mainBackground);
 
