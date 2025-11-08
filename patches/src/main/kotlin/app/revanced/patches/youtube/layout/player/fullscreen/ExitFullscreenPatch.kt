@@ -9,8 +9,8 @@ import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.loopVideoFingerprint
-import app.revanced.patches.youtube.shared.loopVideoParentFingerprint
+import app.revanced.patches.youtube.video.information.videoEndMethod
+import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 
 @Suppress("unused")
@@ -32,7 +32,8 @@ internal val exitFullscreenPatch = bytecodePatch(
         settingsPatch,
         addResourcesPatch,
         playerTypeHookPatch,
-        playerControlsPatch
+        playerControlsPatch,
+        videoInformationPatch
     )
 
     // Cannot declare as top level since this patch is in the same package as
@@ -48,11 +49,9 @@ internal val exitFullscreenPatch = bytecodePatch(
             ListPreference("revanced_exit_fullscreen")
         )
 
-        loopVideoFingerprint.match(loopVideoParentFingerprint.originalClassDef).method.apply {
-            addInstructionsAtControlFlowLabel(
-                implementation!!.instructions.lastIndex,
-                "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->endOfVideoReached()V",
-            )
-        }
+        videoEndMethod.addInstructionsAtControlFlowLabel(
+            0,
+            "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->endOfVideoReached()V",
+        )
     }
 }

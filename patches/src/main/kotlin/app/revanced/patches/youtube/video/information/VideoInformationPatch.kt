@@ -70,6 +70,8 @@ private var speedSelectionValueRegister = -1
 private lateinit var setPlaybackSpeedMethod: MutableMethod
 private var setPlaybackSpeedMethodIndex = -1
 
+internal lateinit var videoEndMethod: MutableMethod
+
 // Used by other patches.
 internal lateinit var setPlaybackSpeedContainerClassFieldReference: FieldReference
     private set
@@ -141,6 +143,10 @@ val videoInformationPatch = bytecodePatch(
                         "$EXTENSION_CLASS_DESCRIPTOR->setVideoLength(J)V",
                 )
             }
+        }
+
+        videoEndFingerprint.let {
+            videoEndMethod = navigate(it.originalMethod).to(it.instructionMatches[0].index).stop()
         }
 
         /*

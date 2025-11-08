@@ -2,6 +2,8 @@ package app.revanced.patches.youtube.video.information
 
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
 import app.revanced.patcher.string
 import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
 import app.revanced.util.getReference
@@ -115,6 +117,20 @@ internal val seekRelativeFingerprint = fingerprint {
     opcodes(
         Opcode.ADD_LONG_2ADDR,
         Opcode.INVOKE_VIRTUAL,
+    )
+}
+
+internal val videoEndFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters("J", "L")
+    instructions(
+        methodCall(
+            parameters = listOf(),
+            returnType = "V"
+        ),
+        literal(45368273L, maxAfter = 5),
+        string("Attempting to seek when video is not playing"),
     )
 }
 
