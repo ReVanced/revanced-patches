@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 package app.revanced.patches.music.layout.miniplayercolor
 
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
@@ -68,11 +70,10 @@ val changeMiniplayerColor = bytecodePatch(
                 relativeIndex, Opcode.IGET
             )
             val colorMathPlayerIGetReference = it.method
-                .getInstruction<ReferenceInstruction>(iGetIndex).reference
+                .getInstruction<ReferenceInstruction>(iGetIndex).reference as FieldReference
 
             val colorGreyIndex = miniPlayerConstructorFingerprint.method.indexOfFirstInstructionReversedOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.name == "getColor"
+                getReference<MethodReference>()?.name == "getColor"
             }
             val iPutIndex = miniPlayerConstructorFingerprint.method.indexOfFirstInstructionOrThrow(
                 colorGreyIndex, Opcode.IPUT
@@ -98,7 +99,7 @@ val changeMiniplayerColor = bytecodePatch(
                         if-eqz v$freeRegister, :off
                         invoke-virtual { p1 }, $colorMathPlayerInvokeVirtualReference
                         move-result-object v$freeRegister
-                        check-cast v$freeRegister, ${(colorMathPlayerIGetReference as FieldReference).definingClass}
+                        check-cast v$freeRegister, ${colorMathPlayerIGetReference.definingClass}
                         iget v$freeRegister, v$freeRegister, $colorMathPlayerIGetReference
                         iput v$freeRegister, p0, $colorMathPlayerIPutReference
                         :off
