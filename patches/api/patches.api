@@ -276,6 +276,10 @@ public final class app/revanced/patches/instagram/feed/LimitFeedToFollowedProfil
 	public static final fun getLimitFeedToFollowedProfiles ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/instagram/ghost/story/AnonymousStoryWatchingPatchKt {
+	public static final fun getAnonymousStoryWatchingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/instagram/hide/explore/HideExploreFeedKt {
 	public static final fun getHideExploreFeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
