@@ -1,0 +1,32 @@
+<!--
+    https://github.com/google/material-design-icons/blob/bb04090f930e272697f2a1f0d7b352d92dfeee43/symbols/android/keyboard_double_arrow_right/materialsymbolsoutlined/keyboard_double_arrow_right_wght200_24px.xml
+    Changes made: Added custom stroke.
+
+    Copyright 2022 Google
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24">
+
+    <path
+        android:fillColor="?android:attr/textColorPrimary"
+        android:pathData="M10.5352,12 L5.94141,7.39844 L6.64844,6.69141 L11.957,12 L6.64844,17.3086 L5.94141,16.6016 Z M16.6367,12 L12.043,7.39844 L12.75,6.69141 L18.0586,12 L12.75,17.3086 L12.043,16.6016 Z M16.6367,12" />
+    <path
+        android:fillColor="?android:attr/textColorPrimary"
+        android:pathData="M1.80859,23.8086 C0.875313,23.8086,0.1914,23.1246,0.1914,22.1914 L0.191402,1.80859 C0.191402,0.875317,0.875368,0.19141,1.80859,0.19141 L22.1914,0.19141 C23.1247,0.19141,23.8086,0.875376,23.8086,1.80859 L23.8086,22.1914 C23.8086,23.1247,23.1246,23.8086,22.1914,23.8086 Z M1.80859,22.8086 L22.1914,22.8086 C22.5552,22.8086,22.8086,22.5552,22.8086,22.1914 L22.8086,1.80859 C22.8086,1.44477,22.5552,1.19141,22.1914,1.19141 L1.80859,1.19141 C1.44477,1.19141,1.19141,1.4448,1.19141,1.8086 L1.19141,22.1914 C1.19141,22.5552,1.4448,22.8086,1.8086,22.8086 Z" />
+</vector>

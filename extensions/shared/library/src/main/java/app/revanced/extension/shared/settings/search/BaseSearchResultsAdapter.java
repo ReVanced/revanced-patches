@@ -484,7 +484,7 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
             return -1;
         }
 
-        for (int i = 0; i < adapter.getCount(); i++) {
+        for (int i = 0, count = adapter.getCount(); i < count; i++) {
             Object item = adapter.getItem(i);
             if (item == targetPreference) {
                 return i;
@@ -522,8 +522,8 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
         if (currentAnimator != null && currentAnimator.isRunning()) {
             currentAnimator.cancel();
         }
-        int startColor = Utils.getAppBackgroundColor();
-        int highlightColor = Utils.adjustColorBrightness(
+        final int startColor = Utils.getAppBackgroundColor();
+        final int highlightColor = Utils.adjustColorBrightness(
                 startColor,
                 Utils.isDarkModeEnabled() ? 1.25f : 0.8f
         );
@@ -566,7 +566,7 @@ public abstract class BaseSearchResultsAdapter extends ArrayAdapter<BaseSearchRe
         }
 
         // First search on current level.
-        for (int i = 0; i < group.getPreferenceCount(); i++) {
+        for (int i = 0, count = group.getPreferenceCount(); i < count; i++) {
             Preference pref = group.getPreference(i);
             if (key.equals(pref.getKey())) {
                 return pref;

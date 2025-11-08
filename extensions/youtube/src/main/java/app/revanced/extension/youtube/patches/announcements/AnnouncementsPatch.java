@@ -2,7 +2,6 @@ package app.revanced.extension.youtube.patches.announcements;
 
 import static android.text.Html.FROM_HTML_MODE_COMPACT;
 import static app.revanced.extension.shared.StringRef.str;
-import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENTS;
 import static app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes.GET_LATEST_ANNOUNCEMENT_IDS;
 
@@ -24,6 +23,7 @@ import java.time.LocalDateTime;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.requests.Requester;
+import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.youtube.patches.announcements.requests.AnnouncementsRoutes;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -148,7 +148,7 @@ public final class AnnouncementsPatch {
                         if (child instanceof TextView childTextView && finalTitle.equals(childTextView.getText().toString())) {
                             childTextView.setCompoundDrawablesWithIntrinsicBounds(
                                     finalLevel.icon, 0, 0, 0);
-                            childTextView.setCompoundDrawablePadding(dipToPixels(8));
+                            childTextView.setCompoundDrawablePadding(Dim.dp8);
                         }
                     }
 

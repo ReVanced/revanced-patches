@@ -1,6 +1,5 @@
 package app.revanced.extension.shared.settings.preference;
 
-import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.getColorString;
 
 import android.annotation.SuppressLint;
@@ -21,6 +20,7 @@ import androidx.annotation.ColorInt;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.ui.Dim;
 
 /**
  * A custom color picker view that allows the user to select a color using a hue slider, a saturation-value selector
@@ -54,28 +54,28 @@ public class ColorPickerView extends View {
     }
 
     /** Expanded touch area for the hue and opacity bars to increase the touch-sensitive area. */
-    public static final float TOUCH_EXPANSION = dipToPixels(20f);
+    public static final float TOUCH_EXPANSION = Dim.dp20;
 
     /** Margin between different areas of the view (saturation-value selector, hue bar, and opacity slider). */
-    private static final float MARGIN_BETWEEN_AREAS = dipToPixels(24);
+    private static final float MARGIN_BETWEEN_AREAS = Dim.dp24;
 
     /** Padding around the view. */
-    private static final float VIEW_PADDING = dipToPixels(16);
+    private static final float VIEW_PADDING = Dim.dp16;
 
     /** Height of the hue bar. */
-    private static final float HUE_BAR_HEIGHT = dipToPixels(12);
+    private static final float HUE_BAR_HEIGHT = Dim.dp12;
 
     /** Height of the opacity slider. */
-    private static final float OPACITY_BAR_HEIGHT = dipToPixels(12);
+    private static final float OPACITY_BAR_HEIGHT = Dim.dp12;
 
     /** Corner radius for the hue bar. */
-    private static final float HUE_CORNER_RADIUS = dipToPixels(6);
+    private static final float HUE_CORNER_RADIUS = Dim.dp6;
 
     /** Corner radius for the opacity slider. */
-    private static final float OPACITY_CORNER_RADIUS = dipToPixels(6);
+    private static final float OPACITY_CORNER_RADIUS = Dim.dp6;
 
     /** Radius of the selector handles. */
-    private static final float SELECTOR_RADIUS = dipToPixels(12);
+    private static final float SELECTOR_RADIUS = Dim.dp12;
 
     /** Stroke width for the selector handle outlines. */
     private static final float SELECTOR_STROKE_WIDTH = 8;
@@ -202,7 +202,7 @@ public class ColorPickerView extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         final float DESIRED_ASPECT_RATIO = 0.8f; // height = width * 0.8
 
-        final int minWidth = dipToPixels(250);
+        final int minWidth = Dim.dp(250);
         final int minHeight = (int) (minWidth * DESIRED_ASPECT_RATIO) + (int) (HUE_BAR_HEIGHT + MARGIN_BETWEEN_AREAS)
                 + (opacitySliderEnabled ? (int) (OPACITY_BAR_HEIGHT + MARGIN_BETWEEN_AREAS) : 0);
 

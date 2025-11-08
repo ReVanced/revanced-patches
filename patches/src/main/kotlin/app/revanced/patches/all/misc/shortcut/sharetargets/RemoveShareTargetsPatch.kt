@@ -18,7 +18,7 @@ val removeShareTargetsPatch = resourcePatch(
             document("res/xml/shortcuts.xml")
         } catch (_: FileNotFoundException) {
             return@execute Logger.getLogger(this::class.java.name).warning(
-                "The app has no shortcuts.  No changes applied.")
+                "The app has no shortcuts. No changes applied.")
         }.use { document ->
             val rootNode = document.getNode("shortcuts") as? Element ?: return@use
 

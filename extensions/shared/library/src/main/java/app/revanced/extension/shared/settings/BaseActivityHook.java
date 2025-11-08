@@ -7,7 +7,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.preference.PreferenceFragment;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -17,6 +16,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.ToolbarPreferenceFragment;
+import app.revanced.extension.shared.ui.Dim;
 
 /**
  * Base class for hooking activities to inject a custom PreferenceFragment with a toolbar.
@@ -110,13 +110,12 @@ public abstract class BaseActivityHook extends Activity {
         toolbar.setNavigationOnClickListener(getNavigationClickListener(activity));
         toolbar.setTitle(STRING_REVANCED_SETTINGS_TITLE);
 
-        final int margin = Utils.dipToPixels(16);
-        toolbar.setTitleMarginStart(margin);
-        toolbar.setTitleMarginEnd(margin);
+        toolbar.setTitleMarginStart(Dim.dp16);
+        toolbar.setTitleMarginEnd(Dim.dp16);
         TextView toolbarTextView = Utils.getChildView(toolbar, false, view -> view instanceof TextView);
         if (toolbarTextView != null) {
             toolbarTextView.setTextColor(Utils.getAppForegroundColor());
-            toolbarTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+            toolbarTextView.setTextSize(20);
         }
         setToolbarLayoutParams(toolbar);
 

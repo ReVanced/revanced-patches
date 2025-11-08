@@ -18,7 +18,6 @@ import android.preference.SwitchPreference;
 import android.text.InputType;
 import android.util.AttributeSet;
 import android.util.Pair;
-import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -34,6 +33,7 @@ import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.ResettableEditTextPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
+import app.revanced.extension.shared.ui.Dim;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
@@ -507,7 +507,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                         EditText editText = getEditText();
 
                         editText.setInputType(editText.getInputType() | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-                        editText.setTextSize(TypedValue.COMPLEX_UNIT_PT, 7); // Use a smaller font to reduce text wrap.
+                        editText.setTextSize(14);
 
                         // Create a custom dialog.
                         Pair<Dialog, LinearLayout> dialogPair = CustomDialog.create(
@@ -550,7 +550,7 @@ public class SponsorBlockPreferenceGroup extends PreferenceGroup {
                     | InputType.TYPE_TEXT_FLAG_MULTI_LINE
                     | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
             editText.setAutofillHints((String) null);
-            editText.setTextSize(TypedValue.COMPLEX_UNIT_PT, 8);
+            editText.setTextSize(14);
 
             // Set preference listeners.
             importExport.setOnPreferenceClickListener(preference1 -> {
