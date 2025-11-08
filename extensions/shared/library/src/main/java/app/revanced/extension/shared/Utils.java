@@ -760,7 +760,7 @@ public class Utils {
      *
      * @param view The view to hide. If null, does nothing.
      */
-    public static void hideViewByLayoutParams(View view) {
+    public static void hideViewByLayoutParams(@Nullable View view) {
         if (view == null) return;
 
         ViewGroup.LayoutParams params = view.getLayoutParams();
