@@ -27,6 +27,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_NAVIGATION_BAR_LABEL = new BooleanSetting("revanced_music_hide_navigation_bar_labels", FALSE, true);
 
     // Player
+    public static final BooleanSetting CHANGE_MINIPLAYER_COLOR = new BooleanSetting("revanced_music_change_miniplayer_color", FALSE, true);
     public static final BooleanSetting PERMANENT_REPEAT = new BooleanSetting("revanced_music_play_permanent_repeat", FALSE, true);
 
     // Miscellaneous
