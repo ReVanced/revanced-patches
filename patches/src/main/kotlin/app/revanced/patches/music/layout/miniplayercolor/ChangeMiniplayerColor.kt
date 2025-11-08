@@ -32,7 +32,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/pa
 @Suppress("unused")
 val changeMiniplayerColor = bytecodePatch(
     name = "Change miniplayer color",
-    description = "Adds an option to make the miniplayer match the fullscreen player color."
+    description = "Adds an option to change the miniplayer background color to match the fullscreen player."
 ) {
     dependsOn(
         sharedExtensionPatch,
