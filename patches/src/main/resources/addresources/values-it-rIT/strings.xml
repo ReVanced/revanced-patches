@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">La data di compilazione dell\'APK è corrotta</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Attenzione</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Avviso ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">La tua cronologia di visualizzazione non sta venendo salvata.&lt;br&gt;&lt;br&gt;Questo è molto probabilmente causato da un blocco annunci DNS o da un proxy di rete.&lt;br&gt;&lt;br&gt;Per risolvere, inserisci nella whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; o disattiva tutti i blocchi DNS e proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Non mostrare più</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Impostazioni</string>
   <string name="revanced_settings_confirm_user_dialog_title">Sei sicuro di voler procedere?</string>
+  <string name="revanced_settings_save">Salva</string>
   <string name="revanced_settings_reset">Reimposta</string>
   <string name="revanced_settings_reset_color">Reimposta colore</string>
   <string name="revanced_settings_color_invalid">Colore non valido</string>
@@ -164,6 +165,14 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Cancella i log di debug</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Cancella tutti i log di debug di ReVanced memorizzati</string>
   <string name="revanced_debug_logs_clear_toast">Log cancellati</string>
+  <string name="revanced_debug_feature_flags_manager_title">Manager dei flag di funzionalità</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Gestisci flag di funzionalità booleani</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Flag attivi (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Flag bloccati (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Cerca flag...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Flag salvati</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Flag ripristinati</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Flag copiati negli appunti</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Sanifica collegamenti di condivisione</string>

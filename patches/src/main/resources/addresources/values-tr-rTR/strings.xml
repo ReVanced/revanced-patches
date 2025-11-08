@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK derleme tarihi bozuk</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Uyarı</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Bildirimi</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">İzleme geçmişiniz kaydedilmiyor.&lt;br&gt;&lt;br&gt;Bu büyük ihtimalle bir reklam engelleyici DNS\'den veya proxy\'den kaynaklanıyor.&lt;br&gt;&lt;br&gt;Bunu düzeltmek için, &lt;b&gt;s.youtube.com&lt;/b&gt; adresini beyaz listeye ekleyin veya bütün engelleyici DNSleri ve proxy\'leri kapatın.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Bir daha gösterme</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ayarlar</string>
   <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istediğinizden emin misiniz?</string>
+  <string name="revanced_settings_save">Kaydet</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_reset_color">Rengi sıfırla</string>
   <string name="revanced_settings_color_invalid">Geçersiz renk</string>
@@ -164,6 +165,14 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Hata ayıklama kayıtlarını temizle</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Kaydedilmiş tüm ReVanced hata ayıklama kayıtlarını temizler</string>
   <string name="revanced_debug_logs_clear_toast">Kayıtlar temizlendi</string>
+  <string name="revanced_debug_feature_flags_manager_title">Özellik bayrakları Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Boole özellik bayraklarını yönet</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktif bayraklar (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Engellenen bayraklar (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Bayrakları ara...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Bayraklar kaydedildi</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Bayraklar sıfırlandı</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Bayraklar panoya kopyalandı</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>

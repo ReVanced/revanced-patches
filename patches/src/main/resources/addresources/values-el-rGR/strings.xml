@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Η ημερομηνία κατασκευής του APK είναι κατεστραμμένη</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Προειδοποίηση</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Ειδοποίηση ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Το ιστορικό παρακολούθησης δεν αποθηκεύεται.&lt;br&gt;&lt;br&gt;Πιθανό να συμβαίνει λόγω αποκλεισμού διαφημίσεων μέσω DNS ή μέσω διακομιστή μεσολάβησης δικτύου.&lt;br&gt;&lt;br&gt;Μια λύση γι\'αυτό θα ήταν να προσθέσετε σε whitelist το &lt;b&gt;s.youtube.com&lt;/b&gt; ή να απενεργοποιήστε τους DNS/proxy blockers.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Να μην εμφανιστεί ξανά</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ρυθμίσεις</string>
   <string name="revanced_settings_confirm_user_dialog_title">Είστε βέβαιοι ότι θέλετε να συνεχίσετε;</string>
+  <string name="revanced_settings_save">Αποθήκευση</string>
   <string name="revanced_settings_reset">Επαναφορά</string>
   <string name="revanced_settings_reset_color">Επαναφορά χρώματος</string>
   <string name="revanced_settings_color_invalid">Μη έγκυρο χρώμα</string>
@@ -164,6 +165,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">Εκκαθάριση αρχείων καταγραφής εντοπισμού σφαλμάτων</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Εκκαθάριση όλων των αποθηκευμένων αρχειών καταγραφής εντοπισμού σφαλμάτων ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Τα αρχεία καταγραφής εκκαθαρίστηκαν</string>
+  <string name="revanced_debug_feature_flags_manager_title">Διαχειριστής σημαιών λειτουργιών</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Διαχείριση των boolean σημαιών λειτουργιών</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Ενεργές σημαίες (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Αποκλεισμένες σημαίες (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Αναζήτηση σημαιών...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Οι σημαίες αποθηκεύτηκαν</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Οι σημαίες επαναφέρθηκαν</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Οι σημαίες αντιγράφηκαν στο πρόχειρο</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κοινοποίησης</string>

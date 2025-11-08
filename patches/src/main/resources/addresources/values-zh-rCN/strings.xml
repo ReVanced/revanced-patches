@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 构建日期已损坏</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced 通知</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">您的观看历史记录未保存。&lt;br&gt;&lt;br&gt;这很可能是由 DNS 广告拦截器或网络代理造成的。&lt;br&gt;&lt;br&gt;要解决此问题，请将 &lt;b&gt;s.youtube.com&lt;/b&gt; 添加到白名单或关闭所有 DNS 广告拦截器和代理。</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再显示</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">设置</string>
   <string name="revanced_settings_confirm_user_dialog_title">确定要继续吗？</string>
+  <string name="revanced_settings_save">保存</string>
   <string name="revanced_settings_reset">重置</string>
   <string name="revanced_settings_reset_color">重置颜色</string>
   <string name="revanced_settings_color_invalid">无效的颜色</string>
@@ -164,6 +165,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">清除调试日志</string>
   <string name="revanced_debug_logs_clear_buffer_summary">清除所有存储的 ReVanced 调试日志</string>
   <string name="revanced_debug_logs_clear_toast">日志已清除</string>
+  <string name="revanced_debug_feature_flags_manager_title">功能标志 Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">管理布尔功能标志</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">活动标志 (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">已阻止标志 (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">搜索标志...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">标志已保存</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">标志已重置</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">标志已复制到剪贴板</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">净化分享链接</string>

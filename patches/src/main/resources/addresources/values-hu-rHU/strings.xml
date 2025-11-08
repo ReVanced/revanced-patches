@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Az APK build dátuma sérült</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Figyelmeztetés</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Értesítés</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">A megtekintési előzmények mentése nem történik meg.&lt;br&gt;&lt;br&gt;Ezt valószínűleg egy DNS-hirdetésblokkoló vagy hálózati proxy okozza.&lt;br&gt;&lt;br&gt;A probléma megoldásához vegye fel az engedélyezőlistára az &lt;b&gt;s.youtube.com&lt;/b&gt; domaint vagy kapcsolja ki az összes DNS-blokkolót és proxyt.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne jelenjen meg többet</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Beállítások</string>
   <string name="revanced_settings_confirm_user_dialog_title">Biztosan folytatni szeretné?</string>
+  <string name="revanced_settings_save">Mentés</string>
   <string name="revanced_settings_reset">Visszaállítás</string>
   <string name="revanced_settings_reset_color">Szín alaphelyzetbe állítása</string>
   <string name="revanced_settings_color_invalid">Érvénytelen szín</string>
@@ -164,6 +165,14 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Hibakeresési naplók törlése</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Törli az összes tárolt ReVanced hibakeresési naplót</string>
   <string name="revanced_debug_logs_clear_toast">Naplók törölve</string>
+  <string name="revanced_debug_feature_flags_manager_title">Funkciójelzők Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Logikai funkciójelzők kezelése</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktív jelzők (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Blokkolt jelzők (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Jelzők keresése...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Jelzők mentve</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Jelzők visszaállítva</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Jelzők vágólapra másolva</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>

@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-bouwdatum is beschadigd</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Waarschuwing</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Melding</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Uw kijkgeschiedenis wordt niet opgeslagen.&lt;br&gt;&lt;br&gt;Dit wordt hoogstwaarschijnlijk veroorzaakt door een DNS-adblocker of netwerkproxy.&lt;br&gt;&lt;br&gt;Om dit te verhelpen, voegt u &lt;b&gt;s.youtube.com&lt;/b&gt; toe aan de witte lijst of schakelt u alle DNS-blokkers en proxies uit.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Niet meer weergeven</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Instellingen</string>
   <string name="revanced_settings_confirm_user_dialog_title">Weet je zeker dat je door wilt gaan?</string>
+  <string name="revanced_settings_save">Opslaan</string>
   <string name="revanced_settings_reset">Terugzetten</string>
   <string name="revanced_settings_reset_color">Kleur opnieuw instellen</string>
   <string name="revanced_settings_color_invalid">Ongeldige kleur</string>
@@ -164,6 +165,14 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Foutopsporingslogboeken wissen</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Wist alle opgeslagen ReVanced-foutopsporingslogboeken</string>
   <string name="revanced_debug_logs_clear_toast">Logboeken gewist</string>
+  <string name="revanced_debug_feature_flags_manager_title">Functievlaggen Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Beheer booleaanse functievlaggen</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Actieve vlaggen (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Geblokkeerde vlaggen (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Vlaggen zoeken...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Vlaggen opgeslagen</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Vlaggen gereset</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Vlaggen gekopieerd naar klembord</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Deelbare links opschonen</string>

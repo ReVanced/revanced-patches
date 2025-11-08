@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Tanggal pembuatan APK rusak</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Peringatan </string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Pemberitahuan ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Riwayat tontonan Anda tidak sedang disimpan.&lt;br&gt;&lt;br&gt;Hal ini kemungkinan besar disebabkan oleh pemblokir iklan DNS atau proksi jaringan.&lt;br&gt;&lt;br&gt;Untuk memperbaikinya, masukkan daftar putih &lt;b&gt;s.youtube.com&lt;/b&gt; atau matikan semua pemblokir DNS dan proksi.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Jangan tampilkan lagi</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Pengaturan</string>
   <string name="revanced_settings_confirm_user_dialog_title">Apakah Anda yakin ingin melanjutkan?</string>
+  <string name="revanced_settings_save">Simpan</string>
   <string name="revanced_settings_reset">Setel ulang</string>
   <string name="revanced_settings_reset_color">Setel ulang warna</string>
   <string name="revanced_settings_color_invalid">Warna tidak sah</string>
@@ -61,7 +62,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import">Impor</string>
   <string name="revanced_settings_import_copy">Salin</string>
   <string name="revanced_settings_import_reset">Pengaturan ReVanced diatur ke bawaan</string>
-  <string name="revanced_settings_import_success">Setelan %d terimpor</string>
+  <string name="revanced_settings_import_success">%d Setelan terimpor</string>
   <string name="revanced_settings_import_failure_parse">Impor gagal: %s</string>
   <string name="revanced_settings_search_hint">Pengaturan pencarian</string>
   <string name="revanced_settings_search_no_results_title">Tidak ada hasil yang ditemukan untuk \'%s\'</string>
@@ -164,6 +165,14 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Bersihkan catatan debug</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Menghapus semua catatan debug ReVanced yang tersimpan</string>
   <string name="revanced_debug_logs_clear_toast">Catatan dibersihkan</string>
+  <string name="revanced_debug_feature_flags_manager_title">Fitur pengelolaan tanda</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Kelola tanda fitur boolean</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Tanda aktif (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Tanda diblokir (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Cari tanda...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Tanda disimpan</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Tanda diatur ulang</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Tanda disalin ke papan klip</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Bersihkan tautan berbagi</string>

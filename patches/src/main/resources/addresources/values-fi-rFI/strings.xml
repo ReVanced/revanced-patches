@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK käännöspäivä on vioittunut</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Varoitus</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Ilmoitus</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Kellon historiaa ei tallenneta.&lt;br&gt;&lt;br&gt;Tämä todennäköisesti johtuu DNS mainosten estäjä tai verkkovälityspalvelin.&lt;br&gt;&lt;br&gt;Korjataksesi tämän, valkoiselle listalle &lt;b&gt;s.youtube.com&lt;/b&gt; tai poistaaksesi kaikki DNS-estäjät ja -profiilit.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Älä näytä uudelleen</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Asetukset</string>
   <string name="revanced_settings_confirm_user_dialog_title">Haluatko varmasti jatkaa?</string>
+  <string name="revanced_settings_save">Tallenna</string>
   <string name="revanced_settings_reset">Nollaa</string>
   <string name="revanced_settings_reset_color">Nollaa väri</string>
   <string name="revanced_settings_color_invalid">Virheellinen väri</string>
@@ -164,6 +165,14 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Tyhjennä virheenkorjauslokit</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Tyhjentää kaikki tallennetut ReVanced-virheenkorjauslokit</string>
   <string name="revanced_debug_logs_clear_toast">Lokit tyhjennetty</string>
+  <string name="revanced_debug_feature_flags_manager_title">Ominaisuuslippujen Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Hallitse totuusarvo-ominaisuuslippuja</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktiiviset liput (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Estetyt liput (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Hae lippuja...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Liput tallennettu</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Liput nollattu</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Liput kopioitu leikepöydälle</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Puhdista jakamislinkit</string>
@@ -779,9 +788,9 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Näytön lukitus -valinta piilotetaan</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Näytön lukitus -valinta näytetään</string>
   <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Piilota Kuuntele YouTube Musicilla</string>
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Kuuntele YouTube Musicilla -valikko on piilotettu</string>
-  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Kuuntele YouTube Musicilla -valikko on näkyvissä</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Piilota Kuuntele YouTube Musicissa</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Kuuntele YouTube Musicissa -valinta piilotetaan</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Kuuntele YouTube Musicissa -valinta näytetään</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Piilota Ääniraita</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ääniraitavalikko piilotetaan</string>

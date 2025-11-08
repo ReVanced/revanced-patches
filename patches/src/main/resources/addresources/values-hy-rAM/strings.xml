@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-ի կառուցման ամսաթիվը վնասված է</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Զգուշացում</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Ծանուցում</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Ձեր դիտման պատմությունը չի պահպանվում.&lt;br&gt;&lt;br&gt;Այս  հավանական  պատճառը DNS  գովազդների  բլոկավորիչ կամ ցանցային պրոքսի  է.&lt;br&gt;&lt;br&gt;Խնդրում ենք  գործարկել &lt;b&gt;s.youtube.com&lt;/b&gt;  կամ անջատել  DNS  բլոկավորիչներ  և  պրոքսիներ:</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ավելի  չցուցադրել</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Կարգավորումներ</string>
   <string name="revanced_settings_confirm_user_dialog_title">Վստա՞հ եք, որ ցանկանում եք շարունակել:</string>
+  <string name="revanced_settings_save">Պահպանել</string>
   <string name="revanced_settings_reset">Վերականգնել</string>
   <string name="revanced_settings_reset_color">Գույնը վերականգնել</string>
   <string name="revanced_settings_color_invalid">Անվավեր գույն</string>
@@ -164,6 +165,14 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_debug_logs_clear_buffer_title">Մաքրել վրեժխնդրության մատյանները</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Մաքրում է բոլոր պահված ReVanced կարգաբերման մատյանները</string>
   <string name="revanced_debug_logs_clear_toast">Մատյանները մաքրվել են</string>
+  <string name="revanced_debug_feature_flags_manager_title">Գործառույթի դրոշակների Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Կառավարել բուլյան գործառույթի դրոշակները</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Ակտիվ դրոշակներ (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Արգելափակված դրոշակներ (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Որոնել դրոշակներ...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Դրոշակները պահպանվեցին</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Դրոշակները զրոյացվեցին</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Դրոշակները պատճենվեցին սեղմատախտակին</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Մաքրել համօգտագործման հղումները</string>

@@ -45,13 +45,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK qurulma vaxtı pozulub</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Xәbәrdarlıq</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Bildiriş</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Baxış tarixçəniz saxlanmır.&lt;br&gt;&lt;br&gt;Bu çox güman ki, DNS reklam bloklayıcı və ya şəbəkə proksisinə görədir.&lt;br&gt;&lt;br&gt;.Bunu düzəltmək üçün s.youtube.com-u&lt;/b&gt; &lt;b&gt;ağ siyahıya salın və ya bütün DNS bloklayıcıları və proksiləri bağlayın.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Təkrar göstərmə</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Tənzimləmələr</string>
   <string name="revanced_settings_confirm_user_dialog_title">Davam etmək istədiyinizə əminsiniz?</string>
+  <string name="revanced_settings_save">Yadda saxla</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_reset_color">Rəngi sıfırla</string>
   <string name="revanced_settings_color_invalid">Yanlış rəng</string>
@@ -164,6 +165,14 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Sazlama qeydlərini təmizlə</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Saxlanılan bütün ReVanced sazlama qeydlərini təmizləyir</string>
   <string name="revanced_debug_logs_clear_toast">Qeydlər silindi</string>
+  <string name="revanced_debug_feature_flags_manager_title">Xüsusiyyət bayraqları Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Bulun xüsusiyyət bayraqlarını idarə edin</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktiv bayraqlar (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Bloklanmış bayraqlar (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Bayraqları axtarın...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Bayraqlar yadda saxlandı</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Bayraqlar sıfırlandı</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Bayraqlar panoya kopyalandı</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Paylaşım linklərin təmizlə</string>
@@ -328,9 +337,9 @@ Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlum
   <string name="revanced_hide_how_this_was_made_section_title">\'Bu kontent necə hazırlanıb\'ı Gizlət</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Bu məzmunun necə hazırlandığı bölməsi gizlidir</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Bu məzmunun necə hazırlandığı bölməsi görünür</string>
-  <string name="revanced_hide_hype_points_title">Hype nöqtələrini gizlət</string>
-  <string name="revanced_hide_hype_points_summary_on">Hype nöqtələri gizlədilib</string>
-  <string name="revanced_hide_hype_points_summary_off">Hype nöqtələri göstərilir</string>
+  <string name="revanced_hide_hype_points_title">Coşqu xalların gizlət</string>
+  <string name="revanced_hide_hype_points_summary_on">Coşqu xalları gizlədilib</string>
+  <string name="revanced_hide_hype_points_summary_off">Coşqu xalları göstərilir</string>
   <string name="revanced_hide_podcast_section_title">\'Podkastı araşdırın\"-ı Gizlət</string>
   <string name="revanced_hide_podcast_section_summary_on">Podkast bölməsin araşdırın gizlidir</string>
   <string name="revanced_hide_podcast_section_summary_off">Podkast bölməsin araşdırın görünür</string>
