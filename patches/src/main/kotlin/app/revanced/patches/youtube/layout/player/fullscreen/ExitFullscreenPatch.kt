@@ -12,6 +12,8 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.video.information.videoEndMethod
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 
 @Suppress("unused")
 internal val exitFullscreenPatch = bytecodePatch(
@@ -49,9 +51,13 @@ internal val exitFullscreenPatch = bytecodePatch(
             ListPreference("revanced_exit_fullscreen")
         )
 
-        videoEndMethod.addInstructionsAtControlFlowLabel(
-            0,
-            "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->endOfVideoReached()V",
-        )
+        videoEndMethod.apply {
+            val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID)
+
+            addInstructionsAtControlFlowLabel(
+                insertIndex,
+                "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->endOfVideoReached()V",
+            )
+        }
     }
 }

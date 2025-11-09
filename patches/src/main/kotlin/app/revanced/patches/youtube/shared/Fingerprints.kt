@@ -29,27 +29,6 @@ internal val conversionContextFingerprintToString = fingerprint {
     }
 }
 
-/**
- * Resolves to class found in [loopVideoParentFingerprint].
- */
-internal val loopVideoFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
-    custom { method, _ ->
-        method.implementation!!.instructions.count() == 3 && method.annotations.isEmpty()
-    }
-}
-
-internal val loopVideoParentFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    instructions(
-        string("play() called when the player wasn't loaded."),
-        string("play() blocked because Background Playability failed")
-    )
-}
-
 internal val layoutConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
