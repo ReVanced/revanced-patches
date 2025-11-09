@@ -1,3 +1,10 @@
+# [5.46.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.7...v5.46.0-dev.8) (2025-11-09)
+
+
+### Features
+
+* **YouTube Music:** Add `Hide buttons` patch ([#6255](https://github.com/ReVanced/revanced-patches/issues/6255)) ([7a18ebc](https://github.com/ReVanced/revanced-patches/commit/7a18ebc7ab74ba30c5d5284a4856c55cdfc31097))
+
 # [5.46.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.6...v5.46.0-dev.7) (2025-11-08)
 
 
