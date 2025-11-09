@@ -376,10 +376,6 @@ public final class app/revanced/patches/music/layout/buttons/HideButtonsKt {
 	public static final fun getHideButtons ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/layout/castbutton/HideCastButtonKt {
-	public static final fun getHideCastButton ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/music/layout/compactheader/HideCategoryBarKt {
 	public static final fun getHideCategoryBar ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -1069,20 +1065,12 @@ public final class app/revanced/patches/soundcloud/offlinesync/EnableOfflineSync
 	public static final fun getEnableOfflineSync ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/spotify/layout/hide/createbutton/HideCreateButtonPatchKt {
-	public static final fun getHideCreateButtonPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/spotify/layout/theme/CustomThemePatchKt {
 	public static final fun getCustomThemePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/patches/spotify/misc/extension/ExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/spotify/misc/fix/SpoofClientPatchKt {
-	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/spotify/misc/fix/login/FixFacebookLoginPatchKt {
@@ -1315,10 +1303,6 @@ public final class app/revanced/patches/twitter/misc/hook/json/JsonHookPatchKt {
 
 public final class app/revanced/patches/twitter/misc/links/ChangeLinkSharingDomainPatchKt {
 	public static final fun getChangeLinkSharingDomainPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
-public final class app/revanced/patches/twitter/misc/links/OpenLinksWithAppChooserPatchKt {
-	public static final fun getOpenLinksWithAppChooserPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/twitter/misc/links/SanitizeSharingLinksPatchKt {
