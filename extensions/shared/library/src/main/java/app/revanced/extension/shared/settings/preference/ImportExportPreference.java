@@ -19,7 +19,6 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.ui.CustomDialog;
-import app.revanced.extension.shared.ui.Dim;
 
 @SuppressWarnings({"unused", "deprecation"})
 public class ImportExportPreference extends EditTextPreference implements Preference.OnPreferenceClickListener {

@@ -32,11 +32,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -759,31 +755,25 @@ public class Utils {
     }
 
     /**
-     * Hide a view by setting its layout params to 0x0
-     * @param view The view to hide.
+     * Hides a view by setting its layout width and height to 0dp.
+     * Handles null layout params safely.
+     *
+     * @param view The view to hide. If null, does nothing.
      */
-    public static void hideViewByLayoutParams(View view) {
-        if (view instanceof LinearLayout) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams);
-        } else if (view instanceof FrameLayout) {
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams2);
-        } else if (view instanceof RelativeLayout) {
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams3);
-        } else if (view instanceof Toolbar) {
-            Toolbar.LayoutParams layoutParams4 = new Toolbar.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams4);
-        } else if (view instanceof ViewGroup) {
-            ViewGroup.LayoutParams layoutParams5 = new ViewGroup.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams5);
+    public static void hideViewByLayoutParams(@Nullable View view) {
+        if (view == null) return;
+
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+
+        if (params == null) {
+            // Create generic 0x0 layout params accepted by all ViewGroups.
+            params = new ViewGroup.LayoutParams(0, 0);
         } else {
-            ViewGroup.LayoutParams params = view.getLayoutParams();
             params.width = 0;
             params.height = 0;
-            view.setLayoutParams(params);
         }
+
+        view.setLayoutParams(params);
     }
 
     /**
