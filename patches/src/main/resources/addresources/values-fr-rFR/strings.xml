@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1673,10 +1672,19 @@ La lecture vidéo avec AV1 peut être saccadée et des images peuvent être perd
   <string name="revanced_music_play_permanent_repeat_summary_on">La lecture en boucle permanente est activée</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">La lecture en boucle permanente est désactivée</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Masquer le bouton Diffuser</string>
   <string name="revanced_music_hide_cast_button_summary_on">Le bouton Diffuser est masqué</string>
   <string name="revanced_music_hide_cast_button_summary_off">Le bouton Diffuser est affiché</string>
+  <string name="revanced_music_hide_history_button_title">Masquer le bouton Historique</string>
+  <string name="revanced_music_hide_history_button_summary_on">Le bouton Historique est masqué</string>
+  <string name="revanced_music_hide_history_button_summary_off">Le bouton Historique est affiché</string>
+  <string name="revanced_music_hide_notification_button_title">Masquer le bouton de notification</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Le bouton de notification est masqué</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Le bouton de notification est affiché</string>
+  <string name="revanced_music_hide_search_button_title">Masquer le bouton de recherche</string>
+  <string name="revanced_music_hide_search_button_summary_on">Le bouton de recherche est masqué</string>
+  <string name="revanced_music_hide_search_button_summary_off">Le bouton de recherche est affiché</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Masquer la barre des catégories</string>

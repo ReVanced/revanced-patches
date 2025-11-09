@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -165,11 +164,11 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">Очистити журнали налагодження</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Очищує всі збережені журнали налагодження ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Журнали очищено</string>
-  <string name="revanced_debug_feature_flags_manager_title">Функціональні прапорці Manager</string>
-  <string name="revanced_debug_feature_flags_manager_summary">Керувати логічними функціональними прапорцями</string>
-  <string name="revanced_debug_feature_flags_manager_active_header">Активні прапорці (%d)</string>
-  <string name="revanced_debug_feature_flags_manager_blocked_header">Заблоковані прапорці (%d)</string>
-  <string name="revanced_debug_feature_flags_manager_search_hint">Пошук прапорців...</string>
+  <string name="revanced_debug_feature_flags_manager_title">Менеджер експериментальних прапорців</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Керувати експериментальними boolean прапорцями</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Активні (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Заблоковані (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Пошук...</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Прапорці збережено</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Прапорці скинуто</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Прапорці скопійовано до буфера обміну</string>
@@ -1671,10 +1670,19 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Постійний повтор увімкнено</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Постійний повтор вимкнено</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Приховати кнопку трансляції</string>
   <string name="revanced_music_hide_cast_button_summary_on">Кнопку трансляції приховано</string>
   <string name="revanced_music_hide_cast_button_summary_off">Кнопка трансляції показується</string>
+  <string name="revanced_music_hide_history_button_title">Приховати кнопку історії</string>
+  <string name="revanced_music_hide_history_button_summary_on">Кнопку історії приховано</string>
+  <string name="revanced_music_hide_history_button_summary_off">Кнопка історії показується</string>
+  <string name="revanced_music_hide_notification_button_title">Приховати кнопку сповіщень</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Кнопку сповіщень приховано</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Кнопка сповіщень показується</string>
+  <string name="revanced_music_hide_search_button_title">Приховати кнопку пошуку</string>
+  <string name="revanced_music_hide_search_button_summary_on">Кнопку пошуку приховано</string>
+  <string name="revanced_music_hide_search_button_summary_off">Кнопка пошуку показується</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Приховати панель категорій</string>

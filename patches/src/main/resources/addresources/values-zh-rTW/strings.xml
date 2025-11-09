@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1682,10 +1681,19 @@ AV1 視訊播放可能會卡頓或掉幀。"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">永久重複播放已啟用</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">永久重複播放已停用</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">隱藏「投放」按鈕</string>
   <string name="revanced_music_hide_cast_button_summary_on">「投放」按鈕已隱藏</string>
   <string name="revanced_music_hide_cast_button_summary_off">「投放」按鈕已顯示</string>
+  <string name="revanced_music_hide_history_button_title">隱藏「歷史記錄」按鈕</string>
+  <string name="revanced_music_hide_history_button_summary_on">「歷史記錄」按鈕已隱藏</string>
+  <string name="revanced_music_hide_history_button_summary_off">「歷史記錄」按鈕已顯示</string>
+  <string name="revanced_music_hide_notification_button_title">隱藏「通知」按鈕</string>
+  <string name="revanced_music_hide_notification_button_summary_on">「通知」按鈕已隱藏</string>
+  <string name="revanced_music_hide_notification_button_summary_off">「通知」按鈕已顯示</string>
+  <string name="revanced_music_hide_search_button_title">隱藏「搜尋」按鈕</string>
+  <string name="revanced_music_hide_search_button_summary_on">「搜尋」按鈕已隱藏</string>
+  <string name="revanced_music_hide_search_button_summary_off">「搜尋」按鈕已顯示</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">隱藏類別列</string>

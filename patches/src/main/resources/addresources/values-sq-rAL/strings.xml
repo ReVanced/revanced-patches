@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1670,10 +1669,19 @@ Luajtja e videos me AV1 mund të ngecë ose të humbasë korniza."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Përsëritja e përhershme është aktivizuar</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Përsëritja e përhershme është çaktivizuar</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Fshih butonin e transmetimit</string>
   <string name="revanced_music_hide_cast_button_summary_on">Butoni i transmetimit është fshehur</string>
   <string name="revanced_music_hide_cast_button_summary_off">Butoni i transmetimit është shfaqur</string>
+  <string name="revanced_music_hide_history_button_title">Fsheh butonin e historikut</string>
+  <string name="revanced_music_hide_history_button_summary_on">Butoni i historikut është fshehur</string>
+  <string name="revanced_music_hide_history_button_summary_off">Butoni i historikut është shfaqur</string>
+  <string name="revanced_music_hide_notification_button_title">Fsheh butonin e njoftimeve</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Butoni i njoftimeve është fshehur</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Butoni i njoftimeve është shfaqur</string>
+  <string name="revanced_music_hide_search_button_title">Fsheh butonin e kërkimit</string>
+  <string name="revanced_music_hide_search_button_summary_on">Butoni i kërkimit është fshehur</string>
+  <string name="revanced_music_hide_search_button_summary_off">Butoni i kërkimit është shfaqur</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Fshi shiritin e kategorive</string>

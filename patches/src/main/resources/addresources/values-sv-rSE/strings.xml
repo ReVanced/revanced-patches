@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1672,10 +1671,19 @@ Videouppspelning med AV1 kan hacka eller tappa bildrutor."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Permanent upprepning är aktiverad</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Permanent upprepning är inaktiverad</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Dölj knappen Casta</string>
   <string name="revanced_music_hide_cast_button_summary_on">Knappen Casta är dold</string>
   <string name="revanced_music_hide_cast_button_summary_off">Knappen Casta visas</string>
+  <string name="revanced_music_hide_history_button_title">Dölj historikknappen</string>
+  <string name="revanced_music_hide_history_button_summary_on">Historikknappen är dold</string>
+  <string name="revanced_music_hide_history_button_summary_off">Historikknappen visas</string>
+  <string name="revanced_music_hide_notification_button_title">Dölj knappen Avisering</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Knappen Aviseringar är dold</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Knappen Aviseringar visas</string>
+  <string name="revanced_music_hide_search_button_title">Dölj knappen Sök</string>
+  <string name="revanced_music_hide_search_button_summary_on">Knappen Sök är dold</string>
+  <string name="revanced_music_hide_search_button_summary_off">Knappen Sök visas</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Dölj kategorifält</string>

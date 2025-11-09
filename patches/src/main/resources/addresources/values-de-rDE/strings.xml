@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1669,10 +1668,19 @@ Die Videowiedergabe mit AV1 kann stottern oder Bilder überspringen."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Dauerwiederholung ist aktiviert</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Dauerwiederholung ist deaktiviert</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Übertragen-Taste ausblenden</string>
   <string name="revanced_music_hide_cast_button_summary_on">Übertragen-Taste ist ausgeblendet</string>
   <string name="revanced_music_hide_cast_button_summary_off">Übertragen-Taste wird angezeigt</string>
+  <string name="revanced_music_hide_history_button_title">Verlauf-Schaltfläche ausblenden</string>
+  <string name="revanced_music_hide_history_button_summary_on">Verlauf-Schaltfläche ist ausgeblendet</string>
+  <string name="revanced_music_hide_history_button_summary_off">Verlauf-Schaltfläche wird angezeigt</string>
+  <string name="revanced_music_hide_notification_button_title">Benachrichtigungsschaltfläche ausblenden</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Benachrichtigungsschaltfläche wird ausgeblendet</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Benachrichtigungsschaltfläche wird angezeigt</string>
+  <string name="revanced_music_hide_search_button_title">Suchschaltfläche ausblenden</string>
+  <string name="revanced_music_hide_search_button_summary_on">Suchschaltfläche wird ausgeblendet</string>
+  <string name="revanced_music_hide_search_button_summary_off">Suchschaltfläche wird angezeigt</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Kategorieleiste ausblenden</string>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1677,10 +1676,19 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">已启用永久重复播放</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">已禁用永久重复播放</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">隐藏投射按钮</string>
   <string name="revanced_music_hide_cast_button_summary_on">投射按钮已隐藏</string>
   <string name="revanced_music_hide_cast_button_summary_off">投射按钮已显示</string>
+  <string name="revanced_music_hide_history_button_title">隐藏历史记录按钮</string>
+  <string name="revanced_music_hide_history_button_summary_on">历史记录按钮已隐藏</string>
+  <string name="revanced_music_hide_history_button_summary_off">历史记录按钮已显示</string>
+  <string name="revanced_music_hide_notification_button_title">隐藏通知按钮</string>
+  <string name="revanced_music_hide_notification_button_summary_on">通知按钮已隐藏</string>
+  <string name="revanced_music_hide_notification_button_summary_off">通知按钮已显示</string>
+  <string name="revanced_music_hide_search_button_title">隐藏搜索按钮</string>
+  <string name="revanced_music_hide_search_button_summary_on">搜索按钮已隐藏</string>
+  <string name="revanced_music_hide_search_button_summary_off">搜索按钮已显示</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">隐藏类别栏</string>
