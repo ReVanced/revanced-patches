@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1679,10 +1678,19 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
   <string name="revanced_music_play_permanent_repeat_summary_on">영구적인 반복을 활성화합니다</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">영구적인 반복을 비활성화합니다</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">크롬캐스트 버튼 숨기기</string>
   <string name="revanced_music_hide_cast_button_summary_on">크롬캐스트 버튼이 숨겨집니다</string>
   <string name="revanced_music_hide_cast_button_summary_off">크롬캐스트 버튼이 표시됩니다</string>
+  <string name="revanced_music_hide_history_button_title">기록 버튼 숨기기</string>
+  <string name="revanced_music_hide_history_button_summary_on">기록 버튼이 숨겨집니다</string>
+  <string name="revanced_music_hide_history_button_summary_off">기록 버튼이 표시됩니다</string>
+  <string name="revanced_music_hide_notification_button_title">알림 버튼 숨기기</string>
+  <string name="revanced_music_hide_notification_button_summary_on">알림 버튼이 숨겨집니다</string>
+  <string name="revanced_music_hide_notification_button_summary_off">알림 버튼이 표시됩니다</string>
+  <string name="revanced_music_hide_search_button_title">검색 버튼 숨기기</string>
+  <string name="revanced_music_hide_search_button_summary_on">검색 버튼이 숨겨집니다</string>
+  <string name="revanced_music_hide_search_button_summary_off">검색 버튼이 표시됩니다</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">카테고리 바 숨기기</string>

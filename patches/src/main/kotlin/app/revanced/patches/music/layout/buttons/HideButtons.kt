@@ -55,7 +55,7 @@ val hideButtons = bytecodePatch(
         playerOverlayChip = getResourceId(ResourceType.ID, "player_overlay_chip")
         historyMenuItem = getResourceId(ResourceType.ID, "history_menu_item")
         offlineSettingsMenuItem = getResourceId(ResourceType.ID, "offline_settings_menu_item")
-        searchButton = getResourceId(ResourceType.ID, "search_button")
+        searchButton = getResourceId(ResourceType.LAYOUT, "search_button")
         topBarMenuItemImageView = getResourceId(ResourceType.ID, "top_bar_menu_item_image_view")
 
         addResources("music", "layout.buttons.hideButtons")

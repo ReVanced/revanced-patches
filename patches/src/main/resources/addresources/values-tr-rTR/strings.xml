@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -165,14 +164,14 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Hata ayıklama kayıtlarını temizle</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Kaydedilmiş tüm ReVanced hata ayıklama kayıtlarını temizler</string>
   <string name="revanced_debug_logs_clear_toast">Kayıtlar temizlendi</string>
-  <string name="revanced_debug_feature_flags_manager_title">Özellik bayrakları Manager</string>
-  <string name="revanced_debug_feature_flags_manager_summary">Boole özellik bayraklarını yönet</string>
-  <string name="revanced_debug_feature_flags_manager_active_header">Aktif bayraklar (%d)</string>
-  <string name="revanced_debug_feature_flags_manager_blocked_header">Engellenen bayraklar (%d)</string>
-  <string name="revanced_debug_feature_flags_manager_search_hint">Bayrakları ara...</string>
-  <string name="revanced_debug_feature_flags_manager_toast_saved">Bayraklar kaydedildi</string>
-  <string name="revanced_debug_feature_flags_manager_toast_reset">Bayraklar sıfırlandı</string>
-  <string name="revanced_debug_feature_flags_manager_toast_copied">Bayraklar panoya kopyalandı</string>
+  <string name="revanced_debug_feature_flags_manager_title">Özellik işaretçileri yöneticisi</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Boolean özellik işaretçilerini yönet</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktif işaretçiler (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Engellenen işaretçiler (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">İşaretçileri ara...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">İşaretçiler kaydedildi</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">İşaretçiler sıfırlandı</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">İşaretçiler panoya kopyalandı</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
@@ -1679,10 +1678,19 @@ AV1 ile video oynatma takılabilir veya kare atlayabilir."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Kalıcı tekrar etkin</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Kalıcı tekrar devre dışı</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Yayınla düğmesini gizle</string>
   <string name="revanced_music_hide_cast_button_summary_on">Yayınla düğmesi gizli</string>
   <string name="revanced_music_hide_cast_button_summary_off">Yayınla düğmesi görünür</string>
+  <string name="revanced_music_hide_history_button_title">Geçmiş düğmesini gizle</string>
+  <string name="revanced_music_hide_history_button_summary_on">Geçmiş düğmesi gizli</string>
+  <string name="revanced_music_hide_history_button_summary_off">Geçmiş düğmesi görünür</string>
+  <string name="revanced_music_hide_notification_button_title">Bildirim düğmesini gizle</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Bildirim düğmesi gizli</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Bildirim düğmesi görünür</string>
+  <string name="revanced_music_hide_search_button_title">Arama düğmesini gizle</string>
+  <string name="revanced_music_hide_search_button_summary_on">Arama düğmesi gizli</string>
+  <string name="revanced_music_hide_search_button_summary_off">Arama düğmesi görünür</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Kategori çubuğunu gizle</string>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -165,14 +164,14 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_debug_logs_clear_buffer_title">デバッグログを消去</string>
   <string name="revanced_debug_logs_clear_buffer_summary">保存されている ReVanced のすべてのデバッグログを消去します</string>
   <string name="revanced_debug_logs_clear_toast">ログを消去しました</string>
-  <string name="revanced_debug_feature_flags_manager_title">機能フラグ Manager</string>
-  <string name="revanced_debug_feature_flags_manager_summary">ブール機能フラグを管理</string>
-  <string name="revanced_debug_feature_flags_manager_active_header">有効なフラグ (%d)</string>
-  <string name="revanced_debug_feature_flags_manager_blocked_header">ブロックされたフラグ (%d)</string>
-  <string name="revanced_debug_feature_flags_manager_search_hint">フラグを検索...</string>
-  <string name="revanced_debug_feature_flags_manager_toast_saved">フラグを保存しました</string>
-  <string name="revanced_debug_feature_flags_manager_toast_reset">フラグをリセットしました</string>
-  <string name="revanced_debug_feature_flags_manager_toast_copied">フラグをクリップボードにコピーしました</string>
+  <string name="revanced_debug_feature_flags_manager_title">機能フラグ管理ツール</string>
+  <string name="revanced_debug_feature_flags_manager_summary">ブール値 (オン / オフ) の feature flags を管理します</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Active flags (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Blocked flags (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Search flags...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">flags を保存しました</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">flags をリセットしました</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">flags をクリップボードにコピーしました</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">共有リンクを無害化</string>
@@ -1489,7 +1488,7 @@ Automotive レイアウト
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow は一時的に利用できません</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
-  <string name="revanced_announcements_title">ReVanced のお知らせを表示</string>
+  <string name="revanced_announcements_title">ReVanced からのお知らせを表示</string>
   <string name="revanced_announcements_summary_on">アプリの起動時にお知らせが表示されます</string>
   <string name="revanced_announcements_summary_off">アプリの起動時にお知らせは表示されません</string>
   <string name="revanced_announcements_enabled_summary">アプリの起動時にお知らせを表示します</string>
@@ -1674,10 +1673,19 @@ AV1 での動画再生は、カクつくまたはコマ落ちが発生する場�
   <string name="revanced_music_play_permanent_repeat_summary_on">常時リピートは有効です\n\nリピート設定が保存され常時適用されます</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">常時リピートは無効です\n\nリピート設定は保存されず毎回リセットされます</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">キャストボタンを非表示</string>
   <string name="revanced_music_hide_cast_button_summary_on">キャストボタンはプレーヤー オーバーレイに表示されません</string>
   <string name="revanced_music_hide_cast_button_summary_off">キャストボタンはプレーヤー オーバーレイに表示されます</string>
+  <string name="revanced_music_hide_history_button_title">履歴ボタンを非表示</string>
+  <string name="revanced_music_hide_history_button_summary_on">履歴ボタンは表示されません</string>
+  <string name="revanced_music_hide_history_button_summary_off">履歴ボタンは表示されます</string>
+  <string name="revanced_music_hide_notification_button_title">通知ボタンを非表示</string>
+  <string name="revanced_music_hide_notification_button_summary_on">通知ボタンは表示されません</string>
+  <string name="revanced_music_hide_notification_button_summary_off">通知ボタンは表示されます</string>
+  <string name="revanced_music_hide_search_button_title">検索ボタンを非表示</string>
+  <string name="revanced_music_hide_search_button_summary_on">検索ボタンは表示されません</string>
+  <string name="revanced_music_hide_search_button_summary_off">検索ボタンは表示されます</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">カテゴリバーを非表示</string>

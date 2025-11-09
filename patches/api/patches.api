@@ -380,6 +380,10 @@ public final class app/revanced/patches/music/layout/compactheader/HideCategoryB
 	public static final fun getHideCategoryBar ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/layout/miniplayercolor/ChangeMiniplayerColorKt {
+	public static final fun getChangeMiniplayerColor ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/layout/navigationbar/NavigationBarPatchKt {
 	public static final fun getNavigationBarPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

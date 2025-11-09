@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1672,10 +1671,19 @@ Predvajanje videa z AV1 se lahko zatika ali izpušča sličice."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Trajno ponavljanje je omogočeno</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Trajno ponavljanje je onemogočeno</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Skrij gumb za predvajanje</string>
   <string name="revanced_music_hide_cast_button_summary_on">Gumb za predvajanje je skrit</string>
   <string name="revanced_music_hide_cast_button_summary_off">Gumb za predvajanje je prikazan</string>
+  <string name="revanced_music_hide_history_button_title">Skrij gumb za zgodovino</string>
+  <string name="revanced_music_hide_history_button_summary_on">Gumb za zgodovino je skrit</string>
+  <string name="revanced_music_hide_history_button_summary_off">Gumb za zgodovino je prikazan</string>
+  <string name="revanced_music_hide_notification_button_title">Skrij gumb za obvestila</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Gumb za obvestila je skrit</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Gumb za obvestila je prikazan</string>
+  <string name="revanced_music_hide_search_button_title">Skrij gumb za iskanje</string>
+  <string name="revanced_music_hide_search_button_summary_on">Gumb za iskanje je skrit</string>
+  <string name="revanced_music_hide_search_button_summary_off">Gumb za iskanje je prikazan</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Skrij vrstico kategorij</string>

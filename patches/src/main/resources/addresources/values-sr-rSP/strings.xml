@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1674,10 +1673,19 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Трајно понављање је омогућено</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Трајно понављање је онемогућено</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Сакриј дугме „Пребацуј”</string>
   <string name="revanced_music_hide_cast_button_summary_on">Дугме „Пребацуј” је скривено</string>
   <string name="revanced_music_hide_cast_button_summary_off">Дугме „Пребацуј” је приказано</string>
+  <string name="revanced_music_hide_history_button_title">Сакриј дугме „Историја”</string>
+  <string name="revanced_music_hide_history_button_summary_on">Дугме „Историја” је скривено</string>
+  <string name="revanced_music_hide_history_button_summary_off">Дугме „Историја” је приказано</string>
+  <string name="revanced_music_hide_notification_button_title">Сакриј дугме „Обавештење”</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Дугме „Обавештење” је скривено</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Дугме „Обавештење” је приказано</string>
+  <string name="revanced_music_hide_search_button_title">Сакриј дугме „Претрага”</string>
+  <string name="revanced_music_hide_search_button_summary_on">Дугме „Претрага” је скривено</string>
+  <string name="revanced_music_hide_search_button_summary_off">Дугме „Претрага” је приказано</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Сакриј траку категорија</string>
