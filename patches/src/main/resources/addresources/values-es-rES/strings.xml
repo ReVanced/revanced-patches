@@ -1679,6 +1679,11 @@ La reproducción puede tartamudear o perder fotogramas"</string>
   <string name="revanced_music_hide_category_bar_summary_on">La barra de categorías está oculta</string>
   <string name="revanced_music_hide_category_bar_summary_off">La barra de categorías es visible</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Cambiar color del minirreproductor</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">El color del minirreproductor coincide con el del reproductor de pantalla completa</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">El minirreproductor utiliza el color predeterminado</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Barra de navegación</string>
   <string name="revanced_music_navigation_bar_screen_summary">Ocultar o cambiar los botones de la barra de navegación</string>

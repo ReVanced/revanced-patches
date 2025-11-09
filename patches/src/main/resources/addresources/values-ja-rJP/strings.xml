@@ -1692,6 +1692,11 @@ AV1 での動画再生は、カクつくまたはコマ落ちが発生する場�
   <string name="revanced_music_hide_category_bar_summary_on">カテゴリバーは表示されません</string>
   <string name="revanced_music_hide_category_bar_summary_off">カテゴリバーは表示されます</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">ミニプレーヤーの色を変更</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">ミニプレーヤーの色はフルスクリーンプレーヤーと一致</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">ミニプレーヤーはデフォルトの色を使用</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">ナビゲーション バー</string>
   <string name="revanced_music_navigation_bar_screen_summary">ナビゲーション バーのボタンを変更または非表示にします</string>

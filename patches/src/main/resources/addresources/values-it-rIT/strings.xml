@@ -1689,6 +1689,11 @@ La riproduzione video con AV1 potrebbe rallentare o perdere fotogrammi."</string
   <string name="revanced_music_hide_category_bar_summary_on">La barra delle categorie è nascosta</string>
   <string name="revanced_music_hide_category_bar_summary_off">La barra delle categorie è mostrata</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Modifica colore miniplayer</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Il colore del miniplayer corrisponde a quello del lettore a schermo intero</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Il miniplayer usa il colore predefinito</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Barra di navigazione</string>
   <string name="revanced_music_navigation_bar_screen_summary">Nascondi o modifica i pulsanti della barra di navigazione</string>

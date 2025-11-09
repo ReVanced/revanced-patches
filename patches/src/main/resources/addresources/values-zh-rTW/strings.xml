@@ -1700,6 +1700,11 @@ AV1 視訊播放可能會卡頓或掉幀。"</string>
   <string name="revanced_music_hide_category_bar_summary_on">類別列已隱藏</string>
   <string name="revanced_music_hide_category_bar_summary_off">類別列已顯示</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">變更迷你播放器顏色</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">迷你播放器顏色符合全螢幕播放器</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">迷你播放器使用預設顏色</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">導覽列</string>
   <string name="revanced_music_navigation_bar_screen_summary">隱藏或變更導覽列按鈕</string>

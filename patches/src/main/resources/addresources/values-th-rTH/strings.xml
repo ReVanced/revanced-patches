@@ -1692,6 +1692,11 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_music_hide_category_bar_summary_on">ซ่อนแถบหมวดหมู่แล้ว</string>
   <string name="revanced_music_hide_category_bar_summary_off">แสดงแถบหมวดหมู่แล้ว</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">เปลี่ยนสีมินิเพลเยอร์</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">สีมินิเพลเยอร์ตรงกับเครื่องเล่นแบบเต็มหน้าจอ</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">มินิเพลเยอร์ใช้สีเริ่มต้น</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">แถบนำทาง</string>
   <string name="revanced_music_navigation_bar_screen_summary">ซ่อนหรือเปลี่ยนปุ่มแถบนำทาง</string>

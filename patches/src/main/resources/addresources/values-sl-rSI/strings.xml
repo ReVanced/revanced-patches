@@ -1690,6 +1690,11 @@ Predvajanje videa z AV1 se lahko zatika ali izpušča sličice."</string>
   <string name="revanced_music_hide_category_bar_summary_on">Vrstica kategorij je skrita</string>
   <string name="revanced_music_hide_category_bar_summary_off">Vrstica kategorij je prikazana</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Spremeni barvo mini predvajalnika</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Barva mini predvajalnika se ujema z barvo celozaslonskega predvajalnika</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Mini predvajalnik uporablja privzeto barvo</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigacijska vrstica</string>
   <string name="revanced_music_navigation_bar_screen_summary">Skrij ali spremeni gumbe navigacijske vrstice</string>

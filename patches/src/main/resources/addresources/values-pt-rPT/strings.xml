@@ -1690,6 +1690,11 @@ A reprodução de vídeo com AV1 pode apresentar soluços ou perder quadros."</s
   <string name="revanced_music_hide_category_bar_summary_on">Barra de categorias está oculta</string>
   <string name="revanced_music_hide_category_bar_summary_off">Barra de categorias está exibida</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Alterar a cor do minitocador</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">A cor do minitocador corresponde à do reprodutor em tela cheia</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">O minitocador usa a cor padrão</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Barra de navegação</string>
   <string name="revanced_music_navigation_bar_screen_summary">Ocultar ou alterar botões da barra de navegação</string>

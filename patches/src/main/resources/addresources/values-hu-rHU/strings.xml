@@ -1687,6 +1687,11 @@ Az AV1-es videólejátszás akadozhat vagy képkockákat ejthet."</string>
   <string name="revanced_music_hide_category_bar_summary_on">A kategóriasáv rejtve van</string>
   <string name="revanced_music_hide_category_bar_summary_off">A kategóriasáv látható</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Mini lejátszó színének módosítása</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">A mini lejátszó színe megegyezik a teljes képernyős lejátszóéval</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">A mini lejátszó alapértelmezett színt használ</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigációs sáv</string>
   <string name="revanced_music_navigation_bar_screen_summary">Navigációs sáv gombjainak elrejtése vagy módosítása</string>

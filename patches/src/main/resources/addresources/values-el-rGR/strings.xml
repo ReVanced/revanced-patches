@@ -1689,6 +1689,11 @@ Second \"item\" text"</string>
   <string name="revanced_music_hide_category_bar_summary_on">Κρυμμένη</string>
   <string name="revanced_music_hide_category_bar_summary_off">Εμφανίζεται</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Αλλαγή χρώματος ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Το χρώμα της ελαχιστοποιημένης οθόνης αναπαραγωγής ταιριάζει με αυτό της οθόνης αναπαραγωγής πλήρους οθόνης</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Η ελαχιστοποιημένη οθόνη αναπαραγωγής χρησιμοποιεί το προεπιλεγμένο χρώμα</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Γραμμή πλοήγησης</string>
   <string name="revanced_music_navigation_bar_screen_summary">Απόκρυψη ή αλλαγή κουμπιών της γραμμής πλοήγησης</string>
