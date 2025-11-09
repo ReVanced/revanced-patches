@@ -1,3 +1,10 @@
+# [5.46.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.8...v5.46.0-dev.9) (2025-11-09)
+
+
+### Features
+
+* **YouTube Music:** Add `Change miniplayer color` patch ([#6259](https://github.com/ReVanced/revanced-patches/issues/6259)) ([ab808ae](https://github.com/ReVanced/revanced-patches/commit/ab808aeb773592cb26c848d8456478a346ec3bad))
+
 # [5.46.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.7...v5.46.0-dev.8) (2025-11-09)
 
 
