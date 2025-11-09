@@ -1,3 +1,10 @@
+# [5.46.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.9...v5.46.0-dev.10) (2025-11-09)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add video description "Hide Featured content" and "Hide Subscribe button" ([#6253](https://github.com/ReVanced/revanced-patches/issues/6253)) ([da4cf94](https://github.com/ReVanced/revanced-patches/commit/da4cf940911a4406e2c9dd558b60305385a80c61))
+
 # [5.46.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.46.0-dev.8...v5.46.0-dev.9) (2025-11-09)
 
 
