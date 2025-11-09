@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1669,10 +1668,19 @@ Az AV1-es videólejátszás akadozhat vagy képkockákat ejthet."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Az állandó ismétlés engedélyezve van</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Az állandó ismétlés letiltva van</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Kivetítés gomb elrejtése</string>
   <string name="revanced_music_hide_cast_button_summary_on">Kivetítés gomb elrejtve</string>
   <string name="revanced_music_hide_cast_button_summary_off">Kivetítés gomb látható</string>
+  <string name="revanced_music_hide_history_button_title">Elrejti az előzmények gombot</string>
+  <string name="revanced_music_hide_history_button_summary_on">Az előzmények gomb rejtett</string>
+  <string name="revanced_music_hide_history_button_summary_off">Az előzmények gomb látható</string>
+  <string name="revanced_music_hide_notification_button_title">Értesítési gomb elrejtése</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Az értesítési gomb el van rejtve</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Az értesítési gomb látható</string>
+  <string name="revanced_music_hide_search_button_title">Keresés gomb elrejtése</string>
+  <string name="revanced_music_hide_search_button_summary_on">A keresés gomb el van rejtve</string>
+  <string name="revanced_music_hide_search_button_summary_off">A keresés gomb látható</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Kategóriasáv elrejtése</string>

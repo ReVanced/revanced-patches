@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1672,10 +1671,19 @@ A reprodução de vídeo com AV1 pode apresentar soluços ou perder quadros."</s
   <string name="revanced_music_play_permanent_repeat_summary_on">Repetição permanente está ativada</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Repetição permanente está desativada</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Ocultar botão de transmissão</string>
   <string name="revanced_music_hide_cast_button_summary_on">O botão de transmissão está oculto</string>
   <string name="revanced_music_hide_cast_button_summary_off">O botão de transmissão está exibido</string>
+  <string name="revanced_music_hide_history_button_title">Ocultar botão de histórico</string>
+  <string name="revanced_music_hide_history_button_summary_on">O botão de histórico está oculto</string>
+  <string name="revanced_music_hide_history_button_summary_off">O botão de histórico está exibido</string>
+  <string name="revanced_music_hide_notification_button_title">Ocultar botão de notificação</string>
+  <string name="revanced_music_hide_notification_button_summary_on">O botão de notificação está oculto</string>
+  <string name="revanced_music_hide_notification_button_summary_off">O botão de notificação está visível</string>
+  <string name="revanced_music_hide_search_button_title">Ocultar botão de pesquisa</string>
+  <string name="revanced_music_hide_search_button_summary_on">O botão de pesquisa está oculto</string>
+  <string name="revanced_music_hide_search_button_summary_off">O botão de pesquisa está visível</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Ocultar barra de categorias</string>

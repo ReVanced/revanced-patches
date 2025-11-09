@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1669,10 +1668,19 @@ Redarea video cu AV1 poate sacada sau pierde cadre."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Repetarea permanentă este activată</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Repetarea permanentă este dezactivată</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Ascunde butonul de transmisie</string>
   <string name="revanced_music_hide_cast_button_summary_on">Butonul de transmisie este ascuns</string>
   <string name="revanced_music_hide_cast_button_summary_off">Butonul de transmisie este afișat</string>
+  <string name="revanced_music_hide_history_button_title">Ascunde butonul de istoric</string>
+  <string name="revanced_music_hide_history_button_summary_on">Butonul de istoric este ascuns</string>
+  <string name="revanced_music_hide_history_button_summary_off">Butonul de istoric este afișat</string>
+  <string name="revanced_music_hide_notification_button_title">Ascunde butonul de notificare</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Butonul de notificare este ascuns</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Butonul de notificare este afișat</string>
+  <string name="revanced_music_hide_search_button_title">Ascunde butonul de căutare</string>
+  <string name="revanced_music_hide_search_button_summary_on">Butonul de căutare este ascuns</string>
+  <string name="revanced_music_hide_search_button_summary_off">Butonul de căutare este afișat</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Ascunde bara de categorii</string>

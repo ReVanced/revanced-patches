@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1673,10 +1672,19 @@ AV1 video atskaņošana var raustīties vai izlaist kadrus."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Pastāvīgā atkārtošana ir iespējota</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Pastāvīgā atkārtošana ir atspējota</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Slēpt apraides pogu</string>
   <string name="revanced_music_hide_cast_button_summary_on">Apraides poga ir paslēpta</string>
   <string name="revanced_music_hide_cast_button_summary_off">Apraides poga ir redzama</string>
+  <string name="revanced_music_hide_history_button_title">Slēpt vēstures pogu</string>
+  <string name="revanced_music_hide_history_button_summary_on">Vēstures poga ir slēpta</string>
+  <string name="revanced_music_hide_history_button_summary_off">Vēstures poga ir redzama</string>
+  <string name="revanced_music_hide_notification_button_title">Slēpt paziņojumu pogu</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Paziņojumu poga ir paslēpta</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Paziņojumu poga ir redzama</string>
+  <string name="revanced_music_hide_search_button_title">Slēpt meklēšanas pogu</string>
+  <string name="revanced_music_hide_search_button_summary_on">Meklēšanas poga ir paslēpta</string>
+  <string name="revanced_music_hide_search_button_summary_off">Meklēšanas poga ir redzama</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Slēpt kategoriju joslu</string>

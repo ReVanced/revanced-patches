@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1679,10 +1678,19 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Постоянный повтор включен</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Постоянный повтор отключен</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Скрыть кнопку \"Трансляция\"</string>
   <string name="revanced_music_hide_cast_button_summary_on">Кнопка \"Трансляция\" в плеере скрыта</string>
   <string name="revanced_music_hide_cast_button_summary_off">Кнопка \"Трансляция\" в плеере показана</string>
+  <string name="revanced_music_hide_history_button_title">Скрыть кнопку \"История\"</string>
+  <string name="revanced_music_hide_history_button_summary_on">Кнопка \"История\" скрыта</string>
+  <string name="revanced_music_hide_history_button_summary_off">Кнопка \"История\" показана</string>
+  <string name="revanced_music_hide_notification_button_title">Скрыть кнопку уведомлений</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Кнопка уведомлений скрыта</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Кнопка уведомлений показана</string>
+  <string name="revanced_music_hide_search_button_title">Скрыть кнопку поиска</string>
+  <string name="revanced_music_hide_search_button_summary_on">Кнопка поиска скрыта</string>
+  <string name="revanced_music_hide_search_button_summary_off">Кнопка поиска показана</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Скрыть панель категорий</string>

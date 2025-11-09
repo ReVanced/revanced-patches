@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1674,10 +1673,19 @@ User id ของคุณเหมือนกับรหัสผ่าน �
   <string name="revanced_music_play_permanent_repeat_summary_on">เปิดใช้งานเล่นซ้ำถาวรแล้ว</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">ปิดใช้งานเล่นซ้ำถาวรแล้ว</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">ซ่อนปุ่มแคสต์</string>
   <string name="revanced_music_hide_cast_button_summary_on">ปุ่มแคสต์ซ่อนอยู่</string>
   <string name="revanced_music_hide_cast_button_summary_off">ปุ่มแคสต์แสดงอยู่</string>
+  <string name="revanced_music_hide_history_button_title">ซ่อนปุ่มประวัติ</string>
+  <string name="revanced_music_hide_history_button_summary_on">ปุ่มประวัติถูกซ่อน</string>
+  <string name="revanced_music_hide_history_button_summary_off">ปุ่มประวัติกำลังแสดง</string>
+  <string name="revanced_music_hide_notification_button_title">ซ่อนปุ่มการแจ้งเตือน</string>
+  <string name="revanced_music_hide_notification_button_summary_on">ซ่อนปุ่มการแจ้งเตือนแล้ว</string>
+  <string name="revanced_music_hide_notification_button_summary_off">แสดงปุ่มการแจ้งเตือนแล้ว</string>
+  <string name="revanced_music_hide_search_button_title">ซ่อนปุ่มค้นหา</string>
+  <string name="revanced_music_hide_search_button_summary_on">ซ่อนปุ่มค้นหาแล้ว</string>
+  <string name="revanced_music_hide_search_button_summary_off">แสดงปุ่มค้นหาแล้ว</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">ซ่อนแถบหมวดหมู่</string>
