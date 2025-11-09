@@ -7,17 +7,15 @@ import app.revanced.extension.youtube.shared.PlayerType;
 @SuppressWarnings("unused")
 final class DescriptionComponentsFilter extends Filter {
 
+    private static final String INFOCARDS_SECTION_PATH = "infocards_section.e";
+
     private final StringTrieSearch exceptions = new StringTrieSearch();
-
-    private final ByteArrayFilterGroupList macroMarkersCarouselGroupList = new ByteArrayFilterGroupList();
-
     private final StringFilterGroup macroMarkersCarousel;
-
+    private final ByteArrayFilterGroupList macroMarkersCarouselGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup horizontalShelf;
     private final ByteArrayFilterGroup cellVideoAttribute;
     private final StringFilterGroup infoCardsSection;
-    private final ByteArrayFilterGroup subscribeButton;
-
+    private final StringFilterGroup subscribeButton;
     private final StringFilterGroup aiGeneratedVideoSummarySection;
     private final StringFilterGroup hypePoints;
 
@@ -74,10 +72,10 @@ final class DescriptionComponentsFilter extends Filter {
 
         infoCardsSection = new StringFilterGroup(
                 Settings.HIDE_INFO_CARDS_SECTION,
-                "infocards_section.e"
+                INFOCARDS_SECTION_PATH
         );
 
-        subscribeButton = new ByteArrayFilterGroup(
+        subscribeButton = new StringFilterGroup(
                 Settings.HIDE_DESCRIPTION_SUBSCRIBE_BUTTON,
                 "subscribe_button"
         );
@@ -119,6 +117,7 @@ final class DescriptionComponentsFilter extends Filter {
                 infoCardsSection,
                 macroMarkersCarousel,
                 podcastSection,
+                subscribeButton,
                 transcriptSection
         );
     }
@@ -132,12 +131,11 @@ final class DescriptionComponentsFilter extends Filter {
             return PlayerType.getCurrent().isMaximizedOrFullscreen();
         }
 
-        if (exceptions.matches(path)) return false;
-
-        if (matchedGroup == infoCardsSection) {
-            return contentIndex == 0 && (hideInfoCards()
-                    || subscribeButton.check(buffer).isFiltered());
+        if (matchedGroup == subscribeButton) {
+            return path.startsWith(INFOCARDS_SECTION_PATH);
         }
+
+        if (exceptions.matches(path)) return false;
 
         if (matchedGroup == macroMarkersCarousel) {
             return contentIndex == 0 && macroMarkersCarouselGroupList.check(buffer).isFiltered();
@@ -148,9 +146,5 @@ final class DescriptionComponentsFilter extends Filter {
         }
 
         return true;
-    }
-
-    private static boolean hideInfoCards() {
-        return PlayerType.getCurrent().isMaximizedOrFullscreen();
     }
 }
