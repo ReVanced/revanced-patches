@@ -1691,6 +1691,11 @@ Vaizdo įrašo atkūrimas su AV1 gali strigti arba praleisti kadrus."</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategorijų juosta paslėpta</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategorijų juosta rodoma</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Pakeisti mini grotuvo spalvą</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Mini grotuvo spalva atitinka viso ekrano grotuvo spalvą</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Mini grotuvas naudoja numatytąją spalvą</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Naršymo juosta</string>
   <string name="revanced_music_navigation_bar_screen_summary">Slėpti arba keisti naršymo juostos mygtukus</string>

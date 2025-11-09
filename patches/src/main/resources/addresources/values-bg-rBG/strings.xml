@@ -1690,6 +1690,11 @@ Second \"item\" text"</string>
   <string name="revanced_music_hide_category_bar_summary_on">Лентата с категории е скрита</string>
   <string name="revanced_music_hide_category_bar_summary_off">Лентата с категории е показана</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Промяна на цвета на миниплейъра</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Цветът на миниплейъра съвпада с този на плейъра на цял екран</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Миниплейърът използва цвят по подразбиране</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Навигационна лента</string>
   <string name="revanced_music_navigation_bar_screen_summary">Скриване или промяна на бутоните на навигационната лента</string>

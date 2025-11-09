@@ -1688,6 +1688,11 @@ Luajtja e videos me AV1 mund të ngecë ose të humbasë korniza."</string>
   <string name="revanced_music_hide_category_bar_summary_on">Shiriti i kategorive është i fshehur</string>
   <string name="revanced_music_hide_category_bar_summary_off">Shiriti i kategorive është i shfaqur</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Ndrysho ngjyrën e mini-lojtarit</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Ngjyra e mini-lojtarit përputhet me lojtarin në ekran të plotë</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Mini-lojtari përdor ngjyrën e paracaktuar</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Shiriti i navigimit</string>
   <string name="revanced_music_navigation_bar_screen_summary">Fshih ose ndrysho butonat e shiritit të navigimit</string>

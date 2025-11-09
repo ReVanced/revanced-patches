@@ -1690,6 +1690,11 @@ AV1-ga videotaasesitus võib hakitud olla või kaadreid vahele jätta."</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategooriariba on peidetud</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategooriariba on nähtaval</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Muuda minipleieri värvi</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Minipleieri värv ühtib täisekraanipleieri omaga</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Minipleier kasutab vaikevärvi</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigeerimisriba</string>
   <string name="revanced_music_navigation_bar_screen_summary">Peida või muuda navigeerimisriba nuppe</string>

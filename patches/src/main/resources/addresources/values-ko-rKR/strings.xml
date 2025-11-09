@@ -1697,6 +1697,11 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
   <string name="revanced_music_hide_category_bar_summary_on">카테고리 바가 숨겨집니다</string>
   <string name="revanced_music_hide_category_bar_summary_off">카테고리 바가 표시됩니다</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">미니 플레이어 색상 변경하기</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">미니 플레이어 색상이 전체 화면 플레이어와 일치합니다</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">미니 플레이어 색상이 기본 색상입니다</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">하단바</string>
   <string name="revanced_music_navigation_bar_screen_summary">하단바에서 버튼을 숨기거나 변경할 수 있습니다</string>

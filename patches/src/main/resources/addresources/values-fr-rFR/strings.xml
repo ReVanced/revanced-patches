@@ -1691,6 +1691,11 @@ La lecture vidéo avec AV1 peut être saccadée et des images peuvent être perd
   <string name="revanced_music_hide_category_bar_summary_on">La barre des catégories est masquée</string>
   <string name="revanced_music_hide_category_bar_summary_off">La barre des catégories est affichée</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Changer la couleur du mini-lecteur</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">La couleur du mini-lecteur correspond à celle du lecteur plein écran</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Le mini-lecteur utilise la couleur par défaut</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Barre de navigation</string>
   <string name="revanced_music_navigation_bar_screen_summary">Masquez ou modifiez les boutons de la barre de navigation</string>

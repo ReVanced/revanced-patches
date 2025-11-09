@@ -1689,6 +1689,11 @@ Second \"item\" text"</string>
   <string name="revanced_music_hide_category_bar_summary_on">Панель категорій приховано</string>
   <string name="revanced_music_hide_category_bar_summary_off">Панель категорій показується</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Змінити колір мініплеєра</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Колір мініплеєра відповідає кольору повноекранного плеєра</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Мініплеєр використовує колір за замовчуванням</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Панель навігації</string>
   <string name="revanced_music_navigation_bar_screen_summary">Приховати або змінити кнопки панелі навігації</string>

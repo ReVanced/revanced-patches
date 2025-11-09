@@ -1689,6 +1689,11 @@ Video oynatma AV1 ilə ilişə bilər və ya kadrlar buraxıla bilər."</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kateqoriya cizgisi gizlidir</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kateqoriya cizgisi görünür</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Miniplayer rəngini dəyişdirin</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Miniplayer rəngi tam ekran pleyeri ilə eynidir</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Miniplayer defolt rəngdən istifadə edir</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Fəaliyyət cizgisi</string>
   <string name="revanced_music_navigation_bar_screen_summary">Fəaliyyət cizgisi düymələrini gizlət və ya dəyiş</string>

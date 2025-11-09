@@ -1691,6 +1691,11 @@ Second \"item\" text"</string>
   <string name="revanced_music_hide_category_bar_summary_on">Панэль катэгорый схаваная</string>
   <string name="revanced_music_hide_category_bar_summary_off">Панэль катэгорый паказаная</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Змяніць колер міні-плэера</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Колер міні-плэера супадае з поўнаэкранным плэерам</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Міні-плэер выкарыстоўвае колер па змаўчанні</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Панэль навігацыі</string>
   <string name="revanced_music_navigation_bar_screen_summary">Схаваць або змяніць кнопкі панэлі навігацыі</string>
