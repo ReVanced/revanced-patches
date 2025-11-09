@@ -1,4 +1,3 @@
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -1709,10 +1708,19 @@ Video playback with AV1 may stutter or drop frames."</string>
             <string name="revanced_music_play_permanent_repeat_summary_on">Permanent repeat is enabled</string>
             <string name="revanced_music_play_permanent_repeat_summary_off">Permanent repeat is disabled</string>
         </patch>
-        <patch id="layout.castbutton.hideCastButton">
+        <patch id="layout.buttons.hideButtons">
             <string name="revanced_music_hide_cast_button_title">Hide cast button</string>
             <string name="revanced_music_hide_cast_button_summary_on">Cast button is hidden</string>
             <string name="revanced_music_hide_cast_button_summary_off">Cast button is shown</string>
+            <string name="revanced_music_hide_history_button_title">Hide history button</string>
+            <string name="revanced_music_hide_history_button_summary_on">History button is hidden</string>
+            <string name="revanced_music_hide_history_button_summary_off">History button is shown</string>
+            <string name="revanced_music_hide_notification_button_title">Hide notification button</string>
+            <string name="revanced_music_hide_notification_button_summary_on">Notification button is hidden</string>
+            <string name="revanced_music_hide_notification_button_summary_off">Notification button is shown</string>
+            <string name="revanced_music_hide_search_button_title">Hide search button</string>
+            <string name="revanced_music_hide_search_button_summary_on">Search button is hidden</string>
+            <string name="revanced_music_hide_search_button_summary_off">Search button is shown</string>
         </patch>
         <patch id="layout.compactheader.hideCategoryBar">
             <string name="revanced_music_hide_category_bar_title">Hide category bar</string>

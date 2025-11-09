@@ -783,6 +783,28 @@ public class Utils {
     }
 
     /**
+     * Hides a view by setting its layout width and height to 0dp.
+     * Handles null layout params safely.
+     *
+     * @param view The view to hide. If null, does nothing.
+     */
+    public static void hideViewByLayoutParams(@Nullable View view) {
+        if (view == null) return;
+
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+
+        if (params == null) {
+            // Create generic 0x0 layout params accepted by all ViewGroups.
+            params = new ViewGroup.LayoutParams(0, 0);
+        } else {
+            params.width = 0;
+            params.height = 0;
+        }
+
+        view.setLayoutParams(params);
+    }
+
+    /**
      * Configures the parameters of a dialog window, including its width, gravity, vertical offset and background dimming.
      * The width is calculated as a percentage of the screen's portrait width and the vertical offset is specified in DIP.
      * The default dialog background is removed to allow for custom styling.
