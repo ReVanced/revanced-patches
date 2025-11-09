@@ -86,9 +86,7 @@ val changeMiniplayerColor = bytecodePatch(
                         method.returnType == "V" &&
                         method.parameters == it.originalMethod.parameters
             }.apply {
-                val invokeDirectIndex = indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_DIRECT)
-
-                val insertIndex = invokeDirectIndex + 1
+                val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_DIRECT)
                 val freeRegister = findFreeRegister(insertIndex)
 
                 addInstructionsAtControlFlowLabel(
