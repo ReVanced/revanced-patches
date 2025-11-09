@@ -404,6 +404,10 @@ public final class app/revanced/patches/music/layout/branding/CustomBrandingPatc
 	public static final fun getCustomBrandingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/music/layout/buttons/HideButtonsKt {
+	public static final fun getHideButtons ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/layout/castbutton/HideCastButtonKt {
 	public static final fun getHideCastButton ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
