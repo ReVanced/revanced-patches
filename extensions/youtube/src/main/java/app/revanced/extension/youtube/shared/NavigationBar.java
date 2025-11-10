@@ -74,7 +74,7 @@ public final class NavigationBar {
      */
     public static boolean isSearchBarActive() {
         View searchbarResults = searchBarResultsRef.get();
-        return searchbarResults != null && searchbarResults.getParent() != null;
+        return searchbarResults != null && searchbarResults.isShown();
     }
 
     public static boolean isBackButtonVisible() {
