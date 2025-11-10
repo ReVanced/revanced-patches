@@ -342,12 +342,18 @@ MicroG-ի համար մարտկոցի օպտիմալացումը անջատել�
   <string name="revanced_hide_podcast_section_title">Թաքցնել \"Բացահայտեք փոդքասթը\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Բացահայտեք փոդքասթը բաժինը թաքցված է</string>
   <string name="revanced_hide_podcast_section_summary_off">Բացահայտեք փոդքասթը բաժինը ցուցադրվում է</string>
+  <string name="revanced_hide_featured_section_title">Թաքցնել ընտրված բովանդակությունը</string>
+  <string name="revanced_hide_featured_section_summary_on">Ընտրված բովանդակության բաժինը թաքցված է</string>
+  <string name="revanced_hide_featured_section_summary_off">Ընտրված բովանդակության բաժինը ցուցադրված է</string>
   <string name="revanced_hide_info_cards_section_title">Թաքցնել Տեղեկատվական քարտերը</string>
   <string name="revanced_hide_info_cards_section_summary_on">Տեղեկատվական քարտերի բաժինը թաքցված է</string>
   <string name="revanced_hide_info_cards_section_summary_off">Տեղեկատվական քարտերի բաժինը երևում է</string>
   <string name="revanced_hide_key_concepts_section_title">Թաքցնել \"Հիմնական հասկացությունները\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Հիմնական հասկացությունների բաժինը թաքցված է</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Հիմնական հասկացությունների բաժինը ցուցադրվում է</string>
+  <string name="revanced_hide_description_subscribe_button_title">Թաքցնել Բաժանորդագրվել կոճակը</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Բաժանորդագրվել կոճակը թաքնված է</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Բաժանորդագրվել կոճակը ցուցադրված է</string>
   <string name="revanced_hide_transcript_section_title">Թաքցնել վերծանումը</string>
   <string name="revanced_hide_transcript_section_summary_on">Տեքստի բաժինը թաքցված է</string>
   <string name="revanced_hide_transcript_section_summary_off">Տեքստի բաժինը երևում է</string>
