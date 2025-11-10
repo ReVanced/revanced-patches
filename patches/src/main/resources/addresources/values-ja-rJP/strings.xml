@@ -164,14 +164,14 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_debug_logs_clear_buffer_title">デバッグログを消去</string>
   <string name="revanced_debug_logs_clear_buffer_summary">保存されている ReVanced のすべてのデバッグログを消去します</string>
   <string name="revanced_debug_logs_clear_toast">ログを消去しました</string>
-  <string name="revanced_debug_feature_flags_manager_title">機能フラグ管理ツール</string>
-  <string name="revanced_debug_feature_flags_manager_summary">ブール値 (オン / オフ) の feature flags を管理します</string>
-  <string name="revanced_debug_feature_flags_manager_active_header">Active flags (%d)</string>
-  <string name="revanced_debug_feature_flags_manager_blocked_header">Blocked flags (%d)</string>
-  <string name="revanced_debug_feature_flags_manager_search_hint">Search flags...</string>
-  <string name="revanced_debug_feature_flags_manager_toast_saved">flags を保存しました</string>
-  <string name="revanced_debug_feature_flags_manager_toast_reset">flags をリセットしました</string>
-  <string name="revanced_debug_feature_flags_manager_toast_copied">flags をクリップボードにコピーしました</string>
+  <string name="revanced_debug_feature_flags_manager_title">feature flag マネージャー</string>
+  <string name="revanced_debug_feature_flags_manager_summary">各機能のオン / オフを制御する feature flag を管理します</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">有効な flag (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">無効な flag (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">flag を検索</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">flag を保存しました</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">flag をリセットしました</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">flag をクリップボードにコピーしました</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">共有リンクを無害化</string>
@@ -344,12 +344,18 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_podcast_section_title">「ポッドキャストを検索」を非表示</string>
   <string name="revanced_hide_podcast_section_summary_on">「ポッドキャストを検索」セクションは表示されません</string>
   <string name="revanced_hide_podcast_section_summary_off">「ポッドキャストを検索」セクションは表示されます</string>
+  <string name="revanced_hide_featured_section_title">おすすめコンテンツを非表示</string>
+  <string name="revanced_hide_featured_section_summary_on">情報カード内のおすすめコンテンツ セクションは表示されません</string>
+  <string name="revanced_hide_featured_section_summary_off">情報カード内のおすすめコンテンツ セクションは表示されます</string>
   <string name="revanced_hide_info_cards_section_title">情報カードを非表示</string>
   <string name="revanced_hide_info_cards_section_summary_on">情報カード セクションは表示されません</string>
   <string name="revanced_hide_info_cards_section_summary_off">情報カード セクションは表示されます</string>
   <string name="revanced_hide_key_concepts_section_title">「主な概念」を非表示</string>
   <string name="revanced_hide_key_concepts_section_summary_on">主な概念セクションは表示されません</string>
   <string name="revanced_hide_key_concepts_section_summary_off">主な概念セクションが表示されます</string>
+  <string name="revanced_hide_description_subscribe_button_title">チャンネル登録ボタンを非表示</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">情報カード内のチャンネル登録ボタンは表示されません</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">情報カード内のチャンネル登録ボタンは表示されます</string>
   <string name="revanced_hide_transcript_section_title">文字起こしを非表示</string>
   <string name="revanced_hide_transcript_section_summary_on">文字起こしセクションは表示されません</string>
   <string name="revanced_hide_transcript_section_summary_off">文字起こしセクションは表示されます</string>
@@ -1694,8 +1700,8 @@ AV1 での動画再生は、カクつくまたはコマ落ちが発生する場�
   </patch>
   <patch id="layout.miniplayercolor.changeMiniplayerColor">
   <string name="revanced_music_change_miniplayer_color_title">ミニプレーヤーの色を変更</string>
-  <string name="revanced_music_change_miniplayer_color_summary_on">ミニプレーヤーの色はフルスクリーンプレーヤーと一致</string>
-  <string name="revanced_music_change_miniplayer_color_summary_off">ミニプレーヤーはデフォルトの色を使用</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">ミニプレーヤーはフルスクリーン プレーヤーと同じ色を使用します</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">ミニプレーヤーはデフォルトの色を使用します</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">ナビゲーション バー</string>
