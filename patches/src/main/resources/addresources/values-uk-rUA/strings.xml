@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Дата збірки APK пошкоджена</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Увага</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Повідомлення ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша історія переглядів не зберігається.&lt;br&gt;&lt;br&gt;Швидше за все, це спричинено блокувальником реклами DNS або мережевим проксі.&lt;br&gt;&lt;br&gt;Щоб це виправити, додайте &lt;b&gt;s.youtube.com&lt;/b&gt; у білий список блокувальника або вимкніть усі DNS блокувальники та проксі.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Більше не показувати</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Налаштування</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ви впевнені, що хочете продовжити?</string>
+  <string name="revanced_settings_save">Зберегти</string>
   <string name="revanced_settings_reset">Скинути</string>
   <string name="revanced_settings_reset_color">Скинути колір</string>
   <string name="revanced_settings_color_invalid">Недійсний колір</string>
@@ -164,6 +164,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">Очистити журнали налагодження</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Очищує всі збережені журнали налагодження ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Журнали очищено</string>
+  <string name="revanced_debug_feature_flags_manager_title">Менеджер експериментальних прапорців</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Керувати експериментальними boolean прапорцями</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Активні (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Заблоковані (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Пошук...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Прапорці збережено</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Прапорці скинуто</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Прапорці скопійовано до буфера обміну</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Очищення посилань для поширення</string>
@@ -328,15 +336,24 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">Приховати секцію \"Як створювався цей контент\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Секцію \"Як створювався цей контент\" приховано</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Секція \"Як створювався цей контент\" показується</string>
+  <string name="revanced_hide_hype_points_title">Приховати очки голосів</string>
+  <string name="revanced_hide_hype_points_summary_on">Очки голосів приховано</string>
+  <string name="revanced_hide_hype_points_summary_off">Очки голосів показуються</string>
   <string name="revanced_hide_podcast_section_title">Приховати секцію \"Послухайте подкаст\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Секцію \"Послухайте подкаст\" приховано</string>
   <string name="revanced_hide_podcast_section_summary_off">Секція \"Послухайте подкаст\" показується</string>
+  <string name="revanced_hide_featured_section_title">Приховати рекомендований контент</string>
+  <string name="revanced_hide_featured_section_summary_on">Секцію рекомендованого контенту приховано</string>
+  <string name="revanced_hide_featured_section_summary_off">Секція рекомендованого контенту показується</string>
   <string name="revanced_hide_info_cards_section_title">Приховати секцію інформаційних карток</string>
   <string name="revanced_hide_info_cards_section_summary_on">Секцію інформаційних карток приховано</string>
   <string name="revanced_hide_info_cards_section_summary_off">Секція інформаційних карток показується</string>
   <string name="revanced_hide_key_concepts_section_title">Приховати секцію \"Основні поняття\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Секцію \"Основні поняття\" приховано</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Секція \"Основні поняття\" показується</string>
+  <string name="revanced_hide_description_subscribe_button_title">Приховати \"Підписатися\"</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Кнопку \"Підписатися\" приховано</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Кнопка \"Підписатися\" показується</string>
   <string name="revanced_hide_transcript_section_title">Приховати секцію \"Текст відео\"</string>
   <string name="revanced_hide_transcript_section_summary_on">Секцію \"Текст відео\" приховано</string>
   <string name="revanced_hide_transcript_section_summary_off">Секція \"Текст відео\" показується</string>
@@ -663,9 +680,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_download_button_summary_off">Кнопка \"Завантажити\" показується</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Приховати \"Хайп\"</string>
-  <string name="revanced_hide_hype_button_summary_on">Кнопку \"Хайп\" приховано</string>
-  <string name="revanced_hide_hype_button_summary_off">Кнопка \"Хайп\" показується</string>
+  <string name="revanced_hide_hype_button_title">Приховати \"Голосувати\"</string>
+  <string name="revanced_hide_hype_button_summary_on">Кнопку \"Голосувати\" приховано</string>
+  <string name="revanced_hide_hype_button_summary_off">Кнопка \"Голосувати\" показується</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_promote_button_title">Приховати \"Рекламувати\"</string>
   <string name="revanced_hide_promote_button_summary_on">Кнопку \"Рекламувати\" приховано</string>
@@ -771,15 +788,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">Приховати \"Швидкість відтворення\"</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Пункт меню \"Швидкість відтворення\" приховано</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Пункт меню \"Швидкість відтворення\" показується</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Приховати \"Додаткова інформація\"</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Пункт меню \"Додаткова інформація\" приховано</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Пункт меню \"Додаткова інформація\" показується</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Приховати \"Заблокувати екран\"</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Пункт меню \"Заблокувати екран\" приховано</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Пункт меню \"Заблокувати екран\" приховано</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Приховати \"Слухати в YouTube Music\"</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Пункт меню \"Слухати в YouTube Music\" приховано</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Пункт меню \"Слухати в YouTube Music\" показується</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Приховати \"Звукова доріжка\"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Пункт меню \"Звукова доріжка\" приховано</string>
@@ -1660,15 +1676,29 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Постійний повтор увімкнено</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Постійний повтор вимкнено</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Приховати кнопку трансляції</string>
   <string name="revanced_music_hide_cast_button_summary_on">Кнопку трансляції приховано</string>
   <string name="revanced_music_hide_cast_button_summary_off">Кнопка трансляції показується</string>
+  <string name="revanced_music_hide_history_button_title">Приховати кнопку історії</string>
+  <string name="revanced_music_hide_history_button_summary_on">Кнопку історії приховано</string>
+  <string name="revanced_music_hide_history_button_summary_off">Кнопка історії показується</string>
+  <string name="revanced_music_hide_notification_button_title">Приховати кнопку сповіщень</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Кнопку сповіщень приховано</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Кнопка сповіщень показується</string>
+  <string name="revanced_music_hide_search_button_title">Приховати кнопку пошуку</string>
+  <string name="revanced_music_hide_search_button_summary_on">Кнопку пошуку приховано</string>
+  <string name="revanced_music_hide_search_button_summary_off">Кнопка пошуку показується</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Приховати панель категорій</string>
   <string name="revanced_music_hide_category_bar_summary_on">Панель категорій приховано</string>
   <string name="revanced_music_hide_category_bar_summary_off">Панель категорій показується</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Змінити колір мініплеєра</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Колір мініплеєра відповідає кольору повноекранного плеєра</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Мініплеєр використовує колір за замовчуванням</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Панель навігації</string>

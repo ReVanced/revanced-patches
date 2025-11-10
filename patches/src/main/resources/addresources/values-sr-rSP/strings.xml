@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Датум израде APK-а је оштећен</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Упозорење</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced обавештење</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша историја гледања се не чува.&lt;br&gt;&lt;br&gt;Ово је највероватније узроковано DNS блокатором огласа или мрежним проксијем.&lt;br&gt;&lt;br&gt;Да бисте ово поправили, ставите на белу листу &lt;b&gt;s.youtube.com&lt;/b&gt; или искључите све DNS блокаторе и проксије.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не приказуј поново</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Подешавања</string>
   <string name="revanced_settings_confirm_user_dialog_title">Желите ли заиста да наставите?</string>
+  <string name="revanced_settings_save">Сачувај</string>
   <string name="revanced_settings_reset">Ресетуј</string>
   <string name="revanced_settings_reset_color">Ресетуј боју</string>
   <string name="revanced_settings_color_invalid">Неважећа боја</string>
@@ -164,6 +164,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">Избриши евиденције отклањања грешака</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Брише све сачуване евиденције отклањања грешака ReVanced-а</string>
   <string name="revanced_debug_logs_clear_toast">Евиденције су избрисане</string>
+  <string name="revanced_debug_feature_flags_manager_title">Manager ознака функција</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Управљај буловским ознакама функција</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Активне заставице (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Блокиране заставице (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Претражи заставице...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Заставице сачуване</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Заставице ресетоване</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Заставице копиране у оставу</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Очисти дељене линкове</string>
@@ -328,15 +336,24 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">Сакриј одељак „Како је направљен овај садржај”</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Одељак „Како је направљен овај садржај” је скривен</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Одељак „Како је направљен овај садржај” је приказан</string>
+  <string name="revanced_hide_hype_points_title">Сакриј хајп поене</string>
+  <string name="revanced_hide_hype_points_summary_on">Хајп поени су скривени</string>
+  <string name="revanced_hide_hype_points_summary_off">Хајп поени су приказани</string>
   <string name="revanced_hide_podcast_section_title">Сакриј одељак „Истражите подкаст”</string>
   <string name="revanced_hide_podcast_section_summary_on">Одељак „Истражите подкаст” је скривен</string>
   <string name="revanced_hide_podcast_section_summary_off">Одељак „Истражите подкаст” је приказан</string>
+  <string name="revanced_hide_featured_section_title">Сакриј истакнути садржај</string>
+  <string name="revanced_hide_featured_section_summary_on">Одељак истакнутог садржаја је скривен</string>
+  <string name="revanced_hide_featured_section_summary_off">Одељак истакнутог садржаја је приказан</string>
   <string name="revanced_hide_info_cards_section_title">Сакриј картице са информацијама</string>
   <string name="revanced_hide_info_cards_section_summary_on">Одељак за картице са информацијама је скривен</string>
   <string name="revanced_hide_info_cards_section_summary_off">Одељак за картице са информацијама је приказан</string>
   <string name="revanced_hide_key_concepts_section_title">Сакриј одељак „Кључни концепти”</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Одељак „Кључни концепти” је скривен</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Одељак „Кључни концепти” је приказан</string>
+  <string name="revanced_hide_description_subscribe_button_title">Сакриј дугме „Претплати се”</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Дугме „Претплати се” је скривено</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Дугме „Претплати се” је приказано</string>
   <string name="revanced_hide_transcript_section_title">Сакриј транскрипт</string>
   <string name="revanced_hide_transcript_section_summary_on">Одељак за транскрипцију је скривен</string>
   <string name="revanced_hide_transcript_section_summary_off">Одељак за транскрипцију је приказан</string>
@@ -771,15 +788,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">Сакриј мени „Брзина репродукције”</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Мени „Брзина репродукције” је скривен</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Мени „Брзина репродукције” је приказан</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Сакриј дугме „Више информација”</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Дугме „Више информација” је скривено</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Дугме „Више информација” је приказано</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Сакриј дугме „Закључај екран”</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Дугме „Закључај екран” је скривено</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Дугме „Закључај екран” је приказано</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Сакриј мени „Слушајте на YouTube Music-у”</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Мени „Слушајте на YouTube Music-у” је скривен</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Мени „Слушајте на YouTube Music-у” је приказан</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Сакриј мени „Аудио снимак”</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Мени „Аудио снимак” је скривен</string>
@@ -1663,15 +1679,29 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Трајно понављање је омогућено</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Трајно понављање је онемогућено</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Сакриј дугме „Пребацуј”</string>
   <string name="revanced_music_hide_cast_button_summary_on">Дугме „Пребацуј” је скривено</string>
   <string name="revanced_music_hide_cast_button_summary_off">Дугме „Пребацуј” је приказано</string>
+  <string name="revanced_music_hide_history_button_title">Сакриј дугме „Историја”</string>
+  <string name="revanced_music_hide_history_button_summary_on">Дугме „Историја” је скривено</string>
+  <string name="revanced_music_hide_history_button_summary_off">Дугме „Историја” је приказано</string>
+  <string name="revanced_music_hide_notification_button_title">Сакриј дугме „Обавештење”</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Дугме „Обавештење” је скривено</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Дугме „Обавештење” је приказано</string>
+  <string name="revanced_music_hide_search_button_title">Сакриј дугме „Претрага”</string>
+  <string name="revanced_music_hide_search_button_summary_on">Дугме „Претрага” је скривено</string>
+  <string name="revanced_music_hide_search_button_summary_off">Дугме „Претрага” је приказано</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Сакриј траку категорија</string>
   <string name="revanced_music_hide_category_bar_summary_on">Трака категорија је скривена</string>
   <string name="revanced_music_hide_category_bar_summary_off">Трака категорија је приказана</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Промени боју мини плејера</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Боја мини плејера одговара плејеру преко целог екрана</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Мини плејер користи подразумевану боју</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Трака за навигацију</string>

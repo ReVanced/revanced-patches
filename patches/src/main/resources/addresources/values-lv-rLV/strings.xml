@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK veidošanas datums ir bojāts</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Brīdinājums</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced paziņojums</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsu skatīšanās vēsture netiek saglabāta.&lt;br&gt;&lt;br&gt;Visticamāk, to izraisa DNS reklāmu bloķētājs vai tīkla starpniekserveris.&lt;br&gt;&lt;br&gt;Lai to novērstu, pievienojiet baltajam sarakstam &lt;b&gt;s.youtube.com&lt;/b&gt; vai izslēdziet visus DNS bloķētājus un starpniekservera serverus.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerādīt vēlreiz</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Iestatījumi</string>
   <string name="revanced_settings_confirm_user_dialog_title">Vai tiešām vēlaties turpināt?</string>
+  <string name="revanced_settings_save">Saglabāt</string>
   <string name="revanced_settings_reset">Atiestatīt</string>
   <string name="revanced_settings_reset_color">Atiestatīt krāsu</string>
   <string name="revanced_settings_color_invalid">Nederīga krāsa</string>
@@ -164,6 +164,14 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Notīrīt atkļūdošanas žurnālus</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Notīra visus saglabātos ReVanced atkļūdošanas žurnālus</string>
   <string name="revanced_debug_logs_clear_toast">Žurnāli ir notīrīti</string>
+  <string name="revanced_debug_feature_flags_manager_title">Funkciju karodziņu Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Pārvaldīt Būla funkciju karodziņus</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktīvie karodziņi (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Bloķētie karodziņi (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Meklēt karodziņus...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Karodziņi saglabāti</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Karodziņi atiestatīti</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Karodziņi kopēti starpliktuvē</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Tīrīt koplietošanas saites</string>
@@ -328,15 +336,24 @@ Ja Doodle pašlaik tiek rādīts jūsu reģionā un šis slēpšanas iestatījum
   <string name="revanced_hide_how_this_was_made_section_title">Paslēpt \"Kā šis saturs tika veidots\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Sadaļa \"Kā šis saturs tika veidots\" ir paslēpta</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Sadaļa \"Kā šis saturs tika veidots\" ir redzama</string>
+  <string name="revanced_hide_hype_points_title">Slēpt Hype punktus</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype punkti ir slēpti</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype punkti ir redzami</string>
   <string name="revanced_hide_podcast_section_title">Paslēpt sadaļu \"Izpētiet podkāstu\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Sadaļa \"Izpētiet podkāstu\" ir paslēpta</string>
   <string name="revanced_hide_podcast_section_summary_off">Sadaļa \"Izpētiet podkāstu\" ir redzama</string>
+  <string name="revanced_hide_featured_section_title">Slēpt izceltu saturu</string>
+  <string name="revanced_hide_featured_section_summary_on">Izceltā satura sadaļa ir paslēpta</string>
+  <string name="revanced_hide_featured_section_summary_off">Izceltā satura sadaļa ir redzama</string>
   <string name="revanced_hide_info_cards_section_title">Paslēpt informācijas kartītes</string>
   <string name="revanced_hide_info_cards_section_summary_on">Informācijas karšu sadaļa ir paslēpta</string>
   <string name="revanced_hide_info_cards_section_summary_off">Informācijas karšu sadaļa ir redzama</string>
   <string name="revanced_hide_key_concepts_section_title">Paslēpt \"Galvenos jēdzienus\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Sadaļa \"Galvenie jēdzieni\" ir paslēpta</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Sadaļa \"Galvenie jēdzieni\" ir redzama</string>
+  <string name="revanced_hide_description_subscribe_button_title">Slēpt pogu Abonēt</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Abonēšanas poga ir paslēpta</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Abonēšanas poga ir redzama</string>
   <string name="revanced_hide_transcript_section_title">Paslēpt transkriptu</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkripcijas sadaļa ir paslēpta</string>
   <string name="revanced_hide_transcript_section_summary_off">Transkripcijas sadaļa ir redzama</string>
@@ -771,15 +788,14 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <string name="revanced_hide_player_flyout_speed_title">Paslēpt Atskaņošanas ātrumu</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Atskaņošanas ātruma izvēlne ir paslēpta</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Atskaņošanas ātruma izvēlne ir redzama</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Paslēpt Papildus informāciju</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Papildus informācijas izvēlne ir paslēpta</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Papildus informācijas izvēlne ir redzama</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Paslēpt Bloķēt ekrānu</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Bloķēt ekrāna izvēlne ir paslēpta</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Bloķēt ekrāna izvēlne ir redzama</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Paslēpt klausīties ar YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Izvēlne \"Klausīties ar YouTube Music\" ir paslēpta</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Izvēlne \"Klausīties ar YouTube Music\" ir redzama</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Paslēpt Audio ceļu</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio ceļa izvēlne ir paslēpta</string>
@@ -1662,15 +1678,29 @@ AV1 video atskaņošana var raustīties vai izlaist kadrus."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Pastāvīgā atkārtošana ir iespējota</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Pastāvīgā atkārtošana ir atspējota</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Slēpt apraides pogu</string>
   <string name="revanced_music_hide_cast_button_summary_on">Apraides poga ir paslēpta</string>
   <string name="revanced_music_hide_cast_button_summary_off">Apraides poga ir redzama</string>
+  <string name="revanced_music_hide_history_button_title">Slēpt vēstures pogu</string>
+  <string name="revanced_music_hide_history_button_summary_on">Vēstures poga ir slēpta</string>
+  <string name="revanced_music_hide_history_button_summary_off">Vēstures poga ir redzama</string>
+  <string name="revanced_music_hide_notification_button_title">Slēpt paziņojumu pogu</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Paziņojumu poga ir paslēpta</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Paziņojumu poga ir redzama</string>
+  <string name="revanced_music_hide_search_button_title">Slēpt meklēšanas pogu</string>
+  <string name="revanced_music_hide_search_button_summary_on">Meklēšanas poga ir paslēpta</string>
+  <string name="revanced_music_hide_search_button_summary_off">Meklēšanas poga ir redzama</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Slēpt kategoriju joslu</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategoriju josla ir paslēpta</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategoriju josla ir redzama</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Mainīt mini atskaņotāja krāsu</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Mini atskaņotāja krāsa atbilst pilnekrāna atskaņotāja krāsai</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Mini atskaņotājs izmanto noklusējuma krāsu</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigācijas josla</string>

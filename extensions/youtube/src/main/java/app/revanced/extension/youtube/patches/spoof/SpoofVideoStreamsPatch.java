@@ -22,6 +22,11 @@ public class SpoofVideoStreamsPatch {
             return Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.isAvailable()
                     && Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE.get() == ANDROID_VR_1_43_32;
         }
+
+        @Override
+        public List<Setting<?>> getParentSettings() {
+            return List.of(Settings.SPOOF_VIDEO_STREAMS_CLIENT_TYPE);
+        }
     }
 
     /**

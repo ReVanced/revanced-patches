@@ -16,6 +16,7 @@ import java.util.Arrays;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.ui.Dim;
 
 import com.amazon.video.sdk.player.Player;
 
@@ -64,9 +65,8 @@ public class PlaybackSpeedPatch {
         SpeedIconDrawable speedIcon = new SpeedIconDrawable();
         speedButton.setImageDrawable(speedIcon);
 
-        int buttonSize = Utils.dipToPixels(48);
-        speedButton.setMinimumWidth(buttonSize);
-        speedButton.setMinimumHeight(buttonSize);
+        speedButton.setMinimumWidth(Dim.dp48);
+        speedButton.setMinimumHeight(Dim.dp48);
 
         return speedButton;
     }
@@ -197,11 +197,11 @@ class SpeedIconDrawable extends Drawable {
 
     @Override
     public int getIntrinsicWidth() {
-        return Utils.dipToPixels(32);
+        return Dim.dp32;
     }
 
     @Override
     public int getIntrinsicHeight() {
-        return Utils.dipToPixels(32);
+        return Dim.dp32;
     }
 }

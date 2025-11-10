@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Датата на компилация на APK е повредена</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Предупреждение</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Известие от ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Историята ви на гледане не се запазва.&lt;br&gt;&lt;br&gt;Това най-вероятно е причинено от DNS блокиращ реклами или мрежов прокси.&lt;br&gt;&lt;br&gt;За да коригирате това, поставете &lt;b&gt;s.youtube в белия списък.com&lt;/b&gt; или изключете всички DNS блокери и проксита.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не показвай отново</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Настройки</string>
   <string name="revanced_settings_confirm_user_dialog_title">Сигурни ли сте, че искате да продължите?</string>
+  <string name="revanced_settings_save">Запазване</string>
   <string name="revanced_settings_reset">Възстанови</string>
   <string name="revanced_settings_reset_color">Нулиране на цвета</string>
   <string name="revanced_settings_color_invalid">Невалиден цвят</string>
@@ -164,6 +164,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">Изчистване на логовете за отстраняване на грешки</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Изчиства всички съхранени логове за отстраняване на грешки на ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Логовете са изчистени</string>
+  <string name="revanced_debug_feature_flags_manager_title">Мениджър на флагове за функции</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Управление на булеви флагове за функции</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Активни флагове (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Блокирани флагове (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Търсене на флагове...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Флаговете са запазени</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Флаговете са нулирани</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Флаговете са копирани в клипборда</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Почистване на връзки за споделяне</string>
@@ -328,15 +336,24 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">Скриване на \"Как е създадено това съдържание\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Секцията \"Как е създадено това съдържание\" е скрита</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Секцията \"Как е създадено това съдържание\" е показана</string>
+  <string name="revanced_hide_hype_points_title">Скриване на точките на хайп</string>
+  <string name="revanced_hide_hype_points_summary_on">Точките на хайп са скрити</string>
+  <string name="revanced_hide_hype_points_summary_off">Точките на хайп са показани</string>
   <string name="revanced_hide_podcast_section_title">Скриване на \"Разгледайте подкаста\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Секцията \"Разгледайте подкаста\" е скрита</string>
   <string name="revanced_hide_podcast_section_summary_off">Секцията \"Разгледайте подкаста\" е показана</string>
+  <string name="revanced_hide_featured_section_title">Скриване на избрано съдържание</string>
+  <string name="revanced_hide_featured_section_summary_on">Секцията с избрано съдържание е скрита</string>
+  <string name="revanced_hide_featured_section_summary_off">Секцията с избрано съдържание е показана</string>
   <string name="revanced_hide_info_cards_section_title">Скриване на инфо. карти</string>
   <string name="revanced_hide_info_cards_section_summary_on">Разделът за информационни карти е скрит</string>
   <string name="revanced_hide_info_cards_section_summary_off">Разделът за информационни карти е показан</string>
   <string name="revanced_hide_key_concepts_section_title">Скриване на \"Основни концепции\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Секцията \"Основни концепции\" е скрита</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Секцията \"Основни концепции\" е показана</string>
+  <string name="revanced_hide_description_subscribe_button_title">Скриване на бутона за абониране</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Бутонът за абониране е скрит</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Бутонът за абониране е показан</string>
   <string name="revanced_hide_transcript_section_title">Скриване на транскрипт</string>
   <string name="revanced_hide_transcript_section_summary_on">Разделът за транскрипция е скрит</string>
   <string name="revanced_hide_transcript_section_summary_off">Разделът за транскрипция е показан</string>
@@ -771,15 +788,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">Скриване на скоростта на възпроизвеждане</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Менюто за скорост на видеото е скрито</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Менюто за скорост на видеото се показва</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">\"Допълнителна информация\"</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">\"Допълнителна информация\" е скрита</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">\"Допълнителна информация\" се показва</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">\"Заключен екран\"</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Менюто на заключен екран е скрито</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Менюто на заключен екран се показва</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Скриване на Слушане с YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Менюто Слушане с YouTube Music е скрито</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Менюто Слушане с YouTube Music е показано</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Избор на Аудио</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Менюто за избор на Аудио е скрито</string>
@@ -1661,15 +1677,29 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Постоянното повтаряне е активирано</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Постоянното повтаряне е деактивирано</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Скриване на бутона за предаване</string>
   <string name="revanced_music_hide_cast_button_summary_on">Бутонът за предаване е скрит</string>
   <string name="revanced_music_hide_cast_button_summary_off">Бутонът за предаване е показан</string>
+  <string name="revanced_music_hide_history_button_title">Скриване на бутона за история</string>
+  <string name="revanced_music_hide_history_button_summary_on">Бутонът за история е скрит</string>
+  <string name="revanced_music_hide_history_button_summary_off">Бутонът за история е показан</string>
+  <string name="revanced_music_hide_notification_button_title">Скриване на бутона за известия</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Бутонът за известия е скрит</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Бутонът за известия е показан</string>
+  <string name="revanced_music_hide_search_button_title">Скриване на бутона за търсене</string>
+  <string name="revanced_music_hide_search_button_summary_on">Бутонът за търсене е скрит</string>
+  <string name="revanced_music_hide_search_button_summary_off">Бутонът за търсене е показан</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Скриване на лентата с категории</string>
   <string name="revanced_music_hide_category_bar_summary_on">Лентата с категории е скрита</string>
   <string name="revanced_music_hide_category_bar_summary_off">Лентата с категории е показана</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Промяна на цвета на миниплейъра</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Цветът на миниплейъра съвпада с този на плейъра на цял екран</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Миниплейърът използва цвят по подразбиране</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Навигационна лента</string>

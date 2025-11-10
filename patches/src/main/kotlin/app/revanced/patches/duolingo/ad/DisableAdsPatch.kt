@@ -9,7 +9,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 val disableAdsPatch = bytecodePatch(
     "Disable ads",
 ) {
-    compatibleWith("com.duolingo")
+    // 6.55.3 and higher can show ads after each exercise.
+    compatibleWith("com.duolingo"("6.54.5"))
 
     execute {
         // Couple approaches to remove ads exist:

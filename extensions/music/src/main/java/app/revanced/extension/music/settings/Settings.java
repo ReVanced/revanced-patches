@@ -16,8 +16,11 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_GET_PREMIUM_LABEL = new BooleanSetting("revanced_music_hide_get_premium_label", TRUE, true);
 
     // General
-    public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_music_hide_cast_button", TRUE, false);
+    public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_music_hide_cast_button", TRUE, true);
     public static final BooleanSetting HIDE_CATEGORY_BAR = new BooleanSetting("revanced_music_hide_category_bar", FALSE, true);
+    public static final BooleanSetting HIDE_HISTORY_BUTTON = new BooleanSetting("revanced_music_hide_history_button", FALSE, true);
+    public static final BooleanSetting HIDE_SEARCH_BUTTON = new BooleanSetting("revanced_music_hide_search_button", FALSE, true);
+    public static final BooleanSetting HIDE_NOTIFICATION_BUTTON = new BooleanSetting("revanced_music_hide_notification_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR_HOME_BUTTON = new BooleanSetting("revanced_music_hide_navigation_bar_home_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR_SAMPLES_BUTTON = new BooleanSetting("revanced_music_hide_navigation_bar_samples_button", FALSE, true);
     public static final BooleanSetting HIDE_NAVIGATION_BAR_EXPLORE_BUTTON = new BooleanSetting("revanced_music_hide_navigation_bar_explore_button", FALSE, true);
@@ -27,6 +30,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_NAVIGATION_BAR_LABEL = new BooleanSetting("revanced_music_hide_navigation_bar_labels", FALSE, true);
 
     // Player
+    public static final BooleanSetting CHANGE_MINIPLAYER_COLOR = new BooleanSetting("revanced_music_change_miniplayer_color", FALSE, true);
     public static final BooleanSetting PERMANENT_REPEAT = new BooleanSetting("revanced_music_play_permanent_repeat", FALSE, true);
 
     // Miscellaneous

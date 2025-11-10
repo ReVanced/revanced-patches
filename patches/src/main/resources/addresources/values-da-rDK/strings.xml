@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK byggedato er ødelagt</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Advarsel</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Meddelelse</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Din urhistorik gemmes ikke.&lt;br&gt;&lt;br&gt;Dette skyldes sandsynligvis en DNS-annonceblokker eller netværksproxy.&lt;br&gt;&lt;br&gt;For at løse dette, whitelist &lt;b&gt;s.youtube.com&lt;/b&gt; eller slå alle DNS-blokkere og fuldmagter fra.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Vis ikke igen</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Indstillinger</string>
   <string name="revanced_settings_confirm_user_dialog_title">Er du sikker på, at du vil fortsætte?</string>
+  <string name="revanced_settings_save">Gem</string>
   <string name="revanced_settings_reset">Nulstil</string>
   <string name="revanced_settings_reset_color">Nulstil farve</string>
   <string name="revanced_settings_color_invalid">Ugyldig farve</string>
@@ -164,6 +164,14 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Ryd fejlsøgningslogfiler</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Rydder alle gemte ReVanced-fejlsøgningslogfiler</string>
   <string name="revanced_debug_logs_clear_toast">Logfiler ryddet</string>
+  <string name="revanced_debug_feature_flags_manager_title">Funktionsflag Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Administrer booleske funktionsflag</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktive flag (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Blokerede flag (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Søg flag...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Flag gemt</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Flag nulstillet</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Flag kopieret til udklipsholder</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Rens delingslinks</string>
@@ -328,15 +336,24 @@ Hvis et Doodle vises i øjeblikket i din region, og denne skjuleindstilling er a
   <string name="revanced_hide_how_this_was_made_section_title">Skjul \"Hvordan dette indhold blev lavet\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Sektionen Sådan blev dette indhold lavet er skjult</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Sektionen Sådan blev dette indhold lavet vises</string>
+  <string name="revanced_hide_hype_points_title">Skjul Hype-point</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype-point er skjult</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype-point er vist</string>
   <string name="revanced_hide_podcast_section_title">Skjul \"Udforsk podcasten\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Sektionen Udforsk podcasten er skjult</string>
   <string name="revanced_hide_podcast_section_summary_off">Sektionen Udforsk podcasten vises</string>
+  <string name="revanced_hide_featured_section_title">Skjul fremhævet indhold</string>
+  <string name="revanced_hide_featured_section_summary_on">Sektionen for fremhævet indhold er skjult</string>
+  <string name="revanced_hide_featured_section_summary_off">Sektionen for fremhævet indhold er vist</string>
   <string name="revanced_hide_info_cards_section_title">Skjul infokort</string>
   <string name="revanced_hide_info_cards_section_summary_on">Info-kort sektion er skjult</string>
   <string name="revanced_hide_info_cards_section_summary_off">Info-kort sektion er vist</string>
   <string name="revanced_hide_key_concepts_section_title">Skjul \"Nøglebegreber\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Nøglebegrebssektionen er skjult</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Nøglebegrebssektionen vises</string>
+  <string name="revanced_hide_description_subscribe_button_title">Skjul abonnér-knap</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Abonnér-knappen er skjult</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Abonnér-knappen vises</string>
   <string name="revanced_hide_transcript_section_title">Skjul udskrift</string>
   <string name="revanced_hide_transcript_section_summary_on">Afsnittet er skjult</string>
   <string name="revanced_hide_transcript_section_summary_off">Afsnittet er vist</string>
@@ -771,15 +788,14 @@ Hvis ændring af denne indstilling ikke træder i kraft, kan du prøve at skifte
   <string name="revanced_hide_player_flyout_speed_title">Skjul afspilningshastighed</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Afspilningshastighedsmenu er skjult</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Afspilningshastighed menuen vises</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Skjul Mere info</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Mere info menu er skjult</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Mere info menu er vist</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Skjul låseskærm</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Menuen Låseskærm er skjult</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Låseskærmsmenuen vises</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Skjul Lyt med YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Lyt med YouTube Music-menuen er skjult</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Lyt med YouTube Music-menuen vises</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Skjul lydspor</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menuen for lydspor er skjult</string>
@@ -1663,15 +1679,29 @@ Videoafspilning med AV1 kan hakke eller tabe billeder."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Permanent gentagelse er aktiveret</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Permanent gentagelse er deaktiveret</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Skjul cast-knap</string>
   <string name="revanced_music_hide_cast_button_summary_on">Cast-knappen er skjult</string>
   <string name="revanced_music_hide_cast_button_summary_off">Cast-knappen vises</string>
+  <string name="revanced_music_hide_history_button_title">Skjul historikknap</string>
+  <string name="revanced_music_hide_history_button_summary_on">Historikknappen er skjult</string>
+  <string name="revanced_music_hide_history_button_summary_off">Historikknappen vises</string>
+  <string name="revanced_music_hide_notification_button_title">Skjul notifikationsknap</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Notifikationsknappen er skjult</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Notifikationsknappen vises</string>
+  <string name="revanced_music_hide_search_button_title">Skjul søgeknap</string>
+  <string name="revanced_music_hide_search_button_summary_on">Søgeknappen er skjult</string>
+  <string name="revanced_music_hide_search_button_summary_off">Søgeknappen vises</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Skjul kategorilinje</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategorilinjen er skjult</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategorilinjen vises</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Skift miniafspillerfarve</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Miniafspillerfarven matcher fuldskærmsafspilleren</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Miniafspilleren bruger standardfarven</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigationslinje</string>

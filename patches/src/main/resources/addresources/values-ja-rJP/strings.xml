@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK の作成日時データが破損している</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced からのお知らせ</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">再生履歴が保存されていません。&lt;br&gt;&lt;br&gt;これはおそらく、DNS 広告ブロッカーまたはネットワーク プロキシが原因です。&lt;br&gt;&lt;br&gt;この問題を解決するには、&lt;b&gt;s.youtube.com&lt;/b&gt; をホワイトリストに追加するか、すべての DNS ブロッカーとプロキシをオフにしてください。</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">今後表示しない</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">設定</string>
   <string name="revanced_settings_confirm_user_dialog_title">続行してもよろしいですか？</string>
+  <string name="revanced_settings_save">保存</string>
   <string name="revanced_settings_reset">リセット</string>
   <string name="revanced_settings_reset_color">色をリセット</string>
   <string name="revanced_settings_color_invalid">色の値が無効です</string>
@@ -164,6 +164,14 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_debug_logs_clear_buffer_title">デバッグログを消去</string>
   <string name="revanced_debug_logs_clear_buffer_summary">保存されている ReVanced のすべてのデバッグログを消去します</string>
   <string name="revanced_debug_logs_clear_toast">ログを消去しました</string>
+  <string name="revanced_debug_feature_flags_manager_title">feature flag マネージャー</string>
+  <string name="revanced_debug_feature_flags_manager_summary">各機能のオン / オフを制御する feature flag を管理します</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">有効な flag (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">無効な flag (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">flag を検索</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">flag を保存しました</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">flag をリセットしました</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">flag をクリップボードにコピーしました</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">共有リンクを無害化</string>
@@ -324,22 +332,31 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_attributes_section_title">付随情報を非表示</string>
   <string name="revanced_hide_attributes_section_summary_on">注目の場所 / ゲーム / 音楽 / 人物セクションは表示されません</string>
   <string name="revanced_hide_attributes_section_summary_off">注目の場所 / ゲーム / 音楽 / 人物セクションは表示されます</string>
-  <string name="revanced_hide_chapters_section_title">チャプター セクションを非表示</string>
+  <string name="revanced_hide_chapters_section_title">チャプターを非表示</string>
   <string name="revanced_hide_chapters_section_summary_on">チャプター セクションは表示されません</string>
   <string name="revanced_hide_chapters_section_summary_off">チャプター セクションは表示されます</string>
   <string name="revanced_hide_how_this_was_made_section_title">「このコンテンツの作成手段」を非表示</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">「このコンテンツの作成手段」セクションは表示されません</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">「このコンテンツの作成手段」セクションは表示されます</string>
+  <string name="revanced_hide_hype_points_title">ハイプポイントを非表示</string>
+  <string name="revanced_hide_hype_points_summary_on">ハイプポイントは表示されません</string>
+  <string name="revanced_hide_hype_points_summary_off">ハイプポイントは表示されます</string>
   <string name="revanced_hide_podcast_section_title">「ポッドキャストを検索」を非表示</string>
   <string name="revanced_hide_podcast_section_summary_on">「ポッドキャストを検索」セクションは表示されません</string>
   <string name="revanced_hide_podcast_section_summary_off">「ポッドキャストを検索」セクションは表示されます</string>
-  <string name="revanced_hide_info_cards_section_title">情報カード セクションを非表示</string>
+  <string name="revanced_hide_featured_section_title">おすすめコンテンツを非表示</string>
+  <string name="revanced_hide_featured_section_summary_on">情報カード内のおすすめコンテンツ セクションは表示されません</string>
+  <string name="revanced_hide_featured_section_summary_off">情報カード内のおすすめコンテンツ セクションは表示されます</string>
+  <string name="revanced_hide_info_cards_section_title">情報カードを非表示</string>
   <string name="revanced_hide_info_cards_section_summary_on">情報カード セクションは表示されません</string>
   <string name="revanced_hide_info_cards_section_summary_off">情報カード セクションは表示されます</string>
   <string name="revanced_hide_key_concepts_section_title">「主な概念」を非表示</string>
   <string name="revanced_hide_key_concepts_section_summary_on">主な概念セクションは表示されません</string>
   <string name="revanced_hide_key_concepts_section_summary_off">主な概念セクションが表示されます</string>
-  <string name="revanced_hide_transcript_section_title">文字起こしセクションを非表示</string>
+  <string name="revanced_hide_description_subscribe_button_title">チャンネル登録ボタンを非表示</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">情報カード内のチャンネル登録ボタンは表示されません</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">情報カード内のチャンネル登録ボタンは表示されます</string>
+  <string name="revanced_hide_transcript_section_title">文字起こしを非表示</string>
   <string name="revanced_hide_transcript_section_summary_on">文字起こしセクションは表示されません</string>
   <string name="revanced_hide_transcript_section_summary_off">文字起こしセクションは表示されます</string>
   <string name="revanced_hide_description_components_screen_title">概要欄</string>
@@ -773,15 +790,14 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_player_flyout_speed_title">「再生速度」を非表示</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">「再生速度」は表示されません</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">「再生速度」は表示されます</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">「詳細情報」を非表示</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">「詳細情報」は表示されません</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">「詳細情報」は表示されます</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">「画面のロック」を非表示</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">「画面のロック」は表示されません</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">「画面のロック」は表示されます</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">「YouTube Music で聴く」を非表示</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">「YouTube Music で聴く」は表示されません</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">「YouTube Music で聴く」は表示されます</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">「音声トラック」を非表示</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">「音声トラック」は表示されません</string>
@@ -1089,12 +1105,12 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_on">スキップボタンは、表示された数秒後に自動的に非表示になります</string>
   <string name="revanced_sb_enable_auto_hide_skip_segment_button_sum_off">スキップボタンは、セグメントの開始から終了まで表示されます</string>
   <string name="revanced_sb_auto_hide_skip_button_duration">スキップボタンの表示時間</string>
-  <string name="revanced_sb_auto_hide_skip_button_duration_sum">自動非表示設定のスキップボタンと「ハイライトまでスキップ」ボタンが表示される時間の長さ</string>
+  <string name="revanced_sb_auto_hide_skip_button_duration_sum">「ハイライトまでスキップ」ボタンと「スキップボタンを自動的に非表示」がオンのときのその他のスキップボタンが、自動的に非表示になるまでの時間の長さ</string>
   <string name="revanced_sb_general_skiptoast">自動スキップ時にトーストを表示</string>
   <string name="revanced_sb_general_skiptoast_sum_on">セグメントが自動的にスキップされたときにトースト通知が表示されます。このトースト通知をタップすると、スキップを取り消すことができます</string>
   <string name="revanced_sb_general_skiptoast_sum_off">セグメントが自動的にスキップされたときにトースト通知は表示されません。このトースト通知をタップすると、スキップを取り消すことができます</string>
   <string name="revanced_sb_toast_on_skip_duration">スキップ トーストの表示時間</string>
-  <string name="revanced_sb_toast_on_skip_duration_sum">自動スキップ時にトースト通知が表示される時間の長さ</string>
+  <string name="revanced_sb_toast_on_skip_duration_sum">セグメントが自動的にスキップされたときに表示されるトースト通知が、自動的に非表示になるまでの時間の長さ</string>
   <string name="revanced_sb_duration_1s">1 秒</string>
   <string name="revanced_sb_duration_2s">2 秒</string>
   <string name="revanced_sb_duration_3s">3 秒</string>
@@ -1146,36 +1162,36 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_sb_settings_import_successful">設定のインポートに成功しました</string>
   <string name="revanced_sb_settings_import_failed">インポートに失敗しました: %s</string>
   <string name="revanced_sb_settings_export_failed">エクスポートに失敗しました: %s</string>
-  <string name="revanced_sb_settings_revanced_export_user_id_warning">"設定には、SponsorBlock の非公開ユーザー ID が含まれています。
+  <string name="revanced_sb_settings_revanced_export_user_id_warning">"あなたの設定テキストには、SponsorBlock の非公開ユーザー ID が含まれています。
 
 このユーザー ID は、パスワードのようなものであり、決して共有すべきではありません。"</string>
   <string name="revanced_sb_settings_revanced_export_user_id_warning_dismiss">今後表示しない</string>
   <string name="revanced_sb_diff_segments">セグメントに対する動作を変更</string>
-  <string name="revanced_sb_segments_sponsor">広告</string>
-  <string name="revanced_sb_segments_sponsor_sum">有料の宣伝 、有料の紹介、直接的な広告。自己宣伝や好意をもって行う、慈善活動、クリエーター、ウェブサイト、製品などの無償の紹介は含まれません</string>
+  <string name="revanced_sb_segments_sponsor">スポンサー (広告)</string>
+  <string name="revanced_sb_segments_sponsor_sum">有料の宣伝、有料の紹介、直接的な広告。自己宣伝や好意をもって行う、慈善活動、クリエーター、ウェブサイト、製品などの無償の紹介は、このカテゴリには含まれません</string>
   <string name="revanced_sb_segments_selfpromo">無報酬の宣伝 / 自己宣伝</string>
-  <string name="revanced_sb_segments_selfpromo_sum">無報酬または自己宣伝である、という点以外は「広告」と同様です。商品、寄付、コラボ相手に関する宣伝などを含みます</string>
-  <string name="revanced_sb_segments_interaction">視聴者への催促 (登録など)</string>
-  <string name="revanced_sb_segments_interaction_sum">動画内に挿入される視聴者への高評価、チャンネル登録、フォローなどの時間的に短い催促。時間的に長い催促またはイベントなどの個別具体的なものに関する催促は、「視聴者への催促」ではなく「自己宣伝」に分類すべきです</string>
+  <string name="revanced_sb_segments_selfpromo_sum">無報酬または自己宣伝である、という点以外は「スポンサー」と同様です。商品、寄付、コラボ相手に関する宣伝などを含みます</string>
+  <string name="revanced_sb_segments_interaction">視聴者への催促 (登録)</string>
+  <string name="revanced_sb_segments_interaction_sum">動画内に挿入される、高評価、チャンネル登録、フォローなどを視聴者にうながす短時間の催促。時間的に長い場合またはイベントなどの個別具体的なものに関する催促の場合は、このカテゴリではなく「自己宣伝」に分類すべきです</string>
   <string name="revanced_sb_segments_highlight">ハイライト</string>
   <string name="revanced_sb_segments_highlight_sum">動画の中で最も重要な場面</string>
   <string name="revanced_sb_segments_intro">幕間 / オープニング (OP)</string>
-  <string name="revanced_sb_segments_intro_sum">実際のコンテンツを含まない区間。一時停止、静止画、繰り返しアニメーションなど。情報を含むトランジッション (場面転換) は、このカテゴリではありません</string>
+  <string name="revanced_sb_segments_intro_sum">実際のコンテンツを含まない区間。一時停止、静止画、繰り返しアニメーションなど。情報を含むトランジッション (場面転換) は、このカテゴリには含まれません</string>
   <string name="revanced_sb_segments_outro">終了画面 / クレジット (ED)</string>
-  <string name="revanced_sb_segments_outro_sum">クレジット、または YouTube の終了画面が表示される場面。情報を含む結論、まとめ部分は、このカテゴリには含まれません</string>
+  <string name="revanced_sb_segments_outro_sum">クレジットまたは YouTube の終了画面が表示される場面。情報を含む結論、まとめ部分は、このカテゴリには含まれません</string>
   <string name="revanced_sb_segments_hook">フック / あいさつ</string>
-  <string name="revanced_sb_segments_hook_sum">今後の動画のナレーション付きの予告編、および開幕と別れのあいさつ。重複しない内容や情報を追加する場面は含まれません</string>
+  <string name="revanced_sb_segments_hook_sum">今後の動画のナレーション付きの予告編、および開幕と別れのあいさつ。他の部分に存在しない内容や情報を追加する場面は、このカテゴリには含まれません</string>
   <string name="revanced_sb_segments_preview">予告編 / 総集編</string>
-  <string name="revanced_sb_segments_preview_sum">その動画またはシリーズ内の他の動画で過去に起きたこと、または今後起こることを示すクリップのコレクション。このクリップ群に含まれるすべての情報は、同じ動画の他の部分や他の動画で繰り返されます</string>
+  <string name="revanced_sb_segments_preview_sum">その動画またはシリーズ内の他の動画で過去に起きたこと、または今後起こることを示すクリップのコレクション。このクリップ群に含まれるすべての情報は、同じ動画の他の部分やシリーズ内の他の動画で繰り返されます</string>
   <string name="revanced_sb_segments_filler">余談 / 冗談</string>
-  <string name="revanced_sb_segments_filler_sum">動画の本筋を理解するために必要のない脱線的な場面または冗談。コンテキストや背景情報を提供する場面は含まれません</string>
+  <string name="revanced_sb_segments_filler_sum">動画の本筋を理解するために必要のない脱線的な場面または冗談。コンテキストや背景情報を提供する場面は、このカテゴリには含まれません</string>
   <string name="revanced_sb_segments_nomusic">音楽: 楽曲以外の区間</string>
-  <string name="revanced_sb_segments_nomusic_sum">ミュージック ビデオ専用。ミュージック ビデオの中で楽曲が流れていない区間であり、公式や他のメディアの音源に存在しない区間</string>
+  <string name="revanced_sb_segments_nomusic_sum">ミュージック ビデオ専用。ミュージック ビデオの中で楽曲が流れていない区間であり、公式や他のメディアの音源に存在しない部分</string>
   <string name="revanced_sb_skip_button_compact">スキップ</string>
   <string name="revanced_sb_skip_button_compact_highlight">ハイライト</string>
   <string name="revanced_sb_skip_button_sponsor"> 広告をスキップ</string>
   <string name="revanced_sb_skip_button_selfpromo">自己宣伝をスキップ</string>
-  <string name="revanced_sb_skip_button_interaction">催促をスキップ</string>
+  <string name="revanced_sb_skip_button_interaction">登録をスキップ</string>
   <string name="revanced_sb_skip_button_highlight">ハイライトまでスキップ</string>
   <string name="revanced_sb_skip_button_intro_beginning">OP をスキップ</string>
   <string name="revanced_sb_skip_button_intro_middle">幕間をスキップ</string>
@@ -1188,20 +1204,20 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_sb_skip_button_filler">余談をスキップ</string>
   <string name="revanced_sb_skip_button_nomusic">楽曲以外をスキップ</string>
   <string name="revanced_sb_skip_button_unsubmitted">セグメントをスキップ</string>
-  <string name="revanced_sb_skipped_sponsor">広告をスキップしました</string>
+  <string name="revanced_sb_skipped_sponsor">スポンサー (広告) をスキップしました</string>
   <string name="revanced_sb_skipped_selfpromo">自己宣伝をスキップしました</string>
-  <string name="revanced_sb_skipped_interaction">催促をスキップしました</string>
+  <string name="revanced_sb_skipped_interaction">視聴者への催促 (登録) をスキップしました</string>
   <string name="revanced_sb_skipped_highlight">ハイライトまでスキップしました</string>
-  <string name="revanced_sb_skipped_intro_beginning">OP をスキップしました</string>
+  <string name="revanced_sb_skipped_intro_beginning">オープニング (OP) をスキップしました</string>
   <string name="revanced_sb_skipped_intro_middle">幕間をスキップしました</string>
   <string name="revanced_sb_skipped_intro_end">幕間をスキップしました</string>
-  <string name="revanced_sb_skipped_outro">ED をスキップしました</string>
+  <string name="revanced_sb_skipped_outro">エンディング (ED) をスキップしました</string>
   <string name="revanced_sb_skipped_hook">フックをスキップしました</string>
   <string name="revanced_sb_skipped_preview_beginning">予告編をスキップしました</string>
   <string name="revanced_sb_skipped_preview_middle">予告編をスキップしました</string>
   <string name="revanced_sb_skipped_preview_end">総集編をスキップしました</string>
   <string name="revanced_sb_skipped_filler">余談をスキップしました</string>
-  <string name="revanced_sb_skipped_nomusic">楽曲以外をスキップしました</string>
+  <string name="revanced_sb_skipped_nomusic">楽曲以外の区間をスキップしました</string>
   <string name="revanced_sb_skipped_unsubmitted">未送信のセグメントをスキップしました</string>
   <string name="revanced_sb_skipped_multiple_segments">複数のセグメントをスキップしました</string>
   <string name="revanced_sb_skip_automatically">自動的にスキップ</string>
@@ -1478,7 +1494,7 @@ Automotive レイアウト
   <string name="revanced_alt_thumbnail_dearrow_error_generic">DeArrow は一時的に利用できません</string>
   </patch>
   <patch id="misc.announcements.announcementsPatch">
-  <string name="revanced_announcements_title">ReVanced のお知らせを表示</string>
+  <string name="revanced_announcements_title">ReVanced からのお知らせを表示</string>
   <string name="revanced_announcements_summary_on">アプリの起動時にお知らせが表示されます</string>
   <string name="revanced_announcements_summary_off">アプリの起動時にお知らせは表示されません</string>
   <string name="revanced_announcements_enabled_summary">アプリの起動時にお知らせを表示します</string>
@@ -1663,15 +1679,29 @@ AV1 での動画再生は、カクつくまたはコマ落ちが発生する場�
   <string name="revanced_music_play_permanent_repeat_summary_on">常時リピートは有効です\n\nリピート設定が保存され常時適用されます</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">常時リピートは無効です\n\nリピート設定は保存されず毎回リセットされます</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">キャストボタンを非表示</string>
   <string name="revanced_music_hide_cast_button_summary_on">キャストボタンはプレーヤー オーバーレイに表示されません</string>
   <string name="revanced_music_hide_cast_button_summary_off">キャストボタンはプレーヤー オーバーレイに表示されます</string>
+  <string name="revanced_music_hide_history_button_title">履歴ボタンを非表示</string>
+  <string name="revanced_music_hide_history_button_summary_on">履歴ボタンは表示されません</string>
+  <string name="revanced_music_hide_history_button_summary_off">履歴ボタンは表示されます</string>
+  <string name="revanced_music_hide_notification_button_title">通知ボタンを非表示</string>
+  <string name="revanced_music_hide_notification_button_summary_on">通知ボタンは表示されません</string>
+  <string name="revanced_music_hide_notification_button_summary_off">通知ボタンは表示されます</string>
+  <string name="revanced_music_hide_search_button_title">検索ボタンを非表示</string>
+  <string name="revanced_music_hide_search_button_summary_on">検索ボタンは表示されません</string>
+  <string name="revanced_music_hide_search_button_summary_off">検索ボタンは表示されます</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">カテゴリバーを非表示</string>
   <string name="revanced_music_hide_category_bar_summary_on">カテゴリバーは表示されません</string>
   <string name="revanced_music_hide_category_bar_summary_off">カテゴリバーは表示されます</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">ミニプレーヤーの色を変更</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">ミニプレーヤーはフルスクリーン プレーヤーと同じ色を使用します</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">ミニプレーヤーはデフォルトの色を使用します</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">ナビゲーション バー</string>

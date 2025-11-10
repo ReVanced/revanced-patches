@@ -13,7 +13,6 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.text.TextUtils;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -45,6 +44,7 @@ import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.preference.ColorPickerPreference;
 import app.revanced.extension.shared.settings.preference.CustomDialogListPreference;
 import app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory;
+import app.revanced.extension.shared.ui.Dim;
 
 /**
  * Abstract controller for managing the overlay search view in ReVanced settings.
@@ -123,7 +123,7 @@ public abstract class BaseSearchViewController {
         searchView.setQueryHint(str("revanced_settings_search_hint"));
 
         // Set text size.
-        searchEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        searchEditText.setTextSize(16);
 
         // Set cursor color.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -149,7 +149,7 @@ public abstract class BaseSearchViewController {
         // Create cursor drawable.
         GradientDrawable cursorDrawable = new GradientDrawable();
         cursorDrawable.setShape(GradientDrawable.RECTANGLE);
-        cursorDrawable.setSize(Utils.dipToPixels(2), -1); // Width: 2dp, Height: match text height.
+        cursorDrawable.setSize(Dim.dp2, -1); // Width: 2dp, Height: match text height.
         cursorDrawable.setColor(cursorColor);
 
         // Set cursor drawable.
@@ -164,7 +164,7 @@ public abstract class BaseSearchViewController {
         overlayContainer = new FrameLayout(activity);
         overlayContainer.setVisibility(View.GONE);
         overlayContainer.setBackgroundColor(Utils.getAppBackgroundColor());
-        overlayContainer.setElevation(Utils.dipToPixels(8));
+        overlayContainer.setElevation(Dim.dp8);
 
         // Container for search results.
         FrameLayout searchResultsContainer = new FrameLayout(activity);
@@ -450,7 +450,7 @@ public abstract class BaseSearchViewController {
 
         filteredSearchItems.clear();
 
-        String queryLower = Utils.removePunctuationToLowercase(query);
+        String queryLower = Utils.normalizeTextToLowercase(query);
         Pattern queryPattern = Pattern.compile(Pattern.quote(queryLower), Pattern.CASE_INSENSITIVE);
 
         // Clear highlighting only for items that were previously visible.
@@ -669,7 +669,7 @@ public abstract class BaseSearchViewController {
     protected static GradientDrawable createBackgroundDrawable() {
         GradientDrawable background = new GradientDrawable();
         background.setShape(GradientDrawable.RECTANGLE);
-        background.setCornerRadius(Utils.dipToPixels(28));
+        background.setCornerRadius(Dim.dp28);
         background.setColor(getSearchViewBackground());
         return background;
     }

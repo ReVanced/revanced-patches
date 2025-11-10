@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Η ημερομηνία κατασκευής του APK είναι κατεστραμμένη</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Προειδοποίηση</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Ειδοποίηση ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Το ιστορικό παρακολούθησης δεν αποθηκεύεται.&lt;br&gt;&lt;br&gt;Πιθανό να συμβαίνει λόγω αποκλεισμού διαφημίσεων μέσω DNS ή μέσω διακομιστή μεσολάβησης δικτύου.&lt;br&gt;&lt;br&gt;Μια λύση γι\'αυτό θα ήταν να προσθέσετε σε whitelist το &lt;b&gt;s.youtube.com&lt;/b&gt; ή να απενεργοποιήστε τους DNS/proxy blockers.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Να μην εμφανιστεί ξανά</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ρυθμίσεις</string>
   <string name="revanced_settings_confirm_user_dialog_title">Είστε βέβαιοι ότι θέλετε να συνεχίσετε;</string>
+  <string name="revanced_settings_save">Αποθήκευση</string>
   <string name="revanced_settings_reset">Επαναφορά</string>
   <string name="revanced_settings_reset_color">Επαναφορά χρώματος</string>
   <string name="revanced_settings_color_invalid">Μη έγκυρο χρώμα</string>
@@ -164,6 +164,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">Εκκαθάριση αρχείων καταγραφής εντοπισμού σφαλμάτων</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Εκκαθάριση όλων των αποθηκευμένων αρχειών καταγραφής εντοπισμού σφαλμάτων ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Τα αρχεία καταγραφής εκκαθαρίστηκαν</string>
+  <string name="revanced_debug_feature_flags_manager_title">Διαχειριστής σημαιών λειτουργιών</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Διαχείριση των boolean σημαιών λειτουργιών</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Ενεργές σημαίες (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Αποκλεισμένες σημαίες (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Αναζήτηση σημαιών...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Οι σημαίες αποθηκεύτηκαν</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Οι σημαίες επαναφέρθηκαν</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Οι σημαίες αντιγράφηκαν στο πρόχειρο</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Καθαρισμός συνδέσμων κοινοποίησης</string>
@@ -330,15 +338,24 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">Ενότητα «Πως δημιουργήθηκε αυτό το περιεχόμενο»</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_hype_points_title">Πόντοι Hype</string>
+  <string name="revanced_hide_hype_points_summary_on">Κρυμμένοι</string>
+  <string name="revanced_hide_hype_points_summary_off">Εμφανίζονται</string>
   <string name="revanced_hide_podcast_section_title">Ενότητα «Εξερευνήστε το podcast»</string>
   <string name="revanced_hide_podcast_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_podcast_section_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_featured_section_title">Απόκρυψη Προβεβλημένου περιεχομένου</string>
+  <string name="revanced_hide_featured_section_summary_on">Η ενότητα Προβεβλημένου περιεχομένου είναι κρυμμένη</string>
+  <string name="revanced_hide_featured_section_summary_off">Η ενότητα Προβεβλημένου περιεχομένου εμφανίζεται</string>
   <string name="revanced_hide_info_cards_section_title">Κάρτες πληροφοριών</string>
   <string name="revanced_hide_info_cards_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_info_cards_section_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_key_concepts_section_title">Ενότητα «Βασικές έννοιες»</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Εμφανίζεται</string>
+  <string name="revanced_hide_description_subscribe_button_title">Κουμπί «Εγγραφή»</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_transcript_section_title">Ενότητα «Μεταγραφή»</string>
   <string name="revanced_hide_transcript_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_transcript_section_summary_off">Εμφανίζεται</string>
@@ -773,15 +790,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">Μενού «Ταχύτητα αναπαραγωγής»</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Εμφανίζεται</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Μενού «Περισσότερα»</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Κρυμμένο</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Εμφανίζεται</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Μενού «Οθόνη κλειδώματος»</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Εμφανίζεται</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Μενού «Ακρόαση με YouTube Music»</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Κρυμμένο</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Εμφανίζεται</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Μενού «Κομμάτι ήχου»</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Κρυμμένο</string>
@@ -1660,15 +1676,29 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Η μόνιμη επανάληψη είναι ενεργοποιημένη</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Η μόνιμη επανάληψη είναι απενεργοποιημένη</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Κουμπί μετάδοσης</string>
   <string name="revanced_music_hide_cast_button_summary_on">Κρυμμένο</string>
   <string name="revanced_music_hide_cast_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_music_hide_history_button_title">Κουμπί ιστορικού</string>
+  <string name="revanced_music_hide_history_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_music_hide_history_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_music_hide_notification_button_title">Κουμπί ειδοποιήσεων</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Εμφανίζεται</string>
+  <string name="revanced_music_hide_search_button_title">Κουμπί αναζήτησης</string>
+  <string name="revanced_music_hide_search_button_summary_on">Κρυμμένο</string>
+  <string name="revanced_music_hide_search_button_summary_off">Εμφανίζεται</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Γραμμή κατηγοριών</string>
   <string name="revanced_music_hide_category_bar_summary_on">Κρυμμένη</string>
   <string name="revanced_music_hide_category_bar_summary_off">Εμφανίζεται</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Αλλαγή χρώματος ελαχιστοποιημένης οθόνης αναπαραγωγής</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Το χρώμα της ελαχιστοποιημένης οθόνης αναπαραγωγής ταιριάζει με αυτό της οθόνης αναπαραγωγής πλήρους οθόνης</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Η ελαχιστοποιημένη οθόνη αναπαραγωγής χρησιμοποιεί το προεπιλεγμένο χρώμα</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Γραμμή πλοήγησης</string>

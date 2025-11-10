@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 构建日期已损坏</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">警告</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced 通知</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">您的观看历史记录未保存。&lt;br&gt;&lt;br&gt;这很可能是由 DNS 广告拦截器或网络代理造成的。&lt;br&gt;&lt;br&gt;要解决此问题，请将 &lt;b&gt;s.youtube.com&lt;/b&gt; 添加到白名单或关闭所有 DNS 广告拦截器和代理。</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">不再显示</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">设置</string>
   <string name="revanced_settings_confirm_user_dialog_title">确定要继续吗？</string>
+  <string name="revanced_settings_save">保存</string>
   <string name="revanced_settings_reset">重置</string>
   <string name="revanced_settings_reset_color">重置颜色</string>
   <string name="revanced_settings_color_invalid">无效的颜色</string>
@@ -164,6 +164,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">清除调试日志</string>
   <string name="revanced_debug_logs_clear_buffer_summary">清除所有存储的 ReVanced 调试日志</string>
   <string name="revanced_debug_logs_clear_toast">日志已清除</string>
+  <string name="revanced_debug_feature_flags_manager_title">功能标志 Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">管理布尔功能标志</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">活动标志 (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">已阻止标志 (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">搜索标志...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">标志已保存</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">标志已重置</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">标志已复制到剪贴板</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">净化分享链接</string>
@@ -328,15 +336,24 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">隐藏“内容制作说明”</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">内容制作说明部分已隐藏</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">「内容制作说明」部分已显示</string>
+  <string name="revanced_hide_hype_points_title">隐藏热度积分</string>
+  <string name="revanced_hide_hype_points_summary_on">热度积分已隐藏</string>
+  <string name="revanced_hide_hype_points_summary_off">热度积分已显示</string>
   <string name="revanced_hide_podcast_section_title">隐藏“浏览播客”</string>
   <string name="revanced_hide_podcast_section_summary_on">“浏览播客”部分已隐藏</string>
   <string name="revanced_hide_podcast_section_summary_off">“浏览播客”部分已显示</string>
+  <string name="revanced_hide_featured_section_title">隐藏精选内容</string>
+  <string name="revanced_hide_featured_section_summary_on">精选内容部分已隐藏</string>
+  <string name="revanced_hide_featured_section_summary_off">精选内容部分已显示</string>
   <string name="revanced_hide_info_cards_section_title">隐藏信息卡</string>
   <string name="revanced_hide_info_cards_section_summary_on">信息卡片部分已隐藏</string>
   <string name="revanced_hide_info_cards_section_summary_off">信息卡片部分已显示</string>
   <string name="revanced_hide_key_concepts_section_title">隐藏“主要概念”</string>
   <string name="revanced_hide_key_concepts_section_summary_on">“主要概念”部分已隐藏</string>
   <string name="revanced_hide_key_concepts_section_summary_off">“主要概念”部分已显示</string>
+  <string name="revanced_hide_description_subscribe_button_title">隐藏订阅按钮</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">订阅按钮已隐藏</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">订阅按钮已显示</string>
   <string name="revanced_hide_transcript_section_title">隐藏文字记录</string>
   <string name="revanced_hide_transcript_section_summary_on">「转写文稿」部分已隐藏</string>
   <string name="revanced_hide_transcript_section_summary_off">「转写文稿」部分已显示</string>
@@ -771,15 +788,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">隐藏「播放速度」选单</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">播放速度选单已隐藏</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">播放速度选单已显示</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">隐藏「更多信息」</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">更多信息菜单已隐藏</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">更多信息菜单已显示</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">隐藏「锁定屏幕」</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">锁定屏幕菜单已隐藏</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">锁定屏幕菜单已显示</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">隐藏通过 YouTube Music 收听</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">通过 YouTube Music 收听菜单已隐藏</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">通过 YouTube Music 收听菜单已显示</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">隐藏「音轨」</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">音轨菜单已隐藏</string>
@@ -1666,15 +1682,29 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">已启用永久重复播放</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">已禁用永久重复播放</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">隐藏投射按钮</string>
   <string name="revanced_music_hide_cast_button_summary_on">投射按钮已隐藏</string>
   <string name="revanced_music_hide_cast_button_summary_off">投射按钮已显示</string>
+  <string name="revanced_music_hide_history_button_title">隐藏历史记录按钮</string>
+  <string name="revanced_music_hide_history_button_summary_on">历史记录按钮已隐藏</string>
+  <string name="revanced_music_hide_history_button_summary_off">历史记录按钮已显示</string>
+  <string name="revanced_music_hide_notification_button_title">隐藏通知按钮</string>
+  <string name="revanced_music_hide_notification_button_summary_on">通知按钮已隐藏</string>
+  <string name="revanced_music_hide_notification_button_summary_off">通知按钮已显示</string>
+  <string name="revanced_music_hide_search_button_title">隐藏搜索按钮</string>
+  <string name="revanced_music_hide_search_button_summary_on">搜索按钮已隐藏</string>
+  <string name="revanced_music_hide_search_button_summary_off">搜索按钮已显示</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">隐藏类别栏</string>
   <string name="revanced_music_hide_category_bar_summary_on">类别栏已隐藏</string>
   <string name="revanced_music_hide_category_bar_summary_off">类别栏已显示</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">更改迷你播放器颜色</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">迷你播放器颜色与全屏播放器一致</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">迷你播放器使用默认颜色</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">导航栏</string>

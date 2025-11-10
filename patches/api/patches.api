@@ -404,12 +404,20 @@ public final class app/revanced/patches/music/layout/branding/CustomBrandingPatc
 	public static final fun getCustomBrandingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/music/layout/buttons/HideButtonsKt {
+	public static final fun getHideButtons ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/layout/castbutton/HideCastButtonKt {
 	public static final fun getHideCastButton ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/layout/compactheader/HideCategoryBarKt {
 	public static final fun getHideCategoryBar ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/layout/miniplayercolor/ChangeMiniplayerColorKt {
+	public static final fun getChangeMiniplayerColor ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/layout/navigationbar/NavigationBarPatchKt {

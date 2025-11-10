@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK-bouwdatum is beschadigd</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Waarschuwing</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Melding</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Uw kijkgeschiedenis wordt niet opgeslagen.&lt;br&gt;&lt;br&gt;Dit wordt hoogstwaarschijnlijk veroorzaakt door een DNS-adblocker of netwerkproxy.&lt;br&gt;&lt;br&gt;Om dit te verhelpen, voegt u &lt;b&gt;s.youtube.com&lt;/b&gt; toe aan de witte lijst of schakelt u alle DNS-blokkers en proxies uit.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Niet meer weergeven</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Instellingen</string>
   <string name="revanced_settings_confirm_user_dialog_title">Weet je zeker dat je door wilt gaan?</string>
+  <string name="revanced_settings_save">Opslaan</string>
   <string name="revanced_settings_reset">Terugzetten</string>
   <string name="revanced_settings_reset_color">Kleur opnieuw instellen</string>
   <string name="revanced_settings_color_invalid">Ongeldige kleur</string>
@@ -164,6 +164,14 @@ U wordt niet op de hoogte gesteld van onverwachte gebeurtenissen."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Foutopsporingslogboeken wissen</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Wist alle opgeslagen ReVanced-foutopsporingslogboeken</string>
   <string name="revanced_debug_logs_clear_toast">Logboeken gewist</string>
+  <string name="revanced_debug_feature_flags_manager_title">Functievlaggen Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Beheer booleaanse functievlaggen</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Actieve vlaggen (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Geblokkeerde vlaggen (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Vlaggen zoeken...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Vlaggen opgeslagen</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Vlaggen gereset</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Vlaggen gekopieerd naar klembord</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Deelbare links opschonen</string>
@@ -328,15 +336,24 @@ Als er momenteel een Doodle wordt getoond in je regio en deze instelling voor ve
   <string name="revanced_hide_how_this_was_made_section_title">\'Zo is deze content gemaakt\' verbergen</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Het gedeelte \"Zo is deze content gemaakt\" is verborgen</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Het gedeelte \"Zo is deze content gemaakt\" is zichtbaar</string>
+  <string name="revanced_hide_hype_points_title">Verberg Hype-punten</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype-punten zijn verborgen</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype-punten worden getoond</string>
   <string name="revanced_hide_podcast_section_title">\'Ontdek de podcast\' verbergen</string>
   <string name="revanced_hide_podcast_section_summary_on">Het gedeelte \'Ontdek de podcast\' is verborgen</string>
   <string name="revanced_hide_podcast_section_summary_off">Het gedeelte \'Ontdek de podcast\' wordt weergegeven</string>
+  <string name="revanced_hide_featured_section_title">Uitgelichte inhoud verbergen</string>
+  <string name="revanced_hide_featured_section_summary_on">Sectie uitgelichte inhoud is verborgen</string>
+  <string name="revanced_hide_featured_section_summary_off">Sectie uitgelichte inhoud is zichtbaar</string>
   <string name="revanced_hide_info_cards_section_title">Infokaarten verbergen</string>
   <string name="revanced_hide_info_cards_section_summary_on">Sectie info-kaarten is verborgen</string>
   <string name="revanced_hide_info_cards_section_summary_off">Sectie info-kaarten is zichtbaar</string>
   <string name="revanced_hide_key_concepts_section_title">\'Belangrijkste begrippen\' verbergen</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Het gedeelte \'Belangrijkste begrippen\' is verborgen</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Het gedeelte \'Belangrijkste begrippen\' is zichtbaar</string>
+  <string name="revanced_hide_description_subscribe_button_title">Abonneerknop verbergen</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Abonneerknop is verborgen</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Abonneerknop is weergegeven</string>
   <string name="revanced_hide_transcript_section_title">Transcript verbergen</string>
   <string name="revanced_hide_transcript_section_summary_on">Transcriptgedeelte is verborgen</string>
   <string name="revanced_hide_transcript_section_summary_off">Transcriptgedeelte is zichtbaar</string>
@@ -771,15 +788,14 @@ Als het wijzigen van deze instelling geen effect heeft, probeer dan over te scha
   <string name="revanced_hide_player_flyout_speed_title">Afspeel snelheid verbergen</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Afspeel snelheid-menu is verborgen</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Menu met afspeelsnelheid wordt weergegeven</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Verberg Meer info</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Menu Meer info is verborgen</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Menu Meer info wordt weergegeven</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Verberg Vergrendelscherm</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Menu Vergrendelscherm is verborgen</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Menu Vergrendelscherm wordt weergegeven</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Verberg Luisteren met YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Het menu \'Luisteren met YouTube Music\' is verborgen</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Het menu \'Luisteren met YouTube Music\' is zichtbaar</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Verberg Audiotrack</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu Audiotrack is verborgen</string>
@@ -1659,15 +1675,29 @@ Het afspelen van video met AV1 kan haperen of frames overslaan."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Permanent herhalen is ingeschakeld</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Permanent herhalen is uitgeschakeld</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Cast-knop verbergen</string>
   <string name="revanced_music_hide_cast_button_summary_on">Cast-knop is verborgen</string>
   <string name="revanced_music_hide_cast_button_summary_off">Cast-knop is weergegeven</string>
+  <string name="revanced_music_hide_history_button_title">Geschiedenisknop verbergen</string>
+  <string name="revanced_music_hide_history_button_summary_on">Geschiedenisknop is verborgen</string>
+  <string name="revanced_music_hide_history_button_summary_off">Geschiedenisknop wordt weergegeven</string>
+  <string name="revanced_music_hide_notification_button_title">Meldingsknop verbergen</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Meldingsknop is verborgen</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Meldingsknop is weergegeven</string>
+  <string name="revanced_music_hide_search_button_title">Zoekknop verbergen</string>
+  <string name="revanced_music_hide_search_button_summary_on">Zoekknop is verborgen</string>
+  <string name="revanced_music_hide_search_button_summary_off">Zoekknop is weergegeven</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Categoriebalk verbergen</string>
   <string name="revanced_music_hide_category_bar_summary_on">Categoriebalk is verborgen</string>
   <string name="revanced_music_hide_category_bar_summary_off">Categoriebalk wordt weergegeven</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Wijzig miniplayerkleur</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Miniplayerkleur komt overeen met de volledigschermspeler</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Miniplayer gebruikt standaardkleur</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigatiebalk</string>

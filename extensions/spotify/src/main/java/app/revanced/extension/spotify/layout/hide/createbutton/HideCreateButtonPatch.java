@@ -7,6 +7,7 @@ import app.revanced.extension.spotify.shared.ComponentFilters.StringComponentFil
 
 import java.util.List;
 
+@Deprecated(forRemoval = true)
 @SuppressWarnings("unused")
 public final class HideCreateButtonPatch {
 

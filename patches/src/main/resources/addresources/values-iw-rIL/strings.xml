@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">תאריך בניית ה-APK פגום</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">אזהרה</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">הודעת ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">היסטוריית הצפייה שלך לא נשמרת.&lt;br&gt;&lt;br&gt;סביר להניח שזה נגרם על ידי חוסם מודעות ברמת DNS או פרוקסי רשת.&lt;br&gt;&lt;br&gt;כדי לתקן זאת, רשום את &lt;b&gt;s.youtube.com&lt;/b&gt; ברשימת ההיתרים או כבה את כל חוסמי ה-DNS והפרוקסים.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">אל תציג שוב</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">הגדרות</string>
   <string name="revanced_settings_confirm_user_dialog_title">האם אתה בטוח שברצונך להמשיך?</string>
+  <string name="revanced_settings_save">שמור</string>
   <string name="revanced_settings_reset">איפוס</string>
   <string name="revanced_settings_reset_color">אפס צבע</string>
   <string name="revanced_settings_color_invalid">צבע לא חוקי</string>
@@ -164,6 +164,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">נקה יומני איתור באגים</string>
   <string name="revanced_debug_logs_clear_buffer_summary">מנקה את כל היומנים לאיתור באגים של Revanced המאוחסנים</string>
   <string name="revanced_debug_logs_clear_toast">היומנים נוקו</string>
+  <string name="revanced_debug_feature_flags_manager_title">Manager דגלי תכונות</string>
+  <string name="revanced_debug_feature_flags_manager_summary">נהל דגלי תכונות בוליאניים</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">דגלים פעילים (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">דגלים חסומים (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">חפש דגלים...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">הדגלים נשמרו</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">הדגלים אופסו</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">הדגלים הועתקו ללוח</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
@@ -328,15 +336,24 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">הסתר את \'איך התוכן הזה נוצר\'</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">מדור \'איך התוכן הזה נוצר\' מוסתר</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">מדור \'איך התוכן הזה נוצר\' מוצג</string>
+  <string name="revanced_hide_hype_points_title">הסתר נקודות הייפ</string>
+  <string name="revanced_hide_hype_points_summary_on">נקודות הייפ מוסתרות</string>
+  <string name="revanced_hide_hype_points_summary_off">נקודות הייפ מוצגות</string>
   <string name="revanced_hide_podcast_section_title">הסתר את \'גלה את הפודקאסט\'</string>
   <string name="revanced_hide_podcast_section_summary_on">מדור \'גלה את הפודקאסט\' מוסתר</string>
   <string name="revanced_hide_podcast_section_summary_off">מדור \'גלה את הפודקאסט\' מוצג</string>
+  <string name="revanced_hide_featured_section_title">הסתר תוכן מומלץ</string>
+  <string name="revanced_hide_featured_section_summary_on">מקטע תוכן מומלץ מוסתר</string>
+  <string name="revanced_hide_featured_section_summary_off">מקטע תוכן מומלץ מוצג</string>
   <string name="revanced_hide_info_cards_section_title">הסתר כרטיסי מידע</string>
   <string name="revanced_hide_info_cards_section_summary_on">מדור כרטיסי המידע מוסתר</string>
   <string name="revanced_hide_info_cards_section_summary_off">מדור כרטיסי המידע מוצג</string>
   <string name="revanced_hide_key_concepts_section_title">הסתר \'מושגי מפתח\'</string>
   <string name="revanced_hide_key_concepts_section_summary_on">מדור מושגי מפתח מוסתר</string>
   <string name="revanced_hide_key_concepts_section_summary_off">מדור מושגי מפתח מוצג</string>
+  <string name="revanced_hide_description_subscribe_button_title">הסתר לחצן \'הירשם\'</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">הלחצן \'הרשמה\' מוסתר</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">הלחצן \'הרשמה\' מוצג</string>
   <string name="revanced_hide_transcript_section_title">הסתר תמליל</string>
   <string name="revanced_hide_transcript_section_summary_on">מדור התמליל מוסתר</string>
   <string name="revanced_hide_transcript_section_summary_off">מדור התמליל מוצג</string>
@@ -771,15 +788,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">הסתר מהירות ההפעלה</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">תפריט מהירות ההפעלה מוסתר</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">תפריט מהירות ההפעלה מוצג</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">הסתר מידע נוסף</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">תפריט מידע נוסף מוסתר</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">תפריט מידע נוסף מוצג</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">הסתר נעילת מגע</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">תפריט נעילת מגע מוסתר</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">תפריט נעילת מגע מוצג</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">הסתר האזנה עם YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">תפריט \"האזנה עם YouTube Music\" מוסתר</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">תפריט \"האזנה עם YouTube Music\" מוצג</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">הסתר טראק אודיו</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">תפריט טראק אודיו מוסתר</string>
@@ -1663,15 +1679,29 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">חזרה קבועה מופעלת</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">חזרה קבועה מושבתת</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">הסתר לחצן שידור</string>
   <string name="revanced_music_hide_cast_button_summary_on">לחצן השידור מוסתר</string>
   <string name="revanced_music_hide_cast_button_summary_off">לחצן השידור מוצג</string>
+  <string name="revanced_music_hide_history_button_title">הסתר לחצן היסטוריה</string>
+  <string name="revanced_music_hide_history_button_summary_on">הלחצן \'היסטוריה\' מוסתר</string>
+  <string name="revanced_music_hide_history_button_summary_off">הלחצן \'היסטוריה\' מוצג</string>
+  <string name="revanced_music_hide_notification_button_title">הסתר לחצן התראה</string>
+  <string name="revanced_music_hide_notification_button_summary_on">לחצן ההתראה מוסתר</string>
+  <string name="revanced_music_hide_notification_button_summary_off">לחצן ההתראה מוצג</string>
+  <string name="revanced_music_hide_search_button_title">הסתר לחצן חיפוש</string>
+  <string name="revanced_music_hide_search_button_summary_on">לחצן החיפוש מוסתר</string>
+  <string name="revanced_music_hide_search_button_summary_off">לחצן החיפוש מוצג</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">הסתר סרגל קטגוריות</string>
   <string name="revanced_music_hide_category_bar_summary_on">סרגל הקטגוריות מוסתר</string>
   <string name="revanced_music_hide_category_bar_summary_off">סרגל הקטגוריות מוצג</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">שנה צבע מיני-נגן</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">צבע המיני-נגן תואם לנגן במסך מלא</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">מיני-נגן משתמש בצבע ברירת המחדל</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">סרגל ניווט</string>

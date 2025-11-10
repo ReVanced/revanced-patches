@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK sukurties data yra sugadinta</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Įspėjimas</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced pranešimas</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Jūsų žiūrėjimo istorija nėra išsaugoma.&lt;br&gt;&lt;br&gt;Tikėtina, kad tai sukelia DNS skelbimų blokatorius arba tinklo tarpinis serveris.&lt;br&gt;&lt;br&gt;Norėdami išspręsti šią problemą, įtraukite į baltąjį sąrašą &lt;b&gt;s.youtube.com&lt;/b&gt; arba išjunkite visus DNS blokatorius ir tarpinį serverį.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nerodyti daugiau</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Nustatymai</string>
   <string name="revanced_settings_confirm_user_dialog_title">Ar tikrai norite tęsti?</string>
+  <string name="revanced_settings_save">Išsaugoti</string>
   <string name="revanced_settings_reset">Atstatyti</string>
   <string name="revanced_settings_reset_color">Atkurti spalvą</string>
   <string name="revanced_settings_color_invalid">Neteisinga spalva</string>
@@ -164,6 +164,14 @@ Apie netikėtus įvykius nebus pranešta."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Išvalyti derinimo žurnalus</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Išvalo visus išsaugotus „ReVanced“ derinimo žurnalus</string>
   <string name="revanced_debug_logs_clear_toast">Žurnalai išvalyti</string>
+  <string name="revanced_debug_feature_flags_manager_title">Funkcijų žymių Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Tvarkyti logines funkcijų žymes</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktyviosios vėliavėlės (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Užblokuotos vėliavėlės (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Ieškoti vėliavėlių...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Vėliavėlės išsaugotos</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Vėliavėlės nustatytos iš naujo</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Vėliavėlės nukopijuotos į iškarpinę</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Nuvalyti bendrinimo nuorodas</string>
@@ -328,15 +336,24 @@ Jei „Doodle“ šiuo metu rodomas jūsu regione ir šis paslėpimo nustatymas 
   <string name="revanced_hide_how_this_was_made_section_title">Slėpti „Kaip buvo sukurtas šis turinys“</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Skyrius „Kaip buvo sukurtas šis turinys“ yra paslėptas</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Skyrius „Kaip buvo sukurtas šis turinys“ yra rodomas</string>
+  <string name="revanced_hide_hype_points_title">Slėpti „Hype“ taškus</string>
+  <string name="revanced_hide_hype_points_summary_on">„Hype“ taškai paslėpti</string>
+  <string name="revanced_hide_hype_points_summary_off">„Hype“ taškai rodomi</string>
   <string name="revanced_hide_podcast_section_title">Slėpti „Naršyti podcast\'ą“</string>
   <string name="revanced_hide_podcast_section_summary_on">Skyrius „Naršyti podcast\'ą“ yra paslėptas</string>
   <string name="revanced_hide_podcast_section_summary_off">Skyrius „Naršyti podcast\'ą“ yra rodomas</string>
+  <string name="revanced_hide_featured_section_title">Slėpti rekomenduojamą turinį</string>
+  <string name="revanced_hide_featured_section_summary_on">Rekomenduojamo turinio sekcija paslėpta</string>
+  <string name="revanced_hide_featured_section_summary_off">Rekomenduojamo turinio sekcija rodoma</string>
   <string name="revanced_hide_info_cards_section_title">Slėpti informacines korteles</string>
   <string name="revanced_hide_info_cards_section_summary_on">Informacijos kortelių skyrius yra paslėptas</string>
   <string name="revanced_hide_info_cards_section_summary_off">Informacijos kortelių skyrius yra rodomas</string>
   <string name="revanced_hide_key_concepts_section_title">Slėpti „Pagrindines sąvokas“</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Skyrius „Pagrindinės sąvokos“ yra paslėptas</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Skyrius „Pagrindinės sąvokos“ yra rodomas</string>
+  <string name="revanced_hide_description_subscribe_button_title">Slėpti prenumeratos mygtuką</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Prenumeratos mygtukas paslėptas</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Prenumeratos mygtukas rodomas</string>
   <string name="revanced_hide_transcript_section_title">Slėpti transkripciją</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkripcijos skyrius yra paslėptas</string>
   <string name="revanced_hide_transcript_section_summary_off">Transkripcijos skyrius yra rodomas</string>
@@ -771,15 +788,14 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_player_flyout_speed_title">Slėpti Vaizdo įrašo atkūrimo greitį</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Vaizdo įrašo atkūrimo greičio meniu yra paslėptas</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Vaizdo įrašo atkūrimo greičio meniu yra rodomas</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Slėpti Daugiau informacijos</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Daugiau informacijos meniu yra paslėptas</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Daugiau informacijos meniu yra rodomas</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Slėpti Ekrano užraktą</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Ekrano užrakto meniu yra paslėptas</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Ekrano užrakto meniu yra rodomas</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Slėpti Klausytis su „YouTube Music“</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">„Klausytis su „YouTube Music““ meniu yra paslėptas</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">„Klausytis su „YouTube Music““ meniu yra rodomas</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Slėpti Garso takelius</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Garso takelių meniu yra paslėptas</string>
@@ -1662,15 +1678,29 @@ Vaizdo įrašo atkūrimas su AV1 gali strigti arba praleisti kadrus."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Nuolatinis kartojimas įjungtas</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Nuolatinis kartojimas išjungtas</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Slėpti transliavimo mygtuką</string>
   <string name="revanced_music_hide_cast_button_summary_on">Transliavimo mygtukas paslėptas</string>
   <string name="revanced_music_hide_cast_button_summary_off">Transliavimo mygtukas rodomas</string>
+  <string name="revanced_music_hide_history_button_title">Slėpti istorijos mygtuką</string>
+  <string name="revanced_music_hide_history_button_summary_on">Istorijos mygtukas paslėptas</string>
+  <string name="revanced_music_hide_history_button_summary_off">Istorijos mygtukas rodomas</string>
+  <string name="revanced_music_hide_notification_button_title">Slėpti pranešimų mygtuką</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Pranešimų mygtukas paslėptas</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Pranešimų mygtukas rodomas</string>
+  <string name="revanced_music_hide_search_button_title">Slėpti paieškos mygtuką</string>
+  <string name="revanced_music_hide_search_button_summary_on">Paieškos mygtukas paslėptas</string>
+  <string name="revanced_music_hide_search_button_summary_off">Paieškos mygtukas rodomas</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Slėpti kategorijų juostą</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategorijų juosta paslėpta</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategorijų juosta rodoma</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Pakeisti mini grotuvo spalvą</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Mini grotuvo spalva atitinka viso ekrano grotuvo spalvą</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Mini grotuvas naudoja numatytąją spalvą</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Naršymo juosta</string>

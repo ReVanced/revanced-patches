@@ -31,72 +31,93 @@
         <patch id="misc.settings.settingsResourcePatch">
             <string-array name="revanced_language_entries">
                 <item>@string/revanced_language_DEFAULT</item>
-                <item>@string/revanced_language_AM</item>
-                <item>@string/revanced_language_AR</item>
-                <item>@string/revanced_language_AZ</item>
-                <item>@string/revanced_language_BE</item>
-                <item>@string/revanced_language_BG</item>
-                <item>@string/revanced_language_BN</item>
-                <item>@string/revanced_language_CA</item>
-                <item>@string/revanced_language_CS</item>
-                <item>@string/revanced_language_DA</item>
-                <item>@string/revanced_language_DE</item>
-                <item>@string/revanced_language_EL</item>
-                <item>@string/revanced_language_EN</item>
-                <item>@string/revanced_language_ES</item>
-                <item>@string/revanced_language_ET</item>
-                <item>@string/revanced_language_FA</item>
-                <item>@string/revanced_language_FI</item>
-                <item>@string/revanced_language_FR</item>
-                <item>@string/revanced_language_GA</item>
-                <item>@string/revanced_language_GU</item>
-                <item>@string/revanced_language_HE</item>
-                <item>@string/revanced_language_HI</item>
-                <item>@string/revanced_language_HR</item>
-                <item>@string/revanced_language_HU</item>
-                <item>@string/revanced_language_ID</item>
-                <item>@string/revanced_language_IT</item>
-                <item>@string/revanced_language_JA</item>
-                <item>@string/revanced_language_KK</item>
-                <item>@string/revanced_language_KO</item>
-                <item>@string/revanced_language_LT</item>
-                <item>@string/revanced_language_LV</item>
-                <item>@string/revanced_language_MK</item>
-                <item>@string/revanced_language_MN</item>
-                <item>@string/revanced_language_MR</item>
-                <item>@string/revanced_language_MS</item>
-                <item>@string/revanced_language_MY</item>
-                <item>@string/revanced_language_NL</item>
-                <item>@string/revanced_language_OR</item>
-                <item>@string/revanced_language_PA</item>
-                <item>@string/revanced_language_PL</item>
-                <item>@string/revanced_language_PT</item>
-                <item>@string/revanced_language_RO</item>
-                <item>@string/revanced_language_RU</item>
-                <item>@string/revanced_language_SK</item>
-                <item>@string/revanced_language_SQ</item>
-                <item>@string/revanced_language_SL</item>
-                <item>@string/revanced_language_SR</item>
-                <item>@string/revanced_language_SV</item>
-                <item>@string/revanced_language_SW</item>
-                <item>@string/revanced_language_TA</item>
-                <item>@string/revanced_language_TE</item>
-                <item>@string/revanced_language_TH</item>
-                <item>@string/revanced_language_TR</item>
-                <item>@string/revanced_language_UK</item>
-                <item>@string/revanced_language_UR</item>
-                <item>@string/revanced_language_VI</item>
-                <item>@string/revanced_language_ZH</item>
+                <item>Afrikaans</item>
+                <item>አማርኛ</item>
+                <item>العربية</item>
+                <item>অসমীয়া</item>
+                <item>Azərbaycanca</item>
+                <item>Беларуская</item>
+                <item>Български</item>
+                <item>বাংলা</item>
+                <item>Bosanski</item>
+                <item>Català</item>
+                <item>Čeština</item>
+                <item>Dansk</item>
+                <item>Deutsch</item>
+                <item>Ελληνικά</item>
+                <item>English</item>
+                <item>Español</item>
+                <item>Eesti</item>
+                <item>Euskara</item>
+                <item>فارسی</item>
+                <item>Suomi</item>
+                <item>Français</item>
+                <item>Gaeilge</item>
+                <item>Galego</item>
+                <item>ગુજરાતી</item>
+                <item>עברית</item>
+                <item>हिन्दी</item>
+                <item>Hrvatski</item>
+                <item>Magyar</item>
+                <item>Հայերեն</item>
+                <item>Bahasa Indonesia</item>
+                <item>Íslenska</item>
+                <item>Italiano</item>
+                <item>日本語</item>
+                <item>ქართული</item>
+                <item>Қазақ тілі</item>
+                <item>ភាសាខ្មែរ</item>
+                <item>ಕನ್ನಡ</item>
+                <item>한국어</item>
+                <item>Кыргызча</item>
+                <item>ລາວ</item>
+                <item>Lietuvių</item>
+                <item>Latviešu</item>
+                <item>Македонски</item>
+                <item>മലയാളം</item>
+                <item>Монгол</item>
+                <item>मराठी</item>
+                <item>Bahasa Melayu</item>
+                <item>မြန်မာစာ</item>
+                <item>Norsk bokmål</item>
+                <item>नेपाली</item>
+                <item>Nederlands</item>
+                <item>ଓଡ଼ିଆ</item>
+                <item>ਪੰਜਾਬੀ</item>
+                <item>Polski</item>
+                <item>Português</item>
+                <item>Română</item>
+                <item>Русский</item>
+                <item>සිංහල</item>
+                <item>Slovenčina</item>
+                <item>Slovenščina</item>
+                <item>Shqip</item>
+                <item>Српски</item>
+                <item>Svenska</item>
+                <item>Kiswahili</item>
+                <item>தமிழ்</item>
+                <item>తెలుగు</item>
+                <item>ไทย</item>
+                <item>Tagalog</item>
+                <item>Türkçe</item>
+                <item>Українська</item>
+                <item>اردو</item>
+                <item>Oʻzbekcha</item>
+                <item>Tiếng Việt</item>
+                <item>中文</item>
+                <item>isiZulu</item>
             </string-array>
             <string-array name="revanced_language_entry_values">
-                <!-- Extension enum names. -->
                 <item>DEFAULT</item>
+                <item>AF</item>
                 <item>AM</item>
                 <item>AR</item>
+                <item>AS</item>
                 <item>AZ</item>
                 <item>BE</item>
                 <item>BG</item>
                 <item>BN</item>
+                <item>BS</item>
                 <item>CA</item>
                 <item>CS</item>
                 <item>DA</item>
@@ -105,27 +126,39 @@
                 <item>EN</item>
                 <item>ES</item>
                 <item>ET</item>
+                <item>EU</item>
                 <item>FA</item>
                 <item>FI</item>
                 <item>FR</item>
                 <item>GA</item>
+                <item>GL</item>
                 <item>GU</item>
                 <item>HE</item>
                 <item>HI</item>
                 <item>HR</item>
                 <item>HU</item>
+                <item>HY</item>
                 <item>ID</item>
+                <item>IS</item>
                 <item>IT</item>
                 <item>JA</item>
+                <item>KA</item>
                 <item>KK</item>
+                <item>KM</item>
+                <item>KN</item>
                 <item>KO</item>
+                <item>KY</item>
+                <item>LO</item>
                 <item>LT</item>
                 <item>LV</item>
                 <item>MK</item>
+                <item>ML</item>
                 <item>MN</item>
                 <item>MR</item>
                 <item>MS</item>
                 <item>MY</item>
+                <item>NB</item>
+                <item>NE</item>
                 <item>NL</item>
                 <item>OR</item>
                 <item>PA</item>
@@ -133,20 +166,24 @@
                 <item>PT</item>
                 <item>RO</item>
                 <item>RU</item>
+                <item>SI</item>
                 <item>SK</item>
-                <item>SQ</item>
                 <item>SL</item>
+                <item>SQ</item>
                 <item>SR</item>
                 <item>SV</item>
                 <item>SW</item>
                 <item>TA</item>
                 <item>TE</item>
                 <item>TH</item>
+                <item>TL</item>
                 <item>TR</item>
                 <item>UK</item>
                 <item>UR</item>
+                <item>UZ</item>
                 <item>VI</item>
                 <item>ZH</item>
+                <item>ZU</item>
             </string-array>
         </patch>
     </app>

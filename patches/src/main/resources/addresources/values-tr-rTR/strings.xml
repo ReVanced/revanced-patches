@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK derleme tarihi bozuk</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Uyarı</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Bildirimi</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">İzleme geçmişiniz kaydedilmiyor.&lt;br&gt;&lt;br&gt;Bu büyük ihtimalle bir reklam engelleyici DNS\'den veya proxy\'den kaynaklanıyor.&lt;br&gt;&lt;br&gt;Bunu düzeltmek için, &lt;b&gt;s.youtube.com&lt;/b&gt; adresini beyaz listeye ekleyin veya bütün engelleyici DNSleri ve proxy\'leri kapatın.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Bir daha gösterme</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Ayarlar</string>
   <string name="revanced_settings_confirm_user_dialog_title">Devam etmek istediğinizden emin misiniz?</string>
+  <string name="revanced_settings_save">Kaydet</string>
   <string name="revanced_settings_reset">Sıfırla</string>
   <string name="revanced_settings_reset_color">Rengi sıfırla</string>
   <string name="revanced_settings_color_invalid">Geçersiz renk</string>
@@ -164,6 +164,14 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Hata ayıklama kayıtlarını temizle</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Kaydedilmiş tüm ReVanced hata ayıklama kayıtlarını temizler</string>
   <string name="revanced_debug_logs_clear_toast">Kayıtlar temizlendi</string>
+  <string name="revanced_debug_feature_flags_manager_title">Özellik işaretçileri yöneticisi</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Boolean özellik işaretçilerini yönet</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktif işaretçiler (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Engellenen işaretçiler (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">İşaretçileri ara...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">İşaretçiler kaydedildi</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">İşaretçiler sıfırlandı</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">İşaretçiler panoya kopyalandı</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
@@ -328,15 +336,24 @@ Bir Doodle şu anda bölgenizde gösteriliyorsa ve bu gizleme ayarı açıksa, a
   <string name="revanced_hide_how_this_was_made_section_title">\'Bu içerik nasıl yapıldı\'yı gizle</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Bu içerik nasıl yapıldı kısmı gizli</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Bu içerik nasıl yapıldı kısmı görünür</string>
+  <string name="revanced_hide_hype_points_title">Hype puanlarını gizle</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype puanları gizli</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype puanları görünür</string>
   <string name="revanced_hide_podcast_section_title">\"Podcast\'i keşfedin\"i gizle</string>
   <string name="revanced_hide_podcast_section_summary_on">Podcast\'i keşfedin kısmı gizli</string>
   <string name="revanced_hide_podcast_section_summary_off">Podcast\'i keşfedin kısmı görünür</string>
+  <string name="revanced_hide_featured_section_title">Öne çıkan içeriği gizle</string>
+  <string name="revanced_hide_featured_section_summary_on">Öne çıkan içerik kısmı gizli</string>
+  <string name="revanced_hide_featured_section_summary_off">Öne çıkan içerik kısmı görünür</string>
   <string name="revanced_hide_info_cards_section_title">Bilgi kartlarını gizle</string>
   <string name="revanced_hide_info_cards_section_summary_on">Bilgi kartları kısmı gizli</string>
   <string name="revanced_hide_info_cards_section_summary_off">Bilgi kartları kısmı görünür</string>
   <string name="revanced_hide_key_concepts_section_title">\'Anahtar kavramlar\'ı gizle</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Anahtar kavramlar kısmı gizli</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Anahtar kavramlar kısmı görünür</string>
+  <string name="revanced_hide_description_subscribe_button_title">Abone ol düğmesini gizle</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Abone ol düğmesi gizli</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Abone ol düğmesi görünür</string>
   <string name="revanced_hide_transcript_section_title">Transkripti gizle</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkript kısmı gizli</string>
   <string name="revanced_hide_transcript_section_summary_off">Transkript kısmı görünür</string>
@@ -771,15 +788,14 @@ Bu ayarı değiştirmek etkili olmazsa, Gizli moda geçmeyi deneyin."</string>
   <string name="revanced_hide_player_flyout_speed_title">Oynatma hızını gizle</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Oynatma hızı menüsü gizli</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Oynatma hızı menüsü görünür</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Daha fazla bilgiyi gizle</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Daha fazla bilgi menüsü gizli</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Daha fazla bilgi menüsü görünür</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Ekranı kilitlemeyi gizle</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Ekranı kilitle menüsü gizli</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Ekranı kilitle menüsü görünür</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">YouTube Müzik ile Dinle\'yi gizle</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">YouTube Müzik ile dinle menüsü gizli</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">YouTube Müzik ile dinle menüsü görünür</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Ses parçasını gizle</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ses parçası menüsü gizli</string>
@@ -1668,15 +1684,29 @@ AV1 ile video oynatma takılabilir veya kare atlayabilir."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Kalıcı tekrar etkin</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Kalıcı tekrar devre dışı</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Yayınla düğmesini gizle</string>
   <string name="revanced_music_hide_cast_button_summary_on">Yayınla düğmesi gizli</string>
   <string name="revanced_music_hide_cast_button_summary_off">Yayınla düğmesi görünür</string>
+  <string name="revanced_music_hide_history_button_title">Geçmiş düğmesini gizle</string>
+  <string name="revanced_music_hide_history_button_summary_on">Geçmiş düğmesi gizli</string>
+  <string name="revanced_music_hide_history_button_summary_off">Geçmiş düğmesi görünür</string>
+  <string name="revanced_music_hide_notification_button_title">Bildirim düğmesini gizle</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Bildirim düğmesi gizli</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Bildirim düğmesi görünür</string>
+  <string name="revanced_music_hide_search_button_title">Arama düğmesini gizle</string>
+  <string name="revanced_music_hide_search_button_summary_on">Arama düğmesi gizli</string>
+  <string name="revanced_music_hide_search_button_summary_off">Arama düğmesi görünür</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Kategori çubuğunu gizle</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategori çubuğu gizli</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategori çubuğu görünür</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Mini oynatıcı rengini değiştir</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Mini oynatıcı rengi tam ekran oynatıcıyla eşleşir</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Mini oynatıcı varsayılan rengi kullanır</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Gezinme çubuğu</string>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Tanggal pembuatan APK rusak</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Peringatan </string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Pemberitahuan ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Riwayat tontonan Anda tidak sedang disimpan.&lt;br&gt;&lt;br&gt;Hal ini kemungkinan besar disebabkan oleh pemblokir iklan DNS atau proksi jaringan.&lt;br&gt;&lt;br&gt;Untuk memperbaikinya, masukkan daftar putih &lt;b&gt;s.youtube.com&lt;/b&gt; atau matikan semua pemblokir DNS dan proksi.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Jangan tampilkan lagi</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Pengaturan</string>
   <string name="revanced_settings_confirm_user_dialog_title">Apakah Anda yakin ingin melanjutkan?</string>
+  <string name="revanced_settings_save">Simpan</string>
   <string name="revanced_settings_reset">Setel ulang</string>
   <string name="revanced_settings_reset_color">Setel ulang warna</string>
   <string name="revanced_settings_color_invalid">Warna tidak sah</string>
@@ -61,7 +61,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import">Impor</string>
   <string name="revanced_settings_import_copy">Salin</string>
   <string name="revanced_settings_import_reset">Pengaturan ReVanced diatur ke bawaan</string>
-  <string name="revanced_settings_import_success">Setelan %d terimpor</string>
+  <string name="revanced_settings_import_success">%d Setelan terimpor</string>
   <string name="revanced_settings_import_failure_parse">Impor gagal: %s</string>
   <string name="revanced_settings_search_hint">Pengaturan pencarian</string>
   <string name="revanced_settings_search_no_results_title">Tidak ada hasil yang ditemukan untuk \'%s\'</string>
@@ -164,6 +164,14 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Bersihkan catatan debug</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Menghapus semua catatan debug ReVanced yang tersimpan</string>
   <string name="revanced_debug_logs_clear_toast">Catatan dibersihkan</string>
+  <string name="revanced_debug_feature_flags_manager_title">Fitur pengelolaan tanda</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Kelola tanda fitur boolean</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Tanda aktif (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Tanda diblokir (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Cari tanda...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Tanda disimpan</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Tanda diatur ulang</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Tanda disalin ke papan klip</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Bersihkan tautan berbagi</string>
@@ -328,15 +336,24 @@ Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini 
   <string name="revanced_hide_how_this_was_made_section_title">Sembunyikan \'Cara konten ini dibuat\'</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Bagian Cara konten ini dibuat disembunyikan</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Bagian Cara konten ini dibuat ditampilkan</string>
+  <string name="revanced_hide_hype_points_title">Sembunyikan Poin Hype</string>
+  <string name="revanced_hide_hype_points_summary_on">Poin Hype disembunyikan</string>
+  <string name="revanced_hide_hype_points_summary_off">Poin Hype ditampilkan</string>
   <string name="revanced_hide_podcast_section_title">Sembunyikan \'Jelajahi podcast\'</string>
   <string name="revanced_hide_podcast_section_summary_on">Bagian Jelajahi podcast disembunyikan</string>
   <string name="revanced_hide_podcast_section_summary_off">Bagian Jelajahi podcast ditampilkan</string>
+  <string name="revanced_hide_featured_section_title">Sembunyikan Konten Unggulan</string>
+  <string name="revanced_hide_featured_section_summary_on">Bagian konten unggulan disembunyikan</string>
+  <string name="revanced_hide_featured_section_summary_off">Bagian konten unggulan ditampilkan</string>
   <string name="revanced_hide_info_cards_section_title">Sembunyikan kartu Info</string>
   <string name="revanced_hide_info_cards_section_summary_on">Bagian kartu info disembunyikan</string>
   <string name="revanced_hide_info_cards_section_summary_off">Bagian kartu info ditampilkan</string>
   <string name="revanced_hide_key_concepts_section_title">Sembunyikan \'Konsep utama\'</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Bagian Konsep utama disembunyikan</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Bagian Konsep utama ditampilkan</string>
+  <string name="revanced_hide_description_subscribe_button_title">Sembunyikan tombol Langganan</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Tombol Berlangganan disembunyikan</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Tombol Berlangganan ditampilkan</string>
   <string name="revanced_hide_transcript_section_title">Sembunyikan Transkrip</string>
   <string name="revanced_hide_transcript_section_summary_on">Bagian transkrip disembunyikan</string>
   <string name="revanced_hide_transcript_section_summary_off">Bagian transkrip ditampilkan</string>
@@ -771,15 +788,14 @@ Jika mengubah setelan ini tidak berpengaruh, coba beralih ke mode Penyamaran."</
   <string name="revanced_hide_player_flyout_speed_title">Sembunyikan Kecepatan pemutaran</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Menu kecepatan pemutaran disembunyikan</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Menu kecepatan pemutaran ditampilkan</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Sembunyikan Info selengkapnya</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Menu info selengkapnya disembunyikan</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Menu info selengkapnya ditampilkan</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Sembunyikan Kunci layar</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Menu kunci layar disembunyikan</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Menu kunci layar ditampilkan</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Sembunyikan Dengarkan dengan YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Menu Dengarkan dengan YouTube Music disembunyikan</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Menu Dengarkan dengan YouTube Music ditampilkan</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Sembunyikan trek Audio</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menu trek audio disembunyikan</string>
@@ -1660,15 +1676,29 @@ Pemutaran video dengan AV1 mungkin tersendat atau kehilangan bingkai."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Pengulangan permanen diaktifkan</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Pengulangan permanen dinonaktifkan</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Sembunyikan tombol transmisi</string>
   <string name="revanced_music_hide_cast_button_summary_on">Tombol transmisi disembunyikan</string>
   <string name="revanced_music_hide_cast_button_summary_off">Tombol transmisi ditampilkan</string>
+  <string name="revanced_music_hide_history_button_title">Sembunyikan tombol Riwayat</string>
+  <string name="revanced_music_hide_history_button_summary_on">Tombol Riwayat disembunyikan</string>
+  <string name="revanced_music_hide_history_button_summary_off">Tombol Riwayat ditampilkan</string>
+  <string name="revanced_music_hide_notification_button_title">Sembunyikan tombol notifikasi</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Tombol notifikasi disembunyikan</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Tombol notifikasi ditampilkan</string>
+  <string name="revanced_music_hide_search_button_title">Sembunyikan tombol pencarian</string>
+  <string name="revanced_music_hide_search_button_summary_on">Tombol pencarian disembunyikan</string>
+  <string name="revanced_music_hide_search_button_summary_off">Tombol pencarian ditampilkan</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Sembunyikan bilah kategori</string>
   <string name="revanced_music_hide_category_bar_summary_on">Bilah kategori disembunyikan</string>
   <string name="revanced_music_hide_category_bar_summary_off">Bilah kategori ditampilkan</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Ubah warna pemutar mini</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Warna pemutar mini sesuai dengan pemutar layar penuh</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Pemutar mini menggunakan warna standar</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Bilah navigasi</string>

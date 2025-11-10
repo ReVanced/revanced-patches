@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -26,7 +25,7 @@ Second \"item\" text"</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
   <string name="revanced_custom_branding_name_entry_5">Anpassad</string>
   <string name="revanced_custom_branding_icon_title">Appikon</string>
-  <string name="revanced_custom_branding_icon_entry_1">Original</string>
+  <string name="revanced_custom_branding_icon_entry_1">Ursprunglig</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
   <string name="revanced_custom_branding_icon_entry_3">ReVanced minimalistisk</string>
   <string name="revanced_custom_branding_icon_entry_4">ReVanced skalad</string>
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Byggdatum för APK är skadat</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Varning</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced-meddelande</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Din visningshistorik sparas inte.&lt;br&gt;&lt;br&gt;Detta orsakas troligen av en DNS-annonsblockerare eller nätverksproxy.&lt;br&gt;&lt;br&gt;För att åtgärda detta, vitlista &lt;b&gt;s.youtube.com&lt;/b&gt; eller stäng av alla DNS-blockerare och proxyer.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Visa inte igen</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Inställningar</string>
   <string name="revanced_settings_confirm_user_dialog_title">Är du säker på att du vill fortsätta?</string>
+  <string name="revanced_settings_save">Spara</string>
   <string name="revanced_settings_reset">Återställ</string>
   <string name="revanced_settings_reset_color">Återställ färg</string>
   <string name="revanced_settings_color_invalid">Ogiltig färg</string>
@@ -77,7 +77,7 @@ Second \"item\" text"</string>
 • Sökningen ignorerar skiftläge och skiljetecken
 • Överordnade inställningar visas ovanför inaktiverade underordnade inställningar"</string>
   <string name="revanced_settings_search_empty_history_title">Sökhistoriken är tom</string>
-  <string name="revanced_settings_search_empty_history_summary">För att spara sökhistorik, skriv en sökfråga och tryck på Enter</string>
+  <string name="revanced_settings_search_empty_history_summary">Om du vill spara sökhistorik, skriv en sökfråga och tryck på Retur</string>
   <string name="revanced_settings_search_history_title">Visa sökhistorik för inställningar</string>
   <string name="revanced_settings_search_history_summary_on">Sökhistorik för inställningar visas</string>
   <string name="revanced_settings_search_history_summary_off">Sökhistorik för inställningar visas inte</string>
@@ -164,6 +164,14 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Rensa felsökningsloggar</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Rensar alla lagrade ReVanced-felsökningsloggar</string>
   <string name="revanced_debug_logs_clear_toast">Loggar rensade</string>
+  <string name="revanced_debug_feature_flags_manager_title">Funktionsflagghanterare</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Hantera booleska funktionsflaggor</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktiva flaggor (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Blockerade flaggor (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Sök efter flaggor ...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Flaggor sparade</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Flaggor återställda</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Flaggor kopierade till urklipp</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Rensa delningslänkar</string>
@@ -232,6 +240,7 @@ Men om du aktiverar detta kommer även vissa användardata, t.ex. din IP-adress,
   <string name="revanced_hide_floating_microphone_button_summary_off">Flytande mikrofonknapp i sökning visas</string>
   <string name="revanced_hide_horizontal_shelves_title">Dölj horisontella hyllor</string>
   <string name="revanced_hide_horizontal_shelves_summary_on">"Horisontella hyllor är dolda, till exempel:
+
 • Senaste nytt
 • Fortsätt att titta
 • Utforska fler kanaler
@@ -328,15 +337,24 @@ Om en doodle visas för närvarande i din region och den här döljningsinställ
   <string name="revanced_hide_how_this_was_made_section_title">Dölj Hur det här innehållet skapades</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Avsnittet Hur det här innehållet skapades är dolt</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Avsnittet Hur det här innehållet skapades visas</string>
+  <string name="revanced_hide_hype_points_title">Dölj hajppoäng</string>
+  <string name="revanced_hide_hype_points_summary_on">Hajppoäng är dolda</string>
+  <string name="revanced_hide_hype_points_summary_off">Hajppoäng visas</string>
   <string name="revanced_hide_podcast_section_title">Dölj Utforska podden</string>
   <string name="revanced_hide_podcast_section_summary_on">Avsnittet Utforska podden är dolt</string>
   <string name="revanced_hide_podcast_section_summary_off">Avsnittet Utforska podden visas</string>
+  <string name="revanced_hide_featured_section_title">Dölj utvalt innehåll</string>
+  <string name="revanced_hide_featured_section_summary_on">Avsnittet med utvalt innehåll är dolt</string>
+  <string name="revanced_hide_featured_section_summary_off">Avsnittet med utvalt innehåll visas</string>
   <string name="revanced_hide_info_cards_section_title">Dölj infokort</string>
   <string name="revanced_hide_info_cards_section_summary_on">Avsnittet för infokort är dolt</string>
   <string name="revanced_hide_info_cards_section_summary_off">Avsnittet för infokort visas</string>
   <string name="revanced_hide_key_concepts_section_title">Dölj \"Huvudkoncept\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Avsnittet Huvudkoncept är dolt</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Avsnittet Huvudkoncept visas</string>
+  <string name="revanced_hide_description_subscribe_button_title">Dölj knappen Prenumerera</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Knappen Prenumerera är dold</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Knappen Prenumerera visas</string>
   <string name="revanced_hide_transcript_section_title">Dölj Manuskript</string>
   <string name="revanced_hide_transcript_section_summary_on">Avsnittet Manuskript är dolt</string>
   <string name="revanced_hide_transcript_section_summary_off">Avsnittet Manuskript visas</string>
@@ -431,41 +449,41 @@ Om en doodle visas för närvarande i din region och den här döljningsinställ
   <string name="revanced_hide_upload_time_user_dialog_message">"Begränsningar:
 • Shorts-hyllor, kanalsidor och sökresultat kan fortfarande visa uppladdningstider
 • Denna funktion fungerar inte med bilformfaktor"</string>
-  <string name="revanced_hide_keyword_content_screen_title">Dölj innehåll med sökord</string>
-  <string name="revanced_hide_keyword_content_screen_summary">Dölj videor i flöden och i sökning med hjälp av sökordsfilter</string>
-  <string name="revanced_hide_keyword_content_home_title">Dölj videor i Hem med sökord</string>
-  <string name="revanced_hide_keyword_content_home_summary_on">Videor i fliken Hem filtreras efter sökord</string>
-  <string name="revanced_hide_keyword_content_home_summary_off">Videor i fliken Hem filtreras inte efter sökord</string>
-  <string name="revanced_hide_keyword_content_search_title">Dölj sökresultat med sökord</string>
-  <string name="revanced_hide_keyword_content_search_summary_on">Sökresultat filtreras efter sökord</string>
-  <string name="revanced_hide_keyword_content_search_summary_off">Sökresultat filtreras inte efter sökord</string>
-  <string name="revanced_hide_keyword_content_subscriptions_title">Dölj videor i Prenumerationer med sökord</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videor i fliken Prenumerationer filtreras efter sökord</string>
-  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videor i fliken Prenumerationer filtreras inte efter sökord</string>
-  <string name="revanced_hide_keyword_content_phrases_title">Sökord som ska döljas</string>
+  <string name="revanced_hide_keyword_content_screen_title">Dölj innehåll med nyckelord</string>
+  <string name="revanced_hide_keyword_content_screen_summary">Dölj videor i flöden och i sökning med hjälp av nyckelordsfilter</string>
+  <string name="revanced_hide_keyword_content_home_title">Dölj videor i Hem med nyckelord</string>
+  <string name="revanced_hide_keyword_content_home_summary_on">Videor i fliken Hem filtreras efter nyckelord</string>
+  <string name="revanced_hide_keyword_content_home_summary_off">Videor i fliken Hem filtreras inte efter nyckelord</string>
+  <string name="revanced_hide_keyword_content_search_title">Dölj sökresultat med nyckelord</string>
+  <string name="revanced_hide_keyword_content_search_summary_on">Sökresultat filtreras efter nyckelord</string>
+  <string name="revanced_hide_keyword_content_search_summary_off">Sökresultat filtreras inte efter nyckelord</string>
+  <string name="revanced_hide_keyword_content_subscriptions_title">Dölj videor i Prenumerationer med nyckelord</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_on">Videor i fliken Prenumerationer filtreras efter nyckelord</string>
+  <string name="revanced_hide_keyword_content_subscriptions_summary_off">Videor i fliken Prenumerationer filtreras inte efter nyckelord</string>
+  <string name="revanced_hide_keyword_content_phrases_title">Nyckelord som ska döljas</string>
   <!-- For localization, it is preferred, but not required, if 'LeBlanc' is replaced with a localized name or a familiar word that has upper case letters in the middle of the word.
                  This is because keywords can be in any language, and showing an example in the localized script helps convey this. -->
-  <string name="revanced_hide_keyword_content_phrases_summary">"Sökord och fraser som ska döljas, åtskilda av nya rader
+  <string name="revanced_hide_keyword_content_phrases_summary">"Nyckelord och fraser som ska döljas, åtskilda av nya rader
 
-Sökord kan vara kanalnamn eller vilken text som helst som visas i videotitlar
+Nyckelord kan vara kanalnamn eller vilken text som helst som visas i videotitlar
 
 Ord med versaler i mitten måste anges med korrekt skiftläge (t.ex. iPhone, TikTok, LeBlanc)"</string>
-  <string name="revanced_hide_keyword_content_about_title">Om sökordsfiltrering</string>
-  <string name="revanced_hide_keyword_content_about_summary">"Hem/Prenumerationer/sökresultat filtreras för att dölja innehåll som matchar sökordsfraser
+  <string name="revanced_hide_keyword_content_about_title">Om nyckelordsfiltrering</string>
+  <string name="revanced_hide_keyword_content_about_summary">"Hem/Prenumerationer/sökresultat filtreras för att dölja innehåll som matchar nyckelordsfraser
 
 Begränsningar
 • Shorts-videor kan inte döljas baserat på kanalnamn
 • Vissa komponenter i användargränssnittet kanske inte döljs
-• Om du söker på ett sökord kan det hända att inga resultat visas"</string>
+• Om du söker på ett nyckelord kan det hända att inga resultat visas"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Matcha hela ord</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
-  <string name="revanced_hide_keyword_content_about_whole_words_summary">Om du omger ett sökord/en fras med dubbla citattecken förhindrar du partiella matchningar av videotitlar och kanalnamn&lt;br&gt;&lt;br&gt;Till exempel,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; kommer att dölja videon: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;men kommer inte att dölja: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">Om du omger ett nyckelord/en fras med dubbla citattecken förhindrar du partiella matchningar av videotitlar och kanalnamn&lt;br&gt;&lt;br&gt;Till exempel,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; kommer att dölja videon: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;men kommer inte att dölja: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
-  <string name="revanced_hide_keyword_toast_invalid_common">Kan inte använda sökord: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Lägg till citattecken för att använda sökord: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_conflicting">Sökordet har motstridiga deklarationer: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_length">Sökordet är för kort och kräver citattecken: %s</string>
-  <string name="revanced_hide_keyword_toast_invalid_broad">Sökordet döljer alla videor: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common">Kan inte använda nyckelord: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Lägg till citattecken för att använda nyckelord: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_conflicting">Nyckelordet har motstridiga deklarationer: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_length">Nyckelordet är för kort och kräver citattecken: %s</string>
+  <string name="revanced_hide_keyword_toast_invalid_broad">Nyckelordet döljer alla videor: %s</string>
   </patch>
   <patch id="ad.general.hideAdsResourcePatch">
   <string name="revanced_hide_creator_store_shelf_title">Dölj butikshylla för kreatörer</string>
@@ -771,15 +789,14 @@ Om du ändrar den här inställningen utan att det träder i kraft kan du testa 
   <string name="revanced_hide_player_flyout_speed_title">Dölj Uppspelningshastighet</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Menyn Uppspelningshastighet är dold</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Menyn Uppspelningshastighet visas</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Dölj Mer info</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Menyn Mer info är dold</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Menyn Mer info visas</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Dölj Låsa skärmen</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Menyn Låsa skärmen är dold</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Menyn Låsa skärmen visas</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Dölj Lyssna med YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Menyn Lyssna med YouTube Music är dold</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Menyn Lyssna med YouTube Music visas</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Dölj Ljudspår</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menyn Ljudspår är dold</string>
@@ -1128,7 +1145,7 @@ Den här funktionen fungerar bäst med en videokvalitet på 720p eller lägre oc
   <string name="revanced_sb_general_min_duration_sum">Segment som är kortare än detta värde (i sekunder) kommer inte att visas eller hoppas över</string>
   <string name="revanced_sb_general_min_duration_invalid">Ogiltig tidslängd</string>
   <string name="revanced_sb_general_uuid">Ditt privata användar-id</string>
-  <string name="revanced_sb_general_uuid_sum">Detta bör hållas privat. Det fungerar som ett lösenord och ska inte delas med någon. Om någon får tag på det kan de låtsas vara du</string>
+  <string name="revanced_sb_general_uuid_sum">Detta bör hållas privat. Det fungerar som ett lösenord och ska inte delas med någon. Om någon får tag på det kan de utge sig för att vara du</string>
   <string name="revanced_sb_general_uuid_invalid">Privat användar-id måste vara minst 30 tecken långt</string>
   <string name="revanced_sb_general_api_url">Ändra API-webbadress</string>
   <string name="revanced_sb_general_api_url_sum">Adressen SponsorBlock använder för att göra anrop till servern</string>
@@ -1266,7 +1283,7 @@ Redo att skicka in?"</string>
   <string name="revanced_sb_stats_saved_zero">SponsorBlock-topplistan</string>
   <string name="revanced_sb_stats_saved">Du har räddat personer från &lt;b&gt;%s&lt;/b&gt; segment</string>
   <string name="revanced_sb_stats_saved_sum_zero">Tryck här för att se den globala statistiken och de främsta bidragande användarna</string>
-  <string name="revanced_sb_stats_saved_sum">Det är &lt;b&gt;%s&lt;/b&gt; av deras liv.&lt;br&gt;Tryck här för att se leaderboarden</string>
+  <string name="revanced_sb_stats_saved_sum">Det är &lt;b&gt;%s&lt;/b&gt; av deras liv.&lt;br&gt;Tryck här för att se topplistan</string>
   <string name="revanced_sb_stats_self_saved">Du har hoppat över &lt;b&gt;%s&lt;/b&gt; segment</string>
   <string name="revanced_sb_stats_self_saved_sum">Det är &lt;b&gt;%s&lt;/b&gt;</string>
   <string name="revanced_sb_stats_self_saved_reset_title">Återställ räknaren för överhoppade segment?</string>
@@ -1304,7 +1321,7 @@ Detta kommer att ändra utseendet och funktionerna i appen, men okända bieffekt
 Om du senare inaktiverar det rekommenderar vi att rensa appens data för att förhindra fel i användargränssnittet."</string>
   <string name="revanced_spoof_app_version_target_title">Mål för Förfalska appversionen</string>
   <string name="revanced_spoof_app_version_target_entry_1">20.13.41 – Återställ icke-komprimerat åtgärdsfält för video</string>
-  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 – Återställ transkriptionsfunktion</string>
+  <string name="revanced_spoof_app_version_target_entry_2">20.05.46 – Återställ funktionalitet för transkription</string>
   <string name="revanced_spoof_app_version_target_entry_3">19.35.36 – Återställ gamla ikoner i Shorts-spelaren</string>
   <string name="revanced_spoof_app_version_target_entry_4">19.01.34 – Återställ gamla navigeringsikoner</string>
   </patch>
@@ -1660,15 +1677,29 @@ Videouppspelning med AV1 kan hacka eller tappa bildrutor."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Permanent upprepning är aktiverad</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Permanent upprepning är inaktiverad</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Dölj knappen Casta</string>
   <string name="revanced_music_hide_cast_button_summary_on">Knappen Casta är dold</string>
   <string name="revanced_music_hide_cast_button_summary_off">Knappen Casta visas</string>
+  <string name="revanced_music_hide_history_button_title">Dölj historikknappen</string>
+  <string name="revanced_music_hide_history_button_summary_on">Historikknappen är dold</string>
+  <string name="revanced_music_hide_history_button_summary_off">Historikknappen visas</string>
+  <string name="revanced_music_hide_notification_button_title">Dölj aviseringsknappen</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Aviseringsknappen är dold</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Aviseringsknappen visas</string>
+  <string name="revanced_music_hide_search_button_title">Dölj sökknappen</string>
+  <string name="revanced_music_hide_search_button_summary_on">Sökknappen är dold</string>
+  <string name="revanced_music_hide_search_button_summary_off">Sökknappen visas</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Dölj kategorifält</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategorifältet är dolt</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategorifältet visas</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Ändra minispelarens färg</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Minispelarens färg matchar helskärmsspelaren</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Minispelaren använder standardfärg</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigeringsfält</string>

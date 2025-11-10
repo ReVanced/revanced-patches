@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK ehituskuupäev on rikutud</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Hoiatus</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVancedi Teade</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Teie vaatamise ajalugu ei salvestata.&lt;br&gt;&lt;br&gt;See on tõenäoliselt tingitud DNS-i reklaamiblokeerijast või võrguproksilt.&lt;br&gt;&lt;br&gt;Selle parandamiseks lisage valgesse nimekirja &lt;b&gt;s.youtube.com&lt;/b&gt; või lülitage kõik DNS-i reklaamiblokeerijad ja proksid välja.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ära kuva uuesti</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Seaded</string>
   <string name="revanced_settings_confirm_user_dialog_title">Kas sa oled kindel, et soovid jätkata?</string>
+  <string name="revanced_settings_save">Salvesta</string>
   <string name="revanced_settings_reset">Lähtesta</string>
   <string name="revanced_settings_reset_color">Lähtesta värv</string>
   <string name="revanced_settings_color_invalid">Vigane värv</string>
@@ -164,6 +164,14 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Puhasta silumislogid</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Puhastab kõik salvestatud ReVanced silumislogid</string>
   <string name="revanced_debug_logs_clear_toast">Logid puhastatud</string>
+  <string name="revanced_debug_feature_flags_manager_title">Funktsioonilipikute Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Halda booleani funktsioonilipikuid</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktiivsed lipud (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Blokeeritud lipud (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Otsi lippe...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Lipud salvestatud</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Lipud lähtestatud</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Lipud kopeeritud lõikelauale</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Puhasta jagamislingid</string>
@@ -328,15 +336,24 @@ Kui Doodle on teie piirkonnas praegu nähtav ja see peitmise seade on sisse lül
   <string name="revanced_hide_how_this_was_made_section_title">Peida \"Kuidas see sisu loodi\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Kuidas see sisu loodi jaotis on peidetud</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Kuidas see sisu loodi jaotis on kuvatud</string>
+  <string name="revanced_hide_hype_points_title">Peida Hype\'i punktid</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype\'i punktid on peidetud</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype\'i punktid on nähtavad</string>
   <string name="revanced_hide_podcast_section_title">Peida \"Avasta taskuhäälingut\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Avasta taskuhäälingut jaotis on peidetud</string>
   <string name="revanced_hide_podcast_section_summary_off">Avasta taskuhäälingut jaotis on kuvatud</string>
+  <string name="revanced_hide_featured_section_title">Peida esiletõstetud sisu</string>
+  <string name="revanced_hide_featured_section_summary_on">Esiletõstetud sisu jaotis on peidetud</string>
+  <string name="revanced_hide_featured_section_summary_off">Esiletõstetud sisu jaotis on nähtav</string>
   <string name="revanced_hide_info_cards_section_title">Peida infokaardid</string>
   <string name="revanced_hide_info_cards_section_summary_on">Teabekaartide jaotis on peidetud</string>
   <string name="revanced_hide_info_cards_section_summary_off">Kuvatakse teabekaartide jaotis</string>
   <string name="revanced_hide_key_concepts_section_title">Peida \"Põhimõisted\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Põhimõisted jaotis on peidetud</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Põhimõisted jaotis on kuvatud</string>
+  <string name="revanced_hide_description_subscribe_button_title">Peida tellimisnupp</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Tellimisnupp on peidetud</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Tellimisnupp on nähtav</string>
   <string name="revanced_hide_transcript_section_title">Peida transkriptsioon</string>
   <string name="revanced_hide_transcript_section_summary_on">Skriptiosa on peidetud</string>
   <string name="revanced_hide_transcript_section_summary_off">Skriptiosa on näidatud</string>
@@ -771,15 +788,14 @@ Kui selle sätte muutmine ei avalda mõju, proovige lülituda Inkognito režiimi
   <string name="revanced_hide_player_flyout_speed_title">Peida Esituse kiirus</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Esituse kiiruse menüü on peidetud</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Esituse kiiruse menüü on nähtav</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Peida Lisateave</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Lisateabe menüü on peidetud</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Lisateabe menüü on nähtav</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Peida Ekraani lukustus</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Ekraani lukustuse menüü on peidetud</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Ekraani lukustuse menüü on nähtav</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Peida Kuula YouTube Musicuga</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Kuula YouTube Musicuga menüü on peidetud</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Kuula YouTube Musicuga menüü on nähtav</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Peida Helitraek</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Helitraekide menüü on peidetud</string>
@@ -1661,15 +1677,29 @@ AV1-ga videotaasesitus võib hakitud olla või kaadreid vahele jätta."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Püsiv kordus on lubatud</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Püsiv kordus on keelatud</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Peida edastusnupp</string>
   <string name="revanced_music_hide_cast_button_summary_on">Edastusnupp on peidetud</string>
   <string name="revanced_music_hide_cast_button_summary_off">Edastusnupp on nähtav</string>
+  <string name="revanced_music_hide_history_button_title">Peida ajaloo nupp</string>
+  <string name="revanced_music_hide_history_button_summary_on">Ajaloo nupp on peidetud</string>
+  <string name="revanced_music_hide_history_button_summary_off">Ajaloo nupp on nähtaval</string>
+  <string name="revanced_music_hide_notification_button_title">Peida teavituse nupp</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Teavituse nupp on peidetud</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Teavituse nupp on nähtav</string>
+  <string name="revanced_music_hide_search_button_title">Peida otsingunupp</string>
+  <string name="revanced_music_hide_search_button_summary_on">Otsingunupp on peidetud</string>
+  <string name="revanced_music_hide_search_button_summary_off">Otsingunupp on nähtav</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Peida kategooriariba</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategooriariba on peidetud</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategooriariba on nähtaval</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Muuda minipleieri värvi</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Minipleieri värv ühtib täisekraanipleieri omaga</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Minipleier kasutab vaikevärvi</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigeerimisriba</string>

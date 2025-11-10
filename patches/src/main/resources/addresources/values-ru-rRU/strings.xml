@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Дата сборки APK повреждена</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Внимание</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Уведомление ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Ваша история просмотра не сохраняется.&lt;br&gt;&lt;br&gt;Вероятнее всего это вызвано DNS блокировщиком рекламы или сетевым прокси.&lt;br&gt;&lt;br&gt;Чтобы это исправить, добавьте &lt;b&gt;s.youtube.com&lt;/b&gt; в белый список блокировщика рекламы или отключите все блокировщики DNS и прокси.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Не показывать снова</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Настройки</string>
   <string name="revanced_settings_confirm_user_dialog_title">Вы уверены, что хотите продолжить?</string>
+  <string name="revanced_settings_save">Сохранить</string>
   <string name="revanced_settings_reset">Сбросить</string>
   <string name="revanced_settings_reset_color">Сбросить цвет</string>
   <string name="revanced_settings_color_invalid">Неверный цвет</string>
@@ -164,6 +164,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">Очистить журналы отладки</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Очищает все сохраненные журналы отладки ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Журналы очищены</string>
+  <string name="revanced_debug_feature_flags_manager_title">Флаги функций Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Управление логическими флагами функций</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Активные флаги (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Заблокированные флаги (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Поиск флагов...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Флаги сохранены</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Флаги сброшены</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Флаги скопированы в буфер обмена</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Очищать ссылки для обмена</string>
@@ -328,15 +336,24 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">Скрыть раздел \"Как был создан этот контент\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Раздел \"Как был создан этот контент\" в описании видео скрыт</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Раздел \"Как был создан этот контент\" в описании видео показан</string>
+  <string name="revanced_hide_hype_points_title">Скрыть очки голосов</string>
+  <string name="revanced_hide_hype_points_summary_on">Очки голосов скрыты</string>
+  <string name="revanced_hide_hype_points_summary_off">Очки голосов показаны</string>
   <string name="revanced_hide_podcast_section_title">Скрыть раздел \"Другие выпуски подкаста\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Раздел \"Другие выпуски подкаста\" в описании видео скрыт</string>
   <string name="revanced_hide_podcast_section_summary_off">Раздел \"Другие выпуски подкаста\" в описании видео показан</string>
+  <string name="revanced_hide_featured_section_title">Скрыть рекомендуемый контент</string>
+  <string name="revanced_hide_featured_section_summary_on">Раздел рекомендуемого контента скрыт</string>
+  <string name="revanced_hide_featured_section_summary_off">Раздел рекомендуемого контента показан</string>
   <string name="revanced_hide_info_cards_section_title">Скрыть раздел информационных карточек</string>
   <string name="revanced_hide_info_cards_section_summary_on">Раздел информационных карточек в описании видео скрыт</string>
   <string name="revanced_hide_info_cards_section_summary_off">Раздел информационных карточек в описании видео показан</string>
   <string name="revanced_hide_key_concepts_section_title">Скрыть раздел \"Ключевые понятия\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Раздел \"Ключевые понятия\" в описании видео скрыт</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Раздел \"Ключевые понятия\" в описании видео показан</string>
+  <string name="revanced_hide_description_subscribe_button_title">Скрыть кнопку \"Подписаться\"</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Кнопка \"Подписаться\" в Shorts скрыта</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Кнопка \"Подписаться\" в Shorts показана</string>
   <string name="revanced_hide_transcript_section_title">Скрыть раздел расшифровки</string>
   <string name="revanced_hide_transcript_section_summary_on">Раздел расшифровки в описании видео скрыт</string>
   <string name="revanced_hide_transcript_section_summary_off">Раздел расшифровки в описании видео показан</string>
@@ -771,15 +788,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">Скрыть пункт \"Скорость воспроизведения\"</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Пункт \"Скорость воспроизведения\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Пункт \"Скорость воспроизведения\" в выдвижном меню плеера показан</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Скрыть пункт \"Дополнительная информация\"</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Пункт \"Дополнительная информация\" в выдвижном меню плеера скрыт</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Пункт \"Дополнительная информация\" в выдвижном меню плеера показан</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Скрыть пункт \"Блокировка экрана\"</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Пункт \"Блокировка экрана\" в выдвижном меню плеера скрыт</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Пункт \"Блокировка экрана\" в выдвижном меню плеера показан</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Скрыть пункт \"Слушать в YouTube Music\"</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Пункт \"Слушать в YouTube Music\" в выдвижном меню плеера скрыт</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Пункт \"Слушать в YouTube Music\" в выдвижном меню плеера показан</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Скрыть пункт \"Звуковая дорожка\"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Пункт \"Звуковая дорожка\" в выдвижном меню плеера скрыт</string>
@@ -1668,15 +1684,29 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Постоянный повтор включен</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Постоянный повтор отключен</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Скрыть кнопку \"Трансляция\"</string>
   <string name="revanced_music_hide_cast_button_summary_on">Кнопка \"Трансляция\" в плеере скрыта</string>
   <string name="revanced_music_hide_cast_button_summary_off">Кнопка \"Трансляция\" в плеере показана</string>
+  <string name="revanced_music_hide_history_button_title">Скрыть кнопку \"История\"</string>
+  <string name="revanced_music_hide_history_button_summary_on">Кнопка \"История\" скрыта</string>
+  <string name="revanced_music_hide_history_button_summary_off">Кнопка \"История\" показана</string>
+  <string name="revanced_music_hide_notification_button_title">Скрыть кнопку уведомлений</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Кнопка уведомлений скрыта</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Кнопка уведомлений показана</string>
+  <string name="revanced_music_hide_search_button_title">Скрыть кнопку поиска</string>
+  <string name="revanced_music_hide_search_button_summary_on">Кнопка поиска скрыта</string>
+  <string name="revanced_music_hide_search_button_summary_off">Кнопка поиска показана</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Скрыть панель категорий</string>
   <string name="revanced_music_hide_category_bar_summary_on">Панель категорий скрыта</string>
   <string name="revanced_music_hide_category_bar_summary_off">Панель категорий показана</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Изменить цвет мини-плеера</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Цвет мини-плеера соответствует полноэкранному проигрывателю</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Мини-плеер использует цвет по умолчанию</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Панель навигации</string>

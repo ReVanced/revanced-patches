@@ -61,7 +61,11 @@ public class CheckWatchHistoryDomainNameResolutionPatch {
                 // Prevent this false positive by verify youtube.com resolves.
                 // If youtube.com does not resolve, then it's not a watch history domain resolving error
                 // because the entire app will not work since no domains are resolving.
-                if (!domainResolvesToValidIP("youtube.com")
+                String domainYouTube = "youtube.com";
+                if (!domainResolvesToValidIP(domainYouTube)
+                        || domainResolvesToValidIP(HISTORY_TRACKING_ENDPOINT)
+                        // Check multiple times, so a false positive from a flaky connection is almost impossible.
+                        || !domainResolvesToValidIP(domainYouTube)
                         || domainResolvesToValidIP(HISTORY_TRACKING_ENDPOINT)) {
                     return;
                 }

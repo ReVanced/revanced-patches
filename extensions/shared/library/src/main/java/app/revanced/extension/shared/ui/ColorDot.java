@@ -1,7 +1,6 @@
 package app.revanced.extension.shared.ui;
 
 import static app.revanced.extension.shared.Utils.adjustColorBrightness;
-import static app.revanced.extension.shared.Utils.dipToPixels;
 import static app.revanced.extension.shared.Utils.getAppBackgroundColor;
 import static app.revanced.extension.shared.Utils.isDarkModeEnabled;
 import static app.revanced.extension.shared.settings.preference.ColorPickerPreference.DISABLED_ALPHA;
@@ -13,7 +12,7 @@ import android.view.View;
 import androidx.annotation.ColorInt;
 
 public class ColorDot {
-    private static final int STROKE_WIDTH = dipToPixels(1.5f); // Stroke width in dp.
+    private static final int STROKE_WIDTH = Dim.dp(1.5f);
 
     /**
      * Creates a circular drawable with a main fill and a stroke.
@@ -55,7 +54,7 @@ public class ColorDot {
         targetView.setAlpha(enabled ? 1.0f : DISABLED_ALPHA);
         if (!isDarkModeEnabled()) {
             targetView.setClipToOutline(true);
-            targetView.setElevation(dipToPixels(2));
+            targetView.setElevation(Dim.dp2);
         }
     }
 }

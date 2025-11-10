@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK käännöspäivä on vioittunut</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Varoitus</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Ilmoitus</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Kellon historiaa ei tallenneta.&lt;br&gt;&lt;br&gt;Tämä todennäköisesti johtuu DNS mainosten estäjä tai verkkovälityspalvelin.&lt;br&gt;&lt;br&gt;Korjataksesi tämän, valkoiselle listalle &lt;b&gt;s.youtube.com&lt;/b&gt; tai poistaaksesi kaikki DNS-estäjät ja -profiilit.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Älä näytä uudelleen</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Asetukset</string>
   <string name="revanced_settings_confirm_user_dialog_title">Haluatko varmasti jatkaa?</string>
+  <string name="revanced_settings_save">Tallenna</string>
   <string name="revanced_settings_reset">Nollaa</string>
   <string name="revanced_settings_reset_color">Nollaa väri</string>
   <string name="revanced_settings_color_invalid">Virheellinen väri</string>
@@ -164,6 +164,14 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Tyhjennä virheenkorjauslokit</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Tyhjentää kaikki tallennetut ReVanced-virheenkorjauslokit</string>
   <string name="revanced_debug_logs_clear_toast">Lokit tyhjennetty</string>
+  <string name="revanced_debug_feature_flags_manager_title">Ominaisuuslippujen Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Hallitse totuusarvo-ominaisuuslippuja</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktiiviset liput (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Estetyt liput (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Hae lippuja...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Liput tallennettu</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Liput nollattu</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Liput kopioitu leikepöydälle</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Puhdista jakamislinkit</string>
@@ -328,15 +336,24 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <string name="revanced_hide_how_this_was_made_section_title">Piilota \"Miten sisältö on luotu\"</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Miten sisältö on luotu -osio piilotetaan</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Miten sisältö on luotu -osio näytetään</string>
+  <string name="revanced_hide_hype_points_title">Piilota Hype-pisteet</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype-pisteet piilotetaan</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype-pisteet näytetään</string>
   <string name="revanced_hide_podcast_section_title">Piilota \"Tutustu podcastiin\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Tutustu podcastiin -osio piilotetaan</string>
   <string name="revanced_hide_podcast_section_summary_off">Tutustu podcastiin -osio näytetään</string>
+  <string name="revanced_hide_featured_section_title">Piilota esitelty sisältö</string>
+  <string name="revanced_hide_featured_section_summary_on">Esitelty sisältö -osio on piilotettu</string>
+  <string name="revanced_hide_featured_section_summary_off">Esitelty sisältö -osio näytetään</string>
   <string name="revanced_hide_info_cards_section_title">Piilota tietokortit</string>
   <string name="revanced_hide_info_cards_section_summary_on">Infokortit-osio piilotetaan</string>
   <string name="revanced_hide_info_cards_section_summary_off">Infokortit-osio näytetään</string>
   <string name="revanced_hide_key_concepts_section_title">Piilota \"Keskeiset käsitteet\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Keskeiset käsitteet -osio piilotetaan</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Keskeiset käsitteet -osio näytetään</string>
+  <string name="revanced_hide_description_subscribe_button_title">Piilota Tilaa-painike</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Tilaa-painike piilotetaan</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Tilaa-painike näytetään</string>
   <string name="revanced_hide_transcript_section_title">Piilota transkriptio</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkriptio-osio piilotetaan</string>
   <string name="revanced_hide_transcript_section_summary_off">Transkriptio-osio näytetään</string>
@@ -771,15 +788,14 @@ Jos tämän asetuksen muuttaminen ei tule voimaan, kokeile vaihtaa Incognito-til
   <string name="revanced_hide_player_flyout_speed_title">Piilota Toistonopeus</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Toistonopeusvalikko piilotetaan</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Toistonopeusvalikko näytetään</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Piilota Lisätietoja</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Lisätietoja-valinta piilotetaan</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Lisätietoja-valinta näytetään </string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Piilota Näytön lukitus</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Näytön lukitus -valinta piilotetaan</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Näytön lukitus -valinta näytetään</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Piilota Kuuntele YouTube Musicissa</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Kuuntele YouTube Musicissa -valinta piilotetaan</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Kuuntele YouTube Musicissa -valinta näytetään</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Piilota Ääniraita</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ääniraitavalikko piilotetaan</string>
@@ -1661,15 +1677,29 @@ AV1-videon toisto saattaa pätkiä."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Pysyvä toisto on käytössä</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Pysyvä toisto ei ole käytössä</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Piilota Cast-painike</string>
   <string name="revanced_music_hide_cast_button_summary_on">Cast-painike piilotetaan</string>
   <string name="revanced_music_hide_cast_button_summary_off">Cast-painike näytetään</string>
+  <string name="revanced_music_hide_history_button_title">Piilota historia-painike</string>
+  <string name="revanced_music_hide_history_button_summary_on">Historia-painike piilotetaan</string>
+  <string name="revanced_music_hide_history_button_summary_off">Historia-painike näytetään</string>
+  <string name="revanced_music_hide_notification_button_title">Piilota ilmoituspainike</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Ilmoituspainike piilotetaan</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Ilmoituspainike näytetään</string>
+  <string name="revanced_music_hide_search_button_title">Piilota hakupainike</string>
+  <string name="revanced_music_hide_search_button_summary_on">Hakupainike piilotetaan</string>
+  <string name="revanced_music_hide_search_button_summary_off">Hakupainike näytetään</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Piilota kategoriapalkki</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategoriapalkki piilotetaan</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategoriapalkki näytetään</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Vaihda minisoittimen väri</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Minisoittimen väri vastaa kokoruudun soitinta</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Minisoitin käyttää oletusväriä</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigointipalkki</string>

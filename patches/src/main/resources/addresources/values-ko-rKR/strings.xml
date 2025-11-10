@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK 빌드 날짜가 손상되었습니다</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">경고</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced 알림</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">시청 기록이 저장되지 않습니다.&lt;br&gt;&lt;br&gt; DNS 광고 차단기 또는 네트워크 프록시로 인하여 발생한 문제일 가능성이 높습니다.&lt;br&gt;&lt;br&gt; 이 문제를 해결하려면 &lt;b&gt;s.youtube.com&lt;/b&gt;을 허용 목록에서 제외하거나 모든 DNS 차단기 및 프록시를 해제하세요.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">다시 보지 않기</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">설정</string>
   <string name="revanced_settings_confirm_user_dialog_title">계속하시겠습니까?</string>
+  <string name="revanced_settings_save">저장</string>
   <string name="revanced_settings_reset">초기화</string>
   <string name="revanced_settings_reset_color">색상 초기화</string>
   <string name="revanced_settings_color_invalid">잘못된 색상입니다</string>
@@ -61,7 +61,7 @@ Second \"item\" text"</string>
   <string name="revanced_settings_import">가져오기</string>
   <string name="revanced_settings_import_copy">복사하기</string>
   <string name="revanced_settings_import_reset">ReVanced 설정을 기본값으로 초기화합니다</string>
-  <string name="revanced_settings_import_success">%d 설정을 가져왔습니다</string>
+  <string name="revanced_settings_import_success">%d 개의 설정을 가져왔습니다</string>
   <string name="revanced_settings_import_failure_parse">설정을 가져올 수 없습니다: %s</string>
   <string name="revanced_settings_search_hint">설정 검색</string>
   <string name="revanced_settings_search_no_results_title">\'%s\'에 대한 검색 결과가 없습니다</string>
@@ -164,6 +164,14 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_debug_logs_clear_buffer_title">디버그 로그 지우기</string>
   <string name="revanced_debug_logs_clear_buffer_summary">저장된 모든 ReVanced 디버그 로그를 지울 수 있습니다</string>
   <string name="revanced_debug_logs_clear_toast">디버그 로그가 지워졌습니다</string>
+  <string name="revanced_debug_feature_flags_manager_title">기능 플래그 관리자</string>
+  <string name="revanced_debug_feature_flags_manager_summary">부울 기능 플래그를 관리할 수 있습니다</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">허용된 플래그 (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">차단된 플래그 (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">플래그 검색 ...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">플래그를 저장하였습니다</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">플래그를 초기화하였습니다</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">플래그를 클립보드에 복사하였습니다</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
@@ -316,31 +324,40 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_timed_reactions_title">실시간 이모티콘 리액션 숨기기</string>
   <string name="revanced_hide_timed_reactions_summary_on">실시간 이모티콘 리액션이 숨겨집니다</string>
   <string name="revanced_hide_timed_reactions_summary_off">실시간 이모티콘 리액션이 표시됩니다</string>
-  <string name="revanced_hide_ai_generated_video_summary_section_title">AI 생성 동영상 요약 섹션 숨기기</string>
+  <string name="revanced_hide_ai_generated_video_summary_section_title">AI 생성 동영상 요약 숨기기</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_on">AI 생성 동영상 요약 섹션이 숨겨집니다</string>
   <string name="revanced_hide_ai_generated_video_summary_section_summary_off">AI 생성 동영상 요약 섹션이 표시됩니다</string>
-  <string name="revanced_hide_ask_section_title">\'질문하기\' 섹션 숨기기</string>
+  <string name="revanced_hide_ask_section_title">\'질문하기\' 숨기기</string>
   <string name="revanced_hide_ask_section_summary_on">\'질문하기\' 섹션이 숨겨집니다</string>
   <string name="revanced_hide_ask_section_summary_off">\'질문하기\' 섹션이 표시됩니다</string>
-  <string name="revanced_hide_attributes_section_title">속성 섹션 숨기기</string>
+  <string name="revanced_hide_attributes_section_title">속성 숨기기</string>
   <string name="revanced_hide_attributes_section_summary_on">게임, 음악, 동영상 속 장소 그리고 언급된 인물 섹션이 숨겨집니다</string>
   <string name="revanced_hide_attributes_section_summary_off">게임, 음악, 동영상 속 장소 그리고 언급된 인물 섹션이 표시됩니다</string>
   <string name="revanced_hide_chapters_section_title">챕터 숨기기</string>
   <string name="revanced_hide_chapters_section_summary_on">챕터 섹션이 숨겨집니다</string>
   <string name="revanced_hide_chapters_section_summary_off">챕터 섹션이 표시됩니다</string>
-  <string name="revanced_hide_how_this_was_made_section_title">이 콘텐츠가 제작된 방식 섹션 숨기기</string>
+  <string name="revanced_hide_how_this_was_made_section_title">이 콘텐츠가 제작된 방식 숨기기</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">이 콘텐츠가 제작된 방식 섹션이 숨겨집니다</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">이 콘텐츠가 제작된 방식 섹션이 표시됩니다</string>
-  <string name="revanced_hide_podcast_section_title">팟캐스트 살펴보기 섹션 숨기기</string>
+  <string name="revanced_hide_hype_points_title">Hype 점수 숨기기</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype 점수가 숨겨집니다</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype 점수가 표시됩니다</string>
+  <string name="revanced_hide_podcast_section_title">\'팟캐스트 살펴보기\' 숨기기</string>
   <string name="revanced_hide_podcast_section_summary_on">팟캐스트 살펴보기 섹션이 숨겨집니다</string>
   <string name="revanced_hide_podcast_section_summary_off">팟캐스트 살펴보기 섹션이 표시됩니다</string>
-  <string name="revanced_hide_info_cards_section_title">크리에이터 정보 카드 섹션 숨기기</string>
+  <string name="revanced_hide_featured_section_title">추천 콘텐츠 숨기기</string>
+  <string name="revanced_hide_featured_section_summary_on">추천 콘텐츠 섹션이 숨겨집니다</string>
+  <string name="revanced_hide_featured_section_summary_off">추천 콘텐츠 섹션이 표시됩니다</string>
+  <string name="revanced_hide_info_cards_section_title">크리에이터 정보 카드 숨기기</string>
   <string name="revanced_hide_info_cards_section_summary_on">크리에이터 정보 카드 섹션이 숨겨집니다</string>
   <string name="revanced_hide_info_cards_section_summary_off">크리에이터 정보 카드 섹션이 표시됩니다</string>
-  <string name="revanced_hide_key_concepts_section_title">주요 개념 섹션 숨기기</string>
+  <string name="revanced_hide_key_concepts_section_title">주요 개념 숨기기</string>
   <string name="revanced_hide_key_concepts_section_summary_on">주요 개념 섹션이 숨겨집니다</string>
   <string name="revanced_hide_key_concepts_section_summary_off">주요 개념 섹션이 표시됩니다</string>
-  <string name="revanced_hide_transcript_section_title">스크립트 섹션 숨기기</string>
+  <string name="revanced_hide_description_subscribe_button_title">구독 버튼 숨기기</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">구독 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">구독 버튼이 표시됩니다</string>
+  <string name="revanced_hide_transcript_section_title">스크립트 숨기기</string>
   <string name="revanced_hide_transcript_section_summary_on">스크립트 섹션이 숨겨집니다</string>
   <string name="revanced_hide_transcript_section_summary_off">스크립트 섹션이 표시됩니다</string>
   <string name="revanced_hide_description_components_screen_title">동영상 설명</string>
@@ -628,65 +645,65 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <patch id="layout.buttons.action.hideButtonsPatch">
   <string name="revanced_hide_buttons_screen_title">동작 버튼</string>
   <string name="revanced_hide_buttons_screen_summary">플레이어 하단에서 동작 버튼을 숨기거나 표시할 수 있습니다</string>
-  <string name="revanced_disable_like_subscribe_glow_title">빛나는 \'좋아요\' / \'구독\' 버튼 비활성화하기</string>
+  <string name="revanced_disable_like_subscribe_glow_title">빛나는 \'좋아요\' / \'구독\' 비활성화하기</string>
   <string name="revanced_disable_like_subscribe_glow_summary_on">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 경우에 해당 버튼에 빛나는 애니메이션을 적용하지 않습니다</string>
   <string name="revanced_disable_like_subscribe_glow_summary_off">동영상에서 \'Like (좋아요)\' 또는 \'Subscribe (구독)\' 버튼이 언급되었을 경우에 해당 버튼에 빛나는 애니메이션을 적용합니다</string>
-  <string name="revanced_hide_like_dislike_button_title">좋아요 &amp; 싫어요 버튼 숨기기</string>
+  <string name="revanced_hide_like_dislike_button_title">좋아요 &amp; 싫어요 숨기기</string>
   <string name="revanced_hide_like_dislike_button_summary_on">좋아요 &amp; 싫어요 버튼이 숨겨집니다</string>
   <string name="revanced_hide_like_dislike_button_summary_off">좋아요 &amp; 싫어요 버튼이 표시됩니다</string>
   <!-- 'Share' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_share_button_title">공유 버튼 숨기기</string>
+  <string name="revanced_hide_share_button_title">공유 숨기기</string>
   <string name="revanced_hide_share_button_summary_on">공유 버튼이 숨겨집니다</string>
   <string name="revanced_hide_share_button_summary_off">공유 버튼이 표시됩니다</string>
   <!-- 'Stop ads' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_stop_ads_button_title">광고 중지 버튼 숨기기</string>
+  <string name="revanced_hide_stop_ads_button_title">광고 중지 숨기기</string>
   <string name="revanced_hide_stop_ads_button_summary_on">광고 중지 버튼이 숨겨집니다</string>
   <string name="revanced_hide_stop_ads_button_summary_off">광고 중지 버튼이 표시됩니다</string>
   <!-- Button does not have any text and is only shown as an icon, and only when the video information area is collapsed to a compact state. -->
-  <string name="revanced_hide_comments_button_title">댓글 버튼 숨기기</string>
+  <string name="revanced_hide_comments_button_title">댓글 숨기기</string>
   <string name="revanced_hide_comments_button_summary_on">댓글 버튼이 숨겨집니다</string>
   <string name="revanced_hide_comments_button_summary_off">댓글 버튼이 표시됩니다</string>
   <!-- 'Report' should be translated with the same localized wording that YouTube displays.
                   This button usually only shows on live streams. -->
-  <string name="revanced_hide_report_button_title">신고 버튼 숨기기</string>
+  <string name="revanced_hide_report_button_title">신고 숨기기</string>
   <string name="revanced_hide_report_button_summary_on">신고 버튼이 숨겨집니다</string>
   <string name="revanced_hide_report_button_summary_off">신고 버튼이 표시됩니다</string>
   <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_remix_button_title">리믹스 버튼 숨기기</string>
+  <string name="revanced_hide_remix_button_title">리믹스 숨기기</string>
   <string name="revanced_hide_remix_button_summary_on">리믹스 버튼이 숨겨집니다</string>
   <string name="revanced_hide_remix_button_summary_off">리믹스 버튼이 표시됩니다</string>
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_download_button_title">오프라인 저장 버튼 숨기기</string>
+  <string name="revanced_hide_download_button_title">오프라인 저장 숨기기</string>
   <string name="revanced_hide_download_button_summary_on">오프라인 저장 버튼이 숨겨집니다</string>
   <string name="revanced_hide_download_button_summary_off">오프라인 저장 버튼이 표시됩니다</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
                   This button only shows on videos uploaded by the logged in user. -->
-  <string name="revanced_hide_hype_button_title">Hype 버튼 숨기기</string>
+  <string name="revanced_hide_hype_button_title">Hype 숨기기</string>
   <string name="revanced_hide_hype_button_summary_on">Hype 버튼이 숨겨집니다</string>
   <string name="revanced_hide_hype_button_summary_off">Hype 버튼이 표시됩니다</string>
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_promote_button_title">프로모션 버튼 숨기기</string>
+  <string name="revanced_hide_promote_button_title">프로모션 숨기기</string>
   <string name="revanced_hide_promote_button_summary_on">프로모션 버튼이 숨겨집니다</string>
   <string name="revanced_hide_promote_button_summary_off">프로모션 버튼이 표시됩니다</string>
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_thanks_button_title">Thanks 버튼 숨기기</string>
+  <string name="revanced_hide_thanks_button_title">Thanks 숨기기</string>
   <string name="revanced_hide_thanks_button_summary_on">Thanks 버튼이 숨겨집니다</string>
   <string name="revanced_hide_thanks_button_summary_off">Thanks 버튼이 표시됩니다</string>
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
                   This button only shows if the user ip is from specific region such as the USA or EU. -->
-  <string name="revanced_hide_ask_button_title">\'질문하기\' 버튼 숨기기</string>
+  <string name="revanced_hide_ask_button_title">\'질문하기\' 숨기기</string>
   <string name="revanced_hide_ask_button_summary_on">\'질문하기\' 버튼이 숨겨집니다</string>
   <string name="revanced_hide_ask_button_summary_off">\'질문하기\' 버튼이 표시됩니다</string>
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_clip_button_title">클립 버튼 숨기기</string>
+  <string name="revanced_hide_clip_button_title">클립 숨기기</string>
   <string name="revanced_hide_clip_button_summary_on">클립 버튼이 숨겨집니다</string>
   <string name="revanced_hide_clip_button_summary_off">클립 버튼이 표시됩니다</string>
   <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_shop_button_title">쇼핑 버튼 숨기기</string>
+  <string name="revanced_hide_shop_button_title">쇼핑 숨기기</string>
   <string name="revanced_hide_shop_button_summary_on">쇼핑 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shop_button_summary_off">쇼핑 버튼이 표시됩니다</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_save_button_title">저장 버튼 숨기기</string>
+  <string name="revanced_hide_save_button_title">저장 숨기기</string>
   <string name="revanced_hide_save_button_summary_on">저장 버튼이 숨겨집니다</string>
   <string name="revanced_hide_save_button_summary_off">저장 버튼이 표시됩니다</string>
   </patch>
@@ -694,26 +711,26 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_navigation_buttons_screen_title">하단바 버튼</string>
   <string name="revanced_navigation_buttons_screen_summary">하단바에서 버튼을 숨기거나 변경할 수 있습니다</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
-  <string name="revanced_hide_home_button_title">홈 버튼 숨기기</string>
+  <string name="revanced_hide_home_button_title">홈 숨기기</string>
   <string name="revanced_hide_home_button_summary_on">홈 버튼이 숨겨집니다</string>
   <string name="revanced_hide_home_button_summary_off">홈 버튼이 표시됩니다</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_shorts_button_title">Shorts 버튼 숨기기</string>
+  <string name="revanced_hide_shorts_button_title">Shorts 숨기기</string>
   <string name="revanced_hide_shorts_button_summary_on">Shorts 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_button_summary_off">Shorts 버튼이 표시됩니다</string>
   <!-- 'Create' has no display name. Translate normally. -->
-  <string name="revanced_hide_create_button_title">만들기 버튼 숨기기</string>
+  <string name="revanced_hide_create_button_title">만들기 숨기기</string>
   <string name="revanced_hide_create_button_summary_on">만들기 버튼이 숨겨집니다</string>
   <string name="revanced_hide_create_button_summary_off">만들기 버튼이 표시됩니다</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_hide_subscriptions_button_title">구독 버튼 숨기기</string>
+  <string name="revanced_hide_subscriptions_button_title">구독 숨기기</string>
   <string name="revanced_hide_subscriptions_button_summary_on">구독 버튼이 숨겨집니다</string>
   <string name="revanced_hide_subscriptions_button_summary_off">구독 버튼이 표시됩니다</string>
-  <string name="revanced_hide_notifications_button_title">알림 버튼 숨기기</string>
+  <string name="revanced_hide_notifications_button_title">알림 숨기기</string>
   <string name="revanced_hide_notifications_button_summary_on">알림 버튼이 숨겨집니다</string>
   <string name="revanced_hide_notifications_button_summary_off">알림 버튼이 표시됩니다</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
-  <string name="revanced_switch_create_with_notifications_button_title">만들기 버튼과 알림 버튼 위치 교환하기</string>
+  <string name="revanced_switch_create_with_notifications_button_title">만들기와 알림 위치 교환하기</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"만들기 버튼과 알림 버튼의 위치를 교환합니다
 
 알려진 문제점:
@@ -740,47 +757,46 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_player_flyout_title">메뉴 구성요소</string>
   <string name="revanced_hide_player_flyout_summary">플레이어에서 메뉴 구성요소를 숨기거나 표시할 수 있습니다</string>
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_captions_title">자막 메뉴 숨기기</string>
+  <string name="revanced_hide_player_flyout_captions_title">자막 숨기기</string>
   <string name="revanced_hide_player_flyout_captions_summary_on">자막 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_captions_summary_off">자막 메뉴가 표시됩니다</string>
   <!-- 'Additional settings' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_additional_settings_title">추가 설정 메뉴 숨기기</string>
+  <string name="revanced_hide_player_flyout_additional_settings_title">추가 설정 숨기기</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_on">추가 설정 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_additional_settings_summary_off">추가 설정 메뉴가 표시됩니다</string>
   <!-- 'Sleep timer' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_sleep_timer_title">취침 타이머 메뉴 숨기기</string>
+  <string name="revanced_hide_player_flyout_sleep_timer_title">취침 타이머 숨기기</string>
   <string name="revanced_hide_player_flyout_sleep_timer_summary_on">취침 타이머 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_sleep_timer_summary_off">취침 타이머 메뉴가 표시됩니다</string>
   <!-- 'Loop video' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_loop_video_title">동영상 연속 재생 메뉴 숨기기</string>
+  <string name="revanced_hide_player_flyout_loop_video_title">동영상 연속 재생 숨기기</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_on">동영상 연속 재생 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_loop_video_summary_off">동영상 연속 재생 메뉴가 표시됩니다</string>
   <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_ambient_mode_title">앰비언트 모드 메뉴 숨기기</string>
+  <string name="revanced_hide_player_flyout_ambient_mode_title">앰비언트 모드 숨기기</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_on">앰비언트 모드 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_ambient_mode_summary_off">앰비언트 모드 메뉴가 표시됩니다</string>
-  <string name="revanced_hide_player_flyout_stable_volume_title">안정적인 볼륨 메뉴 숨기기</string>
+  <string name="revanced_hide_player_flyout_stable_volume_title">안정적인 볼륨 숨기기</string>
   <string name="revanced_hide_player_flyout_stable_volume_summary_off">안정적인 볼륨 메뉴가 표시됩니다</string>
   <string name="revanced_hide_player_flyout_stable_volume_summary_on">안정적인 볼륨 메뉴가 숨겨집니다</string>
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_help_title">고객센터 메뉴 숨기기</string>
+  <string name="revanced_hide_player_flyout_help_title">고객센터 숨기기</string>
   <string name="revanced_hide_player_flyout_help_summary_on">고객센터 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_help_summary_off">고객센터 메뉴가 표시됩니다</string>
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_speed_title">재생 속도 메뉴 숨기기</string>
+  <string name="revanced_hide_player_flyout_speed_title">재생 속도 숨기기</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">재생 속도 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">재생 속도 메뉴가 표시됩니다</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">콘텐츠 더보기 메뉴 숨기기</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">콘텐츠 더보기 메뉴가 숨겨집니다</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">콘텐츠 더보기 메뉴가 표시됩니다</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_lock_screen_title">잠금 화면 메뉴 숨기기</string>
+  <string name="revanced_hide_player_flyout_lock_screen_title">잠금 화면 숨기기</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">잠금 화면 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">잠금 화면 메뉴가 표시됩니다</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">YouTube Music으로 음악 감상 숨기기</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">YouTube Music으로 음악 감상 메뉴가 숨겨집니다</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">YouTube Music으로 음악 감상 메뉴가 표시됩니다</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_audio_track_title">오디오 트랙 메뉴 숨기기</string>
+  <string name="revanced_hide_player_flyout_audio_track_title">오디오 트랙 숨기기</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">오디오 트랙 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">오디오 트랙 메뉴가 표시됩니다</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
@@ -788,13 +804,13 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 
 오디오 트랙 메뉴를 표시하려면, '동영상 스트림 변경하기'에서 기본 클라이언트를 iPadOS로 변경하세요"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <string name="revanced_hide_player_flyout_watch_in_vr_title">VR로 보기 메뉴 숨기기</string>
+  <string name="revanced_hide_player_flyout_watch_in_vr_title">VR로 보기 숨기기</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR로 보기 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">VR로 보기 메뉴가 표시됩니다</string>
   <string name="revanced_hide_player_flyout_video_quality_title">동영상 화질 메뉴 숨기기</string>
   <string name="revanced_hide_player_flyout_video_quality_summary_on">동영상 화질 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_video_quality_summary_off">동영상 화질 메뉴가 표시됩니다</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_title">화질 설정 메뉴에서 하단 설명 숨기기</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">동영상 화질 메뉴에서 하단 설명 숨기기</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">화질 설정 메뉴에서 하단 설명이 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">화질 설정 메뉴에서 하단 설명이 표시됩니다</string>
   </patch>
@@ -849,14 +865,14 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_shorts_player_screen_title">Shorts 플레이어</string>
   <string name="revanced_shorts_player_screen_summary">Shorts 플레이어에서 구성요소를 숨기거나 표시할 수 있습니다</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the Home tab. -->
-  <string name="revanced_hide_shorts_home_title">홈 피드에서 Shorts 선반 숨기기</string>
+  <string name="revanced_hide_shorts_home_title">홈 피드에서 Shorts 숨기기</string>
   <string name="revanced_hide_shorts_home_summary_on">홈 피드 및 관련 동영상에서 숨겨집니다</string>
   <string name="revanced_hide_shorts_home_summary_off">홈 피드 및 관련 동영상에서 표시됩니다</string>
-  <string name="revanced_hide_shorts_search_title">검색 결과에서 Shorts 선반 숨기기</string>
+  <string name="revanced_hide_shorts_search_title">검색 결과에서 Shorts 숨기기</string>
   <string name="revanced_hide_shorts_search_summary_on">검색 결과에서 숨겨집니다</string>
   <string name="revanced_hide_shorts_search_summary_off">검색 결과에서 표시됩니다</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays for the Subscriptions tab. -->
-  <string name="revanced_hide_shorts_subscriptions_title">구독 피드에서 Shorts 선반 숨기기</string>
+  <string name="revanced_hide_shorts_subscriptions_title">구독 피드에서 Shorts 숨기기</string>
   <string name="revanced_hide_shorts_subscriptions_summary_on">구독 피드에서 숨겨집니다</string>
   <string name="revanced_hide_shorts_subscriptions_summary_off">구독 피드에서 표시됩니다</string>
   <string name="revanced_hide_shorts_history_title">시청 기록에서 Shorts 숨기기</string>
@@ -960,12 +976,12 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_shorts_navigation_bar_summary_off">하단바가 표시됩니다</string>
   </patch>
   <patch id="layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch">
-  <string name="revanced_end_screen_suggested_video_title">최종 화면 다음 재생 추천 동영상 숨기기</string>
-  <string name="revanced_end_screen_suggested_video_summary_on">"자동재생이 꺼져 있을 경우에 최종 화면에서 다음 재생 추천 동영상이 숨겨집니다
+  <string name="revanced_end_screen_suggested_video_title">최종 화면 추천 동영상 숨기기</string>
+  <string name="revanced_end_screen_suggested_video_summary_on">"자동재생이 꺼져 있을 경우에 최종 화면에서 추천 동영상이 숨겨집니다
 
 자동재생은 YouTube 설정에서 변경할 수 있습니다:
 설정 → 재생 → 다음 동영상 자동재생"</string>
-  <string name="revanced_end_screen_suggested_video_summary_off">최종 화면에서 다음 재생 추천 동영상이 표시됩니다</string>
+  <string name="revanced_end_screen_suggested_video_summary_off">최종 화면에서 추천 동영상이 표시됩니다</string>
   </patch>
   <patch id="layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch">
   <string name="revanced_hide_related_videos_overlay_title">관련 동영상 오버레이 숨기기</string>
@@ -1668,15 +1684,29 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
   <string name="revanced_music_play_permanent_repeat_summary_on">영구적인 반복을 활성화합니다</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">영구적인 반복을 비활성화합니다</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">크롬캐스트 버튼 숨기기</string>
   <string name="revanced_music_hide_cast_button_summary_on">크롬캐스트 버튼이 숨겨집니다</string>
   <string name="revanced_music_hide_cast_button_summary_off">크롬캐스트 버튼이 표시됩니다</string>
+  <string name="revanced_music_hide_history_button_title">기록 버튼 숨기기</string>
+  <string name="revanced_music_hide_history_button_summary_on">기록 버튼이 숨겨집니다</string>
+  <string name="revanced_music_hide_history_button_summary_off">기록 버튼이 표시됩니다</string>
+  <string name="revanced_music_hide_notification_button_title">알림 버튼 숨기기</string>
+  <string name="revanced_music_hide_notification_button_summary_on">알림 버튼이 숨겨집니다</string>
+  <string name="revanced_music_hide_notification_button_summary_off">알림 버튼이 표시됩니다</string>
+  <string name="revanced_music_hide_search_button_title">검색 버튼 숨기기</string>
+  <string name="revanced_music_hide_search_button_summary_on">검색 버튼이 숨겨집니다</string>
+  <string name="revanced_music_hide_search_button_summary_off">검색 버튼이 표시됩니다</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">카테고리 바 숨기기</string>
   <string name="revanced_music_hide_category_bar_summary_on">카테고리 바가 숨겨집니다</string>
   <string name="revanced_music_hide_category_bar_summary_off">카테고리 바가 표시됩니다</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">미니 플레이어 색상 변경하기</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">미니 플레이어 색상이 전체 화면 플레이어와 일치합니다</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">미니 플레이어 색상이 기본 색상입니다</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">하단바</string>

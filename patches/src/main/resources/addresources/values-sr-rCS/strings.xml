@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Datum izrade APK-a je oštećen</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Upozorenje</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced obaveštenje</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Vaša istorija gledanja se ne čuva.&lt;br&gt;&lt;br&gt;Ovo je najverovatnije uzrokovano DNS blokatorom oglasa ili mrežnim proksijem.&lt;br&gt;&lt;br&gt;Da biste ovo popravili, stavite na belu listu &lt;b&gt;s.youtube.com&lt;/b&gt; ili isključite sve DNS blokatore i proksije.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne prikazuj ponovo</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Podešavanja</string>
   <string name="revanced_settings_confirm_user_dialog_title">Želite li zaista da nastavite?</string>
+  <string name="revanced_settings_save">Sačuvaj</string>
   <string name="revanced_settings_reset">Resetuj</string>
   <string name="revanced_settings_reset_color">Resetuj boju</string>
   <string name="revanced_settings_color_invalid">Nevažeća boja</string>
@@ -164,6 +164,14 @@ Nećete biti obavešteni ni o kakvim neočekivanim događajima."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Izbriši evidencije otklanjanja grešaka</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Briše sve sačuvane evidencije otklanjanja grešaka ReVanceda</string>
   <string name="revanced_debug_logs_clear_toast">Evidencije su izbrisane</string>
+  <string name="revanced_debug_feature_flags_manager_title">Feature flags Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Upravljajte bulovim zastavicama funkcija</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktivne zastavice (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Blokirane zastavice (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Pretraži zastavice...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Zastavice sačuvane</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Zastavice resetovane</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Zastavice kopirane u međumemoriju</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Očisti deljene linkove</string>
@@ -328,15 +336,24 @@ Ako se Doodle trenutno prikazuje u vašem regionu i ova opcija skrivanja je uklj
   <string name="revanced_hide_how_this_was_made_section_title">Sakrij odeljak „Kako je napravljen ovaj sadržaj”</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Odeljak „Kako je napravljen ovaj sadržaj” je skriven</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Odeljak „Kako je napravljen ovaj sadržaj” je prikazan</string>
+  <string name="revanced_hide_hype_points_title">Sakrij hajp poene</string>
+  <string name="revanced_hide_hype_points_summary_on">Hajp poeni su skriveni</string>
+  <string name="revanced_hide_hype_points_summary_off">Hajp poeni su prikazani</string>
   <string name="revanced_hide_podcast_section_title">Sakrij odeljak „Istražite podkast”</string>
   <string name="revanced_hide_podcast_section_summary_on">Odeljak „Istražite podkast” je skriven</string>
   <string name="revanced_hide_podcast_section_summary_off">Odeljak „Istražite podkast” je prikazan</string>
+  <string name="revanced_hide_featured_section_title">Sakrij istaknuti sadržaj</string>
+  <string name="revanced_hide_featured_section_summary_on">Odeljak sa istaknutim sadržajem je skriven</string>
+  <string name="revanced_hide_featured_section_summary_off">Odeljak sa istaknutim sadržajem je prikazan</string>
   <string name="revanced_hide_info_cards_section_title">Sakrij kartice sa informacijama</string>
   <string name="revanced_hide_info_cards_section_summary_on">Odeljak za kartice sa informacijama je skriven</string>
   <string name="revanced_hide_info_cards_section_summary_off">Odeljak za kartice sa informacijama je prikazan</string>
   <string name="revanced_hide_key_concepts_section_title">Sakrij odeljak „Ključni koncepti”</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Odeljak „Ključni koncepti” je skriven</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Odeljak „Ključni koncepti” je prikazan</string>
+  <string name="revanced_hide_description_subscribe_button_title">Sakrij dugme „Pretplati se”</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Dugme „Pretplati se“ je skriveno</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Dugme „Pretplati se“ je prikazano</string>
   <string name="revanced_hide_transcript_section_title">Sakrij transkript</string>
   <string name="revanced_hide_transcript_section_summary_on">Odeljak za transkripciju je skriven</string>
   <string name="revanced_hide_transcript_section_summary_off">Odeljak za transkripciju je prikazan</string>
@@ -771,15 +788,14 @@ Ako se promena ove opcije ne primeni, pokušajte da pređete u režim bez arhivi
   <string name="revanced_hide_player_flyout_speed_title">Sakrij meni „Brzina reprodukcije”</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Meni „Brzina reprodukcije” je skriven</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Meni „Brzina reprodukcije” je prikazan</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Sakrij dugme „Više informacija”</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Dugme „Više informacija” je skriveno</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Dugme „Više informacija” je prikazano</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Sakrij dugme „Zaključaj ekran”</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Dugme „Zaključaj ekran” je skriveno</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Dugme „Zaključaj ekran” je prikazano</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Sakrij meni „Slušajte na YouTube Musicu”</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Meni „Slušajte na YouTube Musicu” je skriven</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Meni „Slušajte na YouTube Musicu” je prikazan</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Sakrij meni „Audio snimak”</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meni „Audio snimak” je skriven</string>
@@ -1660,15 +1676,29 @@ Reprodukcija videa s AV1 može zastajkivati ili preskakati kadrove."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Trajno ponavljanje je omogućeno</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Trajno ponavljanje je onemogućeno</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Sakrij dugme „Prebacuj”</string>
   <string name="revanced_music_hide_cast_button_summary_on">Dugme „Prebacuj” je skriveno</string>
   <string name="revanced_music_hide_cast_button_summary_off">Dugme „Prebacuj” je prikazano</string>
+  <string name="revanced_music_hide_history_button_title">Sakrij dugme „Istorija”</string>
+  <string name="revanced_music_hide_history_button_summary_on">Dugme „Istorija” je skriveno</string>
+  <string name="revanced_music_hide_history_button_summary_off">Dugme „Istorija” je prikazano</string>
+  <string name="revanced_music_hide_notification_button_title">Sakrij dugme „Obaveštenje”</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Dugme „Obaveštenje” je skriveno</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Dugme „Obaveštenje” je prikazano</string>
+  <string name="revanced_music_hide_search_button_title">Sakrij dugme „Pretraga”</string>
+  <string name="revanced_music_hide_search_button_summary_on">Dugme „Pretraga” je skriveno</string>
+  <string name="revanced_music_hide_search_button_summary_off">Dugme „Pretraga” je prikazano</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Sakrij traku kategorija</string>
   <string name="revanced_music_hide_category_bar_summary_on">Traka kategorija je skrivena</string>
   <string name="revanced_music_hide_category_bar_summary_off">Traka kategorija je prikazana</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Promeni boju mini-plejera</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Boja mini-plejera odgovara plejeru preko celog ekrana</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Mini-plejer koristi podrazumevanu boju</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Traka za navigaciju</string>

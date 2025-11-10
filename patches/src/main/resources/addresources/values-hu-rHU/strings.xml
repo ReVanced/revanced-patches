@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Az APK build dátuma sérült</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Figyelmeztetés</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Értesítés</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">A megtekintési előzmények mentése nem történik meg.&lt;br&gt;&lt;br&gt;Ezt valószínűleg egy DNS-hirdetésblokkoló vagy hálózati proxy okozza.&lt;br&gt;&lt;br&gt;A probléma megoldásához vegye fel az engedélyezőlistára az &lt;b&gt;s.youtube.com&lt;/b&gt; domaint vagy kapcsolja ki az összes DNS-blokkolót és proxyt.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne jelenjen meg többet</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Beállítások</string>
   <string name="revanced_settings_confirm_user_dialog_title">Biztosan folytatni szeretné?</string>
+  <string name="revanced_settings_save">Mentés</string>
   <string name="revanced_settings_reset">Visszaállítás</string>
   <string name="revanced_settings_reset_color">Szín alaphelyzetbe állítása</string>
   <string name="revanced_settings_color_invalid">Érvénytelen szín</string>
@@ -164,6 +164,14 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Hibakeresési naplók törlése</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Törli az összes tárolt ReVanced hibakeresési naplót</string>
   <string name="revanced_debug_logs_clear_toast">Naplók törölve</string>
+  <string name="revanced_debug_feature_flags_manager_title">Funkciójelzők Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Logikai funkciójelzők kezelése</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktív jelzők (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Blokkolt jelzők (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Jelzők keresése...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Jelzők mentve</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Jelzők visszaállítva</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Jelzők vágólapra másolva</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
@@ -328,15 +336,24 @@ Ha a Doodle jelenleg a régiódában látható, és ez a rejtés beállítás be
   <string name="revanced_hide_how_this_was_made_section_title">A „Hogyan készült ez a tartalom” elrejtése</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">A Hogyan készült ez a tartalom szakasz rejtett</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">A Hogyan készült ez a tartalom szakasz látható</string>
+  <string name="revanced_hide_hype_points_title">Hype pontok elrejtése</string>
+  <string name="revanced_hide_hype_points_summary_on">A Hype pontok el vannak rejtve</string>
+  <string name="revanced_hide_hype_points_summary_off">A Hype pontok láthatóak</string>
   <string name="revanced_hide_podcast_section_title">A „Podcast felfedezése” elrejtése</string>
   <string name="revanced_hide_podcast_section_summary_on">A Podcast felfedezése szakasz rejtett</string>
   <string name="revanced_hide_podcast_section_summary_off">A Podcast felfedezése szakasz látható</string>
+  <string name="revanced_hide_featured_section_title">Kiemelt tartalom elrejtése</string>
+  <string name="revanced_hide_featured_section_summary_on">A kiemelt tartalmak szekció elrejtve</string>
+  <string name="revanced_hide_featured_section_summary_off">A kiemelt tartalmak szekció látható</string>
   <string name="revanced_hide_info_cards_section_title">Infó kártyák elrejtése</string>
   <string name="revanced_hide_info_cards_section_summary_on">Az infó kártyák rész el van rejtve</string>
   <string name="revanced_hide_info_cards_section_summary_off">Az infó kártyák rész látható</string>
   <string name="revanced_hide_key_concepts_section_title">A „Főbb fogalmak” elrejtése</string>
   <string name="revanced_hide_key_concepts_section_summary_on">A Főbb fogalmak szakasz rejtett</string>
   <string name="revanced_hide_key_concepts_section_summary_off">A Főbb fogalmak szakasz látható</string>
+  <string name="revanced_hide_description_subscribe_button_title">Feliratkozás gomb elrejtése</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Az előfizetés gomb rejtett</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Az előfizetés gomb látható</string>
   <string name="revanced_hide_transcript_section_title">Átirat elrejtése</string>
   <string name="revanced_hide_transcript_section_summary_on">Az átirat rész el van rejtve</string>
   <string name="revanced_hide_transcript_section_summary_off">Az átirat rész megjelenik</string>
@@ -771,15 +788,14 @@ Ha a beállítás módosítása nem lép életbe, próbáljon meg Inkognitó mó
   <string name="revanced_hide_player_flyout_speed_title">Lejátszási sebesség elrejtése</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">A lejátszási sebesség menü el van rejtve</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">A lejátszási sebesség menü látható</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">További információk elrejtése</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on"> A további információ menü el van rejtve</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">A további információ menü megjelenik</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Lezárási képernyő elrejtése</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">A lezárási képernyő menü el van rejtve</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">A lezárási képernyő menü megjelenik</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">\"Meghallgatás YouTube Music alkalmazással\" elrejtése</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">A(z) \"Meghallgatás YouTube Music alkalmazással\" menü rejtett</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">A(z) \"Meghallgatás YouTube Music alkalmazással\" menü megjelenítve</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Hangsáv elrejtése</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">A hangsáv menü el van rejtve</string>
@@ -1658,15 +1674,29 @@ Az AV1-es videólejátszás akadozhat vagy képkockákat ejthet."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Az állandó ismétlés engedélyezve van</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Az állandó ismétlés letiltva van</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Kivetítés gomb elrejtése</string>
   <string name="revanced_music_hide_cast_button_summary_on">Kivetítés gomb elrejtve</string>
   <string name="revanced_music_hide_cast_button_summary_off">Kivetítés gomb látható</string>
+  <string name="revanced_music_hide_history_button_title">Elrejti az előzmények gombot</string>
+  <string name="revanced_music_hide_history_button_summary_on">Az előzmények gomb rejtett</string>
+  <string name="revanced_music_hide_history_button_summary_off">Az előzmények gomb látható</string>
+  <string name="revanced_music_hide_notification_button_title">Értesítési gomb elrejtése</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Az értesítési gomb el van rejtve</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Az értesítési gomb látható</string>
+  <string name="revanced_music_hide_search_button_title">Keresés gomb elrejtése</string>
+  <string name="revanced_music_hide_search_button_summary_on">A keresés gomb el van rejtve</string>
+  <string name="revanced_music_hide_search_button_summary_off">A keresés gomb látható</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Kategóriasáv elrejtése</string>
   <string name="revanced_music_hide_category_bar_summary_on">A kategóriasáv rejtve van</string>
   <string name="revanced_music_hide_category_bar_summary_off">A kategóriasáv látható</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Mini lejátszó színének módosítása</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">A mini lejátszó színe megegyezik a teljes képernyős lejátszóéval</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">A mini lejátszó alapértelmezett színt használ</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigációs sáv</string>

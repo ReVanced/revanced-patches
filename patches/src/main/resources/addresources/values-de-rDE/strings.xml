@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK Erstellungsdatum ist beschädigt</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Warnung</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Hinweis</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Ihr Verlauf wird nicht gespeichert.&lt;br&gt;&lt;br&gt;Dies wird höchstwahrscheinlich durch einen DNS-Werbeblocker oder einen Netzwerkproxy verursacht.&lt;br&gt;&lt;br&gt;Um dies zu beheben, setze &lt;b&gt;s.youtube.com&lt;/b&gt; auf die Whitelist oder schalten Sie alle DNS-Blocker und Proxies aus.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nicht wieder anzeigen</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Einstellungen</string>
   <string name="revanced_settings_confirm_user_dialog_title">Bist du sicher, dass du fortfahren möchtest?</string>
+  <string name="revanced_settings_save">Speichern</string>
   <string name="revanced_settings_reset">Zurücksetzen</string>
   <string name="revanced_settings_reset_color">Farbe zurücksetzen</string>
   <string name="revanced_settings_color_invalid">Ungültige Farbe</string>
@@ -164,6 +164,14 @@ Sie werden nicht über unerwartete Ereignisse informiert."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Debug-Protokolle löschen</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Löscht alle gespeicherten ReVanced-Debug-Protokolle</string>
   <string name="revanced_debug_logs_clear_toast">Protokolle gelöscht</string>
+  <string name="revanced_debug_feature_flags_manager_title">Feature-Flags Manager</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Boolesche Feature-Flags verwalten</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktive Flags (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Blockierte Flags (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Flags suchen...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Flags gespeichert</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Flags zurückgesetzt</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Flags in die Zwischenablage kopiert</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Freigabelinks säubern</string>
@@ -327,15 +335,24 @@ Wenn ein Doodle zurzeit in Ihrer Region angezeigt wird und diese Einstellung zum
   <string name="revanced_hide_how_this_was_made_section_title">\"Wie dieser Inhalt erstellt wurde\" ausblenden</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Der Abschnitt \"Wie dieser Inhalt erstellt wurde\" ist ausgeblendet</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Der Abschnitt \"Wie dieser Inhalt erstellt wurde\" wird angezeigt</string>
+  <string name="revanced_hide_hype_points_title">Hype-Punkte ausblenden</string>
+  <string name="revanced_hide_hype_points_summary_on">Hype-Punkte sind ausgeblendet</string>
+  <string name="revanced_hide_hype_points_summary_off">Hype-Punkte werden angezeigt</string>
   <string name="revanced_hide_podcast_section_title">\'Podcast entdecken\' ausblenden</string>
   <string name="revanced_hide_podcast_section_summary_on">Der Abschnitt \"Podcast entdecken\" ist ausgeblendet</string>
   <string name="revanced_hide_podcast_section_summary_off">Der Abschnitt \"Podcast entdecken\" wird angezeigt</string>
+  <string name="revanced_hide_featured_section_title">Vorgestellte Inhalte ausblenden</string>
+  <string name="revanced_hide_featured_section_summary_on">Bereich für vorgestellte Inhalte ist ausgeblendet</string>
+  <string name="revanced_hide_featured_section_summary_off">Bereich für vorgestellte Inhalte ist sichtbar</string>
   <string name="revanced_hide_info_cards_section_title">Infokarten ausblenden</string>
   <string name="revanced_hide_info_cards_section_summary_on">Info-Kartenbereich ist ausgeblendet</string>
   <string name="revanced_hide_info_cards_section_summary_off">Info-Kartenbereich wird angezeigt</string>
   <string name="revanced_hide_key_concepts_section_title">\'Schlüsselkonzepte\' ausblenden</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Abschnitt \"Schlüsselkonzepte\" ist ausgeblendet</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Abschnitt \"Schlüsselkonzepte\" wird angezeigt</string>
+  <string name="revanced_hide_description_subscribe_button_title">Schaltfläche „Abonnieren“ ausblenden</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Abo-Schaltfläche ist ausgeblendet</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Abo-Schaltfläche wird angezeigt</string>
   <string name="revanced_hide_transcript_section_title">Transkript ausblenden</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkript-Abschnitt ist ausgeblendet</string>
   <string name="revanced_hide_transcript_section_summary_off">Sektion Transkripte wird angezeigt</string>
@@ -768,15 +785,14 @@ Wenn diese Änderung nicht wirksam wird, versuchen Sie, in den Inkognito-Modus z
   <string name="revanced_hide_player_flyout_speed_title">Wiedergabegeschwindigkeit ausblenden</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Wiedergabegeschwindigkeit ist ausgeblendet</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Wiedergabegeschwindigkeit wird angezeigt</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Mehr Info ausblenden</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Mehr Info-Menü ist ausgeblendet</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Mehr Info-Menü wird angezeigt</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Sperrbildschirm ausblenden</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Sperrbildschirm-Menü ist ausgeblendet</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Sperrbildschirm-Menü wird angezeigt</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">„Mit YouTube Music hören“ ausblenden</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">„Mit YouTube Music hören“-Menü ist ausgeblendet</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">„Mit YouTube Music hören“-Menü wird angezeigt</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Audiospur ausblenden</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Audiospur-Menü ist ausgeblendet</string>
@@ -1658,15 +1674,29 @@ Die Videowiedergabe mit AV1 kann stottern oder Bilder überspringen."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Dauerwiederholung ist aktiviert</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Dauerwiederholung ist deaktiviert</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Übertragen-Taste ausblenden</string>
   <string name="revanced_music_hide_cast_button_summary_on">Übertragen-Taste ist ausgeblendet</string>
   <string name="revanced_music_hide_cast_button_summary_off">Übertragen-Taste wird angezeigt</string>
+  <string name="revanced_music_hide_history_button_title">Verlauf-Schaltfläche ausblenden</string>
+  <string name="revanced_music_hide_history_button_summary_on">Verlauf-Schaltfläche ist ausgeblendet</string>
+  <string name="revanced_music_hide_history_button_summary_off">Verlauf-Schaltfläche wird angezeigt</string>
+  <string name="revanced_music_hide_notification_button_title">Benachrichtigungsschaltfläche ausblenden</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Benachrichtigungsschaltfläche wird ausgeblendet</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Benachrichtigungsschaltfläche wird angezeigt</string>
+  <string name="revanced_music_hide_search_button_title">Suchschaltfläche ausblenden</string>
+  <string name="revanced_music_hide_search_button_summary_on">Suchschaltfläche wird ausgeblendet</string>
+  <string name="revanced_music_hide_search_button_summary_off">Suchschaltfläche wird angezeigt</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Kategorieleiste ausblenden</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategorieleiste ist ausgeblendet</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategorieleiste wird angezeigt</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Miniplayer-Farbe ändern</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Miniplayer-Farbe entspricht dem Vollbild-Player</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Miniplayer verwendet Standardfarbe</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigationsleiste</string>

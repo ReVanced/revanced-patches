@@ -11,7 +11,6 @@ import android.preference.Preference;
 import android.text.InputType;
 import android.util.AttributeSet;
 import android.util.Pair;
-import android.util.TypedValue;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -35,7 +34,7 @@ public class ImportExportPreference extends EditTextPreference implements Prefer
             editText.setAutofillHints((String) null);
         }
         editText.setInputType(editText.getInputType() | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
-        editText.setTextSize(TypedValue.COMPLEX_UNIT_PT, 7); // Use a smaller font to reduce text wrap.
+        editText.setTextSize(14);
 
         setOnPreferenceClickListener(this);
     }

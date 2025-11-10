@@ -75,7 +75,7 @@ public abstract class BaseSearchResultItem {
 
     // Shared method for highlighting text with search query.
     protected static CharSequence highlightSearchQuery(CharSequence text, Pattern queryPattern) {
-        if (TextUtils.isEmpty(text)) return text;
+        if (TextUtils.isEmpty(text) || queryPattern == null) return text;
 
         final int adjustedColor = Utils.adjustColorBrightness(
                 Utils.getAppBackgroundColor(), 0.95f, 1.20f);
@@ -84,7 +84,10 @@ public abstract class BaseSearchResultItem {
 
         Matcher matcher = queryPattern.matcher(text);
         while (matcher.find()) {
-            spannable.setSpan(highlightSpan, matcher.start(), matcher.end(),
+            int start = matcher.start();
+            int end = matcher.end();
+            if (start == end) continue; // Skip zero matches.
+            spannable.setSpan(highlightSpan, start, end,
                     SpannableStringBuilder.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
 
@@ -224,10 +227,14 @@ public abstract class BaseSearchResultItem {
             return searchBuilder.toString();
         }
 
+        /**
+         * Appends normalized searchable text to the builder.
+         * Uses full Unicode normalization for accurate search across all languages.
+         */
         private void appendText(StringBuilder builder, CharSequence text) {
             if (!TextUtils.isEmpty(text)) {
                 if (builder.length() > 0) builder.append(" ");
-                builder.append(Utils.removePunctuationToLowercase(text));
+                builder.append(Utils.normalizeTextToLowercase(text));
             }
         }
 
@@ -272,7 +279,7 @@ public abstract class BaseSearchResultItem {
          */
         @Override
         boolean matchesQuery(String query) {
-            return searchableText.contains(Utils.removePunctuationToLowercase(query));
+            return searchableText.contains(Utils.normalizeTextToLowercase(query));
         }
 
         /**

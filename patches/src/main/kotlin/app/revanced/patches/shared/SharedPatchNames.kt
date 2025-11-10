@@ -12,3 +12,5 @@ internal const val PATCH_DESCRIPTION_SANITIZE_SHARING_LINKS = "Removes the track
 
 internal const val PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN = "Change link sharing domain"
 internal const val PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN = "Replaces the domain name of shared links."
+
+internal const val PATCH_NAME_HIDE_NAVIGATION_BUTTONS = "Hide navigation buttons"

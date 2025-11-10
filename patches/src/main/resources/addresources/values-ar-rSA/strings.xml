@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">تاريخ بناء APK تالف</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">تحذير</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">إشعار ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">لم يتم حفظ سجل المشاهدة الخاص بك.&lt;br&gt;&lt;br&gt;من المرجح أن يكون السبب في ذلك هو مانع إعلانات DNS أو وكيل الشبكة.&lt;br&gt;&lt;br&gt;لإصلاح هذه المشكلة، قم بإضافة &lt;b&gt;s.youtube.com&lt;/b&gt; إلى القائمة البيضاء أو قم بإيقاف تشغيل جميع أدوات حظر DNS ووكلاء البروكسي.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">لا تعرض مرة أخرى</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">الإعدادات</string>
   <string name="revanced_settings_confirm_user_dialog_title">هل أنت متأكد أنك تريد المتابعة؟</string>
+  <string name="revanced_settings_save">حفظ</string>
   <string name="revanced_settings_reset">إعادة التعيين</string>
   <string name="revanced_settings_reset_color">إعادة تعيين اللون</string>
   <string name="revanced_settings_color_invalid">لون غير صالح</string>
@@ -164,6 +164,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_logs_clear_buffer_title">مسح سجلات تصحيح الأخطاء</string>
   <string name="revanced_debug_logs_clear_buffer_summary">يمسح جميع سجلات تصحيح أخطاء ReVanced المخزنة</string>
   <string name="revanced_debug_logs_clear_toast">تم مسح السجلات</string>
+  <string name="revanced_debug_feature_flags_manager_title">مدير Feature Flags</string>
+  <string name="revanced_debug_feature_flags_manager_summary">إدارة Feature Flags المنطقية</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Flags نشطة (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Flags محظورة (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">البحث عن Flags...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">تم حفظ Flags</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">تم إعادة تعيين Flags</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">تم نسخ Flags إلى الحافظة</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">تطهير روابط المشاركة</string>
@@ -328,15 +336,24 @@ Second \"item\" text"</string>
   <string name="revanced_hide_how_this_was_made_section_title">إخفاء \'كيف تم إنشاء هذا المحتوى\'</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">تم إخفاء قسم كيف تم إنشاء هذا المحتوى</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">يتم عرض قسم كيف تم إنشاء هذا المحتوى</string>
+  <string name="revanced_hide_hype_points_title">إخفاء نقاط التشجيع</string>
+  <string name="revanced_hide_hype_points_summary_on">تم إخفاء نقاط التشجيع</string>
+  <string name="revanced_hide_hype_points_summary_off">يتم عرض نقاط التشجيع</string>
   <string name="revanced_hide_podcast_section_title">إخفاء \'استكشاف البودكاست\'</string>
   <string name="revanced_hide_podcast_section_summary_on">تم إخفاء قسم استكشاف البودكاست</string>
   <string name="revanced_hide_podcast_section_summary_off">يتم عرض قسم استكشاف البودكاست</string>
+  <string name="revanced_hide_featured_section_title">إخفاء المحتوى المميز</string>
+  <string name="revanced_hide_featured_section_summary_on">تم إخفاء قسم المحتوى المميز</string>
+  <string name="revanced_hide_featured_section_summary_off">يتم عرض قسم المحتوى المميز</string>
   <string name="revanced_hide_info_cards_section_title">إخفاء بطاقات المعلومات</string>
   <string name="revanced_hide_info_cards_section_summary_on">تم إخفاء قسم بطاقات المعلومات</string>
   <string name="revanced_hide_info_cards_section_summary_off">يتم عرض قسم بطاقات المعلومات</string>
   <string name="revanced_hide_key_concepts_section_title">إخفاء \'المفاهيم الأساسية\'</string>
   <string name="revanced_hide_key_concepts_section_summary_on">تم إخفاء قسم المفاهيم الأساسية</string>
   <string name="revanced_hide_key_concepts_section_summary_off">يتم عرض قسم المفاهيم الأساسية</string>
+  <string name="revanced_hide_description_subscribe_button_title">إخفاء زر الاشتراك</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">تم إخفاء زر الاشتراك</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">يتم عرض زر الاشتراك</string>
   <string name="revanced_hide_transcript_section_title">إخفاء النص</string>
   <string name="revanced_hide_transcript_section_summary_on">تم إخفاء قسم النص</string>
   <string name="revanced_hide_transcript_section_summary_off">يتم عرض قسم النص</string>
@@ -771,15 +788,14 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_speed_title">إخفاء سرعة التشغيل</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">تم إخفاء قائمة سرعة التشغيل</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">يتم عرض قائمة سرعة التشغيل</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">إخفاء المزيد من المعلومات</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">تم إخفاء قائمة المزيد من المعلومات</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">يتم عرض قائمة المزيد من المعلومات</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">إخفاء شاشة القفل</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">تم إخفاء قائمة شاشة القفل</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">يتم عرض قائمة شاشة القفل</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">إخفاء الاستماع مع YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">تم إخفاء قائمة الاستماع مع YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">يتم عرض قائمة الاستماع مع YouTube Music</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">إخفاء المقطع الصوتي</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">تم إخفاء قائمة المقطع الصوتي</string>
@@ -1661,15 +1677,29 @@ Second \"item\" text"</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">تم تمكين التكرار الدائم</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">تم تعطيل التكرار الدائم</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">إخفاء زر البث</string>
   <string name="revanced_music_hide_cast_button_summary_on">تم إخفاء زر البث</string>
   <string name="revanced_music_hide_cast_button_summary_off">يتم عرض زر البث</string>
+  <string name="revanced_music_hide_history_button_title">إخفاء زر السجل</string>
+  <string name="revanced_music_hide_history_button_summary_on">زر السجل مخفي</string>
+  <string name="revanced_music_hide_history_button_summary_off">زر السجل ظاهر</string>
+  <string name="revanced_music_hide_notification_button_title">إخفاء زر الإشعارات</string>
+  <string name="revanced_music_hide_notification_button_summary_on">تم إخفاء زر الإشعارات</string>
+  <string name="revanced_music_hide_notification_button_summary_off">يتم عرض زر الإشعارات</string>
+  <string name="revanced_music_hide_search_button_title">إخفاء زر البحث</string>
+  <string name="revanced_music_hide_search_button_summary_on">تم إخفاء زر البحث</string>
+  <string name="revanced_music_hide_search_button_summary_off">يتم عرض زر البحث</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">إخفاء شريط الفئات</string>
   <string name="revanced_music_hide_category_bar_summary_on">تم إخفاء شريط الفئات</string>
   <string name="revanced_music_hide_category_bar_summary_off">يتم عرض شريط الفئات</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">تغيير لون المشغل المصغر</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">يتطابق لون المشغل المصغر مع المشغل بملء الشاشة</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">يستخدم المشغل المصغر اللون الافتراضي</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">شريط التنقل</string>

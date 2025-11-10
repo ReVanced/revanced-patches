@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data e ndërtimit të APK është e korruptuar</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Kujdes</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Njoftim ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Historia juaj e shikimit nuk po ruhet.&lt;br&gt;&lt;br&gt;Kjo me shumë mundësi shkaktohet nga një bllokues DNS reklamash ose një prokuri rrjeti.&lt;br&gt;&lt;br&gt;Për të zgjidhur këtë, shto në listën e bardhë &lt;b&gt;s.youtube.com&lt;/b&gt; ose çaktivizo të gjithë bllokuesit DNS dhe prokuritë.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Mos shfaq përsëri</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Cilësimet</string>
   <string name="revanced_settings_confirm_user_dialog_title">A jeni i sigurt që dëshironi të vazhdoni?</string>
+  <string name="revanced_settings_save">Ruaj</string>
   <string name="revanced_settings_reset">Rivendos</string>
   <string name="revanced_settings_reset_color">Rikthe ngjyrën</string>
   <string name="revanced_settings_color_invalid">Ngjyrë e pavlefshme</string>
@@ -164,6 +164,14 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Pastro regjistrat e korrigjimit</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Pastro të gjithë regjistrat e ruajtur të korrigjimit të ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Regjistrat u pastruan</string>
+  <string name="revanced_debug_feature_flags_manager_title">Manager i sinjaleve të veçorive</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Menaxhoni sinjalet boolean të veçorive</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Flamuj aktivë (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Flamuj të bllokuar (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Kërko flamuj...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Flamujt u ruajtën</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Flamujt u rivendosën</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Flamujt u kopjuan në kujtesën e punës</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Pastro lidhjet e ndarjes</string>
@@ -328,15 +336,24 @@ Nëse një Doodle po shfaqet aktualisht në rajonin tuaj dhe kjo fshehje është
   <string name="revanced_hide_how_this_was_made_section_title">Fshih \'Si u krijua ky përmbajtje\'</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Seksioni si u krijua kjo përmbajtje është i fshehur</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Seksioni si u krijua kjo përmbajtje është i shfaqur</string>
+  <string name="revanced_hide_hype_points_title">Fsheh pikët e Hype-it</string>
+  <string name="revanced_hide_hype_points_summary_on">Pikët e Hype-it janë të fshehura</string>
+  <string name="revanced_hide_hype_points_summary_off">Pikët e Hype-it janë të shfaqura</string>
   <string name="revanced_hide_podcast_section_title">Fshih \'Eksploro podkastin\'</string>
   <string name="revanced_hide_podcast_section_summary_on">Seksioni eksploro podkastin është i fshehur</string>
   <string name="revanced_hide_podcast_section_summary_off">Seksioni eksploro podkastin është i shfaqur</string>
+  <string name="revanced_hide_featured_section_title">Fshi përmbajtjen e veçuar</string>
+  <string name="revanced_hide_featured_section_summary_on">Seksioni i përmbajtjes së veçuar është fshehur</string>
+  <string name="revanced_hide_featured_section_summary_off">Seksioni i përmbajtjes së veçuar është shfaqur</string>
   <string name="revanced_hide_info_cards_section_title">Fshih kartat e informacionit</string>
   <string name="revanced_hide_info_cards_section_summary_on">Seksioni i kartave informative është i fshehur</string>
   <string name="revanced_hide_info_cards_section_summary_off">Seksioni i kartave informative është i dukshme</string>
   <string name="revanced_hide_key_concepts_section_title">Fshih \'Konceptet kryesore\'</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Seksioni i koncepteve kryesore është i fshehur</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Seksioni i koncepteve kryesore është i shfaqur</string>
+  <string name="revanced_hide_description_subscribe_button_title">Fshi butonin Abonohu</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Butoni i abonimit është i fshehur</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Butoni i abonimit është i shfaqur</string>
   <string name="revanced_hide_transcript_section_title">Fshih Transkriptin</string>
   <string name="revanced_hide_transcript_section_summary_on">Seksioni i Shkrimit është i fshehur</string>
   <string name="revanced_hide_transcript_section_summary_off">Seksioni i Shkrimit është i dukshme</string>
@@ -771,15 +788,14 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <string name="revanced_hide_player_flyout_speed_title">Fsheh \"Shpejtësia e riprodhimit\"</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Menyja \"Shpejtësia e riprodhimit\" është e fshehur</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Menyja \"Shpejtësia e riprodhimit\" është e dukshme</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Fsheh \"Më shumë info\"</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Menyja \"Më shumë info\" është e fshehur</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Menyja \"Më shumë info\" është e dukshme</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Fsheh \"Ekrani i kyçjes\"</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Menyja \"Ekrani i kyçjes\" është e fshehur</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Menyja \"Ekrani i kyçjes\" është e dukshme</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Fsheh Dëgjo me YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Menyja Dëgjo me YouTube Music është fshehur</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Menyja Dëgjo me YouTube Music është shfaqur</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Fsheh \"Shina e audios\"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menyja \"Shina e audios\" është e fshehur</string>
@@ -1659,15 +1675,29 @@ Luajtja e videos me AV1 mund të ngecë ose të humbasë korniza."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Përsëritja e përhershme është aktivizuar</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Përsëritja e përhershme është çaktivizuar</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Fshih butonin e transmetimit</string>
   <string name="revanced_music_hide_cast_button_summary_on">Butoni i transmetimit është fshehur</string>
   <string name="revanced_music_hide_cast_button_summary_off">Butoni i transmetimit është shfaqur</string>
+  <string name="revanced_music_hide_history_button_title">Fsheh butonin e historikut</string>
+  <string name="revanced_music_hide_history_button_summary_on">Butoni i historikut është fshehur</string>
+  <string name="revanced_music_hide_history_button_summary_off">Butoni i historikut është shfaqur</string>
+  <string name="revanced_music_hide_notification_button_title">Fsheh butonin e njoftimeve</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Butoni i njoftimeve është fshehur</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Butoni i njoftimeve është shfaqur</string>
+  <string name="revanced_music_hide_search_button_title">Fsheh butonin e kërkimit</string>
+  <string name="revanced_music_hide_search_button_summary_on">Butoni i kërkimit është fshehur</string>
+  <string name="revanced_music_hide_search_button_summary_off">Butoni i kërkimit është shfaqur</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Fshi shiritin e kategorive</string>
   <string name="revanced_music_hide_category_bar_summary_on">Shiriti i kategorive është i fshehur</string>
   <string name="revanced_music_hide_category_bar_summary_off">Shiriti i kategorive është i shfaqur</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Ndrysho ngjyrën e mini-lojtarit</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Ngjyra e mini-lojtarit përputhet me lojtarin në ekran të plotë</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Mini-lojtari përdor ngjyrën e paracaktuar</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Shiriti i navigimit</string>

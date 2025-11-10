@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -22,7 +21,9 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">نام برنامه</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_icon_title">آیکون برنامه</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
   </patch>
@@ -52,6 +53,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_no_results_title">نتایجی برای %s یافت نشد</string>
   <string name="revanced_settings_search_no_results_summary">کلیدواژه دیگری را امتحان کنید</string>
   <string name="revanced_settings_search_remove_message">حذف از تاریخچه جستجو؟</string>
+  <string name="revanced_settings_search_empty_history_title">تاریخچه جستجو خالی است</string>
+  <string name="revanced_settings_search_history_title">نمایش تاریخچه جستجوی تنظیمات</string>
   <string name="revanced_show_menu_icons_title">نمایش آیکون تنظیمات ReVanced</string>
   <string name="revanced_show_menu_icons_summary_on">نمادهای تنظیمات نشان داده می‌شوند</string>
   <string name="revanced_show_menu_icons_summary_off">نمادهای تنظیمات نمایش داده نمی شوند</string>
@@ -181,9 +184,8 @@ Second \"item\" text"</string>
   <!-- 'Ambient mode' should be translated using the same localized wording YouTube displays for the menu item. -->
   <!-- 'Help & feedback' should be translated using the same localized wording YouTube displays for the menu item. -->
   <!-- 'Playback speed' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -318,9 +320,11 @@ Second \"item\" text"</string>
   </patch>
   <patch id="interaction.permanentrepeat.permanentRepeatPatch">
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->

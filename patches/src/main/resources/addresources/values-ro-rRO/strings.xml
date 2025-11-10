@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Data construirii APK-ului este coruptă</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Atenție</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Notificare ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Istoricul de vizionare nu este salvat.&lt;br&gt;&lt;br&gt;Cel mai probabil este cauzată de un DNS de blocare a anunțurilor sau de un proxy de rețea.&lt;br&gt;&lt;br&gt;Pentru a remedia acest lucru, lista albă &lt;b&gt;s.youtube.com&lt;/b&gt; sau pentru a opri toate blocantele DNS și proxy-urile.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Nu mai afișa</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Setări</string>
   <string name="revanced_settings_confirm_user_dialog_title">Sigur doriți să continuați?</string>
+  <string name="revanced_settings_save">Salvați</string>
   <string name="revanced_settings_reset">Resetare</string>
   <string name="revanced_settings_reset_color">Resetează culoarea</string>
   <string name="revanced_settings_color_invalid">Culoare nevalidă</string>
@@ -164,6 +164,14 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Șterge jurnalele de depanare</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Șterge toate jurnalele de depanare ReVanced stocate</string>
   <string name="revanced_debug_logs_clear_toast">Jurnale șterse</string>
+  <string name="revanced_debug_feature_flags_manager_title">Manager de funcții</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Gestionați funcțiile booleene</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Steaguri active (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Steaguri blocate (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Căutați steaguri...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Steaguri salvate</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Steaguri resetate</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Steaguri copiate în clipboard</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Igienizează linkurile de partajare</string>
@@ -328,15 +336,24 @@ Dacă un Doodle este afișat în prezent în regiunea dvs. și această setare d
   <string name="revanced_hide_how_this_was_made_section_title">Ascunde „Cum a fost creat acest conținut”</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Secțiunea Cum a fost creat acest conținut este ascunsă</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Secțiunea Cum a fost creat acest conținut este afișată</string>
+  <string name="revanced_hide_hype_points_title">Ascunde Puncte Hype</string>
+  <string name="revanced_hide_hype_points_summary_on">Punctele Hype sunt ascunse</string>
+  <string name="revanced_hide_hype_points_summary_off">Punctele Hype sunt afișate</string>
   <string name="revanced_hide_podcast_section_title">Ascunde „Explorează podcastul”</string>
   <string name="revanced_hide_podcast_section_summary_on">Secțiunea Explorează podcastul este ascunsă</string>
   <string name="revanced_hide_podcast_section_summary_off">Secțiunea Explorează podcastul este afișată</string>
+  <string name="revanced_hide_featured_section_title">Ascunde conținutul recomandat</string>
+  <string name="revanced_hide_featured_section_summary_on">Secțiunea de conținut recomandat este ascunsă</string>
+  <string name="revanced_hide_featured_section_summary_off">Secțiunea de conținut recomandat este afișată</string>
   <string name="revanced_hide_info_cards_section_title">Ascunde cardurile Info</string>
   <string name="revanced_hide_info_cards_section_summary_on">Secţiunea carduri de informaţii este ascunsă</string>
   <string name="revanced_hide_info_cards_section_summary_off">Secțiunea cartonașelor de informații este afișată</string>
   <string name="revanced_hide_key_concepts_section_title">Ascunde „Concepte cheie”</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Secțiunea Concepte cheie este ascunsă</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Secțiunea Concepte cheie este afișată</string>
+  <string name="revanced_hide_description_subscribe_button_title">Ascunde butonul de abonare</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Butonul de abonare este ascuns</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Butonul de abonare este afișat</string>
   <string name="revanced_hide_transcript_section_title">Ascunde Transcriere</string>
   <string name="revanced_hide_transcript_section_summary_on">Secțiunea de transcriere este ascunsă</string>
   <string name="revanced_hide_transcript_section_summary_off">Secțiunea de Transcriere este afișată</string>
@@ -769,15 +786,14 @@ Dacă modificarea acestei setări nu are efect, încercați să comutați la mod
   <string name="revanced_hide_player_flyout_speed_title">Ascunde viteza de redare</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Meniul vitezei de redare este ascuns</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Meniul de redare a vitezei este afișat</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Ascunde mai multe informații</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Mai multe informații meniu sunt ascunse</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Mai multe informații sunt afișate</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Ascunde ecranul de blocare</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Meniul ecranului de blocare este ascuns</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Meniul de blocare este afișat</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Ascunde Ascultă cu YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Meniul Ascultă cu YouTube Music este ascuns</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Meniul Ascultă cu YouTube Music este afișat</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Ascunde piesa audio</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Meniul piesei audio este ascuns</string>
@@ -1658,15 +1674,29 @@ Redarea video cu AV1 poate sacada sau pierde cadre."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Repetarea permanentă este activată</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Repetarea permanentă este dezactivată</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Ascunde butonul de transmisie</string>
   <string name="revanced_music_hide_cast_button_summary_on">Butonul de transmisie este ascuns</string>
   <string name="revanced_music_hide_cast_button_summary_off">Butonul de transmisie este afișat</string>
+  <string name="revanced_music_hide_history_button_title">Ascunde butonul de istoric</string>
+  <string name="revanced_music_hide_history_button_summary_on">Butonul de istoric este ascuns</string>
+  <string name="revanced_music_hide_history_button_summary_off">Butonul de istoric este afișat</string>
+  <string name="revanced_music_hide_notification_button_title">Ascunde butonul de notificare</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Butonul de notificare este ascuns</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Butonul de notificare este afișat</string>
+  <string name="revanced_music_hide_search_button_title">Ascunde butonul de căutare</string>
+  <string name="revanced_music_hide_search_button_summary_on">Butonul de căutare este ascuns</string>
+  <string name="revanced_music_hide_search_button_summary_off">Butonul de căutare este afișat</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Ascunde bara de categorii</string>
   <string name="revanced_music_hide_category_bar_summary_on">Bara de categorii este ascunsă</string>
   <string name="revanced_music_hide_category_bar_summary_off">Bara de categorii este afișată</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Schimbă culoarea miniplayer-ului</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Culoarea miniplayer-ului se potrivește cu player-ul pe ecran complet</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Miniplayer-ul folosește culoarea implicită</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Bară de navigare</string>

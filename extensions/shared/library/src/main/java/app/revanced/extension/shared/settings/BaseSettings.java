@@ -42,4 +42,6 @@ public class BaseSettings {
 
     public static final EnumSetting<BrandingTheme> CUSTOM_BRANDING_ICON = new EnumSetting<>("revanced_custom_branding_icon", BrandingTheme.ORIGINAL, true);
     public static final IntegerSetting CUSTOM_BRANDING_NAME = new IntegerSetting("revanced_custom_branding_name", 1, true);
+
+    public static final StringSetting DISABLED_FEATURE_FLAGS = new StringSetting("revanced_disabled_feature_flags", "", true, parent(DEBUG));
 }

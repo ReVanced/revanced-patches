@@ -23,9 +23,7 @@ import android.os.Looper;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
-import android.util.DisplayMetrics;
 import android.util.Pair;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,17 +32,15 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.text.Bidi;
+import java.text.Collator;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -61,6 +57,7 @@ import app.revanced.extension.shared.settings.AppLanguage;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.preference.ReVancedAboutPreference;
+import app.revanced.extension.shared.ui.Dim;
 
 @SuppressWarnings("NewApi")
 public class Utils {
@@ -78,6 +75,15 @@ public class Utils {
 
     @Nullable
     private static Boolean isDarkModeEnabled;
+
+    // Cached Collator instance with its locale.
+    @Nullable
+    private static Locale cachedCollatorLocale;
+    @Nullable
+    private static Collator cachedCollator;
+
+    private static final Pattern PUNCTUATION_PATTERN = Pattern.compile("\\p{P}+");
+    private static final Pattern DIACRITICS_PATTERN = Pattern.compile("\\p{M}");
 
     private Utils() {
     } // utility class
@@ -749,31 +755,25 @@ public class Utils {
     }
 
     /**
-     * Hide a view by setting its layout params to 0x0
-     * @param view The view to hide.
+     * Hides a view by setting its layout width and height to 0dp.
+     * Handles null layout params safely.
+     *
+     * @param view The view to hide. If null, does nothing.
      */
-    public static void hideViewByLayoutParams(View view) {
-        if (view instanceof LinearLayout) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams);
-        } else if (view instanceof FrameLayout) {
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams2);
-        } else if (view instanceof RelativeLayout) {
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams3);
-        } else if (view instanceof Toolbar) {
-            Toolbar.LayoutParams layoutParams4 = new Toolbar.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams4);
-        } else if (view instanceof ViewGroup) {
-            ViewGroup.LayoutParams layoutParams5 = new ViewGroup.LayoutParams(0, 0);
-            view.setLayoutParams(layoutParams5);
+    public static void hideViewByLayoutParams(@Nullable View view) {
+        if (view == null) return;
+
+        ViewGroup.LayoutParams params = view.getLayoutParams();
+
+        if (params == null) {
+            // Create generic 0x0 layout params accepted by all ViewGroups.
+            params = new ViewGroup.LayoutParams(0, 0);
         } else {
-            ViewGroup.LayoutParams params = view.getLayoutParams();
             params.width = 0;
             params.height = 0;
-            view.setLayoutParams(params);
         }
+
+        view.setLayoutParams(params);
     }
 
     /**
@@ -790,31 +790,16 @@ public class Utils {
     public static void setDialogWindowParameters(Window window, int gravity, int yOffsetDip, int widthPercentage, boolean dimAmount) {
         WindowManager.LayoutParams params = window.getAttributes();
 
-        DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
-        int portraitWidth = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
-
-        params.width = (int) (portraitWidth * (widthPercentage / 100.0f)); // Set width based on parameters.
+        params.width = Dim.pctPortraitWidth(widthPercentage);
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
         params.gravity = gravity;
-        params.y = yOffsetDip > 0 ? dipToPixels(yOffsetDip) : 0;
+        params.y = yOffsetDip > 0 ? Dim.dp(yOffsetDip) : 0;
         if (dimAmount) {
             params.dimAmount = 0f;
         }
 
         window.setAttributes(params); // Apply window attributes.
         window.setBackgroundDrawable(null); // Remove default dialog background
-    }
-
-    /**
-     * Creates an array of corner radii for a rounded rectangle shape.
-     *
-     * @param dp Radius in density-independent pixels (dip) to apply to all corners.
-     * @return An array of eight float values representing the corner radii
-     * (top-left, top-right, bottom-right, bottom-left).
-     */
-    public static float[] createCornerRadii(float dp) {
-        final float radius = dipToPixels(dp);
-        return new float[]{radius, radius, radius, radius, radius, radius, radius, radius};
     }
 
     /**
@@ -976,29 +961,59 @@ public class Utils {
         }
     }
 
-    private static final Pattern punctuationPattern = Pattern.compile("\\p{P}+");
-
     /**
-     * Strips all punctuation and converts to lower case.  A null parameter returns an empty string.
+     * Removes punctuation and converts text to lowercase. Returns an empty string if input is null.
      */
     public static String removePunctuationToLowercase(@Nullable CharSequence original) {
         if (original == null) return "";
-        return punctuationPattern.matcher(original).replaceAll("")
+        return PUNCTUATION_PATTERN.matcher(original).replaceAll("")
                 .toLowerCase(BaseSettings.REVANCED_LANGUAGE.get().getLocale());
     }
 
     /**
-     * Sort a PreferenceGroup and all it's sub groups by title or key.
+     * Normalizes text for search: applies NFD, removes diacritics, and lowercases (locale-neutral).
+     * Returns an empty string if input is null.
+     */
+    public static String normalizeTextToLowercase(@Nullable CharSequence original) {
+        if (original == null) return "";
+        return DIACRITICS_PATTERN.matcher(Normalizer.normalize(original, Normalizer.Form.NFD))
+                .replaceAll("").toLowerCase(Locale.ROOT);
+    }
+
+    /**
+     * Returns a cached Collator for the current locale, or creates a new one if locale changed.
+     */
+    private static Collator getCollator() {
+        Locale currentLocale = BaseSettings.REVANCED_LANGUAGE.get().getLocale();
+
+        if (cachedCollator == null || !currentLocale.equals(cachedCollatorLocale)) {
+            cachedCollatorLocale = currentLocale;
+            cachedCollator = Collator.getInstance(currentLocale);
+            cachedCollator.setStrength(Collator.SECONDARY); // Case-insensitive, diacritic-insensitive.
+        }
+
+        return cachedCollator;
+    }
+
+    /**
+     * Sorts a {@link PreferenceGroup} and all nested subgroups by title or key.
      * <p>
-     * Sort order is determined by the preferences key {@link Sort} suffix.
+     * The sort order is controlled by the {@link Sort} suffix present in the preference key.
+     * Preferences without a key or without a {@link Sort} suffix remain in their original order.
      * <p>
-     * If a preference has no key or no {@link Sort} suffix,
-     * then the preferences are left unsorted.
+     * Sorting is performed using {@link Collator} with the current user locale,
+     * ensuring correct alphabetical ordering for all supported languages
+     * (e.g., Ukrainian "і", German "ß", French accented characters, etc.).
+     *
+     * @param group the {@link PreferenceGroup} to sort
      */
     @SuppressWarnings("deprecation")
     public static void sortPreferenceGroups(PreferenceGroup group) {
         Sort groupSort = Sort.fromKey(group.getKey(), Sort.UNSORTED);
         List<Pair<String, Preference>> preferences = new ArrayList<>();
+
+        // Get cached Collator for locale-aware string comparison.
+        Collator collator = getCollator();
 
         for (int i = 0, prefCount = group.getPreferenceCount(); i < prefCount; i++) {
             Preference preference = group.getPreference(i);
@@ -1030,10 +1045,11 @@ public class Utils {
             preferences.add(new Pair<>(sortValue, preference));
         }
 
-        //noinspection ComparatorCombinators
+        // Sort the list using locale-specific collation rules.
         Collections.sort(preferences, (pair1, pair2)
-                -> pair1.first.compareTo(pair2.first));
+                -> collator.compare(pair1.first, pair2.first));
 
+        // Reassign order values to reflect the new sorted sequence
         int index = 0;
         for (Pair<String, Preference> pair : preferences) {
             int order = index++;
@@ -1088,42 +1104,6 @@ public class Utils {
             return Color.parseColor(colorString);
         }
         return getResourceColor(colorString);
-    }
-
-    /**
-     * Converts dip value to actual device pixels.
-     *
-     * @param dip The density-independent pixels value.
-     * @return The device pixel value.
-     */
-    public static int dipToPixels(float dip) {
-        return (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                dip,
-                Resources.getSystem().getDisplayMetrics()
-        );
-    }
-
-    /**
-     * Converts a percentage of the screen height to actual device pixels.
-     *
-     * @param percentage The percentage of the screen height (e.g., 30 for 30%).
-     * @return The device pixel value corresponding to the percentage of screen height.
-     */
-    public static int percentageHeightToPixels(int percentage) {
-        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-        return (int) (metrics.heightPixels * (percentage / 100.0f));
-    }
-
-    /**
-     * Converts a percentage of the screen width to actual device pixels.
-     *
-     * @param percentage The percentage of the screen width (e.g., 30 for 30%).
-     * @return The device pixel value corresponding to the percentage of screen width.
-     */
-    public static int percentageWidthToPixels(int percentage) {
-        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-        return (int) (metrics.widthPixels * (percentage / 100.0f));
     }
 
     /**

@@ -1,4 +1,3 @@
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,7 +44,7 @@ Second \"item\" text"</string>
             <string name="revanced_check_environment_not_near_patch_time_invalid">APK build date is corrupted</string>
         </patch>
         <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-            <string name="revanced_check_watch_history_domain_name_dialog_title">Warning</string>
+            <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Notice</string>
             <string name="revanced_check_watch_history_domain_name_dialog_message">Your watch history is not being saved.&lt;br>&lt;br>This most likely is caused by a DNS ad blocker or network proxy.&lt;br>&lt;br>To fix this, whitelist &lt;b>s.youtube.com&lt;/b> or turn off all DNS blockers and proxies.</string>
             <string name="revanced_check_watch_history_domain_name_dialog_ignore">Do not show again</string>
         </patch>
@@ -53,6 +52,7 @@ Second \"item\" text"</string>
             <string name="revanced_settings_submenu_title">Settings</string>
             <string name="revanced_settings_title" translatable="false">ReVanced</string>
             <string name="revanced_settings_confirm_user_dialog_title">Are you sure you want to proceed?</string>
+            <string name="revanced_settings_save">Save</string>
             <string name="revanced_settings_reset">Reset</string>
             <string name="revanced_settings_reset_color">Reset color</string>
             <string name="revanced_settings_color_invalid">Invalid color</string>
@@ -90,62 +90,6 @@ Second \"item\" text"</string>
 
 To translate new languages or improve the existing translations, visit translate.revanced.app"</string>
             <string name="revanced_language_DEFAULT">App language</string>
-            <string name="revanced_language_AM" translatable="false">አማርኛ</string>
-            <string name="revanced_language_AR" translatable="false">العربية</string>
-            <string name="revanced_language_AZ" translatable="false">Azərbaycan</string>
-            <string name="revanced_language_BE" translatable="false">беларуская</string>
-            <string name="revanced_language_BG" translatable="false">Български</string>
-            <string name="revanced_language_BN" translatable="false">বাংলা</string>
-            <string name="revanced_language_CA" translatable="false">Català</string>
-            <string name="revanced_language_CS" translatable="false">Čeština</string>
-            <string name="revanced_language_DA" translatable="false">Dansk</string>
-            <string name="revanced_language_DE" translatable="false">Deutsch</string>
-            <string name="revanced_language_EL" translatable="false">Ελληνικά</string>s
-            <string name="revanced_language_EN" translatable="false">English</string>
-            <string name="revanced_language_ES" translatable="false">Español</string>
-            <string name="revanced_language_ET" translatable="false">Eesti</string>
-            <string name="revanced_language_FA" translatable="false">فارسی</string>
-            <string name="revanced_language_FI" translatable="false">Suomi</string>
-            <string name="revanced_language_FR" translatable="false">Français</string>
-            <string name="revanced_language_GA" translatable="false">Gaeilge</string>
-            <string name="revanced_language_GU" translatable="false">ગુજરાતી</string>
-            <string name="revanced_language_HE" translatable="false">עברי</string>
-            <string name="revanced_language_HI" translatable="false">हिन्दी</string>
-            <string name="revanced_language_HR" translatable="false">Hrvatski</string>
-            <string name="revanced_language_HU" translatable="false">Magyar</string>
-            <string name="revanced_language_ID" translatable="false">Indonesia</string>
-            <string name="revanced_language_IT" translatable="false">Italiano</string>
-            <string name="revanced_language_JA" translatable="false">日本語</string>
-            <string name="revanced_language_KK" translatable="false">Қазақ тілі</string>
-            <string name="revanced_language_KO" translatable="false">한국어</string>
-            <string name="revanced_language_LT" translatable="false">Lietuvių</string>
-            <string name="revanced_language_LV" translatable="false">Latviešu</string>
-            <string name="revanced_language_MK" translatable="false">Македонски</string>
-            <string name="revanced_language_MN" translatable="false">Монгол</string>
-            <string name="revanced_language_MR" translatable="false">मराठी</string>
-            <string name="revanced_language_MS" translatable="false">Melayu</string>
-            <string name="revanced_language_MY" translatable="false">ဗမာ</string>
-            <string name="revanced_language_NL" translatable="false">Nederlands</string>
-            <string name="revanced_language_OR" translatable="false">ଓଡ଼ିଆ</string>
-            <string name="revanced_language_PA" translatable="false">ਪੰਜਾਬੀ</string>
-            <string name="revanced_language_PL" translatable="false">Polski</string>
-            <string name="revanced_language_PT" translatable="false">Português</string>
-            <string name="revanced_language_RO" translatable="false">Română</string>
-            <string name="revanced_language_RU" translatable="false">Русский</string>
-            <string name="revanced_language_SK" translatable="false">Slovenčina</string>
-            <string name="revanced_language_SQ" translatable="false">Shqip</string>
-            <string name="revanced_language_SL" translatable="false">Slovenščina</string>
-            <string name="revanced_language_SR" translatable="false">Српски</string>
-            <string name="revanced_language_SV" translatable="false">Svenska</string>
-            <string name="revanced_language_SW" translatable="false">Kiswahili</string>
-            <string name="revanced_language_TA" translatable="false">தமிழ்</string>
-            <string name="revanced_language_TE" translatable="false">తెలుగు</string>
-            <string name="revanced_language_TH" translatable="false">ไทย</string>
-            <string name="revanced_language_TR" translatable="false">Türkçe</string>
-            <string name="revanced_language_UK" translatable="false">Українська</string>
-            <string name="revanced_language_UR" translatable="false">اردو</string>
-            <string name="revanced_language_VI" translatable="false">Tiếng Việt</string>
-            <string name="revanced_language_ZH" translatable="false">中文</string>
             <string name="revanced_pref_import_export_title">Import / Export</string>
             <string name="revanced_pref_import_export_summary">Import / Export ReVanced settings</string>
             <!-- Settings about dialog. -->
@@ -221,6 +165,14 @@ You will not be notified of any unexpected events."</string>
             <string name="revanced_debug_logs_clear_buffer_title">Clear debug logs</string>
             <string name="revanced_debug_logs_clear_buffer_summary">Clears all stored ReVanced debug logs</string>
             <string name="revanced_debug_logs_clear_toast">Logs cleared</string>
+            <string name="revanced_debug_feature_flags_manager_title">Feature flags manager</string>
+            <string name="revanced_debug_feature_flags_manager_summary">Manage boolean feature flags</string>
+            <string name="revanced_debug_feature_flags_manager_active_header">Active flags (%d)</string>
+            <string name="revanced_debug_feature_flags_manager_blocked_header">Blocked flags (%d)</string>
+            <string name="revanced_debug_feature_flags_manager_search_hint">Search flags...</string>
+            <string name="revanced_debug_feature_flags_manager_toast_saved">Flags saved</string>
+            <string name="revanced_debug_feature_flags_manager_toast_reset">Flags reset</string>
+            <string name="revanced_debug_feature_flags_manager_toast_copied">Flags copied to clipboard</string>
         </patch>
         <patch id="misc.privacy.sanitizeSharingLinksPatch">
             <string name="revanced_sanitize_sharing_links_title">Sanitize sharing links</string>
@@ -388,15 +340,24 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_hide_how_this_was_made_section_title">Hide \'How this content was made\'</string>
             <string name="revanced_hide_how_this_was_made_section_summary_on">How this content was made section is hidden</string>
             <string name="revanced_hide_how_this_was_made_section_summary_off">How this content was made section is shown</string>
+            <string name="revanced_hide_hype_points_title">Hide Hype points</string>
+            <string name="revanced_hide_hype_points_summary_on">Hype points are hidden</string>
+            <string name="revanced_hide_hype_points_summary_off">Hype points are shown</string>
             <string name="revanced_hide_podcast_section_title">Hide \'Explore the podcast\'</string>
             <string name="revanced_hide_podcast_section_summary_on">Explore the podcast section is hidden</string>
             <string name="revanced_hide_podcast_section_summary_off">Explore the podcast section is shown</string>
+            <string name="revanced_hide_featured_section_title">Hide Featured content</string>
+            <string name="revanced_hide_featured_section_summary_on">Featured content section is hidden</string>
+            <string name="revanced_hide_featured_section_summary_off">Featured content section is shown</string>
             <string name="revanced_hide_info_cards_section_title">Hide Info cards</string>
             <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
             <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
             <string name="revanced_hide_key_concepts_section_title">Hide \'Key concepts\'</string>
             <string name="revanced_hide_key_concepts_section_summary_on">Key concepts section is hidden</string>
             <string name="revanced_hide_key_concepts_section_summary_off">Key concepts section is shown</string>
+            <string name="revanced_hide_description_subscribe_button_title">Hide Subscribe button</string>
+            <string name="revanced_hide_description_subscribe_button_summary_on">Subscribe button is hidden</string>
+            <string name="revanced_hide_description_subscribe_button_summary_off">Subscribe button is shown</string>
             <string name="revanced_hide_transcript_section_title">Hide Transcript</string>
             <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden</string>
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
@@ -834,15 +795,14 @@ If changing this setting does not take effect, try switching to Incognito mode."
             <string name="revanced_hide_player_flyout_speed_title">Hide Playback speed</string>
             <string name="revanced_hide_player_flyout_speed_summary_on">Playback speed menu is hidden</string>
             <string name="revanced_hide_player_flyout_speed_summary_off">Playback speed menu is shown</string>
-            <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-            <string name="revanced_hide_player_flyout_more_info_title">Hide More info</string>
-            <string name="revanced_hide_player_flyout_more_info_summary_on">More info menu is hidden</string>
-            <string name="revanced_hide_player_flyout_more_info_summary_off">More info menu is shown</string>
             <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
             <string name="revanced_hide_player_flyout_lock_screen_title">Hide Lock screen</string>
             <string name="revanced_hide_player_flyout_lock_screen_summary_on">Lock screen menu is hidden</string>
             <string name="revanced_hide_player_flyout_lock_screen_summary_off">Lock screen menu is shown</string>
+            <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+            <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Hide Listen with YouTube Music</string>
+            <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Listen with YouTube Music menu is hidden</string>
+            <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Listen with YouTube Music menu is shown</string>
             <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
             <string name="revanced_hide_player_flyout_audio_track_title">Hide Audio track</string>
             <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio track menu is hidden</string>
@@ -1745,15 +1705,29 @@ Video playback with AV1 may stutter or drop frames."</string>
             <string name="revanced_music_play_permanent_repeat_summary_on">Permanent repeat is enabled</string>
             <string name="revanced_music_play_permanent_repeat_summary_off">Permanent repeat is disabled</string>
         </patch>
-        <patch id="layout.castbutton.hideCastButton">
+        <patch id="layout.buttons.hideButtons">
             <string name="revanced_music_hide_cast_button_title">Hide cast button</string>
             <string name="revanced_music_hide_cast_button_summary_on">Cast button is hidden</string>
             <string name="revanced_music_hide_cast_button_summary_off">Cast button is shown</string>
+            <string name="revanced_music_hide_history_button_title">Hide history button</string>
+            <string name="revanced_music_hide_history_button_summary_on">History button is hidden</string>
+            <string name="revanced_music_hide_history_button_summary_off">History button is shown</string>
+            <string name="revanced_music_hide_notification_button_title">Hide notification button</string>
+            <string name="revanced_music_hide_notification_button_summary_on">Notification button is hidden</string>
+            <string name="revanced_music_hide_notification_button_summary_off">Notification button is shown</string>
+            <string name="revanced_music_hide_search_button_title">Hide search button</string>
+            <string name="revanced_music_hide_search_button_summary_on">Search button is hidden</string>
+            <string name="revanced_music_hide_search_button_summary_off">Search button is shown</string>
         </patch>
         <patch id="layout.compactheader.hideCategoryBar">
             <string name="revanced_music_hide_category_bar_title">Hide category bar</string>
             <string name="revanced_music_hide_category_bar_summary_on">Category bar is hidden</string>
             <string name="revanced_music_hide_category_bar_summary_off">Category bar is shown</string>
+        </patch>
+        <patch id="layout.miniplayercolor.changeMiniplayerColor">
+            <string name="revanced_music_change_miniplayer_color_title">Change miniplayer color</string>
+            <string name="revanced_music_change_miniplayer_color_summary_on">Miniplayer color matches fullscreen player</string>
+            <string name="revanced_music_change_miniplayer_color_summary_off">Miniplayer uses default color</string>
         </patch>
         <patch id="layout.navigationbar.navigationBarPatch">
             <string name="revanced_music_navigation_bar_screen_title">Navigation bar</string>

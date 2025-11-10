@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright 2024 ReVanced. See https://github.com/ReVanced/revanced-branding -->
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -45,13 +44,14 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">Dátum zostavenia APK je poškodený</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">Upozornenie</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">Upozornenie ReVanced</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Vaša história pozeraného sa neuchováva.&lt;br&gt;&lt;br&gt;Toto je pravdepodobne spôsobené blokovaním reklám pomocou DNS alebo sieťového proxy.&lt;br&gt;&lt;br&gt;Pre vyriešenie tohto problému povoľte &lt;b&gt;s.youtube.com&lt;/b&gt; alebo vypnite všetky blokátory reklám pomocou DNS a proxy.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Neukazuj znovu</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="revanced_settings_submenu_title">Nastavenia</string>
   <string name="revanced_settings_confirm_user_dialog_title">Naozaj chcete pokračovať?</string>
+  <string name="revanced_settings_save">Uložiť</string>
   <string name="revanced_settings_reset">Resetovať</string>
   <string name="revanced_settings_reset_color">Obnovi	 farbu</string>
   <string name="revanced_settings_color_invalid">Neplatn	 farba</string>
@@ -162,6 +162,14 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Vymazať protokoly ladenia</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Vymaže všetky uložené protokoly ladenia ReVanced</string>
   <string name="revanced_debug_logs_clear_toast">Protokoly vymazané</string>
+  <string name="revanced_debug_feature_flags_manager_title">Manager príznakov funkcií</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Spravovať booleovské príznaky funkcií</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Aktívne príznaky (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Blokované príznaky (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Hľadať príznaky...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Príznaky uložené</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Príznaky resetované</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Príznaky skopírované do schránky</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Vyčistiť odkazy na zdieľanie</string>
@@ -326,15 +334,24 @@ Ak sa Doodle v súčasnosti zobrazuje vo vašom regióne a toto nastavenie skryt
   <string name="revanced_hide_how_this_was_made_section_title">Skryť „Ako bol tento obsah vytvorený“</string>
   <string name="revanced_hide_how_this_was_made_section_summary_on">Sekcia Ako bol tento obsah vytvorený je skrytá</string>
   <string name="revanced_hide_how_this_was_made_section_summary_off">Sekcia Ako bol tento obsah vytvorený je zobrazená</string>
+  <string name="revanced_hide_hype_points_title">Skryť body Hype</string>
+  <string name="revanced_hide_hype_points_summary_on">Body Hype sú skryté</string>
+  <string name="revanced_hide_hype_points_summary_off">Body Hype sú zobrazené</string>
   <string name="revanced_hide_podcast_section_title">Skryť „Preskúmať podcast“</string>
   <string name="revanced_hide_podcast_section_summary_on">Sekcia Preskúmať podcast je skrytá</string>
   <string name="revanced_hide_podcast_section_summary_off">Sekcia Preskúmať podcast je zobrazená</string>
+  <string name="revanced_hide_featured_section_title">Skryť odporúčaný obsah</string>
+  <string name="revanced_hide_featured_section_summary_on">Sekcia odporúčaného obsahu je skrytá</string>
+  <string name="revanced_hide_featured_section_summary_off">Sekcia odporúčaného obsahu je zobrazená</string>
   <string name="revanced_hide_info_cards_section_title">Skryť informačné karty</string>
   <string name="revanced_hide_info_cards_section_summary_on">Sekcia informačných kariet je skrytá</string>
   <string name="revanced_hide_info_cards_section_summary_off">Zobrazí sa sekcia informačných kariet</string>
   <string name="revanced_hide_key_concepts_section_title">Skryť „Kľúčové koncepty“</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Sekcia Kľúčové koncepty je skrytá</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Sekcia Kľúčové koncepty je zobrazená</string>
+  <string name="revanced_hide_description_subscribe_button_title">Skryť tlačidlo Odber</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Tlačidlo Odber je skryté</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Tlačidlo Odber je zobrazené</string>
   <string name="revanced_hide_transcript_section_title">Skryť prepis</string>
   <string name="revanced_hide_transcript_section_summary_on">Časť prepisu je skrytá</string>
   <string name="revanced_hide_transcript_section_summary_off">Zobrazí sa sekcia prepisu</string>
@@ -769,15 +786,14 @@ Ak zmena tohto nastavenia nemá žiadny účinok, skúste prepnúť do režimu i
   <string name="revanced_hide_player_flyout_speed_title">Skryť rýchlosť prehrávania</string>
   <string name="revanced_hide_player_flyout_speed_summary_on">Ponuka rýchlosti prehrávania je skrytá</string>
   <string name="revanced_hide_player_flyout_speed_summary_off">Zobrazí sa ponuka rýchlosti prehrávania</string>
-  <!-- 'More info' should be translated using the same localized wording YouTube displays for the menu item.
-                  This menu only appears for some videos. Translate the name normally if the menu cannot be found. -->
-  <string name="revanced_hide_player_flyout_more_info_title">Skryť Ďalšie informácie</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_on">Ponuka Viac informácií je skrytá</string>
-  <string name="revanced_hide_player_flyout_more_info_summary_off">Zobrazí sa ponuka Viac informácií</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_lock_screen_title">Skryť uzamknutú obrazovku</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_on">Ponuka uzamknutej obrazovky je skrytá</string>
   <string name="revanced_hide_player_flyout_lock_screen_summary_off">Zobrazí sa ponuka uzamknutej obrazovky</string>
+  <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_title">Skryť Počúvať s YouTube Music</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_on">Menu Počúvať s YouTube Music je skryté</string>
+  <string name="revanced_hide_player_flyout_listen_with_youtube_music_summary_off">Menu Počúvať s YouTube Music je zobrazené</string>
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_audio_track_title">Skryť zvukovú stopu</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ponuka zvukovej stopy je skrytá</string>
@@ -1654,15 +1670,29 @@ Prehrávanie videa s AV1 môže sekať alebo vynechávať snímky."</string>
   <string name="revanced_music_play_permanent_repeat_summary_on">Trvalé opakovanie je povolené</string>
   <string name="revanced_music_play_permanent_repeat_summary_off">Trvalé opakovanie je zakázané</string>
   </patch>
-  <patch id="layout.castbutton.hideCastButton">
+  <patch id="layout.buttons.hideButtons">
   <string name="revanced_music_hide_cast_button_title">Skryť tlačidlo prenášania</string>
   <string name="revanced_music_hide_cast_button_summary_on">Tlačidlo prenášania je skryté</string>
   <string name="revanced_music_hide_cast_button_summary_off">Tlačidlo prenášania je zobrazené</string>
+  <string name="revanced_music_hide_history_button_title">Skryť tlačidlo histórie</string>
+  <string name="revanced_music_hide_history_button_summary_on">Tlačidlo histórie je skryté</string>
+  <string name="revanced_music_hide_history_button_summary_off">Tlačidlo histórie je zobrazené</string>
+  <string name="revanced_music_hide_notification_button_title">Skryť tlačidlo upozornení</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Tlačidlo upozornení je skryté</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Tlačidlo upozornení je zobrazené</string>
+  <string name="revanced_music_hide_search_button_title">Skryť tlačidlo vyhľadávania</string>
+  <string name="revanced_music_hide_search_button_summary_on">Tlačidlo vyhľadávania je skryté</string>
+  <string name="revanced_music_hide_search_button_summary_off">Tlačidlo vyhľadávania je zobrazené</string>
   </patch>
   <patch id="layout.compactheader.hideCategoryBar">
   <string name="revanced_music_hide_category_bar_title">Skryť lištu kategórií</string>
   <string name="revanced_music_hide_category_bar_summary_on">Lišta kategórií je skrytá</string>
   <string name="revanced_music_hide_category_bar_summary_off">Lišta kategórií je zobrazená</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Zmeniť farbu miniprehrávača</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Farba miniprehrávača zodpovedá celoobrazovkovému prehrávaču</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Miniprehrávač používa predvolenú farbu</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigačný panel</string>

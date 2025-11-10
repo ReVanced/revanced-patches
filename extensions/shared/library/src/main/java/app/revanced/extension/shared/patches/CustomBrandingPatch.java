@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +70,17 @@ public class CustomBrandingPatch {
                 Logger.printException(() -> "Could not load notification small icon");
             }
         }
+    }
+
+    /**
+     * Injection point.
+     */
+    public static View getLottieViewOrNull(View lottieStartupView) {
+        if (BaseSettings.CUSTOM_BRANDING_ICON.get() == BrandingTheme.ORIGINAL) {
+            return lottieStartupView;
+        }
+
+        return null;
     }
 
     /**
