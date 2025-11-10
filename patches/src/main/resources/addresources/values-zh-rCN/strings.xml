@@ -1695,6 +1695,11 @@ Second \"item\" text"</string>
   <string name="revanced_music_hide_category_bar_summary_on">类别栏已隐藏</string>
   <string name="revanced_music_hide_category_bar_summary_off">类别栏已显示</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">更改迷你播放器颜色</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">迷你播放器颜色与全屏播放器一致</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">迷你播放器使用默认颜色</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">导航栏</string>
   <string name="revanced_music_navigation_bar_screen_summary">隐藏或更改导航栏按钮</string>

@@ -1690,6 +1690,11 @@ Videouppspelning med AV1 kan hacka eller tappa bildrutor."</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategorifältet är dolt</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategorifältet visas</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Ändra minispelarens färg</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Minispelarens färg matchar helskärmsspelaren</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Minispelaren använder standardfärg</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigeringsfält</string>
   <string name="revanced_music_navigation_bar_screen_summary">Dölj eller ändra knappar i navigeringsfältet</string>

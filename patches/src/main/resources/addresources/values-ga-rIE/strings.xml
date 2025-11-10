@@ -1688,6 +1688,11 @@ D’fhéadfadh sé go mbeadh stad nó go gcaillfí frámaí ag athsheinm físe l
   <string name="revanced_music_hide_category_bar_summary_on">Tá an barra catagóirí i bhfolach</string>
   <string name="revanced_music_hide_category_bar_summary_off">Taispeántar an barra catagóirí</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Athraigh dath an mini-imreora</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Meaitseálann dath an mini-imreora leis an imreoir lánscáileáin</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Úsáideann an mini-imreoir an dath réamhshocraithe</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Barra nascleanúna</string>
   <string name="revanced_music_navigation_bar_screen_summary">Folaigh nó athraigh cnaipí an bharra nascleanúna</string>

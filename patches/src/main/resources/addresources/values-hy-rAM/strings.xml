@@ -1691,6 +1691,11 @@ AV1-ով տեսանյութի նվագարկումը կարող է ընդհատ�
   <string name="revanced_music_hide_category_bar_summary_on">Կատեգորիաների վահանակը թաքցված է</string>
   <string name="revanced_music_hide_category_bar_summary_off">Կատեգորիաների վահանակը ցուցադրվում է</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Փոխել մինի նվագարկչի գույնը</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Մինի նվագարկչի գույնը համապատասխանում է լիաէկրան նվագարկչին</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Մինի նվագարկիչը օգտագործում է լռելյայն գույնը</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Նավիգացիոն գիծ</string>
   <string name="revanced_music_navigation_bar_screen_summary">Թաքցնել կամ փոխել նավիգացիոն գծի կոճակները</string>

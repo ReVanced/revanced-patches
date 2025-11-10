@@ -1689,6 +1689,11 @@ Reprodukcija videa s AV1 može zastajkivati ili preskakati kadrove."</string>
   <string name="revanced_music_hide_category_bar_summary_on">Traka kategorija je skrivena</string>
   <string name="revanced_music_hide_category_bar_summary_off">Traka kategorija je prikazana</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Promeni boju mini-plejera</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Boja mini-plejera odgovara plejeru preko celog ekrana</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Mini-plejer koristi podrazumevanu boju</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Traka za navigaciju</string>
   <string name="revanced_music_navigation_bar_screen_summary">Sakrijte ili promenite dugmad trake za navigaciju</string>

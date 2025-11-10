@@ -1689,6 +1689,11 @@ Pemutaran video dengan AV1 mungkin tersendat atau kehilangan bingkai."</string>
   <string name="revanced_music_hide_category_bar_summary_on">Bilah kategori disembunyikan</string>
   <string name="revanced_music_hide_category_bar_summary_off">Bilah kategori ditampilkan</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Ubah warna pemutar mini</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Warna pemutar mini sesuai dengan pemutar layar penuh</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Pemutar mini menggunakan warna standar</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Bilah navigasi</string>
   <string name="revanced_music_navigation_bar_screen_summary">Sembunyikan atau ubah tombol bilah navigasi</string>

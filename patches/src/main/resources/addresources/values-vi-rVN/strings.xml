@@ -1682,7 +1682,7 @@ Phát video bằng AV1 có thể bị giật hoặc tụt khung hình."</string>
   <string name="revanced_music_hide_cast_button_summary_on">Nút truyền đã bị ẩn</string>
   <string name="revanced_music_hide_cast_button_summary_off">Nút truyền được hiển thị</string>
   <string name="revanced_music_hide_history_button_title">Ẩn nút lịch sử</string>
-  <string name="revanced_music_hide_history_button_summary_on">Nút lịch sử bị ẩn</string>
+  <string name="revanced_music_hide_history_button_summary_on">Nút lịch sử đã bị ẩn</string>
   <string name="revanced_music_hide_history_button_summary_off">Nút lịch sử được hiển thị</string>
   <string name="revanced_music_hide_notification_button_title">Ẩn nút thông báo</string>
   <string name="revanced_music_hide_notification_button_summary_on">Nút thông báo đã bị ẩn</string>
@@ -1695,6 +1695,11 @@ Phát video bằng AV1 có thể bị giật hoặc tụt khung hình."</string>
   <string name="revanced_music_hide_category_bar_title">Ẩn thanh danh mục</string>
   <string name="revanced_music_hide_category_bar_summary_on">Thanh danh mục đã bị ẩn</string>
   <string name="revanced_music_hide_category_bar_summary_off">Thanh danh mục được hiển thị</string>
+  </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Thay đổi màu của Miniplayer</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Màu Miniplayer khớp với trình phát toàn màn hình</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Miniplayer sử dụng màu mặc định</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Thanh điều hướng</string>

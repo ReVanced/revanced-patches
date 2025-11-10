@@ -1692,6 +1692,11 @@ Second \"item\" text"</string>
   <string name="revanced_music_hide_category_bar_summary_on">סרגל הקטגוריות מוסתר</string>
   <string name="revanced_music_hide_category_bar_summary_off">סרגל הקטגוריות מוצג</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">שנה צבע מיני-נגן</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">צבע המיני-נגן תואם לנגן במסך מלא</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">מיני-נגן משתמש בצבע ברירת המחדל</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">סרגל ניווט</string>
   <string name="revanced_music_navigation_bar_screen_summary">הסתר או שנה לחצני סרגל ניווט</string>

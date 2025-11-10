@@ -1690,6 +1690,11 @@ Přehrávání videa s AV1 se může sekat nebo vypadávat snímky."</string>
   <string name="revanced_music_hide_category_bar_summary_on">Panel kategorií je skryt</string>
   <string name="revanced_music_hide_category_bar_summary_off">Panel kategorií je zobrazen</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Změnit barvu minipřehrávače</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Barva minipřehrávače odpovídá přehrávači na celou obrazovku</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Minipřehrávač používá výchozí barvu</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigační panel</string>
   <string name="revanced_music_navigation_bar_screen_summary">Skrýt nebo změnit tlačítka navigačního panelu</string>

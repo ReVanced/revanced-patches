@@ -7,15 +7,15 @@ import app.revanced.extension.youtube.shared.PlayerType;
 @SuppressWarnings("unused")
 final class DescriptionComponentsFilter extends Filter {
 
+    private static final String INFOCARDS_SECTION_PATH = "infocards_section.e";
+
     private final StringTrieSearch exceptions = new StringTrieSearch();
-
-    private final ByteArrayFilterGroupList macroMarkersCarouselGroupList = new ByteArrayFilterGroupList();
-
     private final StringFilterGroup macroMarkersCarousel;
-
+    private final ByteArrayFilterGroupList macroMarkersCarouselGroupList = new ByteArrayFilterGroupList();
     private final StringFilterGroup horizontalShelf;
     private final ByteArrayFilterGroup cellVideoAttribute;
-
+    private final StringFilterGroup infoCardsSection;
+    private final StringFilterGroup subscribeButton;
     private final StringFilterGroup aiGeneratedVideoSummarySection;
     private final StringFilterGroup hypePoints;
 
@@ -44,9 +44,10 @@ final class DescriptionComponentsFilter extends Filter {
                 "video_attributes_section"
         );
 
-        final StringFilterGroup infoCardsSection = new StringFilterGroup(
-                Settings.HIDE_INFO_CARDS_SECTION,
-                "infocards_section"
+        final StringFilterGroup featuredSection = new StringFilterGroup(
+                Settings.HIDE_FEATURED_SECTION,
+                // "media_lockup", "structured_description_video_lockup"
+                "compact_infocard"
         );
 
         final StringFilterGroup podcastSection = new StringFilterGroup(
@@ -67,6 +68,16 @@ final class DescriptionComponentsFilter extends Filter {
         hypePoints = new StringFilterGroup(
                 Settings.HIDE_HYPE_POINTS,
                 "hype_points_factoid"
+        );
+
+        infoCardsSection = new StringFilterGroup(
+                Settings.HIDE_INFO_CARDS_SECTION,
+                INFOCARDS_SECTION_PATH
+        );
+
+        subscribeButton = new StringFilterGroup(
+                Settings.HIDE_DESCRIPTION_SUBSCRIBE_BUTTON,
+                "subscribe_button"
         );
 
         macroMarkersCarousel = new StringFilterGroup(
@@ -99,12 +110,14 @@ final class DescriptionComponentsFilter extends Filter {
                 aiGeneratedVideoSummarySection,
                 askSection,
                 attributesSection,
-                infoCardsSection,
+                featuredSection,
                 horizontalShelf,
                 howThisWasMadeSection,
                 hypePoints,
+                infoCardsSection,
                 macroMarkersCarousel,
                 podcastSection,
+                subscribeButton,
                 transcriptSection
         );
     }
@@ -116,6 +129,10 @@ final class DescriptionComponentsFilter extends Filter {
         if (matchedGroup == aiGeneratedVideoSummarySection || matchedGroup == hypePoints) {
             // Only hide if player is open, in case this component is used somewhere else.
             return PlayerType.getCurrent().isMaximizedOrFullscreen();
+        }
+
+        if (matchedGroup == subscribeButton) {
+            return path.startsWith(INFOCARDS_SECTION_PATH);
         }
 
         if (exceptions.matches(path)) return false;

@@ -1691,6 +1691,11 @@ AV1 video atskaņošana var raustīties vai izlaist kadrus."</string>
   <string name="revanced_music_hide_category_bar_summary_on">Kategoriju josla ir paslēpta</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategoriju josla ir redzama</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Mainīt mini atskaņotāja krāsu</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Mini atskaņotāja krāsa atbilst pilnekrāna atskaņotāja krāsai</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Mini atskaņotājs izmanto noklusējuma krāsu</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigācijas josla</string>
   <string name="revanced_music_navigation_bar_screen_summary">Slēpt vai mainīt navigācijas joslas pogas</string>

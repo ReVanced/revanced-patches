@@ -1688,6 +1688,11 @@ Maaaring mag-stutter o mag-drop ng frames ang pag-playback ng video na may AV1."
   <string name="revanced_music_hide_category_bar_summary_on">Nakatago ang category bar</string>
   <string name="revanced_music_hide_category_bar_summary_off">Ipinapakita ang category bar</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Palitan ang kulay ng miniplayer</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Ang kulay ng miniplayer ay tumutugma sa fullscreen player</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Gumagamit ang miniplayer ng default na kulay</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Navigation bar</string>
   <string name="revanced_music_navigation_bar_screen_summary">Itago o baguhin ang mga pindutan ng navigation bar</string>

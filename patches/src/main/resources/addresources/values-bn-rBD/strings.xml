@@ -1686,6 +1686,11 @@ AV1 সহ ভিডিও প্লেব্যাক আটকে যেতে
   <string name="revanced_music_hide_category_bar_summary_on">ক্যাটাগরি বার লুকানো আছে</string>
   <string name="revanced_music_hide_category_bar_summary_off">ক্যাটাগরি বার দেখানো আছে</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">মিনিপ্লেয়ারের রঙ পরিবর্তন করুন</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">মিনিপ্লেয়ারের রঙ ফুলস্ক্রিন প্লেয়ারের সাথে মেলে</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">মিনিপ্লেয়ার ডিফল্ট রঙ ব্যবহার করে</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">নেভিগেশন বার</string>
   <string name="revanced_music_navigation_bar_screen_summary">নেভিগেশন বারের বোতামগুলি লুকান বা পরিবর্তন করুন</string>

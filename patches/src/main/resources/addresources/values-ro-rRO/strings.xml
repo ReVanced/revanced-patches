@@ -1687,6 +1687,11 @@ Redarea video cu AV1 poate sacada sau pierde cadre."</string>
   <string name="revanced_music_hide_category_bar_summary_on">Bara de categorii este ascunsă</string>
   <string name="revanced_music_hide_category_bar_summary_off">Bara de categorii este afișată</string>
   </patch>
+  <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Schimbă culoarea miniplayer-ului</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Culoarea miniplayer-ului se potrivește cu player-ul pe ecran complet</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Miniplayer-ul folosește culoarea implicită</string>
+  </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Bară de navigare</string>
   <string name="revanced_music_navigation_bar_screen_summary">Ascundeți sau modificați butoanele barei de navigare</string>
