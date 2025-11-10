@@ -1,21 +1,24 @@
 package app.revanced.patches.music.layout.branding
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_MAIN_ACTIVITY_NAME
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
 import app.revanced.patches.music.misc.gms.musicActivityOnCreateFingerprint
 import app.revanced.patches.music.misc.settings.PreferenceScreen
+import app.revanced.patches.shared.layout.branding.EXTENSION_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversed
+import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 private val disableSplashAnimationPatch = bytecodePatch {
 
@@ -30,22 +33,22 @@ private val disableSplashAnimationPatch = bytecodePatch {
         // but the animation is not always the same size as the launch screen and it's still
         // barely shown. Instead turn off the animation entirely (app will also launch a little faster).
         cairoSplashAnimationConfigFingerprint.method.apply {
-            val insertIndex = indexOfFirstInstructionReversed(
-                cairoSplashAnimationConfigFingerprint.instructionMatches.first().index
-            ) {
-                this.opcode == Opcode.INVOKE_VIRTUAL &&
-                        getReference<MethodReference>()?.name == "setContentView"
-            } + 1
+            val literalIndex = indexOfFirstLiteralInstructionOrThrow(
+                getResourceId(ResourceType.LAYOUT, "main_activity_launch_animation")
+            )
+            val checkCastIndex = indexOfFirstInstructionOrThrow(literalIndex) {
+                opcode == Opcode.CHECK_CAST &&
+                        getReference<TypeReference>()?.type == "Lcom/airbnb/lottie/LottieAnimationView;"
+            }
+            val register = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
-            val jumpIndex = indexOfFirstInstructionOrThrow(insertIndex) {
-                opcode == Opcode.INVOKE_VIRTUAL &&
-                        getReference<MethodReference>()?.parameterTypes?.firstOrNull() == "Ljava/lang/Runnable;"
-            } + 1
-
-            addInstructionsWithLabels(
-                insertIndex,
-                "goto :skip_animation",
-                ExternalLabel("skip_animation", getInstruction(jumpIndex))
+            // If using a custom icon then set the lottie animation view to null to bypasses the startup animation.
+            addInstructions(
+                checkCastIndex,
+                """
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getLottieViewOrNull(Landroid/view/View;)Landroid/view/View;
+                    move-result-object v$register
+                """
             )
         }
     }
