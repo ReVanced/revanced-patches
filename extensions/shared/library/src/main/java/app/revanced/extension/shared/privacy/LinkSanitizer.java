@@ -35,6 +35,15 @@ public class LinkSanitizer {
 
     public Uri sanitizeUri(Uri uri) {
         try {
+            String scheme = uri.getScheme();
+            if (scheme == null || !(scheme.equals("http") || scheme.equals("https"))) {
+                // Opening YouTube share sheet 'other' option passes the video title as a URI.
+                // Checking !uri.isHierarchical() works for all cases, except if the
+                // video title starts with / and then it's hierarchical but still an invalid URI.
+                Logger.printDebug(() -> "Ignoring uri: " + uri);
+                return uri;
+            }
+
             Uri.Builder builder = uri.buildUpon().clearQuery();
 
             if (!parametersToRemove.isEmpty()) {
