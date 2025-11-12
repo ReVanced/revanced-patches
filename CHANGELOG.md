@@ -1,3 +1,10 @@
+# [5.47.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.46.0...v5.47.0-dev.1) (2025-11-12)
+
+
+### Features
+
+* **Instagram:** Add `Anonymous story viewing` patch ([#6263](https://github.com/ReVanced/revanced-patches/issues/6263)) ([94ae84a](https://github.com/ReVanced/revanced-patches/commit/94ae84ad0fc3a9197c82d5356301d464730c3b17))
+
 # [5.46.0](https://github.com/ReVanced/revanced-patches/compare/v5.45.0...v5.46.0) (2025-11-10)
 
 
