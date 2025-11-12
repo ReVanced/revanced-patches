@@ -342,9 +342,9 @@ Má tá Doodle á thaispeáint faoi láthair i do réigiún agus má tá an tsu�
   <string name="revanced_hide_podcast_section_title">Folaigh \'Déan iniúchadh ar an bpodchraoladh\'</string>
   <string name="revanced_hide_podcast_section_summary_on">Tá an chuid Déan iniúchadh ar an bpodchraoladh i bhfolach</string>
   <string name="revanced_hide_podcast_section_summary_off">Taispeántar an chuid Déan iniúchadh ar an bpodchraoladh</string>
-  <string name="revanced_hide_featured_section_title">Folaigh ábhar roghnaithe</string>
-  <string name="revanced_hide_featured_section_summary_on">Tá an chuid ábhair roghnaithe i bhfolach</string>
-  <string name="revanced_hide_featured_section_summary_off">Taispeántar an chuid ábhair roghnaithe</string>
+  <string name="revanced_hide_featured_section_title">Folaigh ábhar le feiceáil</string>
+  <string name="revanced_hide_featured_section_summary_on">Tá an chuid ábhar le feiceáil i bhfolach</string>
+  <string name="revanced_hide_featured_section_summary_off">Taispeántar an chuid ábhar le feiceáil</string>
   <string name="revanced_hide_info_cards_section_title">Folaigh cártaí eolais</string>
   <string name="revanced_hide_info_cards_section_summary_on">Tá an chuid cártaí faisnéise i bhfolach</string>
   <string name="revanced_hide_info_cards_section_summary_off">Taispeántar rannán cártaí faisnéise</string>
@@ -1695,9 +1695,9 @@ D’fhéadfadh sé go mbeadh stad nó go gcaillfí frámaí ag athsheinm físe l
   <string name="revanced_music_hide_category_bar_summary_off">Taispeántar an barra catagóirí</string>
   </patch>
   <patch id="layout.miniplayercolor.changeMiniplayerColor">
-  <string name="revanced_music_change_miniplayer_color_title">Athraigh dath an mini-imreora</string>
-  <string name="revanced_music_change_miniplayer_color_summary_on">Meaitseálann dath an mini-imreora leis an imreoir lánscáileáin</string>
-  <string name="revanced_music_change_miniplayer_color_summary_off">Úsáideann an mini-imreoir an dath réamhshocraithe</string>
+  <string name="revanced_music_change_miniplayer_color_title">Athraigh dath an mhion-imreoir</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Tá dath an mhion-imreoir ag teacht leis an imreoir lánscáileáin</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Úsáideann an mion-imreoir an dath réamhshocraithe</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Barra nascleanúna</string>

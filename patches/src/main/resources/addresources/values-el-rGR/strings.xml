@@ -344,9 +344,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_podcast_section_title">Ενότητα «Εξερευνήστε το podcast»</string>
   <string name="revanced_hide_podcast_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_podcast_section_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_featured_section_title">Απόκρυψη Προβεβλημένου περιεχομένου</string>
-  <string name="revanced_hide_featured_section_summary_on">Η ενότητα Προβεβλημένου περιεχομένου είναι κρυμμένη</string>
-  <string name="revanced_hide_featured_section_summary_off">Η ενότητα Προβεβλημένου περιεχομένου εμφανίζεται</string>
+  <string name="revanced_hide_featured_section_title">Ενότητα προτεινόμενων συνδέσμων</string>
+  <string name="revanced_hide_featured_section_summary_on">Κρυμμένη</string>
+  <string name="revanced_hide_featured_section_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_info_cards_section_title">Κάρτες πληροφοριών</string>
   <string name="revanced_hide_info_cards_section_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_info_cards_section_summary_off">Εμφανίζεται</string>
