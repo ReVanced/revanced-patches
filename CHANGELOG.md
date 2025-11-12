@@ -1,3 +1,10 @@
+# [5.47.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.1...v5.47.0-dev.2) (2025-11-12)
+
+
+### Bug Fixes
+
+* **Instagram - Disable signature check:** Change patch to default excluded ([#6283](https://github.com/ReVanced/revanced-patches/issues/6283)) ([bb745b5](https://github.com/ReVanced/revanced-patches/commit/bb745b555b3808b7679c5995319aa365630fbd76))
+
 # [5.47.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.46.0...v5.47.0-dev.1) (2025-11-12)
 
 
