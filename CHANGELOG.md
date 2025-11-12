@@ -1,3 +1,10 @@
+# [5.47.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.3...v5.47.0-dev.4) (2025-11-12)
+
+
+### Bug Fixes
+
+* **YouTube - Sanitize sharing links:** Handle non hierarchical urls ([654d091](https://github.com/ReVanced/revanced-patches/commit/654d091e650cda37650b57cbf3ba6f1cdd6d47d3))
+
 # [5.47.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.2...v5.47.0-dev.3) (2025-11-12)
 
 
