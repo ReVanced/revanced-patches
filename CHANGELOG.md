@@ -1,3 +1,10 @@
+# [5.47.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.2...v5.47.0-dev.3) (2025-11-12)
+
+
+### Features
+
+* **Instagram:** Add `Disable auto story flipping` patch ([#6262](https://github.com/ReVanced/revanced-patches/issues/6262)) ([2f0de15](https://github.com/ReVanced/revanced-patches/commit/2f0de15e67e4f99ed6ecdc136d04cceb23b0d069))
+
 # [5.47.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.1...v5.47.0-dev.2) (2025-11-12)
 
 
