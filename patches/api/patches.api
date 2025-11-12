@@ -317,7 +317,7 @@ public final class app/revanced/patches/instagram/misc/signature/SignatureCheckP
 }
 
 public final class app/revanced/patches/instagram/story/flipping/DisableAutoStoryFlippingPatchKt {
-	public static final fun getDisableAutoStoryFlippingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getDisableStoryAutoFlippingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/irplus/ad/RemoveAdsPatchKt {

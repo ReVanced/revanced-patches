@@ -4,8 +4,8 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val disableAutoStoryFlippingPatch = bytecodePatch(
-    name = "Disable auto story flipping",
+val disableStoryAutoFlippingPatch = bytecodePatch(
+    name = "Disable story auto flipping",
     description = "Disable stories automatically flipping/skipping after some seconds.",
     use = false
 ) {
