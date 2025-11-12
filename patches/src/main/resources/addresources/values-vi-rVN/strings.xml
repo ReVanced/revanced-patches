@@ -342,7 +342,7 @@ Nếu cài đặt này được bật và Doodle đang hiển thị tại khu v�
   <string name="revanced_hide_podcast_section_title">Ẩn \'Khám phá podcast\'</string>
   <string name="revanced_hide_podcast_section_summary_on">Phần Khám phá podcast đã bị ẩn</string>
   <string name="revanced_hide_podcast_section_summary_off">Phần Khám phá podcast được hiển thị</string>
-  <string name="revanced_hide_featured_section_title">Ẩn nội dung nổi bật</string>
+  <string name="revanced_hide_featured_section_title">Ẩn Nội dung nổi bật</string>
   <string name="revanced_hide_featured_section_summary_on">Phần nội dung nổi bật đã bị ẩn</string>
   <string name="revanced_hide_featured_section_summary_off">Phần nội dung nổi bật được hiển thị</string>
   <string name="revanced_hide_info_cards_section_title">Ẩn thẻ Thông tin</string>
@@ -1703,9 +1703,9 @@ Phát video bằng AV1 có thể bị giật hoặc tụt khung hình."</string>
   <string name="revanced_music_hide_category_bar_summary_off">Thanh danh mục được hiển thị</string>
   </patch>
   <patch id="layout.miniplayercolor.changeMiniplayerColor">
-  <string name="revanced_music_change_miniplayer_color_title">Thay đổi màu của Miniplayer</string>
-  <string name="revanced_music_change_miniplayer_color_summary_on">Màu Miniplayer khớp với trình phát toàn màn hình</string>
-  <string name="revanced_music_change_miniplayer_color_summary_off">Miniplayer sử dụng màu mặc định</string>
+  <string name="revanced_music_change_miniplayer_color_title">Đổi màu trình phát thu nhỏ</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Màu trình phát thu nhỏ khớp với trình phát toàn màn hình</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Trình phát thu nhỏ dùng màu mặc định</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Thanh điều hướng</string>
