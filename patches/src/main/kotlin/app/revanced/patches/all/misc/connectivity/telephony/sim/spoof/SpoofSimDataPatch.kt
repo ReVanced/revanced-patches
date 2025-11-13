@@ -14,9 +14,9 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.util.*
 
 @Suppress("unused")
-val spoofSimCountryPatch = bytecodePatch(
-    name = "Spoof SIM country",
-    description = "Spoofs country information returned by the SIM card provider.",
+val spoofSimDataPatch = bytecodePatch(
+    name = "Spoof SIM data",
+    description = "Spoofs information returned by the SIM card provider.",
     use = false,
 ) {
     val countries = Locale.getISOCountries().associateBy { Locale("", it).displayCountry }
