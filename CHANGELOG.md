@@ -1,3 +1,10 @@
+# [5.47.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.4...v5.47.0-dev.5) (2025-11-13)
+
+
+### Bug Fixes
+
+* **YouTube - Hide player flyout menu items:** Allow hiding audio menu with 'Android No SDK' client type ([9495cf4](https://github.com/ReVanced/revanced-patches/commit/9495cf49ef8a872be64de6c971c1919b4b9a8720))
+
 # [5.47.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.3...v5.47.0-dev.4) (2025-11-12)
 
 
