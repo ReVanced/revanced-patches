@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
+import app.revanced.patcher.patch.intOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -39,10 +40,35 @@ val spoofSimDataPatch = bytecodePatch(
         "Network ISO country code",
     )
 
+    val networkOperator by intOption(
+        key = "networkOperator",
+        title = "MCC+MNC network operator code",
+        description =  "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the network operator.",
+    )
+
+    val networkOperatorName by stringOption(
+        key = "networkOperatorName",
+        title = "Network operator name",
+        description = "The full name of the network operator.",
+    )
+
     val simCountryIso by isoCountryPatchOption(
         "simCountryIso",
         "SIM ISO country code",
     )
+
+    val simOperator by intOption(
+        key = "simOperator",
+        title = "MCC+MNC SIM operator code",
+        description =  "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the SIM operator.",
+    )
+
+    val simOperatorName by stringOption(
+        key = "simOperatorName",
+        title = "SIM operator name",
+        description = "The full name of the SIM operator.",
+    )
+
 
     dependsOn(
         transformInstructionsPatch(
@@ -55,12 +81,16 @@ val spoofSimDataPatch = bytecodePatch(
                     MethodUtil.methodSignaturesMatch(reference, search.reference)
                 } ?: return@transformInstructionsPatch null
 
-                val iso = when (match) {
-                    MethodCall.NetworkCountryIso -> networkCountryIso
-                    MethodCall.SimCountryIso -> simCountryIso
-                }?.lowercase()
+                val replacement = when (match) {
+                    MethodCall.NetworkCountryIso -> networkCountryIso?.lowercase()
+                    MethodCall.NetworkOperator -> networkOperator.toString()
+                    MethodCall.NetworkOperatorName -> networkOperatorName
+                    MethodCall.SimCountryIso -> simCountryIso?.lowercase()
+                    MethodCall.SimOperator -> simOperator.toString()
+                    MethodCall.SimOperatorName -> simOperatorName
+                }
 
-                iso?.let { instructionIndex to it }
+                replacement?.let { instructionIndex to it }
             },
             transform = { mutableMethod, entry: Pair<Int, String> ->
                 transformMethodCall(entry, mutableMethod)
