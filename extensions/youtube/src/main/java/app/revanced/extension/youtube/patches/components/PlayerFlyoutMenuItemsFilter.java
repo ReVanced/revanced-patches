@@ -12,13 +12,9 @@ import java.util.List;
 public class PlayerFlyoutMenuItemsFilter extends Filter {
 
     public static final class HideAudioFlyoutMenuAvailability implements Setting.Availability {
-        private static final boolean AVAILABLE_ON_LAUNCH = !SpoofVideoStreamsPatch.spoofingToClientWithNoMultiAudioStreams();
-
         @Override
         public boolean isAvailable() {
-            // Check conditions of launch and now. Otherwise if spoofing is changed
-            // without a restart the setting will show as available when it's not.
-            return AVAILABLE_ON_LAUNCH && !SpoofVideoStreamsPatch.spoofingToClientWithNoMultiAudioStreams();
+            return !SpoofVideoStreamsPatch.spoofingToClientWithNoMultiAudioStreams();
         }
 
         @Override

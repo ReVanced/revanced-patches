@@ -22,13 +22,14 @@ import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
 public final class LayoutComponentsFilter extends Filter {
-    private static final StringTrieSearch mixPlaylistsExceptions = new StringTrieSearch(
+    private static final StringTrieSearch mixPlaylistsContextExceptions = new StringTrieSearch(
             "V.ED", // Playlist browse id.
             "java.lang.ref.WeakReference"
     );
-    private static final ByteArrayFilterGroup mixPlaylistsExceptions2 = new ByteArrayFilterGroup(
+    private static final ByteArrayFilterGroup mixPlaylistsBufferExceptions = new ByteArrayFilterGroup(
             null,
-            "cell_description_body"
+            "cell_description_body",
+            "channel_profile"
     );
     private static final ByteArrayFilterGroup mixPlaylists = new ByteArrayFilterGroup(
             null,
@@ -383,17 +384,15 @@ public final class LayoutComponentsFilter extends Filter {
                 return false;
             }
 
-            // Prevent playlist items being hidden, if a mix playlist is present in it.
-            if (mixPlaylistsExceptions.matches(conversionContext.toString())) {
-                return false;
-            }
-
-            // Prevent hiding the description of some videos accidentally.
-            if (mixPlaylistsExceptions2.check(buffer).isFiltered()) {
-                return false;
-            }
-
-            if (mixPlaylists.check(buffer).isFiltered()) {
+            if (mixPlaylists.check(buffer).isFiltered()
+                    // Prevent hiding the description of some videos accidentally.
+                    && !mixPlaylistsBufferExceptions.check(buffer).isFiltered()
+                    // Prevent playlist items being hidden, if a mix playlist is present in it.
+                    // Check last since it requires creating a context string.
+                    //
+                    // FIXME: The conversion context passed in does not always generate a valid toString.
+                    //        This string check may no longer be needed, or the patch may be broken.
+                    && !mixPlaylistsContextExceptions.matches(conversionContext.toString())) {
                 Logger.printDebug(() -> "Filtered mix playlist");
                 return true;
             }

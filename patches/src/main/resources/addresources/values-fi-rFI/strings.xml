@@ -44,7 +44,7 @@ Second \"item\" text"</string>
   <string name="revanced_check_environment_not_near_patch_time_invalid">APK käännöspäivä on vioittunut</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
-  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced Ilmoitus</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVanced-ilmoitus</string>
   <string name="revanced_check_watch_history_domain_name_dialog_message">Kellon historiaa ei tallenneta.&lt;br&gt;&lt;br&gt;Tämä todennäköisesti johtuu DNS mainosten estäjä tai verkkovälityspalvelin.&lt;br&gt;&lt;br&gt;Korjataksesi tämän, valkoiselle listalle &lt;b&gt;s.youtube.com&lt;/b&gt; tai poistaaksesi kaikki DNS-estäjät ja -profiilit.</string>
   <string name="revanced_check_watch_history_domain_name_dialog_ignore">Älä näytä uudelleen</string>
   </patch>
@@ -164,7 +164,7 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Tyhjennä virheenkorjauslokit</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Tyhjentää kaikki tallennetut ReVanced-virheenkorjauslokit</string>
   <string name="revanced_debug_logs_clear_toast">Lokit tyhjennetty</string>
-  <string name="revanced_debug_feature_flags_manager_title">Ominaisuuslippujen Manager</string>
+  <string name="revanced_debug_feature_flags_manager_title">Ominaisuuslippujen hallinta</string>
   <string name="revanced_debug_feature_flags_manager_summary">Hallitse totuusarvo-ominaisuuslippuja</string>
   <string name="revanced_debug_feature_flags_manager_active_header">Aktiiviset liput (%d)</string>
   <string name="revanced_debug_feature_flags_manager_blocked_header">Estetyt liput (%d)</string>
@@ -342,12 +342,18 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <string name="revanced_hide_podcast_section_title">Piilota \"Tutustu podcastiin\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Tutustu podcastiin -osio piilotetaan</string>
   <string name="revanced_hide_podcast_section_summary_off">Tutustu podcastiin -osio näytetään</string>
+  <string name="revanced_hide_featured_section_title">Piilota esitelty sisältö</string>
+  <string name="revanced_hide_featured_section_summary_on">Suositellun sisällön osio piilotetaan</string>
+  <string name="revanced_hide_featured_section_summary_off">Suositellun sisällön osio näytetään</string>
   <string name="revanced_hide_info_cards_section_title">Piilota tietokortit</string>
   <string name="revanced_hide_info_cards_section_summary_on">Infokortit-osio piilotetaan</string>
   <string name="revanced_hide_info_cards_section_summary_off">Infokortit-osio näytetään</string>
   <string name="revanced_hide_key_concepts_section_title">Piilota \"Keskeiset käsitteet\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Keskeiset käsitteet -osio piilotetaan</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Keskeiset käsitteet -osio näytetään</string>
+  <string name="revanced_hide_description_subscribe_button_title">Piilota Tilaa-painike</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Tilaa-painike piilotetaan</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Tilaa-painike näytetään</string>
   <string name="revanced_hide_transcript_section_title">Piilota transkriptio</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkriptio-osio piilotetaan</string>
   <string name="revanced_hide_transcript_section_summary_off">Transkriptio-osio näytetään</string>
@@ -1691,7 +1697,7 @@ AV1-videon toisto saattaa pätkiä."</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kategoriapalkki näytetään</string>
   </patch>
   <patch id="layout.miniplayercolor.changeMiniplayerColor">
-  <string name="revanced_music_change_miniplayer_color_title">Vaihda minisoittimen väri</string>
+  <string name="revanced_music_change_miniplayer_color_title">Muuta minisoittimen väriä</string>
   <string name="revanced_music_change_miniplayer_color_summary_on">Minisoittimen väri vastaa kokoruudun soitinta</string>
   <string name="revanced_music_change_miniplayer_color_summary_off">Minisoitin käyttää oletusväriä</string>
   </patch>

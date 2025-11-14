@@ -342,12 +342,18 @@ Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlum
   <string name="revanced_hide_podcast_section_title">\'Podkastı araşdırın\"-ı Gizlət</string>
   <string name="revanced_hide_podcast_section_summary_on">Podkast bölməsin araşdırın gizlidir</string>
   <string name="revanced_hide_podcast_section_summary_off">Podkast bölməsin araşdırın görünür</string>
+  <string name="revanced_hide_featured_section_title">Seçilən məzmunu gizlət</string>
+  <string name="revanced_hide_featured_section_summary_on">Seçilən məzmun bölməsi gizlidir</string>
+  <string name="revanced_hide_featured_section_summary_off">Seçilən məzmun bölməsi göstərilir</string>
   <string name="revanced_hide_info_cards_section_title">Məlumat Kartlarını Gizlət</string>
   <string name="revanced_hide_info_cards_section_summary_on">Məlumat kartları bölməsi gizlədilir</string>
   <string name="revanced_hide_info_cards_section_summary_off">Məlumat kartları bölməsi göstərilir</string>
   <string name="revanced_hide_key_concepts_section_title">\"Əsas konseptlər-i\" gizlət</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Əsas konseptlər bölməsi gizlidir</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Əsas konseptlər bölməsi görünür</string>
+  <string name="revanced_hide_description_subscribe_button_title">Abunə ol düyməsini gizlət</string>
+  <string name="revanced_hide_description_subscribe_button_summary_on">Abunə ol düyməsi gizlidir</string>
+  <string name="revanced_hide_description_subscribe_button_summary_off">Abunə ol düyməsi görünür</string>
   <string name="revanced_hide_transcript_section_title">Transkript-i Gizlət</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkripsiya bölməsi gizlidir</string>
   <string name="revanced_hide_transcript_section_summary_off">Transkripsiya bölməsi göstərilir</string>
@@ -1674,9 +1680,9 @@ Video oynatma AV1 ilə ilişə bilər və ya kadrlar buraxıla bilər."</string>
   <string name="revanced_music_hide_cast_button_title">Yayım düyməsini gizlət</string>
   <string name="revanced_music_hide_cast_button_summary_on">Yayım düyməsi gizlidir</string>
   <string name="revanced_music_hide_cast_button_summary_off">Yayım düyməsi göstərilir</string>
-  <string name="revanced_music_hide_history_button_title">Keçmiş düyməsini gizlət</string>
-  <string name="revanced_music_hide_history_button_summary_on">Keçmiş düyməsi gizlidir</string>
-  <string name="revanced_music_hide_history_button_summary_off">Keçmiş düyməsi görünür</string>
+  <string name="revanced_music_hide_history_button_title">Tarixçə düyməsini gizlət</string>
+  <string name="revanced_music_hide_history_button_summary_on">Tarixçə düyməsi gizlidir</string>
+  <string name="revanced_music_hide_history_button_summary_off">Tarixçə düyməsi görünür</string>
   <string name="revanced_music_hide_notification_button_title">Bildiriş düyməsini gizlət</string>
   <string name="revanced_music_hide_notification_button_summary_on">Bildiriş düyməsi gizlidir</string>
   <string name="revanced_music_hide_notification_button_summary_off">Bildiriş düyməsi görünür</string>
@@ -1690,9 +1696,9 @@ Video oynatma AV1 ilə ilişə bilər və ya kadrlar buraxıla bilər."</string>
   <string name="revanced_music_hide_category_bar_summary_off">Kateqoriya cizgisi görünür</string>
   </patch>
   <patch id="layout.miniplayercolor.changeMiniplayerColor">
-  <string name="revanced_music_change_miniplayer_color_title">Miniplayer rəngini dəyişdirin</string>
-  <string name="revanced_music_change_miniplayer_color_summary_on">Miniplayer rəngi tam ekran pleyeri ilə eynidir</string>
-  <string name="revanced_music_change_miniplayer_color_summary_off">Miniplayer defolt rəngdən istifadə edir</string>
+  <string name="revanced_music_change_miniplayer_color_title">Kiçik oynadıcı rəngini dəyişdir</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">Kiçik oynadıcı rəngi tam ekran oynadıcıya bərabərdir</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Kiçik oynadıcı ilkin rəngi istifadə edir</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Fəaliyyət cizgisi</string>
