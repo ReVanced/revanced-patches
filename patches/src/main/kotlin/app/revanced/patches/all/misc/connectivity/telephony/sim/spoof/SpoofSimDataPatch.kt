@@ -13,6 +13,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.util.Locale
+import java.util.regex.Pattern
 
 @Suppress("unused")
 val spoofSimDataPatch = bytecodePatch(
@@ -44,6 +45,7 @@ val spoofSimDataPatch = bytecodePatch(
         key = "networkOperator",
         title = "MCC+MNC network operator code",
         description =  "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the network operator.",
+        validator = { it: Int? -> it == null || Pattern.matches("[0-9]{5,6}", it.toString()) }
     )
 
     val networkOperatorName by stringOption(
@@ -61,6 +63,7 @@ val spoofSimDataPatch = bytecodePatch(
         key = "simOperator",
         title = "MCC+MNC SIM operator code",
         description =  "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the SIM operator.",
+        validator = { it: Int? -> it == null || Pattern.matches("[0-9]{5,6}", it.toString()) }
     )
 
     val simOperatorName by stringOption(
@@ -83,10 +86,10 @@ val spoofSimDataPatch = bytecodePatch(
 
                 val replacement = when (match) {
                     MethodCall.NetworkCountryIso -> networkCountryIso?.lowercase()
-                    MethodCall.NetworkOperator -> networkOperator.toString()
+                    MethodCall.NetworkOperator -> networkOperator?.toString()
                     MethodCall.NetworkOperatorName -> networkOperatorName
                     MethodCall.SimCountryIso -> simCountryIso?.lowercase()
-                    MethodCall.SimOperator -> simOperator.toString()
+                    MethodCall.SimOperator -> simOperator?.toString()
                     MethodCall.SimOperatorName -> simOperatorName
                 }
                 replacement?.let { instructionIndex to it }
