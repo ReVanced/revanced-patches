@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
-import java.util.*
+import java.util.Locale
 
 @Suppress("unused")
 val spoofSimDataPatch = bytecodePatch(
@@ -75,6 +75,7 @@ private fun transformMethodCall(
 ) {
     val (instructionIndex, methodCallValue) = entry
 
+    // Get the register which would have contained the return value
     val register = mutableMethod.getInstruction<OneRegisterInstruction>(instructionIndex + 1).registerA
 
     mutableMethod.replaceInstruction(
@@ -94,10 +95,42 @@ private enum class MethodCall(
             "Ljava/lang/String;",
         ),
     ),
+    NetworkOperator(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getNetworkOperator",
+            emptyList(),
+            "Ljava/lang/String;",
+        ),
+    ),
+    NetworkOperatorName(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getNetworkOperatorName",
+            emptyList(),
+            "Ljava/lang/String;",
+        ),
+    ),
     SimCountryIso(
         ImmutableMethodReference(
             "Landroid/telephony/TelephonyManager;",
             "getSimCountryIso",
+            emptyList(),
+            "Ljava/lang/String;",
+        ),
+    ),
+    SimOperator(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getSimOperator",
+            emptyList(),
+            "Ljava/lang/String;",
+        ),
+    ),
+    SimOperatorName(
+        ImmutableMethodReference(
+            "Landroid/telephony/TelephonyManager;",
+            "getSimOperatorName",
             emptyList(),
             "Ljava/lang/String;",
         ),
