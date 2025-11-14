@@ -61,6 +61,8 @@ internal fun spoofVideoStreamsPatch(
             "invoke-static { }, $extensionClassDescriptor->setClientOrderToUse()V"
         )
 
+        // TODO?: Force off 45708738L ?
+
         // region Enable extension helper method used by other patches
 
         patchIncludedExtensionMethodFingerprint.method.returnEarly(true)
