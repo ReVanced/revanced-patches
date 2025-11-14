@@ -89,25 +89,23 @@ val spoofSimDataPatch = bytecodePatch(
                     MethodCall.SimOperator -> simOperator.toString()
                     MethodCall.SimOperatorName -> simOperatorName
                 }
-
                 replacement?.let { instructionIndex to it }
             },
-            transform = { mutableMethod, entry: Pair<Int, String> ->
-                transformMethodCall(entry, mutableMethod)
-            },
+            transform = ::transformMethodCall,
         ),
     )
 }
 
 private fun transformMethodCall(
-    entry: Pair<Int, String>,
     mutableMethod: MutableMethod,
+    entry: Pair<Int, String>,
 ) {
     val (instructionIndex, methodCallValue) = entry
 
     // Get the register which would have contained the return value
     val register = mutableMethod.getInstruction<OneRegisterInstruction>(instructionIndex + 1).registerA
 
+    // Replace the move-result instruction with our fake value
     mutableMethod.replaceInstruction(
         instructionIndex + 1,
         "const-string v$register, \"$methodCallValue\"",
