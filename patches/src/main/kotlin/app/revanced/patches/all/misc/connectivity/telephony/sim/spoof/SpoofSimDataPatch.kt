@@ -167,3 +167,9 @@ private enum class MethodCall(
         ),
     ),
 }
+
+@Deprecated("Patch was renamed", ReplaceWith("spoofSimDataPatch"))
+@Suppress("unused")
+val spoofSimCountryPatch = bytecodePatch {
+    dependsOn(spoofSimDataPatch)
+}

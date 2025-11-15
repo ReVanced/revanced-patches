@@ -53,6 +53,7 @@ public final class app/revanced/patches/all/misc/connectivity/location/hide/Hide
 }
 
 public final class app/revanced/patches/all/misc/connectivity/telephony/sim/spoof/SpoofSimDataPatchKt {
+	public static final fun getSpoofSimCountryPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun getSpoofSimDataPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
