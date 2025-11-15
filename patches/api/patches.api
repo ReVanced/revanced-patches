@@ -52,7 +52,7 @@ public final class app/revanced/patches/all/misc/connectivity/location/hide/Hide
 	public static final fun getHideMockLocationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/all/misc/connectivity/telephony/sim/spoof/SpoofSimDataPatchKt {
+public final class app/revanced/patches/all/misc/connectivity/telephony/sim/spoof/SpoofSimCountryPatchKt {
 	public static final fun getSpoofSimCountryPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 	public static final fun getSpoofSimDataPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
