@@ -16,9 +16,9 @@ import java.util.Locale
 import java.util.regex.Pattern
 
 @Suppress("unused")
-val spoofSimDataPatch = bytecodePatch(
-    name = "Spoof SIM data",
-    description = "Spoofs information returned by the SIM card provider.",
+val spoofSimProviderPatch = bytecodePatch(
+    name = "Spoof SIM provider",
+    description = "Spoofs information about the SIM card provider.",
     use = false,
 ) {
     val countries = Locale.getISOCountries().associateBy { Locale("", it).displayCountry }
@@ -168,8 +168,8 @@ private enum class MethodCall(
     ),
 }
 
-@Deprecated("Patch was renamed", ReplaceWith("spoofSimDataPatch"))
+@Deprecated("Patch was renamed", ReplaceWith("spoofSimProviderPatch"))
 @Suppress("unused")
 val spoofSimCountryPatch = bytecodePatch {
-    dependsOn(spoofSimDataPatch)
+    dependsOn(spoofSimProviderPatch)
 }
