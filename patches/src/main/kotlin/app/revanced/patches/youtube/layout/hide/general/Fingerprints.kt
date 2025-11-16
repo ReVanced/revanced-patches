@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.general
 
+import app.revanced.patcher.StringMatchType
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
@@ -42,7 +43,7 @@ internal val parseElementFromBufferFingerprint = fingerprint {
         // IGET_BOOLEAN // 20.07+
         opcode(Opcode.INVOKE_INTERFACE, maxAfter = 1),
         opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0),
-        string("Failed to parse Element", partialMatch = true)
+        string("Failed to parse Element", matchType = StringMatchType.STARTS_WITH)
     )
 }
 

@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.links
 
+import app.revanced.patcher.StringMatchType
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.string
@@ -14,7 +15,7 @@ internal val abUriParserLegacyFingerprint = fingerprint {
     parameters("Ljava/lang/Object;")
     instructions(
         string("Found entityKey=`"),
-        string("that does not contain a PlaylistVideoEntityId", partialMatch = true),
+        string("that does not contain a PlaylistVideoEntityId", matchType = StringMatchType.CONTAINS),
         methodCall(smali = "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;")
     )
 }

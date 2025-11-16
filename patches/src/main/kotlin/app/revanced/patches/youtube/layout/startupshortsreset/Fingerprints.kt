@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.startupshortsreset
 
+import app.revanced.patcher.StringMatchType
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
@@ -21,7 +22,7 @@ internal val userWasInShortsAlternativeFingerprint = fingerprint {
         methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z", maxAfter = 0),
         opcode(Opcode.MOVE_RESULT, maxAfter = 0),
         // 20.40+ string was merged into another string and is a partial match.
-        string("userIsInShorts: ", partialMatch = true, maxAfter = 15)
+        string("userIsInShorts: ", matchType = StringMatchType.CONTAINS, maxAfter = 15)
     )
 }
 
