@@ -6,12 +6,6 @@ import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-
-internal val p = fingerprint {
-    strings("enable_media_notes_production", "MediaDict")
-    custom { method, _ -> method.name == "parseFromJson" }
-}
-
 internal val mediaJsonParserFingerprint = fingerprint {
     custom { method, classDef ->classDef.type == "LX/5rs;" && method.name == "A01"}
 }
@@ -21,7 +15,7 @@ internal val mediaJsonParserFingerprint2 = fingerprint {
 }
 
 internal val mediaJsonParserFingerprint3 = fingerprint {
-    custom { method, classDef ->classDef.type == "LX/7Sz;" && method.name == "A03"}
+    custom { method, classDef ->classDef.type == "LX/7Sz;" && method.name == "A04"}
 }
 
 internal val mediaJsonParserFingerprint4 = fingerprint {

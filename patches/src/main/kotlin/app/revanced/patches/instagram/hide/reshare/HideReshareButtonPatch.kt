@@ -13,26 +13,12 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 @Suppress("unused")
 val hideReshareButtonPatch = bytecodePatch(
     name = "Hide reshare button",
-    description = "Hides the reshare button from both posts and reels.",
+    description = "Hides the reshare button from posts.",
     use = false
 ) {
     compatibleWith("com.instagram.android")
 
     execute {
-        p.method.apply {
-            val setCanReshareInstructionIndex = indexOfFirstInstruction(
-                p.stringMatches!!.first().index,
-                Opcode.MOVE_RESULT_OBJECT
-            )
-
-            val canReshareBooleanRegister = getInstruction<OneRegisterInstruction>(setCanReshareInstructionIndex).registerA
-
-            addInstruction(
-                setCanReshareInstructionIndex + 1,
-                "sget-object v$canReshareBooleanRegister, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;"
-            )
-        }
-
         mediaJsonParserFingerprint.method.apply {
             addInstruction(
                 0,
@@ -47,7 +33,7 @@ val hideReshareButtonPatch = bytecodePatch(
 
         mediaJsonParserFingerprint3.method.apply {
             val i = indexOfFirstInstructionOrThrow {
-                getReference<FieldReference>()?.name=="A3E"
+                getReference<FieldReference>()?.name=="A3J"
             }
 
             addInstruction(i,
