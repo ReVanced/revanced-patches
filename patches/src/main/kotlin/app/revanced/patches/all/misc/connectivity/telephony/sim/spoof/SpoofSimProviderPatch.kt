@@ -36,6 +36,9 @@ val spoofSimProviderPatch = bytecodePatch(
         validator = { it: String? -> it == null || it.uppercase() in countries.values },
     )
 
+    fun isMccMncValid(it: Int?): Boolean =
+        it == null || Pattern.matches("[0-9]{5,6}", it.toString())
+
     val networkCountryIso by isoCountryPatchOption(
         "networkCountryIso",
         "Network ISO country code",
@@ -44,8 +47,8 @@ val spoofSimProviderPatch = bytecodePatch(
     val networkOperator by intOption(
         key = "networkOperator",
         title = "MCC+MNC network operator code",
-        description =  "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the network operator.",
-        validator = { it: Int? -> it == null || Pattern.matches("[0-9]{5,6}", it.toString()) }
+        description = "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the network operator.",
+        validator = { isMccMncValid(it) }
     )
 
     val networkOperatorName by stringOption(
@@ -62,8 +65,8 @@ val spoofSimProviderPatch = bytecodePatch(
     val simOperator by intOption(
         key = "simOperator",
         title = "MCC+MNC SIM operator code",
-        description =  "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the SIM operator.",
-        validator = { it: Int? -> it == null || Pattern.matches("[0-9]{5,6}", it.toString()) }
+        description = "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the SIM operator.",
+        validator = { isMccMncValid(it) }
     )
 
     val simOperatorName by stringOption(
