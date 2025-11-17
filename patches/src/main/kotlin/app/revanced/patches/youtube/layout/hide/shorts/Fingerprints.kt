@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
+import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
@@ -29,17 +30,17 @@ internal val renderBottomNavigationBarFingerprint = fingerprint {
     returns("V")
     parameters("Ljava/lang/String;")
     instructions(
-        opcode(Opcode.IGET_OBJECT, maxAfter = 0),
-        opcode(Opcode.MONITOR_ENTER, maxAfter = 0),
-        opcode(Opcode.IGET_OBJECT, maxAfter = 0),
-        opcode(Opcode.IF_EQZ, maxAfter = 0),
-        opcode(Opcode.INVOKE_INTERFACE, maxAfter = 0),
+        opcode(Opcode.IGET_OBJECT, MatchFirst()),
+        opcode(Opcode.MONITOR_ENTER, MatchAfterImmediately()),
+        opcode(Opcode.IGET_OBJECT, MatchAfterImmediately()),
+        opcode(Opcode.IF_EQZ, MatchAfterImmediately()),
+        opcode(Opcode.INVOKE_INTERFACE, MatchAfterImmediately()),
 
         opcode(Opcode.MONITOR_EXIT),
-        opcode(Opcode.RETURN_VOID, maxAfter = 0),
-        opcode(Opcode.MOVE_EXCEPTION, maxAfter = 0),
-        opcode(Opcode.MONITOR_EXIT, maxAfter = 0),
-        opcode(Opcode.THROW, maxAfter = 0),
+        opcode(Opcode.RETURN_VOID, MatchAfterImmediately()),
+        opcode(Opcode.MOVE_EXCEPTION, MatchAfterImmediately()),
+        opcode(Opcode.MONITOR_EXIT, MatchAfterImmediately()),
+        opcode(Opcode.THROW, MatchAfterImmediately()),
     )
 }
 

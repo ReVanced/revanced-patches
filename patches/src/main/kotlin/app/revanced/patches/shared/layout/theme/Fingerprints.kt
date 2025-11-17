@@ -1,5 +1,7 @@
 package app.revanced.patches.shared.layout.theme
 
+import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
+import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
@@ -21,18 +23,18 @@ internal val lithoOnBoundsChangeFingerprint = fingerprint {
             definingClass = "this",
             name = "isStateful",
             returnType = "Z",
-            maxAfter = 5
+            location = MatchAfterWithin(5)
         ),
 
         fieldAccess(
             opcode = Opcode.IGET_OBJECT,
             definingClass = "this",
             type = "Landroid/graphics/Paint",
-            maxAfter = 5
+            location = MatchAfterWithin(5)
         ),
         methodCall(
             smali = "Landroid/graphics/Paint;->setColor(I)V",
-            maxAfter = 0
+            location = MatchAfterImmediately()
         )
     )
     custom { method, _ ->

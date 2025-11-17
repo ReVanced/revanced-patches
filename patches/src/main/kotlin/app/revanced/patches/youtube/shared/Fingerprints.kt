@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.shared
 
+import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
@@ -104,7 +105,7 @@ internal val seekbarFingerprint = fingerprint {
 internal val seekbarOnDrawFingerprint = fingerprint {
     instructions(
         methodCall(smali = "Ljava/lang/Math;->round(F)I"),
-        opcode(Opcode.MOVE_RESULT, maxAfter = 0)
+        opcode(Opcode.MOVE_RESULT, location = MatchAfterImmediately())
     )
     custom { method, _ -> method.name == "onDraw" }
 }
@@ -127,6 +128,6 @@ internal val videoQualityChangedFingerprint = fingerprint {
         newInstance("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"),
         opcode(Opcode.IGET_OBJECT),
         opcode(Opcode.CHECK_CAST),
-        fieldAccess(type = "I", opcode = Opcode.IGET, maxAfter = 0), // Video resolution (human readable).
+        fieldAccess(type = "I", opcode = Opcode.IGET, location = MatchAfterImmediately()), // Video resolution (human readable).
     )
 }

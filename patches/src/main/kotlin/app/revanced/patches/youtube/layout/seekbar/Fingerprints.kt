@@ -1,14 +1,16 @@
 package app.revanced.patches.youtube.layout.seekbar
 
+import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
+import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.anyInstruction
 import app.revanced.patcher.fingerprint
-import app.revanced.patches.youtube.shared.YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
+import app.revanced.patches.youtube.shared.YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -86,8 +88,8 @@ internal val playerLinearGradientFingerprint = fingerprint {
     instructions(
         resourceLiteral(ResourceType.COLOR, "yt_youtube_magenta"),
 
-        opcode(Opcode.FILLED_NEW_ARRAY, maxAfter = 5),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
+        opcode(Opcode.FILLED_NEW_ARRAY, location = MatchAfterWithin(5)),
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately())
     )
 }
 
@@ -100,7 +102,7 @@ internal val playerLinearGradientLegacyFingerprint = fingerprint {
         resourceLiteral(ResourceType.COLOR, "yt_youtube_magenta"),
 
         opcode(Opcode.FILLED_NEW_ARRAY),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0),
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
     )
 }
 

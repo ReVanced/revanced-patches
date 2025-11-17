@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.formfactor
 
+import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fieldAccess
@@ -56,7 +57,7 @@ val changeFormFactorPatch = bytecodePatch(
                 fieldAccess(
                     definingClass = formFactorEnumConstructorFingerprint.originalClassDef.type,
                     type = "I",
-                    maxAfter = 50
+                    location = MatchAfterWithin(50)
                 )
             )
         }

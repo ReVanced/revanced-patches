@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.shortsautoplay
 
+import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
@@ -43,8 +44,20 @@ internal val reelPlaybackFingerprint = fingerprint {
     parameters("J")
     returns("V")
     instructions(
-        fieldAccess(definingClass = "Ljava/util/concurrent/TimeUnit;", name = "MILLISECONDS"),
-        methodCall(name = "<init>", parameters = listOf("I", "L", "L"), maxAfter = 15),
-        methodCall(opcode = Opcode.INVOKE_VIRTUAL, parameters = listOf("L"), returnType = "I", maxAfter = 5)
+        fieldAccess(
+            definingClass = "Ljava/util/concurrent/TimeUnit;",
+            name = "MILLISECONDS"
+        ),
+        methodCall(
+            name = "<init>",
+            parameters = listOf("I", "L", "L"),
+            location = MatchAfterWithin(15)
+        ),
+        methodCall(
+            opcode = Opcode.INVOKE_VIRTUAL,
+            parameters = listOf("L"),
+            returnType = "I",
+            location = MatchAfterWithin(5)
+        )
     )
 }

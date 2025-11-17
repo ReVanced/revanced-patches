@@ -2,6 +2,7 @@
 
 package app.revanced.patches.youtube.layout.miniplayer
 
+import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
@@ -105,7 +106,7 @@ internal val miniplayerModernForwardButtonFingerprint = fingerprint {
     parameters()
     instructions(
         resourceLiteral(ResourceType.ID, "modern_miniplayer_forward_button"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 5)
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterWithin(5))
     )
 }
 
@@ -114,7 +115,7 @@ internal val miniplayerModernOverlayViewFingerprint = fingerprint {
     parameters()
     instructions(
         resourceLiteral(ResourceType.ID, "scrim_overlay"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 5)
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterWithin(5))
     )
 }
 
@@ -127,7 +128,7 @@ internal val miniplayerModernRewindButtonFingerprint = fingerprint {
     parameters()
     instructions(
         resourceLiteral(ResourceType.ID, "modern_miniplayer_rewind_button"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 5)
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterWithin(5))
     )
 }
 
@@ -140,7 +141,7 @@ internal val miniplayerModernActionButtonFingerprint = fingerprint {
     parameters()
     instructions(
         resourceLiteral(ResourceType.ID, "modern_miniplayer_overlay_action_button"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 5)
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterWithin(5))
     )
 }
 
@@ -161,7 +162,7 @@ internal val miniplayerOverrideFingerprint = fingerprint {
         methodCall(
             parameters = listOf("Landroid/content/Context;"),
             returnType = "Z",
-            maxAfter = 10
+            location = MatchAfterWithin(10)
         )
     )
 }
@@ -216,4 +217,3 @@ internal val miniplayerSetIconsFingerprint = fingerprint {
         resourceLiteral(ResourceType.DRAWABLE, "yt_fill_pause_black_36")
     )
 }
-

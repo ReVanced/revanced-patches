@@ -835,8 +835,8 @@ public final class app/revanced/patches/shared/misc/mapping/ResourceMappingPatch
 	public static final fun getResourceId (Lapp/revanced/patches/shared/misc/mapping/ResourceType;Ljava/lang/String;)J
 	public static final fun getResourceMappingPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 	public static final fun hasResourceId (Lapp/revanced/patches/shared/misc/mapping/ResourceType;Ljava/lang/String;)Z
-	public static final fun resourceLiteral (Lapp/revanced/patches/shared/misc/mapping/ResourceType;Ljava/lang/String;I)Lapp/revanced/patcher/LiteralFilter;
-	public static synthetic fun resourceLiteral$default (Lapp/revanced/patches/shared/misc/mapping/ResourceType;Ljava/lang/String;IILjava/lang/Object;)Lapp/revanced/patcher/LiteralFilter;
+	public static final fun resourceLiteral (Lapp/revanced/patches/shared/misc/mapping/ResourceType;Ljava/lang/String;Lapp/revanced/patcher/InstructionLocation;)Lapp/revanced/patcher/LiteralFilter;
+	public static synthetic fun resourceLiteral$default (Lapp/revanced/patches/shared/misc/mapping/ResourceType;Ljava/lang/String;Lapp/revanced/patcher/InstructionLocation;ILjava/lang/Object;)Lapp/revanced/patcher/LiteralFilter;
 }
 
 public final class app/revanced/patches/shared/misc/mapping/ResourceType : java/lang/Enum {

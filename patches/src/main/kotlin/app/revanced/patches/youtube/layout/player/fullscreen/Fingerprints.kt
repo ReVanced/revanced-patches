@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
+import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.opcode
@@ -15,8 +16,8 @@ internal val openVideosFullscreenPortraitFingerprint = fingerprint {
     instructions(
         opcode(Opcode.MOVE_RESULT), // Conditional check to modify.
         // Open videos fullscreen portrait feature flag.
-        literal(45666112L, maxAfter = 5), // Cannot be more than 5.
-        opcode(Opcode.MOVE_RESULT, maxAfter = 10),
+        literal(45666112L, location = MatchAfterWithin(5)), // Cannot be more than 5.
+        opcode(Opcode.MOVE_RESULT, location = MatchAfterWithin(10)),
     )
 }
 

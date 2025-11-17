@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.settings
 
+import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.opcode
@@ -31,7 +32,7 @@ internal val cairoFragmentConfigFingerprint = fingerprint {
     returns("Z")
     instructions(
         literal(45532100L),
-        opcode(Opcode.MOVE_RESULT, 10)
+        opcode(Opcode.MOVE_RESULT, location = MatchAfterWithin(10))
     )
 }
 

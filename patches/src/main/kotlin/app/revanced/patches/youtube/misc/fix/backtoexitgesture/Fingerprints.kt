@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 
+import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
@@ -26,10 +27,10 @@ internal val recyclerViewTopScrollingFingerprint = fingerprint {
     parameters()
     instructions(
         methodCall(smali = "Ljava/util/Iterator;->next()Ljava/lang/Object;"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0),
-        checkCast("Landroid/support/v7/widget/RecyclerView;", maxAfter = 0),
-        literal(0, maxAfter = 0),
-        methodCall(definingClass = "Landroid/support/v7/widget/RecyclerView;", maxAfter = 0),
-        opcode(Opcode.GOTO, maxAfter = 0)
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
+        checkCast("Landroid/support/v7/widget/RecyclerView;", MatchAfterImmediately()),
+        literal(0, location = MatchAfterImmediately()),
+        methodCall(definingClass = "Landroid/support/v7/widget/RecyclerView;", location = MatchAfterImmediately()),
+        opcode(Opcode.GOTO, MatchAfterImmediately())
     )
 }

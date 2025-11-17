@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.general
 
+import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.StringMatchType
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
@@ -23,7 +24,7 @@ internal val hideShowMoreButtonFingerprint = fingerprint {
     instructions(
         resourceLiteral(ResourceType.LAYOUT, "expand_button_down"),
         methodCall(smali = "Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, 0)
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately())
     )
 }
 
@@ -41,8 +42,9 @@ internal val parseElementFromBufferFingerprint = fingerprint {
     instructions(
         opcode(Opcode.IGET_OBJECT),
         // IGET_BOOLEAN // 20.07+
-        opcode(Opcode.INVOKE_INTERFACE, maxAfter = 1),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0),
+        opcode(Opcode.INVOKE_INTERFACE, location = MatchAfterWithin(1)),
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
+
         string("Failed to parse Element", matchType = StringMatchType.STARTS_WITH)
     )
 }
@@ -135,8 +137,8 @@ internal val showFloatingMicrophoneButtonFingerprint = fingerprint {
     parameters()
     instructions(
         resourceLiteral(ResourceType.ID, "fab"),
-        checkCast("/FloatingActionButton;", maxAfter = 10),
-        opcode(Opcode.IGET_BOOLEAN, maxAfter = 10)
+        checkCast("/FloatingActionButton;", location = MatchAfterWithin(10)),
+        opcode(Opcode.IGET_BOOLEAN, location = MatchAfterWithin(15))
     )
 }
 

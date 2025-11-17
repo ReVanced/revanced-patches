@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.playertype
 
+import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.opcode
 import app.revanced.patcher.string
@@ -30,7 +31,7 @@ internal val reelWatchPagerFingerprint = fingerprint {
     returns("Landroid/view/View;")
     instructions(
         resourceLiteral(ResourceType.ID, "reel_watch_player"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 10)
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterWithin(10))
     )
 }
 

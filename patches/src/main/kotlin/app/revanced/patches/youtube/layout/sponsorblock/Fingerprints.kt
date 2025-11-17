@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
+import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
@@ -22,7 +23,7 @@ internal val appendTimeFingerprint = fingerprint {
         resourceLiteral(ResourceType.STRING, "total_time"),
 
         methodCall(smali = "Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately())
     )
 }
 
@@ -31,7 +32,7 @@ internal val controlsOverlayFingerprint = fingerprint {
     parameters()
     instructions(
         resourceLiteral(ResourceType.ID, "inset_overlay_view_layout"),
-        checkCast("Landroid/widget/FrameLayout;", maxAfter = 20)
+        checkCast("Landroid/widget/FrameLayout;", MatchAfterWithin(20))
     )
 }
 

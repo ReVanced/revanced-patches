@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.navigation
 
+import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
@@ -35,7 +36,7 @@ internal val appCompatToolbarBackButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/graphics/drawable/Drawable;")
     parameters()
-    custom { methodDef, classDef ->
+    custom { _, classDef ->
         classDef.type == "Landroid/support/v7/widget/Toolbar;"
     }
 }
@@ -143,7 +144,7 @@ internal val imageEnumConstructorFingerprint = fingerprint {
 internal val setEnumMapFingerprint = fingerprint {
     instructions(
         resourceLiteral(ResourceType.DRAWABLE, "yt_fill_bell_black_24"),
-        methodCall(smali = "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;", maxAfter = 10),
-        methodCall(smali = "Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;", maxAfter = 10)
+        methodCall(smali = "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;", location = MatchAfterWithin(10)),
+        methodCall(smali = "Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;", location = MatchAfterWithin(10))
     )
 }

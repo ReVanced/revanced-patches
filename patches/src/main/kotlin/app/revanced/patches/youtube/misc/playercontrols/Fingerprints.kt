@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
+import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
@@ -68,7 +69,7 @@ internal val playerTopControlsInflateFingerprint = fingerprint {
     instructions(
         resourceLiteral(ResourceType.ID, "controls_layout_stub"),
         methodCall("Landroid/view/ViewStub;", "inflate"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately())
     )
 }
 
@@ -78,7 +79,7 @@ internal val playerBottomControlsInflateFingerprint = fingerprint {
     instructions(
         resourceLiteral(ResourceType.ID, "bottom_ui_container_stub"),
         methodCall("Landroid/view/ViewStub;", "inflate"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0)
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately())
     )
 }
 

@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
+import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
@@ -12,7 +13,7 @@ internal val addCreateButtonViewFingerprint = fingerprint {
     instructions(
         string("Android Wear"),
         opcode(Opcode.IF_EQZ),
-        string("Android Automotive", maxAfter = 0),
+        string("Android Automotive", location = MatchAfterImmediately()),
     )
 }
 

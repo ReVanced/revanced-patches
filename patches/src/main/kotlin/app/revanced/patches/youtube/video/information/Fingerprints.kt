@@ -1,5 +1,8 @@
 package app.revanced.patches.youtube.video.information
 
+import app.revanced.patcher.InstructionFilter
+import app.revanced.patcher.InstructionLocation
+import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
@@ -9,7 +12,10 @@ import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 internal val createVideoPlayerSeekbarFingerprint = fingerprint {
     returns("V")
@@ -48,6 +54,21 @@ internal val playerInitFingerprint = fingerprint {
 internal val seekFingerprint = fingerprint {
     instructions(
         string("Attempting to seek during an ad"),
+        object : InstructionFilter {
+            override fun matches(
+                enclosingMethod: Method,
+                instruction: Instruction
+            ): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override val location: InstructionLocation = InstructionLocation.MatchFirst()
+        },
+
+        // Custom inline filter. Uses default match anywhere after the previous filter.
+        { _, instruction ->
+            instruction.getReference<StringReference>()?.string?.let { it.length > 10 } ?: false
+        }
     )
 }
 
@@ -129,7 +150,7 @@ internal val videoEndFingerprint = fingerprint {
             parameters = listOf(),
             returnType = "V"
         ),
-        literal(45368273L, maxAfter = 5),
+        literal(45368273L, location = MatchAfterWithin(5)),
         string("Attempting to seek when video is not playing"),
     )
 }

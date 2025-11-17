@@ -1,5 +1,7 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
+import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
+import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
@@ -121,12 +123,12 @@ internal val seekbarTappingFingerprint = fingerprint {
         literal(Int.MAX_VALUE),
 
         newInstance("Landroid/graphics/Point;"),
-        methodCall(smali = "Landroid/graphics/Point;-><init>(II)V", maxAfter = 0),
-        methodCall(smali = "Lj\$/util/Optional;->of(Ljava/lang/Object;)Lj\$/util/Optional;", maxAfter = 0),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 0),
-        fieldAccess(opcode = Opcode.IPUT_OBJECT, type = "Lj\$/util/Optional;", maxAfter = 0),
+        methodCall(smali = "Landroid/graphics/Point;-><init>(II)V", location = MatchAfterImmediately()),
+        methodCall(smali = "Lj\$/util/Optional;->of(Ljava/lang/Object;)Lj\$/util/Optional;", location = MatchAfterImmediately()),
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
+        fieldAccess(opcode = Opcode.IPUT_OBJECT, type = "Lj\$/util/Optional;", location = MatchAfterImmediately()),
 
-        opcode(Opcode.INVOKE_VIRTUAL, maxAfter = 10)
+        opcode(Opcode.INVOKE_VIRTUAL, location = MatchAfterWithin(10))
     )
     custom { method, _ -> method.name == "onTouchEvent" }
 }

@@ -1,6 +1,6 @@
 package app.revanced.patches.shared.misc.mapping
 
-import app.revanced.patcher.InstructionFilter.Companion.METHOD_MAX_INSTRUCTIONS
+import app.revanced.patcher.InstructionLocation
 import app.revanced.patcher.LiteralFilter
 import app.revanced.patcher.literal
 import app.revanced.patcher.patch.PatchException
@@ -77,8 +77,8 @@ fun hasResourceId(type: ResourceType, name: String) = resourceMappings[type.valu
 fun resourceLiteral(
     type: ResourceType,
     name: String,
-    maxBefore: Int = METHOD_MAX_INSTRUCTIONS,
-) = literal({ getResourceId(type, name) }, null, maxBefore)
+    location : InstructionLocation = InstructionLocation.MatchAfterAnywhere()
+) = literal({ getResourceId(type, name) }, null, location)
 
 
 val resourceMappingPatch = resourcePatch {

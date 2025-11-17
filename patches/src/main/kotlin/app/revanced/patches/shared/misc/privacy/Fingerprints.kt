@@ -1,5 +1,7 @@
 package app.revanced.patches.shared.misc.privacy
 
+import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
+import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
@@ -13,15 +15,15 @@ internal val youTubeCopyTextFingerprint = fingerprint {
     parameters("L", "Ljava/util/Map;")
     instructions(
         opcode(Opcode.IGET_OBJECT),
-        string("text/plain", maxAfter = 2),
+        string("text/plain", location = MatchAfterWithin(2)),
         methodCall(
             smali = "Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;",
-            maxAfter = 2
+            location = MatchAfterWithin(2)
         ),
-        opcode(Opcode.MOVE_RESULT_OBJECT, maxAfter = 2),
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterWithin(2)),
         methodCall(
             smali = "Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V",
-            maxAfter = 2
+            location = MatchAfterWithin(2)
         )
     )
 }
@@ -36,18 +38,18 @@ internal val youTubeSystemShareSheetFingerprint = fingerprint {
 
         methodCall(
             smali = "Ljava/util/List;->iterator()Ljava/util/Iterator;",
-            maxAfter = 4
+            location = MatchAfterWithin(4)
         ),
 
         fieldAccess(
             opcode = Opcode.IGET_OBJECT,
             type = "Ljava/lang/String;",
-            maxAfter = 15
+            location = MatchAfterWithin(15)
         ),
 
         methodCall(
             smali = "Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;",
-            maxAfter = 15
+            location = MatchAfterWithin(15)
         )
     )
 }
@@ -57,8 +59,8 @@ internal val youTubeShareSheetFingerprint = fingerprint {
     parameters("L", "Ljava/util/Map;")
     instructions(
         opcode(Opcode.IGET_OBJECT),
-        checkCast("Ljava/lang/String;", maxAfter = 0),
-        opcode(Opcode.GOTO, maxAfter = 0),
+        checkCast("Ljava/lang/String;", location = MatchAfterImmediately()),
+        opcode(Opcode.GOTO, location = MatchAfterImmediately()),
 
         methodCall(smali = "Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;"),
 
