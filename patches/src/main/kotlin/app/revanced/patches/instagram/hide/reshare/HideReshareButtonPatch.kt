@@ -1,13 +1,10 @@
 package app.revanced.patches.instagram.hide.reshare
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
@@ -20,11 +17,13 @@ val hideReshareButtonPatch = bytecodePatch(
 
     execute {
         mediaJsonParserFingerprint.method.apply {
-            addInstruction(
+            addInstructions(
                 0,
                 """
                     move-object/from16 v2, p3
                     const/16 v0, 0x94
+                    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+                    move-result-object v0
                     sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
                     invoke-virtual {v2, v0, v1}, Ljava/util/AbstractMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
                 """
@@ -32,7 +31,7 @@ val hideReshareButtonPatch = bytecodePatch(
         }
 
         mediaJsonParserFingerprint3.method.apply {
-            val i = indexOfFirstInstructionOrThrow {
+            val i =  indexOfFirstInstructionOrThrow {
                 getReference<FieldReference>()?.name=="A3J"
             }
 
@@ -41,14 +40,5 @@ val hideReshareButtonPatch = bytecodePatch(
             )
         }
 
-        mediaJsonParserFingerprint4.method.apply {
-            val i = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.CONST_16 && (this as NarrowLiteralInstruction).narrowLiteral == 0x94
-            }
-
-            addInstruction(i,
-                "sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;"
-            )
-        }
     }
 }
