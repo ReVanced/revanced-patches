@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 @Suppress("unused")
 val hideReshareButtonPatch = bytecodePatch(
     name = "Hide reshare button",
-    description = "Hides the reshare button from posts.",
+    description = "Hides the reshare button from both posts and reels.",
     use = false
 ) {
     compatibleWith("com.instagram.android")
