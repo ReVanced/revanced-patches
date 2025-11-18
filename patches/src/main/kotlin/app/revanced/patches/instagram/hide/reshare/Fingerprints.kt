@@ -2,9 +2,9 @@ package app.revanced.patches.instagram.hide.reshare
 
 import app.revanced.patcher.fingerprint
 import app.revanced.util.indexOfFirstInstruction
+import app.revanced.util.indexOfFirstLiteralInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.iface.instruction.formats.SparseSwitchPayload
 
 // The hash code of the field of interest. It is used as the key of a hashmap
@@ -25,8 +25,6 @@ internal val reelPostsResponseMediaParserFingerprint = fingerprint {
     parameters("L", "L", "L", "[I")
     returns("L")
     custom { method, _ ->
-        method.indexOfFirstInstruction {
-            opcode == Opcode.CONST && (this as Instruction31i).narrowLiteral == hashedFieldInteger
-        } >= 0
+        method.indexOfFirstLiteralInstruction(hashedFieldInteger.toLong()) >= 0
     }
 }
