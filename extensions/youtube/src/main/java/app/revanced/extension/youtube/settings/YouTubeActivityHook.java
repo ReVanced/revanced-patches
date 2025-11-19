@@ -27,7 +27,7 @@ public class YouTubeActivityHook extends BaseActivityHook {
      * forcing bold icons on first launch where the settings menu is partially broken
      * due to missing icon resources the client has not yet received.
      */
-    private static final long MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS = 10 * 1000; // 10 seconds.
+    private static final long MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS = 30 * 1000; // 30 seconds.
 
     private static final boolean USE_BOLD_ICONS = VersionCheckPatch.IS_20_31_OR_GREATER
             && !Settings.SETTINGS_DISABLE_BOLD_ICONS.get()
