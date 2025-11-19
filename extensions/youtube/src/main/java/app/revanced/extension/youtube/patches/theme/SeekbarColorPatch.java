@@ -103,16 +103,6 @@ public final class SeekbarColorPatch {
     }
 
     /**
-     * injection point.
-     */
-    public static boolean useLotteLaunchSplashScreen(boolean original) {
-        // This method is only used for development purposes to force the old style launch screen.
-        // Forcing this off on some devices can cause unexplained startup crashes,
-        // where the lottie animation is still used even though this condition appears to bypass it.
-        return original; // false = drawable style, true = lottie style.
-    }
-
-    /**
      * Injection point.
      * Modern Lottie style animation.
      */

@@ -106,25 +106,6 @@ internal val playerLinearGradientLegacyFingerprint = fingerprint {
     )
 }
 
-internal const val launchScreenLayoutTypeLotteFeatureLegacyFlag = 268507948L
-internal const val launchScreenLayoutTypeLotteFeatureFlag = 1073814316L
-
-internal val launchScreenLayoutTypeFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    instructions(
-        anyInstruction(
-            literal(launchScreenLayoutTypeLotteFeatureLegacyFlag),
-            literal(launchScreenLayoutTypeLotteFeatureFlag)
-        )
-    )
-    custom { method, _ ->
-        val firstParameter = method.parameterTypes.firstOrNull()
-        // 19.25 - 19.45
-        firstParameter == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
-                || firstParameter == "Landroid/app/Activity;" // 19.46+
-    }
-}
-
 internal const val LOTTIE_ANIMATION_VIEW_CLASS_TYPE = "Lcom/airbnb/lottie/LottieAnimationView;"
 
 internal val lottieAnimationViewSetAnimationIntFingerprint = fingerprint {

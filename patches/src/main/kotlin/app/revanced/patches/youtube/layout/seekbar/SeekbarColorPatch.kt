@@ -154,21 +154,6 @@ val seekbarColorPatch = bytecodePatch(
             return@execute // 19.25 does not have a cairo launch animation.
         }
 
-        // Add development hook to force old drawable splash animation.
-        arrayOf(
-            launchScreenLayoutTypeFingerprint,
-            mainActivityOnCreateFingerprint
-        ).forEach { fingerprint ->
-            fingerprint.method.insertLiteralOverride(
-                if (is_20_30_or_greater) {
-                    launchScreenLayoutTypeLotteFeatureFlag
-                } else {
-                    launchScreenLayoutTypeLotteFeatureLegacyFlag
-                },
-                "$EXTENSION_CLASS_DESCRIPTOR->useLotteLaunchSplashScreen(Z)Z"
-            )
-        }
-
         // Hook the splash animation to set the a seekbar color.
         mainActivityOnCreateFingerprint.method.apply {
             val setAnimationIntMethodName =
