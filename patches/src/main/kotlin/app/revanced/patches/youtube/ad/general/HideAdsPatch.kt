@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.ad.general
 
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.opcode
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -23,6 +24,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
+import org.stringtemplate.v4.compiler.Bytecode.instructions
 
 internal var adAttributionId = -1L
     private set
@@ -79,6 +81,8 @@ val hideAdsPatch = bytecodePatch(
             "19.43.41",
             "20.13.41",
             "20.14.43",
+            "20.21.37",
+            "20.31.40",
         )
     )
 

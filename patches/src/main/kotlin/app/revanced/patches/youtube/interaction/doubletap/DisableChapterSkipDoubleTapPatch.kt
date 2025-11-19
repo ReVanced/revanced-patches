@@ -30,6 +30,8 @@ val disableDoubleTapActionsPatch = bytecodePatch(
         "com.google.android.youtube"(
             "20.13.41",
             "20.14.43",
+            "20.21.37",
+            "20.31.40",
         )
     )
 

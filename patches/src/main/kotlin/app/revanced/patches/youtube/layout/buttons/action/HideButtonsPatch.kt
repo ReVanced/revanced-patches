@@ -28,6 +28,8 @@ val hideButtonsPatch = resourcePatch(
             "19.43.41",
             "20.13.41",
             "20.14.43",
+            "20.21.37",
+            // 20.22+ does not yet support hiding all player buttons.
         )
     )
 

@@ -26,8 +26,10 @@ internal var drawerResourceId = -1L
 
 private val hideInfocardsResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch
-    )
+        )
+    
     execute {
+
         drawerResourceId = getResourceId(
             ResourceType.ID,
             "info_cards_drawer_header",
@@ -53,6 +55,8 @@ val hideInfoCardsPatch = bytecodePatch(
             "19.43.41",
             "20.13.41",
             "20.14.43",
+            "20.21.37",
+            "20.31.40",
         )
     )
 
