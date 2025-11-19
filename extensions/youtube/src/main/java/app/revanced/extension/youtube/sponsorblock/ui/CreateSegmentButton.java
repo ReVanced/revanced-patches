@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController;
 import app.revanced.extension.youtube.videoplayer.PlayerControlButton;
@@ -17,9 +16,9 @@ import app.revanced.extension.youtube.videoplayer.PlayerControlButton;
 public class CreateSegmentButton {
 
     private static final int DRAWABLE_SB_LOGO = Utils.getResourceIdentifierOrThrow(
-            ResourceType.DRAWABLE, BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.get()
-                    ? "revanced_sb_logo"
-                    : "revanced_sb_logo_bold"
+            ResourceType.DRAWABLE, Utils.appIsUsingBoldIcons()
+                    ? "revanced_sb_logo_bold"
+                    : "revanced_sb_logo"
     );
 
     @Nullable

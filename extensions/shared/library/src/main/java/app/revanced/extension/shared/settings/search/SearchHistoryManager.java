@@ -25,7 +25,7 @@ import java.util.LinkedList;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.ResourceType;
-import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.preference.BulletPointPreference;
 import app.revanced.extension.shared.ui.CustomDialog;
 
@@ -340,10 +340,9 @@ public class SearchHistoryManager {
 
                 // Set history icon.
                 ImageView historyIcon = view.findViewById(ID_HISTORY_ICON);
-                historyIcon.setImageResource(
-                        BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.get()
-                                ? ID_SEARCH_ARROW_TIME_ICON
-                                : ID_SEARCH_ARROW_TIME_ICON_BOLD
+                historyIcon.setImageResource(Utils.appIsUsingBoldIcons()
+                        ? ID_SEARCH_ARROW_TIME_ICON_BOLD
+                        : ID_SEARCH_ARROW_TIME_ICON
                 );
 
                 TextView historyText = view.findViewById(ID_HISTORY_TEXT);
@@ -352,10 +351,9 @@ public class SearchHistoryManager {
                 // Set click listener for delete icon.
                 ImageView deleteIcon = view.findViewById(ID_DELETE_ICON);
 
-                deleteIcon.setImageResource(
-                        BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.get()
-                                ? ID_SEARCH_REMOVE_ICON
-                                : ID_SEARCH_REMOVE_ICON_BOLD
+                deleteIcon.setImageResource(Utils.appIsUsingBoldIcons()
+                                ? ID_SEARCH_REMOVE_ICON_BOLD
+                                : ID_SEARCH_REMOVE_ICON
                 );
 
                 deleteIcon.setOnClickListener(v -> createAndShowDialog(

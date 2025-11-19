@@ -82,6 +82,8 @@ public class Utils {
     @Nullable
     private static Boolean isDarkModeEnabled;
 
+    private static boolean appIsUsingBoldIcons;
+
     // Cached Collator instance with its locale.
     @Nullable
     private static Locale cachedCollatorLocale;
@@ -828,6 +830,21 @@ public class Utils {
 
         window.setAttributes(params); // Apply window attributes.
         window.setBackgroundDrawable(null); // Remove default dialog background
+    }
+
+    /**
+     * @return If the unpatched app is currently using bold icons.
+     */
+    public static boolean appIsUsingBoldIcons() {
+        return appIsUsingBoldIcons;
+    }
+
+    /**
+     * Controls if ReVanced bold icons are shown in various places.
+     * @param boldIcons If the app is currently using bold icons.
+     */
+    public static void setAppIsUsingBoldIcons(boolean boldIcons) {
+        appIsUsingBoldIcons = boldIcons;
     }
 
     /**

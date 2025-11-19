@@ -27,9 +27,9 @@ public class ReVancedSettingsIconDynamicDrawable extends Drawable {
 
     public ReVancedSettingsIconDynamicDrawable() {
         final int resId = Utils.getResourceIdentifier(ResourceType.DRAWABLE,
-                BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.get()
-                        ? "revanced_settings_icon"
-                        : "revanced_settings_icon_bold"
+                Utils.appIsUsingBoldIcons()
+                        ? "revanced_settings_icon_bold"
+                        : "revanced_settings_icon"
         );
 
         icon = Utils.getContext().getDrawable(resId);

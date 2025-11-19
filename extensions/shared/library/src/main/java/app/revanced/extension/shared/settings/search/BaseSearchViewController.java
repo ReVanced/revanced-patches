@@ -91,9 +91,9 @@ public abstract class BaseSearchViewController {
      * @return The search icon, either bold or not bold, depending on the ReVanced UI setting.
      */
     public static int getSearchIcon() {
-        return BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.get()
-                ? DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON
-                : DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON_BOLD;
+        return Utils.appIsUsingBoldIcons()
+                ? DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON_BOLD
+                : DRAWABLE_REVANCED_SETTINGS_SEARCH_ICON;
     }
 
     /**

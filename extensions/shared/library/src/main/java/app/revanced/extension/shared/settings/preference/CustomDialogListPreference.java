@@ -22,7 +22,6 @@ import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.ui.CustomDialog;
 
 /**
@@ -134,10 +133,9 @@ public class CustomDialogListPreference extends ListPreference {
                 holder.placeholder = view.findViewById(ID_REVANCED_CHECK_ICON_PLACEHOLDER);
                 holder.itemText = view.findViewById(ID_REVANCED_ITEM_TEXT);
                 holder.checkIcon = view.findViewById(ID_REVANCED_CHECK_ICON);
-                holder.checkIcon.setImageResource(
-                        BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.get()
-                                ? DRAWABLE_CHECKMARK
-                                : DRAWABLE_CHECKMARK_BOLD
+                holder.checkIcon.setImageResource(Utils.appIsUsingBoldIcons()
+                        ? DRAWABLE_CHECKMARK_BOLD
+                        : DRAWABLE_CHECKMARK
                 );
                 view.setTag(holder);
             } else {

@@ -136,9 +136,9 @@ public class ToolbarPreferenceFragment extends AbstractPreferenceFragment {
     @SuppressLint("UseCompatLoadingForDrawables")
     public static Drawable getBackButtonDrawable() {
         final int backButtonResource = Utils.getResourceIdentifierOrThrow(ResourceType.DRAWABLE,
-                BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.get()
-                        ? "revanced_settings_toolbar_arrow_left"
-                        : "revanced_settings_toolbar_arrow_left_bold");
+                Utils.appIsUsingBoldIcons()
+                        ? "revanced_settings_toolbar_arrow_left_bold"
+                        : "revanced_settings_toolbar_arrow_left");
         Drawable drawable = Utils.getContext().getResources().getDrawable(backButtonResource);
         customizeBackButtonDrawable(drawable);
         return drawable;

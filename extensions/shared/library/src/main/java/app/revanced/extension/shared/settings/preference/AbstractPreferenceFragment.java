@@ -106,9 +106,9 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
     protected void initialize() {
         String preferenceResourceName;
         if (BaseSettings.SHOW_MENU_ICONS.get()) {
-            preferenceResourceName = BaseSettings.SETTINGS_DISABLE_BOLD_ICONS.get()
-                    ? "revanced_prefs_icons"
-                    : "revanced_prefs_icons_bold";
+            preferenceResourceName = Utils.appIsUsingBoldIcons()
+                    ? "revanced_prefs_icons_bold"
+                    : "revanced_prefs_icons";
         } else {
             preferenceResourceName = "revanced_prefs";
         }
