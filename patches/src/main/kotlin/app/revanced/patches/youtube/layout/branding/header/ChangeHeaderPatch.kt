@@ -101,7 +101,6 @@ val changeHeaderPatch = resourcePatch(
     compatibleWith(
         "com.google.android.youtube"(
             "19.43.41",
-            "20.13.41",
             "20.14.43",
             "20.21.37",
             "20.31.40",
