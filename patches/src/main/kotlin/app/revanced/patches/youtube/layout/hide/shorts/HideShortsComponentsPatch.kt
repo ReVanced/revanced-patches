@@ -32,6 +32,7 @@ import app.revanced.util.removeFromParent
 import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import java.util.logging.Logger
 
 internal val hideShortsAppShortcutOption = booleanOption(
     key = "hideShortsAppShortcut",
@@ -71,8 +72,15 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
             SwitchPreference("revanced_hide_shorts_dislike_button"),
         )
 
-        if (!is_20_22_or_greater) {
+        if (is_20_22_or_greater) {
             // FIXME: The buffer is very different for 20.22+ and these current cannot be hidden.
+            Logger.getLogger(this::class.java.name).warning(
+                "\n!!!" +
+                        "\n!!! Shorts action buttons currently cannot be set hidden when patching 20.22+" +
+                        "\n!!! Patch 20.21.37 or lower if you want to hide Shorts action buttons" +
+                        "\n!!!"
+            )
+        } else {
             preferences.addAll(
                 listOf(
                     SwitchPreference("revanced_hide_shorts_comments_button"),

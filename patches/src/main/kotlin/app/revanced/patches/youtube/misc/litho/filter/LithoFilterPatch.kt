@@ -22,7 +22,6 @@ import app.revanced.util.insertLiteralOverride
 import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import java.util.logging.Logger
 
 lateinit var addLithoFilter: (String) -> Unit
     private set
@@ -208,16 +207,6 @@ val lithoFilterPatch = bytecodePatch(
 
         // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
         lithoConverterBufferUpbFeatureFlagFingerprint.let {
-            // Procool buffer has changed in 20.22, and UPB native code is now always enabled.
-            if (is_20_22_or_greater) {
-                Logger.getLogger(this::class.java.name).warning(
-                    "\n!!!" +
-                            "\n!!! Litho filtering is not yet fully supported when patching 20.22+" +
-                            "\n!!! Action buttons, Shorts shelves, and possibly other components cannot be set hidden." +
-                            "\n!!!"
-                )
-            }
-
             // 20.22 the flag is still enabled in one location, but what it does is not known.
             // Disable it anyway.
             it.method.insertLiteralOverride(

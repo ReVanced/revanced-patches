@@ -208,6 +208,13 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 // TODO: Support the new non litho Shorts layout.
                 // Turning off this flag on later versions can break the Shorts overlay and nothing is shown.
                 Logger.getLogger(this::class.java.name).warning(
+                    "\n!!!" +
+                            "\n!!! Dislikes are not yet fully supported when patching YouTube 20.40+" +
+                            "\n!!! Patch 20.21.37 or lower if you want to see dislikes" +
+                            "\n!!!"
+                )
+
+                Logger.getLogger(this::class.java.name).warning(
                     "20.40+ Shorts player is not fully supported yet. Shorts Dislikes may not show."
                 )
             } else {

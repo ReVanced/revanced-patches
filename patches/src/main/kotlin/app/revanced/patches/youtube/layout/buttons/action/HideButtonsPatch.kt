@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_22_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
+import java.util.logging.Logger
 
 val hideButtonsPatch = resourcePatch(
     name = "Hide video action buttons",
@@ -44,20 +45,30 @@ val hideButtonsPatch = resourcePatch(
                     SwitchPreference("revanced_hide_save_button"),
         )
 
-        if (!is_20_22_or_greater) {
+        if (is_20_22_or_greater) {
             // FIXME: 20.22+ filtering of the action buttons doesn't work because
             //        the buffer is the same for all buttons.
-            preferences.addAll(listOf(
-                SwitchPreference("revanced_hide_hype_button"),
+            Logger.getLogger(this::class.java.name).warning(
+                "\n!!!" +
+                        "\n!!! Not all player action buttons can be set hidden when patching 20.22+" +
+                        "\n!!! Patch 20.21.37 or lower if you want to hide player action buttons" +
+                        "\n!!!"
+            )
+        } else {
+            preferences.addAll(
+                listOf(
+                    SwitchPreference("revanced_hide_hype_button"),
                     SwitchPreference("revanced_hide_ask_button"),
-                SwitchPreference("revanced_hide_clip_button"),
+                    SwitchPreference("revanced_hide_clip_button"),
                     SwitchPreference("revanced_hide_promote_button"),
-                SwitchPreference("revanced_hide_remix_button"),
-                SwitchPreference("revanced_hide_report_button"),
-                SwitchPreference("revanced_hide_share_button"),
-                SwitchPreference("revanced_hide_shop_button"),SwitchPreference("revanced_hide_stop_ads_button"),
-                SwitchPreference("revanced_hide_thanks_button"),
-            ))
+                    SwitchPreference("revanced_hide_remix_button"),
+                    SwitchPreference("revanced_hide_report_button"),
+                    SwitchPreference("revanced_hide_share_button"),
+                    SwitchPreference("revanced_hide_shop_button"),
+                    SwitchPreference("revanced_hide_stop_ads_button"),
+                    SwitchPreference("revanced_hide_thanks_button"),
+                )
+            )
         }
 
         PreferenceScreen.PLAYER.addPreferences(
