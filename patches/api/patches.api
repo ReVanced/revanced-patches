@@ -477,6 +477,11 @@ public final class app/revanced/patches/music/misc/gms/GmsCoreSupportPatchKt {
 	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/misc/litho/filter/LithoFilterPatchKt {
+	public static final fun getAddLithoFilter ()Lkotlin/jvm/functions/Function1;
+	public static final fun getLithoFilterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/misc/privacy/SanitizeSharingLinksPatchKt {
 	public static final fun getSanitizeSharingLinksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
