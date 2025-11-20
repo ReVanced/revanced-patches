@@ -8,7 +8,6 @@ import app.revanced.util.returnEarly
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
-    use = false,
 ) {
     compatibleWith("com.letterboxd.letterboxd")
 
