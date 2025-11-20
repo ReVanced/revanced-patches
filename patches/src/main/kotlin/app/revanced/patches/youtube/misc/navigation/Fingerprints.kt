@@ -80,6 +80,10 @@ internal val navigationEnumFingerprint = fingerprint {
         "VIDEO_LIBRARY_WHITE",
         "INCOGNITO_CIRCLE",
     )
+    custom { _, classDef ->
+        // Don't match our own code.
+        !classDef.type.startsWith("Lapp/revanced")
+    }
 }
 
 internal val pivotBarButtonsCreateDrawableViewFingerprint = fingerprint {
