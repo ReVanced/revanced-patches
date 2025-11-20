@@ -13,10 +13,7 @@ val hideAdsPatch = bytecodePatch(
     compatibleWith("com.letterboxd.letterboxd")
 
     execute {
-        // Set the boolean parameter as false always.
-        admobHelperSetShowAdsFingerprint.method.apply {
-            addInstruction(0,"const p1, 0x0")
-        }
+        admobHelperSetShowAdsFingerprint.method.addInstruction(0, "const p1, 0x0")
 
         // Make the methods always return false.
         listOf(admobHelperShouldShowAdsFingerprint, filmFragmentShowAdsFingerprint, memberExtensionShowAdsFingerprint).forEach {
