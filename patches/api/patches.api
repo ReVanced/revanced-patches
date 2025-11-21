@@ -328,13 +328,6 @@ public final class app/revanced/patches/irplus/ad/RemoveAdsPatchKt {
 	public static final fun getRemoveAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/letterboxd/ads/FingerprintsKt {
-	public static final fun getAdmobHelperSetShowAdsFingerprint ()Lapp/revanced/patcher/Fingerprint;
-	public static final fun getAdmobHelperShouldShowAdsFingerprint ()Lapp/revanced/patcher/Fingerprint;
-	public static final fun getFilmFragmentShowAdsFingerprint ()Lapp/revanced/patcher/Fingerprint;
-	public static final fun getMemberExtensionShowAdsFingerprint ()Lapp/revanced/patcher/Fingerprint;
-}
-
 public final class app/revanced/patches/letterboxd/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
