@@ -121,17 +121,22 @@ fun extensionHook(
  *
  * @param activityClassType Either the full activity class type such as `Lcom/company/MainActivity;`
  *                          or the 'ends with' string for the activity such as `/MainActivity;`
+ * @param targetBundleMethod If the extension should hook `onCreate(Landroid/os/Bundle;)` or `onCreate()`
  */
-fun activityOnCreateExtensionHook(activityClassType: String): () -> ExtensionHook {
-    if (!activityClassType.endsWith(';')) {
-        throw IllegalArgumentException("Activity class type does not end with semicolon: $activityClassType")
+fun activityOnCreateExtensionHook(activityClassType: String, targetBundleMethod: Boolean = true): () -> ExtensionHook {
+    require(activityClassType.endsWith(';')) {
+        "Class type must end with a semicolon: $activityClassType"
     }
 
     val fullClassType = activityClassType.startsWith('L')
 
     return extensionHook {
         returns("V")
-        parameters("Landroid/os/Bundle;")
+        if (targetBundleMethod) {
+            parameters("Landroid/os/Bundle;")
+        } else {
+            parameters()
+        }
         custom { method, classDef ->
             method.name == "onCreate" &&
                     if (fullClassType) classDef.type == activityClassType

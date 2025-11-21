@@ -760,7 +760,8 @@ public final class app/revanced/patches/shared/misc/extension/ExtensionHook {
 }
 
 public final class app/revanced/patches/shared/misc/extension/SharedExtensionPatchKt {
-	public static final fun activityOnCreateExtensionHook (Ljava/lang/String;)Lkotlin/jvm/functions/Function0;
+	public static final fun activityOnCreateExtensionHook (Ljava/lang/String;Z)Lkotlin/jvm/functions/Function0;
+	public static synthetic fun activityOnCreateExtensionHook$default (Ljava/lang/String;ZILjava/lang/Object;)Lkotlin/jvm/functions/Function0;
 	public static final fun extensionHook (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lapp/revanced/patcher/Fingerprint;)Lapp/revanced/patches/shared/misc/extension/ExtensionHook;
 	public static final fun extensionHook (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lkotlin/jvm/functions/Function0;
 	public static synthetic fun extensionHook$default (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lapp/revanced/patcher/Fingerprint;ILjava/lang/Object;)Lapp/revanced/patches/shared/misc/extension/ExtensionHook;
