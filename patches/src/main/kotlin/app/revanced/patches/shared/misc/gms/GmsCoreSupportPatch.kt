@@ -20,6 +20,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.gms.Constants.ACTIONS
 import app.revanced.patches.shared.misc.gms.Constants.AUTHORITIES
 import app.revanced.patches.shared.misc.gms.Constants.PERMISSIONS
+import app.revanced.util.findMutableMethodOf
 import app.revanced.util.getReference
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
@@ -28,7 +29,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
-import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 
@@ -96,7 +96,7 @@ fun gmsCoreSupportPatch(
                 val implementation = method.implementation ?: return@classLoop
 
                 val mutableMethod by lazy {
-                    mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, method) }
+                    mutableClass.findMutableMethodOf(method)
                 }
 
                 implementation.instructions.forEachIndexed { index, instruction ->
