@@ -8,48 +8,43 @@ import kotlin.properties.Delegates
 
 // Use notNull delegate so an exception is thrown if these fields are accessed before they are set.
 
-@Deprecated("19.34.42 is the lowest supported version")
-var is_19_03_or_greater : Boolean by Delegates.notNull()
-    private set
-@Deprecated("19.34.42 is the lowest supported version")
-var is_19_04_or_greater : Boolean by Delegates.notNull()
-    private set
-@Deprecated("19.34.42 is the lowest supported version")
-var is_19_16_or_greater : Boolean by Delegates.notNull()
-    private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_17_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_18_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_23_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_25_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_26_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_29_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_32_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_33_or_greater : Boolean by Delegates.notNull()
     private set
-@Deprecated("19.34.42 is the lowest supported version")
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_34_or_greater : Boolean by Delegates.notNull()
     private set
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_35_or_greater : Boolean by Delegates.notNull()
     private set
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_36_or_greater : Boolean by Delegates.notNull()
     private set
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_41_or_greater : Boolean by Delegates.notNull()
     private set
+@Deprecated("19.43.41 is the lowest supported version")
 var is_19_43_or_greater : Boolean by Delegates.notNull()
     private set
 var is_19_46_or_greater : Boolean by Delegates.notNull()
@@ -74,6 +69,34 @@ var is_20_14_or_greater : Boolean by Delegates.notNull()
     private set
 var is_20_15_or_greater : Boolean by Delegates.notNull()
     private set
+var is_20_19_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_20_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_21_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_22_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_26_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_28_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_30_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_31_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_34_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_37_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_39_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_41_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_45_or_greater : Boolean by Delegates.notNull()
+    private set
+var is_20_46_or_greater : Boolean by Delegates.notNull()
+    private set
 
 val versionCheckPatch = resourcePatch(
     description = "Uses the Play Store service version to find the major/minor version of the YouTube target app.",
@@ -84,9 +107,6 @@ val versionCheckPatch = resourcePatch(
         val playStoreServicesVersion = findPlayStoreServicesVersion()
 
         // All bug fix releases always seem to use the same play store version as the minor version.
-        is_19_03_or_greater = 240402000 <= playStoreServicesVersion
-        is_19_04_or_greater = 240502000 <= playStoreServicesVersion
-        is_19_16_or_greater = 241702000 <= playStoreServicesVersion
         is_19_17_or_greater = 241802000 <= playStoreServicesVersion
         is_19_18_or_greater = 241902000 <= playStoreServicesVersion
         is_19_23_or_greater = 242402000 <= playStoreServicesVersion
@@ -111,5 +131,19 @@ val versionCheckPatch = resourcePatch(
         is_20_10_or_greater = 251105000 <= playStoreServicesVersion
         is_20_14_or_greater = 251505000 <= playStoreServicesVersion
         is_20_15_or_greater = 251605000 <= playStoreServicesVersion
+        is_20_19_or_greater = 252005000 <= playStoreServicesVersion
+        is_20_20_or_greater = 252105000 <= playStoreServicesVersion
+        is_20_21_or_greater = 252205000 <= playStoreServicesVersion
+        is_20_22_or_greater = 252305000 <= playStoreServicesVersion
+        is_20_26_or_greater = 252705000 <= playStoreServicesVersion
+        is_20_28_or_greater = 252905000 <= playStoreServicesVersion
+        is_20_30_or_greater = 253105000 <= playStoreServicesVersion
+        is_20_31_or_greater = 253205000 <= playStoreServicesVersion
+        is_20_34_or_greater = 253505000 <= playStoreServicesVersion
+        is_20_37_or_greater = 253805000 <= playStoreServicesVersion
+        is_20_39_or_greater = 253980000 <= playStoreServicesVersion
+        is_20_41_or_greater = 254205000 <= playStoreServicesVersion
+        is_20_45_or_greater = 254605000 <= playStoreServicesVersion
+        is_20_46_or_greater = 254705000 <= playStoreServicesVersion
     }
 }

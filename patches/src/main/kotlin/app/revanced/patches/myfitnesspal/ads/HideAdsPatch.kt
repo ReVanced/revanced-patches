@@ -1,6 +1,6 @@
 package app.revanced.patches.myfitnesspal.ads
 
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
+import app.revanced.patcher.extensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")

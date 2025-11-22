@@ -1,7 +1,7 @@
 package app.revanced.patches.all.misc.transformation
 
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.dex.mutable.MutableMethod
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction

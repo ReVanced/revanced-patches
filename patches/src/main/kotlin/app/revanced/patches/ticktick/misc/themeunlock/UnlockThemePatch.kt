@@ -1,7 +1,7 @@
 package app.revanced.patches.ticktick.misc.themeunlock
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")

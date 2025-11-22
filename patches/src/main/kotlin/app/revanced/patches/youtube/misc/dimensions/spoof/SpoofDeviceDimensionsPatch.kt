@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.dimensions.spoof
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -24,10 +24,10 @@ val spoofDeviceDimensionsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
+            "20.21.37",
+            "20.31.40",
         )
     )
 
@@ -43,7 +43,7 @@ val spoofDeviceDimensionsPatch = bytecodePatch(
             // Override the parameters containing the dimensions.
             .addInstructions(
                 1, // Add after super call.
-                mapOf(
+                arrayOf(
                     1 to "MinHeightOrWidth", // p1 = min height
                     2 to "MaxHeightOrWidth", // p2 = max height
                     3 to "MinHeightOrWidth", // p3 = min width

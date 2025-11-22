@@ -1,7 +1,7 @@
 package app.revanced.patches.primevideo.ads
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.primevideo.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.AccessFlags

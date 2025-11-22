@@ -1,6 +1,11 @@
 package app.revanced.patches.youtube.video.information
 
+import app.revanced.patcher.InstructionLocation.MatchAfterWithin
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.string
 import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -9,7 +14,9 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal val createVideoPlayerSeekbarFingerprint = fingerprint {
     returns("V")
-    strings("timed_markers_width")
+    instructions(
+        string("timed_markers_width"),
+    )
 }
 
 internal val onPlaybackSpeedItemClickFingerprint = fingerprint {
@@ -31,14 +38,18 @@ internal val playerControllerSetTimeReferenceFingerprint = fingerprint {
 }
 
 internal val playerInitFingerprint = fingerprint {
-    strings("playVideo called on player response with no videoStreamingData.")
+    instructions(
+        string("playVideo called on player response with no videoStreamingData."),
+    )
 }
 
 /**
  * Matched using class found in [playerInitFingerprint].
  */
 internal val seekFingerprint = fingerprint {
-    strings("Attempting to seek during an ad")
+    instructions(
+        string("Attempting to seek during an ad"),
+    )
 }
 
 internal val videoLengthFingerprint = fingerprint {
@@ -79,7 +90,9 @@ internal val mdxSeekFingerprint = fingerprint {
 }
 
 internal val mdxPlayerDirectorSetVideoStageFingerprint = fingerprint {
-    strings("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state ")
+    instructions(
+        string("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state "),
+    )
 }
 
 /**
@@ -90,7 +103,6 @@ internal val mdxSeekRelativeFingerprint = fingerprint {
     // Return type is boolean up to 19.39, and void with 19.39+.
     parameters("J", "L")
     opcodes(
-
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
     )
@@ -109,6 +121,20 @@ internal val seekRelativeFingerprint = fingerprint {
     )
 }
 
+internal val videoEndFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters("J", "L")
+    instructions(
+        methodCall(
+            parameters = listOf(),
+            returnType = "V"
+        ),
+        literal(45368273L, location = MatchAfterWithin(5)),
+        string("Attempting to seek when video is not playing"),
+    )
+}
+
 /**
  * Resolves with the class found in [videoQualityChangedFingerprint].
  */
@@ -116,11 +142,8 @@ internal val playbackSpeedMenuSpeedChangedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     parameters("L")
-    opcodes(
-        Opcode.IGET,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.SGET_OBJECT,
-        Opcode.RETURN_OBJECT,
+    instructions(
+        fieldAccess(opcode = Opcode.IGET, type = "F")
     )
 }
 
@@ -137,10 +160,27 @@ internal val playbackSpeedClassFingerprint = fingerprint {
 
 internal const val YOUTUBE_VIDEO_QUALITY_CLASS_TYPE = "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
 
+/**
+ * YouTube 20.19 and lower.
+ */
+internal val videoQualityLegacyFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
+    parameters(
+        "I", // Resolution.
+        "Ljava/lang/String;", // Human readable resolution: "480p", "1080p Premium", etc
+        "Z",
+        "L"
+    )
+    custom { _, classDef ->
+        classDef.type == YOUTUBE_VIDEO_QUALITY_CLASS_TYPE
+    }
+}
+
 internal val videoQualityFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters(
         "I", // Resolution.
+        "L",
         "Ljava/lang/String;", // Human readable resolution: "480p", "1080p Premium", etc
         "Z",
         "L"

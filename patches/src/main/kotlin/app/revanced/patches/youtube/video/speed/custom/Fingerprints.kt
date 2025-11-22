@@ -1,12 +1,17 @@
 package app.revanced.patches.youtube.video.speed.custom
 
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
-import app.revanced.util.literal
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.newInstance
+import app.revanced.patcher.opcode
+import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
+
 
 internal val getOldPlaybackSpeedsFingerprint = fingerprint {
     parameters("[L", "I")
@@ -14,23 +19,54 @@ internal val getOldPlaybackSpeedsFingerprint = fingerprint {
 }
 
 internal val showOldPlaybackSpeedMenuFingerprint = fingerprint {
-    literal { speedUnavailableId }
+    instructions(
+        resourceLiteral(ResourceType.STRING, "varispeed_unavailable_message")
+    )
 }
 
 internal val showOldPlaybackSpeedMenuExtensionFingerprint = fingerprint {
-    custom { method, classDef ->
-        method.name == "showOldPlaybackSpeedMenu" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
+    custom { method, _ -> method.name == "showOldPlaybackSpeedMenu" }
+}
+
+internal val serverSideMaxSpeedFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    instructions(
+        literal(45719140L)
+    )
 }
 
 internal val speedArrayGeneratorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("[L")
     parameters("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;")
-    strings("0.0#")
+    instructions(
+        methodCall(name = "size", returnType = "I"),
+        newInstance("Ljava/text/DecimalFormat;"),
+        string("0.0#"),
+        literal(7),
+        opcode(Opcode.NEW_ARRAY),
+        fieldAccess(definingClass = "/PlayerConfigModel;", type = "[F")
+    )
 }
 
+/**
+ * 20.34+
+ */
 internal val speedLimiterFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters("F", "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;")
+    instructions(
+        literal(0.25f),
+        literal(4.0f)
+    )
+}
+
+/**
+ * 20.33 and lower.
+ */
+internal val speedLimiterLegacyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("F")
@@ -44,17 +80,4 @@ internal val speedLimiterFingerprint = fingerprint {
         Opcode.CONST_HIGH16,
         Opcode.INVOKE_STATIC,
     )
-}
-
-internal val disableFastForwardNoticeFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
-    custom { method, _ ->
-        method.name == "run" && method.indexOfFirstInstruction {
-            // In later targets the code is found in different methods with different strings.
-            val string = getReference<StringReference>()?.string
-            string == "Failed to easy seek haptics vibrate." || string == "search_landing_cache_key"
-        } >= 0
-    }
 }

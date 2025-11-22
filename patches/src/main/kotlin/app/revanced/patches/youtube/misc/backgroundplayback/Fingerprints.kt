@@ -75,19 +75,24 @@ internal val backgroundPlaybackManagerShortsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Z")
     parameters("L")
-    literal { 151635310 }
+    instructions(
+        app.revanced.patcher.literal(151635310)
+    )
 }
 
 internal val shortsBackgroundPlaybackFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal { 45415425 }
+    instructions(
+        app.revanced.patcher.literal(45415425)
+    )
 }
-
-internal const val PIP_INPUT_CONSUMER_FEATURE_FLAG = 45638483L
 
 // Fix 'E/InputDispatcher: Window handle pip_input_consumer has no registered input channel'
 internal val pipInputConsumerFeatureFlagFingerprint = fingerprint {
-    literal { PIP_INPUT_CONSUMER_FEATURE_FLAG}
+    instructions(
+        // PiP input consumer feature flag.
+        app.revanced.patcher.literal(45638483L)
+    )
 }

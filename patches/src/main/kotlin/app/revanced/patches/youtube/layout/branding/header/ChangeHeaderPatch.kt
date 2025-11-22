@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.branding.header
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -10,9 +10,9 @@ import app.revanced.patcher.util.Document
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.layout.branding.addBrandLicensePatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.util.ResourceGroup
@@ -67,7 +67,7 @@ private val changeHeaderBytecodePatch = bytecodePatch {
             "yt_ringo2_premium_wordmark_header"
         ).forEach { resource ->
             variants.forEach { theme ->
-                resourceMappings["drawable", resource + "_" + theme]
+                getResourceId(ResourceType.DRAWABLE, resource + "_" + theme)
             }
         }
 
@@ -75,7 +75,7 @@ private val changeHeaderBytecodePatch = bytecodePatch {
             "ytWordmarkHeader",
             "ytPremiumWordmarkHeader"
         ).forEach { resourceName ->
-            val resourceId = resourceMappings["attr", resourceName]
+            val resourceId = getResourceId(ResourceType.ATTR, resourceName)
 
             forEachLiteralValueInstruction(resourceId) { literalIndex ->
                 val register = getInstruction<OneRegisterInstruction>(literalIndex).registerA
@@ -100,10 +100,10 @@ val changeHeaderPatch = resourcePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
+            "20.21.37",
+            "20.31.40",
         )
     )
 

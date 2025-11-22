@@ -1,13 +1,13 @@
 package app.revanced.patches.twitter.interaction.downloads
 
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patcher.extensions.ExternalLabel
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -27,7 +27,7 @@ val unlockDownloadsPatch = bytecodePatch(
 
         // Allow downloads for non-premium users.
         showDownloadVideoUpsellBottomSheetFingerprint.patch {
-            val checkIndex = patternMatch!!.startIndex
+            val checkIndex = instructionMatches.first().index
             val register = method.getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
             checkIndex to register
@@ -42,25 +42,26 @@ val unlockDownloadsPatch = bytecodePatch(
         }
 
         // Make GIFs downloadable.
-        val patternMatch = buildMediaOptionsSheetFingerprint.patternMatch!!
-        buildMediaOptionsSheetFingerprint.method.apply {
-            val checkMediaTypeIndex = patternMatch.startIndex
-            val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)
+        buildMediaOptionsSheetFingerprint.let {
+            it.method.apply {
+                val checkMediaTypeIndex = it.instructionMatches.first().index
+                val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)
 
-            // Treat GIFs as videos.
-            addInstructionsWithLabels(
-                checkMediaTypeIndex + 1,
-                """
+                // Treat GIFs as videos.
+                addInstructionsWithLabels(
+                    checkMediaTypeIndex + 1,
+                    """
                         const/4 v${checkMediaTypeInstruction.registerB}, 0x2 # GIF
                         if-eq v${checkMediaTypeInstruction.registerA}, v${checkMediaTypeInstruction.registerB}, :video
                     """,
-                ExternalLabel("video", getInstruction(patternMatch.endIndex)),
-            )
+                    ExternalLabel("video", getInstruction(it.instructionMatches.last().index)),
+                )
 
-            // Remove media.isDownloadable check.
-            removeInstruction(
-                instructions.first { it.opcode == Opcode.IGET_BOOLEAN }.location.index + 1,
-            )
+                // Remove media.isDownloadable check.
+                removeInstruction(
+                    instructions.first { it.opcode == Opcode.IGET_BOOLEAN }.location.index + 1,
+                )
+            }
         }
     }
 }

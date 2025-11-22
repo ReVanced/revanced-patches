@@ -1,6 +1,7 @@
 package app.revanced.patches.reddit.customclients.redditisfun.api
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 

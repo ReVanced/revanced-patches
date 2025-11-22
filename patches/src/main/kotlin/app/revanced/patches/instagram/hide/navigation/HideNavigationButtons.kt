@@ -1,6 +1,7 @@
 package app.revanced.patches.instagram.hide.navigation
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
@@ -49,13 +50,21 @@ val hideNavigationButtonsPatch = bytecodePatch(
             )
         }
 
-        val enumNameField: String
 
-        // Get the field name which contains the name of the enum for the navigation button ("fragment_clips", "fragment_share", ...)
+        // Get the field name which contains the name of the enum for the navigation button
+        // ("fragment_clips", "fragment_share", ...)
+        val navigationButtonsEnumInitFingerprint = fingerprint {
+            custom { method, classDef ->
+                method.name == "<init>"
+                        && classDef == navigationButtonsEnumClassDef.classDef
+            }
+        }
+
+        val enumNameField: String
         with(navigationButtonsEnumInitFingerprint.method) {
             enumNameField = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.IPUT_OBJECT &&
-                        (this as TwoRegisterInstruction).registerA == 2 // The p2 register
+                        (this as TwoRegisterInstruction).registerA == 2 // p2 register.
             }.let {
                 getInstruction(it).getReference<FieldReference>()!!.name
             }

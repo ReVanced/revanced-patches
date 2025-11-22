@@ -1,9 +1,9 @@
 package app.revanced.patches.tumblr.featureflags
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patcher.dex.mutable.MutableMethod.Companion.toMutable
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
@@ -69,7 +69,7 @@ val overrideFeatureFlagsPatch = bytecodePatch(
         // This is equivalent to
         //   String forcedValue = getValueOverride(feature)
         //   if (forcedValue != null) return forcedValue
-        val getFeatureIndex = getFeatureValueFingerprint.patternMatch!!.startIndex
+        val getFeatureIndex = getFeatureValueFingerprint.instructionMatches.first().index
         getFeatureValueFingerprint.method.addInstructionsWithLabels(
             getFeatureIndex,
             """

@@ -11,7 +11,6 @@ internal val chatUtilCreateDeletedSpanFingerprint = fingerprint {
 
 internal val deletedMessageClickableSpanCtorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     custom { _, classDef ->
         classDef.endsWith("DeletedMessageClickableSpan;")
     }

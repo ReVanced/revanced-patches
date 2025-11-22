@@ -5,11 +5,10 @@ import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButt
 
 import android.os.Build;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.EnumMap;
 import java.util.Map;
-
-import android.widget.TextView;
 
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
@@ -30,13 +29,13 @@ public final class NavigationButtonsPatch {
     private static final boolean SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON
             = Settings.SWITCH_CREATE_WITH_NOTIFICATIONS_BUTTON.get();
 
-    private static final Boolean DISABLE_TRANSLUCENT_STATUS_BAR
+    private static final boolean DISABLE_TRANSLUCENT_STATUS_BAR
             = Settings.DISABLE_TRANSLUCENT_STATUS_BAR.get();
 
-    private static final Boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT
+    private static final boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT
             = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_LIGHT.get();
 
-    private static final Boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
+    private static final boolean DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK
             = Settings.DISABLE_TRANSLUCENT_NAVIGATION_BAR_DARK.get();
 
     /**
@@ -60,6 +59,13 @@ public final class NavigationButtonsPatch {
      */
     public static void hideNavigationButtonLabels(TextView navigationLabelsView) {
         hideViewUnderCondition(Settings.HIDE_NAVIGATION_BUTTON_LABELS, navigationLabelsView);
+    }
+
+    /**
+     * Injection point.
+     */
+    public static boolean useAnimatedNavigationButtons(boolean original) {
+        return Settings.NAVIGATION_BAR_ANIMATIONS.get();
     }
 
     /**

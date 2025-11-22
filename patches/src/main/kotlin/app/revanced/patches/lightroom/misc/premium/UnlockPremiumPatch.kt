@@ -1,6 +1,6 @@
 package app.revanced.patches.lightroom.misc.premium
 
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")

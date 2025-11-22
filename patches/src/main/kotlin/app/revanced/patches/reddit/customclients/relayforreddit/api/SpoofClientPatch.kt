@@ -1,8 +1,8 @@
 package app.revanced.patches.reddit.customclients.relayforreddit.api
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction10t
@@ -26,7 +26,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
             getLoggedOutBearerTokenFingerprint,
             getRefreshTokenFingerprint,
         ).forEach { fingerprint ->
-            val clientIdIndex = fingerprint.stringMatches!!.first().index
+            val clientIdIndex = fingerprint.stringMatches.first().index
             fingerprint.method.apply {
                 val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
 
@@ -45,7 +45,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
         setRemoteConfigFingerprint.method.addInstructions(0, "return-void")
 
         // Prevent OAuth login being disabled remotely.
-        val checkIsOAuthRequestIndex = redditCheckDisableAPIFingerprint.patternMatch!!.startIndex
+        val checkIsOAuthRequestIndex = redditCheckDisableAPIFingerprint.instructionMatches.first().index
 
         redditCheckDisableAPIFingerprint.method.apply {
             val returnNextChain = getInstruction<BuilderInstruction21t>(checkIsOAuthRequestIndex).target

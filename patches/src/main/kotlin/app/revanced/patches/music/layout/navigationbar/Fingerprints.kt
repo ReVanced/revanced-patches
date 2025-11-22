@@ -24,8 +24,8 @@ internal val tabLayoutTextFingerprint = fingerprint {
     )
     strings("FEmusic_search")
     custom { method, _ ->
-        method.containsLiteralInstruction(text1)
-                && indexOfGetVisibilityInstruction(method) >= 0
+        method.containsLiteralInstruction(text1) &&
+            indexOfGetVisibilityInstruction(method) >= 0
     }
 }
 

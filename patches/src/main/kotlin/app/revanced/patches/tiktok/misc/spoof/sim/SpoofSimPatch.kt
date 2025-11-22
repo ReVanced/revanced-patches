@@ -1,8 +1,8 @@
 package app.revanced.patches.tiktok.misc.spoof.sim
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
@@ -41,7 +41,7 @@ val spoofSimPatch = bytecodePatch(
 
         // Find all api call to check sim information.
         buildMap {
-            classes.forEach { classDef ->
+            classDefs.forEach { classDef ->
                 classDef.methods.let { methods ->
                     buildMap methodList@{
                         methods.forEach methods@{ method ->
@@ -69,7 +69,7 @@ val spoofSimPatch = bytecodePatch(
                 }
             }
         }.forEach { (classDef, methods) ->
-            with(proxy(classDef).mutableClass) {
+            with(classDef.mutable()) {
                 methods.forEach { (method, patches) ->
                     with(findMutableMethodOf(method)) {
                         while (!patches.isEmpty()) {

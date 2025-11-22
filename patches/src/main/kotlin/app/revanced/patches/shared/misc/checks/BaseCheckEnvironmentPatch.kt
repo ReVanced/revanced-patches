@@ -2,12 +2,12 @@ package app.revanced.patches.shared.misc.checks
 
 import android.os.Build.*
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableEncodedValue
-import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableLongEncodedValue
-import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableStringEncodedValue
+import app.revanced.patcher.dex.mutable.encodedValue.MutableEncodedValue
+import app.revanced.patcher.dex.mutable.encodedValue.MutableLongEncodedValue
+import app.revanced.patcher.dex.mutable.encodedValue.MutableStringEncodedValue
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableLongEncodedValue

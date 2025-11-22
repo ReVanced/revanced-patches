@@ -1,6 +1,6 @@
 package app.revanced.patches.music.ad.video
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -37,7 +37,7 @@ val hideVideoAdsPatch = bytecodePatch(
         )
 
         navigate(showVideoAdsParentFingerprint.originalMethod)
-            .to(showVideoAdsParentFingerprint.patternMatch!!.startIndex + 1)
+            .to(showVideoAdsParentFingerprint.instructionMatches.first().index + 1)
             .stop()
             .addInstructions(
                 0,

@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.fix.redgifs
 
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.CREATE_NEW_CLIENT_METHOD
 import app.revanced.patches.reddit.customclients.boostforreddit.misc.extension.sharedExtensionPatch
 import app.revanced.patches.reddit.customclients.fixRedgifsApiPatch

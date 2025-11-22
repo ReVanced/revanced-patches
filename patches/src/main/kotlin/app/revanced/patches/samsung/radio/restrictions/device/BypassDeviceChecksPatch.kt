@@ -1,7 +1,7 @@
 package app.revanced.patches.samsung.radio.restrictions.device
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
@@ -22,33 +22,33 @@ val bypassDeviceChecksPatch = bytecodePatch(
     compatibleWith("com.sec.android.app.fm"("12.4.00.7", "12.3.00.13", "12.3.00.11"))
 
     execute {
-        // Return false = The device is not blacklisted
+        // Return false = The device is not blacklisted.
         checkDeviceFingerprint.method.apply {
-            // Find the first string that start with "SM-", that's the list of incompatible devices
+            // Find the first string that start with "SM-", that's the list of incompatible devices.
             val firstStringIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.CONST_STRING &&
                         getReference<StringReference>()?.string?.startsWith("SM-") == true
             }
 
-            // Find the following filled-new-array (or filled-new-array/range) instruction
+            // Find the following filled-new-array (or filled-new-array/range) instruction.
             val filledNewArrayIndex = indexOfFirstInstructionOrThrow(firstStringIndex + 1) {
                 opcode == Opcode.FILLED_NEW_ARRAY || opcode == Opcode.FILLED_NEW_ARRAY_RANGE
             }
 
-            // Find an available register for our use
             val resultRegister = findFreeRegister(filledNewArrayIndex + 1)
 
-            // Store the array there and invoke the method that we added to the class earlier
+            // Store the array there and invoke the method that we added to the class earlier.
             addInstructions(
-                filledNewArrayIndex + 1, """
-                move-result-object v$resultRegister
-                invoke-static { v$resultRegister }, $EXTENSION_CLASS_DESCRIPTOR->checkIfDeviceIsIncompatible([Ljava/lang/String;)Z
-                move-result v$resultRegister
-                return v$resultRegister
-            """
+                filledNewArrayIndex + 1,
+                """
+                    move-result-object v$resultRegister
+                    invoke-static { v$resultRegister }, $EXTENSION_CLASS_DESCRIPTOR->checkIfDeviceIsIncompatible([Ljava/lang/String;)Z
+                    move-result v$resultRegister
+                    return v$resultRegister
+                """
             )
 
-            // Remove the instructions before our strings
+            // Remove the instructions before our strings.
             removeInstructions(0, firstStringIndex)
         }
     }

@@ -1,9 +1,9 @@
 package app.revanced.patches.facebook.ads.mainfeed
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patcher.dex.mutable.MutableMethod.Companion.toMutable
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
@@ -67,7 +67,7 @@ val hideSponsoredStoriesPatch = bytecodePatch(
         // Check if the parameter type is GraphQLStory and if sponsoredDataModelGetter returns a non-null value.
         // If so, hide the story by setting the visibility to StoryVisibility.GONE.
         getStoryVisibilityFingerprint.method.addInstructionsWithLabels(
-            getStoryVisibilityFingerprint.patternMatch!!.startIndex,
+            getStoryVisibilityFingerprint.instructionMatches.first().index,
             """
                 instance-of v0, p0, $graphQlStoryClassDescriptor
                 if-eqz v0, :resume_normal

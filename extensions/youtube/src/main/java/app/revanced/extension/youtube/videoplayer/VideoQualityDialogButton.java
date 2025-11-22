@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.patches.playback.quality.RememberVideoQualityPatch;

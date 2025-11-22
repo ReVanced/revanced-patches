@@ -1,28 +1,32 @@
 package app.revanced.patches.youtube.layout.spoofappversion
 
+import app.revanced.patcher.InstructionLocation.*
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val toolBarButtonFingerprint = fingerprint {
-    returns("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Landroid/view/MenuItem;")
+    returns("V")
+    instructions(
+        resourceLiteral(ResourceType.ID, "menu_item_view"),
+        methodCall(returnType = "I", opcode = Opcode.INVOKE_INTERFACE),
+        opcode(Opcode.MOVE_RESULT, MatchAfterImmediately()),
+        fieldAccess(type = "Landroid/widget/ImageView;", opcode = Opcode.IGET_OBJECT, location = MatchAfterWithin(6)),
+        methodCall("Landroid/content/res/Resources;", "getDrawable", location = MatchAfterWithin(8)),
+        methodCall("Landroid/widget/ImageView;", "setImageDrawable", location = MatchAfterWithin(4))
+    )
     custom { method, _ ->
-        method.containsLiteralInstruction(menuItemView) &&
-                indexOfGetDrawableInstruction(method) >= 0
+        // 20.37+ has second parameter of "Landroid/content/Context;"
+        val parameterCount = method.parameterTypes.count()
+        (parameterCount == 1 || parameterCount == 2)
+                && method.parameterTypes.firstOrNull() == "Landroid/view/MenuItem;"
     }
-}
-
-internal fun indexOfGetDrawableInstruction(method: Method) = method.indexOfFirstInstruction {
-    val reference = getReference<MethodReference>()
-    reference?.definingClass == "Landroid/content/res/Resources;" &&
-            reference.name == "getDrawable"
 }
 
 internal val spoofAppVersionFingerprint = fingerprint {

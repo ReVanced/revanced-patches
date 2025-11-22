@@ -1,15 +1,15 @@
 package app.revanced.patches.youtube.ad.general
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.fix.verticalscroll.verticalScrollPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.ad.getpremium.hideGetPremiumPatch
 import app.revanced.patches.youtube.misc.fix.backtoexitgesture.fixBackToExitGesturePatch
@@ -57,8 +57,8 @@ private val hideAdsResourcePatch = resourcePatch {
 
         addLithoFilter("Lapp/revanced/extension/youtube/patches/components/AdsFilter;")
 
-        adAttributionId = resourceMappings["id", "ad_attribution"]
-        fullScreenEngagementAdContainer = resourceMappings["id", "fullscreen_engagement_ad_container"]
+        adAttributionId = getResourceId(ResourceType.ID, "ad_attribution")
+        fullScreenEngagementAdContainer = getResourceId(ResourceType.ID, "fullscreen_engagement_ad_container")
     }
 }
 
@@ -76,10 +76,10 @@ val hideAdsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
+            "20.21.37",
+            "20.31.40",
         )
     )
 
@@ -101,7 +101,7 @@ val hideAdsPatch = bytecodePatch(
 
         // Hide ad views
 
-        classes.forEach { classDef ->
+        classDefs.forEach { classDef ->
             classDef.methods.forEach { method ->
                 with(method.implementation) {
                     this?.instructions?.forEachIndexed { index, instruction ->
@@ -123,8 +123,7 @@ val hideAdsPatch = bytecodePatch(
 
                             // Hide the view
                             val viewRegister = (this as Instruction35c).registerC
-                            proxy(classDef)
-                                .mutableClass
+                            classDef.mutable()
                                 .findMutableMethodOf(method)
                                 .injectHideViewCall(
                                     insertIndex,

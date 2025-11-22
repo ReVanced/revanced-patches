@@ -1,53 +1,69 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.AccessFlags
+import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
-
-internal const val ANDROID_AUTOMOTIVE_STRING = "Android Automotive"
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
+import app.revanced.patcher.string
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 internal val addCreateButtonViewFingerprint = fingerprint {
-    strings("Android Wear", ANDROID_AUTOMOTIVE_STRING)
+    instructions(
+        string("Android Wear"),
+        opcode(Opcode.IF_EQZ),
+        string("Android Automotive", location = MatchAfterImmediately()),
+    )
 }
 
 internal val createPivotBarFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     parameters(
         "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;",
         "Landroid/widget/TextView;",
         "Ljava/lang/CharSequence;",
     )
-    opcodes(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID,
+    instructions(
+        methodCall(definingClass = "Landroid/widget/TextView;", name = "setText"),
+        opcode(Opcode.RETURN_VOID)
     )
 }
 
-internal const val TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG = 45400535L
+internal val animatedNavigationTabsFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    instructions(
+        literal(45680008L)
+    )
+}
 
 internal val translucentNavigationStatusBarFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
-    literal { TRANSLUCENT_NAVIGATION_STATUS_BAR_FEATURE_FLAG }
-}
-
-internal const val TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG = 45630927L
-
-internal val translucentNavigationButtonsFeatureFlagFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    literal { TRANSLUCENT_NAVIGATION_BUTTONS_FEATURE_FLAG }
+    instructions(
+        literal(45400535L) // Translucent status bar feature flag.
+    )
 }
 
 /**
- * The device on screen back/home/recent buttons.
+ * YouTube nav buttons.
  */
-internal const val TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG = 45632194L
+internal val translucentNavigationButtonsFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    instructions(
+        literal(45630927L) // Translucent navigation bar buttons feature flag.
+    )
+}
 
+/**
+ * Device on screen back/home/recent buttons.
+ */
 internal val translucentNavigationButtonsSystemFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
-    literal { TRANSLUCENT_NAVIGATION_BUTTONS_SYSTEM_FEATURE_FLAG }
+    instructions(
+        literal(45632194L) // Translucent system buttons feature flag.
+    )
 }

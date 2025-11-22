@@ -9,9 +9,11 @@ import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.loopVideoFingerprint
-import app.revanced.patches.youtube.shared.loopVideoParentFingerprint
+import app.revanced.patches.youtube.video.information.videoEndMethod
+import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import com.android.tools.smali.dexlib2.Opcode
 
 @Suppress("unused")
 internal val exitFullscreenPatch = bytecodePatch(
@@ -21,10 +23,10 @@ internal val exitFullscreenPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
+            "20.21.37",
+            "20.31.40",
         )
     )
 
@@ -33,7 +35,8 @@ internal val exitFullscreenPatch = bytecodePatch(
         settingsPatch,
         addResourcesPatch,
         playerTypeHookPatch,
-        playerControlsPatch
+        playerControlsPatch,
+        videoInformationPatch
     )
 
     // Cannot declare as top level since this patch is in the same package as
@@ -49,9 +52,11 @@ internal val exitFullscreenPatch = bytecodePatch(
             ListPreference("revanced_exit_fullscreen")
         )
 
-        loopVideoFingerprint.match(loopVideoParentFingerprint.originalClassDef).method.apply {
+        videoEndMethod.apply {
+            val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID)
+
             addInstructionsAtControlFlowLabel(
-                implementation!!.instructions.lastIndex,
+                insertIndex,
                 "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->endOfVideoReached()V",
             )
         }

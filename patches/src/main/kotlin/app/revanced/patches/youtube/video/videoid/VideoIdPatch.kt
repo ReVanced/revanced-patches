@@ -1,19 +1,15 @@
 package app.revanced.patches.youtube.video.videoid
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
+import app.revanced.patcher.dex.mutable.MutableMethod
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.video.playerresponse.Hook
 import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
 import app.revanced.patches.youtube.video.playerresponse.playerResponseMethodHookPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
-import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 /**
  * Hooks the new video id when the video changes.
@@ -96,24 +92,22 @@ val videoIdPatch = bytecodePatch(
     )
 
     execute {
-        videoIdFingerprint.match(videoIdParentFingerprint.originalClassDef).method.apply {
-            videoIdMethod = this
-            val index = indexOfPlayerResponseModelString()
-            videoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
-            videoIdInsertIndex = index + 2
+        videoIdFingerprint.match(videoIdParentFingerprint.originalClassDef).let {
+            it.method.apply {
+                videoIdMethod = this
+                val index = it.instructionMatches.first().index
+                videoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                videoIdInsertIndex = index + 2
+            }
         }
 
-        videoIdBackgroundPlayFingerprint.method.apply {
-            backgroundPlaybackMethod = this
-            val index = indexOfPlayerResponseModelString()
-            backgroundPlaybackVideoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
-            backgroundPlaybackInsertIndex = index + 2
+        videoIdBackgroundPlayFingerprint.let {
+            it.method.apply {
+                backgroundPlaybackMethod = this
+                val index = it.instructionMatches.first().index
+                backgroundPlaybackVideoIdRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                backgroundPlaybackInsertIndex = index + 2
+            }
         }
     }
-}
-
-internal fun Method.indexOfPlayerResponseModelString() = indexOfFirstInstruction {
-    val reference = getReference<MethodReference>()
-    reference?.definingClass == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;" &&
-        reference.returnType == "Ljava/lang/String;"
 }

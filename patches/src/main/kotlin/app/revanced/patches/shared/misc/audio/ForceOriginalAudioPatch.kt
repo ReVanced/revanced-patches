@@ -1,15 +1,15 @@
 package app.revanced.patches.shared.misc.audio
 
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import app.revanced.patcher.dex.mutable.MutableField.Companion.toMutable
+import app.revanced.patcher.dex.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
@@ -66,7 +66,7 @@ internal fun forceOriginalAudioPatch(
         // and instead overrides to the user region language.
         if (fixUseLocalizedAudioTrackFlag()) {
             selectAudioStreamFingerprint.method.insertLiteralOverride(
-                AUDIO_STREAM_IGNORE_DEFAULT_FEATURE_FLAG,
+                selectAudioStreamFingerprint.instructionMatches.first().index,
                 "$EXTENSION_CLASS_DESCRIPTOR->ignoreDefaultAudioStream(Z)Z"
             )
         }

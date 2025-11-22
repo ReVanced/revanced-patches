@@ -19,10 +19,10 @@ val forceOriginalAudioPatch = forceOriginalAudioPatch(
 
         compatibleWith(
             "com.google.android.youtube"(
-                "19.34.42",
-                "20.07.39",
-                "20.13.41",
+                "19.43.41",
                 "20.14.43",
+                "20.21.37",
+                "20.31.40",
             )
         )
     },

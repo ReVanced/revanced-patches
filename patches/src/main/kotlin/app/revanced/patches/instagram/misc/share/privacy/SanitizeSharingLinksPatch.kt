@@ -1,6 +1,6 @@
 package app.revanced.patches.instagram.misc.share.privacy
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
 import app.revanced.patches.instagram.misc.share.editShareLinksPatch

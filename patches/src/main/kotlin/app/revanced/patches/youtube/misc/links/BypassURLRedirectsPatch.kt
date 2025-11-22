@@ -1,23 +1,18 @@
 package app.revanced.patches.youtube.misc.links
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_33_or_greater
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_37_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/BypassURLRedirectsPatch;"
 
 val bypassURLRedirectsPatch = bytecodePatch(
     name = "Bypass URL redirects",
@@ -27,15 +22,14 @@ val bypassURLRedirectsPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        versionCheckPatch,
     )
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
+            "20.21.37",
+            "20.31.40",
         )
     )
 
@@ -46,41 +40,24 @@ val bypassURLRedirectsPatch = bytecodePatch(
             SwitchPreference("revanced_bypass_url_redirects"),
         )
 
-        val fingerprints = if (is_19_33_or_greater) {
-            arrayOf(
-                abUriParserFingerprint,
-                httpUriParserFingerprint,
-            )
-        } else {
-            arrayOf(
-                abUriParserLegacyFingerprint,
-                httpUriParserLegacyFingerprint,
-            )
-        }
-
-        fingerprints.forEach {
-            it.method.apply {
-                val insertIndex = findUriParseIndex()
+        arrayOf(
+            if (is_20_37_or_greater) {
+                (abUriParserFingerprint to 2)
+            } else {
+                (abUriParserLegacyFingerprint to 2)
+            },
+            httpUriParserFingerprint to 0
+        ).forEach { (fingerprint, index) ->
+            fingerprint.method.apply {
+                val insertIndex = fingerprint.instructionMatches[index].index
                 val uriStringRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
                 replaceInstruction(
                     insertIndex,
-                    "invoke-static {v$uriStringRegister}," +
-                        "Lapp/revanced/extension/youtube/patches/BypassURLRedirectsPatch;" +
-                        "->" +
-                        "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;",
+                    "invoke-static { v$uriStringRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                            "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;",
                 )
             }
         }
     }
-}
-
-internal fun Method.findUriParseIndex() = indexOfFirstInstruction {
-    val reference = getReference<MethodReference>()
-    reference?.returnType == "Landroid/net/Uri;" && reference.name == "parse"
-}
-
-internal fun Method.findWebViewCheckCastIndex() = indexOfFirstInstruction {
-    val reference = getReference<TypeReference>()
-    opcode == Opcode.CHECK_CAST && reference?.type?.endsWith("/WebviewEndpointOuterClass${'$'}WebviewEndpoint;") == true
 }

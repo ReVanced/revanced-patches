@@ -1,24 +1,32 @@
 package app.revanced.patches.youtube.misc.navigation
 
+import app.revanced.patcher.InstructionLocation.MatchAfterWithin
+import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
+import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
-import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val actionBarSearchResultsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
-    literal { actionBarSearchResultsViewMicId }
+    instructions(
+        resourceLiteral(ResourceType.LAYOUT, "action_bar_search_results_view_mic"),
+        methodCall(name = "setLayoutDirection")
+    )
 }
 
 internal val toolbarLayoutFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.CONSTRUCTOR)
-    literal { toolbarContainerId }
+    instructions(
+        resourceLiteral(ResourceType.ID, "toolbar_container"),
+        checkCast("Lcom/google/android/apps/youtube/app/ui/actionbar/MainCollapsingToolbarLayout;")
+    )
 }
 
 /**
@@ -28,7 +36,7 @@ internal val appCompatToolbarBackButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/graphics/drawable/Drawable;")
     parameters()
-    custom { methodDef, classDef ->
+    custom { _, classDef ->
         classDef.type == "Landroid/support/v7/widget/Toolbar;"
     }
 }
@@ -39,7 +47,9 @@ internal val appCompatToolbarBackButtonFingerprint = fingerprint {
 internal val initializeButtonsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
-    literal { imageOnlyTabResourceId }
+    instructions(
+        resourceLiteral(ResourceType.LAYOUT, "image_only_tab")
+    )
 }
 
 /**
@@ -77,12 +87,12 @@ internal val pivotBarButtonsCreateDrawableViewFingerprint = fingerprint {
     returns("Landroid/view/View;")
     custom { method, _ ->
         method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
-            // Only one method has a Drawable parameter.
+            // Only one view creation method has a Drawable parameter.
             method.parameterTypes.firstOrNull() == "Landroid/graphics/drawable/Drawable;"
     }
 }
 
-internal val pivotBarButtonsCreateResourceViewFingerprint = fingerprint {
+internal val pivotBarButtonsCreateResourceStyledViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     parameters("L", "Z", "I", "L")
@@ -91,33 +101,50 @@ internal val pivotBarButtonsCreateResourceViewFingerprint = fingerprint {
     }
 }
 
-internal fun indexOfSetViewSelectedInstruction(method: Method) = method.indexOfFirstInstruction {
-    opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.name == "setSelected"
+/**
+ * 20.21+
+ */
+internal val pivotBarButtonsCreateResourceIntViewFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Landroid/view/View;")
+    custom { method, _ ->
+        method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
+            // Only one view creation method has an int first parameter.
+            method.parameterTypes.firstOrNull() == "I"
+    }
 }
 
 internal val pivotBarButtonsViewSetSelectedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("I", "Z")
+    instructions(
+        methodCall(name = "setSelected")
+    )
     custom { method, _ ->
-        indexOfSetViewSelectedInstruction(method) >= 0 &&
-            method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
+        method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
     }
 }
 
 internal val pivotBarConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    strings("com.google.android.apps.youtube.app.endpoint.flags")
+    instructions(
+        string("com.google.android.apps.youtube.app.endpoint.flags"),
+    )
 }
 
 internal val imageEnumConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-    strings("TAB_ACTIVITY_CAIRO")
+    instructions(
+        string("TAB_ACTIVITY_CAIRO"),
+        opcode(Opcode.SPUT_OBJECT)
+    )
 }
 
 internal val setEnumMapFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    literal {
-        ytFillBellId
-    }
+    instructions(
+        resourceLiteral(ResourceType.DRAWABLE, "yt_fill_bell_black_24"),
+        methodCall(smali = "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;", location = MatchAfterWithin(10)),
+        methodCall(smali = "Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;", location = MatchAfterWithin(10))
+    )
 }

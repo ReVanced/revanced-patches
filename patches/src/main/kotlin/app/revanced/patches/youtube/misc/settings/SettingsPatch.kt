@@ -1,26 +1,26 @@
 package app.revanced.patches.youtube.misc.settings
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.dex.mutable.MutableClassDef
+import app.revanced.patcher.dex.mutable.MutableMethod
+import app.revanced.patcher.dex.mutable.MutableMethod.Companion.toMutable
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.overrideThemeColors
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
 import app.revanced.patches.shared.misc.settings.settingsPatch
 import app.revanced.patches.youtube.misc.check.checkEnvironmentPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.fix.contentprovider.fixContentProviderPatch
 import app.revanced.patches.youtube.misc.fix.playbackspeed.fixPlaybackSpeedWhilePlayingPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_31_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -36,21 +36,19 @@ private const val BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
 private const val YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/settings/YouTubeActivityHook;"
 
-internal var appearanceStringId = -1L
-    private set
-
 private val preferences = mutableSetOf<BasePreference>()
 
 private val settingsResourcePatch = resourcePatch {
     dependsOn(
         resourceMappingPatch,
         settingsPatch(
-            listOf(
+            rootPreferences = listOf(
                 IntentPreference(
                     titleKey = "revanced_settings_title",
                     summaryKey = null,
-                    intent = newIntent("revanced_settings_intent"),
+                    intent = newIntent("revanced_settings_intent")
                 ) to "settings_fragment",
+
                 PreferenceCategory(
                     titleKey = "revanced_settings_title",
                     layout = "@layout/preference_group_title",
@@ -58,40 +56,53 @@ private val settingsResourcePatch = resourcePatch {
                         IntentPreference(
                             titleKey = "revanced_settings_submenu_title",
                             summaryKey = null,
-                            icon = "@drawable/revanced_settings_icon",
+                            icon = "@drawable/revanced_settings_icon_dynamic",
                             layout = "@layout/preference_with_icon",
-                            intent = newIntent("revanced_settings_intent"),
+                            intent = newIntent("revanced_settings_intent")
                         )
                     )
-                ) to "settings_fragment_cairo",
+                ) to "settings_fragment_cairo"
             ),
-            preferences
+            preferences = preferences
         )
     )
 
     execute {
-        appearanceStringId = resourceMappings["string", "app_theme_appearance_dark"]
-
         // Use same colors as stock YouTube.
         overrideThemeColors("@color/yt_white1", "@color/yt_black3")
 
         copyResources(
             "settings",
             ResourceGroup("drawable",
+                "revanced_settings_icon_dynamic.xml",
                 "revanced_settings_icon.xml",
+                "revanced_settings_icon_bold.xml",
                 "revanced_settings_screen_00_about.xml",
+                "revanced_settings_screen_00_about_bold.xml",
                 "revanced_settings_screen_01_ads.xml",
+                "revanced_settings_screen_01_ads_bold.xml",
                 "revanced_settings_screen_02_alt_thumbnails.xml",
+                "revanced_settings_screen_02_alt_thumbnails_bold.xml",
                 "revanced_settings_screen_03_feed.xml",
+                "revanced_settings_screen_03_feed_bold.xml",
                 "revanced_settings_screen_04_general.xml",
+                "revanced_settings_screen_04_general_bold.xml",
                 "revanced_settings_screen_05_player.xml",
+                "revanced_settings_screen_05_player_bold.xml",
                 "revanced_settings_screen_06_shorts.xml",
+                "revanced_settings_screen_06_shorts_bold.xml",
                 "revanced_settings_screen_07_seekbar.xml",
+                "revanced_settings_screen_07_seekbar_bold.xml",
                 "revanced_settings_screen_08_swipe_controls.xml",
+                "revanced_settings_screen_08_swipe_controls_bold.xml",
                 "revanced_settings_screen_09_return_youtube_dislike.xml",
+                "revanced_settings_screen_09_return_youtube_dislike_bold.xml",
                 "revanced_settings_screen_10_sponsorblock.xml",
+                "revanced_settings_screen_10_sponsorblock_bold.xml",
                 "revanced_settings_screen_11_misc.xml",
+                "revanced_settings_screen_11_misc_bold.xml",
                 "revanced_settings_screen_12_video.xml",
+                "revanced_settings_screen_12_video_bold.xml",
             )
         )
 
@@ -153,6 +164,7 @@ val settingsPatch = bytecodePatch(
         addResourcesPatch,
         versionCheckPatch,
         fixPlaybackSpeedWhilePlayingPatch,
+        fixContentProviderPatch,
         // Currently there is no easy way to make a mandatory patch,
         // so for now this is a dependent of this patch.
         checkEnvironmentPatch,
@@ -165,6 +177,7 @@ val settingsPatch = bytecodePatch(
         preferences += NonInteractivePreference(
             key = "revanced_settings_screen_00_about",
             icon = "@drawable/revanced_settings_screen_00_about",
+            iconBold = "@drawable/revanced_settings_screen_00_about_bold",
             layout = "@layout/preference_with_icon",
             summaryKey = null,
             tag = "app.revanced.extension.shared.settings.preference.ReVancedAboutPreference",
@@ -179,7 +192,23 @@ val settingsPatch = bytecodePatch(
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_settings_search_history"),
-            SwitchPreference("revanced_show_menu_icons")
+        )
+
+
+        PreferenceScreen.GENERAL_LAYOUT.addPreferences(
+            if (is_20_31_or_greater) {
+                PreferenceCategory(
+                    titleKey = null,
+                    sorting = Sorting.UNSORTED,
+                    tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
+                    preferences = setOf(
+                        SwitchPreference("revanced_show_menu_icons"),
+                        SwitchPreference("revanced_settings_disable_bold_icons")
+                    )
+                )
+            } else {
+                SwitchPreference("revanced_show_menu_icons")
+            }
         )
 
         PreferenceScreen.MISC.addPreferences(
@@ -211,9 +240,20 @@ val settingsPatch = bytecodePatch(
 
         // Add setting to force Cairo settings fragment on/off.
         cairoFragmentConfigFingerprint.method.insertLiteralOverride(
-            CAIRO_CONFIG_LITERAL_VALUE,
+            cairoFragmentConfigFingerprint.instructionMatches.first().index,
             "$YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z"
         )
+
+        // Bold icon resources are found starting in 20.23, but many YT icons are not bold.
+        // 20.31 is the first version that seems to have all the bold icons.
+        if (is_20_31_or_greater) {
+            boldIconsFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useBoldIcons(Z)Z"
+                )
+            }
+        }
 
         modifyActivityForSettingsInjection(
             licenseActivityOnCreateFingerprint.classDef,
@@ -232,7 +272,7 @@ val settingsPatch = bytecodePatch(
  * Modifies the activity to show ReVanced settings instead of it's original purpose.
  */
 internal fun modifyActivityForSettingsInjection(
-    activityOnCreateClass: MutableClass,
+    activityOnCreateClass: MutableClassDef,
     activityOnCreateMethod: MutableMethod,
     extensionClassType: String,
     isYouTubeMusic: Boolean
@@ -241,8 +281,9 @@ internal fun modifyActivityForSettingsInjection(
     // Must modify an existing activity and cannot add a new activity to the manifest,
     // as that fails for root installations.
     activityOnCreateMethod.addInstructions(
-        1,
+        0,
         """
+            invoke-super { p0, p1 }, ${activityOnCreateClass.superclass}->onCreate(Landroid/os/Bundle;)V
             invoke-static { p0 }, $extensionClassType->initialize(Landroid/app/Activity;)V
             return-void
         """
@@ -321,12 +362,14 @@ object PreferenceScreen : BasePreferenceScreen() {
         key = "revanced_settings_screen_01_ads",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_01_ads",
+        iconBold = "@drawable/revanced_settings_screen_01_ads_bold",
         layout = "@layout/preference_with_icon",
     )
     val ALTERNATIVE_THUMBNAILS = Screen(
         key = "revanced_settings_screen_02_alt_thumbnails",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_02_alt_thumbnails",
+        iconBold = "@drawable/revanced_settings_screen_02_alt_thumbnails_bold",
         layout = "@layout/preference_with_icon",
         sorting = Sorting.UNSORTED,
     )
@@ -334,36 +377,42 @@ object PreferenceScreen : BasePreferenceScreen() {
         key = "revanced_settings_screen_03_feed",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_03_feed",
+        iconBold = "@drawable/revanced_settings_screen_03_feed_bold",
         layout = "@layout/preference_with_icon",
     )
     val GENERAL_LAYOUT = Screen(
         key = "revanced_settings_screen_04_general",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_04_general",
+        iconBold = "@drawable/revanced_settings_screen_04_general_bold",
         layout = "@layout/preference_with_icon",
     )
     val PLAYER = Screen(
         key = "revanced_settings_screen_05_player",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_05_player",
+        iconBold = "@drawable/revanced_settings_screen_05_player_bold",
         layout = "@layout/preference_with_icon",
     )
     val SHORTS = Screen(
         key = "revanced_settings_screen_06_shorts",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_06_shorts",
+        iconBold = "@drawable/revanced_settings_screen_06_shorts_bold",
         layout = "@layout/preference_with_icon",
     )
     val SEEKBAR = Screen(
         key = "revanced_settings_screen_07_seekbar",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_07_seekbar",
+        iconBold = "@drawable/revanced_settings_screen_07_seekbar_bold",
         layout = "@layout/preference_with_icon",
     )
     val SWIPE_CONTROLS = Screen(
         key = "revanced_settings_screen_08_swipe_controls",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_08_swipe_controls",
+        iconBold = "@drawable/revanced_settings_screen_08_swipe_controls_bold",
         layout = "@layout/preference_with_icon",
         sorting = Sorting.UNSORTED,
     )
@@ -371,6 +420,7 @@ object PreferenceScreen : BasePreferenceScreen() {
         key = "revanced_settings_screen_09_return_youtube_dislike",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_09_return_youtube_dislike",
+        iconBold = "@drawable/revanced_settings_screen_09_return_youtube_dislike_bold",
         layout = "@layout/preference_with_icon",
         sorting = Sorting.UNSORTED,
     )
@@ -378,6 +428,7 @@ object PreferenceScreen : BasePreferenceScreen() {
         key = "revanced_settings_screen_10_sponsorblock",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_10_sponsorblock",
+        iconBold = "@drawable/revanced_settings_screen_10_sponsorblock_bold",
         layout = "@layout/preference_with_icon",
         sorting = Sorting.UNSORTED,
     )
@@ -385,12 +436,14 @@ object PreferenceScreen : BasePreferenceScreen() {
         key = "revanced_settings_screen_11_misc",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_11_misc",
+        iconBold = "@drawable/revanced_settings_screen_11_misc_bold",
         layout = "@layout/preference_with_icon",
     )
     val VIDEO = Screen(
         key = "revanced_settings_screen_12_video",
         summaryKey = null,
         icon = "@drawable/revanced_settings_screen_12_video",
+        iconBold = "@drawable/revanced_settings_screen_12_video_bold",
         layout = "@layout/preference_with_icon",
         sorting = Sorting.BY_KEY,
     )

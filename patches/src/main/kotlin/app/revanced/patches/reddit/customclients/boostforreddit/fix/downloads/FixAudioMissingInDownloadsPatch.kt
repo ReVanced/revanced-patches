@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.fix.downloads
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -19,7 +19,7 @@ val fixAudioMissingInDownloadsPatch = bytecodePatch(
         )
 
         downloadAudioFingerprint.method.apply {
-            downloadAudioFingerprint.stringMatches!!.forEach { match ->
+            downloadAudioFingerprint.stringMatches.forEach { match ->
                 val replacement = endpointReplacements[match.string]
                 val register = getInstruction<OneRegisterInstruction>(match.index).registerA
 

@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.user
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -29,7 +29,7 @@ val useUserEndpointPatch = bytecodePatch(
             oAuthUserIdRequestFingerprint,
             oAuthUserInfoRequestFingerprint,
         ).map { fingerprint ->
-            fingerprint.stringMatches!!.first().index to fingerprint.method
+            fingerprint.stringMatches.first().index to fingerprint.method
         }.forEach { (userPathStringIndex, method) ->
             val userPathStringInstruction = method.getInstruction<OneRegisterInstruction>(userPathStringIndex)
 

@@ -19,8 +19,10 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
@@ -72,7 +74,7 @@ public final class NavigationBar {
      */
     public static boolean isSearchBarActive() {
         View searchbarResults = searchBarResultsRef.get();
-        return searchbarResults != null && searchbarResults.getParent() != null;
+        return searchbarResults != null && searchbarResults.isShown();
     }
 
     public static boolean isBackButtonVisible() {
@@ -277,12 +279,14 @@ public final class NavigationBar {
     }
 
     /**
-     * Use the bundled non cairo filled icon instead of a custom icon.
-     * Use the old non cairo filled icon, which is almost identical to
-     * the what would be the filled cairo icon.
+     * Custom cairo notification filled icon to fix unpatched app missing resource.
      */
-    private static final int fillBellCairoBlack = Utils.getResourceIdentifier(
-            "yt_fill_bell_black_24", "drawable");
+    private static final int fillBellCairoBlack = Utils.getResourceIdentifier(ResourceType.DRAWABLE,
+            // The bold cairo notification filled icon is present,
+            // but YT still has not fixed the icon not associated to the enum.
+            VersionCheckPatch.IS_20_31_OR_GREATER && !Settings.SETTINGS_DISABLE_BOLD_ICONS.get()
+                    ? "yt_fill_experimental_bell_vd_theme_24"
+                    : "revanced_fill_bell_cairo_black_24");
 
     /**
      * Injection point.
@@ -290,13 +294,12 @@ public final class NavigationBar {
      */
     @SuppressWarnings({"unchecked", "rawtypes"})
     public static void setCairoNotificationFilledIcon(EnumMap enumMap, Enum tabActivityCairo) {
-        if (fillBellCairoBlack != 0) {
-            // Show a popup informing this fix is no longer needed to those who might care.
-            if (BaseSettings.DEBUG.get() && enumMap.containsKey(tabActivityCairo)) {
-                Logger.printException(() -> "YouTube fixed the cairo notification icons");
-            }
-            enumMap.putIfAbsent(tabActivityCairo, fillBellCairoBlack);
+        // Show a popup informing this fix is no longer needed to those who might care.
+        if (BaseSettings.DEBUG.get() && enumMap.containsKey(tabActivityCairo)) {
+            Logger.printException(() -> "YouTube fixed the notification icons");
         }
+
+        enumMap.putIfAbsent(tabActivityCairo, fillBellCairoBlack);
     }
 
     public enum NavigationButton {

@@ -7,6 +7,7 @@ import android.preference.PreferenceFragment;
 import android.view.View;
 import android.widget.Toolbar;
 
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseActivityHook;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
@@ -15,10 +16,27 @@ import app.revanced.extension.youtube.settings.preference.YouTubePreferenceFragm
 import app.revanced.extension.youtube.settings.search.YouTubeSearchViewController;
 
 /**
- * Hooks LicenseActivity to inject a custom {@link YouTubePreferenceFragment} with a toolbar and search functionality.
+ * Hooks LicenseActivity to inject a custom {@link YouTubePreferenceFragment}
+ * with a toolbar and search functionality.
  */
 @SuppressWarnings("deprecation")
 public class YouTubeActivityHook extends BaseActivityHook {
+
+    /**
+     * How much time has passed since the first launch of the app. Simple check to prevent
+     * forcing bold icons on first launch where the settings menu is partially broken
+     * due to missing icon resources the client has not yet received.
+     */
+    private static final long MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS = 30 * 1000; // 30 seconds.
+
+    private static final boolean USE_BOLD_ICONS = VersionCheckPatch.IS_20_31_OR_GREATER
+            && !Settings.SETTINGS_DISABLE_BOLD_ICONS.get()
+            && (System.currentTimeMillis() - Settings.FIRST_TIME_APP_LAUNCHED.get())
+            > MINIMUM_TIME_AFTER_FIRST_LAUNCH_BEFORE_ALLOWING_BOLD_ICONS;
+
+    static {
+        Utils.setAppIsUsingBoldIcons(USE_BOLD_ICONS);
+    }
 
     private static int currentThemeValueOrdinal = -1; // Must initially be a non-valid enum ordinal value.
 
@@ -44,15 +62,7 @@ public class YouTubeActivityHook extends BaseActivityHook {
         final var theme = Utils.isDarkModeEnabled()
                 ? "Theme.YouTube.Settings.Dark"
                 : "Theme.YouTube.Settings";
-        activity.setTheme(Utils.getResourceIdentifierOrThrow(theme, "style"));
-    }
-
-    /**
-     * Returns the resource ID for the YouTube settings layout.
-     */
-    @Override
-    protected int getContentViewResourceId() {
-        return LAYOUT_REVANCED_SETTINGS_WITH_TOOLBAR;
+        activity.setTheme(Utils.getResourceIdentifierOrThrow(ResourceType.STYLE, theme));
     }
 
     /**
@@ -154,5 +164,13 @@ public class YouTubeActivityHook extends BaseActivityHook {
     @SuppressWarnings("unused")
     public static boolean handleBackPress() {
         return YouTubeSearchViewController.handleFinish(searchViewController);
+    }
+
+    /**
+     * Injection point.
+     */
+    @SuppressWarnings("unused")
+    public static boolean useBoldIcons(boolean original) {
+        return USE_BOLD_ICONS;
     }
 }

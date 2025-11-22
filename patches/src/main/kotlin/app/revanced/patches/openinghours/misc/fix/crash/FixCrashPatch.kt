@@ -1,7 +1,7 @@
 package app.revanced.patches.openinghours.misc.fix.crash
 
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.extensions.newLabel
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.getReference

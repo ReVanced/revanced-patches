@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.layout.premiumicon
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
@@ -19,10 +19,4 @@ val unlockPremiumIconsPatch = bytecodePatch(
             """,
         )
     }
-}
-
-@Deprecated("Patch was renamed", ReplaceWith("unlockPremiumIconsPatch"))
-@Suppress("unused")
-val unlockPremiumIconPatch = bytecodePatch{
-    dependsOn(unlockPremiumIconsPatch)
 }

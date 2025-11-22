@@ -1,11 +1,53 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
+import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
+import app.revanced.patcher.string
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val legacyRenderBottomNavigationBarParentFingerprint = fingerprint {
+internal val shortsBottomBarContainerFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters("Landroid/view/View;", "Landroid/os/Bundle;")
+    instructions(
+        string("r_pfvc"),
+        resourceLiteral(ResourceType.ID, "bottom_bar_container"),
+        methodCall(name = "getHeight"),
+        opcode(Opcode.MOVE_RESULT)
+    )
+}
+
+/**
+ * 19.41 to 20.44.
+ */
+internal val renderBottomNavigationBarFingerprint = fingerprint {
+    returns("V")
+    parameters("Ljava/lang/String;")
+    instructions(
+        opcode(Opcode.IGET_OBJECT, MatchFirst()),
+        opcode(Opcode.MONITOR_ENTER, MatchAfterImmediately()),
+        opcode(Opcode.IGET_OBJECT, MatchAfterImmediately()),
+        opcode(Opcode.IF_EQZ, MatchAfterImmediately()),
+        opcode(Opcode.INVOKE_INTERFACE, MatchAfterImmediately()),
+
+        opcode(Opcode.MONITOR_EXIT),
+        opcode(Opcode.RETURN_VOID, MatchAfterImmediately()),
+        opcode(Opcode.MOVE_EXCEPTION, MatchAfterImmediately()),
+        opcode(Opcode.MONITOR_EXIT, MatchAfterImmediately()),
+        opcode(Opcode.THROW, MatchAfterImmediately()),
+    )
+}
+
+/**
+ * Less than 19.41.
+ */
+internal val legacyRenderBottomNavigationBarLegacyParentFingerprint = fingerprint {
     parameters(
         "I",
         "I",
@@ -14,39 +56,16 @@ internal val legacyRenderBottomNavigationBarParentFingerprint = fingerprint {
         "J",
         "L",
     )
-    strings("aa")
-}
-
-internal val shortsBottomBarContainerFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Landroid/view/View;", "Landroid/os/Bundle;")
-    strings("r_pfvc")
-    literal { bottomBarContainer }
-}
-
-internal val renderBottomNavigationBarFingerprint = fingerprint {
-    returns("V")
-    parameters("Ljava/lang/String;")
-    opcodes(
-        Opcode.IGET_OBJECT,
-        Opcode.MONITOR_ENTER,
-        Opcode.IGET_OBJECT,
-        Opcode.IF_EQZ,
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MONITOR_EXIT,
-        Opcode.RETURN_VOID,
-        Opcode.MOVE_EXCEPTION,
-        Opcode.MONITOR_EXIT,
-        Opcode.THROW,
+    instructions(
+        string("aa")
     )
 }
 
 /**
- * Identical to [legacyRenderBottomNavigationBarParentFingerprint]
+ * Identical to [legacyRenderBottomNavigationBarLegacyParentFingerprint]
  * except this has an extra parameter.
  */
-internal val renderBottomNavigationBarParentFingerprint = fingerprint {
+internal val renderBottomNavigationBarLegacy1941ParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters(
         "I",
@@ -57,7 +76,22 @@ internal val renderBottomNavigationBarParentFingerprint = fingerprint {
         "Ljava/lang/String;",
         "L",
     )
-    strings("aa")
+    instructions(
+        string("aa")
+    )
+}
+
+internal val renderBottomNavigationBarParentFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("[Ljava/lang/Class;")
+    parameters(
+        "Ljava/lang/Class;",
+        "Ljava/lang/Object;",
+        "I"
+    )
+    instructions(
+        string("RPCAC")
+    )
 }
 
 internal val setPivotBarVisibilityFingerprint = fingerprint {
@@ -72,23 +106,25 @@ internal val setPivotBarVisibilityFingerprint = fingerprint {
 
 internal val setPivotBarVisibilityParentFingerprint = fingerprint {
     parameters("Z")
-    strings("FEnotifications_inbox")
+    instructions(
+        string("FEnotifications_inbox")
+    )
 }
 
 internal val shortsExperimentalPlayerFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal {
-        45677719L
-    }
+    instructions(
+        literal(45677719L)
+    )
 }
 
 internal val renderNextUIFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal {
-        45649743L
-    }
+    instructions(
+        literal(45649743L)
+    )
 }

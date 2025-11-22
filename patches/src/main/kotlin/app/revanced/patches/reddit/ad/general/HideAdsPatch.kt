@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.ad.general
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.reddit.ad.banner.hideBannerPatch
 import app.revanced.patches.reddit.ad.comments.hideCommentAdsPatch

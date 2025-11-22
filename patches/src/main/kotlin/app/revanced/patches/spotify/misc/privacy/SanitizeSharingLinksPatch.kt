@@ -1,7 +1,7 @@
 package app.revanced.patches.spotify.misc.privacy
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.PATCH_DESCRIPTION_SANITIZE_SHARING_LINKS
 import app.revanced.patches.shared.PATCH_NAME_SANITIZE_SHARING_LINKS

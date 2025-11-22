@@ -1,25 +1,15 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
+import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
+import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
-import app.revanced.util.indexOfFirstInstructionReversed
-import app.revanced.util.literal
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcode
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-
-internal fun indexOfFocusableInTouchModeInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        getReference<MethodReference>()?.name == "setFocusableInTouchMode"
-    }
-
-internal fun indexOfTranslationInstruction(method: Method) =
-    method.indexOfFirstInstructionReversed {
-        getReference<MethodReference>()?.name == "setTranslationY"
-    }
 
 internal val playerControlsVisibilityEntityModelFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
@@ -35,30 +25,21 @@ internal val playerControlsVisibilityEntityModelFingerprint = fingerprint {
 }
 
 internal val youtubeControlsOverlayFingerprint = fingerprint {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returns("V")
     parameters()
-    custom { method, _ ->
-        indexOfFocusableInTouchModeInstruction(method) >= 0 &&
-        method.containsLiteralInstruction(inset_overlay_view_layout_id) &&
-                method.containsLiteralInstruction(scrim_overlay_id)
-
-    }
+    instructions(
+        methodCall(name = "setFocusableInTouchMode"),
+        resourceLiteral(ResourceType.ID, "inset_overlay_view_layout"),
+        resourceLiteral(ResourceType.ID, "scrim_overlay"),
+    )
 }
 
 internal val motionEventFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/view/MotionEvent;")
-    custom { method, _ ->
-        indexOfTranslationInstruction(method) >= 0
-    }
-}
-
-internal val playerTopControlsInflateFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
-    literal { controls_layout_stub_id }
+    instructions(
+        methodCall(name = "setTranslationY")
+    )
 }
 
 internal val playerControlsExtensionHookListenersExistFingerprint = fingerprint {
@@ -81,20 +62,36 @@ internal val playerControlsExtensionHookFingerprint = fingerprint {
     }
 }
 
+internal val playerTopControlsInflateFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters()
+    instructions(
+        resourceLiteral(ResourceType.ID, "controls_layout_stub"),
+        methodCall("Landroid/view/ViewStub;", "inflate"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately())
+    )
+}
+
 internal val playerBottomControlsInflateFingerprint = fingerprint {
     returns("Ljava/lang/Object;")
     parameters()
-    literal { bottom_ui_container_stub_id }
+    instructions(
+        resourceLiteral(ResourceType.ID, "bottom_ui_container_stub"),
+        methodCall("Landroid/view/ViewStub;", "inflate"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately())
+    )
 }
 
 internal val overlayViewInflateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("V")
     parameters("Landroid/view/View;")
-    custom { methodDef, _ ->
-        methodDef.containsLiteralInstruction(fullscreen_button_id) &&
-            methodDef.containsLiteralInstruction(heatseeker_viewstub_id)
-    }
+    instructions(
+        resourceLiteral(ResourceType.ID, "heatseeker_viewstub"),
+        resourceLiteral(ResourceType.ID, "fullscreen_button"),
+        checkCast("Landroid/widget/ImageView;")
+    )
 }
 
 /**
@@ -110,13 +107,43 @@ internal val playerBottomControlsExploderFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal { 45643739L }
+    instructions(
+        literal(45643739L)
+    )
 }
 
 internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("I")
     parameters()
-    literal { 45629424L }
+    instructions(
+        literal(45629424L)
+    )
 }
 
+internal val playerControlsLargeOverlayButtonsFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    instructions(
+        literal(45709810L)
+    )
+}
+
+internal val playerControlsFullscreenLargeButtonsFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    instructions(
+        literal(45686474L)
+    )
+}
+
+internal val playerControlsButtonStrokeFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    instructions(
+        literal(45713296)
+    )
+}

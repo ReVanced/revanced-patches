@@ -1,8 +1,8 @@
 package app.revanced.patches.reddit.customclients.baconreader.api
 
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.patches.shared.misc.string.replaceStringPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction

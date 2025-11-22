@@ -2,6 +2,7 @@ rootProject.name = "revanced-patches"
 
 pluginManagement {
     repositories {
+        mavenLocal()
         gradlePluginPortal()
         google()
         maven {

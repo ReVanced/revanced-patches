@@ -1,19 +1,11 @@
 package app.revanced.patches.youtube.layout.buttons.overlay
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
-import app.revanced.util.literal
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
-
-internal val playerControlsPreviousNextOverlayTouchFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    strings("1.0x")
-    custom { methodDef, _ ->
-        methodDef.containsLiteralInstruction(playerControlPreviousButtonTouchArea) &&
-            methodDef.containsLiteralInstruction(playerControlNextButtonTouchArea)
-    }
-}
 
 internal val mediaRouteButtonFingerprint = fingerprint {
     parameters("I")
@@ -22,9 +14,26 @@ internal val mediaRouteButtonFingerprint = fingerprint {
     }
 }
 
+internal val castButtonPlayerFeatureFlagFingerprint = fingerprint {
+    returns("Z")
+    instructions(
+        literal(45690091)
+    )
+}
+
+internal val castButtonActionFeatureFlagFingerprint = fingerprint {
+    returns("Z")
+    instructions(
+        literal(45690090)
+    )
+}
+
 internal val inflateControlsGroupLayoutStubFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     returns("V")
-    literal { controlsButtonGroupLayoutStub }
+    instructions(
+        resourceLiteral(ResourceType.ID, "youtube_controls_button_group_layout_stub"),
+        methodCall(name = "inflate")
+    )
 }

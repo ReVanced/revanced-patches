@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.recyclerviewtree.hook
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 
@@ -12,7 +12,7 @@ val recyclerViewTreeHookPatch = bytecodePatch {
 
     execute {
         recyclerViewTreeObserverFingerprint.method.apply {
-            val insertIndex = recyclerViewTreeObserverFingerprint.patternMatch!!.startIndex + 1
+            val insertIndex = recyclerViewTreeObserverFingerprint.instructionMatches.first().index + 1
             val recyclerViewParameter = 2
 
             addRecyclerViewTreeHook = { classDescriptor ->

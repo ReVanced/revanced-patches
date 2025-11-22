@@ -1,7 +1,7 @@
 package app.revanced.patches.music.layout.branding
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_MAIN_ACTIVITY_NAME
@@ -10,9 +10,9 @@ import app.revanced.patches.music.misc.gms.musicActivityOnCreateFingerprint
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.shared.layout.branding.EXTENSION_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
@@ -34,7 +34,7 @@ private val disableSplashAnimationPatch = bytecodePatch {
         // barely shown. Instead turn off the animation entirely (app will also launch a little faster).
         cairoSplashAnimationConfigFingerprint.method.apply {
             val literalIndex = indexOfFirstLiteralInstructionOrThrow(
-                resourceMappings["layout", "main_activity_launch_animation"]
+                getResourceId(ResourceType.LAYOUT, "main_activity_launch_animation")
             )
             val checkCastIndex = indexOfFirstInstructionOrThrow(literalIndex) {
                 opcode == Opcode.CHECK_CAST &&

@@ -1,6 +1,6 @@
 package app.revanced.patches.photomath.misc.unlock.plus
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.photomath.detection.signature.signatureDetectionPatch
 import app.revanced.patches.photomath.misc.unlock.bookpoint.enableBookpointPatch

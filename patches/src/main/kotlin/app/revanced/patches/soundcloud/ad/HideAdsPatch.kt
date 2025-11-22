@@ -1,11 +1,11 @@
 package app.revanced.patches.soundcloud.ad
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patches.soundcloud.shared.featureConstructorFingerprint
 
 @Suppress("unused")
@@ -54,7 +54,7 @@ val hideAdsPatch = bytecodePatch(
 
         // Prevent verification of an HTTP header containing the user's current plan, which would contradict the previous patch.
 
-        val conditionIndex = interceptFingerprint.patternMatch!!.endIndex + 1
+        val conditionIndex = interceptFingerprint.instructionMatches.last().index + 1
         interceptFingerprint.method.addInstruction(
             conditionIndex,
             "return-object p1",

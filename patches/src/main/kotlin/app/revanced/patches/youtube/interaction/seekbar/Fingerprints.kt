@@ -1,19 +1,31 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
+import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
+import app.revanced.patcher.InstructionLocation.MatchAfterWithin
+import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.newInstance
+import app.revanced.patcher.opcode
+import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_31_or_greater
 import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversed
+import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 internal val swipingUpGestureParentFingerprint = fingerprint {
     returns("Z")
     parameters()
-    literal { 45379021 }
+    instructions(
+        literal(45379021) // Swipe up fullscreen feature flag
+    )
 }
 
 /**
@@ -23,7 +35,9 @@ internal val showSwipingUpGuideFingerprint = fingerprint {
     accessFlags(AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal { 1 }
+    instructions(
+        literal(1)
+    )
 }
 
 /**
@@ -39,7 +53,8 @@ internal val disableFastForwardLegacyFingerprint = fingerprint {
     returns("Z")
     parameters()
     opcodes(Opcode.MOVE_RESULT)
-    literal { 45411330 }
+    // Intent start flag only used in the subscription activity
+    literal {45411330}
 }
 
 internal val disableFastForwardGestureFingerprint = fingerprint {
@@ -54,6 +69,26 @@ internal val disableFastForwardGestureFingerprint = fingerprint {
     custom { methodDef, classDef ->
         methodDef.implementation!!.instructions.count() > 30 &&
             classDef.type.endsWith("/NextGenWatchLayout;")
+    }
+}
+
+internal val customTapAndHoldFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("V")
+    parameters()
+    instructions(
+        literal(2.0f)
+    )
+    custom { method, _ ->
+        // Code is found in different methods with different strings.
+        val findSearchLandingKey = (is_19_34_or_greater && !is_19_47_or_greater)
+                || (is_20_19_or_greater && !is_20_20_or_greater) || is_20_31_or_greater
+
+        method.name == "run" && method.indexOfFirstInstruction {
+            val string = getReference<StringReference>()?.string
+            string == "Failed to easy seek haptics vibrate."
+                    || (findSearchLandingKey && string == "search_landing_cache_key")
+        } >= 0
     }
 }
 
@@ -83,18 +118,19 @@ internal val onTouchEventHandlerFingerprint = fingerprint {
 internal val seekbarTappingFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
-    parameters("L")
-    custom { method, _ ->
-        method.name == "onTouchEvent"
-                && method.containsLiteralInstruction(Integer.MAX_VALUE.toLong())
-                && indexOfNewPointInstruction(method) >= 0
-    }
-}
+    parameters("Landroid/view/MotionEvent;")
+    instructions(
+        literal(Int.MAX_VALUE),
 
-internal fun indexOfNewPointInstruction(method: Method) = method.indexOfFirstInstructionReversed {
-    val reference = getReference<MethodReference>()
-    reference?.definingClass == "Landroid/graphics/Point;"
-            && reference.name == "<init>"
+        newInstance("Landroid/graphics/Point;"),
+        methodCall(smali = "Landroid/graphics/Point;-><init>(II)V", location = MatchAfterImmediately()),
+        methodCall(smali = "Lj\$/util/Optional;->of(Ljava/lang/Object;)Lj\$/util/Optional;", location = MatchAfterImmediately()),
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
+        fieldAccess(opcode = Opcode.IPUT_OBJECT, type = "Lj\$/util/Optional;", location = MatchAfterImmediately()),
+
+        opcode(Opcode.INVOKE_VIRTUAL, location = MatchAfterWithin(10))
+    )
+    custom { method, _ -> method.name == "onTouchEvent" }
 }
 
 internal val slideToSeekFingerprint = fingerprint {
@@ -114,5 +150,16 @@ internal val fullscreenSeekbarThumbnailsQualityFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal { 45399684L }
+    instructions(
+        literal(45399684L) // Video stream seekbar thumbnails feature flag.
+    )
+}
+
+internal val fullscreenLargeSeekbarFeatureFlagFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returns("Z")
+    parameters()
+    instructions(
+        literal(45691569)
+    )
 }

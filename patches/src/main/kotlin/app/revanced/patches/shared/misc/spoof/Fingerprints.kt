@@ -3,7 +3,9 @@ package app.revanced.patches.shared.misc.spoof
 import app.revanced.patcher.fingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
-import app.revanced.util.literal
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
+import app.revanced.patcher.string
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
@@ -40,6 +42,9 @@ internal val buildPlayerRequestURIFingerprint = fingerprint {
 internal val buildRequestFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Lorg/chromium/net/UrlRequest") // UrlRequest; or UrlRequest$Builder;
+    instructions(
+        methodCall(name = "newUrlRequestBuilder")
+    ) // UrlRequest; or UrlRequest$Builder;
     custom { methodDef, _ ->
         // Different targets have slightly different parameters
 
@@ -93,7 +98,6 @@ internal val protobufClassParseByteBufferFingerprint = fingerprint {
 
 internal val createStreamingDataFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     parameters("L")
     opcodes(
         Opcode.IPUT_OBJECT,
@@ -111,7 +115,6 @@ internal val createStreamingDataFingerprint = fingerprint {
 
 internal val buildMediaDataSourceFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     parameters(
         "Landroid/net/Uri;",
         "J",
@@ -126,14 +129,12 @@ internal val buildMediaDataSourceFingerprint = fingerprint {
     )
 }
 
-internal const val HLS_CURRENT_TIME_FEATURE_FLAG = 45355374L
-
 internal val hlsCurrentTimeFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Z", "L")
-    literal {
-        HLS_CURRENT_TIME_FEATURE_FLAG
-    }
+    instructions(
+        literal(45355374L) // HLS current time feature flag.
+    )
 }
 
 internal const val DISABLED_BY_SABR_STREAMING_URI_STRING = "DISABLED_BY_SABR_STREAMING_URI"
@@ -151,14 +152,16 @@ internal val nerdsStatsVideoFormatBuilderFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returns("Ljava/lang/String;")
     parameters("L")
-    strings("codecs=\"")
+    instructions(
+        string("codecs=\"")
+    )
 }
 
 internal val patchIncludedExtensionMethodFingerprint = fingerprint {
     returns("Z")
     parameters()
     custom { method, classDef ->
-        classDef.type == EXTENSION_CLASS_DESCRIPTOR && method.name == "isPatchIncluded"
+        method.name == "isPatchIncluded" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
 }
 
@@ -166,30 +169,30 @@ internal val patchIncludedExtensionMethodFingerprint = fingerprint {
 // This code appears to replace the player config after the streams are loaded.
 // Flag is present in YouTube 19.34, but is missing Platypus stream replacement code until 19.43.
 // Flag and Platypus code is also present in newer versions of YouTube Music.
-internal const val MEDIA_FETCH_HOT_CONFIG_FEATURE_FLAG = 45645570L
-
 internal val mediaFetchHotConfigFingerprint = fingerprint {
-    literal { MEDIA_FETCH_HOT_CONFIG_FEATURE_FLAG }
+    instructions(
+        literal(45645570L)
+    )
 }
 
 // YT 20.10+, YT Music 8.11 - 8.14.
 // Flag is missing in YT Music 8.15+, and it is not known if a replacement flag/feature exists.
-internal const val MEDIA_FETCH_HOT_CONFIG_ALTERNATIVE_FEATURE_FLAG = 45683169L
-
 internal val mediaFetchHotConfigAlternativeFingerprint = fingerprint {
-    literal { MEDIA_FETCH_HOT_CONFIG_ALTERNATIVE_FEATURE_FLAG }
+    instructions(
+        literal(45683169L)
+    )
 }
 
 // Feature flag that enables different code for parsing and starting video playback,
 // but it's exact purpose is not known. If this flag is enabled while stream spoofing
 // then videos will never start playback and load forever.
 // Flag does not seem to affect playback if spoofing is off.
-internal const val PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG = 45665455L
-
 internal val playbackStartDescriptorFeatureFlagFingerprint = fingerprint {
     parameters()
     returns("Z")
-    literal { PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG }
+    instructions(
+        literal(45665455L)
+    )
 }
 
 internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) = method.indexOfFirstInstruction {

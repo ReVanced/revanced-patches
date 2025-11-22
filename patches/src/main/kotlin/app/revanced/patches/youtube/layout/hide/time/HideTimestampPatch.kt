@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.time
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -8,6 +8,8 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/HideTimestampPatch;"
 
 val hideTimestampPatch = bytecodePatch(
     name = "Hide timestamp",
@@ -21,10 +23,10 @@ val hideTimestampPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
+            "20.21.37",
+            "20.31.40",
         )
     )
 
@@ -38,13 +40,13 @@ val hideTimestampPatch = bytecodePatch(
         timeCounterFingerprint.method.addInstructionsWithLabels(
             0,
             """
-                invoke-static { }, Lapp/revanced/extension/youtube/patches/HideTimestampPatch;->hideTimestamp()Z
+                invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->hideTimestamp()Z
                 move-result v0
                 if-eqz v0, :hide_time
                 return-void
                 :hide_time
                 nop
-            """,
+            """
         )
     }
 }
