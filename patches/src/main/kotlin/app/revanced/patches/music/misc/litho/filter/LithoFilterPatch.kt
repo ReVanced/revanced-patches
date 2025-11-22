@@ -65,7 +65,7 @@ val lithoFilterPatch = bytecodePatch(
         // It is important to allow the original code to always run to completion,
         // otherwise high memory usage and poor app performance can occur.
 
-        // Find the identifier/path fields of the conversion context.
+        // Find the identifier/path class and fields of the conversion context.
         val conversionContextIdentifierField = componentContextParserFingerprint.let {
             // Identifier field is loaded just before the string declaration.
             val index = it.method.indexOfFirstInstructionReversedOrThrow(
@@ -113,6 +113,8 @@ val lithoFilterPatch = bytecodePatch(
                 insertIndex,
                 """
                     move-object/from16 v$freeRegister, p2 # ConversionContext parameter
+                    check-cast v$freeRegister, ${conversionContextFingerprintToString.originalClassDef.type} # Check we got the actual ConversionContext
+                    
                     iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
                     iget-object v$pathRegister, v$freeRegister, $conversionContextPathBuilderField
                     
