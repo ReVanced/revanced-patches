@@ -143,6 +143,10 @@ internal val imageEnumConstructorFingerprint = fingerprint {
         string("TAB_ACTIVITY_CAIRO"),
         opcode(Opcode.SPUT_OBJECT)
     )
+    custom { _, classDef ->
+        // Don't match our extension code.
+        !classDef.type.startsWith("Lapp/revanced/")
+    }
 }
 
 internal val setEnumMapFingerprint = fingerprint {
