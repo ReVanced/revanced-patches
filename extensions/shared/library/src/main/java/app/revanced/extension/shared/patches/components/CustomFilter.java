@@ -23,7 +23,7 @@ import app.revanced.extension.shared.patches.litho.Filter;
  * Allows custom filtering using a path and optionally a proto buffer string.
  */
 @SuppressWarnings("unused")
-final class CustomFilter extends Filter {
+public final class CustomFilter extends Filter {
 
     private static void showInvalidSyntaxToast(@NonNull String expression) {
         Utils.showToastLong(str("revanced_custom_filter_toast_invalid_syntax", expression));
