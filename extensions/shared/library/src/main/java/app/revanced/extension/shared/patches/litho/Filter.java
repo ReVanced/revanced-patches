@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
+import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
+
 /**
  * Filters litho based components.
  *
@@ -18,7 +21,7 @@ import java.util.List;
  *
  * All callbacks must be registered before the constructor completes.
  */
-abstract class Filter {
+public abstract class Filter {
 
     public enum FilterContentType {
         IDENTIFIER,
@@ -65,7 +68,7 @@ abstract class Filter {
      * @param contentIndex Matched index of the identifier or path.
      * @return True if the litho component should be filtered out.
      */
-    boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         return true;
     }

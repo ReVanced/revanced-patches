@@ -10,6 +10,8 @@ import app.revanced.extension.shared.settings.BaseSettings;
 import java.nio.ByteBuffer;
 import java.util.List;
 
+import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
+
 @SuppressWarnings("unused")
 public final class LithoFilterPatch {
     /**

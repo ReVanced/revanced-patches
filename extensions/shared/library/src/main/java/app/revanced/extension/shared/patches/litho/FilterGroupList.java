@@ -8,6 +8,9 @@ import app.revanced.extension.shared.TrieSearch;
 import java.util.*;
 import java.util.function.Consumer;
 
+import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
+import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
+
 abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<T> {
 
     private final List<T> filterGroups = new ArrayList<>();
