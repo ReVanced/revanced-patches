@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.sync.detection.piracy
 
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.fingerprint
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags

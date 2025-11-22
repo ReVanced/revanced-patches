@@ -1,7 +1,8 @@
 package app.revanced.patches.twitter.misc.hook.json
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.removeInstructions
+import app.revanced.patcher.firstClassDef
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -48,7 +49,7 @@ val jsonHookPatch = bytecodePatch(
 
     execute {
         jsonHookPatchFingerprint.apply {
-            val jsonHookPatch = classBy(JSON_HOOK_PATCH_CLASS_DESCRIPTOR)
+            val jsonHookPatch = firstClassDef(JSON_HOOK_PATCH_CLASS_DESCRIPTOR)
 
             matchOrNull(jsonHookPatch)
                 ?: throw PatchException("Unexpected extension.")
@@ -59,7 +60,7 @@ val jsonHookPatch = bytecodePatch(
                 .fields
                 .firstOrNull { it.name == "JSON_FACTORY" }
                 ?.type
-                ?.let { type -> classes.classBy(type) }
+                ?.let { type -> firstClassDef(type) }
                 ?: throw PatchException("Could not find required class.")
 
         // Hook the methods first parameter.
@@ -97,7 +98,7 @@ class JsonHook(
     internal var added = false
 
     init {
-        mutableClassBy(descriptor).let {
+        firstClassDef(descriptor).let {
             it.also { classDef ->
                 if (
                     classDef.superclass != JSON_HOOK_CLASS_DESCRIPTOR ||

@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.ad.comments
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 val hideCommentAdsPatch = bytecodePatch(

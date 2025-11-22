@@ -1,6 +1,6 @@
 package app.revanced.patches.viber.misc.navbar
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.PATCH_NAME_HIDE_NAVIGATION_BUTTONS

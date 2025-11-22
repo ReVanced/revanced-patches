@@ -1,8 +1,7 @@
 package app.revanced.patches.youtube.ad.general
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.opcode
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -24,7 +23,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
-import org.stringtemplate.v4.compiler.Bytecode.instructions
 
 internal var adAttributionId = -1L
     private set
@@ -103,7 +101,7 @@ val hideAdsPatch = bytecodePatch(
 
         // Hide ad views
 
-        classes.forEach { classDef ->
+        classDefs.forEach { classDef ->
             classDef.methods.forEach { method ->
                 with(method.implementation) {
                     this?.instructions?.forEachIndexed { index, instruction ->
@@ -125,7 +123,7 @@ val hideAdsPatch = bytecodePatch(
 
                             // Hide the view
                             val viewRegister = (this as Instruction35c).registerC
-                            mutableClassBy(classDef)
+                            classDef.mutable()
                                 .findMutableMethodOf(method)
                                 .injectHideViewCall(
                                     insertIndex,

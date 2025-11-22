@@ -1,6 +1,6 @@
 package app.revanced.patches.viber.ads
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow

@@ -1,19 +1,15 @@
 package app.revanced.util
 
 import app.revanced.patcher.FingerprintBuilder
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.dex.mutable.MutableClassDef
+import app.revanced.patcher.dex.mutable.MutableField
+import app.revanced.patcher.dex.mutable.MutableField.Companion.toMutable
+import app.revanced.patcher.dex.mutable.MutableMethod
+import app.revanced.patcher.extensions.*
+import app.revanced.patcher.firstClassDefMutable
+import app.revanced.patcher.firstClassDefMutableOrNull
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
-import app.revanced.patcher.util.proxy.mutableTypes.MutableField
-import app.revanced.patcher.util.proxy.mutableTypes.MutableField.Companion.toMutable
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -24,21 +20,14 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.Opcode.*
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.Instruction
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.ThreeRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.util.MethodUtil
-import java.util.EnumSet
+import java.util.*
 
 /**
  * Starting from and including the instruction at index [startIndex],
@@ -264,7 +253,7 @@ internal fun Int.toPublicAccessFlags(): Int {
  * @param method The [Method] to find.
  * @return The [MutableMethod].
  */
-fun MutableClass.findMutableMethodOf(method: Method) = this.methods.first {
+fun MutableClassDef.findMutableMethodOf(method: Method) = this.methods.first {
     MethodUtil.methodSignaturesMatch(it, method)
 }
 
@@ -273,7 +262,7 @@ fun MutableClass.findMutableMethodOf(method: Method) = this.methods.first {
  *
  * @param transform The transformation function. Accepts a [MutableMethod] and returns a transformed [MutableMethod].
  */
-fun MutableClass.transformMethods(transform: MutableMethod.() -> MutableMethod) {
+fun MutableClassDef.transformMethods(transform: MutableMethod.() -> MutableMethod) {
     val transformedMethods = methods.map { it.transform() }
     methods.clear()
     methods.addAll(transformedMethods)
@@ -539,12 +528,12 @@ fun Method.containsLiteralInstruction(literal: Double) = indexOfFirstLiteralInst
  * @param targetClass the class to start traversing the class hierarchy from.
  * @param callback function that is called for every class in the hierarchy.
  */
-fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClass, callback: MutableClass.() -> Unit) {
+fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClassDef, callback: MutableClassDef.() -> Unit) {
     callback(targetClass)
 
     targetClass.superclass ?: return
 
-    mutableClassByOrNull(targetClass.superclass!!)?.let {
+    firstClassDefMutableOrNull(targetClass.superclass!!)?.let {
         traverseClassHierarchy(it, callback)
     }
 }
@@ -812,7 +801,7 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
 ) {
     val matchingIndexes = ArrayList<Int>()
 
-    classes.forEach { classDef ->
+    classDefs.forEach { classDef ->
         classDef.methods.forEach { method ->
             method.implementation?.instructions?.let { instructions ->
                 matchingIndexes.clear()
@@ -824,7 +813,7 @@ fun BytecodePatchContext.forEachLiteralValueInstruction(
                 }
 
                 if (matchingIndexes.isNotEmpty()) {
-                    val mutableMethod = mutableClassBy(classDef).findMutableMethodOf(method)
+                    val mutableMethod = classDef.mutable().findMutableMethodOf(method)
                     matchingIndexes.asReversed().forEach { index ->
                         block.invoke(mutableMethod, index)
                     }
@@ -1170,13 +1159,13 @@ internal fun MutableField.removeFlags(vararg flags: AccessFlags) {
 }
 
 internal fun BytecodePatchContext.addStaticFieldToExtension(
-    className: String,
+    type: String,
     methodName: String,
     fieldName: String,
     objectClass: String,
     smaliInstructions: String
 ) {
-    val mutableClass = mutableClassBy(className)
+    val mutableClass = firstClassDefMutable(type)
     val objectCall = "$mutableClass->$fieldName:$objectClass"
 
     mutableClass.apply {

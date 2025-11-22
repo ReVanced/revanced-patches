@@ -1,6 +1,6 @@
 package app.revanced.patches.memegenerator.detection.signature
 
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
+import app.revanced.patcher.extensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 val signatureVerificationPatch = bytecodePatch(

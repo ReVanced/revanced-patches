@@ -1,6 +1,6 @@
 package app.revanced.patches.inshorts.ad
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")

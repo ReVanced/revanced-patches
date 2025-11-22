@@ -1,6 +1,6 @@
 package app.revanced.patches.finanzonline.detection.root
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.PATCH_DESCRIPTION_REMOVE_ROOT_DETECTION
 import app.revanced.patches.shared.PATCH_NAME_REMOVE_ROOT_DETECTION

@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.annoyances.startup
 
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")

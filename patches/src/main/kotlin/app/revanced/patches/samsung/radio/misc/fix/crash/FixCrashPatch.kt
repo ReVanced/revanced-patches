@@ -2,8 +2,8 @@
 
 package app.revanced.patches.samsung.radio.misc.fix.crash
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.samsung.radio.restrictions.device.bypassDeviceChecksPatch
 import app.revanced.util.findInstructionIndicesReversedOrThrow

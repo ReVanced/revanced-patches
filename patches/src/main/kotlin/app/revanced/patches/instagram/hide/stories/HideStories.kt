@@ -1,5 +1,5 @@
 package app.revanced.patches.instagram.hide.stories
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
+import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")

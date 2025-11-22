@@ -1,6 +1,6 @@
 package app.revanced.patches.music.misc.fileprovider
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.music.utils.fix.fileprovider.fileProviderResolverFingerprint

@@ -1,13 +1,14 @@
 package app.revanced.patches.youtube.video.information
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.dex.mutable.MutableClassDef
+import app.revanced.patcher.dex.mutable.MutableMethod
+import app.revanced.patcher.dex.mutable.MutableMethod.Companion.toMutable
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.firstClassDefMutable
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
-import app.revanced.patcher.util.smali.toInstructions
+import app.revanced.patcher.util.toInstructions
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
@@ -198,7 +199,7 @@ val videoInformationPatch = bytecodePatch(
                 getInstruction<ReferenceInstruction>(indexOfFirstInstructionOrThrow(Opcode.IF_EQZ) - 1).reference as FieldReference
 
             setPlaybackSpeedMethod =
-                mutableClassBy(setPlaybackSpeedMethodReference.definingClass)
+                firstClassDefMutable(setPlaybackSpeedMethodReference.definingClass)
                     .methods.first { it.name == setPlaybackSpeedMethodReference.name }
             setPlaybackSpeedMethodIndex = 0
 
@@ -358,7 +359,7 @@ val videoInformationPatch = bytecodePatch(
             val setQualityFieldReference = match.method
                 .getInstruction<ReferenceInstruction>(1).reference as FieldReference
 
-            mutableClassBy(setQualityFieldReference.type).apply {
+            firstClassDefMutable(setQualityFieldReference.type).apply {
                 // Add interface and helper methods to allow extension code to call obfuscated methods.
                 interfaces.add(EXTENSION_VIDEO_QUALITY_MENU_INTERFACE)
 
@@ -409,7 +410,7 @@ val videoInformationPatch = bytecodePatch(
     }
 }
 
-private fun addSeekInterfaceMethods(targetClass: MutableClass, seekToMethod: Method, seekToRelativeMethod: Method) {
+private fun addSeekInterfaceMethods(targetClass: MutableClassDef, seekToMethod: Method, seekToRelativeMethod: Method) {
     // Add the interface and methods that extension calls.
     targetClass.interfaces.add(EXTENSION_PLAYER_INTERFACE)
 

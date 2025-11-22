@@ -1,6 +1,6 @@
 package app.revanced.patches.spotify.misc.extension
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patches.shared.misc.extension.extensionHook
 import app.revanced.patches.spotify.shared.mainActivityOnCreateFingerprint
 import app.revanced.util.getReference

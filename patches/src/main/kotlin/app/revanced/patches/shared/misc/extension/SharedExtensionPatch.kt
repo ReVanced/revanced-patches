@@ -2,8 +2,9 @@ package app.revanced.patches.shared.misc.extension
 
 import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.FingerprintBuilder
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.firstClassDefMutable
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
@@ -40,7 +41,7 @@ fun sharedExtensionPatch(
 
     execute {
         // Verify the extension class exists.
-        classBy(EXTENSION_CLASS_DESCRIPTOR)
+        firstClassDefMutable(EXTENSION_CLASS_DESCRIPTOR)
     }
 
     finalize {

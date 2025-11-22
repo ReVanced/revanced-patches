@@ -1,7 +1,7 @@
 package app.revanced.patches.cricbuzz.ads
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.cricbuzz.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference

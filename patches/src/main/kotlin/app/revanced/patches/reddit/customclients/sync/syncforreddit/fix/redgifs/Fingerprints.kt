@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.redgifs
 
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.opcode
 import app.revanced.util.indexOfFirstInstruction

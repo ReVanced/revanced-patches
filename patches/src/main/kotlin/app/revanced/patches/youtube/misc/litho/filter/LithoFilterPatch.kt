@@ -2,24 +2,16 @@
 
 package app.revanced.patches.youtube.misc.litho.filter
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.removeInstructions
+import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.firstClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_05_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_22_or_greater
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
+import app.revanced.patches.youtube.misc.playservice.*
 import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
-import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.findFieldFromToString
-import app.revanced.util.findFreeRegister
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.insertLiteralOverride
-import app.revanced.util.returnLate
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -133,7 +125,7 @@ val lithoFilterPatch = bytecodePatch(
                 method -> AccessFlags.STATIC.isSet(method.accessFlags)
         }
 
-        val emptyComponentField = classBy(builderMethodDescriptor.returnType).fields.single()
+        val emptyComponentField = firstClassDef(builderMethodDescriptor.returnType).fields.single()
 
         componentCreateFingerprint.method.apply {
             val insertIndex = if (is_19_17_or_greater) {

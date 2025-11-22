@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.layout.shortsplayer.openShortsInRegularPlayerPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch

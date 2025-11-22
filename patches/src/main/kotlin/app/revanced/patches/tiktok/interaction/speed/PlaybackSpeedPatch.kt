@@ -1,8 +1,8 @@
 package app.revanced.patches.tiktok.interaction.speed
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.shared.getEnterFromFingerprint
 import app.revanced.patches.tiktok.shared.onRenderFirstFrameFingerprint

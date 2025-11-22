@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.layout.formfactor
 
 import app.revanced.patcher.InstructionLocation.*
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
