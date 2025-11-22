@@ -15,13 +15,15 @@ import java.util.regex.Pattern;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ByteTrieSearch;
+import app.revanced.extension.shared.patches.litho.Filter;
+import app.revanced.extension.shared.patches.litho.FilterGroup.*;
 import app.revanced.extension.youtube.settings.Settings;
 
 /**
  * Allows custom filtering using a path and optionally a proto buffer string.
  */
 @SuppressWarnings("unused")
-final class CustomFilter extends Filter {
+public final class CustomFilter extends Filter {
 
     private static void showInvalidSyntaxToast(@NonNull String expression) {
         Utils.showToastLong(str("revanced_custom_filter_toast_invalid_syntax", expression));
@@ -145,8 +147,8 @@ final class CustomFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String identifier, String path, byte[] buffer,
-                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    public boolean isFiltered(String identifier, String path, byte[] buffer,
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // All callbacks are custom filter groups.
         CustomFilterGroup custom = (CustomFilterGroup) matchedGroup;
         if (custom.startsWith && contentIndex != 0) {
