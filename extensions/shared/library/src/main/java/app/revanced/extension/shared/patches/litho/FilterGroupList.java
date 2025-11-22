@@ -16,7 +16,7 @@ public abstract class FilterGroupList<V, T extends FilterGroup<V>> implements It
     private final TrieSearch<V> search = createSearchGraph();
 
     @SafeVarargs
-    protected final void addAll(final T... groups) {
+    public final void addAll(final T... groups) {
         filterGroups.addAll(Arrays.asList(groups));
 
         for (T group : groups) {
