@@ -1,9 +1,12 @@
 package app.revanced.patches.music.misc.debugging
 
+import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.shared.misc.debugging.enableDebuggingPatch
+import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import kotlin.collections.listOf
 
 @Suppress("unused")
 val enableDebuggingPatch = enableDebuggingPatch(
@@ -20,7 +23,11 @@ val enableDebuggingPatch = enableDebuggingPatch(
             )
         )
     },
+    executeBlock = {
+        addResources("youtube", "misc.debugging.enableDebuggingPatch")
+    },
     // String feature flag does not appear to be present with YT Music.
     hookStringFeatureFlag = false,
-    preferenceScreen = PreferenceScreen.MISC
+    preferenceScreen = PreferenceScreen.MISC,
+    additionalDebugPreferences = listOf(SwitchPreference("revanced_debug_protobuffer"))
 )

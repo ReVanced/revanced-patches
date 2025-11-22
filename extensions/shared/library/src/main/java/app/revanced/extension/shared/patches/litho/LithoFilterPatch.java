@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.shared.settings.BaseSettings;
-//import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.shared.settings.YoutubeSharedSettings;
 
 import java.nio.ByteBuffer;
 import java.util.List;
@@ -37,10 +37,10 @@ public final class LithoFilterPatch {
             builder.append(identifier);
             builder.append(" Path: ");
             builder.append(path);
-//            if (Settings.DEBUG_PROTOBUFFER.get()) {
+            if (YoutubeSharedSettings.DEBUG_PROTOBUFFER.get()) {
                 builder.append(" BufferStrings: ");
                 findAsciiStrings(builder, buffer);
-//            }
+            }
 
             return builder.toString();
         }
