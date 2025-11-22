@@ -122,7 +122,7 @@ public abstract class FilterGroup<T> {
 
     /**
      * If you have more than 1 filter patterns, then all instances of
-     * this class should filtered using {@link ByteArrayFilterGroupList#check(byte[])},
+     * this class should filtered using {@link FilterGroupList.ByteArrayFilterGroupList#check(byte[])},
      * which uses a prefix tree to give better performance.
      */
     public static class ByteArrayFilterGroup extends FilterGroup<byte[]> {

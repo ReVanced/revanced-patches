@@ -17,7 +17,7 @@ import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGr
  * either an identifier or a path.
  * Then inside {@link #isFiltered(String, String, byte[], StringFilterGroup, FilterContentType, int)}
  * search for the buffer content using either a {@link ByteArrayFilterGroup} (if searching for 1 pattern)
- * or a {@link ByteArrayFilterGroupList} (if searching for more than 1 pattern).
+ * or a {@link FilterGroupList.ByteArrayFilterGroupList} (if searching for more than 1 pattern).
  *
  * All callbacks must be registered before the constructor completes.
  */

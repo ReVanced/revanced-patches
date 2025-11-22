@@ -4,14 +4,13 @@ import androidx.annotation.NonNull;
 import app.revanced.extension.shared.ByteTrieSearch;
 import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.shared.TrieSearch;
+import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
+import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
 
 import java.util.*;
 import java.util.function.Consumer;
 
-import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
-import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
-
-abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<T> {
+public abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<T> {
 
     private final List<T> filterGroups = new ArrayList<>();
     private final TrieSearch<V> search = createSearchGraph();
@@ -54,7 +53,7 @@ abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<
         return filterGroups.spliterator();
     }
 
-    protected FilterGroup.FilterGroupResult check(V stack) {
+    public FilterGroup.FilterGroupResult check(V stack) {
         FilterGroup.FilterGroupResult result = new FilterGroup.FilterGroupResult();
         search.matches(stack, result);
         return result;
@@ -62,21 +61,21 @@ abstract class FilterGroupList<V, T extends FilterGroup<V>> implements Iterable<
     }
 
     protected abstract TrieSearch<V> createSearchGraph();
-}
 
-final class StringFilterGroupList extends FilterGroupList<String, StringFilterGroup> {
-    protected StringTrieSearch createSearchGraph() {
-        return new StringTrieSearch();
+    public static final class StringFilterGroupList extends FilterGroupList<String, StringFilterGroup> {
+        protected StringTrieSearch createSearchGraph() {
+            return new StringTrieSearch();
+        }
     }
-}
 
-/**
- * If searching for a single byte pattern, then it is slightly better to use
- * {@link ByteArrayFilterGroup#check(byte[])} as it uses KMP which is faster
- * than a prefix tree to search for only 1 pattern.
- */
-final class ByteArrayFilterGroupList extends FilterGroupList<byte[], ByteArrayFilterGroup> {
-    protected ByteTrieSearch createSearchGraph() {
-        return new ByteTrieSearch();
+    /**
+     * If searching for a single byte pattern, then it is slightly better to use
+     * {@link ByteArrayFilterGroup#check(byte[])} as it uses KMP which is faster
+     * than a prefix tree to search for only 1 pattern.
+     */
+    public static final class ByteArrayFilterGroupList extends FilterGroupList<byte[], ByteArrayFilterGroup> {
+        protected ByteTrieSearch createSearchGraph() {
+            return new ByteTrieSearch();
+        }
     }
 }
