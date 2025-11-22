@@ -97,14 +97,8 @@ val lithoFilterPatch = bytecodePatch(
 
         // Match all component creations methods
         componentCreateFingerprint.method.apply {
-            // TODO: Check if the same happens on music
-            val insertIndex = if (/* is_19_17_or_greater */ true) {
-                indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
-            } else {
-                // 19.16 clobbers p2 so must check at start of the method and not at the return index.
-                0
-            }
-
+            // No supported version clobbers p2 so we can just do our things before the return instruction.
+            val insertIndex = indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
             val freeRegister = findFreeRegister(insertIndex)
             val identifierRegister = findFreeRegister(insertIndex, freeRegister)
             val pathRegister = findFreeRegister(insertIndex, freeRegister, identifierRegister)
