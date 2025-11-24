@@ -15,8 +15,8 @@ val DisableVersionCheckPatch = bytecodePatch(
     compatibleWith("com.adobe.lrmobile"("9.3.0"))
 
     execute {
-        versionCheckFingerprint.method.apply {
-            val igetIndex = versionCheckFingerprint.patternMatch!!.endIndex
+        refreshRemoteConfigurationFingerprint.method.apply {
+            val igetIndex = refreshRemoteConfigurationFingerprint.patternMatch!!.endIndex
 
             // This value represents the server command to clear all version restrictions
             val STATUS_FORCE_RESET_HEX = "-0x2";
