@@ -15,6 +15,6 @@ internal val versionCheckFingerprint = fingerprint {
     opcodes(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET, // <-- Overwrite this instruction
+        Opcode.IGET, // Overwrite this instruction to disable the check.
     )
 }
