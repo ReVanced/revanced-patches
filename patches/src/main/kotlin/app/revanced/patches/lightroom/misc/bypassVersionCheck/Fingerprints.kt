@@ -5,7 +5,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val versionCheckFingerprint = fingerprint {
-    // Matches public static k()V
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
 
     strings(
