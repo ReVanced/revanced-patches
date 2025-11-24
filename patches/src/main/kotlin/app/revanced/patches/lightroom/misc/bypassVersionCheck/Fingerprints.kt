@@ -14,12 +14,8 @@ internal val versionCheckFingerprint = fingerprint {
     )
 
     opcodes(
-        Opcode.INVOKE_STATIC,       // invoke-static {}, Lbf/p;->b()Lbf/p$a;
-        Opcode.MOVE_RESULT_OBJECT,  // move-result-object v0
-        Opcode.IGET,                // iget v1, v0, Lbf/p$a;->a:I  <-- TARGET
-        Opcode.CONST_4,             // const/4 v2, -0x2
-        Opcode.CONST_STRING,        // const-string v3...
-        Opcode.CONST_STRING,        // const-string v4...
-        Opcode.IF_NE                // if-ne v1, v2, :cond_0
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET, // <-- Overwrite this instruction
     )
 }
