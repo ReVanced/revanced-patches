@@ -1,3 +1,10 @@
+# [5.47.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.5...v5.47.0-dev.6) (2025-11-24)
+
+
+### Features
+
+* **Letterboxd:** Add `Hide ads` patch ([#6309](https://github.com/ReVanced/revanced-patches/issues/6309)) ([0af0ee9](https://github.com/ReVanced/revanced-patches/commit/0af0ee92c48bb2ffc332197e05439e20c5c05d83))
+
 # [5.47.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.4...v5.47.0-dev.5) (2025-11-13)
 
 
