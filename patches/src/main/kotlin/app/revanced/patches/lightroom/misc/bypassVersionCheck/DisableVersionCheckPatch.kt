@@ -1,6 +1,6 @@
 package app.revanced.patches.lightroom.misc.version
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -16,13 +16,11 @@ val DisableVersionCheckPatch = bytecodePatch(
 
     execute {
         versionCheckFingerprint.method.apply {
-            val igetIndex = implementation!!.instructions.indexOfFirst {
-                it.opcode == Opcode.IGET
-            }
+            val igetIndex = versionCheckFingerprint.patternMatch!!.endIndex
 
-            if (igetIndex != -1) {
-                addInstruction(igetIndex + 1, "const/4 v1, -0x2")
-            }
+            // This value represents the server command to clear all version restrictions
+            val STATUS_FORCE_RESET_HEX = "-0x2";
+            replaceInstruction(igetIndex, "const/4 v1, $STATUS_FORCE_RESET_HEX")
         }
     }
 }
