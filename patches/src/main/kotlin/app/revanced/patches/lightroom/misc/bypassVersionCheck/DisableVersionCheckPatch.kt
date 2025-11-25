@@ -18,8 +18,8 @@ val DisableVersionCheckPatch = bytecodePatch(
         refreshRemoteConfigurationFingerprint.method.apply {
             val igetIndex = refreshRemoteConfigurationFingerprint.patternMatch!!.endIndex
 
-            // This value represents the server command to clear all version restrictions
-            val STATUS_FORCE_RESET_HEX = "-0x2";
+            // This value represents the server command to clear all version restrictions.
+            const val STATUS_FORCE_RESET_HEX = "-0x2";
             replaceInstruction(igetIndex, "const/4 v1, $STATUS_FORCE_RESET_HEX")
         }
     }
