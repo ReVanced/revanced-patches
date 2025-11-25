@@ -5,12 +5,9 @@ import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
 
 @Suppress("unused")
-/**
- * Disables the server-side version check that prevents the app from starting
- * if the version is considered "denylisted" or below the minimum requirement.
- */
 val DisableVersionCheckPatch = bytecodePatch(
     name = "Disable version check",
+    description = "Disables the server-side version check that prevents the app from starting",
 ) {
     compatibleWith("com.adobe.lrmobile"("9.3.0"))
 
