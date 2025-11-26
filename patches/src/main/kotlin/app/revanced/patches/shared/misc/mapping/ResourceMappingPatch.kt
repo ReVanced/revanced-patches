@@ -2,11 +2,13 @@ package app.revanced.patches.shared.misc.mapping
 
 import app.revanced.patcher.InstructionLocation
 import app.revanced.patcher.LiteralFilter
+import app.revanced.patcher.extensions.wideLiteral
 import app.revanced.patcher.literal
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import org.w3c.dom.Element
-import java.util.Collections
+import java.util.*
 
 enum class ResourceType(val value: String) {
     ANIM("anim"),
@@ -34,6 +36,9 @@ enum class ResourceType(val value: String) {
     TRANSITION("transition"),
     VALUES("values"),
     XML("xml");
+
+    operator fun invoke(name: String): Instruction.() -> Boolean =
+        getResourceId(this, name).let { { wideLiteral(it) } }
 
     companion object {
         private val VALUE_MAP: Map<String, ResourceType> = entries.associateBy { it.value }
@@ -77,9 +82,8 @@ fun hasResourceId(type: ResourceType, name: String) = resourceMappings[type.valu
 fun resourceLiteral(
     type: ResourceType,
     name: String,
-    location : InstructionLocation = InstructionLocation.MatchAfterAnywhere()
+    location: InstructionLocation = InstructionLocation.MatchAfterAnywhere()
 ) = literal({ getResourceId(type, name) }, null, location)
-
 
 val resourceMappingPatch = resourcePatch {
     execute {

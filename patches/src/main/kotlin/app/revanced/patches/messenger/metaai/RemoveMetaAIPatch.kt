@@ -22,7 +22,7 @@ val removeMetaAIPatch = bytecodePatch(
 
     execute {
         getMobileConfigBoolFingerprint.method.apply {
-            val returnIndex = getMobileConfigBoolFingerprint.patternMatch!!.startIndex
+            val returnIndex = getMobileConfigBoolFingerprint.patternMatch.startIndex
             val returnRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
 
             addInstructions(
@@ -42,7 +42,7 @@ val removeMetaAIPatch = bytecodePatch(
         // Replace placeholder in the extension method.
         with(extensionMethodFingerprint) {
             method.replaceInstruction(
-                stringMatches!!.first().index,
+                stringMatches.first().index,
                 """
                     const-string v1, "$relevantDigits"
                 """

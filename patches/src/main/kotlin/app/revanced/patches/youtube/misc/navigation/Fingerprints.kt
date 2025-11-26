@@ -1,11 +1,7 @@
 package app.revanced.patches.youtube.misc.navigation
 
+import app.revanced.patcher.*
 import app.revanced.patcher.InstructionLocation.MatchAfterWithin
-import app.revanced.patcher.checkCast
-import app.revanced.patcher.fingerprint
-import app.revanced.patcher.methodCall
-import app.revanced.patcher.opcode
-import app.revanced.patcher.string
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
@@ -79,6 +75,7 @@ internal val navigationEnumFingerprint = fingerprint {
         "TAB_ACTIVITY",
         "VIDEO_LIBRARY_WHITE",
         "INCOGNITO_CIRCLE",
+        "UNKNOWN" // Required to distinguish from patch extension class.
     )
 }
 

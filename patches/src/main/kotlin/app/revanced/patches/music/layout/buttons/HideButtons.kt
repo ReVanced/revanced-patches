@@ -73,7 +73,7 @@ val hideButtons = bytecodePatch(
             historyMenuItemOfflineTabFingerprint
         ).forEach { fingerprint ->
             fingerprint.method.apply {
-                val targetIndex = fingerprint.patternMatch!!.startIndex
+                val targetIndex = fingerprint.patternMatch.startIndex
                 val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerD
 
                 addInstructions(

@@ -22,7 +22,7 @@ val skipAdsPatch = bytecodePatch(
         // Force doTrigger() access to public so we can call it from our extension.
         doTriggerFingerprint.method.accessFlags = AccessFlags.PUBLIC.value;
 
-        val getPlayerIndex = enterServerInsertedAdBreakStateFingerprint.patternMatch!!.startIndex
+        val getPlayerIndex = enterServerInsertedAdBreakStateFingerprint.patternMatch.startIndex
         enterServerInsertedAdBreakStateFingerprint.method.apply {
             // Get register that stores VideoPlayer:
             //  invoke-virtual ->getPrimaryPlayer()

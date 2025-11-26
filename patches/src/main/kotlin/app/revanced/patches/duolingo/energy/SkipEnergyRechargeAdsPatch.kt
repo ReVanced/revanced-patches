@@ -17,7 +17,7 @@ val skipEnergyRechargeAdsPatch = bytecodePatch(
             .method.apply {
                 val energyField = energyConfigToStringFingerprint.method
                     .findFieldFromToString("energy=")
-                val insertIndex = initializeEnergyConfigFingerprint.patternMatch!!.startIndex
+                val insertIndex = initializeEnergyConfigFingerprint.patternMatch.startIndex
 
                 addInstructions(
                     insertIndex,

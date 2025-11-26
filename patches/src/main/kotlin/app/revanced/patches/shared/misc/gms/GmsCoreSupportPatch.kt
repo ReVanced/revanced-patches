@@ -79,33 +79,41 @@ fun gmsCoreSupportPatch(
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
     execute {
-        fun transformStringReferences(transform: (str: String) -> String?) = classDefs.forEach {
-            val mutableClass by lazy { it.mutable() }
+        fun transformStringReferences(transform: (str: String) -> String?) {
+            val transformations = mutableListOf<() -> Unit>()
 
-            it.methods.forEach classLoop@{ method ->
-                val implementation = method.implementation ?: return@classLoop
+            classDefs.forEach { classDef ->
+                val mutableClass by lazy { classDef.mutable() }
 
-                val mutableMethod by lazy {
-                    mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, method) }
-                }
+                classDef.methods.forEach classLoop@{ method ->
+                    val implementation = method.implementation ?: return@classLoop
 
-                implementation.instructions.forEachIndexed { index, instruction ->
-                    val string = ((instruction as? Instruction21c)?.reference as? StringReference)?.string
-                        ?: return@forEachIndexed
+                    val mutableMethod by lazy {
+                        mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, method) }
+                    }
 
-                    // Apply transformation.
-                    val transformedString = transform(string) ?: return@forEachIndexed
+                    implementation.instructions.forEachIndexed { index, instruction ->
+                        val string = ((instruction as? Instruction21c)?.reference as? StringReference)?.string
+                            ?: return@forEachIndexed
 
-                    mutableMethod.replaceInstruction(
-                        index,
-                        BuilderInstruction21c(
-                            Opcode.CONST_STRING,
-                            instruction.registerA,
-                            ImmutableStringReference(transformedString),
-                        ),
-                    )
+                        // Apply transformation.
+                        val transformedString = transform(string) ?: return@forEachIndexed
+
+                        transformations += {
+                            mutableMethod.replaceInstruction(
+                                index,
+                                BuilderInstruction21c(
+                                    Opcode.CONST_STRING,
+                                    instruction.registerA,
+                                    ImmutableStringReference(transformedString),
+                                ),
+                            )
+                        }
+                    }
                 }
             }
+
+            transformations.forEach { it() }
         }
 
         // region Collection of transformations that are applied to all strings.

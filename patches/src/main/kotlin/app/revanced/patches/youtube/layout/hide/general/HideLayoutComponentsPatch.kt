@@ -2,26 +2,15 @@ package app.revanced.patches.youtube.layout.hide.general
 
 import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.Match
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.extensions.instructions
-import app.revanced.patcher.extensions.removeInstruction
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.settings.preference.InputType
-import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
-import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.shared.misc.settings.preference.TextPreference
+import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
@@ -32,13 +21,13 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.findFreeRegister
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 
 internal var albumCardId = -1L
     private set
@@ -390,7 +379,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region hide view count
 
         hideViewCountFingerprint.method.apply {
-            val startIndex = hideViewCountFingerprint.patternMatch!!.startIndex
+            val startIndex = hideViewCountFingerprint.patternMatch.startIndex
             var returnStringRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
 
             // Find the instruction where the text dimension is retrieved.

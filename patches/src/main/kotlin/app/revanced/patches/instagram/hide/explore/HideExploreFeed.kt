@@ -11,7 +11,7 @@ context(BytecodePatchContext)
 internal fun Fingerprint.replaceJsonFieldWithBogus(
     key: String,
 ) {
-    val targetStringIndex = stringMatches!!.first { match -> match.string == key }.index
+    val targetStringIndex = stringMatches.first { match -> match.string == key }.index
     val targetStringRegister = method.getInstruction<OneRegisterInstruction>(targetStringIndex).registerA
 
     /**

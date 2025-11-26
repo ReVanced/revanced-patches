@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.layout.hide.shorts
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.wideLiteral
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -17,19 +18,10 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_41_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_07_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_22_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_45_or_greater
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
+import app.revanced.patches.youtube.misc.playservice.*
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.util.findElementByAttributeValueOrThrow
-import app.revanced.util.forEachLiteralValueInstruction
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.removeFromParent
-import app.revanced.util.returnLate
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import java.util.logging.Logger
@@ -194,16 +186,18 @@ val hideShortsComponentsPatch = bytecodePatch(
     execute {
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
-        forEachLiteralValueInstruction(
-            getResourceId(ResourceType.DIMEN, "reel_player_right_pivot_v2_size")
-        ) { literalInstructionIndex ->
-            val targetIndex = indexOfFirstInstructionOrThrow(literalInstructionIndex) {
+        val id = getResourceId(ResourceType.DIMEN, "reel_player_right_pivot_v2_size")
+
+        forEachInstructionAsSequence { _, method, i, instruction ->
+            if (instruction.wideLiteral != id) return@forEachInstructionAsSequence
+
+            val targetIndex = method.indexOfFirstInstructionOrThrow(i) {
                 getReference<MethodReference>()?.name == "getDimensionPixelSize"
             } + 1
 
-            val sizeRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+            val sizeRegister = method.getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            addInstructions(
+            method.addInstructions(
                 targetIndex + 1,
                 """
                     invoke-static { v$sizeRegister }, $FILTER_CLASS_DESCRIPTOR->getSoundButtonSize(I)I
@@ -211,6 +205,7 @@ val hideShortsComponentsPatch = bytecodePatch(
                 """
             )
         }
+
 
         // endregion
 
@@ -226,7 +221,7 @@ val hideShortsComponentsPatch = bytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static {v$viewRegister}," +
-                        " $FILTER_CLASS_DESCRIPTOR->setNavigationBar(Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;)V",
+                            " $FILTER_CLASS_DESCRIPTOR->setNavigationBar(Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;)V",
                 )
             }
         }

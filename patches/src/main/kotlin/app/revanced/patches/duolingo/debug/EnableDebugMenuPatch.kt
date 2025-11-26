@@ -21,7 +21,7 @@ val enableDebugMenuPatch = bytecodePatch(
         buildConfigProviderConstructorFingerprint.match(
             buildConfigProviderToStringFingerprint.classDef
         ).let {
-            val index = it.patternMatch!!.startIndex
+            val index = it.patternMatch.startIndex
 
             it.method.apply {
                 val register = getInstruction<OneRegisterInstruction>(index).registerA

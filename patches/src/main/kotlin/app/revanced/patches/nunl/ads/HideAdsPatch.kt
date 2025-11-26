@@ -27,7 +27,7 @@ val hideAdsPatch = bytecodePatch(
         // Filter injected content from API calls out of lists.
         arrayOf(screenMapperFingerprint, nextPageRepositoryImplFingerprint).forEach {
             // Index of instruction moving result of BlockPage;->getBlocks(...).
-            val moveGetBlocksResultObjectIndex = it.patternMatch!!.startIndex
+            val moveGetBlocksResultObjectIndex = it.patternMatch.startIndex
             it.method.apply {
                 val moveInstruction = getInstruction<OneRegisterInstruction>(moveGetBlocksResultObjectIndex)
 

@@ -24,7 +24,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://rubenmayayo.com") 
         val randomName = (0..100000).random()
         val userAgent = "$randomName:app.revanced.$randomName:v1.0.0 (by /u/revanced)"
         buildUserAgentFingerprint.let {
-            val userAgentTemplateIndex = it.stringMatches!!.first().index
+            val userAgentTemplateIndex = it.stringMatches.first().index
             val register = it.method.getInstruction<OneRegisterInstruction>(userAgentTemplateIndex).registerA
             
             it.method.replaceInstruction(userAgentTemplateIndex, "const-string v$register, \"$userAgent\"")

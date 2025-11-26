@@ -1,5 +1,7 @@
 package app.revanced.patches.youtube.misc.navigation
 
+import app.revanced.patcher.dex.mutable.MutableMethod
+import app.revanced.patcher.dex.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
@@ -7,16 +9,10 @@ import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.dex.mutable.MutableMethod
-import app.revanced.patcher.dex.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_21_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_28_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_39_or_greater
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
+import app.revanced.patches.youtube.misc.playservice.*
 import app.revanced.patches.youtube.shared.mainActivityOnBackPressedFingerprint
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
@@ -74,7 +70,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$register }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->${hook.methodName}(${hook.parameters})V",
+                            "$EXTENSION_CLASS_DESCRIPTOR->${hook.methodName}(${hook.parameters})V",
                 )
             }
         }
@@ -84,7 +80,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             val navigationEnumClassName = navigationEnumFingerprint.classDef.type
             addHook(NavigationHook.SET_LAST_APP_NAVIGATION_ENUM) {
                 opcode == Opcode.INVOKE_STATIC &&
-                    getReference<MethodReference>()?.definingClass == navigationEnumClassName
+                        getReference<MethodReference>()?.definingClass == navigationEnumClassName
             }
 
             // Hook the creation of navigation tab views.
@@ -206,7 +202,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             navigationBarHookCallbackFingerprint.method.addInstruction(
                 0,
                 "invoke-static { p0, p1 }, $extensionClassDescriptor->navigationTabCreated" +
-                    "(${EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR}Landroid/view/View;)V",
+                        "(${EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR}Landroid/view/View;)V",
             )
         }
 
@@ -221,21 +217,19 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             val cairoNotificationEnumReference = imageEnumConstructorFingerprint
                 .instructionMatches.last().getInstruction<ReferenceInstruction>().reference
 
-            setEnumMapFingerprint.let {
-                it.method.apply {
-                    val setEnumIntegerIndex = it.instructionMatches.last().index
-                    val enumMapRegister = getInstruction<FiveRegisterInstruction>(setEnumIntegerIndex).registerC
-                    val insertIndex = setEnumIntegerIndex + 1
-                    val freeRegister = findFreeRegister(insertIndex, enumMapRegister)
+            setEnumMapFingerprint.method.apply {
+                val setEnumIntegerIndex = setEnumMapFingerprint.instructionMatches.last().index
+                val enumMapRegister = getInstruction<FiveRegisterInstruction>(setEnumIntegerIndex).registerC
+                val insertIndex = setEnumIntegerIndex + 1
+                val freeRegister = findFreeRegister(insertIndex, enumMapRegister)
 
-                    addInstructions(
-                        insertIndex,
-                        """
-                            sget-object v$freeRegister, $cairoNotificationEnumReference
-                            invoke-static { v$enumMapRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->setCairoNotificationFilledIcon(Ljava/util/EnumMap;Ljava/lang/Enum;)V
-                        """
-                    )
-                }
+                addInstructions(
+                    insertIndex,
+                    """
+                        sget-object v$freeRegister, $cairoNotificationEnumReference
+                        invoke-static { v$enumMapRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->setCairoNotificationFilledIcon(Ljava/util/EnumMap;Ljava/lang/Enum;)V
+                    """
+                )
             }
         }
     }

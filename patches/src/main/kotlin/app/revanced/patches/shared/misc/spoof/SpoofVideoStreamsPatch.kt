@@ -283,7 +283,7 @@ internal fun spoofVideoStreamsPatch(
         // If SABR is disabled, it seems 'MediaFetchHotConfig' may no longer need an override (not confirmed).
 
         val (mediaFetchEnumClass, sabrFieldReference) = with(mediaFetchEnumConstructorFingerprint.method) {
-            val stringIndex = mediaFetchEnumConstructorFingerprint.stringMatches!!.first {
+            val stringIndex = mediaFetchEnumConstructorFingerprint.stringMatches.first {
                 it.string == DISABLED_BY_SABR_STREAMING_URI_STRING
             }.index
 

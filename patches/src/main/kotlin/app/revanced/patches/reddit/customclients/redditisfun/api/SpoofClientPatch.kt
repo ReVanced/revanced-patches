@@ -34,7 +34,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
             string: String,
             getReplacementIndex: List<Match.StringMatch>.() -> Int,
         ) = method.apply {
-            val replacementIndex = stringMatches!!.getReplacementIndex()
+            val replacementIndex = stringMatches.getReplacementIndex()
             val clientIdRegister = getInstruction<OneRegisterInstruction>(replacementIndex).registerA
 
             replaceInstruction(replacementIndex, "const-string v$clientIdRegister, \"$string\"")

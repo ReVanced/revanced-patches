@@ -20,7 +20,7 @@ val hideAdsPatch = bytecodePatch(
         val method = findAdStringFingerprint.method
  
         // Find the ads free string index
-        val stringIndex = findAdStringFingerprint.stringMatches!!.first().index
+        val stringIndex = findAdStringFingerprint.stringMatches.first().index
 
         // Search backwards from the string to find the `new-instance` (TypeReference) instruction
         val typeRefIndex = method.indexOfFirstInstructionReversedOrThrow(stringIndex) { this.opcode == Opcode.NEW_INSTANCE }

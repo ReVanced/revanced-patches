@@ -12,7 +12,7 @@ val hideStoriesPatch = bytecodePatch(
 
     execute {
         val addStoryMethod = getOrCreateAvatarViewFingerprint.method // Creates Story
-        val addStoryEndIndex = getOrCreateAvatarViewFingerprint.patternMatch!!.endIndex
+        val addStoryEndIndex = getOrCreateAvatarViewFingerprint.patternMatch.endIndex
 
         // Remove addView of Story.
         addStoryMethod.removeInstruction(addStoryEndIndex)

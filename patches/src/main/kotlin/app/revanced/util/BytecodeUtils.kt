@@ -86,8 +86,10 @@ fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): In
                 return bestFreeRegisterFound
             }
             // This method is simple and does not follow branching.
-            throw IllegalArgumentException("Encountered a branch statement before " +
-                    "a free register could be found from startIndex: $startIndex")
+            throw IllegalArgumentException(
+                "Encountered a branch statement before " +
+                        "a free register could be found from startIndex: $startIndex"
+            )
         }
 
         if (instruction.isReturnInstruction) {
@@ -104,8 +106,10 @@ fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): In
 
             // Somehow every method register was read from before any register was wrote to.
             // In practice this never occurs.
-            throw IllegalArgumentException("Could not find a free register from startIndex: " +
-                    "$startIndex excluding: $registersToExclude")
+            throw IllegalArgumentException(
+                "Could not find a free register from startIndex: " +
+                        "$startIndex excluding: $registersToExclude"
+            )
         }
     }
 
@@ -170,7 +174,7 @@ internal val Instruction.isReturnInstruction: Boolean
  *
  * @param fieldName The name of the field to find.  Partial matches are allowed.
  */
-private fun Method.findInstructionIndexFromToString(fieldName: String) : Int {
+private fun Method.findInstructionIndexFromToString(fieldName: String): Int {
     val stringIndex = indexOfFirstInstruction {
         val reference = getReference<StringReference>()
         reference?.string?.contains(fieldName) == true
@@ -210,7 +214,8 @@ private fun Method.findInstructionIndexFromToString(fieldName: String) : Int {
     val fieldSetOpcode = getInstruction(fieldSetIndex).opcode
     if (fieldSetOpcode == MOVE_RESULT ||
         fieldSetOpcode == MOVE_RESULT_WIDE ||
-        fieldSetOpcode == MOVE_RESULT_OBJECT) {
+        fieldSetOpcode == MOVE_RESULT_OBJECT
+    ) {
         fieldSetIndex--
     }
 
@@ -223,7 +228,7 @@ private fun Method.findInstructionIndexFromToString(fieldName: String) : Int {
  * @param fieldName The name of the field to find.  Partial matches are allowed.
  */
 context(BytecodePatchContext)
-internal fun Method.findMethodFromToString(fieldName: String) : MutableMethod {
+internal fun Method.findMethodFromToString(fieldName: String): MutableMethod {
     val methodUsageIndex = findInstructionIndexFromToString(fieldName)
     return navigate(this).to(methodUsageIndex).stop()
 }
@@ -233,7 +238,7 @@ internal fun Method.findMethodFromToString(fieldName: String) : MutableMethod {
  *
  * @param fieldName The name of the field to find.  Partial matches are allowed.
  */
-internal fun Method.findFieldFromToString(fieldName: String) : FieldReference {
+internal fun Method.findFieldFromToString(fieldName: String): FieldReference {
     val methodUsageIndex = findInstructionIndexFromToString(fieldName)
     return getInstruction<ReferenceInstruction>(methodUsageIndex).getReference<FieldReference>()!!
 }
@@ -792,36 +797,34 @@ internal fun MutableMethod.insertLiteralOverride(literalIndex: Int, override: Bo
 }
 
 /**
- * Called for _all_ methods with the given literal value.
- * Method indices are iterated from last to first.
+ * Iterates all instructions as sequence in all methods of all classes in the [BytecodePatchContext].
+ * The instructions are provided in reverse order (last to first).
+ * The [block] is invoked after collecting all instructions to avoid concurrent modification issues.
  */
-fun BytecodePatchContext.forEachLiteralValueInstruction(
-    literal: Long,
-    block: MutableMethod.(matchingIndex: Int) -> Unit,
+fun BytecodePatchContext.forEachInstructionAsSequence(
+    block: (classDef: MutableClassDef, method: MutableMethod, matchingIndex: Int, instruction: Instruction) -> Unit,
 ) {
-    val matchingIndexes = ArrayList<Int>()
+    classDefs.asSequence().flatMap { classDef ->
+        val mutableClassDef by lazy { classDef.mutable() }
 
-    classDefs.forEach { classDef ->
-        classDef.methods.forEach { method ->
-            method.implementation?.instructions?.let { instructions ->
-                matchingIndexes.clear()
+        classDef.methods.asSequence().flatMap { method ->
+            val instructions =
+                method.instructionsOrNull as? List<Instruction> ?: return@flatMap emptySequence<() -> Unit>()
 
-                instructions.forEachIndexed { index, instruction ->
-                    if ((instruction as? WideLiteralInstruction)?.wideLiteral == literal) {
-                        matchingIndexes.add(index)
-                    }
-                }
+            val mutableMethod by lazy { mutableClassDef.findMutableMethodOf(method) }
 
-                if (matchingIndexes.isNotEmpty()) {
-                    val mutableMethod = classDef.mutable().findMutableMethodOf(method)
-                    matchingIndexes.asReversed().forEach { index ->
-                        block.invoke(mutableMethod, index)
-                    }
-                }
+            instructions.asReversed().asSequence().mapIndexed { index, instruction ->
+                {
+                    block(
+                        mutableClassDef,
+                        mutableMethod,
+                        instructions.size - 1 - index,
+                        instruction
+                    )
+                } // Reverse indices again.
             }
         }
-    }
-
+    }.forEach { it() }
 }
 
 private const val RETURN_TYPE_MISMATCH = "Mismatch between override type and Method return type"
@@ -1090,7 +1093,7 @@ fun MutableMethod.returnLate(value: Void?) {
 }
 
 private fun MutableMethod.overrideReturnValue(value: String, returnLate: Boolean) {
-    val instructions = if (returnType == "Ljava/lang/String;" || returnType == "Ljava/lang/CharSequence;" ) {
+    val instructions = if (returnType == "Ljava/lang/String;" || returnType == "Ljava/lang/CharSequence;") {
         """
             const-string v0, "$value"
             return-object v0

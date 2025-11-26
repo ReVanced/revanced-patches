@@ -19,7 +19,7 @@ internal fun editShareLinksPatch(block: MutableMethod.(index: Int, register: Int
     for (fingerprint in fingerprintsToPatch) {
         fingerprint.method.apply {
             val putSharingUrlIndex = indexOfFirstInstruction(
-                permalinkResponseJsonParserFingerprint.stringMatches!!.first().index,
+                permalinkResponseJsonParserFingerprint.stringMatches.first().index,
                 Opcode.IPUT_OBJECT
             )
 

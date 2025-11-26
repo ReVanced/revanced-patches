@@ -88,7 +88,8 @@ val backgroundPlaybackPatch = bytecodePatch(
             }
 
             val settingsBooleanIndex = booleanCalls.elementAt(1).index
-            val settingsBooleanMethod by navigate(this).to(settingsBooleanIndex)
+
+            val settingsBooleanMethod = navigate(this).to(settingsBooleanIndex).stop()
 
             settingsBooleanMethod.returnEarly(true)
         }

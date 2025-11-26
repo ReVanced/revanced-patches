@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.layout.branding.header
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.wideLiteral
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -19,7 +20,7 @@ import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import app.revanced.util.findElementByAttributeValueOrThrow
-import app.revanced.util.forEachLiteralValueInstruction
+import app.revanced.util.forEachInstructionAsSequence
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import java.io.File
 
@@ -75,12 +76,14 @@ private val changeHeaderBytecodePatch = bytecodePatch {
             "ytWordmarkHeader",
             "ytPremiumWordmarkHeader"
         ).forEach { resourceName ->
-            val resourceId = getResourceId(ResourceType.ATTR, resourceName)
+            val id = getResourceId(ResourceType.ATTR, resourceName)
 
-            forEachLiteralValueInstruction(resourceId) { literalIndex ->
-                val register = getInstruction<OneRegisterInstruction>(literalIndex).registerA
-                addInstructions(
-                    literalIndex + 1,
+            forEachInstructionAsSequence { _, method, i, instruction ->
+                if (instruction.wideLiteral != id) return@forEachInstructionAsSequence
+
+                val register = method.getInstruction<OneRegisterInstruction>(i).registerA
+                method.addInstructions(
+                    i + 1,
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getHeaderAttributeId(I)I
                         move-result v$register    
@@ -214,21 +217,24 @@ val changeHeaderPatch = resourcePatch(
         if (custom != null) {
             val customFile = File(custom!!.trim())
             if (!customFile.exists()) {
-                throw PatchException("The custom header path cannot be found: " +
-                        customFile.absolutePath
+                throw PatchException(
+                    "The custom header path cannot be found: " +
+                            customFile.absolutePath
                 )
             }
 
             if (!customFile.isDirectory) {
-                throw PatchException("The custom header path must be a folder: "
-                        + customFile.absolutePath)
+                throw PatchException(
+                    "The custom header path must be a folder: "
+                            + customFile.absolutePath
+                )
             }
 
             var copiedFiles = false
 
             // For each source folder, copy the files to the target resource directories.
-            customFile.listFiles {
-                file -> file.isDirectory && file.name in targetResourceDirectoryNames
+            customFile.listFiles { file ->
+                file.isDirectory && file.name in targetResourceDirectoryNames
             }!!.forEach { dpiSourceFolder ->
                 val targetDpiFolder = get("res").resolve(dpiSourceFolder.name)
                 if (!targetDpiFolder.exists()) {
@@ -241,8 +247,9 @@ val changeHeaderPatch = resourcePatch(
                 }!!
 
                 if (customFiles.isNotEmpty() && customFiles.size != variants.size) {
-                    throw PatchException("Both light/dark mode images " +
-                            "must be specified but only found: " + customFiles.map { it.name })
+                    throw PatchException(
+                        "Both light/dark mode images " +
+                                "must be specified but only found: " + customFiles.map { it.name })
                 }
 
                 customFiles.forEach { imgSourceFile ->
@@ -254,9 +261,11 @@ val changeHeaderPatch = resourcePatch(
             }
 
             if (!copiedFiles) {
-                throw PatchException("Expected to find directories and files: "
-                        + customHeaderResourceFileNames.contentToString()
-                        + "\nBut none were found in the provided option file path: " + customFile.absolutePath)
+                throw PatchException(
+                    "Expected to find directories and files: "
+                            + customHeaderResourceFileNames.contentToString()
+                            + "\nBut none were found in the provided option file path: " + customFile.absolutePath
+                )
             }
         }
     }
