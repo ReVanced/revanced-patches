@@ -2,13 +2,14 @@ package app.revanced.extension.shared.patches.litho;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.nio.ByteBuffer;
+import java.util.List;
+
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.YoutubeSharedSettings;
-
-import java.nio.ByteBuffer;
-import java.util.List;
 
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
 
