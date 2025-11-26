@@ -3,8 +3,8 @@ package app.revanced.patches.all.misc.connectivity.telephony.sim.spoof
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.patch.intOption
+import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -13,7 +13,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.util.Locale
-import java.util.regex.Pattern
 
 @Suppress("unused")
 val spoofSimProviderPatch = bytecodePatch(
@@ -36,8 +35,7 @@ val spoofSimProviderPatch = bytecodePatch(
         validator = { it: String? -> it == null || it.uppercase() in countries.values },
     )
 
-    fun isMccMncValid(it: Int?): Boolean =
-        it == null || Pattern.matches("[0-9]{5,6}", it.toString())
+    fun isMccMncValid(it: Int?): Boolean = it == null || it.toString().length in 5..6
 
     val networkCountryIso by isoCountryPatchOption(
         "networkCountryIso",
@@ -74,7 +72,6 @@ val spoofSimProviderPatch = bytecodePatch(
         title = "SIM operator name",
         description = "The full name of the SIM operator.",
     )
-
 
     dependsOn(
         transformInstructionsPatch(
