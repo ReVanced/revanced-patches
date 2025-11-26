@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.misc.navigation
 
 import app.revanced.patcher.*
+import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
@@ -58,7 +59,7 @@ internal val navigationBarHookCallbackFingerprint = fingerprint {
     parameters(EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR, "Landroid/view/View;")
     custom { method, _ ->
         method.name == "navigationTabCreatedCallback" &&
-            method.definingClass == EXTENSION_CLASS_DESCRIPTOR
+                method.definingClass == EXTENSION_CLASS_DESCRIPTOR
     }
 }
 
@@ -84,8 +85,8 @@ internal val pivotBarButtonsCreateDrawableViewFingerprint = fingerprint {
     returns("Landroid/view/View;")
     custom { method, _ ->
         method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
-            // Only one view creation method has a Drawable parameter.
-            method.parameterTypes.firstOrNull() == "Landroid/graphics/drawable/Drawable;"
+                // Only one view creation method has a Drawable parameter.
+                method.parameterTypes.firstOrNull() == "Landroid/graphics/drawable/Drawable;"
     }
 }
 
@@ -106,8 +107,8 @@ internal val pivotBarButtonsCreateResourceIntViewFingerprint = fingerprint {
     returns("Landroid/view/View;")
     custom { method, _ ->
         method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
-            // Only one view creation method has an int first parameter.
-            method.parameterTypes.firstOrNull() == "I"
+                // Only one view creation method has an int first parameter.
+                method.parameterTypes.firstOrNull() == "I"
     }
 }
 
@@ -134,7 +135,8 @@ internal val imageEnumConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
         string("TAB_ACTIVITY_CAIRO"),
-        opcode(Opcode.SPUT_OBJECT)
+        opcode(Opcode.INVOKE_DIRECT, location = MatchAfterImmediately()),
+        opcode(Opcode.SPUT_OBJECT, location = MatchAfterImmediately())
     )
 }
 
@@ -142,6 +144,9 @@ internal val setEnumMapFingerprint = fingerprint {
     instructions(
         resourceLiteral(ResourceType.DRAWABLE, "yt_fill_bell_black_24"),
         methodCall(smali = "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;", location = MatchAfterWithin(10)),
-        methodCall(smali = "Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;", location = MatchAfterWithin(10))
+        methodCall(
+            smali = "Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;",
+            location = MatchAfterWithin(10)
+        )
     )
 }
