@@ -1,4 +1,4 @@
-public final class DisableReelsScrollingKt {
+public final class DisableReelsScrollingPatchKt {
 	public static final fun getDisableReelsScrollingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
