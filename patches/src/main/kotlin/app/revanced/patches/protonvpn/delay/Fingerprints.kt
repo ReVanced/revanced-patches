@@ -4,15 +4,13 @@ import app.revanced.patcher.fingerprint
 
 
 internal val longDelayFingerprint = fingerprint {
-    custom { method, classDef ->
-        method.name == "getChangeServerLongDelayInSeconds" &&
-            classDef.endsWith("AppConfigResponse;")
+    custom { method, _ ->
+        method.name == "getChangeServerLongDelayInSeconds"
     }
 }
 
 internal val shortDelayFingerprint = fingerprint {
-    custom { method, classDef ->
-        method.name == "getChangeServerShortDelayInSeconds" &&
-            classDef.endsWith("AppConfigResponse;")
+    custom { method, _ ->
+        method.name == "getChangeServerShortDelayInSeconds"
     }
 }
