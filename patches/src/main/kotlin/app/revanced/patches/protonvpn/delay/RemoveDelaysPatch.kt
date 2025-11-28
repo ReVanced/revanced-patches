@@ -6,7 +6,7 @@ import app.revanced.util.returnEarly
 @Suppress("unused")
 val removeDelayPatch = bytecodePatch(
     name = "Remove delay",
-    description = "Remove the delay when changing servers",
+    description = "Removes the delay when changing servers.",
 ) {
     compatibleWith("ch.protonvpn.android")
 
