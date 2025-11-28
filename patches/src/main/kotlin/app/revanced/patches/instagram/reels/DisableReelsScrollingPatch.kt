@@ -20,6 +20,7 @@ val disableReelsScrollingPatch = bytecodePatch(
         val viewPagerField = clipsViewPagerImplGetViewAtIndexFingerprint.classDef.fields.first {
             it.type == "Landroidx/viewpager2/widget/ViewPager2;"
         }
+
         // Disable user input on the ViewPager2 to prevent scrolling.
         clipsViewPagerImplGetViewAtIndexFingerprint.method.addInstructions(
             0,
