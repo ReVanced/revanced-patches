@@ -64,14 +64,26 @@ public final class ReturnYouTubeDislikeFilter extends Filter {
         // But if swiping back to a previous video and liking/disliking, then only that single button reloads.
         // So must check for both buttons.
         addPathCallbacks(
-                new StringFilterGroup(null, "|shorts_like_button.e"),
-                new StringFilterGroup(null, "|shorts_dislike_button.e")
+                new StringFilterGroup(
+                        null,
+                        "shorts_like_button.e",
+                        "reel_like_button.e",
+                        "reel_like_toggled_button.e",
+                        "shorts_dislike_button.e",
+                        "reel_dislike_button.e",
+                        "reel_dislike_toggled_button.e"
+                )
         );
 
         // After the button identifiers is binary data and then the video id for that specific short.
         videoIdFilterGroup.addAll(
-                new ByteArrayFilterGroup(null, "id.reel_like_button"),
-                new ByteArrayFilterGroup(null, "id.reel_dislike_button")
+                new ByteArrayFilterGroup(
+                        null,
+                        "id.reel_like_button",
+                        "id.reel_dislike_button",
+                        "ic_right_like",
+                        "ic_right_dislike"
+                )
         );
     }
 
