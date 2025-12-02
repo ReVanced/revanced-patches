@@ -69,7 +69,7 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         final var visualSpacers = new StringFilterGroup(
-                Settings.HIDE_VISUAL_SPACER,
+                Settings.HIDE_VISUAL_SPACERS,
                 "cell_divider"
         );
 
