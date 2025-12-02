@@ -117,11 +117,6 @@ public final class ShortsFilter extends Filter {
                 "shorts_video_title_item"
         );
 
-        StringFilterGroup shortsDisclosure = new StringFilterGroup(
-                Settings.HIDE_SHORTS_DISCLOSURE,
-                "shorts_disclosures"
-        );
-
         StringFilterGroup reelSoundMetadata = new StringFilterGroup(
                 Settings.HIDE_SHORTS_SOUND_METADATA_LABEL,
                 "reel_sound_metadata"
@@ -166,6 +161,13 @@ public final class ShortsFilter extends Filter {
                 "participation_bar.e"
         );
 
+        StringFilterGroup livePreview = new StringFilterGroup(
+                Settings.HIDE_SHORTS_LIVE_PREVIEW,
+                // Live Shorts preview that can popup while scrolling through Shorts player.
+                // Can be removed if a way to disable live Shorts is found.
+                "live_preview_page_vm.e"
+        );
+
         joinButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_JOIN_BUTTON,
                 "sponsor_button"
@@ -178,7 +180,8 @@ public final class ShortsFilter extends Filter {
 
         paidPromotionButton = new StringFilterGroup(
                 Settings.HIDE_PAID_PROMOTION_LABEL,
-                "reel_player_disclosure.e"
+                "reel_player_disclosure.e",
+                "shorts_disclosures.e"
         );
 
         shortsActionBar = new StringFilterGroup(
@@ -225,9 +228,9 @@ public final class ShortsFilter extends Filter {
 
         addPathCallbacks(
                 shortsCompactFeedVideo, joinButton, subscribeButton, paidPromotionButton,
-                shortsActionBar, shortsDisclosure, suggestedAction, pausedOverlayButtons, channelBar,
-                previewComment, fullVideoLinkLabel, videoTitle, useSoundButton, reelSoundMetadata, soundButton,
-                infoPanel, stickers, likeFountain, likeButton, dislikeButton
+                shortsActionBar, suggestedAction, pausedOverlayButtons, channelBar, previewComment,
+                fullVideoLinkLabel, videoTitle, useSoundButton, reelSoundMetadata, soundButton, infoPanel,
+                stickers, likeFountain, likeButton, dislikeButton, livePreview
         );
 
         //
