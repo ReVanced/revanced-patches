@@ -68,14 +68,8 @@ public final class LayoutComponentsFilter extends Filter {
                 "chips_shelf"
         );
 
-        final var visualSpacers = new StringFilterGroup(
-                Settings.HIDE_VISUAL_SPACER,
-                "cell_divider"
-        );
-
         addIdentifierCallbacks(
-                chipsShelf,
-                visualSpacers
+                chipsShelf
         );
 
         // Paths.
