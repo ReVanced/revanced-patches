@@ -29,13 +29,12 @@ import app.revanced.patches.youtube.video.videoid.videoIdPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.returnLate
+import app.revanced.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/ReturnYouTubeDislikePatch;"
@@ -112,8 +111,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 0,
                 """
                     const/4 v0, ${vote.value}
-                    invoke-static {v0}, $EXTENSION_CLASS_DESCRIPTOR->sendVote(I)V
-                """,
+                    invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->sendVote(I)V
+                """
             )
         }
 
@@ -133,6 +132,10 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 it.type == conversionContextClass.superclass
         } ?: throw PatchException("Could not find conversion context field")
 
+        val conversionContextPathBuilderField = conversionContextToStringMethod.immutableClassDef
+            .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
+
+        // Old pre 20.40 and lower hook.
         textComponentConstructorMethod.immutableClassDef.getTextComponentLookupMethod().apply {
             // Find the instruction for creating the text data object.
             val textDataClassType = textComponentDataMethod.immutableClassDef.type
@@ -184,35 +187,45 @@ val returnYouTubeDislikePatch = bytecodePatch(
             )
         }
 
+        // Hook new litho text creation code.
+        if (is_20_07_or_greater) {
+            textComponentFeatureFlagMethodMatch.let {
+                it.method.insertLiteralOverride(
+                    it[0],
+                    "$EXTENSION_CLASS_DESCRIPTOR->useNewLithoTextCreation(Z)Z"
+                )
+            }
+
+            lithoSpannableStringCreationMethodMatch.let {
+                val conversionContextField = it.immutableClassDef.type +
+                        "->" + textComponentConversionContextField.name +
+                        ":" + textComponentConversionContextField.type
+
+                it.method.apply {
+                    val insertIndex = it[1]
+                    val charSequenceRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
+                    val conversionContextPathRegister = findFreeRegister(insertIndex, charSequenceRegister)
+
+                    addInstructions(
+                        insertIndex,
+                        """
+                            move-object/from16 v$conversionContextPathRegister, p0
+                            iget-object v$conversionContextPathRegister, v$conversionContextPathRegister, $conversionContextField
+                            iget-object v$conversionContextPathRegister, v$conversionContextPathRegister, $conversionContextPathBuilderField
+                            invoke-static { v$conversionContextPathRegister, v$charSequenceRegister }, $EXTENSION_CLASS_DESCRIPTOR->onLithoTextLoaded(Ljava/lang/Object;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                            move-result-object v$charSequenceRegister
+                        """
+                    )
+                }
+            }
+        }
+
         // endregion
 
         // region Hook Shorts
 
         // Filter that parses the video id from the UI
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
-
-        if (is_20_07_or_greater) {
-            // Turn off a/b flag that enables new code for creating litho spans.
-            // If enabled then the litho text span hook is never called.
-            // Target code is very obfuscated and exactly what the code does is not clear.
-            // Return late so debug patch logs if the flag is enabled.
-            if (is_20_41_or_greater) {
-                // TODO: Support the new non litho Shorts layout.
-                // Turning off this flag on later versions can break the Shorts overlay and nothing is shown.
-                Logger.getLogger(this::class.java.name).warning(
-                    "\n!!!" +
-                        "\n!!! Dislikes are not yet fully supported when patching YouTube 20.40+" +
-                        "\n!!! Patch 20.21.37 or lower if you want to see dislikes" +
-                        "\n!!!",
-                )
-
-                Logger.getLogger(this::class.java.name).warning(
-                    "20.40+ Shorts player is not fully supported yet. Shorts Dislikes may not show.",
-                )
-            } else {
-                textComponentFeatureFlagMethod.returnLate(false)
-            }
-        }
 
         // Player response video id is needed to search for the video ids in Shorts litho components.
         hookPlayerResponseVideoId("$FILTER_CLASS_DESCRIPTOR->newPlayerResponseVideoId(Ljava/lang/String;Z)V")
@@ -235,7 +248,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 insertIndex,
                 """
                     iget-object v$freeRegister, v$charSequenceInstanceRegister, $charSequenceFieldReference
-                    invoke-static {v$conversionContextRegister, v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberLoaded(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+                    invoke-static { v$conversionContextRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberLoaded(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$freeRegister
                     iput-object v$freeRegister, v$charSequenceInstanceRegister, $charSequenceFieldReference
                 """,
@@ -255,7 +268,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 addInstructions(
                     endIndex + 1,
                     """
-                        invoke-static {p1, v$measuredTextWidthRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
+                        invoke-static { p1, v$measuredTextWidthRegister }, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
                         move-result v$measuredTextWidthRegister
                     """,
                 )
@@ -273,7 +286,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
                     measureTextIndex + 1,
                     """
                         move-result v$freeRegister
-                        invoke-static {p1, v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
+                        invoke-static { p1, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
                     """,
                 )
             }
@@ -299,7 +312,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
                 addInstructions(
                     setTextIndex,
                     """
-                        invoke-static {v$textViewRegister, v$textSpanRegister}, $EXTENSION_CLASS_DESCRIPTOR->updateRollingNumber(Landroid/widget/TextView;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+                        invoke-static { v$textViewRegister, v$textSpanRegister }, $EXTENSION_CLASS_DESCRIPTOR->updateRollingNumber(Landroid/widget/TextView;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
                         move-result-object v$textSpanRegister
                     """,
                 )

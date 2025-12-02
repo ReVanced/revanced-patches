@@ -101,6 +101,19 @@ public class ReturnYouTubeDislikePatch {
     /**
      * Injection point.
      *
+     * Logs if new litho text layout is used.
+     */
+    public static boolean useNewLithoTextCreation(boolean useNewLithoTextCreation) {
+        // Don't force flag on/off unless debugging patch hooks,
+        // because forcing off with newer YT targets causes Shorts player to show no buttons,
+        // presumably because the old litho data isn't in the layout data.
+        Logger.printDebug(() -> "useNewLithoTextCreation: " + useNewLithoTextCreation);
+        return useNewLithoTextCreation;
+    }
+
+    /**
+     * Injection point.
+     *
      * For Litho segmented buttons and Litho Shorts player.
      */
     @NonNull

@@ -51,7 +51,7 @@ public final class ShortsFilter extends Filter {
     /**
      * For paid promotion label and subscribe button that appears in the channel bar.
      */
-    private final String REEL_PLAYER_OVERLAY_PATH = "reel_player_overlay.e";
+    private static final String REEL_PLAYER_OVERLAY_PATH = "reel_player_overlay.e";
 
     /**
      * Tags that appears when opening the Shorts player.

@@ -979,6 +979,7 @@ To show the Audio track menu, change \'Spoof video streams\' to \'Android No SDK
             <string name="revanced_hide_shorts_use_template_button_title">Hide \'Use this template\' button</string>
             <string name="revanced_hide_shorts_use_template_button_summary_on">Use this template button is hidden</string>
             <string name="revanced_hide_shorts_use_template_button_summary_off">Use this template button is shown</string>
+            <!-- YT may no longer use this feature and this setting may be obsolete. -->
             <string name="revanced_hide_shorts_like_fountain_title">Hide Like button fountain animation</string>
             <string name="revanced_hide_shorts_like_fountain_summary_on">Like button fountain animation is hidden</string>
             <string name="revanced_hide_shorts_like_fountain_summary_off">Like button fountain animation is shown</string>

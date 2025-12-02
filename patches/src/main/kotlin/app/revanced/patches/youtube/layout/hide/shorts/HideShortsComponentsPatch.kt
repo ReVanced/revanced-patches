@@ -58,19 +58,20 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
             // Shorts player components.
             // Ideally each group should be ordered similar to how they appear in the UI
 
-            // Vertical row of buttons on right side of the screen.
-            SwitchPreference("revanced_hide_shorts_like_fountain"),
+            // Like fountain may no longer be used by YT anymore.
+            //SwitchPreference("revanced_hide_shorts_like_fountain"),
             SwitchPreference("revanced_hide_shorts_like_button"),
             SwitchPreference("revanced_hide_shorts_dislike_button"),
         )
 
         if (is_20_22_or_greater) {
-            // FIXME: The buffer is very different for 20.22+ and these current cannot be hidden.
+            // FIXME: 20.22+ filtering of the action buttons doesn't work because
+            //        the buffer is the same for all buttons.
             Logger.getLogger(this::class.java.name).warning(
                 "\n!!!" +
-                        "\n!!! Shorts action buttons currently cannot be set hidden when patching 20.22+" +
-                        "\n!!! Patch 20.21.37 or lower if you want to hide Shorts action buttons" +
-                        "\n!!!",
+                        "\n!!! Not all Shorts action buttons can be set hidden when patching 20.22+" +
+                        "\n!!! Patch 20.21.37 if you want to hide more Shorts action buttons" +
+                        "\n!!!"
             )
         } else {
             preferences.addAll(
