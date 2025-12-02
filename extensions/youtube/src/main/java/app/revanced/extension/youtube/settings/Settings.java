@@ -294,7 +294,6 @@ public class Settings extends BaseSettings {
     public static final EnumSetting<ShortsPlayerType> SHORTS_PLAYER_TYPE = new EnumSetting<>("revanced_shorts_player_type", ShortsPlayerType.SHORTS_PLAYER);
     public static final BooleanSetting HIDE_SHORTS_CHANNEL_BAR = new BooleanSetting("revanced_hide_shorts_channel_bar", FALSE);
     public static final BooleanSetting HIDE_SHORTS_COMMENTS_BUTTON = new BooleanSetting("revanced_hide_shorts_comments_button", FALSE);
-    public static final BooleanSetting HIDE_SHORTS_DISCLOSURE = new BooleanSetting("revanced_hide_shorts_disclosure", FALSE);
     public static final BooleanSetting HIDE_SHORTS_DISLIKE_BUTTON = new BooleanSetting("revanced_hide_shorts_dislike_button", FALSE);
     public static final BooleanSetting HIDE_SHORTS_FULL_VIDEO_LINK_LABEL = new BooleanSetting("revanced_hide_shorts_full_video_link_label", FALSE);
     public static final BooleanSetting HIDE_SHORTS_EFFECT_BUTTON = new BooleanSetting("revanced_hide_shorts_effect_button", TRUE);

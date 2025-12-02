@@ -974,9 +974,6 @@ To show the Audio track menu, change \'Spoof video streams\' to \'Android No SDK
             <string name="revanced_hide_shorts_video_title_title">Hide video title</string>
             <string name="revanced_hide_shorts_video_title_summary_on">Video title is hidden</string>
             <string name="revanced_hide_shorts_video_title_summary_off">Video title is shown</string>
-            <string name="revanced_hide_shorts_disclosure_title">Hide disclosure tag</string>
-            <string name="revanced_hide_shorts_disclosure_summary_on">Disclosure tag is hidden</string>
-            <string name="revanced_hide_shorts_disclosure_summary_off">Disclosure tag is shown</string>
             <string name="revanced_hide_shorts_sound_metadata_label_title">Hide sound metadata label</string>
             <string name="revanced_hide_shorts_sound_metadata_label_summary_on">Sound metadata label is hidden</string>
             <string name="revanced_hide_shorts_sound_metadata_label_summary_off">Sound metadata label is shown</string>
