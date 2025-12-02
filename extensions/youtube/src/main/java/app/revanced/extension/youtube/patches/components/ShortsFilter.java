@@ -117,11 +117,6 @@ public final class ShortsFilter extends Filter {
                 "shorts_video_title_item"
         );
 
-        StringFilterGroup shortsDisclosure = new StringFilterGroup(
-                Settings.HIDE_SHORTS_DISCLOSURE,
-                "shorts_disclosures"
-        );
-
         StringFilterGroup reelSoundMetadata = new StringFilterGroup(
                 Settings.HIDE_SHORTS_SOUND_METADATA_LABEL,
                 "reel_sound_metadata"
@@ -225,9 +220,9 @@ public final class ShortsFilter extends Filter {
 
         addPathCallbacks(
                 shortsCompactFeedVideo, joinButton, subscribeButton, paidPromotionButton,
-                shortsActionBar, shortsDisclosure, suggestedAction, pausedOverlayButtons, channelBar,
-                previewComment, fullVideoLinkLabel, videoTitle, useSoundButton, reelSoundMetadata, soundButton,
-                infoPanel, stickers, likeFountain, likeButton, dislikeButton
+                shortsActionBar, suggestedAction, pausedOverlayButtons, channelBar, previewComment,
+                fullVideoLinkLabel, videoTitle, useSoundButton, reelSoundMetadata, soundButton, infoPanel,
+                stickers, likeFountain, likeButton, dislikeButton
         );
 
         //
