@@ -173,7 +173,8 @@ public final class ShortsFilter extends Filter {
 
         paidPromotionButton = new StringFilterGroup(
                 Settings.HIDE_PAID_PROMOTION_LABEL,
-                "reel_player_disclosure.e"
+                "reel_player_disclosure.e",
+                "shorts_disclosures.e"
         );
 
         shortsActionBar = new StringFilterGroup(
