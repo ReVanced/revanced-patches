@@ -35,7 +35,7 @@ val spoofSimProviderPatch = bytecodePatch(
         validator = { it: String? -> it == null || it.uppercase() in countries.values },
     )
 
-    fun isMccMncValid(it: Int?): Boolean = it == null || it.toString().length in 5..6
+    fun isMccMncValid(it: Int?): Boolean = it == null || (it >= 10000 && it <= 999999)
 
     val networkCountryIso by isoCountryPatchOption(
         "networkCountryIso",
