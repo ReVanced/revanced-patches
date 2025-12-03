@@ -93,6 +93,7 @@ public class Settings extends BaseSettings {
     // Feed
     public static final BooleanSetting HIDE_ALBUM_CARDS = new BooleanSetting("revanced_hide_album_cards", FALSE, true);
     public static final BooleanSetting HIDE_ARTIST_CARDS = new BooleanSetting("revanced_hide_artist_cards", FALSE);
+    public static final BooleanSetting HIDE_CELL_DIVIDER = new BooleanSetting("revanced_hide_cell_divider", TRUE);
     public static final BooleanSetting HIDE_CHIPS_SHELF = new BooleanSetting("revanced_hide_chips_shelf", TRUE);
     public static final BooleanSetting HIDE_COMMUNITY_POSTS = new BooleanSetting("revanced_hide_community_posts", FALSE);
     public static final BooleanSetting HIDE_COMPACT_BANNER = new BooleanSetting("revanced_hide_compact_banner", TRUE);
@@ -116,7 +117,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_UPLOAD_TIME = new BooleanSetting("revanced_hide_upload_time", FALSE, "revanced_hide_upload_time_user_dialog_message");
     public static final BooleanSetting HIDE_VIDEO_RECOMMENDATION_LABELS = new BooleanSetting("revanced_hide_video_recommendation_labels", TRUE);
     public static final BooleanSetting HIDE_VIEW_COUNT = new BooleanSetting("revanced_hide_view_count", FALSE, "revanced_hide_view_count_user_dialog_message");
-    public static final BooleanSetting HIDE_VISUAL_SPACERS = new BooleanSetting("revanced_hide_visual_spacers", TRUE);
 
     // Alternative thumbnails
     public static final EnumSetting<ThumbnailOption> ALT_THUMBNAIL_HOME = new EnumSetting<>("revanced_alt_thumbnail_home", ThumbnailOption.ORIGINAL);

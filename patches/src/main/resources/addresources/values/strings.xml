@@ -223,6 +223,9 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_artist_cards_title">Hide artist cards</string>
             <string name="revanced_hide_artist_cards_summary_on">Artist cards are hidden</string>
             <string name="revanced_hide_artist_cards_summary_off">Artist cards are shown</string>
+            <string name="revanced_hide_cell_divider_title">Hide cell divider</string>
+            <string name="revanced_hide_cell_divider_summary_on">Cell divider is hidden</string>
+            <string name="revanced_hide_cell_divider_summary_off">Cell divider is shown</string>
             <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
             <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
             <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
@@ -286,9 +289,6 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_video_recommendation_labels_title">Hide video recommendation labels</string>
             <string name="revanced_hide_video_recommendation_labels_summary_on">\'People also watched\' and \'You might also like\' labels in search results are hidden</string>
             <string name="revanced_hide_video_recommendation_labels_summary_off">\'People also watched\' and \'You might also like\' labels in search results are shown</string>
-            <string name="revanced_hide_visual_spacers_title">Hide visual spacers</string>
-            <string name="revanced_hide_visual_spacers_summary_on">Visual spacers are hidden</string>
-            <string name="revanced_hide_visual_spacers_summary_off">Visual spacers are shown</string>
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <string name="revanced_hide_doodles_title">Hide YouTube Doodles</string>
             <string name="revanced_hide_doodles_summary_on">YouTube Doodles animation on the logo is hidden</string>
