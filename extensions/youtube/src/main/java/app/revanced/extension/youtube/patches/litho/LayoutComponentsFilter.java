@@ -18,7 +18,9 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
+import app.revanced.extension.shared.patches.litho.FilterGroupList;
 import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;
+import app.revanced.extension.shared.patches.litho.FilterGroupList.StringFilterGroupList;
 import app.revanced.extension.youtube.patches.ChangeHeaderPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;
@@ -56,7 +58,7 @@ public final class LayoutComponentsFilter extends Filter {
     private final ByteArrayFilterGroup ticketShelfBuffer;
     private final StringFilterGroup chipBar;
     private final StringFilterGroup channelProfile;
-    private final ByteArrayFilterGroupList channelProfileBuffer;
+    private final StringFilterGroupList channelProfileGroupList;
     private final ByteArrayFilterGroup playablesBuffer;
 
     public LayoutComponentsFilter() {
@@ -277,16 +279,16 @@ public final class LayoutComponentsFilter extends Filter {
                 "channel_profile.e",
                 PAGE_HEADER_PATH
         );
-        channelProfileBuffer = new ByteArrayFilterGroupList();
-        channelProfileBuffer.addAll(new ByteArrayFilterGroup(
+        channelProfileGroupList = new StringFilterGroupList();
+        channelProfileGroupList.addAll(new StringFilterGroup(
                         Settings.HIDE_STORE_BUTTON,
-                        "store_button"
+                        "header_store_button"
                 ),
-                new ByteArrayFilterGroup(
+                new StringFilterGroup(
                         Settings.HIDE_COMMUNITY_BUTTON,
                         "community_button"
                 ),
-                new ByteArrayFilterGroup(
+                new StringFilterGroup(
                         Settings.HIDE_JOIN_BUTTON,
                         "sponsor_button"
                 )
@@ -347,7 +349,7 @@ public final class LayoutComponentsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // This identifier is used not only in players but also in search results:
         // https://github.com/ReVanced/revanced-patches/issues/3245
@@ -365,7 +367,7 @@ public final class LayoutComponentsFilter extends Filter {
         }
 
         if (matchedGroup == channelProfile) {
-            return channelProfileBuffer.check(buffer).isFiltered();
+            return channelProfileGroupList.check(accessibility).isFiltered();
         }
 
         if (matchedGroup == subscribeButton) {

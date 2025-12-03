@@ -16,7 +16,8 @@ import java.util.logging.Logger
 @Suppress("unused")
 val hideVideoActionButtonsPatch = resourcePatch(
     name = "Hide video action buttons",
-    description = "Adds options to hide action buttons (such as the Download button) under videos.",
+    description = "Adds options to hide action buttons (such as the Download button) under videos. " +
+            "Patching version 20.21.37 or lower can hide more player button types"
 ) {
     dependsOn(
         resourceMappingPatch,
@@ -43,11 +44,15 @@ val hideVideoActionButtonsPatch = resourcePatch(
             SwitchPreference("revanced_hide_like_dislike_button"),
             SwitchPreference("revanced_hide_comments_button"),
             SwitchPreference("revanced_hide_save_button"),
-        )
+            SwitchPreference("revanced_hide_remix_button"),
+            SwitchPreference("revanced_hide_share_button"),
+
+            )
 
         if (is_20_22_or_greater) {
-            // FIXME: 20.22+ filtering of the action buttons doesn't work because
-            //        the buffer is the same for all buttons.
+            // 20.22+ filtering of the action buttons doesn't work because
+            // the buffer is the same for all buttons.
+            // TODO: Eventually remove this warning.
             Logger.getLogger(this::class.java.name).warning(
                 "\n!!!" +
                     "\n!!! Not all player action buttons can be set hidden when patching 20.22+" +
@@ -61,9 +66,7 @@ val hideVideoActionButtonsPatch = resourcePatch(
                     SwitchPreference("revanced_hide_ask_button"),
                     SwitchPreference("revanced_hide_clip_button"),
                     SwitchPreference("revanced_hide_promote_button"),
-                    SwitchPreference("revanced_hide_remix_button"),
                     SwitchPreference("revanced_hide_report_button"),
-                    SwitchPreference("revanced_hide_share_button"),
                     SwitchPreference("revanced_hide_shop_button"),
                     SwitchPreference("revanced_hide_stop_ads_button"),
                     SwitchPreference("revanced_hide_thanks_button"),
@@ -78,6 +81,6 @@ val hideVideoActionButtonsPatch = resourcePatch(
             ),
         )
 
-        addLithoFilter("Lapp/revanced/extension/youtube/patches/litho/ButtonsFilter;")
+        addLithoFilter("Lapp/revanced/extension/youtube/patches/litho/VideoActionButtonsFilter;")
     }
 }

@@ -13,9 +13,9 @@ import java.util.List;
  * Callbacks to filter content are added using {@link #addIdentifierCallbacks(StringFilterGroup...)}
  * and {@link #addPathCallbacks(StringFilterGroup...)}.
  *
- * To filter {@link FilterContentType#PROTOBUFFER}, first add a callback to
+ * To filter {@link FilterContentType#PROTOBUFFER} or {@link FilterContentType#ACCESSIBILITY}, first add a callback to
  * either an identifier or a path.
- * Then inside {@link #isFiltered(String, String, byte[], StringFilterGroup, FilterContentType, int)}
+ * Then inside {@link #isFiltered(String, String, String, byte[], StringFilterGroup, FilterContentType, int)}
  * search for the buffer content using either a {@link ByteArrayFilterGroup} (if searching for 1 pattern)
  * or a {@link FilterGroupList.ByteArrayFilterGroupList} (if searching for more than 1 pattern).
  *
@@ -26,6 +26,7 @@ public abstract class Filter {
     public enum FilterContentType {
         IDENTIFIER,
         PATH,
+        ACCESSIBILITY,
         PROTOBUFFER
     }
 
@@ -41,7 +42,7 @@ public abstract class Filter {
     public final List<StringFilterGroup> pathCallbacks = new ArrayList<>();
 
     /**
-     * Adds callbacks to {@link #isFiltered(String, String, byte[], StringFilterGroup, FilterContentType, int)}
+     * Adds callbacks to {@link #isFiltered(String, String, String, byte[], StringFilterGroup, FilterContentType, int)}
      * if any of the groups are found.
      */
     protected final void addIdentifierCallbacks(StringFilterGroup... groups) {
@@ -49,7 +50,7 @@ public abstract class Filter {
     }
 
     /**
-     * Adds callbacks to {@link #isFiltered(String, String, byte[], StringFilterGroup, FilterContentType, int)}
+     * Adds callbacks to {@link #isFiltered(String, String, String, byte[], StringFilterGroup, FilterContentType, int)}
      * if any of the groups are found.
      */
     protected final void addPathCallbacks(StringFilterGroup... groups) {
@@ -63,12 +64,15 @@ public abstract class Filter {
      * <p>
      * Method is called off the main thread.
      *
+     * @param identifier Litho identifier.
+     * @param accessibility Accessibility string, or an empty string if not present for the component.
+     * @param buffer Protocol buffer.
      * @param matchedGroup The actual filter that matched.
      * @param contentType  The type of content matched.
      * @param contentIndex Matched index of the identifier or path.
      * @return True if the litho component should be filtered out.
      */
-    public boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         return true;
     }

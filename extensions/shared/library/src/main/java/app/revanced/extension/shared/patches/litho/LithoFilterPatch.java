@@ -24,11 +24,14 @@ public final class LithoFilterPatch {
     private static final class LithoFilterParameters {
         final String identifier;
         final String path;
+        final String accessibility;
         final byte[] buffer;
 
-        LithoFilterParameters(String lithoIdentifier, String lithoPath, byte[] buffer) {
+        LithoFilterParameters(String lithoIdentifier, String lithoPath,
+                              String accessibility, byte[] buffer) {
             this.identifier = lithoIdentifier;
             this.path = lithoPath;
+            this.accessibility = accessibility;
             this.buffer = buffer;
         }
 
@@ -39,6 +42,11 @@ public final class LithoFilterPatch {
             StringBuilder builder = new StringBuilder(Math.max(100, buffer.length / 2));
             builder.append("ID: ");
             builder.append(identifier);
+            if (!accessibility.isEmpty()) {
+                // AccessibilityId and AccessibilityText are pieces of BufferStrings.
+                builder.append(" Accessibility: ");
+                builder.append(accessibility);
+            }
             builder.append(" Path: ");
             builder.append(path);
             if (YouTubeAndMusicSettings.DEBUG_PROTOBUFFER.get()) {
@@ -122,7 +130,7 @@ public final class LithoFilterPatch {
 
     /**
      * String suffix for components.
-     * Can be any of: ".eml", ".e-b", ".eml-js", "e-js-b"
+     * Can be any of: ".eml", ".eml-fe", ".e-b", ".eml-js", "e-js-b"
      */
     private static final byte[] LITHO_COMPONENT_EXTENSION_BYTES = ".e".getBytes(StandardCharsets.US_ASCII);
 
@@ -186,16 +194,13 @@ public final class LithoFilterPatch {
 
                             LithoFilterParameters parameters = (LithoFilterParameters) callbackParameter;
                             final boolean isFiltered = filter.isFiltered(parameters.identifier,
-                                    parameters.path, parameters.buffer, group, type, matchedStartIndex);
+                                    parameters.accessibility, parameters.path, parameters.buffer,
+                                    group, type, matchedStartIndex);
 
                             if (isFiltered && BaseSettings.DEBUG.get()) {
-                                if (type == Filter.FilterContentType.IDENTIFIER) {
-                                    Logger.printDebug(() -> "Filtered " + filterSimpleName
-                                            + " identifier: " + parameters.identifier);
-                                } else {
-                                    Logger.printDebug(() -> "Filtered " + filterSimpleName
-                                            + " path: " + parameters.path);
-                                }
+                                Logger.printDebug(() -> type == Filter.FilterContentType.IDENTIFIER
+                                        ? filterSimpleName + " filtered identifier: " + parameters.identifier
+                                        : filterSimpleName + " filtered path: " + parameters.path);
                             }
 
                             return isFiltered;
@@ -290,7 +295,9 @@ public final class LithoFilterPatch {
             }
         }
         if (endIndex < 0) {
-            Logger.printException(() -> "Could not find buffer identifier");
+            if (BaseSettings.DEBUG.get()) {
+                Logger.printException(() -> "Debug: Could not find buffer identifier");
+            }
             return;
         }
 
@@ -329,7 +336,8 @@ public final class LithoFilterPatch {
     /**
      * Injection point.
      */
-    public static boolean isFiltered(String identifier, StringBuilder pathBuilder) {
+    public static boolean isFiltered(String identifier, @Nullable String accessibilityId,
+                                     @Nullable String accessibilityText, StringBuilder pathBuilder) {
         try {
             if (identifier.isEmpty() || pathBuilder.length() == 0) {
                 return false;
@@ -357,7 +365,9 @@ public final class LithoFilterPatch {
                             // No buffer is found for some components, such as
                             // shorts_lockup_cell.eml on channel profiles.
                             // For now, just ignore this and filter without a buffer.
-                            Logger.printException(() -> "Could not find global buffer for identifier: " + identifier);
+                            if (BaseSettings.DEBUG.get()) {
+                                Logger.printException(() -> "Debug: Could not find buffer for identifier: " + identifier);
+                            }
                         }
                     }
                 }
@@ -372,7 +382,15 @@ public final class LithoFilterPatch {
             }
 
             String path = pathBuilder.toString();
-            LithoFilterParameters parameter = new LithoFilterParameters(identifier, path, buffer);
+
+            String accessibility = "";
+            if (accessibilityId != null && !accessibilityId.isBlank()) {
+                accessibility = accessibilityId;
+            }
+            if (accessibilityText != null && !accessibilityText.isBlank()) {
+                accessibility = accessibilityId + '|' + accessibilityText;
+            }
+            LithoFilterParameters parameter = new LithoFilterParameters(identifier, path, accessibility, buffer);
             Logger.printDebug(() -> "Searching " + parameter);
 
             return identifierSearchTree.matches(identifier, parameter)

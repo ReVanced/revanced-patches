@@ -21,7 +21,7 @@ public final class AdvancedVideoQualityMenuFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         isVideoQualityMenuVisible = true;
 

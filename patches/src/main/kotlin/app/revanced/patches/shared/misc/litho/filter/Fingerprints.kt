@@ -5,6 +5,16 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
+internal val BytecodePatchContext.accessibilityIdMethodMatch by composingFirstMethod {
+    instructions(
+        allOf(
+            Opcode.INVOKE_VIRTUAL(),
+            method { parameterTypes.isEmpty() && returnType == "Ljava/lang/String;" }
+        ),
+        afterAtMost(5, "primary_image"()),
+    )
+}
+
 internal val BytecodePatchContext.lithoFilterInitMethod by gettingFirstMethodDeclaratively {
     definingClass { endsWith("/LithoFilterPatch;") }
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)

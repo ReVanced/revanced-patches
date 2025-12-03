@@ -156,7 +156,7 @@ public final class AdsFilter extends Filter {
     }
 
     @Override
-    public boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
                               StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == playerShoppingShelf) {
             return contentIndex == 0 && playerShoppingShelfBuffer.check(buffer).isFiltered();
