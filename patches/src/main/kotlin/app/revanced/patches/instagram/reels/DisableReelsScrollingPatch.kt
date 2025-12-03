@@ -22,9 +22,9 @@ val disableReelsScrollingPatch = bytecodePatch(
         clipsViewPagerImplGetViewAtIndexFingerprint.method.addInstructions(
             0,
             """
-                iget-object v0, p0, $viewPagerField
-                const/4 v1, 0x0
-                invoke-virtual { v0, v1 }, Landroidx/viewpager2/widget/ViewPager2;->setUserInputEnabled(Z)V
+               iget-object v0, p0, $viewPagerField
+               const/4 v1, 0x0
+               invoke-virtual { v0, v1 }, Landroidx/viewpager2/widget/ViewPager2;->setUserInputEnabled(Z)V
             """
         )
 
