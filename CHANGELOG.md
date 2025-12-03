@@ -1,3 +1,10 @@
+# [5.47.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.6...v5.47.0-dev.7) (2025-12-03)
+
+
+### Features
+
+* **Spoof SIM provider:** Spoof additional TelephonyManager methods ([#6293](https://github.com/ReVanced/revanced-patches/issues/6293)) ([ac583d4](https://github.com/ReVanced/revanced-patches/commit/ac583d40d0f4c0e6544e3661ff3e82a25912f2b0))
+
 # [5.47.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.5...v5.47.0-dev.6) (2025-11-24)
 
 
