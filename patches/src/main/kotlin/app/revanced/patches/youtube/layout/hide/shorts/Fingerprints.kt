@@ -7,6 +7,18 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
+internal val BytecodePatchContext.componentContextParserMethod by gettingFirstImmutableMethodDeclaratively {
+    returnType("L")
+    instructions("Number of bits must be positive"())
+}
+
+context(_: BytecodePatchContext)
+internal fun ClassDef.getTreeNodeResultListMethod() = firstMethodDeclaratively  {
+    accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
+    returnType("Ljava/util/List;")
+    instructions(allOf(Opcode.INVOKE_STATIC(), method("nCopies")))
+}
+
 internal val BytecodePatchContext.shortsBottomBarContainerMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")

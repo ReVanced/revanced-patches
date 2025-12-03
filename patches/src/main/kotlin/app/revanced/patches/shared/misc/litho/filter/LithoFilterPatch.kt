@@ -237,7 +237,7 @@ internal fun lithoFilterPatch(
                 """
                     move-object/from16 v$freeRegister, p2 # ConversionContext parameter
                     
-                    # In YT 20.41 the field is the abstract superclass.
+                    # In YouTube 20.41 the field is the abstract superclass.
                     # Verify it's the expected subclass just in case. 
                     instance-of v$identifierRegister, v$freeRegister, ${conversionContextToStringMethod.immutableClassDef.type}
                     if-eqz v$identifierRegister, :unfiltered

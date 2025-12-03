@@ -4,10 +4,12 @@ import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButt
 
 import android.view.View;
 
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.shared.patches.litho.FilterGroup.*;
 import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;
+import app.revanced.extension.shared.patches.litho.LithoFilterPatch;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
 
@@ -23,7 +25,7 @@ import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;
 import app.revanced.extension.youtube.shared.PlayerType;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "FieldCanBeLocal"})
 public final class ShortsFilter extends Filter {
     private static final boolean HIDE_SHORTS_NAVIGATION_BAR = Settings.HIDE_SHORTS_NAVIGATION_BAR.get();
     private static final String COMPONENT_TYPE = "ComponentType";
@@ -51,7 +53,7 @@ public final class ShortsFilter extends Filter {
     /**
      * For paid promotion label and subscribe button that appears in the channel bar.
      */
-    private static final String REEL_PLAYER_OVERLAY_PATH = "reel_player_overlay.e";
+    private final String REEL_PLAYER_OVERLAY_PATH = "reel_player_overlay.e";
 
     /**
      * Tags that appears when opening the Shorts player.
@@ -459,7 +461,7 @@ public final class ShortsFilter extends Filter {
         return shouldHideShortsFeedItems();
     }
 
-    private static boolean shouldHideShortsFeedItems() {
+    private boolean shouldHideShortsFeedItems() {
         // Known issue if hide home is on but at least one other hide is off:
         //
         // Shorts suggestions will load in the background if a video is opened and
@@ -507,6 +509,58 @@ public final class ShortsFilter extends Filter {
             case LIBRARY -> hideHistory;
             default -> false;
         };
+    }
+
+    /**
+     * Injection point.
+     * <p>
+     * Hide action buttons by index.
+     * <p>
+     * Regular video action buttons vary in order by video, country, and account.
+     * Therefore, hiding buttons by index may hide unintended buttons.
+     * <p>
+     * Shorts action buttons are almost always in the same order.
+     * (From top to bottom: Like, Dislike, Comment, Share, Remix).
+     * Therefore, we can hide Shorts action buttons by index.
+     *
+     * @param pathBuilder Same as pathBuilder used in {@link LithoFilterPatch}.
+     * @param treeNodeResultList List containing Litho components.
+     */
+    public static void hideActionButtons(StringBuilder pathBuilder, List<Object> treeNodeResultList) {
+        try {
+            if (pathBuilder == null || pathBuilder.length() == 0 || treeNodeResultList == null) {
+                return;
+            }
+            int size = treeNodeResultList.size();
+
+            // The minimum size of the target List is 4.
+            if (size < 4) {
+                return;
+            }
+            String path = pathBuilder.toString();
+
+            if (!Utils.containsAny(path, REEL_ACTION_BAR_PATHS)
+                    // Regular Shorts: [ComponentType, ComponentType, ComponentType, ComponentType, ComponentType]
+                    // Shorts ads: [ComponentType, ComponentType, ComponentType, ComponentType] (No Remix button)
+                    || !COMPONENT_TYPE.equals(treeNodeResultList.get(0).toString())) {
+                return;
+            }
+            // Removing elements without iterating through the list in reverse order will throw an exception.
+            for (int i = size - 1; i > -1; i--) {
+                // treeNodeResult is each button.
+                Object treeNodeResult = treeNodeResultList.get(i);
+                if (treeNodeResult != null) {
+                    BooleanSetting setting = REEL_ACTION_BUTTONS_MAP.get(i);
+                    if (setting != null && setting.get()) {
+                        int finalI = i;
+                        Logger.printDebug(() -> "Hiding action button by index: " + finalI + ", key: " + setting.key);
+                        treeNodeResultList.remove(i);
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            Logger.printException(() -> "hideActionButtons failed", ex);
+        }
     }
 
     /**
