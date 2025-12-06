@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.links
 
+import app.revanced.patcher.CompositeMatch
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -8,6 +9,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_37_or_greater
+import app.revanced.patches.youtube.misc.playservice.is_20_49_or_greater
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -43,14 +45,17 @@ val bypassURLRedirectsPatch = bytecodePatch(
         )
 
         arrayOf(
-            if (is_20_37_or_greater) {
-                (abUriParserMethodMatch to 2)
+            if (is_20_49_or_greater) {
+                // Code has moved, and now seems to be an account url
+                // and may not be anything to do with sharing links.
+                null to -1
+            } else if (is_20_37_or_greater) {
+                abUriParserMethodMatch to 2
             } else {
-                (abUriParserLegacyMethodMatch to 2)
-            },
-            httpUriParserMethodMatch to 0,
+                abUriParserLegacyMethodMatch to 2
+            }
         ).forEach { (match, index) ->
-            val insertIndex = match[index]
+            val insertIndex = match?.get(index) ?: return@forEach
             val uriStringRegister = match.method.getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
             match.method.replaceInstruction(

@@ -11,6 +11,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
+import app.morphe.patches.youtube.misc.playservice.is_20_49_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.shared.videoQualityChangedMethodMatch
 import app.revanced.patches.youtube.video.playerresponse.Hook
@@ -24,9 +25,11 @@ import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.addStaticFieldToExtension
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.patcher.patch.PatchException
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -75,6 +78,8 @@ internal lateinit var videoEndMethod: MutableMethod
 
 // Used by other patches.
 internal lateinit var setPlaybackSpeedContainerClassFieldReference: FieldReference
+    private set
+internal lateinit var setPlaybackSpeedContainerClassFieldReferenceClassType: ClassDef
     private set
 internal lateinit var setPlaybackSpeedClassFieldReference: FieldReference
     private set
@@ -193,16 +198,45 @@ val videoInformationPatch = bytecodePatch(
             legacySpeedSelectionValueRegister =
                 getInstruction<TwoRegisterInstruction>(speedSelectionValueInstructionIndex).registerA
 
-            setPlaybackSpeedMethodReference =
-                getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 2).reference as MethodReference
-            setPlaybackSpeedClassFieldReference =
-                getInstruction<ReferenceInstruction>(speedSelectionValueInstructionIndex + 1).reference as FieldReference
-            setPlaybackSpeedContainerClassFieldReference =
-                getInstruction<ReferenceInstruction>(indexOfFirstInstructionOrThrow(Opcode.IF_EQZ) - 1).reference as FieldReference
+            setPlaybackSpeedMethodReference = getInstruction<ReferenceInstruction>(
+                indexOfFirstInstructionOrThrow(speedSelectionValueInstructionIndex) {
+                    val reference = getReference<MethodReference>()
+                    reference?.parameterTypes?.size == 1 && reference.parameterTypes.first() == "F"
+                }
+            ).reference as MethodReference
 
-            setPlaybackSpeedMethod =
-                firstClassDef(setPlaybackSpeedMethodReference.definingClass)
-                    .methods.first { it.name == setPlaybackSpeedMethodReference.name }
+            setPlaybackSpeedContainerClassFieldReference = getInstruction<ReferenceInstruction>(
+                indexOfFirstInstructionOrThrow(Opcode.IF_EQZ) - 1
+            ).reference as FieldReference
+
+            if (is_20_49_or_greater) {
+                // Only one class implements the interface. Patcher currently does not have a
+                // 'first' accessor for looking up classes, so do it ourself to verify
+                // we're using the expected class type.
+                var fieldReferenceType: ClassDef? = null
+                classDefForEach { def ->
+                    if (def.interfaces.contains(setPlaybackSpeedContainerClassFieldReference.type)) {
+                        if (fieldReferenceType != null) {
+                            throw PatchException("Found more than one playback speed interface: $def")
+                        }
+                        fieldReferenceType = def;
+                    }
+                }
+                setPlaybackSpeedContainerClassFieldReferenceClassType = fieldReferenceType!!;
+            } else {
+                setPlaybackSpeedContainerClassFieldReferenceClassType =
+                    classDefBy(setPlaybackSpeedContainerClassFieldReference.type)
+            }
+
+            setPlaybackSpeedClassFieldReference = getInstruction<ReferenceInstruction>(
+                indexOfFirstInstructionOrThrow(speedSelectionValueInstructionIndex) {
+                    getReference<FieldReference>()?.type?.startsWith("L") == true
+                }
+            ).reference as FieldReference
+
+            setPlaybackSpeedMethod = firstClassDef(
+                setPlaybackSpeedMethodReference.definingClass
+            ).methods.first { it.name == setPlaybackSpeedMethodReference.name }
             setPlaybackSpeedMethodIndex = 0
 
             // Add override playback speed method.
@@ -224,16 +258,19 @@ val videoInformationPatch = bytecodePatch(
                             if-lez v0, :ignore
                             
                             # Get the container class field.
-                            iget-object v0, v2, $setPlaybackSpeedContainerClassFieldReference  
-
+                            iget-object v0, v2, $setPlaybackSpeedContainerClassFieldReference
+                            
                             # For some reason, in YouTube 19.44.39 this value is sometimes null.
                             if-eqz v0, :ignore
+                            
+                            # Required cast for 20.49+
+                            check-cast v0, $setPlaybackSpeedContainerClassFieldReferenceClassType
 
                             # Get the field from its class.
                             iget-object v1, v0, $setPlaybackSpeedClassFieldReference
                             
                             # Invoke setPlaybackSpeed on that class.
-                            invoke-virtual {v1, v3}, $setPlaybackSpeedMethodReference
+                            invoke-virtual { v1, v3 }, $setPlaybackSpeedMethodReference
 
                             :ignore
                             return-void
