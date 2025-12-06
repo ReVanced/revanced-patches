@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.ad.comments
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 val hideCommentAdsPatch = bytecodePatch(
@@ -8,12 +8,10 @@ val hideCommentAdsPatch = bytecodePatch(
 ) {
 
     execute {
-        hideCommentAdsFingerprint.method.addInstructions(
+        hideCommentAdsFingerprint.method.replaceInstructions(
             0,
             """
-                new-instance v0, Ljava/lang/Object;
-                invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-                return-object v0
+                return-void
             """,
         )
     }
