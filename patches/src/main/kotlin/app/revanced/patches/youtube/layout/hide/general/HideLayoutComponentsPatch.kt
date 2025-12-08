@@ -242,10 +242,9 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_show_more_button"),
             SwitchPreference("revanced_hide_surveys"),
             SwitchPreference("revanced_hide_ticket_shelf"),
-            SwitchPreference("revanced_hide_upload_time"),
             SwitchPreference("revanced_hide_video_recommendation_labels"),
             SwitchPreference("revanced_hide_view_count"),
-            SwitchPreference("revanced_hide_visual_spacers"),
+            SwitchPreference("revanced_hide_upload_time"),
             SwitchPreference("revanced_hide_doodles"),
         )
 
