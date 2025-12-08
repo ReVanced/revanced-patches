@@ -1,3 +1,10 @@
+# [5.47.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.10...v5.47.0-dev.11) (2025-12-08)
+
+
+### Features
+
+* **Disney+:** Add `Skip ads` patch ([#6343](https://github.com/ReVanced/revanced-patches/issues/6343)) ([6bd7dca](https://github.com/ReVanced/revanced-patches/commit/6bd7dca75bd2ea335a596aa93a8b767d39be5f83))
+
 # [5.47.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.9...v5.47.0-dev.10) (2025-12-08)
 
 
