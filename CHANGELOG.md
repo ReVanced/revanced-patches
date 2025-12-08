@@ -1,3 +1,11 @@
+# [5.47.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.7...v5.47.0-dev.8) (2025-12-08)
+
+
+### Features
+
+* **Instagram:** Add `Disable Reels scrolling` patch ([#6317](https://github.com/ReVanced/revanced-patches/issues/6317)) ([0928dcd](https://github.com/ReVanced/revanced-patches/commit/0928dcd00dc2a9c1eef9a23c1e26ff5dc9ee670a))
+* **ProtonVPN:** Add `Remove delay` patch ([#6326](https://github.com/ReVanced/revanced-patches/issues/6326)) ([bbd8932](https://github.com/ReVanced/revanced-patches/commit/bbd8932b2e740aff96ba047332e541bff3e09436))
+
 # [5.47.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.6...v5.47.0-dev.7) (2025-12-03)
 
 
