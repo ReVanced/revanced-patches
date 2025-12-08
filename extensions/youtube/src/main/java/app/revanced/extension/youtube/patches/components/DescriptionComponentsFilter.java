@@ -44,10 +44,14 @@ final class DescriptionComponentsFilter extends Filter {
                 "video_attributes_section"
         );
 
-        final StringFilterGroup featuredSection = new StringFilterGroup(
-                Settings.HIDE_FEATURED_SECTION,
-                // "media_lockup", "structured_description_video_lockup"
-                "compact_infocard"
+        final StringFilterGroup featuredLinksSection = new StringFilterGroup(
+                Settings.HIDE_FEATURED_LINKS_SECTION,
+                "media_lockup"
+        );
+
+        final StringFilterGroup featuredVideosSection = new StringFilterGroup(
+                Settings.HIDE_FEATURED_VIDEOS_SECTION,
+                "structured_description_video_lockup"
         );
 
         final StringFilterGroup podcastSection = new StringFilterGroup(
@@ -76,7 +80,7 @@ final class DescriptionComponentsFilter extends Filter {
         );
 
         subscribeButton = new StringFilterGroup(
-                Settings.HIDE_DESCRIPTION_SUBSCRIBE_BUTTON,
+                Settings.HIDE_SUBSCRIBE_BUTTON,
                 "subscribe_button"
         );
 
@@ -110,7 +114,8 @@ final class DescriptionComponentsFilter extends Filter {
                 aiGeneratedVideoSummarySection,
                 askSection,
                 attributesSection,
-                featuredSection,
+                featuredLinksSection,
+                featuredVideosSection,
                 horizontalShelf,
                 howThisWasMadeSection,
                 hypePoints,

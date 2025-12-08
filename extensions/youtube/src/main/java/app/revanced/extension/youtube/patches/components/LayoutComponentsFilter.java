@@ -63,12 +63,18 @@ public final class LayoutComponentsFilter extends Filter {
 
         // Identifiers.
 
+        final var cellDivider = new StringFilterGroup(
+                Settings.HIDE_CELL_DIVIDER,
+                "cell_divider"
+        );
+
         final var chipsShelf = new StringFilterGroup(
                 Settings.HIDE_CHIPS_SHELF,
                 "chips_shelf"
         );
 
         addIdentifierCallbacks(
+                cellDivider,
                 chipsShelf
         );
 
