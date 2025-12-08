@@ -224,8 +224,8 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_artist_cards_summary_on">Artist cards are hidden</string>
             <string name="revanced_hide_artist_cards_summary_off">Artist cards are shown</string>
             <string name="revanced_hide_cell_divider_title">Hide cell divider</string>
-            <string name="revanced_hide_cell_divider_summary_on">Cell divider is hidden</string>
-            <string name="revanced_hide_cell_divider_summary_off">Cell divider is shown</string>
+            <string name="revanced_hide_cell_divider_summary_on">Cell divider (Visual space) is hidden</string>
+            <string name="revanced_hide_cell_divider_summary_off">Cell divider (Visual space) is shown</string>
             <string name="revanced_hide_chips_shelf_title">Hide chips shelf</string>
             <string name="revanced_hide_chips_shelf_summary_on">Chips shelf is hidden</string>
             <string name="revanced_hide_chips_shelf_summary_off">Chips shelf is shown</string>
