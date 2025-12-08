@@ -1,3 +1,10 @@
+# [5.47.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.8...v5.47.0-dev.9) (2025-12-08)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add "Hide cell divider", "Hide featured links", and "Hide featured videos" options ([#6335](https://github.com/ReVanced/revanced-patches/issues/6335)) ([a5d197b](https://github.com/ReVanced/revanced-patches/commit/a5d197b9775b98d7a37bfdee9e5f726d5e04d8cf))
+
 # [5.47.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.7...v5.47.0-dev.8) (2025-12-08)
 
 
