@@ -44,9 +44,10 @@ public final class ShortsFilter extends Filter {
     private final StringFilterGroup useTemplateButton;
     private final ByteArrayFilterGroup useTemplateButtonBuffer;
 
+    private final StringFilterGroup autoDubbedLabel;
     private final StringFilterGroup subscribeButton;
     private final StringFilterGroup joinButton;
-    private final StringFilterGroup paidPromotionButton;
+    private final StringFilterGroup paidPromotionLabel;
     private final StringFilterGroup shelfHeader;
 
     private final StringFilterGroup suggestedAction;
@@ -168,6 +169,11 @@ public final class ShortsFilter extends Filter {
                 "live_preview_page_vm.e"
         );
 
+        autoDubbedLabel = new StringFilterGroup(
+                Settings.HIDE_SHORTS_AUTO_DUBBED_LABEL,
+                "badge."
+        );
+
         joinButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_JOIN_BUTTON,
                 "sponsor_button"
@@ -178,7 +184,7 @@ public final class ShortsFilter extends Filter {
                 "subscribe_button"
         );
 
-        paidPromotionButton = new StringFilterGroup(
+        paidPromotionLabel = new StringFilterGroup(
                 Settings.HIDE_PAID_PROMOTION_LABEL,
                 "reel_player_disclosure.e",
                 "shorts_disclosures.e"
@@ -227,7 +233,7 @@ public final class ShortsFilter extends Filter {
         );
 
         addPathCallbacks(
-                shortsCompactFeedVideo, joinButton, subscribeButton, paidPromotionButton,
+                shortsCompactFeedVideo, joinButton, subscribeButton, paidPromotionLabel, autoDubbedLabel,
                 shortsActionBar, suggestedAction, pausedOverlayButtons, channelBar, previewComment,
                 fullVideoLinkLabel, videoTitle, useSoundButton, reelSoundMetadata, soundButton, infoPanel,
                 stickers, likeFountain, likeButton, dislikeButton, livePreview
@@ -336,7 +342,8 @@ public final class ShortsFilter extends Filter {
     boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (contentType == FilterContentType.PATH) {
-            if (matchedGroup == subscribeButton || matchedGroup == joinButton || matchedGroup == paidPromotionButton) {
+            if (matchedGroup == subscribeButton || matchedGroup == joinButton
+                    || matchedGroup == paidPromotionLabel || matchedGroup == autoDubbedLabel) {
                 // Selectively filter to avoid false positive filtering of other subscribe/join buttons.
                 return path.startsWith(REEL_CHANNEL_BAR_PATH) || path.startsWith(REEL_METAPANEL_PATH);
             }

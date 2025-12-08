@@ -110,6 +110,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                     SwitchPreference("revanced_hide_shorts_stickers"),
 
                     // Bottom of the screen.
+                    SwitchPreference("revanced_hide_shorts_auto_dubbed_label"),
                     SwitchPreference("revanced_hide_shorts_location_label"),
                     SwitchPreference("revanced_hide_shorts_channel_bar"),
                     SwitchPreference("revanced_hide_shorts_info_panel"),
