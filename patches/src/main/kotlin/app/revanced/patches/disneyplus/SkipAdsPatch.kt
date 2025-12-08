@@ -8,7 +8,7 @@ val skipAdsPatch = bytecodePatch(
     name = "Skip ads",
     description = "Automatically skips ads.",
 ) {
-    compatibleWith("com.disney.disneyplus"("4.19.3+rc1-2025.11.21"))
+    compatibleWith("com.disney.disneyplus")
 
     execute {
         insertionGetPointsFingerprint.method.addInstructions(
