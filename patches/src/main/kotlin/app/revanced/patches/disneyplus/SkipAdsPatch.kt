@@ -11,21 +11,15 @@ val skipAdsPatch = bytecodePatch(
     compatibleWith("com.disney.disneyplus")
 
     execute {
-        insertionGetPointsFingerprint.method.addInstructions(
-            0,
-            """
-                new-instance v0, Ljava/util/ArrayList;
-                invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-                return-object v0
-            """,
-        )
-        insertionGetRangesFingerprint.method.addInstructions(
-            0,
-            """
-                new-instance v0, Ljava/util/ArrayList;
-                invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-                return-object v0
-            """,
-        )
+        arrayOf(insertionGetPointsFingerprint, insertionGetRangesFingerprint).forEach {
+            it.method.addInstructions(
+	            0,
+	            """
+	                new-instance v0, Ljava/util/ArrayList;
+	                invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+	                return-object v0
+	            """,
+            )
+        }
     }
 }
