@@ -893,6 +893,9 @@ To show the Audio track menu, change \'Spoof video streams\' to \'Android No SDK
             <string name="revanced_hide_shorts_history_title">Hide Shorts in watch history</string>
             <string name="revanced_hide_shorts_history_summary_on">Hidden in watch history</string>
             <string name="revanced_hide_shorts_history_summary_off">Shown in watch history</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_title">Hide auto-dubbed label</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Auto-dubbed label is hidden</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Auto-dubbed label is shown</string>
             <string name="revanced_hide_shorts_super_thanks_button_title">Hide Buy Super Thanks button</string>
             <string name="revanced_hide_shorts_super_thanks_button_summary_on">Buy Super Thanks button is hidden</string>
             <string name="revanced_hide_shorts_super_thanks_button_summary_off">Buy Super Thanks button is shown</string>
@@ -909,6 +912,9 @@ To show the Audio track menu, change \'Spoof video streams\' to \'Android No SDK
             <string name="revanced_hide_shorts_join_button_title">Hide Join button</string>
             <string name="revanced_hide_shorts_join_button_summary_on">Join button is hidden</string>
             <string name="revanced_hide_shorts_join_button_summary_off">Join button is shown</string>
+            <string name="revanced_hide_shorts_live_preview_title">Hide live preview</string>
+            <string name="revanced_hide_shorts_live_preview_summary_on">Live preview is hidden</string>
+            <string name="revanced_hide_shorts_live_preview_summary_off">Live preview is shown</string>
             <string name="revanced_hide_shorts_location_label_title">Hide location label</string>
             <string name="revanced_hide_shorts_location_label_summary_on">Location label is hidden</string>
             <string name="revanced_hide_shorts_location_label_summary_off">Location label is shown</string>
