@@ -17,7 +17,7 @@ val hideAdsPatch = bytecodePatch(
 ) {
     dependsOn(hideCommentAdsPatch, sharedExtensionPatch)
 
-    compatibleWith("com.reddit.frontpage"("2025.48.0", "2025.49.0"))
+    compatibleWith("com.reddit.frontpage")
 
     execute {
         // region Filter promoted ads (does not work in popular or latest feed)
