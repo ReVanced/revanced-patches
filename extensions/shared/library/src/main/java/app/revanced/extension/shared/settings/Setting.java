@@ -59,23 +59,6 @@ public abstract class Setting<T> {
     }
 
     /**
-     * Availability based on a single parent setting being disabled.
-     */
-    public static Availability parentNot(BooleanSetting parent) {
-        return new Availability() {
-            @Override
-            public boolean isAvailable() {
-                return !parent.get();
-            }
-
-            @Override
-            public List<Setting<?>> getParentSettings() {
-                return Collections.singletonList(parent);
-            }
-        };
-    }
-
-    /**
      * Availability based on all parents being enabled.
      */
     public static Availability parentsAll(BooleanSetting... parents) {
