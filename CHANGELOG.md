@@ -1,3 +1,10 @@
+# [5.47.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.9...v5.47.0-dev.10) (2025-12-08)
+
+
+### Features
+
+* **YouTube - Hide Shorts components:** Add "Hide auto-dubbed label" and "Hide live preview" options ([#6334](https://github.com/ReVanced/revanced-patches/issues/6334)) ([a7c220a](https://github.com/ReVanced/revanced-patches/commit/a7c220a4aea93ea7ae7005b5760443d7571c4228))
+
 # [5.47.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.8...v5.47.0-dev.9) (2025-12-08)
 
 
