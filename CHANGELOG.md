@@ -1,3 +1,10 @@
+# [5.47.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.11...v5.47.0-dev.12) (2025-12-08)
+
+
+### Features
+
+* **YouTube - Hide layout components:** Add "Hide Join button" and "Hide Subscribe button" options for channel page ([#6345](https://github.com/ReVanced/revanced-patches/issues/6345)) ([02831a6](https://github.com/ReVanced/revanced-patches/commit/02831a6069fc30ffa3a87f8e4de653d003a2187e))
+
 # [5.47.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.10...v5.47.0-dev.11) (2025-12-08)
 
 
