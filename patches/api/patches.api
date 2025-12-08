@@ -621,6 +621,10 @@ public final class app/revanced/patches/protonmail/signature/RemoveSentFromSigna
 	public static final fun getRemoveSentFromSignaturePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/protonvpn/delay/RemoveDelayPatchKt {
+	public static final fun getRemoveDelayPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/rar/misc/annoyances/purchasereminder/HidePurchaseReminderPatchKt {
 	public static final fun getHidePurchaseReminderPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
