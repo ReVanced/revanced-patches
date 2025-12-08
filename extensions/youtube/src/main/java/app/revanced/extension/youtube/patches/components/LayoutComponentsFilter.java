@@ -63,19 +63,19 @@ public final class LayoutComponentsFilter extends Filter {
 
         // Identifiers.
 
-        final var cellDivider = new StringFilterGroup(
-                Settings.HIDE_CELL_DIVIDER,
-                "cell_divider"
-        );
-
         final var chipsShelf = new StringFilterGroup(
                 Settings.HIDE_CHIPS_SHELF,
                 "chips_shelf"
         );
 
+        final var visualSpacer = new StringFilterGroup(
+                Settings.HIDE_VISUAL_SPACER,
+                "cell_divider"
+        );
+
         addIdentifierCallbacks(
-                cellDivider,
-                chipsShelf
+                chipsShelf,
+                visualSpacer
         );
 
         // Paths.
@@ -266,12 +266,20 @@ public final class LayoutComponentsFilter extends Filter {
         );
         channelProfileBuffer = new ByteArrayFilterGroupList();
         channelProfileBuffer.addAll(new ByteArrayFilterGroup(
-                        Settings.HIDE_VISIT_STORE_BUTTON,
-                        "header_store_button"
+                        Settings.HIDE_STORE_BUTTON,
+                        "store_button"
                 ),
                 new ByteArrayFilterGroup(
-                        Settings.HIDE_VISIT_COMMUNITY_BUTTON,
+                        Settings.HIDE_COMMUNITY_BUTTON,
                         "community_button"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_JOIN_BUTTON,
+                        "sponsor_button"
+                ),
+                new ByteArrayFilterGroup(
+                        Settings.HIDE_SUBSCRIBE_BUTTON_IN_CHANNEL_PAGE,
+                        "subscribe_menu"
                 )
         );
 

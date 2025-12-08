@@ -215,16 +215,17 @@ val hideLayoutComponentsPatch = bytecodePatch(
             PreferenceScreenPreference(
                 key = "revanced_channel_screen",
                 preferences = setOf(
+                    SwitchPreference("revanced_hide_community_button"),
                     SwitchPreference("revanced_hide_for_you_shelf"),
+                    SwitchPreference("revanced_hide_join_button"),
                     SwitchPreference("revanced_hide_links_preview"),
                     SwitchPreference("revanced_hide_members_shelf"),
-                    SwitchPreference("revanced_hide_visit_community_button"),
-                    SwitchPreference("revanced_hide_visit_store_button"),
+                    SwitchPreference("revanced_hide_store_button"),
+                    SwitchPreference("revanced_hide_subscribe_button_in_channel_page"),
                 ),
             ),
             SwitchPreference("revanced_hide_album_cards"),
             SwitchPreference("revanced_hide_artist_cards"),
-            SwitchPreference("revanced_hide_cell_divider"),
             SwitchPreference("revanced_hide_chips_shelf"),
             SwitchPreference("revanced_hide_community_posts"),
             SwitchPreference("revanced_hide_compact_banner"),
@@ -247,6 +248,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_upload_time"),
             SwitchPreference("revanced_hide_video_recommendation_labels"),
             SwitchPreference("revanced_hide_view_count"),
+            SwitchPreference("revanced_hide_visual_spacer"),
             SwitchPreference("revanced_hide_doodles"),
         )
 
