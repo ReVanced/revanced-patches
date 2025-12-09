@@ -1,3 +1,7 @@
+public final class DisableReelsScrollingPatchKt {
+	public static final fun getDisableReelsScrollingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/all/misc/activity/exportall/ExportAllActivitiesPatchKt {
 	public static final fun getExportAllActivitiesPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
@@ -54,6 +58,10 @@ public final class app/revanced/patches/all/misc/connectivity/location/hide/Hide
 
 public final class app/revanced/patches/all/misc/connectivity/telephony/sim/spoof/SpoofSimCountryPatchKt {
 	public static final fun getSpoofSimCountryPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/all/misc/connectivity/telephony/sim/spoof/SpoofSimProviderPatchKt {
+	public static final fun getSpoofSimProviderPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/all/misc/connectivity/wifi/spoof/SpoofWifiPatchKt {
@@ -178,6 +186,10 @@ public final class app/revanced/patches/cricbuzz/misc/extension/ExtensionPatchKt
 
 public final class app/revanced/patches/crunchyroll/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/disneyplus/ads/SkipAdsPatchKt {
+	public static final fun getSkipAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/duolingo/ad/DisableAdsPatchKt {
@@ -624,6 +636,10 @@ public final class app/revanced/patches/protonmail/account/RemoveFreeAccountsLim
 
 public final class app/revanced/patches/protonmail/signature/RemoveSentFromSignaturePatchKt {
 	public static final fun getRemoveSentFromSignaturePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
+public final class app/revanced/patches/protonvpn/delay/RemoveDelayPatchKt {
+	public static final fun getRemoveDelayPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/rar/misc/annoyances/purchasereminder/HidePurchaseReminderPatchKt {
