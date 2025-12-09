@@ -11,7 +11,7 @@ val hideCommentAdsPatch = bytecodePatch(
         hideCommentAdsFingerprint.method.replaceInstructions(
             0,
             """
-                return-void
+                return-object p1
             """,
         )
     }
