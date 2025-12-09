@@ -8,11 +8,6 @@ val hideCommentAdsPatch = bytecodePatch(
 ) {
 
     execute {
-        hideCommentAdsFingerprint.method.replaceInstructions(
-            0,
-            """
-                return-object p1
-            """,
-        )
+        hideCommentAdsFingerprint.method.replaceInstructions(0, "return-object p1")
     }
 }
