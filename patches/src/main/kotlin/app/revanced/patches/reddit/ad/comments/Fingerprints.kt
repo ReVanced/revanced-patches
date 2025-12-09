@@ -6,5 +6,12 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 internal val hideCommentAdsFingerprint = fingerprint {
-    strings("PdpCommentsAds(adPosts=")
+    returns("V")
+    custom { method, _ ->
+        method.implementation?.instructions?.any { instruction ->
+            if (instruction.opcode != Opcode.NEW_INSTANCE) return@any false
+            val reference = (instruction as ReferenceInstruction).reference as TypeReference
+            reference.type.contains("LoadAdsCombinedCall")
+        } == true
+    }
 }
