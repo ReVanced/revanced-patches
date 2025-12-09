@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val skipAdsPatch = bytecodePatch(
+val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
     description = "Skips ads for movies and TV shows. Not tested for live TV.",
 ) {

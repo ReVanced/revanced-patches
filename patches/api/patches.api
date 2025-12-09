@@ -573,8 +573,8 @@ public final class app/revanced/patches/pandora/misc/EnableUnlimitedSkipsPatchKt
 	public static final fun getEnableUnlimitedSkipsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/peacocktv/ads/SkipAdsPatchKt {
-	public static final fun getSkipAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/peacocktv/ads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/photomath/detection/deviceid/SpoofDeviceIdPatchKt {
