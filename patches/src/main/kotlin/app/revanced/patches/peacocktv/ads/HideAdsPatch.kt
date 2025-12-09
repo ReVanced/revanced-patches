@@ -6,7 +6,7 @@ import app.revanced.util.returnEarly
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
-    description = "Skips ads for movies and TV shows. Not tested for live TV.",
+    description = "Hides all video ads.",
 ) {
     compatibleWith("com.peacocktv.peacockandroid")
 
