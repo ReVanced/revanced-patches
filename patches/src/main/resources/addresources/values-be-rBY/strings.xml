@@ -282,6 +282,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_video_recommendation_labels_title">Схаваць меткі рэкамендацый відэа</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">Меткі «Людзі таксама глядзелі» і «Вам таксама можа спадабацца» ў выніках пошуку схаваныя</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">Меткі «Людзі таксама глядзелі» і «Вам таксама можа спадабацца» ў выніках пошуку паказаныя</string>
+  <string name="revanced_hide_visual_spacer_title">Схаваць візуальны падзельнік</string>
+  <string name="revanced_hide_visual_spacer_summary_on">Візуальны падзельнік схаваны</string>
+  <string name="revanced_hide_visual_spacer_summary_off">Візуальны падзельнік паказаны</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Схаваць YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Анімацыя YouTube Doodles на лагатыпе схаваная</string>
@@ -342,18 +345,21 @@ Second \"item\" text"</string>
   <string name="revanced_hide_podcast_section_title">Схаваць «Пазнаёмцеся з падкастам»</string>
   <string name="revanced_hide_podcast_section_summary_on">Раздзел «Пазнаёмцеся з падкастам» схаваны</string>
   <string name="revanced_hide_podcast_section_summary_off">Раздзел «Пазнаёмцеся з падкастам» паказаны</string>
-  <string name="revanced_hide_featured_section_title">Схаваць рэкамендаваны кантэнт</string>
-  <string name="revanced_hide_featured_section_summary_on">Раздзел рэкамендаванага кантэнту схаваны</string>
-  <string name="revanced_hide_featured_section_summary_off">Раздзел рэкамендаванага кантэнту паказаны</string>
+  <string name="revanced_hide_featured_links_section_title">Схаваць выбраныя спасылкі</string>
+  <string name="revanced_hide_featured_links_section_summary_on">Раздзел з рэкамендаванымі спасылкамі схаваны</string>
+  <string name="revanced_hide_featured_links_section_summary_off">Раздзел з рэкамендаванымі спасылкамі паказаны</string>
+  <string name="revanced_hide_featured_videos_section_title">Схаваць рэкамендаваныя відэа</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">Раздзел з рэкамендаванымі відэа схаваны</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">Раздзел з рэкамендаванымі відэа паказаны</string>
   <string name="revanced_hide_info_cards_section_title">Схаваць інфармацыйныя карткі</string>
   <string name="revanced_hide_info_cards_section_summary_on">Раздзел інфармацыйных картак схаваны</string>
   <string name="revanced_hide_info_cards_section_summary_off">Паказваецца раздзел інфармацыйных карт</string>
   <string name="revanced_hide_key_concepts_section_title">Схаваць «Ключавыя канцэпцыі»</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Раздзел «Ключавыя канцэпцыі» схаваны</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Раздзел «Ключавыя канцэпцыі» паказаны</string>
-  <string name="revanced_hide_description_subscribe_button_title">Схаваць кнопку «Падпісацца»</string>
-  <string name="revanced_hide_description_subscribe_button_summary_on">Кнопка падпіскі схавана</string>
-  <string name="revanced_hide_description_subscribe_button_summary_off">Кнопка падпіскі паказана</string>
+  <string name="revanced_hide_subscribe_button_title">Схаваць кнопку «Падпісацца»</string>
+  <string name="revanced_hide_subscribe_button_summary_on">Кнопка «Падпісацца» схавана</string>
+  <string name="revanced_hide_subscribe_button_summary_off">Кнопка «Падпісацца» паказана</string>
   <string name="revanced_hide_transcript_section_title">Схаваць стэнаграму</string>
   <string name="revanced_hide_transcript_section_summary_on">Раздзел стэнаграмы схаваны</string>
   <string name="revanced_hide_transcript_section_summary_off">Паказваецца раздзел стэнаграмы</string>
@@ -375,24 +381,32 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Паказаны ў гісторыі праглядаў</string>
   <string name="revanced_channel_screen_title">Старонка канала</string>
   <string name="revanced_channel_screen_summary">Схаваць або паказаць кампаненты старонкі канала</string>
+  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_community_button_title">Схаваць кнопку «Супольнасць»</string>
+  <string name="revanced_hide_community_button_summary_on">Кнопка супольнасці схавана</string>
+  <string name="revanced_hide_community_button_summary_off">Кнопка супольнасці паказана</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Схаваць паліцу «Для вас»</string>
   <string name="revanced_hide_for_you_shelf_summary_on">Паліца \"Для вас\" схаваная</string>
   <string name="revanced_hide_for_you_shelf_summary_off">Паліца \"Для вас\" паказаная</string>
+  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_join_button_title">Схаваць кнопку Далучыцца</string>
+  <string name="revanced_hide_join_button_summary_on">Кнопка Далучыцца схавана</string>
+  <string name="revanced_hide_join_button_summary_off">Кнопка Далучыцца паказана</string>
   <string name="revanced_hide_links_preview_title">Схаваць папярэдні прагляд спасылак</string>
   <string name="revanced_hide_links_preview_summary_on">Папярэдні прагляд спасылак схаваны</string>
   <string name="revanced_hide_links_preview_summary_off">Папярэдні прагляд спасылак паказаны</string>
   <string name="revanced_hide_members_shelf_title">Схаваць паліцу ўдзельнікаў</string>
   <string name="revanced_hide_members_shelf_summary_on">Паліца ўдзельнікаў схаваная</string>
   <string name="revanced_hide_members_shelf_summary_off">Паліца ўдзельнікаў паказана</string>
-  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">Схаваць кнопку \"Наведаць супольнасць\"</string>
-  <string name="revanced_hide_visit_community_button_summary_on">Кнопка \"Наведаць супольнасць\" схавана</string>
-  <string name="revanced_hide_visit_community_button_summary_off">Кнопка \"Наведаць супольнасць\" паказаная</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Схавайце кнопку \"Наведайце краму\" на старонках канала</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Кнопка \"Наведаць краму\" схаваная</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Кнопка \"Наведаць краму\" паказаная</string>
+  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_store_button_title">Схаваць кнопку Крама</string>
+  <string name="revanced_hide_store_button_summary_on">Кнопка Крама схавана</string>
+  <string name="revanced_hide_store_button_summary_off">Кнопка Крама паказана</string>
+  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_subscribe_button_in_channel_page_title">Схаваць кнопку Падпісацца</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Кнопка Падпісацца схавана</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Кнопка Падпісацца паказана</string>
   <string name="revanced_comments_screen_title">Каментарыі</string>
   <string name="revanced_comments_screen_summary">Схаваць або паказаць кампаненты раздзела каментарыяў</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Схаваць зводку чата са штучным інтэлектам</string>
@@ -534,11 +548,11 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">URL скапіраваны ў буфер абмену</string>
   <string name="revanced_share_copy_url_timestamp_success">URL-адрас з пазнакай часу скапіраваны</string>
   <string name="revanced_copy_video_url_title">Паказаць кнопку скапіравання URL відэа</string>
-  <string name="revanced_copy_video_url_summary_on">Кнопка паказана. Націсніце, каб скапіяваць URL відэа. Націсніце і ўтрымлівайце, каб скапіяваць з пазнакай часу</string>
-  <string name="revanced_copy_video_url_summary_off">Кнопка не паказваецца</string>
+  <string name="revanced_copy_video_url_summary_on">Кнопка \"Капіяваць URL відэа\" паказана. Націсніце, каб скапіяваць URL відэа. Націсніце і ўтрымлівайце, каб скапіяваць з пазнакай часу</string>
+  <string name="revanced_copy_video_url_summary_off">Кнопка \"Капіяваць URL відэа\" не паказана</string>
   <string name="revanced_copy_video_url_timestamp_title">Паказаць кнопку URL-адрас з часовай пазнакай</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Кнопка паказана. Націсніце, каб скапіяваць URL відэа з пазнакай часу. Націсніце і ўтрымлівайце, каб скапіяваць без пазнакі часу</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">Кнопка не паказваецца</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Кнопка \"Капіяваць URL з пазнакай часу\" паказана. Націсніце, каб скапіяваць URL відэа з пазнакай часу. Націсніце і ўтрымлівайце, каб скапіяваць без пазнакі часу</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Кнопка \"Капіяваць URL з пазнакай часу\" не паказана</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Выдаліць дыялогавае акно права прагляду</string>
@@ -547,7 +561,7 @@ Second \"item\" text"</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Гэта не абыходзіць узроставае абмежаванне. Ён проста прымае гэта аўтаматычна.</string>
   </patch>
   <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-  <string name="revanced_disable_signin_to_tv_popup_title">Адключыць усплывальнае акно «Уваход у ТБ»</string>
+  <string name="revanced_disable_signin_to_tv_popup_title">Адключыць усплываючае акно \"Увайсці ў ТБ\"</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_on">Усплывальнае акно «Уваход у ТБ» адключана</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_off">Усплывальнае акно «Уваход у ТБ» уключана</string>
   </patch>
@@ -679,7 +693,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_download_button_summary_on">Кнопка загрузкі схавана</string>
   <string name="revanced_hide_download_button_summary_off">Паказана кнопка загрузкі</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
   <string name="revanced_hide_hype_button_title">Схаваць хайп</string>
   <string name="revanced_hide_hype_button_summary_on">Кнопка Hype схаваная</string>
   <string name="revanced_hide_hype_button_summary_off">Кнопка хайпу паказана</string>
@@ -800,10 +814,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">Схаваць гукавую дарожку</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Меню гукавой дарожкі схавана</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Адлюструецца меню гукавой дарожкі</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Меню аўдыядарожкі схавана
 
-Каб паказаць меню аўдыядарожкі, змяніце \"Падмена відэапатокаў\" на iPadOS"</string>
+Каб паказаць меню аўдыядарожкі, зменіце \"Імітацыя відэапатокаў\" на \"Android No SDK\""</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Схаваць гадзіннік у VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Меню прагляду ў VR схавана</string>
@@ -879,13 +894,16 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_history_title">Схаваць Shorts з гісторыі праглядаў</string>
   <string name="revanced_hide_shorts_history_summary_on">Схавана ў гісторыі праглядаў</string>
   <string name="revanced_hide_shorts_history_summary_off">Паказаны ў гісторыі праглядаў</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Схаваць кнопку «Купіць Super Thanks»</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">Схаваць метку \"Аўтаматычны дубляж\"</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Надпіс з аўтадубляжом схаваны</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Надпіс з аўтадубляжом паказаны</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Схаваць кнопку \"Набыць Super Thanks\"</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Кнопка «Набыць Super Thanks» схавана</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Кнопка «Набыць Super Thanks» паказана</string>
   <string name="revanced_hide_shorts_effect_button_title">Схаваць кнопку эфекту</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Кнопка эфекту схавана</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Кнопка эфекту паказана</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Схаваць кнопку «Зялёны экран»</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Схаваць кнопку \"Зялёны экран\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Кнопка с зелёным экраном Shorts скрыта</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Кнопка с зелёным экраном Shorts отображается</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Скрыть хештег-кнопку Shorts</string>
@@ -895,10 +913,13 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_join_button_title">Схаваць кнопку «Далучыцца»</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Кнопка «Далучыцца» схавана</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Паказана кнопка «Далучыцца»</string>
+  <string name="revanced_hide_shorts_live_preview_title">Схаваць жывы папярэдні прагляд</string>
+  <string name="revanced_hide_shorts_live_preview_summary_on">Папярэдні прагляд у рэальным часе схаваны</string>
+  <string name="revanced_hide_shorts_live_preview_summary_off">Папярэдні прагляд у рэальным часе паказаны</string>
   <string name="revanced_hide_shorts_location_label_title">Схаваць метку месцазнаходжання</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Метка месцазнаходжання схавана</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Паказана метка месцазнаходжання</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Схаваць кнопку «Новыя паведамленні»</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Схаваць кнопку \"Новыя паведамленні\"</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_on">Кнопка «Новыя паведамленні» схавана</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_off">Кнопка «Новыя паведамленні» паказана</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Схаваць прыпыненыя кнопкі накладання</string>
@@ -907,7 +928,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_preview_comment_title">Схаваць папярэдні прагляд каментарыя</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">Папярэдні прагляд каментарыя схаваны</string>
   <string name="revanced_hide_shorts_preview_comment_summary_off">Паказваецца папярэдні прагляд каментарыя</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Схаваць кнопку «Захаваць музыку»</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Схаваць кнопку \"Захаваць музыку\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Кнопка захавання музыкі схавана</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Кнопка захавання музыкі паказана</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Схаваць прапановы пошуку</string>
@@ -1575,13 +1596,13 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Паказаць дыялогавую кнопку хуткасці</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка паказана. Націсніце і ўтрымлівайце, каб скінуць хуткасць прайгравання да стандартнай</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка не паказваецца</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Кнопка дыялогу хуткасці паказана. Націсніце і ўтрымлівайце, каб скінуць хуткасць прайгравання да значэння па змаўчанні</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Кнопка дыялогу хуткасці не паказана</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Паказаць кнопку якасці відэа</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Кнопка паказана. Націсніце і ўтрымлівайце, каб скінуць якасць да па змаўчанні</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">Кнопка не паказваецца</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Кнопка якасці відэа паказана. Націсніце і ўтрымлівайце, каб скінуць якасць да значэння па змаўчанні</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Кнопка якасці відэа не паказана</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Меню пользовательской скорости воспроизведения</string>

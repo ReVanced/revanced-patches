@@ -282,6 +282,9 @@ Tuttavia, l'abilitazione di questa opzione registrerà anche alcuni dati dell'ut
   <string name="revanced_hide_video_recommendation_labels_title">Nascondi etichette di video consigliati</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">Le etichette \'Le persone hanno anche guardato\' e \'Potrebbe piacerti anche\' nei risultati di ricerca sono nascoste</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">Le etichette \'Le persone hanno anche guardato\' e \'Potrebbe piacerti anche\' nei risultati di ricerca sono mostrate</string>
+  <string name="revanced_hide_visual_spacer_title">Nascondi il separatore visivo</string>
+  <string name="revanced_hide_visual_spacer_summary_on">Il separatore visivo è nascosto</string>
+  <string name="revanced_hide_visual_spacer_summary_off">Il separatore visivo è mostrato</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Nascondi Doodles di YouTube</string>
   <string name="revanced_hide_doodles_summary_on">L\'animazione YouTube Doodles sul logo è nascosta</string>
@@ -342,18 +345,21 @@ Se al momento un Doodle è visibile nella tua regione e questa impostazione nasc
   <string name="revanced_hide_podcast_section_title">Nascondi \"Esplora il podcast\"</string>
   <string name="revanced_hide_podcast_section_summary_on">La sezione Esplora il podcast è nascosta</string>
   <string name="revanced_hide_podcast_section_summary_off">La sezione Esplora il podcast è visibile</string>
-  <string name="revanced_hide_featured_section_title">Nascondi contenuti in primo piano</string>
-  <string name="revanced_hide_featured_section_summary_on">La sezione dei contenuti in primo piano è nascosta</string>
-  <string name="revanced_hide_featured_section_summary_off">La sezione dei contenuti in primo piano è mostrata</string>
+  <string name="revanced_hide_featured_links_section_title">Nascondi i link in primo piano</string>
+  <string name="revanced_hide_featured_links_section_summary_on">La sezione dei link in evidenza è nascosta</string>
+  <string name="revanced_hide_featured_links_section_summary_off">La sezione dei link in evidenza è mostrata</string>
+  <string name="revanced_hide_featured_videos_section_title">Nascondi i video in evidenza</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">La sezione dei video in evidenza è nascosta</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">La sezione dei video in evidenza è mostrata</string>
   <string name="revanced_hide_info_cards_section_title">Nascondi le schede informative</string>
   <string name="revanced_hide_info_cards_section_summary_on">La sezione Schede Informative è nascosta</string>
   <string name="revanced_hide_info_cards_section_summary_off">La sezione Schede Informative è visibile</string>
   <string name="revanced_hide_key_concepts_section_title">Nascondi \"Concetti chiave\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">La sezione Concetti chiave è nascosta</string>
   <string name="revanced_hide_key_concepts_section_summary_off">La sezione Concetti chiave è visibile</string>
-  <string name="revanced_hide_description_subscribe_button_title">Nascondi il pulsante Iscriviti</string>
-  <string name="revanced_hide_description_subscribe_button_summary_on">Il pulsante Iscriviti è nascosto</string>
-  <string name="revanced_hide_description_subscribe_button_summary_off">Il pulsante Iscriviti è mostrato</string>
+  <string name="revanced_hide_subscribe_button_title">Nascondi il pulsante Iscriviti</string>
+  <string name="revanced_hide_subscribe_button_summary_on">Il pulsante Iscriviti è nascosto</string>
+  <string name="revanced_hide_subscribe_button_summary_off">Il pulsante Iscriviti è mostrato</string>
   <string name="revanced_hide_transcript_section_title">Nascondi Trascrizione</string>
   <string name="revanced_hide_transcript_section_summary_on">La sezione Trascrizione è nascosta</string>
   <string name="revanced_hide_transcript_section_summary_off">La sezione Trascrizione è visibile</string>
@@ -375,24 +381,32 @@ Se al momento un Doodle è visibile nella tua regione e questa impostazione nasc
   <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Mostrato nella cronologia visualizzazioni</string>
   <string name="revanced_channel_screen_title">Pagina canale</string>
   <string name="revanced_channel_screen_summary">Nascondi o mostra i componenti della pagina del canale</string>
+  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_community_button_title">Nascondi il pulsante Community</string>
+  <string name="revanced_hide_community_button_summary_on">Il pulsante Community è nascosto</string>
+  <string name="revanced_hide_community_button_summary_off">Il pulsante Community è visualizzato</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Nascondi sezione \"Per te\"</string>
   <string name="revanced_hide_for_you_shelf_summary_on">La sezione Per Te è nascosta</string>
   <string name="revanced_hide_for_you_shelf_summary_off">La sezione Per Te è mostrata</string>
+  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_join_button_title">Nascondi pulsante Unisciti</string>
+  <string name="revanced_hide_join_button_summary_on">Il pulsante Unisciti è nascosto</string>
+  <string name="revanced_hide_join_button_summary_off">Il pulsante Unisciti è visualizzato</string>
   <string name="revanced_hide_links_preview_title">Nascondi anteprima link</string>
   <string name="revanced_hide_links_preview_summary_on">L\'anteprima dei link è nascosta</string>
   <string name="revanced_hide_links_preview_summary_off">L\'anteprima dei link è mostrata</string>
   <string name="revanced_hide_members_shelf_title">Nascondi sezione membri</string>
   <string name="revanced_hide_members_shelf_summary_on">La sezione membri è nascosta</string>
   <string name="revanced_hide_members_shelf_summary_off">La sezione Membri è mostrata</string>
-  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">Nascondi il pulsante \"Visita la community\"</string>
-  <string name="revanced_hide_visit_community_button_summary_on">Il pulsante Visita la community è nascosto</string>
-  <string name="revanced_hide_visit_community_button_summary_off">Il pulsante Visita Community è mostrato</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Nascondi il pulsante \'Visita negozio\' nelle pagine del canale</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Il pulsante Visita negozio è nascosto</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Il pulsante Visita negozio è mostrato</string>
+  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_store_button_title">Nascondi pulsante Acquista</string>
+  <string name="revanced_hide_store_button_summary_on">Il pulsante Acquista è nascosto</string>
+  <string name="revanced_hide_store_button_summary_off">Il pulsante Acquista è visualizzato</string>
+  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_subscribe_button_in_channel_page_title">Nascondi pulsante Iscriviti</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Il pulsante Iscriviti è nascosto</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Il pulsante Iscriviti è visualizzato</string>
   <string name="revanced_comments_screen_title">Commenti</string>
   <string name="revanced_comments_screen_summary">Mostra o nascondi i componenti della sezione commenti</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Nascondi riepilogo chat IA</string>
@@ -534,11 +548,11 @@ Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_share_copy_url_success">URL copiato negli appunti</string>
   <string name="revanced_share_copy_url_timestamp_success">URL con timestamp copiato</string>
   <string name="revanced_copy_video_url_title">Mostra il pulsante Copia URL Video</string>
-  <string name="revanced_copy_video_url_summary_on">Il pulsante viene mostrato. Tocca per copiare l\'URL del video. Tieni premuto per copiare con il timestamp</string>
-  <string name="revanced_copy_video_url_summary_off">Il pulsante non è visibile</string>
+  <string name="revanced_copy_video_url_summary_on">Il pulsante Copia URL video è visualizzato. Tocca per copiare l\'URL del video. Tieni premuto per copiare con timestamp</string>
+  <string name="revanced_copy_video_url_summary_off">Il pulsante Copia URL video non è visualizzato</string>
   <string name="revanced_copy_video_url_timestamp_title">Mostra il pulsante Copia URL Video con Timestamp</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Il pulsante viene mostrato. Tocca per copiare l\'URL del video con il timestamp. Tieni premuto per copiare senza il timestamp</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">Il pulsante non è visibile</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Il pulsante Copia URL con timestamp è visualizzato. Tocca per copiare l\'URL del video con timestamp. Tieni premuto per copiare senza timestamp</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Il pulsante Copia URL con timestamp non è visualizzato</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Rimuovi la finestra sulla discrezione dello spettatore</string>
@@ -547,7 +561,7 @@ Questa funzione è disponibile solo per i dispositivi più vecchi"</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Questo non aggira la restrizione di età. Lo accetta solo automaticamente.</string>
   </patch>
   <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-  <string name="revanced_disable_signin_to_tv_popup_title">Disabilita il popup \"Accedi alla TV\"</string>
+  <string name="revanced_disable_signin_to_tv_popup_title">Disabilita il popup \'Accedi alla TV\'</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_on">Il popup \"Accedi alla TV\" è disabilitato</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_off">Il popup \"Accedi alla TV\" è abilitato</string>
   </patch>
@@ -679,7 +693,7 @@ Regola il volume scorrendo verticalmente sul lato destro dello schermo"</string>
   <string name="revanced_hide_download_button_summary_on">Il pulsante Scarica è nascosto</string>
   <string name="revanced_hide_download_button_summary_off">Il pulsante Scarica è visibile</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
   <string name="revanced_hide_hype_button_title">Nascondi Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Il pulsante Hype è nascosto</string>
   <string name="revanced_hide_hype_button_summary_off">Pulsante Hype è mostrato</string>
@@ -800,10 +814,11 @@ Se la modifica di questa impostazione non ha effetto, prova a passare alla modal
   <string name="revanced_hide_player_flyout_audio_track_title">Nascondi Traccia audio</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Il menu Traccia audio è nascosto</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Il menu Traccia audio è visibile</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Il menu della traccia audio è nascosto
 
-Per mostrare il menu della traccia audio, cambia \"Falsifica flussi video\" su iPadOS"</string>
+Per mostrare il menu della traccia audio, cambia \"Maschera flussi video\" in \"Android No SDK\""</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Nascondi Guarda in VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Il menu Guarda in VR è nascosto</string>
@@ -879,13 +894,16 @@ Per mostrare il menu della traccia audio, cambia \"Falsifica flussi video\" su i
   <string name="revanced_hide_shorts_history_title">Nascondi Shorts nella cronologia</string>
   <string name="revanced_hide_shorts_history_summary_on">Nascosti nella cronologia di visualizzazione</string>
   <string name="revanced_hide_shorts_history_summary_off">Mostrato nella cronologia</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Nascondi il pulsante Acquista Super Grazie</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">Nascondi l\'etichetta \'Doppiato automaticamente\'</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">L\'etichetta doppiata automaticamente è nascosta</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">L\'etichetta doppiata automaticamente è mostrata</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Nascondi il pulsante \'Acquista Super Grazie\'</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Il pulsante Acquista Super Grazie è nascosto</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Il pulsante Acquista Super Grazie è mostrato</string>
   <string name="revanced_hide_shorts_effect_button_title">Nascondi pulsante effetto</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Il pulsante Effetto è nascosto</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Il pulsante Effetto è mostrato</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Nascondi il pulsante Green Screen</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Nascondi il pulsante \'Schermo verde\'</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Il pulsante Schermo verde è nascosto</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Il pulsante Schermo verde è visibile</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Nascondi il pulsante Hashtag</string>
@@ -895,10 +913,13 @@ Per mostrare il menu della traccia audio, cambia \"Falsifica flussi video\" su i
   <string name="revanced_hide_shorts_join_button_title">Nascondi il pulsante Abbonati</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Il pulsante Abbonati è nascosto</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Il pulsante Abbonati è visibile</string>
+  <string name="revanced_hide_shorts_live_preview_title">Nascondi anteprima dal vivo</string>
+  <string name="revanced_hide_shorts_live_preview_summary_on">L\'anteprima dal vivo è nascosta</string>
+  <string name="revanced_hide_shorts_live_preview_summary_off">L\'anteprima dal vivo è mostrata</string>
   <string name="revanced_hide_shorts_location_label_title">Nascondi etichetta di posizione</string>
   <string name="revanced_hide_shorts_location_label_summary_on">L\'etichetta di posizione è nascosta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">L\'etichetta di posizione è visibile</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Nascondi il pulsante Nuovi post</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Nascondi il pulsante \'Nuovi post\'</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_on">Il pulsante Nuovi post è nascosto</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_off">Il pulsante Nuovi post è visibile</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Nascondi i pulsanti di sovrapposizione quando il video è in pausa</string>
@@ -907,7 +928,7 @@ Per mostrare il menu della traccia audio, cambia \"Falsifica flussi video\" su i
   <string name="revanced_hide_shorts_preview_comment_title">Nascondi commento di anteprima</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">Il commento di anteprima è nascosto</string>
   <string name="revanced_hide_shorts_preview_comment_summary_off">Viene mostrata l\'anteprima del commento</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Nascondi il pulsante Salva Musica</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Nascondi il pulsante \'Salva musica\'</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Il pulsante Salva traccia è nascosto</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Il pulsante Salva traccia è visibile</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Nascondi i suggerimenti di ricerca</string>
@@ -928,10 +949,10 @@ Per mostrare il menu della traccia audio, cambia \"Falsifica flussi video\" su i
   <string name="revanced_hide_shorts_upcoming_button_title">Nascondi il pulsante Prossimamente</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Il pulsante Imminente è nascosto</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Il pulsante Imminente è visibile</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Nascondi il pulsante \"Usa questo suono\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Nascondi il pulsante \'Usa questo suono\'</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_on">Il pulsante \"Usa questo suono\" è nascosto</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_off">Il pulsante \"Usa questo suono\" è mostrato</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Nascondi il pulsante \"Usa questo modello\"</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Nascondi il pulsante \'Usa questo modello\'</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Il pulsante \"Usa questo modello\" è nascosto</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Il pulsante \"Usa questo modello\" è mostrato</string>
   <string name="revanced_hide_shorts_like_fountain_title">Nascondi animazione fontana Mi piace</string>
@@ -1573,13 +1594,13 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Mostra il pulsante Velocità Video</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Il pulsante è visualizzato. Tieni premuto per ripristinare la velocità di riproduzione predefinita</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">Il pulsante non è visibile</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Il pulsante della finestra di dialogo della velocità è visualizzato. Tieni premuto per ripristinare la velocità di riproduzione predefinita</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Il pulsante della finestra di dialogo della velocità non è visualizzato</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Mostra il pulsante qualità video</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Il pulsante è visualizzato. Tocca e tieni premuto per ripristinare la qualità predefinita</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">Il pulsante non è visibile.</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Il pulsante della qualità video è visualizzato. Tocca e tieni premuto per ripristinare la qualità predefinita</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Il pulsante della qualità video non è visualizzato</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu di velocità di riproduzione personalizzato</string>
