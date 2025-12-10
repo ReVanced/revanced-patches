@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 
 internal val hideCommentAdsFingerprint = fingerprint {
     custom { method, classDef ->
-        classDef.type.contains("LoadAdsCombinedCall") &&
-            method.name == "invokeSuspend"
+        method.name == "invokeSuspend" &&
+        	classDef.contains("LoadAdsCombinedCall")
     }
 }
