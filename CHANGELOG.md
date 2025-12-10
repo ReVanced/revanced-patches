@@ -1,3 +1,10 @@
+# [5.47.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.12...v5.47.0-dev.13) (2025-12-10)
+
+
+### Features
+
+* **Peacock TV:** Add `Hide ads` patch ([#6348](https://github.com/ReVanced/revanced-patches/issues/6348)) ([847ee18](https://github.com/ReVanced/revanced-patches/commit/847ee189a971e6d4a99823998569f8e561b8319c))
+
 # [5.47.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.11...v5.47.0-dev.12) (2025-12-08)
 
 
