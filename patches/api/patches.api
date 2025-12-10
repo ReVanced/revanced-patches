@@ -637,6 +637,10 @@ public final class app/revanced/patches/protonvpn/delay/RemoveDelayPatchKt {
 	public static final fun getRemoveDelayPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/protonvpn/splittunneling/UnlockSplitTunnelingKt {
+	public static final fun getUnlockSplitTunnelingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/rar/misc/annoyances/purchasereminder/HidePurchaseReminderPatchKt {
 	public static final fun getHidePurchaseReminderPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
