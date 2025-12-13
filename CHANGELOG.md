@@ -1,3 +1,10 @@
+# [5.47.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.13...v5.47.0-dev.14) (2025-12-13)
+
+
+### Bug Fixes
+
+* **Spotify:** Make patches work with latest versions again ([#6359](https://github.com/ReVanced/revanced-patches/issues/6359)) ([34830ba](https://github.com/ReVanced/revanced-patches/commit/34830ba63b436146064f0f89f948d51cd0cb9146))
+
 # [5.47.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.12...v5.47.0-dev.13) (2025-12-10)
 
 
