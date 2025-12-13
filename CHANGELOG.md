@@ -1,3 +1,10 @@
+# [5.47.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.14...v5.47.0-dev.15) (2025-12-13)
+
+
+### Bug Fixes
+
+* **YouTube - Hide layout components:** Fix "Hide Subscribe button" in channel page not working ([#6363](https://github.com/ReVanced/revanced-patches/issues/6363)) ([ded8370](https://github.com/ReVanced/revanced-patches/commit/ded83702077701aac8a8749d71bf7376427f37d6))
+
 # [5.47.0-dev.14](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.13...v5.47.0-dev.14) (2025-12-13)
 
 
