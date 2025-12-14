@@ -352,6 +352,10 @@ public final class app/revanced/patches/lightroom/misc/premium/UnlockPremiumPatc
 	public static final fun getUnlockPremiumPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/lightroom/misc/version/DisableVersionCheckPatchKt {
+	public static final fun getDisableVersionCheckPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/memegenerator/detection/license/LicenseValidationPatchKt {
 	public static final fun getLicenseValidationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
