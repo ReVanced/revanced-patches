@@ -94,7 +94,7 @@ Om du vill översätta till nya språk eller förbättra befintliga översättni
   <!-- Settings about dialog. -->
   <string name="revanced_settings_about_links_body">Du använder ReVanced Patches version &lt;i&gt;%s&lt;/i&gt;</string>
   <string name="revanced_settings_about_links_dev_header">Obs!</string>
-  <string name="revanced_settings_about_links_dev_body">Den här versionen är en förhandsversion och du kan uppleva oväntade problem</string>
+  <string name="revanced_settings_about_links_dev_body">Det här är en förhandsversion och du kan uppleva oväntade problem</string>
   <string name="revanced_settings_about_links_header">Officiella länkar</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -274,8 +274,8 @@ Men om du aktiverar detta kommer även vissa användardata, t.ex. din IP-adress,
   <string name="revanced_hide_show_more_button_summary_on">Knappen Visa mer i sökresultat är dold</string>
   <string name="revanced_hide_show_more_button_summary_off">Knappen Visa mer i sökresultat visas</string>
   <string name="revanced_hide_surveys_title">Dölj enkäter</string>
-  <string name="revanced_hide_surveys_summary_on">Undersökningar är dolda</string>
-  <string name="revanced_hide_surveys_summary_off">Undersökningar visas</string>
+  <string name="revanced_hide_surveys_summary_on">Enkäter är dolda</string>
+  <string name="revanced_hide_surveys_summary_off">Enkäter visas</string>
   <string name="revanced_hide_ticket_shelf_title">Dölj biljetthylla</string>
   <string name="revanced_hide_ticket_shelf_summary_on">Biljetthyllan är dold</string>
   <string name="revanced_hide_ticket_shelf_summary_off">Biljetthyllan visas</string>
@@ -283,6 +283,9 @@ Men om du aktiverar detta kommer även vissa användardata, t.ex. din IP-adress,
   <string name="revanced_hide_video_recommendation_labels_title">Dölj etiketter för videorekommendationer</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">\"Andra har även tittat på\"- och \"Du kanske även gillar\"-etiketter i sökresultat är dolda</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">\"Andra har även tittat på\"- och \"Du kanske även gillar\"-etiketter i sökresultat visas</string>
+  <string name="revanced_hide_visual_spacer_title">Dölj visuell utfyllnad</string>
+  <string name="revanced_hide_visual_spacer_summary_on">Visuell utfyllnad är dold</string>
+  <string name="revanced_hide_visual_spacer_summary_off">Visuell utfyllnad visas</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Dölj YouTube-doodles</string>
   <string name="revanced_hide_doodles_summary_on">YouTube-doodles-animation på logotypen är dold</string>
@@ -343,18 +346,21 @@ Om en doodle visas för närvarande i din region och den här döljningsinställ
   <string name="revanced_hide_podcast_section_title">Dölj Utforska podden</string>
   <string name="revanced_hide_podcast_section_summary_on">Avsnittet Utforska podden är dolt</string>
   <string name="revanced_hide_podcast_section_summary_off">Avsnittet Utforska podden visas</string>
-  <string name="revanced_hide_featured_section_title">Dölj utvalt innehåll</string>
-  <string name="revanced_hide_featured_section_summary_on">Avsnittet med utvalt innehåll är dolt</string>
-  <string name="revanced_hide_featured_section_summary_off">Avsnittet med utvalt innehåll visas</string>
+  <string name="revanced_hide_featured_links_section_title">Dölj utvalda länkar</string>
+  <string name="revanced_hide_featured_links_section_summary_on">Avsnittet med utvalda länkar är dolt</string>
+  <string name="revanced_hide_featured_links_section_summary_off">Avsnittet med utvalda länkar visas</string>
+  <string name="revanced_hide_featured_videos_section_title">Dölj utvalda videor</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">Avsnittet med utvalda videor är dolt</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">Avsnittet med utvalda videor visas</string>
   <string name="revanced_hide_info_cards_section_title">Dölj infokort</string>
   <string name="revanced_hide_info_cards_section_summary_on">Avsnittet för infokort är dolt</string>
   <string name="revanced_hide_info_cards_section_summary_off">Avsnittet för infokort visas</string>
   <string name="revanced_hide_key_concepts_section_title">Dölj \"Huvudkoncept\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Avsnittet Huvudkoncept är dolt</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Avsnittet Huvudkoncept visas</string>
-  <string name="revanced_hide_description_subscribe_button_title">Dölj knappen Prenumerera</string>
-  <string name="revanced_hide_description_subscribe_button_summary_on">Knappen Prenumerera är dold</string>
-  <string name="revanced_hide_description_subscribe_button_summary_off">Knappen Prenumerera visas</string>
+  <string name="revanced_hide_subscribe_button_title">Dölj knappen Prenumerera</string>
+  <string name="revanced_hide_subscribe_button_summary_on">Knappen Prenumerera är dold</string>
+  <string name="revanced_hide_subscribe_button_summary_off">Knappen Prenumerera visas</string>
   <string name="revanced_hide_transcript_section_title">Dölj Manuskript</string>
   <string name="revanced_hide_transcript_section_summary_on">Avsnittet Manuskript är dolt</string>
   <string name="revanced_hide_transcript_section_summary_off">Avsnittet Manuskript visas</string>
@@ -376,24 +382,32 @@ Om en doodle visas för närvarande i din region och den här döljningsinställ
   <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Visas i visningshistoriken</string>
   <string name="revanced_channel_screen_title">Kanalsida</string>
   <string name="revanced_channel_screen_summary">Dölj eller visa komponenter på kanalsidan</string>
+  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_community_button_title">Dölj Community-knapp</string>
+  <string name="revanced_hide_community_button_summary_on">Knappen Community är dold</string>
+  <string name="revanced_hide_community_button_summary_off">Knappen Community visas</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Dölj hyllan För dig</string>
   <string name="revanced_hide_for_you_shelf_summary_on">Hyllan För dig är dold</string>
   <string name="revanced_hide_for_you_shelf_summary_off">Hyllan För dig visas</string>
+  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_join_button_title">Dölj knappen Bli medlem</string>
+  <string name="revanced_hide_join_button_summary_on">Knappen Bli medlem är dold</string>
+  <string name="revanced_hide_join_button_summary_off">Knappen Bli medlem visas</string>
   <string name="revanced_hide_links_preview_title">Dölj förhandsgranskning av länkar</string>
   <string name="revanced_hide_links_preview_summary_on">Förhandsgranskning av länkar är dold</string>
   <string name="revanced_hide_links_preview_summary_off">Förhandsgranskning av länkar visas</string>
   <string name="revanced_hide_members_shelf_title">Dölj medlemshylla</string>
   <string name="revanced_hide_members_shelf_summary_on">Medlemshyllan är dold</string>
   <string name="revanced_hide_members_shelf_summary_off">Medlemshyllan visas</string>
-  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">Dölj knappen Besök communityn</string>
-  <string name="revanced_hide_visit_community_button_summary_on">Knappen Besök communityn är dold</string>
-  <string name="revanced_hide_visit_community_button_summary_off">Knappen Besök communityn visas</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Dölj knappen Besök butiken</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Knappen Besök butiken är dold</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Knappen Besök butiken visas</string>
+  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_store_button_title">Dölj knappen Butik</string>
+  <string name="revanced_hide_store_button_summary_on">Knappen Butik är dold</string>
+  <string name="revanced_hide_store_button_summary_off">Knappen Butik visas</string>
+  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_subscribe_button_in_channel_page_title">Dölj knappen Prenumerera</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Knappen Prenumerera är dold</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Knappen Prenumerera visas</string>
   <string name="revanced_comments_screen_title">Kommentarer</string>
   <string name="revanced_comments_screen_summary">Dölj eller visa komponenter i kommentarsfältet</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Dölj AI-sammanfattning av chatt</string>
@@ -477,7 +491,7 @@ Begränsningar
 • Om du söker på ett nyckelord kan det hända att inga resultat visas"</string>
   <string name="revanced_hide_keyword_content_about_whole_words_title">Matcha hela ord</string>
   <!-- Translations _must_ use a localized example.  For languages that do not use spaces between words (Chinese, Japanese, etc.) the English AI example should be used since no localized examples exist.  Or if using machine translations, or if nobody wants to think of a localized example, then the English 'ai' example should be left as-is. -->
-  <string name="revanced_hide_keyword_content_about_whole_words_summary">Om du omger ett nyckelord/en fras med dubbla citattecken förhindrar du partiella matchningar av videotitlar och kanalnamn&lt;br&gt;&lt;br&gt;Till exempel,&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; kommer att dölja videon: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;men kommer inte att dölja: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
+  <string name="revanced_hide_keyword_content_about_whole_words_summary">Om du omger ett nyckelord/en fras med dubbla citattecken förhindrar du partiella matchningar av videotitlar och kanalnamn&lt;br&gt;&lt;br&gt;Till exempel:&lt;br&gt;&lt;b&gt;\"ai\"&lt;/b&gt; kommer att dölja videon: &lt;b&gt;How does AI work?&lt;/b&gt;&lt;br&gt;men kommer inte att dölja: &lt;b&gt;What does fair use mean?&lt;/b&gt;</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   <string name="revanced_hide_keyword_toast_invalid_common">Kan inte använda nyckelord: %s</string>
   <string name="revanced_hide_keyword_toast_invalid_common_whole_word_required">Lägg till citattecken för att använda nyckelord: %s</string>
@@ -535,11 +549,11 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_share_copy_url_success">Videoadress kopierad till urklipp</string>
   <string name="revanced_share_copy_url_timestamp_success">Videoadress med tidsstämpel kopierad</string>
   <string name="revanced_copy_video_url_title">Visa knapp för att kopiera videoadress</string>
-  <string name="revanced_copy_video_url_summary_on">Knappen visas. Tryck för att kopiera videoadressen. Tryck länge för att kopiera med tidsstämpel</string>
-  <string name="revanced_copy_video_url_summary_off">Knappen visas inte</string>
+  <string name="revanced_copy_video_url_summary_on">Knappen för att kopiera video-URL visas. Tryck för att kopiera videoadressen. Tryck länge för att kopiera med tidsstämpel</string>
+  <string name="revanced_copy_video_url_summary_off">Knappen för att kopiera video-URL visas inte</string>
   <string name="revanced_copy_video_url_timestamp_title">Visa knapp för att kopiera videoadress med tidsstämpel</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Knappen visas. Tryck för att kopiera videoadressen med tidsstämpel. Tryck länge för att kopiera utan tidsstämpel</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">Knappen visas inte</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Knappen för att kopiera tidsstämpel-URL visas. Tryck för att kopiera videoadressen med tidsstämpel. Tryck länge för att kopiera utan tidsstämpel</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Knappen för att kopiera tidsstämpel-URL visas inte</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Ta bort dialogrutan Känsliga tittare varnas</string>
@@ -548,7 +562,7 @@ Den här funktionen är endast tillgänglig för äldre enheter"</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Detta kringgår inte åldersbegränsningen. Det bara godkänner automatiskt.</string>
   </patch>
   <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-  <string name="revanced_disable_signin_to_tv_popup_title">Inaktivera \"Logga in på TV\"-popup</string>
+  <string name="revanced_disable_signin_to_tv_popup_title">Inaktivera popup-fönstret \'Logga in på TV\'</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_on">\"Logga in på TV\"-popup är inaktiverad</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_off">\"Logga in på TV\"-popup är aktiverad</string>
   </patch>
@@ -680,7 +694,7 @@ Justera volymen genom att svepa vertikalt till höger på skärmen"</string>
   <string name="revanced_hide_download_button_summary_on">Knappen Ladda ned är dold</string>
   <string name="revanced_hide_download_button_summary_off">Knappen Ladda ned visas</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
   <string name="revanced_hide_hype_button_title">Dölj Hajp</string>
   <string name="revanced_hide_hype_button_summary_on">Knappen Hajp är dold</string>
   <string name="revanced_hide_hype_button_summary_off">Knappen Hajp visas</string>
@@ -801,10 +815,11 @@ Om du ändrar den här inställningen utan att det träder i kraft kan du testa 
   <string name="revanced_hide_player_flyout_audio_track_title">Dölj Ljudspår</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menyn Ljudspår är dold</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menyn Ljudspår visas</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Menyn Ljudspår är dold
 
-För att visa menyn Ljudspår, ändra \"Förfalska videoströmmar\" till iPadOS"</string>
+Om du vill att menyn Ljudspår ska visas ändrar du \"Förfalska videoströmmar\" till \"Android No SDK\""</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Dölj Titta i VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menyn Titta i VR är dold</string>
@@ -880,13 +895,16 @@ För att visa menyn Ljudspår, ändra \"Förfalska videoströmmar\" till iPadOS"
   <string name="revanced_hide_shorts_history_title">Dölj Shorts-videor i visningshistoriken</string>
   <string name="revanced_hide_shorts_history_summary_on">Döljs i visningshistoriken</string>
   <string name="revanced_hide_shorts_history_summary_off">Visas i visningshistoriken</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Dölj knappen Köp Super Thanks</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">Dölj etiketten \'Automatiskt dubbat\'</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Etiketten för automatiskt dubbat är dold</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Etiketten för automatiskt dubbat visas</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Dölj knappen \'Köp Super Thanks\'</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Knappen Köp Super Thanks är dold</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Knappen Köp Super Thanks visas</string>
   <string name="revanced_hide_shorts_effect_button_title">Dölj effektknapp</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Effektknappen är dold</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Effektknappen visas</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Dölj knappen Greenscreen</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Dölj knappen \'Greenscreen\'</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Knappen Greenscreen är dold</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Knappen Greenscreen visas</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Dölj hashtag-knapp</string>
@@ -896,10 +914,13 @@ För att visa menyn Ljudspår, ändra \"Förfalska videoströmmar\" till iPadOS"
   <string name="revanced_hide_shorts_join_button_title">Dölj knappen Bli medlem</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Knappen Bli medlem är dold</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Knappen Bli medlem visas</string>
+  <string name="revanced_hide_shorts_live_preview_title">Dölj liveförhandsgranskning</string>
+  <string name="revanced_hide_shorts_live_preview_summary_on">Direktförhandsgranskning är dold</string>
+  <string name="revanced_hide_shorts_live_preview_summary_off">Direktförhandsgranskning visas</string>
   <string name="revanced_hide_shorts_location_label_title">Dölj platsetikett</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Platsetiketten är dold</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Platsetiketten visas</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Dölj knappen Nya inlägg</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Dölj knappen \'Nya inlägg\'</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_on">Knappen Nya inlägg är dold</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_off">Knappen Nya inlägg visas</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Dölj pausöverläggsknappar</string>
@@ -908,7 +929,7 @@ För att visa menyn Ljudspår, ändra \"Förfalska videoströmmar\" till iPadOS"
   <string name="revanced_hide_shorts_preview_comment_title">Dölj förhandsvisad kommentar</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">Förhandsvisad kommentar är dold</string>
   <string name="revanced_hide_shorts_preview_comment_summary_off">Förhandsvisad kommentar visas</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Dölj knappen Spara musik</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Dölj knappen \'Spara musik\'</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Knappen Spara musik är dold</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Knappen Spara musik visas</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Dölj sökförslag</string>
@@ -929,10 +950,10 @@ För att visa menyn Ljudspår, ändra \"Förfalska videoströmmar\" till iPadOS"
   <string name="revanced_hide_shorts_upcoming_button_title">Dölj knappen Kommande</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Knappen Kommande är dold</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Knappen Kommande visas</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Dölj knappen Använd det här ljudet</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Dölj knappen \'Använd det här ljudet\'</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_on">Knappen Använd det här ljudet är dold</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_off">Knappen Använd det här ljudet visas</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Dölj knappen Använd den här mallen</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Dölj knappen \'Använd den här mallen\'</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Knappen Använd den här mallen är dold</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Knappen Använd den här mallen visas</string>
   <string name="revanced_hide_shorts_like_fountain_title">Dölj fontäneffekt för knappen Gilla</string>
@@ -1574,13 +1595,13 @@ Om du aktiverar detta kan högre videokvaliteter låsas upp"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Visa knapp för hastighetsdialogruta</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Knappen visas. Tryck länge för att återställa uppspelningshastigheten till standardhastigheten</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">Knappen visas inte</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Knappen för hastighetsdialog visas. Tryck länge för att återställa uppspelningshastigheten till standardhastigheten</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Knappen för hastighetsdialog visas inte</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Visa videokvalitetsknapp</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Knappen visas. Tryck länge för att återställa kvaliteten till standardkvaliteten</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">Knappen visas inte</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Knappen för videokvalitet visas. Tryck länge för att återställa kvaliteten till standardkvaliteten</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Knappen för videokvalitet visas inte</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Anpassad meny för uppspelningshastighet</string>

@@ -101,6 +101,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                     SwitchPreference("revanced_hide_shorts_effect_button"),
                     SwitchPreference("revanced_hide_shorts_green_screen_button"),
                     SwitchPreference("revanced_hide_shorts_hashtag_button"),
+                    SwitchPreference("revanced_hide_shorts_live_preview"),
                     SwitchPreference("revanced_hide_shorts_new_posts_button"),
                     SwitchPreference("revanced_hide_shorts_shop_button"),
                     SwitchPreference("revanced_hide_shorts_tagged_products"),
@@ -109,6 +110,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                     SwitchPreference("revanced_hide_shorts_stickers"),
 
                     // Bottom of the screen.
+                    SwitchPreference("revanced_hide_shorts_auto_dubbed_label"),
                     SwitchPreference("revanced_hide_shorts_location_label"),
                     SwitchPreference("revanced_hide_shorts_channel_bar"),
                     SwitchPreference("revanced_hide_shorts_info_panel"),

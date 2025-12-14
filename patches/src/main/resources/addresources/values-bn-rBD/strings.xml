@@ -278,6 +278,9 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_video_recommendation_labels_title">ভিডিও সুপারিশ লেবেল লুকান</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">\"অন্যান্য দর্শক দেখেছেন\" এবং \"আপনার পছন্দ হতে পারে\" লেবেলগুলি অনুসন্ধান ফলাফলে লুকানো আছে</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">\"অন্যান্য দর্শক দেখেছেন\" এবং \"আপনার পছন্দ হতে পারে\" লেবেলগুলি অনুসন্ধান ফলাফলে দেখানো হয়েছে</string>
+  <string name="revanced_hide_visual_spacer_title">ভিজ্যুয়াল স্পেসার লুকান</string>
+  <string name="revanced_hide_visual_spacer_summary_on">ভিজ্যুয়াল স্পেসার লুকানো হয়েছে</string>
+  <string name="revanced_hide_visual_spacer_summary_off">ভিজ্যুয়াল স্পেসার দেখানো হয়েছে</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles छिपाएँ</string>
   <string name="revanced_hide_doodles_summary_on">লোগোতে YouTube Doodles অ্যানিমেশন লুকানো আছে</string>
@@ -338,18 +341,21 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_podcast_section_title">\'Explore the podcast\' লুকান</string>
   <string name="revanced_hide_podcast_section_summary_on">Explore the podcast বিভাগটি লুকানো আছে</string>
   <string name="revanced_hide_podcast_section_summary_off">Explore the podcast বিভাগটি দেখানো হয়েছে</string>
-  <string name="revanced_hide_featured_section_title">বিশেষ বিষয়বস্তু লুকান</string>
-  <string name="revanced_hide_featured_section_summary_on">বিশেষ বিষয়বস্তু বিভাগ লুকানো আছে</string>
-  <string name="revanced_hide_featured_section_summary_off">বিশেষ বিষয়বস্তু বিভাগ দেখানো হচ্ছে</string>
+  <string name="revanced_hide_featured_links_section_title">ফিচার লিঙ্ক লুকান</string>
+  <string name="revanced_hide_featured_links_section_summary_on">বিশেষ লিঙ্ক বিভাগ লুকানো আছে</string>
+  <string name="revanced_hide_featured_links_section_summary_off">বিশেষ লিঙ্ক বিভাগ দেখানো আছে</string>
+  <string name="revanced_hide_featured_videos_section_title">বিশেষ ভিডিও লুকান</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">বিশেষ ভিডিও বিভাগ লুকানো আছে</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">বিশেষ ভিডিও বিভাগ দেখানো আছে</string>
   <string name="revanced_hide_info_cards_section_title">তথ্য কার্ড লুকান</string>
   <string name="revanced_hide_info_cards_section_summary_on">তথ্য কার্ড সেকশন লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_info_cards_section_summary_off">তথ্য কার্ড সেকশন প্রদর্শিত হয়েছে</string>
   <string name="revanced_hide_key_concepts_section_title">\'Key concepts\' লুকান</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Key concepts বিভাগটি লুকানো আছে</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Key concepts বিভাগটি দেখানো হয়েছে</string>
-  <string name="revanced_hide_description_subscribe_button_title">সদস্যতা বোতাম লুকান</string>
-  <string name="revanced_hide_description_subscribe_button_summary_on">সাবস্ক্রাইব বাটন লুকানো আছে</string>
-  <string name="revanced_hide_description_subscribe_button_summary_off">সাবস্ক্রাইব বাটন দেখানো আছে</string>
+  <string name="revanced_hide_subscribe_button_title">সাবস্ক্রাইব বোতাম লুকান</string>
+  <string name="revanced_hide_subscribe_button_summary_on">সাবস্ক্রাইব বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_subscribe_button_summary_off">সাবস্ক্রাইব বোতাম দেখানো আছে</string>
   <string name="revanced_hide_transcript_section_title">নথি লুকান</string>
   <string name="revanced_hide_transcript_section_summary_on">ট্রান্সস্ক্রিপ্ট বিভাগ লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_transcript_section_summary_off">ট্রান্সস্ক্রিপ্ট বিভাগ প্রদর্শিত হয়েছে</string>
@@ -371,24 +377,32 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_filter_bar_feed_in_history_summary_off">দেখার ইতিহাসে দেখানো হয়েছে</string>
   <string name="revanced_channel_screen_title">চ্যানেল পৃষ্ঠা</string>
   <string name="revanced_channel_screen_summary">চ্যানেল পৃষ্ঠার উপাদানগুলি লুকান বা দেখান</string>
+  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_community_button_title">কমিউনিটি বোতাম লুকান</string>
+  <string name="revanced_hide_community_button_summary_on">কমিউনিটি বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_community_button_summary_off">কমিউনিটি বোতাম দেখানো আছে</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">\'আপনার জন্য\' শেল্ফ লুকান</string>
   <string name="revanced_hide_for_you_shelf_summary_on">আপনার জন্য শেল্ফ লুকানো আছে</string>
   <string name="revanced_hide_for_you_shelf_summary_off">আপনার জন্য শেল্ফ দেখানো আছে</string>
+  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_join_button_title">যোগদান বোতাম লুকান</string>
+  <string name="revanced_hide_join_button_summary_on">যোগদান বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_join_button_summary_off">যোগদান বোতাম দেখানো আছে</string>
   <string name="revanced_hide_links_preview_title">লিঙ্ক পূর্বরূপ লুকান</string>
   <string name="revanced_hide_links_preview_summary_on">লিঙ্ক পূর্বরূপ লুকানো আছে</string>
   <string name="revanced_hide_links_preview_summary_off">লিঙ্ক পূর্বরূপ দেখানো আছে</string>
   <string name="revanced_hide_members_shelf_title">সদস্য শেল্ফ লুকান</string>
   <string name="revanced_hide_members_shelf_summary_on">সদস্য শেল্ফ লুকানো আছে</string>
   <string name="revanced_hide_members_shelf_summary_off">সদস্যদের শেল্ফ দেখানো হয়েছে</string>
-  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">\'কমিউনিটি দেখুন\' বোতাম লুকান</string>
-  <string name="revanced_hide_visit_community_button_summary_on">\'কমিউনিটি দেখুন\' বোতাম লুকানো হয়েছে</string>
-  <string name="revanced_hide_visit_community_button_summary_off">কমিউনিটি ভিজিট বাটন দেখানো আছে</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">চ্যানেল পাতায় \'স্টোরে যান\' বোতাম লুকান</string>
-  <string name="revanced_hide_visit_store_button_summary_on">স্টোর ভিজিট বাটন লুকানো আছে</string>
-  <string name="revanced_hide_visit_store_button_summary_off">স্টোর ভিজিট বাটন দেখানো আছে</string>
+  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_store_button_title">স্টোর বোতাম লুকান</string>
+  <string name="revanced_hide_store_button_summary_on">স্টোর বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_store_button_summary_off">স্টোর বোতাম দেখানো আছে</string>
+  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_subscribe_button_in_channel_page_title">সাবস্ক্রাইব বোতাম লুকান</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">সাবস্ক্রাইব বোতাম লুকানো আছে</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">সাবস্ক্রাইব বোতাম দেখানো আছে</string>
   <string name="revanced_comments_screen_title">মন্তব্য</string>
   <string name="revanced_comments_screen_summary">মন্তব্য বিভাগের উপাদানগুলি লুকান বা দেখান৷</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">এআই চ্যাট সারাংশ লুকান</string>
@@ -530,11 +544,11 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_share_copy_url_success">ক্লিপবোর্ডে URL অনুলিপি করা হয়েছে</string>
   <string name="revanced_share_copy_url_timestamp_success">টাইমস্ট্যাম্প সহ URL অনুলিপি করা হয়েছে</string>
   <string name="revanced_copy_video_url_title">ভিডিও URL অনুলিপি বোতাম দেখান</string>
-  <string name="revanced_copy_video_url_summary_on">বোতামটি দেখানো হয়েছে। ভিডিও URL কপি করতে আলতো চাপুন। টাইমস্ট্যাম্প সহ কপি করতে টিপুন এবং ধরে রাখুন।</string>
-  <string name="revanced_copy_video_url_summary_off">বোতাম প্রদর্শিত হয়নি</string>
+  <string name="revanced_copy_video_url_summary_on">ভিডিও ইউআরএল কপি বোতাম দেখানো আছে। ভিডিও ইউআরএল কপি করতে ট্যাপ করুন। টাইমস্ট্যাম্প সহ কপি করতে ট্যাপ করে ধরে রাখুন</string>
+  <string name="revanced_copy_video_url_summary_off">ভিডিও ইউআরএল কপি বোতাম দেখানো নেই</string>
   <string name="revanced_copy_video_url_timestamp_title">টাইমস্ট্যাম্প URL অনুলিপি বোতাম দেখান</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">বোতামটি দেখানো হয়েছে। টাইমস্ট্যাম্প সহ ভিডিও URL কপি করতে আলতো চাপুন। টাইমস্ট্যাম্প ছাড়া কপি করতে টিপুন এবং ধরে রাখুন।</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">বোতাম প্রদর্শিত হয়নি</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">টাইমস্ট্যাম্প ইউআরএল কপি বোতাম দেখানো আছে। টাইমস্ট্যাম্প সহ ভিডিও ইউআরএল কপি করতে ট্যাপ করুন। টাইমস্ট্যাম্প ছাড়া কপি করতে ট্যাপ করে ধরে রাখুন</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">টাইমস্ট্যাম্প ইউআরএল কপি বোতাম দেখানো নেই</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">দর্শকের বিচক্ষণতা ডায়ালগ সরান</string>
@@ -543,7 +557,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">এটি বয়সের সীমাবদ্ধতাকে বাইপাস করে না। এটা শুধু স্বয়ংক্রিয়ভাবে গ্রহণ করে।</string>
   </patch>
   <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-  <string name="revanced_disable_signin_to_tv_popup_title">টিভিতে সাইন ইন পপআপ অক্ষম করুন</string>
+  <string name="revanced_disable_signin_to_tv_popup_title">\'টিভি-তে সাইন ইন করুন\' পপআপ নিষ্ক্রিয় করুন</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_on">টিভিতে সাইন ইন পপআপ অক্ষম করা হয়েছে</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_off">টিভিতে সাইন ইন পপআপ সক্ষম করা হয়েছে</string>
   </patch>
@@ -675,7 +689,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_download_button_summary_on">ডাউনলোড বোতাম লুকানো আছে</string>
   <string name="revanced_hide_download_button_summary_off">ডাউনলোড বোতাম দেখানো হয়েছে</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
   <string name="revanced_hide_hype_button_title">হাইপ লুকান</string>
   <string name="revanced_hide_hype_button_summary_on">হাইপ বোতাম লুকানো আছে</string>
   <string name="revanced_hide_hype_button_summary_off">হাইপ বাটন দেখানো হয়েছে</string>
@@ -796,10 +810,11 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_player_flyout_audio_track_title">অডিও ট্র্যাক লুকান</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">অডিও ট্র্যাক মেনু লুকানো আছে</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">অডিও ট্র্যাক মেনু দেখানো হয়</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"অডিও ট্র্যাক মেনু লুকানো আছে
 
-অডিও ট্র্যাক মেনু দেখানোর জন্য, 'ভিডিও স্ট্রিম স্পুফ করুন' কে iPadOS এ পরিবর্তন করুন"</string>
+অডিও ট্র্যাক মেনু দেখাতে, 'Spoof video streams' কে 'Android No SDK'-তে পরিবর্তন করুন।"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">ভিআর-এ ঘড়ি লুকান</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">ভিআর মেনুতে দেখুন লুকানো আছে</string>
@@ -875,13 +890,16 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_shorts_history_title">Shortsগুলিকে ওয়াচ ইতিহাসে লুকান</string>
   <string name="revanced_hide_shorts_history_summary_on">ওয়াচ হিস্ট্রিতে লুকানো</string>
   <string name="revanced_hide_shorts_history_summary_off">ওয়াচ ইতিহাসে দেখানো</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">সুপার থ্যাঙ্কস বোতামটি লুকান</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">\'স্বয়ংক্রিয়-ডাবড\' লেবেল লুকান</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">স্বয়ংক্রিয় ডাব করা লেবেল লুকানো হয়েছে</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">স্বয়ংক্রিয় ডাব করা লেবেল দেখা যাচ্ছে</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">\'সুপার থ্যাঙ্কস কিনুন\' বোতাম লুকান</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">সুপার থ্যাঙ্কস কিনুন বোতামটি লুকানো আছে</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">সুপার থ্যাঙ্কস কিনুন বোতামটি দেখানো হয়েছে</string>
   <string name="revanced_hide_shorts_effect_button_title">ইফেক্ট বোতাম লুকান</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">ইফেক্ট বাটন লুকানো আছে</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">ইফেক্ট বাটন দেখানো আছে</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">গ্রিন স্ক্রিন বোতামটি লুকান</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">\'গ্রিন স্ক্রিন\' বোতাম লুকান</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">সবুজ পর্দা বোতাম লুকানো আছে</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">সবুজ পর্দা বোতাম দেখানো হচ্ছে</string>
   <string name="revanced_hide_shorts_hashtag_button_title">হ্যাশট্যাগ বোতাম লুকান</string>
@@ -891,10 +909,13 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_shorts_join_button_title">সামিল হও বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_join_button_summary_on">জয়েন করুন বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_join_button_summary_off">জয়েন করুন বোতাম প্রদর্শিত হয়েছে</string>
+  <string name="revanced_hide_shorts_live_preview_title">সরাসরি পূর্বরূপ লুকান</string>
+  <string name="revanced_hide_shorts_live_preview_summary_on">লাইভ প্রিভিউ লুকানো আছে</string>
+  <string name="revanced_hide_shorts_live_preview_summary_off">লাইভ প্রিভিউ দেখানো হয়েছে</string>
   <string name="revanced_hide_shorts_location_label_title">অবস্থান লেবেল লুকান</string>
   <string name="revanced_hide_shorts_location_label_summary_on">অবস্থান লেবেল লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_shorts_location_label_summary_off">অবস্থান লেবেল প্রদর্শিত হয়েছে</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">নতুন পোস্ট বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">\'নতুন পোস্ট\' বোতাম লুকান</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_on">নতুন পোস্ট বোতাম লুকানো হয়েছে</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_off">নতুন পোস্ট বোতাম দেখানো হয়েছে</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">থেমে থাকা ওভারলে বোতাম লুকান</string>
@@ -903,7 +924,7 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_shorts_preview_comment_title">Preview comment লুকান</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">Preview comment লুকানো আছে</string>
   <string name="revanced_hide_shorts_preview_comment_summary_off">Preview comment দেখানো হয়েছে</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">সেভ মিউজিক বোতামটি লুকান</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">\'মিউজিক সেভ করুন\' বোতাম লুকান</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Save music বোতাম লুকানো আছে</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Save music বোতাম দেখানো হচ্ছে</string>
   <string name="revanced_hide_shorts_search_suggestions_title">অনুসন্ধান পরামর্শগুলি লুকান</string>
@@ -924,10 +945,10 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_shorts_upcoming_button_title">আসন্ন বোতামটি লুকান</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">আগামী বোতাম লুকানো আছে</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">আগামী বোতাম দেখানো হচ্ছে</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">এই সাউন্ড বাটনটি লুকান</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">\'এই সাউন্ড ব্যবহার করুন\' বোতাম লুকান</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_on">এই সাউন্ড বাটনটি লুকানো আছে</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_off">এই সাউন্ড বাটনটি দেখা যাচ্ছে</string>
-  <string name="revanced_hide_shorts_use_template_button_title">\"এই টেমপ্লেট ব্যবহার করুন\" বোতাম লুকান</string>
+  <string name="revanced_hide_shorts_use_template_button_title">\'এই টেমপ্লেট ব্যবহার করুন\' বোতাম লুকান</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">এই টেমপ্লেট বাটনটি লুকানো আছে</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">\"এই টেমপ্লেট ব্যবহার করুন\" বোতামটি দেখানো হয়েছে</string>
   <string name="revanced_hide_shorts_like_fountain_title">লাইক বোতাম ফাউন্টেন অ্যানিমেশনটি লুকান</string>
@@ -1570,13 +1591,13 @@ DeArrow সম্পর্কে আরও জানতে এখানে ট�
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">স্পিড ডায়ালগ বোতাম দেখান</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">বোতামটি দেখানো হয়েছে। প্লেব্যাক স্পীড ডিফল্টে রিসেট করতে ট্যাপ করে ধরে রাখুন।</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">বোতাম প্রদর্শিত হয়নি</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">স্পিড ডায়ালগ বোতাম দেখানো আছে। প্লেব্যাক স্পিড ডিফল্টে রিসেট করতে ট্যাপ করে ধরে রাখুন</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">স্পিড ডায়ালগ বোতাম দেখানো নেই</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">ভিডিও গুণমান বোতাম দেখান</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">বোতামটি দেখানো হয়েছে। গুণমান ডিফল্টে রিসেট করতে ট্যাপ করে ধরে রাখুন।</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">বোতামটি দেখানো হয়নি।</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">ভিডিও কোয়ালিটি বোতাম দেখানো আছে। কোয়ালিটি ডিফল্টে রিসেট করতে ট্যাপ করে ধরে রাখুন</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">ভিডিও কোয়ালিটি বোতাম দেখানো নেই</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">কাস্টম প্লেব্যাক গতি মেনু</string>

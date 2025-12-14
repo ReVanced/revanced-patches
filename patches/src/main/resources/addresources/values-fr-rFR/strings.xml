@@ -164,14 +164,14 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_debug_logs_clear_buffer_title">Effacer les journaux de débogage</string>
   <string name="revanced_debug_logs_clear_buffer_summary">Efface tous les journaux de débogage ReVanced stockés</string>
   <string name="revanced_debug_logs_clear_toast">Journaux effacés</string>
-  <string name="revanced_debug_feature_flags_manager_title">Gestionnaire des indicateurs de fonctionnalités</string>
-  <string name="revanced_debug_feature_flags_manager_summary">Gérer les indicateurs de fonctionnalités booléens</string>
-  <string name="revanced_debug_feature_flags_manager_active_header">Drapeaux actifs (%d)</string>
-  <string name="revanced_debug_feature_flags_manager_blocked_header">Drapeaux bloqués (%d)</string>
-  <string name="revanced_debug_feature_flags_manager_search_hint">Rechercher des drapeaux...</string>
-  <string name="revanced_debug_feature_flags_manager_toast_saved">Drapeaux enregistrés</string>
-  <string name="revanced_debug_feature_flags_manager_toast_reset">Drapeaux réinitialisés</string>
-  <string name="revanced_debug_feature_flags_manager_toast_copied">Drapeaux copiés dans le presse-papiers</string>
+  <string name="revanced_debug_feature_flags_manager_title">Gestionnaire des flags de fonctionnalités</string>
+  <string name="revanced_debug_feature_flags_manager_summary">Gérez les flags de fonctionnalités booléens</string>
+  <string name="revanced_debug_feature_flags_manager_active_header">Flags actifs (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_blocked_header">Flags bloqués (%d)</string>
+  <string name="revanced_debug_feature_flags_manager_search_hint">Rechercher des flags...</string>
+  <string name="revanced_debug_feature_flags_manager_toast_saved">Flags enregistrés</string>
+  <string name="revanced_debug_feature_flags_manager_toast_reset">Flags réinitialisés</string>
+  <string name="revanced_debug_feature_flags_manager_toast_copied">Flags copiés dans le presse-papiers</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Nettoyer les liens de partage</string>
@@ -282,6 +282,9 @@ Toutefois, l'activation de cette option entraînera également l'enregistrement 
   <string name="revanced_hide_video_recommendation_labels_title">Masquer les libellés de recommandation de vidéos</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">Les libellés \"Les internautes ont également regardé\" et \"Vous pourriez aussi aimer\" dans les résultats de recherche sont masqués</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">Les libellés \"Les internautes ont également regardé\" et \"Vous pourriez aussi aimer\" dans les résultats de recherche sont affichés</string>
+  <string name="revanced_hide_visual_spacer_title">Masquer l\'espace séparateur</string>
+  <string name="revanced_hide_visual_spacer_summary_on">L\'espace séparateur est masqué</string>
+  <string name="revanced_hide_visual_spacer_summary_off">L\'espace séparateur est affiché</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Masquer les Doodles YouTube</string>
   <string name="revanced_hide_doodles_summary_on">L\'animation Doodles sur le logo YouTube est masquée</string>
@@ -342,18 +345,21 @@ Si un Doodle est actuellement affiché dans votre région et que cette option de
   <string name="revanced_hide_podcast_section_title">Masquer \"Découvrir le podcast\"</string>
   <string name="revanced_hide_podcast_section_summary_on">La section \"Découvrir le podcast\" est masquée</string>
   <string name="revanced_hide_podcast_section_summary_off">La section \"Découvrir le podcast\" est affichée</string>
-  <string name="revanced_hide_featured_section_title">Masquer le contenu mis en avant</string>
-  <string name="revanced_hide_featured_section_summary_on">La section du contenu mis en avant est masquée</string>
-  <string name="revanced_hide_featured_section_summary_off">La section du contenu mis en avant est affichée</string>
+  <string name="revanced_hide_featured_links_section_title">Masquer les liens mis en avant</string>
+  <string name="revanced_hide_featured_links_section_summary_on">La section des liens mis en avant est masquée</string>
+  <string name="revanced_hide_featured_links_section_summary_off">La section des liens mis en avant est affichée</string>
+  <string name="revanced_hide_featured_videos_section_title">Masquer les vidéos mises en avant</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">La section des vidéos mises en avant est masquée</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">La section des vidéos mises en avant est affichée</string>
   <string name="revanced_hide_info_cards_section_title">Masquer \"Fiches info\"</string>
   <string name="revanced_hide_info_cards_section_summary_on">La section \"Fiches info\" est masquée</string>
   <string name="revanced_hide_info_cards_section_summary_off">La section \"Fiches info\" est affichée</string>
   <string name="revanced_hide_key_concepts_section_title">Masquer \"Concepts clés\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">La section \"Concepts clés\" est masquée</string>
   <string name="revanced_hide_key_concepts_section_summary_off">La section \"Concepts clés\" est affichée</string>
-  <string name="revanced_hide_description_subscribe_button_title">Masquer le bouton S\'abonner</string>
-  <string name="revanced_hide_description_subscribe_button_summary_on">Le bouton S\'abonner est masqué</string>
-  <string name="revanced_hide_description_subscribe_button_summary_off">Le bouton S\'abonner est affiché</string>
+  <string name="revanced_hide_subscribe_button_title">Masquer le bouton S\'abonner</string>
+  <string name="revanced_hide_subscribe_button_summary_on">Le bouton S\'abonner est masqué</string>
+  <string name="revanced_hide_subscribe_button_summary_off">Le bouton S\'abonner est affiché</string>
   <string name="revanced_hide_transcript_section_title">Masquer \"Transcription\"</string>
   <string name="revanced_hide_transcript_section_summary_on">La section Transcription est masquée</string>
   <string name="revanced_hide_transcript_section_summary_off">La section Transcription est affichée</string>
@@ -375,24 +381,32 @@ Si un Doodle est actuellement affiché dans votre région et que cette option de
   <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Affichée dans l\'historique des vidéos regardées</string>
   <string name="revanced_channel_screen_title">Page de chaîne</string>
   <string name="revanced_channel_screen_summary">Masquez ou affichez des composants des pages de chaîne</string>
+  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_community_button_title">Masquer le bouton Communauté</string>
+  <string name="revanced_hide_community_button_summary_on">Le bouton Communauté est masqué</string>
+  <string name="revanced_hide_community_button_summary_off">Le bouton Communauté est affiché</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Masquer l\'étagère \"Pour vous\"</string>
   <string name="revanced_hide_for_you_shelf_summary_on">L\'étagère Pour vous est masquée</string>
   <string name="revanced_hide_for_you_shelf_summary_off">L\'étagère Pour vous est affichée</string>
+  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_join_button_title">Masquer le bouton Rejoindre</string>
+  <string name="revanced_hide_join_button_summary_on">Le bouton Rejoindre est masqué</string>
+  <string name="revanced_hide_join_button_summary_off">Le bouton Rejoindre est affiché</string>
   <string name="revanced_hide_links_preview_title">Masquer l\'aperçu des liens</string>
   <string name="revanced_hide_links_preview_summary_on">L\'aperçu des liens est masqué</string>
   <string name="revanced_hide_links_preview_summary_off">L\'aperçu des liens est affiché</string>
   <string name="revanced_hide_members_shelf_title">Masquer l\'étagère des membres</string>
   <string name="revanced_hide_members_shelf_summary_on">L\'étagère des membres est masquée</string>
   <string name="revanced_hide_members_shelf_summary_off">L\'étagère des membres est affichée</string>
-  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">Masquer le bouton \"Accéder à la communauté\"</string>
-  <string name="revanced_hide_visit_community_button_summary_on">Le bouton Accéder à la communauté est masqué</string>
-  <string name="revanced_hide_visit_community_button_summary_off">Le bouton Accéder à la communauté est affiché</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Masquer le bouton Visiter la boutique</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Le bouton Visiter la boutique est masqué</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Le bouton Visiter la boutique est affiché</string>
+  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_store_button_title">Masquer le bouton Boutique</string>
+  <string name="revanced_hide_store_button_summary_on">Le bouton Boutique est masqué</string>
+  <string name="revanced_hide_store_button_summary_off">Le bouton Boutique est affiché</string>
+  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_subscribe_button_in_channel_page_title">Masquer le bouton S\'abonner</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Le bouton S\'abonner est masqué</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Le bouton S\'abonner est affiché</string>
   <string name="revanced_comments_screen_title">Commentaires</string>
   <string name="revanced_comments_screen_summary">Masquez ou affichez des composants de la section commentaires</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Masquer le résumé IA du chat</string>
@@ -534,11 +548,11 @@ Cette fonctionnalité est disponible uniquement pour les appareils anciens"</str
   <string name="revanced_share_copy_url_success">URL copiée dans le presse-papiers</string>
   <string name="revanced_share_copy_url_timestamp_success">URL avec horodatage copiée</string>
   <string name="revanced_copy_video_url_title">Afficher le bouton \"Copier l\'URL de la vidéo\"</string>
-  <string name="revanced_copy_video_url_summary_on">Le bouton est affiché. Appuyez pour copier l\'URL de la vidéo. Appuyez longuement pour copier avec l\'horodatage.</string>
-  <string name="revanced_copy_video_url_summary_off">Le bouton n\'est pas affiché</string>
+  <string name="revanced_copy_video_url_summary_on">Le bouton Copier l\'URL de la vidéo est affiché. Appuyez pour copier l\'URL de la vidéo. Appuyez longuement pour copier avec horodatage.</string>
+  <string name="revanced_copy_video_url_summary_off">Le bouton Copier l\'URL de la vidéo n\'est pas affiché</string>
   <string name="revanced_copy_video_url_timestamp_title">Afficher un bouton \"Copier URL avec horodatage\"</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Le bouton est affiché. Appuyez pour copier l\'URL de la vidéo avec l\'horodatage. Appuyez longuement pour copier sans horodatage.</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">Le bouton n\'est pas affiché</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Le bouton Copier l\'URL avec horodatage est affiché. Appuyez pour copier l\'URL de la vidéo avec horodatage. Appuyez longuement pour copier sans horodatage.</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Le bouton Copier l\'URL avec horodatage n\'est pas affiché</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Supprimer le message de vérification de l\'âge</string>
@@ -679,7 +693,7 @@ Réglez le volume en balayant verticalement sur le côté droit de l'écran"</st
   <string name="revanced_hide_download_button_summary_on">Le bouton Télécharger est masqué</string>
   <string name="revanced_hide_download_button_summary_off">Le bouton Télécharger est affiché</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
   <string name="revanced_hide_hype_button_title">Masquer \"Booster\"</string>
   <string name="revanced_hide_hype_button_summary_on">Le bouton Booster est masqué</string>
   <string name="revanced_hide_hype_button_summary_off">Le bouton Booster est affiché</string>
@@ -800,10 +814,11 @@ Si la modification de ce paramètre ne prend pas effet, essayez de passer en mod
   <string name="revanced_hide_player_flyout_audio_track_title">Masquer \"Piste audio\"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Le menu Piste audio est masqué</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Le menu Piste audio est affiché</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Le menu Piste audio est masqué
 
-Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur iPadOS"</string>
+Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur \"Android No SDK\""</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Masquer \"Regarder en RV\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Le menu Regarder en RV est masqué</string>
@@ -879,13 +894,16 @@ Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur
   <string name="revanced_hide_shorts_history_title">Masquer les Shorts dans l\'historique des vidéos regardées</string>
   <string name="revanced_hide_shorts_history_summary_on">Masqués dans l\'historique des vidéos regardées</string>
   <string name="revanced_hide_shorts_history_summary_off">Affichés dans l\'historique des vidéos regardées</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Masquer le bouton Acheter un Super Thanks</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">Masquer le libellé \"Doublée automatiquement\"</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Le libellé Doublée automatiquement est masqué</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Le libellé Doublée automatiquement est affiché</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Masquer le bouton \"Acheter des Super Thanks\"</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Le bouton Acheter un Super Thanks est masqué</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Le bouton Acheter un Super Thanks est affiché</string>
   <string name="revanced_hide_shorts_effect_button_title">Masquer le bouton d\'effet</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Le bouton d\'effet est masqué</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Le bouton d\'effet est affiché</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Masquer le bouton Écran vert</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Masquer le bouton \"Écran vert\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Le bouton Écran vert est masqué</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Le bouton Écran vert est affiché</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Masquer le bouton de hashtag</string>
@@ -895,10 +913,13 @@ Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur
   <string name="revanced_hide_shorts_join_button_title">Masquer le bouton Rejoindre</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Le bouton Rejoindre est masqué</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Le bouton Rejoindre est affiché</string>
+  <string name="revanced_hide_shorts_live_preview_title">Masquer les aperçus de diffusions en direct</string>
+  <string name="revanced_hide_shorts_live_preview_summary_on">Les aperçus de diffusions en direct sont masqués</string>
+  <string name="revanced_hide_shorts_live_preview_summary_off">Les aperçus de diffusions en direct sont affichés</string>
   <string name="revanced_hide_shorts_location_label_title">Masquer le libellé de lieu</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Le libellé de lieu est masqué</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Le libellé de lieu est affiché</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Masquer le bouton Nouveaux posts</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Masquer le bouton \"Nouveaux posts\"</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_on">Le bouton Nouveaux posts est masqué</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_off">Le bouton Nouveaux posts est affiché</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Masquer les boutons affichés en pause</string>
@@ -907,7 +928,7 @@ Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur
   <string name="revanced_hide_shorts_preview_comment_title">Masquer le commentaire servant d\'aperçu</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">Le commentaire servant d\'aperçu est masqué</string>
   <string name="revanced_hide_shorts_preview_comment_summary_off">Le commentaire servant d\'aperçu est affiché</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Masquer le bouton Enregistrer la musique</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Masquer le bouton \"Enregistrer la musique\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Le bouton Enregistrer la musique est masqué</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Le bouton Enregistrer la musique est affiché</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Masquer les recherches suggérées</string>
@@ -928,10 +949,10 @@ Pour afficher le menu Piste audio, définissez \"Falsifier les flux vidéo\" sur
   <string name="revanced_hide_shorts_upcoming_button_title">Masquer le bouton Diffusion prévue</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Le bouton Diffusion prévue est masqué</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Le bouton Diffusion prévue est affiché</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Masquer le bouton Utiliser ce son</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Masquer le bouton \"Utiliser ce son\"</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_on">Le bouton Utiliser ce son est masqué</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_off">Le bouton Utiliser ce son est affiché</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Masquer le bouton Utiliser ce modèle</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Masquer le bouton \"Utiliser ce modèle\"</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Le bouton Utiliser ce modèle est masqué</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Le bouton Utiliser ce modèle est affiché</string>
   <string name="revanced_hide_shorts_like_fountain_title">Masquer l\'animation de fontaine du bouton J\'aime</string>
@@ -1575,13 +1596,13 @@ Activer cette option peut déverrouiller des qualités vidéo supérieures"</str
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Afficher un bouton Vitesse</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Le bouton est affiché. Appuyez longuement dessus pour rétablir la vitesse de lecture par défaut.</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">Le bouton n\'est pas affiché</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Le bouton Vitesse est affiché. Appuyez longuement pour rétablir la vitesse de lecture par défaut.</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Le bouton Vitesse n\'est pas affiché</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Afficher le bouton de qualité vidéo</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Le bouton est affiché. Appuyez longuement pour rétablir la qualité par défaut.</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">Le bouton n\'est pas affiché</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Le bouton de qualité vidéo est affiché. Appuyez longuement pour rétablir la qualité par défaut.</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Le bouton de qualité vidéo n\'est pas affiché</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu de vitesse de lecture personnalisée</string>
@@ -1685,9 +1706,9 @@ La lecture vidéo avec AV1 peut être saccadée et des images peuvent être perd
   <string name="revanced_music_hide_history_button_title">Masquer le bouton Historique</string>
   <string name="revanced_music_hide_history_button_summary_on">Le bouton Historique est masqué</string>
   <string name="revanced_music_hide_history_button_summary_off">Le bouton Historique est affiché</string>
-  <string name="revanced_music_hide_notification_button_title">Masquer le bouton de notification</string>
-  <string name="revanced_music_hide_notification_button_summary_on">Le bouton de notification est masqué</string>
-  <string name="revanced_music_hide_notification_button_summary_off">Le bouton de notification est affiché</string>
+  <string name="revanced_music_hide_notification_button_title">Masquer le bouton des notifications</string>
+  <string name="revanced_music_hide_notification_button_summary_on">Le bouton des notifications est masqué</string>
+  <string name="revanced_music_hide_notification_button_summary_off">Le bouton des notifications est affiché</string>
   <string name="revanced_music_hide_search_button_title">Masquer le bouton de recherche</string>
   <string name="revanced_music_hide_search_button_summary_on">Le bouton de recherche est masqué</string>
   <string name="revanced_music_hide_search_button_summary_off">Le bouton de recherche est affiché</string>
@@ -1698,9 +1719,9 @@ La lecture vidéo avec AV1 peut être saccadée et des images peuvent être perd
   <string name="revanced_music_hide_category_bar_summary_off">La barre des catégories est affichée</string>
   </patch>
   <patch id="layout.miniplayercolor.changeMiniplayerColor">
-  <string name="revanced_music_change_miniplayer_color_title">Changer la couleur du mini-lecteur</string>
-  <string name="revanced_music_change_miniplayer_color_summary_on">La couleur du mini-lecteur correspond à celle du lecteur plein écran</string>
-  <string name="revanced_music_change_miniplayer_color_summary_off">Le mini-lecteur utilise la couleur par défaut</string>
+  <string name="revanced_music_change_miniplayer_color_title">Changer la couleur du lecteur réduit</string>
+  <string name="revanced_music_change_miniplayer_color_summary_on">La couleur du lecteur réduit correspond à celle du lecteur plein écran</string>
+  <string name="revanced_music_change_miniplayer_color_summary_off">Le lecteur réduit utilise la couleur par défaut</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <string name="revanced_music_navigation_bar_screen_title">Barre de navigation</string>

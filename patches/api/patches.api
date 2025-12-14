@@ -1,3 +1,7 @@
+public final class DisableReelsScrollingPatchKt {
+	public static final fun getDisableReelsScrollingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/all/misc/activity/exportall/ExportAllActivitiesPatchKt {
 	public static final fun getExportAllActivitiesPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
@@ -54,6 +58,10 @@ public final class app/revanced/patches/all/misc/connectivity/location/hide/Hide
 
 public final class app/revanced/patches/all/misc/connectivity/telephony/sim/spoof/SpoofSimCountryPatchKt {
 	public static final fun getSpoofSimCountryPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/all/misc/connectivity/telephony/sim/spoof/SpoofSimProviderPatchKt {
+	public static final fun getSpoofSimProviderPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/all/misc/connectivity/wifi/spoof/SpoofWifiPatchKt {
@@ -180,6 +188,10 @@ public final class app/revanced/patches/crunchyroll/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/disneyplus/ads/SkipAdsPatchKt {
+	public static final fun getSkipAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/duolingo/ad/DisableAdsPatchKt {
 	public static final fun getDisableAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -276,6 +288,10 @@ public final class app/revanced/patches/instagram/feed/LimitFeedToFollowedProfil
 	public static final fun getLimitFeedToFollowedProfiles ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/instagram/ghost/story/AnonymousStoryViewingPatchKt {
+	public static final fun getAnonymousStoryViewingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/instagram/hide/explore/HideExploreFeedKt {
 	public static final fun getHideExploreFeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -316,8 +332,16 @@ public final class app/revanced/patches/instagram/misc/signature/SignatureCheckP
 	public static final fun getSignatureCheckPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/instagram/story/flipping/DisableStoryAutoFlippingPatchKt {
+	public static final fun getDisableStoryAutoFlippingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/irplus/ad/RemoveAdsPatchKt {
 	public static final fun getRemoveAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/letterboxd/ads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/lightroom/misc/login/DisableMandatoryLoginPatchKt {
@@ -549,6 +573,10 @@ public final class app/revanced/patches/pandora/misc/EnableUnlimitedSkipsPatchKt
 	public static final fun getEnableUnlimitedSkipsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/peacocktv/ads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/photomath/detection/deviceid/SpoofDeviceIdPatchKt {
 	public static final fun getGetDeviceIdPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -603,6 +631,10 @@ public final class app/revanced/patches/protonmail/account/RemoveFreeAccountsLim
 
 public final class app/revanced/patches/protonmail/signature/RemoveSentFromSignaturePatchKt {
 	public static final fun getRemoveSentFromSignaturePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
+public final class app/revanced/patches/protonvpn/delay/RemoveDelayPatchKt {
+	public static final fun getRemoveDelayPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/rar/misc/annoyances/purchasereminder/HidePurchaseReminderPatchKt {

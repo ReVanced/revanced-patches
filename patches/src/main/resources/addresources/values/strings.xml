@@ -286,6 +286,9 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_video_recommendation_labels_title">Hide video recommendation labels</string>
             <string name="revanced_hide_video_recommendation_labels_summary_on">\'People also watched\' and \'You might also like\' labels in search results are hidden</string>
             <string name="revanced_hide_video_recommendation_labels_summary_off">\'People also watched\' and \'You might also like\' labels in search results are shown</string>
+            <string name="revanced_hide_visual_spacer_title">Hide visual spacer</string>
+            <string name="revanced_hide_visual_spacer_summary_on">Visual spacer is hidden</string>
+            <string name="revanced_hide_visual_spacer_summary_off">Visual spacer is shown</string>
             <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
             <string name="revanced_hide_doodles_title">Hide YouTube Doodles</string>
             <string name="revanced_hide_doodles_summary_on">YouTube Doodles animation on the logo is hidden</string>
@@ -346,18 +349,21 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_hide_podcast_section_title">Hide \'Explore the podcast\'</string>
             <string name="revanced_hide_podcast_section_summary_on">Explore the podcast section is hidden</string>
             <string name="revanced_hide_podcast_section_summary_off">Explore the podcast section is shown</string>
-            <string name="revanced_hide_featured_section_title">Hide Featured content</string>
-            <string name="revanced_hide_featured_section_summary_on">Featured content section is hidden</string>
-            <string name="revanced_hide_featured_section_summary_off">Featured content section is shown</string>
+            <string name="revanced_hide_featured_links_section_title">Hide Featured links</string>
+            <string name="revanced_hide_featured_links_section_summary_on">Featured links section is hidden</string>
+            <string name="revanced_hide_featured_links_section_summary_off">Featured links section is shown</string>
+            <string name="revanced_hide_featured_videos_section_title">Hide Featured videos</string>
+            <string name="revanced_hide_featured_videos_section_summary_on">Featured videos section is hidden</string>
+            <string name="revanced_hide_featured_videos_section_summary_off">Featured videos section is shown</string>
             <string name="revanced_hide_info_cards_section_title">Hide Info cards</string>
             <string name="revanced_hide_info_cards_section_summary_on">Info cards section is hidden</string>
             <string name="revanced_hide_info_cards_section_summary_off">Info cards section is shown</string>
             <string name="revanced_hide_key_concepts_section_title">Hide \'Key concepts\'</string>
             <string name="revanced_hide_key_concepts_section_summary_on">Key concepts section is hidden</string>
             <string name="revanced_hide_key_concepts_section_summary_off">Key concepts section is shown</string>
-            <string name="revanced_hide_description_subscribe_button_title">Hide Subscribe button</string>
-            <string name="revanced_hide_description_subscribe_button_summary_on">Subscribe button is hidden</string>
-            <string name="revanced_hide_description_subscribe_button_summary_off">Subscribe button is shown</string>
+            <string name="revanced_hide_subscribe_button_title">Hide Subscribe button</string>
+            <string name="revanced_hide_subscribe_button_summary_on">Subscribe button is hidden</string>
+            <string name="revanced_hide_subscribe_button_summary_off">Subscribe button is shown</string>
             <string name="revanced_hide_transcript_section_title">Hide Transcript</string>
             <string name="revanced_hide_transcript_section_summary_on">Transcript section is hidden</string>
             <string name="revanced_hide_transcript_section_summary_off">Transcript section is shown</string>
@@ -381,24 +387,32 @@ If a Doodle is currently showing in your region and this hide setting is on, the
 
             <string name="revanced_channel_screen_title">Channel page</string>
             <string name="revanced_channel_screen_summary">Hide or show channel page components</string>
+            <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_community_button_title">Hide Community button</string>
+            <string name="revanced_hide_community_button_summary_on">Community button is hidden</string>
+            <string name="revanced_hide_community_button_summary_off">Community button is shown</string>
             <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
             <string name="revanced_hide_for_you_shelf_title">Hide \'For You\' shelf</string>
             <string name="revanced_hide_for_you_shelf_summary_on">For You shelf is hidden</string>
             <string name="revanced_hide_for_you_shelf_summary_off">For You shelf is shown</string>
+            <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_join_button_title">Hide Join button</string>
+            <string name="revanced_hide_join_button_summary_on">Join button is hidden</string>
+            <string name="revanced_hide_join_button_summary_off">Join button is shown</string>
             <string name="revanced_hide_links_preview_title">Hide links preview</string>
             <string name="revanced_hide_links_preview_summary_on">Links preview is hidden</string>
             <string name="revanced_hide_links_preview_summary_off">Links preview is shown</string>
             <string name="revanced_hide_members_shelf_title">Hide members shelf</string>
             <string name="revanced_hide_members_shelf_summary_on">Members shelf is hidden</string>
             <string name="revanced_hide_members_shelf_summary_off">Members shelf is shown</string>
-            <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_visit_community_button_title">Hide \'Visit Community\' button</string>
-            <string name="revanced_hide_visit_community_button_summary_on">Visit Community button is hidden</string>
-            <string name="revanced_hide_visit_community_button_summary_off">Visit Community button is shown</string>
-            <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-            <string name="revanced_hide_visit_store_button_title">Hide \'Visit store\' button</string>
-            <string name="revanced_hide_visit_store_button_summary_on">Visit store button is hidden</string>
-            <string name="revanced_hide_visit_store_button_summary_off">Visit store button is shown</string>
+            <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_store_button_title">Hide Store button</string>
+            <string name="revanced_hide_store_button_summary_on">Store button is hidden</string>
+            <string name="revanced_hide_store_button_summary_off">Store button is shown</string>
+            <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+            <string name="revanced_hide_subscribe_button_in_channel_page_title">Hide Subscribe button</string>
+            <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Subscribe button is hidden</string>
+            <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Subscribe button is shown</string>
 
             <string name="revanced_comments_screen_title">Comments</string>
             <string name="revanced_comments_screen_summary">Hide or show comments section components</string>
@@ -541,11 +555,11 @@ This feature is only available for older devices"</string>
             <string name="revanced_share_copy_url_success">URL copied to clipboard</string>
             <string name="revanced_share_copy_url_timestamp_success">URL with timestamp copied</string>
             <string name="revanced_copy_video_url_title">Show copy video URL button</string>
-            <string name="revanced_copy_video_url_summary_on">Button is shown. Tap to copy video URL. Tap and hold to copy with timestamp</string>
-            <string name="revanced_copy_video_url_summary_off">Button is not shown</string>
+            <string name="revanced_copy_video_url_summary_on">Copy video URL button is shown. Tap to copy video URL. Tap and hold to copy with timestamp</string>
+            <string name="revanced_copy_video_url_summary_off">Copy video URL button is not shown</string>
             <string name="revanced_copy_video_url_timestamp_title">Show copy timestamp URL button</string>
-            <string name="revanced_copy_video_url_timestamp_summary_on">Button is shown. Tap to copy video URL with timestamp. Tap and hold to copy without timestamp</string>
-            <string name="revanced_copy_video_url_timestamp_summary_off">Button is not shown</string>
+            <string name="revanced_copy_video_url_timestamp_summary_on">Copy timestamp URL button is shown. Tap to copy video URL with timestamp. Tap and hold to copy without timestamp</string>
+            <string name="revanced_copy_video_url_timestamp_summary_off">Copy timestamp URL button is not shown</string>
         </patch>
         <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
             <string name="revanced_remove_viewer_discretion_dialog_title">Remove viewer discretion dialog</string>
@@ -554,7 +568,7 @@ This feature is only available for older devices"</string>
             <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">This does not bypass the age restriction. It just accepts it automatically.</string>
         </patch>
         <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-            <string name="revanced_disable_signin_to_tv_popup_title">Disable Sign in to TV popup</string>
+            <string name="revanced_disable_signin_to_tv_popup_title">Disable \'Sign in to TV\' popup</string>
             <string name="revanced_disable_signin_to_tv_popup_summary_on">Sign in to TV popup is disabled</string>
             <string name="revanced_disable_signin_to_tv_popup_summary_off">Sign in to TV popup is enabled</string>
         </patch>
@@ -686,7 +700,7 @@ Adjust volume by swiping vertically on the right side of the screen"</string>
             <string name="revanced_hide_download_button_summary_on">Download button is hidden</string>
             <string name="revanced_hide_download_button_summary_off">Download button is shown</string>
             <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
             <string name="revanced_hide_hype_button_title">Hide Hype</string>
             <string name="revanced_hide_hype_button_summary_on">Hype button is hidden</string>
             <string name="revanced_hide_hype_button_summary_off">Hype button is shown</string>
@@ -807,10 +821,11 @@ If changing this setting does not take effect, try switching to Incognito mode."
             <string name="revanced_hide_player_flyout_audio_track_title">Hide Audio track</string>
             <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio track menu is hidden</string>
             <string name="revanced_hide_player_flyout_audio_track_summary_off">Audio track menu is shown</string>
-            <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+            <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
             <string name="revanced_hide_player_flyout_audio_track_not_available">"Audio track menu is hidden
 
-To show the Audio track menu, change \'Spoof video streams\' to iPadOS"</string>
+To show the Audio track menu, change \'Spoof video streams\' to \'Android No SDK\'"</string>
             <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
             <string name="revanced_hide_player_flyout_watch_in_vr_title">Hide Watch in VR</string>
             <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Watch in VR menu is hidden</string>
@@ -886,13 +901,16 @@ To show the Audio track menu, change \'Spoof video streams\' to iPadOS"</string>
             <string name="revanced_hide_shorts_history_title">Hide Shorts in watch history</string>
             <string name="revanced_hide_shorts_history_summary_on">Hidden in watch history</string>
             <string name="revanced_hide_shorts_history_summary_off">Shown in watch history</string>
-            <string name="revanced_hide_shorts_super_thanks_button_title">Hide Buy Super Thanks button</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_title">Hide \'Auto-dubbed\' label</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Auto-dubbed label is hidden</string>
+            <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Auto-dubbed label is shown</string>
+            <string name="revanced_hide_shorts_super_thanks_button_title">Hide \'Buy Super Thanks\' button</string>
             <string name="revanced_hide_shorts_super_thanks_button_summary_on">Buy Super Thanks button is hidden</string>
             <string name="revanced_hide_shorts_super_thanks_button_summary_off">Buy Super Thanks button is shown</string>
             <string name="revanced_hide_shorts_effect_button_title">Hide Effect button</string>
             <string name="revanced_hide_shorts_effect_button_summary_on">Effect button is hidden</string>
             <string name="revanced_hide_shorts_effect_button_summary_off">Effect button is shown</string>
-            <string name="revanced_hide_shorts_green_screen_button_title">Hide Green screen button</string>
+            <string name="revanced_hide_shorts_green_screen_button_title">Hide \'Green screen\' button</string>
             <string name="revanced_hide_shorts_green_screen_button_summary_on">Green screen button is hidden</string>
             <string name="revanced_hide_shorts_green_screen_button_summary_off">Green screen button is shown</string>
             <string name="revanced_hide_shorts_hashtag_button_title">Hide Hashtag button</string>
@@ -902,10 +920,13 @@ To show the Audio track menu, change \'Spoof video streams\' to iPadOS"</string>
             <string name="revanced_hide_shorts_join_button_title">Hide Join button</string>
             <string name="revanced_hide_shorts_join_button_summary_on">Join button is hidden</string>
             <string name="revanced_hide_shorts_join_button_summary_off">Join button is shown</string>
+            <string name="revanced_hide_shorts_live_preview_title">Hide live preview</string>
+            <string name="revanced_hide_shorts_live_preview_summary_on">Live preview is hidden</string>
+            <string name="revanced_hide_shorts_live_preview_summary_off">Live preview is shown</string>
             <string name="revanced_hide_shorts_location_label_title">Hide location label</string>
             <string name="revanced_hide_shorts_location_label_summary_on">Location label is hidden</string>
             <string name="revanced_hide_shorts_location_label_summary_off">Location label is shown</string>
-            <string name="revanced_hide_shorts_new_posts_button_title">Hide New posts button</string>
+            <string name="revanced_hide_shorts_new_posts_button_title">Hide \'New posts\' button</string>
             <string name="revanced_hide_shorts_new_posts_button_summary_on">New posts button is hidden</string>
             <string name="revanced_hide_shorts_new_posts_button_summary_off">New posts button is shown</string>
             <string name="revanced_hide_shorts_paused_overlay_buttons_title">Hide paused overlay buttons</string>
@@ -914,7 +935,7 @@ To show the Audio track menu, change \'Spoof video streams\' to iPadOS"</string>
             <string name="revanced_hide_shorts_preview_comment_title">Hide preview comment</string>
             <string name="revanced_hide_shorts_preview_comment_summary_on">Preview comment is hidden</string>
             <string name="revanced_hide_shorts_preview_comment_summary_off">Preview comment is shown</string>
-            <string name="revanced_hide_shorts_save_sound_button_title">Hide Save music button</string>
+            <string name="revanced_hide_shorts_save_sound_button_title">Hide \'Save music\' button</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_on">Save music button is hidden</string>
             <string name="revanced_hide_shorts_save_sound_button_summary_off">Save music button is shown</string>
             <string name="revanced_hide_shorts_search_suggestions_title">Hide search suggestions</string>
@@ -935,10 +956,10 @@ To show the Audio track menu, change \'Spoof video streams\' to iPadOS"</string>
             <string name="revanced_hide_shorts_upcoming_button_title">Hide Upcoming button</string>
             <string name="revanced_hide_shorts_upcoming_button_summary_on">Upcoming button is hidden</string>
             <string name="revanced_hide_shorts_upcoming_button_summary_off">Upcoming button is shown</string>
-            <string name="revanced_hide_shorts_use_sound_button_title">Hide Use this sound button</string>
+            <string name="revanced_hide_shorts_use_sound_button_title">Hide \'Use this sound\' button</string>
             <string name="revanced_hide_shorts_use_sound_button_summary_on">Use this sound button is hidden</string>
             <string name="revanced_hide_shorts_use_sound_button_summary_off">Use this sound button is shown</string>
-            <string name="revanced_hide_shorts_use_template_button_title">Hide Use this template button</string>
+            <string name="revanced_hide_shorts_use_template_button_title">Hide \'Use this template\' button</string>
             <string name="revanced_hide_shorts_use_template_button_summary_on">Use this template button is hidden</string>
             <string name="revanced_hide_shorts_use_template_button_summary_off">Use this template button is shown</string>
             <string name="revanced_hide_shorts_like_fountain_title">Hide Like button fountain animation</string>
@@ -1599,13 +1620,13 @@ Enabling this can unlock higher video qualities"</string>
         </patch>
         <patch id="video.speed.button.playbackSpeedButtonPatch">
             <string name="revanced_playback_speed_dialog_button_title">Show speed dialog button</string>
-            <string name="revanced_playback_speed_dialog_button_summary_on">Button is shown. Tap and hold to reset playback speed to default</string>
-            <string name="revanced_playback_speed_dialog_button_summary_off">Button is not shown</string>
+            <string name="revanced_playback_speed_dialog_button_summary_on">Speed dialog button is shown. Tap and hold to reset playback speed to default</string>
+            <string name="revanced_playback_speed_dialog_button_summary_off">Speed dialog button is not shown</string>
         </patch>
         <patch id="video.quality.button.videoQualityDialogButtonPatch">
             <string name="revanced_video_quality_dialog_button_title">Show video quality button</string>
-            <string name="revanced_video_quality_dialog_button_summary_on">Button is shown. Tap and hold to reset quality to default</string>
-            <string name="revanced_video_quality_dialog_button_summary_off">Button is not shown</string>
+            <string name="revanced_video_quality_dialog_button_summary_on">Video quality button is shown. Tap and hold to reset quality to default</string>
+            <string name="revanced_video_quality_dialog_button_summary_off">Video quality button is not shown</string>
         </patch>
         <patch id="video.speed.custom.customPlaybackSpeedPatch">
             <string name="revanced_custom_speed_menu_title">Custom playback speed menu</string>
