@@ -29,8 +29,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
     )
 
     execute {
-        // TODO: Move Resources to music/shared specific
-        addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")
+        addResources("shared", "layout.hide.general.hideLayoutComponentsPatch")
 
         PreferenceScreen.GENERAL.addPreferences(
             PreferenceScreenPreference(

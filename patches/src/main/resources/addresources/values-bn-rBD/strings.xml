@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,8 +17,7 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
--->
-<resources>
+--><resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">অ্যাপের নাম</string>
@@ -172,6 +171,10 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_debug_feature_flags_manager_toast_saved">ফ্ল্যাগ সংরক্ষণ করা হয়েছে</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">ফ্ল্যাগ রিসেট করা হয়েছে</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">ফ্ল্যাগ ক্লিপবোর্ডে কপি করা হয়েছে</string>
+  <string name="revanced_debug_protobuffer_title">প্রটোকল বাফার লগ</string>
+  <string name="revanced_debug_protobuffer_summary_on">ডিবাগ লগ প্রটোকল বাফার সংযুক্ত করবে</string>
+  <string name="revanced_debug_protobuffer_summary_off">ডিবাগ লগ প্রটোকল বাফার সংযুক্ত করবে না</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"এই সেটিংস সক্ষম করলে কিছু UI উপাদানের জন্য অন-স্ক্রীন পাঠ্য সহ অতিরিক্ত লেআউট ডেটা লগ করা হবে।\n\nএটি কাস্টম ফিল্টার তৈরি করার সময় উপাদান সনাক্ত করতে সাহায্য করতে পারে।\n\nতবে, এটি সক্রিয় করলে আপনার আইপি ঠিকানার মতো কিছু ব্যবহারকারীর ডেটাও লগ করা হবে।"</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">শেয়ারিং লিঙ্ক স্যানিটাইজ করুন</string>
@@ -181,7 +184,16 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_replace_music_with_youtube_summary_on">শেয়ার করা লিঙ্কগুলি youtube.com ব্যবহার করে</string>
   <string name="revanced_replace_music_with_youtube_summary_off">শেয়ার করা লিঙ্কগুলি music.youtube.com ব্যবহার করে</string>
   </patch>
-  </app>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">কাস্টম ফিল্টার</string>
+  <string name="revanced_custom_filter_screen_summary">কাস্টম ফিল্টার ব্যবহার করে বিভিন্ন উপাদান লুকান</string>
+  <string name="revanced_custom_filter_title">কাস্টম ফিল্টার সক্রিয় করুন</string>
+  <string name="revanced_custom_filter_summary_on">কাস্টম ফিল্টার সক্রিয় আছে</string>
+  <string name="revanced_custom_filter_summary_off">কাস্টম ফিল্টার নিস্ক্রিয় আছে</string>
+  <string name="revanced_custom_filter_strings_title">কাস্টম ফিল্টার</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">নতুন লাইন দ্বারা পৃথক করা ফিল্টার করার জন্য উপাদান পাথ বিল্ডার স্ট্রিং এর তালিকা</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">ত্রুটিপূর্ণ কাস্টম ফিল্টার: %s</string>
+  </patch></app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">সম্পর্কিত</string>
@@ -202,12 +214,6 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_shorts_disable_background_playback_title">Shorts ব্যাকগ্রাউন্ড প্লে অক্ষম করুন</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Shorts ব্যাকগ্রাউন্ড প্লে অক্ষম করা হয়েছে</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts ব্যাকগ্রাউন্ড প্লে সক্ষম করা হয়েছে</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_protobuffer_title">প্রটোকল বাফার লগ</string>
-  <string name="revanced_debug_protobuffer_summary_on">ডিবাগ লগ প্রটোকল বাফার সংযুক্ত করবে</string>
-  <string name="revanced_debug_protobuffer_summary_off">ডিবাগ লগ প্রটোকল বাফার সংযুক্ত করবে না</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"এই সেটিংস সক্ষম করলে কিছু UI উপাদানের জন্য অন-স্ক্রীন পাঠ্য সহ অতিরিক্ত লেআউট ডেটা লগ করা হবে।\n\nএটি কাস্টম ফিল্টার তৈরি করার সময় উপাদান সনাক্ত করতে সাহায্য করতে পারে।\n\nতবে, এটি সক্রিয় করলে আপনার আইপি ঠিকানার মতো কিছু ব্যবহারকারীর ডেটাও লগ করা হবে।"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">অ্যালবাম কার্ড লুকান</string>
@@ -435,15 +441,6 @@ MicroG-এর জন্য ব্যাটারি অপ্টিমাইজ�
   <string name="revanced_hide_comments_thanks_button_title">ধন্যবাদ বাটন লুকান</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">ধন্যবাদ বোতাম লুকিয়ে রয়েছে</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">ধন্যবাদ বোতাম প্রদর্শিত হয়েছে</string>
-  <string name="revanced_custom_filter_screen_title">কাস্টম ফিল্টার</string>
-  <string name="revanced_custom_filter_screen_summary">কাস্টম ফিল্টার ব্যবহার করে বিভিন্ন উপাদান লুকান</string>
-  <string name="revanced_custom_filter_title">কাস্টম ফিল্টার সক্রিয় করুন</string>
-  <string name="revanced_custom_filter_summary_on">কাস্টম ফিল্টার সক্রিয় আছে</string>
-  <string name="revanced_custom_filter_summary_off">কাস্টম ফিল্টার নিস্ক্রিয় আছে</string>
-  <string name="revanced_custom_filter_strings_title">কাস্টম ফিল্টার</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">নতুন লাইন দ্বারা পৃথক করা ফিল্টার করার জন্য উপাদান পাথ বিল্ডার স্ট্রিং এর তালিকা</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">ত্রুটিপূর্ণ কাস্টম ফিল্টার: %s</string>
   <string name="revanced_hide_view_count_title">দেখার সংখ্যা লুকান</string>
   <string name="revanced_hide_view_count_summary_on">ফিড এবং অনুসন্ধানের ফলাফলে দেখার সংখ্যা লুকানো আছে</string>
   <string name="revanced_hide_view_count_summary_off">ফিড এবং অনুসন্ধানের ফলাফলে দেখার সংখ্যা দেখানো আছে</string>

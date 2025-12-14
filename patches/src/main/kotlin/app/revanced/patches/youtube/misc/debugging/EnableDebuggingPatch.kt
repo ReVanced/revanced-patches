@@ -25,7 +25,7 @@ val enableDebuggingPatch = enableDebuggingPatch(
         )
     },
     executeBlock = {
-        addResources("youtube", "misc.debugging.enableDebuggingPatch")
+        addResources("shared", "misc.debugging.enableDebuggingPatch")
     },
     hookStringFeatureFlag = true,
     preferenceScreen = PreferenceScreen.MISC,

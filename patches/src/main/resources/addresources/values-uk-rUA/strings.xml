@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,8 +17,7 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
--->
-<resources>
+--><resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Назва додатку</string>
@@ -172,6 +171,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Прапорці збережено</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Прапорці скинуто</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Прапорці скопійовано до буфера обміну</string>
+  <string name="revanced_debug_protobuffer_title">Реєструвати буфер протоколу</string>
+  <string name="revanced_debug_protobuffer_summary_on">Журнали налагодження містять протобуфер</string>
+  <string name="revanced_debug_protobuffer_summary_off">Журнали налагодження не містять протобуфер</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Увімкнення цього налаштування реєструватиме додаткові дані про макет, зокрема текст на екрані для деяких компонентів інтерфейсу.
+
+Це може допомогти визначити компоненти під час створення користувацьких фільтрів.
+
+Однак, увімкнувши це, також буде записано деякі дані користувача, наприклад Вашу IP-адресу."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Очищення посилань для поширення</string>
@@ -181,7 +188,16 @@ Second \"item\" text"</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Під час поширення посилань використовується youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Під час поширення посилань використовується music.youtube.com</string>
   </patch>
-  </app>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Користувацький фільтр</string>
+  <string name="revanced_custom_filter_screen_summary">Приховати компоненти за допомогою користувацьких фільтрів</string>
+  <string name="revanced_custom_filter_title">Увімкнути користувацький фільтр</string>
+  <string name="revanced_custom_filter_summary_on">Користувацький фільтр увімкнено</string>
+  <string name="revanced_custom_filter_summary_off">Користувацький фільтр вимкнено</string>
+  <string name="revanced_custom_filter_strings_title">Користувацький фільтр</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляхів компонентів для фільтрування, розділених новим рядком</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Недійсний фільтр: %s</string>
+  </patch></app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Інформація</string>
@@ -202,16 +218,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_disable_background_playback_title">Вимкнути фонове відтворення Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Фонове відтворення Shorts вимкнено</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Фонове відтворення Shorts увімкнено</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_protobuffer_title">Реєструвати буфер протоколу</string>
-  <string name="revanced_debug_protobuffer_summary_on">Журнали налагодження містять протобуфер</string>
-  <string name="revanced_debug_protobuffer_summary_off">Журнали налагодження не містять протобуфер</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Увімкнення цього налаштування реєструватиме додаткові дані про макет, зокрема текст на екрані для деяких компонентів інтерфейсу.
-
-Це може допомогти визначити компоненти під час створення користувацьких фільтрів.
-
-Однак, увімкнувши це, також буде записано деякі дані користувача, наприклад Вашу IP-адресу."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Приховати картки альбому</string>
@@ -439,15 +445,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_thanks_button_title">Приховати \"Дякую\"</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Кнопку \"Дякую\" приховано</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Кнопка \"Дякую\" показується</string>
-  <string name="revanced_custom_filter_screen_title">Користувацький фільтр</string>
-  <string name="revanced_custom_filter_screen_summary">Приховати компоненти за допомогою користувацьких фільтрів</string>
-  <string name="revanced_custom_filter_title">Увімкнути користувацький фільтр</string>
-  <string name="revanced_custom_filter_summary_on">Користувацький фільтр увімкнено</string>
-  <string name="revanced_custom_filter_summary_off">Користувацький фільтр вимкнено</string>
-  <string name="revanced_custom_filter_strings_title">Користувацький фільтр</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Список рядків конструктора шляхів компонентів для фільтрування, розділених новим рядком</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Недійсний фільтр: %s</string>
   <string name="revanced_hide_view_count_title">Приховати кількість переглядів</string>
   <string name="revanced_hide_view_count_summary_on">Кількість переглядів приховано у стрічці та результатах пошуку</string>
   <string name="revanced_hide_view_count_summary_off">Кількість переглядів показуються у стрічці та результатах пошуку</string>

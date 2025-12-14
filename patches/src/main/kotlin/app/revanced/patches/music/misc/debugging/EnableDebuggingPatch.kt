@@ -24,7 +24,7 @@ val enableDebuggingPatch = enableDebuggingPatch(
         )
     },
     executeBlock = {
-        addResources("youtube", "misc.debugging.enableDebuggingPatch")
+        addResources("shared", "misc.debugging.enableDebuggingPatch")
     },
     // String feature flag does not appear to be present with YT Music.
     hookStringFeatureFlag = false,

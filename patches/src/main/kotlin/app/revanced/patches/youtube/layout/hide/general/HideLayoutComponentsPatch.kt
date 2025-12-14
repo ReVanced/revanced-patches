@@ -135,6 +135,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
     )
 
     execute {
+        addResources("shared", "layout.hide.general.hideLayoutComponentsPatch")
         addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
