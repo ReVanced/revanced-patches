@@ -38,9 +38,12 @@ public final class LayoutComponentsFilter extends Filter {
             "&list="
     );
 
+    private static final String PAGE_HEADER_PATH = "page_header.e";
+
     private final StringTrieSearch exceptions = new StringTrieSearch();
     private final StringFilterGroup communityPosts;
     private final StringFilterGroup surveys;
+    private final StringFilterGroup subscribeButton;
     private final StringFilterGroup notifyMe;
     private final StringFilterGroup singleItemInformationPanel;
     private final StringFilterGroup expandableMetadata;
@@ -265,7 +268,7 @@ public final class LayoutComponentsFilter extends Filter {
         channelProfile = new StringFilterGroup(
                 null,
                 "channel_profile.e",
-                "page_header.e"
+                PAGE_HEADER_PATH
         );
         channelProfileBuffer = new ByteArrayFilterGroupList();
         channelProfileBuffer.addAll(new ByteArrayFilterGroup(
@@ -279,11 +282,12 @@ public final class LayoutComponentsFilter extends Filter {
                 new ByteArrayFilterGroup(
                         Settings.HIDE_JOIN_BUTTON,
                         "sponsor_button"
-                ),
-                new ByteArrayFilterGroup(
-                        Settings.HIDE_SUBSCRIBE_BUTTON_IN_CHANNEL_PAGE,
-                        "subscribe_menu"
                 )
+        );
+
+        subscribeButton = new StringFilterGroup(
+                Settings.HIDE_SUBSCRIBE_BUTTON_IN_CHANNEL_PAGE,
+                "subscribe_button"
         );
 
         horizontalShelves = new StringFilterGroup(
@@ -325,6 +329,7 @@ public final class LayoutComponentsFilter extends Filter {
                 quickActions,
                 relatedVideos,
                 singleItemInformationPanel,
+                subscribeButton,
                 subscribersCommunityGuidelines,
                 subscriptionsChipBar,
                 surveys,
@@ -353,6 +358,10 @@ public final class LayoutComponentsFilter extends Filter {
 
         if (matchedGroup == channelProfile) {
             return channelProfileBuffer.check(buffer).isFiltered();
+        }
+
+        if (matchedGroup == subscribeButton) {
+            return path.startsWith(PAGE_HEADER_PATH);
         }
 
         if (matchedGroup == communityPosts && NavigationBar.isBackButtonVisible()) {

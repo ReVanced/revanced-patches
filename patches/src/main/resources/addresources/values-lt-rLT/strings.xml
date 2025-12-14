@@ -282,6 +282,9 @@ Tačiau įjungus šį nustatymą taip pat bus registruojami kai kurie vartotojo 
   <string name="revanced_hide_video_recommendation_labels_title">Slėpti rekomenduojamų vaizdo įrašų etiketes</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">Etiketės „Žmonės taip pat žiūrėjo“ ir „Jums taip pat gali patikti“ paieškos rezultatuose yra paslėptos</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">Etiketės „Žmonės taip pat žiūrėjo“ ir „Jums taip pat gali patikti“ paieškos rezultatuose yra rodomos</string>
+  <string name="revanced_hide_visual_spacer_title">Slėpti vizualinį tarpiklį</string>
+  <string name="revanced_hide_visual_spacer_summary_on">Vizualinis tarpiklis paslėptas</string>
+  <string name="revanced_hide_visual_spacer_summary_off">Vizualinis tarpiklis rodomas</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Slėpti YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">YouTube Doodles animacija ant logotipo yra paslėpta</string>
@@ -342,18 +345,21 @@ Jei „Doodle“ šiuo metu rodomas jūsu regione ir šis paslėpimo nustatymas 
   <string name="revanced_hide_podcast_section_title">Slėpti „Naršyti podcast\'ą“</string>
   <string name="revanced_hide_podcast_section_summary_on">Skyrius „Naršyti podcast\'ą“ yra paslėptas</string>
   <string name="revanced_hide_podcast_section_summary_off">Skyrius „Naršyti podcast\'ą“ yra rodomas</string>
-  <string name="revanced_hide_featured_section_title">Slėpti rekomenduojamą turinį</string>
-  <string name="revanced_hide_featured_section_summary_on">Rekomenduojamo turinio sekcija paslėpta</string>
-  <string name="revanced_hide_featured_section_summary_off">Rekomenduojamo turinio sekcija rodoma</string>
+  <string name="revanced_hide_featured_links_section_title">Slėpti rekomenduojamas nuorodas</string>
+  <string name="revanced_hide_featured_links_section_summary_on">Pasiūlytų nuorodų skiltis paslėpta</string>
+  <string name="revanced_hide_featured_links_section_summary_off">Pasiūlytų nuorodų skiltis rodoma</string>
+  <string name="revanced_hide_featured_videos_section_title">Slėpti pasiūlytus vaizdo įrašus</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">Pasiūlytų vaizdo įrašų skiltis paslėpta</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">Pasiūlytų vaizdo įrašų skiltis rodoma</string>
   <string name="revanced_hide_info_cards_section_title">Slėpti informacines korteles</string>
   <string name="revanced_hide_info_cards_section_summary_on">Informacijos kortelių skyrius yra paslėptas</string>
   <string name="revanced_hide_info_cards_section_summary_off">Informacijos kortelių skyrius yra rodomas</string>
   <string name="revanced_hide_key_concepts_section_title">Slėpti „Pagrindines sąvokas“</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Skyrius „Pagrindinės sąvokos“ yra paslėptas</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Skyrius „Pagrindinės sąvokos“ yra rodomas</string>
-  <string name="revanced_hide_description_subscribe_button_title">Slėpti prenumeratos mygtuką</string>
-  <string name="revanced_hide_description_subscribe_button_summary_on">Prenumeratos mygtukas paslėptas</string>
-  <string name="revanced_hide_description_subscribe_button_summary_off">Prenumeratos mygtukas rodomas</string>
+  <string name="revanced_hide_subscribe_button_title">Slėpti prenumeratos mygtuką</string>
+  <string name="revanced_hide_subscribe_button_summary_on">Prenumeratos mygtukas paslėptas</string>
+  <string name="revanced_hide_subscribe_button_summary_off">Prenumeratos mygtukas rodomas</string>
   <string name="revanced_hide_transcript_section_title">Slėpti transkripciją</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkripcijos skyrius yra paslėptas</string>
   <string name="revanced_hide_transcript_section_summary_off">Transkripcijos skyrius yra rodomas</string>
@@ -375,24 +381,32 @@ Jei „Doodle“ šiuo metu rodomas jūsu regione ir šis paslėpimo nustatymas 
   <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Rodoma žiūrėjimo istorijoje</string>
   <string name="revanced_channel_screen_title">Kanalo puslapis</string>
   <string name="revanced_channel_screen_summary">Slėpti arba rodyti kanalo puslapio komponentus</string>
+  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_community_button_title">Slėpti bendruomenės mygtuką</string>
+  <string name="revanced_hide_community_button_summary_on">Bendruomenės mygtukas paslėptas</string>
+  <string name="revanced_hide_community_button_summary_off">Bendruomenės mygtukas rodomas</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Slėpti lentyną „Tau skirti“</string>
   <string name="revanced_hide_for_you_shelf_summary_on">Lentyna „Jums“ paslėpta</string>
   <string name="revanced_hide_for_you_shelf_summary_off">Lentyna „Jums“ rodoma</string>
+  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_join_button_title">Slėpti Prisijungti mygtuką</string>
+  <string name="revanced_hide_join_button_summary_on">Prisijungti mygtukas paslėptas</string>
+  <string name="revanced_hide_join_button_summary_off">Prisijungti mygtukas rodomas</string>
   <string name="revanced_hide_links_preview_title">Slėpti nuorodų peržiūrą</string>
   <string name="revanced_hide_links_preview_summary_on">Nuorodų peržiūra paslėpta</string>
   <string name="revanced_hide_links_preview_summary_off">Nuorodų peržiūra rodoma</string>
   <string name="revanced_hide_members_shelf_title">Slėpti narių lentyną</string>
   <string name="revanced_hide_members_shelf_summary_on">Narių lentyna paslėpta</string>
   <string name="revanced_hide_members_shelf_summary_off">Narių lentyna rodoma</string>
-  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">Slėpti mygtuką „Aplankyti bendruomenę“</string>
-  <string name="revanced_hide_visit_community_button_summary_on">Mygtukas „Aplankyti bendruomenę“ paslėptas</string>
-  <string name="revanced_hide_visit_community_button_summary_off">Mygtukas „Aplankyti bendruomenę“ rodomas</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Slėpti \"Apsilankyti parduotuvėje\" mygtuką kanalo puslapiuose</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Mygtukas „Aplankyti parduotuvę“ paslėptas</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Mygtukas „Aplankyti parduotuvę“ rodomas</string>
+  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_store_button_title">Slėpti Parduotuvės mygtuką</string>
+  <string name="revanced_hide_store_button_summary_on">Parduotuvės mygtukas paslėptas</string>
+  <string name="revanced_hide_store_button_summary_off">Parduotuvės mygtukas rodomas</string>
+  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_subscribe_button_in_channel_page_title">Slėpti Prenumeruoti mygtuką</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Prenumeruoti mygtukas paslėptas</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Prenumeruoti mygtukas rodomas</string>
   <string name="revanced_comments_screen_title">Komentarai</string>
   <string name="revanced_comments_screen_summary">Slėpti arba rodyti komentarų skyriaus komponentus</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Slėpti AI pokalbių santrauką</string>
@@ -534,11 +548,11 @@ Apribojimai
   <string name="revanced_share_copy_url_success">URL nukopijuotas į iškarpinę</string>
   <string name="revanced_share_copy_url_timestamp_success">URL su laiko žyma nukopijuotas</string>
   <string name="revanced_copy_video_url_title">Rodyti kopijuoti vaizdo įrašo URL mygtuką</string>
-  <string name="revanced_copy_video_url_summary_on">Mygtukas rodomas. Palieskite, kad nukopijuotumėte vaizdo įrašo URL. Palieskite ir palaikykite, kad nukopijuotumėte su laiko žyma</string>
-  <string name="revanced_copy_video_url_summary_off">Mygtukas nerodomas</string>
+  <string name="revanced_copy_video_url_summary_on">Vaizdo įrašo nuorodos kopijavimo mygtukas rodomas. Bakstelėkite norėdami nukopijuoti vaizdo įrašo nuorodą. Bakstelėkite ir palaikykite norėdami nukopijuoti su laiko žyma</string>
+  <string name="revanced_copy_video_url_summary_off">Vaizdo įrašo nuorodos kopijavimo mygtukas nerodomas</string>
   <string name="revanced_copy_video_url_timestamp_title">Rodyti mygtuką kopijuoti laikrodžio URL</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Mygtukas rodomas. Palieskite, kad nukopijuotumėte vaizdo įrašo URL su laiko žyma. Palieskite ir palaikykite, kad nukopijuotumėte be laiko žymos</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">Mygtukas nerodomas</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Laiko žymos nuorodos kopijavimo mygtukas rodomas. Bakstelėkite norėdami nukopijuoti vaizdo įrašo nuorodą su laiko žyma. Bakstelėkite ir palaikykite norėdami nukopijuoti be laiko žymos</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Laiko žymos nuorodos kopijavimo mygtukas nerodomas</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Pašalinti žiūrovo nuožiūra dialogo langą</string>
@@ -547,7 +561,7 @@ Apribojimai
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tai neaplenkia amžiaus apribojimo. Jis tiesiog jį automatiškai priima.</string>
   </patch>
   <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-  <string name="revanced_disable_signin_to_tv_popup_title">Išjungti prisijungimo prie TV iškylantįjį langą</string>
+  <string name="revanced_disable_signin_to_tv_popup_title">Išjungti „Prisijungti prie TV“ iššokantįjį langą</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_on">Prisijungimo prie TV iškylantysis langas išjungtas</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_off">Prisijungimo prie TV iškylantysis langas įjungtas</string>
   </patch>
@@ -679,7 +693,7 @@ Reguliuokite garsumą braukdami vertikaliai dešinėje ekrano pusėje"</string>
   <string name="revanced_hide_download_button_summary_on">Atsisiuntimo mygtukas paslėptas</string>
   <string name="revanced_hide_download_button_summary_off">Atsisiuntimo mygtukas rodomas</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
   <string name="revanced_hide_hype_button_title">Slėpti Ažiotažą</string>
   <string name="revanced_hide_hype_button_summary_on">„Hype“ mygtukas paslėptas</string>
   <string name="revanced_hide_hype_button_summary_off">Haipo mygtukas rodomas</string>
@@ -800,10 +814,11 @@ Jei pakeitus šį nustatymą neįsigalioja, pabandykite perjungti į inkognito r
   <string name="revanced_hide_player_flyout_audio_track_title">Slėpti Garso takelius</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Garso takelių meniu yra paslėptas</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Garso takelių meniu yra rodomas</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Garso takelio meniu paslėptas
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Garso takelio meniu yra paslėptas
 
-Norėdami parodyti garso takelio meniu, pakeiskite „Klastoti vaizdo srautus“ į „iPadOS“"</string>
+Norėdami parodyti garso takelio meniu, pakeiskite „Spoof video streams“ į „Android No SDK“"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Slėpti Žiūrėti VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Žiūrėti VR meniu yra paslėptas</string>
@@ -879,13 +894,16 @@ Norėdami parodyti garso takelio meniu, pakeiskite „Klastoti vaizdo srautus“
   <string name="revanced_hide_shorts_history_title">Slėpti šortus žiūrėjimo istorijoje</string>
   <string name="revanced_hide_shorts_history_summary_on">Paslėpta žiūrėjimo istorijoje</string>
   <string name="revanced_hide_shorts_history_summary_off">Rodoma žiūrėjimo istorijoje</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Paslėpti mygtuką „Nupirkti „Super Padėką“\"</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">Slėpti „Automatiškai įgarsinta“ etiketę</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Automatiškai dubliuota žymė paslėpta</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Automatiškai dubliuota žymė rodoma</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Slėpti mygtuką „Pirkti super ačiū“</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Mygtukas „Pirkti Super Ačiū“ yra paslėptas</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Mygtukas „Pirkti Super Ačiū“ yra rodomas</string>
   <string name="revanced_hide_shorts_effect_button_title">Slėpti efekto mygtuką</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Efekto mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Efekto mygtukas rodomas</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Paslėpti mygtuką „Žalias ekranas\"</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Slėpti „Žaliojo ekrano“ mygtuką</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">\"Žaliojo ekrano\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">\"Žaliojo ekrano\" mygtukas rodomas</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Slėpti grotažymės mygtuką</string>
@@ -895,6 +913,9 @@ Norėdami parodyti garso takelio meniu, pakeiskite „Klastoti vaizdo srautus“
   <string name="revanced_hide_shorts_join_button_title">Paslėpti mygtuką „Prisijungti\"</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Prisijungimo mygtukas yra paslėptas</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Prisijungimo mygtukas rodomas</string>
+  <string name="revanced_hide_shorts_live_preview_title">Slėpti tiesioginę peržiūrą</string>
+  <string name="revanced_hide_shorts_live_preview_summary_on">Tiesioginė peržiūra paslėpta</string>
+  <string name="revanced_hide_shorts_live_preview_summary_off">Tiesioginė peržiūra rodoma</string>
   <string name="revanced_hide_shorts_location_label_title">Slėpti vietovės etiketę</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Vietovės etiketė paslėpta</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Vietovės etiketė rodoma</string>
@@ -907,7 +928,7 @@ Norėdami parodyti garso takelio meniu, pakeiskite „Klastoti vaizdo srautus“
   <string name="revanced_hide_shorts_preview_comment_title">Slėpti peržiūros komentarą</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">Komentaro peržiūra paslėpta</string>
   <string name="revanced_hide_shorts_preview_comment_summary_off">Parodyta komentaro peržiūra</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Paslėpti mygtuką „Įrašyti muziką\"</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Slėpti mygtuką „Išsaugoti muziką“</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">\"Išsaugoti muziką\" mygtukas paslėptas</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">\"Išsaugoti muziką\" mygtukas rodomas</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Slėpti paieškos pasiūlymus</string>
@@ -1575,13 +1596,13 @@ Gali būti atrakinta aukštesnės vaizdo įrašų kokybės, bet galite patirti v
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Rodyti greičio dialogo mygtuką</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Mygtukas rodomas. Palieskite ir palaikykite, kad atkūrimo greitį nustatytumėte į numatytąjį.</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">Mygtukas nerodomas</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Greičio dialogo mygtukas rodomas. Bakstelėkite ir palaikykite norėdami atkurti numatytąjį atkūrimo greitį</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Greičio dialogo mygtukas nerodomas</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Rodyti vaizdo kokybės mygtuką</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Mygtukas rodomas. Palaikykite nuspaudę, kad atstatytumėte kokybę į numatytąją</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">Mygtukas nerodomas</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Vaizdo kokybės mygtukas rodomas. Bakstelėkite ir palaikykite norėdami atkurti numatytąją kokybę</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Vaizdo kokybės mygtukas nerodomas</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Tinkintas atkūrimo greičio meniu</string>

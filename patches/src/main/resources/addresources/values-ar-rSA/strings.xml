@@ -282,6 +282,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_video_recommendation_labels_title">إخفاء تسميات توصيات الفيديو</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">تم إخفاء تسميات \'شاهد المستخدمون أيضًا\' و\'قد يعجبك أيضًا\' في نتائج البحث</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">يتم عرض تسميات \'شاهد المستخدمون أيضًا\' و\'قد يعجبك أيضًا\' في نتائج البحث</string>
+  <string name="revanced_hide_visual_spacer_title">إخفاء المسافة البادئة المرئية</string>
+  <string name="revanced_hide_visual_spacer_summary_on">المسافة البادئة المرئية مخفية</string>
+  <string name="revanced_hide_visual_spacer_summary_off">المسافة البادئة المرئية ظاهرة</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">إخفاء رسومات YouTube</string>
   <string name="revanced_hide_doodles_summary_on">تم إخفاء رسوم Doodles المتحركة على شعار YouTube</string>
@@ -342,18 +345,21 @@ Second \"item\" text"</string>
   <string name="revanced_hide_podcast_section_title">إخفاء \'استكشاف البودكاست\'</string>
   <string name="revanced_hide_podcast_section_summary_on">تم إخفاء قسم استكشاف البودكاست</string>
   <string name="revanced_hide_podcast_section_summary_off">يتم عرض قسم استكشاف البودكاست</string>
-  <string name="revanced_hide_featured_section_title">إخفاء المحتوى المميز</string>
-  <string name="revanced_hide_featured_section_summary_on">تم إخفاء قسم المحتوى المميز</string>
-  <string name="revanced_hide_featured_section_summary_off">يتم عرض قسم المحتوى المميز</string>
+  <string name="revanced_hide_featured_links_section_title">إخفاء الروابط المميزة</string>
+  <string name="revanced_hide_featured_links_section_summary_on">تم إخفاء قسم الروابط المميزة</string>
+  <string name="revanced_hide_featured_links_section_summary_off">يتم عرض قسم الروابط المميزة</string>
+  <string name="revanced_hide_featured_videos_section_title">إخفاء الفيديوهات المميزة</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">تم إخفاء قسم الفيديوهات المميزة</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">يتم عرض قسم الفيديوهات المميزة</string>
   <string name="revanced_hide_info_cards_section_title">إخفاء بطاقات المعلومات</string>
   <string name="revanced_hide_info_cards_section_summary_on">تم إخفاء قسم بطاقات المعلومات</string>
   <string name="revanced_hide_info_cards_section_summary_off">يتم عرض قسم بطاقات المعلومات</string>
   <string name="revanced_hide_key_concepts_section_title">إخفاء \'المفاهيم الأساسية\'</string>
   <string name="revanced_hide_key_concepts_section_summary_on">تم إخفاء قسم المفاهيم الأساسية</string>
   <string name="revanced_hide_key_concepts_section_summary_off">يتم عرض قسم المفاهيم الأساسية</string>
-  <string name="revanced_hide_description_subscribe_button_title">إخفاء زر الاشتراك</string>
-  <string name="revanced_hide_description_subscribe_button_summary_on">تم إخفاء زر الاشتراك</string>
-  <string name="revanced_hide_description_subscribe_button_summary_off">يتم عرض زر الاشتراك</string>
+  <string name="revanced_hide_subscribe_button_title">إخفاء زر الاشتراك</string>
+  <string name="revanced_hide_subscribe_button_summary_on">تم إخفاء زر الاشتراك</string>
+  <string name="revanced_hide_subscribe_button_summary_off">يتم عرض زر الاشتراك</string>
   <string name="revanced_hide_transcript_section_title">إخفاء النص</string>
   <string name="revanced_hide_transcript_section_summary_on">تم إخفاء قسم النص</string>
   <string name="revanced_hide_transcript_section_summary_off">يتم عرض قسم النص</string>
@@ -375,24 +381,32 @@ Second \"item\" text"</string>
   <string name="revanced_hide_filter_bar_feed_in_history_summary_off">يُعرض في السجلّ</string>
   <string name="revanced_channel_screen_title">صفحة القناة</string>
   <string name="revanced_channel_screen_summary">إخفاء أو عرض مكونات صفحة القناة</string>
+  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_community_button_title">إخفاء زر المنتدى</string>
+  <string name="revanced_hide_community_button_summary_on">تم إخفاء زر المجتمع</string>
+  <string name="revanced_hide_community_button_summary_off">يتم عرض زر المجتمع</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">إخفاء رف \'مقترحات لك\'</string>
   <string name="revanced_hide_for_you_shelf_summary_on">تم إخفاء رف مقترح لك</string>
   <string name="revanced_hide_for_you_shelf_summary_off">يتم عرض رف مقترح لك</string>
+  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_join_button_title">إخفاء زر الانضمام</string>
+  <string name="revanced_hide_join_button_summary_on">تم إخفاء زر الانضمام</string>
+  <string name="revanced_hide_join_button_summary_off">يتم عرض زر الانضمام</string>
   <string name="revanced_hide_links_preview_title">إخفاء معاينة الروابط</string>
   <string name="revanced_hide_links_preview_summary_on">تم إخفاء معاينة الروابط</string>
   <string name="revanced_hide_links_preview_summary_off">يتم عرض معاينة الروابط</string>
   <string name="revanced_hide_members_shelf_title">إخفاء رف الأعضاء</string>
   <string name="revanced_hide_members_shelf_summary_on">تم إخفاء رف الأعضاء</string>
   <string name="revanced_hide_members_shelf_summary_off">يتم عرض رف الأعضاء</string>
-  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">إخفاء زر \'زيارة المجتمع\'</string>
-  <string name="revanced_hide_visit_community_button_summary_on">تم إخفاء زر زيارة المجتمع</string>
-  <string name="revanced_hide_visit_community_button_summary_off">يتم عرض زر زيارة المجتمع</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">إخفاء زر \'زيارة المتجر\'</string>
-  <string name="revanced_hide_visit_store_button_summary_on">تم إخفاء زر زيارة المتجر</string>
-  <string name="revanced_hide_visit_store_button_summary_off">يتم عرض زر زيارة المتجر</string>
+  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_store_button_title">إخفاء زر المتجر</string>
+  <string name="revanced_hide_store_button_summary_on">تم إخفاء زر المتجر</string>
+  <string name="revanced_hide_store_button_summary_off">يتم عرض زر المتجر</string>
+  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_subscribe_button_in_channel_page_title">إخفاء زر الاشتراك</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">تم إخفاء زر الاشتراك</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">يتم عرض زر الاشتراك</string>
   <string name="revanced_comments_screen_title">التعليقات</string>
   <string name="revanced_comments_screen_summary">إخفاء أو عرض مكونات قسم التعليقات</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">إخفاء ملخص محادثات الذكاء الاصطناعي</string>
@@ -534,11 +548,11 @@ Second \"item\" text"</string>
   <string name="revanced_share_copy_url_success">تم نسخ URL إلى الحافظة</string>
   <string name="revanced_share_copy_url_timestamp_success">تم نسخ عنوان URL مع الطابع الزمني</string>
   <string name="revanced_copy_video_url_title">عرض زر نسخ عنوان URL للفيديو</string>
-  <string name="revanced_copy_video_url_summary_on">يتم عرض الزر. انقر لنسخ عنوان URL للفيديو. انقر مع الاستمرار للنسخ مع الطابع الزمني</string>
-  <string name="revanced_copy_video_url_summary_off">لا يتم عرض الزر</string>
+  <string name="revanced_copy_video_url_summary_on">يتم عرض زر نسخ عنوان URL للفيديو. انقر لنسخ عنوان URL للفيديو. انقر مع الاستمرار للنسخ مع الطابع الزمني</string>
+  <string name="revanced_copy_video_url_summary_off">لا يتم عرض زر نسخ عنوان URL للفيديو</string>
   <string name="revanced_copy_video_url_timestamp_title">عرض زر نسخ URL مع الطابع الزمني</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">يتم عرض الزر. انقر لنسخ عنوان URL للفيديو مع الطابع الزمني. انقر مع الاستمرار للنسخ بدون الطابع الزمني</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">لا يتم عرض الزر</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">يتم عرض زر نسخ عنوان URL مع الطابع الزمني. انقر لنسخ عنوان URL للفيديو مع الطابع الزمني. انقر مع الاستمرار للنسخ بدون الطابع الزمني</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">لا يتم عرض زر نسخ عنوان URL مع الطابع الزمني</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">إزالة مربع حوار تقدير المشاهد</string>
@@ -679,7 +693,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_download_button_summary_on">تم إخفاء زر تنزيل</string>
   <string name="revanced_hide_download_button_summary_off">يتم عرض زر تنزيل</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
   <string name="revanced_hide_hype_button_title">إخفاء التشجيع</string>
   <string name="revanced_hide_hype_button_summary_on">تم إخفاء زر التشجيع</string>
   <string name="revanced_hide_hype_button_summary_off">يتم عرض زر التشجيع</string>
@@ -800,10 +814,11 @@ Second \"item\" text"</string>
   <string name="revanced_hide_player_flyout_audio_track_title">إخفاء المقطع الصوتي</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">تم إخفاء قائمة المقطع الصوتي</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">يتم عرض قائمة المقطع الصوتي</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"تم إخفاء قائمة المقطع الصوتي
 
-لعرض قائمة المقطع الصوتي، غيّر 'Spoof video streams' إلى iPadOS"</string>
+لعرض قائمة المقطع الصوتي، غيّر 'Spoof Video Streams' إلى 'Android No SDK'"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">إخفاء المشاهدة في VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">تم إخفاء قائمة المشاهدة في الوضع الافتراضي</string>
@@ -879,6 +894,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_history_title">إخفاء Shorts في السجلّ</string>
   <string name="revanced_hide_shorts_history_summary_on">مخفي في السجلّ</string>
   <string name="revanced_hide_shorts_history_summary_off">يُعرض في السجلّ</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">إخفاء تسمية \"مدبلج تلقائياً\"</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">تم إخفاء تسمية الدبلجة التلقائية</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">يتم عرض تسمية الدبلجة التلقائية</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">إخفاء زر شراء Super Thanks</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">تم إخفاء زر شراء Super Thanks</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">يتم عرض زر شراء Super Thanks</string>
@@ -895,6 +913,9 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_join_button_title">إخفاء زر الانضمام</string>
   <string name="revanced_hide_shorts_join_button_summary_on">تم إخفاء زر الانضمام</string>
   <string name="revanced_hide_shorts_join_button_summary_off">يتم عرض زر الانضمام</string>
+  <string name="revanced_hide_shorts_live_preview_title">إخفاء المعاينة المباشرة</string>
+  <string name="revanced_hide_shorts_live_preview_summary_on">تم إخفاء معاينة البث المباشر</string>
+  <string name="revanced_hide_shorts_live_preview_summary_off">تم عرض معاينة البث المباشر</string>
   <string name="revanced_hide_shorts_location_label_title">إخفاء تسمية الموقع</string>
   <string name="revanced_hide_shorts_location_label_summary_on">تم إخفاء تسمية الموقع</string>
   <string name="revanced_hide_shorts_location_label_summary_off">يتم عرض تسمية الموقع</string>
@@ -1574,13 +1595,13 @@ Second \"item\" text"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">عرض زر مربع حوار السرعة</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">يتم عرض الزر. انقر مع الاستمرار لإعادة ضبط سرعة التشغيل إلى الوضع الافتراضي</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">لا يتم عرض الزر</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">يتم عرض زر مربع حوار السرعة. انقر مع الاستمرار لإعادة ضبط سرعة التشغيل إلى الوضع الافتراضي</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">لا يتم عرض زر مربع حوار السرعة</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">عرض زر جودة الفيديو</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">يتم عرض الزر. انقر مع الاستمرار لإعادة تعيين الجودة إلى الوضع الافتراضي</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">لا يتم عرض الزر</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">يتم عرض زر جودة الفيديو. انقر مع الاستمرار لإعادة تعيين الجودة إلى الوضع الافتراضي</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">لا يتم عرض زر جودة الفيديو</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">قائمة سرعة التشغيل المخصصة</string>
@@ -1682,8 +1703,8 @@ Second \"item\" text"</string>
   <string name="revanced_music_hide_cast_button_summary_on">تم إخفاء زر البث</string>
   <string name="revanced_music_hide_cast_button_summary_off">يتم عرض زر البث</string>
   <string name="revanced_music_hide_history_button_title">إخفاء زر السجل</string>
-  <string name="revanced_music_hide_history_button_summary_on">زر السجل مخفي</string>
-  <string name="revanced_music_hide_history_button_summary_off">زر السجل ظاهر</string>
+  <string name="revanced_music_hide_history_button_summary_on">تم إخفاء زر السجل</string>
+  <string name="revanced_music_hide_history_button_summary_off">يتم عرض زر السجل</string>
   <string name="revanced_music_hide_notification_button_title">إخفاء زر الإشعارات</string>
   <string name="revanced_music_hide_notification_button_summary_on">تم إخفاء زر الإشعارات</string>
   <string name="revanced_music_hide_notification_button_summary_off">يتم عرض زر الإشعارات</string>

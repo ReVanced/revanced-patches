@@ -141,11 +141,11 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_force_original_audio_not_available">이 기능을 사용하려면, \'동영상 스트림 변경하기\'에서 기본 클라이언트를 Android Studio를 제외한 다른 클라이언트로 변경하세요</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_screen_title">디버깅</string>
-  <string name="revanced_debug_screen_summary">디버깅 옵션을 활성화하거나 비활성화할 수 있습니다</string>
-  <string name="revanced_debug_title">디버그 로깅</string>
-  <string name="revanced_debug_summary_on">디버그 로깅을 활성화합니다</string>
-  <string name="revanced_debug_summary_off">디버그 로깅을 비활성화합니다</string>
+  <string name="revanced_debug_screen_title">디버그</string>
+  <string name="revanced_debug_screen_summary">디버그 옵션을 활성화하거나 비활성화할 수 있습니다</string>
+  <string name="revanced_debug_title">디버그 로그</string>
+  <string name="revanced_debug_summary_on">디버그 로그를 활성화합니다</string>
+  <string name="revanced_debug_summary_off">디버그 로그를 비활성화합니다</string>
   <string name="revanced_debug_stacktrace_title">로그 스택 트레이스</string>
   <string name="revanced_debug_stacktrace_summary_on">디버그 로그에 로그 스택 트레이스를 포함합니다</string>
   <string name="revanced_debug_stacktrace_summary_off">디버그 로그에 로그 스택 트레이스를 포함하지 않습니다</string>
@@ -157,7 +157,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
 예상되지 않은 이벤트에 대한 알림을 받지 못할 수 있습니다."</string>
   <string name="revanced_debug_export_logs_to_clipboard_title">디버그 로그 내보내기</string>
   <string name="revanced_debug_export_logs_to_clipboard_summary">ReVanced 디버그 로그를 클립보드에 복사할 수 있습니다</string>
-  <string name="revanced_debug_logs_disabled">디버그 로깅이 비활성화되어 있습니다</string>
+  <string name="revanced_debug_logs_disabled">디버그 로그가 비활성화되어 있습니다</string>
   <string name="revanced_debug_logs_none_found">디버그 로그를 찾을 수 없습니다</string>
   <string name="revanced_debug_logs_copied_to_clipboard">디버그 로그를 복사하였습니다</string>
   <string name="revanced_debug_logs_failed_to_export">디버그 로그를 내보낼 수 없습니다: %s</string>
@@ -285,6 +285,9 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_video_recommendation_labels_title">동영상 추천 라벨 숨기기</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">검색 결과에서 다음 라벨이 숨겨집니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">검색 결과에서 다음 라벨이 표시됩니다:\n• 시청자가 이 동영상도 시청함\n• 내가 좋아할 만한 동영상</string>
+  <string name="revanced_hide_visual_spacer_title">시각적 공백 숨기기</string>
+  <string name="revanced_hide_visual_spacer_summary_on">시각적 공백이 숨겨집니다</string>
+  <string name="revanced_hide_visual_spacer_summary_off">시각적 공백이 표시됩니다</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodles 숨기기</string>
   <string name="revanced_hide_doodles_summary_on">해더 로고에서 YouTube Doodles 애니메이션이 숨겨집니다</string>
@@ -345,18 +348,21 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_podcast_section_title">\'팟캐스트 살펴보기\' 숨기기</string>
   <string name="revanced_hide_podcast_section_summary_on">팟캐스트 살펴보기 섹션이 숨겨집니다</string>
   <string name="revanced_hide_podcast_section_summary_off">팟캐스트 살펴보기 섹션이 표시됩니다</string>
-  <string name="revanced_hide_featured_section_title">추천 콘텐츠 숨기기</string>
-  <string name="revanced_hide_featured_section_summary_on">추천 콘텐츠 섹션이 숨겨집니다</string>
-  <string name="revanced_hide_featured_section_summary_off">추천 콘텐츠 섹션이 표시됩니다</string>
+  <string name="revanced_hide_featured_links_section_title">추천 링크 숨기기</string>
+  <string name="revanced_hide_featured_links_section_summary_on">추천 링크 섹션이 숨겨집니다</string>
+  <string name="revanced_hide_featured_links_section_summary_off">추천 링크 섹션이 표시됩니다</string>
+  <string name="revanced_hide_featured_videos_section_title">추천 동영상 숨기기</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">추천 동영상 섹션이 숨겨집니다</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">추천 동영상 섹션이 표시됩니다</string>
   <string name="revanced_hide_info_cards_section_title">크리에이터 정보 카드 숨기기</string>
   <string name="revanced_hide_info_cards_section_summary_on">크리에이터 정보 카드 섹션이 숨겨집니다</string>
   <string name="revanced_hide_info_cards_section_summary_off">크리에이터 정보 카드 섹션이 표시됩니다</string>
   <string name="revanced_hide_key_concepts_section_title">주요 개념 숨기기</string>
   <string name="revanced_hide_key_concepts_section_summary_on">주요 개념 섹션이 숨겨집니다</string>
   <string name="revanced_hide_key_concepts_section_summary_off">주요 개념 섹션이 표시됩니다</string>
-  <string name="revanced_hide_description_subscribe_button_title">구독 버튼 숨기기</string>
-  <string name="revanced_hide_description_subscribe_button_summary_on">구독 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_description_subscribe_button_summary_off">구독 버튼이 표시됩니다</string>
+  <string name="revanced_hide_subscribe_button_title">구독 버튼 숨기기</string>
+  <string name="revanced_hide_subscribe_button_summary_on">구독 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_subscribe_button_summary_off">구독 버튼이 표시됩니다</string>
   <string name="revanced_hide_transcript_section_title">스크립트 숨기기</string>
   <string name="revanced_hide_transcript_section_summary_on">스크립트 섹션이 숨겨집니다</string>
   <string name="revanced_hide_transcript_section_summary_off">스크립트 섹션이 표시됩니다</string>
@@ -378,24 +384,32 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_filter_bar_feed_in_history_summary_off">시청 기록에서 표시됩니다</string>
   <string name="revanced_channel_screen_title">채널 페이지</string>
   <string name="revanced_channel_screen_summary">채널 페이지에서 구성요소를 숨기거나 표시할 수 있습니다</string>
+  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_community_button_title">커뮤니티 버튼 숨기기</string>
+  <string name="revanced_hide_community_button_summary_on">커뮤니티 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_community_button_summary_off">커뮤니티 버튼이 표시됩니다</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">추천 선반 숨기기</string>
   <string name="revanced_hide_for_you_shelf_summary_on">추천 선반이 숨겨집니다</string>
   <string name="revanced_hide_for_you_shelf_summary_off">추천 선반이 표시됩니다</string>
+  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_join_button_title">가입 버튼 숨기기</string>
+  <string name="revanced_hide_join_button_summary_on">가입 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_join_button_summary_off">가입 버튼이 표시됩니다</string>
   <string name="revanced_hide_links_preview_title">링크 미리보기 숨기기</string>
   <string name="revanced_hide_links_preview_summary_on">링크 미리보기가 숨겨집니다</string>
   <string name="revanced_hide_links_preview_summary_off">링크 미리보기가 표시됩니다</string>
   <string name="revanced_hide_members_shelf_title">멤버십 선반 숨기기</string>
   <string name="revanced_hide_members_shelf_summary_on">멤버십 선반이 숨겨집니다</string>
   <string name="revanced_hide_members_shelf_summary_off">멤버십 선반이 표시됩니다</string>
-  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">커뮤니티 방문 버튼 숨기기</string>
-  <string name="revanced_hide_visit_community_button_summary_on">커뮤니티 방문 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_visit_community_button_summary_off">커뮤니티 방문 버튼이 표시됩니다</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">스토어 방문 버튼 숨기기</string>
-  <string name="revanced_hide_visit_store_button_summary_on">스토어 방문 버튼이 숨겨집니다</string>
-  <string name="revanced_hide_visit_store_button_summary_off">스토어 방문 버튼이 표시됩니다</string>
+  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_store_button_title">스토어 버튼 숨기기</string>
+  <string name="revanced_hide_store_button_summary_on">스토어 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_store_button_summary_off">스토어 버튼이 표시됩니다</string>
+  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_subscribe_button_in_channel_page_title">구독 버튼 숨기기</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">구독 버튼이 숨겨집니다</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">구독 버튼이 표시됩니다</string>
   <string name="revanced_comments_screen_title">댓글</string>
   <string name="revanced_comments_screen_summary">댓글 섹션에서 구성요소가 숨기거나 표시할 수 있습니다</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">AI 채팅 요약 숨기기</string>
@@ -536,11 +550,11 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_share_copy_url_success">URL을 클립보드에 복사하였습니다</string>
   <string name="revanced_share_copy_url_timestamp_success">타임스탬프가 표기된 URL을 클립보드에 복사하였습니다</string>
   <string name="revanced_copy_video_url_title">동영상 URL 복사 버튼 표시하기</string>
-  <string name="revanced_copy_video_url_summary_on">버튼을 표시합니다\n\n• 버튼을 탭하여 동영상 URL을 복사할 수 있습니다\n• 길게 탭하면 타임스탬스가 표기된 동영상 URL이 복사됩니다</string>
-  <string name="revanced_copy_video_url_summary_off">버튼을 표시하지 않습니다</string>
-  <string name="revanced_copy_video_url_timestamp_title">타임스탬프가 표기된 URL 복사 버튼 표시하기</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">버튼을 표시합니다\n\n• 버튼을 탭하여 타임스탬프가 표기된 동영상 URL을 복사할 수 있습니다\n• 길게 탭하면 타임스탬프가 표기되지 않은 동영상 URL이 복사됩니다</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">버튼을 표시하지 않습니다</string>
+  <string name="revanced_copy_video_url_summary_on">동영상 URL 복사 버튼이 표시됩니다\n\n• 버튼을 탭하여 동영상 URL을 복사할 수 있습니다\n• 길게 탭하면 타임스탬프가 표기된 동영상 URL이 복사됩니다</string>
+  <string name="revanced_copy_video_url_summary_off">동영상 URL 복사 버튼이 표시되지 않습니다</string>
+  <string name="revanced_copy_video_url_timestamp_title">타임스탬프 URL 복사 버튼 표시하기</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">타임스탬프가 표기된 URL 복사 버튼이 표시됩니다\n\n• 버튼을 탭하여 타임스탬프가 표기된 동영상 URL을 복사할 수 있습니다\n• 길게 탭하면 타임스탬프가 표기되지 않은 동영상 URL이 복사됩니다</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">타임스탬프가 표기된 URL 복사 버튼이 표시되지 않습니다</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">시청 경고 다이얼로그 삭제하기</string>
@@ -677,7 +691,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_download_button_summary_on">오프라인 저장 버튼이 숨겨집니다</string>
   <string name="revanced_hide_download_button_summary_off">오프라인 저장 버튼이 표시됩니다</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
   <string name="revanced_hide_hype_button_title">Hype 숨기기</string>
   <string name="revanced_hide_hype_button_summary_on">Hype 버튼이 숨겨집니다</string>
   <string name="revanced_hide_hype_button_summary_off">Hype 버튼이 표시됩니다</string>
@@ -733,8 +747,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_switch_create_with_notifications_button_title">만들기와 알림 위치 교환하기</string>
   <string name="revanced_switch_create_with_notifications_button_summary_on">"만들기 버튼과 알림 버튼의 위치를 교환합니다
 
-알려진 문제점:
-• 동영상 광고가 강제로 숨겨집니다"</string>
+알림: 이 설정을 활성화하면 동영상 광고가 강제로 숨겨집니다"</string>
   <string name="revanced_switch_create_with_notifications_button_summary_off">만들기 버튼과 알림 버튼의 위치를 교환하지 않습니다</string>
   <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"이 설정을 비활성화하면 Shorts 광고가 차단되지 않습니다.
 
@@ -799,10 +812,11 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_player_flyout_audio_track_title">오디오 트랙 숨기기</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">오디오 트랙 메뉴가 숨겨집니다</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">오디오 트랙 메뉴가 표시됩니다</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"오디오 트랙 메뉴가 숨겨집니다
 
-오디오 트랙 메뉴를 표시하려면, '동영상 스트림 변경하기'에서 기본 클라이언트를 iPadOS로 변경하세요"</string>
+오디오 트랙 메뉴를 표시하려면, '동영상 스트림 변경하기'에서 기본 클라이언트를 'Android No SDK'로 변경하세요"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">VR로 보기 숨기기</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">VR로 보기 메뉴가 숨겨집니다</string>
@@ -878,6 +892,9 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_shorts_history_title">시청 기록에서 Shorts 숨기기</string>
   <string name="revanced_hide_shorts_history_summary_on">시청 기록에서 숨겨집니다</string>
   <string name="revanced_hide_shorts_history_summary_off">시청 기록에서 표시됩니다</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">자동 더빙 라벨 숨기기</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">자동 더빙 라벨이 숨겨집니다</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">자동 더빙 라벨이 표시됩니다</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">Super Thanks 구매 버튼 숨기기</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Super Thanks 구매 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Super Thanks 구매 버튼이 표시됩니다</string>
@@ -894,6 +911,9 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_shorts_join_button_title">가입 버튼 숨기기</string>
   <string name="revanced_hide_shorts_join_button_summary_on">가입 버튼이 숨겨집니다</string>
   <string name="revanced_hide_shorts_join_button_summary_off">가입 버튼이 표시됩니다</string>
+  <string name="revanced_hide_shorts_live_preview_title">라이브 미리보기 숨기기</string>
+  <string name="revanced_hide_shorts_live_preview_summary_on">라이브 미리보기가 숨겨집니다</string>
+  <string name="revanced_hide_shorts_live_preview_summary_off">라이브 미리보기가 표시됩니다</string>
   <string name="revanced_hide_shorts_location_label_title">위치 라벨 숨기기</string>
   <string name="revanced_hide_shorts_location_label_summary_on">위치 라벨이 숨겨집니다</string>
   <string name="revanced_hide_shorts_location_label_summary_off">위치 라벨이 표시됩니다</string>
@@ -1581,13 +1601,13 @@ DeArrow에 대해 자세히 알아보려면 여기를 탭하세요"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">동영상 재생 속도 다이얼로그 버튼 표시하기</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">버튼을 표시합니다\n\n• 버튼을 길게 탭하면 동영상 재생 속도가 기본값으로 초기화됩니다</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">버튼을 표시하지 않습니다</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">속도 다이얼로그 버튼이 표시됩니다\n\n• 버튼을 길게 탭하면 동영상 재생 속도가 기본값으로 초기화됩니다</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">속도 다이얼로그 버튼이 표시되지 않습니다</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">동영상 화질 버튼 표시하기</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">버튼을 표시합니다\n\n• 버튼을 길게 탭하면 화질이 기본값으로 초기화됩니다</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">버튼을 표시하지 않습니다</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">동영상 화질 버튼이 표시됩니다\n\n• 버튼을 길게 탭하면 화질이 기본값으로 초기화됩니다</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">동영상 화질 버튼이 표시되지 않습니다</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">사용자 정의 동영상 재생 속도 활성화하기</string>
@@ -1800,9 +1820,9 @@ AV1이 사용된 동영상 재생이 끊기거나 프레임이 손실될 수 있
   <string name="revanced_other_category_title">기타 설정</string>
   <string name="revanced_client_ads_category_title">클라이언트 광고</string>
   <string name="revanced_surestream_ads_category_title">서버 광고</string>
-  <string name="revanced_twitch_debug_title">디버그 로깅</string>
-  <string name="revanced_twitch_debug_summary_on">디버그 로깅을 활성화합니다</string>
-  <string name="revanced_twitch_debug_summary_off">디버그 로깅을 비활성화합니다</string>
+  <string name="revanced_twitch_debug_title">디버그 로그</string>
+  <string name="revanced_twitch_debug_summary_on">디버그 로그를 활성화합니다</string>
+  <string name="revanced_twitch_debug_summary_off">디버그 로그를 비활성화합니다</string>
   </patch>
   </app>
 </resources>

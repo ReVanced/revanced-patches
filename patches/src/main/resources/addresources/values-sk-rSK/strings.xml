@@ -280,6 +280,9 @@ Povolením tejto funkcie sa však budú zaznamenávať aj niektoré používate�
   <string name="revanced_hide_video_recommendation_labels_title">Skryť štítky odporúčaní videí</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">Štítky „Ľudia tiež pozerali“ a „Mohlo by sa vám páčiť“ vo výsledkoch vyhľadávania sú skryté</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">Štítky „Ľudia tiež pozerali“ a „Mohlo by sa vám páčiť“ vo výsledkoch vyhľadávania sú zobrazené</string>
+  <string name="revanced_hide_visual_spacer_title">Skryť vizuálny oddeľovač</string>
+  <string name="revanced_hide_visual_spacer_summary_on">Vizuálny oddeľovač je skrytý</string>
+  <string name="revanced_hide_visual_spacer_summary_off">Vizuálny oddeľovač je zobrazený</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Skryť YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Animácia YouTube Doodles na logu je skrytá</string>
@@ -340,18 +343,21 @@ Ak sa Doodle v súčasnosti zobrazuje vo vašom regióne a toto nastavenie skryt
   <string name="revanced_hide_podcast_section_title">Skryť „Preskúmať podcast“</string>
   <string name="revanced_hide_podcast_section_summary_on">Sekcia Preskúmať podcast je skrytá</string>
   <string name="revanced_hide_podcast_section_summary_off">Sekcia Preskúmať podcast je zobrazená</string>
-  <string name="revanced_hide_featured_section_title">Skryť odporúčaný obsah</string>
-  <string name="revanced_hide_featured_section_summary_on">Sekcia odporúčaného obsahu je skrytá</string>
-  <string name="revanced_hide_featured_section_summary_off">Sekcia odporúčaného obsahu je zobrazená</string>
+  <string name="revanced_hide_featured_links_section_title">Skryť odporúčané odkazy</string>
+  <string name="revanced_hide_featured_links_section_summary_on">Sekcia Odporúčané odkazy je skrytá</string>
+  <string name="revanced_hide_featured_links_section_summary_off">Sekcia Odporúčané odkazy je zobrazená</string>
+  <string name="revanced_hide_featured_videos_section_title">Skryť Odporúčané videá</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">Sekcia Odporúčané videá je skrytá</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">Sekcia Odporúčané videá je zobrazená</string>
   <string name="revanced_hide_info_cards_section_title">Skryť informačné karty</string>
   <string name="revanced_hide_info_cards_section_summary_on">Sekcia informačných kariet je skrytá</string>
   <string name="revanced_hide_info_cards_section_summary_off">Zobrazí sa sekcia informačných kariet</string>
   <string name="revanced_hide_key_concepts_section_title">Skryť „Kľúčové koncepty“</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Sekcia Kľúčové koncepty je skrytá</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Sekcia Kľúčové koncepty je zobrazená</string>
-  <string name="revanced_hide_description_subscribe_button_title">Skryť tlačidlo Odber</string>
-  <string name="revanced_hide_description_subscribe_button_summary_on">Tlačidlo Odber je skryté</string>
-  <string name="revanced_hide_description_subscribe_button_summary_off">Tlačidlo Odber je zobrazené</string>
+  <string name="revanced_hide_subscribe_button_title">Skryť tlačidlo Prihlásiť sa na odber</string>
+  <string name="revanced_hide_subscribe_button_summary_on">Tlačidlo Prihlásiť sa na odber je skryté</string>
+  <string name="revanced_hide_subscribe_button_summary_off">Tlačidlo Prihlásiť sa na odber je zobrazené</string>
   <string name="revanced_hide_transcript_section_title">Skryť prepis</string>
   <string name="revanced_hide_transcript_section_summary_on">Časť prepisu je skrytá</string>
   <string name="revanced_hide_transcript_section_summary_off">Zobrazí sa sekcia prepisu</string>
@@ -373,24 +379,32 @@ Ak sa Doodle v súčasnosti zobrazuje vo vašom regióne a toto nastavenie skryt
   <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Zobrazené v histórii pozerania</string>
   <string name="revanced_channel_screen_title">Stránka kanála</string>
   <string name="revanced_channel_screen_summary">Skryť alebo zobraziť komponenty stránky kanála</string>
+  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_community_button_title">Skryť tlačidlo Komunita</string>
+  <string name="revanced_hide_community_button_summary_on">Tlačidlo Komunita je skryté</string>
+  <string name="revanced_hide_community_button_summary_off">Tlačidlo Komunita je zobrazené</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Skryť panel „Pre vás“</string>
   <string name="revanced_hide_for_you_shelf_summary_on">Polička Pre vás je skrytá</string>
   <string name="revanced_hide_for_you_shelf_summary_off">Polička Pre vás je zobrazená</string>
+  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_join_button_title">Skryť tlačidlo Pripojiť sa</string>
+  <string name="revanced_hide_join_button_summary_on">Tlačidlo Pripojiť sa je skryté</string>
+  <string name="revanced_hide_join_button_summary_off">Tlačidlo Pripojiť sa je zobrazené</string>
   <string name="revanced_hide_links_preview_title">Skryť ukážku odkazov</string>
   <string name="revanced_hide_links_preview_summary_on">Ukážka odkazov je skrytá</string>
   <string name="revanced_hide_links_preview_summary_off">Ukážka odkazov je zobrazená</string>
   <string name="revanced_hide_members_shelf_title">Skryť poličku členov</string>
   <string name="revanced_hide_members_shelf_summary_on">Polička členov je skrytá</string>
   <string name="revanced_hide_members_shelf_summary_off">Polica členov je zobrazená</string>
-  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">Skryť tlačidlo „Navštíviť komunitu“</string>
-  <string name="revanced_hide_visit_community_button_summary_on">Tlačidlo Navštíviť komunitu je skryté</string>
-  <string name="revanced_hide_visit_community_button_summary_off">Tlačidlo Navštíviť komunitu je zobrazené</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Skryte tlačidlo \"Navštíviť obchod\" na stránkach kanála</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Tlačidlo Navštíviť obchod je skryté</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Tlačidlo Navštíviť obchod je zobrazené</string>
+  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_store_button_title">Skryť tlačidlo Obchod</string>
+  <string name="revanced_hide_store_button_summary_on">Tlačidlo Obchod je skryté</string>
+  <string name="revanced_hide_store_button_summary_off">Tlačidlo Obchod je zobrazené</string>
+  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_subscribe_button_in_channel_page_title">Skryť tlačidlo Odoberať</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Tlačidlo Odoberať je skryté</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Tlačidlo Odoberať je zobrazené</string>
   <string name="revanced_comments_screen_title">Komentáre</string>
   <string name="revanced_comments_screen_summary">Skryť alebo zobraziť komponenty sekcie komentárov</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Skryť súhrn AI chatu</string>
@@ -532,11 +546,11 @@ Táto funkcia je dostupná len pre staršie zariadenia"</string>
   <string name="revanced_share_copy_url_success">Adresa URL bola skopírovaná do schránky</string>
   <string name="revanced_share_copy_url_timestamp_success">Adresa URL s časovou pečiatkou bola skopírovaná</string>
   <string name="revanced_copy_video_url_title">Zobraziť tlačidlo skopírovať adresu URL videa</string>
-  <string name="revanced_copy_video_url_summary_on">Tlačidlo sa zobrazuje. Klepnutím skopírujete URL videa. Klepnutím a podržaním skopírujete s časovou pečiatkou</string>
-  <string name="revanced_copy_video_url_summary_off">Tlačidlo nie je zobrazené</string>
+  <string name="revanced_copy_video_url_summary_on">Tlačidlo Kopírovať URL videa je zobrazené. Klepnite pre skopírovanie URL videa. Klepnite a podržte pre skopírovanie s časovou značkou</string>
+  <string name="revanced_copy_video_url_summary_off">Tlačidlo Kopírovať URL videa nie je zobrazené</string>
   <string name="revanced_copy_video_url_timestamp_title">Zobraziť tlačidlo webovej adresy kopírovania časovej pečiatky</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Tlačidlo sa zobrazuje. Klepnutím skopírujete URL videa s časovou pečiatkou. Klepnutím a podržaním skopírujete bez časovej pečiatky</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">Tlačidlo nie je zobrazené</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Tlačidlo Kopírovať URL s časovou značkou je zobrazené. Klepnite pre skopírovanie URL videa s časovou značkou. Klepnite a podržte pre skopírovanie bez časovej značky</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Tlačidlo Kopírovať URL s časovou značkou nie je zobrazené</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Odstrániť dialógové okno uváženia prehliadača</string>
@@ -545,7 +559,7 @@ Táto funkcia je dostupná len pre staršie zariadenia"</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Neobchádza sa tým ani vekové obmedzenie. Len to automaticky akceptuje.</string>
   </patch>
   <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-  <string name="revanced_disable_signin_to_tv_popup_title">Zakázať vyskakovacie okno Prihlásiť sa do TV</string>
+  <string name="revanced_disable_signin_to_tv_popup_title">Zakázať vyskakovacie okno „Prihlásiť sa do TV“</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_on">Vyskakovacie okno Prihlásiť sa do TV je zakázané</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_off">Vyskakovacie okno Prihlásiť sa do TV je povolené</string>
   </patch>
@@ -677,7 +691,7 @@ Upravte hlasitosť posúvaním vertikálne na pravej strane obrazovky"</string>
   <string name="revanced_hide_download_button_summary_on">Tlačidlo Stiahnuť je skryté</string>
   <string name="revanced_hide_download_button_summary_off">Zobrazí sa tlačidlo Stiahnuť</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
   <string name="revanced_hide_hype_button_title">Skryť Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Tlačidlo Hype je skryté</string>
   <string name="revanced_hide_hype_button_summary_off">Tlačidlo Hype je zobrazené</string>
@@ -798,10 +812,11 @@ Ak zmena tohto nastavenia nemá žiadny účinok, skúste prepnúť do režimu i
   <string name="revanced_hide_player_flyout_audio_track_title">Skryť zvukovú stopu</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Ponuka zvukovej stopy je skrytá</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Zobrazí sa ponuka zvukovej stopy</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Menu zvukových stôp je skryté
 
-Ak chcete zobraziť menu zvukových stôp, zmeňte \"Falošné video streamy\" na iPadOS"</string>
+Ak chcete zobraziť menu zvukových stôp, zmeňte 'Spoof video streams' na 'Android No SDK'"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skryť hodinky vo VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Sledovanie v ponuke VR je skryté</string>
@@ -877,13 +892,16 @@ Ak chcete zobraziť menu zvukových stôp, zmeňte \"Falošné video streamy\" n
   <string name="revanced_hide_shorts_history_title">Skryť Shorts z histórie sledovania</string>
   <string name="revanced_hide_shorts_history_summary_on">Skryté v histórii pozerania</string>
   <string name="revanced_hide_shorts_history_summary_off">Zobrazené v histórii sledovania</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Skryť tlačidlo Kúpiť Super Thanks</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">Skryť štítok „Automatický dabing“</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Štítok s automatickým dabingom je skrytý</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Štítok s automatickým dabingom je zobrazený</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Skryť tlačidlo „Kúpiť Super poďakovanie“</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Tlačidlo „Kúpiť Super poďakovanie“ je skryté</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Tlačidlo „Kúpiť Super poďakovanie“ je zobrazené</string>
   <string name="revanced_hide_shorts_effect_button_title">Skryť tlačidlo efektu</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Tlačidlo efektu je skryté</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Tlačidlo efektu je zobrazené</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Skryť tlačidlo Zelená obrazovka</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Skryť tlačidlo „Zelená obrazovka“</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Tlačidlo pre zelené pozadie bude skryté</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Tlačidlo pre zelené pozadie bude zobrazené</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Skryť tlačidlo pre hashtag</string>
@@ -893,10 +911,13 @@ Ak chcete zobraziť menu zvukových stôp, zmeňte \"Falošné video streamy\" n
   <string name="revanced_hide_shorts_join_button_title">Skryť tlačidlo Pripojiť sa</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Tlačidlo Pripojiť sa je skryté</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Zobrazí sa tlačidlo Pripojiť sa</string>
+  <string name="revanced_hide_shorts_live_preview_title">Skryť živý náhľad</string>
+  <string name="revanced_hide_shorts_live_preview_summary_on">Živý náhľad je skrytý</string>
+  <string name="revanced_hide_shorts_live_preview_summary_off">Živý náhľad je zobrazený</string>
   <string name="revanced_hide_shorts_location_label_title">Skryť štítok polohy</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Štítok miesta je skrytý</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Zobrazí sa štítok s umiestnením</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Skryť tlačidlo Nové príspevky</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Skryť tlačidlo „Nové príspevky“</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_on">Tlačidlo Nové príspevky je skryté</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_off">Zobrazí sa tlačidlo Nové príspevky</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Skryť pozastavené prekryvné tlačidlá</string>
@@ -905,7 +926,7 @@ Ak chcete zobraziť menu zvukových stôp, zmeňte \"Falošné video streamy\" n
   <string name="revanced_hide_shorts_preview_comment_title">Skryť náhľadový komentár</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">Náhľadový komentár je skrytý</string>
   <string name="revanced_hide_shorts_preview_comment_summary_off">Zobrazuje sa ukážka komentára</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Skryť tlačidlo Uložiť hudbu</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Skryť tlačidlo „Uložiť hudbu“</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Tlačidlo na uloženie hudby je skryté</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Tlačidlo na uloženie hudby sa zobrazuje</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Skryť návrhy vyhľadávania</string>
@@ -926,10 +947,10 @@ Ak chcete zobraziť menu zvukových stôp, zmeňte \"Falošné video streamy\" n
   <string name="revanced_hide_shorts_upcoming_button_title">Skryť tlačidlo Pripravované</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Tlačidlo pre časté videá bude skryté</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Tlačidlo pre časté videá bude zobrazené</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Skryť tlačidlo Použiť tento zvuk</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Skryť tlačidlo „Použiť tento zvuk“</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_on">Tlačidlo Použiť tento zvuk je skryté</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_off">Tlačidlo Použiť tento zvuk je zobrazené</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Skryť tlačidlo Použiť túto šablónu</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Skryť tlačidlo „Použiť túto šablónu“</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Tlačidlo Použiť túto šablónu je skryté</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Tlačidlo Použiť túto šablónu je zobrazené</string>
   <string name="revanced_hide_shorts_like_fountain_title">Skryť animáciu fontány tlačidla Páči sa mi to</string>
@@ -1567,13 +1588,13 @@ Povolením tejto možnosti môžete odomknúť vyššie kvality videa"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Zobraziť dialógové tlačidlo rýchlosti</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Zobrazuje sa tlačidlo. Ťuknite a podržte, ak chcete obnoviť predvolenú rýchlosť prehrávania</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">Tlačidlo nie je zobrazené</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Tlačidlo dialógového okna rýchlosti je zobrazené. Klepnite a podržte pre resetovanie rýchlosti prehrávania na predvolenú</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Tlačidlo dialógového okna rýchlosti nie je zobrazené</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Zobraziť tlačidlo kvality videa</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Tlačidlo sa zobrazí. Klepnite a podržte pre resetovanie kvality na predvolenú</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">Tlačidlo sa nezobrazuje</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Tlačidlo kvality videa je zobrazené. Klepnite a podržte pre resetovanie kvality na predvolenú</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Tlačidlo kvality videa nie je zobrazené</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menu vlastnej rýchlosti prehrávania</string>
