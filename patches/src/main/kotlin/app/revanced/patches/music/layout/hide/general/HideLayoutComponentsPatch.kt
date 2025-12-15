@@ -32,8 +32,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // TODO: Move Resources to music/shared specific
         addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")
 
-        // TODO: Move to a layout specific settings screen
-        PreferenceScreen.MISC.addPreferences(
+        PreferenceScreen.GENERAL.addPreferences(
             PreferenceScreenPreference(
                 key = "revanced_custom_filter_screen",
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
