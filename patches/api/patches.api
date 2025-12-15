@@ -268,6 +268,10 @@ public final class app/revanced/patches/iconpackstudio/misc/pro/UnlockProPatchKt
 	public static final fun getUnlockProPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/idaustria/detection/deviceintegrity/RemoveDeviceIntegrityChecksPatchKt {
+	public static final fun getRemoveDeviceIntegrityChecksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/idaustria/detection/root/RootDetectionPatchKt {
 	public static final fun getRootDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
