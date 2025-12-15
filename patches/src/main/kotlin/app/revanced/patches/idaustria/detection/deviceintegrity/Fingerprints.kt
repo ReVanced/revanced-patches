@@ -12,7 +12,6 @@ internal val isDeviceBootloaderOpenFingerprint = fingerprint {
     }
 }
 
-
 internal val isDeviceRootedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
     returns("Z")
