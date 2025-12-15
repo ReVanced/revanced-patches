@@ -32,7 +32,7 @@ import android.graphics.Color;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.YoutubeSharedSettings;
+import app.revanced.extension.shared.settings.YouTubeAndMusicSettings;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.EnumSetting;
@@ -50,7 +50,7 @@ import app.revanced.extension.youtube.patches.MiniplayerPatch;
 import app.revanced.extension.youtube.sponsorblock.SponsorBlockSettings;
 import app.revanced.extension.youtube.swipecontrols.SwipeControlsConfigurationProvider.SwipeOverlayStyle;
 
-public class Settings extends YoutubeSharedSettings {
+public class Settings extends YouTubeAndMusicSettings {
     // Video
     public static final BooleanSetting ADVANCED_VIDEO_QUALITY_MENU = new BooleanSetting("revanced_advanced_video_quality_menu", TRUE);
     public static final BooleanSetting DISABLE_HDR_VIDEO = new BooleanSetting("revanced_disable_hdr_video", FALSE);

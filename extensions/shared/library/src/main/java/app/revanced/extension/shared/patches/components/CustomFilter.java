@@ -16,7 +16,7 @@ import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ByteTrieSearch;
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
-import app.revanced.extension.shared.settings.YoutubeSharedSettings;
+import app.revanced.extension.shared.settings.YouTubeAndMusicSettings;
 import app.revanced.extension.shared.patches.litho.Filter;
 
 /**
@@ -47,7 +47,7 @@ public final class CustomFilter extends Filter {
         @NonNull
         @SuppressWarnings("ConstantConditions")
         static Collection<CustomFilterGroup> parseCustomFilterGroups() {
-            String rawCustomFilterText = YoutubeSharedSettings.CUSTOM_FILTER_STRINGS.get();
+            String rawCustomFilterText = YouTubeAndMusicSettings.CUSTOM_FILTER_STRINGS.get();
             if (rawCustomFilterText.isBlank()) {
                 return Collections.emptyList();
             }
@@ -102,7 +102,7 @@ public final class CustomFilter extends Filter {
         ByteTrieSearch bufferSearch;
 
         CustomFilterGroup(boolean startsWith, @NonNull String path) {
-            super(YoutubeSharedSettings.CUSTOM_FILTER, path);
+            super(YouTubeAndMusicSettings.CUSTOM_FILTER, path);
             this.startsWith = startsWith;
         }
 

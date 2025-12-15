@@ -9,7 +9,7 @@ import java.util.List;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.shared.settings.YoutubeSharedSettings;
+import app.revanced.extension.shared.settings.YouTubeAndMusicSettings;
 
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
 
@@ -38,7 +38,7 @@ public final class LithoFilterPatch {
             builder.append(identifier);
             builder.append(" Path: ");
             builder.append(path);
-            if (YoutubeSharedSettings.DEBUG_PROTOBUFFER.get()) {
+            if (YouTubeAndMusicSettings.DEBUG_PROTOBUFFER.get()) {
                 builder.append(" BufferStrings: ");
                 findAsciiStrings(builder, buffer);
             }
