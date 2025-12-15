@@ -1,3 +1,15 @@
+# [5.47.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.15...v5.47.0-dev.16) (2025-12-15)
+
+
+### Bug Fixes
+
+* **Lightroom:** Add `Disable version check` patch to fix opening the app  ([#6315](https://github.com/ReVanced/revanced-patches/issues/6315)) ([018d176](https://github.com/ReVanced/revanced-patches/commit/018d176914a06a30e9007a3eb2e6b0f459078413))
+
+
+### Features
+
+* **IdAustria - Remove device integrity check:** Update patch to work with latest version ([#6360](https://github.com/ReVanced/revanced-patches/issues/6360)) ([0ea3491](https://github.com/ReVanced/revanced-patches/commit/0ea3491227fc50c03555d43d3fec78eb82906b26))
+
 # [5.47.0-dev.15](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.14...v5.47.0-dev.15) (2025-12-13)
 
 
