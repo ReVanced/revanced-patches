@@ -1,7 +1,8 @@
-package app.revanced.patches.music.misc.litho.filter
+package app.revanced.patches.shared.misc.litho.filter
 
 import app.revanced.patcher.fingerprint
 import app.revanced.util.containsLiteralInstruction
+import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
