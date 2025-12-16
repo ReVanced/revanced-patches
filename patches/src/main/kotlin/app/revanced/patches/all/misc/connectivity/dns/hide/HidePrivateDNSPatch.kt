@@ -1,5 +1,3 @@
-@file:Suppress("unused")
-
 package app.revanced.patches.all.misc.connectivity.dns.hide
 
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
