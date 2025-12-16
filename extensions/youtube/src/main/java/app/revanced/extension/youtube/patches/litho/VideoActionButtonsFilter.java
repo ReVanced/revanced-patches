@@ -164,8 +164,8 @@ final class VideoActionButtonsFilter extends Filter {
     public boolean isFiltered(String identifier, String accessibility, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == likeSubscribeGlow) {
-            return (path.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX) || path.startsWith(COMPACT_CHANNEL_BAR_PATH_PREFIX))
-                    && path.contains(ANIMATED_VECTOR_TYPE_PATH);
+            return path.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX) || path.startsWith(COMPACT_CHANNEL_BAR_PATH_PREFIX)
+                    || path.startsWith(COMPACTIFY_VIDEO_ACTION_BAR_PATH);
         }
 
         // If the current matched group is the action bar group,
