@@ -84,7 +84,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
                         return-void
                         :show_startup_shorts_player
                         nop
-                    """,
+                    """
                 )
             }
         }

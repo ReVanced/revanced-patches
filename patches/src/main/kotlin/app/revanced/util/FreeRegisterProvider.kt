@@ -27,13 +27,18 @@ import java.util.logging.Logger
  *
  * If you only need a single free register, instead use [findFreeRegister].
  *
+ * @param startIndex Index you need a use a free register at.
+ * @param maxFreeRegistersToFind The maximum number of free registers you need.
+ * @param registersToExclude Registers to exclude, and consider as used. For most use cases,
+ *                           all registers used in injected code should be specified.
+ *
  * @throws IllegalArgumentException If no free registers can be found at the given index.
  *                                  This includes unusual method indexes that read from every register
  *                                  before any registers are wrote to, or if a switch statement is
  *                                  encountered before any free registers are found.
  */
-fun Method.getFreeRegisterProvider(startIndex: Int, registersToExclude: List<Int>) =
-    FreeRegisterProvider(this, startIndex, registersToExclude)
+fun Method.getFreeRegisterProvider(startIndex: Int, maxFreeRegistersToFind: Int, registersToExclude: List<Int>) =
+    FreeRegisterProvider(this, startIndex, maxFreeRegistersToFind, registersToExclude)
 
 /**
  * Finds free registers at a specific index in a method.
@@ -41,13 +46,18 @@ fun Method.getFreeRegisterProvider(startIndex: Int, registersToExclude: List<Int
  *
  * If you only need a single free register, instead use [findFreeRegister].
  *
+ * @param startIndex Index you need a use a free register at.
+ * @param maxFreeRegistersToFind The maximum number of free registers you need.
+ * @param registersToExclude Registers to exclude, and consider as used. For most use cases,
+ *                           all registers used in injected code should be specified.
+ *
  * @throws IllegalArgumentException If no free registers can be found at the given index.
  *                                  This includes unusual method indexes that read from every register
  *                                  before any registers are wrote to, or if a switch statement is
  *                                  encountered before any free registers are found.
  */
-fun Method.getFreeRegisterProvider(startIndex: Int, vararg registersToExclude: Int) =
-    FreeRegisterProvider(this, startIndex, *registersToExclude)
+fun Method.getFreeRegisterProvider(startIndex: Int, maxFreeRegistersToFind: Int, vararg registersToExclude: Int) =
+    FreeRegisterProvider(this, startIndex, maxFreeRegistersToFind, *registersToExclude)
 
 /**
  * Simple wrapper around [findFreeRegister] that allows finding then allocating multiple registers.
@@ -56,17 +66,18 @@ fun Method.getFreeRegisterProvider(startIndex: Int, vararg registersToExclude: I
 class FreeRegisterProvider internal constructor(
     method: Method,
     startIndex: Int,
+    maxRegistersToFind: Int,
     registersToExclude: List<Int>
 ) {
-
     internal constructor(
         method: Method,
         startIndex: Int,
+        maxRegistersToFind: Int,
         vararg registersToExclude: Int
-    ) : this(method, startIndex, registersToExclude.toList())
+    ) : this(method, startIndex, maxRegistersToFind, registersToExclude.toList())
 
     private var freeRegisters: MutableList<Int> = LinkedList(
-        method.findFreeRegisters(startIndex, registersToExclude)
+        method.findFreeRegisters(startIndex, maxRegistersToFind, registersToExclude)
     )
 
     private val originallyExcludedRegisters = registersToExclude
@@ -192,17 +203,46 @@ class FreeRegisterProvider internal constructor(
 fun Method.findFreeRegister(
     startIndex: Int,
     vararg registersToExclude: Int
-) = findFreeRegisters(startIndex, registersToExclude.toList()).first()
+) = findFreeRegisters(
+    startIndex = startIndex,
+    maxFreeRegistersToFind = 1,
+    registersToExclude = registersToExclude.toList()
+).first()
+
+/**
+ * Starting from and including the instruction at index [startIndex],
+ * finds the next register that is written to and not read from. If a return instruction
+ * is encountered, then the lowest unused register is returned.
+ *
+ * This method can return a non 4-bit register, and the calling code may need to temporarily
+ * swap register contents if a 4-bit register is required.
+ *
+ * @param startIndex Inclusive starting index.
+ * @param registersToExclude Registers to exclude, and consider as used. For most use cases,
+ *                           all registers used in injected code should be specified.
+ * @return The lowest register number (usually a 4-bit register) that is free at the given index.
+ * @throws IllegalArgumentException If no free registers exist at the given index.
+ * @see [FreeRegisterProvider]
+ */
+fun Method.findFreeRegister(
+    startIndex: Int,
+    registersToExclude: List<Int>
+) = findFreeRegisters(
+    startIndex = startIndex,
+    maxFreeRegistersToFind = 1,
+    registersToExclude = registersToExclude
+).first()
 
 private fun Method.findFreeRegisters(
     startIndex: Int,
+    maxFreeRegistersToFind: Int,
     registersToExclude: List<Int>
 ): List<Int> {
-    // Build an array of instruction index to code offset.
     val offsetArray = buildInstructionOffsetArray()
 
     val freeRegisters = findFreeRegistersInternal(
         startIndex = startIndex,
+        maxFreeRegisters = maxFreeRegistersToFind,
         maxDepth = 2, // Follow branches up to 2 levels deep.
         currentDepth = 0,
         visitedIndices = mutableSetOf(),
@@ -302,6 +342,7 @@ private fun Method.getBranchTargets(
  */
 private fun Method.findFreeRegistersInternal(
     startIndex: Int,
+    maxFreeRegisters: Int,
     maxDepth: Int,
     currentDepth: Int,
     visitedIndices: MutableSet<Int>,
@@ -343,6 +384,7 @@ private fun Method.findFreeRegistersInternal(
             // If it appears more than once, it's also read.
             if (occurrences <= 1) {
                 freeRegisters.add(writeRegister)
+                if (freeRegisters.size >= maxFreeRegisters) return freeRegisters.toList()
             }
         }
 
@@ -354,7 +396,7 @@ private fun Method.findFreeRegistersInternal(
             val allRegisters = (0 until implementation!!.registerCount).toSet()
             val unusedRegisters = allRegisters - usedRegisters
             freeRegisters.addAll(unusedRegisters)
-            break
+            return freeRegisters.take(maxFreeRegisters).toList()
         }
 
         if (instruction.isBranchInstruction) {
@@ -385,26 +427,30 @@ private fun Method.findFreeRegistersInternal(
 
     // If we encountered branches and we can follow them, collect free registers from all paths.
     if (encounteredBranch && currentDepth < maxDepth && branchTargets.isNotEmpty()) {
-        val allFreeRegisters = mutableSetOf<Int>()
-        allFreeRegisters.addAll(freeRegisters)
+        var commonFreeRegisters: Set<Int>? = null
 
         for (targetIndex in branchTargets) {
             val targetFreeRegisters = findFreeRegistersInternal(
                 startIndex = targetIndex,
+                maxFreeRegisters = maxFreeRegisters,
                 maxDepth = maxDepth,
                 currentDepth = currentDepth + 1,
                 visitedIndices = visitedIndices.toMutableSet(), // New set for each branch.
                 visitedBranches = visitedBranches,
-                registersToExclude = usedRegisters,
+                registersToExclude = usedRegisters + freeRegisters,
                 offsetArray = offsetArray
-            )
-            allFreeRegisters.addAll(targetFreeRegisters)
+            ).toSet()
+
+            commonFreeRegisters = commonFreeRegisters
+                ?.intersect(targetFreeRegisters) ?: targetFreeRegisters
+
+            if (commonFreeRegisters.size >= maxFreeRegisters) break
         }
 
-        return allFreeRegisters.toList()
+        return (commonFreeRegisters ?: freeRegisters).take(maxFreeRegisters).toList()
     }
 
-    return freeRegisters.toList()
+    return freeRegisters.take(maxFreeRegisters).toList()
 }
 
 /**
@@ -432,27 +478,6 @@ private fun Method.findInstructionIndexByOffset(
     )
     return null
 }
-
-/**
- * Starting from and including the instruction at index [startIndex],
- * finds the next register that is written to and not read from. If a return instruction
- * is encountered, then the lowest unused register is returned.
- *
- * This method can return a non 4-bit register, and the calling code may need to temporarily
- * swap register contents if a 4-bit register is required.
- *
- * @param startIndex Inclusive starting index.
- * @param registersToExclude Registers to exclude, and consider as used. For most use cases,
- *                           all registers used in injected code should be specified.
- * @return The lowest register number (usually a 4-bit register) that is free at the given index.
- * @throws IllegalArgumentException If no free registers exist at the given index.
- * @see [FreeRegisterProvider]
- */
-fun Method.findFreeRegister(
-    startIndex: Int,
-    registersToExclude: List<Int>
-) = findFreeRegisters(startIndex, registersToExclude).first()
-
 
 /**
  * @return The registers used by this instruction.

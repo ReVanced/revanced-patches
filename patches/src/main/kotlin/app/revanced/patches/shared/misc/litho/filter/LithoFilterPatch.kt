@@ -200,7 +200,7 @@ internal fun lithoFilterPatch(
         componentCreateMethod.apply {
             val insertIndex = componentCreateInsertionIndex()
 
-            val registerProvider = getFreeRegisterProvider(insertIndex)
+            val registerProvider = getFreeRegisterProvider(insertIndex, 3)
             val freeRegister = registerProvider.getFreeRegister()
             val identifierRegister = registerProvider.getFreeRegister()
             val pathRegister = registerProvider.getFreeRegister()
@@ -227,6 +227,7 @@ internal fun lithoFilterPatch(
             // Set checkBranch to false and use the 'findFreeRegister' function.
             val accessibilityRegisterProvider = getFreeRegisterProvider(
                 nullCheckIndex,
+                2,
                 registerProvider.getUsedAndExcludedRegisters()
             )
             val accessibilityIdRegister = accessibilityRegisterProvider.getFreeRegister()

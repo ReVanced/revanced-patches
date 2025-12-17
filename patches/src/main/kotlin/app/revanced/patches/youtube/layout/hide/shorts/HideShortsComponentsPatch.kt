@@ -203,7 +203,7 @@ val hideShortsComponentsPatch = bytecodePatch(
                 val insertIndex = implementation!!.instructions.lastIndex
                 val listRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                val registerProvider = getFreeRegisterProvider(insertIndex)
+                val registerProvider = getFreeRegisterProvider(insertIndex, 2)
                 val freeRegister = registerProvider.getFreeRegister()
                 val pathRegister = registerProvider.getFreeRegister()
 
