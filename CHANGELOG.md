@@ -1,3 +1,10 @@
+# [5.47.0-dev.18](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.17...v5.47.0-dev.18) (2025-12-18)
+
+
+### Features
+
+* **Disney+ - SkipAds:** Add other package names the patch is compatible with ([#6372](https://github.com/ReVanced/revanced-patches/issues/6372)) ([1f4f252](https://github.com/ReVanced/revanced-patches/commit/1f4f252c81e9a89267f6e37548e66027b1bc1a1a))
+
 # [5.47.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.16...v5.47.0-dev.17) (2025-12-18)
 
 
