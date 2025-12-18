@@ -282,6 +282,9 @@ Gjithsesi, aktivizimi i këtij opsioni do të regjistrojë edhe disa të dhëna 
   <string name="revanced_hide_video_recommendation_labels_title">Fshih etiketat e rekomandimeve të videos.</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">Etiketat \"Njerëzit panë gjithashtu\" dhe \"Mund të pëlqeni gjithashtu\" në rezultatet e kërkimit janë të fshehura.</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">Etiketat \"Njerëzit panë gjithashtu\" dhe \"Mund të pëlqeni gjithashtu\" në rezultatet e kërkimit shfaqen.</string>
+  <string name="revanced_hide_visual_spacer_title">Fshi ndarësin vizual</string>
+  <string name="revanced_hide_visual_spacer_summary_on">Ndarësi vizual është fshehur</string>
+  <string name="revanced_hide_visual_spacer_summary_off">Ndarësi vizual është shfaqur</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Fsheh YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">Animacioni \"Doodles\" i YouTube në logo është i fshehur.</string>
@@ -342,18 +345,21 @@ Nëse një Doodle po shfaqet aktualisht në rajonin tuaj dhe kjo fshehje është
   <string name="revanced_hide_podcast_section_title">Fshih \'Eksploro podkastin\'</string>
   <string name="revanced_hide_podcast_section_summary_on">Seksioni eksploro podkastin është i fshehur</string>
   <string name="revanced_hide_podcast_section_summary_off">Seksioni eksploro podkastin është i shfaqur</string>
-  <string name="revanced_hide_featured_section_title">Fshi përmbajtjen e veçuar</string>
-  <string name="revanced_hide_featured_section_summary_on">Seksioni i përmbajtjes së veçuar është fshehur</string>
-  <string name="revanced_hide_featured_section_summary_off">Seksioni i përmbajtjes së veçuar është shfaqur</string>
+  <string name="revanced_hide_featured_links_section_title">Fsheh lidhjet e veçuara</string>
+  <string name="revanced_hide_featured_links_section_summary_on">Seksioni i lidhjeve të veçuara është fshehur</string>
+  <string name="revanced_hide_featured_links_section_summary_off">Seksioni i lidhjeve të veçuara është shfaqur</string>
+  <string name="revanced_hide_featured_videos_section_title">Fshi videot e veçuara</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">Seksioni i videove të veçuara është fshehur</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">Seksioni i videove të veçuara është shfaqur</string>
   <string name="revanced_hide_info_cards_section_title">Fshih kartat e informacionit</string>
   <string name="revanced_hide_info_cards_section_summary_on">Seksioni i kartave informative është i fshehur</string>
   <string name="revanced_hide_info_cards_section_summary_off">Seksioni i kartave informative është i dukshme</string>
   <string name="revanced_hide_key_concepts_section_title">Fshih \'Konceptet kryesore\'</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Seksioni i koncepteve kryesore është i fshehur</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Seksioni i koncepteve kryesore është i shfaqur</string>
-  <string name="revanced_hide_description_subscribe_button_title">Fshi butonin Abonohu</string>
-  <string name="revanced_hide_description_subscribe_button_summary_on">Butoni i abonimit është i fshehur</string>
-  <string name="revanced_hide_description_subscribe_button_summary_off">Butoni i abonimit është i shfaqur</string>
+  <string name="revanced_hide_subscribe_button_title">Fshi butonin Abonohu</string>
+  <string name="revanced_hide_subscribe_button_summary_on">Butoni Abonohu është fshehur</string>
+  <string name="revanced_hide_subscribe_button_summary_off">Butoni Abonohu është shfaqur</string>
   <string name="revanced_hide_transcript_section_title">Fshih Transkriptin</string>
   <string name="revanced_hide_transcript_section_summary_on">Seksioni i Shkrimit është i fshehur</string>
   <string name="revanced_hide_transcript_section_summary_off">Seksioni i Shkrimit është i dukshme</string>
@@ -375,24 +381,32 @@ Nëse një Doodle po shfaqet aktualisht në rajonin tuaj dhe kjo fshehje është
   <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Shfaqur në historikun e shikimeve</string>
   <string name="revanced_channel_screen_title">Faqja e kanalit</string>
   <string name="revanced_channel_screen_summary">Fshih ose shfaq komponentët e faqes së kanalit</string>
+  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_community_button_title">Fshi butonin Komuniteti</string>
+  <string name="revanced_hide_community_button_summary_on">Butoni i komunitetit është fshehur</string>
+  <string name="revanced_hide_community_button_summary_off">Butoni i komunitetit shfaqet</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Fshih raftin \"Për ju\"</string>
   <string name="revanced_hide_for_you_shelf_summary_on">Rafti Për Ju është fshehur</string>
   <string name="revanced_hide_for_you_shelf_summary_off">Rafti Për Ju është shfaqur</string>
+  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_join_button_title">Fsheh butonin Bashkohu</string>
+  <string name="revanced_hide_join_button_summary_on">Butoni Bashkohu është fshehur</string>
+  <string name="revanced_hide_join_button_summary_off">Butoni Bashkohu shfaqet</string>
   <string name="revanced_hide_links_preview_title">Fshih pamjen paraprake të lidhjeve</string>
   <string name="revanced_hide_links_preview_summary_on">Pamja paraprake e lidhjeve është fshehur</string>
   <string name="revanced_hide_links_preview_summary_off">Pamja paraprake e lidhjeve është shfaqur</string>
   <string name="revanced_hide_members_shelf_title">Fshih raftin e anëtarëve</string>
   <string name="revanced_hide_members_shelf_summary_on">Rafti i anëtarëve është fshehur</string>
   <string name="revanced_hide_members_shelf_summary_off">Rafti i anëtarëve shfaqet</string>
-  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">Fsheh butonin \"Vizito Komunitetin\"</string>
-  <string name="revanced_hide_visit_community_button_summary_on">Butoni \"Vizito Komunitetin\" është i fshehur</string>
-  <string name="revanced_hide_visit_community_button_summary_off">Butoni Vizito Komunitetin është shfaqur</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Fsheh butonin \"Vizito dyqanin\" në faqet e kanaleve</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Butoni Vizito dyqanin është fshehur</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Butoni Vizito dyqanin është shfaqur</string>
+  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_store_button_title">Fsheh butonin Dyqan</string>
+  <string name="revanced_hide_store_button_summary_on">Butoni Dyqan është fshehur</string>
+  <string name="revanced_hide_store_button_summary_off">Butoni Dyqan shfaqet</string>
+  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_subscribe_button_in_channel_page_title">Fsheh butonin Abonohu</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Butoni Abonohu është fshehur</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Butoni Abonohu shfaqet</string>
   <string name="revanced_comments_screen_title">Komentet</string>
   <string name="revanced_comments_screen_summary">Fshi ose shfaq komponentët e seksionit të komenteve</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Fshih përmbledhjen e bisedës me AI</string>
@@ -534,11 +548,11 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_share_copy_url_success">URL u kopjua në shkëmbim</string>
   <string name="revanced_share_copy_url_timestamp_success">URL me kohëzgjatje u kopjua</string>
   <string name="revanced_copy_video_url_title">Shfaq butonin e kopjimit të URL-së së videos</string>
-  <string name="revanced_copy_video_url_summary_on">Butoni shfaqet. Trokitni për të kopjuar URL-në e videos. Trokitni dhe mbani për të kopjuar me vulë kohore</string>
-  <string name="revanced_copy_video_url_summary_off">Butoni nuk shfaqet</string>
+  <string name="revanced_copy_video_url_summary_on">Butoni \"Kopjo URL-në e videos\" shfaqet. Prekni për të kopjuar URL-në e videos. Prekni dhe mbani shtypur për të kopjuar me vulë kohore</string>
+  <string name="revanced_copy_video_url_summary_off">Butoni \"Kopjo URL-në e videos\" nuk shfaqet</string>
   <string name="revanced_copy_video_url_timestamp_title">Shfaq butonin \"Kopjo URL-në me vulë kohe\"</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Butoni shfaqet. Trokitni për të kopjuar URL-në e videos me vulë kohore. Trokitni dhe mbani për të kopjuar pa vulë kohore</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">Butoni nuk shfaqet</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Butoni \"Kopjo URL-në me vulë kohore\" shfaqet. Prekni për të kopjuar URL-në e videos me vulë kohore. Prekni dhe mbani shtypur për të kopjuar pa vulë kohore</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Butoni \"Kopjo URL-në me vulë kohore\" nuk shfaqet</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Hiq kutinë e dialogut \"Diskrecioni i shikuesit\"</string>
@@ -547,7 +561,7 @@ Kjo veçori është e disponueshme vetëm për pajisje më të vjetra"</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Kjo nuk e anashkalon kufizimin e moshës. Thjesht e pranon atë automatikisht.</string>
   </patch>
   <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-  <string name="revanced_disable_signin_to_tv_popup_title">Çaktivizo dritaren kërcyese Hyr në TV</string>
+  <string name="revanced_disable_signin_to_tv_popup_title">Çaktivizo dritaren kërcyese \"Hyni në TV\"</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_on">Dritarja kërcyese Hyr në TV është çaktivizuar</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_off">Dritarja kërcyese Hyr në TV është aktivizuar</string>
   </patch>
@@ -679,7 +693,7 @@ Përshtate shkëlqimin duke rrëshqitur vertikalisht në anën e majtë të ekra
   <string name="revanced_hide_download_button_summary_on">Butoni \"Shkarko\" është i fshehur</string>
   <string name="revanced_hide_download_button_summary_off">Butoni \"Shkarko\" është i dukshëm</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
   <string name="revanced_hide_hype_button_title">Fsheh Zhurmën</string>
   <string name="revanced_hide_hype_button_summary_on">Butoni Hype është i fshehur</string>
   <string name="revanced_hide_hype_button_summary_off">Butoni Hype është i shfaqur</string>
@@ -800,10 +814,11 @@ Nëse ndryshimi i këtij konfigurimi nuk ka efekt, provoni të kaloni në modali
   <string name="revanced_hide_player_flyout_audio_track_title">Fsheh \"Shina e audios\"</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menyja \"Shina e audios\" është e fshehur</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menyja \"Shina e audios\" është e dukshme</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Menyja e gjurmës audio është e fshehur
 
-Për të shfaqur menynë e gjurmës audio, ndryshoje 'Falsifiko transmetimet video' në iPadOS"</string>
+Për të shfaqur menynë e gjurmës audio, ndryshoje 'Falsifiko transmetimet video' në 'Android No SDK'"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Fsheh \"Shikoni në VR\"</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Menyja \"Shikoni në VR\" është e fshehur</string>
@@ -879,13 +894,16 @@ Për të shfaqur menynë e gjurmës audio, ndryshoje 'Falsifiko transmetimet vid
   <string name="revanced_hide_shorts_history_title">Fsheh Shorts në historinë e shikimit</string>
   <string name="revanced_hide_shorts_history_summary_on">Fshehur në historinë e shikimit</string>
   <string name="revanced_hide_shorts_history_summary_off">Shfaqet në historinë e shikimit</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Fsheh butonin Falëndero Super Thanks</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">Fsheh etiketën \"Auto-dubluar\"</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Etiketa e dubluar automatikisht është fshehur</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Etiketa e dubluar automatikisht është shfaqur</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Fsheh butonin \"Blej Super Falënderime\"</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Butoni \"Blej Super Faleminderit\" është i fshehur.</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Butoni \"Blej Super Faleminderit\" shfaqet.</string>
   <string name="revanced_hide_shorts_effect_button_title">Fshih butonin Efekt</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Butoni i efektit është fshehur</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Butoni i efektit është shfaqur</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Fsheh butonin Ekran jeshil</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Fsheh butonin \"Ekran i gjelbër\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Butoni \"Ekrani i gjelbër\" është i fshehur</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Butoni \"Ekrani i gjelbër\" është i dukshëm</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Fsheh butonin \"Hashtag\"</string>
@@ -895,10 +913,13 @@ Për të shfaqur menynë e gjurmës audio, ndryshoje 'Falsifiko transmetimet vid
   <string name="revanced_hide_shorts_join_button_title">Fsheh butonin Bashko</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Butoni \"Bashkohu\" është i fshehur</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Butoni \"Bashkohu\" shfaqet</string>
+  <string name="revanced_hide_shorts_live_preview_title">Fshih pamjen paraprake të drejtpërdrejtë</string>
+  <string name="revanced_hide_shorts_live_preview_summary_on">Parashikimi direkt është i fshehur</string>
+  <string name="revanced_hide_shorts_live_preview_summary_off">Parashikimi direkt është i shfaqur</string>
   <string name="revanced_hide_shorts_location_label_title">Fsheh etiketën e vendndodhjes</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Etiketë e vendndodhjes është e fshehur</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Etiketë e vendndodhjes shfaqet</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Fshih butonin e postimeve të reja</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Fsheh butonin \"Postime të reja\"</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_on">Butoni i postimeve të reja është i fshehur</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_off">Butoni i postimeve të reja shfaqet</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Fsheh butonat e mbivendosjes së ndalimit</string>
@@ -907,7 +928,7 @@ Për të shfaqur menynë e gjurmës audio, ndryshoje 'Falsifiko transmetimet vid
   <string name="revanced_hide_shorts_preview_comment_title">Fshih komentin e shikimit paraprak</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">Komenti i shikimit paraprak është i fshehur</string>
   <string name="revanced_hide_shorts_preview_comment_summary_off">Parashikimi i komentit shfaqet</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Fsheh butonin Ruaj muzikën</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Fsheh butonin \"Ruaj muzikën\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Butoni \"Ruaj muzikën\" është i fshehur</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Butoni \"Ruaj muzikën\" shfaqet</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Fsheh sugjerimet e kërkimit</string>
@@ -928,10 +949,10 @@ Për të shfaqur menynë e gjurmës audio, ndryshoje 'Falsifiko transmetimet vid
   <string name="revanced_hide_shorts_upcoming_button_title">Fshih butonin Në vazhdim</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Butoni \"Të ardhshme\" është i fshehur</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Butoni \"Të ardhshme\" është i dukshëm</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Fshih butonin Përdor këtë tingull</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Fsheh butonin \"Përdor këtë tingull\"</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_on">Butoni Përdor këtë tingull është fshehur</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_off">Butoni Përdor këtë tingull është shfaqur</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Fshih butonin Përdor këtë shabllon</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Fsheh butonin \"Përdor këtë shabllon\"</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Butoni Përdor këtë shabllon është fshehur</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Butoni Përdor këtë shabllon është shfaqur</string>
   <string name="revanced_hide_shorts_like_fountain_title">Fshih animacionin e shpërdërjes së Të Pëlqejt</string>
@@ -1572,13 +1593,13 @@ Aktivizimi i kësaj mund të zhbllokojë cilësi më të larta video"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Shfaq butonin e dialogut të shpejtësisë</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Butoni shfaqet. Prekni dhe mbani për të rivendosur shpejtësinë e riprodhimit në atë të parazgjedhur</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">Butoni nuk shfaqet</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Butoni i dialogut të shpejtësisë shfaqet. Prekni dhe mbani shtypur për të rivendosur shpejtësinë e luajtjes në parazgjedhur</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Butoni i dialogut të shpejtësisë nuk shfaqet</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Shfaq butonin e cilësisë së videos</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Butoni shfaqet. Prekni dhe mbani shtypur për të rivendosur cilësinë në parazgjedhur</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">Butoni nuk shfaqet</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Butoni i cilësisë së videos shfaqet. Prekni dhe mbani shtypur për të rivendosur cilësinë në parazgjedhur</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Butoni i cilësisë së videos nuk shfaqet</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Menyja e shpejtësisë së përsëritjes së përshtatshme</string>

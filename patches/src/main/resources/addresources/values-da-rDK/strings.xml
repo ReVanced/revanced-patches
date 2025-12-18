@@ -282,6 +282,9 @@ Aktivering af dette vil dog også logge nogle brugerdata, såsom din IP-adresse.
   <string name="revanced_hide_video_recommendation_labels_title">Skjul etiketter for videoanbefalinger</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">\'Folk har også set\'- og \'Du vil måske også synes om\'-etiketter i søgeresultater er skjult</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">\'Folk har også set\'- og \'Du vil måske også synes om\'-etiketter i søgeresultater vises</string>
+  <string name="revanced_hide_visual_spacer_title">Skjul visuelt mellemrum</string>
+  <string name="revanced_hide_visual_spacer_summary_on">Visuelt mellemrum er skjult</string>
+  <string name="revanced_hide_visual_spacer_summary_off">Visuelt mellemrum vises</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Skjul YouTube-Doudler</string>
   <string name="revanced_hide_doodles_summary_on">YouTube Doodles-animation på logoet er skjult</string>
@@ -342,18 +345,21 @@ Hvis et Doodle vises i øjeblikket i din region, og denne skjuleindstilling er a
   <string name="revanced_hide_podcast_section_title">Skjul \"Udforsk podcasten\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Sektionen Udforsk podcasten er skjult</string>
   <string name="revanced_hide_podcast_section_summary_off">Sektionen Udforsk podcasten vises</string>
-  <string name="revanced_hide_featured_section_title">Skjul fremhævet indhold</string>
-  <string name="revanced_hide_featured_section_summary_on">Sektionen for fremhævet indhold er skjult</string>
-  <string name="revanced_hide_featured_section_summary_off">Sektionen for fremhævet indhold er vist</string>
+  <string name="revanced_hide_featured_links_section_title">Skjul fremhævede links</string>
+  <string name="revanced_hide_featured_links_section_summary_on">Sektionen med fremhævede links er skjult</string>
+  <string name="revanced_hide_featured_links_section_summary_off">Sektionen med fremhævede links er vist</string>
+  <string name="revanced_hide_featured_videos_section_title">Skjul fremhævede videoer</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">Sektionen med fremhævede videoer er skjult</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">Sektionen med fremhævede videoer er vist</string>
   <string name="revanced_hide_info_cards_section_title">Skjul infokort</string>
   <string name="revanced_hide_info_cards_section_summary_on">Info-kort sektion er skjult</string>
   <string name="revanced_hide_info_cards_section_summary_off">Info-kort sektion er vist</string>
   <string name="revanced_hide_key_concepts_section_title">Skjul \"Nøglebegreber\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Nøglebegrebssektionen er skjult</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Nøglebegrebssektionen vises</string>
-  <string name="revanced_hide_description_subscribe_button_title">Skjul abonnér-knap</string>
-  <string name="revanced_hide_description_subscribe_button_summary_on">Abonnér-knappen er skjult</string>
-  <string name="revanced_hide_description_subscribe_button_summary_off">Abonnér-knappen vises</string>
+  <string name="revanced_hide_subscribe_button_title">Skjul abonner-knappen</string>
+  <string name="revanced_hide_subscribe_button_summary_on">Abonner-knappen er skjult</string>
+  <string name="revanced_hide_subscribe_button_summary_off">Abonner-knappen er vist</string>
   <string name="revanced_hide_transcript_section_title">Skjul udskrift</string>
   <string name="revanced_hide_transcript_section_summary_on">Afsnittet er skjult</string>
   <string name="revanced_hide_transcript_section_summary_off">Afsnittet er vist</string>
@@ -375,24 +381,32 @@ Hvis et Doodle vises i øjeblikket i din region, og denne skjuleindstilling er a
   <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Vist i seerhistorik</string>
   <string name="revanced_channel_screen_title">Kanalside</string>
   <string name="revanced_channel_screen_summary">Skjul eller vis kanalsidekomponenter</string>
+  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_community_button_title">Skjul knappen Fællesskab</string>
+  <string name="revanced_hide_community_button_summary_on">Fællesskabs-knap er skjult</string>
+  <string name="revanced_hide_community_button_summary_off">Fællesskabs-knap vises</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Skjul hylden \"Til dig\"</string>
   <string name="revanced_hide_for_you_shelf_summary_on">Til dig-hylden er skjult</string>
   <string name="revanced_hide_for_you_shelf_summary_off">Til dig-hylden er vist</string>
+  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_join_button_title">Skjul Tilmeld-knap</string>
+  <string name="revanced_hide_join_button_summary_on">Tilmeld-knap er skjult</string>
+  <string name="revanced_hide_join_button_summary_off">Tilmeld-knap vises</string>
   <string name="revanced_hide_links_preview_title">Skjul forhåndsvisning af links</string>
   <string name="revanced_hide_links_preview_summary_on">Forhåndsvisning af links er skjult</string>
   <string name="revanced_hide_links_preview_summary_off">Forhåndsvisning af links er vist</string>
   <string name="revanced_hide_members_shelf_title">Skjul medlemshylden</string>
   <string name="revanced_hide_members_shelf_summary_on">Medlemshylden er skjult</string>
   <string name="revanced_hide_members_shelf_summary_off">Medlemsvisning er vist</string>
-  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">Skjul knappen \"Besøg fællesskab\"</string>
-  <string name="revanced_hide_visit_community_button_summary_on">Knappen \"Besøg fællesskab\" er skjult</string>
-  <string name="revanced_hide_visit_community_button_summary_off">Besøg fællesskab-knap er vist</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Skjul knappen \'Besøg butik\' på kanalsider</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Besøg butik-knap er skjult</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Besøg butik-knap er vist</string>
+  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_store_button_title">Skjul Butik-knap</string>
+  <string name="revanced_hide_store_button_summary_on">Butik-knap er skjult</string>
+  <string name="revanced_hide_store_button_summary_off">Butik-knap vises</string>
+  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_subscribe_button_in_channel_page_title">Skjul Abonner-knap</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Abonner-knap er skjult</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Abonner-knap vises</string>
   <string name="revanced_comments_screen_title">Kommentarer</string>
   <string name="revanced_comments_screen_summary">Skjul eller vis kommentarer sektion komponenter</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Skjul AI-chatsammendrag</string>
@@ -534,11 +548,11 @@ Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_share_copy_url_success">URL kopieret til udklipsholder</string>
   <string name="revanced_share_copy_url_timestamp_success">URL med tidsstempel kopieret</string>
   <string name="revanced_copy_video_url_title">Vis kopiér video URL knap</string>
-  <string name="revanced_copy_video_url_summary_on">Knappen vises. Tryk for at kopiere videoens URL. Tryk og hold for at kopiere med tidsstempel</string>
-  <string name="revanced_copy_video_url_summary_off">Knap vises ikke</string>
+  <string name="revanced_copy_video_url_summary_on">Kopier video-URL-knap vises. Tryk for at kopiere video-URL. Tryk og hold nede for at kopiere med tidsstempel</string>
+  <string name="revanced_copy_video_url_summary_off">Kopier video-URL-knap vises ikke</string>
   <string name="revanced_copy_video_url_timestamp_title">Vis kopi tidsstempel URL knap</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Knappen vises. Tryk for at kopiere videoens URL med tidsstempel. Tryk og hold for at kopiere uden tidsstempel</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">Knap vises ikke</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Kopier tidsstempel-URL-knap vises. Tryk for at kopiere video-URL med tidsstempel. Tryk og hold nede for at kopiere uden tidsstempel</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Kopier tidsstempel-URL-knap vises ikke</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Fjern visningsdialog</string>
@@ -547,7 +561,7 @@ Denne funktion er kun tilgængelig for ældre enheder"</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Dette går ikke uden om aldersbegrænsningen. Det accepterer bare det automatisk.</string>
   </patch>
   <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-  <string name="revanced_disable_signin_to_tv_popup_title">Deaktiver log ind på TV-pop op</string>
+  <string name="revanced_disable_signin_to_tv_popup_title">Deaktiver \'Log ind på TV\'-popup</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_on">Log ind på TV-pop op er deaktiveret</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_off">Log ind på TV-pop op er aktiveret</string>
   </patch>
@@ -679,7 +693,7 @@ Juster lydstyrken ved at swipe lodret i højre side af skærmen"</string>
   <string name="revanced_hide_download_button_summary_on">Download-knappen er skjult</string>
   <string name="revanced_hide_download_button_summary_off">Download-knappen vises</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
   <string name="revanced_hide_hype_button_title">Skjul Hype</string>
   <string name="revanced_hide_hype_button_summary_on">Hype-knappen er skjult</string>
   <string name="revanced_hide_hype_button_summary_off">Hype-knappen vises</string>
@@ -800,10 +814,11 @@ Hvis ændring af denne indstilling ikke træder i kraft, kan du prøve at skifte
   <string name="revanced_hide_player_flyout_audio_track_title">Skjul lydspor</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Menuen for lydspor er skjult</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Menuen Lydspor vises</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_hide_player_flyout_audio_track_not_available">"Lydsporsmenuen er skjult
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
+  <string name="revanced_hide_player_flyout_audio_track_not_available">"Audiorspormenuen er skjult
 
-For at vise lydsporsmenuen, skift 'Spoof videostreams' til iPadOS"</string>
+For at vise audiospormenuen, skift 'Maskér videostreams' til 'Android No SDK'"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Skjul vagt i VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Se i VR-menuen er skjult</string>
@@ -879,13 +894,16 @@ For at vise lydsporsmenuen, skift 'Spoof videostreams' til iPadOS"</string>
   <string name="revanced_hide_shorts_history_title">Skjul shorts i historik</string>
   <string name="revanced_hide_shorts_history_summary_on">Skjult i historikken</string>
   <string name="revanced_hide_shorts_history_summary_off">Vises i historik</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Skjul knappen Køb Super Thanks</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">Skjul \'Auto-dubbet\'-etiket</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Automatisk dubbet etiket er skjult</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Automatisk dubbet etiket vises</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Skjul \'Køb Super Thanks\'-knap</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Køb Super Thanks-knap er skjult</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Køb Super Thanks-knap vises</string>
   <string name="revanced_hide_shorts_effect_button_title">Skjul effektknap</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Effektknap er skjult</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Effektknap er vist</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Skjul knappen Grøn skærm</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Skjul \'Green screen\'-knap</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Grøn skærmknap er skjult</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Grøn skærmknap vises</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Skjul hashtag knap</string>
@@ -895,10 +913,13 @@ For at vise lydsporsmenuen, skift 'Spoof videostreams' til iPadOS"</string>
   <string name="revanced_hide_shorts_join_button_title">Skjul knappen Deltag</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Deltag-knappen er skjult</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Tilmeldingsknappen vises</string>
+  <string name="revanced_hide_shorts_live_preview_title">Skjul live forhåndsvisning</string>
+  <string name="revanced_hide_shorts_live_preview_summary_on">Live-forhåndsvisning er skjult</string>
+  <string name="revanced_hide_shorts_live_preview_summary_off">Live-forhåndsvisning vises</string>
   <string name="revanced_hide_shorts_location_label_title">Skjul placeringsetiket</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Placeringsetiket er skjult</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Placeringsetiket er vist</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Skjul knappen Nye indlæg</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Skjul \'Nye indlæg\'-knap</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_on">Knappen Nye indlæg er skjult</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_off">Knappen Nye indlæg vises</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Skjul overlay knapper på pause</string>
@@ -907,7 +928,7 @@ For at vise lydsporsmenuen, skift 'Spoof videostreams' til iPadOS"</string>
   <string name="revanced_hide_shorts_preview_comment_title">Skjul forhåndsvisning af kommentar</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">Forhåndsvisning af kommentar er skjult</string>
   <string name="revanced_hide_shorts_preview_comment_summary_off">Forhåndsvisningskommentar vises</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Skjul knappen Gem musik</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Skjul \'Gem musik\'-knap</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">Gem musik knap er skjult</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">Gem musik knap er vist</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Skjul søgeforslag</string>
@@ -928,10 +949,10 @@ For at vise lydsporsmenuen, skift 'Spoof videostreams' til iPadOS"</string>
   <string name="revanced_hide_shorts_upcoming_button_title">Skjul knappen Kommende</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Kommende knap er skjult</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Kommende knap vises</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Skjul knappen \"Brug denne lyd\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Skjul \'Brug denne lyd\'-knap</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_on">Knappen \"Brug denne lyd\" er skjult</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_off">Knappen \"Brug denne lyd\" vises</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Skjul knappen Brug denne skabelon</string>
+  <string name="revanced_hide_shorts_use_template_button_title">Skjul \'Brug denne skabelon\'-knap</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Knappen \"Brug denne skabelon\" er skjult</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Knappen Brug denne skabelon vises</string>
   <string name="revanced_hide_shorts_like_fountain_title">Skjul knap for springvand-animation af like-knap</string>
@@ -1576,13 +1597,13 @@ Aktivering af dette kan låse op for højere videokvalitet"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Vis hastigheds dialogknap</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Knappen vises. Tryk og hold for at nulstille afspilningshastigheden til standard.</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">Knap vises ikke</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Hastighedsdialogknap vises. Tryk og hold nede for at nulstille afspilningshastigheden til standard</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Hastighedsdialogknap vises ikke</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Vis videokvalitetsknap</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Knap vises. Tryk og hold nede for at nulstille kvaliteten til standard</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">Knappen vises ikke</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Videokvalitetsknap vises. Tryk og hold nede for at nulstille kvaliteten til standard</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Videokvalitetsknap vises ikke</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Tilpasset afspilningshastighed menu</string>

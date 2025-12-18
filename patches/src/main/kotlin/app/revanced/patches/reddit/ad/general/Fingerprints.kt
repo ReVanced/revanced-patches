@@ -12,6 +12,5 @@ internal val adPostFingerprint = fingerprint {
 
 internal val newAdPostFingerprint = fingerprint {
     opcodes(Opcode.INVOKE_VIRTUAL)
-    strings("chain", "feedElement")
-    custom { _, classDef -> classDef.sourceFile == "AdElementConverter.kt" }
+    strings("feedElement", "com.reddit.cookie")
 }

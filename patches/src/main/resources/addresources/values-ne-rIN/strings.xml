@@ -65,9 +65,11 @@ Second \"item\" text"</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <!-- 'Join' should be translated using the same localized wording YouTube displays.
                   This appears in the video player for certain videos. -->
+  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
-  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
+  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
   <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
   <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
@@ -111,7 +113,7 @@ Second \"item\" text"</string>
   <!-- 'Remix' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Download' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
   <!-- 'Promote' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Thanks' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Ask' should be translated with the same localized wording that YouTube displays.
@@ -138,7 +140,8 @@ Second \"item\" text"</string>
   <!-- 'Lock screen' should be translated using the same localized wording YouTube displays for the menu item. -->
   <!-- 'Listen with YouTube Music' should be translated using the same localized wording YouTube displays for the menu item. -->
   <!-- 'Audio track' should be translated using the same localized wording YouTube displays for the menu item. -->
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
