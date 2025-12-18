@@ -1,3 +1,10 @@
+# [5.47.0-dev.17](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.16...v5.47.0-dev.17) (2025-12-18)
+
+
+### Bug Fixes
+
+* **Reddit - Hide ads:** Update patch for new versions of Reddit ([#6342](https://github.com/ReVanced/revanced-patches/issues/6342)) ([f8bd123](https://github.com/ReVanced/revanced-patches/commit/f8bd1239cc0f0bd1c2dca39f846951bf512891e3))
+
 # [5.47.0-dev.16](https://github.com/ReVanced/revanced-patches/compare/v5.47.0-dev.15...v5.47.0-dev.16) (2025-12-15)
 
 
