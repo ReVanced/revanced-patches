@@ -97,7 +97,7 @@ Thank you for considering contributing to ReVanced Patches. You can find the con
 
 To build ReVanced Patches, you can follow the [ReVanced documentation](https://github.com/ReVanced/revanced-documentation).
 
-## 📜 Licence
+## 📜 License
 
 ReVanced Patches is licensed under the GPLv3 license. Please see the [license file](LICENSE) for more information.
 [tl;dr](https://www.tldrlegal.com/license/gnu-general-public-license-v3-gpl-3) you may copy, distribute and modify ReVanced Patches as long as you track changes/dates in source files.
