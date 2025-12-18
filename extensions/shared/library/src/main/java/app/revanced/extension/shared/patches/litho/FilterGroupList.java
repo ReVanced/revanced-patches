@@ -3,7 +3,6 @@ package app.revanced.extension.shared.patches.litho;
 import androidx.annotation.NonNull;
 
 import java.util.*;
-import java.util.function.Consumer;
 
 import app.revanced.extension.shared.ByteTrieSearch;
 import app.revanced.extension.shared.StringTrieSearch;
@@ -41,17 +40,6 @@ public abstract class FilterGroupList<V, T extends FilterGroup<V>> implements It
     @Override
     public Iterator<T> iterator() {
         return filterGroups.iterator();
-    }
-
-    @Override
-    public void forEach(@NonNull Consumer<? super T> action) {
-        filterGroups.forEach(action);
-    }
-
-    @NonNull
-    @Override
-    public Spliterator<T> spliterator() {
-        return filterGroups.spliterator();
     }
 
     public FilterGroup.FilterGroupResult check(V stack) {
