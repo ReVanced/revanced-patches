@@ -8,7 +8,11 @@ val skipAdsPatch = bytecodePatch(
     name = "Skip ads",
     description = "Automatically skips ads.",
 ) {
-    compatibleWith("com.disney.disneyplus")
+    compatibleWith(
+        "com.disney.disneyplus",
+        "in.startv.hotstar",
+        "in.startv.hotstaronly",
+    )
 
     execute {
         arrayOf(insertionGetPointsFingerprint, insertionGetRangesFingerprint).forEach {
