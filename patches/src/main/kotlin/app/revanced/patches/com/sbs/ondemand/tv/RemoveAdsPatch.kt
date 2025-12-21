@@ -2,6 +2,7 @@ package app.revanced.patches.com.sbs.ondemand.tv
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.shared.misc.pairip.license.disableLicenseCheckPatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
@@ -10,6 +11,7 @@ val removeAdsPatch = bytecodePatch(
     description = "Removes pre-roll, pause and on-demand advertisements from SBS On Demand TV.",
 ) {
     compatibleWith("com.sbs.ondemand.tv")
+    dependsOn(disableLicenseCheckPatch)
 
     execute {
         // Remove live TV advertisements
@@ -33,14 +35,6 @@ val removeAdsPatch = bytecodePatch(
             """
         )
 
-        // Bypass license verification to prevent crashes after merging split APKs
-        licenseContentProviderOnCreateFingerprint.method.returnEarly(true)
-        initializeLicenseCheckFingerprint.method.returnEarly()
 
-        // Fix Conviva analytics crashes by providing a valid heartbeat interval
-        // The app crashes when Conviva analytics can't get a proper heartbeat interval
-        // from the configuration, so we return a standard 30-second timeout to prevent
-        // null pointer exceptions and maintain analytics functionality
-        convivaConfigGetHBIntervalFingerprint.method.returnEarly(30000)
     }
 }

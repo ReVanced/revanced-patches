@@ -7,7 +7,7 @@ internal val shouldShowAdvertisingTVFingerprint = fingerprint {
     returns("Z")
     custom { method, classDef ->
         method.name == "getShouldShowAdvertisingTV" &&
-        classDef.type == "Lcom/sbs/ondemand/common/PreferencesStorage;"
+        classDef.type == "Lcom/sbs/ondemand/common/InMemoryStorage;"
     }
 }
 
@@ -21,35 +21,13 @@ internal val shouldShowPauseAdFingerprint = fingerprint {
 
 internal val requestAdStreamFingerprint = fingerprint {
     returns("V")
+    // Matching the method with .startsWith(), because the AntiSplit-M APK (using APKEditor)
+    // is adding variant suffix's to the method to be patched (eg. $player_googleStoreTvRelease)
+    // and it should work on any variant.
     custom { method, classDef ->
-        method.name == "requestAdStream" &&
+        method.name.startsWith("requestAdStream") &&
         classDef.type == "Lcom/sbs/ondemand/player/viewmodels/AdsController;"
     }
 }
 
-// License-related fingerprints
-internal val licenseContentProviderOnCreateFingerprint = fingerprint {
-    returns("Z")
-    custom { method, classDef ->
-        method.name == "onCreate" &&
-        classDef.type == "Lcom/pairip/licensecheck/LicenseContentProvider;"
-    }
-}
 
-internal val initializeLicenseCheckFingerprint = fingerprint {
-    returns("V")
-    custom { method, classDef ->
-        method.name == "initializeLicenseCheck" &&
-        classDef.type == "Lcom/pairip/licensecheck/LicenseClient;"
-    }
-}
-
-// Analytics-related fingerprints
-internal val convivaConfigGetHBIntervalFingerprint = fingerprint {
-    returns("I")
-    parameters("I")
-    custom { method, classDef ->
-        method.name == "getHBInterval" &&
-        classDef.type == "Lcom/conviva/utils/Config;"
-    }
-}
