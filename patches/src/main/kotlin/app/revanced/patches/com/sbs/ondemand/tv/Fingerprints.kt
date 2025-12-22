@@ -20,11 +20,8 @@ internal val shouldShowPauseAdFingerprint = fingerprint {
 
 internal val requestAdStreamFingerprint = fingerprint {
     returns("V")
-    // Matching the method with .startsWith(), because the AntiSplit-M APK (using APKEditor)
-    // is adding variant suffix's to the method to be patched (eg. $player_googleStoreTvRelease)
-    // and it should work on any variant.
     custom { method, classDef ->
-        method.name.startsWith("requestAdStream") &&
+        method.name == "requestAdStream\$player_googleStoreTvRelease" &&
         classDef.type == "Lcom/sbs/ondemand/player/viewmodels/AdsController;"
     }
 }
