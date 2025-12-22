@@ -24,7 +24,7 @@ val unlockSplitTunnelingPatch =
                 replaceInstruction(registerIndex, "const/4 v$register, 0x0")
             }
 
-            removeSplitTunnelingRestrictionFingerprint.method.apply {
+            initializeSplitTunnelingSettingsUIFingerprint.method.apply {
                 val initSettingsIndex = indexOfFirstInstructionOrThrow {
                     getReference<MethodReference>()?.name == "getSplitTunneling"
                 }

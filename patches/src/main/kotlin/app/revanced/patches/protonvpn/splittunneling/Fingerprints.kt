@@ -13,7 +13,7 @@ internal val enableSplitTunnelingUiFingerprint = fingerprint {
     )
 }
 
-internal val removeSplitTunnelingRestrictionFingerprint = fingerprint {
+internal val initializeSplitTunnelingSettingsUIFingerprint = fingerprint {
     custom { method, _ ->
         method.name == "applyRestrictions"
     }
