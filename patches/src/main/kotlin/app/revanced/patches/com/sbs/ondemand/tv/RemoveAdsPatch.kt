@@ -25,7 +25,8 @@ val removeAdsPatch = bytecodePatch(
         // 3. Exception triggers fallbackToAkamaiProvider() which loads actual content.
         // 4. This preserves the intended app flow: first try ads, then fail gracefully, then load content.
         requestAdStreamFingerprint.method.addInstructions(
-            0, """
+            0, 
+            """
                 new-instance v0, Ljava/lang/RuntimeException;
                 const-string v1, "Ad stream disabled"
                 invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
