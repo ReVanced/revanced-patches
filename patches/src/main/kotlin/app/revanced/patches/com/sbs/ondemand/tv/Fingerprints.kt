@@ -2,7 +2,6 @@ package app.revanced.patches.com.sbs.ondemand.tv
 
 import app.revanced.patcher.fingerprint
 
-// Advertisement-related fingerprints
 internal val shouldShowAdvertisingTVFingerprint = fingerprint {
     returns("Z")
     custom { method, classDef ->
@@ -29,5 +28,4 @@ internal val requestAdStreamFingerprint = fingerprint {
         classDef.type == "Lcom/sbs/ondemand/player/viewmodels/AdsController;"
     }
 }
-
 

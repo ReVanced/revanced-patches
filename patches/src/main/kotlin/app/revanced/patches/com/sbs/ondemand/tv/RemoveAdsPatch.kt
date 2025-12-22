@@ -14,18 +14,15 @@ val removeAdsPatch = bytecodePatch(
     dependsOn(disableLicenseCheckPatch)
 
     execute {
-        // Remove live TV advertisements
         shouldShowAdvertisingTVFingerprint.method.returnEarly(true)
-
-        // Remove pause screen advertisements
         shouldShowPauseAdFingerprint.method.returnEarly(false)
 
         // Remove on-demand pre-roll advertisements using exception handling
         // Exception handling is used instead of returnEarly() because:
-        // 1. returnEarly() causes black screen - app waits for ad content that never comes
-        // 2. SBS app has built-in exception handling in handleProviderFailure()
-        // 3. Exception triggers fallbackToAkamaiProvider() which loads actual content
-        // 4. This preserves the intended app flow: try ads → fail gracefully → load content
+        // 1. returnEarly() causes black screen - app waits for ad content that never comes.
+        // 2. SBS app has built-in exception handling in handleProviderFailure().
+        // 3. Exception triggers fallbackToAkamaiProvider() which loads actual content.
+        // 4. This preserves the intended app flow: try ads → fail gracefully → load content.
         requestAdStreamFingerprint.method.addInstructions(
             0, """
                 new-instance v0, Ljava/lang/RuntimeException;
@@ -34,7 +31,5 @@ val removeAdsPatch = bytecodePatch(
                 throw v0
             """
         )
-
-
     }
 }
