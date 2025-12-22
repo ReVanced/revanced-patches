@@ -11,6 +11,7 @@ val removeAdsPatch = bytecodePatch(
     description = "Removes pre-roll, pause and on-demand advertisements from SBS On Demand TV.",
 ) {
     compatibleWith("com.sbs.ondemand.tv")
+
     dependsOn(disableLicenseCheckPatch)
 
     execute {
