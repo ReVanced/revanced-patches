@@ -433,7 +433,7 @@ public final class LayoutComponentsFilter extends Filter {
      * Injection point.
      */
     public static boolean showWatermark() {
-        return !Settings.HIDE_VIDEO_CHANNEL_WATERMARK.get();
+        return !Settings.HIDE_CHANNEL_WATERMARK.get();
     }
 
     /**
