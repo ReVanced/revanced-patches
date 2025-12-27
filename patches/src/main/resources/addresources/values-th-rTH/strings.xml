@@ -21,7 +21,100 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
-  <string name="revanced_custom_branding_name_title">ชื่อแอป</string>
+  <string name="revanced_custom_branding_name_title">{
+  \"name\": \"ReVanced\",
+  \"about\": \"ReVanced was born out of Vanced\'s discontinuation and it is our goal to continue the legacy of what Vanced left behind. Thanks to ReVanced Patcher, it\'s possible to create lonhttps://www.youtube.com/@ReVanced\"g-lasting patches for nearly any Android app. ReVanced\'s patching system is designed to allow patches to work on new versions of the apps automatically with bare minimum maintenance.\",
+  \"keys\": \"https://api.revanced.app/keys\",
+  \"branding\": {
+    \"logo\": \"https://raw.githubusercontent.com/ReVanced/revanced-branding/main/assets/revanced-logo/revanced-logo.svg\"
+  },
+  \"contact\": {
+    \"email\": \"contact@revanced.app\"
+  },
+  \"socials\": [
+    {
+      \"name\": \"Website\",
+      \"url\": \"https://revanced.app\",
+      \"preferred\": true
+    },
+    {
+      \"name\": \"GitHub\",
+      \"url\": \"https://github.com/revanced\",
+      \"preferred\": false
+    },
+    {
+      \"name\": \"Twitter\",
+      \"url\": \"https://twitter.com/revancedapp\",
+      \"preferred\": false
+    },
+    {
+      \"name\": \"Discord\",
+      \"url\": \"https://revanced.app/discord\",
+      \"preferred\": true
+    },
+    {
+      \"name\": \"Reddit\",
+      \"url\": \"https://www.reddit.com/r/revancedapp\",
+      \"preferred\": false
+    },
+    {
+      \"name\": \"Telegram\",
+      \"url\": \"https://t.me/app_revanced\",
+      \"preferred\": false
+    },
+    {
+      \"name\": \"YouTube\",
+      \"url\": \"https://www.youtube.com/@ReVanced\",
+      \"preferred\": false
+    }
+  ],
+  \"donations\": {
+    \"wallets\": [
+      {
+        \"network\": \"Bitcoin\",
+        \"currency_code\": \"BTC\",
+        \"address\": \"bc1q4x8j6mt27y5gv0q625t8wkr87ruy8fprpy4v3f\",
+        \"preferred\": false
+      },
+      {
+        \"network\": \"Dogecoin\",
+        \"currency_code\": \"DOGE\",
+        \"address\": \"D8GH73rNjudgi6bS2krrXWEsU9KShedLXp\",
+        \"preferred\": true
+      },
+      {
+        \"network\": \"Ethereum\",
+        \"currency_code\": \"ETH\",
+        \"address\": \"0x7ab4091e00363654bf84B34151225742cd92FCE5\",
+        \"preferred\": false
+      },
+      {
+        \"network\": \"Litecoin\",
+        \"currency_code\": \"LTC\",
+        \"address\": \"LbJi8EuoDcwaZvykcKmcrM74jpjde23qJ2\",
+        \"preferred\": false
+      },
+      {
+        \"network\": \"Monero\",
+        \"currency_code\": \"XMR\",
+        \"address\": \"46YwWDbZD6jVptuk5mLHsuAmh1BnUMSjSNYacozQQEraWSQ93nb2yYVRHoMR6PmFYWEHsLHg9tr1cH5M8Rtn7YaaGQPCjSh\",
+        \"preferred\": false
+      }
+    ],
+    \"links\": [
+      {
+        \"name\": \"Open Collective\",
+        \"url\": \"https://opencollective.com/revanced\",
+        \"preferred\": true
+      },
+      {
+        \"name\": \"GitHub Sponsors\",
+        \"url\": \"https://github.com/sponsors/ReVanced\",
+        \"preferred\": false
+      }
+    ]
+  }
+}</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
   <string name="revanced_custom_branding_name_entry_5">กำหนดเอง</string>
   <string name="revanced_custom_branding_icon_title">ไอคอนแอป</string>

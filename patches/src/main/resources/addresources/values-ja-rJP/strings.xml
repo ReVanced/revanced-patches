@@ -77,13 +77,13 @@ Second \"item\" text"</string>
 • 検索では、大文字・小文字や句読点は無視される
 • 無効化されている下位設定の上には、その設定を無効化している上位設定が表示される"</string>
   <string name="revanced_settings_search_empty_history_title">検索履歴はありません</string>
-  <string name="revanced_settings_search_empty_history_summary">検索履歴を保存するには、検索クエリを入力して Enter キーを押してください</string>
+  <string name="revanced_settings_search_empty_history_summary">検索履歴を保存するには、検索クエリを入力して [Enter] キーを押してください</string>
   <string name="revanced_settings_search_history_title">設定の検索履歴を表示</string>
   <string name="revanced_settings_search_history_summary_on">設定の検索履歴は表示されます</string>
   <string name="revanced_settings_search_history_summary_off">設定の検索履歴は表示されません</string>
   <string name="revanced_show_menu_icons_title">ReVanced の設定にアイコンを表示</string>
-  <string name="revanced_show_menu_icons_summary_on">ReVanced の設定メニューにアイコンが表示されます</string>
-  <string name="revanced_show_menu_icons_summary_off">ReVanced の設定メニューにアイコンは表示されません</string>
+  <string name="revanced_show_menu_icons_summary_on">ReVanced の設定メニューにはアイコンが表示されます</string>
+  <string name="revanced_show_menu_icons_summary_off">ReVanced の設定メニューにはアイコンは表示されません</string>
   <string name="revanced_language_title">ReVanced 設定の言語</string>
   <string name="revanced_language_user_dialog_message">"一部の言語の翻訳が欠落しているまたは不完全である可能性があります。
 
@@ -282,8 +282,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_ticket_shelf_summary_off">チケット欄は表示されます</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_video_recommendation_labels_title">おすすめ動画のラベルを非表示</string>
-  <string name="revanced_hide_video_recommendation_labels_summary_on">「他の人はこの動画も視聴しています」ラベルと「あなたへのおすすめ」ラベルは検索結果に表示されません</string>
-  <string name="revanced_hide_video_recommendation_labels_summary_off">「他の人はこの動画も視聴しています」ラベルと「あなたへのおすすめ」ラベルは検索結果に表示されます</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_on">検索結果の「他の人はこの動画も視聴しています」ラベルと「あなたへのおすすめ」ラベルは表示されません</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_off">検索結果の「他の人はこの動画も視聴しています」ラベルと「あなたへのおすすめ」ラベルが表示されます</string>
   <string name="revanced_hide_visual_spacer_title">区切りのスペースを非表示</string>
   <string name="revanced_hide_visual_spacer_summary_on">コンポーネントを区切るためのスペースは表示されません</string>
   <string name="revanced_hide_visual_spacer_summary_off">コンポーネントを区切るためのスペースが表示されます</string>
@@ -334,7 +334,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_ask_section_summary_off">「質問する」セクションは表示されます</string>
   <string name="revanced_hide_attributes_section_title">付随情報を非表示</string>
   <string name="revanced_hide_attributes_section_summary_on">注目の場所 / ゲーム / 音楽 / 人物セクションは表示されません</string>
-  <string name="revanced_hide_attributes_section_summary_off">注目の場所 / ゲーム / 音楽 / 人物セクションは表示されます</string>
+  <string name="revanced_hide_attributes_section_summary_off">注目の場所 / ゲーム / 音楽 / 人物セクションが表示されます</string>
   <string name="revanced_hide_chapters_section_title">チャプターを非表示</string>
   <string name="revanced_hide_chapters_section_summary_on">チャプター セクションは表示されません</string>
   <string name="revanced_hide_chapters_section_summary_off">チャプター セクションは表示されます</string>
@@ -640,7 +640,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_swipe_text_overlay_size_summary">スワイプ オーバーレイのテキストサイズ (1-30)</string>
   <string name="revanced_swipe_text_overlay_size_invalid_toast">テキストサイズの範囲は 1-30 です</string>
   <string name="revanced_swipe_threshold_title">スワイプのしきい値</string>
-  <string name="revanced_swipe_threshold_summary">スワイプと判定される最小のスワイプ距離</string>
+  <string name="revanced_swipe_threshold_summary">ジェスチャーとして判定される最小のスワイプ距離</string>
   <string name="revanced_swipe_volume_sensitivity_title">音量ジェスチャーのスワイプ感度</string>
   <string name="revanced_swipe_volume_sensitivity_summary">スワイプによる音量の変化量</string>
   <string name="revanced_swipe_overlay_style_title">オーバーレイのスタイル</string>
@@ -759,16 +759,16 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_navigation_button_labels_title">ボタンをアイコンのみで表示</string>
   <string name="revanced_hide_navigation_button_labels_summary_on">ナビゲーション ボタンはアイコンのみで表示されます</string>
   <string name="revanced_hide_navigation_button_labels_summary_off">ナビゲーション ボタンはアイコンと文字で表示されます</string>
-  <string name="revanced_disable_translucent_status_bar_title">半透明ステータスバーを無効化</string>
+  <string name="revanced_disable_translucent_status_bar_title">ステータスバーの半透明化を無効化</string>
   <string name="revanced_disable_translucent_status_bar_summary_on">ステータスバーは常に透けません</string>
   <string name="revanced_disable_translucent_status_bar_summary_off">ステータスバーは状況に応じて透けます</string>
   <string name="revanced_disable_translucent_status_bar_user_dialog_message">一部のデバイスでは、この機能を有効にすると、システムのナビゲーション バーが半透明になりアプリ内のコンポーネントに重なってしまう可能性があります。</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_title">ライトモード時の半透明バーを無効化</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">ライトモード時にはナビゲーション バーは透けません</string>
-  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">ライトモード時にはナビゲーション バーが状況に応じて透けます</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_title">ダークモード時の半透明バーを無効化</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">ダークモード時にはナビゲーション バーは透けません</string>
-  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">ダークモード時にはナビゲーション バーが状況に応じて透けます</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_title">ライトモードで半透明化を無効化</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_on">ライトモードではナビゲーション バーは透けません</string>
+  <string name="revanced_disable_translucent_navigation_bar_light_summary_off">ライトモードではナビゲーション バーが状況に応じて透けます</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_title">ダークモードで半透明化を無効化</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_on">ダークモードではナビゲーション バーは透けません</string>
+  <string name="revanced_disable_translucent_navigation_bar_dark_summary_off">ダークモードではナビゲーション バーが状況に応じて透けます</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <string name="revanced_hide_player_flyout_title">フライアウト メニュー</string>
@@ -1051,7 +1051,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">非公開</string>
   <string name="revanced_ryd_enabled_summary_on">低評価数は表示されます</string>
   <string name="revanced_ryd_enabled_summary_off">低評価数は表示されません</string>
-  <string name="revanced_ryd_shorts_title">ショート動画の低評価数を表示</string>
+  <string name="revanced_ryd_shorts_title">ショートの低評価数を表示</string>
   <string name="revanced_ryd_shorts_summary_on">"ショート動画の低評価数は表示されます
 
 制限事項: シークレット モードでは低評価数が表示されない場合があります"</string>
@@ -1383,14 +1383,14 @@ Automotive レイアウト
   </patch>
   <patch id="layout.startupshortsreset.disableResumingShortsOnStartupPatch">
   <string name="revanced_disable_resuming_shorts_player_title">ショート プレーヤーの再開を無効化</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_on">アプリ起動時にショート プレーヤーは再開されません</string>
-  <string name="revanced_disable_resuming_shorts_player_summary_off">アプリ起動時にショート プレーヤーが再開されます</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_on">ショート プレーヤーはアプリ起動時に再開されません</string>
+  <string name="revanced_disable_resuming_shorts_player_summary_off">ショート プレーヤーはアプリ起動時に再開されます</string>
   </patch>
   <patch id="layout.shortsplayer.shortsPlayerTypePatch">
-  <string name="revanced_shorts_player_type_title">ショート動画を開くプレーヤー</string>
+  <string name="revanced_shorts_player_type_title">ショートを開くプレーヤー</string>
   <string name="revanced_shorts_player_type_shorts">ショート プレーヤー</string>
   <string name="revanced_shorts_player_type_regular_player">通常のプレーヤー</string>
-  <string name="revanced_shorts_player_type_regular_player_fullscreen">通常のプレーヤー (全画面)</string>
+  <string name="revanced_shorts_player_type_regular_player_fullscreen">通常のプレーヤー（全画面）</string>
   </patch>
   <patch id="layout.shortsautoplay.shortsAutoplayPatch">
   <string name="revanced_shorts_autoplay_title">ショート動画の自動再生</string>

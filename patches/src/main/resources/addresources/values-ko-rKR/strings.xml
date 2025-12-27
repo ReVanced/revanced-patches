@@ -1042,7 +1042,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_ryd_failure_client_rate_limit_requested">싫어요 수를 표시할 수 없습니다 (클라이언트 API 제한 도달)</string>
   <string name="revanced_ryd_failure_generic">싫어요 수를 표시할 수 없습니다 (%s)</string>
   <!-- Toast shown if the user enables RYD while a video is opened, and then tries to vote for the video. -->
-  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">ReturnYouTubeDislike를 사용하여 투표하려면 동영상을 다시 불러오세요</string>
+  <string name="revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Return YouTube Dislike를 사용하여 투표하려면 동영상을 다시 불러오세요</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="revanced_ryd_video_likes_hidden_by_video_owner">소유자에 의해 숨겨짐</string>
   <string name="revanced_ryd_enabled_summary_on">싫어요 수를 표시합니다</string>
@@ -1064,8 +1064,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_ryd_estimated_like_summary_on">좋아요 수가 숨겨진 동영상에서 추정되는 좋아요 수를 표시합니다</string>
   <string name="revanced_ryd_estimated_like_summary_off">좋아요 수가 숨겨진 동영상에서 추정되는 좋아요 수를 표시하지 않습니다</string>
   <string name="revanced_ryd_toast_on_connection_error_title">API 사용 불가 메시지 표시하기</string>
-  <string name="revanced_ryd_toast_on_connection_error_summary_on">ReturnYouTubeDislike를 사용할 수 없을 경우에 팝업 메시지를 표시합니다</string>
-  <string name="revanced_ryd_toast_on_connection_error_summary_off">ReturnYouTubeDislike를 사용할 수 없을 경우에 팝업 메시지를 표시하지 않습니다</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_on">Return YouTube Dislike를 사용할 수 없을 경우에 팝업 메시지를 표시합니다</string>
+  <string name="revanced_ryd_toast_on_connection_error_summary_off">Return YouTube Dislike를 사용할 수 없을 경우에 팝업 메시지를 표시하지 않습니다</string>
   <string name="revanced_ryd_attribution_summary">싫어요 수의 데이터는 Return YouTube Dislike API에 의해 제공됩니다. 자세한 내용을 보려면 여기를 탭하세요</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="revanced_ryd_statistics_category_title">이 기기의 ReturnYouTubeDislike API 사용 통계</string>
@@ -1460,8 +1460,8 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_seekbar_custom_color_title">사용자 정의 재생바 색상 활성화하기</string>
   <string name="revanced_seekbar_custom_color_summary_on">사용자 정의 재생바 색상을 활성화합니다</string>
   <string name="revanced_seekbar_custom_color_summary_off">기본 재생바 색상을 활성화합니다</string>
-  <string name="revanced_seekbar_custom_color_primary_title">사용자 정의 재생바 메인 색상</string>
-  <string name="revanced_seekbar_custom_color_primary_summary">재생바 메인 색상을 지정할 수 있습니다</string>
+  <string name="revanced_seekbar_custom_color_primary_title">사용자 정의 재생바 주요 색상</string>
+  <string name="revanced_seekbar_custom_color_primary_summary">재생바 주요 색상을 지정할 수 있습니다</string>
   <string name="revanced_seekbar_custom_color_accent_title">사용자 정의 재생바 보조 색상</string>
   <string name="revanced_seekbar_custom_color_accent_summary">재생바 보조 색상을 지정할 수 있습니다</string>
   <string name="revanced_seekbar_custom_color_invalid">잘못된 재생바 색상입니다</string>

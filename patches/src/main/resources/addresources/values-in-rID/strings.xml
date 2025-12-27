@@ -345,9 +345,9 @@ Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini 
   <string name="revanced_hide_podcast_section_title">Sembunyikan \'Jelajahi podcast\'</string>
   <string name="revanced_hide_podcast_section_summary_on">Bagian Jelajahi podcast disembunyikan</string>
   <string name="revanced_hide_podcast_section_summary_off">Bagian Jelajahi podcast ditampilkan</string>
-  <string name="revanced_hide_featured_links_section_title">Sembunyikan tautan unggulan</string>
-  <string name="revanced_hide_featured_links_section_summary_on">Bagian tautan unggulan disembunyikan</string>
-  <string name="revanced_hide_featured_links_section_summary_off">Bagian tautan unggulan ditampilkan</string>
+  <string name="revanced_hide_featured_links_section_title">Sembunyikan tautan Unggulan</string>
+  <string name="revanced_hide_featured_links_section_summary_on">Bagian tautan Unggulan disembunyikan</string>
+  <string name="revanced_hide_featured_links_section_summary_off">Bagian tautan Unggulan ditampilkan</string>
   <string name="revanced_hide_featured_videos_section_title">Sembunyikan video unggulan</string>
   <string name="revanced_hide_featured_videos_section_summary_on">Bagian video unggulan disembunyikan</string>
   <string name="revanced_hide_featured_videos_section_summary_off">Bagian video unggulan ditampilkan</string>
@@ -358,8 +358,8 @@ Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini 
   <string name="revanced_hide_key_concepts_section_summary_on">Bagian Konsep utama disembunyikan</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Bagian Konsep utama ditampilkan</string>
   <string name="revanced_hide_subscribe_button_title">Sembunyikan tombol Berlangganan</string>
-  <string name="revanced_hide_subscribe_button_summary_on">Tombol Langganan disembunyikan</string>
-  <string name="revanced_hide_subscribe_button_summary_off">Tombol Langganan ditampilkan</string>
+  <string name="revanced_hide_subscribe_button_summary_on">Tombol Berlangganan disembunyikan</string>
+  <string name="revanced_hide_subscribe_button_summary_off">Tombol Berlangganan ditampilkan</string>
   <string name="revanced_hide_transcript_section_title">Sembunyikan Transkrip</string>
   <string name="revanced_hide_transcript_section_summary_on">Bagian transkrip disembunyikan</string>
   <string name="revanced_hide_transcript_section_summary_off">Bagian transkrip ditampilkan</string>
@@ -405,8 +405,8 @@ Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini 
   <string name="revanced_hide_store_button_summary_off">Tombol Belanja ditampilkan</string>
   <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_subscribe_button_in_channel_page_title">Sembunyikan tombol Berlangganan</string>
-  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Tombol Langganan disembunyikan</string>
-  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Tombol Langganan ditampilkan</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Tombol Berlangganan disembunyikan</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Tombol Berlangganan ditampilkan</string>
   <string name="revanced_comments_screen_title">Komentar</string>
   <string name="revanced_comments_screen_summary">Sembunyikan atau tampilkan komponen bagian komentar</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Sembunyikan ringkasan chat AI</string>
@@ -894,7 +894,7 @@ Untuk menampilkan menu trek audio, ubah 'Palsukan aliran video' ke 'Android No S
   <string name="revanced_hide_shorts_history_title">Sembunyikan Shorts dalam riwayat tontonan</string>
   <string name="revanced_hide_shorts_history_summary_on">Disembunyikan dalam riwayat tontonan</string>
   <string name="revanced_hide_shorts_history_summary_off">Ditampilkan dalam riwayat tontonan</string>
-  <string name="revanced_hide_shorts_auto_dubbed_label_title">Sembunyikan label \'Dubbing Otomatis\'</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">Sembunyikan label \'Sulih suara Otomatis\'</string>
   <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Label sulih suara otomatis disembunyikan</string>
   <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Label sulih suara otomatis ditampilkan</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">Sembunyikan tombol \'Beli Super Thanks\'</string>
