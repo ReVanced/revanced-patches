@@ -39,7 +39,7 @@ val overwriteMediaUploadParametersPatch = bytecodePatch(
 
         compressionQuality?.let { compressionQuality ->
             val getCompressionQualityIndex = getCompressionQualityFingerprint.match(mediaUploadParametersClass).patternMatch!!.startIndex
-            with(getCompressionQualityFingerprint.method) {
+            getCompressionQualityFingerprint.method.apply { 
                 removeInstruction(getCompressionQualityIndex)
                 addInstructions(
                     getCompressionQualityIndex,
