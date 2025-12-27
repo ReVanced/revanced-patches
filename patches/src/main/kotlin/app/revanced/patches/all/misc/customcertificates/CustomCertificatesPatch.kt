@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringsOption
-import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.trimIndentMultiline
 import app.revanced.util.getNode
 import org.w3c.dom.Element
 import java.io.File

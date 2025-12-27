@@ -96,6 +96,10 @@ public final class app/revanced/patches/all/misc/network/OverrideCertificatePinn
 	public static final fun getOverrideCertificatePinningPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/all/misc/optimization/StripPlatformLibrariesPatchKt {
+	public static final fun getStripPlatformLibrariesPatch ()Lapp/revanced/patcher/patch/RawResourcePatch;
+}
+
 public final class app/revanced/patches/all/misc/packagename/ChangePackageNamePatchKt {
 	public static field packageNameOption Lapp/revanced/patcher/patch/Option;
 	public static final fun getChangePackageNamePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
