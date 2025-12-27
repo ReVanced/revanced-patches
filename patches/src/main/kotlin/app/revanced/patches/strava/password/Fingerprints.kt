@@ -6,13 +6,13 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val logInGetUsePasswordFingerprint = fingerprint {
     opcodes(Opcode.IGET_BOOLEAN)
     custom { method, classDef ->
-        classDef.endsWith("/RequestOtpLogInNetworkResponse;") && method.name == "getUsePassword"
+        method.name == "getUsePassword" && classDef.endsWith("/RequestOtpLogInNetworkResponse;")
     }
 }
 
 internal val emailChangeGetUsePasswordFingerprint = fingerprint {
     opcodes(Opcode.IGET_BOOLEAN)
     custom { method, classDef ->
-        classDef.endsWith("/RequestEmailChangeWithOtpOrPasswordResponse;") && method.name == "getUsePassword"
+        method.name == "getUsePassword" && classDef.endsWith("/RequestEmailChangeWithOtpOrPasswordResponse;")
     }
 }
