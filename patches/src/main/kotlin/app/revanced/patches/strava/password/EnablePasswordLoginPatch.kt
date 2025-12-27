@@ -12,9 +12,8 @@ val enablePasswordLoginPatch = bytecodePatch(
     compatibleWith("com.strava")
 
     execute {
-        fun Fingerprint.loadTrueInsteadOfField() {
+        fun Fingerprint.loadTrueInsteadOfField() =
             method.replaceInstruction(patternMatch!!.startIndex, "const/4 v0, 0x1")
-        }
 
         logInGetUsePasswordFingerprint.loadTrueInsteadOfField()
         emailChangeGetUsePasswordFingerprint.loadTrueInsteadOfField()
