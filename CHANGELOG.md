@@ -1,3 +1,24 @@
+# [5.48.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.1...v5.48.0-dev.2) (2025-12-27)
+
+
+### Features
+
+* **Strava:** Add `Enable password login` patch ([#6396](https://github.com/ReVanced/revanced-patches/issues/6396)) ([8f3f4c9](https://github.com/ReVanced/revanced-patches/commit/8f3f4c95bb8f151fc9a2c272bf7d0e905c2f01fc))
+
+# [5.48.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.47.0...v5.48.0-dev.1) (2025-12-23)
+
+
+### Bug Fixes
+
+* Fix compilation error introduced in dc69f243 ([#6392](https://github.com/ReVanced/revanced-patches/issues/6392)) ([a429824](https://github.com/ReVanced/revanced-patches/commit/a429824bb77b49aea14b0b54f2204ae24d5209a1))
+* **YouTube - Hide layout components:** Hide new type of crowdfunding box ([#6380](https://github.com/ReVanced/revanced-patches/issues/6380)) ([dc69f24](https://github.com/ReVanced/revanced-patches/commit/dc69f2433e2650654e2dffdd76b0b0c8a52bf515))
+
+
+### Features
+
+* **ProtonVPN:** Add `Unlock split tunneling` patch ([#6353](https://github.com/ReVanced/revanced-patches/issues/6353)) ([e0f3346](https://github.com/ReVanced/revanced-patches/commit/e0f33468e6e96b9f10cf35ec67622d6488528c90))
+* **SBS On Demand:** Add `Remove ads` patch ([#6378](https://github.com/ReVanced/revanced-patches/issues/6378)) ([315931c](https://github.com/ReVanced/revanced-patches/commit/315931cbf8f61cd4b3a54ace1ff03685d748614c))
+
 # [5.47.0](https://github.com/ReVanced/revanced-patches/compare/v5.46.0...v5.47.0) (2025-12-18)
 
 
