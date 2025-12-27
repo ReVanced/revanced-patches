@@ -45,7 +45,7 @@ val overwriteMediaUploadParametersPatch = bytecodePatch(
                     getCompressionQualityIndex,
                     """
                     const v0, ${compressionQuality / 100f}f
-                    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+                    invoke-static { v0 }, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
                     move-result-object v0
                 """,
                 )
@@ -60,7 +60,7 @@ val overwriteMediaUploadParametersPatch = bytecodePatch(
                     getMaxDurationIndex,
                     """
                     const-wide v0, ${maxDuration}L
-                    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+                    invoke-static { v0, v1 }, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
                     move-result-object v0
                 """,
                 )
