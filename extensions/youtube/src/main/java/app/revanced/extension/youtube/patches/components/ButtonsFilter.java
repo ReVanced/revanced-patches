@@ -1,9 +1,13 @@
 package app.revanced.extension.youtube.patches.components;
 
+import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;
+import app.revanced.extension.shared.patches.litho.Filter;
+import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
+import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
 import app.revanced.extension.youtube.settings.Settings;
 
 @SuppressWarnings("unused")
-final class ButtonsFilter extends Filter {
+public final class ButtonsFilter extends Filter {
     private static final String COMPACT_CHANNEL_BAR_PATH_PREFIX = "compact_channel_bar.e";
     private static final String VIDEO_ACTION_BAR_PATH_PREFIX = "video_action_bar.e";
     private static final String VIDEO_ACTION_BAR_PATH = "video_action_bar.e";
@@ -118,7 +122,7 @@ final class ButtonsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == likeSubscribeGlow) {
             return (path.startsWith(VIDEO_ACTION_BAR_PATH_PREFIX) || path.startsWith(COMPACT_CHANNEL_BAR_PATH_PREFIX))

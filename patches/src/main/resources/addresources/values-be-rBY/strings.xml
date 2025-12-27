@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,8 +17,7 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
--->
-<resources>
+--><resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Назва праграмы</string>
@@ -172,6 +171,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Сцягі захаваны</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Сцягі скінуты</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Сцягі скапіяваны ў буфер абмену</string>
+  <string name="revanced_debug_protobuffer_title">Буфер пратаколу часопіса</string>
+  <string name="revanced_debug_protobuffer_summary_on">Журналы адладкі ўключаюць пратабуфер</string>
+  <string name="revanced_debug_protobuffer_summary_off">Журналы адладкі не ўключаюць пратабуфер</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Уключэнне гэтага параметра будзе запісваць дадатковыя даныя макета, у тым ліку тэкст на экране для некаторых кампанентаў інтэрфейсу.
+
+Гэта можа дапамагчы ідэнтыфікаваць кампаненты пры стварэнні карыстацкіх фільтраў.
+
+Аднак уключэнне гэтага параметра таксама будзе запісваць некаторыя даныя карыстальніка, такія як ваш IP-адрас."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Ачысціць спасылкі для абагульвання</string>
@@ -181,7 +188,16 @@ Second \"item\" text"</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Агульныя спасылкі выкарыстоўваюць youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Агульныя спасылкі выкарыстоўваюць music.youtube.com</string>
   </patch>
-  </app>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Карыстальніцкі фільтр</string>
+  <string name="revanced_custom_filter_screen_summary">Схавайце кампаненты з дапамогай карыстацкіх фільтраў</string>
+  <string name="revanced_custom_filter_title">Уключыць карыстальніцкі фільтр</string>
+  <string name="revanced_custom_filter_summary_on">Карыстальніцкі фільтр уключаны</string>
+  <string name="revanced_custom_filter_summary_off">Карыстальніцкі фільтр адключаны</string>
+  <string name="revanced_custom_filter_strings_title">Карыстальніцкі фільтр</string>
+    <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Спіс радкоў канструктара шляхоў кампанентаў для фільтрацыі, раздзеленых новым радком</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Няправільны карыстацкі фільтр: %s</string>
+  </patch></app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Пра праграму</string>
@@ -202,16 +218,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_disable_background_playback_title">Адключыць прайграванне Shorts у фонавым</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Прайграванне Shorts у фонавым адключана</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Фоновый плейлист Shorts включен</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_protobuffer_title">Буфер пратаколу часопіса</string>
-  <string name="revanced_debug_protobuffer_summary_on">Журналы адладкі ўключаюць пратабуфер</string>
-  <string name="revanced_debug_protobuffer_summary_off">Журналы адладкі не ўключаюць пратабуфер</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Уключэнне гэтага параметра будзе запісваць дадатковыя даныя макета, у тым ліку тэкст на экране для некаторых кампанентаў інтэрфейсу.
-
-Гэта можа дапамагчы ідэнтыфікаваць кампаненты пры стварэнні карыстацкіх фільтраў.
-
-Аднак уключэнне гэтага параметра таксама будзе запісваць некаторыя даныя карыстальніка, такія як ваш IP-адрас."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Схаваць карты альбома</string>
@@ -439,15 +445,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_thanks_button_title">Схаваць кнопку \"Дзякуй\"\"</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Кнопка падзякі схавана</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Паказана кнопка падзякі</string>
-  <string name="revanced_custom_filter_screen_title">Карыстальніцкі фільтр</string>
-  <string name="revanced_custom_filter_screen_summary">Схавайце кампаненты з дапамогай карыстацкіх фільтраў</string>
-  <string name="revanced_custom_filter_title">Уключыць карыстальніцкі фільтр</string>
-  <string name="revanced_custom_filter_summary_on">Карыстальніцкі фільтр уключаны</string>
-  <string name="revanced_custom_filter_summary_off">Карыстальніцкі фільтр адключаны</string>
-  <string name="revanced_custom_filter_strings_title">Карыстальніцкі фільтр</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Спіс радкоў канструктара шляхоў кампанентаў для фільтрацыі, раздзеленых новым радком</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Няправільны карыстацкі фільтр: %s</string>
   <string name="revanced_hide_view_count_title">Схаваць колькасць праглядаў</string>
   <string name="revanced_hide_view_count_summary_on">Колькасць праглядаў схавана ў стужцы і выніках пошуку</string>
   <string name="revanced_hide_view_count_summary_off">Колькасць праглядаў паказана ў стужцы і выніках пошуку</string>

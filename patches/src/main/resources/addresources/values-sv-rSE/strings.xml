@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,8 +17,7 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
--->
-<resources>
+--><resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Appnamn</string>
@@ -172,6 +171,14 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Flaggor sparade</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Flaggor återställda</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Flaggor kopierade till urklipp</string>
+  <string name="revanced_debug_protobuffer_title">Logga protokollbuffert</string>
+  <string name="revanced_debug_protobuffer_summary_on">Felsökningsloggar inkluderar protokollbuffert</string>
+  <string name="revanced_debug_protobuffer_summary_off">Felsökningsloggar inkluderar inte protokollbuffert</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Om du aktiverar den här inställningen loggas ytterligare layoutdata, inklusive text på skärmen för vissa komponenter i användargränssnittet.
+
+Detta kan hjälpa till att identifiera komponenter när du skapar anpassade filter.
+
+Men om du aktiverar detta kommer även vissa användardata, t.ex. din IP-adress, att loggas."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Rensa delningslänkar</string>
@@ -181,7 +188,16 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Delade länkar använder youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Delade länkar använder music.youtube.com</string>
   </patch>
-  </app>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Anpassat filter</string>
+  <string name="revanced_custom_filter_screen_summary">Dölj komponenter med anpassade filter</string>
+  <string name="revanced_custom_filter_title">Aktivera anpassat filter</string>
+  <string name="revanced_custom_filter_summary_on">Anpassat filter är aktiverat</string>
+  <string name="revanced_custom_filter_summary_off">Anpassat filter är inaktiverat</string>
+  <string name="revanced_custom_filter_strings_title">Anpassat filter</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Lista över sökvägsbyggsträngar för komponenter som ska filtreras, åtskilda av en ny rad</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Det anpassade filtret är ogiltigt: %s</string>
+  </patch></app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Om</string>
@@ -202,16 +218,6 @@ Du kommer inte att bli meddelad om oväntade händelser."</string>
   <string name="revanced_shorts_disable_background_playback_title">Inaktivera uppspelning av Shorts-videor i bakgrunden</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Uppspelning av Shorts-videor i bakgrunden är inaktiverad</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Uppspelning av Shorts-videor i bakgrunden är aktiverad</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_protobuffer_title">Logga protokollbuffert</string>
-  <string name="revanced_debug_protobuffer_summary_on">Felsökningsloggar inkluderar protokollbuffert</string>
-  <string name="revanced_debug_protobuffer_summary_off">Felsökningsloggar inkluderar inte protokollbuffert</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Om du aktiverar den här inställningen loggas ytterligare layoutdata, inklusive text på skärmen för vissa komponenter i användargränssnittet.
-
-Detta kan hjälpa till att identifiera komponenter när du skapar anpassade filter.
-
-Men om du aktiverar detta kommer även vissa användardata, t.ex. din IP-adress, att loggas."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Dölj albumkort</string>
@@ -440,15 +446,6 @@ Om en doodle visas för närvarande i din region och den här döljningsinställ
   <string name="revanced_hide_comments_thanks_button_title">Dölj knappen Thanks</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Knappen Thanks är dold</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Knappen Thanks visas</string>
-  <string name="revanced_custom_filter_screen_title">Anpassat filter</string>
-  <string name="revanced_custom_filter_screen_summary">Dölj komponenter med anpassade filter</string>
-  <string name="revanced_custom_filter_title">Aktivera anpassat filter</string>
-  <string name="revanced_custom_filter_summary_on">Anpassat filter är aktiverat</string>
-  <string name="revanced_custom_filter_summary_off">Anpassat filter är inaktiverat</string>
-  <string name="revanced_custom_filter_strings_title">Anpassat filter</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Lista över sökvägsbyggsträngar för komponenter som ska filtreras, åtskilda av en ny rad</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Det anpassade filtret är ogiltigt: %s</string>
   <string name="revanced_hide_view_count_title">Dölj antal visningar</string>
   <string name="revanced_hide_view_count_summary_on">Antal visningar är dolt i flödet och sökresultaten</string>
   <string name="revanced_hide_view_count_summary_off">Antal visningar visas i flödet och sökresultaten</string>

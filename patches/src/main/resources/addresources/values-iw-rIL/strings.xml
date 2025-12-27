@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,8 +17,7 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
--->
-<resources>
+--><resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">שם האפליקציה</string>
@@ -172,6 +171,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">הדגלים נשמרו</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">הדגלים אופסו</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">הדגלים הועתקו ללוח</string>
+  <string name="revanced_debug_protobuffer_title">רשום פרוטוקול חוצץ</string>
+  <string name="revanced_debug_protobuffer_summary_on">יומני איתור באגים כוללים פרוטוקול חוצץ</string>
+  <string name="revanced_debug_protobuffer_summary_off">יומני איתור באגים אינם כוללים פרוטוקול חוצץ</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"הפעלת הגדרה זו תתעד נתוני פריסה נוספים, כולל טקסט שעל המסך עבור רכיבי ממשק משתמש מסוימים.
+
+זה יכול לעזור לזהות רכיבים בעת יצירת מסננים מותאמים אישית.
+
+עם זאת, הפעלת הגדרה זו תתעד גם כמה נתוני משתמש כמו כתובת ה-IP שלך."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">טיהור קישורי שיתוף</string>
@@ -181,7 +188,16 @@ Second \"item\" text"</string>
   <string name="revanced_replace_music_with_youtube_summary_on">קישורים משותפים משתמשים ב-youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">קישורים משותפים משתמשים ב-music.youtube.com</string>
   </patch>
-  </app>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">מסנן מותאם אישית</string>
+  <string name="revanced_custom_filter_screen_summary">הסתר רכיבים באמצעות מסננים מותאמים אישית</string>
+  <string name="revanced_custom_filter_title">הפעל מסנן מותאם אישית</string>
+  <string name="revanced_custom_filter_summary_on">מסנן מותאם אישית מופעל</string>
+  <string name="revanced_custom_filter_summary_off">מסנן מותאם אישית מושבת</string>
+  <string name="revanced_custom_filter_strings_title">מסנן מותאם אישית</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">רשימה של מחרוזות בונה נתיב רכיבים לסינון מופרדות על ידי שורה חדשה</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">מסנן מותאם אישית לא חוקי: %s</string>
+  </patch></app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">אודות</string>
@@ -202,16 +218,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_disable_background_playback_title">השבת הפעלה ברקע של Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">הפעלה ברקע של Shorts מושבתת</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">הפעלה ברקע של Shorts מופעלת</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_protobuffer_title">רשום פרוטוקול חוצץ</string>
-  <string name="revanced_debug_protobuffer_summary_on">יומני איתור באגים כוללים פרוטוקול חוצץ</string>
-  <string name="revanced_debug_protobuffer_summary_off">יומני איתור באגים אינם כוללים פרוטוקול חוצץ</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"הפעלת הגדרה זו תתעד נתוני פריסה נוספים, כולל טקסט שעל המסך עבור רכיבי ממשק משתמש מסוימים.
-
-זה יכול לעזור לזהות רכיבים בעת יצירת מסננים מותאמים אישית.
-
-עם זאת, הפעלת הגדרה זו תתעד גם כמה נתוני משתמש כמו כתובת ה-IP שלך."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">הסתר כרטיסי אלבום</string>
@@ -439,15 +445,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_thanks_button_title">הסתר לחצן תודה</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">לחצן תודה מוסתר</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">לחצן תודה מוצג</string>
-  <string name="revanced_custom_filter_screen_title">מסנן מותאם אישית</string>
-  <string name="revanced_custom_filter_screen_summary">הסתר רכיבים באמצעות מסננים מותאמים אישית</string>
-  <string name="revanced_custom_filter_title">הפעל מסנן מותאם אישית</string>
-  <string name="revanced_custom_filter_summary_on">מסנן מותאם אישית מופעל</string>
-  <string name="revanced_custom_filter_summary_off">מסנן מותאם אישית מושבת</string>
-  <string name="revanced_custom_filter_strings_title">מסנן מותאם אישית</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">רשימה של מחרוזות בונה נתיב רכיבים לסינון מופרדות על ידי שורה חדשה</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">מסנן מותאם אישית לא חוקי: %s</string>
   <string name="revanced_hide_view_count_title">הסתר ספירת צפיות</string>
   <string name="revanced_hide_view_count_summary_on">ספירת הצפיות מוסתרת בפיד ובתוצאות החיפוש</string>
   <string name="revanced_hide_view_count_summary_off">ספירת הצפיות מוצגת בפיד ובתוצאות החיפוש</string>
