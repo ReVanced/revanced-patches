@@ -17,7 +17,7 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.util.ResourceGroup
-import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.trimIndentMultiline
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.copyResources
 import app.revanced.util.findElementByAttributeValueOrThrow

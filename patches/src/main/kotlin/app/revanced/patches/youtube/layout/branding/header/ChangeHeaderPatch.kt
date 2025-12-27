@@ -16,7 +16,7 @@ import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.util.ResourceGroup
-import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.trimIndentMultiline
 import app.revanced.util.copyResources
 import app.revanced.util.findElementByAttributeValueOrThrow
 import app.revanced.util.forEachLiteralValueInstruction

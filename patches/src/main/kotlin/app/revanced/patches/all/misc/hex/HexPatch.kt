@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.rawResourcePatch
 import app.revanced.patcher.patch.stringsOption
 import app.revanced.patches.shared.misc.hex.HexPatchBuilder
 import app.revanced.patches.shared.misc.hex.hexPatch
-import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.trimIndentMultiline
 
 @Suppress("unused")
 val hexPatch = rawResourcePatch(

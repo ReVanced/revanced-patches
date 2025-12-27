@@ -16,6 +16,7 @@ public class Build {
     public static final String MODEL = null;
     public static final String PRODUCT = null;
     public static final String RADIO = null;
+    public static final String[] SUPPORTED_ABIS = null;
     public static final String TAGS = null;
     public static final String TYPE = null;
     public static final String USER = null;
