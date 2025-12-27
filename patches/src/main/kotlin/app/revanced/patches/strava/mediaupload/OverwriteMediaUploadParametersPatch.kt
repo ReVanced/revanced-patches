@@ -54,7 +54,7 @@ val overwriteMediaUploadParametersPatch = bytecodePatch(
 
         maxDuration?.let { maxDuration ->
             val getMaxDurationIndex = getMaxDurationFingerprint.match(mediaUploadParametersClass).patternMatch!!.startIndex
-            with(getMaxDurationFingerprint.method) {
+            getMaxDurationFingerprint.method.apply {
                 removeInstruction(getMaxDurationIndex)
                 addInstructions(
                     getMaxDurationIndex,
