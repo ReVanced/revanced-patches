@@ -1,3 +1,10 @@
+# [5.48.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.1...v5.48.0-dev.2) (2025-12-27)
+
+
+### Features
+
+* **Strava:** Add `Enable password login` patch ([#6396](https://github.com/ReVanced/revanced-patches/issues/6396)) ([8f3f4c9](https://github.com/ReVanced/revanced-patches/commit/8f3f4c95bb8f151fc9a2c272bf7d0e905c2f01fc))
+
 # [5.48.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.47.0...v5.48.0-dev.1) (2025-12-23)
 
 
