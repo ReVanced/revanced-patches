@@ -14,10 +14,7 @@ val enablePasswordLoginPatch = bytecodePatch(
     execute {
         fun loadTrueInsteadOfField(fingerprint: Fingerprint) {
             with (fingerprint) {
-                method.replaceInstruction(
-                    patternMatch!!.startIndex,
-                    "const/4 v0, 0x1",
-                )
+                method.replaceInstruction(patternMatch!!.startIndex, "const/4 v0, 0x1")
             }
         }
 
