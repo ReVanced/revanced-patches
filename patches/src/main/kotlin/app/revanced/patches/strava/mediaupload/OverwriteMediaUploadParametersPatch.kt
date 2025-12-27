@@ -10,9 +10,7 @@ import app.revanced.patcher.patch.longOption
 @Suppress("unused")
 val overwriteMediaUploadParametersPatch = bytecodePatch(
     name = "Overwrite media upload parameters",
-    description = "The app compresses, resizes and trims media (images and videos) before upload. " +
-            "This patch overwrites the parameter values returned by Strava's server. " +
-            "Leave each option empty to accept the defaults (which may change over time).",
+    description = "Overwrites the compression, resize and trim media (images and videos) parameters returned by Strava's server before upload.",
 ) {
     compatibleWith("com.strava")
 
