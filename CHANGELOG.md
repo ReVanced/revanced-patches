@@ -1,3 +1,15 @@
+# [5.48.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.2...v5.48.0-dev.3) (2025-12-28)
+
+
+### Bug Fixes
+
+* Fix compilation error introduced in `6bb6281` ([#6409](https://github.com/ReVanced/revanced-patches/issues/6409)) ([71c6cb5](https://github.com/ReVanced/revanced-patches/commit/71c6cb569ebf7b93cf73ee391839e5220557ce7c))
+
+
+### Features
+
+* **Instagram - Hides navigation buttons:** Add more buttons to hide ([#6390](https://github.com/ReVanced/revanced-patches/issues/6390)) ([6bb6281](https://github.com/ReVanced/revanced-patches/commit/6bb62811493da04812cc3e392e68d874f95cbef9))
+
 # [5.48.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.1...v5.48.0-dev.2) (2025-12-27)
 
 
