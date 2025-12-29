@@ -1,4 +1,4 @@
-package app.revanced.patches.strava.snowplow
+package app.revanced.patches.strava.privacy
 
 import app.revanced.patcher.fingerprint
 
