@@ -1,3 +1,10 @@
+# [5.48.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.3...v5.48.0-dev.4) (2025-12-29)
+
+
+### Features
+
+* **Strava:** Add `Block Snowplow tracking` patch ([#6413](https://github.com/ReVanced/revanced-patches/issues/6413)) ([c47beae](https://github.com/ReVanced/revanced-patches/commit/c47beae21376dd17ab8bc09afe73e9094481bde9))
+
 # [5.48.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.2...v5.48.0-dev.3) (2025-12-28)
 
 
