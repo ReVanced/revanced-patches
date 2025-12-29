@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.hide.infocards
 
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -11,7 +11,7 @@ internal val infocardsIncognitoFingerprint = fingerprint {
     returns("Ljava/lang/Boolean;")
     parameters("L", "J")
     instructions(
-        string("vibrator")
+        addString("vibrator")
     )
 }
 
@@ -19,7 +19,7 @@ internal val infocardsIncognitoParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     instructions(
-        string("player_overlay_info_card_teaser")
+        addString("player_overlay_info_card_teaser")
     )
 }
 

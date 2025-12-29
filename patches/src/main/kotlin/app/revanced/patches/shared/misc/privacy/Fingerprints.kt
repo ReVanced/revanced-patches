@@ -7,7 +7,7 @@ import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val youTubeCopyTextFingerprint = fingerprint {
@@ -15,7 +15,7 @@ internal val youTubeCopyTextFingerprint = fingerprint {
     parameters("L", "Ljava/util/Map;")
     instructions(
         opcode(Opcode.IGET_OBJECT),
-        string("text/plain", location = MatchAfterWithin(2)),
+        addString("text/plain", location = MatchAfterWithin(2)),
         methodCall(
             smali = "Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;",
             location = MatchAfterWithin(2)
@@ -64,6 +64,6 @@ internal val youTubeShareSheetFingerprint = fingerprint {
 
         methodCall(smali = "Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;"),
 
-        string("YTShare_Logging_Share_Intent_Endpoint_Byte_Array")
+        addString("YTShare_Logging_Share_Intent_Endpoint_Byte_Array")
     )
 }

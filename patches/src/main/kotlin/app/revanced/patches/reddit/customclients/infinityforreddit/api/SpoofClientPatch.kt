@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.infinityforreddit.api
 
-import app.revanced.patcher.dex.mutable.MutableMethod.Companion.toMutable
+import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.toInstructions
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import com.android.tools.smali.dexlib2.AccessFlags

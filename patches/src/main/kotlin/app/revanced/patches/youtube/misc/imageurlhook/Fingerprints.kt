@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.misc.imageurlhook
 
 import app.revanced.patcher.anyInstruction
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val onFailureFingerprint = fingerprint {
@@ -63,8 +63,8 @@ internal val messageDigestImageUrlParentFingerprint = fingerprint {
     parameters()
     instructions(
         anyInstruction(
-            string("@#&=*+-_.,:!?()/~'%;\$"),
-            string("@#&=*+-_.,:!?()/~'%;\$[]"), // 20.38+
+            addString("@#&=*+-_.,:!?()/~'%;\$"),
+            addString("@#&=*+-_.,:!?()/~'%;\$[]"), // 20.38+
         )
     )
 }

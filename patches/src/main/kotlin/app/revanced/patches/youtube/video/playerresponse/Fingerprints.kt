@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.video.playerresponse
 
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
@@ -55,7 +55,7 @@ internal val playerParameterBuilder2026Fingerprint = fingerprint {
         "Lj\$/time/Duration;"
     )
     instructions(
-        string("psps")
+        addString("psps")
     )
 }
 
@@ -83,7 +83,7 @@ internal val playerParameterBuilder2015Fingerprint = fingerprint {
         "Z",
     )
     instructions(
-        string("psps")
+        addString("psps")
     )
 }
 
@@ -112,7 +112,7 @@ internal val playerParameterBuilder2010Fingerprint = fingerprint {
         "Z"
     )
     instructions(
-        string("psps")
+        addString("psps")
     )
 }
 
@@ -140,7 +140,7 @@ internal val playerParameterBuilder2002Fingerprint = fingerprint {
         "Z",
     )
     instructions(
-        string("psps"),
+        addString("psps"),
     )
 }
 
@@ -167,7 +167,7 @@ internal val playerParameterBuilder1925Fingerprint = fingerprint {
         "Z",
     )
     instructions(
-        string("psps")
+        addString("psps")
     )
 }
 

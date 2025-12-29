@@ -1,10 +1,10 @@
 package app.revanced.util
 
 import app.revanced.patcher.FingerprintBuilder
-import app.revanced.patcher.dex.mutable.MutableClassDef
-import app.revanced.patcher.dex.mutable.MutableField
-import app.revanced.patcher.dex.mutable.MutableField.Companion.toMutable
-import app.revanced.patcher.dex.mutable.MutableMethod
+import com.android.tools.smali.dexlib2.mutable.MutableClassDef
+import com.android.tools.smali.dexlib2.mutable.MutableField
+import com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.firstClassDefMutable
 import app.revanced.patcher.firstClassDefMutableOrNull
@@ -805,7 +805,7 @@ fun BytecodePatchContext.forEachInstructionAsSequence(
     block: (classDef: MutableClassDef, method: MutableMethod, matchingIndex: Int, instruction: Instruction) -> Unit,
 ) {
     classDefs.asSequence().flatMap { classDef ->
-        val mutableClassDef by lazy { classDef.mutable() }
+        val mutableClassDef by lazy { classDef.getOrReplaceMutable() }
 
         classDef.methods.asSequence().flatMap { method ->
             val instructions =

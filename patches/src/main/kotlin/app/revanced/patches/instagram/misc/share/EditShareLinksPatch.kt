@@ -2,7 +2,7 @@ package app.revanced.patches.instagram.misc.share
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.dex.mutable.MutableMethod
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction

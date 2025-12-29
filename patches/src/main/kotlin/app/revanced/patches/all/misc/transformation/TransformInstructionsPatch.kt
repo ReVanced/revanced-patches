@@ -1,6 +1,6 @@
 package app.revanced.patches.all.misc.transformation
 
-import app.revanced.patcher.dex.mutable.MutableMethod
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.forEachInstructionAsSequence
 import com.android.tools.smali.dexlib2.iface.ClassDef

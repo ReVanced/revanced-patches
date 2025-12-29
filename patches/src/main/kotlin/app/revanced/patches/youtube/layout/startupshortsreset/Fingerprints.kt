@@ -7,7 +7,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -23,7 +23,7 @@ internal val userWasInShortsAlternativeFingerprint = fingerprint {
         methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z", location = MatchAfterImmediately()),
         opcode(Opcode.MOVE_RESULT, MatchAfterImmediately()),
         // 20.40+ string was merged into another string and is a partial match.
-        string("userIsInShorts: ", comparison =  StringComparisonType.CONTAINS, location = MatchAfterWithin(15))
+        addString("userIsInShorts: ", comparison =  StringComparisonType.CONTAINS, location = MatchAfterWithin(15))
     )
 }
 
@@ -35,7 +35,7 @@ internal val userWasInShortsLegacyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters("Ljava/lang/Object;")
     instructions(
-        string("Failed to read user_was_in_shorts proto after successful warmup")
+        addString("Failed to read user_was_in_shorts proto after successful warmup")
     )
 }
 

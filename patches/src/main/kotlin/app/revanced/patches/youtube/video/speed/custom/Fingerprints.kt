@@ -6,7 +6,7 @@ import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.newInstance
 import app.revanced.patcher.opcode
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -43,7 +43,7 @@ internal val speedArrayGeneratorFingerprint = fingerprint {
     instructions(
         methodCall(name = "size", returnType = "I"),
         newInstance("Ljava/text/DecimalFormat;"),
-        string("0.0#"),
+        addString("0.0#"),
         literal(7),
         opcode(Opcode.NEW_ARRAY),
         fieldAccess(definingClass = "/PlayerConfigModel;", type = "[F")

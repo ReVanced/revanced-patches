@@ -83,7 +83,7 @@ fun gmsCoreSupportPatch(
             val transformations = mutableListOf<() -> Unit>()
 
             classDefs.forEach { classDef ->
-                val mutableClass by lazy { classDef.mutable() }
+                val mutableClass by lazy { classDef.getOrReplaceMutable() }
 
                 classDef.methods.forEach classLoop@{ method ->
                     val implementation = method.implementation ?: return@classLoop

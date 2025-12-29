@@ -5,15 +5,15 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val addCreateButtonViewFingerprint = fingerprint {
     instructions(
-        string("Android Wear"),
+        addString("Android Wear"),
         opcode(Opcode.IF_EQZ),
-        string("Android Automotive", location = MatchAfterImmediately()),
+        addString("Android Automotive", location = MatchAfterImmediately()),
     )
 }
 

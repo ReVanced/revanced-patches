@@ -5,7 +5,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -16,7 +16,7 @@ internal val shortsBottomBarContainerFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/view/View;", "Landroid/os/Bundle;")
     instructions(
-        string("r_pfvc"),
+        addString("r_pfvc"),
         resourceLiteral(ResourceType.ID, "bottom_bar_container"),
         methodCall(name = "getHeight"),
         opcode(Opcode.MOVE_RESULT)
@@ -57,7 +57,7 @@ internal val legacyRenderBottomNavigationBarLegacyParentFingerprint = fingerprin
         "L",
     )
     instructions(
-        string("aa")
+        addString("aa")
     )
 }
 
@@ -77,7 +77,7 @@ internal val renderBottomNavigationBarLegacy1941ParentFingerprint = fingerprint 
         "L",
     )
     instructions(
-        string("aa")
+        addString("aa")
     )
 }
 
@@ -90,7 +90,7 @@ internal val renderBottomNavigationBarParentFingerprint = fingerprint {
         "I"
     )
     instructions(
-        string("RPCAC")
+        addString("RPCAC")
     )
 }
 
@@ -107,7 +107,7 @@ internal val setPivotBarVisibilityFingerprint = fingerprint {
 internal val setPivotBarVisibilityParentFingerprint = fingerprint {
     parameters("Z")
     instructions(
-        string("FEnotifications_inbox")
+        addString("FEnotifications_inbox")
     )
 }
 

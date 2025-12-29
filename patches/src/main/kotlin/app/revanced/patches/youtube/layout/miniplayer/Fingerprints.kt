@@ -8,7 +8,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -46,7 +46,7 @@ internal val miniplayerModernViewParentFingerprint = fingerprint {
     returns("Ljava/lang/String;")
     parameters()
     instructions(
-        string("player_overlay_modern_mini_player_controls")
+        addString("player_overlay_modern_mini_player_controls")
     )
 }
 
@@ -158,7 +158,7 @@ internal val miniplayerOverrideFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     instructions(
-        string("appName"),
+        addString("appName"),
         methodCall(
             parameters = listOf("Landroid/content/Context;"),
             returnType = "Z",

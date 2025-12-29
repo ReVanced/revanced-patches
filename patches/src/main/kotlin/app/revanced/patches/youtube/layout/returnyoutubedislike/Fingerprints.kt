@@ -2,28 +2,28 @@ package app.revanced.patches.youtube.layout.returnyoutubedislike
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val dislikeFingerprint = fingerprint {
     returns("V")
     instructions(
-        string("like/dislike")
+        addString("like/dislike")
     )
 }
 
 internal val likeFingerprint = fingerprint {
     returns("V")
     instructions(
-        string("like/like")
+        addString("like/like")
     )
 }
 
 internal val removeLikeFingerprint = fingerprint {
     returns("V")
     instructions(
-        string("like/removelike")
+        addString("like/removelike")
     )
 }
 
@@ -65,7 +65,7 @@ internal val rollingNumberMeasureStaticLabelParentFingerprint = fingerprint {
     returns("Ljava/lang/String;")
     parameters()
     instructions(
-        string("RollingNumberFontProperties{paint=")
+        addString("RollingNumberFontProperties{paint=")
     )
 }
 
@@ -99,7 +99,7 @@ internal val rollingNumberTextViewFingerprint = fingerprint {
 internal val textComponentConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PRIVATE)
     instructions(
-        string("TextComponent")
+        addString("TextComponent")
     )
 }
 
@@ -107,7 +107,7 @@ internal val textComponentDataFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("L", "L")
     instructions(
-        string("text")
+        addString("text")
     )
     custom { _, classDef ->
         classDef.fields.find { it.type == "Ljava/util/BitSet;" } != null
@@ -122,7 +122,7 @@ internal val textComponentLookupFingerprint = fingerprint {
     returns("L")
     parameters("L")
     instructions(
-        string("…")
+        addString("…")
     )
 }
 

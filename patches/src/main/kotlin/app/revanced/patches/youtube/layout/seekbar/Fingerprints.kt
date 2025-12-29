@@ -7,10 +7,9 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
-import app.revanced.patches.youtube.shared.YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -125,8 +124,8 @@ internal val lottieCompositionFactoryZipFingerprint = fingerprint {
     parameters("Landroid/content/Context;", "Ljava/util/zip/ZipInputStream;", "Ljava/lang/String;")
     returns("L")
     instructions(
-        string("Unable to parse composition"),
-        string(" however it was not found in the animation.")
+        addString("Unable to parse composition"),
+        addString(" however it was not found in the animation.")
     )
 }
 

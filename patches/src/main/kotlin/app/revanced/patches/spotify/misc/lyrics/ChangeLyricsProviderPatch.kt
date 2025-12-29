@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
-import app.revanced.patcher.dex.mutable.MutableMethod
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow

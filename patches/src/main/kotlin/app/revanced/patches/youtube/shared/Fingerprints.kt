@@ -7,7 +7,7 @@ import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.newInstance
 import app.revanced.patcher.opcode
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -95,7 +95,7 @@ internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
 internal val seekbarFingerprint = fingerprint {
     returns("V")
     instructions(
-        string("timed_markers_width"),
+        addString("timed_markers_width"),
     )
 }
 

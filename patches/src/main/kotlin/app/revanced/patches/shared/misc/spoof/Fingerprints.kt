@@ -5,7 +5,7 @@ import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
@@ -153,7 +153,7 @@ internal val nerdsStatsVideoFormatBuilderFingerprint = fingerprint {
     returns("Ljava/lang/String;")
     parameters("L")
     instructions(
-        string("codecs=\"")
+        addString("codecs=\"")
     )
 }
 

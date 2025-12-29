@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.misc.playertype
 import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.opcode
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -54,7 +54,7 @@ internal val controlsStateToStringFingerprint = fingerprint {
     parameters()
     returns("Ljava/lang/String;")
     instructions(
-        string("videoState"),
-        string("isBuffering")
+        addString("videoState"),
+        addString("isBuffering")
     )
 }

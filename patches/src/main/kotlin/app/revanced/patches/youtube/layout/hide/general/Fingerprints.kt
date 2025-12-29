@@ -6,7 +6,7 @@ import app.revanced.patcher.checkCast
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.youtube.layout.searchbar.wideSearchbarLayoutFingerprint
@@ -45,7 +45,7 @@ internal val parseElementFromBufferFingerprint = fingerprint {
         opcode(Opcode.INVOKE_INTERFACE, location = MatchAfterWithin(1)),
         opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
 
-        string("Failed to parse Element", comparison =  StringComparisonType.STARTS_WITH)
+        addString("Failed to parse Element", comparison =  StringComparisonType.STARTS_WITH)
     )
 }
 
@@ -53,7 +53,7 @@ internal val playerOverlayFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("L")
     instructions(
-        string("player_overlay_in_video_programming")
+        addString("player_overlay_in_video_programming")
     )
 }
 

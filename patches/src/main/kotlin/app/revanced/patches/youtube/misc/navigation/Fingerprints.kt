@@ -127,14 +127,14 @@ internal val pivotBarButtonsViewSetSelectedFingerprint = fingerprint {
 internal val pivotBarConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        string("com.google.android.apps.youtube.app.endpoint.flags"),
+        addString("com.google.android.apps.youtube.app.endpoint.flags"),
     )
 }
 
 internal val imageEnumConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        string("TAB_ACTIVITY_CAIRO"),
+        addString("TAB_ACTIVITY_CAIRO"),
         opcode(Opcode.INVOKE_DIRECT, location = MatchAfterImmediately()),
         opcode(Opcode.SPUT_OBJECT, location = MatchAfterImmediately())
     )

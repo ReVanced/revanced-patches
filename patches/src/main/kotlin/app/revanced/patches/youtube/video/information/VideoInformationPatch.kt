@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.video.information
 
-import app.revanced.patcher.dex.mutable.MutableClassDef
-import app.revanced.patcher.dex.mutable.MutableMethod
-import app.revanced.patcher.dex.mutable.MutableMethod.Companion.toMutable
+import com.android.tools.smali.dexlib2.mutable.MutableClassDef
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
+import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction

@@ -4,7 +4,7 @@ import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.dex.mutable.MutableMethod
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_02_or_greater

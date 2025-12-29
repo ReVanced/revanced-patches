@@ -5,7 +5,7 @@ import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 internal val createVideoPlayerSeekbarFingerprint = fingerprint {
     returns("V")
     instructions(
-        string("timed_markers_width"),
+        addString("timed_markers_width"),
     )
 }
 
@@ -39,7 +39,7 @@ internal val playerControllerSetTimeReferenceFingerprint = fingerprint {
 
 internal val playerInitFingerprint = fingerprint {
     instructions(
-        string("playVideo called on player response with no videoStreamingData."),
+        addString("playVideo called on player response with no videoStreamingData."),
     )
 }
 
@@ -48,7 +48,7 @@ internal val playerInitFingerprint = fingerprint {
  */
 internal val seekFingerprint = fingerprint {
     instructions(
-        string("Attempting to seek during an ad"),
+        addString("Attempting to seek during an ad"),
     )
 }
 
@@ -91,7 +91,7 @@ internal val mdxSeekFingerprint = fingerprint {
 
 internal val mdxPlayerDirectorSetVideoStageFingerprint = fingerprint {
     instructions(
-        string("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state "),
+        addString("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state "),
     )
 }
 
@@ -131,7 +131,7 @@ internal val videoEndFingerprint = fingerprint {
             returnType = "V"
         ),
         literal(45368273L, location = MatchAfterWithin(5)),
-        string("Attempting to seek when video is not playing"),
+        addString("Attempting to seek when video is not playing"),
     )
 }
 

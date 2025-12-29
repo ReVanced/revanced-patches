@@ -5,7 +5,7 @@ import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -71,9 +71,9 @@ internal val shortsPlaybackIntentLegacyFingerprint = fingerprint {
     instructions(
         methodCall(returnType = "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;"),
         // None of these strings are unique.
-        string("com.google.android.apps.youtube.app.endpoint.flags"),
-        string("ReelWatchFragmentArgs"),
-        string("reels_fragment_descriptor")
+        addString("com.google.android.apps.youtube.app.endpoint.flags"),
+        addString("ReelWatchFragmentArgs"),
+        addString("reels_fragment_descriptor")
     )
 }
 
@@ -88,9 +88,9 @@ internal val shortsPlaybackIntentFingerprint = fingerprint {
     )
     instructions(
         // None of these strings are unique.
-        string("com.google.android.apps.youtube.app.endpoint.flags"),
-        string("ReelWatchFragmentArgs"),
-        string("reels_fragment_descriptor")
+        addString("com.google.android.apps.youtube.app.endpoint.flags"),
+        addString("ReelWatchFragmentArgs"),
+        addString("reels_fragment_descriptor")
     )
 }
 

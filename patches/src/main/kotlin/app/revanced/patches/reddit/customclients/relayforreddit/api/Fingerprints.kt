@@ -24,3 +24,4 @@ internal val setRemoteConfigFingerprint = fingerprint {
     parameters("Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig;")
     strings("reddit_oauth_url")
 }
+

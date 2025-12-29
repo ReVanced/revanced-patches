@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.extension.hooks
 
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import app.revanced.patches.shared.misc.extension.activityOnCreateExtensionHook
 import app.revanced.patches.shared.misc.extension.extensionHook
 import app.revanced.patches.youtube.shared.YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
@@ -13,8 +13,8 @@ internal val applicationInitHook = extensionHook {
     // Does _not_ resolve to the YouTube main activity.
     // Required as some hooked code runs before the main activity is launched.
     instructions(
-        string("Application.onCreate"),
-        string("Application creation")
+        addString("Application.onCreate"),
+        addString("Application creation")
     )
 }
 

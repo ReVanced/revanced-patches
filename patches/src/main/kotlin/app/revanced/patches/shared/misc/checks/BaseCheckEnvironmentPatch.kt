@@ -5,9 +5,9 @@ import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.dex.mutable.encodedValue.MutableEncodedValue
-import app.revanced.patcher.dex.mutable.encodedValue.MutableLongEncodedValue
-import app.revanced.patcher.dex.mutable.encodedValue.MutableStringEncodedValue
+import com.android.tools.smali.dexlib2.iface.value.MutableEncodedValue
+import com.android.tools.smali.dexlib2.iface.value.MutableLongEncodedValue
+import com.android.tools.smali.dexlib2.iface.value.MutableStringEncodedValue
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableLongEncodedValue

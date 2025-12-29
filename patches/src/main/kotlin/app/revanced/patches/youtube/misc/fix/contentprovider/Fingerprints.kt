@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.misc.fix.contentprovider
 
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val unstableContentProviderFingerprint = fingerprint {
@@ -15,6 +15,6 @@ internal val unstableContentProviderFingerprint = fingerprint {
             name = "putAll",
             parameters = listOf("Ljava/util/Map;")
         ),
-        string("ContentProvider query returned null cursor")
+        addString("ContentProvider query returned null cursor")
     )
 }

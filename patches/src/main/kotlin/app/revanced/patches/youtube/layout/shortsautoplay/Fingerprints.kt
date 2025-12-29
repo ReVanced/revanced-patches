@@ -5,17 +5,17 @@ import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val reelEnumConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        string("REEL_LOOP_BEHAVIOR_UNKNOWN"),
-        string("REEL_LOOP_BEHAVIOR_SINGLE_PLAY"),
-        string("REEL_LOOP_BEHAVIOR_REPEAT"),
-        string("REEL_LOOP_BEHAVIOR_END_SCREEN"),
+        addString("REEL_LOOP_BEHAVIOR_UNKNOWN"),
+        addString("REEL_LOOP_BEHAVIOR_SINGLE_PLAY"),
+        addString("REEL_LOOP_BEHAVIOR_REPEAT"),
+        addString("REEL_LOOP_BEHAVIOR_END_SCREEN"),
         opcode(Opcode.RETURN_VOID)
     )
 }
@@ -24,7 +24,7 @@ internal val reelPlaybackRepeatParentFingerprint = fingerprint {
     returns("V")
     parameters("Ljava/lang/String;", "J")
     instructions(
-        string("Reels[%s] Playback Time: %d ms")
+        addString("Reels[%s] Playback Time: %d ms")
     )
 }
 

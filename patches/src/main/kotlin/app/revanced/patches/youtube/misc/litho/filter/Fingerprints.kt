@@ -5,14 +5,14 @@ import app.revanced.patcher.fingerprint
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
-import app.revanced.patcher.string
+import app.revanced.patcher.addString
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val componentCreateFingerprint = fingerprint {
     instructions(
-        string("Element missing correct type extension"),
-        string("Element missing type")
+        addString("Element missing correct type extension"),
+        addString("Element missing type")
     )
 }
 
@@ -56,7 +56,7 @@ internal val emptyComponentFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
     parameters()
     instructions(
-        string("EmptyComponent")
+        addString("EmptyComponent")
     )
     custom { _, classDef ->
         classDef.methods.filter { AccessFlags.STATIC.isSet(it.accessFlags) }.size == 1
