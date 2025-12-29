@@ -352,6 +352,10 @@ public final class app/revanced/patches/letterboxd/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/letterboxd/unlockAppIcons/UnlockAppIconsPatchKt {
+	public static final fun getUnlockAppIcons ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/lightroom/misc/login/DisableMandatoryLoginPatchKt {
 	public static final fun getDisableMandatoryLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
