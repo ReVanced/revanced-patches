@@ -1,3 +1,10 @@
+# [5.48.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.4...v5.48.0-dev.5) (2025-12-30)
+
+
+### Bug Fixes
+
+* **Disney+ - Skip ads:** Remove unsupported package names ([#6422](https://github.com/ReVanced/revanced-patches/issues/6422)) ([44e7dbc](https://github.com/ReVanced/revanced-patches/commit/44e7dbcf4d7eaf94dd0164baba847d3e19250154))
+
 # [5.48.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.3...v5.48.0-dev.4) (2025-12-29)
 
 
