@@ -23,7 +23,7 @@ private val CONTEXT_BIND_SERVICE_METHOD_REFERENCE = ImmutableMethodReference(
 @Suppress("unused")
 val disablePlayIntegrityPatch = bytecodePatch(
     name = "Disable Play Integrity",
-    description = "Prevent apps from using Play Integrity by pretending it is not available.",
+    description = "Prevents apps from using Play Integrity by pretending it is not available.",
     use = false,
 ) {
     extendWith("extensions/all/misc/play-integrity.rve")
