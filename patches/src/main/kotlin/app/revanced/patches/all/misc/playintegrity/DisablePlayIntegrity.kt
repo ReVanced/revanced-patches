@@ -26,7 +26,7 @@ val disablePlayIntegrityPatch = bytecodePatch(
     description = "Prevents apps from using Play Integrity by pretending it is not available.",
     use = false,
 ) {
-    extendWith("extensions/all/misc/play-integrity.rve")
+    extendWith("extensions/all/misc/disable-play-integrity.rve")
 
     dependsOn(
         transformInstructionsPatch(
