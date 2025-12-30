@@ -1,4 +1,4 @@
-package app.revanced.patches.letterboxd.unlockAppIcons
+package app.revanced.patches.letterboxd.unlock.unlockAppIcons
 
 import app.revanced.patcher.fingerprint
 
