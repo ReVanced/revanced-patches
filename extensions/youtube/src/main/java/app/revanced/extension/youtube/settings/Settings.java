@@ -3,6 +3,7 @@ package app.revanced.extension.youtube.settings;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static app.revanced.extension.shared.settings.Setting.parent;
+import static app.revanced.extension.shared.settings.Setting.parentNot;
 import static app.revanced.extension.shared.settings.Setting.parentsAll;
 import static app.revanced.extension.shared.settings.Setting.parentsAny;
 import static app.revanced.extension.youtube.patches.ChangeFormFactorPatch.FormFactor;
@@ -95,7 +96,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_CHIPS_SHELF = new BooleanSetting("revanced_hide_chips_shelf", TRUE);
     public static final BooleanSetting HIDE_COMMUNITY_POSTS = new BooleanSetting("revanced_hide_community_posts", FALSE);
     public static final BooleanSetting HIDE_COMPACT_BANNER = new BooleanSetting("revanced_hide_compact_banner", TRUE);
-    public static final BooleanSetting HIDE_CROWDFUNDING_BOX = new BooleanSetting("revanced_hide_crowdfunding_box", FALSE, true);
     public static final BooleanSetting HIDE_DOODLES = new BooleanSetting("revanced_hide_doodles", FALSE, true, "revanced_hide_doodles_user_dialog_message");
     public static final BooleanSetting HIDE_EXPANDABLE_CARD = new BooleanSetting("revanced_hide_expandable_card", TRUE);
     public static final BooleanSetting HIDE_FILTER_BAR_FEED_IN_FEED = new BooleanSetting("revanced_hide_filter_bar_feed_in_feed", FALSE, true);
@@ -115,6 +115,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_UPLOAD_TIME = new BooleanSetting("revanced_hide_upload_time", FALSE, "revanced_hide_upload_time_user_dialog_message");
     public static final BooleanSetting HIDE_VIDEO_RECOMMENDATION_LABELS = new BooleanSetting("revanced_hide_video_recommendation_labels", TRUE);
     public static final BooleanSetting HIDE_VIEW_COUNT = new BooleanSetting("revanced_hide_view_count", FALSE, "revanced_hide_view_count_user_dialog_message");
+    public static final BooleanSetting HIDE_VISUAL_SPACER = new BooleanSetting("revanced_hide_visual_spacer", TRUE);
 
     // Alternative thumbnails
     public static final EnumSetting<ThumbnailOption> ALT_THUMBNAIL_HOME = new EnumSetting<>("revanced_alt_thumbnail_home", ThumbnailOption.ORIGINAL);
@@ -136,11 +137,13 @@ public class Settings extends BaseSettings {
             parentsAny(HIDE_KEYWORD_CONTENT_HOME, HIDE_KEYWORD_CONTENT_SUBSCRIPTIONS, HIDE_KEYWORD_CONTENT_SEARCH));
 
     // Channel page
+    public static final BooleanSetting HIDE_COMMUNITY_BUTTON = new BooleanSetting("revanced_hide_community_button", TRUE);
     public static final BooleanSetting HIDE_FOR_YOU_SHELF = new BooleanSetting("revanced_hide_for_you_shelf", FALSE);
+    public static final BooleanSetting HIDE_JOIN_BUTTON = new BooleanSetting("revanced_hide_join_button", FALSE);
     public static final BooleanSetting HIDE_LINKS_PREVIEW = new BooleanSetting("revanced_hide_links_preview", TRUE);
     public static final BooleanSetting HIDE_MEMBERS_SHELF = new BooleanSetting("revanced_hide_members_shelf", TRUE);
-    public static final BooleanSetting HIDE_VISIT_COMMUNITY_BUTTON = new BooleanSetting("revanced_hide_visit_community_button", TRUE);
-    public static final BooleanSetting HIDE_VISIT_STORE_BUTTON = new BooleanSetting("revanced_hide_visit_store_button", TRUE);
+    public static final BooleanSetting HIDE_STORE_BUTTON = new BooleanSetting("revanced_hide_store_button", TRUE);
+    public static final BooleanSetting HIDE_SUBSCRIBE_BUTTON_IN_CHANNEL_PAGE = new BooleanSetting("revanced_hide_subscribe_button_in_channel_page", FALSE);
 
     // Player
     public static final BooleanSetting COPY_VIDEO_URL = new BooleanSetting("revanced_copy_video_url", FALSE);
@@ -154,6 +157,8 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_CAPTIONS_BUTTON = new BooleanSetting("revanced_hide_captions_button", FALSE);
     public static final BooleanSetting HIDE_CAST_BUTTON = new BooleanSetting("revanced_hide_cast_button", TRUE, true);
     public static final BooleanSetting HIDE_CHANNEL_BAR = new BooleanSetting("revanced_hide_channel_bar", FALSE);
+    public static final BooleanSetting HIDE_CHANNEL_WATERMARK = new BooleanSetting("revanced_hide_channel_watermark", TRUE);
+    public static final BooleanSetting HIDE_CROWDFUNDING_BOX = new BooleanSetting("revanced_hide_crowdfunding_box", FALSE, true);
     public static final BooleanSetting HIDE_EMERGENCY_BOX = new BooleanSetting("revanced_hide_emergency_box", TRUE);
     public static final BooleanSetting HIDE_ENDSCREEN_CARDS = new BooleanSetting("revanced_hide_endscreen_cards", FALSE);
     public static final BooleanSetting HIDE_END_SCREEN_SUGGESTED_VIDEO = new BooleanSetting("revanced_end_screen_suggested_video", FALSE, true);
@@ -168,7 +173,6 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_RELATED_VIDEOS = new BooleanSetting("revanced_hide_related_videos", FALSE);
     public static final BooleanSetting HIDE_SUBSCRIBERS_COMMUNITY_GUIDELINES = new BooleanSetting("revanced_hide_subscribers_community_guidelines", TRUE);
     public static final BooleanSetting HIDE_TIMED_REACTIONS = new BooleanSetting("revanced_hide_timed_reactions", TRUE);
-    public static final BooleanSetting HIDE_VIDEO_CHANNEL_WATERMARK = new BooleanSetting("revanced_hide_channel_watermark", TRUE);
     public static final BooleanSetting OPEN_VIDEOS_FULLSCREEN_PORTRAIT = new BooleanSetting("revanced_open_videos_fullscreen_portrait", FALSE);
     public static final BooleanSetting PLAYBACK_SPEED_DIALOG_BUTTON = new BooleanSetting("revanced_playback_speed_dialog_button", FALSE);
     public static final BooleanSetting VIDEO_QUALITY_DIALOG_BUTTON = new BooleanSetting("revanced_video_quality_dialog_button", FALSE);
@@ -210,13 +214,14 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_ASK_SECTION = new BooleanSetting("revanced_hide_ask_section", FALSE);
     public static final BooleanSetting HIDE_ATTRIBUTES_SECTION = new BooleanSetting("revanced_hide_attributes_section", FALSE);
     public static final BooleanSetting HIDE_CHAPTERS_SECTION = new BooleanSetting("revanced_hide_chapters_section", TRUE);
-    public static final BooleanSetting HIDE_FEATURED_SECTION = new BooleanSetting("revanced_hide_featured_section", TRUE);
     public static final BooleanSetting HIDE_HOW_THIS_WAS_MADE_SECTION = new BooleanSetting("revanced_hide_how_this_was_made_section", FALSE);
     public static final BooleanSetting HIDE_HYPE_POINTS = new BooleanSetting("revanced_hide_hype_points", FALSE);
     public static final BooleanSetting HIDE_INFO_CARDS_SECTION = new BooleanSetting("revanced_hide_info_cards_section", TRUE);
+    public static final BooleanSetting HIDE_FEATURED_LINKS_SECTION = new BooleanSetting("revanced_hide_featured_links_section", FALSE, parentNot(HIDE_INFO_CARDS_SECTION));
+    public static final BooleanSetting HIDE_FEATURED_VIDEOS_SECTION = new BooleanSetting("revanced_hide_featured_videos_section", FALSE, parentNot(HIDE_INFO_CARDS_SECTION));
+    public static final BooleanSetting HIDE_SUBSCRIBE_BUTTON = new BooleanSetting("revanced_hide_subscribe_button", FALSE, parentNot(HIDE_INFO_CARDS_SECTION));
     public static final BooleanSetting HIDE_KEY_CONCEPTS_SECTION = new BooleanSetting("revanced_hide_key_concepts_section", FALSE);
     public static final BooleanSetting HIDE_PODCAST_SECTION = new BooleanSetting("revanced_hide_podcast_section", TRUE);
-    public static final BooleanSetting HIDE_DESCRIPTION_SUBSCRIBE_BUTTON = new BooleanSetting("revanced_hide_description_subscribe_button", TRUE);
     public static final BooleanSetting HIDE_TRANSCRIPT_SECTION = new BooleanSetting("revanced_hide_transcript_section", TRUE);
 
     // Action buttons
@@ -228,11 +233,11 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_HYPE_BUTTON = new BooleanSetting("revanced_hide_hype_button", FALSE);
     public static final BooleanSetting HIDE_LIKE_DISLIKE_BUTTON = new BooleanSetting("revanced_hide_like_dislike_button", FALSE);
     public static final BooleanSetting HIDE_PROMOTE_BUTTON = new BooleanSetting("revanced_hide_promote_button", FALSE);
-    public static final BooleanSetting HIDE_REMIX_BUTTON = new BooleanSetting("revanced_hide_remix_button", TRUE);
+    public static final BooleanSetting HIDE_REMIX_BUTTON = new BooleanSetting("revanced_hide_remix_button", FALSE);
     public static final BooleanSetting HIDE_REPORT_BUTTON = new BooleanSetting("revanced_hide_report_button", FALSE);
     public static final BooleanSetting HIDE_SAVE_BUTTON = new BooleanSetting("revanced_hide_save_button", FALSE);
     public static final BooleanSetting HIDE_SHARE_BUTTON = new BooleanSetting("revanced_hide_share_button", FALSE);
-    public static final BooleanSetting HIDE_SHOP_BUTTON = new BooleanSetting("revanced_hide_shop_button", FALSE);
+    public static final BooleanSetting HIDE_SHOP_BUTTON = new BooleanSetting("revanced_hide_shop_button", TRUE);
     public static final BooleanSetting HIDE_STOP_ADS_BUTTON = new BooleanSetting("revanced_hide_stop_ads_button", TRUE);
     public static final BooleanSetting HIDE_THANKS_BUTTON = new BooleanSetting("revanced_hide_thanks_button", TRUE);
 
@@ -293,6 +298,7 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting DISABLE_RESUMING_SHORTS_PLAYER = new BooleanSetting("revanced_disable_resuming_shorts_player", FALSE);
     public static final BooleanSetting DISABLE_SHORTS_BACKGROUND_PLAYBACK = new BooleanSetting("revanced_shorts_disable_background_playback", FALSE);
     public static final EnumSetting<ShortsPlayerType> SHORTS_PLAYER_TYPE = new EnumSetting<>("revanced_shorts_player_type", ShortsPlayerType.SHORTS_PLAYER);
+    public static final BooleanSetting HIDE_SHORTS_AUTO_DUBBED_LABEL = new BooleanSetting("revanced_hide_shorts_auto_dubbed_label", FALSE);
     public static final BooleanSetting HIDE_SHORTS_CHANNEL_BAR = new BooleanSetting("revanced_hide_shorts_channel_bar", FALSE);
     public static final BooleanSetting HIDE_SHORTS_COMMENTS_BUTTON = new BooleanSetting("revanced_hide_shorts_comments_button", FALSE);
     public static final BooleanSetting HIDE_SHORTS_DISLIKE_BUTTON = new BooleanSetting("revanced_hide_shorts_dislike_button", FALSE);
@@ -307,11 +313,12 @@ public class Settings extends BaseSettings {
     public static final BooleanSetting HIDE_SHORTS_JOIN_BUTTON = new BooleanSetting("revanced_hide_shorts_join_button", TRUE);
     public static final BooleanSetting HIDE_SHORTS_LIKE_BUTTON = new BooleanSetting("revanced_hide_shorts_like_button", FALSE);
     public static final BooleanSetting HIDE_SHORTS_LIKE_FOUNTAIN = new BooleanSetting("revanced_hide_shorts_like_fountain", TRUE);
+    public static final BooleanSetting HIDE_SHORTS_LIVE_PREVIEW = new BooleanSetting("revanced_hide_shorts_live_preview", FALSE);
     public static final BooleanSetting HIDE_SHORTS_LOCATION_LABEL = new BooleanSetting("revanced_hide_shorts_location_label", FALSE);
     public static final BooleanSetting HIDE_SHORTS_NAVIGATION_BAR = new BooleanSetting("revanced_hide_shorts_navigation_bar", FALSE, true);
     public static final BooleanSetting HIDE_SHORTS_PAUSED_OVERLAY_BUTTONS = new BooleanSetting("revanced_hide_shorts_paused_overlay_buttons", FALSE);
     public static final BooleanSetting HIDE_SHORTS_PREVIEW_COMMENT = new BooleanSetting("revanced_hide_shorts_preview_comment", TRUE);
-    public static final BooleanSetting HIDE_SHORTS_REMIX_BUTTON = new BooleanSetting("revanced_hide_shorts_remix_button", TRUE);
+    public static final BooleanSetting HIDE_SHORTS_REMIX_BUTTON = new BooleanSetting("revanced_hide_shorts_remix_button", FALSE);
     public static final BooleanSetting HIDE_SHORTS_SAVE_SOUND_BUTTON = new BooleanSetting("revanced_hide_shorts_save_sound_button", TRUE);
     public static final BooleanSetting HIDE_SHORTS_SEARCH = new BooleanSetting("revanced_hide_shorts_search", FALSE);
     public static final BooleanSetting HIDE_SHORTS_SEARCH_SUGGESTIONS = new BooleanSetting("revanced_hide_shorts_search_suggestions", TRUE);

@@ -282,6 +282,9 @@ Tomēr, iespējojot šo iestatījumu, tiks reģistrēti arī daži lietotāja da
   <string name="revanced_hide_video_recommendation_labels_title">Slēpt video ieteikumu etiķetes.</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">Etiķetes \"Cilvēki skatījās arī\" un \"Jums varētu patikt\" meklēšanas rezultātos ir paslēptas.</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">Etiķetes \"Cilvēki skatījās arī\" un \"Jums varētu patikt\" meklēšanas rezultātos ir redzamas.</string>
+  <string name="revanced_hide_visual_spacer_title">Slēpt vizuālo atstarpi</string>
+  <string name="revanced_hide_visual_spacer_summary_on">Vizuālā atstarpe ir paslēpta</string>
+  <string name="revanced_hide_visual_spacer_summary_off">Vizuālā atstarpe ir redzama</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Paslēpt YouTube Doodles</string>
   <string name="revanced_hide_doodles_summary_on">YouTube Doodles animācija uz logotipa ir paslēpta.</string>
@@ -342,18 +345,21 @@ Ja Doodle pašlaik tiek rādīts jūsu reģionā un šis slēpšanas iestatījum
   <string name="revanced_hide_podcast_section_title">Paslēpt sadaļu \"Izpētiet podkāstu\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Sadaļa \"Izpētiet podkāstu\" ir paslēpta</string>
   <string name="revanced_hide_podcast_section_summary_off">Sadaļa \"Izpētiet podkāstu\" ir redzama</string>
-  <string name="revanced_hide_featured_section_title">Slēpt izceltu saturu</string>
-  <string name="revanced_hide_featured_section_summary_on">Izceltā satura sadaļa ir paslēpta</string>
-  <string name="revanced_hide_featured_section_summary_off">Izceltā satura sadaļa ir redzama</string>
+  <string name="revanced_hide_featured_links_section_title">Slēpt izceltās saites</string>
+  <string name="revanced_hide_featured_links_section_summary_on">Ieteikto saišu sadaļa ir paslēpta</string>
+  <string name="revanced_hide_featured_links_section_summary_off">Ieteikto saišu sadaļa ir redzama</string>
+  <string name="revanced_hide_featured_videos_section_title">Paslēpt ieteiktos videoklipus</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">Ieteikto videoklipu sadaļa ir paslēpta</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">Ieteikto videoklipu sadaļa ir redzama</string>
   <string name="revanced_hide_info_cards_section_title">Paslēpt informācijas kartītes</string>
   <string name="revanced_hide_info_cards_section_summary_on">Informācijas karšu sadaļa ir paslēpta</string>
   <string name="revanced_hide_info_cards_section_summary_off">Informācijas karšu sadaļa ir redzama</string>
   <string name="revanced_hide_key_concepts_section_title">Paslēpt \"Galvenos jēdzienus\"</string>
   <string name="revanced_hide_key_concepts_section_summary_on">Sadaļa \"Galvenie jēdzieni\" ir paslēpta</string>
   <string name="revanced_hide_key_concepts_section_summary_off">Sadaļa \"Galvenie jēdzieni\" ir redzama</string>
-  <string name="revanced_hide_description_subscribe_button_title">Slēpt pogu Abonēt</string>
-  <string name="revanced_hide_description_subscribe_button_summary_on">Abonēšanas poga ir paslēpta</string>
-  <string name="revanced_hide_description_subscribe_button_summary_off">Abonēšanas poga ir redzama</string>
+  <string name="revanced_hide_subscribe_button_title">Paslēpt pogu Abonēt</string>
+  <string name="revanced_hide_subscribe_button_summary_on">Abonēšanas poga ir paslēpta</string>
+  <string name="revanced_hide_subscribe_button_summary_off">Abonēšanas poga ir redzama</string>
   <string name="revanced_hide_transcript_section_title">Paslēpt transkriptu</string>
   <string name="revanced_hide_transcript_section_summary_on">Transkripcijas sadaļa ir paslēpta</string>
   <string name="revanced_hide_transcript_section_summary_off">Transkripcijas sadaļa ir redzama</string>
@@ -375,24 +381,32 @@ Ja Doodle pašlaik tiek rādīts jūsu reģionā un šis slēpšanas iestatījum
   <string name="revanced_hide_filter_bar_feed_in_history_summary_off">Parādīts skatīšanās vēsturē</string>
   <string name="revanced_channel_screen_title">Kanāla lapa</string>
   <string name="revanced_channel_screen_summary">Slēpt vai parādīt kanāla lapas komponentus</string>
+  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_community_button_title">Slēpt pogu Kopiena</string>
+  <string name="revanced_hide_community_button_summary_on">Kopienas poga ir paslēpta</string>
+  <string name="revanced_hide_community_button_summary_off">Kopienas poga ir redzama</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">Paslēpt plauktu \"Tev\"</string>
   <string name="revanced_hide_for_you_shelf_summary_on">\"Tev\" plaukts ir paslēpts</string>
   <string name="revanced_hide_for_you_shelf_summary_off">\"Tev\" plaukts ir redzams</string>
+  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_join_button_title">Slēpt pogu \"Pievienoties\"</string>
+  <string name="revanced_hide_join_button_summary_on">Poga \"Pievienoties\" ir paslēpta</string>
+  <string name="revanced_hide_join_button_summary_off">Poga \"Pievienoties\" ir redzama</string>
   <string name="revanced_hide_links_preview_title">Slēpt saišu priekšskatījumu</string>
   <string name="revanced_hide_links_preview_summary_on">Saišu priekšskatījums ir paslēpts</string>
   <string name="revanced_hide_links_preview_summary_off">Saišu priekšskatījums ir redzams</string>
   <string name="revanced_hide_members_shelf_title">Slēpt dalībnieku plauktu</string>
   <string name="revanced_hide_members_shelf_summary_on">Dalībnieku plaukts ir paslēpts</string>
   <string name="revanced_hide_members_shelf_summary_off">Dalībnieku plaukts ir redzams</string>
-  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">Paslēpt pogu \"Apmeklēt kopienu\"</string>
-  <string name="revanced_hide_visit_community_button_summary_on">Poga \"Apmeklēt kopienu\" ir paslēpta</string>
-  <string name="revanced_hide_visit_community_button_summary_off">Poga \"Apmeklēt kopienu\" ir redzama</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">Paslēpt \"Apmeklēt veikalu\" pogu kanāla lapās</string>
-  <string name="revanced_hide_visit_store_button_summary_on">Poga \"Apmeklēt veikalu\" ir paslēpta</string>
-  <string name="revanced_hide_visit_store_button_summary_off">Poga \"Apmeklēt veikalu\" ir redzama</string>
+  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_store_button_title">Slēpt pogu \"Veikals\"</string>
+  <string name="revanced_hide_store_button_summary_on">Poga \"Veikals\" ir paslēpta</string>
+  <string name="revanced_hide_store_button_summary_off">Poga \"Veikals\" ir redzama</string>
+  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_subscribe_button_in_channel_page_title">Slēpt pogu \"Abonēt\"</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">Poga \"Abonēt\" ir paslēpta</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">Poga \"Abonēt\" ir redzama</string>
   <string name="revanced_comments_screen_title">Komentāri</string>
   <string name="revanced_comments_screen_summary">Slēpt vai parādīt komentāru sadaļas komponentus</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">Slēpt AI tērzēšanas kopsavilkumu</string>
@@ -534,11 +548,11 @@ Ierobežojumi
   <string name="revanced_share_copy_url_success">URL kopēts starpliktuvē</string>
   <string name="revanced_share_copy_url_timestamp_success">URL ar laika zīmi kopēts</string>
   <string name="revanced_copy_video_url_title">Rādīt video URL kopēšanas pogu</string>
-  <string name="revanced_copy_video_url_summary_on">Poga ir redzama. Pieskarieties, lai kopētu video URL. Pieskarieties un turiet, lai kopētu ar laika zīmogu</string>
-  <string name="revanced_copy_video_url_summary_off">Pogas nav redzamas</string>
+  <string name="revanced_copy_video_url_summary_on">Video URL kopēšanas poga ir redzama. Pieskarieties, lai kopētu video URL. Turiet nospiestu, lai kopētu ar laika zīmogu</string>
+  <string name="revanced_copy_video_url_summary_off">Video URL kopēšanas poga nav redzama</string>
   <string name="revanced_copy_video_url_timestamp_title">Rādīt pogu \"Kopēt saiti ar laika zīmi\"</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Poga ir redzama. Pieskarieties, lai kopētu video URL ar laika zīmogu. Pieskarieties un turiet, lai kopētu bez laika zīmoga</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">Pogas nav redzamas</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Laika zīmoga URL kopēšanas poga ir redzama. Pieskarieties, lai kopētu video URL ar laika zīmogu. Turiet nospiestu, lai kopētu bez laika zīmoga</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Laika zīmoga URL kopēšanas poga nav redzama</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Noņemt brīdinājuma dialogu</string>
@@ -547,7 +561,7 @@ Ierobežojumi
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Tas neapiet vecuma ierobežojumu. Tas vienkārši automātiski to pieņem.</string>
   </patch>
   <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-  <string name="revanced_disable_signin_to_tv_popup_title">Atspējot uznirstošo paziņojumu Pierakstīties televizorā</string>
+  <string name="revanced_disable_signin_to_tv_popup_title">Atspējot uznirstošo logu \"Pierakstīties televizorā\"</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_on">Uznirstošais paziņojums Pierakstīties televizorā ir atspējots</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_off">Uznirstošais paziņojums Pierakstīties televizorā ir iespējots</string>
   </patch>
@@ -679,7 +693,7 @@ Regulējiet skaļumu, velkot vertikāli ekrāna labajā pusē"</string>
   <string name="revanced_hide_download_button_summary_on">Lejupielādēt poga ir paslēpta</string>
   <string name="revanced_hide_download_button_summary_off">Lejupielādēt poga ir redzama</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
   <string name="revanced_hide_hype_button_title">Paslēpt ažiotāžu</string>
   <string name="revanced_hide_hype_button_summary_on">Poga \</string>
   <string name="revanced_hide_hype_button_summary_off">Hype poga tiek rādīta</string>
@@ -800,10 +814,11 @@ Ja šī iestatījuma maiņa nestājas spēkā, mēģiniet pārslēgties uz inkog
   <string name="revanced_hide_player_flyout_audio_track_title">Paslēpt Audio ceļu</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">Audio ceļa izvēlne ir paslēpta</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">Audio ceļa izvēlne ir redzama</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"Audio celiņa izvēlne ir paslēpta
 
-Lai parādītu audio celiņa izvēlni, mainiet \"Atdarināt video straumes\" uz iPadOS"</string>
+Lai parādītu audio celiņa izvēlni, mainiet \"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Paslēpt Skatīties VR</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Skatīties VR izvēlne ir paslēpta</string>
@@ -879,13 +894,16 @@ Lai parādītu audio celiņa izvēlni, mainiet \"Atdarināt video straumes\" uz 
   <string name="revanced_hide_shorts_history_title">Paslēpt šortus skatīšanās vēsturē</string>
   <string name="revanced_hide_shorts_history_summary_on">Slēpts skatīšanās vēsturē</string>
   <string name="revanced_hide_shorts_history_summary_off">Parādīts skatīšanās vēsturē</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Paslēpt pogu \"Pārpirkt ar Super Thanks\"</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">Slēpt etiķeti \"Automātiski dublēts\"</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Automātiski dublētā iezīme ir paslēpta</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Automātiski dublētā iezīme ir redzama</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Slēpt pogu \"Pirkt Super Thanks\"</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Poga \"Pirkt Super Thanks\" ir paslēpta.</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Poga \"Pirkt Super Thanks\" ir redzama.</string>
   <string name="revanced_hide_shorts_effect_button_title">Paslēpt efekta pogu</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Efekta poga ir paslēpta</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Efekta poga ir redzama</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Paslēpt pogu \"Zaļais ekrāns\"</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Slēpt pogu \"Zaļais ekrāns\"</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Zaļā ekrāna poga ir paslēpta</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Zaļā ekrāna poga ir redzama</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Paslēpt hashtags pogu</string>
@@ -895,10 +913,13 @@ Lai parādītu audio celiņa izvēlni, mainiet \"Atdarināt video straumes\" uz 
   <string name="revanced_hide_shorts_join_button_title">Paslēpt pogu \"Pievienoties\"</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Pievienošanās poga ir paslēpta</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Pievienošanās poga ir redzama</string>
+  <string name="revanced_hide_shorts_live_preview_title">Slēpt tiešraides priekšskatījumu</string>
+  <string name="revanced_hide_shorts_live_preview_summary_on">Tiešraides priekšskatījums ir paslēpts</string>
+  <string name="revanced_hide_shorts_live_preview_summary_off">Tiešraides priekšskatījums ir redzams</string>
   <string name="revanced_hide_shorts_location_label_title">Paslēpt atrašanās vietas nosaukumu</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Atrašanās vietas nosaukums ir paslēpts</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Atrašanās vietas nosaukums ir redzams</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Paslēpt pogu Jauni ieraksti</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">Slēpt pogu \"Jaunas ziņas\"</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_on">Poga Jauni ieraksti ir paslēpta</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_off">Poga Jauni ieraksti ir redzama</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Paslēpt pauzes pārklājuma pogas</string>
@@ -907,7 +928,7 @@ Lai parādītu audio celiņa izvēlni, mainiet \"Atdarināt video straumes\" uz 
   <string name="revanced_hide_shorts_preview_comment_title">Paslēpt priekšskatījuma komentāru</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">Komentāra priekšskatījums ir paslēpts</string>
   <string name="revanced_hide_shorts_preview_comment_summary_off">Priekšskatījuma komentārs tiek rādīts</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">Paslēpt pogu \"Saglabāt mūziku\"</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">Slēpt pogu \"Saglabāt mūziku\"</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">“Saglabāt mūziku” poga ir paslēpta</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">“Saglabāt mūziku” poga ir redzama</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Paslēpt meklēšanas ieteikumus</string>
@@ -928,7 +949,7 @@ Lai parādītu audio celiņa izvēlni, mainiet \"Atdarināt video straumes\" uz 
   <string name="revanced_hide_shorts_upcoming_button_title">Paslēpt pogu \"Gaidāmie\"</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">Nākamās pogas ir paslēptas</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">Nākamās pogas ir redzamas</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Paslēpt pogu \"Izmantot šo skaņu\"</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">Slēpt pogu \"Izmantot šo skaņu\"</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_on">Poga \"Izmantot šo skaņu\" ir paslēpta</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_off">Poga \"Izmantot šo skaņu\" ir redzama</string>
   <string name="revanced_hide_shorts_use_template_button_title">Slēpt pogu \"Izmantot šo veidni\"</string>
@@ -1575,13 +1596,13 @@ Var tikt atbloķētas augstākas video kvalitātes, taču var rasties video atsk
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Rādīt ātruma dialoga pogu</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Poga ir redzama. Pieskarieties un turiet, lai atiestatītu atskaņošanas ātrumu uz noklusējuma</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">Poga netiek rādīta</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Ātruma dialoglodziņa poga ir redzama. Turiet nospiestu, lai atiestatītu atskaņošanas ātrumu uz noklusējumu</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Ātruma dialoglodziņa poga nav redzama</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Rādīt video kvalitātes pogu</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Poga tiek rādīta. Pieskarieties un turiet, lai atiestatītu kvalitāti uz noklusējuma</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">Poga netiek rādīta</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Video kvalitātes poga ir redzama. Turiet nospiestu, lai atiestatītu kvalitāti uz noklusējumu</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Video kvalitātes poga nav redzama</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Pielāgotas atskaņošanas ātruma izvēlne</string>

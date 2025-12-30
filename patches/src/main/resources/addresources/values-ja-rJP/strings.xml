@@ -82,8 +82,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_search_history_summary_on">設定の検索履歴は表示されます</string>
   <string name="revanced_settings_search_history_summary_off">設定の検索履歴は表示されません</string>
   <string name="revanced_show_menu_icons_title">ReVanced の設定にアイコンを表示</string>
-  <string name="revanced_show_menu_icons_summary_on">ReVanced の設定メニューにはアイコンが表示されます</string>
-  <string name="revanced_show_menu_icons_summary_off">ReVanced の設定メニューにはアイコンは表示されません</string>
+  <string name="revanced_show_menu_icons_summary_on">ReVanced の設定メニューにアイコンが表示されます</string>
+  <string name="revanced_show_menu_icons_summary_off">ReVanced の設定メニューにアイコンは表示されません</string>
   <string name="revanced_language_title">ReVanced 設定の言語</string>
   <string name="revanced_language_user_dialog_message">"一部の言語の翻訳が欠落しているまたは不完全である可能性があります。
 
@@ -138,7 +138,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_force_original_audio_summary_on">オリジナルの音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックは使用されません</string>
   <string name="revanced_force_original_audio_summary_off">アプリが選択した音声トラック (言語) を使用します\n\nオートダビングを含む吹き替えの音声トラックが使用される場合があります</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
-  <string name="revanced_force_original_audio_not_available">この機能を使用するには、「動画ストリームを偽装」のクライアントを Android Studio 以外の任意のクライアントに変更してください</string>
+  <string name="revanced_force_original_audio_not_available">この機能を使用するには、[動画ストリームを偽装] のクライアントを Android Studio 以外の任意のクライアントに変更してください</string>
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   <string name="revanced_debug_screen_title">デバッグ</string>
@@ -220,7 +220,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_album_cards_summary_off">アーティストの概要欄の下部にあるアルバムカードは表示されます</string>
   <string name="revanced_hide_artist_cards_title">アーティスト カードを非表示</string>
   <string name="revanced_hide_artist_cards_summary_on">アーティスト カードは表示されません</string>
-  <string name="revanced_hide_artist_cards_summary_off">アーティスト情報が表示されます</string>
+  <string name="revanced_hide_artist_cards_summary_off">アーティスト カードは表示されます</string>
   <string name="revanced_hide_chips_shelf_title">チップ欄を非表示</string>
   <string name="revanced_hide_chips_shelf_summary_on">チップ欄は表示されません</string>
   <string name="revanced_hide_chips_shelf_summary_off">チップ欄は表示されます</string>
@@ -272,8 +272,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <!-- 'Show more' should be translated with the same localized wording that YouTube displays.
                   This button usually appears when searching for a YT creator. -->
   <string name="revanced_hide_show_more_button_title">「もっと見る」ボタンを非表示</string>
-  <string name="revanced_hide_show_more_button_summary_on">検索結果の「もっと見る」ボタンは表示されません</string>
-  <string name="revanced_hide_show_more_button_summary_off">検索結果の「もっと見る」ボタンは表示されます</string>
+  <string name="revanced_hide_show_more_button_summary_on">「もっと見る」ボタンは検索結果に表示されません</string>
+  <string name="revanced_hide_show_more_button_summary_off">「もっと見る」ボタンは検索結果に表示されます</string>
   <string name="revanced_hide_surveys_title">アンケートを非表示</string>
   <string name="revanced_hide_surveys_summary_on">アンケートは表示されません</string>
   <string name="revanced_hide_surveys_summary_off">アンケートは表示されます</string>
@@ -282,8 +282,11 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_ticket_shelf_summary_off">チケット欄は表示されます</string>
   <!-- 'People also watched' and 'You might also like' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_video_recommendation_labels_title">おすすめ動画のラベルを非表示</string>
-  <string name="revanced_hide_video_recommendation_labels_summary_on">検索結果の「他の人はこの動画も視聴しています」ラベルと「あなたへのおすすめ」ラベルは表示されません</string>
-  <string name="revanced_hide_video_recommendation_labels_summary_off">検索結果の「他の人はこの動画も視聴しています」ラベルと「あなたへのおすすめ」ラベルは表示されます</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_on">「他の人はこの動画も視聴しています」ラベルと「あなたへのおすすめ」ラベルは検索結果に表示されません</string>
+  <string name="revanced_hide_video_recommendation_labels_summary_off">「他の人はこの動画も視聴しています」ラベルと「あなたへのおすすめ」ラベルは検索結果に表示されます</string>
+  <string name="revanced_hide_visual_spacer_title">区切りのスペースを非表示</string>
+  <string name="revanced_hide_visual_spacer_summary_on">コンポーネントを区切るためのスペースは表示されません</string>
+  <string name="revanced_hide_visual_spacer_summary_off">コンポーネントを区切るためのスペースが表示されます</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodle を非表示</string>
   <string name="revanced_hide_doodles_summary_on">ロゴの YouTube Doodle アニメーションは表示されません</string>
@@ -335,27 +338,30 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_chapters_section_title">チャプターを非表示</string>
   <string name="revanced_hide_chapters_section_summary_on">チャプター セクションは表示されません</string>
   <string name="revanced_hide_chapters_section_summary_off">チャプター セクションは表示されます</string>
-  <string name="revanced_hide_how_this_was_made_section_title">「このコンテンツの作成手段」を非表示</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_on">「このコンテンツの作成手段」セクションは表示されません</string>
-  <string name="revanced_hide_how_this_was_made_section_summary_off">「このコンテンツの作成手段」セクションは表示されます</string>
+  <string name="revanced_hide_how_this_was_made_section_title">「作成の裏側」を非表示</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_on">「作成の裏側」セクションは表示されません</string>
+  <string name="revanced_hide_how_this_was_made_section_summary_off">「作成の裏側」セクションは表示されます</string>
   <string name="revanced_hide_hype_points_title">ハイプポイントを非表示</string>
   <string name="revanced_hide_hype_points_summary_on">ハイプポイントは表示されません</string>
   <string name="revanced_hide_hype_points_summary_off">ハイプポイントは表示されます</string>
   <string name="revanced_hide_podcast_section_title">「ポッドキャストを検索」を非表示</string>
   <string name="revanced_hide_podcast_section_summary_on">「ポッドキャストを検索」セクションは表示されません</string>
   <string name="revanced_hide_podcast_section_summary_off">「ポッドキャストを検索」セクションは表示されます</string>
-  <string name="revanced_hide_featured_section_title">おすすめコンテンツを非表示</string>
-  <string name="revanced_hide_featured_section_summary_on">情報カード内のおすすめコンテンツ セクションは表示されません</string>
-  <string name="revanced_hide_featured_section_summary_off">情報カード内のおすすめコンテンツ セクションは表示されます</string>
+  <string name="revanced_hide_featured_links_section_title">おすすめリンクを非表示</string>
+  <string name="revanced_hide_featured_links_section_summary_on">情報カード内のおすすめリンク セクションは表示されません</string>
+  <string name="revanced_hide_featured_links_section_summary_off">情報カード内のおすすめリンク セクションは表示されます</string>
+  <string name="revanced_hide_featured_videos_section_title">おすすめ動画を非表示</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">情報カード内のおすすめ動画セクションは表示されません</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">情報カード内のおすすめ動画セクションは表示されます</string>
   <string name="revanced_hide_info_cards_section_title">情報カードを非表示</string>
   <string name="revanced_hide_info_cards_section_summary_on">情報カード セクションは表示されません</string>
   <string name="revanced_hide_info_cards_section_summary_off">情報カード セクションは表示されます</string>
   <string name="revanced_hide_key_concepts_section_title">「主な概念」を非表示</string>
   <string name="revanced_hide_key_concepts_section_summary_on">主な概念セクションは表示されません</string>
   <string name="revanced_hide_key_concepts_section_summary_off">主な概念セクションが表示されます</string>
-  <string name="revanced_hide_description_subscribe_button_title">チャンネル登録ボタンを非表示</string>
-  <string name="revanced_hide_description_subscribe_button_summary_on">情報カード内のチャンネル登録ボタンは表示されません</string>
-  <string name="revanced_hide_description_subscribe_button_summary_off">情報カード内のチャンネル登録ボタンは表示されます</string>
+  <string name="revanced_hide_subscribe_button_title">チャンネル登録ボタンを非表示</string>
+  <string name="revanced_hide_subscribe_button_summary_on">情報カード内のチャンネル登録ボタンは表示されません</string>
+  <string name="revanced_hide_subscribe_button_summary_off">情報カード内のチャンネル登録ボタンは表示されます</string>
   <string name="revanced_hide_transcript_section_title">文字起こしを非表示</string>
   <string name="revanced_hide_transcript_section_summary_on">文字起こしセクションは表示されません</string>
   <string name="revanced_hide_transcript_section_summary_off">文字起こしセクションは表示されます</string>
@@ -377,24 +383,32 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_filter_bar_feed_in_history_summary_off">再生履歴に表示されます</string>
   <string name="revanced_channel_screen_title">チャンネル ページ</string>
   <string name="revanced_channel_screen_summary">チャンネル ページのコンポーネントを表示または非表示にします</string>
+  <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_community_button_title">コミュニティ ボタンを非表示</string>
+  <string name="revanced_hide_community_button_summary_on">コミュニティ ボタンは表示されません</string>
+  <string name="revanced_hide_community_button_summary_off">コミュニティ ボタンは表示されます</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">「おすすめ」欄を非表示</string>
   <string name="revanced_hide_for_you_shelf_summary_on">「おすすめ」欄は表示されません</string>
   <string name="revanced_hide_for_you_shelf_summary_off">「おすすめ」欄は表示されます</string>
+  <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_join_button_title">「メンバーになる」ボタンを非表示</string>
+  <string name="revanced_hide_join_button_summary_on">「メンバーになる」ボタンは表示されません</string>
+  <string name="revanced_hide_join_button_summary_off">「メンバーになる」ボタンは表示されます</string>
   <string name="revanced_hide_links_preview_title">リンクのプレビューを非表示</string>
   <string name="revanced_hide_links_preview_summary_on">リンクのプレビューは表示されません</string>
   <string name="revanced_hide_links_preview_summary_off">リンクのプレビューは表示されます</string>
   <string name="revanced_hide_members_shelf_title">メンバー欄を非表示</string>
   <string name="revanced_hide_members_shelf_summary_on">メンバー欄は表示されません</string>
   <string name="revanced_hide_members_shelf_summary_off">メンバー欄は表示されます</string>
-  <!-- 'Visit Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_community_button_title">「コミュニティにアクセス」ボタンを非表示</string>
-  <string name="revanced_hide_visit_community_button_summary_on">「コミュニティにアクセス」ボタンは表示されません</string>
-  <string name="revanced_hide_visit_community_button_summary_off">「コミュニティにアクセス」ボタンは表示されます</string>
-  <!-- 'Visit store' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_visit_store_button_title">「ストアに移動」ボタンを非表示</string>
-  <string name="revanced_hide_visit_store_button_summary_on">「ストアに移動」ボタンは表示されません</string>
-  <string name="revanced_hide_visit_store_button_summary_off">「ストアに移動」ボタンは表示されます</string>
+  <!-- 'Store' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_store_button_title">ストアボタンを非表示</string>
+  <string name="revanced_hide_store_button_summary_on">ストアボタンは表示されません</string>
+  <string name="revanced_hide_store_button_summary_off">ストアボタンは表示されます</string>
+  <!-- 'Subscribe' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_subscribe_button_in_channel_page_title">チャンネル登録ボタンを非表示</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_on">チャンネル登録ボタンは表示されません</string>
+  <string name="revanced_hide_subscribe_button_in_channel_page_summary_off">チャンネル登録ボタンは表示されます</string>
   <string name="revanced_comments_screen_title">コメント</string>
   <string name="revanced_comments_screen_summary">コメント セクションのコンポーネントを表示または非表示にします</string>
   <string name="revanced_hide_comments_ai_chat_summary_title">AI による「チャットの要約」を非表示</string>
@@ -437,19 +451,19 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_custom_filter_strings_summary">非表示にするコンポーネントの path builder string のリスト (改行区切り)</string>
   <string name="revanced_custom_filter_toast_invalid_syntax">無効なカスタム フィルタ: %s</string>
   <string name="revanced_hide_view_count_title">視聴回数を非表示</string>
-  <string name="revanced_hide_view_count_summary_on">視聴回数はフィードと検索結果に表示されません</string>
-  <string name="revanced_hide_view_count_summary_off">視聴回数はフィードと検索結果に表示されます</string>
+  <string name="revanced_hide_view_count_summary_on">視聴回数はフィードおよび検索結果の動画のタイトル下に表示されません</string>
+  <string name="revanced_hide_view_count_summary_off">視聴回数はフィードおよび検索結果の動画のタイトル下に表示されます</string>
   <!-- Translations should lanaguge similar to revanced_hide_upload_time_user_dialog_message -->
   <string name="revanced_hide_view_count_user_dialog_message">"制限事項:
-• ショート欄、チャンネル ページ、検索結果では、引き続き再生回数が表示される場合があります
-• この機能は Automotive レイアウトでは動作しません"</string>
-  <string name="revanced_hide_upload_time_title">アップロード日を非表示</string>
-  <string name="revanced_hide_upload_time_summary_on">アップロード日はフィードと検索結果に表示されません</string>
-  <string name="revanced_hide_upload_time_summary_off">アップロード日はフィードと検索結果に表示されます</string>
+• ショート欄、チャンネル ページ、検索結果では、引き続き視聴回数が表示される場合がある
+• この機能は Automotive レイアウトでは動作しない"</string>
+  <string name="revanced_hide_upload_time_title">公開日時を非表示</string>
+  <string name="revanced_hide_upload_time_summary_on">公開日時はフィードおよび検索結果の動画のタイトル下に表示されません\n\n公開日時は、公開後の動画の場合は公開からの経過時間で表記されます</string>
+  <string name="revanced_hide_upload_time_summary_off">公開日時はフィードおよび検索結果の動画のタイトル下に表示されます\n\n公開日時は、公開後の動画の場合は公開からの経過時間で表記されます</string>
   <!-- Translations should lanaguge similar to revanced_hide_view_count_user_dialog_message -->
   <string name="revanced_hide_upload_time_user_dialog_message">"制限事項:
-• ショート欄、チャンネル ページ、検索結果では、引き続きアップロード日が表示される場合があります
-• この機能は Automotive レイアウトでは動作しません"</string>
+• ショート欄、チャンネル ページ、検索結果では、引き続き公開日時が表示される場合がある
+• この機能は Automotive レイアウトでは動作しない"</string>
   <string name="revanced_hide_keyword_content_screen_title">キーワードでコンテンツを非表示</string>
   <string name="revanced_hide_keyword_content_screen_summary">キーワード フィルタを使用してフィード、検索結果に表示される動画を非表示にします</string>
   <string name="revanced_hide_keyword_content_home_title">ホームの動画をキーワードで非表示</string>
@@ -516,8 +530,8 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_shopping_links_summary_on">動画の概要欄の商品へのリンクは表示されません</string>
   <string name="revanced_hide_shopping_links_summary_off">動画の概要欄の商品へのリンクは表示されます</string>
   <string name="revanced_hide_view_products_banner_title">「商品を表示」バナーを非表示</string>
-  <string name="revanced_hide_view_products_banner_summary_on">動画オーバーレイの「商品を表示」バナーは表示されません</string>
-  <string name="revanced_hide_view_products_banner_summary_off">動画オーバーレイの「商品を表示」バナーは表示されます</string>
+  <string name="revanced_hide_view_products_banner_summary_on">「商品を表示」バナーは動画オーバーレイに表示されません</string>
+  <string name="revanced_hide_view_products_banner_summary_off">「商品を表示」バナーは動画オーバーレイに表示されます</string>
   <string name="revanced_hide_web_search_results_title">ウェブ検索結果を非表示</string>
   <string name="revanced_hide_web_search_results_summary_on">ウェブ検索結果は表示されません</string>
   <string name="revanced_hide_web_search_results_summary_off">ウェブ検索結果は表示されます</string>
@@ -536,11 +550,11 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_share_copy_url_success">URL をクリップボードにコピーしました</string>
   <string name="revanced_share_copy_url_timestamp_success">タイムスタンプ付きの URL がコピーされました</string>
   <string name="revanced_copy_video_url_title">「動画の URL をコピー」ボタンを表示</string>
-  <string name="revanced_copy_video_url_summary_on">ボタンがプレーヤー オーバーレイに表示されます。タップすると動画の URL が、長押しするとタイムスタンプ付きの URL がそれぞれコピーされます</string>
-  <string name="revanced_copy_video_url_summary_off">ボタンはプレーヤー オーバーレイに表示されません</string>
+  <string name="revanced_copy_video_url_summary_on">「動画のURLをコピー」ボタンがプレーヤー オーバーレイに表示されます。タップすると動画の URL が、長押しするとタイムスタンプ付きの URL がそれぞれコピーされます</string>
+  <string name="revanced_copy_video_url_summary_off">「動画のURLをコピー」ボタンはプレーヤー オーバーレイに表示されません</string>
   <string name="revanced_copy_video_url_timestamp_title">「タイムスタンプ付き URL をコピー」ボタンを表示</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">ボタンがプレーヤー オーバーレイに表示されます。タップするとタイムスタンプ付きの URL が、長押しするとタイムスタンプなしの URL がそれぞれコピーされます</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">ボタンはプレーヤー オーバーレイに表示されません</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">「タイムスタンプ付きURLをコピー」ボタンがプレーヤー オーバーレイに表示されます。タップするとタイムスタンプ付きの動画の URL が、長押しするとタイムスタンプなしの URL がそれぞれコピーされます</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">「タイムスタンプ付きURLをコピー」ボタンはプレーヤー オーバーレイに表示されません</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">「ご自身の責任」ダイアログを削除</string>
@@ -681,7 +695,7 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_download_button_summary_on">オフライン ボタンは表示されません</string>
   <string name="revanced_hide_download_button_summary_off">オフライン ボタンは表示されます</string>
   <!-- 'Hype' should be translated with the same localized wording that YouTube displays.
-                  This button only shows on videos uploaded by the logged in user. -->
+                  This button only shows on videos uploaded by the logged-in user. -->
   <string name="revanced_hide_hype_button_title">ハイプボタンを非表示</string>
   <string name="revanced_hide_hype_button_summary_on">ハイプボタンは表示されません</string>
   <string name="revanced_hide_hype_button_summary_off">ハイプボタンは表示されます</string>
@@ -802,10 +816,11 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_player_flyout_audio_track_title">「音声トラック」を非表示</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_on">「音声トラック」は表示されません</string>
   <string name="revanced_hide_player_flyout_audio_track_summary_off">「音声トラック」は表示されます</string>
-  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
+  <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'.
+                  'Android No SDK' must be kept untranslated. -->
   <string name="revanced_hide_player_flyout_audio_track_not_available">"「音声トラック」は表示されません
 
-「音声トラック」を表示するには、「動画ストリームを偽装」を iPadOS に変更してください"</string>
+「音声トラック」を表示するには、[動画ストリームを偽装] を [Android No SDK] に変更してください"</string>
   <!-- 'Watch in VR' should be translated using the same localized wording YouTube displays for the menu item. -->
   <string name="revanced_hide_player_flyout_watch_in_vr_title">「VR で見る」を非表示</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">「VR で見る」は表示されません</string>
@@ -881,6 +896,9 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_shorts_history_title">再生履歴でショートを非表示</string>
   <string name="revanced_hide_shorts_history_summary_on">再生履歴にはショート動画は表示されません</string>
   <string name="revanced_hide_shorts_history_summary_off">再生履歴にはショート動画が表示されます</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">「吹替版」ラベルを非表示</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">「吹替版」ラベルは表示されません</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">「吹替版」ラベルは表示されます</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">「Super Thanks を購入する」ボタンを非表示</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">「Super Thanks を購入する」ボタンは表示されません</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">「Super Thanks を購入する」ボタンは表示されます</string>
@@ -897,6 +915,9 @@ YouTube Premium ユーザーの場合、この設定は必要ない可能性が�
   <string name="revanced_hide_shorts_join_button_title">「メンバーになる」ボタンを非表示</string>
   <string name="revanced_hide_shorts_join_button_summary_on">「メンバーになる」ボタンは表示されません</string>
   <string name="revanced_hide_shorts_join_button_summary_off">「メンバーになる」ボタンは表示されます</string>
+  <string name="revanced_hide_shorts_live_preview_title">ライブ プレビューを非表示</string>
+  <string name="revanced_hide_shorts_live_preview_summary_on">ライブ プレビューは表示されません</string>
+  <string name="revanced_hide_shorts_live_preview_summary_off">ライブ プレビューは表示されます</string>
   <string name="revanced_hide_shorts_location_label_title">位置情報ラベルを非表示</string>
   <string name="revanced_hide_shorts_location_label_summary_on">位置情報ラベルは表示されません</string>
   <string name="revanced_hide_shorts_location_label_summary_off">位置情報ラベルは表示されます</string>
@@ -1576,13 +1597,13 @@ Automotive レイアウト
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">再生速度設定ボタンを表示</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">ボタンがプレーヤー オーバーレイに表示されます。長押しすると、再生速度がデフォルトの値にリセットされます</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">ボタンはプレーヤー オーバーレイに表示されません</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">再生速度設定ボタンがプレーヤー オーバーレイに表示されます。長押しすると、再生速度がデフォルトの値にリセットされます</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">再生速度設定ボタンはプレーヤー オーバーレイに表示されません</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">画質設定ボタンを表示</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">ボタンがプレーヤー オーバーレイに表示されます。長押しすると、画質がデフォルトの値にリセットされます</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">ボタンはプレーヤー オーバーレイに表示されません</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">画質設定ボタンがプレーヤー オーバーレイに表示されます。長押しすると、画質がデフォルトの値にリセットされます</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">画質設定ボタンはプレーヤー オーバーレイに表示されません</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">カスタム再生速度メニュー</string>
