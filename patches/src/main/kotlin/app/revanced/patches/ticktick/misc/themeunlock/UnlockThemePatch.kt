@@ -11,7 +11,7 @@ val unlockProPatch = bytecodePatch(
 ) {
     compatibleWith("com.ticktick.task")
 
-    execute {
+    apply {
         checkLockedThemesFingerprint.method.addInstructions(
             0,
             """

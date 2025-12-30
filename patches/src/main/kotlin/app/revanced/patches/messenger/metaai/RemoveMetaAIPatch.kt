@@ -20,7 +20,7 @@ val removeMetaAIPatch = bytecodePatch(
 
     dependsOn(sharedExtensionPatch)
 
-    execute {
+    apply {
         getMobileConfigBoolFingerprint.method.apply {
             val returnIndex = getMobileConfigBoolFingerprint.patternMatch.startIndex
             val returnRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA

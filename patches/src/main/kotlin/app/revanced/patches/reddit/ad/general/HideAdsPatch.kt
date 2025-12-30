@@ -19,7 +19,7 @@ val hideAdsPatch = bytecodePatch(
 
     compatibleWith("com.reddit.frontpage")
 
-    execute {
+    apply {
         // region Filter promoted ads (does not work in popular or latest feed)
 
         val filterMethodDescriptor =

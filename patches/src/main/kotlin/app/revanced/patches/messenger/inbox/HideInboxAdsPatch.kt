@@ -10,7 +10,7 @@ val hideInboxAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.facebook.orca")
 
-    execute {
+    apply {
         loadInboxAdsFingerprint.method.replaceInstruction(0, "return-void")
     }
 }

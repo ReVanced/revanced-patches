@@ -10,7 +10,7 @@ val angulusPatch = bytecodePatch(name = "Hide ads") {
 
     dependsOn(disableLicenseCheckPatch)
 
-    execute {
+    apply {
         // Always return 0 as the daily measurement count.
         getDailyMeasurementCountFingerprint.method.returnEarly(0)
     }

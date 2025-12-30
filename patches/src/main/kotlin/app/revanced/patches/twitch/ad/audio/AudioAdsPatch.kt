@@ -23,7 +23,7 @@ val audioAdsPatch = bytecodePatch(
 
     compatibleWith("tv.twitch.android.app"("16.9.1", "25.3.0"))
 
-    execute {
+    apply {
         addResources("twitch", "ad.audio.audioAdsPatch")
 
         PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(

@@ -15,7 +15,7 @@ private const val EXTENSION_PLAYER_CONTROLS_VISIBILITY_HOOK_CLASS_DESCRIPTOR =
 val playerControlsOverlayVisibilityPatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
 
-    execute {
+    apply {
         playerControlsVisibilityEntityModelFingerprint.let {
             it.method.apply {
                 val startIndex = it.instructionMatches.first().index

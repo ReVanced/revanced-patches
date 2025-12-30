@@ -17,7 +17,7 @@ val dynamicColorPatch = resourcePatch(
         )
     )
 
-    execute {
+    apply {
         val resDirectory = get("res")
         if (!resDirectory.isDirectory) throw PatchException("The res folder can not be found.")
 

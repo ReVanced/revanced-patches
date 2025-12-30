@@ -11,7 +11,7 @@ val hideViewCountPatch = bytecodePatch(
 ) {
     compatibleWith("com.twitter.android")
 
-    execute {
+    apply {
         viewCountsEnabledFingerprint.method.addInstructions(
             0,
             """

@@ -13,7 +13,7 @@ val removeShareTargetsPatch = resourcePatch(
     description = "Removes share targets like directly sharing to a frequent contact.",
     use = false,
 ) {
-    execute {
+    apply {
         try {
             document("res/xml/shortcuts.xml")
         } catch (_: FileNotFoundException) {

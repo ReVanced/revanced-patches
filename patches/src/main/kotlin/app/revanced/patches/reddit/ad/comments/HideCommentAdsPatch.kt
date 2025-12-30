@@ -7,7 +7,7 @@ val hideCommentAdsPatch = bytecodePatch(
     description = "Removes ads in the comments.",
 ) {
 
-    execute {
+    apply {
         hideCommentAdsFingerprint.method.replaceInstructions(0, "return-object p1")
     }
 }

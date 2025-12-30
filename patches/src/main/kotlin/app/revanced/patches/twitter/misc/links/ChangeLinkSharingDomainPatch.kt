@@ -46,7 +46,7 @@ internal val domainNameOption = stringOption(
 // TODO restore this once Manager uses a fixed version of Patcher
 /*
 internal val changeLinkSharingDomainResourcePatch = resourcePatch {
-    execute {
+    apply {
         val domainName = domainNameOption.value!!
 
         val shareLinkTemplate = "https://$domainName/%1\$s/status/%2\$s"
@@ -80,7 +80,7 @@ val changeLinkSharingDomainPatch = bytecodePatch(
 
     val domainName by domainNameOption()
 
-    execute {
+    apply {
         // Replace the domain name in the link sharing extension methods.
         linkSharingDomainHelperFingerprint.method.returnEarly(domainName!!)
 

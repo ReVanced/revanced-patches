@@ -21,7 +21,7 @@ val embeddedAdsPatch = bytecodePatch(
 
     compatibleWith("tv.twitch.android.app"("16.9.1", "25.3.0"))
 
-    execute {
+    apply {
         addResources("twitch", "ad.embedded.embeddedAdsPatch")
 
         PreferenceScreen.ADS.SURESTREAM.addPreferences(

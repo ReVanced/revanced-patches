@@ -36,7 +36,7 @@ val disableFullscreenAmbientModePatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.hide.fullscreenambientmode.disableFullscreenAmbientModePatch")
 
         PreferenceScreen.PLAYER.addPreferences(

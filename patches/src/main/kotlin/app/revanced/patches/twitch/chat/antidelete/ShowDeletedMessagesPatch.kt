@@ -30,7 +30,7 @@ val showDeletedMessagesPatch = bytecodePatch(
         if-eqz $register, :no_spoiler
     """
 
-    execute {
+    apply {
         addResources("twitch", "chat.antidelete.showDeletedMessagesPatch")
 
         PreferenceScreen.CHAT.GENERAL.addPreferences(

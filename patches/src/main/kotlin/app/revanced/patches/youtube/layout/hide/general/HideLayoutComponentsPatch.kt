@@ -43,7 +43,7 @@ internal var barContainerHeightId = -1L
 private val hideLayoutComponentsResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
 
-    execute {
+    apply {
         albumCardId = getResourceId(
             ResourceType.LAYOUT,
             "album_card",
@@ -106,7 +106,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

@@ -27,7 +27,7 @@ val seekbarThumbnailsPatch = bytecodePatch(
         versionCheckPatch,
     )
 
-    execute {
+    apply {
         if (is_20_09_or_greater) {
             // High quality seekbar thumbnails is partially broken in 20.09
             // and the code is completely removed in 20.10+

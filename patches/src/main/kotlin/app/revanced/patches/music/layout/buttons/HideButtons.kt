@@ -51,7 +51,7 @@ val hideButtons = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         playerOverlayChip = getResourceId(ResourceType.ID, "player_overlay_chip")
         historyMenuItem = getResourceId(ResourceType.ID, "history_menu_item")
         offlineSettingsMenuItem = getResourceId(ResourceType.ID, "offline_settings_menu_item")

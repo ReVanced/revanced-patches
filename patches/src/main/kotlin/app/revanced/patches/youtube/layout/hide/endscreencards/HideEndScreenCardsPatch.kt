@@ -32,7 +32,7 @@ private val hideEndScreenCardsResourcePatch = resourcePatch {
         addResourcesPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.hide.endscreencards.hideEndScreenCardsResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
@@ -70,7 +70,7 @@ val hideEndScreenCardsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         listOf(
             layoutCircleFingerprint,
             layoutIconFingerprint,

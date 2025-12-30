@@ -55,7 +55,7 @@ val spoofFeaturesPatch = bytecodePatch(
         required = true,
     )
 
-    execute {
+    apply {
         @Suppress("NAME_SHADOWING")
         val featuresToEnable = featuresToEnable!!.toSet()
 

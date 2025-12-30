@@ -29,7 +29,7 @@ val cronetImageUrlHookPatch = bytecodePatch(
 ) {
     dependsOn(sharedExtensionPatch)
 
-    execute {
+    apply {
         loadImageUrlMethod = messageDigestImageUrlFingerprint
             .match(messageDigestImageUrlParentFingerprint.originalClassDef).method
 

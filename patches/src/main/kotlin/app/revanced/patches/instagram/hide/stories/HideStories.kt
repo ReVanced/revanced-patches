@@ -10,7 +10,7 @@ val hideStoriesPatch = bytecodePatch(
 ) {
     compatibleWith("com.instagram.android")
 
-    execute {
+    apply {
         val addStoryMethod = getOrCreateAvatarViewFingerprint.method // Creates Story
         val addStoryEndIndex = getOrCreateAvatarViewFingerprint.patternMatch.endIndex
 

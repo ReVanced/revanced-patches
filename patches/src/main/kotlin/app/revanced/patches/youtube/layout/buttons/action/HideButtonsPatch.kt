@@ -33,7 +33,7 @@ val hideButtonsPatch = resourcePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.buttons.action.hideButtonsPatch")
 
         val preferences = mutableSetOf(

@@ -57,7 +57,7 @@ internal val playerControlsResourcePatch = resourcePatch {
 
     lateinit var bottomTargetDocument: Document
 
-    execute {
+    apply {
         val targetResourceName = "youtube_controls_bottom_ui_container.xml"
 
         bottomTargetDocument = document("res/layout/$targetResourceName")
@@ -142,7 +142,7 @@ internal val playerControlsResourcePatch = resourcePatch {
         }
     }
 
-    finalize {
+    afterDependents {
         val childNodes = bottomTargetDocument.childNodes
 
         arrayOf(
@@ -243,7 +243,7 @@ val playerControlsPatch = bytecodePatch(
         versionCheckPatch
     )
 
-    execute {
+    apply {
         playerBottomControlsInflateFingerprint.let {
             it.method.apply {
                 inflateBottomControlMethod = this

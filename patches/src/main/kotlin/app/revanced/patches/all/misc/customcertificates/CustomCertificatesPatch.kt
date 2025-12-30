@@ -132,7 +132,7 @@ ${trustAnchorsXML.trimEnd()}
     }
 
 
-    execute {
+    apply {
         val nscFileNameBare = "network_security_config"
         val resXmlDir = "res/xml"
         val resRawDir = "res/raw"

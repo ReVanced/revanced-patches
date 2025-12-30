@@ -12,7 +12,7 @@ val removeDeviceIntegrityChecksPatch = bytecodePatch(
 ) {
     compatibleWith("at.gv.oe.app")
 
-    execute {
+    apply {
         isDeviceRootedFingerprint.method.returnEarly(false)
 
         isDeviceBootloaderOpenFingerprint.method.apply {

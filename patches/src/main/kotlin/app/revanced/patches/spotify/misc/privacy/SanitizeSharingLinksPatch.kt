@@ -24,7 +24,7 @@ val sanitizeSharingLinksPatch = bytecodePatch(
 
     dependsOn(sharedExtensionPatch)
 
-    execute {
+    apply {
         val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->" +
                 "sanitizeSharingLink(Ljava/lang/String;)Ljava/lang/String;"
 

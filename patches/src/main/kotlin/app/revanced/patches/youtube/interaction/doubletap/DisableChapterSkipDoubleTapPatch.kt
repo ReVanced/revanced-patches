@@ -38,7 +38,7 @@ val disableDoubleTapActionsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         if (!is_20_14_or_greater) {
             // Show a message if users have version constrain off and are patching the oldest version,
             // just to prevent spamming a cryptic error message the user may not understand

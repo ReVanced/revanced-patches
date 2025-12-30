@@ -34,7 +34,7 @@ val bypassImageRegionRestrictionsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.thumbnails.bypassImageRegionRestrictionsPatch")
 
         PreferenceScreen.MISC.addPreferences(

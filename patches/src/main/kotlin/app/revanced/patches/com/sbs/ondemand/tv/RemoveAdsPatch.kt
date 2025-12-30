@@ -14,7 +14,7 @@ val removeAdsPatch = bytecodePatch(
 
     dependsOn(disableLicenseCheckPatch)
 
-    execute {
+    apply {
         shouldShowAdvertisingTVFingerprint.method.returnEarly(true)
         shouldShowPauseAdFingerprint.method.returnEarly(false)
 

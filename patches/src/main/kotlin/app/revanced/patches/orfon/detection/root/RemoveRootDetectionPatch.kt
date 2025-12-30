@@ -12,7 +12,7 @@ val removeRootDetectionPatch = bytecodePatch(
 ) {
     compatibleWith("com.nousguide.android.orftvthek")
 
-    execute {
+    apply {
         isDeviceRootedFingeprint.method.returnEarly(false)
     }
 }

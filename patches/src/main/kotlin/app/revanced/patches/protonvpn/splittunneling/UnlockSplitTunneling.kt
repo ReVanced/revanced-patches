@@ -16,7 +16,7 @@ val unlockSplitTunnelingPatch =
     ) {
         compatibleWith("ch.protonvpn.android")
 
-        execute {
+        apply {
             val registerIndex = enableSplitTunnelingUiFingerprint.patternMatch!!.endIndex - 1
 
             enableSplitTunnelingUiFingerprint.method.apply {

@@ -47,7 +47,7 @@ internal fun forceOriginalAudioPatch(
 
     dependsOn(addResourcesPatch)
 
-    execute {
+    apply {
         addResources("shared", "misc.audio.forceOriginalAudioPatch")
 
         preferenceScreen.addPreferences(

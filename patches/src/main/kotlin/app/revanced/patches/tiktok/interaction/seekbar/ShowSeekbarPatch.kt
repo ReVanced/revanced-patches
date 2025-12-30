@@ -13,7 +13,7 @@ val showSeekbarPatch = bytecodePatch(
         "com.zhiliaoapp.musically",
     )
 
-    execute {
+    apply {
         shouldShowSeekBarFingerprint.method.addInstructions(
             0,
             """

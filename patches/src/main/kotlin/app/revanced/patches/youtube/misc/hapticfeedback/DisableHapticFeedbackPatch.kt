@@ -33,7 +33,7 @@ val disableHapticFeedbackPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "misc.hapticfeedback.disableHapticFeedbackPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

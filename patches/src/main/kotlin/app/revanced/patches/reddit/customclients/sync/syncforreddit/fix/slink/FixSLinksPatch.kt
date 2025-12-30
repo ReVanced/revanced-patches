@@ -21,7 +21,7 @@ val fixSLinksPatch = fixSLinksPatch(
         "com.laurencedawson.reddit_sync.dev",
     )
 
-    execute {
+    apply {
         // region Patch navigation handler.
 
         linkHelperOpenLinkFingerprint.method.apply {

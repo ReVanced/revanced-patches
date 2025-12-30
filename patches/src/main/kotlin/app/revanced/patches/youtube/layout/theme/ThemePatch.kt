@@ -53,7 +53,7 @@ val themePatch = baseThemePatch(
         val themeResourcePatch = resourcePatch {
             dependsOn(resourceMappingPatch)
 
-            execute {
+            apply {
                 overrideThemeColors(
                     lightThemeBackgroundColor!!,
                     darkThemeBackgroundColorOption.value!!

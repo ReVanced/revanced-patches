@@ -10,7 +10,7 @@ val fixThirdPartyLaunchersWidgets = bytecodePatch(
 ) {
     compatibleWith("com.spotify.music")
 
-    execute {
+    apply {
         // Only system app launchers are granted the BIND_APPWIDGET permission.
         // Override the method that checks for it to always return true, as this permission is not actually required
         // for the widgets to work.

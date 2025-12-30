@@ -18,7 +18,7 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.crunchyroll.crunchyroid")
 
-    execute {
+    apply {
         // Get obfuscated "enableAds" field from toString method.
         val enableAdsField = videoUrlReadyToStringFingerprint.let {
             val strIndex = videoUrlReadyToStringFingerprint.stringMatches.last().index

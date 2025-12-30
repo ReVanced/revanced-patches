@@ -23,7 +23,7 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "interaction.seekbar.disablePreciseSeekingGesturePatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(

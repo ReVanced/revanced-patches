@@ -9,7 +9,7 @@ val disableAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.rubenmayayo.reddit")
 
-    execute {
+    apply {
         arrayOf(maxMediationFingerprint, admobMediationFingerprint).forEach { fingerprint ->
             fingerprint.method.addInstructions(0, "return-void")
         }

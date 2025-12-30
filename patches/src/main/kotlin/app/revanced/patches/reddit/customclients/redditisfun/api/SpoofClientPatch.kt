@@ -19,7 +19,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
 
     val clientId by clientIdOption
 
-    execute {
+    apply {
         // region Patch client id.
 
         /**

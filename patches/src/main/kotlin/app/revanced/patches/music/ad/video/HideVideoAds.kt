@@ -29,7 +29,7 @@ val hideVideoAdsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("music", "ad.video.hideVideoAdsPatch")
 
         PreferenceScreen.ADS.addPreferences(

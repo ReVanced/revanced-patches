@@ -50,7 +50,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         resourceMappingPatch
     )
 
-    execute {
+    apply {
         addResources("youtube", "video.speed.custom.customPlaybackSpeedPatch")
 
         settingsMenuVideoSpeedGroup.addAll(

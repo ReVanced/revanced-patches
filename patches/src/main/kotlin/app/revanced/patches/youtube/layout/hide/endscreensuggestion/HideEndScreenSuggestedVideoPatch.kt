@@ -38,7 +38,7 @@ val hideEndScreenSuggestedVideoPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.hide.endscreensuggestion.hideEndScreenSuggestedVideoPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

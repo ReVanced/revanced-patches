@@ -67,7 +67,7 @@ private val settingsResourcePatch = resourcePatch {
         )
     )
 
-    execute {
+    apply {
         // Use same colors as stock YouTube.
         overrideThemeColors("@color/yt_white1", "@color/yt_black3")
 
@@ -170,7 +170,7 @@ val settingsPatch = bytecodePatch(
         checkEnvironmentPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "misc.settings.settingsPatch")
 
         // Add an "about" preference to the top.
@@ -263,7 +263,7 @@ val settingsPatch = bytecodePatch(
         )
     }
 
-    finalize {
+    afterDependents {
         PreferenceScreen.close()
     }
 }

@@ -12,7 +12,7 @@ val rootDetectionPatch = bytecodePatch(
 ) {
     compatibleWith("at.gv.bmf.bmf2go")
 
-    execute {
+    apply {
         rootDetectionFingerprint.method.addInstructions(
             0,
             """

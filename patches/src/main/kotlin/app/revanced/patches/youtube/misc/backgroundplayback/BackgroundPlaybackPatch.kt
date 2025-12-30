@@ -50,7 +50,7 @@ val backgroundPlaybackPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "misc.backgroundplayback.backgroundPlaybackPatch")
 
         PreferenceScreen.SHORTS.addPreferences(

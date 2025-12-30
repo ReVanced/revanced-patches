@@ -31,7 +31,7 @@ private val swipeControlsResourcePatch = resourcePatch {
         versionCheckPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "interaction.swipecontrols.swipeControlsResourcePatch")
 
         // If fullscreen swipe is enabled in newer versions the app can crash.
@@ -102,7 +102,7 @@ val swipeControlsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         val wrapperClass = swipeControlsHostActivityFingerprint.classDef
         val targetClass = mainActivityConstructorFingerprint.classDef
 

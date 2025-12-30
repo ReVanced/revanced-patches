@@ -31,7 +31,7 @@ fun overrideThemeColors(lightThemeColorString: String?, darkThemeColorString: St
 }
 
 private val settingsColorPatch = bytecodePatch {
-    finalize {
+    afterDependents {
         if (lightThemeColor != null) {
             themeLightColorResourceNameFingerprint.method.returnEarly(lightThemeColor!!)
         }
@@ -58,7 +58,7 @@ fun settingsPatch (
         addBrandLicensePatch
     )
 
-    execute {
+    apply {
         copyResources(
             "settings",
             ResourceGroup("xml",
@@ -105,7 +105,7 @@ fun settingsPatch (
         addResources("shared", "misc.settings.settingsResourcePatch")
     }
 
-    finalize {
+    afterDependents {
         fun Node.addPreference(preference: BasePreference) {
             preference.serialize(ownerDocument) { resource ->
                 // TODO: Currently, resources can only be added to "values", which may not be the correct place.

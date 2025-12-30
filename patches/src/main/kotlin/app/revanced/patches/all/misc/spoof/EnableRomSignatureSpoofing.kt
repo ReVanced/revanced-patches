@@ -32,7 +32,7 @@ val enableRomSignatureSpoofing = resourcePatch(
         description = "The hex-encoded signature or path to an APK file with the desired signature.",
         required = true,
     )
-    execute {
+    apply {
         document("AndroidManifest.xml").use { document ->
             val permission = document.createElement("uses-permission").apply {
                 setAttribute("android:name", "android.permission.FAKE_PACKAGE_SIGNATURE")

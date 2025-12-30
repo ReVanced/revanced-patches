@@ -24,7 +24,7 @@ private val disableSplashAnimationPatch = bytecodePatch {
 
     dependsOn(resourceMappingPatch)
 
-    execute {
+    apply {
         // The existing YT animation usually only shows for a fraction of a second,
         // and the existing animation does not match the new splash screen
         // causing the original YT Music logo to momentarily flash on screen as the animation starts.

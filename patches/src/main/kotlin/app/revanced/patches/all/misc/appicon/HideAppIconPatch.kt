@@ -12,7 +12,7 @@ val hideAppIconPatch = resourcePatch(
     description = "Hides the app icon from the Android launcher.",
     use = false,
 ) {
-    execute {
+    apply {
         document("AndroidManifest.xml").use { document ->
             var changed = false
 

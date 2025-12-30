@@ -21,7 +21,7 @@ val bypassDeviceChecksPatch = bytecodePatch(
     extendWith("extensions/samsung/radio.rve")
     compatibleWith("com.sec.android.app.fm"("12.4.00.7", "12.3.00.13", "12.3.00.11"))
 
-    execute {
+    apply {
         // Return false = The device is not blacklisted.
         checkDeviceFingerprint.method.apply {
             // Find the first string that start with "SM-", that's the list of incompatible devices.

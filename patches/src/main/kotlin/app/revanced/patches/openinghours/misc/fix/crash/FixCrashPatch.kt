@@ -17,7 +17,7 @@ val fixCrashPatch = bytecodePatch(
 ) {
     compatibleWith("de.simon.openinghours"("1.0"))
 
-    execute {
+    apply {
         val indexedInstructions = setPlaceFingerprint.method.instructions.withIndex().toList()
 
         /**

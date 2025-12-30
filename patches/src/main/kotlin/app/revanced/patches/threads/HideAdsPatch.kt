@@ -10,7 +10,7 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.instagram.barcelona"("382.0.0.51.85"))
 
-    execute {
+    apply {
         adInjectorFingerprint.method.returnEarly(false)
     }
 }

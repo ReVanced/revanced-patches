@@ -12,7 +12,7 @@ val setTargetSdkVersion34 = resourcePatch(
             "For devices running Android 15+, this will disable edge-to-edge display.",
     use = false,
 ) {
-    execute {
+    apply {
         val targetSdkOverride = 34 // Android 14.
 
         document("AndroidManifest.xml").use { document ->

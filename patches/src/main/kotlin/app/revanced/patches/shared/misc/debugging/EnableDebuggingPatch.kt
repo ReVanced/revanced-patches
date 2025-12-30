@@ -42,7 +42,7 @@ internal fun enableDebuggingPatch(
     dependsOn(
         addResourcesPatch,
         resourcePatch {
-            execute {
+            apply {
                 copyResources(
                     "settings",
                     ResourceGroup("drawable",
@@ -63,7 +63,7 @@ internal fun enableDebuggingPatch(
 
     block()
 
-    execute {
+    apply {
         executeBlock()
 
         addResources("shared", "misc.debugging.enableDebuggingPatch")

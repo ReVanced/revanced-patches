@@ -12,7 +12,7 @@ val removeSentFromSignaturePatch = resourcePatch(
 ) {
     compatibleWith("ch.protonmail.android"("4.15.0"))
 
-    execute {
+    apply {
         val stringResourceFiles = mutableListOf<File>()
 
         get("res").walk().forEach { file ->

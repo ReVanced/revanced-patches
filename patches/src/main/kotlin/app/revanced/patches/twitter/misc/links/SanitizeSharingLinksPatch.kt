@@ -17,7 +17,7 @@ val sanitizeSharingLinksPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         sanitizeSharingLinksFingerprint.method.addInstructions(
             0,
             """

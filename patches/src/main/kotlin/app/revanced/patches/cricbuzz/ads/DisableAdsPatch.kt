@@ -22,7 +22,7 @@ val disableAdsPatch = bytecodePatch (
 
     dependsOn(sharedExtensionPatch)
 
-    execute {
+    apply {
         userStateSwitchFingerprint.method.returnEarly(true)
 
         // Remove region-specific Cricbuzz11 elements.

@@ -66,7 +66,7 @@ val lithoFilterPatch = bytecodePatch(
      *    }
      * }
      */
-    execute {
+    apply {
         // Remove dummy filter from extenion static field
         // and add the filters included during patching.
         lithoFilterFingerprint.method.apply {
@@ -210,7 +210,7 @@ val lithoFilterPatch = bytecodePatch(
         // endregion
     }
 
-    finalize {
+    afterDependents {
         lithoFilterFingerprint.method.replaceInstruction(0, "const/16 v0, $filterCount")
     }
 }

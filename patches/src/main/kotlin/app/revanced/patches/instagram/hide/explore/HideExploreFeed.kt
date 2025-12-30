@@ -33,7 +33,7 @@ val hideExploreFeedPatch = bytecodePatch(
 ) {
     compatibleWith("com.instagram.android")
 
-    execute {
+    apply {
         exploreResponseJsonParserFingerprint.replaceJsonFieldWithBogus(EXPLORE_KEY_TO_BE_HIDDEN)
     }
 }

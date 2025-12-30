@@ -59,7 +59,7 @@ val changePackageNamePatch = resourcePatch(
             "Enabling this can fix installation errors, but this can also break features in certain apps.",
     )
 
-    finalize {
+    afterDependents {
         /**
          * Apps that are confirmed to not work correctly with this patch.
          * This is not an exhaustive list, and is only the apps with
@@ -80,7 +80,7 @@ val changePackageNamePatch = resourcePatch(
             val packageName = manifest.getAttribute("package")
 
             if (incompatibleAppPackages.contains(packageName)) {
-                return@finalize Logger.getLogger(this::class.java.name).severe(
+                return@afterDependents Logger.getLogger(this::class.java.name).severe(
                     "'$packageName' does not work correctly with \"Change package name\"",
                 )
             }

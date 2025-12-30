@@ -24,7 +24,7 @@ val renamePermissionsPatch = resourcePatch(
         "com.amazon.appmanager.preload.permission.READ_PRELOAD_DEVICE_INFO_PROVIDER"
     )
 
-    execute {
+    apply {
         document("AndroidManifest.xml").use { document ->
             val manifest = document.getNode("manifest") as Element
 

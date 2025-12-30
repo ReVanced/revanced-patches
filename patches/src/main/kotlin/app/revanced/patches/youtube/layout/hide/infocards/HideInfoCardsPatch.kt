@@ -28,7 +28,7 @@ private val hideInfocardsResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch
         )
     
-    execute {
+    apply {
 
         drawerResourceId = getResourceId(
             ResourceType.ID,
@@ -59,7 +59,7 @@ val hideInfoCardsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.hide.infocards.hideInfocardsResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(

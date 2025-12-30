@@ -10,7 +10,7 @@ val lithoColorHookPatch = bytecodePatch(
     description = "Adds a hook to set color of Litho components.",
 ) {
 
-    execute {
+    apply {
         var insertionIndex = lithoOnBoundsChangeFingerprint.patternMatch.endIndex - 1
 
         lithoColorOverrideHook = { targetMethodClass, targetMethodName ->

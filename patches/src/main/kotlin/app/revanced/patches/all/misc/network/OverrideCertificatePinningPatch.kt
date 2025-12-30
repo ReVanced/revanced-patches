@@ -14,7 +14,7 @@ val overrideCertificatePinningPatch = resourcePatch(
 ) {
     dependsOn(enableAndroidDebuggingPatch)
 
-    execute {
+    apply {
         val resXmlDirectory = get("res/xml")
 
         // Add android:networkSecurityConfig="@xml/network_security_config" and the "networkSecurityConfig" attribute if it does not exist.

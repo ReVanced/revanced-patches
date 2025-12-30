@@ -28,7 +28,7 @@ private val downloadsResourcePatch = resourcePatch {
         addResourcesPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "interaction.downloads.downloadsResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
@@ -80,7 +80,7 @@ val downloadsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         initializeBottomControl(BUTTON_DESCRIPTOR)
         injectVisibilityCheckCall(BUTTON_DESCRIPTOR)
 

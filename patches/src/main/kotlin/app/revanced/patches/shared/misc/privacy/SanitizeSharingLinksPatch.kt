@@ -37,7 +37,7 @@ internal fun sanitizeSharingLinksPatch(
 
     dependsOn(addResourcesPatch)
 
-    execute {
+    apply {
         executeBlock()
 
         addResources("shared", "misc.privacy.sanitizeSharingLinksPatch")

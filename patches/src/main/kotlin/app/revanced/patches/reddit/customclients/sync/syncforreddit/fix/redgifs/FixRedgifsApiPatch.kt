@@ -23,7 +23,7 @@ val fixRedgifsApi = fixRedgifsApiPatch(
         "com.laurencedawson.reddit_sync.dev",
     )
 
-    execute {
+    apply {
         // region Patch Redgifs OkHttp3 client.
 
         createOkHttpClientFingerprint.method.apply {

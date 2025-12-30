@@ -23,7 +23,7 @@ val filterTimelineObjectsPatch = bytecodePatch(
 ) {
     dependsOn(sharedExtensionPatch)
 
-    execute {
+    apply {
         val filterInsertIndex = timelineFilterExtensionFingerprint.instructionMatches.first().index
 
         timelineFilterExtensionFingerprint.method.apply {

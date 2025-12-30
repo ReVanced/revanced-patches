@@ -11,7 +11,7 @@ fun <T> transformInstructionsPatch(
     filterMap: (ClassDef, Method, Instruction, Int) -> T?,
     transform: (MutableMethod, T) -> Unit,
 ) = bytecodePatch {
-    execute {
+    apply {
         forEachInstructionAsSequence { classDef, method, i, instruction ->
             transform(method, filterMap(classDef, method, instruction, i) ?: return@forEachInstructionAsSequence)
         }

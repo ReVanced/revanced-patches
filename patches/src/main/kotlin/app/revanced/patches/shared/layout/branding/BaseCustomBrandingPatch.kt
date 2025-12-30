@@ -125,7 +125,7 @@ internal fun baseCustomBrandingPatch(
         resourceMappingPatch,
         addBrandLicensePatch,
         bytecodePatch {
-            execute {
+            apply {
                 mainActivityOnCreateFingerprint.method.addInstruction(
                     0,
                     "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setBranding()V"
@@ -172,10 +172,10 @@ internal fun baseCustomBrandingPatch(
         },
     )
 
-    finalize {
+    afterDependents {
         // Can only check if app is root installation by checking if change package name patch is in use.
-        // and can only do that in the finalize block here.
-        // The UI preferences cannot be selectively added here, because the settings finalize block
+        // and can only do that in the afterDependents block here.
+        // The UI preferences cannot be selectively added here, because the settings afterDependents block
         // may have already run and the settings are already wrote to file.
         // Instead, show a warning if any patch option was used (A rooted device launcher ignores the manifest changes),
         // and the non-functional in-app settings are removed on app startup by extension code.
@@ -188,7 +188,7 @@ internal fun baseCustomBrandingPatch(
         }
     }
 
-    execute {
+    apply {
         addResources("shared", "layout.branding.baseCustomBrandingPatch")
         addResources(addResourcePatchName, "layout.branding.customBrandingPatch")
 

@@ -30,7 +30,7 @@ val videoAdsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "ad.video.videoAdsPatch")
 
         PreferenceScreen.ADS.addPreferences(

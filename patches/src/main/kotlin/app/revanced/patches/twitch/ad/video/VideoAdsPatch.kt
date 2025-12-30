@@ -27,7 +27,7 @@ val videoAdsPatch = bytecodePatch(
         addResourcesPatch,
         adPatch(conditionCall, skipLabelName) { createConditionInstructions, blockMethods ->
 
-            execute {
+            apply {
                 addResources("twitch", "ad.video.videoAdsPatch")
 
                 PreferenceScreen.ADS.CLIENT_SIDE.addPreferences(

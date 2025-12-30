@@ -25,7 +25,7 @@ val playbackSpeedPatch = bytecodePatch(
         "com.amazon.avod.thirdpartyclient"("3.0.412.2947")
     )
 
-    execute {
+    apply {
         playbackUserControlsInitializeFingerprint.method.apply {
             val getIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.IPUT_OBJECT && 

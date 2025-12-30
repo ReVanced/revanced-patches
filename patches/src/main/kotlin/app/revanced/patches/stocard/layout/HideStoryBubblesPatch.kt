@@ -9,7 +9,7 @@ val hideStoryBubblesPatch = resourcePatch(
 ) {
     compatibleWith("de.stocard.stocard")
 
-    execute {
+    apply {
         document("res/layout/rv_story_bubbles_list.xml").use { document ->
             document.getNode("androidx.recyclerview.widget.RecyclerView").apply {
                 arrayOf(

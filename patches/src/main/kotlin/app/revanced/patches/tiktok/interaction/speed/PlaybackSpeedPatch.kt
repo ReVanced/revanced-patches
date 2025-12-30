@@ -22,7 +22,7 @@ val playbackSpeedPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("36.5.4"),
     )
 
-    execute {
+    apply {
         setSpeedFingerprint.let { onVideoSwiped ->
             getSpeedFingerprint.method.apply {
                 val injectIndex =

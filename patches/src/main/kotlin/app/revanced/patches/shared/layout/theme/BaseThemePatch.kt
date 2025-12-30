@@ -92,7 +92,7 @@ internal fun baseThemePatch(
 
     dependsOn(lithoColorHookPatch)
 
-    execute {
+    apply {
         executeBlock()
 
         lithoColorOverrideHook(extensionClassDescriptor, "getValue")
@@ -105,7 +105,7 @@ internal fun baseThemeResourcePatch(
     lightColorReplacement: (() -> String)? = null
 ) = resourcePatch {
 
-    execute {
+    apply {
         // After patch option validators are fixed https://github.com/ReVanced/revanced-patcher/issues/372
         // This should changed to a patch option validator.
         val darkColor by darkThemeBackgroundColorOption

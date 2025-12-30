@@ -12,7 +12,7 @@ val rootDetectionPatch = bytecodePatch(
 ) {
     compatibleWith("at.gv.bka.serviceportal")
 
-    execute {
+    apply {
         rootDetectionFingerprint.method.addInstruction(0, "return-void")
     }
 }

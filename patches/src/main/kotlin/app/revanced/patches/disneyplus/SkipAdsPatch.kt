@@ -14,7 +14,7 @@ val skipAdsPatch = bytecodePatch(
         "in.startv.hotstaronly",
     )
 
-    execute {
+    apply {
         arrayOf(insertionGetPointsFingerprint, insertionGetRangesFingerprint).forEach {
             it.method.addInstructions(
 	            0,

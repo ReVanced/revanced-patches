@@ -23,7 +23,7 @@ internal val openVideosFullscreenHookPatch = bytecodePatch {
         versionCheckPatch
     )
 
-    execute {
+    apply {
         var fingerprint: Fingerprint
         var insertIndex: Int
 

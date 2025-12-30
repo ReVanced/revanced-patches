@@ -9,7 +9,7 @@ val disableAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.myprog.hexedit")
 
-    execute {
+    apply {
         primaryAdsFingerprint.method.replaceInstructions(
             0,
             """

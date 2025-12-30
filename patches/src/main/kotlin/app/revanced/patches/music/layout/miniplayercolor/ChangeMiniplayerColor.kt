@@ -43,7 +43,7 @@ val changeMiniplayerColor = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("music", "layout.miniplayercolor.changeMiniplayerColor")
 
         PreferenceScreen.PLAYER.addPreferences(

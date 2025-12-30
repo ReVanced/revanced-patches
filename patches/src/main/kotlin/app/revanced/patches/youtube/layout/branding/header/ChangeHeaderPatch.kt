@@ -61,7 +61,7 @@ private val changeHeaderBytecodePatch = bytecodePatch {
         addBrandLicensePatch
     )
 
-    execute {
+    apply {
         // Verify images exist. Resources are not used during patching but extension code does.
         arrayOf(
             "yt_ringo2_wordmark_header",
@@ -127,7 +127,7 @@ val changeHeaderPatch = resourcePatch(
         """.trimIndentMultiline()
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.branding.changeHeaderPatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(

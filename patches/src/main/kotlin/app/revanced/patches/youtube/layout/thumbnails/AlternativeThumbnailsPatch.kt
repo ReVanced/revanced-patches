@@ -40,7 +40,7 @@ val alternativeThumbnailsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.thumbnails.alternativeThumbnailsPatch")
 
         val entries = "revanced_alt_thumbnail_options_entries"

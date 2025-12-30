@@ -33,7 +33,7 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "interaction.dialog.removeViewerDiscretionDialogPatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(

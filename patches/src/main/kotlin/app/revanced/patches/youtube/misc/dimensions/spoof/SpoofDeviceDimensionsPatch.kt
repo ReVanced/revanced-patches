@@ -31,7 +31,7 @@ val spoofDeviceDimensionsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "misc.dimensions.spoof.spoofDeviceDimensionsPatch")
 
         PreferenceScreen.MISC.addPreferences(

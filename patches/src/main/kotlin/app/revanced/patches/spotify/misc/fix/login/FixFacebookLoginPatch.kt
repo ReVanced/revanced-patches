@@ -11,7 +11,7 @@ val fixFacebookLoginPatch = bytecodePatch(
 ) {
     compatibleWith("com.spotify.music")
 
-    execute {
+    apply {
         // The Facebook SDK tries to handle the login using the Facebook app in case it is installed.
         // However, the Facebook app does signature checks with the app that is requesting the authentication,
         // which ends up making the Facebook server reject with an invalid key hash for the app signature.

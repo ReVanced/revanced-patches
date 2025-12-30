@@ -30,7 +30,7 @@ val playerPopupPanelsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.panels.popup.playerPopupPanelsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

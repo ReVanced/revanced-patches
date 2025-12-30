@@ -16,7 +16,7 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.viber.voip"("25.9.2.0", "26.1.2.0"))
 
-    execute {
+    apply {
         val method = findAdStringFingerprint.method
  
         // Find the ads free string index

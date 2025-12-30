@@ -40,7 +40,7 @@ val playerResponseMethodHookPatch = bytecodePatch {
         versionCheckPatch,
     )
 
-    execute {
+    apply {
         val fingerprint : Fingerprint
         if (is_20_46_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 13
@@ -82,7 +82,7 @@ val playerResponseMethodHookPatch = bytecodePatch {
         }
     }
 
-    finalize {
+    afterDependents {
         fun hookVideoId(hook: Hook) {
             playerResponseMethod.addInstruction(
                 0,

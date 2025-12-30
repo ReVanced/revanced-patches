@@ -71,7 +71,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.returnyoutubedislike.returnYouTubeDislikePatch")
 
         PreferenceScreen.RETURN_YOUTUBE_DISLIKE.addPreferences(

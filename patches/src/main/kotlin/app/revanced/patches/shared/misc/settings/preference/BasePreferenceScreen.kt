@@ -16,7 +16,7 @@ abstract class BasePreferenceScreen(
     }
 
     /**
-     * Finalize and insert root preference into resource patch
+     * Insert root preference into resource patch
      */
     abstract fun commit(screen: PreferenceScreenPreference)
 

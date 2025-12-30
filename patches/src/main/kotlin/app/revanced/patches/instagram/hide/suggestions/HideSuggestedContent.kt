@@ -11,7 +11,7 @@ val hideSuggestedContent = bytecodePatch(
 ) {
     compatibleWith("com.instagram.android")
 
-    execute {
+    apply {
         FEED_ITEM_KEYS_TO_BE_HIDDEN.forEach { key ->
             feedItemParseFromJsonFingerprint.replaceJsonFieldWithBogus(key)
         }

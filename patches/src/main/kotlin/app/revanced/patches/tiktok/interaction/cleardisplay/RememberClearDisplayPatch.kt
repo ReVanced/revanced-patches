@@ -20,7 +20,7 @@ val rememberClearDisplayPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("36.5.4"),
     )
 
-    execute {
+    apply {
         onClearDisplayEventFingerprint.method.let {
             // region Hook the "Clear display" configuration save event to remember the state of clear display.
 

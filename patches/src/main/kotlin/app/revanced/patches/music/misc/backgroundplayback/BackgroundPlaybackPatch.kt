@@ -22,7 +22,7 @@ val backgroundPlaybackPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         kidsBackgroundPlaybackPolicyControllerFingerprint.method.addInstruction(
             0,
             "return-void",

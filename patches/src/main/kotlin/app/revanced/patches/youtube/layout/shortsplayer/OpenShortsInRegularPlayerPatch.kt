@@ -53,7 +53,7 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.shortsplayer.shortsPlayerTypePatch")
 
         PreferenceScreen.SHORTS.addPreferences(

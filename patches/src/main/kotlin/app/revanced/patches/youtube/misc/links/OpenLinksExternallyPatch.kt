@@ -48,7 +48,7 @@ val openLinksExternallyPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "misc.links.openLinksExternallyPatch")
 
         PreferenceScreen.MISC.addPreferences(

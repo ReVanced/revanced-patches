@@ -91,7 +91,7 @@ val videoInformationPatch = bytecodePatch(
         versionCheckPatch,
     )
 
-    execute {
+    apply {
         playerInitMethod = playerInitFingerprint.classDef.methods.first { MethodUtil.isConstructor(it) }
 
         // Find the location of the first invoke-direct call and extract the register storing the 'this' object reference.

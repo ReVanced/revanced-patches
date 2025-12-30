@@ -20,7 +20,7 @@ val fixCrashPatch = bytecodePatch(
     extendWith("extensions/samsung/radio.rve")
     compatibleWith("com.sec.android.app.fm"("12.4.00.7", "12.3.00.13", "12.3.00.11"))
 
-    execute {
+    apply {
         permissionRequestListFingerprint.method.apply {
             findInstructionIndicesReversedOrThrow(Opcode.FILLED_NEW_ARRAY).forEach { filledNewArrayIndex ->
                 val moveResultIndex = indexOfFirstInstruction(filledNewArrayIndex, Opcode.MOVE_RESULT_OBJECT)

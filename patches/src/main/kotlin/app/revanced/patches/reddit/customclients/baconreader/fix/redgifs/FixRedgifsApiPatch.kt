@@ -25,7 +25,7 @@ val fixRedgifsApi = fixRedgifsApiPatch(
         "com.onelouder.baconreader.premium",
     )
 
-    execute {
+    apply {
         // region Patch Redgifs OkHttp3 client.
 
         getOkHttpClientFingerprint.method.apply {

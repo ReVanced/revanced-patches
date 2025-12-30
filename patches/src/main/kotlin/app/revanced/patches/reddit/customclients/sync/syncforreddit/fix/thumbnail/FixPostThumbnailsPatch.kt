@@ -16,7 +16,7 @@ val fixPostThumbnailsPatch = bytecodePatch(
     )
 
     // Image URLs contain escaped ampersands (&amp;), let's replace these with unescaped ones (&).
-    execute {
+    apply {
         customImageViewLoadFingerprint.method.addInstructions(
             0,
             """

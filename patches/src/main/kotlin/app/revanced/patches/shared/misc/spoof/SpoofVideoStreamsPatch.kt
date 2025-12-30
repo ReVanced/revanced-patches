@@ -53,7 +53,7 @@ internal fun spoofVideoStreamsPatch(
 
     dependsOn(addResourcesPatch)
 
-    execute {
+    apply {
         addResources("shared", "misc.fix.playback.spoofVideoStreamsPatch")
 
         mainActivityOnCreateFingerprint.method.addInstruction(

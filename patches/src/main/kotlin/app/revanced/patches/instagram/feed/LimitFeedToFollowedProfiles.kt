@@ -22,7 +22,7 @@ val limitFeedToFollowedProfiles = bytecodePatch(
 
     dependsOn(sharedExtensionPatch)
 
-    execute {
+    apply {
         /**
          * Since the header field is obfuscated and there is no easy way to identify it among all the class fields,
          * an additional method is fingerprinted.

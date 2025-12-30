@@ -34,7 +34,7 @@ val customPlayerOverlayOpacityPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.player.overlay.customPlayerOverlayOpacityResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(

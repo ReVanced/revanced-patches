@@ -49,8 +49,8 @@ fun gmsCoreSupportPatch(
     primeMethodFingerprint: Fingerprint? = null,
     earlyReturnFingerprints: Set<Fingerprint> = setOf(),
     mainActivityOnCreateFingerprint: Fingerprint,
-    extensionPatch: Patch<*>,
-    gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>) -> Patch<*>,
+    extensionPatch: Patch,
+    gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>) -> Patch,
     executeBlock: BytecodePatchContext.() -> Unit = {},
     block: BytecodePatchBuilder.() -> Unit = {},
 ) = bytecodePatch(
@@ -78,7 +78,7 @@ fun gmsCoreSupportPatch(
 
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
-    execute {
+    apply {
         fun transformStringReferences(transform: (str: String) -> String?) {
             val transformations = mutableListOf<() -> Unit>()
 
@@ -533,7 +533,7 @@ fun gmsCoreSupportResourcePatch(
 
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
-    execute {
+    apply {
         // Some patches don't use shared String resources so there's no need to add them.
         if (addStringResources) {
             addResources("shared", "misc.gms.gmsCoreSupportResourcePatch")

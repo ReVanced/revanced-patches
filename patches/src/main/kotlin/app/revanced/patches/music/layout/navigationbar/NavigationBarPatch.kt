@@ -38,7 +38,7 @@ val navigationBarPatch = bytecodePatch(
         settingsPatch,
         addResourcesPatch,
         resourcePatch {
-            execute {
+            apply {
                 // Ensure the first ImageView has 'layout_weight' to stay properly sized
                 // when the TextView is hidden.
                 document("res/layout/image_with_text_tab.xml").use { document ->
@@ -62,7 +62,7 @@ val navigationBarPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         text1 = getResourceId(ResourceType.ID, "text1")
 
         addResources("music", "layout.navigationbar.navigationBarPatch")

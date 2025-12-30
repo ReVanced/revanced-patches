@@ -10,7 +10,7 @@ val hideFacebookButtonPatch = bytecodePatch(
 ) {
     compatibleWith("com.facebook.orca")
 
-    execute {
+    apply {
         isFacebookButtonEnabledFingerprint.method.returnEarly(false)
     }
 }

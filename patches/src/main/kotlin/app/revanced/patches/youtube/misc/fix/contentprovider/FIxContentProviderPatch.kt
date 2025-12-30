@@ -18,7 +18,7 @@ internal val fixContentProviderPatch = bytecodePatch{
         sharedExtensionPatch
     )
 
-    execute {
+    apply {
         unstableContentProviderFingerprint.let {
             val insertIndex = it.instructionMatches.first().index
 

@@ -15,7 +15,7 @@ val badgeTabPatch = bytecodePatch(
 
     val arrayTabs = listOf("Log", "HealthCare")
 
-    execute {
+    apply {
         createTabsFingerprint.method.apply {
             removeInstructions(0, 2)
 

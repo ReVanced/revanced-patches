@@ -31,7 +31,7 @@ val autoCaptionsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.autocaptions.autoCaptionsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

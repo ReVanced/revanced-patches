@@ -13,7 +13,7 @@ val disableTumblrTvPatch = bytecodePatch(
 
     compatibleWith("com.tumblr")
 
-    execute {
+    apply {
         addFeatureFlagOverride("tumblrTvMobileNav", "false")
     }
 }

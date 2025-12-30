@@ -13,7 +13,7 @@ val disableReelsScrollingPatch = bytecodePatch(
 ) {
     compatibleWith("com.instagram.android")
 
-    execute {
+    apply {
         val viewPagerField = clipsViewPagerImplGetViewAtIndexFingerprint.classDef.fields.first {
             it.type == "Landroidx/viewpager2/widget/ViewPager2;"
         }

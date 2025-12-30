@@ -18,7 +18,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/spotify/
 private val customThemeBytecodePatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
 
-    execute {
+    apply {
         val colorSpaceUtilsClassDef = colorSpaceUtilsClassFingerprint.originalClassDef
 
         // Hook a util method that converts ARGB to RGBA in the sRGB color space to replace hardcoded accent colors.
@@ -129,7 +129,7 @@ val customThemePatch = resourcePatch(
         required = true,
     )
 
-    execute {
+    apply {
         document("res/values/colors.xml").use { document ->
             val resourcesNode = document.getElementsByTagName("resources").item(0) as Element
 

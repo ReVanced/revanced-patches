@@ -11,7 +11,7 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.letterboxd.letterboxd")
 
-    execute {
+    apply {
         admobHelperSetShowAdsFingerprint.method.addInstruction(0, "const p1, 0x0")
         listOf(admobHelperShouldShowAdsFingerprint, filmFragmentShowAdsFingerprint, memberExtensionShowAdsFingerprint).forEach {
             it.method.returnEarly(false)

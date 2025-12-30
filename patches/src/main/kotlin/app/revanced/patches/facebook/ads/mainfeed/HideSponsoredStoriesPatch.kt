@@ -16,7 +16,7 @@ val hideSponsoredStoriesPatch = bytecodePatch(
 ) {
     compatibleWith("com.facebook.katana"("490.0.0.63.82"))
 
-    execute {
+    apply {
         val sponsoredDataModelTemplateMethod = getSponsoredDataModelTemplateFingerprint.originalMethod
         val baseModelMapperMethod = baseModelMapperFingerprint.originalMethod
         val baseModelWithTreeType = baseModelMapperMethod.returnType

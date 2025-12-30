@@ -45,7 +45,7 @@ val spoofAppVersionPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.spoofappversion.spoofAppVersionPatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(

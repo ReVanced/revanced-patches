@@ -15,7 +15,7 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
     description = "Fixes the swipe back to exit gesture."
 ) {
 
-    execute {
+    apply {
         recyclerViewTopScrollingFingerprint.let {
             it.method.addInstructionsAtControlFlowLabel(
                 it.instructionMatches.last().index + 1,

@@ -33,7 +33,7 @@ val hideGetPremiumPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("music", "layout.premium.hideGetPremiumPatch")
 
         PreferenceScreen.ADS.addPreferences(

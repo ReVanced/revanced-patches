@@ -23,7 +23,7 @@ val overrideFeatureFlagsPatch = bytecodePatch(
     description = "Forcibly set the value of A/B testing features of your choice.",
 ) {
 
-    execute {
+    apply {
         val configurationClass = getFeatureValueFingerprint.originalMethod.definingClass
         val featureClass = getFeatureValueFingerprint.originalMethod.parameterTypes[0].toString()
 

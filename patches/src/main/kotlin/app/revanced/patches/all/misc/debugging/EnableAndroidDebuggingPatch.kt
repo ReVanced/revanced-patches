@@ -8,7 +8,7 @@ val enableAndroidDebuggingPatch = resourcePatch(
     description = "Enables Android debugging capabilities. This can slow down the app.",
     use = false,
 ) {
-    execute {
+    apply {
         document("AndroidManifest.xml").use { document ->
             val applicationNode =
                 document

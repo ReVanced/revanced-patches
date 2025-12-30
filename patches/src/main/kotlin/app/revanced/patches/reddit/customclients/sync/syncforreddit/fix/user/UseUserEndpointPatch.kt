@@ -20,7 +20,7 @@ val useUserEndpointPatch = bytecodePatch(
         "com.laurencedawson.reddit_sync.dev",
     )
 
-    execute {
+    apply {
         arrayOf(
             oAuthFriendRequestFingerprint,
             oAuthSubredditInfoRequestConstructorFingerprint,

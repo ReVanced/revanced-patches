@@ -36,7 +36,7 @@ val disableRollingNumberAnimationPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.hide.rollingnumber.disableRollingNumberAnimationPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

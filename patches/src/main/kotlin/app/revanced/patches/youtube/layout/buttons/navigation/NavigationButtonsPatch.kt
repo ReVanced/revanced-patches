@@ -45,7 +45,7 @@ val navigationButtonsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.buttons.navigation.navigationButtonsPatch")
 
         val preferences = mutableSetOf(

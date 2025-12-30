@@ -19,7 +19,7 @@ import app.revanced.util.copyResources
 private val playbackSpeedButtonResourcePatch = resourcePatch {
     dependsOn(playerControlsPatch)
 
-    execute {
+    apply {
         copyResources(
             "speedbutton",
             ResourceGroup(
@@ -48,7 +48,7 @@ val playbackSpeedButtonPatch = bytecodePatch(
         videoInformationPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "video.speed.button.playbackSpeedButtonPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

@@ -46,7 +46,7 @@ private val sponsorBlockResourcePatch = resourcePatch {
         playerControlsPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.sponsorblock.sponsorBlockResourcePatch")
 
         PreferenceScreen.SPONSORBLOCK.addPreferences(
@@ -139,7 +139,7 @@ val sponsorBlockPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         // Hook the video time methods.
         videoTimeHook(
             EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR,

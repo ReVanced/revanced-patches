@@ -64,7 +64,7 @@ val disableVideoCodecsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "video.codecs.disableVideoCodecsPatch")
 
         PreferenceScreen.VIDEO.addPreferences(

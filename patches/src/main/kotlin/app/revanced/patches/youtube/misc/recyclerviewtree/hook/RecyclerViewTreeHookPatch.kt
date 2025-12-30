@@ -10,7 +10,7 @@ lateinit var addRecyclerViewTreeHook: (String) -> Unit
 val recyclerViewTreeHookPatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
 
-    execute {
+    apply {
         recyclerViewTreeObserverFingerprint.method.apply {
             val insertIndex = recyclerViewTreeObserverFingerprint.instructionMatches.first().index + 1
             val recyclerViewParameter = 2

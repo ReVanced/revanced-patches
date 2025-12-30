@@ -13,7 +13,7 @@ internal val addManifestPermissionsPatch = resourcePatch {
         "android.permission.RECORD_AUDIO",
     )
 
-    execute {
+    apply {
         document("AndroidManifest.xml").use { document ->
             document.getElementsByTagName("manifest").item(0).let { manifestEl ->
 

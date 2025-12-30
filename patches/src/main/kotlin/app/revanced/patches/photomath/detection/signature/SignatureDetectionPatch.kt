@@ -9,7 +9,7 @@ val signatureDetectionPatch = bytecodePatch(
     description = "Disables detection of incorrect signature.",
 ) {
 
-    execute {
+    apply {
         val replacementIndex = checkSignatureFingerprint.instructionMatches.last().index
         val checkRegister =
             checkSignatureFingerprint.method.getInstruction<OneRegisterInstruction>(replacementIndex).registerA

@@ -22,7 +22,7 @@ val enableExclusiveAudioPlaybackPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         allowExclusiveAudioPlaybackFingerprint.method.returnEarly(true)
     }
 }

@@ -13,7 +13,7 @@ val enableDebugMenuPatch = bytecodePatch(
 ) {
     compatibleWith("com.duolingo")
 
-    execute {
+    apply {
         // It seems all categories are allowed on release. Force this on anyway.
         debugCategoryAllowOnReleaseBuildsFingerprint.method.returnEarly(true)
 

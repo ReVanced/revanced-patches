@@ -45,7 +45,7 @@ private val miniplayerResourcePatch = resourcePatch {
         versionCheckPatch,
     )
 
-    execute {
+    apply {
         // Resource id is not used during patching, but is used by extension.
         // Verify the resource is present while patching.
         getResourceId(
@@ -91,7 +91,7 @@ val miniplayerPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.miniplayer.miniplayerPatch")
 
         val preferences = mutableSetOf<BasePreference>()

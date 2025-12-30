@@ -29,7 +29,7 @@ val spoofClientPatch = spoofClientPatch(
 
     val clientId by clientIdOption
 
-    execute {
+    apply {
         // region Patch client id.
 
         getBearerTokenFingerprint.match(getAuthorizationStringFingerprint.originalClassDef).method.apply {

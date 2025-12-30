@@ -27,7 +27,7 @@ internal val rememberPlaybackSpeedPatch = bytecodePatch {
         customPlaybackSpeedPatch
     )
 
-    execute {
+    apply {
         addResources("youtube", "video.speed.remember.rememberPlaybackSpeedPatch")
 
         settingsMenuVideoSpeedGroup.addAll(

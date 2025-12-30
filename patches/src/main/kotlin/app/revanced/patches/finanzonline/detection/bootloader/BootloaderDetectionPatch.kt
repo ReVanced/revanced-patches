@@ -10,7 +10,7 @@ val bootloaderDetectionPatch = bytecodePatch(
 ) {
     compatibleWith("at.gv.bmf.bmf2go")
 
-    execute {
+    apply {
         setOf(createKeyFingerprint, bootStateFingerprint).forEach { fingerprint ->
             fingerprint.method.addInstructions(
                 0,

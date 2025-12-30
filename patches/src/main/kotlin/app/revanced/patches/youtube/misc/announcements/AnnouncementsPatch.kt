@@ -30,7 +30,7 @@ val announcementsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "misc.announcements.announcementsPatch")
 
         PreferenceScreen.MISC.addPreferences(

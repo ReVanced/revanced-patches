@@ -47,7 +47,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         resourceMappingPatch, // Used by fingerprints
         resourcePatch {
             // Copy missing notification icon.
-            execute {
+            apply {
                 copyResources(
                     "navigationbuttons",
                     ResourceGroup(
@@ -59,7 +59,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         }
     )
 
-    execute {
+    apply {
         fun MutableMethod.addHook(hook: NavigationHook, insertPredicate: Instruction.() -> Boolean) {
             val filtered = instructions.filter(insertPredicate)
             if (filtered.isEmpty()) throw PatchException("Could not find insert indexes")

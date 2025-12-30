@@ -36,7 +36,7 @@ val fixPlaybackSpeedWhilePlayingPatch = bytecodePatch {
         versionCheckPatch,
     )
 
-    execute {
+    apply {
         if (!is_19_34_or_greater) {
             return@execute
         }

@@ -18,7 +18,7 @@ fun hookPatch(
         )
     )
 
-    execute {
+    apply {
         addJsonHook(JsonHook(hookClassDescriptor))
     }
 }

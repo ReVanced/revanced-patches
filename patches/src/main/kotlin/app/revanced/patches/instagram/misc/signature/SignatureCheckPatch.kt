@@ -12,7 +12,7 @@ val signatureCheckPatch = bytecodePatch(
 ) {
     compatibleWith("com.instagram.android")
 
-    execute {
+    apply {
         isValidSignatureMethodFingerprint
             .match(isValidSignatureClassFingerprint.classDef)
             .method

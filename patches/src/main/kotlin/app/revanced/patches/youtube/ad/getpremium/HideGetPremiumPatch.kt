@@ -32,7 +32,7 @@ val hideGetPremiumPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "ad.getpremium.hideGetPremiumPatch")
 
         PreferenceScreen.ADS.addPreferences(

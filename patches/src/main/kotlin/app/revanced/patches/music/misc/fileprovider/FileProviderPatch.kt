@@ -11,7 +11,7 @@ internal fun fileProviderPatch(
 ) = bytecodePatch(
     description = "Fixes broken YouTube Music file provider that prevents sharing with specific apps such as Instagram."
 ) {
-    finalize {
+    afterDependents {
         // Must do modification last, so change package name value is correctly set.
         val musicChangedPackageName = setOrGetFallbackPackageName(musicPackageName)
 

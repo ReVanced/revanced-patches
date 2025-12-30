@@ -18,7 +18,7 @@ val skipAdsPatch = bytecodePatch(
 
     // Skip all the logic in ServerInsertedAdBreakState.enter(), which plays all the ad clips in this
     // ad break. Instead, force the video player to seek over the entire break and reset the state machine.
-    execute {
+    apply {
         // Force doTrigger() access to public so we can call it from our extension.
         doTriggerFingerprint.method.accessFlags = AccessFlags.PUBLIC.value;
 

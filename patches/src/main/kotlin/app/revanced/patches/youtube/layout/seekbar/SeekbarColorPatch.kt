@@ -42,7 +42,7 @@ val seekbarColorPatch = bytecodePatch(
         versionCheckPatch
     )
 
-    execute {
+    apply {
         fun MutableMethod.addColorChangeInstructions(index: Int) {
             insertLiteralOverride(
                 index,

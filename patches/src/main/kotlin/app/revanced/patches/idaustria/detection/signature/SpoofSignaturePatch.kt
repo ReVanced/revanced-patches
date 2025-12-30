@@ -10,7 +10,7 @@ val spoofSignaturePatch = bytecodePatch(
 ) {
     compatibleWith("at.gv.oe.app")
 
-    execute {
+    apply {
         val expectedSignature =
             "OpenSSLRSAPublicKey{modulus=ac3e6fd6050aa7e0d6010ae58190404cd89a56935b44f6fee" +
                 "067c149768320026e10b24799a1339e414605e448e3f264444a327b9ae292be2b62ad567dd1800dbed4a88f718a33dc6db6b" +

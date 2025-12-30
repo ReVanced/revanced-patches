@@ -18,7 +18,7 @@ val hideAdsPatch = bytecodePatch(
 
     dependsOn(sharedExtensionPatch("nunl", mainActivityOnCreateHook))
 
-    execute {
+    apply {
         // Disable video pre-roll ads.
         // Whenever the app tries to define the advertising config for JWPlayer, don't set the advertising config and directly return.
         val iputInstructionIndex = jwPlayerConfigFingerprint.method.indexOfFirstInstructionOrThrow(Opcode.IPUT_OBJECT)

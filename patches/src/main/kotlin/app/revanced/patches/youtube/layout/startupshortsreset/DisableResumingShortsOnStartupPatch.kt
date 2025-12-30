@@ -41,7 +41,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.startupshortsreset.disableResumingShortsOnStartupPatch")
 
         PreferenceScreen.SHORTS.addPreferences(

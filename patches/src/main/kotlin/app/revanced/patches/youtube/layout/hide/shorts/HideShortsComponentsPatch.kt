@@ -48,7 +48,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
         versionCheckPatch,
     )
 
-    execute {
+    apply {
         val hideShortsAppShortcut by hideShortsAppShortcutOption
         val hideShortsWidget by hideShortsWidgetOption
 
@@ -183,7 +183,7 @@ val hideShortsComponentsPatch = bytecodePatch(
     hideShortsAppShortcutOption()
     hideShortsWidgetOption()
 
-    execute {
+    apply {
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
         val id = getResourceId(ResourceType.DIMEN, "reel_player_right_pivot_v2_size")

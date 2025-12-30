@@ -91,7 +91,7 @@ val videoIdPatch = bytecodePatch(
         playerResponseMethodHookPatch,
     )
 
-    execute {
+    apply {
         videoIdFingerprint.match(videoIdParentFingerprint.originalClassDef).let {
             it.method.apply {
                 videoIdMethod = this

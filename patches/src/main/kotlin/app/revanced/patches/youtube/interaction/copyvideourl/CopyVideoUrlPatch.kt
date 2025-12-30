@@ -19,7 +19,7 @@ private val copyVideoUrlResourcePatch = resourcePatch {
         addResourcesPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "interaction.copyvideourl.copyVideoUrlResourcePatch")
 
         PreferenceScreen.PLAYER.addPreferences(
@@ -60,7 +60,7 @@ val copyVideoUrlPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         val extensionPlayerPackage = "Lapp/revanced/extension/youtube/videoplayer"
         val buttonsDescriptors = listOf(
             "$extensionPlayerPackage/CopyVideoUrlButton;",

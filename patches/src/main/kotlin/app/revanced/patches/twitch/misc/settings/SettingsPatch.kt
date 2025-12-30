@@ -50,7 +50,7 @@ val settingsPatch = bytecodePatch(
 
     compatibleWith("tv.twitch.android.app"("16.9.1"))
 
-    execute {
+    apply {
         addResources("twitch", "misc.settings.settingsPatch")
 
         preferences += NonInteractivePreference(
@@ -166,7 +166,7 @@ val settingsPatch = bytecodePatch(
         )
     }
 
-    finalize {
+    afterDependents {
         PreferenceScreen.close()
     }
 }

@@ -18,7 +18,7 @@ val exportInternalDataDocumentsProviderPatch = resourcePatch(
         },
     )
 
-    execute {
+    apply {
         val documentsProviderClass =
             "app.revanced.extension.all.misc.directory.documentsprovider.InternalDataDocumentsProvider"
 

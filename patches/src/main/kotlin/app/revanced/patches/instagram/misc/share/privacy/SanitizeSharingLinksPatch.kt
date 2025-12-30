@@ -19,7 +19,7 @@ val sanitizeSharingLinksPatch = bytecodePatch(
 
     dependsOn(sharedExtensionPatch)
 
-    execute {
+    apply {
         editShareLinksPatch { index, register ->
             addInstructions(
                 index,

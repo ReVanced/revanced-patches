@@ -52,7 +52,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.buttons.overlay.hidePlayerOverlayButtonsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

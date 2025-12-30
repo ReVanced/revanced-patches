@@ -26,7 +26,7 @@ val settingsPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("36.5.4"),
     )
 
-    execute {
+    apply {
         val initializeSettingsMethodDescriptor =
             "$EXTENSION_CLASS_DESCRIPTOR->initialize(" +
                 "Lcom/bytedance/ies/ugc/aweme/commercialize/compliance/personalization/AdPersonalizationActivity;" +

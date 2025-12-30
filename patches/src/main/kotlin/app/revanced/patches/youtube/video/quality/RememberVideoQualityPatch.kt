@@ -30,7 +30,7 @@ val rememberVideoQualityPatch = bytecodePatch {
         versionCheckPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "video.quality.rememberVideoQualityPatch")
 
         settingsMenuVideoQualityGroup.addAll(listOf(

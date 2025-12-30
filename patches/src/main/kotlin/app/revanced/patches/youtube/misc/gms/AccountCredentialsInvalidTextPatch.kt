@@ -17,7 +17,7 @@ internal val accountCredentialsInvalidTextPatch = bytecodePatch {
         addResourcesPatch
     )
 
-    execute {
+    apply {
         addResources("youtube", "misc.gms.accountCredentialsInvalidTextPatch")
 
         // If the user recently changed their account password,

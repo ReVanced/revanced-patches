@@ -9,7 +9,7 @@ val enableUnlimitedSkipsPatch = bytecodePatch(
 ) {
     compatibleWith("com.pandora.android")
 
-    execute {
+    apply {
         skipLimitBehaviorFingerprint.method.returnEarly("unlimited")
     }
 }

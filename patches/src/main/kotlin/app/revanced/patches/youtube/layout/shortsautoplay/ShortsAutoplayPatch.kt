@@ -51,7 +51,7 @@ val shortsAutoplayPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.shortsautoplay.shortsAutoplayPatch")
 
         PreferenceScreen.SHORTS.addPreferences(

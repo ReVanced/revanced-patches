@@ -11,7 +11,7 @@ val skipEnergyRechargeAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.duolingo")
 
-    execute {
+    apply {
         initializeEnergyConfigFingerprint
             .match(energyConfigToStringFingerprint.classDef)
             .method.apply {

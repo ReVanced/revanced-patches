@@ -33,7 +33,7 @@ val downloadsPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("36.5.4"),
     )
 
-    execute {
+    apply {
         aclCommonShareFingerprint.method.returnEarly(0)
         aclCommonShare2Fingerprint.method.returnEarly(2)
 

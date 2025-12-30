@@ -23,7 +23,7 @@ internal fun checkWatchHistoryDomainNameResolutionPatch(
 ) {
     block()
 
-    execute {
+    apply {
         executeBlock()
 
         addResources("shared", "misc.dns.checkWatchHistoryDomainNameResolutionPatch")

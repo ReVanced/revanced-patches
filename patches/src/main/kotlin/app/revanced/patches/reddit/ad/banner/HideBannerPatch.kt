@@ -8,7 +8,7 @@ import app.revanced.patcher.patch.resourcePatch
 val hideBannerPatch = resourcePatch(
     description = "Hides banner ads from comments on subreddits.",
 ) {
-    execute {
+    apply {
         val resourceFilePath = "res/layout/merge_listheader_link_detail.xml"
 
         document(resourceFilePath).use { document ->

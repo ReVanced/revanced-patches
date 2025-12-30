@@ -12,7 +12,7 @@ val sanitizeUrlQueryPatch = bytecodePatch(
 ) {
     compatibleWith("com.reddit.frontpage")
 
-    execute {
+    apply {
         shareLinkFormatterFingerprint.method.addInstructions(
             0,
             "return-object p0",

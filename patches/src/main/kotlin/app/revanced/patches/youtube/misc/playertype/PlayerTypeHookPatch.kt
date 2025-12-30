@@ -21,7 +21,7 @@ val playerTypeHookPatch = bytecodePatch(
 ) {
     dependsOn(sharedExtensionPatch, resourceMappingPatch)
 
-    execute {
+    apply {
         val playerOverlaysSetPlayerTypeFingerprint = fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             returns("V")

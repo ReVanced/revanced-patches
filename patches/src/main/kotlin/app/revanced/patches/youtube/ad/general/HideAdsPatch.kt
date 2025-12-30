@@ -39,7 +39,7 @@ private val hideAdsResourcePatch = resourcePatch {
         addResourcesPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "ad.general.hideAdsResourcePatch")
 
         PreferenceScreen.ADS.addPreferences(
@@ -83,7 +83,7 @@ val hideAdsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         // Hide end screen store banner.
 
         fullScreenEngagementAdContainerFingerprint.method.apply {

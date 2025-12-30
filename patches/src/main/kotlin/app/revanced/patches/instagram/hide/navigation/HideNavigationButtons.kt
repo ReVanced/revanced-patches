@@ -71,7 +71,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
         description = "Permanently hides the Create button."
     )
 
-    execute {
+    apply {
         if (!hideHome!! &&!hideReels!! && !hideDirect!! && !hideSearch!! && !hideProfile!! && !hideCreate!!) {
             return@execute Logger.getLogger(this::class.java.name).warning(
                 "No hide navigation buttons options are enabled. No changes made."

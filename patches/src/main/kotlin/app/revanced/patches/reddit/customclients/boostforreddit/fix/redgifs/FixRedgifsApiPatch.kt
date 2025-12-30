@@ -16,7 +16,7 @@ val fixRedgifsApi = fixRedgifsApiPatch(
 ) {
     compatibleWith("com.rubenmayayo.reddit")
 
-    execute {
+    apply {
         // region Patch Redgifs OkHttp3 client.
 
         createOkHttpClientFingerprint.method.apply {

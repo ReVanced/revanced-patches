@@ -33,7 +33,7 @@ val bypassURLRedirectsPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "misc.links.bypassURLRedirectsPatch")
 
         PreferenceScreen.MISC.addPreferences(

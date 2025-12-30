@@ -40,7 +40,7 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
         resourceMappingPatch
     )
 
-    execute {
+    apply {
         addResources("youtube", "video.quality.advancedVideoQualityMenuPatch")
 
         settingsMenuVideoQualityGroup.add(

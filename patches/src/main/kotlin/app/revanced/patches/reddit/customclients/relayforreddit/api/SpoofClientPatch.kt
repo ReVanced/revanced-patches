@@ -17,7 +17,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") {
 
     val clientId by it
 
-    execute {
+    apply {
         // region Patch client id.
 
         setOf(

@@ -47,7 +47,7 @@ val jsonHookPatch = bytecodePatch(
 ) {
     dependsOn(sharedExtensionPatch)
 
-    execute {
+    apply {
         jsonHookPatchFingerprint.apply {
             val jsonHookPatch = firstClassDef(JSON_HOOK_PATCH_CLASS_DESCRIPTOR)
 
@@ -73,7 +73,7 @@ val jsonHookPatch = bytecodePatch(
         )
     }
 
-    finalize {
+    afterDependents {
         // Remove hooks.add(dummyHook).
         jsonHookPatchFingerprint.method.apply {
             val addDummyHookIndex = jsonHookPatchFingerprint.instructionMatches.last().index - 2

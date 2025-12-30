@@ -12,7 +12,7 @@ val enableDCIMFoldersBackupControlPatch = bytecodePatch(
 ) {
     compatibleWith("com.google.android.apps.photos")
 
-    execute {
+    apply {
         isDCIMFolderBackupControlDisabled.method.returnEarly(false)
     }
 }

@@ -11,7 +11,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://rubenmayayo.com") 
 
     val clientId by clientIdOption
 
-    execute {
+    apply {
         // region Patch client id.
 
         getClientIdFingerprint.method.returnEarly(clientId!!)

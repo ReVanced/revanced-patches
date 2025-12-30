@@ -28,7 +28,7 @@ val hideSeekbarPatch = bytecodePatch(
         versionCheckPatch
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.hide.seekbar.hideSeekbarPatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(

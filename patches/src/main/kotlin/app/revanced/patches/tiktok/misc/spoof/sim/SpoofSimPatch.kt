@@ -29,7 +29,7 @@ val spoofSimPatch = bytecodePatch(
         "com.zhiliaoapp.musically",
     )
 
-    execute {
+    apply {
         val replacements = hashMapOf(
             "getSimCountryIso" to "getCountryIso",
             "getNetworkCountryIso" to "getCountryIso",

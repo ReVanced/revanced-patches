@@ -14,7 +14,7 @@ val hideAdsPatch = bytecodePatch(
 ) {
     compatibleWith("com.soundcloud.android"("2025.05.27-release"))
 
-    execute {
+    apply {
         // Enable a preset feature to disable audio ads by modifying the JSON server response.
         // This method is the constructor of a class representing a "Feature" object parsed from JSON data.
         // p1 is the name of the feature.

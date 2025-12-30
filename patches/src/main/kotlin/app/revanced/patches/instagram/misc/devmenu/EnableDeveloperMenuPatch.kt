@@ -20,7 +20,7 @@ val enableDeveloperMenuPatch = bytecodePatch(
 ) {
     compatibleWith("com.instagram.android")
 
-    execute {
+    apply {
         with(clearNotificationReceiverFingerprint.method) {
             indexOfFirstInstructionReversedOrThrow(clearNotificationReceiverFingerprint.stringMatches.first().index) {
                 val reference = getReference<MethodReference>()

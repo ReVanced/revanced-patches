@@ -30,7 +30,7 @@ val hideTimestampPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.hide.time.hideTimestampPatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(

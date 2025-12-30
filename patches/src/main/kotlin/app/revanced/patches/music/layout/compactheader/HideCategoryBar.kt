@@ -36,7 +36,7 @@ val hideCategoryBar = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("music", "layout.compactheader.hideCategoryBar")
 
         PreferenceScreen.GENERAL.addPreferences(

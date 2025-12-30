@@ -32,7 +32,7 @@ val permanentRepeatPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("music", "interaction.permanentrepeat.permanentRepeatPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

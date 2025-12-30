@@ -9,7 +9,7 @@ val verticalScrollPatch = bytecodePatch(
     description = "Fixes issues with refreshing the feed when the first component is of type EmptyComponent.",
 ) {
 
-    execute {
+    apply {
         canScrollVerticallyFingerprint.let {
             it.method.apply {
                 val moveResultIndex = it.instructionMatches.last().index

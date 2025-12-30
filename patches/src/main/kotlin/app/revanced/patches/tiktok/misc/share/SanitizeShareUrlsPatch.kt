@@ -30,7 +30,7 @@ val sanitizeShareUrlsPatch = bytecodePatch(
         "com.zhiliaoapp.musically"("36.5.4"),
     )
 
-    execute {
+    apply {
         urlShorteningFingerprint.method.apply {
             val invokeIndex = indexOfFirstInstructionOrThrow {
                 val ref = getReference<MethodReference>()

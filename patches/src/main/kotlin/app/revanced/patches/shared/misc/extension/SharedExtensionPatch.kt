@@ -39,13 +39,13 @@ fun sharedExtensionPatch(
 ) = bytecodePatch {
     extendWith("extensions/shared.rve")
 
-    execute {
+    apply {
         // Verify the extension class exists.
         firstClassDefMutable(EXTENSION_CLASS_DESCRIPTOR)
     }
 
-    finalize {
-        // The hooks are made in finalize to ensure that the context is hooked before any other patches.
+    afterDependents {
+        // The hooks are made in afterDependents to ensure that the context is hooked before any other patches.
         hooks.forEach { hook -> hook()(EXTENSION_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.

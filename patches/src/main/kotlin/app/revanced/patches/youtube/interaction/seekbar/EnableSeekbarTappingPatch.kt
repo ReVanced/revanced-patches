@@ -26,7 +26,7 @@ val enableSeekbarTappingPatch = bytecodePatch(
         addResourcesPatch,
     )
 
-    execute {
+    apply {
         addResources("youtube", "interaction.seekbar.enableSeekbarTappingPatch")
 
         PreferenceScreen.SEEKBAR.addPreferences(

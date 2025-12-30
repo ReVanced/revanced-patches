@@ -35,7 +35,7 @@ val playbackSpeedPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         PreferenceScreen.VIDEO.addPreferences(
             PreferenceCategory(
                 key = "revanced_zz_video_key", // Dummy key to force the speed settings last.

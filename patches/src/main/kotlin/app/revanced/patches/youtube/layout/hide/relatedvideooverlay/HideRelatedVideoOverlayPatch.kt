@@ -36,7 +36,7 @@ val hideRelatedVideoOverlayPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

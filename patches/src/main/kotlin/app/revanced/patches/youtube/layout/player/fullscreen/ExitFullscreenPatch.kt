@@ -45,7 +45,7 @@ internal val exitFullscreenPatch = bytecodePatch(
     val EXTENSION_CLASS_DESCRIPTOR =
         "Lapp/revanced/extension/youtube/patches/ExitFullscreenPatch;"
 
-    execute {
+    apply {
         addResources("youtube", "layout.player.fullscreen.exitFullscreenPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

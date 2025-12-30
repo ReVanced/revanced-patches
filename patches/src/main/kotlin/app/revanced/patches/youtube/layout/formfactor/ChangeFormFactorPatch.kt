@@ -40,7 +40,7 @@ val changeFormFactorPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.formfactor.changeFormFactorPatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(

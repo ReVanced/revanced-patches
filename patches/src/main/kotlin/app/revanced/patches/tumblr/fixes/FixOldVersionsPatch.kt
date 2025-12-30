@@ -12,7 +12,7 @@ val fixOldVersionsPatch = bytecodePatch(
 ) {
     compatibleWith("com.tumblr")
 
-    execute {
+    apply {
         val liveQueryParameters = listOf(
             ",?live_now",
             ",?live_streaming_user_id",

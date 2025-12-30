@@ -22,7 +22,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 fun checkEnvironmentPatch(
     mainActivityOnCreateFingerprint: Fingerprint,
-    extensionPatch: Patch<*>,
+    extensionPatch: Patch,
     vararg compatiblePackages: String,
 ) = bytecodePatch(
     description = "Checks, if the application was patched by, otherwise warns the user.",
@@ -34,7 +34,7 @@ fun checkEnvironmentPatch(
         addResourcesPatch,
     )
 
-    execute {
+    apply {
         addResources("shared", "misc.checks.checkEnvironmentPatch")
 
         fun setPatchInfo() {

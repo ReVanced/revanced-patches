@@ -21,7 +21,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
 
     val clientId by clientIdOption
 
-    execute {
+    apply {
         fun Fingerprint.patch(replacementString: String) {
             val clientIdIndex = stringMatches.first().index
 

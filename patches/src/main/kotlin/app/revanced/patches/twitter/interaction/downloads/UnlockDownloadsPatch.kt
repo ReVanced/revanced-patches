@@ -19,7 +19,7 @@ val unlockDownloadsPatch = bytecodePatch(
 ) {
     compatibleWith("com.twitter.android")
 
-    execute {
+    apply {
         fun Fingerprint.patch(getRegisterAndIndex: Fingerprint.() -> Pair<Int, Int>) {
             val (index, register) = getRegisterAndIndex()
             method.addInstruction(index, "const/4 v$register, 0x1")

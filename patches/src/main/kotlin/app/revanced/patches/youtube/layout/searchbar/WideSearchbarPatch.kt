@@ -46,7 +46,7 @@ val wideSearchbarPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         if (is_20_31_or_greater) {
             // YT removed the legacy text search text field all code required to use it.
             // This functionality could be restored by adding a search text field to the toolbar

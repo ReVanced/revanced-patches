@@ -33,7 +33,7 @@ val disableTrackingPatch = bytecodePatch(
         ),
     )
 
-    execute {
+    apply {
         facebookSDKFingerprint.method.apply {
             instructions.filter { instruction ->
                 instruction.opcode == Opcode.CONST_STRING

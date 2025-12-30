@@ -86,7 +86,7 @@ fun resourceLiteral(
 ) = literal({ getResourceId(type, name) }, null, location)
 
 val resourceMappingPatch = resourcePatch {
-    execute {
+    apply {
         // Use a stream of the file, since no modifications are done
         // and using a File parameter causes the file to be re-wrote when closed.
         document(get("res/values/public.xml").inputStream()).use { document ->

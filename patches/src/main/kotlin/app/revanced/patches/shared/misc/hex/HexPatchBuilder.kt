@@ -43,7 +43,7 @@ class HexPatchBuilder internal constructor(
 @Deprecated("Use the hexPatch function with the builder parameter instead.")
 fun hexPatch(ignoreMissingTargetFiles: Boolean = false, replacementsSupplier: () -> Set<Replacement>) =
     rawResourcePatch {
-        execute {
+        apply {
             replacementsSupplier().groupBy { it.targetFilePath }.forEach { (targetFilePath, replacements) ->
                 val targetFile = get(targetFilePath, true)
                 if (ignoreMissingTargetFiles && !targetFile.exists()) return@forEach

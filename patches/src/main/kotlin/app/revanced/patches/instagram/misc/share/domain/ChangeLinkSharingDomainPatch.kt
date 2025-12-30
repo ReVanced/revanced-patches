@@ -29,7 +29,7 @@ val changeLinkSharingDomainPatch = bytecodePatch(
         description = "The domain name to use when sharing links."
     )
 
-    execute {
+    apply {
         getCustomShareDomainFingerprint.method.returnEarly(customDomainHost!!)
 
         editShareLinksPatch { index, register ->

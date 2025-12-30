@@ -61,7 +61,7 @@ val changeLyricsProviderPatch = bytecodePatch(
         true
     }
 
-    execute {
+    apply {
         val httpClientBuilderMethod = httpClientBuilderFingerprint.originalMethod
 
         // region Create a modified copy of the HTTP client builder method with the custom lyrics provider host.

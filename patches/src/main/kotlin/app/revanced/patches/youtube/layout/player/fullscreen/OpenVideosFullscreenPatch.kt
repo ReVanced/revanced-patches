@@ -30,7 +30,7 @@ val openVideosFullscreenPatch = bytecodePatch(
         )
     )
 
-    execute {
+    apply {
         addResources("youtube", "layout.player.fullscreen.openVideosFullscreen")
 
         PreferenceScreen.PLAYER.addPreferences(

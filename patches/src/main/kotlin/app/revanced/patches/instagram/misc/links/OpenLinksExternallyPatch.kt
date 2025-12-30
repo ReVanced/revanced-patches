@@ -21,7 +21,7 @@ val openLinksExternallyPatch = bytecodePatch(
 
     compatibleWith("com.instagram.android")
 
-    execute {
+    apply {
         inAppBrowserFunctionFingerprint.let {
             val stringMatchIndex = it.stringMatches?.first { match -> match.string == TARGET_STRING }!!.index
 

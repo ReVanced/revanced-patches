@@ -13,7 +13,7 @@ val fixGoogleLoginPatch = bytecodePatch(
         "com.zhiliaoapp.musically",
     )
 
-    execute {
+    apply {
         listOf(
             googleOneTapAuthAvailableFingerprint.method,
             googleAuthAvailableFingerprint.method,

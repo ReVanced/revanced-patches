@@ -11,7 +11,7 @@ val disableVersionCheckPatch = bytecodePatch(
 ) {
     compatibleWith("com.adobe.lrmobile"("9.3.0"))
 
-    execute {
+    apply {
         refreshRemoteConfigurationFingerprint.method.apply {
             val igetIndex = refreshRemoteConfigurationFingerprint.patternMatch!!.endIndex
 

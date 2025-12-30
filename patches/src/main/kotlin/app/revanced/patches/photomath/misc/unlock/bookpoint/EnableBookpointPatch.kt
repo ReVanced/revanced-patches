@@ -7,7 +7,7 @@ val enableBookpointPatch = bytecodePatch(
     description = "Enables textbook access",
 ) {
 
-    execute {
+    apply {
         isBookpointEnabledFingerprint.method.replaceInstructions(
             0,
             """

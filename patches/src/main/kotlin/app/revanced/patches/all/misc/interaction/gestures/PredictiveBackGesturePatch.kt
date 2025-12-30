@@ -8,7 +8,7 @@ val predictiveBackGesturePatch = resourcePatch(
     description = "Enables the predictive back gesture introduced on Android 13.",
     use = false,
 ) {
-    execute {
+    apply {
         val flag = "android:enableOnBackInvokedCallback"
 
         document("AndroidManifest.xml").use { document ->
