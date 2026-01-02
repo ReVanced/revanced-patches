@@ -20,6 +20,7 @@ private const val RESOURCES = "Lapp/revanced/extension/strava/Resources"
 
 private const val ACTION_COPY_LINK = -1
 private const val ACTION_OPEN_LINK = -2
+private const val ACTION_DOWNLOAD = -3
 
 @Suppress("unused")
 val addMediaDownloadPatch = bytecodePatch(
@@ -69,6 +70,7 @@ val addMediaDownloadPatch = bytecodePatch(
 
                 addMenuItem(ACTION_COPY_LINK, "copyLink", "accent", "link")
                 addMenuItem(ACTION_OPEN_LINK, "openLink", "accent", "linkExternal")
+                addMenuItem(ACTION_DOWNLOAD, "download", "accent", "download")
 
                 // move media to last parameter of `Action` constructor
                 val getMedia = instructions.first { instruction ->
@@ -116,15 +118,22 @@ val addMediaDownloadPatch = bytecodePatch(
                         iget-object v0, p2, $actionSerializableField
                         check-cast v0, $MEDIA
                         invoke-virtual { v0 }, $MEDIA->getLargestUrl()Ljava/lang/String;
-                        move-result-object v0
+                        move-result-object p0
                         const/4 p2, $ACTION_COPY_LINK
                         if-ne v$actionId, p2, :open_link
-                        invoke-static { v0 }, Lapp/revanced/extension/shared/Utils;->setClipboard(Ljava/lang/CharSequence;)V
+                        invoke-static { p0 }, Lapp/revanced/extension/shared/Utils;->setClipboard(Ljava/lang/CharSequence;)V
                         goto :success
                         :open_link
                         const/4 p2, $ACTION_OPEN_LINK
+                        if-ne v$actionId, p2, :download
+                        invoke-static { p0 }, Lapp/revanced/extension/shared/Utils;->openLink(Ljava/lang/String;)V
+                        goto :success
+                        :download
+                        const/4 p2, $ACTION_DOWNLOAD
                         if-ne v$actionId, p2, :failure
-                        invoke-static { v0 }, Lapp/revanced/extension/shared/Utils;->openLink(Ljava/lang/String;)V
+                        invoke-virtual { v0 }, $MEDIA->getId()Ljava/lang/String;
+                        move-result-object v0
+                        invoke-static { p0, v0 }, Lapp/revanced/extension/strava/Media;->downloadPhoto(Ljava/lang/String;Ljava/lang/String;)V
                         :success
                         const/4 v0, 0x1
                         return v0

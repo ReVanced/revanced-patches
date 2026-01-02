@@ -29,6 +29,10 @@ public final class Resources {
         public static int linkExternal() {
             return get("actions_link_external_normal_xsmall");
         }
+
+        public static int download() {
+            return get("actions_download_normal_xsmall");
+        }
     }
 
     public static final class Strings {
@@ -44,6 +48,18 @@ public final class Resources {
             // FIXME "fallback_menu_item_open_in_browser" not found
             // Utils.getContext().getResources().getResourceName(0x7f1408b9);
             return get("ellipsis");
+        }
+
+        public static int download() {
+            return get("download");
+        }
+
+        public static int saveImageSuccess() {
+            return get("yis_2024_local_save_image_success");
+        }
+
+        public static int saveFailure() {
+            return get("yis_2024_local_save_failure");
         }
     }
 }
