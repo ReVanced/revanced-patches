@@ -8,8 +8,12 @@ public final class Resources {
             return Utils.getResourceIdentifier(name, "color");
         }
 
-        public static int coreAsphalt() {
+        public static int primary() {
             return get("core_asphalt");
+        }
+
+        public static int accent() {
+            return get("core_o3");
         }
     }
 
@@ -18,8 +22,12 @@ public final class Resources {
             return Utils.getResourceIdentifier(name, "drawable");
         }
 
-        public static int actionsLinkNormalXsmall() {
+        public static int link() {
             return get("actions_link_normal_xsmall");
+        }
+
+        public static int linkExternal() {
+            return get("actions_link_external_normal_xsmall");
         }
     }
 
@@ -30,6 +38,12 @@ public final class Resources {
 
         public static int copyLink() {
             return get("copy_link");
+        }
+
+        public static int openLink() {
+            // FIXME "fallback_menu_item_open_in_browser" not found
+            // Utils.getContext().getResources().getResourceName(0x7f1408b9);
+            return get("ellipsis");
         }
     }
 }
