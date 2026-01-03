@@ -8,6 +8,9 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.misc.extension.extensionHook
 import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
+import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.util.getReference
 import app.revanced.util.registersUsed
 import app.revanced.util.writeRegister
@@ -16,7 +19,6 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val ACTION = "Lcom/strava/bottomsheet/Action;"
 private const val MEDIA = "Lcom/strava/photos/data/Media;"
-private const val RESOURCES = "Lapp/revanced/extension/strava/Resources"
 
 private const val ACTION_COPY_LINK = -1
 private const val ACTION_OPEN_LINK = -2
@@ -29,6 +31,7 @@ val addMediaDownloadPatch = bytecodePatch(
     compatibleWith("com.strava")
 
     dependsOn(
+        resourceMappingPatch,
         sharedExtensionPatch(
             "strava",
             extensionHook(
@@ -52,15 +55,12 @@ val addMediaDownloadPatch = bytecodePatch(
                     addInstructions(
                         indexAfterSetTrue,
                         """
-                            const v13, $actionId
+                            const/4 v13, $actionId
                             new-instance v12, $ACTION
-                            const v14, 0x0
-                            invoke-static { }, $RESOURCES${'$'}Strings;->$string()I
-                            move-result v15
-                            invoke-static { }, $RESOURCES${'$'}Colors;->$color()I
-                            move-result v16
-                            invoke-static { }, $RESOURCES${'$'}Drawables;->$drawable()I
-                            move-result v17
+                            const/4 v14, 0x0
+                            const v15, ${resourceMappings["string", string]}
+                            const v16, ${resourceMappings["color", color]}
+                            const v17, ${resourceMappings["drawable", drawable]}
                             move/from16 v18, v16
                             invoke-direct/range {v12 .. v19}, $ACTION-><init>(ILjava/lang/String;IIIILjava/io/Serializable;)V
                             invoke-virtual {v11, v12}, Lcom/strava/bottomsheet/a;->a(Lcom/strava/bottomsheet/BottomSheetItem;)V
@@ -68,9 +68,9 @@ val addMediaDownloadPatch = bytecodePatch(
                     )
                 }
 
-                addMenuItem(ACTION_COPY_LINK, "copyLink", "accent", "link")
-                addMenuItem(ACTION_OPEN_LINK, "openLink", "accent", "linkExternal")
-                addMenuItem(ACTION_DOWNLOAD, "download", "accent", "download")
+                addMenuItem(ACTION_COPY_LINK, "copy_link", "core_o3", "actions_link_normal_xsmall")
+                addMenuItem(ACTION_OPEN_LINK, "fallback_menu_item_open_in_browser", "core_o3", "actions_link_external_normal_xsmall")
+                addMenuItem(ACTION_DOWNLOAD, "download", "core_o3", "actions_download_normal_xsmall")
 
                 // move media to last parameter of `Action` constructor
                 val getMedia = instructions.first { instruction ->
@@ -133,7 +133,7 @@ val addMediaDownloadPatch = bytecodePatch(
                         if-ne v$actionId, p2, :failure
                         invoke-virtual { v0 }, $MEDIA->getId()Ljava/lang/String;
                         move-result-object v0
-                        invoke-static { p0, v0 }, Lapp/revanced/extension/strava/Media;->downloadPhoto(Ljava/lang/String;Ljava/lang/String;)V
+                        invoke-static { p0, v0 }, Lapp/revanced/extension/strava/MediaDownload;->photo(Ljava/lang/String;Ljava/lang/String;)V
                         :success
                         const/4 v0, 0x1
                         return v0

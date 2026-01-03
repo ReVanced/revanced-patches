@@ -16,8 +16,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 @SuppressLint("NewApi")
-public final class Media {
-    public static void downloadPhoto(String url, String name) {
+public final class MediaDownload {
+    public static void photo(String url, String name) {
         Utils.runOnBackgroundThread(() -> {
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
