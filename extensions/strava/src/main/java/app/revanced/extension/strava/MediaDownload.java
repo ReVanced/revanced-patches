@@ -9,9 +9,8 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.webkit.MimeTypeMap;
-import okhttp3.*;
 
-import app.revanced.extension.shared.Utils;
+import okhttp3.*;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -22,6 +21,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import app.revanced.extension.shared.Utils;
 
 @SuppressLint("NewApi")
 public final class MediaDownload {
@@ -129,13 +130,20 @@ public final class MediaDownload {
         });
     }
 
+    private static String getString(String name, String fallback) {
+        int id = Utils.getResourceIdentifier(name, "string");
+        return id != 0
+                ? Utils.getResourceString(id)
+                : fallback;
+    }
+
     private static void showInfoToast(String resourceName, String fallback) {
-        String text = Resources.Strings.get(resourceName, fallback);
+        String text = getString(resourceName, fallback);
         Utils.showToastShort(text);
     }
 
     private static void showErrorToast(String resourceName, String fallback, IOException exception) {
-        String text = Resources.Strings.get(resourceName, fallback);
+        String text = getString(resourceName, fallback);
         Utils.showToastLong(text + ' ' + exception.getLocalizedMessage());
     }
 
