@@ -28,9 +28,9 @@ private const val MEDIA_DOWNLOAD = "Lapp/revanced/extension/strava/MediaDownload
 
 private const val HANDLER = "handleCustomAction"
 
-private const val ACTION_COPY_LINK = -1
-private const val ACTION_OPEN_LINK = -2
-private const val ACTION_DOWNLOAD = -3
+private const val ACTION_DOWNLOAD = Byte.MIN_VALUE
+private const val ACTION_OPEN_LINK = (ACTION_DOWNLOAD + 1).toByte()
+private const val ACTION_COPY_LINK = (ACTION_OPEN_LINK + 1).toByte()
 
 @Suppress("unused")
 val addMediaDownloadPatch = bytecodePatch(
@@ -61,7 +61,7 @@ val addMediaDownloadPatch = bytecodePatch(
                     instruction.opcode == Opcode.IPUT_BOOLEAN
                 } + 1
 
-                fun addMenuItem(actionId: Int, string: String, color: String, drawable: String) {
+                fun addMenuItem(actionId: Byte, string: String, color: String, drawable: String) {
                     addInstructions(
                         indexAfterSetTrue,
                         """
@@ -131,27 +131,28 @@ val addMediaDownloadPatch = bytecodePatch(
                     """
                         invoke-virtual { p1 }, $MEDIA->getLargestUrl()Ljava/lang/String;
                         move-result-object v0
-                        const/4 v1, $ACTION_COPY_LINK
-                        if-ne p0, v1, :open_link
-                        invoke-static { v0 }, $MEDIA_DOWNLOAD->copyLink(Ljava/lang/CharSequence;)V
-                        goto :success
-                        :open_link
-                        const/4 v1, $ACTION_OPEN_LINK
-                        if-ne p0, v1, :download
-                        invoke-static { v0 }, Lapp/revanced/extension/shared/Utils;->openLink(Ljava/lang/String;)V
-                        goto :success
+                        packed-switch p0, :switch_action
+                        const/4 v0, 0x0
+                        return v0
                         :download
-                        const/4 v1, $ACTION_DOWNLOAD
-                        if-ne p0, v1, :failure
                         invoke-virtual { p1 }, $MEDIA->getId()Ljava/lang/String;
                         move-result-object v1
                         invoke-static { v0, v1 }, $MEDIA_DOWNLOAD->photo(Ljava/lang/String;Ljava/lang/String;)V
+                        goto :success
+                        :open_link
+                        invoke-static { v0 }, Lapp/revanced/extension/shared/Utils;->openLink(Ljava/lang/String;)V
+                        goto :success
+                        :copy_link
+                        invoke-static { v0 }, $MEDIA_DOWNLOAD->copyLink(Ljava/lang/CharSequence;)V
                         :success
                         const/4 v0, 0x1
                         return v0
-                        :failure
-                        const/4 v0, 0x0
-                        return v0
+                        :switch_action
+                        .packed-switch $ACTION_DOWNLOAD
+                            :download
+                            :open_link
+                            :copy_link
+                        .end packed-switch
                     """
                 )
             }
