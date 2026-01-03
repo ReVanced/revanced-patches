@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.shared.misc.extension.extensionHook
 import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
@@ -14,12 +15,18 @@ import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.util.getReference
 import app.revanced.util.registersUsed
 import app.revanced.util.writeRegister
+import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 private const val ACTION = "Lcom/strava/bottomsheet/Action;"
 private const val MEDIA = "Lcom/strava/photos/data/Media;"
 private const val MEDIA_DOWNLOAD = "Lapp/revanced/extension/strava/MediaDownload;"
+
+private const val HANDLER = "handleCustomAction"
 
 private const val ACTION_COPY_LINK = -1
 private const val ACTION_OPEN_LINK = -2
@@ -45,9 +52,11 @@ val addMediaDownloadPatch = bytecodePatch(
     )
 
     execute {
+        val fragment = handleMediaActionFingerprint.originalClassDef
+
         // extend menu of `FullscreenMediaFragment` with actions
         run {
-            createAndShowFragmentFingerprint.match(handleMediaActionFingerprint.originalClassDef).method.apply {
+            createAndShowFragmentFingerprint.match(fragment).method.apply {
                 val indexAfterSetTrue = instructions.indexOfFirst { instruction ->
                     instruction.opcode == Opcode.IPUT_BOOLEAN
                 } + 1
@@ -104,8 +113,52 @@ val addMediaDownloadPatch = bytecodePatch(
                 field.type == "Ljava/io/Serializable;"
             }
 
+            // handle "copy link" & "open link" & "download" actions
+            val handler = ImmutableMethod(
+                fragment.type,
+                HANDLER,
+                listOf(
+                    ImmutableMethodParameter("I", null, "actionId"),
+                    ImmutableMethodParameter(MEDIA, null, "media"),
+                ),
+                "Z",
+                AccessFlags.PRIVATE.value or AccessFlags.STATIC.value,
+                null,
+                null,
+                MutableMethodImplementation(4),
+            ).toMutable().apply {
+                addInstructions(
+                    """
+                        invoke-virtual { p1 }, $MEDIA->getLargestUrl()Ljava/lang/String;
+                        move-result-object v0
+                        const/4 v1, $ACTION_COPY_LINK
+                        if-ne p0, v1, :open_link
+                        invoke-static { v0 }, $MEDIA_DOWNLOAD->copyLink(Ljava/lang/CharSequence;)V
+                        goto :success
+                        :open_link
+                        const/4 v1, $ACTION_OPEN_LINK
+                        if-ne p0, v1, :download
+                        invoke-static { v0 }, Lapp/revanced/extension/shared/Utils;->openLink(Ljava/lang/String;)V
+                        goto :success
+                        :download
+                        const/4 v1, $ACTION_DOWNLOAD
+                        if-ne p0, v1, :failure
+                        invoke-virtual { p1 }, $MEDIA->getId()Ljava/lang/String;
+                        move-result-object v1
+                        invoke-static { v0, v1 }, $MEDIA_DOWNLOAD->photo(Ljava/lang/String;Ljava/lang/String;)V
+                        :success
+                        const/4 v0, 0x1
+                        return v0
+                        :failure
+                        const/4 v0, 0x0
+                        return v0
+                    """
+                )
+            }
+            handleMediaActionFingerprint.classDef.methods.add(handler)
+
             handleMediaActionFingerprint.method.apply {
-                // handle "copy link" & "open link" actions
+                // call handler if action ID < 0 (= custom)
                 val move = instructions.first { instruction ->
                     instruction.opcode == Opcode.MOVE_RESULT
                 }
@@ -118,28 +171,8 @@ val addMediaDownloadPatch = bytecodePatch(
                         check-cast p2, $ACTION
                         iget-object v0, p2, $actionSerializableField
                         check-cast v0, $MEDIA
-                        invoke-virtual { v0 }, $MEDIA->getLargestUrl()Ljava/lang/String;
-                        move-result-object p0
-                        const/4 p2, $ACTION_COPY_LINK
-                        if-ne v$actionId, p2, :open_link
-                        invoke-static { p0 }, $MEDIA_DOWNLOAD->copyLink(Ljava/lang/CharSequence;)V
-                        goto :success
-                        :open_link
-                        const/4 p2, $ACTION_OPEN_LINK
-                        if-ne v$actionId, p2, :download
-                        invoke-static { p0 }, Lapp/revanced/extension/shared/Utils;->openLink(Ljava/lang/String;)V
-                        goto :success
-                        :download
-                        const/4 p2, $ACTION_DOWNLOAD
-                        if-ne v$actionId, p2, :failure
-                        invoke-virtual { v0 }, $MEDIA->getId()Ljava/lang/String;
-                        move-result-object v0
-                        invoke-static { p0, v0 }, $MEDIA_DOWNLOAD->photo(Ljava/lang/String;Ljava/lang/String;)V
-                        :success
-                        const/4 v0, 0x1
-                        return v0
-                        :failure
-                        const/4 v0, 0x0
+                        invoke-static { v$actionId, v0 }, $handler
+                        move-result v0
                         return v0
                     """,
                     ExternalLabel("move", instructions[indexAfterMove])
