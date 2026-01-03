@@ -19,6 +19,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 private const val ACTION = "Lcom/strava/bottomsheet/Action;"
 private const val MEDIA = "Lcom/strava/photos/data/Media;"
+private const val MEDIA_DOWNLOAD = "Lapp/revanced/extension/strava/MediaDownload;"
 
 private const val ACTION_COPY_LINK = -1
 private const val ACTION_OPEN_LINK = -2
@@ -121,7 +122,7 @@ val addMediaDownloadPatch = bytecodePatch(
                         move-result-object p0
                         const/4 p2, $ACTION_COPY_LINK
                         if-ne v$actionId, p2, :open_link
-                        invoke-static { p0 }, Lapp/revanced/extension/shared/Utils;->setClipboard(Ljava/lang/CharSequence;)V
+                        invoke-static { p0 }, $MEDIA_DOWNLOAD->copyLink(Ljava/lang/CharSequence;)V
                         goto :success
                         :open_link
                         const/4 p2, $ACTION_OPEN_LINK
@@ -133,7 +134,7 @@ val addMediaDownloadPatch = bytecodePatch(
                         if-ne v$actionId, p2, :failure
                         invoke-virtual { v0 }, $MEDIA->getId()Ljava/lang/String;
                         move-result-object v0
-                        invoke-static { p0, v0 }, Lapp/revanced/extension/strava/MediaDownload;->photo(Ljava/lang/String;Ljava/lang/String;)V
+                        invoke-static { p0, v0 }, $MEDIA_DOWNLOAD->photo(Ljava/lang/String;Ljava/lang/String;)V
                         :success
                         const/4 v0, 0x1
                         return v0

@@ -6,25 +6,36 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.webkit.MimeTypeMap;
 import okhttp3.*;
 
 import app.revanced.extension.shared.Utils;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @SuppressLint("NewApi")
 public final class MediaDownload {
-    public static void photo(String url, String name) {
-        Utils.runOnBackgroundThread(() -> {
-            OkHttpClient client = new OkHttpClient();
-            Request request = new Request.Builder()
-                    .url(url)
-                    .build();
+    private static final OkHttpClient client = new OkHttpClient();
 
-            try (Response response = client.newCall(request).execute()) {
+    public static void copyLink(CharSequence url) {
+        Utils.setClipboard(url);
+        showInfoToast("link_copied_to_clipboard", "🔗");
+    }
+
+    public static void photo(String url, String name) {
+        showInfoToast("loading", "⏳");
+        Utils.runOnBackgroundThread(() -> {
+            try (Response response = fetch(url)) {
                 ResponseBody body = response.body();
                 String mimeType = body.contentType().toString();
                 String extension = MimeTypeMap.getSingleton().getExtensionFromMimeType(mimeType);
@@ -33,35 +44,130 @@ public final class MediaDownload {
                 values.put(MediaStore.Images.Media.DISPLAY_NAME, name + '.' + extension);
                 values.put(MediaStore.Images.Media.IS_PENDING, 1);
                 values.put(MediaStore.Images.Media.MIME_TYPE, mimeType);
-                values.put(MediaStore.Images.Media.RELATIVE_PATH, "Pictures/Strava");
+                values.put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + '/' + "Strava");
                 Uri collection = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
                         ? MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
                         : MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
                 Uri row = resolver.insert(collection, values);
                 try (OutputStream outputStream = resolver.openOutputStream(row)) {
-                    // body.byteStream().transferTo(outputStream);
-                    byte[] buffer = new byte[1024 * 8];
-                    int length;
-                    while ((length = body.byteStream().read(buffer)) != -1) {
-                        outputStream.write(buffer, 0, length);
-                    }
+                    transferTo(body.byteStream(), outputStream);
                 } finally {
                     values.clear();
                     values.put(MediaStore.Images.Media.IS_PENDING, 0);
                     resolver.update(row, values, null);
                 }
-                int successId = Resources.Strings.saveImageSuccess();
-                String successText = successId != 0
-                        ? Utils.getResourceString(successId)
-                        : "✔️";
-                Utils.showToastShort(successText);
+                showInfoToast("yis_2024_local_save_image_success", "✔️");
             } catch (IOException e) {
-                int failureId = Resources.Strings.saveFailure();
-                String failureText = failureId != 0
-                        ? Utils.getResourceString(failureId)
-                        : "❌";
-                Utils.showToastLong(failureText + ' ' + e.getLocalizedMessage());
+                showErrorToast("download_failure", "❌", e);
             }
         });
+    }
+
+    /**
+     * Downloads a video in the M3U8 / HLS (HTTP Live Streaming) format.
+     */
+    public static void video(String url, String name) {
+        // The first request yields multiple URLs with different stream options.
+        // In case of Strava, the first one is always of highest quality.
+        // Each stream can consist of multiple chunks.
+        // The second request yields the URLs of all of these chunks.
+        // Fetch all of them concurrently and pipe their streams into the file in order.
+        showInfoToast("loading", "⏳");
+        Utils.runOnBackgroundThread(() -> {
+            try {
+                String highestQualityStreamUrl;
+                try (Response response = fetch(url)) {
+                    highestQualityStreamUrl = replaceFileName(url, lines(response).findFirst().get());
+                }
+                List<Future<Response>> futures;
+                try (Response response = fetch(highestQualityStreamUrl)) {
+                    futures = lines(response)
+                            .map(line -> replaceFileName(highestQualityStreamUrl, line))
+                            .map(chunkUrl -> Utils.submitOnBackgroundThread(() -> fetch(chunkUrl)))
+                            .collect(Collectors.toList());
+                }
+                ContentResolver resolver = Utils.getContext().getContentResolver();
+                ContentValues values = new ContentValues();
+                values.put(MediaStore.Video.Media.DISPLAY_NAME, name + '.' + "mp4");
+                values.put(MediaStore.Video.Media.IS_PENDING, 1);
+                values.put(MediaStore.Video.Media.MIME_TYPE, MimeTypeMap.getSingleton().getMimeTypeFromExtension("mp4"));
+                values.put(MediaStore.Video.Media.RELATIVE_PATH, Environment.DIRECTORY_MOVIES + '/' + "Strava");
+                Uri collection = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
+                        ? MediaStore.Video.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
+                        : MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+                Uri row = resolver.insert(collection, values);
+                try (OutputStream outputStream = resolver.openOutputStream(row)) {
+                    Throwable error = null;
+                    for (Future<Response> future : futures) {
+                        if (error != null) {
+                            if (future.cancel(true)) {
+                                continue;
+                            }
+                        }
+                        try (Response response = future.get()) {
+                            if (error == null) {
+                                transferTo(response.body().byteStream(), outputStream);
+                            }
+                        } catch (InterruptedException | IOException e) {
+                            error = e;
+                        } catch (ExecutionException e) {
+                            error = e.getCause();
+                        }
+                    }
+                    if (error != null) {
+                        throw new IOException(error);
+                    }
+                } finally {
+                    values.clear();
+                    values.put(MediaStore.Video.Media.IS_PENDING, 0);
+                    resolver.update(row, values, null);
+                }
+                showInfoToast("yis_2024_local_save_video_success", "✔️");
+            } catch (IOException e) {
+                showErrorToast("download_failure", "❌", e);
+            }
+        });
+    }
+
+    private static void showInfoToast(String resourceName, String fallback) {
+        String text = Resources.Strings.get(resourceName, fallback);
+        Utils.showToastShort(text);
+    }
+
+    private static void showErrorToast(String resourceName, String fallback, IOException exception) {
+        String text = Resources.Strings.get(resourceName, fallback);
+        Utils.showToastLong(text + ' ' + exception.getLocalizedMessage());
+    }
+
+    private static Response fetch(String url) throws IOException {
+        Request request = new Request.Builder().url(url).build();
+        Response response = client.newCall(request).execute();
+        if (!response.isSuccessful()) {
+            throw new IOException("Got HTTP status code " + response.code());
+        }
+        return response;
+    }
+
+    /**
+     * {@code inputStream.transferTo(outputStream)} is "too new".
+     */
+    private static void transferTo(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024 * 8];
+        int length;
+        while ((length = in.read(buffer)) != -1) {
+            out.write(buffer, 0, length);
+        }
+    }
+
+    /**
+     * Gets all file names.
+     */
+    private static Stream<String> lines(Response response) {
+        BufferedReader reader = new BufferedReader(response.body().charStream());
+        return reader.lines().filter(line -> !line.startsWith("#"));
+    }
+
+    private static String replaceFileName(String uri, String newName) {
+        return uri.substring(0, uri.lastIndexOf('/') + 1) + newName;
     }
 }
