@@ -24,17 +24,18 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 private const val ACTION = "Lcom/strava/bottomsheet/Action;"
 private const val MEDIA = "Lcom/strava/photos/data/Media;"
+private const val VIDEO = "Lcom/strava/photos/data/Media\$Video;"
+private const val MEDIA_TYPE = "Lcom/strava/core/data/MediaType;"
 private const val MEDIA_DOWNLOAD = "Lapp/revanced/extension/strava/MediaDownload;"
 
-private const val HANDLER = "handleCustomAction"
-
-private const val ACTION_DOWNLOAD = Byte.MIN_VALUE
-private const val ACTION_OPEN_LINK = (ACTION_DOWNLOAD + 1).toByte()
-private const val ACTION_COPY_LINK = (ACTION_OPEN_LINK + 1).toByte()
+private const val ACTION_DOWNLOAD: Byte = -0x8 // Nibble.MIN_VALUE
+private const val ACTION_OPEN_LINK: Byte = -0x7
+private const val ACTION_COPY_LINK: Byte = -0x6
 
 @Suppress("unused")
 val addMediaDownloadPatch = bytecodePatch(
     name = "Add media download",
+    description = "Extends the full-screen media viewer menu with items to copy or open their URLs or download them directly."
 ) {
     compatibleWith("com.strava")
 
@@ -116,7 +117,7 @@ val addMediaDownloadPatch = bytecodePatch(
             // handle "copy link" & "open link" & "download" actions
             val handler = ImmutableMethod(
                 fragment.type,
-                HANDLER,
+                "handleCustomAction",
                 listOf(
                     ImmutableMethodParameter("I", null, "actionId"),
                     ImmutableMethodParameter(MEDIA, null, "media"),
@@ -125,19 +126,37 @@ val addMediaDownloadPatch = bytecodePatch(
                 AccessFlags.PRIVATE.value or AccessFlags.STATIC.value,
                 null,
                 null,
-                MutableMethodImplementation(4),
+                MutableMethodImplementation(5),
             ).toMutable().apply {
                 addInstructions(
                     """
+                        invoke-virtual { p1 }, $MEDIA->getType()$MEDIA_TYPE
+                        move-result-object v0
+                        sget-object v1, $MEDIA_TYPE->PHOTO:$MEDIA_TYPE
+                        if-ne v0, v1, :video
+                        const/4 v2, 0x1 # isPhoto
                         invoke-virtual { p1 }, $MEDIA->getLargestUrl()Ljava/lang/String;
                         move-result-object v0
-                        packed-switch p0, :switch_action
+                        goto :switch_action
+                        :video
+                        const/4 v2, 0x0 # !isPhoto
+                        sget-object v1, $MEDIA_TYPE->VIDEO:$MEDIA_TYPE
+                        if-ne v0, v1, :failure
+                        check-cast p1, $VIDEO
+                        invoke-virtual { p1 }, $VIDEO->getVideoUrl()Ljava/lang/String;
+                        move-result-object v0
+                        :switch_action
+                        packed-switch p0, :switch_data
                         const/4 v0, 0x0
                         return v0
                         :download
                         invoke-virtual { p1 }, $MEDIA->getId()Ljava/lang/String;
                         move-result-object v1
+                        if-eqz v2, :download_video
                         invoke-static { v0, v1 }, $MEDIA_DOWNLOAD->photo(Ljava/lang/String;Ljava/lang/String;)V
+                        goto :success
+                        :download_video
+                        invoke-static { v0, v1 }, $MEDIA_DOWNLOAD->video(Ljava/lang/String;Ljava/lang/String;)V
                         goto :success
                         :open_link
                         invoke-static { v0 }, Lapp/revanced/extension/shared/Utils;->openLink(Ljava/lang/String;)V
@@ -147,7 +166,10 @@ val addMediaDownloadPatch = bytecodePatch(
                         :success
                         const/4 v0, 0x1
                         return v0
-                        :switch_action
+                        :failure
+                        const/4 v0, 0x0
+                        return v0
+                        :switch_data
                         .packed-switch $ACTION_DOWNLOAD
                             :download
                             :open_link
