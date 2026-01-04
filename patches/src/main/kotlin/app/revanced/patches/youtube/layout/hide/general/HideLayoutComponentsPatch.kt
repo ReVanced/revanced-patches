@@ -18,7 +18,7 @@ import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.*
-import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
+import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.navigation.navigationBarHookPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_07_or_greater
@@ -108,7 +108,7 @@ private const val DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME =
 private const val COMMENTS_FILTER_CLASS_NAME =
     "Lapp/revanced/extension/youtube/patches/components/CommentsFilter;"
 private const val CUSTOM_FILTER_CLASS_NAME =
-    "Lapp/revanced/extension/youtube/patches/components/CustomFilter;"
+    "Lapp/revanced/extension/shared/patches/components/CustomFilter;"
 private const val KEYWORD_FILTER_CLASS_NAME =
     "Lapp/revanced/extension/youtube/patches/components/KeywordContentFilter;"
 
@@ -135,6 +135,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
     )
 
     execute {
+        addResources("shared", "layout.hide.general.hideLayoutComponentsPatch")
         addResources("youtube", "layout.hide.general.hideLayoutComponentsPatch")
 
         PreferenceScreen.PLAYER.addPreferences(

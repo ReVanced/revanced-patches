@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.components;
+package app.revanced.extension.shared.patches.litho;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -7,9 +7,11 @@ import java.nio.ByteBuffer;
 import java.util.List;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.StringTrieSearch;
-import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.settings.YouTubeAndMusicSettings;
+
+import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
 
 @SuppressWarnings("unused")
 public final class LithoFilterPatch {
@@ -36,7 +38,7 @@ public final class LithoFilterPatch {
             builder.append(identifier);
             builder.append(" Path: ");
             builder.append(path);
-            if (Settings.DEBUG_PROTOBUFFER.get()) {
+            if (YouTubeAndMusicSettings.DEBUG_PROTOBUFFER.get()) {
                 builder.append(" BufferStrings: ");
                 findAsciiStrings(builder, buffer);
             }

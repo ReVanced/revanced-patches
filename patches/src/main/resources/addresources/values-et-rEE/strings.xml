@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,8 +17,7 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
--->
-<resources>
+--><resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Rakenduse nimi</string>
@@ -172,6 +171,14 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Lipud salvestatud</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Lipud lähtestatud</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Lipud kopeeritud lõikelauale</string>
+  <string name="revanced_debug_protobuffer_title">Logi protokolipuffari</string>
+  <string name="revanced_debug_protobuffer_summary_on">Vea logid sisaldavad protokolipuffari</string>
+  <string name="revanced_debug_protobuffer_summary_off">Vea logid ei sisalda protokolipuffari</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Selle sätte lubamine logib täiendavaid paigutuse andmeid, sealhulgas mõne kasutajaliidese komponendi ekraanil kuvatavat teksti.
+
+See võib aidata komponente tuvastada kohandatud filtrite loomisel.
+
+Selle lubamine logib aga ka mõningaid kasutajaandmeid, näiteks teie IP-aadressi."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Puhasta jagamislingid</string>
@@ -181,7 +188,16 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Jagatud lingid kasutavad youtube.com-i</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Jagatud lingid kasutavad music.youtube.com-i</string>
   </patch>
-  </app>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Kohandatud filter</string>
+  <string name="revanced_custom_filter_screen_summary">Peida komponendid, kasutades kohandatud filtreid</string>
+  <string name="revanced_custom_filter_title">Aktiveeri kohandatud filter</string>
+  <string name="revanced_custom_filter_summary_on">Kohandatud filter on sisse lülitatud</string>
+  <string name="revanced_custom_filter_summary_off">Kohandatud filter on välja lülitatud</string>
+  <string name="revanced_custom_filter_strings_title">Kohandatud filter</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Rea ridadega eraldatud elementide loendi filtreerimiseks</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Kehtetu kohandatud filter: %s</string>
+  </patch></app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Teave</string>
@@ -202,16 +218,6 @@ Teid ei teavitata ühestki ootamatust sündmusest."</string>
   <string name="revanced_shorts_disable_background_playback_title">Shorts taustavideo esitamine lülitada</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Lühivideod taasesitus taustal on keelatud</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Lühivideod taasesitus taustal on lubatud</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_protobuffer_title">Logi protokolipuffari</string>
-  <string name="revanced_debug_protobuffer_summary_on">Vea logid sisaldavad protokolipuffari</string>
-  <string name="revanced_debug_protobuffer_summary_off">Vea logid ei sisalda protokolipuffari</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Selle sätte lubamine logib täiendavaid paigutuse andmeid, sealhulgas mõne kasutajaliidese komponendi ekraanil kuvatavat teksti.
-
-See võib aidata komponente tuvastada kohandatud filtrite loomisel.
-
-Selle lubamine logib aga ka mõningaid kasutajaandmeid, näiteks teie IP-aadressi."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Peida albumikaardid</string>
@@ -439,15 +445,6 @@ Kui Doodle on teie piirkonnas praegu nähtav ja see peitmise seade on sisse lül
   <string name="revanced_hide_comments_thanks_button_title">Peida tänunupp</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tänu nupp on peidetud</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tänu nupp on kuvatud</string>
-  <string name="revanced_custom_filter_screen_title">Kohandatud filter</string>
-  <string name="revanced_custom_filter_screen_summary">Peida komponendid, kasutades kohandatud filtreid</string>
-  <string name="revanced_custom_filter_title">Aktiveeri kohandatud filter</string>
-  <string name="revanced_custom_filter_summary_on">Kohandatud filter on sisse lülitatud</string>
-  <string name="revanced_custom_filter_summary_off">Kohandatud filter on välja lülitatud</string>
-  <string name="revanced_custom_filter_strings_title">Kohandatud filter</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Rea ridadega eraldatud elementide loendi filtreerimiseks</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Kehtetu kohandatud filter: %s</string>
   <string name="revanced_hide_view_count_title">Peida vaatamiste arv</string>
   <string name="revanced_hide_view_count_summary_on">Vaatamiste arv on peidetud voos ja otsingutulemustes</string>
   <string name="revanced_hide_view_count_summary_off">Vaatamiste arv on nähtav voos ja otsingutulemustes</string>

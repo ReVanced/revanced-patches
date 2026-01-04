@@ -1,10 +1,12 @@
 package app.revanced.extension.youtube.patches.components;
 
+import app.revanced.extension.shared.patches.litho.Filter;
+import app.revanced.extension.shared.patches.litho.FilterGroup.*;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
-final class CommentsFilter extends Filter {
+public final class CommentsFilter extends Filter {
 
     private static final String COMMENT_COMPOSER_PATH = "comment_composer.e";
 
@@ -88,8 +90,8 @@ final class CommentsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String identifier, String path, byte[] buffer,
-                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    public boolean isFiltered(String identifier, String path, byte[] buffer,
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == chipBar) {
             // Playlist sort button uses same components and must only filter if the player is opened.
             return PlayerType.getCurrent().isMaximizedOrFullscreen()

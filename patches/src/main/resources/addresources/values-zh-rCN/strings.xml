@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,8 +17,7 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
--->
-<resources>
+--><resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">应用名称</string>
@@ -172,6 +171,14 @@ Second \"item\" text"</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">标志已保存</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">标志已重置</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">标志已复制到剪贴板</string>
+  <string name="revanced_debug_protobuffer_title">记录协议缓冲区</string>
+  <string name="revanced_debug_protobuffer_summary_on">调试日志包括协议缓冲区</string>
+  <string name="revanced_debug_protobuffer_summary_off">调试日志不包括协议缓冲区</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"启用此设置将记录额外的布局数据，包括某些 UI 组件的屏幕文本。
+
+这有助于在创建自定义过滤器时识别组件。
+
+但是，启用此设置也会记录一些用户数据，例如您的 IP 地址。"</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">净化分享链接</string>
@@ -181,7 +188,16 @@ Second \"item\" text"</string>
   <string name="revanced_replace_music_with_youtube_summary_on">分享链接使用 youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">分享链接使用 music.youtube.com</string>
   </patch>
-  </app>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">自定义过滤器</string>
+  <string name="revanced_custom_filter_screen_summary">使用自定义过滤器隐藏组件</string>
+  <string name="revanced_custom_filter_title">启用自定义筛选器</string>
+  <string name="revanced_custom_filter_summary_on">自定义筛选器已启用</string>
+  <string name="revanced_custom_filter_summary_off">自定义筛选器已禁用</string>
+  <string name="revanced_custom_filter_strings_title">自定义筛选器</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">用于过滤的组件路径生成器字符串的列表，按行分隔</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">非法自定义筛选器：%s</string>
+  </patch></app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">关于</string>
@@ -202,16 +218,6 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_disable_background_playback_title">禁用 Shorts 后台播放</string>
   <string name="revanced_shorts_disable_background_playback_summary_on"> Shorts 后台播放已停用</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts 后台播放已启用</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="revanced_debug_protobuffer_title">记录协议缓冲区</string>
-  <string name="revanced_debug_protobuffer_summary_on">调试日志包括协议缓冲区</string>
-  <string name="revanced_debug_protobuffer_summary_off">调试日志不包括协议缓冲区</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"启用此设置将记录额外的布局数据，包括某些 UI 组件的屏幕文本。
-
-这有助于在创建自定义过滤器时识别组件。
-
-但是，启用此设置也会记录一些用户数据，例如您的 IP 地址。"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">隐藏专辑卡片</string>
@@ -440,15 +446,6 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_thanks_button_title">隐藏感谢按钮</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">感谢按钮已隐藏</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">感谢按钮已显示</string>
-  <string name="revanced_custom_filter_screen_title">自定义过滤器</string>
-  <string name="revanced_custom_filter_screen_summary">使用自定义过滤器隐藏组件</string>
-  <string name="revanced_custom_filter_title">启用自定义筛选器</string>
-  <string name="revanced_custom_filter_summary_on">自定义筛选器已启用</string>
-  <string name="revanced_custom_filter_summary_off">自定义筛选器已禁用</string>
-  <string name="revanced_custom_filter_strings_title">自定义筛选器</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">用于过滤的组件路径生成器字符串的列表，按行分隔</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">非法自定义筛选器：%s</string>
   <string name="revanced_hide_view_count_title">隐藏观看次数</string>
   <string name="revanced_hide_view_count_summary_on">观看次数已在动态和搜索结果中隐藏</string>
   <string name="revanced_hide_view_count_summary_off">观看次数已在动态和搜索结果中显示</string>

@@ -4,12 +4,12 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static app.revanced.extension.shared.settings.Setting.parent;
 
-import app.revanced.extension.shared.settings.BaseSettings;
+import app.revanced.extension.shared.settings.YouTubeAndMusicSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
 import app.revanced.extension.shared.settings.EnumSetting;
 import app.revanced.extension.shared.spoof.ClientType;
 
-public class Settings extends BaseSettings {
+public class Settings extends YouTubeAndMusicSettings {
 
     // Ads
     public static final BooleanSetting HIDE_VIDEO_ADS = new BooleanSetting("revanced_music_hide_video_ads", TRUE, true);
