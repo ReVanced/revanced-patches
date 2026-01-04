@@ -1196,6 +1196,10 @@ public final class app/revanced/patches/strava/privacy/BlockSnowplowTrackingPatc
 	public static final fun getBlockSnowplowTrackingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/strava/quickedit/DisableQuickEditPatchKt {
+	public static final fun getDisableQuickEditPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/strava/subscription/UnlockSubscriptionPatchKt {
 	public static final fun getUnlockSubscriptionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
