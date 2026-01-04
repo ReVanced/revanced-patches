@@ -3,7 +3,6 @@ package app.revanced.patches.reddit.ad.general
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.reddit.ad.banner.hideBannerPatch
 import app.revanced.patches.reddit.ad.comments.hideCommentAdsPatch
 import app.revanced.patches.reddit.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.Opcode
@@ -16,14 +15,9 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 val hideAdsPatch = bytecodePatch(
     name = "Hide ads",
 ) {
-    dependsOn(hideBannerPatch, hideCommentAdsPatch, sharedExtensionPatch)
+    dependsOn(hideCommentAdsPatch, sharedExtensionPatch)
 
-    // Note that for now, this patch and anything using it will only work on
-    // Reddit 2024.17.0 or older. Newer versions will crash during patching.
-    // See https://github.com/ReVanced/revanced-patches/issues/3099
-    // and https://github.com/iBotPeaches/Apktool/issues/3534.
-    // This constraint is necessary due to dependency on hideBannerPatch.
-    compatibleWith("com.reddit.frontpage"("2024.17.0"))
+    compatibleWith("com.reddit.frontpage")
 
     execute {
         // region Filter promoted ads (does not work in popular or latest feed)
