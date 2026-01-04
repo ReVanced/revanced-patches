@@ -1,7 +1,7 @@
 package app.revanced.patches.instagram.misc.devmenu
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.trimIndentMultiline
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.returnEarly

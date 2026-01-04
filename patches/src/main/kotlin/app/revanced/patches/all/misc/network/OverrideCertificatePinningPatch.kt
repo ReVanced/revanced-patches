@@ -2,7 +2,7 @@ package app.revanced.patches.all.misc.network
 
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.debugging.enableAndroidDebuggingPatch
-import app.revanced.util.Utils.trimIndentMultiline
+import app.revanced.util.trimIndentMultiline
 import org.w3c.dom.Element
 import java.io.File
 
