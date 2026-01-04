@@ -32,8 +32,7 @@ val disablePlayIntegrityPatch = bytecodePatch(
         transformInstructionsPatch(
             filterMap = filterMap@{ classDef, method, instruction, instructionIndex ->
                 val reference = instruction
-                    .takeIf { it.opcode == Opcode.INVOKE_VIRTUAL }
-                    ?.getReference<MethodReference>()
+                    .getReference<MethodReference>()
                     ?.takeIf {
                         MethodUtil.methodSignaturesMatch(CONTEXT_BIND_SERVICE_METHOD_REFERENCE, it)
                     }
