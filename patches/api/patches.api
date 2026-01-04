@@ -1192,7 +1192,7 @@ public final class app/revanced/patches/strava/password/EnablePasswordLoginPatch
 	public static final fun getEnablePasswordLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/strava/snowplow/BlockSnowplowTrackingPatchKt {
+public final class app/revanced/patches/strava/privacy/BlockSnowplowTrackingPatchKt {
 	public static final fun getBlockSnowplowTrackingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
