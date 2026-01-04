@@ -1,3 +1,10 @@
+# [5.48.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.5...v5.48.0-dev.6) (2026-01-04)
+
+
+### Bug Fixes
+
+* Fix build error introduced in `4046bee` ([#6417](https://github.com/ReVanced/revanced-patches/issues/6417)) ([789f0a5](https://github.com/ReVanced/revanced-patches/commit/789f0a562861825065633d172445ebf35a1ba8d8))
+
 # [5.48.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.4...v5.48.0-dev.5) (2025-12-30)
 
 
