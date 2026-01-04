@@ -21,36 +21,105 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
+  <string name="revanced_custom_branding_name_title">Naziv aplikacije</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
+  <string name="revanced_custom_branding_name_entry_5">Prilagođeno</string>
+  <string name="revanced_custom_branding_icon_title">Ikona aplikacije</string>
+  <string name="revanced_custom_branding_icon_entry_1">Izvorno</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_3">Minimalni ReVanced</string>
+  <string name="revanced_custom_branding_icon_entry_4">Skalirani ReVanced</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
+  <string name="revanced_custom_branding_icon_entry_5">Prilagođeno</string>
   </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
   <string name="revanced_check_environment_failed_title">Provjere nisu uspjele</string>
+  <string name="revanced_check_environment_dialog_open_official_source_button">Otvori službenu web-stranicu</string>
+  <string name="revanced_check_environment_dialog_ignore_button">Ignoriraj</string>
+  <string name="revanced_check_environment_failed_message">&lt;h5&gt;Izgleda da Vi niste zakrpali ovu aplikaciju.&lt;/h5&gt;&lt;br&gt;Ova aplikacija možda neće funkcionirati pravilno, &lt;b&gt;a može biti i štetna ili opasna za korištenje&lt;/b&gt;.&lt;br&gt;&lt;br&gt;Ove provjere ukazuju na to da je ova aplikacija unaprijed zakrpana ili je dobivena od nekoga drugog:&lt;br&gt;&lt;br&gt;&lt;small&gt;%1$s&lt;/small&gt;&lt;br&gt;Strogo preporučamo da &lt;b&gt;deinstalirate i sami zakrpate aplikaciju&lt;/b&gt; kako biste bili sigurni da koristite važeću i sigurnu aplikaciju.&lt;p&gt;&lt;br&gt;Ako ga ignorirate, ovo će se upozorenje prikazati samo dva puta.</string>
+  <string name="revanced_check_environment_not_same_patching_device">Zakrpano na drugom uređaju</string>
+  <string name="revanced_check_environment_manager_not_expected_installer">Nije instalirao ReVanced Manager</string>
+  <string name="revanced_check_environment_not_near_patch_time">Zakrpano prije više od 10 minuta</string>
+  <string name="revanced_check_environment_not_near_patch_time_invalid">Datum izrade APK-a je oštećen</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
+  <string name="revanced_check_watch_history_domain_name_dialog_title">ReVancedova obavijest</string>
+  <string name="revanced_check_watch_history_domain_name_dialog_ignore">Ne prikazuj ponovno</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
+  <string name="revanced_settings_submenu_title">Postavke</string>
+  <string name="revanced_settings_confirm_user_dialog_title">Jeste li sigurni da želite nastaviti?</string>
   <string name="revanced_settings_save">Sačuvaj</string>
+  <string name="revanced_settings_reset">Ponovno postavi</string>
+  <string name="revanced_settings_reset_color">Ponovno postavi boju</string>
+  <string name="revanced_settings_color_invalid">Nevažeća boja</string>
+  <string name="revanced_settings_restart_title">Potrebno je ponovno pokretanje</string>
+  <string name="revanced_settings_restart_dialog_message">Ponovno pokrenite aplikaciju da bi se promjena primijenila.</string>
+  <string name="revanced_settings_restart">Ponovno pokreni</string>
+  <string name="revanced_settings_import">Uvezi</string>
+  <string name="revanced_settings_import_copy">Kopiraj</string>
+  <string name="revanced_settings_import_reset">Postavke za ReVanced vraćene su na zadane</string>
+  <string name="revanced_settings_import_failure_parse">Uvoz nije uspio: %s</string>
+  <string name="revanced_settings_search_hint">Pretraži postavke</string>
+  <string name="revanced_settings_search_no_results_title">Nema rezultata za pojam „%s”</string>
+  <string name="revanced_settings_search_no_results_summary">Pokušajte s drugom ključnom riječi</string>
+  <string name="revanced_settings_search_recent_searches">Nedavne pretrage</string>
+  <string name="revanced_settings_search_remove_message">Ukloniti iz povijesti pretraživanja?</string>
+  <string name="revanced_settings_search_clear_history">Očisti povijest pretraživanja</string>
+  <string name="revanced_settings_search_clear_history_message">Jeste li sigurni da želite izbrisati svu povijest pretraživanja?</string>
+  <string name="revanced_settings_search_tips_title">Savjeti za pretraživanje</string>
+  <string name="revanced_settings_search_tips_summary">"• Dodirnite putanju da biste ju otvorili.
+• Dugo pritisnite postavku da biste ju otvorili.
+• Pritisnite gumb enter da pretragu spremite u povijest.
+• Pretraživanje ne razlikuje velika i mala slova, ni interpunkciju.
+• Nadređene postavke pojavljuju se iznad onemogućenih podređenih postavki."</string>
+  <string name="revanced_settings_search_empty_history_title">Povijest pretraživanja je prazna</string>
+  <string name="revanced_language_title">Jezik ReVanceda</string>
+  <string name="revanced_language_user_dialog_message">"Prijevodi za neke jezike možda nedostaju ili su nedovršeni.
+
+Za prevođenje u nove jezike ili poboljšanje postojećih prijevoda, posjetite translate.revanced.app"</string>
+  <string name="revanced_language_DEFAULT">Jezik aplikacije</string>
+  <string name="revanced_pref_import_export_title">Uvoz / Izvoz</string>
+  <string name="revanced_pref_import_export_summary">Uvezi / Izvezi postavke za ReVanced</string>
   <!-- Settings about dialog. -->
+  <string name="revanced_settings_about_links_body">Koristite verziju &lt;i&gt;%s&lt;/i&gt; ReVancedovih zakrpi</string>
+  <string name="revanced_settings_about_links_dev_header">Napomena</string>
+  <string name="revanced_settings_about_links_header">Službene poveznice</string>
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
   </patch>
   <patch id="misc.gms.gmsCoreSupportResourcePatch">
+  <string name="microg_settings_title">Postavke za GmsCore</string>
+  <string name="microg_settings_summary">Postavke za GmsCore</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
+  <string name="gms_core_toast_not_installed_message">MicroG GmsCore nije instaliran. Instalirajte ga.</string>
+  <string name="gms_core_dialog_title">Potrebna je radnja</string>
+  <string name="gms_core_dialog_open_website_text">Otvori web-stranicu</string>
+  <string name="gms_core_dialog_continue_text">Nastavi</string>
   </patch>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
+  <string name="revanced_spoof_video_streams_client_type_title">Zadani klijent</string>
   </patch>
   <patch id="misc.audio.forceOriginalAudioPatch">
+  <string name="revanced_force_original_audio_title">Prisili izvorni jezik zvuka</string>
+  <string name="revanced_force_original_audio_summary_on">Koristi se izvorni jezik zvuka</string>
+  <string name="revanced_force_original_audio_summary_off">Koristi se zadani zvuk</string>
   <!-- 'Spoof video streams' should be the same translation used for 'revanced_spoof_video_streams_screen_title'. -->
   </patch>
   <patch id="misc.debugging.enableDebuggingPatch">
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
+  <string name="revanced_sanitize_sharing_links_title">Očisti poveznice za dijeljenje</string>
+  <string name="revanced_sanitize_sharing_links_summary_on">Iz poveznica za dijeljenje brišu se parametri za praćenje</string>
   </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
+  <string name="revanced_settings_screen_00_about_title">O aplikaciji</string>
+  <string name="revanced_settings_screen_01_ads_title">Oglasi</string>
+  <string name="revanced_settings_screen_02_alt_thumbnails_title">Alternativne sličice</string>
+  <string name="revanced_settings_screen_04_general_title">Općenito</string>
+  <string name="revanced_settings_screen_05_player_title">Player</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
   </patch>
@@ -90,6 +159,7 @@ Second \"item\" text"</string>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   </patch>
   <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
+  <string name="revanced_disable_signin_to_tv_popup_title">Onemogući skočni prozor „Prijavi se na TV”</string>
   </patch>
   <patch id="interaction.doubletap.disableDoubleTapActionsPatch">
   </patch>
@@ -120,14 +190,51 @@ Second \"item\" text"</string>
                   This button only shows if the user ip is from specific region such as the USA or EU. -->
   <!-- 'Clip' should be translated with the same localized wording that YouTube displays. -->
   <!-- 'Shop' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_shop_button_summary_on">Gumb za trgovinu je sakriven</string>
+  <string name="revanced_hide_shop_button_summary_off">Gumb za trgovinu je prikazan</string>
   <!-- 'Save' should be translated with the same localized wording that YouTube displays. -->
+  <string name="revanced_hide_save_button_title">Sakrij „Spremi”</string>
+  <string name="revanced_hide_save_button_summary_on">Gumb za spremanje je sakriven</string>
+  <string name="revanced_hide_save_button_summary_off">Gumb za spremanje je prikazan</string>
   </patch>
   <patch id="layout.buttons.navigation.navigationButtonsPatch">
+  <string name="revanced_navigation_buttons_screen_title">Navigacijske tipke</string>
+  <string name="revanced_navigation_buttons_screen_summary">Sakrijte ili promijenite tipke na navigacijskoj traci</string>
   <!-- 'Home' should be translated using the same localized wording YouTube displays for the tab. -->
+  <string name="revanced_hide_home_button_title">Sakrij „Početna”</string>
+  <string name="revanced_hide_home_button_summary_on">Gumb za početnu stranicu je sakriven</string>
+  <string name="revanced_hide_home_button_summary_off">Gumb za početnu stranicu je prikazan</string>
   <!-- 'Shorts' should be translated using the same localized wording YouTube displays the tab. -->
+  <string name="revanced_hide_shorts_button_title">Sakrij „Shorts”</string>
+  <string name="revanced_hide_shorts_button_summary_on">Gumb za Shorts je sakriven</string>
+  <string name="revanced_hide_shorts_button_summary_off">Gumb za Shorts je prikazan</string>
   <!-- 'Create' has no display name. Translate normally. -->
+  <string name="revanced_hide_create_button_title">Sakrij „Stvori”</string>
+  <string name="revanced_hide_create_button_summary_on">Gumb za stvaranje je sakriven</string>
+  <string name="revanced_hide_create_button_summary_off">Gumb za stvaranje je prikazan</string>
   <!-- 'Subscriptions' should be translated using the same localized wording YouTube displays the tab. -->
+  <string name="revanced_hide_subscriptions_button_title">Sakrij „Pretplate”</string>
+  <string name="revanced_hide_subscriptions_button_summary_on">Gumb za pretplate je sakriven</string>
+  <string name="revanced_hide_subscriptions_button_summary_off">Gumb za pretplate je prikazan</string>
+  <string name="revanced_hide_notifications_button_title">Sakrij „Obavijesti”</string>
+  <string name="revanced_hide_notifications_button_summary_on">Gumb za obavijesti je sakriven</string>
+  <string name="revanced_hide_notifications_button_summary_off">Gumb za obavijesti je prikazan</string>
   <!-- 'Notifications' should be translated using the same localized wording YouTube displays the tab. -->
+  <string name="revanced_switch_create_with_notifications_button_title">Zamijeni „Stvori” s „Obavijesti”</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_on">"Gumb „Stvori” je zamijenjen s gumbom „Obavijesti”
+
+Napomena: omogućavanjem ove opcije prisilno sakriva i video-oglase"</string>
+  <string name="revanced_switch_create_with_notifications_button_summary_off">Gumb „Stvori” nije zamijenjen s gumbom „Obavijesti”</string>
+  <string name="revanced_switch_create_with_notifications_button_user_dialog_message">"Onemogućavanjem ove postavke deaktivirati će se i blokiranje oglasa u „Shorts”.
+
+Ako promjena ove postavke ne stupi na snagu, pokušajte se prebaciti u anonimni način."</string>
+  <string name="revanced_hide_navigation_button_labels_title">Sakrij oznake navigacijskih tipki</string>
+  <string name="revanced_hide_navigation_button_labels_summary_on">Oznake su sakrivene</string>
+  <string name="revanced_hide_navigation_button_labels_summary_off">Oznake su prikazane</string>
+  <string name="revanced_disable_translucent_status_bar_title">Onemogući prozirnu statusnu traku</string>
+  <string name="revanced_disable_translucent_status_bar_summary_on">Statusna traka je neprozirna</string>
+  <string name="revanced_disable_translucent_status_bar_summary_off">Statusna traka je neprozirna ili prozirna</string>
+  <string name="revanced_disable_translucent_status_bar_user_dialog_message">Omogućavanje ove značajke će, na nekim uređajima, promijeniti navigacijsku traku u prozirnu.</string>
   </patch>
   <patch id="layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch">
   <!-- 'Captions' should be translated using the same localized wording YouTube displays for the menu item. -->
@@ -276,6 +383,7 @@ Second \"item\" text"</string>
   <patch id="layout.compactheader.hideCategoryBar">
   </patch>
   <patch id="layout.miniplayercolor.changeMiniplayerColor">
+  <string name="revanced_music_change_miniplayer_color_title">Promijeni boju miniplayera</string>
   </patch>
   <patch id="layout.navigationbar.navigationBarPatch">
   <!-- 'Home' should be translated using the same localized wording YouTube Music displays for the tab. -->

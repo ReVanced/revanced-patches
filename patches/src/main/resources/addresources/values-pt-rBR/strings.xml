@@ -21,7 +21,7 @@ Second \"item\" text"</string>
 <resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
-  <string name="revanced_custom_branding_name_title">Nome do aplicativo</string>
+  <string name="revanced_custom_branding_name_title">AppNome do aplicativo</string>
   <!-- Translations of this should be identical to revanced_custom_branding_icon_entry_5 -->
   <string name="revanced_custom_branding_name_entry_5">Personalizado</string>
   <string name="revanced_custom_branding_icon_title">Ícone do aplicativo</string>

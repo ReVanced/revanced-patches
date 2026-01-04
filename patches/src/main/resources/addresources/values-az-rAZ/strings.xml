@@ -187,7 +187,7 @@ Gözlənilməz hallardan xəbərdar olmayacaqsınız."</string>
   <string name="revanced_settings_screen_00_about_title">Haqqında</string>
   <string name="revanced_settings_screen_01_ads_title">Reklamlar</string>
   <string name="revanced_settings_screen_02_alt_thumbnails_title">Seçmə miniatürlər</string>
-  <string name="revanced_settings_screen_03_feed_title">Axın</string>
+  <string name="revanced_settings_screen_03_feed_title">Səhifələnmə</string>
   <string name="revanced_settings_screen_04_general_title">Ümumi</string>
   <string name="revanced_settings_screen_05_player_title">Oynadıcı</string>
   <string name="revanced_settings_screen_07_seekbar_title">İrəliləyiş cizgisi</string>
@@ -282,9 +282,9 @@ Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlum
   <string name="revanced_hide_video_recommendation_labels_title">Video tövsiyə etiketlərini gizlət</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">\'İnsanlar həmçinin izləyiblər\' və \'Bunu da bəyənə bilərsiniz\' etiketləri axtarış nəticələrində gizlədilib</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">\'İnsanlar həmçinin izləyiblər\' və \'Bunu da bəyənə bilərsiniz\' etiketləri axtarış nəticələrində görünür</string>
-  <string name="revanced_hide_visual_spacer_title">Vizual ayırıcı gizlət</string>
+  <string name="revanced_hide_visual_spacer_title">Vizual ayırıcını gizlət</string>
   <string name="revanced_hide_visual_spacer_summary_on">Vizual ayırıcı gizlənib</string>
-  <string name="revanced_hide_visual_spacer_summary_off">Vizual ayırıcı göstərilib</string>
+  <string name="revanced_hide_visual_spacer_summary_off">Vizual ayırıcı görünür</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">YouTube Doodle-ları gizlət</string>
   <string name="revanced_hide_doodles_summary_on">YouTube Doodles animasiyası simvolda gizlidir</string>
@@ -383,8 +383,8 @@ Hər halda, bunu aktivləşdirmə IP ünvanınız kimi bəzi istifadəçi məlum
   <string name="revanced_channel_screen_summary">Kanal səhifə elementlərini gizlət və ya göstər</string>
   <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
   <string name="revanced_hide_community_button_title">İcma düyməsini gizlət</string>
-  <string name="revanced_hide_community_button_summary_on">İcmaya düyməsi gizlidir</string>
-  <string name="revanced_hide_community_button_summary_off">İcmaya düyməsi görünür</string>
+  <string name="revanced_hide_community_button_summary_on">İcma düyməsi gizlidir</string>
+  <string name="revanced_hide_community_button_summary_off">İcma düyməsi görünür</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
   <string name="revanced_hide_for_you_shelf_title">\"Sizin üçün\" bölməsin gizlət</string>
   <string name="revanced_hide_for_you_shelf_summary_on">Sizin üçün cərgəsi gizlidir</string>
@@ -548,11 +548,11 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_share_copy_url_success">URL buferə köçürüldü</string>
   <string name="revanced_share_copy_url_timestamp_success">Vaxt möhürlü URL köçürüldü</string>
   <string name="revanced_copy_video_url_title">Video URL-i köçürmə düyməsin göstər</string>
-  <string name="revanced_copy_video_url_summary_on">Video URL-ini kopyala düyməsi görünür. Video URL-ini kopyalamaq üçün toxunun. Zaman nişanı ilə kopyalamaq üçün toxunub saxlayın</string>
-  <string name="revanced_copy_video_url_summary_off">Video URL-ini kopyala düyməsi görünmür</string>
+  <string name="revanced_copy_video_url_summary_on">Video URL-ni köçür düyməsi görünür. Video URL-ini köçürmək üçün toxunun. Vaxt ştampı ilə köçürmək üçün toxunub saxlayın</string>
+  <string name="revanced_copy_video_url_summary_off">Video URL-ni köçür düyməsi görünmür</string>
   <string name="revanced_copy_video_url_timestamp_title">Vaxt möhürü URL köçür düyməsi göstər</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Zaman nişanı URL-ini kopyala düyməsi görünür. Zaman nişanı ilə video URL-ini kopyalamaq üçün toxunun. Zaman nişanı olmadan kopyalamaq üçün toxunub saxlayın</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">Zaman nişanı URL-ini kopyala düyməsi görünmür</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Vaxt damğalı URL-ni köçür düyməsi görünür. Vaxt damğası ilə video URL-ni köçürmək üçün toxunun. Vaxt damğası olmadan köçürmək üçün toxunub saxla</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Vaxt damğalı URL-ni köçür düyməsi görünmür</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">İzləyici mülahizə dialoqun sil</string>
@@ -561,7 +561,7 @@ Bu xüsusiyyət yalnız köhnə cihazlar üçün mövcuddur"</string>
   <string name="revanced_remove_viewer_discretion_dialog_user_dialog_message">Bu, yaş məhdudiyyətini ötürmür. Sadəcə birbaşa qəbul edir.</string>
   </patch>
   <patch id="layout.hide.signintotv.disableSignInToTvPopupPatch">
-  <string name="revanced_disable_signin_to_tv_popup_title">TV ani görüntüsü girişin qapat</string>
+  <string name="revanced_disable_signin_to_tv_popup_title">\"TV-yə daxil olun\" ani görüntüsün qapat</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_on">TV ani görüntüyə giriş qapadılıb</string>
   <string name="revanced_disable_signin_to_tv_popup_summary_off">TV ani görüntüyə giriş işləkdir</string>
   </patch>
@@ -919,7 +919,7 @@ Səs treki menyusunu göstərmək üçün \"Video yayımları saxtalaşdır\"-ı
   <string name="revanced_hide_shorts_location_label_title">Məkan etiketini gizlət</string>
   <string name="revanced_hide_shorts_location_label_summary_on">Məkan etiketi gizlidir</string>
   <string name="revanced_hide_shorts_location_label_summary_off">Məkan etiketi göstərilir</string>
-  <string name="revanced_hide_shorts_new_posts_button_title">Yeni elanlar düyməsini gizlət</string>
+  <string name="revanced_hide_shorts_new_posts_button_title">\"Yeni elanlar\" düyməsini gizlət</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_on">Yeni elanlar düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_new_posts_button_summary_off">Yeni elanlar düyməsi göstərilir</string>
   <string name="revanced_hide_shorts_paused_overlay_buttons_title">Dayandırma örtük düymələrini gizlət</string>
@@ -928,7 +928,7 @@ Səs treki menyusunu göstərmək üçün \"Video yayımları saxtalaşdır\"-ı
   <string name="revanced_hide_shorts_preview_comment_title">Öncül baxış şərhini gizlət</string>
   <string name="revanced_hide_shorts_preview_comment_summary_on">Öncül baxış şərhi gizlidir</string>
   <string name="revanced_hide_shorts_preview_comment_summary_off">Öncül baxış şərhi göstərilir</string>
-  <string name="revanced_hide_shorts_save_sound_button_title">\'Musiqini yadda saxla\' düyməsini gizlət</string>
+  <string name="revanced_hide_shorts_save_sound_button_title">\'Musiqini saxla\' düyməsini gizlət</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_on">\"Musiqini saxla\" düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_save_sound_button_summary_off">\"Musiqini saxla\" düyməsi göstərilir</string>
   <string name="revanced_hide_shorts_search_suggestions_title">Axtarış təkliflərini gizlət</string>
@@ -949,10 +949,10 @@ Səs treki menyusunu göstərmək üçün \"Video yayımları saxtalaşdır\"-ı
   <string name="revanced_hide_shorts_upcoming_button_title">Yaxınlaşan düyməsini gizlət</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_on">\"Yaxınlaşan\" düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_upcoming_button_summary_off">\"Yaxınlaşan\" düyməsi göstərilir</string>
-  <string name="revanced_hide_shorts_use_sound_button_title">Bu səsi işlət düyməsini gizlət</string>
+  <string name="revanced_hide_shorts_use_sound_button_title">\"Bu səsi işlət\" düyməsini gizlət</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_on">Bu səsi işlət düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_use_sound_button_summary_off">Bu səsi işlət düyməsi görünür</string>
-  <string name="revanced_hide_shorts_use_template_button_title">Bu şablonu işlət düyməsini gizlət</string>
+  <string name="revanced_hide_shorts_use_template_button_title">\"Bu şablonu işlət\" düyməsini gizlət</string>
   <string name="revanced_hide_shorts_use_template_button_summary_on">Bu şablonu işlət düyməsi gizlidir</string>
   <string name="revanced_hide_shorts_use_template_button_summary_off">Bu şablonu işlət düyməsi görünür</string>
   <string name="revanced_hide_shorts_like_fountain_title">Bəyənmə düyməsi fontan animasiyasın gizlət</string>
@@ -1594,12 +1594,12 @@ Bunu aktivləşdirmə daha yüksək video keyfiyyətləri əngəlin silə bilər
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Sürət dialoq düyməsini göstər</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Sürət dialoqu düyməsi görünür. Oxutma sürətini ilkin vəziyyətinə qaytarmaq üçün toxunub saxlayın</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Sürət dialoqu düyməsi görünür. Oynatma sürətini standarta qaytarmaq üçün toxunub saxla</string>
   <string name="revanced_playback_speed_dialog_button_summary_off">Sürət dialoqu düyməsi görünmür</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Video keyfiyyəti düyməsini göstər</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Video keyfiyyəti düyməsi görünür. Keyfiyyəti ilkin vəziyyətinə qaytarmaq üçün toxunub saxlayın</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Video keyfiyyəti düyməsi görünür. Keyfiyyəti standarta qaytarmaq üçün toxunub saxla</string>
   <string name="revanced_video_quality_dialog_button_summary_off">Video keyfiyyəti düyməsi görünmür</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">

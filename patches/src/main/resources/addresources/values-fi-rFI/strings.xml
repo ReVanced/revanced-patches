@@ -282,9 +282,9 @@ Tämän käyttöönotto kirjaa myös joitakin käyttäjätietoja, kuten IP-osoit
   <string name="revanced_hide_video_recommendation_labels_title">Piilota videosuositusten tunnisteet</string>
   <string name="revanced_hide_video_recommendation_labels_summary_on">\'Ihmiset katsoivat myös\' ja \'Saatat myös pitää\' -tunnisteet piilotetaan hakutuloksissa</string>
   <string name="revanced_hide_video_recommendation_labels_summary_off">\"Ihmiset katsoivat myös\" ja \"Saatat myös pitää\" -otsikot näkyvät hakutuloksissa</string>
-  <string name="revanced_hide_visual_spacer_title">Piilota visuaalinen väliosa</string>
-  <string name="revanced_hide_visual_spacer_summary_on">Visuaalinen väliosa on piilotettu</string>
-  <string name="revanced_hide_visual_spacer_summary_off">Visuaalinen väliosa on näkyvissä</string>
+  <string name="revanced_hide_visual_spacer_title">Piilota visuaalinen välikappale</string>
+  <string name="revanced_hide_visual_spacer_summary_on">Visuaalinen välikappale piilotetaan</string>
+  <string name="revanced_hide_visual_spacer_summary_off">Visuaalinen välikappale näytetään</string>
   <!-- https://logos.fandom.com/wiki/YouTube/Yoodles -->
   <string name="revanced_hide_doodles_title">Piilota YouTube Doodlet</string>
   <string name="revanced_hide_doodles_summary_on">Logon YouTube Doodles -animaatio piilotetaan</string>
@@ -345,12 +345,12 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <string name="revanced_hide_podcast_section_title">Piilota \"Tutustu podcastiin\"</string>
   <string name="revanced_hide_podcast_section_summary_on">Tutustu podcastiin -osio piilotetaan</string>
   <string name="revanced_hide_podcast_section_summary_off">Tutustu podcastiin -osio näytetään</string>
-  <string name="revanced_hide_featured_links_section_title">Piilota esitellyt linkit</string>
-  <string name="revanced_hide_featured_links_section_summary_on">Suositeltujen linkkien osio piilotetaan</string>
-  <string name="revanced_hide_featured_links_section_summary_off">Suositeltujen linkkien osio näytetään</string>
+  <string name="revanced_hide_featured_links_section_title">Piilota suositellut linkit</string>
+  <string name="revanced_hide_featured_links_section_summary_on">Suositellut linkit -osio piilotetaan</string>
+  <string name="revanced_hide_featured_links_section_summary_off">Suositellut linkit -osio näytetään</string>
   <string name="revanced_hide_featured_videos_section_title">Piilota suositellut videot</string>
-  <string name="revanced_hide_featured_videos_section_summary_on">Suositeltujen videoiden osio piilotetaan</string>
-  <string name="revanced_hide_featured_videos_section_summary_off">Suositeltujen videoiden osio näytetään</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">Suositellut videot -osio piilotetaan</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">Suositellut videot -osio näytetään</string>
   <string name="revanced_hide_info_cards_section_title">Piilota tietokortit</string>
   <string name="revanced_hide_info_cards_section_summary_on">Infokortit-osio piilotetaan</string>
   <string name="revanced_hide_info_cards_section_summary_off">Infokortit-osio näytetään</string>
@@ -382,7 +382,7 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <string name="revanced_channel_screen_title">Kanavasivu</string>
   <string name="revanced_channel_screen_summary">Piilota tai näytä kanavasivun osia</string>
   <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_community_button_title">Piilota yhteisöpainike</string>
+  <string name="revanced_hide_community_button_title">Piilota Yhteisö-painike</string>
   <string name="revanced_hide_community_button_summary_on">Yhteisö-painike piilotetaan</string>
   <string name="revanced_hide_community_button_summary_off">Yhteisö-painike näytetään</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -548,11 +548,11 @@ Tämä ominaisuus on käytettävissä vain vanhemmilla laitteilla"</string>
   <string name="revanced_share_copy_url_success">URL-osoite kopioitiin leikepöydälle</string>
   <string name="revanced_share_copy_url_timestamp_success">Aikaleimattu URL-osoite kopioitiin</string>
   <string name="revanced_copy_video_url_title">Näytä videon URL-osoitteen kopiointipainike</string>
-  <string name="revanced_copy_video_url_summary_on">Kopioi videon URL -painike näytetään. Napauta kopioidaksesi videon URL:n. Paina pitkään kopioidaksesi aikaleimalla.</string>
+  <string name="revanced_copy_video_url_summary_on">Kopioi videon URL -painike näytetään. Napauta kopioidaksesi videon URL:n. Paina pitkään kopioidaksesi aikaleimalla</string>
   <string name="revanced_copy_video_url_summary_off">Kopioi videon URL -painiketta ei näytetä</string>
   <string name="revanced_copy_video_url_timestamp_title">Näytä videon aikaleimatun URL-osoitteen kopiointipainike</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Kopioi aikaleiman URL -painike näytetään. Napauta kopioidaksesi videon URL:n aikaleimalla. Paina pitkään kopioidaksesi ilman aikaleimaa.</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">Kopioi aikaleiman URL -painiketta ei näytetä</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Kopioi aikaleimattu URL -painike näytetään. Napauta kopioidaksesi videon URL:n aikaleimalla. Paina pitkään kopioidaksesi ilman aikaleimaa</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Kopioi aikaleimattu URL -painiketta ei näytetä</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Poista katsojan harkinta -valintaikkuna</string>
@@ -823,12 +823,12 @@ Näyttääksesi ääniraitavalikon, muuta \"Videostriimien naamioiminen\" -asetu
   <string name="revanced_hide_player_flyout_watch_in_vr_title">Piilota Katso VR-tilassa</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_on">Katso VR-tilassa -valinta piilotetaan</string>
   <string name="revanced_hide_player_flyout_watch_in_vr_summary_off">Katso VR-tilassa -valinta näytetään</string>
-  <string name="revanced_hide_player_flyout_video_quality_title">Piilota videolaatuvalikko</string>
-  <string name="revanced_hide_player_flyout_video_quality_summary_on">Videolaatuvalikko piilotetaan</string>
-  <string name="revanced_hide_player_flyout_video_quality_summary_off">Videolaatuvalikko näytetään</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_title">Piilota videolaatuvalikon alatunniste</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Videolaatuvalikon alatunniste piilotetaan</string>
-  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videolaatuvalikon alatunniste näytetään</string>
+  <string name="revanced_hide_player_flyout_video_quality_title">Piilota videon laatuvalikko</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_on">Videon laatuvalikko piilotetaan</string>
+  <string name="revanced_hide_player_flyout_video_quality_summary_off">Videon laatuvalikko näytetään</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_title">Piilota videon laatuvalikon alatunniste</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_on">Videon laatuvalikon alatunniste piilotetaan</string>
+  <string name="revanced_hide_player_flyout_video_quality_footer_summary_off">Videon laatuvalikon alatunniste näytetään</string>
   </patch>
   <patch id="layout.buttons.overlay.hidePlayerOverlayButtonsPatch">
   <string name="revanced_hide_autoplay_button_title">Piilota Automaattinen toisto -painike</string>
@@ -895,15 +895,15 @@ Näyttääksesi ääniraitavalikon, muuta \"Videostriimien naamioiminen\" -asetu
   <string name="revanced_hide_shorts_history_summary_on">Piilotetaan katseluhistoriassa</string>
   <string name="revanced_hide_shorts_history_summary_off">Näytetään katseluhistoriassa</string>
   <string name="revanced_hide_shorts_auto_dubbed_label_title">Piilota \"Automaattisesti jälkiäänitetty\" -merkintä</string>
-  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Automaattisesti jälkiäänitetty merkintä on piilotettu</string>
-  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Automaattisesti jälkiäänitetty merkintä näytetään</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Piilota \"Osta Super Kiitokset\" -painike</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Automaattisesti jälkiäänitetty -merkintä piilotetaan</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Automaattisesti jälkiäänitetty -merkintä näytetään</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Piilota \"Osta Superkiitos\" -painike</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Osta Superkiitos -painike piilotetaan</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Osta Superkiitos -painike näytetään</string>
   <string name="revanced_hide_shorts_effect_button_title">Piilota Tehoste-painike</string>
   <string name="revanced_hide_shorts_effect_button_summary_on">Tehoste-painike piilotetaan</string>
   <string name="revanced_hide_shorts_effect_button_summary_off">Tehoste-painike näytetään</string>
-  <string name="revanced_hide_shorts_green_screen_button_title">Piilota \"Vihreä ruutu\" -painike</string>
+  <string name="revanced_hide_shorts_green_screen_button_title">Piilota \"Vihertausta\" -painike</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_on">Vihertausta-painike piilotetaan</string>
   <string name="revanced_hide_shorts_green_screen_button_summary_off">Vihertausta-painike näytetään</string>
   <string name="revanced_hide_shorts_hashtag_button_title">Piilota Hashtag-painike</string>
@@ -1575,7 +1575,7 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   <patch id="video.quality.rememberVideoQualityPatch">
   <!-- Translations should use the same text as 'revanced_custom_playback_speeds_auto'. -->
   <string name="revanced_video_quality_default_entry_1">Automaattinen</string>
-  <string name="revanced_remember_video_quality_last_selected_title">Muista videolaadun muutokset</string>
+  <string name="revanced_remember_video_quality_last_selected_title">Muista videon laadun muutokset</string>
   <string name="revanced_remember_video_quality_last_selected_summary_on">Laatumuutokset koskevat kaikkia videoita</string>
   <string name="revanced_remember_video_quality_last_selected_summary_off">Laatumuutokset koskevat vain nykyistä videota</string>
   <string name="revanced_remember_video_quality_last_selected_toast_title">Näytä ponnahdusilmoitus videon laatua muutettaessa</string>
@@ -1595,13 +1595,13 @@ Tämä voi avata korkealaatuisemmat videot"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Näytä nopeuden valintapainike</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Nopeusasetusten painike näytetään. Paina pitkään palauttaaksesi toistonopeuden oletukseksi.</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">Nopeusasetusten painiketta ei näytetä</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Nopeuden valintapainike näytetään. Paina pitkään palauttaaksesi toistonopeuden oletukseksi</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Nopeuden valintapainiketta ei näytetä</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
-  <string name="revanced_video_quality_dialog_button_title">Näytä videolaatupainike</string>
-  <string name="revanced_video_quality_dialog_button_summary_on">Videolaadun painike näytetään. Paina pitkään palauttaaksesi laadun oletukseksi.</string>
-  <string name="revanced_video_quality_dialog_button_summary_off">Videolaadun painiketta ei näytetä</string>
+  <string name="revanced_video_quality_dialog_button_title">Näytä videon laatupainike</string>
+  <string name="revanced_video_quality_dialog_button_summary_on">Videon laatupainike näytetään. Paina pitkään palauttaaksesi laadun oletukseksi</string>
+  <string name="revanced_video_quality_dialog_button_summary_off">Videon laatupainiketta ei näytetä</string>
   </patch>
   <patch id="video.speed.custom.customPlaybackSpeedPatch">
   <string name="revanced_custom_speed_menu_title">Mukautettu toistonopeusvalikko</string>
@@ -1646,9 +1646,9 @@ Rajoitukset:
 • Jotkin laitteet eivät voi pakottaa AVC:tä"</string>
   </patch>
   <patch id="video.quality.advancedVideoQualityMenuPatch">
-  <string name="revanced_advanced_video_quality_menu_title">Näytä edistynyt videolaatuvalikko</string>
-  <string name="revanced_advanced_video_quality_menu_summary_on">Edistynyt videolaatuvalikko näytetään</string>
-  <string name="revanced_advanced_video_quality_menu_summary_off">Edistynyttä videolaatuvalikkoa ei näytetä</string>
+  <string name="revanced_advanced_video_quality_menu_title">Näytä edistynyt videon laatuvalikko</string>
+  <string name="revanced_advanced_video_quality_menu_summary_on">Edistynyt videon laatuvalikko näytetään</string>
+  <string name="revanced_advanced_video_quality_menu_summary_off">Edistynyttä videon laatuvalikkoa ei näytetä</string>
   </patch>
   <patch id="interaction.seekbar.enableSlideToSeekPatch">
   <string name="revanced_slide_to_seek_title">Ota kelaus liu\'uttamalla käyttöön</string>

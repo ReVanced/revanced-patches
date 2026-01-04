@@ -345,12 +345,12 @@ Ako se Doodle trenutno prikazuje u vašem regionu i ova opcija skrivanja je uklj
   <string name="revanced_hide_podcast_section_title">Sakrij odeljak „Istražite podkast”</string>
   <string name="revanced_hide_podcast_section_summary_on">Odeljak „Istražite podkast” je skriven</string>
   <string name="revanced_hide_podcast_section_summary_off">Odeljak „Istražite podkast” je prikazan</string>
-  <string name="revanced_hide_featured_links_section_title">Sakrij istaknute veze</string>
-  <string name="revanced_hide_featured_links_section_summary_on">Odeljak istaknutih veza je skriven</string>
-  <string name="revanced_hide_featured_links_section_summary_off">Odeljak istaknutih veza je prikazan</string>
-  <string name="revanced_hide_featured_videos_section_title">Sakrij istaknute video snimke</string>
-  <string name="revanced_hide_featured_videos_section_summary_on">Odeljak istaknutih video snimaka je skriven</string>
-  <string name="revanced_hide_featured_videos_section_summary_off">Odeljak istaknutih video snimaka je prikazan</string>
+  <string name="revanced_hide_featured_links_section_title">Sakrij istaknute linkove</string>
+  <string name="revanced_hide_featured_links_section_summary_on">Odeljak istaknutih linkova je skriven</string>
+  <string name="revanced_hide_featured_links_section_summary_off">Odeljak istaknutih linkova je prikazan</string>
+  <string name="revanced_hide_featured_videos_section_title">Sakrij istaknute videe</string>
+  <string name="revanced_hide_featured_videos_section_summary_on">Odeljak istaknutih videa je skriven</string>
+  <string name="revanced_hide_featured_videos_section_summary_off">Odeljak istaknutih videa je prikazan</string>
   <string name="revanced_hide_info_cards_section_title">Sakrij kartice sa informacijama</string>
   <string name="revanced_hide_info_cards_section_summary_on">Odeljak za kartice sa informacijama je skriven</string>
   <string name="revanced_hide_info_cards_section_summary_off">Odeljak za kartice sa informacijama je prikazan</string>
@@ -382,7 +382,7 @@ Ako se Doodle trenutno prikazuje u vašem regionu i ova opcija skrivanja je uklj
   <string name="revanced_channel_screen_title">Stranica kanala</string>
   <string name="revanced_channel_screen_summary">Sakrijte ili prikažite komponente stranice kanala</string>
   <!-- 'Community' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_community_button_title">Sakrij dugme Zajednica</string>
+  <string name="revanced_hide_community_button_title">Sakrij dugme „Zajednica”</string>
   <string name="revanced_hide_community_button_summary_on">Dugme „Zajednica” je skriveno</string>
   <string name="revanced_hide_community_button_summary_off">Dugme „Zajednica” je prikazano</string>
   <!-- 'For You' should be translated using the same localized wording YouTube displays. -->
@@ -390,9 +390,9 @@ Ako se Doodle trenutno prikazuje u vašem regionu i ova opcija skrivanja je uklj
   <string name="revanced_hide_for_you_shelf_summary_on">Polica „Za vas” je skrivena</string>
   <string name="revanced_hide_for_you_shelf_summary_off">Polica „Za vas” je prikazana</string>
   <!-- 'Join' should be translated with the same localized wording that YouTube displays. -->
-  <string name="revanced_hide_join_button_title">Sakrij dugme „Pridruži se”</string>
-  <string name="revanced_hide_join_button_summary_on">Dugme „Pridruži se” je skriveno</string>
-  <string name="revanced_hide_join_button_summary_off">Dugme „Pridruži se” je prikazano</string>
+  <string name="revanced_hide_join_button_title">Sakrij dugme „Učlani me”</string>
+  <string name="revanced_hide_join_button_summary_on">Dugme „Učlani me” je skriveno</string>
+  <string name="revanced_hide_join_button_summary_off">Dugme „Učlani me” je prikazano</string>
   <string name="revanced_hide_links_preview_title">Sakrij pregled linkova</string>
   <string name="revanced_hide_links_preview_summary_on">Pregled linkova je skriven</string>
   <string name="revanced_hide_links_preview_summary_off">Pregled linkova je prikazan</string>
@@ -548,11 +548,11 @@ Ova funkcija je dostupna samo za starije uređaje"</string>
   <string name="revanced_share_copy_url_success">Link je kopiran u privremenu memoriju</string>
   <string name="revanced_share_copy_url_timestamp_success">Link s vremenskom oznakom je kopiran</string>
   <string name="revanced_copy_video_url_title">Prikaži dugme za kopiranje linka videa</string>
-  <string name="revanced_copy_video_url_summary_on">Dugme za kopiranje URL adrese video snimka je prikazano. Dodirnite da biste kopirali URL adresu video snimka. Dodirnite i zadržite da biste kopirali sa vremenskom oznakom</string>
-  <string name="revanced_copy_video_url_summary_off">Dugme za kopiranje URL adrese video snimka nije prikazano</string>
+  <string name="revanced_copy_video_url_summary_on">Dugme za kopiranje URL adrese videa je prikazano. Dodirnite da biste kopirali URL adresu videa. Dodirnite i zadržite da biste kopirali URL adresu videa sa vremenskom oznakom</string>
+  <string name="revanced_copy_video_url_summary_off">Dugme za kopiranje URL adrese videa nije prikazano</string>
   <string name="revanced_copy_video_url_timestamp_title">Prikaži dugme za kopiranje linka videa s vremenskom oznakom</string>
-  <string name="revanced_copy_video_url_timestamp_summary_on">Dugme za kopiranje URL adrese sa vremenskom oznakom je prikazano. Dodirnite da biste kopirali URL adresu video snimka sa vremenskom oznakom. Dodirnite i zadržite da biste kopirali bez vremenske oznake</string>
-  <string name="revanced_copy_video_url_timestamp_summary_off">Dugme za kopiranje URL adrese sa vremenskom oznakom nije prikazano</string>
+  <string name="revanced_copy_video_url_timestamp_summary_on">Dugme za kopiranje URL adrese videa sa vremenskom oznakom je prikazano. Dodirnite da biste kopirali URL adresu videa sa vremenskom oznakom. Dodirnite i zadržite da biste kopirali URL adresu videa bez vremenske oznake</string>
+  <string name="revanced_copy_video_url_timestamp_summary_off">Dugme za kopiranje URL adrese videa sa vremenskom oznakom nije prikazano</string>
   </patch>
   <patch id="interaction.dialog.removeViewerDiscretionDialogPatch">
   <string name="revanced_remove_viewer_discretion_dialog_title">Ukloni dijalog o diskreciji gledaoca</string>
@@ -895,9 +895,9 @@ Da biste prikazali meni „Audio snimak”, promenite opciju „Lažirani video 
   <string name="revanced_hide_shorts_history_summary_on">Skriveno u istoriji gledanja</string>
   <string name="revanced_hide_shorts_history_summary_off">Prikazano u istoriji gledanja</string>
   <string name="revanced_hide_shorts_auto_dubbed_label_title">Sakrij oznaku „Automatski sinhronizovano”</string>
-  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Oznaka za automatski sinhronizovano je skrivena</string>
-  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Oznaka za automatski sinhronizovano je prikazana</string>
-  <string name="revanced_hide_shorts_super_thanks_button_title">Sakrij dugme „Kupi Super hvala”</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Oznaka „Automatski sinhronizovano” je skrivena</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Oznaka „Automatski sinhronizovano” je prikazana</string>
+  <string name="revanced_hide_shorts_super_thanks_button_title">Sakrij dugme „Kupi Superhvala”</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_on">Dugme „Kupi superhvala” je skriveno</string>
   <string name="revanced_hide_shorts_super_thanks_button_summary_off">Dugme „Kupi superhvala” je prikazano</string>
   <string name="revanced_hide_shorts_effect_button_title">Sakrij dugme „Efekat”</string>
@@ -1594,8 +1594,8 @@ Ako ovo omogućite, mogu biti otključani viši kvaliteti videa"</string>
   </patch>
   <patch id="video.speed.button.playbackSpeedButtonPatch">
   <string name="revanced_playback_speed_dialog_button_title">Prikaži dugme dijaloga za brzinu</string>
-  <string name="revanced_playback_speed_dialog_button_summary_on">Dugme dijaloga za brzinu je prikazano. Dodirnite i zadržite da biste vratili brzinu reprodukcije na podrazumevanu vrednost</string>
-  <string name="revanced_playback_speed_dialog_button_summary_off">Dugme dijaloga za brzinu nije prikazano</string>
+  <string name="revanced_playback_speed_dialog_button_summary_on">Dugme za dijalog brzine je prikazano. Dodirnite i zadržite da biste vratili brzinu reprodukcije na podrazumevanu vrednost</string>
+  <string name="revanced_playback_speed_dialog_button_summary_off">Dugme za dijalog brzine nije prikazano</string>
   </patch>
   <patch id="video.quality.button.videoQualityDialogButtonPatch">
   <string name="revanced_video_quality_dialog_button_title">Prikaži dugme kvaliteta videa</string>

@@ -223,9 +223,9 @@ Toutefois, l'activation de cette option entraînera également l'enregistrement 
   <string name="revanced_hide_chips_shelf_title">Masquer l\'étagère des filtres</string>
   <string name="revanced_hide_chips_shelf_summary_on">L\'étagère des filtres est masquée</string>
   <string name="revanced_hide_chips_shelf_summary_off">L\'étagère des filtres est affichée</string>
-  <string name="revanced_hide_community_posts_title">Masquer les posts</string>
-  <string name="revanced_hide_community_posts_summary_on">Les posts destinés à la communauté sont masqués</string>
-  <string name="revanced_hide_community_posts_summary_off">Les posts destinés à la communauté sont affichés</string>
+  <string name="revanced_hide_community_posts_title">Masquer les posts de communautés</string>
+  <string name="revanced_hide_community_posts_summary_on">Les posts de communautés sont masqués</string>
+  <string name="revanced_hide_community_posts_summary_off">Les posts de communautés sont affichés</string>
   <string name="revanced_hide_compact_banner_title">Masquer les bannières compactes</string>
   <string name="revanced_hide_compact_banner_summary_on">Les bannières compactes sont masquées</string>
   <string name="revanced_hide_compact_banner_summary_off">Les bannières compactes sont affichées</string>
@@ -1326,7 +1326,7 @@ Prêt à le soumettre ?"</string>
   <string name="revanced_change_form_factor_user_dialog_message">"Les modifications comprennent :
 
 Format Tablette
-• Les posts destinés à la communauté sont masqués
+• Les posts de communautés sont masqués
 
 Format Automotive
 • Les Shorts s'ouvrent dans le lecteur standard

@@ -896,7 +896,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_history_title">Shorts στο ιστορικό παρακολούθησης</string>
   <string name="revanced_hide_shorts_history_summary_on">Κρυμμένα</string>
   <string name="revanced_hide_shorts_history_summary_off">Εμφανίζονται</string>
-  <string name="revanced_hide_shorts_auto_dubbed_label_title">Ετικέτα αυτόματης μεταγλώττισης</string>
+  <string name="revanced_hide_shorts_auto_dubbed_label_title">Ετικέτα «Αυτόματη μεταγλώττιση»</string>
   <string name="revanced_hide_shorts_auto_dubbed_label_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_shorts_auto_dubbed_label_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_shorts_super_thanks_button_title">Κουμπί «Αγορά Super Thanks»</string>
@@ -915,7 +915,7 @@ Second \"item\" text"</string>
   <string name="revanced_hide_shorts_join_button_title">Κουμπί «Συμμετοχή»</string>
   <string name="revanced_hide_shorts_join_button_summary_on">Κρυμμένο</string>
   <string name="revanced_hide_shorts_join_button_summary_off">Εμφανίζεται</string>
-  <string name="revanced_hide_shorts_live_preview_title">Προεπισκόπηση live</string>
+  <string name="revanced_hide_shorts_live_preview_title">Προεπισκόπηση ζωντανής μετάδοσης</string>
   <string name="revanced_hide_shorts_live_preview_summary_on">Κρυμμένη</string>
   <string name="revanced_hide_shorts_live_preview_summary_off">Εμφανίζεται</string>
   <string name="revanced_hide_shorts_location_label_title">Ετικέτα τοποθεσίας</string>
