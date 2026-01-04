@@ -1,3 +1,10 @@
+# [5.48.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.7...v5.48.0-dev.8) (2026-01-04)
+
+
+### Features
+
+* **Letterboxd:** Add `Unlock app icons` patch ([#6415](https://github.com/ReVanced/revanced-patches/issues/6415)) ([d25dcfe](https://github.com/ReVanced/revanced-patches/commit/d25dcfe49ac331c9b3dca739ba0be95dbab669cc))
+
 # [5.48.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.6...v5.48.0-dev.7) (2026-01-04)
 
 
