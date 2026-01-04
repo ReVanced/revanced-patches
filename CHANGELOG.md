@@ -1,3 +1,11 @@
+# [5.48.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.6...v5.48.0-dev.7) (2026-01-04)
+
+
+### Features
+
+* **Strava:** Add `Disable Quick Edit` patch ([#6452](https://github.com/ReVanced/revanced-patches/issues/6452)) ([f5cbb31](https://github.com/ReVanced/revanced-patches/commit/f5cbb31724d15f7e939b96ee0186fd0a108f9fdc))
+* **Strava:** Add `Overwrite media upload parameters` patch ([#6410](https://github.com/ReVanced/revanced-patches/issues/6410)) ([b42ae27](https://github.com/ReVanced/revanced-patches/commit/b42ae27ce66ebad9e9cfc5b70fc121df5bad7567))
+
 # [5.48.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.5...v5.48.0-dev.6) (2026-01-04)
 
 
