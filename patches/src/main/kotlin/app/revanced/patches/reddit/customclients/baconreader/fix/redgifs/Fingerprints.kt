@@ -1,8 +1,6 @@
 package app.revanced.patches.reddit.customclients.baconreader.fix.redgifs
 
 import app.revanced.patcher.fingerprint
-import com.android.tools.smali.dexlib2.AccessFlags
-
 
 internal val getOkHttpClientFingerprint = fingerprint {
     returns("Lokhttp3/OkHttpClient;")

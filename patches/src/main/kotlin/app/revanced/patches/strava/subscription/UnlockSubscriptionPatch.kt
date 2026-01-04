@@ -1,6 +1,6 @@
 package app.revanced.patches.strava.subscription
 
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
@@ -12,7 +12,7 @@ val unlockSubscriptionPatch = bytecodePatch(
 
     execute {
         getSubscribedFingerprint.method.replaceInstruction(
-            getSubscribedFingerprint.patternMatch!!.startIndex,
+            getSubscribedFingerprint.instructionMatches.first().index,
             "const/4 v0, 0x1",
         )
     }

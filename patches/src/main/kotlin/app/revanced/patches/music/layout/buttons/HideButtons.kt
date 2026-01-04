@@ -1,17 +1,17 @@
 package app.revanced.patches.music.layout.buttons
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstLiteralInstructionOrThrow
@@ -52,11 +52,11 @@ val hideButtons = bytecodePatch(
     )
 
     execute {
-        playerOverlayChip = resourceMappings["id", "player_overlay_chip"]
-        historyMenuItem = resourceMappings["id", "history_menu_item"]
-        offlineSettingsMenuItem = resourceMappings["id", "offline_settings_menu_item"]
-        searchButton = resourceMappings["layout", "search_button"]
-        topBarMenuItemImageView = resourceMappings["id", "top_bar_menu_item_image_view"]
+        playerOverlayChip = getResourceId(ResourceType.ID, "player_overlay_chip")
+        historyMenuItem = getResourceId(ResourceType.ID, "history_menu_item")
+        offlineSettingsMenuItem = getResourceId(ResourceType.ID, "offline_settings_menu_item")
+        searchButton = getResourceId(ResourceType.LAYOUT, "search_button")
+        topBarMenuItemImageView = getResourceId(ResourceType.ID, "top_bar_menu_item_image_view")
 
         addResources("music", "layout.buttons.hideButtons")
 
@@ -73,7 +73,7 @@ val hideButtons = bytecodePatch(
             historyMenuItemOfflineTabFingerprint
         ).forEach { fingerprint ->
             fingerprint.method.apply {
-                val targetIndex = fingerprint.patternMatch!!.startIndex
+                val targetIndex = fingerprint.patternMatch.startIndex
                 val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerD
 
                 addInstructions(

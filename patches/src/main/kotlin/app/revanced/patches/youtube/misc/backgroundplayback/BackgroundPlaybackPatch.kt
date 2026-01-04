@@ -1,14 +1,13 @@
 package app.revanced.patches.youtube.misc.backgroundplayback
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
@@ -25,14 +24,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 internal var prefBackgroundAndOfflineCategoryId = -1L
     private set
 
-private val backgroundPlaybackResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch, addResourcesPatch)
-
-    execute {
-        prefBackgroundAndOfflineCategoryId = resourceMappings["string", "pref_background_and_offline_category"]
-    }
-}
-
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/BackgroundPlaybackPatch;"
 
@@ -41,7 +32,8 @@ val backgroundPlaybackPatch = bytecodePatch(
     description = "Removes restrictions on background playback, including playing kids videos in the background.",
 ) {
     dependsOn(
-        backgroundPlaybackResourcePatch,
+        resourceMappingPatch,
+        addResourcesPatch,
         sharedExtensionPatch,
         playerTypeHookPatch,
         videoInformationPatch,
@@ -51,10 +43,10 @@ val backgroundPlaybackPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
+            "20.21.37",
+            "20.31.40",
         )
     )
 
@@ -62,7 +54,12 @@ val backgroundPlaybackPatch = bytecodePatch(
         addResources("youtube", "misc.backgroundplayback.backgroundPlaybackPatch")
 
         PreferenceScreen.SHORTS.addPreferences(
-            SwitchPreference("revanced_shorts_disable_background_playback"),
+            SwitchPreference("revanced_shorts_disable_background_playback")
+        )
+
+        prefBackgroundAndOfflineCategoryId = getResourceId(
+            ResourceType.STRING,
+            "pref_background_and_offline_category"
         )
 
         arrayOf(
@@ -91,7 +88,8 @@ val backgroundPlaybackPatch = bytecodePatch(
             }
 
             val settingsBooleanIndex = booleanCalls.elementAt(1).index
-            val settingsBooleanMethod by navigate(this).to(settingsBooleanIndex)
+
+            val settingsBooleanMethod = navigate(this).to(settingsBooleanIndex).stop()
 
             settingsBooleanMethod.returnEarly(true)
         }
@@ -104,10 +102,12 @@ val backgroundPlaybackPatch = bytecodePatch(
 
         // Fix PiP buttons not working after locking/unlocking device screen.
         if (is_19_34_or_greater) {
-            pipInputConsumerFeatureFlagFingerprint.method.insertLiteralOverride(
-                PIP_INPUT_CONSUMER_FEATURE_FLAG,
-                false
-            )
+            pipInputConsumerFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    false
+                )
+            }
         }
     }
 }

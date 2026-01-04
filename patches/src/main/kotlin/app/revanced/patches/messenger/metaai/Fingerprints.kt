@@ -13,8 +13,8 @@ internal val getMobileConfigBoolFingerprint = fingerprint {
 }
 
 internal val metaAIKillSwitchCheckFingerprint = fingerprint {
-    strings("SearchAiagentImplementationsKillSwitch")
     opcodes(Opcode.CONST_WIDE)
+    strings("SearchAiagentImplementationsKillSwitch")
 }
 
 internal val extensionMethodFingerprint = fingerprint {

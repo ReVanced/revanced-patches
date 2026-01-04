@@ -1,15 +1,15 @@
 package app.revanced.patches.music.layout.compactheader
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
-import app.revanced.patches.shared.misc.mapping.get
-import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -37,16 +37,16 @@ val hideCategoryBar = bytecodePatch(
     )
 
     execute {
-        chipCloud = resourceMappings["layout", "chip_cloud"]
-
         addResources("music", "layout.compactheader.hideCategoryBar")
 
         PreferenceScreen.GENERAL.addPreferences(
             SwitchPreference("revanced_music_hide_category_bar"),
         )
 
+        chipCloud = getResourceId(ResourceType.LAYOUT, "chip_cloud")
+
         chipCloudFingerprint.method.apply {
-            val targetIndex = chipCloudFingerprint.patternMatch!!.endIndex
+            val targetIndex = chipCloudFingerprint.patternMatch.endIndex
             val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             addInstruction(

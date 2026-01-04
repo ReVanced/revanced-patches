@@ -1,9 +1,9 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.slink
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patches.reddit.customclients.RESOLVE_S_LINK_METHOD
 import app.revanced.patches.reddit.customclients.SET_ACCESS_TOKEN_METHOD
 import app.revanced.patches.reddit.customclients.fixSLinksPatch

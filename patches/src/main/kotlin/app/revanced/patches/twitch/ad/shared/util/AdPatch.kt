@@ -1,11 +1,12 @@
 package app.revanced.patches.twitch.ad.shared.util
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.firstClassDefMutableOrNull
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
 
 fun adPatch(
     conditionCall: String,
@@ -29,7 +30,7 @@ fun adPatch(
         classDefType: String,
         methodNames: Set<String>,
         returnMethod: ReturnMethod,
-    ) = with(classBy { classDefType == it.type }?.mutableClass) {
+    ) = with(firstClassDefMutableOrNull(classDefType)) {
         this ?: return false
 
         methods.filter { it.name in methodNames }.forEach {

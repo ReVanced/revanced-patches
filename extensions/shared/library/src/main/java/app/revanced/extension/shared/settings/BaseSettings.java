@@ -5,6 +5,8 @@ import static java.lang.Boolean.TRUE;
 import static app.revanced.extension.shared.patches.CustomBrandingPatch.BrandingTheme;
 import static app.revanced.extension.shared.settings.Setting.parent;
 
+import app.revanced.extension.shared.Logger;
+
 /**
  * Settings shared across multiple apps.
  * <p>
@@ -24,9 +26,18 @@ public class BaseSettings {
      * Use the icons declared in the preferences created during patching. If no icons or styles are declared then this setting does nothing.
      */
     public static final BooleanSetting SHOW_MENU_ICONS = new BooleanSetting("revanced_show_menu_icons", TRUE, true);
+    /**
+     * Do not use this setting directly. Instead use {@link app.revanced.extension.shared.Utils#appIsUsingBoldIcons()}
+     */
+    public static final BooleanSetting SETTINGS_DISABLE_BOLD_ICONS = new BooleanSetting("revanced_settings_disable_bold_icons", FALSE, true);
 
     public static final BooleanSetting SETTINGS_SEARCH_HISTORY = new BooleanSetting("revanced_settings_search_history", TRUE, true);
     public static final StringSetting SETTINGS_SEARCH_ENTRIES = new StringSetting("revanced_settings_search_entries", "");
+
+    /**
+     * The first time the app was launched with no previous app data (either a clean install, or after wiping app data).
+     */
+    public static final LongSetting FIRST_TIME_APP_LAUNCHED = new LongSetting("revanced_last_time_app_was_launched", -1L, false, false);
 
     //
     // Settings shared by YouTube and YouTube Music.
@@ -44,4 +55,13 @@ public class BaseSettings {
     public static final IntegerSetting CUSTOM_BRANDING_NAME = new IntegerSetting("revanced_custom_branding_name", 1, true);
 
     public static final StringSetting DISABLED_FEATURE_FLAGS = new StringSetting("revanced_disabled_feature_flags", "", true, parent(DEBUG));
+
+    static {
+        final long now = System.currentTimeMillis();
+
+        if (FIRST_TIME_APP_LAUNCHED.get() < 0) {
+            Logger.printInfo(() -> "First launch of installation with no prior app data");
+            FIRST_TIME_APP_LAUNCHED.save(now);
+        }
+    }
 }

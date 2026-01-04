@@ -38,6 +38,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.patches.EnableDebuggingPatch;
 import app.revanced.extension.shared.settings.BaseSettings;
@@ -52,25 +53,26 @@ import app.revanced.extension.shared.ui.Dim;
 public class FeatureFlagsManagerPreference extends Preference {
 
     private static final int DRAWABLE_REVANCED_SETTINGS_SELECT_ALL =
-            getResourceIdentifierOrThrow("revanced_settings_select_all", "drawable");
+            getResourceIdentifierOrThrow(ResourceType.DRAWABLE, "revanced_settings_select_all");
     private static final int DRAWABLE_REVANCED_SETTINGS_DESELECT_ALL =
-            getResourceIdentifierOrThrow("revanced_settings_deselect_all", "drawable");
+            getResourceIdentifierOrThrow(ResourceType.DRAWABLE, "revanced_settings_deselect_all");
     private static final int DRAWABLE_REVANCED_SETTINGS_COPY_ALL =
-            getResourceIdentifierOrThrow("revanced_settings_copy_all", "drawable");
+            getResourceIdentifierOrThrow(ResourceType.DRAWABLE, "revanced_settings_copy_all");
     private static final int DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_ONE =
-            getResourceIdentifierOrThrow("revanced_settings_arrow_right_one", "drawable");
+            getResourceIdentifierOrThrow(ResourceType.DRAWABLE, "revanced_settings_arrow_right_one");
     private static final int DRAWABLE_REVANCED_SETTINGS_ARROW_RIGHT_DOUBLE =
-            getResourceIdentifierOrThrow("revanced_settings_arrow_right_double", "drawable");
+            getResourceIdentifierOrThrow(ResourceType.DRAWABLE, "revanced_settings_arrow_right_double");
     private static final int DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_ONE =
-            getResourceIdentifierOrThrow("revanced_settings_arrow_left_one", "drawable");
+            getResourceIdentifierOrThrow(ResourceType.DRAWABLE, "revanced_settings_arrow_left_one");
     private static final int DRAWABLE_REVANCED_SETTINGS_ARROW_LEFT_DOUBLE =
-            getResourceIdentifierOrThrow("revanced_settings_arrow_left_double", "drawable");
+            getResourceIdentifierOrThrow(ResourceType.DRAWABLE, "revanced_settings_arrow_left_double");
 
     /**
      * Flags to hide from the UI.
      */
     private static final Set<Long> FLAGS_TO_IGNORE = Set.of(
-            45386834L // 'You' tab settings icon.
+            45386834L, // 'You' tab settings icon.
+            45685201L  // Bold icons. Forcing off interferes with patch changes and YT icons are broken.
     );
 
     /**

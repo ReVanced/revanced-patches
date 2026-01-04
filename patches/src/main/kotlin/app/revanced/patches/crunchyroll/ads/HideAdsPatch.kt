@@ -1,8 +1,8 @@
 package app.revanced.patches.crunchyroll.ads
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -21,7 +21,7 @@ val hideAdsPatch = bytecodePatch(
     execute {
         // Get obfuscated "enableAds" field from toString method.
         val enableAdsField = videoUrlReadyToStringFingerprint.let {
-            val strIndex = videoUrlReadyToStringFingerprint.stringMatches!!.last().index
+            val strIndex = videoUrlReadyToStringFingerprint.stringMatches.last().index
             val fieldIndex = it.method.indexOfFirstInstruction(strIndex, Opcode.IGET_BOOLEAN)
             it.method.getInstruction<ReferenceInstruction>(fieldIndex).getReference<FieldReference>()!!
         }

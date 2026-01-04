@@ -1,13 +1,16 @@
 package app.revanced.patches.youtube.video.quality
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.addString
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val videoQualityItemOnClickParentFingerprint = fingerprint {
     returns("V")
-    strings("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT")
+    instructions(
+        addString("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT"),
+    )
 }
 
 /**

@@ -1,18 +1,10 @@
 package app.revanced.patches.shared.misc.gms
 
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
-import app.revanced.patcher.patch.BytecodePatchBuilder
-import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.patch.Option
-import app.revanced.patcher.patch.Patch
-import app.revanced.patcher.patch.ResourcePatchBuilder
-import app.revanced.patcher.patch.ResourcePatchContext
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.patch.stringOption
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.patch.*
 import app.revanced.patches.all.misc.packagename.changePackageNamePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
@@ -64,15 +56,15 @@ fun gmsCoreSupportPatch(
 ) = bytecodePatch(
     name = "GmsCore support",
     description = "Allows the app to work without root by using a different package name when patched " +
-        "using a GmsCore instead of Google Play Services.",
+            "using a GmsCore instead of Google Play Services.",
 ) {
     val gmsCoreVendorGroupIdOption = stringOption(
         key = "gmsCoreVendorGroupId",
         default = "app.revanced",
         values =
-        mapOf(
-            "ReVanced" to "app.revanced",
-        ),
+            mapOf(
+                "ReVanced" to "app.revanced",
+            ),
         title = "GmsCore vendor group ID",
         description = "The vendor's group ID for GmsCore.",
         required = true,
@@ -87,35 +79,41 @@ fun gmsCoreSupportPatch(
     val gmsCoreVendorGroupId by gmsCoreVendorGroupIdOption
 
     execute {
-        fun transformStringReferences(transform: (str: String) -> String?) = classes.forEach {
-            val mutableClass by lazy {
-                proxy(it).mutableClass
+        fun transformStringReferences(transform: (str: String) -> String?) {
+            val transformations = mutableListOf<() -> Unit>()
+
+            classDefs.forEach { classDef ->
+                val mutableClass by lazy { classDef.getOrReplaceMutable() }
+
+                classDef.methods.forEach classLoop@{ method ->
+                    val implementation = method.implementation ?: return@classLoop
+
+                    val mutableMethod by lazy {
+                        mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, method) }
+                    }
+
+                    implementation.instructions.forEachIndexed { index, instruction ->
+                        val string = ((instruction as? Instruction21c)?.reference as? StringReference)?.string
+                            ?: return@forEachIndexed
+
+                        // Apply transformation.
+                        val transformedString = transform(string) ?: return@forEachIndexed
+
+                        transformations += {
+                            mutableMethod.replaceInstruction(
+                                index,
+                                BuilderInstruction21c(
+                                    Opcode.CONST_STRING,
+                                    instruction.registerA,
+                                    ImmutableStringReference(transformedString),
+                                ),
+                            )
+                        }
+                    }
+                }
             }
 
-            it.methods.forEach classLoop@{ method ->
-                val implementation = method.implementation ?: return@classLoop
-
-                val mutableMethod by lazy {
-                    mutableClass.methods.first { MethodUtil.methodSignaturesMatch(it, method) }
-                }
-
-                implementation.instructions.forEachIndexed insnLoop@{ index, instruction ->
-                    val string = ((instruction as? Instruction21c)?.reference as? StringReference)?.string
-                        ?: return@insnLoop
-
-                    // Apply transformation.
-                    val transformedString = transform(string) ?: return@insnLoop
-
-                    mutableMethod.replaceInstruction(
-                        index,
-                        BuilderInstruction21c(
-                            Opcode.CONST_STRING,
-                            instruction.registerA,
-                            ImmutableStringReference(transformedString),
-                        ),
-                    )
-                }
-            }
+            transformations.forEach { it() }
         }
 
         // region Collection of transformations that are applied to all strings.
@@ -126,7 +124,7 @@ fun gmsCoreSupportPatch(
             in PERMISSIONS,
             in ACTIONS,
             in AUTHORITIES,
-            -> referencedString.replace("com.google", gmsCoreVendorGroupId!!)
+                -> referencedString.replace("com.google", gmsCoreVendorGroupId!!)
 
             // No vendor prefix for whatever reason...
             "subscribedfeeds" -> "$gmsCoreVendorGroupId.subscribedfeeds"
@@ -161,7 +159,7 @@ fun gmsCoreSupportPatch(
             when (string) {
                 "$fromPackageName.SuggestionProvider",
                 "$fromPackageName.fileprovider",
-                -> string.replace(fromPackageName, toPackageName)
+                    -> string.replace(fromPackageName, toPackageName)
 
                 else -> null
             }
@@ -204,7 +202,15 @@ fun gmsCoreSupportPatch(
         primeMethodFingerprint?.let { transformPrimeMethod(packageName) }
 
         // Return these methods early to prevent the app from crashing.
-        earlyReturnFingerprints.forEach { it.method.returnEarly() }
+        earlyReturnFingerprints.forEach {
+            it.method.apply {
+                if (returnType == "Z") {
+                    returnEarly(false)
+                } else {
+                    returnEarly()
+                }
+            }
+        }
         serviceCheckFingerprint.method.returnEarly()
 
         // Google Play Utility is not present in all apps, so we need to check if it's present.
@@ -507,40 +513,11 @@ private object Constants {
  * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
  * @param spoofedPackageSignature The signature of the package to spoof to.
  * @param gmsCoreVendorGroupIdOption The option to get the vendor group ID of GmsCore.
- * @param executeBlock The additional execution block of the patch.
- * @param block The additional block to build the patch.
- */
-fun gmsCoreSupportResourcePatch( // This is here only for binary compatibility.
-    fromPackageName: String,
-    toPackageName: String,
-    spoofedPackageSignature: String,
-    gmsCoreVendorGroupIdOption: Option<String>,
-    executeBlock: ResourcePatchContext.() -> Unit = {},
-    block: ResourcePatchBuilder.() -> Unit = {},
-) = gmsCoreSupportResourcePatch(
-    fromPackageName,
-    toPackageName,
-    spoofedPackageSignature,
-    gmsCoreVendorGroupIdOption,
-    true,
-    executeBlock,
-    block
-)
-
-/**
- * Abstract resource patch that allows Google apps to run without root and under a different package name
- * by using GmsCore instead of Google Play Services.
- *
- * @param fromPackageName The package name of the original app.
- * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
- * @param spoofedPackageSignature The signature of the package to spoof to.
- * @param gmsCoreVendorGroupIdOption The option to get the vendor group ID of GmsCore.
  * @param addStringResources If the GmsCore shared strings should be added to the patched app.
  * @param executeBlock The additional execution block of the patch.
  * @param block The additional block to build the patch.
  */
-// TODO: On the next major release make this public and delete the public overloaded constructor.
-internal fun gmsCoreSupportResourcePatch(
+fun gmsCoreSupportResourcePatch(
     fromPackageName: String,
     toPackageName: String,
     spoofedPackageSignature: String,

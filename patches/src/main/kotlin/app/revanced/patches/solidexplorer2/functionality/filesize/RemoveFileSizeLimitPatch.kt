@@ -1,7 +1,7 @@
 package app.revanced.patches.solidexplorer2.functionality.filesize
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.ThreeRegisterInstruction
 
@@ -14,7 +14,7 @@ val removeFileSizeLimitPatch = bytecodePatch(
 
     execute {
         onReadyFingerprint.method.apply {
-            val cmpIndex = onReadyFingerprint.patternMatch!!.startIndex + 1
+            val cmpIndex = onReadyFingerprint.instructionMatches.first().index + 1
             val cmpResultRegister = getInstruction<ThreeRegisterInstruction>(cmpIndex).registerA
 
             replaceInstruction(cmpIndex, "const/4 v$cmpResultRegister, 0x0")

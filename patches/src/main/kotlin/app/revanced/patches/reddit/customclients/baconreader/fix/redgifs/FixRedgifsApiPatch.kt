@@ -1,9 +1,9 @@
 package app.revanced.patches.reddit.customclients.baconreader.fix.redgifs
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.removeInstruction
+import app.revanced.patcher.extensions.removeInstructions
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.INSTALL_NEW_CLIENT_METHOD
 import app.revanced.patches.reddit.customclients.baconreader.misc.extension.sharedExtensionPatch
 import app.revanced.patches.reddit.customclients.fixRedgifsApiPatch

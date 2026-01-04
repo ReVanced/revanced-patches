@@ -1,8 +1,8 @@
 package app.revanced.patches.piccomafr.tracking
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode

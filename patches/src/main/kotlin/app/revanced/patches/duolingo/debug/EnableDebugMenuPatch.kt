@@ -1,7 +1,7 @@
 package app.revanced.patches.duolingo.debug
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -21,7 +21,7 @@ val enableDebugMenuPatch = bytecodePatch(
         buildConfigProviderConstructorFingerprint.match(
             buildConfigProviderToStringFingerprint.classDef
         ).let {
-            val index = it.patternMatch!!.startIndex
+            val index = it.patternMatch.startIndex
 
             it.method.apply {
                 val register = getInstruction<OneRegisterInstruction>(index).registerA

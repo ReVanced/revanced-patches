@@ -31,6 +31,7 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.settings.StringSetting;
@@ -81,13 +82,13 @@ public class ColorPickerPreference extends EditTextPreference {
     private boolean opacitySliderEnabled = false;
 
     public static final int ID_REVANCED_COLOR_PICKER_VIEW =
-            getResourceIdentifierOrThrow("revanced_color_picker_view", "id");
+            getResourceIdentifierOrThrow(ResourceType.ID, "revanced_color_picker_view");
     public static final int ID_PREFERENCE_COLOR_DOT =
-            getResourceIdentifierOrThrow("preference_color_dot", "id");
+            getResourceIdentifierOrThrow(ResourceType.ID, "preference_color_dot");
     public static final int LAYOUT_REVANCED_COLOR_DOT_WIDGET =
-            getResourceIdentifierOrThrow("revanced_color_dot_widget", "layout");
+            getResourceIdentifierOrThrow(ResourceType.LAYOUT, "revanced_color_dot_widget");
     public static final int LAYOUT_REVANCED_COLOR_PICKER =
-            getResourceIdentifierOrThrow("revanced_color_picker", "layout");
+            getResourceIdentifierOrThrow(ResourceType.LAYOUT, "revanced_color_picker");
 
     /**
      * Removes non valid hex characters, converts to all uppercase,

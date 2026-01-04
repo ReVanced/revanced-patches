@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.video.quality
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -9,6 +9,8 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
 import app.revanced.patches.youtube.video.information.onCreateHook
@@ -25,6 +27,7 @@ val rememberVideoQualityPatch = bytecodePatch {
         playerTypeHookPatch,
         settingsPatch,
         addResourcesPatch,
+        versionCheckPatch,
     )
 
     execute {
@@ -68,16 +71,15 @@ val rememberVideoQualityPatch = bytecodePatch {
         )
 
         // Inject a call to remember the user selected quality for regular videos.
-        videoQualityChangedFingerprint.let {
-            it.method.apply {
-                val index = it.patternMatch!!.startIndex
-                val register = getInstruction<TwoRegisterInstruction>(index).registerA
+        videoQualityChangedFingerprint.method.apply {
+            val index = videoQualityChangedFingerprint.instructionMatches[3].index
+            val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
-                addInstruction(
-                    index + 1,
-                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
-                )
-            }
+            addInstruction(
+                index + 1,
+                "invoke-static { v$register }, " +
+                        "$EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
+            )
         }
     }
 }

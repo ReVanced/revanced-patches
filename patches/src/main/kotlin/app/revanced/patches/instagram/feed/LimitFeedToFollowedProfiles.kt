@@ -1,7 +1,8 @@
 package app.revanced.patches.instagram.feed
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
@@ -41,6 +42,12 @@ val limitFeedToFollowedProfiles = bytecodePatch(
             }
         }
 
+        val initMainFeedRequestFingerprint = fingerprint {
+            custom { method, classDef ->
+                method.name == "<init>" &&
+                        classDef == mainFeedRequestClassFingerprint.classDef
+            }
+        }
         initMainFeedRequestFingerprint.method.apply {
             // Finds the instruction where the map is being initialized in the constructor
             val getHeaderIndex = indexOfFirstInstructionOrThrow {

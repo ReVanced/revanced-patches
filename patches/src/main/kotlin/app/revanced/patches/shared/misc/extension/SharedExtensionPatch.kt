@@ -2,10 +2,10 @@ package app.revanced.patches.shared.misc.extension
 
 import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.FingerprintBuilder
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.firstClassDefMutable
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.Method
@@ -21,7 +21,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/
  */
 fun sharedExtensionPatch(
     extensionName: String,
-    vararg hooks: ExtensionHook,
+    vararg hooks: () -> ExtensionHook,
 ) = bytecodePatch {
     dependsOn(sharedExtensionPatch(*hooks))
 
@@ -35,19 +35,18 @@ fun sharedExtensionPatch(
  * commonly for the onCreate method of exported activities.
  */
 fun sharedExtensionPatch(
-    vararg hooks: ExtensionHook,
+    vararg hooks: () -> ExtensionHook,
 ) = bytecodePatch {
     extendWith("extensions/shared.rve")
 
     execute {
-        if (classes.none { EXTENSION_CLASS_DESCRIPTOR == it.type }) {
-            throw PatchException("Shared extension is not available. This patch can not succeed without it.")
-        }
+        // Verify the extension class exists.
+        firstClassDefMutable(EXTENSION_CLASS_DESCRIPTOR)
     }
 
     finalize {
         // The hooks are made in finalize to ensure that the context is hooked before any other patches.
-        hooks.forEach { hook -> hook(EXTENSION_CLASS_DESCRIPTOR) }
+        hooks.forEach { hook -> hook()(EXTENSION_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
         revancedUtilsPatchesVersionFingerprint.method.apply {
@@ -113,4 +112,31 @@ fun extensionHook(
     insertIndexResolver: BytecodePatchContext.(Method) -> Int = { 0 },
     contextRegisterResolver: BytecodePatchContext.(Method) -> String = { "p0" },
     fingerprintBuilderBlock: FingerprintBuilder.() -> Unit,
-) = extensionHook(insertIndexResolver, contextRegisterResolver, fingerprint(block = fingerprintBuilderBlock))
+) = {
+    ExtensionHook(fingerprint(block = fingerprintBuilderBlock), insertIndexResolver, contextRegisterResolver)
+}
+
+/**
+ * Creates an extension hook from a non-obfuscated activity, which typically is the main activity
+ * defined in the app manifest.xml file.
+ *
+ * @param activityClassType Either the full activity class type such as `Lcom/company/MainActivity;`
+ *                          or the 'ends with' string for the activity such as `/MainActivity;`
+ */
+fun activityOnCreateExtensionHook(activityClassType: String): () -> ExtensionHook {
+    if (!activityClassType.endsWith(';')) {
+        throw IllegalArgumentException("Activity class type does not end with semicolon: $activityClassType")
+    }
+
+    val fullClassType = activityClassType.startsWith('L')
+
+    return extensionHook {
+        returns("V")
+        parameters("Landroid/os/Bundle;")
+        custom { method, classDef ->
+            method.name == "onCreate" &&
+                    if (fullClassType) classDef.type == activityClassType
+                    else classDef.type.endsWith(activityClassType)
+        }
+    }
+}

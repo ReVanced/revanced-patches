@@ -23,6 +23,7 @@ import androidx.annotation.Nullable;
 import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.BooleanSetting;
@@ -103,10 +104,16 @@ public abstract class AbstractPreferenceFragment extends PreferenceFragment {
      * so all app specific {@link Setting} instances are loaded before this method returns.
      */
     protected void initialize() {
-        String preferenceResourceName = BaseSettings.SHOW_MENU_ICONS.get()
-                ? "revanced_prefs_icons"
-                : "revanced_prefs";
-        final var identifier = Utils.getResourceIdentifier(preferenceResourceName, "xml");
+        String preferenceResourceName;
+        if (BaseSettings.SHOW_MENU_ICONS.get()) {
+            preferenceResourceName = Utils.appIsUsingBoldIcons()
+                    ? "revanced_prefs_icons_bold"
+                    : "revanced_prefs_icons";
+        } else {
+            preferenceResourceName = "revanced_prefs";
+        }
+
+        final var identifier = Utils.getResourceIdentifier(ResourceType.XML, preferenceResourceName);
         if (identifier == 0) return;
         addPreferencesFromResource(identifier);
 

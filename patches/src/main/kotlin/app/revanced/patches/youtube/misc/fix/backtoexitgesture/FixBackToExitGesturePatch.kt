@@ -1,8 +1,9 @@
 package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.shared.mainActivityOnBackPressedFingerprint
+import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -15,18 +16,16 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
 ) {
 
     execute {
-        recyclerViewTopScrollingFingerprint.match(
-            recyclerViewTopScrollingParentFingerprint.originalClassDef
-        ).let {
-            it.method.addInstruction(
-                it.patternMatch!!.endIndex,
+        recyclerViewTopScrollingFingerprint.let {
+            it.method.addInstructionsAtControlFlowLabel(
+                it.instructionMatches.last().index + 1,
                 "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->onTopView()V"
             )
         }
 
         scrollPositionFingerprint.let {
             navigate(it.originalMethod)
-                .to(it.patternMatch!!.startIndex + 1)
+                .to(it.patternMatch.startIndex + 1)
                 .stop().apply {
                     val index = indexOfFirstInstructionOrThrow {
                         opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.definingClass ==

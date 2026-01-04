@@ -57,5 +57,5 @@ private enum class MethodCall(
         "getCountryIso",
         arrayOf(),
         "Ljava/lang/String;",
-    ),
+    )
 }

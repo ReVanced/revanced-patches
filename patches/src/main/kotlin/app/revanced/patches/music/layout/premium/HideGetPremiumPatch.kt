@@ -1,9 +1,9 @@
 package app.revanced.patches.music.layout.premium
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -41,7 +41,7 @@ val hideGetPremiumPatch = bytecodePatch(
         )
 
         hideGetPremiumFingerprint.method.apply {
-            val insertIndex = hideGetPremiumFingerprint.patternMatch!!.endIndex
+            val insertIndex = hideGetPremiumFingerprint.instructionMatches.last().index
 
             val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
             val getPremiumViewRegister = setVisibilityInstruction.registerC

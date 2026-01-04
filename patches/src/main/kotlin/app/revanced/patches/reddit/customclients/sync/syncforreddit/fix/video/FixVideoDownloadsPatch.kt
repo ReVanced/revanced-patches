@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.video
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.reddit.customclients.sync.syncforreddit.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -24,9 +24,9 @@ val fixVideoDownloadsPatch = bytecodePatch(
     )
 
     execute {
-        val scanResult = parseRedditVideoNetworkResponseFingerprint.patternMatch!!
-        val newInstanceIndex = scanResult.startIndex
-        val invokeDirectIndex = scanResult.endIndex - 1
+        val scanResult = parseRedditVideoNetworkResponseFingerprint.instructionMatches
+        val newInstanceIndex = scanResult.first().index
+        val invokeDirectIndex = scanResult.last().index - 1
 
         val buildResponseInstruction =
             parseRedditVideoNetworkResponseFingerprint.method.getInstruction<Instruction35c>(invokeDirectIndex)

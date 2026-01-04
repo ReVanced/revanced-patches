@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.ad.video
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -23,10 +23,10 @@ val videoAdsPatch = bytecodePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
+            "20.21.37",
+            "20.31.40",
         )
     )
 

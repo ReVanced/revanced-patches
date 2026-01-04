@@ -1,7 +1,7 @@
 package app.revanced.patches.duolingo.ad
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
@@ -20,16 +20,16 @@ val disableAdsPatch = bytecodePatch(
         // SharedPreferences has a debug boolean value with key "disable_ads", which maps to "DebugCategory.DISABLE_ADS".
         //
         // MonetizationDebugSettings seems to be the most general setting to work fine.
-        initializeMonetizationDebugSettingsFingerprint
-            .match(monetizationDebugSettingsToStringFingerprint.classDef)
-            .method.apply {
-                val insertIndex = initializeMonetizationDebugSettingsFingerprint.patternMatch!!.startIndex
-                val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
+        initializeMonetizationDebugSettingsFingerprint.match(
+            monetizationDebugSettingsToStringFingerprint.classDef
+        ).method.apply {
+            val insertIndex = initializeMonetizationDebugSettingsFingerprint.instructionMatches.first().index
+            val register = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
-                addInstructions(
-                    insertIndex,
-                    "const/4 v$register, 0x1",
-                )
-            }
+            addInstructions(
+                insertIndex,
+                "const/4 v$register, 0x1",
+            )
+        }
     }
 }

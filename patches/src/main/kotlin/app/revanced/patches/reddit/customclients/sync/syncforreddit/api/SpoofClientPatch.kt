@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.api
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.patches.reddit.customclients.sync.detection.piracy.disablePiracyDetectionPatch
 import app.revanced.patches.shared.misc.string.replaceStringPatch
@@ -37,7 +37,7 @@ val spoofClientPatch = spoofClientPatch(
             returnEarly("Basic $auth")
 
             val occurrenceIndex =
-                getAuthorizationStringFingerprint.stringMatches!!.first().index
+                getAuthorizationStringFingerprint.stringMatches.first().index
 
             getAuthorizationStringFingerprint.method.apply {
                 val authorizationStringInstruction = getInstruction<ReferenceInstruction>(occurrenceIndex)
@@ -71,7 +71,7 @@ val spoofClientPatch = spoofClientPatch(
         // region Patch Imgur API URL.
 
         imgurImageAPIFingerprint.let {
-            val apiUrlIndex = it.stringMatches!!.first().index
+            val apiUrlIndex = it.stringMatches.first().index
             it.method.replaceInstruction(
                 apiUrlIndex,
                 "const-string v1, \"https://api.imgur.com/3/image\"",

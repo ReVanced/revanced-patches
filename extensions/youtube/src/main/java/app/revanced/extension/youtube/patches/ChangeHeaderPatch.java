@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import java.util.Objects;
 
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -50,7 +51,7 @@ public class ChangeHeaderPatch {
                 return null;
             }
 
-            final int identifier = Utils.getResourceIdentifier(attributeName, "attr");
+            final int identifier = Utils.getResourceIdentifier(ResourceType.ATTR, attributeName);
             if (identifier == 0) {
                 // Should never happen.
                 Logger.printException(() -> "Could not find attribute: " + drawableName);
@@ -71,7 +72,7 @@ public class ChangeHeaderPatch {
                     ? "_dark"
                     : "_light");
 
-            final int identifier = Utils.getResourceIdentifier(drawableFullName, "drawable");
+            final int identifier = Utils.getResourceIdentifier(ResourceType.DRAWABLE, drawableFullName);
             if (identifier != 0) {
                 return Utils.getContext().getDrawable(identifier);
             }

@@ -1,11 +1,17 @@
 package app.revanced.patches.shared
 
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.addString
 
 internal val castContextFetchFingerprint = fingerprint {
-    strings("Error fetching CastContext.")
+    instructions(
+        addString("Error fetching CastContext.")
+    )
 }
 
 internal val primeMethodFingerprint = fingerprint {
-    strings("com.google.android.GoogleCamera", "com.android.vending")
+    instructions(
+        addString("com.android.vending"),
+        addString("com.google.android.GoogleCamera")
+    )
 }

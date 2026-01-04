@@ -1,7 +1,8 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.redgifs
 
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.fingerprint
+import app.revanced.patcher.opcode
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.writeRegister
 import com.android.tools.smali.dexlib2.AccessFlags

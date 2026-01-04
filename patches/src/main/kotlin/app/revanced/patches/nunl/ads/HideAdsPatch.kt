@@ -1,8 +1,8 @@
 package app.revanced.patches.nunl.ads
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -27,7 +27,7 @@ val hideAdsPatch = bytecodePatch(
         // Filter injected content from API calls out of lists.
         arrayOf(screenMapperFingerprint, nextPageRepositoryImplFingerprint).forEach {
             // Index of instruction moving result of BlockPage;->getBlocks(...).
-            val moveGetBlocksResultObjectIndex = it.patternMatch!!.startIndex
+            val moveGetBlocksResultObjectIndex = it.patternMatch.startIndex
             it.method.apply {
                 val moveInstruction = getInstruction<OneRegisterInstruction>(moveGetBlocksResultObjectIndex)
 

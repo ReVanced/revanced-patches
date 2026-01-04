@@ -1,7 +1,8 @@
 package app.revanced.patches.youtube.layout.branding.header
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.wideLiteral
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -10,16 +11,16 @@ import app.revanced.patcher.util.Document
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.layout.branding.addBrandLicensePatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.util.ResourceGroup
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.copyResources
 import app.revanced.util.findElementByAttributeValueOrThrow
-import app.revanced.util.forEachLiteralValueInstruction
+import app.revanced.util.forEachInstructionAsSequence
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import java.io.File
 
@@ -67,7 +68,7 @@ private val changeHeaderBytecodePatch = bytecodePatch {
             "yt_ringo2_premium_wordmark_header"
         ).forEach { resource ->
             variants.forEach { theme ->
-                resourceMappings["drawable", resource + "_" + theme]
+                getResourceId(ResourceType.DRAWABLE, resource + "_" + theme)
             }
         }
 
@@ -75,12 +76,14 @@ private val changeHeaderBytecodePatch = bytecodePatch {
             "ytWordmarkHeader",
             "ytPremiumWordmarkHeader"
         ).forEach { resourceName ->
-            val resourceId = resourceMappings["attr", resourceName]
+            val id = getResourceId(ResourceType.ATTR, resourceName)
 
-            forEachLiteralValueInstruction(resourceId) { literalIndex ->
-                val register = getInstruction<OneRegisterInstruction>(literalIndex).registerA
-                addInstructions(
-                    literalIndex + 1,
+            forEachInstructionAsSequence { _, method, i, instruction ->
+                if (instruction.wideLiteral != id) return@forEachInstructionAsSequence
+
+                val register = method.getInstruction<OneRegisterInstruction>(i).registerA
+                method.addInstructions(
+                    i + 1,
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getHeaderAttributeId(I)I
                         move-result v$register    
@@ -100,10 +103,10 @@ val changeHeaderPatch = resourcePatch(
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
+            "20.21.37",
+            "20.31.40",
         )
     )
 
@@ -214,21 +217,24 @@ val changeHeaderPatch = resourcePatch(
         if (custom != null) {
             val customFile = File(custom!!.trim())
             if (!customFile.exists()) {
-                throw PatchException("The custom header path cannot be found: " +
-                        customFile.absolutePath
+                throw PatchException(
+                    "The custom header path cannot be found: " +
+                            customFile.absolutePath
                 )
             }
 
             if (!customFile.isDirectory) {
-                throw PatchException("The custom header path must be a folder: "
-                        + customFile.absolutePath)
+                throw PatchException(
+                    "The custom header path must be a folder: "
+                            + customFile.absolutePath
+                )
             }
 
             var copiedFiles = false
 
             // For each source folder, copy the files to the target resource directories.
-            customFile.listFiles {
-                file -> file.isDirectory && file.name in targetResourceDirectoryNames
+            customFile.listFiles { file ->
+                file.isDirectory && file.name in targetResourceDirectoryNames
             }!!.forEach { dpiSourceFolder ->
                 val targetDpiFolder = get("res").resolve(dpiSourceFolder.name)
                 if (!targetDpiFolder.exists()) {
@@ -241,8 +247,9 @@ val changeHeaderPatch = resourcePatch(
                 }!!
 
                 if (customFiles.isNotEmpty() && customFiles.size != variants.size) {
-                    throw PatchException("Both light/dark mode images " +
-                            "must be specified but only found: " + customFiles.map { it.name })
+                    throw PatchException(
+                        "Both light/dark mode images " +
+                                "must be specified but only found: " + customFiles.map { it.name })
                 }
 
                 customFiles.forEach { imgSourceFile ->
@@ -254,9 +261,11 @@ val changeHeaderPatch = resourcePatch(
             }
 
             if (!copiedFiles) {
-                throw PatchException("Expected to find directories and files: "
-                        + customHeaderResourceFileNames.contentToString()
-                        + "\nBut none were found in the provided option file path: " + customFile.absolutePath)
+                throw PatchException(
+                    "Expected to find directories and files: "
+                            + customHeaderResourceFileNames.contentToString()
+                            + "\nBut none were found in the provided option file path: " + customFile.absolutePath
+                )
             }
         }
     }

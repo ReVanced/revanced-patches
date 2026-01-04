@@ -1,0 +1,20 @@
+<!--
+    https://github.com/ajayyy/SponsorBlock/blob/e1d656f43f8b3cfb40e1c521e4103d61db756872/public/icons/PlayerStartIconSponsorBlocker.svg
+    Changes made: The SponsorBlock logo was inverted.
+
+    Copyright 2021 Ajay Ramachandran <dev@ajay.app>
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <path
+        android:fillColor="?android:attr/textColorPrimary"
+        android:pathData="M1.99219,3.51563 C1.37141,3.8503,0.988667,4.49868,1,5.20117 C1.1021,12.3909,4.8421,18.9426,11.0039,22.7246 C11.6168,23.0914,12.3832,23.0914,12.9961,22.7246 C19.1579,18.9417,22.8975,12.3909,23,5.20117 C23.0116,4.49849,22.6288,3.85028,22.0078,3.51563 C15.7798,0.162157,8.20704,0.168825,1.99219,3.51563 Z M20.5723,5.00586 C20.8388,5.151,21.0033,5.52221,21,5.82422 C20.9123,11.9927,17.3689,17.7513,12.4297,20.7793 C12.1663,20.9397,11.8337,20.9397,11.5703,20.7793 C6.63106,17.7513,3.08771,11.9927,3,5.82422 C2.99672,5.52222,3.18352,5.14551,3.42773,5.00586 C8.3842,2.1716,15.408,2.23147,20.5723,5.00586 Z" />
+
+    <path
+        android:fillColor="?android:attr/textColorPrimary"
+        android:pathData="M9.635,7.47461 L9.635,14.4066 C9.63455,14.952,10.1735,15.2913,10.6008,15.0145 L16.0542,11.4863 L16.897,10.9413 L16.0542,10.3954 L10.6004,6.86715 C10.1733,6.59109,9.63507,6.92975,9.635,7.47461 Z" />
+</vector>

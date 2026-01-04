@@ -1,6 +1,6 @@
 package app.revanced.patches.swissid.integritycheck
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 private const val RESULT_METHOD_REFERENCE =

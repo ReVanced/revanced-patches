@@ -6,7 +6,6 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val recyclerViewTreeObserverFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    returns("V")
     opcodes(
         Opcode.CHECK_CAST,
         Opcode.NEW_INSTANCE,

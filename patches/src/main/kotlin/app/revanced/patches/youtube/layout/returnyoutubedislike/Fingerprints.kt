@@ -1,23 +1,30 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
 import app.revanced.patcher.fingerprint
-import app.revanced.util.literal
+import app.revanced.patcher.literal
+import app.revanced.patcher.addString
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val dislikeFingerprint = fingerprint {
     returns("V")
-    strings("like/dislike")
+    instructions(
+        addString("like/dislike")
+    )
 }
 
 internal val likeFingerprint = fingerprint {
     returns("V")
-    strings("like/like")
+    instructions(
+        addString("like/like")
+    )
 }
 
 internal val removeLikeFingerprint = fingerprint {
     returns("V")
-    strings("like/removelike")
+    instructions(
+        addString("like/removelike")
+    )
 }
 
 internal val rollingNumberMeasureAnimatedTextFingerprint = fingerprint {
@@ -57,7 +64,9 @@ internal val rollingNumberMeasureStaticLabelParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Ljava/lang/String;")
     parameters()
-    strings("RollingNumberFontProperties{paint=")
+    instructions(
+        addString("RollingNumberFontProperties{paint=")
+    )
 }
 
 internal val rollingNumberSetterFingerprint = fingerprint {
@@ -89,13 +98,17 @@ internal val rollingNumberTextViewFingerprint = fingerprint {
 
 internal val textComponentConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PRIVATE)
-    strings("TextComponent")
+    instructions(
+        addString("TextComponent")
+    )
 }
 
 internal val textComponentDataFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("L", "L")
-    strings("text")
+    instructions(
+        addString("text")
+    )
     custom { _, classDef ->
         classDef.fields.find { it.type == "Ljava/util/BitSet;" } != null
     }
@@ -108,14 +121,16 @@ internal val textComponentLookupFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returns("L")
     parameters("L")
-    strings("…")
+    instructions(
+        addString("…")
+    )
 }
-
-internal const val LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG = 45675738L
 
 internal val textComponentFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.FINAL)
     returns("Z")
     parameters()
-    literal { LITHO_NEW_TEXT_COMPONENT_FEATURE_FLAG }
+    instructions (
+        literal(45675738L)
+    )
 }

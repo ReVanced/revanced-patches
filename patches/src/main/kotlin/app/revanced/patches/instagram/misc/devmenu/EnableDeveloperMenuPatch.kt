@@ -22,7 +22,7 @@ val enableDeveloperMenuPatch = bytecodePatch(
 
     execute {
         with(clearNotificationReceiverFingerprint.method) {
-            indexOfFirstInstructionReversedOrThrow(clearNotificationReceiverFingerprint.stringMatches!!.first().index) {
+            indexOfFirstInstructionReversedOrThrow(clearNotificationReceiverFingerprint.stringMatches.first().index) {
                 val reference = getReference<MethodReference>()
                 opcode in listOf(Opcode.INVOKE_STATIC, Opcode.INVOKE_STATIC_RANGE) &&
                         reference?.parameterTypes?.size == 1 &&

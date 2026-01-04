@@ -1,6 +1,6 @@
 package app.revanced.patches.shared.layout.theme
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 lateinit var lithoColorOverrideHook: (targetMethodClass: String, targetMethodName: String) -> Unit
@@ -11,7 +11,7 @@ val lithoColorHookPatch = bytecodePatch(
 ) {
 
     execute {
-        var insertionIndex = lithoOnBoundsChangeFingerprint.patternMatch!!.endIndex - 1
+        var insertionIndex = lithoOnBoundsChangeFingerprint.patternMatch.endIndex - 1
 
         lithoColorOverrideHook = { targetMethodClass, targetMethodName ->
             lithoOnBoundsChangeFingerprint.method.addInstructions(

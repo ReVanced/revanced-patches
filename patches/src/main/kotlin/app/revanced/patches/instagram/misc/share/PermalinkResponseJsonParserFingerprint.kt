@@ -1,6 +1,7 @@
 package app.revanced.patches.instagram.misc.share
 
 import app.revanced.patcher.fingerprint
+import com.google.common.util.concurrent.Striped.custom
 
 internal val permalinkResponseJsonParserFingerprint = fingerprint {
     strings("permalink", "PermalinkResponse")

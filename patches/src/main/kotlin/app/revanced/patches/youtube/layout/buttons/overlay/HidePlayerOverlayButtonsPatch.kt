@@ -1,45 +1,31 @@
 package app.revanced.patches.youtube.layout.buttons.overlay
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
+import app.revanced.patches.youtube.misc.playservice.is_20_28_or_greater
+import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
 import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
-import app.revanced.util.*
+import app.revanced.util.findFreeRegister
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.indexOfFirstResourceIdOrThrow
+import app.revanced.util.insertLiteralOverride
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-
-internal var playerControlPreviousButtonTouchArea = -1L
-    private set
-internal var playerControlNextButtonTouchArea = -1L
-    private set
-internal var controlsButtonGroupLayoutStub = -1L
-    private set
-
-private val hidePlayerOverlayButtonsResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute {
-        playerControlPreviousButtonTouchArea = resourceMappings["id", "player_control_previous_button_touch_area"]
-        playerControlNextButtonTouchArea = resourceMappings["id", "player_control_next_button_touch_area"]
-        controlsButtonGroupLayoutStub = resourceMappings["id", "youtube_controls_button_group_layout_stub"]
-    }
-}
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HidePlayerOverlayButtonsPatch;"
@@ -53,15 +39,16 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        hidePlayerOverlayButtonsResourcePatch,
+        resourceMappingPatch, // Used by fingerprints.
+        versionCheckPatch
     )
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
+            "20.21.37",
+            "20.31.40",
         )
     )
 
@@ -78,21 +65,19 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide player next/previous button.
 
-        playerControlsPreviousNextOverlayTouchFingerprint.method.apply {
-            val resourceIndex = indexOfFirstLiteralInstructionOrThrow(playerControlPreviousButtonTouchArea)
+        layoutConstructorFingerprint.let {
+            it.clearMatch() // Fingerprint is shared with other patches.
 
-            val insertIndex = indexOfFirstInstructionOrThrow(resourceIndex) {
-                opcode == Opcode.INVOKE_STATIC &&
-                    getReference<MethodReference>()?.parameterTypes?.firstOrNull() == "Landroid/view/View;"
+            it.method.apply {
+                val insertIndex = it.instructionMatches.last().index
+                val viewRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+
+                addInstruction(
+                    insertIndex,
+                    "invoke-static { v$viewRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
+                            "->hidePreviousNextButtons(Landroid/view/View;)V",
+                )
             }
-
-            val viewRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
-
-            addInstruction(
-                insertIndex,
-                "invoke-static { v$viewRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
-                    "->hidePreviousNextButtons(Landroid/view/View;)V",
-            )
         }
 
         // endregion
@@ -104,20 +89,33 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
             """
                 invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->getCastButtonOverrideV2(I)I
                 move-result p1
-            """,
+            """
         )
+
+        if (is_20_28_or_greater) {
+            arrayOf(
+                castButtonPlayerFeatureFlagFingerprint,
+                castButtonActionFeatureFlagFingerprint
+            ).forEach { fingerprint ->
+                fingerprint.let {
+                    it.method.insertLiteralOverride(
+                        it.instructionMatches.first().index,
+                        "$EXTENSION_CLASS_DESCRIPTOR->getCastButtonOverrideV2(Z)Z"
+                    )
+                }
+            }
+        }
 
         // endregion
 
         // region Hide captions button.
 
         subtitleButtonControllerFingerprint.method.apply {
-            // Due to previously applied patches, scanResult index cannot be used in this context
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_BOOLEAN) + 1
 
             addInstruction(
                 insertIndex,
-                "invoke-static {v0}, $EXTENSION_CLASS_DESCRIPTOR->hideCaptionsButton(Landroid/widget/ImageView;)V",
+                "invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->hideCaptionsButton(Landroid/widget/ImageView;)V",
             )
         }
 
@@ -152,27 +150,21 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         // region Hide player control buttons background.
 
-        inflateControlsGroupLayoutStubFingerprint.method.apply {
-            val controlsButtonGroupLayoutStubResIdConstIndex =
-                indexOfFirstLiteralInstructionOrThrow(controlsButtonGroupLayoutStub)
-            val inflateControlsGroupLayoutStubIndex =
-                indexOfFirstInstruction(controlsButtonGroupLayoutStubResIdConstIndex) {
-                    getReference<MethodReference>()?.name == "inflate"
-                }
+        inflateControlsGroupLayoutStubFingerprint.let {
+            it.method.apply {
+                val insertIndex = it.instructionMatches.last().index + 1
+                val freeRegister = findFreeRegister(insertIndex)
 
-            val freeRegister = findFreeRegister(inflateControlsGroupLayoutStubIndex)
-            val hidePlayerControlButtonsBackgroundDescriptor =
-                "$EXTENSION_CLASS_DESCRIPTOR->hidePlayerControlButtonsBackground(Landroid/view/View;)V"
-
-            addInstructions(
-                inflateControlsGroupLayoutStubIndex + 1,
-                """
-                   # Move the inflated layout to a temporary register.
-                   # The result of the inflate method is by default not moved to a register after the method is called.
-                   move-result-object v$freeRegister
-                   invoke-static { v$freeRegister }, $hidePlayerControlButtonsBackgroundDescriptor
-                """
-            )
+                addInstructions(
+                    insertIndex,
+                    """
+                        # Move the inflated layout to a temporary register.
+                        # The result of the inflate method is by default not moved to a register after the method is called.
+                        move-result-object v$freeRegister
+                        invoke-static { v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->hidePlayerControlButtonsBackground(Landroid/view/View;)V
+                    """
+                )
+            }
         }
 
         // endregion

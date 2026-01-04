@@ -1,7 +1,7 @@
 package app.revanced.patches.tiktok.feedfilter
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.settingsPatch

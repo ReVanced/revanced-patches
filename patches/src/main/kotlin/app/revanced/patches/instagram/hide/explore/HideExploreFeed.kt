@@ -1,8 +1,8 @@
 package app.revanced.patches.instagram.hide.explore
 
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -11,7 +11,7 @@ context(BytecodePatchContext)
 internal fun Fingerprint.replaceJsonFieldWithBogus(
     key: String,
 ) {
-    val targetStringIndex = stringMatches!!.first { match -> match.string == key }.index
+    val targetStringIndex = stringMatches.first { match -> match.string == key }.index
     val targetStringRegister = method.getInstruction<OneRegisterInstruction>(targetStringIndex).registerA
 
     /**

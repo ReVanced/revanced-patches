@@ -1,16 +1,15 @@
 package app.revanced.patches.youtube.video.quality
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
@@ -25,23 +24,6 @@ internal var videoQualityBottomSheetListFragmentTitle = -1L
 internal var videoQualityQuickMenuAdvancedMenuDescription = -1L
     private set
 
-private val advancedVideoQualityMenuResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch)
-
-    execute {
-        // Used for the old type of the video quality menu.
-        videoQualityBottomSheetListFragmentTitle = resourceMappings[
-            "layout",
-            "video_quality_bottom_sheet_list_fragment_title",
-        ]
-
-        videoQualityQuickMenuAdvancedMenuDescription = resourceMappings[
-            "string",
-            "video_quality_quick_menu_advanced_menu_description",
-        ]
-    }
-}
-
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/playback/quality/AdvancedVideoQualityMenuPatch;"
 
@@ -50,12 +32,12 @@ private const val FILTER_CLASS_DESCRIPTOR =
 
 internal val advancedVideoQualityMenuPatch = bytecodePatch {
     dependsOn(
-        advancedVideoQualityMenuResourcePatch,
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
         lithoFilterPatch,
         recyclerViewTreeHookPatch,
+        resourceMappingPatch
     )
 
     execute {
@@ -65,12 +47,23 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
             SwitchPreference("revanced_advanced_video_quality_menu")
         )
 
+        // Used for the old type of the video quality menu.
+        videoQualityBottomSheetListFragmentTitle = getResourceId(
+            ResourceType.LAYOUT,
+            "video_quality_bottom_sheet_list_fragment_title",
+        )
+
+        videoQualityQuickMenuAdvancedMenuDescription = getResourceId(
+            ResourceType.STRING,
+            "video_quality_quick_menu_advanced_menu_description",
+        )
+
         // region Patch for the old type of the video quality menu.
         // Used for regular videos when spoofing to old app version,
         // and for the Shorts quality flyout on newer app versions.
         videoQualityMenuViewInflateFingerprint.let {
             it.method.apply {
-                val checkCastIndex = it.patternMatch!!.endIndex
+                val checkCastIndex = it.instructionMatches.last().index
                 val listViewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
                 addInstruction(
@@ -83,9 +76,9 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
 
         // Force YT to add the 'advanced' quality menu for Shorts.
         videoQualityMenuOptionsFingerprint.let {
-            val patternMatch = it.patternMatch!!
-            val startIndex = patternMatch.startIndex
-            val insertIndex = patternMatch.endIndex
+            val patternMatch = it.instructionMatches
+            val startIndex = patternMatch.first().index
+            val insertIndex = patternMatch.last().index
             if (startIndex != 0) throw PatchException("Unexpected opcode start index: $startIndex")
 
             it.method.apply {

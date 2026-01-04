@@ -1,7 +1,7 @@
 package app.revanced.patches.music.layout.navigationbar
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -10,9 +10,9 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
-import app.revanced.patches.shared.misc.mapping.get
+import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -63,7 +63,7 @@ val navigationBarPatch = bytecodePatch(
     )
 
     execute {
-        text1 = resourceMappings["id", "text1"]
+        text1 = getResourceId(ResourceType.ID, "text1")
 
         addResources("music", "layout.navigationbar.navigationBarPatch")
 
@@ -100,7 +100,7 @@ val navigationBarPatch = bytecodePatch(
             )
 
             // Set navigation enum and hide navigation buttons.
-            val enumIndex = tabLayoutTextFingerprint.patternMatch!!.startIndex + 3
+            val enumIndex = tabLayoutTextFingerprint.patternMatch.startIndex + 3
             val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
             val insertEnumIndex = indexOfFirstInstructionOrThrow(Opcode.AND_INT_LIT8) - 2
 

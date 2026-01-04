@@ -7,8 +7,8 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.loopvideo.button.loopVideoButtonPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
-import app.revanced.patches.youtube.shared.loopVideoFingerprint
-import app.revanced.patches.youtube.shared.loopVideoParentFingerprint
+import app.revanced.patches.youtube.video.information.videoEndMethod
+import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -22,15 +22,16 @@ val loopVideoPatch = bytecodePatch(
     dependsOn(
         sharedExtensionPatch,
         addResourcesPatch,
-        loopVideoButtonPatch
+        loopVideoButtonPatch,
+        videoInformationPatch
     )
 
     compatibleWith(
         "com.google.android.youtube"(
-            "19.34.42",
-            "20.07.39",
-            "20.13.41",
+            "19.43.41",
             "20.14.43",
+            "20.21.37",
+            "20.31.40",
         )
     )
 
@@ -41,9 +42,10 @@ val loopVideoPatch = bytecodePatch(
             SwitchPreference("revanced_loop_video"),
         )
 
-        loopVideoFingerprint.match(loopVideoParentFingerprint.originalClassDef).method.apply {
-            val playMethod = loopVideoParentFingerprint.method
-            val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.RETURN_VOID)
+        videoEndMethod.apply {
+            // Add call to start playback again, but must not allow exit fullscreen patch call
+            // to be reached if the video is looped.
+            val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_VIRTUAL) + 1
 
             addInstructionsAtControlFlowLabel(
                 insertIndex,
@@ -51,7 +53,8 @@ val loopVideoPatch = bytecodePatch(
                     invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->shouldLoopVideo()Z
                     move-result v0
                     if-eqz v0, :do_not_loop
-                    invoke-virtual { p0 }, $playMethod
+                    invoke-virtual { p0 }, ${videoStartPlaybackFingerprint.method}
+                    return-void
                     :do_not_loop
                     nop
                 """

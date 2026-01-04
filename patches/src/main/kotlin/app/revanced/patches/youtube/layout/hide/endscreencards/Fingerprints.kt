@@ -10,6 +10,8 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal val layoutCircleFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters()
     returns("Landroid/view/View;")
     opcodes(
         Opcode.CONST,
@@ -22,6 +24,8 @@ internal val layoutCircleFingerprint = fingerprint {
 }
 
 internal val layoutIconFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    parameters()
     returns("Landroid/view/View;")
     opcodes(
         Opcode.INVOKE_VIRTUAL,
@@ -33,6 +37,8 @@ internal val layoutIconFingerprint = fingerprint {
 }
 
 internal val layoutVideoFingerprint = fingerprint {
+    accessFlags(AccessFlags.PUBLIC)
+    parameters()
     returns("Landroid/view/View;")
     opcodes(
         Opcode.CONST,

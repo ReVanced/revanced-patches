@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -42,7 +42,7 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         // Restore the behaviour to slide to seek.
 
-        val checkIndex = slideToSeekFingerprint.patternMatch!!.startIndex
+        val checkIndex = slideToSeekFingerprint.instructionMatches.first().index
         val checkReference = slideToSeekFingerprint.method.getInstruction(checkIndex)
             .getReference<MethodReference>()!!
 
@@ -75,7 +75,7 @@ val enableSlideToSeekPatch = bytecodePatch(
         if (is_19_17_or_greater) {
             disableFastForwardGestureFingerprint.let {
                 it.method.apply {
-                    val targetIndex = it.patternMatch!!.endIndex
+                    val targetIndex = it.instructionMatches.last().index
                     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
@@ -88,17 +88,19 @@ val enableSlideToSeekPatch = bytecodePatch(
                 }
             }
         } else {
-            disableFastForwardLegacyFingerprint.method.apply {
-                val insertIndex = disableFastForwardLegacyFingerprint.patternMatch!!.endIndex + 1
-                val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
+            disableFastForwardLegacyFingerprint.let {
+                it.method.apply {
+                    val insertIndex = it.instructionMatches.last().index + 1
+                    val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
-                addInstructions(
-                    insertIndex,
-                    """
-                        invoke-static { v$targetRegister }, $extensionMethodDescriptor
-                        move-result v$targetRegister
-                    """,
-                )
+                    addInstructions(
+                        insertIndex,
+                        """
+                            invoke-static { v$targetRegister }, $extensionMethodDescriptor
+                            move-result v$targetRegister
+                        """,
+                    )
+                }
             }
         }
     }

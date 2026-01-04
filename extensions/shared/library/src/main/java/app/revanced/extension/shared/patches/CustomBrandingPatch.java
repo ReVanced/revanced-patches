@@ -13,6 +13,7 @@ import java.util.Locale;
 
 import app.revanced.extension.shared.GmsCoreSupport;
 import app.revanced.extension.shared.Logger;
+import app.revanced.extension.shared.ResourceType;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.settings.BaseSettings;
 
@@ -65,7 +66,7 @@ public class CustomBrandingPatch {
                 iconName += "_custom";
             }
 
-            notificationSmallIcon = Utils.getResourceIdentifier(iconName, "drawable");
+            notificationSmallIcon = Utils.getResourceIdentifier(ResourceType.DRAWABLE, iconName);
             if (notificationSmallIcon == 0) {
                 Logger.printException(() -> "Could not load notification small icon");
             }

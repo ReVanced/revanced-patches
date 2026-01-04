@@ -13,9 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.Objects;
+import java.util.Set;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.youtube.patches.components.ReturnYouTubeDislikeFilter;
 import app.revanced.extension.youtube.returnyoutubedislike.ReturnYouTubeDislike;
 import app.revanced.extension.youtube.settings.Settings;
@@ -130,6 +132,10 @@ public class ReturnYouTubeDislikePatch {
             }
 
             String conversionContextString = conversionContext.toString();
+
+            if (Settings.RYD_ENABLED.get()) { // FIXME: Remove this.
+                Logger.printDebug(() -> "RYD conversion context: " + conversionContext);
+            }
 
             if (isRollingNumber && !conversionContextString.contains("video_action_bar.e")) {
                 return original;

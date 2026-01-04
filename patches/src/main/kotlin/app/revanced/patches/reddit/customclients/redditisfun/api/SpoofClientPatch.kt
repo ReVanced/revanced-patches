@@ -2,8 +2,8 @@ package app.revanced.patches.reddit.customclients.redditisfun.api
 
 import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.Match
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -34,7 +34,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
             string: String,
             getReplacementIndex: List<Match.StringMatch>.() -> Int,
         ) = method.apply {
-            val replacementIndex = stringMatches!!.getReplacementIndex()
+            val replacementIndex = stringMatches.getReplacementIndex()
             val clientIdRegister = getInstruction<OneRegisterInstruction>(replacementIndex).registerA
 
             replaceInstruction(replacementIndex, "const-string v$clientIdRegister, \"$string\"")

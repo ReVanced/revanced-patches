@@ -1,17 +1,17 @@
 package app.revanced.patches.shared.misc.spoof
 
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
+import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.util.findFreeRegister
@@ -61,6 +61,8 @@ internal fun spoofVideoStreamsPatch(
             "invoke-static { }, $extensionClassDescriptor->setClientOrderToUse()V"
         )
 
+        // TODO?: Force off 45708738L ?
+
         // region Enable extension helper method used by other patches
 
         patchIncludedExtensionMethodFingerprint.method.returnEarly(true)
@@ -69,34 +71,39 @@ internal fun spoofVideoStreamsPatch(
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
-        buildInitPlaybackRequestFingerprint.method.apply {
-            val moveUriStringIndex = buildInitPlaybackRequestFingerprint.patternMatch!!.startIndex
-            val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
 
-            addInstructions(
-                moveUriStringIndex + 1,
-                """
-                    invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$targetRegister
-                """
-            )
+        buildInitPlaybackRequestFingerprint.let {
+            it.method.apply {
+                val moveUriStringIndex = it.instructionMatches.first().index
+                val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
+
+                addInstructions(
+                    moveUriStringIndex + 1,
+                    """
+                        invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
+                        move-result-object v$targetRegister
+                    """
+                )
+            }
         }
 
         // endregion
 
         // region Block /get_watch requests to fall back to /player requests.
 
-        buildPlayerRequestURIFingerprint.method.apply {
-            val invokeToStringIndex = buildPlayerRequestURIFingerprint.patternMatch!!.startIndex
-            val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
+        buildPlayerRequestURIFingerprint.let {
+            it.method.apply {
+                val invokeToStringIndex = it.instructionMatches.first().index
+                val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
 
-            addInstructions(
-                invokeToStringIndex,
-                """
-                    invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
-                    move-result-object v$uriRegister
-                """
-            )
+                addInstructions(
+                    invokeToStringIndex,
+                    """
+                        invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
+                        move-result-object v$uriRegister
+                    """
+                )
+            }
         }
 
         // endregion
@@ -106,7 +113,7 @@ internal fun spoofVideoStreamsPatch(
         buildRequestFingerprint.method.apply {
             buildRequestMethod = this
 
-            val newRequestBuilderIndex = indexOfNewUrlRequestBuilderInstruction(this)
+            val newRequestBuilderIndex = buildRequestFingerprint.instructionMatches.first().index
             buildRequestMethodUrlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
             val freeRegister = findFreeRegister(newRequestBuilderIndex, buildRequestMethodUrlRegister)
 
@@ -126,7 +133,7 @@ internal fun spoofVideoStreamsPatch(
         createStreamingDataFingerprint.method.apply {
             val setStreamDataMethodName = "patch_setStreamingData"
             val resultMethodType = createStreamingDataFingerprint.classDef.type
-            val videoDetailsIndex = createStreamingDataFingerprint.patternMatch!!.endIndex
+            val videoDetailsIndex = createStreamingDataFingerprint.instructionMatches.last().index
             val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
             val videoDetailsClass = getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
 
@@ -137,7 +144,7 @@ internal fun spoofVideoStreamsPatch(
             )
 
             val protobufClass = protobufClassParseByteBufferFingerprint.method.definingClass
-            val setStreamingDataIndex = createStreamingDataFingerprint.patternMatch!!.startIndex
+            val setStreamingDataIndex = createStreamingDataFingerprint.instructionMatches.first().index
 
             val playerProtoClass = getInstruction(setStreamingDataIndex + 1)
                 .getReference<FieldReference>()!!.definingClass
@@ -191,9 +198,9 @@ internal fun spoofVideoStreamsPatch(
                             
                             :disabled
                             return-void
-                        """
+                        """,
                     )
-                }
+                },
             )
         }
 
@@ -227,17 +234,17 @@ internal fun spoofVideoStreamsPatch(
             addInstructions(
                 targetIndex,
                 """
-                    # Field a: Stream uri.
-                    # Field c: Http method.
-                    # Field d: Post data.
-                    move-object v0, p0  # method has over 15 registers and must copy p0 to a lower register.
-                    iget-object v1, v0, $definingClass->a:Landroid/net/Uri;
-                    iget v2, v0, $definingClass->c:I
-                    iget-object v3, v0, $definingClass->d:[B
-                    invoke-static { v1, v2, v3 }, $EXTENSION_CLASS_DESCRIPTOR->removeVideoPlaybackPostBody(Landroid/net/Uri;I[B)[B
-                    move-result-object v1
-                    iput-object v1, v0, $definingClass->d:[B
-                """
+                        # Field a: Stream uri.
+                        # Field c: Http method.
+                        # Field d: Post data.
+                        move-object v0, p0  # method has over 15 registers and must copy p0 to a lower register.
+                        iget-object v1, v0, $definingClass->a:Landroid/net/Uri;
+                        iget v2, v0, $definingClass->c:I
+                        iget-object v3, v0, $definingClass->d:[B
+                        invoke-static { v1, v2, v3 }, $EXTENSION_CLASS_DESCRIPTOR->removeVideoPlaybackPostBody(Landroid/net/Uri;I[B)[B
+                        move-result-object v1
+                        iput-object v1, v0, $definingClass->d:[B
+                    """,
             )
         }
 
@@ -263,10 +270,12 @@ internal fun spoofVideoStreamsPatch(
 
         // region Fix iOS livestream current time.
 
-        hlsCurrentTimeFingerprint.method.insertLiteralOverride(
-            HLS_CURRENT_TIME_FEATURE_FLAG,
-            "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
-        )
+        hlsCurrentTimeFingerprint.let {
+            it.method.insertLiteralOverride(
+                it.instructionMatches.first().index,
+                "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
+            )
+        }
 
         // endregion
 
@@ -274,7 +283,7 @@ internal fun spoofVideoStreamsPatch(
         // If SABR is disabled, it seems 'MediaFetchHotConfig' may no longer need an override (not confirmed).
 
         val (mediaFetchEnumClass, sabrFieldReference) = with(mediaFetchEnumConstructorFingerprint.method) {
-            val stringIndex = mediaFetchEnumConstructorFingerprint.stringMatches!!.first {
+            val stringIndex = mediaFetchEnumConstructorFingerprint.stringMatches.first {
                 it.string == DISABLED_BY_SABR_STREAMING_URI_STRING
             }.index
 
@@ -290,7 +299,7 @@ internal fun spoofVideoStreamsPatch(
             )
         }
 
-        fingerprint {
+        val sabrFingerprint = fingerprint {
             returns(mediaFetchEnumClass)
             opcodes(
                 Opcode.SGET_OBJECT,
@@ -299,7 +308,8 @@ internal fun spoofVideoStreamsPatch(
             custom { method, _ ->
                 !method.parameterTypes.isEmpty()
             }
-        }.method.addInstructionsWithLabels(
+        }
+        sabrFingerprint.method.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disableSABR()Z
@@ -317,24 +327,30 @@ internal fun spoofVideoStreamsPatch(
         // region turn off stream config replacement feature flag.
 
         if (fixMediaFetchHotConfig()) {
-            mediaFetchHotConfigFingerprint.method.insertLiteralOverride(
-                MEDIA_FETCH_HOT_CONFIG_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
-            )
+            mediaFetchHotConfigFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
+                )
+            }
         }
 
         if (fixMediaFetchHotConfigAlternative()) {
-            mediaFetchHotConfigAlternativeFingerprint.method.insertLiteralOverride(
-                MEDIA_FETCH_HOT_CONFIG_ALTERNATIVE_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
-            )
+            mediaFetchHotConfigAlternativeFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
+                )
+            }
         }
 
         if (fixParsePlaybackResponseFeatureFlag()) {
-            playbackStartDescriptorFeatureFlagFingerprint.method.insertLiteralOverride(
-                PLAYBACK_START_CHECK_ENDPOINT_USED_FEATURE_FLAG,
-                "$EXTENSION_CLASS_DESCRIPTOR->usePlaybackStartFeatureFlag(Z)Z"
-            )
+            playbackStartDescriptorFeatureFlagFingerprint.let {
+                it.method.insertLiteralOverride(
+                    it.instructionMatches.first().index,
+                    "$EXTENSION_CLASS_DESCRIPTOR->usePlaybackStartFeatureFlag(Z)Z"
+                )
+            }
         }
 
         // endregion
