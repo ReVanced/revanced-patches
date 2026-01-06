@@ -14,8 +14,7 @@ val hexPatch = rawResourcePatch(
     use = false,
 ) {
     val replacements by stringsOption(
-        key = "replacements",
-        title = "Replacements",
+        name = "Replacements",
         description = """
             Hexadecimal patterns to search for and replace with another in a target file.
 

@@ -1,10 +1,6 @@
 package app.revanced.util
 
 import app.revanced.patcher.FingerprintBuilder
-import com.android.tools.smali.dexlib2.mutable.MutableClassDef
-import com.android.tools.smali.dexlib2.mutable.MutableField
-import com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.firstClassDefMutable
 import app.revanced.patcher.firstClassDefMutableOrNull
@@ -26,6 +22,10 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.Reference
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
+import com.android.tools.smali.dexlib2.mutable.MutableClassDef
+import com.android.tools.smali.dexlib2.mutable.MutableField
+import com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.util.*
 
@@ -805,7 +805,7 @@ fun BytecodePatchContext.forEachInstructionAsSequence(
     block: (classDef: MutableClassDef, method: MutableMethod, matchingIndex: Int, instruction: Instruction) -> Unit,
 ) {
     classDefs.asSequence().flatMap { classDef ->
-        val mutableClassDef by lazy { classDef.getOrReplaceMutable() }
+        val mutableClassDef by lazy { classDefs.getOrReplaceMutable(classDef) }
 
         classDef.methods.asSequence().flatMap { method ->
             val instructions =

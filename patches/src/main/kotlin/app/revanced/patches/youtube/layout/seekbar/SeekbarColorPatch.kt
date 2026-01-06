@@ -151,7 +151,7 @@ val seekbarColorPatch = bytecodePatch(
         // region apply seekbar custom color to splash screen animation.
 
         if (!is_19_34_or_greater) {
-            return@execute // 19.25 does not have a cairo launch animation.
+            return@apply // 19.25 does not have a cairo launch animation.
         }
 
         // Hook the splash animation to set the a seekbar color.

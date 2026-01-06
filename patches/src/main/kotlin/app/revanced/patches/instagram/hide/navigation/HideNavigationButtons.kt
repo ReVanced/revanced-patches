@@ -30,50 +30,44 @@ val hideNavigationButtonsPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     val hideHome by booleanOption(
-        key = "hideHome",
         default = false,
-        title = "Hide Home",
+        name = "Hide Home",
         description = "Permanently hides the Home button. App starts at next available tab." // On the "homecoming" / current instagram layout.
     )
 
     val hideReels by booleanOption(
-        key = "hideReels",
         default = true,
-        title = "Hide Reels",
+        name = "Hide Reels",
         description = "Permanently hides the Reels button."
     )
 
     val hideDirect by booleanOption(
-        key = "hideDirect",
         default = false,
-        title = "Hide Direct",
+        name = "Hide Direct",
         description = "Permanently hides the Direct button."
     )
 
     val hideSearch by booleanOption(
-        key = "hideSearch",
         default = false,
-        title = "Hide Search",
+        name = "Hide Search",
         description = "Permanently hides the Search button."
     )
 
     val hideProfile by booleanOption(
-        key = "hideProfile",
         default = false,
-        title = "Hide Profile",
+        name = "Hide Profile",
         description = "Permanently hides the Profile button."
     )
 
     val hideCreate by booleanOption(
-        key = "hideCreate",
         default = true,
-        title = "Hide Create",
+        name = "Hide Create",
         description = "Permanently hides the Create button."
     )
 
     apply {
         if (!hideHome!! &&!hideReels!! && !hideDirect!! && !hideSearch!! && !hideProfile!! && !hideCreate!!) {
-            return@execute Logger.getLogger(this::class.java.name).warning(
+            return@apply Logger.getLogger(this::class.java.name).warning(
                 "No hide navigation buttons options are enabled. No changes made."
             )
         }

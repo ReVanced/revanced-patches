@@ -33,10 +33,9 @@ val changePackageNamePatch = resourcePatch(
     use = false,
 ) {
     packageNameOption = stringOption(
-        key = "packageName",
         default = "Default",
         values = mapOf("Default" to "Default"),
-        title = "Package name",
+        name = "Package name",
         description = "The name of the package to rename the app to.",
         required = true,
     ) {
@@ -44,17 +43,15 @@ val changePackageNamePatch = resourcePatch(
     }
 
     val updatePermissions by booleanOption(
-        key = "updatePermissions",
         default = false,
-        title = "Update permissions",
+        name = "Update permissions",
         description = "Update compatibility receiver permissions. " +
             "Enabling this can fix installation errors, but this can also break features in certain apps.",
     )
 
     val updateProviders by booleanOption(
-        key = "updateProviders",
         default = false,
-        title = "Update providers",
+        name = "Update providers",
         description = "Update provider names declared by the app. " +
             "Enabling this can fix installation errors, but this can also break features in certain apps.",
     )

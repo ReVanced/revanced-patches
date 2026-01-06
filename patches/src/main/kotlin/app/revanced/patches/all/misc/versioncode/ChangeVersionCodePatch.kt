@@ -13,13 +13,12 @@ val changeVersionCodePatch = resourcePatch(
     use = false,
 ) {
     val versionCode by intOption(
-        key = "versionCode",
         default = Int.MAX_VALUE,
         values = mapOf(
             "Lowest" to 1,
             "Highest" to Int.MAX_VALUE,
         ),
-        title = "Version code",
+        name = "Version code",
         description = "The version code to use. Using the highest value turns off app store " +
                 "updates and allows downgrading an existing app install to an older app version.",
         required = true,

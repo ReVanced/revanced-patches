@@ -1,6 +1,6 @@
-package app.revanced.patches.disneyplus.ads
+package app.revanced.patches.disneyplus
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")

@@ -59,13 +59,12 @@ fun gmsCoreSupportPatch(
             "using a GmsCore instead of Google Play Services.",
 ) {
     val gmsCoreVendorGroupIdOption = stringOption(
-        key = "gmsCoreVendorGroupId",
         default = "app.revanced",
         values =
             mapOf(
                 "ReVanced" to "app.revanced",
             ),
-        title = "GmsCore vendor group ID",
+        name = "GmsCore vendor group ID",
         description = "The vendor's group ID for GmsCore.",
         required = true,
     ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) }
@@ -83,7 +82,7 @@ fun gmsCoreSupportPatch(
             val transformations = mutableListOf<() -> Unit>()
 
             classDefs.forEach { classDef ->
-                val mutableClass by lazy { classDef.getOrReplaceMutable() }
+                val mutableClass by lazy { classDefs.getOrReplaceMutable(classDef) }
 
                 classDef.methods.forEach classLoop@{ method ->
                     val implementation = method.implementation ?: return@classLoop

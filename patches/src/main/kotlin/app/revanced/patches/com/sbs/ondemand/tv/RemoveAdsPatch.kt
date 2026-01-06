@@ -1,6 +1,6 @@
 package app.revanced.patches.com.sbs.ondemand.tv
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.pairip.license.disableLicenseCheckPatch
 import app.revanced.util.returnEarly

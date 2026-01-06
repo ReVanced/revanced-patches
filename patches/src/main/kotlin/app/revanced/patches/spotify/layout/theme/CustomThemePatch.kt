@@ -87,43 +87,38 @@ val customThemePatch = resourcePatch(
     dependsOn(customThemeBytecodePatch)
 
     val backgroundColor by stringOption(
-        key = "backgroundColor",
         default = "@android:color/black",
-        title = "Primary background color",
+        name = "Primary background color",
         description = "The background color. Can be a hex color or a resource reference.",
         required = true,
     )
 
     val overridePlayerGradientColor by booleanOption(
-        key = "overridePlayerGradientColor",
         default = false,
-        title = "Override player gradient color",
+        name = "Override player gradient color",
         description =
             "Apply primary background color to the player gradient color, which changes dynamically with the song.",
         required = false,
     )
 
     val backgroundColorSecondary by stringOption(
-        key = "backgroundColorSecondary",
         default = "#FF121212",
-        title = "Secondary background color",
+        name = "Secondary background color",
         description = "The secondary background color. (e.g. playlist list in home, player artist, song credits). " +
                 "Can be a hex color or a resource reference.\",",
         required = true,
     )
 
     val accentColor by stringOption(
-        key = "accentColor",
         default = "#FF1ED760",
-        title = "Accent color",
+        name = "Accent color",
         description = "The accent color ('Spotify green' by default). Can be a hex color or a resource reference.",
         required = true,
     )
 
     val accentColorPressed by stringOption(
-        key = "accentColorPressed",
         default = "#FF1ABC54",
-        title = "Pressed accent color",
+        name = "Pressed accent color",
         description = "The color when accented buttons are pressed, by default slightly darker than accent. " +
                 "Can be a hex color or a resource reference.",
         required = true,

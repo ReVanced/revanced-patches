@@ -51,7 +51,7 @@ val wideSearchbarPatch = bytecodePatch(
             // YT removed the legacy text search text field all code required to use it.
             // This functionality could be restored by adding a search text field to the toolbar
             // with a listener that artificially clicks the toolbar search button.
-            return@execute Logger.getLogger(this::class.java.name).warning(
+            return@apply Logger.getLogger(this::class.java.name).warning(
                 "Wide searchbar is not compatible with 20.31+"
             )
         }

@@ -1,7 +1,7 @@
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+package app.revanced.patches.instagram.reels
+
+import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.instagram.reels.clipsSwipeRefreshLayoutOnInterceptTouchEventFingerprint
-import app.revanced.patches.instagram.reels.clipsViewPagerImplGetViewAtIndexFingerprint
 import app.revanced.util.returnEarly
 
 @Suppress("unused")

@@ -46,7 +46,7 @@ val themePatch = baseThemePatch(
                 "Light orange" to "#FFE6CC",
                 "Light red" to "#FFD6D6",
             ),
-            title = "Light theme background color",
+            name = "Light theme background color",
             description = THEME_COLOR_OPTION_DESCRIPTION
         )
 

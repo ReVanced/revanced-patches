@@ -65,7 +65,8 @@ private val USER_CUSTOM_ADAPTIVE_FILE_NAMES = arrayOf(
     "$LAUNCHER_ADAPTIVE_FOREGROUND_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.png"
 )
 
-private const val USER_CUSTOM_MONOCHROME_FILE_NAME = "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml"
+private const val USER_CUSTOM_MONOCHROME_FILE_NAME =
+    "$LAUNCHER_ADAPTIVE_MONOCHROME_PREFIX$CUSTOM_USER_ICON_STYLE_NAME.xml"
 private const val USER_CUSTOM_NOTIFICATION_ICON_FILE_NAME = "${NOTIFICATION_ICON_NAME}_$CUSTOM_USER_ICON_STYLE_NAME.xml"
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/patches/CustomBrandingPatch;"
@@ -92,14 +93,12 @@ internal fun baseCustomBrandingPatch(
             "Branding cannot be changed for mounted (root) installations."
 ) {
     val customName by stringOption(
-        key = "customName",
-        title = "App name",
+        name = "App name",
         description = "Custom app name."
     )
 
     val customIcon by stringOption(
-        key = "customIcon",
-        title = "Custom icon",
+        name = "Custom icon",
         description = """
             Folder with images to use as a custom icon.
             
@@ -193,7 +192,7 @@ internal fun baseCustomBrandingPatch(
         addResources(addResourcePatchName, "layout.branding.customBrandingPatch")
 
         preferenceScreen.addPreferences(
-            if (customName != null ) {
+            if (customName != null) {
                 ListPreference(
                     key = "revanced_custom_branding_name",
                     entriesKey = "revanced_custom_branding_name_custom_entries",
@@ -332,7 +331,7 @@ internal fun baseCustomBrandingPatch(
                 "@string/revanced_custom_branding_name_entry_2"
             )
 
-            for (appNameIndex in 1 .. numberOfPresetAppNames) {
+            for (appNameIndex in 1..numberOfPresetAppNames) {
                 fun aliasName(name: String): String = ".revanced_" + name + '_' + appNameIndex
 
                 val useCustomNameLabel = (useCustomName && appNameIndex == numberOfPresetAppNames)
@@ -413,8 +412,8 @@ internal fun baseCustomBrandingPatch(
             var copiedFiles = false
 
             // For each source folder, copy the files to the target resource directories.
-            iconPathFile.listFiles {
-                file -> file.isDirectory && file.name in mipmapDirectories
+            iconPathFile.listFiles { file ->
+                file.isDirectory && file.name in mipmapDirectories
             }!!.forEach { dpiSourceFolder ->
                 val targetDpiFolder = resourceDirectory.resolve(dpiSourceFolder.name)
                 if (!targetDpiFolder.exists()) {
@@ -427,8 +426,9 @@ internal fun baseCustomBrandingPatch(
                 }!!
 
                 if (customFiles.isNotEmpty() && customFiles.size != USER_CUSTOM_ADAPTIVE_FILE_NAMES.size) {
-                    throw PatchException("Must include all required icon files " +
-                            "but only found " + customFiles.map { it.name })
+                    throw PatchException(
+                        "Must include all required icon files " +
+                                "but only found " + customFiles.map { it.name })
                 }
 
                 customFiles.forEach { imgSourceFile ->
@@ -456,9 +456,11 @@ internal fun baseCustomBrandingPatch(
             }
 
             if (!copiedFiles) {
-                throw PatchException("Expected to find directories and files: "
-                        + USER_CUSTOM_ADAPTIVE_FILE_NAMES.contentToString()
-                        + "\nBut none were found in the provided option file path: " + iconPathFile.absolutePath)
+                throw PatchException(
+                    "Expected to find directories and files: "
+                            + USER_CUSTOM_ADAPTIVE_FILE_NAMES.contentToString()
+                            + "\nBut none were found in the provided option file path: " + iconPathFile.absolutePath
+                )
             }
         }
 

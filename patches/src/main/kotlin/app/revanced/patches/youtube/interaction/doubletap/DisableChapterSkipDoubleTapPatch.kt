@@ -43,7 +43,7 @@ val disableDoubleTapActionsPatch = bytecodePatch(
             // Show a message if users have version constrain off and are patching the oldest version,
             // just to prevent spamming a cryptic error message the user may not understand
             // and don't add in app settings that won't work.
-            return@execute Logger.getLogger(this::class.java.name).warning(
+            return@apply Logger.getLogger(this::class.java.name).warning(
                 "Disable double tap actions requires 20.14.43+"
             )
         }

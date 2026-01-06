@@ -38,7 +38,7 @@ val fixPlaybackSpeedWhilePlayingPatch = bytecodePatch {
 
     apply {
         if (!is_19_34_or_greater) {
-            return@execute
+            return@apply
         }
 
         playbackSpeedInFeedsFingerprint.method.apply {

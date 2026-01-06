@@ -27,16 +27,14 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import java.util.logging.Logger
 
 internal val hideShortsAppShortcutOption = booleanOption(
-    key = "hideShortsAppShortcut",
+    name = "Hide Shorts app shortcut",
     default = false,
-    title = "Hide Shorts app shortcut",
     description = "Permanently hides the shortcut to open Shorts when long pressing the app icon in your launcher.",
 )
 
 internal val hideShortsWidgetOption = booleanOption(
-    key = "hideShortsWidget",
+    name = "Hide Shorts widget",
     default = false,
-    title = "Hide Shorts widget",
     description = "Permanently hides the launcher widget Shorts button.",
 )
 

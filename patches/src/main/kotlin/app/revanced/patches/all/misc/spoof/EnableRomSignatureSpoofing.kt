@@ -22,8 +22,7 @@ val enableRomSignatureSpoofing = resourcePatch(
     use = false,
 ) {
     val signatureOrPath by stringOption(
-        key = "signatureOrApkFilePath",
-        title = "Signature or APK file path",
+        name = "Signature or APK file path",
         validator = validator@{ signature ->
             signature ?: return@validator false
 

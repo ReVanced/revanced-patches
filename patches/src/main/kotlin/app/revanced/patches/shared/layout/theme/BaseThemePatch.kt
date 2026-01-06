@@ -70,7 +70,7 @@ internal val darkThemeBackgroundColorOption = stringOption(
         "Dark orange" to "#291800",
         "Dark red" to "#290000",
     ),
-    title = "Dark theme background color",
+    name = "Dark theme background color",
     description = THEME_COLOR_OPTION_DESCRIPTION
 )
 

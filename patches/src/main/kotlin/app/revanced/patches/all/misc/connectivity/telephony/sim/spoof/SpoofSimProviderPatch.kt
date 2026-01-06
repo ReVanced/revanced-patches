@@ -1,18 +1,18 @@
 package app.revanced.patches.all.misc.connectivity.telephony.sim.spoof
 
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
 import app.revanced.patcher.patch.stringOption
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
-import java.util.Locale
+import java.util.*
 
 @Suppress("unused")
 val spoofSimProviderPatch = bytecodePatch(
@@ -23,13 +23,11 @@ val spoofSimProviderPatch = bytecodePatch(
     val countries = Locale.getISOCountries().associateBy { Locale("", it).displayCountry }
 
     fun isoCountryPatchOption(
-        key: String,
-        title: String,
+        name: String,
     ) = stringOption(
-        key,
+        name,
         null,
         countries,
-        title,
         "ISO-3166-1 alpha-2 country code equivalent for the SIM provider's country code.",
         false,
         validator = { it: String? -> it == null || it.uppercase() in countries.values },
@@ -37,39 +35,29 @@ val spoofSimProviderPatch = bytecodePatch(
 
     fun isMccMncValid(it: Int?): Boolean = it == null || (it >= 10000 && it <= 999999)
 
-    val networkCountryIso by isoCountryPatchOption(
-        "networkCountryIso",
-        "Network ISO country code",
-    )
+    val networkCountryIso by isoCountryPatchOption("Network ISO country code")
 
     val networkOperator by intOption(
-        key = "networkOperator",
-        title = "MCC+MNC network operator code",
+        name = "MCC+MNC network operator code",
         description = "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the network operator.",
         validator = { isMccMncValid(it) }
     )
 
     val networkOperatorName by stringOption(
-        key = "networkOperatorName",
-        title = "Network operator name",
+        name = "Network operator name",
         description = "The full name of the network operator.",
     )
 
-    val simCountryIso by isoCountryPatchOption(
-        "simCountryIso",
-        "SIM ISO country code",
-    )
+    val simCountryIso by isoCountryPatchOption("SIM ISO country code")
 
     val simOperator by intOption(
-        key = "simOperator",
-        title = "MCC+MNC SIM operator code",
+        name = "MCC+MNC SIM operator code",
         description = "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the SIM operator.",
         validator = { isMccMncValid(it) }
     )
 
     val simOperatorName by stringOption(
-        key = "simOperatorName",
-        title = "SIM operator name",
+        name = "SIM operator name",
         description = "The full name of the SIM operator.",
     )
 

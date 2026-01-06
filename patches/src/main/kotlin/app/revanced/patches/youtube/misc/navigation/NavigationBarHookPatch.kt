@@ -207,7 +207,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         }
 
         if (is_20_39_or_greater) {
-            return@execute Logger.getLogger(this::class.java.name).warning(
+            return@apply Logger.getLogger(this::class.java.name).warning(
                 "20.39+ Navigation tab activity button selected state is not yet fixed."
             )
         }

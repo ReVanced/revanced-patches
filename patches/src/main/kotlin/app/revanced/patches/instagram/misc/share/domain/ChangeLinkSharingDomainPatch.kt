@@ -23,9 +23,8 @@ val changeLinkSharingDomainPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     val customDomainHost by stringOption(
-        key = "domainName",
         default = "imginn.com",
-        title = "Domain name",
+        name = "Domain name",
         description = "The domain name to use when sharing links."
     )
 

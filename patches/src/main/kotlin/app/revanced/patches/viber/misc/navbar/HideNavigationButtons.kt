@@ -16,9 +16,8 @@ val hideNavigationButtonsPatch = bytecodePatch(
 
     val hideOptions = AllowedNavigationItems.entries.associateWith {
         booleanOption(
-            key = it.key,
+            name = it.optionName,
             default = it.defaultHideOption,
-            title = it.title,
             description = it.description,
         )
     }
@@ -28,7 +27,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
         val allowedItems = hideOptions.filter { (option, enabled) -> enabled.value != true }
 
         if (allowedItems.size == AllowedNavigationItems.entries.size) {
-            return@execute Logger.getLogger(this::class.java.name).warning(
+            return@apply Logger.getLogger(this::class.java.name).warning(
                 "No hide navigation buttons options are enabled. No changes applied."
             )
         }
@@ -67,8 +66,7 @@ private enum class AllowedNavigationItems(
     CAMERA(true, "Camera", 6),
     MARKETPLACE(true, "Marketplace", 8);
 
-    val key = "hide$itemName"
-    val title = "Hide $itemName"
+    val optionName = "Hide $itemName"
     val description = "Permanently hides the $itemName button."
 
     fun buildAllowInstruction(): String =

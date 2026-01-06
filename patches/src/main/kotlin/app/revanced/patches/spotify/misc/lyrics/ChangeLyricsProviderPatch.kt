@@ -30,9 +30,8 @@ val changeLyricsProviderPatch = bytecodePatch(
     compatibleWith("com.spotify.music")
 
     val lyricsProviderHost by stringOption(
-        key = "lyricsProviderHost",
         default = "lyrics.natanchiodi.fr",
-        title = "Lyrics provider host",
+        name = "Lyrics provider host",
         description = "The domain name or IP address of a custom lyrics provider.",
         required = false,
     ) {

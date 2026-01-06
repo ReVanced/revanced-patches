@@ -28,7 +28,7 @@ val exportInternalDataDocumentsProviderPatch = resourcePatch(
                     .asSequence()
                     .any { it.attributes.getNamedItem("android:name")?.nodeValue == documentsProviderClass }
             ) {
-                return@execute
+                return@apply
             }
 
             val authority =

@@ -25,11 +25,9 @@ internal var drawerResourceId = -1L
     private set
 
 private val hideInfocardsResourcePatch = resourcePatch {
-    dependsOn(resourceMappingPatch
-        )
-    
-    apply {
+    dependsOn(resourceMappingPatch)
 
+    apply {
         drawerResourceId = getResourceId(
             ResourceType.ID,
             "info_cards_drawer_header",

@@ -1,4 +1,4 @@
-package app.revanced.patches.disneyplus.ads
+package app.revanced.patches.disneyplus
 
 import app.revanced.patcher.fingerprint
 

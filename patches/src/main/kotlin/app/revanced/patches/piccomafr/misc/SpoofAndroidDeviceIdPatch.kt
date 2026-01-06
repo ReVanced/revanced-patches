@@ -1,6 +1,5 @@
 package app.revanced.patches.piccomafr.misc
 
-import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.util.returnEarly
@@ -32,9 +31,8 @@ val spoofAndroidDeviceIdPatch = bytecodePatch(
     )
 
     val androidDeviceId by stringOption(
-        key = "android-device-id",
+        name = "Android device ID",
         default = "0011223344556677",
-        title = "Android device ID",
         description = "The Android device ID to spoof to.",
         required = true,
     ) { it!!.matches("[A-Fa-f0-9]{16}".toRegex()) }

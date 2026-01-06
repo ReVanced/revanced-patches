@@ -111,8 +111,7 @@ val changeHeaderPatch = resourcePatch(
     )
 
     val custom by stringOption(
-        key = "custom",
-        title = "Custom header logo",
+        name = "Custom header logo",
         description = """
             Folder with images to use as a custom header logo.
             
