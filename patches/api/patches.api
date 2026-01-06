@@ -717,6 +717,27 @@ public final class app/revanced/patches/reddit/customclients/boostforreddit/misc
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/reddit/customclients/continuum/api/Constants {
+	public static final field INSTANCE Lapp/revanced/patches/reddit/customclients/continuum/api/Constants;
+	public static final field NEW_CLIENT_ID Ljava/lang/String;
+	public static final field NEW_REDIRECT_URI Ljava/lang/String;
+	public static final field NEW_USER_AGENT Ljava/lang/String;
+	public static final field OLD_CLIENT_ID Ljava/lang/String;
+	public static final field OLD_REDIRECT_URI Ljava/lang/String;
+}
+
+public final class app/revanced/patches/reddit/customclients/continuum/api/RedditApiBytecodePatchKt {
+	public static final fun getRedditApiBytecodePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/reddit/customclients/continuum/api/RedditApiResourcePatchKt {
+	public static final fun getRedditApiResourcePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
+public final class app/revanced/patches/reddit/customclients/continuum/misc/RemoveClientIdCheckPatchKt {
+	public static final fun getRemoveClientIdCheckPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/reddit/customclients/infinityforreddit/api/SpoofClientPatchKt {
 	public static final fun getSpoofClientPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
