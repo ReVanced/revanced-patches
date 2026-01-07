@@ -356,6 +356,7 @@ public class Settings extends BaseSettings {
     public static final IntegerSetting ANNOUNCEMENT_LAST_ID = new IntegerSetting("revanced_announcement_last_id", -1, false, false);
     public static final BooleanSetting LOOP_VIDEO = new BooleanSetting("revanced_loop_video", FALSE);
     public static final BooleanSetting LOOP_VIDEO_BUTTON = new BooleanSetting("revanced_loop_video_button", FALSE);
+    public static final BooleanSetting PAUSE_ON_AUDIO_INTERRUPT = new BooleanSetting("revanced_pause_on_audio_interrupt", FALSE);
     public static final BooleanSetting BYPASS_URL_REDIRECTS = new BooleanSetting("revanced_bypass_url_redirects", TRUE);
     public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_CHAPTERS = new BooleanSetting("revanced_disable_haptic_feedback_chapters", FALSE);
     public static final BooleanSetting DISABLE_HAPTIC_FEEDBACK_PRECISE_SEEKING = new BooleanSetting("revanced_disable_haptic_feedback_precise_seeking", FALSE);
