@@ -13,11 +13,11 @@ internal val audioFocusChangeListenerFingerprint = fingerprint {
     )
 }
 
-// Fingerprint for bjk.a() - the builder method that creates AudioFocusRequest wrapper
-// This method throws IllegalStateException with this specific message
+// Fingerprint for bjk.a() - the builder method that creates AudioFocusRequest wrapper.
+// This method throws IllegalStateException with this specific message.
 internal val audioFocusRequestBuilderFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")  // Returns an object (bjl)
-    parameters()  // No parameters
+    returns("L")  // Returns an object (bjl).
+    parameters()  // No parameters.
     strings("Can't build an AudioFocusRequestCompat instance without a listener")
 }

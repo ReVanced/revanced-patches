@@ -34,8 +34,8 @@ val pauseOnAudioInterruptPatch = bytecodePatch(
             SwitchPreference("revanced_pause_on_audio_interrupt"),
         )
 
-        // Hook the builder method that creates AudioFocusRequest
-        // At the start, set the willPauseWhenDucked field (b) to true if setting is enabled
+        // Hook the builder method that creates AudioFocusRequest.
+        // At the start, set the willPauseWhenDucked field (b) to true if setting is enabled.
         val builderMethod = audioFocusRequestBuilderFingerprint.method
         val builderClass = builderMethod.definingClass
 
@@ -52,7 +52,7 @@ val pauseOnAudioInterruptPatch = bytecodePatch(
             """
         )
 
-        // Also hook the audio focus change listener as a backup
+        // Also hook the audio focus change listener as a backup.
         audioFocusChangeListenerFingerprint.method.addInstructions(
             0,
             """
