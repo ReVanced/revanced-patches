@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.misc.audiofocus
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -39,7 +40,7 @@ val pauseOnAudioInterruptPatch = bytecodePatch(
         val builderMethod = audioFocusRequestBuilderFingerprint.method
         val builderClass = builderMethod.definingClass
 
-        builderMethod.addInstructions(
+        builderMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->shouldPauseOnAudioInterrupt()Z
