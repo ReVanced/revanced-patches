@@ -1,3 +1,11 @@
+# [5.48.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.8...v5.48.0-dev.9) (2026-01-08)
+
+
+### Features
+
+* Add `Disable Sentry telemetry` patch ([#6416](https://github.com/ReVanced/revanced-patches/issues/6416)) ([4cc3159](https://github.com/ReVanced/revanced-patches/commit/4cc315952db557c565872de9e8484805f2e42305))
+* Disable Play Integrity patch ([#6412](https://github.com/ReVanced/revanced-patches/issues/6412)) ([6312fe8](https://github.com/ReVanced/revanced-patches/commit/6312fe8d60da24465c0c1b0fa4e94ceb79873d9c))
+
 # [5.48.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.7...v5.48.0-dev.8) (2026-01-04)
 
 
