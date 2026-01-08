@@ -104,6 +104,10 @@ public final class app/revanced/patches/all/misc/packagename/ChangePackageNamePa
 	public static final fun setPackageNameOption (Lapp/revanced/patcher/patch/Option;)V
 }
 
+public final class app/revanced/patches/all/misc/playintegrity/DisablePlayIntegrityKt {
+	public static final fun getDisablePlayIntegrityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/all/misc/resources/AddResourcesPatchKt {
 	public static final fun addResource (Ljava/lang/String;Lapp/revanced/util/resource/BaseResource;)Z
 	public static final fun addResources (Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;)Z
@@ -350,6 +354,10 @@ public final class app/revanced/patches/irplus/ad/RemoveAdsPatchKt {
 
 public final class app/revanced/patches/letterboxd/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/letterboxd/unlock/unlockAppIcons/UnlockAppIconsPatchKt {
+	public static final fun getUnlockAppIconsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/lightroom/misc/login/DisableMandatoryLoginPatchKt {
@@ -1192,12 +1200,20 @@ public final class app/revanced/patches/strava/media/AddMediaDownloadPatchKt {
 	public static final fun getAddMediaDownloadPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/strava/mediaupload/OverwriteMediaUploadParametersPatchKt {
+	public static final fun getOverwriteMediaUploadParametersPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/strava/password/EnablePasswordLoginPatchKt {
 	public static final fun getEnablePasswordLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/strava/snowplow/BlockSnowplowTrackingPatchKt {
+public final class app/revanced/patches/strava/privacy/BlockSnowplowTrackingPatchKt {
 	public static final fun getBlockSnowplowTrackingPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/strava/quickedit/DisableQuickEditPatchKt {
+	public static final fun getDisableQuickEditPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/strava/subscription/UnlockSubscriptionPatchKt {
@@ -1975,6 +1991,7 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun indexOfFirstResourceIdOrThrow (Lcom/android/tools/smali/dexlib2/iface/Method;Ljava/lang/String;)I
 	public static final fun injectHideViewCall (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;IILjava/lang/String;Ljava/lang/String;)V
 	public static final fun literal (Lapp/revanced/patcher/FingerprintBuilder;Lkotlin/jvm/functions/Function0;)V
+	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;)V
 	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;B)V
 	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;C)V
 	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;D)V
@@ -1984,7 +2001,6 @@ public final class app/revanced/util/BytecodeUtilsKt {
 	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Ljava/lang/String;)V
 	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;S)V
 	public static final fun returnEarly (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;Z)V
-	public static synthetic fun returnEarly$default (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;ZILjava/lang/Object;)V
 	public static final fun returnLate (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;B)V
 	public static final fun returnLate (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;C)V
 	public static final fun returnLate (Lapp/revanced/patcher/util/proxy/mutableTypes/MutableMethod;D)V

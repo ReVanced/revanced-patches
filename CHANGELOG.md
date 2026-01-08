@@ -1,3 +1,32 @@
+# [5.48.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.7...v5.48.0-dev.8) (2026-01-04)
+
+
+### Features
+
+* **Letterboxd:** Add `Unlock app icons` patch ([#6415](https://github.com/ReVanced/revanced-patches/issues/6415)) ([d25dcfe](https://github.com/ReVanced/revanced-patches/commit/d25dcfe49ac331c9b3dca739ba0be95dbab669cc))
+
+# [5.48.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.6...v5.48.0-dev.7) (2026-01-04)
+
+
+### Features
+
+* **Strava:** Add `Disable Quick Edit` patch ([#6452](https://github.com/ReVanced/revanced-patches/issues/6452)) ([f5cbb31](https://github.com/ReVanced/revanced-patches/commit/f5cbb31724d15f7e939b96ee0186fd0a108f9fdc))
+* **Strava:** Add `Overwrite media upload parameters` patch ([#6410](https://github.com/ReVanced/revanced-patches/issues/6410)) ([b42ae27](https://github.com/ReVanced/revanced-patches/commit/b42ae27ce66ebad9e9cfc5b70fc121df5bad7567))
+
+# [5.48.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.5...v5.48.0-dev.6) (2026-01-04)
+
+
+### Bug Fixes
+
+* Fix build error introduced in `4046bee` ([#6417](https://github.com/ReVanced/revanced-patches/issues/6417)) ([789f0a5](https://github.com/ReVanced/revanced-patches/commit/789f0a562861825065633d172445ebf35a1ba8d8))
+
+# [5.48.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.4...v5.48.0-dev.5) (2025-12-30)
+
+
+### Bug Fixes
+
+* **Disney+ - Skip ads:** Remove unsupported package names ([#6422](https://github.com/ReVanced/revanced-patches/issues/6422)) ([44e7dbc](https://github.com/ReVanced/revanced-patches/commit/44e7dbcf4d7eaf94dd0164baba847d3e19250154))
+
 # [5.48.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.3...v5.48.0-dev.4) (2025-12-29)
 
 
