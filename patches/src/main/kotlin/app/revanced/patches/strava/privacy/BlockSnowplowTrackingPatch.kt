@@ -11,7 +11,7 @@ val blockSnowplowTrackingPatch = bytecodePatch(
     compatibleWith("com.strava")
 
     apply {
-    	// Keep events list empty, otherwise sent to https://c.strava.com/com.snowplowanalytics.snowplow/tp2.
+        // Keep events list empty, otherwise sent to https://c.strava.com/com.snowplowanalytics.snowplow/tp2.
         insertEventFingerprint.method.returnEarly()
     }
 }

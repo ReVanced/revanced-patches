@@ -1,14 +1,13 @@
 package app.revanced.patches.youtube.video.information
 
+import app.revanced.patcher.BytecodePatchContextClassDefMatching.firstMutableClassDef
 import com.android.tools.smali.dexlib2.mutable.MutableClassDef
 import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.firstClassDefMutable
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.toInstructions
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
@@ -141,7 +140,7 @@ val videoInformationPatch = bytecodePatch(
                 addInstruction(
                     videoLengthMethodMatch.instructionMatches.last().index,
                     "invoke-static {v$videoLengthRegister, v$dummyRegisterForLong}, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->setVideoLength(J)V",
+                            "$EXTENSION_CLASS_DESCRIPTOR->setVideoLength(J)V",
                 )
             }
         }
@@ -164,7 +163,7 @@ val videoInformationPatch = bytecodePatch(
         addPlayerResponseMethodHook(
             Hook.ProtoBufferParameterBeforeVideoId(
                 "$EXTENSION_CLASS_DESCRIPTOR->" +
-                    "newPlayerResponseSignature(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;",
+                        "newPlayerResponseSignature(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;",
             ),
         )
 
@@ -199,7 +198,7 @@ val videoInformationPatch = bytecodePatch(
                 getInstruction<ReferenceInstruction>(indexOfFirstInstructionOrThrow(Opcode.IF_EQZ) - 1).reference as FieldReference
 
             setPlaybackSpeedMethod =
-                firstClassDefMutable(setPlaybackSpeedMethodReference.definingClass)
+                firstMutableClassDef(setPlaybackSpeedMethodReference.definingClass)
                     .methods.first { it.name == setPlaybackSpeedMethodReference.name }
             setPlaybackSpeedMethodIndex = 0
 

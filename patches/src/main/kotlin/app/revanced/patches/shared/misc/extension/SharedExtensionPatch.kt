@@ -1,10 +1,10 @@
 package app.revanced.patches.shared.misc.extension
 
+import app.revanced.patcher.BytecodePatchContextClassDefMatching.firstMutableClassDef
 import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.FingerprintBuilder
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.firstClassDefMutable
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
@@ -41,7 +41,7 @@ fun sharedExtensionPatch(
 
     apply {
         // Verify the extension class exists.
-        firstClassDefMutable(EXTENSION_CLASS_DESCRIPTOR)
+        firstMutableClassDef(EXTENSION_CLASS_DESCRIPTOR)
     }
 
     afterDependents {
@@ -86,10 +86,10 @@ fun sharedExtensionPatch(
 
 class ExtensionHook internal constructor(
     internal val fingerprint: Fingerprint,
-    private val insertIndexResolver: BytecodePatchContext.(Method) -> Int,
-    private val contextRegisterResolver: BytecodePatchContext.(Method) -> String,
+    private val insertIndexResolver: context(BytecodePatchContext) (Method) -> Int,
+    private val contextRegisterResolver: context(BytecodePatchContext) (Method) -> String,
 ) {
-    context(BytecodePatchContext)
+    context(_: BytecodePatchContext)
     operator fun invoke(extensionClassDescriptor: String) {
         val insertIndex = insertIndexResolver(fingerprint.method)
         val contextRegister = contextRegisterResolver(fingerprint.method)
@@ -103,16 +103,17 @@ class ExtensionHook internal constructor(
 }
 
 fun extensionHook(
-    insertIndexResolver: BytecodePatchContext.(Method) -> Int = { 0 },
-    contextRegisterResolver: BytecodePatchContext.(Method) -> String = { "p0" },
+    insertIndexResolver: context(BytecodePatchContext) (Method) -> Int = { 0 },
+    contextRegisterResolver: context(BytecodePatchContext) (Method) -> String = { "p0" },
     fingerprint: Fingerprint,
 ) = ExtensionHook(fingerprint, insertIndexResolver, contextRegisterResolver)
 
 fun extensionHook(
-    insertIndexResolver: BytecodePatchContext.(Method) -> Int = { 0 },
-    contextRegisterResolver: BytecodePatchContext.(Method) -> String = { "p0" },
+    insertIndexResolver: context(BytecodePatchContext) (Method) -> Int = { 0 },
+    contextRegisterResolver: context(BytecodePatchContext) (Method) -> String = { "p0" },
     fingerprintBuilderBlock: FingerprintBuilder.() -> Unit,
 ) = {
+    ->
     ExtensionHook(fingerprint(block = fingerprintBuilderBlock), insertIndexResolver, contextRegisterResolver)
 }
 

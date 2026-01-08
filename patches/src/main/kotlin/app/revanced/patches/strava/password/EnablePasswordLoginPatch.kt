@@ -1,8 +1,8 @@
 package app.revanced.patches.strava.password
 
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val enablePasswordLoginPatch = bytecodePatch(
@@ -12,10 +12,9 @@ val enablePasswordLoginPatch = bytecodePatch(
     compatibleWith("com.strava")
 
     apply {
-        fun Fingerprint.loadTrueInsteadOfField() =
-            method.replaceInstruction(patternMatch!!.startIndex, "const/4 v0, 0x1")
+        fun Fingerprint.returnTrue() = method.returnEarly(true)
 
-        logInGetUsePasswordFingerprint.loadTrueInsteadOfField()
-        emailChangeGetUsePasswordFingerprint.loadTrueInsteadOfField()
+        logInGetUsePasswordFingerprint.returnTrue()
+        emailChangeGetUsePasswordFingerprint.returnTrue()
     }
 }
