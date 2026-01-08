@@ -1,14 +1,15 @@
+@file:Suppress("ObjectPropertyName")
+
 package app.revanced.patches.all.misc.network
 
-import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.creatingResourcePatch
 import app.revanced.patches.all.misc.debugging.enableAndroidDebuggingPatch
 import app.revanced.util.Utils.trimIndentMultiline
 import org.w3c.dom.Element
 import java.io.File
 
 @Suppress("unused")
-val overrideCertificatePinningPatch = resourcePatch(
-    name = "Override certificate pinning",
+val `Override certificate pinning` by creatingResourcePatch(
     description = "Overrides certificate pinning, allowing to inspect traffic via a proxy.",
     use = false,
 ) {

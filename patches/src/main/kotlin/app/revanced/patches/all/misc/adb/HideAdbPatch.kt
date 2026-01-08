@@ -1,7 +1,7 @@
 package app.revanced.patches.all.misc.adb
 
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
@@ -26,19 +26,18 @@ private val SETTINGS_GLOBAL_GET_INT_OR_DEFAULT_METHOD_REFERENCE = ImmutableMetho
     "I"
 )
 
-private fun MethodReference.anyMethodSignatureMatches(vararg anyOf: MethodReference): Boolean {
-    return anyOf.any {
-        MethodUtil.methodSignaturesMatch(it, this)
-    }
-}
+private val getIntMethodReferences = listOf(
+    SETTINGS_GLOBAL_GET_INT_OR_THROW_METHOD_REFERENCE,
+    SETTINGS_GLOBAL_GET_INT_OR_DEFAULT_METHOD_REFERENCE
+)
 
-@Suppress("unused")
-val hideAdbStatusPatch = bytecodePatch(
-    name = "Hide ADB status",
+@Suppress("unused", "ObjectPropertyName")
+val `Hide ADB status` by creatingBytecodePatch(
     description = "Hides enabled development settings and/or ADB.",
     use = false,
 ) {
     extendWith("extensions/all/misc/adb/hide-adb.rve")
+
 
     dependsOn(
         transformInstructionsPatch(
@@ -46,11 +45,8 @@ val hideAdbStatusPatch = bytecodePatch(
                 val reference = instruction
                     .takeIf { it.opcode == Opcode.INVOKE_STATIC }
                     ?.getReference<MethodReference>()
-                    ?.takeIf {
-                        it.anyMethodSignatureMatches(
-                            SETTINGS_GLOBAL_GET_INT_OR_THROW_METHOD_REFERENCE,
-                            SETTINGS_GLOBAL_GET_INT_OR_DEFAULT_METHOD_REFERENCE
-                        )
+                    ?.takeIf { reference ->
+                        getIntMethodReferences.any { MethodUtil.methodSignaturesMatch(it, reference) }
                     }
                     ?: return@filterMap null
 

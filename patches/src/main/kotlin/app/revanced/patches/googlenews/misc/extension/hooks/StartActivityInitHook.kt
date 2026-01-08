@@ -10,14 +10,14 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private var getApplicationContextIndex = -1
 
 internal val startActivityInitHook = extensionHook(
-    insertIndexResolver = { method ->
+    getInsertIndex = { method ->
         getApplicationContextIndex = method.indexOfFirstInstructionOrThrow {
             getReference<MethodReference>()?.name == "getApplicationContext"
         }
 
         getApplicationContextIndex + 2 // Below the move-result-object instruction.
     },
-    contextRegisterResolver = { method ->
+    getContextRegister = { method ->
         val moveResultInstruction = method.implementation!!.instructions.elementAt(getApplicationContextIndex + 1)
             as OneRegisterInstruction
         "v${moveResultInstruction.registerA}"

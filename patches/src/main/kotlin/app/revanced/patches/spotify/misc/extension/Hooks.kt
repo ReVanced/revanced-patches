@@ -13,10 +13,10 @@ internal val mainActivityOnCreateHook = extensionHook { mainActivityOnCreateFing
 internal val loadOrbitLibraryHook = extensionHook {
     // FIXME: Creating this is a mess and needs refactoring.
     extensionHook(
-        insertIndexResolver = {
+        getInsertIndex = {
             loadOrbitLibraryFingerprint.stringMatches.last().index
         },
-        contextRegisterResolver = { method ->
+        getContextRegister = { method ->
             val contextReferenceIndex = method.indexOfFirstInstruction {
                 getReference<FieldReference>()?.type == "Landroid/content/Context;"
             }

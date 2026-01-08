@@ -1,10 +1,10 @@
 package app.revanced.patches.all.misc.activity.exportall
 
-import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.creatingResourcePatch
 
-@Suppress("unused")
-val exportAllActivitiesPatch = resourcePatch(
-    name = "Export all activities",
+
+@Suppress("unused", "ObjectPropertyName")
+val `"Export all activities"` by creatingResourcePatch(
     description = "Makes all app activities exportable.",
     use = false,
 ) {

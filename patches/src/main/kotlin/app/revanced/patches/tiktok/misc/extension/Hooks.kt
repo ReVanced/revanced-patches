@@ -14,7 +14,7 @@ internal val initHook = activityOnCreateExtensionHook(
  * This class is called from startup code titled "BPEA RunnableGuardLancet".
  */
 internal val jatoInitHook = extensionHook(
-    contextRegisterResolver = { "p1" }
+    getContextRegister = { "p1" }
 ) {
     parameters("Landroid/content/Context;")
     custom { method, classDef ->
@@ -24,7 +24,7 @@ internal val jatoInitHook = extensionHook(
 }
 
 internal val storeRegionInitHook = extensionHook(
-    contextRegisterResolver = { "p1" }
+    getContextRegister = { "p1" }
 ) {
     parameters("Landroid/content/Context;")
     custom { method, classDef ->

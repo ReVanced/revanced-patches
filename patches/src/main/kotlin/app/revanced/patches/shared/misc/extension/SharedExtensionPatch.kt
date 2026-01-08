@@ -1,10 +1,9 @@
 package app.revanced.patches.shared.misc.extension
 
+import app.revanced.patcher.*
 import app.revanced.patcher.BytecodePatchContextClassDefMatching.firstMutableClassDef
-import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.FingerprintBuilder
+import app.revanced.patcher.BytecodePatchContextMethodMatching.firstMutableMethodDeclaratively
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
@@ -49,52 +48,52 @@ fun sharedExtensionPatch(
         hooks.forEach { hook -> hook()(EXTENSION_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
-        revancedUtilsPatchesVersionFingerprint.method.apply {
-            /**
-             * @return The file path for the jar this classfile is contained inside.
-             */
-            fun getCurrentJarFilePath(): String {
-                val className = object {}::class.java.enclosingClass.name.replace('.', '/') + ".class"
-                val classUrl = object {}::class.java.classLoader?.getResource(className)
-                if (classUrl != null) {
-                    val urlString = classUrl.toString()
+        /**
+         * @return The file path for the jar this classfile is contained inside.
+         */
+        fun getCurrentJarFilePath(): String {
+            val className = object {}::class.java.enclosingClass.name.replace('.', '/') + ".class"
+            val classUrl = object {}::class.java.classLoader?.getResource(className)
+            if (classUrl != null) {
+                val urlString = classUrl.toString()
 
-                    if (urlString.startsWith("jar:file:")) {
-                        val end = urlString.lastIndexOf('!')
+                if (urlString.startsWith("jar:file:")) {
+                    val end = urlString.lastIndexOf('!')
 
-                        return URLDecoder.decode(urlString.substring("jar:file:".length, end), "UTF-8")
-                    }
+                    return URLDecoder.decode(urlString.substring("jar:file:".length, end), "UTF-8")
                 }
-                throw IllegalStateException("Not running from inside a JAR file.")
             }
-
-            /**
-             * @return The value for the manifest entry,
-             *         or "Unknown" if the entry does not exist or is blank.
-             */
-            @Suppress("SameParameterValue")
-            fun getPatchesManifestEntry(attributeKey: String) = JarFile(getCurrentJarFilePath()).use { jarFile ->
-                jarFile.manifest.mainAttributes.entries.firstOrNull { it.key.toString() == attributeKey }?.value?.toString()
-                    ?: "Unknown"
-            }
-
-            val manifestValue = getPatchesManifestEntry("Version")
-            returnEarly(manifestValue)
+            throw IllegalStateException("Not running from inside a JAR file.")
         }
+
+        /**
+         * @return The value for the manifest entry,
+         *         or "Unknown" if the entry does not exist or is blank.
+         */
+        @Suppress("SameParameterValue")
+        fun getPatchesManifestEntry(attributeKey: String) = JarFile(getCurrentJarFilePath()).use { jarFile ->
+            jarFile.manifest.mainAttributes.entries.firstOrNull { it.key.toString() == attributeKey }?.value?.toString()
+                ?: "Unknown"
+        }
+
+        val manifestValue = getPatchesManifestEntry("Version")
+
+        getPatchesReleaseVersionMethod.returnEarly(manifestValue)
     }
 }
 
 class ExtensionHook internal constructor(
-    internal val fingerprint: Fingerprint,
-    private val insertIndexResolver: context(BytecodePatchContext) (Method) -> Int,
-    private val contextRegisterResolver: context(BytecodePatchContext) (Method) -> String,
+    private val getInsertIndex: Method.() -> Int,
+    private val getContextRegister: Method.() -> String,
+    private val predicate: DeclarativePredicate<Method>,
 ) {
-    context(_: BytecodePatchContext)
+    context(context: BytecodePatchContext)
     operator fun invoke(extensionClassDescriptor: String) {
-        val insertIndex = insertIndexResolver(fingerprint.method)
-        val contextRegister = contextRegisterResolver(fingerprint.method)
+        val method = context.firstMutableMethodDeclaratively(predicate = predicate)
+        val insertIndex = method.getInsertIndex()
+        val contextRegister = method.getContextRegister()
 
-        fingerprint.method.addInstruction(
+        method.addInstruction(
             insertIndex,
             "invoke-static/range { $contextRegister .. $contextRegister }, " +
                     "$extensionClassDescriptor->setContext(Landroid/content/Context;)V",
@@ -103,19 +102,10 @@ class ExtensionHook internal constructor(
 }
 
 fun extensionHook(
-    insertIndexResolver: context(BytecodePatchContext) (Method) -> Int = { 0 },
-    contextRegisterResolver: context(BytecodePatchContext) (Method) -> String = { "p0" },
-    fingerprint: Fingerprint,
-) = ExtensionHook(fingerprint, insertIndexResolver, contextRegisterResolver)
-
-fun extensionHook(
-    insertIndexResolver: context(BytecodePatchContext) (Method) -> Int = { 0 },
-    contextRegisterResolver: context(BytecodePatchContext) (Method) -> String = { "p0" },
-    fingerprintBuilderBlock: FingerprintBuilder.() -> Unit,
-) = {
-    ->
-    ExtensionHook(fingerprint(block = fingerprintBuilderBlock), insertIndexResolver, contextRegisterResolver)
-}
+    getInsertIndex: Method.() -> Int = { 0 },
+    getContextRegister: Method.() -> String = { "p0" },
+    predicate: DeclarativePredicate<Method>,
+) = ExtensionHook(getInsertIndex, getContextRegister, predicate)
 
 /**
  * Creates an extension hook from a non-obfuscated activity, which typically is the main activity
@@ -124,7 +114,7 @@ fun extensionHook(
  * @param activityClassType Either the full activity class type such as `Lcom/company/MainActivity;`
  *                          or the 'ends with' string for the activity such as `/MainActivity;`
  */
-fun activityOnCreateExtensionHook(activityClassType: String): () -> ExtensionHook {
+fun activityOnCreateExtensionHook(activityClassType: String): ExtensionHook {
     if (!activityClassType.endsWith(';')) {
         throw IllegalArgumentException("Activity class type does not end with semicolon: $activityClassType")
     }
@@ -132,12 +122,12 @@ fun activityOnCreateExtensionHook(activityClassType: String): () -> ExtensionHoo
     val fullClassType = activityClassType.startsWith('L')
 
     return extensionHook {
-        returns("V")
-        parameters("Landroid/os/Bundle;")
-        custom { method, classDef ->
-            method.name == "onCreate" &&
-                    if (fullClassType) classDef.type == activityClassType
-                    else classDef.type.endsWith(activityClassType)
-        }
+        name("onCreate")
+
+        if (fullClassType) definingClass(activityClassType)
+        else definingClass { endsWith(activityClassType) }
+
+        returnType("V")
+        parameterTypes("Landroid/os/Bundle;")
     }
 }
