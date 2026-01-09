@@ -1,6 +1,6 @@
 package app.revanced.patches.shared.misc.privacy
 
-import app.revanced.patcher.Fingerprint
+import app.revanced.patcher.MatchBuilder
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatchBuilder
@@ -60,8 +60,8 @@ internal fun sanitizeSharingLinksPatch(
             }
         )
 
-        fun Fingerprint.hookUrlString(matchIndex: Int) {
-            val index = instructionMatches[matchIndex].index
+        fun MatchBuilder.hookUrlString(matchIndex: Int) {
+            val index = indices[matchIndex]
             val urlRegister = method.getInstruction<OneRegisterInstruction>(index).registerA
 
             method.addInstructions(
@@ -73,8 +73,8 @@ internal fun sanitizeSharingLinksPatch(
             )
         }
 
-        fun Fingerprint.hookIntentPutExtra(matchIndex: Int) {
-            val index = instructionMatches[matchIndex].index
+        fun MatchBuilder.hookIntentPutExtra(matchIndex: Int) {
+            val index = indices[matchIndex]
             val urlRegister = method.getInstruction<FiveRegisterInstruction>(index).registerE
 
             method.addInstructionsAtControlFlowLabel(
@@ -87,12 +87,12 @@ internal fun sanitizeSharingLinksPatch(
         }
 
         // YouTube share sheet copy link.
-        youTubeCopyTextFingerprint.hookUrlString(0)
+        youTubeCopyTextFingerprintMethodMatch.hookUrlString(0)
 
         // YouTube share sheet other apps.
-        youTubeShareSheetFingerprint.hookIntentPutExtra(3)
+        youTubeShareSheetMethodMatch.hookIntentPutExtra(3)
 
         // Native system share sheet.
-        youTubeSystemShareSheetFingerprint.hookIntentPutExtra(3)
+        youTubeSystemShareSheetMethodMatch.hookIntentPutExtra(3)
     }
 }

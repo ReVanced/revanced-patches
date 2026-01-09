@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.misc.gms
 import app.revanced.patcher.patch.Option
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.castContextFetchFingerprint
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.shared.primeMethodFingerprint
@@ -20,11 +19,11 @@ import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 val gmsCoreSupportPatch = gmsCoreSupportPatch(
     fromPackageName = YOUTUBE_PACKAGE_NAME,
     toPackageName = REVANCED_YOUTUBE_PACKAGE_NAME,
-    primeMethodFingerprint = primeMethodFingerprint,
-    earlyReturnFingerprints = setOf(
+    getPrimeMethod = primeMethodFingerprint,
+    getEarlyReturnMethods = setOf(
         castContextFetchFingerprint,
     ),
-    mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
+    getMainActivityOnCreateMethod = mainActivityOnCreateFingerprint,
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {

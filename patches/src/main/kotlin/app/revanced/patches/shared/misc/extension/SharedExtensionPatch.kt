@@ -20,9 +20,9 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/
  */
 fun sharedExtensionPatch(
     extensionName: String,
-    vararg hooks: () -> ExtensionHook,
+    vararg hooks: ExtensionHook,
 ) = bytecodePatch {
-    dependsOn(sharedExtensionPatch(*hooks))
+    dependsOn(sharedExtensionPatch(hooks = hooks))
 
     extendWith("extensions/$extensionName.rve")
 }
@@ -34,7 +34,7 @@ fun sharedExtensionPatch(
  * commonly for the onCreate method of exported activities.
  */
 fun sharedExtensionPatch(
-    vararg hooks: () -> ExtensionHook,
+    vararg hooks: ExtensionHook,
 ) = bytecodePatch {
     extendWith("extensions/shared.rve")
 
@@ -45,7 +45,7 @@ fun sharedExtensionPatch(
 
     afterDependents {
         // The hooks are made in afterDependents to ensure that the context is hooked before any other patches.
-        hooks.forEach { hook -> hook()(EXTENSION_CLASS_DESCRIPTOR) }
+        hooks.forEach { hook -> hook(EXTENSION_CLASS_DESCRIPTOR) }
 
         // Modify Utils method to include the patches release version.
         /**
@@ -87,9 +87,9 @@ class ExtensionHook internal constructor(
     private val getContextRegister: Method.() -> String,
     private val predicate: DeclarativePredicate<Method>,
 ) {
-    context(context: BytecodePatchContext)
+    context(_: BytecodePatchContext)
     operator fun invoke(extensionClassDescriptor: String) {
-        val method = context.firstMutableMethodDeclaratively(predicate = predicate)
+        val method = firstMutableMethodDeclaratively(predicate = predicate)
         val insertIndex = method.getInsertIndex()
         val contextRegister = method.getContextRegister()
 

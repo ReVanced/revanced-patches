@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_MAIN_ACTIVITY_NAME
 import app.revanced.patches.music.misc.gms.Constants.MUSIC_PACKAGE_NAME
-import app.revanced.patches.music.misc.gms.musicActivityOnCreateFingerprint
+import app.revanced.patches.music.misc.gms.musicActivityOnCreateMethod
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.shared.layout.branding.EXTENSION_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
@@ -62,7 +62,7 @@ val customBrandingPatch = baseCustomBrandingPatch(
     originalAppPackageName = MUSIC_PACKAGE_NAME,
     isYouTubeMusic = true,
     numberOfPresetAppNames = 5,
-    mainActivityOnCreateFingerprint = musicActivityOnCreateFingerprint,
+    getMainActivityOnCreate = { musicActivityOnCreateMethod },
     mainActivityName = MUSIC_MAIN_ACTIVITY_NAME,
     activityAliasNameWithIntents = MUSIC_MAIN_ACTIVITY_NAME,
     preferenceScreen = PreferenceScreen.GENERAL,

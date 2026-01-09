@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
 val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
     extensionClassDescriptor = "Lapp/revanced/extension/youtube/patches/spoof/SpoofVideoStreamsPatch;",
-    mainActivityOnCreateFingerprint = mainActivityOnCreateFingerprint,
+    getMainActivityOnCreateMethod = mainActivityOnCreateFingerprint,
     fixMediaFetchHotConfig = {
         is_19_34_or_greater
     },

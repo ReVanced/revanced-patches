@@ -2,6 +2,4 @@ package app.revanced.patches.reddit.customclients.baconreader.misc.extension.hoo
 
 import app.revanced.patches.shared.misc.extension.activityOnCreateExtensionHook
 
-internal val initHook = activityOnCreateExtensionHook(
-    "Lcom/onelouder/baconreader/BaconReader;"
-)
+internal val initHook = activityOnCreateExtensionHook("Lcom/onelouder/baconreader/BaconReader;")

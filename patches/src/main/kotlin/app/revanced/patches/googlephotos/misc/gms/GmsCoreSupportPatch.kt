@@ -10,7 +10,7 @@ import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
 val gmsCoreSupportPatch = gmsCoreSupportPatch(
     fromPackageName = PHOTOS_PACKAGE_NAME,
     toPackageName = REVANCED_PHOTOS_PACKAGE_NAME,
-    mainActivityOnCreateFingerprint = homeActivityOnCreateFingerprint,
+    getMainActivityOnCreate = homeActivityOnCreateFingerprint,
     extensionPatch = extensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {

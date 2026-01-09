@@ -1,36 +1,21 @@
 package app.revanced.patches.shared.layout.branding
 
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.ResourcePatch
-import app.revanced.patcher.patch.ResourcePatchBuilder
-import app.revanced.patcher.patch.ResourcePatchContext
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
-import app.revanced.patcher.patch.stringOption
+import app.revanced.patcher.patch.*
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
-import app.revanced.util.ResourceGroup
+import app.revanced.util.*
 import app.revanced.util.Utils.trimIndentMultiline
-import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.copyResources
-import app.revanced.util.findElementByAttributeValueOrThrow
-import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import app.revanced.util.removeFromParent
-import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import org.w3c.dom.Element
 import org.w3c.dom.NodeList
 import java.io.File
@@ -81,13 +66,13 @@ internal fun baseCustomBrandingPatch(
     originalAppPackageName: String,
     isYouTubeMusic: Boolean,
     numberOfPresetAppNames: Int,
-    mainActivityOnCreateFingerprint: Fingerprint,
+    getMainActivityOnCreate: BytecodePatchContext.() -> MutableMethod,
     mainActivityName: String,
     activityAliasNameWithIntents: String,
     preferenceScreen: BasePreferenceScreen.Screen,
     block: ResourcePatchBuilder.() -> Unit,
     executeBlock: ResourcePatchContext.() -> Unit = {}
-): ResourcePatch = resourcePatch(
+) = resourcePatch(
     name = "Custom branding",
     description = "Adds options to change the app icon and app name. " +
             "Branding cannot be changed for mounted (root) installations."
@@ -125,7 +110,7 @@ internal fun baseCustomBrandingPatch(
         addBrandLicensePatch,
         bytecodePatch {
             apply {
-                mainActivityOnCreateFingerprint.method.addInstruction(
+                getMainActivityOnCreate().addInstruction(
                     0,
                     "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->setBranding()V"
                 )

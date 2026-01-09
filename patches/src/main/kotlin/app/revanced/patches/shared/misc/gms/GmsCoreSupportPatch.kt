@@ -1,6 +1,5 @@
 package app.revanced.patches.shared.misc.gms
 
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
@@ -20,6 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import org.w3c.dom.Element
 import org.w3c.dom.Node
@@ -34,9 +34,9 @@ private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
  *
  * @param fromPackageName The package name of the original app.
  * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
- * @param primeMethodFingerprint The fingerprint of the "prime" method that needs to be patched.
- * @param earlyReturnFingerprints The fingerprints of methods that need to be returned early.
- * @param mainActivityOnCreateFingerprint The fingerprint of the main activity onCreate method.
+ * @param getPrimeMethod The "prime" method that needs to be patched.
+ * @param getEarlyReturnMethods The methods that need to be returned early.
+ * @param getMainActivityOnCreateMethod The main activity onCreate method.
  * @param extensionPatch The patch responsible for the extension.
  * @param gmsCoreSupportResourcePatchFactory The factory for the corresponding resource patch
  * that is used to patch the resources.
@@ -46,9 +46,9 @@ private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
 fun gmsCoreSupportPatch(
     fromPackageName: String,
     toPackageName: String,
-    primeMethodFingerprint: Fingerprint? = null,
-    earlyReturnFingerprints: Set<Fingerprint> = setOf(),
-    mainActivityOnCreateFingerprint: Fingerprint,
+    getPrimeMethod: (BytecodePatchContext.() -> MutableMethod)? = null,
+    getEarlyReturnMethods: BytecodePatchContext.() -> Set<MutableMethod> = { setOf() },
+    getMainActivityOnCreateMethod: BytecodePatchContext.() -> MutableMethod,
     extensionPatch: Patch,
     gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>) -> Patch,
     executeBlock: BytecodePatchContext.() -> Unit = {},
@@ -165,18 +165,18 @@ fun gmsCoreSupportPatch(
         }
 
         fun transformPrimeMethod(packageName: String) {
-            primeMethodFingerprint!!.method.apply {
-                var register = 2
+            val primeMethod = getPrimeMethod!!()
 
-                val index = instructions.indexOfFirst {
-                    if (it.getReference<StringReference>()?.string != fromPackageName) return@indexOfFirst false
+            var register = 2
 
-                    register = (it as OneRegisterInstruction).registerA
-                    return@indexOfFirst true
-                }
+            val index = primeMethod.instructions.indexOfFirst {
+                if (it.getReference<StringReference>()?.string != fromPackageName) return@indexOfFirst false
 
-                replaceInstruction(index, "const-string v$register, \"$packageName\"")
+                register = (it as OneRegisterInstruction).registerA
+                return@indexOfFirst true
             }
+
+            primeMethod.replaceInstruction(index, "const-string v$register, \"$packageName\"")
         }
 
         // endregion
@@ -198,18 +198,10 @@ fun gmsCoreSupportPatch(
         }
 
         // Specific method that needs to be patched.
-        primeMethodFingerprint?.let { transformPrimeMethod(packageName) }
+        getPrimeMethod?.let { transformPrimeMethod(packageName) }
 
         // Return these methods early to prevent the app from crashing.
-        earlyReturnFingerprints.forEach {
-            it.method.apply {
-                if (returnType == "Z") {
-                    returnEarly(false)
-                } else {
-                    returnEarly()
-                }
-            }
-        }
+        getEarlyReturnMethods().forEach { it.returnEarly() }
         serviceCheckFingerprint.method.returnEarly()
 
         // Google Play Utility is not present in all apps, so we need to check if it's present.
@@ -221,7 +213,7 @@ fun gmsCoreSupportPatch(
         originalPackageNameExtensionFingerprint.method.returnEarly(fromPackageName)
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
-        mainActivityOnCreateFingerprint.method.addInstruction(
+        getMainActivityOnCreateMethod().addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
                     "checkGmsCore(Landroid/app/Activity;)V"

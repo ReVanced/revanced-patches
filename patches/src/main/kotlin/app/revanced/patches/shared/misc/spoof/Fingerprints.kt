@@ -1,51 +1,48 @@
 package app.revanced.patches.shared.misc.spoof
 
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.fingerprint
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
-import app.revanced.patcher.literal
-import app.revanced.patcher.methodCall
-import app.revanced.patcher.addString
+import app.revanced.patcher.custom
+import app.revanced.patcher.extensions.methodReference
+import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.immutableClassDef
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.method
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val buildInitPlaybackRequestFingerprint = fingerprint {
-    returns("Lorg/chromium/net/UrlRequest\$Builder;")
-    opcodes(
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IGET_OBJECT, // Moves the request URI string to a register to build the request with.
-    )
-    strings(
-        "Content-Type",
-        "Range",
-    )
-}
-
-internal val buildPlayerRequestURIFingerprint = fingerprint {
-    returns("Ljava/lang/String;")
-    opcodes(
-        Opcode.INVOKE_VIRTUAL, // Register holds player request URI.
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IPUT_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.MONITOR_EXIT,
-        Opcode.RETURN_OBJECT,
-    )
-    strings(
-        "key",
-        "asig",
-    )
-}
-
-internal val buildRequestFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Lorg/chromium/net/UrlRequest") // UrlRequest; or UrlRequest$Builder;
+internal val buildInitPlaybackRequestMatch = firstMethodComposite("Content-Type", "Range") {
+    returnType("Lorg/chromium/net/UrlRequest\$Builder;")
     instructions(
-        methodCall(name = "newUrlRequestBuilder")
+        Opcode.MOVE_RESULT_OBJECT(),
+        Opcode.IGET_OBJECT(), // Moves the request URI string to a register to build the request with.
+    )
+}
+
+internal val buildPlayerRequestURIMethodMatch = firstMethodComposite("key", "asig") {
+    returnType("Ljava/lang/String;")
+    instructions(
+        Opcode.INVOKE_VIRTUAL(), // Register holds player request URI.
+        Opcode.MOVE_RESULT_OBJECT(),
+        Opcode.IPUT_OBJECT(),
+        Opcode.IGET_OBJECT(),
+        Opcode.MONITOR_EXIT(),
+        Opcode.RETURN_OBJECT(),
+    )
+}
+
+internal val buildRequestMethodMatch = firstMethodComposite() {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returnType("Lorg/chromium/net/UrlRequest") // UrlRequest; or UrlRequest$Builder;
+    instructions(
+        method("newUrlRequestBuilder"),
     ) // UrlRequest; or UrlRequest$Builder;
-    custom { methodDef, _ ->
+    custom {
         // Different targets have slightly different parameters
 
         // Earlier targets have parameters:
@@ -75,11 +72,11 @@ internal val buildRequestFingerprint = fingerprint {
         // Lorg/chromium/net/UrlRequest$Callback;
         // L
 
-        val parameterTypes = methodDef.parameterTypes
+        val parameterTypes = parameterTypes
         val parameterTypesSize = parameterTypes.size
         (parameterTypesSize == 6 || parameterTypesSize == 7 || parameterTypesSize == 8) &&
                 parameterTypes[1] == "Ljava/util/Map;" // URL headers.
-                && indexOfNewUrlRequestBuilderInstruction(methodDef) >= 0
+                && indexOfNewUrlRequestBuilderInstruction(this) >= 0
     }
 }
 
@@ -96,19 +93,19 @@ internal val protobufClassParseByteBufferFingerprint = fingerprint {
     custom { method, _ -> method.name == "parseFrom" }
 }
 
-internal val createStreamingDataFingerprint = fingerprint {
+internal val createStreamingDataMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("L")
-    opcodes(
-        Opcode.IPUT_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.IF_NEZ,
-        Opcode.SGET_OBJECT,
-        Opcode.IPUT_OBJECT,
+    parameterTypes("L")
+    instructions(
+        Opcode.IPUT_OBJECT(),
+        Opcode.IGET_OBJECT(),
+        Opcode.IF_NEZ(),
+        Opcode.SGET_OBJECT(),
+        Opcode.IPUT_OBJECT(),
     )
-    custom { method, classDef ->
-        classDef.fields.any { field ->
-            field.name == "a" && field.type.endsWith("/StreamingDataOuterClass\$StreamingData;")
+    custom {
+        immutableClassDef.fields.any { field ->
+            field.name == "a" && field.type.endsWith($$"/StreamingDataOuterClass$StreamingData;")
         }
     }
 }
@@ -129,22 +126,22 @@ internal val buildMediaDataSourceFingerprint = fingerprint {
     )
 }
 
-internal val hlsCurrentTimeFingerprint = fingerprint {
+internal val hlsCurrentTimeMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Z", "L")
+    parameterTypes("Z", "L")
     instructions(
-        literal(45355374L) // HLS current time feature flag.
+        45355374L() // HLS current time feature flag.
     )
 }
 
 internal const val DISABLED_BY_SABR_STREAMING_URI_STRING = "DISABLED_BY_SABR_STREAMING_URI"
 
-internal val mediaFetchEnumConstructorFingerprint = fingerprint {
-    returns("V")
-    strings(
-        "ENABLED",
-        "DISABLED_FOR_PLAYBACK",
-        DISABLED_BY_SABR_STREAMING_URI_STRING
+internal val mediaFetchEnumConstructorMethodMatch = firstMethodComposite {
+    returnType("V")
+    instructions(
+        "ENABLED"(),
+        "DISABLED_FOR_PLAYBACK"(),
+        DISABLED_BY_SABR_STREAMING_URI_STRING()
     )
 }
 
@@ -169,35 +166,30 @@ internal val patchIncludedExtensionMethodFingerprint = fingerprint {
 // This code appears to replace the player config after the streams are loaded.
 // Flag is present in YouTube 19.34, but is missing Platypus stream replacement code until 19.43.
 // Flag and Platypus code is also present in newer versions of YouTube Music.
-internal val mediaFetchHotConfigFingerprint = fingerprint {
-    instructions(
-        literal(45645570L)
-    )
+internal val mediaFetchHotConfigMethodMatch = firstMethodComposite {
+    instructions(45645570L())
 }
 
 // YT 20.10+, YT Music 8.11 - 8.14.
 // Flag is missing in YT Music 8.15+, and it is not known if a replacement flag/feature exists.
-internal val mediaFetchHotConfigAlternativeFingerprint = fingerprint {
-    instructions(
-        literal(45683169L)
-    )
+internal val mediaFetchHotConfigAlternativeMethodMatch = firstMethodComposite {
+    instructions(45683169L())
 }
 
 // Feature flag that enables different code for parsing and starting video playback,
-// but it's exact purpose is not known. If this flag is enabled while stream spoofing
+// but its exact purpose is not known. If this flag is enabled while stream spoofing
 // then videos will never start playback and load forever.
 // Flag does not seem to affect playback if spoofing is off.
-internal val playbackStartDescriptorFeatureFlagFingerprint = fingerprint {
-    parameters()
-    returns("Z")
-    instructions(
-        literal(45665455L)
-    )
+internal val playbackStartDescriptorFeatureFlagMethodMatch = firstMethodComposite() {
+    parameterTypes()
+    returnType("Z")
+    instructions(45665455L())
 }
 
 internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) = method.indexOfFirstInstruction {
-    val reference = getReference<MethodReference>()
-    opcode == Opcode.INVOKE_VIRTUAL && reference?.definingClass == "Lorg/chromium/net/CronetEngine;"
+    val reference = methodReference ?: return@indexOfFirstInstruction false
+
+    opcode == Opcode.INVOKE_VIRTUAL && reference.definingClass == "Lorg/chromium/net/CronetEngine;"
             && reference.name == "newUrlRequestBuilder"
             && reference.parameterTypes.size == 3
             && reference.parameterTypes[0] == "Ljava/lang/String;"
