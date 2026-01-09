@@ -55,7 +55,7 @@ val addMediaDownloadPatch = bytecodePatch(
     execute {
         val fragment = handleMediaActionFingerprint.originalClassDef
 
-        // extend menu of `FullscreenMediaFragment` with actions
+        // Extend menu of `FullscreenMediaFragment` with actions.
         run {
             createAndShowFragmentFingerprint.match(fragment).method.apply {
                 val indexAfterSetTrue = instructions.indexOfFirst { instruction ->
@@ -83,13 +83,13 @@ val addMediaDownloadPatch = bytecodePatch(
                 addMenuItem(ACTION_OPEN_LINK, "fallback_menu_item_open_in_browser", "core_o3", "actions_link_external_normal_xsmall")
                 addMenuItem(ACTION_DOWNLOAD, "download", "core_o3", "actions_download_normal_xsmall")
 
-                // move media to last parameter of `Action` constructor
+                // Move media to last parameter of `Action` constructor.
                 val getMedia = instructions.first { instruction ->
                     instruction.opcode == Opcode.IGET_OBJECT && instruction.getReference<FieldReference>()!!.type == MEDIA
                 }
                 addInstruction(getMedia.location.index + 1, "move-object/from16 v19, v${getMedia.writeRegister}")
 
-                // overwrite `this` with context for `Utils`
+                // Overwrite `this` with context for `Utils`.
                 val readThisIndex = instructions.indexOfFirst { instruction ->
                     val registersUsed = instruction.registersUsed
                     registersUsed.isNotEmpty() &&
@@ -105,7 +105,7 @@ val addMediaDownloadPatch = bytecodePatch(
             }
         }
 
-        // handle new actions
+        // Handle new actions.
         run {
             val actionClass = classes.first { clazz ->
                 clazz.type == ACTION
@@ -114,7 +114,7 @@ val addMediaDownloadPatch = bytecodePatch(
                 field.type == "Ljava/io/Serializable;"
             }
 
-            // handle "copy link" & "open link" & "download" actions
+            // Handle "copy link" & "open link" & "download" actions.
             val handler = ImmutableMethod(
                 fragment.type,
                 "handleCustomAction",
@@ -181,7 +181,7 @@ val addMediaDownloadPatch = bytecodePatch(
             handleMediaActionFingerprint.classDef.methods.add(handler)
 
             handleMediaActionFingerprint.method.apply {
-                // call handler if action ID < 0 (= custom)
+                // Call handler if action ID < 0 (= custom).
                 val move = instructions.first { instruction ->
                     instruction.opcode == Opcode.MOVE_RESULT
                 }
