@@ -26,7 +26,7 @@ private const val ACTION = "Lcom/strava/bottomsheet/Action;"
 private const val MEDIA = "Lcom/strava/photos/data/Media;"
 private const val VIDEO = "Lcom/strava/photos/data/Media\$Video;"
 private const val MEDIA_TYPE = "Lcom/strava/core/data/MediaType;"
-private const val MEDIA_DOWNLOAD = "Lapp/revanced/extension/strava/MediaDownload;"
+private const val MEDIA_DOWNLOAD = "Lapp/revanced/extension/strava/AddMediaDownloadPatch;"
 
 private const val ACTION_DOWNLOAD: Byte = -0x8 // Nibble.MIN_VALUE
 private const val ACTION_OPEN_LINK: Byte = -0x7

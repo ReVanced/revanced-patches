@@ -25,7 +25,7 @@ import java.util.stream.Stream;
 import app.revanced.extension.shared.Utils;
 
 @SuppressLint("NewApi")
-public final class MediaDownload {
+public final class AddMediaDownloadPatch {
     private static final OkHttpClient client = new OkHttpClient();
 
     public static void copyLink(CharSequence url) {
