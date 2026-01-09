@@ -50,7 +50,7 @@ kotlin {
 publishing {
     repositories {
         maven {
-            name = "GitHubPackages"
+            name = "githubPackages"
             url = uri("https://maven.pkg.github.com/revanced/revanced-patches")
             credentials(PasswordCredentials::class)
         }
