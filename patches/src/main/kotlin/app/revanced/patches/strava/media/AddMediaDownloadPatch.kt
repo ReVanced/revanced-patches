@@ -22,11 +22,11 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
-private const val ACTION = "Lcom/strava/bottomsheet/Action;"
-private const val MEDIA = "Lcom/strava/photos/data/Media;"
-private const val VIDEO = "Lcom/strava/photos/data/Media\$Video;"
-private const val MEDIA_TYPE = "Lcom/strava/core/data/MediaType;"
-private const val MEDIA_DOWNLOAD = "Lapp/revanced/extension/strava/AddMediaDownloadPatch;"
+private const val ACTION_CLASS_DESCRIPTOR = "Lcom/strava/bottomsheet/Action;"
+private const val MEDIA_CLASS_DESCRIPTOR = "Lcom/strava/photos/data/Media;"
+private const val VIDEO_CLASS_DESCRIPTOR = "Lcom/strava/photos/data/Media\$Video;"
+private const val MEDIA_TYPE_CLASS_DESCRIPTOR = "Lcom/strava/core/data/MediaType;"
+private const val MEDIA_DOWNLOAD_CLASS_DESCRIPTOR = "Lapp/revanced/extension/strava/AddMediaDownloadPatch;"
 
 private const val ACTION_DOWNLOAD: Byte = -0x8 // Nibble.MIN_VALUE
 private const val ACTION_OPEN_LINK: Byte = -0x7
@@ -53,11 +53,11 @@ val addMediaDownloadPatch = bytecodePatch(
     )
 
     execute {
-        val fragment = handleMediaActionFingerprint.originalClassDef
+        val fragmentClass = handleMediaActionFingerprint.originalClassDef
 
         // Extend menu of `FullscreenMediaFragment` with actions.
         run {
-            createAndShowFragmentFingerprint.match(fragment).method.apply {
+            createAndShowFragmentFingerprint.match(fragmentClass).method.apply {
                 val indexAfterSetTrue = instructions.indexOfFirst { instruction ->
                     instruction.opcode == Opcode.IPUT_BOOLEAN
                 } + 1
@@ -67,13 +67,13 @@ val addMediaDownloadPatch = bytecodePatch(
                         indexAfterSetTrue,
                         """
                             const/4 v13, $actionId
-                            new-instance v12, $ACTION
+                            new-instance v12, $ACTION_CLASS_DESCRIPTOR
                             const/4 v14, 0x0
                             const v15, ${resourceMappings["string", string]}
                             const v16, ${resourceMappings["color", color]}
                             const v17, ${resourceMappings["drawable", drawable]}
                             move/from16 v18, v16
-                            invoke-direct/range {v12 .. v19}, $ACTION-><init>(ILjava/lang/String;IIIILjava/io/Serializable;)V
+                            invoke-direct/range {v12 .. v19}, $ACTION_CLASS_DESCRIPTOR-><init>(ILjava/lang/String;IIIILjava/io/Serializable;)V
                             invoke-virtual {v11, v12}, Lcom/strava/bottomsheet/a;->a(Lcom/strava/bottomsheet/BottomSheetItem;)V
                         """
                     )
@@ -84,10 +84,10 @@ val addMediaDownloadPatch = bytecodePatch(
                 addMenuItem(ACTION_DOWNLOAD, "download", "core_o3", "actions_download_normal_xsmall")
 
                 // Move media to last parameter of `Action` constructor.
-                val getMedia = instructions.first { instruction ->
-                    instruction.opcode == Opcode.IGET_OBJECT && instruction.getReference<FieldReference>()!!.type == MEDIA
+                val getMediaInstruction = instructions.first { instruction ->
+                    instruction.opcode == Opcode.IGET_OBJECT && instruction.getReference<FieldReference>()!!.type == MEDIA_CLASS_DESCRIPTOR
                 }
-                addInstruction(getMedia.location.index + 1, "move-object/from16 v19, v${getMedia.writeRegister}")
+                addInstruction(getMediaInstruction.location.index + 1, "move-object/from16 v19, v${getMediaInstruction.writeRegister}")
 
                 // Overwrite `this` with context for `Utils`.
                 val readThisIndex = instructions.indexOfFirst { instruction ->
@@ -108,19 +108,19 @@ val addMediaDownloadPatch = bytecodePatch(
         // Handle new actions.
         run {
             val actionClass = classes.first { clazz ->
-                clazz.type == ACTION
+                clazz.type == ACTION_CLASS_DESCRIPTOR
             }
             val actionSerializableField = actionClass.instanceFields.first { field ->
                 field.type == "Ljava/io/Serializable;"
             }
 
             // Handle "copy link" & "open link" & "download" actions.
-            val handler = ImmutableMethod(
-                fragment.type,
+            val handlerMethod = ImmutableMethod(
+                fragmentClass.type,
                 "handleCustomAction",
                 listOf(
                     ImmutableMethodParameter("I", null, "actionId"),
-                    ImmutableMethodParameter(MEDIA, null, "media"),
+                    ImmutableMethodParameter(MEDIA_CLASS_DESCRIPTOR, null, "media"),
                 ),
                 "Z",
                 AccessFlags.PRIVATE.value or AccessFlags.STATIC.value,
@@ -130,39 +130,39 @@ val addMediaDownloadPatch = bytecodePatch(
             ).toMutable().apply {
                 addInstructions(
                     """
-                        invoke-virtual { p1 }, $MEDIA->getType()$MEDIA_TYPE
+                        invoke-virtual { p1 }, $MEDIA_CLASS_DESCRIPTOR->getType()$MEDIA_TYPE_CLASS_DESCRIPTOR
                         move-result-object v0
-                        sget-object v1, $MEDIA_TYPE->PHOTO:$MEDIA_TYPE
+                        sget-object v1, $MEDIA_TYPE_CLASS_DESCRIPTOR->PHOTO:$MEDIA_TYPE_CLASS_DESCRIPTOR
                         if-ne v0, v1, :video
                         const/4 v2, 0x1 # isPhoto
-                        invoke-virtual { p1 }, $MEDIA->getLargestUrl()Ljava/lang/String;
+                        invoke-virtual { p1 }, $MEDIA_CLASS_DESCRIPTOR->getLargestUrl()Ljava/lang/String;
                         move-result-object v0
                         goto :switch_action
                         :video
                         const/4 v2, 0x0 # !isPhoto
-                        sget-object v1, $MEDIA_TYPE->VIDEO:$MEDIA_TYPE
+                        sget-object v1, $MEDIA_TYPE_CLASS_DESCRIPTOR->VIDEO:$MEDIA_TYPE_CLASS_DESCRIPTOR
                         if-ne v0, v1, :failure
-                        check-cast p1, $VIDEO
-                        invoke-virtual { p1 }, $VIDEO->getVideoUrl()Ljava/lang/String;
+                        check-cast p1, $VIDEO_CLASS_DESCRIPTOR
+                        invoke-virtual { p1 }, $VIDEO_CLASS_DESCRIPTOR->getVideoUrl()Ljava/lang/String;
                         move-result-object v0
                         :switch_action
                         packed-switch p0, :switch_data
                         const/4 v0, 0x0
                         return v0
                         :download
-                        invoke-virtual { p1 }, $MEDIA->getId()Ljava/lang/String;
+                        invoke-virtual { p1 }, $MEDIA_CLASS_DESCRIPTOR->getId()Ljava/lang/String;
                         move-result-object v1
                         if-eqz v2, :download_video
-                        invoke-static { v0, v1 }, $MEDIA_DOWNLOAD->photo(Ljava/lang/String;Ljava/lang/String;)V
+                        invoke-static { v0, v1 }, $MEDIA_DOWNLOAD_CLASS_DESCRIPTOR->photo(Ljava/lang/String;Ljava/lang/String;)V
                         goto :success
                         :download_video
-                        invoke-static { v0, v1 }, $MEDIA_DOWNLOAD->video(Ljava/lang/String;Ljava/lang/String;)V
+                        invoke-static { v0, v1 }, $MEDIA_DOWNLOAD_CLASS_DESCRIPTOR->video(Ljava/lang/String;Ljava/lang/String;)V
                         goto :success
                         :open_link
                         invoke-static { v0 }, Lapp/revanced/extension/shared/Utils;->openLink(Ljava/lang/String;)V
                         goto :success
                         :copy_link
-                        invoke-static { v0 }, $MEDIA_DOWNLOAD->copyLink(Ljava/lang/CharSequence;)V
+                        invoke-static { v0 }, $MEDIA_DOWNLOAD_CLASS_DESCRIPTOR->copyLink(Ljava/lang/CharSequence;)V
                         :success
                         const/4 v0, 0x1
                         return v0
@@ -178,27 +178,27 @@ val addMediaDownloadPatch = bytecodePatch(
                     """
                 )
             }
-            handleMediaActionFingerprint.classDef.methods.add(handler)
+            handleMediaActionFingerprint.classDef.methods.add(handlerMethod)
 
             handleMediaActionFingerprint.method.apply {
                 // Call handler if action ID < 0 (= custom).
-                val move = instructions.first { instruction ->
+                val moveInstruction = instructions.first { instruction ->
                     instruction.opcode == Opcode.MOVE_RESULT
                 }
-                val indexAfterMove = move.location.index + 1
-                val actionId = move.writeRegister
+                val indexAfterMoveInstruction = moveInstruction.location.index + 1
+                val actionIdRegister = moveInstruction.writeRegister
                 addInstructionsWithLabels(
-                    indexAfterMove,
+                    indexAfterMoveInstruction,
                     """
-                        if-gez v$actionId, :move
-                        check-cast p2, $ACTION
+                        if-gez v$actionIdRegister, :move
+                        check-cast p2, $ACTION_CLASS_DESCRIPTOR
                         iget-object v0, p2, $actionSerializableField
-                        check-cast v0, $MEDIA
-                        invoke-static { v$actionId, v0 }, $handler
+                        check-cast v0, $MEDIA_CLASS_DESCRIPTOR
+                        invoke-static { v$actionIdRegister, v0 }, $handlerMethod
                         move-result v0
                         return v0
                     """,
-                    ExternalLabel("move", instructions[indexAfterMove])
+                    ExternalLabel("move", instructions[indexAfterMoveInstruction])
                 )
             }
         }
