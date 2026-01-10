@@ -28,11 +28,39 @@ val hideNavigationButtonsPatch = bytecodePatch(
 
     dependsOn(sharedExtensionPatch)
 
+    val hideHome by booleanOption(
+        key = "hideHome",
+        default = false,
+        title = "Hide Home",
+        description = "Permanently hides the Home button. App starts at next available tab." // On the "homecoming" / current instagram layout.
+    )
+
     val hideReels by booleanOption(
         key = "hideReels",
         default = true,
         title = "Hide Reels",
         description = "Permanently hides the Reels button."
+    )
+
+    val hideDirect by booleanOption(
+        key = "hideDirect",
+        default = false,
+        title = "Hide Direct",
+        description = "Permanently hides the Direct button."
+    )
+
+    val hideSearch by booleanOption(
+        key = "hideSearch",
+        default = false,
+        title = "Hide Search",
+        description = "Permanently hides the Search button."
+    )
+
+    val hideProfile by booleanOption(
+        key = "hideProfile",
+        default = false,
+        title = "Hide Profile",
+        description = "Permanently hides the Profile button."
     )
 
     val hideCreate by booleanOption(
@@ -43,7 +71,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
     )
 
     execute {
-        if (!hideReels!! && !hideCreate!!) {
+        if (!hideHome!! &&!hideReels!! && !hideDirect!! && !hideSearch!! && !hideProfile!! && !hideCreate!!) {
             return@execute Logger.getLogger(this::class.java.name).warning(
                 "No hide navigation buttons options are enabled. No changes made."
             )
@@ -76,10 +104,30 @@ val hideNavigationButtonsPatch = bytecodePatch(
                 """
             }
 
+            if (hideHome!!) {
+                addInstructionsAtControlFlowLabel(
+                    returnIndex,
+                    instructionsRemoveButtonByName("fragment_feed")
+                )
+            }
+
             if (hideReels!!) {
                 addInstructionsAtControlFlowLabel(
                     returnIndex,
                     instructionsRemoveButtonByName("fragment_clips")
+                )
+            }
+
+            if (hideDirect!!) {
+                addInstructionsAtControlFlowLabel(
+                    returnIndex,
+                    instructionsRemoveButtonByName("fragment_direct_tab")
+                )
+            }
+            if (hideSearch!!) {
+                addInstructionsAtControlFlowLabel(
+                    returnIndex,
+                    instructionsRemoveButtonByName("fragment_search")
                 )
             }
 
@@ -89,6 +137,14 @@ val hideNavigationButtonsPatch = bytecodePatch(
                     instructionsRemoveButtonByName("fragment_share")
                 )
             }
+
+            if (hideProfile!!) {
+                addInstructionsAtControlFlowLabel(
+                    returnIndex,
+                    instructionsRemoveButtonByName("fragment_profile")
+                )
+            }
+
         }
     }
 }

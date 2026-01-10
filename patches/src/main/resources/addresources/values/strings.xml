@@ -241,9 +241,6 @@ However, enabling this will also log some user data such as your IP address."</s
             <string name="revanced_hide_compact_banner_title">Hide compact banners</string>
             <string name="revanced_hide_compact_banner_summary_on">Compact banners are hidden</string>
             <string name="revanced_hide_compact_banner_summary_off">Compact banners are shown</string>
-            <string name="revanced_hide_crowdfunding_box_title">Hide crowdfunding box</string>
-            <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box is hidden</string>
-            <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding box is shown</string>
             <string name="revanced_hide_expandable_card_title">Hide expandable card</string>
             <string name="revanced_hide_expandable_card_summary_on">Expandable card under videos is hidden</string>
             <string name="revanced_hide_expandable_card_summary_off">Expandable card under videos is shown</string>
@@ -309,8 +306,11 @@ If a Doodle is currently showing in your region and this hide setting is on, the
             <string name="revanced_hide_channel_bar_summary_on">Channel bar is hidden</string>
             <string name="revanced_hide_channel_bar_summary_off">Channel bar is shown</string>
             <string name="revanced_hide_channel_watermark_title">Hide channel watermark</string>
-            <string name="revanced_hide_channel_watermark_summary_on">Watermark is hidden</string>
-            <string name="revanced_hide_channel_watermark_summary_off">Watermark is shown</string>
+            <string name="revanced_hide_channel_watermark_summary_on">Channel watermark is hidden</string>
+            <string name="revanced_hide_channel_watermark_summary_off">Channel watermark is shown</string>
+            <string name="revanced_hide_crowdfunding_box_title">Hide crowdfunding box</string>
+            <string name="revanced_hide_crowdfunding_box_summary_on">Crowdfunding box is hidden</string>
+            <string name="revanced_hide_crowdfunding_box_summary_off">Crowdfunding box is shown</string>
             <string name="revanced_hide_emergency_box_title">Hide emergency boxes</string>
             <string name="revanced_hide_emergency_box_summary_on">Emergency boxes are hidden</string>
             <string name="revanced_hide_emergency_box_summary_off">Emergency boxes are shown</string>

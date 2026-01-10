@@ -175,6 +175,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             ),
             SwitchPreference("revanced_hide_channel_bar"),
             SwitchPreference("revanced_hide_channel_watermark"),
+            SwitchPreference("revanced_hide_crowdfunding_box"),
             SwitchPreference("revanced_hide_emergency_box"),
             SwitchPreference("revanced_hide_info_panels"),
             SwitchPreference("revanced_hide_join_membership_button"),
@@ -230,7 +231,6 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_chips_shelf"),
             SwitchPreference("revanced_hide_community_posts"),
             SwitchPreference("revanced_hide_compact_banner"),
-            SwitchPreference("revanced_hide_crowdfunding_box"),
             SwitchPreference("revanced_hide_expandable_card"),
             SwitchPreference("revanced_hide_floating_microphone_button"),
             SwitchPreference(
