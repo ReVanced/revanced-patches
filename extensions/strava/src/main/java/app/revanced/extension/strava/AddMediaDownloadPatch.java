@@ -39,12 +39,11 @@ public final class AddMediaDownloadPatch {
         String url = getUrl(media);
         switch (actionId) {
             case ACTION_DOWNLOAD:
-                String path = media.getAthleteId() + "/" + media.getActivityId();
                 String name = media.getId();
                 if (media.getType() == MediaType.VIDEO) {
-                    downloadVideo(url, path, name);
+                    downloadVideo(url, name);
                 } else {
-                    downloadPhoto(url, path, name);
+                    downloadPhoto(url, name);
                 }
                 return true;
             case ACTION_OPEN_LINK:
@@ -63,7 +62,7 @@ public final class AddMediaDownloadPatch {
         showInfoToast("link_copied_to_clipboard", "🔗");
     }
 
-    public static void downloadPhoto(String url, String path, String name) {
+    public static void downloadPhoto(String url, String name) {
         showInfoToast("loading", "⏳");
         Utils.runOnBackgroundThread(() -> {
             try (Response response = fetch(url)) {
@@ -75,7 +74,7 @@ public final class AddMediaDownloadPatch {
                 values.put(MediaStore.Images.Media.DISPLAY_NAME, name + '.' + extension);
                 values.put(MediaStore.Images.Media.IS_PENDING, 1);
                 values.put(MediaStore.Images.Media.MIME_TYPE, mimeType);
-                values.put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + "/Strava/" + path);
+                values.put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + "/Strava");
                 Uri collection = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
                         ? MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
                         : MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
@@ -97,7 +96,7 @@ public final class AddMediaDownloadPatch {
     /**
      * Downloads a video in the M3U8 / HLS (HTTP Live Streaming) format.
      */
-    public static void downloadVideo(String url, String path, String name) {
+    public static void downloadVideo(String url, String name) {
         // The first request yields multiple URLs with different stream options.
         // In case of Strava, the first one is always of highest quality.
         // Each stream can consist of multiple chunks.
@@ -122,7 +121,7 @@ public final class AddMediaDownloadPatch {
                 values.put(MediaStore.Video.Media.DISPLAY_NAME, name + '.' + "mp4");
                 values.put(MediaStore.Video.Media.IS_PENDING, 1);
                 values.put(MediaStore.Video.Media.MIME_TYPE, MimeTypeMap.getSingleton().getMimeTypeFromExtension("mp4"));
-                values.put(MediaStore.Video.Media.RELATIVE_PATH, Environment.DIRECTORY_MOVIES + "/Strava/" + path);
+                values.put(MediaStore.Video.Media.RELATIVE_PATH, Environment.DIRECTORY_MOVIES + "/Strava");
                 Uri collection = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
                         ? MediaStore.Video.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
                         : MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
