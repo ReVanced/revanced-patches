@@ -3,6 +3,7 @@ package app.revanced.patches.strava.media
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
@@ -17,7 +18,9 @@ import app.revanced.util.writeRegister
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction22c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
@@ -81,23 +84,28 @@ val addMediaDownloadPatch = bytecodePatch(
         // Extend menu of `FullscreenMediaFragment` with actions.
         run {
             createAndShowFragmentFingerprint.match(fragmentClass).method.apply {
-                val indexAfterSetTrue = instructions.indexOfFirst { instruction ->
+                val setTrueIndex = instructions.indexOfFirst { instruction ->
                     instruction.opcode == Opcode.IPUT_BOOLEAN
-                } + 1
+                }
+                val actionRegistrarRegister = getInstruction<BuilderInstruction22c>(setTrueIndex).registerB
+                val actionRegister = instructions.first { instruction ->
+                    instruction.opcode == Opcode.NEW_INSTANCE &&
+                            instruction.getReference<TypeReference>()!!.type == ACTION_CLASS_DESCRIPTOR
+                }.writeRegister!!
 
                 fun addMenuItem(actionId: Byte, string: String, color: String, drawable: String) {
                     addInstructions(
-                        indexAfterSetTrue,
+                        setTrueIndex + 1,
                         """
-                            const/4 v13, $actionId
-                            new-instance v12, $ACTION_CLASS_DESCRIPTOR
-                            const/4 v14, 0x0
-                            const v15, ${resourceMappings["string", string]}
-                            const v16, ${resourceMappings["color", color]}
-                            const v17, ${resourceMappings["drawable", drawable]}
-                            move/from16 v18, v16
-                            invoke-direct/range {v12 .. v19}, $ACTION_CLASS_DESCRIPTOR-><init>(ILjava/lang/String;IIIILjava/io/Serializable;)V
-                            invoke-virtual {v11, v12}, Lcom/strava/bottomsheet/a;->a(Lcom/strava/bottomsheet/BottomSheetItem;)V
+                            new-instance v$actionRegister, $ACTION_CLASS_DESCRIPTOR
+                            const v${actionRegister + 1}, $actionId
+                            const v${actionRegister + 2}, 0x0
+                            const v${actionRegister + 3}, ${resourceMappings["string", string]}
+                            const v${actionRegister + 4}, ${resourceMappings["color", color]}
+                            const v${actionRegister + 5}, ${resourceMappings["drawable", drawable]}
+                            move/from16 v${actionRegister + 6}, v${actionRegister + 4}
+                            invoke-direct/range { v$actionRegister .. v${actionRegister + 7} }, $ACTION_CLASS_DESCRIPTOR-><init>(ILjava/lang/String;IIIILjava/io/Serializable;)V
+                            invoke-virtual { v$actionRegistrarRegister, v$actionRegister }, Lcom/strava/bottomsheet/a;->a(Lcom/strava/bottomsheet/BottomSheetItem;)V
                         """
                     )
                 }
@@ -108,9 +116,13 @@ val addMediaDownloadPatch = bytecodePatch(
 
                 // Move media to last parameter of `Action` constructor.
                 val getMediaInstruction = instructions.first { instruction ->
-                    instruction.opcode == Opcode.IGET_OBJECT && instruction.getReference<FieldReference>()!!.type == MEDIA_CLASS_DESCRIPTOR
+                    instruction.opcode == Opcode.IGET_OBJECT &&
+                            instruction.getReference<FieldReference>()!!.type == MEDIA_CLASS_DESCRIPTOR
                 }
-                addInstruction(getMediaInstruction.location.index + 1, "move-object/from16 v19, v${getMediaInstruction.writeRegister}")
+                addInstruction(
+                    getMediaInstruction.location.index + 1,
+                    "move-object/from16 v${actionRegister + 7}, v${getMediaInstruction.writeRegister}"
+                )
             }
         }
 
