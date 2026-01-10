@@ -13,7 +13,6 @@ import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
 import app.revanced.util.getReference
-import app.revanced.util.registersUsed
 import app.revanced.util.writeRegister
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -21,6 +20,8 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+
+internal const val SET_UTILS_CONTEXT_METHOD_NAME = "setUtilsContext"
 
 private const val ACTION_CLASS_DESCRIPTOR = "Lcom/strava/bottomsheet/Action;"
 private const val MEDIA_CLASS_DESCRIPTOR = "Lcom/strava/photos/data/Media;"
@@ -44,16 +45,38 @@ val addMediaDownloadPatch = bytecodePatch(
         sharedExtensionPatch(
             "strava",
             extensionHook(
-                insertIndexResolver = { method ->
-                    method.instructions.indexOfFirst { it.opcode == Opcode.MOVE_RESULT_OBJECT } + 1
-                },
-                fingerprint = createAndShowFragmentFingerprint
+                // Insert before return.
+                insertIndexResolver = { method -> method.instructions.toList().size - 1 },
+                fingerprint = setUtilsContextFingerprint
             )
         )
     )
 
     execute {
-        val fragmentClass = handleMediaActionFingerprint.originalClassDef
+        val fragmentClass = classBy { it.endsWith("/FullscreenMediaFragment;") }!!.mutableClass
+
+        // Create helper method for setting the `Utils` context.
+        val setUtilsContextMethod = ImmutableMethod(
+            fragmentClass.type,
+            SET_UTILS_CONTEXT_METHOD_NAME,
+            listOf(),
+            "V",
+            AccessFlags.PRIVATE.value,
+            setOf(),
+            setOf(),
+            MutableMethodImplementation(1)
+        ).toMutable().apply {
+            addInstructions(
+                """
+                    invoke-virtual { p0 }, Landroidx/fragment/app/Fragment;->requireContext()Landroid/content/Context;
+                    move-result-object p0
+                    return-void
+                """
+            )
+            fragmentClass.methods.add(this)
+        }
+        // Eagerly match for extension hook.
+        setUtilsContextFingerprint.match(fragmentClass)
 
         // Extend menu of `FullscreenMediaFragment` with actions.
         run {
@@ -88,20 +111,6 @@ val addMediaDownloadPatch = bytecodePatch(
                     instruction.opcode == Opcode.IGET_OBJECT && instruction.getReference<FieldReference>()!!.type == MEDIA_CLASS_DESCRIPTOR
                 }
                 addInstruction(getMediaInstruction.location.index + 1, "move-object/from16 v19, v${getMediaInstruction.writeRegister}")
-
-                // Overwrite `this` with context for `Utils`.
-                val readThisIndex = instructions.indexOfFirst { instruction ->
-                    val registersUsed = instruction.registersUsed
-                    registersUsed.isNotEmpty() &&
-                            registersUsed.last() == implementation!!.registerCount - parameters.size - 1
-                }
-                addInstructions(
-                    readThisIndex + 1,
-                    """
-                        invoke-virtual/range { p0 .. p0 }, Landroidx/fragment/app/Fragment;->requireContext()Landroid/content/Context;
-                        move-result-object p0
-                    """
-                )
             }
         }
 
@@ -178,9 +187,9 @@ val addMediaDownloadPatch = bytecodePatch(
                     """
                 )
             }
-            handleMediaActionFingerprint.classDef.methods.add(handlerMethod)
+            fragmentClass.methods.add(handlerMethod)
 
-            handleMediaActionFingerprint.method.apply {
+            handleMediaActionFingerprint.match(fragmentClass).method.apply {
                 // Call handler if action ID < 0 (= custom).
                 val moveInstruction = instructions.first { instruction ->
                     instruction.opcode == Opcode.MOVE_RESULT
@@ -200,6 +209,8 @@ val addMediaDownloadPatch = bytecodePatch(
                     """,
                     ExternalLabel("move", instructions[indexAfterMoveInstruction])
                 )
+
+                addInstruction(0, "invoke-direct/range { p0 .. p0 }, $setUtilsContextMethod")
             }
         }
     }
