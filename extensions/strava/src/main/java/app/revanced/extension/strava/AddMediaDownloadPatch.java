@@ -10,6 +10,9 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.webkit.MimeTypeMap;
 
+import com.strava.core.data.MediaType;
+import com.strava.photos.data.Media;
+
 import okhttp3.*;
 
 import java.io.BufferedReader;
@@ -26,14 +29,41 @@ import app.revanced.extension.shared.Utils;
 
 @SuppressLint("NewApi")
 public final class AddMediaDownloadPatch {
+    public static final int ACTION_DOWNLOAD = -1;
+    public static final int ACTION_OPEN_LINK = -2;
+    public static final int ACTION_COPY_LINK = -3;
+
     private static final OkHttpClient client = new OkHttpClient();
+
+    public static boolean handleAction(int actionId, Media media) {
+        String url = getUrl(media);
+        switch (actionId) {
+            case ACTION_DOWNLOAD:
+                String path = media.getAthleteId() + "/" + media.getActivityId();
+                String name = media.getId();
+                if (media.getType() == MediaType.VIDEO) {
+                    downloadVideo(url, path, name);
+                } else {
+                    downloadPhoto(url, path, name);
+                }
+                return true;
+            case ACTION_OPEN_LINK:
+                Utils.openLink(url);
+                return true;
+            case ACTION_COPY_LINK:
+                copyLink(url);
+                return true;
+            default:
+                return false;
+        }
+    }
 
     public static void copyLink(CharSequence url) {
         Utils.setClipboard(url);
         showInfoToast("link_copied_to_clipboard", "🔗");
     }
 
-    public static void photo(String url, String name) {
+    public static void downloadPhoto(String url, String path, String name) {
         showInfoToast("loading", "⏳");
         Utils.runOnBackgroundThread(() -> {
             try (Response response = fetch(url)) {
@@ -45,7 +75,7 @@ public final class AddMediaDownloadPatch {
                 values.put(MediaStore.Images.Media.DISPLAY_NAME, name + '.' + extension);
                 values.put(MediaStore.Images.Media.IS_PENDING, 1);
                 values.put(MediaStore.Images.Media.MIME_TYPE, mimeType);
-                values.put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + '/' + "Strava");
+                values.put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + "/Strava/" + path);
                 Uri collection = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
                         ? MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
                         : MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
@@ -67,7 +97,7 @@ public final class AddMediaDownloadPatch {
     /**
      * Downloads a video in the M3U8 / HLS (HTTP Live Streaming) format.
      */
-    public static void video(String url, String name) {
+    public static void downloadVideo(String url, String path, String name) {
         // The first request yields multiple URLs with different stream options.
         // In case of Strava, the first one is always of highest quality.
         // Each stream can consist of multiple chunks.
@@ -92,7 +122,7 @@ public final class AddMediaDownloadPatch {
                 values.put(MediaStore.Video.Media.DISPLAY_NAME, name + '.' + "mp4");
                 values.put(MediaStore.Video.Media.IS_PENDING, 1);
                 values.put(MediaStore.Video.Media.MIME_TYPE, MimeTypeMap.getSingleton().getMimeTypeFromExtension("mp4"));
-                values.put(MediaStore.Video.Media.RELATIVE_PATH, Environment.DIRECTORY_MOVIES + '/' + "Strava");
+                values.put(MediaStore.Video.Media.RELATIVE_PATH, Environment.DIRECTORY_MOVIES + "/Strava/" + path);
                 Uri collection = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
                         ? MediaStore.Video.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
                         : MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
@@ -128,6 +158,12 @@ public final class AddMediaDownloadPatch {
                 showErrorToast("download_failure", "❌", e);
             }
         });
+    }
+
+    private static String getUrl(Media media) {
+        return media.getType() == MediaType.VIDEO
+                ? ((Media.Video) media).getVideoUrl()
+                : media.getLargestUrl();
     }
 
     private static String getString(String name, String fallback) {
