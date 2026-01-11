@@ -22,14 +22,13 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.google.common.collect.ImmutableSortedSet
 import org.w3c.dom.Element
-import kotlin.properties.Delegates
 
 private const val VIEW_CLASS_DESCRIPTOR = "Landroid/view/View;"
 private const val ON_CLICK_LISTENER_CLASS_DESCRIPTOR = "Landroid/view/View\$OnClickListener;"
 
-private var shakeToKudosString by Delegates.notNull<Int>()
-private var kudosId by Delegates.notNull<Int>()
-private var leaveId by Delegates.notNull<Int>()
+private var shakeToKudosString = -1
+private var kudosId = -1
+private var leaveId = -1
 
 private val addGiveKudosButtonToLayoutPatch = resourcePatch {
     fun String.toResourceId() = substring(2).toInt(16)
