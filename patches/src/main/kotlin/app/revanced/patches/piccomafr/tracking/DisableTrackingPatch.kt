@@ -3,16 +3,15 @@ package app.revanced.patches.piccomafr.tracking
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
-@Suppress("unused")
-val disableTrackingPatch = bytecodePatch(
-    name = "Disable tracking",
-    description = "Disables tracking by replacing tracking URLs with example.com.",
+@Suppress("unused", "ObjectPropertyName")
+val `Disable tracking` by creatingBytecodePatch(
+    description = "Disables tracking by replacing tracking URLs with example.com."
 ) {
     compatibleWith(
         "com.piccomaeurope.fr"(
@@ -34,7 +33,7 @@ val disableTrackingPatch = bytecodePatch(
     )
 
     apply {
-        facebookSDKFingerprint.method.apply {
+        facebookSDKMethod.apply {
             instructions.filter { instruction ->
                 instruction.opcode == Opcode.CONST_STRING
             }.forEach { instruction ->
@@ -47,7 +46,7 @@ val disableTrackingPatch = bytecodePatch(
             }
         }
 
-        firebaseInstallFingerprint.method.apply {
+        firebaseInstallMethod.apply {
             instructions.filter {
                 it.opcode == Opcode.CONST_STRING
             }.filter {
@@ -62,6 +61,6 @@ val disableTrackingPatch = bytecodePatch(
             }
         }
 
-        appMeasurementFingerprint.method.addInstruction(0, "return-void")
+        appMeasurementMethod.addInstruction(0, "return-void")
     }
 }
