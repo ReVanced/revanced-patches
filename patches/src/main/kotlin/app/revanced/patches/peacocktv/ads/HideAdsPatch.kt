@@ -1,16 +1,15 @@
 package app.revanced.patches.peacocktv.ads
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
-val hideAdsPatch = bytecodePatch(
-    name = "Hide ads",
-    description = "Hides all video ads.",
+@Suppress("unused", "ObjectPropertyName")
+val `Hide Ads` by creatingBytecodePatch(
+    description = "Hides all video ads."
 ) {
     compatibleWith("com.peacocktv.peacockandroid")
 
     apply {
-        mediaTailerAdServiceFingerprint.method.returnEarly(false)
+        mediaTailerAdServiceMethod.returnEarly(false)
     }
 }
