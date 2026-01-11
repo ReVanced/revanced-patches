@@ -6,24 +6,17 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
-import app.revanced.patches.shared.misc.extension.extensionHook
-import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
 import app.revanced.patches.shared.misc.mapping.get
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappings
+import app.revanced.patches.strava.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
 import app.revanced.util.writeRegister
-import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction22c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
-import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
-
-internal const val SET_UTILS_CONTEXT_METHOD_NAME = "setUtilsContext"
 
 private const val ACTION_CLASS_DESCRIPTOR = "Lcom/strava/bottomsheet/Action;"
 private const val MEDIA_CLASS_DESCRIPTOR = "Lcom/strava/photos/data/Media;"
@@ -38,41 +31,11 @@ val addMediaDownloadPatch = bytecodePatch(
 
     dependsOn(
         resourceMappingPatch,
-        sharedExtensionPatch(
-            "strava",
-            extensionHook(
-                // Insert before return.
-                insertIndexResolver = { method -> method.instructions.toList().size - 1 },
-                fingerprint = setUtilsContextFingerprint
-            )
-        )
+        sharedExtensionPatch
     )
 
     execute {
         val fragmentClass = classBy { it.endsWith("/FullscreenMediaFragment;") }!!.mutableClass
-
-        // Create helper method for setting the `Utils` context.
-        val setUtilsContextMethod = ImmutableMethod(
-            fragmentClass.type,
-            SET_UTILS_CONTEXT_METHOD_NAME,
-            listOf(),
-            "V",
-            AccessFlags.PRIVATE.value,
-            setOf(),
-            setOf(),
-            MutableMethodImplementation(1)
-        ).toMutable().apply {
-            addInstructions(
-                """
-                    invoke-virtual { p0 }, Landroidx/fragment/app/Fragment;->requireContext()Landroid/content/Context;
-                    move-result-object p0
-                    return-void
-                """
-            )
-            fragmentClass.methods.add(this)
-        }
-        // Eagerly match for extension hook.
-        setUtilsContextFingerprint.match(fragmentClass)
 
         // Extend menu of `FullscreenMediaFragment` with actions.
         run {
@@ -149,8 +112,6 @@ val addMediaDownloadPatch = bytecodePatch(
                     """,
                     ExternalLabel("move", instructions[indexAfterMoveInstruction])
                 )
-
-                addInstruction(0, "invoke-direct/range { p0 .. p0 }, $setUtilsContextMethod")
             }
         }
     }
