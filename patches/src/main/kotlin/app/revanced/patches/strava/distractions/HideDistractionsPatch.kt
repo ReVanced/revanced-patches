@@ -100,7 +100,7 @@ val hideDistractionsPatch = bytecodePatch(
                 addInstructionsWithLabels(
                     0,
                     """
-                        invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->hide($MODULAR_ENTRY_CLASS_DESCRIPTOR)Z;
+                        invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->hide($MODULAR_ENTRY_CLASS_DESCRIPTOR)Z
                         move-result v0
                         if-eqz v0, :original
                         invoke-static { }, Ljava/util/Collections;->emptyList()Ljava/util/List;
