@@ -15,6 +15,7 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction11x
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction31i
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
+import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableClassDef
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
@@ -26,59 +27,64 @@ import org.w3c.dom.Element
 private const val VIEW_CLASS_DESCRIPTOR = "Landroid/view/View;"
 private const val ON_CLICK_LISTENER_CLASS_DESCRIPTOR = "Landroid/view/View\$OnClickListener;"
 
-private var shakeToKudosString = -1
-private var kudosId = -1
-private var leaveId = -1
+private var shakeToKudosStringId = -1
+private var kudosIdId = -1
+private var leaveIdId = -1
 
 private val addGiveKudosButtonToLayoutPatch = resourcePatch {
     fun String.toResourceId() = substring(2).toInt(16)
 
     execute {
         document("res/values/public.xml").use { public ->
-            public.documentElement.childElementsSequence().first { child ->
-                child.tagName == "public" &&
-                        child.getAttribute("type") == "string" &&
-                        child.getAttribute("name").startsWith("shake_to_kudos")
-            }.apply {
-                shakeToKudosString = getAttribute("id").toResourceId()
+            fun Sequence<Element>.firstByName(name: String) = first {
+                it.getAttribute("name") == name
             }
-            val kudosIdNode = public.documentElement.childElementsSequence().first { child ->
-                child.tagName == "public" &&
-                        child.getAttribute("type") == "id" &&
-                        child.getAttribute("name").startsWith("kudos")
-            }.apply {
-                kudosId = getAttribute("id").toResourceId()
+
+            val publicElements = public.documentElement.childElementsSequence().filter {
+                it.tagName == "public"
+            }
+            val idElements = publicElements.filter {
+                it.getAttribute("type") == "id"
+            }
+            val stringElements = publicElements.filter {
+                it.getAttribute("type") == "string"
+            }
+
+            shakeToKudosStringId = stringElements.firstByName("shake_to_kudos_dialog_title").getAttribute("id").toResourceId()
+
+            val kudosIdNode = idElements.firstByName("kudos").apply {
+                kudosIdId = getAttribute("id").toResourceId()
             }
 
             document("res/layout/grouped_activities_dialog_group_tab.xml").use { layout ->
-                layout.childNodes.findElementByAttributeValueOrThrow("android:id", "@id/leave_group_button_container")
-                    .apply {
-                        // Change from "FrameLayout".
-                        layout.renameNode(this, namespaceURI, "LinearLayout")
-                        val leaveButton = childElementsSequence().first()
-                        // Get "Leave Group" button ID for bytecode matching.
-                        val leaveButtonIdName = leaveButton.getAttribute("android:id").substringAfter('/')
-                        public.documentElement.childElementsSequence().first { child ->
-                            child.tagName == "public" &&
-                                    child.getAttribute("type") == "id" &&
-                                    child.getAttribute("name") == leaveButtonIdName
-                        }.apply {
-                            leaveId = getAttribute("id").toResourceId()
-                        }
-                        // Place buttons next to each other with equal width.
-                        leaveButton.setAttribute("android:layout_width", "0dp")
-                        leaveButton.setAttribute("android:layout_weight", "1")
+                layout.childNodes.findElementByAttributeValueOrThrow("android:id", "@id/leave_group_button_container").apply {
+                    // Change from "FrameLayout".
+                    layout.renameNode(this, namespaceURI, "LinearLayout")
+
+                    val leaveButton = childElementsSequence().first()
+                    // Get "Leave Group" button ID for bytecode matching.
+                    val leaveButtonIdName = leaveButton.getAttribute("android:id").substringAfter('/')
+                    leaveIdId = idElements.firstByName(leaveButtonIdName).getAttribute("id").toResourceId()
+
+                    // Add surrounding padding to offset decrease on buttons.
+                    setAttribute("android:paddingHorizontal", "@dimen/space_2xs")
+
+                    // Place buttons next to each other with equal width.
+                    val kudosButton = leaveButton.run {
+                        setAttribute("android:layout_width", "0dp")
+                        setAttribute("android:layout_weight", "1")
                         // Decrease padding between buttons from "@dimen/button_large_padding" ...
-                        leaveButton.setAttribute("android:paddingHorizontal", "@dimen/space_xs")
-                        // ... while keeping the surrounding padding by adding to the container.
-                        setAttribute("android:paddingHorizontal", "@dimen/space_2xs")
-                        val kudosButton = leaveButton.cloneNode(true) as Element
-                        // Downgrade emphasis of "Leave Group" button from "primary".
-                        leaveButton.setAttribute("app:emphasis", "secondary")
-                        kudosButton.setAttribute("android:id", "@id/${kudosIdNode.getAttribute("name")}")
-                        kudosButton.setAttribute("android:text", "@string/kudos_button")
-                        appendChild(kudosButton)
+                        setAttribute("android:paddingHorizontal", "@dimen/space_xs")
+                        cloneNode(true) as Element
                     }
+                    // Downgrade emphasis of "Leave Group" button from "primary".
+                    leaveButton.setAttribute("app:emphasis", "secondary")
+                    kudosButton.apply {
+                        setAttribute("android:id", "@id/${kudosIdNode.getAttribute("name")}")
+                        setAttribute("android:text", "@string/kudos_button")
+                    }
+                    appendChild(kudosButton)
+                }
             }
         }
     }
@@ -87,7 +93,7 @@ private val addGiveKudosButtonToLayoutPatch = resourcePatch {
 @Suppress("unused")
 val addGiveGroupKudosButton = bytecodePatch(
     name = "Add Give Kudos button to Group Activity",
-    description = "The button triggers the same action as shaking your phone would."
+    description = "Adds a button that triggers the same action as shaking your phone would."
 ) {
     compatibleWith("com.strava")
 
@@ -98,21 +104,22 @@ val addGiveGroupKudosButton = bytecodePatch(
         val onClickListenerClassName = "${className.substringBeforeLast(';')}\$GiveKudosOnClickListener;"
 
         initFingerprint.method.apply {
-            val constLeaveId = instructions.filterIsInstance<BuilderInstruction31i>().first {
-                it.narrowLiteral == leaveId
+            val constLeaveIdInstruction = instructions.filterIsInstance<BuilderInstruction31i>().first {
+                it.narrowLiteral == leaveIdId
             }
-            val findViewById = getInstruction<BuilderInstruction35c>(constLeaveId.location.index + 1)
-            val moveView = getInstruction<BuilderInstruction11x>(constLeaveId.location.index + 2)
-            val castButton = getInstruction<BuilderInstruction21c>(constLeaveId.location.index + 3)
-            val buttonClassName = (castButton.reference as TypeReference).type
+            val findViewByIdInstruction = getInstruction<BuilderInstruction35c>(constLeaveIdInstruction.location.index + 1)
+            val moveViewInstruction = getInstruction<BuilderInstruction11x>(constLeaveIdInstruction.location.index + 2)
+            val castButtonInstruction = getInstruction<BuilderInstruction21c>(constLeaveIdInstruction.location.index + 3)
+
+            val buttonClassName = (castButtonInstruction.reference as TypeReference).type
 
             addInstructions(
-                constLeaveId.location.index,
+                constLeaveIdInstruction.location.index,
                 """
-                    ${constLeaveId.opcode.name} v${constLeaveId.registerA}, $kudosId
-                    ${findViewById.opcode.name} { v${findViewById.registerC}, v${findViewById.registerD} }, ${findViewById.reference}
-                    ${moveView.opcode.name} v${moveView.registerA}
-                    ${castButton.opcode.name} v${castButton.registerA}, ${castButton.reference}
+                    ${constLeaveIdInstruction.opcode.name} v${constLeaveIdInstruction.registerA}, $kudosIdId
+                    ${findViewByIdInstruction.opcode.name} { v${findViewByIdInstruction.registerC}, v${findViewByIdInstruction.registerD} }, ${findViewByIdInstruction.reference}
+                    ${moveViewInstruction.opcode.name} v${moveViewInstruction.registerA}
+                    ${castButtonInstruction.opcode.name} v${castButtonInstruction.registerA}, ${castButtonInstruction.reference}
                     new-instance v0, $onClickListenerClassName
                     invoke-direct { v0, p0 }, $onClickListenerClassName-><init>($className)V
                     invoke-virtual { p3, v0 }, $buttonClassName->setOnClickListener($ON_CLICK_LISTENER_CLASS_DESCRIPTOR)V
@@ -121,13 +128,13 @@ val addGiveGroupKudosButton = bytecodePatch(
         }
 
         actionHandlerFingerprint.match(initFingerprint.originalClassDef).method.apply {
-            val constShakeToKudosString = instructions.filterIsInstance<BuilderInstruction31i>().first {
-                it.narrowLiteral == shakeToKudosString
+            val constShakeToKudosStringIndex = instructions.indexOfFirst {
+                it is NarrowLiteralInstruction && it.narrowLiteral == shakeToKudosStringId
             }
-            val getSingleton = instructions.filterIsInstance<BuilderInstruction21c>().last {
-                it.opcode == Opcode.SGET_OBJECT && it.location.index < constShakeToKudosString.location.index
+            val getSingletonInstruction = instructions.filterIsInstance<BuilderInstruction21c>().last {
+                it.opcode == Opcode.SGET_OBJECT && it.location.index < constShakeToKudosStringIndex
             }
-            val outerThis = ImmutableField(
+            val outerThisField = ImmutableField(
                 onClickListenerClassName,
                 "outerThis",
                 className,
@@ -136,7 +143,7 @@ val addGiveGroupKudosButton = bytecodePatch(
                 listOf(),
                 setOf()
             )
-            val init = ImmutableMethod(
+            val initField = ImmutableMethod(
                 onClickListenerClassName,
                 "<init>",
                 listOf(
@@ -155,12 +162,12 @@ val addGiveGroupKudosButton = bytecodePatch(
                 addInstructions(
                     """
                         invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-                        iput-object p1, p0, $outerThis
+                        iput-object p1, p0, $outerThisField
                         return-void
                     """
                 )
             }
-            val onClick = ImmutableMethod(
+            val onClickMethod = ImmutableMethod(
                 onClickListenerClassName,
                 "onClick",
                 listOf(
@@ -178,25 +185,25 @@ val addGiveGroupKudosButton = bytecodePatch(
             ).toMutable().apply {
                 addInstructions(
                     """
-                        sget-object p1, ${getSingleton.reference}
-                        iget-object p0, p0, $outerThis
+                        sget-object p1, ${getSingletonInstruction.reference}
+                        iget-object p0, p0, $outerThisField
                         invoke-virtual { p0, p1 }, ${actionHandlerFingerprint.method}
                         return-void
                     """
                 )
             }
-            val onClickListener = ImmutableClassDef(
+            val onClickListenerClassDef = ImmutableClassDef(
                 onClickListenerClassName,
                 PUBLIC.value or FINAL.value or SYNTHETIC.value,
                 "Ljava/lang/Object;",
                 listOf(ON_CLICK_LISTENER_CLASS_DESCRIPTOR),
                 "ProGuard",
                 listOf(),
-                ImmutableSortedSet.of(outerThis),
-                ImmutableSortedSet.of(init, onClick)
+                ImmutableSortedSet.of(outerThisField),
+                ImmutableSortedSet.of(initField, onClickMethod)
             )
 
-            classes.add(onClickListener)
+            classes += onClickListenerClassDef
         }
     }
 }
