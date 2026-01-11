@@ -88,6 +88,7 @@ private val addGiveKudosButtonToLayoutPatch = resourcePatch {
 @Suppress("unused")
 val addGiveGroupKudosButton = bytecodePatch(
     name = "Add Give Kudos button to Group Activity",
+    description = "The button triggers the same action as shaking your phone would."
 ) {
     compatibleWith("com.strava")
 
