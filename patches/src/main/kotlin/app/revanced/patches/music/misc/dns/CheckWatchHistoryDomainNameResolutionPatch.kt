@@ -18,5 +18,5 @@ val checkWatchHistoryDomainNameResolutionPatch = checkWatchHistoryDomainNameReso
         )
     },
 
-    mainActivityFingerprint = mainActivityOnCreateMethod
+    getMainActivityMethod = { mainActivityOnCreateMethod }
 )

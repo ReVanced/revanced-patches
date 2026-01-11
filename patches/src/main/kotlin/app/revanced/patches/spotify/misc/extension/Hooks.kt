@@ -2,13 +2,13 @@ package app.revanced.patches.spotify.misc.extension
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patches.shared.misc.extension.extensionHook
-import app.revanced.patches.spotify.shared.mainActivityOnCreateFingerprint
+import app.revanced.patches.spotify.shared.mainActivityOnCreateMethod
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-internal val mainActivityOnCreateHook = extensionHook { mainActivityOnCreateFingerprint }
+internal val mainActivityOnCreateHook = extensionHook { mainActivityOnCreateMethod }
 
 internal val loadOrbitLibraryHook = extensionHook {
     // FIXME: Creating this is a mess and needs refactoring.

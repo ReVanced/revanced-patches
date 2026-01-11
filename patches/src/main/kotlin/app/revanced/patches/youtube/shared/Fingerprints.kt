@@ -1,5 +1,7 @@
 package app.revanced.patches.youtube.shared
 
+import app.revanced.patcher.BytecodePatchContextMethodMatching.firstMutableMethodDeclaratively
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
@@ -8,6 +10,11 @@ import app.revanced.patcher.methodCall
 import app.revanced.patcher.newInstance
 import app.revanced.patcher.opcode
 import app.revanced.patcher.addString
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.name
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -58,12 +65,11 @@ internal val mainActivityOnBackPressedFingerprint = fingerprint {
     }
 }
 
-internal val mainActivityOnCreateFingerprint = fingerprint {
-    returns("V")
-    parameters("Landroid/os/Bundle;")
-    custom { method, classDef ->
-        method.name == "onCreate" && classDef.type == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
-    }
+internal val BytecodePatchContext.mainActivityOnCreateMethod by gettingFirstMutableMethodDeclaratively {
+    name("onCreate")
+    definingClass(YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE)
+    returnType("V")
+    parameterTypes("Landroid/os/Bundle;")
 }
 
 internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
@@ -87,8 +93,8 @@ internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
     )
     custom { _, classDef ->
         classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;" ||
-            classDef.superclass ==
-            "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
+                classDef.superclass ==
+                "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
     }
 }
 
@@ -128,6 +134,10 @@ internal val videoQualityChangedFingerprint = fingerprint {
         newInstance("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"),
         opcode(Opcode.IGET_OBJECT),
         opcode(Opcode.CHECK_CAST),
-        fieldAccess(type = "I", opcode = Opcode.IGET, location = MatchAfterImmediately()), // Video resolution (human readable).
+        fieldAccess(
+            type = "I",
+            opcode = Opcode.IGET,
+            location = MatchAfterImmediately()
+        ), // Video resolution (human readable).
     )
 }

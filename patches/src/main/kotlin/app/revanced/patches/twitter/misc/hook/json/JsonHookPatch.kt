@@ -1,8 +1,8 @@
 package app.revanced.patches.twitter.misc.hook.json
 
+import app.revanced.patcher.BytecodePatchContextClassDefMatching.firstClassDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstructions
-import app.revanced.patcher.firstClassDef
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -15,24 +15,21 @@ import java.io.InvalidClassException
  *
  * @param jsonHook The [JsonHook] to add.
  */
-context(BytecodePatchContext)
-fun addJsonHook(
+fun BytecodePatchContext.addJsonHook(
     jsonHook: JsonHook,
 ) {
     if (jsonHook.added) return
 
-    jsonHookPatchFingerprint.method.apply {
-        // Insert hooks right before calling buildList.
-        val insertIndex = jsonHookPatchFingerprint.instructionMatches.last().index
+    // Insert hooks right before calling buildList.
+    val insertIndex = jsonHookPatchMethodMatch.indices.last()
 
-        addInstructions(
-            insertIndex,
-            """
-                sget-object v1, ${jsonHook.descriptor}->INSTANCE:${jsonHook.descriptor}
-                invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-            """,
-        )
-    }
+    jsonHookPatchMethodMatch.method.addInstructions(
+        insertIndex,
+        """
+            sget-object v1, ${jsonHook.descriptor}->INSTANCE:${jsonHook.descriptor}
+            invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+        """,
+    )
 
     jsonHook.added = true
 }
@@ -48,15 +45,13 @@ val jsonHookPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     apply {
-        jsonHookPatchFingerprint.apply {
-            val jsonHookPatch = firstClassDef(JSON_HOOK_PATCH_CLASS_DESCRIPTOR)
-
-            matchOrNull(jsonHookPatch)
+        jsonHookPatchMethodMatch.apply {
+            match(firstClassDef(JSON_HOOK_PATCH_CLASS_DESCRIPTOR)).methodOrNull
                 ?: throw PatchException("Unexpected extension.")
         }
 
         val jsonFactoryClassDef =
-            loganSquareFingerprint.originalClassDef // Conveniently find the type to hook a method in, via a named field.
+            loganSquareClassDef // Conveniently find the type to hook a method in, via a named field.
                 .fields
                 .firstOrNull { it.name == "JSON_FACTORY" }
                 ?.type
@@ -64,7 +59,7 @@ val jsonHookPatch = bytecodePatch(
                 ?: throw PatchException("Could not find required class.")
 
         // Hook the methods first parameter.
-        jsonInputStreamFingerprint.match(jsonFactoryClassDef).method.addInstructions(
+        jsonFactoryClassDef.getJsonInputStreamMethod().addInstructions(
             0,
             """
                 invoke-static { p1 }, $JSON_HOOK_PATCH_CLASS_DESCRIPTOR->parseJsonHook(Ljava/io/InputStream;)Ljava/io/InputStream;
@@ -75,12 +70,17 @@ val jsonHookPatch = bytecodePatch(
 
     afterDependents {
         // Remove hooks.add(dummyHook).
-        jsonHookPatchFingerprint.method.apply {
-            val addDummyHookIndex = jsonHookPatchFingerprint.instructionMatches.last().index - 2
+        val addDummyHookIndex = jsonHookPatchMethodMatch.indices.last()
 
-            removeInstructions(addDummyHookIndex, 2)
-        }
+        jsonHookPatchMethodMatch.method.removeInstructions(addDummyHookIndex, 2)
     }
+}
+
+
+class JsonHook internal constructor(
+    internal val descriptor: String,
+) {
+    internal var added = false
 }
 
 /**
@@ -91,22 +91,18 @@ val jsonHookPatch = bytecodePatch(
  * @param descriptor The class descriptor of the hook.
  * @throws ClassNotFoundException If the class could not be found.
  */
-context(BytecodePatchContext)
-class JsonHook(
-    internal val descriptor: String,
-) {
-    internal var added = false
-
-    init {
-        firstClassDef(descriptor).let {
-            it.also { classDef ->
-                if (
-                    classDef.superclass != JSON_HOOK_CLASS_DESCRIPTOR ||
-                    !classDef.fields.any { field -> field.name == "INSTANCE" }
-                ) {
-                    throw InvalidClassException(classDef.type, "Not a hook class")
-                }
+context(_: BytecodePatchContext)
+fun jsonHook(descriptor: String): JsonHook {
+    firstClassDef(descriptor).let {
+        it.also { classDef ->
+            if (
+                classDef.superclass != JSON_HOOK_CLASS_DESCRIPTOR ||
+                !classDef.fields.any { field -> field.name == "INSTANCE" }
+            ) {
+                throw InvalidClassException(classDef.type, "Not a hook class")
             }
         }
     }
+
+    return JsonHook(JSON_HOOK_CLASS_DESCRIPTOR)
 }

@@ -1,9 +1,11 @@
 package app.revanced.patches.googlenews.misc.gms
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val magazinesActivityOnCreateFingerprint = fingerprint {
-    custom { methodDef, classDef ->
-        methodDef.name == "onCreate" && classDef.endsWith("/StartActivity;")
-    }
+internal val BytecodePatchContext.magazinesActivityOnCreateMethod by gettingFirstMutableMethodDeclaratively {
+    name("onCreate")
+    definingClass("/StartActivity;"::endsWith)
 }

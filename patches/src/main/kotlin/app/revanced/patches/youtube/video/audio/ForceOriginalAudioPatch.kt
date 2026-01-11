@@ -6,7 +6,6 @@ import app.revanced.patches.youtube.misc.playservice.is_20_07_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
 @Suppress("unused")
 val forceOriginalAudioPatch = forceOriginalAudioPatch(

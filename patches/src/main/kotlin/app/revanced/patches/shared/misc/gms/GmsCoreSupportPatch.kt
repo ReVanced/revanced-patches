@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patches.all.misc.packagename.changePackageNamePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources

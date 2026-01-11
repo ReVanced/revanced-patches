@@ -13,7 +13,6 @@ import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.misc.spoof.spoofVideoStreamsPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
 @Suppress("unused")
 val gmsCoreSupportPatch = gmsCoreSupportPatch(

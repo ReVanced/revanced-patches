@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.misc.playercontrols.injectVisibilityCheckCal
 import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
+import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.util.ResourceGroup
 import app.revanced.util.copyResources
@@ -85,7 +85,7 @@ val downloadsPatch = bytecodePatch(
         injectVisibilityCheckCall(BUTTON_DESCRIPTOR)
 
         // Main activity is used to launch downloader intent.
-        mainActivityOnCreateFingerprint.method.addInstruction(
+        mainActivityOnCreateMethod.method.addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, ${EXTENSION_CLASS_DESCRIPTOR}->setMainActivity(Landroid/app/Activity;)V"
         )

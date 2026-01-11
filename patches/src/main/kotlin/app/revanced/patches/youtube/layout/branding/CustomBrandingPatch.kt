@@ -5,7 +5,6 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_MAIN_ACTIVITY_NAME
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
 
 @Suppress("unused")
 val customBrandingPatch = baseCustomBrandingPatch(

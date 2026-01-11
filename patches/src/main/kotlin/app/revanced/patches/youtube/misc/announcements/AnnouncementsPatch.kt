@@ -7,7 +7,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
+import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/announcements/AnnouncementsPatch;"
@@ -37,7 +37,7 @@ val announcementsPatch = bytecodePatch(
             SwitchPreference("revanced_announcements"),
         )
 
-        mainActivityOnCreateFingerprint.method.addInstruction(
+        mainActivityOnCreateMethod.method.addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->showAnnouncement(Landroid/app/Activity;)V",
         )

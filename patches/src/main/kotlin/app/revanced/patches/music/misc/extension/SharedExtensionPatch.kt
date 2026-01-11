@@ -6,5 +6,6 @@ import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
 
 val sharedExtensionPatch = sharedExtensionPatch(
     "music",
-    applicationInitHook, applicationInitOnCreateHook
+    applicationInitHook,
+    applicationInitOnCreateHook
 )

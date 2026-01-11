@@ -1,5 +1,10 @@
 package app.revanced.patches.googlephotos.misc.extension
 
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.name
 import app.revanced.patches.shared.misc.extension.extensionHook
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -10,28 +15,26 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private var getApplicationContextIndex = -1
 
 internal val homeActivityInitHook = extensionHook(
-    getInsertIndex = { method ->
-        getApplicationContextIndex = method.indexOfFirstInstructionOrThrow {
+    getInsertIndex = {
+        getApplicationContextIndex = indexOfFirstInstructionOrThrow {
             getReference<MethodReference>()?.name == "getApplicationContext"
         }
 
         getApplicationContextIndex + 2 // Below the move-result-object instruction.
     },
-    getContextRegister = { method ->
-        val moveResultInstruction = method.implementation!!.instructions.elementAt(getApplicationContextIndex + 1)
-            as OneRegisterInstruction
+    getContextRegister = {
+        val moveResultInstruction = instructions.elementAt(getApplicationContextIndex + 1) as OneRegisterInstruction
         "v${moveResultInstruction.registerA}"
     },
 ) {
-    opcodes(
-        Opcode.CONST_STRING,
-        Opcode.INVOKE_STATIC,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.IF_NEZ,
-        Opcode.INVOKE_VIRTUAL, // Calls getApplicationContext().
-        Opcode.MOVE_RESULT_OBJECT,
+    name("onCreate")
+    definingClass("/HomeActivity;"::endsWith)
+    instructions(
+        Opcode.CONST_STRING(),
+        Opcode.INVOKE_STATIC(),
+        Opcode.MOVE_RESULT_OBJECT(),
+        Opcode.IF_NEZ(),
+        Opcode.INVOKE_VIRTUAL(), // Calls getApplicationContext().
+        Opcode.MOVE_RESULT_OBJECT(),
     )
-    custom { methodDef, classDef ->
-        methodDef.name == "onCreate" && classDef.endsWith("/HomeActivity;")
-    }
 }

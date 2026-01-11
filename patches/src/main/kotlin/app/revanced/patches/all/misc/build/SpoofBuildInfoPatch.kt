@@ -184,7 +184,6 @@ val spoofBuildInfoPatch = bytecodePatch(
                 type,
                 user,
             )
-        },
-
-        )
+        }
+    )
 }

@@ -14,10 +14,9 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_49_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_30_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
+import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.insertLiteralOverride
@@ -155,7 +154,7 @@ val seekbarColorPatch = bytecodePatch(
         }
 
         // Hook the splash animation to set the a seekbar color.
-        mainActivityOnCreateFingerprint.method.apply {
+        mainActivityOnCreateMethod.method.apply {
             val setAnimationIntMethodName =
                 lottieAnimationViewSetAnimationIntFingerprint.originalMethod.name
 

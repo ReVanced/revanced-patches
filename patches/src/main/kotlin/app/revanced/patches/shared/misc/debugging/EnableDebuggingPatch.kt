@@ -2,23 +2,16 @@ package app.revanced.patches.shared.misc.debugging
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.BasePreference
-import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
-import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
-import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
+import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
-import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.util.ResourceGroup
-import app.revanced.util.copyResources
-import app.revanced.util.findInstructionIndicesReversedOrThrow
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -45,7 +38,8 @@ internal fun enableDebuggingPatch(
             apply {
                 copyResources(
                     "settings",
-                    ResourceGroup("drawable",
+                    ResourceGroup(
+                        "drawable",
                         // Action buttons.
                         "revanced_settings_copy_all.xml",
                         "revanced_settings_deselect_all.xml",
@@ -105,9 +99,7 @@ internal fun enableDebuggingPatch(
         )
 
         // Hook the methods that look up if a feature flag is active.
-        experimentalBooleanFeatureFlagFingerprint.match(
-            experimentalFeatureFlagParentFingerprint.originalClassDef
-        ).method.apply {
+        experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalBooleanFeatureFlagMethod().apply {
             findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -121,15 +113,13 @@ internal fun enableDebuggingPatch(
             }
         }
 
-        experimentalDoubleFeatureFlagFingerprint.match(
-            experimentalFeatureFlagParentFingerprint.originalClassDef
-        ).method.apply {
+        experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalDoubleFeatureFlagMethod().apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
 
             addInstructions(
                 insertIndex,
                 """
-                    move-result-wide v0     # Also clobbers v1 (p0) since result is wide.
+                    move-result-wide v0 # Also clobbers v1 (p0) since result is wide.
                     invoke-static/range { v0 .. v5 }, $EXTENSION_CLASS_DESCRIPTOR->isDoubleFeatureFlagEnabled(DJD)D
                     move-result-wide v0
                     return-wide v0
@@ -137,9 +127,7 @@ internal fun enableDebuggingPatch(
             )
         }
 
-        experimentalLongFeatureFlagFingerprint.match(
-            experimentalFeatureFlagParentFingerprint.originalClassDef
-        ).method.apply {
+        experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalLongFeatureFlagMethod().apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_WIDE)
 
             addInstructions(
@@ -153,21 +141,20 @@ internal fun enableDebuggingPatch(
             )
         }
 
-        if (hookStringFeatureFlag) experimentalStringFeatureFlagFingerprint.match(
-            experimentalFeatureFlagParentFingerprint.originalClassDef
-        ).method.apply {
-            val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT_OBJECT)
+        if (hookStringFeatureFlag)
+            experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalStringFeatureFlagMethod().apply {
+                val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT_OBJECT)
 
-            addInstructions(
-                insertIndex,
-                """
-                    move-result-object v0
-                    invoke-static { v0, p1, p2, p3 }, $EXTENSION_CLASS_DESCRIPTOR->isStringFeatureFlagEnabled(Ljava/lang/String;JLjava/lang/String;)Ljava/lang/String;
-                    move-result-object v0
-                    return-object v0
-                """
-            )
-        }
+                addInstructions(
+                    insertIndex,
+                    """
+                        move-result-object v0
+                        invoke-static { v0, p1, p2, p3 }, $EXTENSION_CLASS_DESCRIPTOR->isStringFeatureFlagEnabled(Ljava/lang/String;JLjava/lang/String;)Ljava/lang/String;
+                        move-result-object v0
+                        return-object v0
+                    """
+                )
+            }
 
         // There exists other experimental accessor methods for byte[]
         // and wrappers for obfuscated classes, but currently none of those are hooked.

@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.playservice.is_20_39_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityOnCreateFingerprint
+import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -61,7 +61,7 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         )
 
         // Activity is used as the context to launch an Intent.
-        mainActivityOnCreateFingerprint.method.addInstruction(
+        mainActivityOnCreateMethod.method.addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
                     "setMainActivity(Landroid/app/Activity;)V",
