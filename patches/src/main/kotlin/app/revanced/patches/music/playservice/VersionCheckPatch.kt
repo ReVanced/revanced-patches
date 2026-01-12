@@ -2,7 +2,7 @@
 
 package app.revanced.patches.music.playservice
 
-import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.creatingResourcePatch
 import app.revanced.util.findPlayStoreServicesVersion
 import kotlin.properties.Delegates
 
@@ -21,12 +21,14 @@ var is_8_11_or_greater: Boolean by Delegates.notNull()
 var is_8_15_or_greater: Boolean by Delegates.notNull()
     private set
 
-val versionCheckPatch = resourcePatch(
-    description = "Uses the Play Store service version to find the major/minor version of the YouTube Music target app.",
+@Suppress("unused", "ObjectPropertyName")
+val `Version check` by creatingResourcePatch(
+    description = "Uses the Play Store service version to find the major/minor version of the YouTube Music target app."
 ) {
     apply {
         // The app version is missing from the decompiled manifest,
         // so instead use the Google Play services version and compare against specific releases.
+        // This requires ResourcePatchContext, which creatingResourcePatch provides.
         val playStoreServicesVersion = findPlayStoreServicesVersion()
 
         // All bug fix releases always seem to use the same play store version as the minor version.
