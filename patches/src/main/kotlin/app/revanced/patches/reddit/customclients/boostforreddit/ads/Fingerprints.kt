@@ -1,11 +1,12 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.ads
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val maxMediationFingerprint = fingerprint {
-    strings("MaxMediation: Attempting to initialize SDK")
-}
+internal val BytecodePatchContext.maxMediationMethod by gettingFirstMutableMethodDeclaratively(
+    "MaxMediation: Attempting to initialize SDK"
+)
 
-internal val admobMediationFingerprint = fingerprint {
-    strings("AdmobMediation: Attempting to initialize SDK")
-}
+internal val BytecodePatchContext.admobMediationMethod by gettingFirstMutableMethodDeclaratively(
+    "AdmobMediation: Attempting to initialize SDK"
+)
