@@ -19,7 +19,7 @@ val fixRedgifsApi = fixRedgifsApiPatch(
     apply {
         // region Patch Redgifs OkHttp3 client.
 
-        createOkHttpClientFingerprint.method.apply {
+        createOkHttpClientMethod.apply {
             val index = indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()
                 reference?.name == "build" && reference.definingClass == "Lokhttp3/OkHttpClient\$Builder;"
