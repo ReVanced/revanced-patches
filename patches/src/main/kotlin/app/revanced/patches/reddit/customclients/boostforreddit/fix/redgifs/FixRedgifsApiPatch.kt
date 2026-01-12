@@ -3,7 +3,7 @@ package app.revanced.patches.reddit.customclients.boostforreddit.fix.redgifs
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.CREATE_NEW_CLIENT_METHOD
 import app.revanced.patches.reddit.customclients.boostforreddit.misc.extension.sharedExtensionPatch
-import app.revanced.patches.reddit.customclients.fixRedgifsApiPatch
+import app.revanced.patches.reddit.customclients.`Fix Redgifs API`
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/boostforreddit/FixRedgifsApiPatch;"
 
 @Suppress("unused")
-val fixRedgifsApi = fixRedgifsApiPatch(
+val fixRedgifsApi = `Fix Redgifs API`(
     extensionPatch = sharedExtensionPatch
 ) {
     compatibleWith("com.rubenmayayo.reddit")

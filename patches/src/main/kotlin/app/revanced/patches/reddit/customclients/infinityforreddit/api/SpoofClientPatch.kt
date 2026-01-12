@@ -1,13 +1,13 @@
 package app.revanced.patches.reddit.customclients.infinityforreddit.api
 
 import app.revanced.patcher.extensions.toInstructions
-import app.revanced.patches.reddit.customclients.spoofClientPatch
+import app.revanced.patches.reddit.customclients.`Spoof client`
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
-val spoofClientPatch = spoofClientPatch(redirectUri = "infinity://localhost") { clientIdOption ->
+val spoofClientPatch = `Spoof client`(redirectUri = "infinity://localhost") { clientIdOption ->
     compatibleWith(
         "ml.docilealligator.infinityforreddit",
         "ml.docilealligator.infinityforreddit.plus",

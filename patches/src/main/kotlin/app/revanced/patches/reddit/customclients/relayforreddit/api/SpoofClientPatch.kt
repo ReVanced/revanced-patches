@@ -3,7 +3,7 @@ package app.revanced.patches.reddit.customclients.relayforreddit.api
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patches.reddit.customclients.spoofClientPatch
+import app.revanced.patches.reddit.customclients.`Spoof client`
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Suppress("unused")
-val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") { clientIdOption ->
+val spoofClientPatch = `Spoof client`(redirectUri = "dbrady://relay") { clientIdOption ->
     compatibleWith(
         "free.reddit.news",
         "reddit.news",

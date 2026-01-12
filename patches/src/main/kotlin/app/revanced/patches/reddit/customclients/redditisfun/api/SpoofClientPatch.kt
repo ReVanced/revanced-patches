@@ -2,7 +2,7 @@ package app.revanced.patches.reddit.customclients.redditisfun.api
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patches.reddit.customclients.spoofClientPatch
+import app.revanced.patches.reddit.customclients.`Spoof client`
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.returnEarly
@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.mutable.MutableMethod
 
 @Suppress("unused")
-val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { clientIdOption ->
+val spoofClientPatch = `Spoof client`(redirectUri = "redditisfun://auth") { clientIdOption ->
     compatibleWith(
         "com.andrewshu.android.reddit",
         "com.andrewshu.android.redditdonation",

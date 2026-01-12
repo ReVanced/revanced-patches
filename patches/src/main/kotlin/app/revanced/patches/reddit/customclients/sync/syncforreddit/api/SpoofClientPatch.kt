@@ -2,7 +2,7 @@ package app.revanced.patches.reddit.customclients.sync.syncforreddit.api
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patches.reddit.customclients.spoofClientPatch
+import app.revanced.patches.reddit.customclients.`Spoof client`
 import app.revanced.patches.reddit.customclients.sync.detection.piracy.disablePiracyDetectionPatch
 import app.revanced.patches.shared.misc.string.replaceStringPatch
 import app.revanced.util.returnEarly
@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import java.util.Base64
 
-val spoofClientPatch = spoofClientPatch(
+val spoofClientPatch = `Spoof client`(
     redirectUri = "http://redditsync/auth",
 ) { clientIdOption ->
     dependsOn(

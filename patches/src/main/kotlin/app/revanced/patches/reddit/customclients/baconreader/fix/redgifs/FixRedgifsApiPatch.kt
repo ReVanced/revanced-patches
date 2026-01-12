@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.INSTALL_NEW_CLIENT_METHOD
 import app.revanced.patches.reddit.customclients.baconreader.misc.extension.sharedExtensionPatch
-import app.revanced.patches.reddit.customclients.fixRedgifsApiPatch
+import app.revanced.patches.reddit.customclients.`Fix Redgifs API`
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/baconreader/FixRedgifsApiPatch;"
 
 @Suppress("unused")
-val fixRedgifsApi = fixRedgifsApiPatch(
+val fixRedgifsApi = `Fix Redgifs API`(
     extensionPatch = sharedExtensionPatch
 ) {
     compatibleWith(

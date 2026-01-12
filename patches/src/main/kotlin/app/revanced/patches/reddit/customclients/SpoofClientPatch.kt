@@ -2,7 +2,7 @@ package app.revanced.patches.reddit.customclients
 
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.Option
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.stringOption
 
 /**
@@ -11,11 +11,10 @@ import app.revanced.patcher.patch.stringOption
  * @param redirectUri The redirect URI of the Reddit OAuth client.
  * @param block The patch block. It is called with the client ID option.
  */
-fun spoofClientPatch(
+fun `Spoof client`(
     redirectUri: String,
     block: BytecodePatchBuilder.(Option<String>) -> Unit = {},
-) = bytecodePatch(
-    name = "Spoof client",
+) = creatingBytecodePatch(
     description = "Restores functionality of the app by using custom client ID.",
 ) {
     block(
