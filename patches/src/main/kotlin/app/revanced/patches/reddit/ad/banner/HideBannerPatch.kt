@@ -1,11 +1,12 @@
 package app.revanced.patches.reddit.ad.banner
 
-import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.creatingResourcePatch
 
 // Note that for now, this patch and anything using it will only work on
 // Reddit 2024.17.0 or older. Newer versions will crash during patching.
 // See https://github.com/ReVanced/revanced-patches/issues/3099
-val hideBannerPatch = resourcePatch(
+@Suppress("unused")
+val `Hide banner` = creatingResourcePatch(
     description = "Hides banner ads from comments on subreddits.",
 ) {
     apply {
