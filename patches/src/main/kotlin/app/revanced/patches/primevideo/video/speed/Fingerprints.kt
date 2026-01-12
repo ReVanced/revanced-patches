@@ -1,23 +1,26 @@
 package app.revanced.patches.primevideo.video.speed
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.name
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val playbackUserControlsInitializeFingerprint = fingerprint {
+internal val BytecodePatchContext.playbackUserControlsInitializeMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC)
-    parameters("Lcom/amazon/avod/playbackclient/PlaybackInitializationContext;")
-    returns("V")
-    custom { method, classDef ->
-        method.name == "initialize" && classDef.type == "Lcom/amazon/avod/playbackclient/activity/feature/PlaybackUserControlsFeature;"
-    }
+    parameterTypes("Lcom/amazon/avod/playbackclient/PlaybackInitializationContext;")
+    returnType("V")
+    name("initialize")
+    definingClass("Lcom/amazon/avod/playbackclient/activity/feature/PlaybackUserControlsFeature;")
 }
 
-internal val playbackUserControlsPrepareForPlaybackFingerprint = fingerprint {
+internal val BytecodePatchContext.playbackUserControlsPrepareForPlaybackMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC)
-    parameters("Lcom/amazon/avod/playbackclient/PlaybackContext;")
-    returns("V")
-    custom { method, classDef ->
-        method.name == "prepareForPlayback" && 
-        classDef.type == "Lcom/amazon/avod/playbackclient/activity/feature/PlaybackUserControlsFeature;"
-    }
+    parameterTypes("Lcom/amazon/avod/playbackclient/PlaybackContext;")
+    returnType("V")
+    name("prepareForPlayback")
+    definingClass("Lcom/amazon/avod/playbackclient/activity/feature/PlaybackUserControlsFeature;")
 }
