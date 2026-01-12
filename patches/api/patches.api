@@ -104,6 +104,10 @@ public final class app/revanced/patches/all/misc/packagename/ChangePackageNamePa
 	public static final fun setPackageNameOption (Lapp/revanced/patcher/patch/Option;)V
 }
 
+public final class app/revanced/patches/all/misc/playintegrity/DisablePlayIntegrityKt {
+	public static final fun getDisablePlayIntegrityPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/all/misc/resources/AddResourcesPatchKt {
 	public static final fun addResource (Ljava/lang/String;Lapp/revanced/util/resource/BaseResource;)Z
 	public static final fun addResources (Lapp/revanced/patcher/patch/Patch;Lkotlin/jvm/functions/Function1;)Z
@@ -940,6 +944,10 @@ public final class app/revanced/patches/shared/misc/pairip/license/DisableLicens
 	public static final fun getDisableLicenseCheckPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/shared/misc/privacy/DisableSentryTelemetryKt {
+	public static final fun getDisableSentryTelemetryPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
 public final class app/revanced/patches/shared/misc/settings/SettingsPatchKt {
 	public static final fun overrideThemeColors (Ljava/lang/String;Ljava/lang/String;)V
 	public static final fun settingsPatch (Ljava/util/List;Ljava/util/Set;)Lapp/revanced/patcher/patch/ResourcePatch;
@@ -1196,8 +1204,16 @@ public final class app/revanced/patches/strava/groupkudos/AddGiveGroupKudosButto
 	public static final fun getAddGiveGroupKudosButton ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/strava/media/AddMediaDownloadPatchKt {
+	public static final fun getAddMediaDownloadPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/strava/mediaupload/OverwriteMediaUploadParametersPatchKt {
 	public static final fun getOverwriteMediaUploadParametersPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/strava/misc/extension/SharedExtensionPatchKt {
+	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/strava/password/EnablePasswordLoginPatchKt {
@@ -1690,6 +1706,10 @@ public final class app/revanced/patches/youtube/layout/thumbnails/BypassImageReg
 
 public final class app/revanced/patches/youtube/misc/announcements/AnnouncementsPatchKt {
 	public static final fun getAnnouncementsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/misc/audiofocus/PauseOnAudioInterruptPatchKt {
+	public static final fun getPauseOnAudioInterruptPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/misc/autorepeat/AutoRepeatPatchKt {
