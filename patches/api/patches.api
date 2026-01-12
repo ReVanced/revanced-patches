@@ -1696,6 +1696,10 @@ public final class app/revanced/patches/youtube/misc/announcements/Announcements
 	public static final fun getAnnouncementsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/youtube/misc/audiofocus/PauseOnAudioInterruptPatchKt {
+	public static final fun getPauseOnAudioInterruptPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/youtube/misc/autorepeat/AutoRepeatPatchKt {
 	public static final fun getAutoRepeatPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
