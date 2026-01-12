@@ -1,10 +1,11 @@
 package app.revanced.patches.reddit.ad.comments
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val hideCommentAdsFingerprint = fingerprint {
-    custom { method, classDef ->
-        method.name == "invokeSuspend" &&
-            classDef.contains("LoadAdsCombinedCall")
-    }
+internal val BytecodePatchContext.hideCommentAdsMethod by gettingFirstMutableMethodDeclaratively {
+    name("invokeSuspend")
+    definingClass("LoadAdsCombinedCall"::contains)
 }
