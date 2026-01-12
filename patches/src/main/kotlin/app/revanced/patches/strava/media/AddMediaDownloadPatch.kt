@@ -45,8 +45,7 @@ val addMediaDownloadPatch = bytecodePatch(
                 }
                 val actionRegistrarRegister = getInstruction<BuilderInstruction22c>(setTrueIndex).registerB
                 val actionRegister = instructions.first { instruction ->
-                    instruction.opcode == Opcode.NEW_INSTANCE &&
-                            instruction.getReference<TypeReference>()!!.type == ACTION_CLASS_DESCRIPTOR
+                    instruction.getReference<TypeReference>()?.type == ACTION_CLASS_DESCRIPTOR
                 }.writeRegister!!
 
                 fun addMenuItem(actionId: String, string: String, color: String, drawable: String) = addInstructions(
@@ -70,8 +69,7 @@ val addMediaDownloadPatch = bytecodePatch(
 
                 // Move media to last parameter of `Action` constructor.
                 val getMediaInstruction = instructions.first { instruction ->
-                    instruction.opcode == Opcode.IGET_OBJECT &&
-                            instruction.getReference<FieldReference>()!!.type == MEDIA_CLASS_DESCRIPTOR
+                    instruction.getReference<FieldReference>()?.type == MEDIA_CLASS_DESCRIPTOR
                 }
                 addInstruction(
                     getMediaInstruction.location.index + 1,
