@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableBooleanEncodedValue.Companion.toMutable
 import app.revanced.patcher.util.smali.ExternalLabel
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableBooleanEncodedValue
@@ -93,23 +92,26 @@ val hideDistractionsPatch = bytecodePatch(
         }
 
         // Intercept all `getModules()` calls to check whether they should be hidden.
-        classes.filter { it.interfaces.contains(MODULAR_ENTRY_CLASS_DESCRIPTOR) }.forEach { modularEntryClass ->
-            modularEntryClass.virtualMethods.first { method ->
-                method.name == "getModules" && method.parameterTypes.isEmpty()
-            }.toMutable().apply {
-                addInstructionsWithLabels(
-                    0,
-                    """
-                        invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->hide($MODULAR_ENTRY_CLASS_DESCRIPTOR)Z
-                        move-result v0
-                        if-eqz v0, :original
-                        invoke-static { }, Ljava/util/Collections;->emptyList()Ljava/util/List;
-                        move-result-object v0
-                        return-object v0
-                    """,
-                    ExternalLabel("original", instructions[0])
-                )
+        classes
+            .filter { it.interfaces.contains(MODULAR_ENTRY_CLASS_DESCRIPTOR) }
+            .map { proxy(it).mutableClass }
+            .forEach { modularEntryClass ->
+                modularEntryClass.virtualMethods.first { method ->
+                    method.name == "getModules" && method.parameterTypes.isEmpty()
+                }.apply {
+                    addInstructionsWithLabels(
+                        0,
+                        """
+                            invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->hide($MODULAR_ENTRY_CLASS_DESCRIPTOR)Z
+                            move-result v0
+                            if-eqz v0, :original
+                            invoke-static { }, Ljava/util/Collections;->emptyList()Ljava/util/List;
+                            move-result-object v0
+                            return-object v0
+                        """,
+                        ExternalLabel("original", instructions[0])
+                    )
+                }
             }
-        }
     }
 }
