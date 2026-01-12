@@ -16,8 +16,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Deprecated("Use the shared one instead", ReplaceWith("app.revanced.patches.shared.misc.litho.filter.addLithoFilter"))
-lateinit var addLithoFilter: (String) -> Unit
-    private set
+val addLithoFilter: (String) -> Unit = app.revanced.patches.shared.misc.litho.filter.addLithoFilter
 
 val lithoFilterPatch = lithoFilterPatch(
     componentCreateInsertionIndex = {
@@ -63,8 +62,4 @@ private fun BytecodePatchContext.executeBlock() {
     }
 
     // endregion
-
-    // Set the addLithoFilter function to the one from the shared patch.
-    // This is done for backwards compatibility.
-    addLithoFilter = app.revanced.patches.shared.misc.litho.filter.addLithoFilter
 }
