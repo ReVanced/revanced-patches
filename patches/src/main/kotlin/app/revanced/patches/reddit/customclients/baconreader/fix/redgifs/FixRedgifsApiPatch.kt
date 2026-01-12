@@ -1,7 +1,6 @@
 package app.revanced.patches.reddit.customclients.baconreader.fix.redgifs
 
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.INSTALL_NEW_CLIENT_METHOD
@@ -28,7 +27,7 @@ val fixRedgifsApi = fixRedgifsApiPatch(
     apply {
         // region Patch Redgifs OkHttp3 client.
 
-        getOkHttpClientFingerprint.method.apply {
+        getOkHttpClientMethod.apply {
             // Remove conflicting OkHttp interceptors.
             val originalInterceptorInstallIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.NEW_INSTANCE && getReference<TypeReference>()?.type == "Lcom/onelouder/baconreader/media/gfycat/RedGifsManager\$HeaderInterceptor;"
