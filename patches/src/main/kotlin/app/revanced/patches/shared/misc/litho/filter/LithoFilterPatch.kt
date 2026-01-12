@@ -12,7 +12,10 @@ import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
-import app.revanced.util.*
+import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.findFreeRegister
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -39,7 +42,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/p
  * @param executeBlock The additional execution block of the patch.
  * @param block The additional block to build the patch.
  */
-fun lithoFilterPatch(
+internal fun lithoFilterPatch(
     componentCreateInsertionIndex: Method.() -> Int,
     conversionContextFingerprintToString: Fingerprint,
     executeBlock: BytecodePatchContext.() -> Unit = {},
@@ -196,14 +199,13 @@ fun lithoFilterPatch(
             """
         )
 
-
         executeBlock()
     }
-
-    block()
 
     finalize {
         // Save the number of filters added.
         lithoFilterFingerprint.method.replaceInstruction(0, "const/16 v0, $filterCount")
     }
+
+    block()
 }

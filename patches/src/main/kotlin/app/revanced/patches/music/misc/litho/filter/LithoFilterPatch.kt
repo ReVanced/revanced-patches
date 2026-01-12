@@ -3,7 +3,7 @@ package app.revanced.patches.music.misc.litho.filter
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.shared.conversionContextFingerprintToString
 import app.revanced.patches.shared.misc.litho.filter.lithoFilterPatch
-import app.revanced.util.*
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 
 val lithoFilterPatch = lithoFilterPatch(
@@ -13,7 +13,5 @@ val lithoFilterPatch = lithoFilterPatch(
     },
     conversionContextFingerprintToString = conversionContextFingerprintToString,
 ) {
-    dependsOn(
-        sharedExtensionPatch
-    )
+    dependsOn(sharedExtensionPatch)
 }
