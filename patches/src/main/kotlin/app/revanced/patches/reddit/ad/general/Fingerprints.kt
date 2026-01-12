@@ -1,16 +1,24 @@
-package app.revanced.patches.reddit.ad.general
+package app.revanced.patches.nunl.ads
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val adPostFingerprint = fingerprint {
-    returns("V")
+internal val BytecodePatchContext.adPostMethod by gettingFirstMutableMethodDeclaratively("children") {
+    returnType("V")
     // "children" are present throughout multiple versions
-    strings("children")
-    custom { _, classDef -> classDef.endsWith("Listing;") }
+    instructions("children"())
+    definingClass { endsWith("Listing;") }
 }
 
-internal val newAdPostFingerprint = fingerprint {
-    opcodes(Opcode.INVOKE_VIRTUAL)
-    strings("feedElement", "com.reddit.cookie")
+internal val BytecodePatchContext.newAdPostMethod by gettingFirstMutableMethodDeclaratively(
+    "feedElement", "com.reddit.cookie"
+) {
+    instructions(Opcode.INVOKE_VIRTUAL())
+    instructions("feedElement"())
+    instructions("com.reddit.cookie"())
 }

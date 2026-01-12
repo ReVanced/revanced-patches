@@ -2,8 +2,10 @@ package app.revanced.patches.reddit.ad.general
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.reddit.ad.comments.hideCommentAdsPatch
+import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patches.nunl.ads.adPostMethod
+import app.revanced.patches.nunl.ads.newAdPostMethod
+import app.revanced.patches.reddit.ad.comments.`Hide comment ads`
 import app.revanced.patches.reddit.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -11,11 +13,11 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Suppress("unused")
-val hideAdsPatch = bytecodePatch(
-    name = "Hide ads",
+@Suppress("unused", "ObjectPropertyName")
+val `Hide ads` by creatingBytecodePatch(
+    description = "Hide ads"
 ) {
-    dependsOn(hideCommentAdsPatch, sharedExtensionPatch)
+    dependsOn(`Hide comment ads`, sharedExtensionPatch)
 
     compatibleWith("com.reddit.frontpage")
 
@@ -26,7 +28,7 @@ val hideAdsPatch = bytecodePatch(
             "Lapp/revanced/extension/reddit/patches/FilterPromotedLinksPatch;" +
                 "->filterChildren(Ljava/lang/Iterable;)Ljava/util/List;"
 
-        adPostFingerprint.method.apply {
+        adPostMethod.apply {
             val setPostsListChildren = implementation!!.instructions.first { instruction ->
                 if (instruction.opcode != Opcode.IPUT_OBJECT) return@first false
 
@@ -58,7 +60,7 @@ val hideAdsPatch = bytecodePatch(
         // AdElementConverter is conveniently responsible for inserting all feed ads.
         // By removing the appending instruction no ad posts gets appended to the feed.
 
-        val index = newAdPostFingerprint.originalMethod.implementation!!.instructions.indexOfFirst {
+        val index = newAdPostMethod.implementation!!.instructions.indexOfFirst {
             if (it.opcode != Opcode.INVOKE_VIRTUAL) return@indexOfFirst false
 
             val reference = (it as ReferenceInstruction).reference as MethodReference
@@ -66,7 +68,7 @@ val hideAdsPatch = bytecodePatch(
             reference.name == "add" && reference.definingClass == "Ljava/util/ArrayList;"
         }
 
-        newAdPostFingerprint.method.removeInstruction(index)
+        newAdPostMethod.removeInstruction(index)
     }
 
     // endregion
