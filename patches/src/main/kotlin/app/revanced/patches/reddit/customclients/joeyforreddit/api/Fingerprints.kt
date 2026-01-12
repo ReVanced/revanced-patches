@@ -1,28 +1,31 @@
-package app.revanced.patches.reddit.customclients.joeyforreddit.api
+package app.revanced.patches.reddit.customclients.infinity.api
 
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.classDef
+import app.revanced.patcher.custom
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.Opcode
 
-internal val authUtilityUserAgentFingerprint = fingerprint {
+internal val BytecodePatchContext.authUtilityUserAgentMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    opcodes(Opcode.APUT_OBJECT)
-    custom { method, classDef ->
-        classDef.sourceFile == "AuthUtility.java"
-    }
+    returnType("Ljava/lang/String;")
+    instructions(Opcode.APUT_OBJECT())
+    custom { classDef.sourceFile == "AuthUtility.java" }
 }
 
-internal val getClientIdFingerprint = fingerprint {
+internal val BytecodePatchContext.getClientIdMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("L")
-    opcodes(
-        Opcode.CONST,               // R.string.valuable_cid
-        Opcode.INVOKE_STATIC,       // StringMaster.decrypt
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.RETURN_OBJECT
+    returnType("L")
+    instructions(
+        Opcode.CONST(),
+        Opcode.INVOKE_STATIC(),
+        Opcode.MOVE_RESULT_OBJECT(),
+        Opcode.RETURN_OBJECT(),
     )
-    custom { _, classDef ->
-        classDef.sourceFile == "AuthUtility.java"
-    }
+    custom { classDef.sourceFile == "AuthUtility.java" }
 }
