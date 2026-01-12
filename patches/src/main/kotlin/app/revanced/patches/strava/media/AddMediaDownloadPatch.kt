@@ -49,22 +49,20 @@ val addMediaDownloadPatch = bytecodePatch(
                             instruction.getReference<TypeReference>()!!.type == ACTION_CLASS_DESCRIPTOR
                 }.writeRegister!!
 
-                fun addMenuItem(actionId: String, string: String, color: String, drawable: String) {
-                    addInstructions(
-                        setTrueIndex + 1,
-                        """
-                            new-instance v$actionRegister, $ACTION_CLASS_DESCRIPTOR
-                            sget v${actionRegister + 1}, $MEDIA_DOWNLOAD_CLASS_DESCRIPTOR->$actionId:I
-                            const v${actionRegister + 2}, 0x0
-                            const v${actionRegister + 3}, ${resourceMappings["string", string]}
-                            const v${actionRegister + 4}, ${resourceMappings["color", color]}
-                            const v${actionRegister + 5}, ${resourceMappings["drawable", drawable]}
-                            move/from16 v${actionRegister + 6}, v${actionRegister + 4}
-                            invoke-direct/range { v$actionRegister .. v${actionRegister + 7} }, $ACTION_CLASS_DESCRIPTOR-><init>(ILjava/lang/String;IIIILjava/io/Serializable;)V
-                            invoke-virtual { v$actionRegistrarRegister, v$actionRegister }, Lcom/strava/bottomsheet/a;->a(Lcom/strava/bottomsheet/BottomSheetItem;)V
-                        """
-                    )
-                }
+                fun addMenuItem(actionId: String, string: String, color: String, drawable: String) = addInstructions(
+	                setTrueIndex + 1,
+	                """
+	                    new-instance v$actionRegister, $ACTION_CLASS_DESCRIPTOR
+	                    sget v${actionRegister + 1}, $MEDIA_DOWNLOAD_CLASS_DESCRIPTOR->$actionId:I
+	                    const v${actionRegister + 2}, 0x0
+	                    const v${actionRegister + 3}, ${resourceMappings["string", string]}
+	                    const v${actionRegister + 4}, ${resourceMappings["color", color]}
+	                    const v${actionRegister + 5}, ${resourceMappings["drawable", drawable]}
+	                    move/from16 v${actionRegister + 6}, v${actionRegister + 4}
+	                    invoke-direct/range { v$actionRegister .. v${actionRegister + 7} }, $ACTION_CLASS_DESCRIPTOR-><init>(ILjava/lang/String;IIIILjava/io/Serializable;)V
+	                    invoke-virtual { v$actionRegistrarRegister, v$actionRegister }, Lcom/strava/bottomsheet/a;->a(Lcom/strava/bottomsheet/BottomSheetItem;)V
+	                """
+	            )
 
                 addMenuItem("ACTION_COPY_LINK", "copy_link", "core_o3", "actions_link_normal_xsmall")
                 addMenuItem("ACTION_OPEN_LINK", "fallback_menu_item_open_in_browser", "core_o3", "actions_link_external_normal_xsmall")
