@@ -1200,8 +1200,16 @@ public final class app/revanced/patches/stocard/layout/HideStoryBubblesPatchKt {
 	public static final fun getHideStoryBubblesPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
+public final class app/revanced/patches/strava/media/AddMediaDownloadPatchKt {
+	public static final fun getAddMediaDownloadPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/strava/mediaupload/OverwriteMediaUploadParametersPatchKt {
 	public static final fun getOverwriteMediaUploadParametersPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/strava/misc/extension/SharedExtensionPatchKt {
+	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/strava/password/EnablePasswordLoginPatchKt {
