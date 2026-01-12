@@ -2,17 +2,19 @@ package app.revanced.patches.photomath.detection.signature
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-val signatureDetectionPatch = bytecodePatch(
+@Suppress("unused", "ObjectPropertyName")
+val `Signature detection` by creatingBytecodePatch(
     description = "Disables detection of incorrect signature.",
 ) {
-
     apply {
-        val replacementIndex = checkSignatureFingerprint.instructionMatches.last().index
-        val checkRegister =
-            checkSignatureFingerprint.method.getInstruction<OneRegisterInstruction>(replacementIndex).registerA
-        checkSignatureFingerprint.method.replaceInstruction(replacementIndex, "const/4 v$checkRegister, 0x1")
+        val replacementIndex = checkSignatureMethodMatch.indices.last()
+
+        checkSignatureMethodMatch.method.apply {
+            val checkRegister = getInstruction<OneRegisterInstruction>(replacementIndex).registerA
+            replaceInstruction(replacementIndex, "const/4 v$checkRegister, 0x1")
+        }
     }
 }
