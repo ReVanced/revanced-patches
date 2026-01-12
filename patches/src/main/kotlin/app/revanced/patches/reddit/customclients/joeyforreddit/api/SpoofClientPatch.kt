@@ -3,11 +3,11 @@ package app.revanced.patches.reddit.customclients.joeyforreddit.api
 import app.revanced.patches.reddit.customclients.infinity.api.authUtilityUserAgentMethod
 import app.revanced.patches.reddit.customclients.infinity.api.getClientIdMethod
 import app.revanced.patches.reddit.customclients.`Spoof client`
-import app.revanced.patches.reddit.customclients.sync.detection.piracy.disablePiracyDetectionPatch
+import app.revanced.patches.reddit.customclients.sync.detection.piracy.`Disable piracy detection`
 import app.revanced.util.returnEarly
 
 val spoofClientPatch = `Spoof client`(redirectUri = "https://127.0.0.1:65023/authorize_callback") { clientIdOption ->
-    dependsOn(disablePiracyDetectionPatch)
+    dependsOn(`Disable piracy detection`)
 
     compatibleWith(
         "o.o.joey",
