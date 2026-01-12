@@ -3,7 +3,7 @@ package app.revanced.patches.reddit.customclients.sync.detection.piracy
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
 
-val `Disable privacy detection` = creatingBytecodePatch(
+val `Disable piracy detection` by creatingBytecodePatch(
     description = "Disables detection of modified versions.",
 ) {
 
