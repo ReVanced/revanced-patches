@@ -111,10 +111,10 @@ val addGiveGroupKudosButton = bytecodePatch(
             val findViewByIdInstruction =
                 getInstruction<BuilderInstruction35c>(constLeaveIdInstruction.location.index + 1)
             val moveViewInstruction = getInstruction<BuilderInstruction11x>(constLeaveIdInstruction.location.index + 2)
-            val castButtonInstruction =
+            val checkCastButtonInstruction =
                 getInstruction<BuilderInstruction21c>(constLeaveIdInstruction.location.index + 3)
 
-            val buttonClassName = castButtonInstruction.getReference<TypeReference>()!!.type
+            val buttonClassName = checkCastButtonInstruction.getReference<TypeReference>()!!.type
 
             addInstructions(
                 constLeaveIdInstruction.location.index,
@@ -122,7 +122,7 @@ val addGiveGroupKudosButton = bytecodePatch(
                     ${constLeaveIdInstruction.opcode.name} v${constLeaveIdInstruction.registerA}, $kudosIdId
                     ${findViewByIdInstruction.opcode.name} { v${findViewByIdInstruction.registerC}, v${findViewByIdInstruction.registerD} }, ${findViewByIdInstruction.reference}
                     ${moveViewInstruction.opcode.name} v${moveViewInstruction.registerA}
-                    ${castButtonInstruction.opcode.name} v${castButtonInstruction.registerA}, ${castButtonInstruction.reference}
+                    ${checkCastButtonInstruction.opcode.name} v${checkCastButtonInstruction.registerA}, ${checkCastButtonInstruction.reference}
                     new-instance v0, $onClickListenerClassName
                     invoke-direct { v0, p0 }, $onClickListenerClassName-><init>($className)V
                     invoke-virtual { p3, v0 }, $buttonClassName->setOnClickListener($ON_CLICK_LISTENER_CLASS_DESCRIPTOR)V
