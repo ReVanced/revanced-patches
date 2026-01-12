@@ -4,7 +4,6 @@ import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.shared.misc.debugging.enableDebuggingPatch
-import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 
 @Suppress("unused")
 val enableDebuggingPatch = enableDebuggingPatch(
