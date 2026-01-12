@@ -1,11 +1,11 @@
 package app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy
 
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 
-val disablePiracyDetectionPatch = bytecodePatch {
-
+@Suppress("unused", "ObjectPropertyName")
+val `Disable piracy detection` by creatingBytecodePatch {
     apply {
-        piracyDetectionFingerprint.method.addInstruction(0, "return-void")
+        piracyDetectionMethod.addInstruction(0, "return-void")
     }
 }
