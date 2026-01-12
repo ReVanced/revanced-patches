@@ -37,7 +37,8 @@ val addMediaDownloadPatch = bytecodePatch(
     execute {
         val fragmentClass = classBy { it.endsWith("/FullscreenMediaFragment;") }!!.mutableClass
 
-        //region Extend menu of `FullscreenMediaFragment` with actions.
+        // region Extend menu of `FullscreenMediaFragment` with actions.
+
         createAndShowFragmentFingerprint.match(fragmentClass).method.apply {
             val setTrueIndex = instructions.indexOfFirst { instruction ->
                 instruction.opcode == Opcode.IPUT_BOOLEAN
@@ -75,9 +76,11 @@ val addMediaDownloadPatch = bytecodePatch(
                 "move-object/from16 v${actionRegister + 7}, v${getMediaInstruction.writeRegister}"
             )
         }
-        //endregion
 
-        //region Handle new actions.
+        // endregion
+
+        // region Handle new actions.
+
         val actionClass = classes.first { clazz ->
             clazz.type == ACTION_CLASS_DESCRIPTOR
         }
@@ -107,6 +110,7 @@ val addMediaDownloadPatch = bytecodePatch(
                 ExternalLabel("move", instructions[indexAfterMoveInstruction])
             )
         }
-        //endregion
+
+        // endregion
     }
 }
