@@ -11,10 +11,14 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableBooleanEncodedValue
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/strava/HideDistractionsPatch;"
-private const val MODULAR_ENTRY_CLASS_DESCRIPTOR = "Lcom/strava/modularframework/data/ModularEntry;"
+private const val MODULAR_FRAMEWORK_PREFIX = "Lcom/strava/modularframework/data/"
+private const val MODULAR_ENTRY_CLASS_DESCRIPTOR = "${MODULAR_FRAMEWORK_PREFIX}ModularEntry;"
 
+private const val METHOD_SUFFIX = "\$original"
 private const val GET_MODULES_NAME = "getModules"
-private const val GET_MODULES_ORIGINAL_NAME = "$GET_MODULES_NAME\$original"
+private const val GET_MODULES_ORIGINAL_NAME = "$GET_MODULES_NAME$METHOD_SUFFIX"
+private const val GET_SUBMODULES_NAME = "getSubmodules"
+private const val GET_SUBMODULES_ORIGINAL_NAME = "$GET_SUBMODULES_NAME$METHOD_SUFFIX"
 
 @Suppress("unused")
 val hideDistractionsPatch = bytecodePatch(
@@ -140,6 +144,39 @@ val hideDistractionsPatch = bytecodePatch(
                     name = GET_MODULES_ORIGINAL_NAME
 
                     modularEntryClass.virtualMethods += this
+                }
+            }
+
+        // endregion
+
+        // region Intercept all classes' `getSubmodules()` calls.
+
+        classes.filter { classDef ->
+                classDef.type.startsWith(MODULAR_FRAMEWORK_PREFIX) && classDef.virtualMethods.any { method ->
+                    method.name == GET_SUBMODULES_NAME && method.parameterTypes.isEmpty()
+                }
+            }
+            .map { proxy(it).mutableClass }
+            .forEach { moduleClass ->
+                moduleClass.virtualMethods.first { method ->
+                    method.name == GET_SUBMODULES_NAME && method.parameterTypes.isEmpty()
+                }.apply {
+                    moduleClass.virtualMethods -= this
+
+                    moduleClass.virtualMethods += ImmutableMethod.of(this).toMutable().apply {
+                        removeInstructions(instructions.size)
+                        addInstructions(
+                            """
+                                invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->filterSubmodules($moduleClass)$returnType
+                                move-result-object v0
+                                return-object v0
+                            """
+                        )
+                    }
+
+                    name = GET_SUBMODULES_ORIGINAL_NAME
+
+                    moduleClass.virtualMethods += this
                 }
             }
 
