@@ -1283,7 +1283,7 @@ fun FingerprintBuilder.literal(literalSupplier: () -> Long) {
 /**
  * @return All classes in [this] that directly or indirectly implement [interfaceDescriptor].
  */
-fun List<ClassDef>.filterImplementationsOf(interfaceDescriptor: String): List<ClassDef> {
+fun Iterable<ClassDef>.filterImplementationsOf(interfaceDescriptor: String): List<ClassDef> {
     val classMap = associateBy { it.type }
     val memoizedClasses = mutableMapOf<String, Boolean>()
 
