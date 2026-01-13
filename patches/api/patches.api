@@ -1232,6 +1232,10 @@ public final class app/revanced/patches/strava/subscription/UnlockSubscriptionPa
 	public static final fun getUnlockSubscriptionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/strava/upselling/DisableSubscriptionSuggestionsPatchKt {
+	public static final fun getDisableSubscriptionSuggestionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/swissid/integritycheck/RemoveGooglePlayIntegrityCheckPatchKt {
 	public static final fun getRemoveGooglePlayIntegrityCheckPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
