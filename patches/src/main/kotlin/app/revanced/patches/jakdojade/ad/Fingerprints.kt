@@ -17,14 +17,6 @@ internal val isPremiumFingerprint = fingerprint {
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ,
-//        Opcode.IGET_OBJECT,
-//        Opcode.INVOKE_VIRTUAL,
-//        Opcode.MOVE_RESULT,
-//        Opcode.IF_NEZ,
-//        Opcode.CONST_4,
-//        Opcode.GOTO,
-//        Opcode.CONST_4,
-//        Opcode.RETURN
     )
 }
 
