@@ -1204,11 +1204,11 @@ public final class app/revanced/patches/strava/distractions/HideDistractionsPatc
 	public static final fun getHideDistractionsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/strava/media/AddMediaDownloadPatchKt {
+public final class app/revanced/patches/strava/media/download/AddMediaDownloadPatchKt {
 	public static final fun getAddMediaDownloadPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/strava/mediaupload/OverwriteMediaUploadParametersPatchKt {
+public final class app/revanced/patches/strava/media/upload/OverwriteMediaUploadParametersPatchKt {
 	public static final fun getOverwriteMediaUploadParametersPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 

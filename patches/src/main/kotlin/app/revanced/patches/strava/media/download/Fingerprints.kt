@@ -1,4 +1,4 @@
-package app.revanced.patches.strava.media
+package app.revanced.patches.strava.media.download
 
 import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
