@@ -17,18 +17,18 @@ internal val isPremiumFingerprint = fingerprint {
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT,
         Opcode.IF_EQZ,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT,
-        Opcode.IF_NEZ,
-        Opcode.CONST_4,
-        Opcode.GOTO,
-        Opcode.CONST_4,
-        Opcode.RETURN
+//        Opcode.IGET_OBJECT,
+//        Opcode.INVOKE_VIRTUAL,
+//        Opcode.MOVE_RESULT,
+//        Opcode.IF_NEZ,
+//        Opcode.CONST_4,
+//        Opcode.GOTO,
+//        Opcode.CONST_4,
+//        Opcode.RETURN
     )
 }
 
-internal val premiumRenewalDateFingerprint = fingerprint {
+internal val getPremiumRenewalDateFingerprint = fingerprint {
     returns("Ljava/lang/String;")
     accessFlags(AccessFlags.PUBLIC)
     parameters()
