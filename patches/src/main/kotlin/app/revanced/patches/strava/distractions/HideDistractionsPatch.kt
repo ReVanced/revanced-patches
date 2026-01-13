@@ -131,7 +131,7 @@ val hideDistractionsPatch = bytecodePatch(
                         addInstructions(
                             """
                                 invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->filterModules($MODULAR_ENTRY_CLASS_DESCRIPTOR)$returnType
-                                move-result v0
+                                move-result-object v0
                                 return-object v0
                             """
                         )
