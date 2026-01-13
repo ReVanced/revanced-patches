@@ -60,4 +60,7 @@ public interface ModularEntry {
     void setItem(Object item);
 
     void setRank(String str);
+
+    // Added by patch.
+    List<Module> getModules$original();
 }

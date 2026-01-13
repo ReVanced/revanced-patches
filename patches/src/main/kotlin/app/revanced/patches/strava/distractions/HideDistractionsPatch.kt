@@ -1,15 +1,20 @@
 package app.revanced.patches.strava.distractions
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableBooleanEncodedValue.Companion.toMutable
-import app.revanced.patcher.util.smali.ExternalLabel
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableBooleanEncodedValue
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/strava/HideDistractionsPatch;"
 private const val MODULAR_ENTRY_CLASS_DESCRIPTOR = "Lcom/strava/modularframework/data/ModularEntry;"
+
+private const val GET_MODULES_NAME = "getModules"
+private const val GET_MODULES_ORIGINAL_NAME = "$GET_MODULES_NAME\$original"
 
 @Suppress("unused")
 val hideDistractionsPatch = bytecodePatch(
@@ -19,6 +24,8 @@ val hideDistractionsPatch = bytecodePatch(
     compatibleWith("com.strava")
 
     extendWith("extensions/strava.rve")
+
+    // region Options.
 
     val upsellingOption = booleanOption(
         key = "upselling",
@@ -74,8 +81,11 @@ val hideDistractionsPatch = bytecodePatch(
         required = true,
     )
 
+    // endregion
+
     execute {
-        // Write option values into extension class.
+        // region Write option values into extension class.
+
         classBy { it.type == EXTENSION_CLASS_DESCRIPTOR }!!.mutableClass.apply {
             arrayOf(
                 upsellingOption,
@@ -91,27 +101,48 @@ val hideDistractionsPatch = bytecodePatch(
             }
         }
 
-        // Intercept all `getModules()` calls to check whether they should be hidden.
+        // endregion
+
+        // region Copy interface's `getModules()` and rename it.
+
+        classBy { it.type == MODULAR_ENTRY_CLASS_DESCRIPTOR }!!.mutableClass.apply {
+            virtualMethods.first { method ->
+                method.name == GET_MODULES_NAME && method.parameterTypes.isEmpty()
+            }.let(ImmutableMethod::of).toMutable().apply {
+                name = GET_MODULES_ORIGINAL_NAME
+            }.let(virtualMethods::add)
+        }
+
+        // endregion
+
+        // region Intercept all implementing classes' `getModules()` calls.
+
         classes
             .filter { it.interfaces.contains(MODULAR_ENTRY_CLASS_DESCRIPTOR) }
             .map { proxy(it).mutableClass }
             .forEach { modularEntryClass ->
                 modularEntryClass.virtualMethods.first { method ->
-                    method.name == "getModules" && method.parameterTypes.isEmpty()
+                    method.name == GET_MODULES_NAME && method.parameterTypes.isEmpty()
                 }.apply {
-                    addInstructionsWithLabels(
-                        0,
-                        """
-                            invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->hide($MODULAR_ENTRY_CLASS_DESCRIPTOR)Z
-                            move-result v0
-                            if-eqz v0, :original
-                            invoke-static { }, Ljava/util/Collections;->emptyList()Ljava/util/List;
-                            move-result-object v0
-                            return-object v0
-                        """,
-                        ExternalLabel("original", instructions[0])
-                    )
+                    modularEntryClass.virtualMethods -= this
+
+                    modularEntryClass.virtualMethods += ImmutableMethod.of(this).toMutable().apply {
+                        removeInstructions(instructions.size)
+                        addInstructions(
+                            """
+                                invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->filterModules($MODULAR_ENTRY_CLASS_DESCRIPTOR)$returnType
+                                move-result v0
+                                return-object v0
+                            """
+                        )
+                    }
+
+                    name = GET_MODULES_ORIGINAL_NAME
+
+                    modularEntryClass.virtualMethods += this
                 }
             }
+
+        // endregion
     }
 }
