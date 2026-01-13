@@ -5,8 +5,11 @@ import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableBooleanEncodedValue.Companion.toMutable
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableBooleanEncodedValue
 
@@ -16,9 +19,7 @@ private const val MODULAR_ENTRY_CLASS_DESCRIPTOR = "${MODULAR_FRAMEWORK_PREFIX}M
 
 private const val METHOD_SUFFIX = "\$original"
 private const val GET_MODULES_NAME = "getModules"
-private const val GET_MODULES_ORIGINAL_NAME = "$GET_MODULES_NAME$METHOD_SUFFIX"
 private const val GET_SUBMODULES_NAME = "getSubmodules"
-private const val GET_SUBMODULES_ORIGINAL_NAME = "$GET_SUBMODULES_NAME$METHOD_SUFFIX"
 
 @Suppress("unused")
 val hideDistractionsPatch = bytecodePatch(
@@ -107,44 +108,49 @@ val hideDistractionsPatch = bytecodePatch(
 
         // endregion
 
+        fun methodByName(name: String) = { method: MethodReference ->
+            method.name == name && method.parameterTypes.isEmpty()
+        }
+
         // region Copy interface's `getModules()` and rename it.
 
         classBy { it.type == MODULAR_ENTRY_CLASS_DESCRIPTOR }!!.mutableClass.apply {
-            virtualMethods.first { method ->
-                method.name == GET_MODULES_NAME && method.parameterTypes.isEmpty()
-            }.let(ImmutableMethod::of).toMutable().apply {
-                name = GET_MODULES_ORIGINAL_NAME
+            virtualMethods.first(methodByName(GET_MODULES_NAME)).let(ImmutableMethod::of).toMutable().apply {
+                name = "$GET_MODULES_NAME$METHOD_SUFFIX"
             }.let(virtualMethods::add)
         }
 
         // endregion
 
+        fun MutableMethod.cloneAndHijack(
+            classDef: MutableClass,
+            extensionMethodName: String,
+            extensionMethodParameterType: String
+        ) {
+            classDef.virtualMethods -= this
+
+            classDef.virtualMethods += ImmutableMethod.of(this).toMutable().apply {
+                removeInstructions(instructions.size)
+                addInstructions(
+                    """
+                        invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->$extensionMethodName($extensionMethodParameterType)$returnType
+                        move-result-object v0
+                        return-object v0
+                    """
+                )
+            }
+
+            name += METHOD_SUFFIX
+
+            classDef.virtualMethods += this
+        }
+
         // region Intercept all implementing classes' `getModules()` calls.
 
-        classes
-            .filter { it.interfaces.contains(MODULAR_ENTRY_CLASS_DESCRIPTOR) }
-            .map { proxy(it).mutableClass }
-            .forEach { modularEntryClass ->
-                modularEntryClass.virtualMethods.first { method ->
-                    method.name == GET_MODULES_NAME && method.parameterTypes.isEmpty()
-                }.apply {
-                    modularEntryClass.virtualMethods -= this
-
-                    modularEntryClass.virtualMethods += ImmutableMethod.of(this).toMutable().apply {
-                        removeInstructions(instructions.size)
-                        addInstructions(
-                            """
-                                invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->filterModules($MODULAR_ENTRY_CLASS_DESCRIPTOR)$returnType
-                                move-result-object v0
-                                return-object v0
-                            """
-                        )
-                    }
-
-                    name = GET_MODULES_ORIGINAL_NAME
-
-                    modularEntryClass.virtualMethods += this
-                }
+        classes.filter { it.interfaces.contains(MODULAR_ENTRY_CLASS_DESCRIPTOR) }
+            .map { proxy(it).mutableClass }.forEach { modularEntryClass ->
+                modularEntryClass.virtualMethods.first(methodByName(GET_MODULES_NAME))
+                    .cloneAndHijack(modularEntryClass, "filterModules", MODULAR_ENTRY_CLASS_DESCRIPTOR)
             }
 
         // endregion
@@ -152,33 +158,13 @@ val hideDistractionsPatch = bytecodePatch(
         // region Intercept all classes' `getSubmodules()` calls.
 
         classes.filter { classDef ->
-                classDef.type.startsWith(MODULAR_FRAMEWORK_PREFIX) && classDef.virtualMethods.any { method ->
-                    method.name == GET_SUBMODULES_NAME && method.parameterTypes.isEmpty()
-                }
-            }
-            .map { proxy(it).mutableClass }
-            .forEach { moduleClass ->
-                moduleClass.virtualMethods.first { method ->
-                    method.name == GET_SUBMODULES_NAME && method.parameterTypes.isEmpty()
-                }.apply {
-                    moduleClass.virtualMethods -= this
-
-                    moduleClass.virtualMethods += ImmutableMethod.of(this).toMutable().apply {
-                        removeInstructions(instructions.size)
-                        addInstructions(
-                            """
-                                invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->filterSubmodules($moduleClass)$returnType
-                                move-result-object v0
-                                return-object v0
-                            """
-                        )
-                    }
-
-                    name = GET_SUBMODULES_ORIGINAL_NAME
-
-                    moduleClass.virtualMethods += this
-                }
-            }
+            classDef.type.startsWith(MODULAR_FRAMEWORK_PREFIX) && classDef.virtualMethods.any(
+                methodByName(GET_SUBMODULES_NAME)
+            )
+        }.map { proxy(it).mutableClass }.forEach { moduleClass ->
+            moduleClass.virtualMethods.first(methodByName(GET_SUBMODULES_NAME))
+                .cloneAndHijack(moduleClass, "filterSubmodules", moduleClass.type)
+        }
 
         // endregion
     }
