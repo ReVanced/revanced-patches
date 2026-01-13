@@ -473,10 +473,6 @@ public final class app/revanced/patches/music/misc/androidauto/AndroidAutoPatchK
 	public static final fun getAndroidAutoPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/music/misc/androidauto/BypassCertificateChecksPatchKt {
-	public static final fun getBypassCertificateChecksPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
-}
-
 public final class app/revanced/patches/music/misc/backgroundplayback/BackgroundPlaybackPatchKt {
 	public static final fun getBackgroundPlaybackPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

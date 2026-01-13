@@ -7,6 +7,7 @@ import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.registersUsed
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
@@ -28,6 +29,8 @@ val androidAutoPatch = bytecodePatch(
     )
 
     execute {
+        checkCertificateFingerprint.method.returnEarly(true)
+
         searchMediaItemsExecuteFingerprint
         .match(searchMediaItemsConstructorFingerprint.classDef)
         .method.apply {
