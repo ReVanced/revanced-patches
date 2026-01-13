@@ -1,8 +1,6 @@
 package app.revanced.patches.music.misc.androidauto
 
 import app.revanced.patcher.fingerprint
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 internal val checkCertificateFingerprint = fingerprint {
     returns("Z")
@@ -13,16 +11,11 @@ internal val checkCertificateFingerprint = fingerprint {
     )
 }
 
-internal val enableFullSearchAndroidAutoFingerprint = fingerprint {
+internal val searchMediaItemsConstructorFingerprint = fingerprint {
+    returns("V")
+    strings("ytm_media_browser/search_media_items")
+}
+
+internal val searchMediaItemsExecuteFingerprint = fingerprint {
     parameters()
-    custom { method, classDef ->
-        classDef.methods.any { m ->
-            m.name == "<init>" && m.implementation?.instructions?.any { instr ->
-                instr is ReferenceInstruction &&
-                instr.reference.let { ref ->
-                    ref is StringReference && ref.string == "ytm_media_browser/search_media_items"
-                }
-            } == true
-        }
-    }
 }
