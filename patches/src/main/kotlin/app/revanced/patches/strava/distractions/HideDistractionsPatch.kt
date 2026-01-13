@@ -108,14 +108,14 @@ val hideDistractionsPatch = bytecodePatch(
 
         // endregion
 
-        fun methodByName(name: String) = { method: MethodReference ->
+        fun parameterlessMethodByName(name: String) = { method: MethodReference ->
             method.name == name && method.parameterTypes.isEmpty()
         }
 
         // region Copy interface's `getModules()` and rename it.
 
         classBy { it.type == MODULAR_ENTRY_CLASS_DESCRIPTOR }!!.mutableClass.apply {
-            virtualMethods.first(methodByName(GET_MODULES_NAME)).let(ImmutableMethod::of).toMutable().apply {
+            virtualMethods.first(parameterlessMethodByName(GET_MODULES_NAME)).let(ImmutableMethod::of).toMutable().apply {
                 name = "$GET_MODULES_NAME$METHOD_SUFFIX"
             }.let(virtualMethods::add)
         }
@@ -149,7 +149,7 @@ val hideDistractionsPatch = bytecodePatch(
 
         classes.filter { it.interfaces.contains(MODULAR_ENTRY_CLASS_DESCRIPTOR) }
             .map { proxy(it).mutableClass }.forEach { modularEntryClass ->
-                modularEntryClass.virtualMethods.first(methodByName(GET_MODULES_NAME))
+                modularEntryClass.virtualMethods.first(parameterlessMethodByName(GET_MODULES_NAME))
                     .cloneAndHijack(modularEntryClass, "filterModules", MODULAR_ENTRY_CLASS_DESCRIPTOR)
             }
 
@@ -159,10 +159,10 @@ val hideDistractionsPatch = bytecodePatch(
 
         classes.filter { classDef ->
             classDef.type.startsWith(MODULAR_FRAMEWORK_PREFIX) && classDef.virtualMethods.any(
-                methodByName(GET_SUBMODULES_NAME)
+                parameterlessMethodByName(GET_SUBMODULES_NAME)
             )
         }.map { proxy(it).mutableClass }.forEach { moduleClass ->
-            moduleClass.virtualMethods.first(methodByName(GET_SUBMODULES_NAME))
+            moduleClass.virtualMethods.first(parameterlessMethodByName(GET_SUBMODULES_NAME))
                 .cloneAndHijack(moduleClass, "filterSubmodules", moduleClass.type)
         }
 
