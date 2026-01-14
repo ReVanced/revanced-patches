@@ -1,19 +1,17 @@
 package app.revanced.patches.reddit.customclients.relayforreddit.api
 
-import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patches.reddit.customclients.`Spoof client`
-import app.revanced.util.getReference
+import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction10t
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21t
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 @Suppress("unused")
-val spoofClientPatch = `Spoof client`(redirectUri = "dbrady://relay") { clientIdOption ->
+val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") { clientIdOption ->
     compatibleWith(
         "free.reddit.news",
         "reddit.news",
@@ -25,22 +23,15 @@ val spoofClientPatch = `Spoof client`(redirectUri = "dbrady://relay") { clientId
         // region Patch client id.
 
         listOf(
-            loginActivityClientIdMethod,
-            getLoggedInBearerTokenMethod,
-            getLoggedOutBearerTokenMethod,
-            getRefreshTokenMethod,
-        ).forEach { method ->
-            method.apply {
-                val clientIdIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.CONST_STRING && getReference<StringReference>()?.string == "dj-xCIZQYiLbEg"
-                }
-                val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
+            loginActivityClientIdMethodMatch,
+            getLoggedInBearerTokenMethodMatch,
+            getLoggedOutBearerTokenMethodMatch,
+            getRefreshTokenMethodMatch,
+        ).forEach { match ->
+            val clientIdIndex = match.indices.first()
+            val clientIdRegister = match.method.getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
 
-                replaceInstruction(
-                    clientIdIndex,
-                    "const-string v$clientIdRegister, \"$clientId\"",
-                )
-            }
+            match.method.replaceInstruction(clientIdIndex, "const-string v$clientIdRegister, \"$clientId\"")
         }
 
         // endregion
@@ -48,7 +39,7 @@ val spoofClientPatch = `Spoof client`(redirectUri = "dbrady://relay") { clientId
         // region Patch miscellaneous.
 
         // Do not load remote config which disables OAuth login remotely.
-        setRemoteConfigMethod.addInstructions(0, "return-void")
+        setRemoteConfigMethod.returnEarly()
 
         // Prevent OAuth login being disabled remotely.
         redditCheckDisableAPIMethod.apply {

@@ -17,9 +17,7 @@ val `Unlock subscription` by creatingBytecodePatch(
     )
 
     apply {
-        setOf(
-            billingClientOnServiceConnectedMethod,
-            startSubscriptionActivityMethod,
-        ).forEach { it.returnEarly() }
+        billingClientOnServiceConnectedMethod.returnEarly()
+        startSubscriptionActivityMethod.returnEarly()
     }
 }

@@ -8,8 +8,8 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 
 internal val BytecodePatchContext.getOkHttpClientMethod by gettingFirstMutableMethodDeclaratively {
-    returnType("Lokhttp3/OkHttpClient;")
-    parameterTypes()
     definingClass("Lcom/onelouder/baconreader/media/gfycat/RedGifsManager;")
     name("getOkhttpClient")
+    returnType("Lokhttp3/OkHttpClient;")
+    parameterTypes()
 }

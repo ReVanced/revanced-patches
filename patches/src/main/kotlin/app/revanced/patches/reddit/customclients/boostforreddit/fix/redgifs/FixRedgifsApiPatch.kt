@@ -1,17 +1,16 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.fix.redgifs
 
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.CREATE_NEW_CLIENT_METHOD
+import app.revanced.patches.reddit.customclients.fixRedgifsApi
 import app.revanced.patches.reddit.customclients.boostforreddit.misc.extension.sharedExtensionPatch
-import app.revanced.patches.reddit.customclients.`Fix Redgifs API`
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/boostforreddit/FixRedgifsApiPatch;"
 
 @Suppress("unused")
-val fixRedgifsApi = `Fix Redgifs API`(
+val fixRedgifsApi = fixRedgifsApi(
     extensionPatch = sharedExtensionPatch
 ) {
     compatibleWith("com.rubenmayayo.reddit")
@@ -19,16 +18,14 @@ val fixRedgifsApi = `Fix Redgifs API`(
     apply {
         // region Patch Redgifs OkHttp3 client.
 
-        createOkHttpClientMethod.apply {
-            val index = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.name == "build" && reference.definingClass == "Lokhttp3/OkHttpClient\$Builder;"
-            }
-            replaceInstruction(
-                index,
-                "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->$CREATE_NEW_CLIENT_METHOD"
-            )
+        val index = createOkHttpClientMethod.indexOfFirstInstructionOrThrow {
+            val reference = methodReference
+            reference?.name == "build" && reference.definingClass == "Lokhttp3/OkHttpClient\$Builder;"
         }
+        createOkHttpClientMethod.replaceInstruction(
+            index,
+            "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->$CREATE_NEW_CLIENT_METHOD"
+        )
 
         // endregion
     }

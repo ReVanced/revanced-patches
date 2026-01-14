@@ -1,8 +1,8 @@
 package app.revanced.patches.reddit.customclients.joeyforreddit.ads
 
-import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy.`Disable piracy detection`
+import app.revanced.util.returnEarly
 
 @Suppress("unused", "ObjectPropertyName")
 val `Disable ads` by creatingBytecodePatch {
@@ -11,12 +11,6 @@ val `Disable ads` by creatingBytecodePatch {
     compatibleWith("o.o.joey")
 
     apply {
-        isAdFreeUserMethod.addInstructions(
-            0,
-            """
-                const/4 v0, 0x1
-                return v0
-            """,
-        )
+        isAdFreeUserMethod.returnEarly(true)
     }
 }

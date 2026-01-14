@@ -1,13 +1,13 @@
 package app.revanced.patches.reddit.customclients.infinityforreddit.api
 
 import app.revanced.patcher.extensions.toInstructions
-import app.revanced.patches.reddit.customclients.`Spoof client`
+import app.revanced.patches.reddit.customclients.spoofClientPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
-val spoofClientPatch = `Spoof client`(redirectUri = "infinity://localhost") { clientIdOption ->
+val spoofClientPatch = spoofClientPatch(redirectUri = "infinity://localhost") { clientIdOption ->
     compatibleWith(
         "ml.docilealligator.infinityforreddit",
         "ml.docilealligator.infinityforreddit.plus",
@@ -17,7 +17,7 @@ val spoofClientPatch = `Spoof client`(redirectUri = "infinity://localhost") { cl
     val clientId by clientIdOption
 
     apply {
-        apiUtilsFingerprint.classDef.methods.apply {
+        apiUtilsMethod.classDef.methods.apply {
             val getClientIdMethod = single { it.name == "getId" }.also(::remove)
 
             val newGetClientIdMethod = ImmutableMethod(

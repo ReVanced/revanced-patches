@@ -12,7 +12,7 @@ internal val BytecodePatchContext.appMeasurementMethod by gettingFirstMutableMet
 }
 
 internal val BytecodePatchContext.facebookSDKMethod by gettingFirstMutableMethodDeclaratively("instagram.com", "facebook.com") {
-    accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
+    accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
 }
 
 internal val BytecodePatchContext.firebaseInstallMethod by gettingFirstMutableMethodDeclaratively("https://%s/%s/%s", "firebaseinstallations.googleapis.com") {

@@ -1,7 +1,7 @@
 package app.revanced.patches.music.misc.settings
 
 import app.revanced.patcher.classDef
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
@@ -65,7 +65,7 @@ private val settingsResourcePatch = resourcePatch {
     }
 }
 
-val Settings by creatingBytecodePatch(
+val settingsPatch = bytecodePatch(
     description = "Adds settings for ReVanced to YouTube Music."
 ) {
     dependsOn(

@@ -27,19 +27,17 @@ val `Hide ads` by creatingBytecodePatch(
         arrayOf(screenMapperMethodMatch, nextPageRepositoryImplMethodMatch).forEach { match ->
             // Index of instruction moving result of BlockPage;->getBlocks(...).
             val moveGetBlocksResultObjectIndex = match.indices.first()
-            match.method.apply {
-                val moveInstruction = getInstruction<OneRegisterInstruction>(moveGetBlocksResultObjectIndex)
+            val moveInstruction = match.method.getInstruction<OneRegisterInstruction>(moveGetBlocksResultObjectIndex)
 
-                val listRegister = moveInstruction.registerA
+            val listRegister = moveInstruction.registerA
 
-                // Add instruction after moving List<Block> to register and then filter this List<Block> in place.
-                addInstructions(
-                    moveGetBlocksResultObjectIndex + 1,
-                    """
+            // Add instruction after moving List<Block> to register and then filter this List<Block> in place.
+            match.method.addInstructions(
+                moveGetBlocksResultObjectIndex + 1,
+                """
                         invoke-static { v$listRegister }, Lapp/revanced/extension/nunl/ads/HideAdsPatch;->filterAds(Ljava/util/List;)V
                     """,
-                )
-            }
+            )
         }
     }
 }

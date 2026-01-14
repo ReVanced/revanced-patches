@@ -1,12 +1,24 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.api
 
-import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethod
+import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.string
 
-internal val BytecodePatchContext.getAuthorizationStringMethod by gettingFirstMutableMethodDeclaratively("authorize.compact?client_id")
+internal val getAuthorizationStringMethodMatch = firstMethodComposite {
+    instructions(string("authorize.compact?client_id"::startsWith))
+}
 
-internal val BytecodePatchContext.getBearerTokenMethod by gettingFirstMutableMethodDeclaratively("Basic")
+internal val getBearerTokenMethodMatch = firstMethodComposite {
+    instructions(string("Basic"::startsWith))
+}
 
-internal val BytecodePatchContext.getUserAgentMethod by gettingFirstMutableMethodDeclaratively("android:com.laurencedawson.reddit_sync")
+internal val BytecodePatchContext.getUserAgentMethod by gettingFirstMutableMethod(
+    "android:com.laurencedawson.reddit_sync"
+)
 
-internal val BytecodePatchContext.imgurImageAPIMethod by gettingFirstMutableMethodDeclaratively("https://imgur-apiv3.p.rapidapi.com/3/image")
+internal val imgurImageAPIMethodMatch = firstMethodComposite {
+    instructions("https://imgur-apiv3.p.rapidapi.com/3/image"())
+}

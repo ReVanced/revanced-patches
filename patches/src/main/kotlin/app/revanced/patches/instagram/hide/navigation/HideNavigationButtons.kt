@@ -5,7 +5,6 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
-import app.revanced.patches.shared.PATCH_NAME_HIDE_NAVIGATION_BUTTONS
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
@@ -21,7 +20,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 @Suppress("unused")
 val hideNavigationButtonsPatch = bytecodePatch(
-    name = PATCH_NAME_HIDE_NAVIGATION_BUTTONS,
+    name = "Hide navigation buttons",
     description = "Hides navigation bar buttons, such as the Reels and Create button.",
     use = false
 ) {

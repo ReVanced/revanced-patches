@@ -2,7 +2,7 @@
 
 package app.revanced.patches.music.playservice
 
-import app.revanced.patcher.patch.creatingResourcePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.findPlayStoreServicesVersion
 import kotlin.properties.Delegates
 
@@ -21,8 +21,8 @@ var is_8_11_or_greater: Boolean by Delegates.notNull()
 var is_8_15_or_greater: Boolean by Delegates.notNull()
     private set
 
-@Suppress("unused", "ObjectPropertyName")
-val `Version check` by creatingResourcePatch(
+@Suppress("unused")
+val versionCheckPatch = resourcePatch(
     description = "Uses the Play Store service version to find the major/minor version of the YouTube Music target app."
 ) {
     apply {

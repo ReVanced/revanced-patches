@@ -1,17 +1,13 @@
 package app.revanced.patches.reddit.customclients.baconreader.api
 
+import app.revanced.patcher.MatchBuilder
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patches.reddit.customclients.`Spoof client`
+import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.patches.shared.misc.string.replaceStringPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
 
-val spoofClientPatch = `Spoof client`(redirectUri = "http://baconreader.com/auth") { clientIdOption ->
+val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/auth") { clientIdOption ->
     dependsOn(
         // Redirects from SSL to WWW domain are bugged causing auth problems.
         // Manually rewrite the URLs to fix this.
@@ -26,22 +22,20 @@ val spoofClientPatch = `Spoof client`(redirectUri = "http://baconreader.com/auth
     val clientId by clientIdOption
 
     apply {
-        fun MutableMethod.patch(targetString: String, replacementString: String) {
-            val clientIdIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.CONST_STRING && getReference<StringReference>()?.string == targetString
-            }
+        fun MatchBuilder.patch(replacementString: String) {
+            val clientIdIndex = indices.first()
 
-            val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
-            replaceInstruction(
+            val clientIdRegister = method.getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
+            method.replaceInstruction(
                 clientIdIndex,
                 "const-string v$clientIdRegister, \"$replacementString\"",
             )
         }
 
         // Patch client id in authorization url.
-        getAuthorizationUrlMethod.patch("client_id=zACVn0dSFGdWqQ", "client_id=$clientId")
+        getAuthorizationUrlMethodMatch.patch("client_id=$clientId")
 
         // Patch client id for access token request.
-        requestTokenMethod.patch("zACVn0dSFGdWqQ", clientId!!)
+        requestTokenMethodMatch.patch(clientId!!)
     }
 }

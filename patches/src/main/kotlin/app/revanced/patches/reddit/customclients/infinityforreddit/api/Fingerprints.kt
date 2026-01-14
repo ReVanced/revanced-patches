@@ -1,7 +1,6 @@
 package app.revanced.patches.reddit.customclients.infinityforreddit.api
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethod
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val apiUtilsFingerprint = fingerprint {
-    strings("native-lib")
-}
+internal val BytecodePatchContext.apiUtilsMethod by gettingFirstMutableMethod("native-lib")

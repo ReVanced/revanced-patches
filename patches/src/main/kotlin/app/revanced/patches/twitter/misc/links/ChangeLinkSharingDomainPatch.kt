@@ -5,8 +5,6 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
-import app.revanced.patches.shared.PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN
-import app.revanced.patches.shared.PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN
 import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.returnEarly
@@ -62,8 +60,8 @@ internal val changeLinkSharingDomainResourcePatch = resourcePatch {
 
 @Suppress("unused")
 val changeLinkSharingDomainPatch = bytecodePatch(
-    name = PATCH_NAME_CHANGE_LINK_SHARING_DOMAIN,
-    description = "$PATCH_DESCRIPTION_CHANGE_LINK_SHARING_DOMAIN Including this patch can prevent making posts that quote other posts.",
+    name = "Change link sharing domain",
+    description = "Replaces the domain name of shared links. Using this patch can prevent making posts that quote other posts.",
     use = false
 ) {
     dependsOn(

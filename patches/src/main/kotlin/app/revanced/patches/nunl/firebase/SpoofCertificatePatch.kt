@@ -10,8 +10,8 @@ val `Spoof certificate` by creatingBytecodePatch(
     compatibleWith("nl.sanomamedia.android.nu")
 
     apply {
-        firebaseClasses.forEach { className ->
-            getFingerprintHashForPackageMethod(className).returnEarly("eae41fc018df2731a9b6ae1ac327da44a288667b")
+        getFingerprintHashForPackageMethods().forEach {
+            it.returnEarly("eae41fc018df2731a9b6ae1ac327da44a288667b")
         }
     }
 }

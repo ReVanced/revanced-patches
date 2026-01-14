@@ -8,9 +8,9 @@ import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.getOAuthAccessTokenMethod by gettingFirstMutableMethodDeclaratively("access_token") {
+    definingClass("Lnet/dean/jraw/http/oauth/OAuthData;")
     accessFlags(AccessFlags.PUBLIC)
     returnType("Ljava/lang/String;")
-    definingClass("Lnet/dean/jraw/http/oauth/OAuthData;")
 }
 
 internal val BytecodePatchContext.handleNavigationMethod by gettingFirstMutableMethodDeclaratively(

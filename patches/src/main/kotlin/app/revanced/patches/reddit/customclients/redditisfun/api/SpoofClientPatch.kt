@@ -1,18 +1,18 @@
 package app.revanced.patches.reddit.customclients.redditisfun.api
 
+import app.revanced.patcher.Match
+import app.revanced.patcher.MatchBuilder
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patches.reddit.customclients.`Spoof client`
+import app.revanced.patches.reddit.customclients.spoofClientPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.returnEarly
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
 
 @Suppress("unused")
-val spoofClientPatch = `Spoof client`(redirectUri = "redditisfun://auth") { clientIdOption ->
+val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { clientIdOption ->
     compatibleWith(
         "com.andrewshu.android.reddit",
         "com.andrewshu.android.redditdonation",
@@ -29,36 +29,23 @@ val spoofClientPatch = `Spoof client`(redirectUri = "redditisfun://auth") { clie
          *
          * @param string The string to replace the instruction with.
          * @param getReplacementIndex A function that returns the index of the instruction to replace
-         * using the [Match.StringMatch] list from the [Match].
+         * using the [Match.indices] list from the [Match].
          */
-        fun MutableMethod.replaceWith(
+        fun MatchBuilder.replaceWith(
             string: String,
-            offset: Int,
-            getReplacementIndex: String
-        ) {
-            val anchorIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.CONST_STRING && getReference<StringReference>()?.string == string
-            }
+            getReplacementIndex: List<Int>.() -> Int,
+        ) = method.apply {
+            val replacementIndex = indices.getReplacementIndex()
+            val clientIdRegister = getInstruction<OneRegisterInstruction>(replacementIndex).registerA
 
-            val targetIndex = anchorIndex + offset
-            val clientIdRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
-
-            replaceInstruction(targetIndex, "const-string v$clientIdRegister, \"$getReplacementIndex\"")
+            replaceInstruction(replacementIndex, "const-string v$clientIdRegister, \"$string\"")
         }
 
         // Patch OAuth authorization.
-        buildAuthorizationStringMethod.replaceWith(
-            string = "yyOCBp.RHJhDKd",
-            offset = 4,
-            getReplacementIndex = clientId!!
-        )
+        buildAuthorizationStringMethodMatch.replaceWith(clientId!!) { first() + 4 }
 
         // Path basic authorization.
-        basicAuthorizationMethod.replaceWith(
-            string = "fJOxVwBUyo*=f:<OoejWs:AqmIJ",
-            offset = 7,
-            getReplacementIndex = "$clientId:"
-        )
+        basicAuthorizationMethodMatch.replaceWith("$clientId:") { last() + 7 }
 
         // endregion
 
@@ -76,9 +63,9 @@ val spoofClientPatch = `Spoof client`(redirectUri = "redditisfun://auth") { clie
 
         // Reddit messed up and does not append a redirect uri to the authorization url to old.reddit.com/login.
         // Replace old.reddit.com with www.reddit.com to fix this.
-        buildAuthorizationStringMethod.apply {
+        buildAuthorizationStringMethodMatch.method.apply {
             val index = indexOfFirstInstructionOrThrow {
-                getReference<StringReference>()?.string?.contains("old.reddit.com") == true
+                getReference<StringReference>()?.contains("old.reddit.com") == true
             }
 
             val targetRegister = getInstruction<OneRegisterInstruction>(index).registerA

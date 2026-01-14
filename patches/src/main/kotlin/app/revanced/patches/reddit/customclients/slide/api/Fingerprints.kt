@@ -7,5 +7,5 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.getClientIdMethod by gettingFirstMutableMethodDeclaratively {
     name("getClientId")
-    definingClass { endsWith("Credentials;") }
+    definingClass("Credentials;"::endsWith)
 }

@@ -7,7 +7,7 @@ import app.revanced.util.returnEarly
 val signatureCheckPatch = bytecodePatch(
     name = "Disable signature check",
     description = "Disables the signature check that can cause the app to crash on startup. " +
-            "Including this patch may cause issues with sharing or opening external Instagram links.",
+            "Using this patch may cause issues with sharing or opening external Instagram links.",
     use = false
 ) {
     compatibleWith("com.instagram.android")

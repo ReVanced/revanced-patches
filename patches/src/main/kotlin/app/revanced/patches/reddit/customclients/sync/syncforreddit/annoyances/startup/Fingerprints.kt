@@ -6,6 +6,6 @@ import app.revanced.patcher.name
 import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.mainActivityOnCreateMethod by gettingFirstMutableMethodDeclaratively {
-    definingClass("MainActivity;")
     name("onCreate")
+    definingClass("MainActivity;"::endsWith)
 }

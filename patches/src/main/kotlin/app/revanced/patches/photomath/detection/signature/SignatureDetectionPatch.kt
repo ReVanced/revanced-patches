@@ -12,9 +12,8 @@ val `Signature detection` by creatingBytecodePatch(
     apply {
         val replacementIndex = checkSignatureMethodMatch.indices.last()
 
-        checkSignatureMethodMatch.method.apply {
-            val checkRegister = getInstruction<OneRegisterInstruction>(replacementIndex).registerA
-            replaceInstruction(replacementIndex, "const/4 v$checkRegister, 0x1")
-        }
+        val checkRegister = checkSignatureMethodMatch.method.getInstruction<OneRegisterInstruction>(replacementIndex)
+            .registerA
+        checkSignatureMethodMatch.method.replaceInstruction(replacementIndex, "const/4 v$checkRegister, 0x1")
     }
 }

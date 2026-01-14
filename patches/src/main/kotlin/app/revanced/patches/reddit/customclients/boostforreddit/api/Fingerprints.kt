@@ -11,5 +11,5 @@ internal val BytecodePatchContext.buildUserAgentMethod by gettingFirstMutableMet
 
 internal val BytecodePatchContext.getClientIdMethod by gettingFirstMutableMethodDeclaratively {
     name("getClientId")
-    definingClass { endsWith("Credentials;") }
+    definingClass("Credentials;"::endsWith)
 }

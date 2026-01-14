@@ -9,14 +9,14 @@ import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.isPremiumUseCaseImplMethod by gettingFirstMutableMethodDeclaratively {
-    accessFlags(AccessFlags.PUBLIC)
-    definingClass("IsPremiumUseCaseImpl;")
     name("doWork")
+    definingClass("IsPremiumUseCaseImpl;"::endsWith)
+    accessFlags(AccessFlags.PUBLIC)
 }
 
 internal val BytecodePatchContext.mainActivityNavigateToNativePremiumUpsellMethod by gettingFirstMutableMethodDeclaratively {
+    name("navigateToNativePremiumUpsell")
+    definingClass("MainActivity;"::endsWith)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("V")
-    definingClass("MainActivity;")
-    name("navigateToNativePremiumUpsell")
 }

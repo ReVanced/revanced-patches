@@ -8,8 +8,8 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 
 internal val BytecodePatchContext.googleApiActivityMethod by gettingFirstMutableMethodDeclaratively {
+    name("onCreate")
+    definingClass("GoogleApiActivity;"::endsWith)
     returnType("V")
     parameterTypes("Landroid/os/Bundle;")
-    definingClass("GoogleApiActivity;"::endsWith)
-    name("onCreate")
 }

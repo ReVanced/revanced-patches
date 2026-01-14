@@ -3,11 +3,11 @@ package app.revanced.patches.photomath.misc.unlock.plus
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.photomath.detection.signature.`Signature detection`
-import app.revanced.patches.photomath.misc.unlock.bookpoint.`Enable bookpoint`
+import app.revanced.patches.photomath.misc.unlock.bookpoint.enableBookpointPatch
 
 @Suppress("unused")
 val `Unlock plus` by creatingBytecodePatch {
-    dependsOn(`Signature detection`, `Enable bookpoint`)
+    dependsOn(`Signature detection`, enableBookpointPatch)
 
     compatibleWith("com.microblink.photomath")
 

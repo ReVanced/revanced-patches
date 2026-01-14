@@ -9,8 +9,8 @@ import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.isDeviceRootedMethod by gettingFirstMutableMethodDeclaratively {
-    accessFlags(AccessFlags.PUBLIC)
     name("isDeviceRooted")
     definingClass("/RootChecker;"::endsWith)
+    accessFlags(AccessFlags.PUBLIC)
     returnType("Z")
 }

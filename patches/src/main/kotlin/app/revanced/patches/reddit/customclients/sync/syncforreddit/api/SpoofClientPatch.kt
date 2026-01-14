@@ -2,23 +2,20 @@ package app.revanced.patches.reddit.customclients.sync.syncforreddit.api
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patches.reddit.customclients.`Spoof client`
-import app.revanced.patches.reddit.customclients.sync.detection.piracy.`Disable piracy detection`
+import app.revanced.patcher.extensions.stringReference
+import app.revanced.patches.reddit.customclients.spoofClientPatch
+import app.revanced.patches.reddit.customclients.sync.detection.piracy.disablePiracyDetectionPatch
 import app.revanced.patches.shared.misc.string.replaceStringPatch
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.returnEarly
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
-import java.util.Base64
+import java.util.*
 
 @Suppress("unused")
-val spoofClientPatch = `Spoof client`(
+val spoofClientPatch = spoofClientPatch(
     redirectUri = "http://redditsync/auth",
 ) { clientIdOption ->
     dependsOn(
-        `Disable piracy detection`,
+        disablePiracyDetectionPatch,
         // Redirects from SSL to WWW domain are bugged causing auth problems.
         // Manually rewrite the URLs to fix this.
         replaceStringPatch("ssl.reddit.com", "www.reddit.com")
@@ -35,30 +32,26 @@ val spoofClientPatch = `Spoof client`(
     apply {
         // region Patch client id.
 
-        getBearerTokenMethod.apply {
+        getBearerTokenMethodMatch.match(getAuthorizationStringMethodMatch.immutableClassDef).method.apply {
             val auth = Base64.getEncoder().encodeToString("$clientId:".toByteArray(Charsets.UTF_8))
             returnEarly("Basic $auth")
-        }
 
-        getAuthorizationStringMethod.apply {
-            val occurrenceIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.CONST_STRING &&
-                        getReference<StringReference>()?.string?.contains("client_id=") == true
+            val occurrenceIndex = getAuthorizationStringMethodMatch.indices.first()
+
+            getAuthorizationStringMethodMatch.method.apply {
+                val authorizationStringInstruction = getInstruction<OneRegisterInstruction>(occurrenceIndex)
+                val targetRegister = authorizationStringInstruction.registerA
+
+                val newAuthorizationUrl = authorizationStringInstruction.stringReference!!.string.replace(
+                    "client_id=.*?&".toRegex(),
+                    "client_id=$clientId&",
+                )
+
+                replaceInstruction(
+                    occurrenceIndex,
+                    "const-string v$targetRegister, \"$newAuthorizationUrl\"",
+                )
             }
-
-            val authorizationStringInstruction = getInstruction<OneRegisterInstruction>(occurrenceIndex)
-            val targetRegister = authorizationStringInstruction.registerA
-            val reference = authorizationStringInstruction.getReference<StringReference>()!!
-
-            val newAuthorizationUrl = reference.string.replace(
-                "client_id=.*?&".toRegex(),
-                "client_id=$clientId&",
-            )
-
-            replaceInstruction(
-                occurrenceIndex,
-                "const-string v$targetRegister, \"$newAuthorizationUrl\"",
-            )
         }
 
         // endregion
@@ -75,17 +68,11 @@ val spoofClientPatch = `Spoof client`(
 
         // region Patch Imgur API URL.
 
-        imgurImageAPIMethod.apply {
-            val apiUrlIndex = indexOfFirstInstructionOrThrow {
-                opcode == Opcode.CONST_STRING &&
-                        getReference<StringReference>()?.string == "https://api.imgur.com/3/image"
-            }
-
-            replaceInstruction(
-                apiUrlIndex,
-                "const-string v1, \"https://api.imgur.com/3/image\"",
-            )
-        }
+        val apiUrlIndex = imgurImageAPIMethodMatch.indices.first()
+        imgurImageAPIMethodMatch.method.replaceInstruction(
+            apiUrlIndex,
+            "const-string v1, \"https://api.imgur.com/3/image\"",
+        )
 
         // endregion
     }

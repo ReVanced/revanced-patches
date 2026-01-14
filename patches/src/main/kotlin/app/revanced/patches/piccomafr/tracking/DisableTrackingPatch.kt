@@ -33,33 +33,30 @@ val `Disable tracking` by creatingBytecodePatch(
     )
 
     apply {
-        facebookSDKMethod.apply {
-            instructions.filter { instruction ->
-                instruction.opcode == Opcode.CONST_STRING
-            }.forEach { instruction ->
-                instruction as OneRegisterInstruction
+        facebookSDKMethod.instructions.filter { instruction ->
+            instruction.opcode == Opcode.CONST_STRING
+        }.forEach { instruction ->
+            instruction as OneRegisterInstruction
 
-                replaceInstruction(
-                    instruction.location.index,
-                    "const-string v${instruction.registerA}, \"example.com\"",
-                )
-            }
+            facebookSDKMethod.replaceInstruction(
+                instruction.location.index,
+                "const-string v${instruction.registerA}, \"example.com\"",
+            )
         }
 
-        firebaseInstallMethod.apply {
-            instructions.filter {
-                it.opcode == Opcode.CONST_STRING
-            }.filter {
-                it.getReference<StringReference>()?.string == "firebaseinstallations.googleapis.com"
-            }.forEach { instruction ->
-                instruction as OneRegisterInstruction
+        firebaseInstallMethod.instructions.filter {
+            it.opcode == Opcode.CONST_STRING
+        }.filter {
+            it.getReference<StringReference>()?.string == "firebaseinstallations.googleapis.com"
+        }.forEach { instruction ->
+            instruction as OneRegisterInstruction
 
-                replaceInstruction(
-                    instruction.location.index,
-                    "const-string v${instruction.registerA}, \"example.com\"",
-                )
-            }
+            firebaseInstallMethod.replaceInstruction(
+                instruction.location.index,
+                "const-string v${instruction.registerA}, \"example.com\"",
+            )
         }
+
 
         appMeasurementMethod.addInstruction(0, "return-void")
     }

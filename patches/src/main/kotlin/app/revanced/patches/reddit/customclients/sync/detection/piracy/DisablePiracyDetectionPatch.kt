@@ -1,9 +1,9 @@
 package app.revanced.patches.reddit.customclients.sync.detection.piracy
 
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
-val `Disable piracy detection` by creatingBytecodePatch(
+val disablePiracyDetectionPatch = bytecodePatch(
     description = "Disables detection of modified versions.",
 ) {
 

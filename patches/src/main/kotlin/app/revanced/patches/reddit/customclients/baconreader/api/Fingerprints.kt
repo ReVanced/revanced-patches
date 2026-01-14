@@ -1,20 +1,16 @@
 package app.revanced.patches.reddit.customclients.baconreader.api
 
-import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
-import app.revanced.patcher.definingClass
-import app.revanced.patcher.name
-import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 
-internal val BytecodePatchContext.getAuthorizationUrlMethod by gettingFirstMutableMethodDeclaratively(
-    "client_id=zACVn0dSFGdWqQ"
-)
-
-internal val BytecodePatchContext.getClientIdMethod by gettingFirstMutableMethodDeclaratively("client_id=zACVn0dSFGdWqQ") {
-    name("getAuthorizeUrl")
-    definingClass { endsWith("RedditOAuth;") }
+internal val getAuthorizationUrlMethodMatch = firstMethodComposite {
+    instructions("client_id=zACVn0dSFGdWqQ"())
 }
 
-internal val BytecodePatchContext.requestTokenMethod by gettingFirstMutableMethodDeclaratively(
-    "zACVn0dSFGdWqQ",
-    "kDm2tYpu9DqyWFFyPlNcXGEni4k"
-)
+internal val requestTokenMethodMatch = firstMethodComposite {
+    instructions(
+        "zACVn0dSFGdWqQ"(),
+        "kDm2tYpu9DqyWFFyPlNcXGEni4k"(String::contains)
+    )
+}

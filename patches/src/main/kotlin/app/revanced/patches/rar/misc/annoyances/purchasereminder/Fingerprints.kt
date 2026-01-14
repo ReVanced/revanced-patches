@@ -9,8 +9,8 @@ import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.showReminderMethod by gettingFirstMutableMethodDeclaratively {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returnType("V")
     definingClass("AdsNotify;"::endsWith)
     name("show")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returnType("V")
 }

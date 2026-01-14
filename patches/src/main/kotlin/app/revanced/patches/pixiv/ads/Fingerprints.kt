@@ -9,8 +9,8 @@ import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.shouldShowAdsMethod by gettingFirstMutableMethodDeclaratively {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returnType("Z")
     definingClass("AdUtils;"::endsWith)
     name("shouldShowAds")
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("Z")
 }
