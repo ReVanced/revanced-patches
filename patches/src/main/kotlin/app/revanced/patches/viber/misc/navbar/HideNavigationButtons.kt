@@ -2,12 +2,11 @@ package app.revanced.patches.viber.misc.navbar
 
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.booleanOption
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import java.util.logging.Logger
 
-@Suppress("unused")
-val hideNavigationButtonsPatch = bytecodePatch(
-    name = "Hide navigation buttons",
+@Suppress("unused", "ObjectPropertyName")
+val `Hide navigation buttons` by creatingBytecodePatch(
     description = "Permanently hides navigation bar buttons, such as Explore and Marketplace.",
     use = false
 ) {

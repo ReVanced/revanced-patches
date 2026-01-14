@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused", "ObjectPropertyName")
-val `Enable Unlimited Skips` by creatingBytecodePatch {
+val `Enable unlimited skips` by creatingBytecodePatch {
     compatibleWith("com.pandora.android")
 
     apply {

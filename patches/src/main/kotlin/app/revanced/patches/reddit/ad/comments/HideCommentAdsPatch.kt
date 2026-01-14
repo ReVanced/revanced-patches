@@ -2,10 +2,9 @@ package app.revanced.patches.reddit.ad.comments
 
 import app.revanced.patcher.extensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.creatingBytecodePatch
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide comment ads` by creatingBytecodePatch(
+@Suppress("unused")
+val hideCommentAdsPatch = bytecodePatch(
     description = "Removes ads in the comments."
 ) {
 

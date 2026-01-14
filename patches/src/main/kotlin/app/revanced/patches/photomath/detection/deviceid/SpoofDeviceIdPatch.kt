@@ -1,7 +1,7 @@
 package app.revanced.patches.photomath.detection.deviceid
 
 import app.revanced.patcher.patch.creatingBytecodePatch
-import app.revanced.patches.photomath.detection.signature.`Signature detection`
+import app.revanced.patches.photomath.detection.signature.signatureDetectionPatch
 import app.revanced.util.returnEarly
 import kotlin.random.Random
 
@@ -9,7 +9,7 @@ import kotlin.random.Random
 val `Spoof device ID` by creatingBytecodePatch(
     description = "Spoofs device ID to mitigate manual bans by developers.",
 ) {
-    dependsOn(`Signature detection`)
+    dependsOn(signatureDetectionPatch)
 
     compatibleWith("com.microblink.photomath")
 

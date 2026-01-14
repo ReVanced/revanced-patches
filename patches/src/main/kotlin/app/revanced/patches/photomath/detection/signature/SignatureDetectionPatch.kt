@@ -2,11 +2,11 @@ package app.revanced.patches.photomath.detection.signature
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Suppress("unused", "ObjectPropertyName")
-val `Signature detection` by creatingBytecodePatch(
+@Suppress("unused")
+val signatureDetectionPatch = bytecodePatch(
     description = "Disables detection of incorrect signature.",
 ) {
     apply {

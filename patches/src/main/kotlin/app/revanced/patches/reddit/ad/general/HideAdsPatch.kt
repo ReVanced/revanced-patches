@@ -3,7 +3,7 @@ package app.revanced.patches.reddit.ad.general
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
-import app.revanced.patches.reddit.ad.comments.`Hide comment ads`
+import app.revanced.patches.reddit.ad.comments.hideCommentAdsPatch
 import app.revanced.patches.reddit.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused", "ObjectPropertyName")
 val `Hide ads` by creatingBytecodePatch {
-    dependsOn(`Hide comment ads`, sharedExtensionPatch)
+    dependsOn(hideCommentAdsPatch, sharedExtensionPatch)
 
     compatibleWith("com.reddit.frontpage")
 

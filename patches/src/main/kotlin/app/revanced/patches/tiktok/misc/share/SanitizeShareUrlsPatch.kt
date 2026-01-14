@@ -2,7 +2,7 @@ package app.revanced.patches.tiktok.misc.share
 
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
@@ -15,9 +15,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/tiktok/share/ShareUrlSanitizer;"
 
-@Suppress("unused")
-val sanitizeShareUrlsPatch = bytecodePatch(
-    name = "Sanitize sharing links",
+@Suppress("unused", "ObjectPropertyName")
+val `Sanitize sharing links` by creatingBytecodePatch(
     description = "Removes the tracking query parameters from shared links.",
 ) {
     dependsOn(sharedExtensionPatch)
