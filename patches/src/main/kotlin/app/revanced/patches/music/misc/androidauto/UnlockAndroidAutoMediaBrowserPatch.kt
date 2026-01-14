@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
-val androidAutoPatch = bytecodePatch(
+val unlockAndroidAutoMediaBrowserPatch = bytecodePatch(
     name = "Android Auto Support",
     description = "Unlock Android Auto Media Browser",
 ) {
