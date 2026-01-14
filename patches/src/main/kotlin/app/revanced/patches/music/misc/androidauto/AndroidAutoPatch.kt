@@ -34,10 +34,9 @@ val androidAutoPatch = bytecodePatch(
         searchMediaItemsExecuteFingerprint
         .match(searchMediaItemsConstructorFingerprint.classDef)
         .method.apply {
-            val targetIndex = instructions.indexOfFirst { it.opcode == Opcode.IGET_OBJECT
-                    && it.getReference<FieldReference>()?.let { field ->
-                        field.type == "Ljava/lang/String;"
-                    } ?: false }
+            val targetIndex = instructions.indexOfFirst { 
+            	it.opcode == Opcode.IGET_OBJECT && it.getReference<FieldReference>()?.type == "Ljava/lang/String;"
+            }
 
             val register = instructions[targetIndex].registersUsed.first()
             replaceInstruction(targetIndex, "const-string v$register, \"com.google.android.apps.youtube.music\"")
