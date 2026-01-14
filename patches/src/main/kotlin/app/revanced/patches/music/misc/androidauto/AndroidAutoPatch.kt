@@ -38,9 +38,9 @@ val androidAutoPatch = bytecodePatch(
                     && it.getReference<FieldReference>()?.let { field ->
                         field.type == "Ljava/lang/String;"
                     } ?: false }
+
             val register = instructions[targetIndex].registersUsed.first()
-            replaceInstruction(targetIndex,
-                "const-string v$register, \"com.google.android.apps.youtube.music\"")
+            replaceInstruction(targetIndex, "const-string v$register, \"com.google.android.apps.youtube.music\"")
         }
     }
 }
