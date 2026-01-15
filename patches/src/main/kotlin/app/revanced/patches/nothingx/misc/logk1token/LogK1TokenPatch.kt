@@ -33,9 +33,9 @@ val logK1TokenPatch = bytecodePatch(
     compatibleWith("com.nothing.smartcenter"("3.4.17"))
 
     execute {
-        // Hook Application.onCreate to scan for existing log files
-        // This will find K1 tokens that were already written to log files
-        applicationOnCreateFingerprint.method?.addInstruction(
+        // Hook Application.onCreate to scan for existing log files.
+        // This will find K1 tokens that were already written to log files.
+        applicationOnCreateFingerprint.method.addInstruction(
             0,
             "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->scanLogFilesForK1Token()V",
         )
