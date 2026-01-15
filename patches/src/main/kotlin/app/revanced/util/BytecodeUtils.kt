@@ -25,7 +25,6 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.Opcode.*
 import com.android.tools.smali.dexlib2.analysis.reflection.util.ReflectionUtils
 import com.android.tools.smali.dexlib2.formatter.DexFormatter
-import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -1278,34 +1277,6 @@ fun FingerprintBuilder.literal(literalSupplier: () -> Long) {
     custom { method, _ ->
         method.containsLiteralInstruction(literalSupplier())
     }
-}
-
-/**
- * @return All classes in [this] that directly or indirectly implement [interfaceDescriptor].
- */
-fun Iterable<ClassDef>.filterImplementationsOf(interfaceDescriptor: String): List<ClassDef> {
-    val classMap = associateBy { it.type }
-    val memoizedClasses = mutableMapOf<String, Boolean>()
-
-    fun ClassDef.implementsInterface(): Boolean {
-        memoizedClasses[type]?.let { return it }
-
-        if (interfaceDescriptor in interfaces) {
-            memoizedClasses[type] = true
-            return true
-        }
-
-        val superclass = superclass?.let { classMap[it] }
-        if (superclass != null && superclass.implementsInterface()) {
-            memoizedClasses[type] = true
-            return true
-        }
-
-        memoizedClasses[type] = false
-        return false
-    }
-
-    return filter { it.implementsInterface() }
 }
 
 private class InstructionUtils {
