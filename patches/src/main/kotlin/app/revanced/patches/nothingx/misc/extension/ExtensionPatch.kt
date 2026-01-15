@@ -7,7 +7,7 @@ val sharedExtensionPatch = sharedExtensionPatch(
     extensionName = "nothingx",
     extensionHook {
         custom { method, classDef ->
-            method.name == "onCreate" && classDef.endsWith("Application;")
+            method.name == "onCreate" && classDef.contains("BaseApplication")
         }
     },
 )

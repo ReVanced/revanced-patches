@@ -21,7 +21,8 @@ import java.util.regex.Pattern;
 public class LogK1TokenPatch {
 
     private static final String TAG = "NothingXKey";
-    private static final String DEBUG_TAG = "ReVanced";
+    private static final String PACKAGE_NAME = "com.nothing.smartcenter";
+    private static final String EMPTY_MD5 = "d41d8cd98f00b204e9800998ecf8427e";
 
     // Match standalone K1: k1:, K1:, k1>, etc.
     private static final Pattern K1_STANDALONE_PATTERN = Pattern.compile("(?i)(?:k1\\s*[:>]\\s*)([0-9a-f]{32})");
@@ -71,7 +72,7 @@ public class LogK1TokenPatch {
     private static Set<String> getK1FromLogFiles() {
         Set<String> tokens = new LinkedHashSet<>();
         try {
-            File logDir = new File("/data/data/com.nothing.smartcenter/files/log");
+            File logDir = new File("/data/data/" + PACKAGE_NAME + "/files/log");
             if (!logDir.exists() || !logDir.isDirectory()) {
                 return tokens;
             }
@@ -108,11 +109,11 @@ public class LogK1TokenPatch {
                         }
                     }
                 } catch (Exception e) {
-                    // Silently skip unreadable files
+                    // Skip unreadable files
                 }
             }
         } catch (Exception ex) {
-            // Silently fail
+            // Fail silently
         }
 
         return tokens;
@@ -123,7 +124,7 @@ public class LogK1TokenPatch {
      */
     private static String getK1FromDatabase() {
         try {
-            File dbDir = new File("/data/data/com.nothing.smartcenter/databases");
+            File dbDir = new File("/data/data/" + PACKAGE_NAME + "/databases");
             if (!dbDir.exists() || !dbDir.isDirectory()) {
                 return null;
             }
@@ -152,8 +153,9 @@ public class LogK1TokenPatch {
      * Extract K1 from a database file.
      */
     private static String extractK1FromDatabase(File dbFile) {
+        SQLiteDatabase db = null;
         try {
-            SQLiteDatabase db = SQLiteDatabase.openDatabase(dbFile.getPath(), null, SQLiteDatabase.OPEN_READONLY);
+            db = SQLiteDatabase.openDatabase(dbFile.getPath(), null, SQLiteDatabase.OPEN_READONLY);
 
             // Get all tables
             Cursor cursor = db.rawQuery(
@@ -169,8 +171,9 @@ public class LogK1TokenPatch {
 
             // Scan all columns for 32-char hex strings
             for (String table : tables) {
+                Cursor schemaCursor = null;
                 try {
-                    Cursor schemaCursor = db.rawQuery("PRAGMA table_info(" + table + ")", null);
+                    schemaCursor = db.rawQuery("PRAGMA table_info(" + table + ")", null);
                     List<String> columns = new ArrayList<>();
                     while (schemaCursor.moveToNext()) {
                         columns.add(schemaCursor.getString(1));
@@ -178,33 +181,44 @@ public class LogK1TokenPatch {
                     schemaCursor.close();
 
                     for (String column : columns) {
+                        Cursor dataCursor = null;
                         try {
-                            Cursor dataCursor = db.query(table, new String[]{column}, null, null, null, null, null);
+                            dataCursor = db.query(table, new String[]{column}, null, null, null, null, null);
                             while (dataCursor.moveToNext()) {
                                 String value = dataCursor.getString(0);
                                 if (value != null && value.length() == 32 && value.matches("[0-9a-fA-F]{32}")) {
-                                    // Skip obviously fake tokens
-                                    if (!value.equalsIgnoreCase("d41d8cd98f00b204e9800998ecf8427e")) {
+                                    // Skip obviously fake tokens (MD5 of empty string)
+                                    if (!value.equalsIgnoreCase(EMPTY_MD5)) {
                                         dataCursor.close();
                                         db.close();
                                         return value.toLowerCase();
                                     }
                                 }
                             }
-                            dataCursor.close();
                         } catch (Exception e) {
                             // Skip non-string columns
+                        } finally {
+                            if (dataCursor != null) {
+                                dataCursor.close();
+                            }
                         }
                     }
                 } catch (Exception e) {
                     // Continue to next table
+                } finally {
+                    if (schemaCursor != null && !schemaCursor.isClosed()) {
+                        schemaCursor.close();
+                    }
                 }
             }
 
-            db.close();
             return null;
         } catch (Exception ex) {
             return null;
+        } finally {
+            if (db != null && db.isOpen()) {
+                db.close();
+            }
         }
     }
 
