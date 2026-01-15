@@ -8,20 +8,19 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/nothingx/patches/ExposeK1TokenPatch;"
 
 /**
- * Patch to expose the K1 token for Nothing X app to adb logcat.
+ * Patch to expose the K1 token for Nothing X app.
  *
  * This patch enables users to retrieve the K1 authentication token needed
  * to pair Nothing/CMF watches with GadgetBridge without requiring root access.
  *
- * The K1 token is normally written to internal log files that are inaccessible
- * without root. This patch makes the token visible in adb logcat during the
+ * The K1 token is displayed in a dialog and logged to logcat during the
  * pairing process.
  */
 val exposeK1TokenPatch = bytecodePatch(
     name = "Expose K1 token",
-    description = "Logs the K1 authentication token visible to logcat for pairing with GadgetBridge. " +
-        "After installing this patch, pair your watch with the Nothing X app, " +
-        "filter the logs for 'NothingXKey' and copy the 32-character hex string to pair with GadgetBridge.",
+    description = "Displays the K1 authentication token in a dialog and logs it to logcat " +
+        "for pairing with GadgetBridge. After installing this patch, pair your watch " +
+        "with the Nothing X app and copy the token from the dialog.",
 ) {
     dependsOn(extensionPatch)
 
@@ -30,9 +29,10 @@ val exposeK1TokenPatch = bytecodePatch(
     execute {
         // Hook Application.onCreate to scan for existing log files.
         // This will find K1 tokens that were already written to log files.
+        // p0 is the Application context in onCreate.
         applicationOnCreateFingerprint.method.addInstruction(
             0,
-            "invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->scanLogFilesForK1Token()V",
+            "invoke-static {p0}, $EXTENSION_CLASS_DESCRIPTOR->scanLogFilesForK1Token(Landroid/content/Context;)V",
         )
     }
 }
