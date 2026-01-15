@@ -3,6 +3,7 @@ package app.revanced.patches.all.misc.screenshot
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
+import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -19,24 +20,24 @@ val preventScreenshotDetectionPatch = bytecodePatch(
             if (instruction.opcode != Opcode.INVOKE_VIRTUAL) {
                 null
             } else {
-                ((instruction as? ReferenceInstruction)?.reference as? MethodReference)?.run {
-                    if (returnType == "V" &&
-                        definingClass == "Landroid/app/Activity;" && (
-                            name == "registerScreenCaptureCallback" &&
-                            parameterTypes == listOf(
-                                "Ljava/util/concurrent/Executor;",
-                                "Landroid/app/Activity\$ScreenCaptureCallback;",
-                            ) || (
-                            name == "unregisterScreenCaptureCallback" &&
-                            parameterTypes == listOf(
-                                "Landroid/app/Activity\$ScreenCaptureCallback;",
-                            )
-                        ))
-                    ) {
-                        instructionIndex
-                    } else {
-                        null
-                    }
+                val reference = instruction.getReference<MethodReference>()
+                if (reference != null &&
+                    reference.returnType == "V" &&
+                    reference.definingClass == "Landroid/app/Activity;" && (
+                        reference.name == "registerScreenCaptureCallback" &&
+                        reference.parameterTypes == listOf(
+                            "Ljava/util/concurrent/Executor;",
+                            "Landroid/app/Activity\$ScreenCaptureCallback;",
+                        ) || (
+                        reference.name == "unregisterScreenCaptureCallback" &&
+                        reference.parameterTypes == listOf(
+                            "Landroid/app/Activity\$ScreenCaptureCallback;",
+                        )
+                    ))
+                ) {
+                    instructionIndex
+                } else {
+                    null
                 }
             }
         },
