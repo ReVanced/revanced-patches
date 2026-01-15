@@ -1,4 +1,4 @@
-package app.revanced.patches.strava.media.download
+package app.revanced.patches.strava.media
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions

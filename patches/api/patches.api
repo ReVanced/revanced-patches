@@ -1204,11 +1204,11 @@ public final class app/revanced/patches/stocard/layout/HideStoryBubblesPatchKt {
 	public static final fun getHideStoryBubblesPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/strava/media/download/AddMediaDownloadPatchKt {
+public final class app/revanced/patches/strava/media/AddMediaDownloadPatchKt {
 	public static final fun getAddMediaDownloadPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/strava/media/upload/OverwriteMediaUploadParametersPatchKt {
+public final class app/revanced/patches/strava/mediaupload/OverwriteMediaUploadParametersPatchKt {
 	public static final fun getOverwriteMediaUploadParametersPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
