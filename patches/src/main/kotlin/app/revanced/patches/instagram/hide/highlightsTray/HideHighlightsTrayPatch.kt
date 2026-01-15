@@ -1,7 +1,7 @@
 package app.revanced.patches.instagram.hide.highlightsTray
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.instagram.hide.explore.replaceJsonFieldWithBogus
+import app.revanced.patches.instagram.shared.replaceStringWithBogus
 
 @Suppress("unused")
 val hideHighlightsTrayPatch = bytecodePatch(
@@ -12,6 +12,6 @@ val hideHighlightsTrayPatch = bytecodePatch(
     compatibleWith("com.instagram.android")
 
     execute {
-        highlightsUrlBuilderFingerprint.replaceJsonFieldWithBogus(TARGET_STRING)
+        highlightsUrlBuilderFingerprint.replaceStringWithBogus(TARGET_STRING)
     }
 }
