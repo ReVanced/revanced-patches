@@ -50,9 +50,9 @@ public class ExposeK1TokenPatch {
     private static final int COLOR_CARD = 0xFF2D2D2D;
     private static final int COLOR_TEXT_PRIMARY = 0xFFFFFFFF;
     private static final int COLOR_TEXT_SECONDARY = 0xFFB0B0B0;
-    private static final int COLOR_ACCENT = 0xFF00D4FF;
+    private static final int COLOR_ACCENT = 0xFFFF9500;
     private static final int COLOR_TOKEN_BG = 0xFF3A3A3A;
-    private static final int COLOR_BUTTON_POSITIVE = 0xFF00D4FF;
+    private static final int COLOR_BUTTON_POSITIVE = 0xFFFF9500;
     private static final int COLOR_BUTTON_NEGATIVE = 0xFFFF6B6B;
 
     // Match standalone K1: k1:, K1:, k1>, etc.
@@ -183,7 +183,7 @@ public class ExposeK1TokenPatch {
 
             // Title
             TextView titleView = new TextView(activity);
-            titleView.setText("K1 Tokens Found");
+            titleView.setText("K1 Token(s) Found");
             titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
             titleView.setTypeface(Typeface.DEFAULT_BOLD);
             titleView.setTextColor(COLOR_TEXT_PRIMARY);
@@ -195,7 +195,7 @@ public class ExposeK1TokenPatch {
 
             // Subtitle
             TextView subtitleView = new TextView(activity);
-            subtitleView.setText(tokens.size() + " token(s) found • Tap to copy");
+            subtitleView.setText(tokens.size() == 1 ? "1 token found • Tap to copy" : tokens.size() + " tokens found • Tap to copy");
             subtitleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
             subtitleView.setTextColor(COLOR_TEXT_SECONDARY);
             subtitleView.setGravity(Gravity.CENTER);
@@ -225,8 +225,9 @@ public class ExposeK1TokenPatch {
 
             // Add each token as a card
             int index = 1;
+            boolean singleToken = tokens.size() == 1;
             for (String token : tokens) {
-                LinearLayout tokenCard = createTokenCard(activity, token, index++);
+                LinearLayout tokenCard = createTokenCard(activity, token, index++, singleToken);
                 LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
@@ -237,7 +238,7 @@ public class ExposeK1TokenPatch {
 
             // Info text
             TextView infoView = new TextView(activity);
-            infoView.setText("Copy any token above and paste it in GadgetBridge");
+            infoView.setText(tokens.size() == 1 ? "Tap the token to copy it" : "Tap any token to copy it");
             infoView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
             infoView.setTextColor(COLOR_TEXT_SECONDARY);
             infoView.setGravity(Gravity.CENTER);
@@ -328,7 +329,7 @@ public class ExposeK1TokenPatch {
     /**
      * Create a card view for a single token.
      */
-    private static LinearLayout createTokenCard(Activity activity, String token, int index) {
+    private static LinearLayout createTokenCard(Activity activity, String token, int index, boolean singleToken) {
         LinearLayout card = new LinearLayout(activity);
         card.setOrientation(LinearLayout.VERTICAL);
         card.setBackgroundColor(COLOR_TOKEN_BG);
@@ -340,13 +341,15 @@ public class ExposeK1TokenPatch {
         card.setClickable(true);
         card.setFocusable(true);
 
-        // Token label
-        TextView labelView = new TextView(activity);
-        labelView.setText("Token #" + index);
-        labelView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
-        labelView.setTextColor(COLOR_ACCENT);
-        labelView.setTypeface(Typeface.DEFAULT_BOLD);
-        card.addView(labelView);
+        // Token label (only show if multiple tokens)
+        if (!singleToken) {
+            TextView labelView = new TextView(activity);
+            labelView.setText("Token #" + index);
+            labelView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
+            labelView.setTextColor(COLOR_ACCENT);
+            labelView.setTypeface(Typeface.DEFAULT_BOLD);
+            card.addView(labelView);
+        }
 
         // Token value
         TextView tokenView = new TextView(activity);
@@ -359,7 +362,9 @@ public class ExposeK1TokenPatch {
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        tokenParams.topMargin = dpToPx(activity, 8);
+        if (!singleToken) {
+            tokenParams.topMargin = dpToPx(activity, 8);
+        }
         card.addView(tokenView, tokenParams);
 
         // Click to copy
@@ -367,7 +372,7 @@ public class ExposeK1TokenPatch {
             ClipboardManager clipboard = (ClipboardManager) activity.getSystemService(Context.CLIPBOARD_SERVICE);
             if (clipboard != null) {
                 clipboard.setText(token.toUpperCase());
-                Toast.makeText(activity, "Token #" + index + " copied!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Token copied!", Toast.LENGTH_SHORT).show();
             }
         });
 
