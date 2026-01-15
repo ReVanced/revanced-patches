@@ -554,11 +554,11 @@ public final class app/revanced/patches/nfctoolsse/misc/pro/UnlockProPatchKt {
 }
 
 public final class app/revanced/patches/nothingx/misc/extension/ExtensionPatchKt {
-	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+	public static final fun getExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
-public final class app/revanced/patches/nothingx/misc/logk1token/LogK1TokenPatchKt {
-	public static final fun getLogK1TokenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/nothingx/misc/logk1token/ExposeK1TokenPatchKt {
+	public static final fun getExposeK1TokenPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/nunl/ads/HideAdsPatchKt {
