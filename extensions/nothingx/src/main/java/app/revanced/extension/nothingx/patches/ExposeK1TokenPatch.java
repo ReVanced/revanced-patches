@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  * Patches to expose the K1 token for Nothing X app to enable pairing with GadgetBridge.
  */
 @SuppressWarnings("unused")
-public class LogK1TokenPatch {
+public class ExposeK1TokenPatch {
 
     private static final String TAG = "NothingXKey";
     private static final String PACKAGE_NAME = "com.nothing.smartcenter";

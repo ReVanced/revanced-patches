@@ -2,10 +2,10 @@ package app.revanced.patches.nothingx.misc.logk1token
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.nothingx.misc.extension.sharedExtensionPatch
+import app.revanced.patches.nothingx.misc.extension.extensionPatch
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/nothingx/patches/LogK1TokenPatch;"
+    "Lapp/revanced/extension/nothingx/patches/ExposeK1TokenPatch;"
 
 /**
  * Patch to expose the K1 token for Nothing X app to adb logcat.
@@ -17,18 +17,13 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
  * without root. This patch makes the token visible in adb logcat during the
  * pairing process.
  */
-val logK1TokenPatch = bytecodePatch(
+val exposeK1TokenPatch = bytecodePatch(
     name = "Expose K1 token",
-    description = """
-        Exposes the K1 authentication token to adb logcat for pairing with GadgetBridge.
-
-        After installing this patch:
-        1. Pair your watch with the Nothing X app
-        2. Run: adb logcat | grep "NothingXKey"
-        3. Copy the 32-character hex string to pair with GadgetBridge
-    """.trimIndent(),
+    description = "Logs the K1 authentication token visible to logcat for pairing with GadgetBridge. " +
+        "After installing this patch, pair your watch with the Nothing X app, " +
+        "filter the logs for 'NothingXKey' and copy the 32-character hex string to pair with GadgetBridge.",
 ) {
-    dependsOn(sharedExtensionPatch)
+    dependsOn(extensionPatch)
 
     compatibleWith("com.nothing.smartcenter"("3.4.17"))
 
