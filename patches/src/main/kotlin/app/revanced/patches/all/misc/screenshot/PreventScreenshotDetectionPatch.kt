@@ -5,8 +5,30 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
+import com.android.tools.smali.dexlib2.util.MethodUtil
+
+/** `Landroid/app/Activity;->registerScreenCaptureCallback(Ljava/util/concurrent/Executor;Landroid/app/Activity$ScreenCaptureCallback;)V `*/
+private val registerScreenCaptureCallbackMethodReference = ImmutableMethodReference(
+    "Landroid/app/Activity;",
+    "registerScreenCaptureCallback",
+    listOf(
+        "Ljava/util/concurrent/Executor;",
+        "Landroid/app/Activity\$ScreenCaptureCallback;",
+    ),
+    "V"
+)
+
+/** `Landroid/app/Activity;->unregisterScreenCaptureCallback(Landroid/app/Activity$ScreenCaptureCallback;)V` */
+private val unregisterScreenCaptureCallbackMethodReference = ImmutableMethodReference(
+    "Landroid/app/Activity;",
+    "unregisterScreenCaptureCallback",
+    listOf(
+        "Landroid/app/Activity\$ScreenCaptureCallback;",
+    ),
+    "V"
+)
 
 @Suppress("unused")
 val preventScreenshotDetectionPatch = bytecodePatch(
@@ -15,31 +37,17 @@ val preventScreenshotDetectionPatch = bytecodePatch(
 ) {
     dependsOn(transformInstructionsPatch(
         filterMap = { _, _, instruction, instructionIndex ->
-            // invoke-virtual Landroid/app/Activity;->registerScreenCaptureCallback(Ljava/util/concurrent/Executor;Landroid/app/Activity$ScreenCaptureCallback;)V
-            // invoke-virtual Landroid/app/Activity;->unregisterScreenCaptureCallback(Landroid/app/Activity$ScreenCaptureCallback;)V
             if (instruction.opcode != Opcode.INVOKE_VIRTUAL) {
-                null
-            } else {
-                val reference = instruction.getReference<MethodReference>()
-                if (reference != null &&
-                    reference.returnType == "V" &&
-                    reference.definingClass == "Landroid/app/Activity;" && (
-                        reference.name == "registerScreenCaptureCallback" &&
-                        reference.parameterTypes == listOf(
-                            "Ljava/util/concurrent/Executor;",
-                            "Landroid/app/Activity\$ScreenCaptureCallback;",
-                        ) || (
-                        reference.name == "unregisterScreenCaptureCallback" &&
-                        reference.parameterTypes == listOf(
-                            "Landroid/app/Activity\$ScreenCaptureCallback;",
-                        )
-                    ))
-                ) {
-                    instructionIndex
-                } else {
-                    null
-                }
+                return@transformInstructionsPatch null
             }
+            val reference = instruction.getReference<MethodReference>() ?: return@transformInstructionsPatch null
+            if (!MethodUtil.methodSignaturesMatch(reference, registerScreenCaptureCallbackMethodReference) &&
+                !MethodUtil.methodSignaturesMatch(reference, unregisterScreenCaptureCallbackMethodReference )
+            ) {
+                return@transformInstructionsPatch null
+            }
+
+            instructionIndex
         },
         transform = { mutableMethod, instructionIndex ->
             mutableMethod.removeInstruction(instructionIndex)
