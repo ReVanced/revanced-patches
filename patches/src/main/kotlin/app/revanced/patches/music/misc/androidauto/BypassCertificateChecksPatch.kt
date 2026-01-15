@@ -8,7 +8,6 @@ import app.revanced.util.returnEarly
 @Deprecated("This patch is useless by itself and has been merged into another patch.", ReplaceWith("unlockAndroidAutoMediaBrowserPatch"))
 @Suppress("unused")
 val bypassCertificateChecksPatch = bytecodePatch(
-    name = "Bypass certificate checks",
     description = "Bypasses certificate checks which prevent YouTube Music from working on Android Auto.",
 ) {
     dependsOn(

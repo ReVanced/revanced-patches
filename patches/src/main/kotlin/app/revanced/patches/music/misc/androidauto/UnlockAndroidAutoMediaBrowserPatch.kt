@@ -11,8 +11,8 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
 val unlockAndroidAutoMediaBrowserPatch = bytecodePatch(
-    name = "Android Auto Support",
-    description = "Unlock Android Auto Media Browser",
+    name = "Unlock Android Auto Media Browser",
+    description = "Unlocks Android Auto Media Browser which enables the search function including speech to text.",
 ) {
     compatibleWith(
         "com.google.android.apps.youtube.music"(
