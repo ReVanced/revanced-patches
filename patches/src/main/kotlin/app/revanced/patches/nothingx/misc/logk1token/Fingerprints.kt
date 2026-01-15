@@ -10,7 +10,7 @@ internal val applicationOnCreateFingerprint = fingerprint {
     returns("V")
     parameters()
     custom { method, classDef ->
-        // Match BaseApplication.onCreate specifically
+        // Match BaseApplication onCreate specifically
         method.name == "onCreate" && classDef.contains("BaseApplication")
     }
 }

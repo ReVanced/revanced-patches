@@ -24,7 +24,7 @@ val logK1TokenPatch = bytecodePatch(
 
         After installing this patch:
         1. Pair your watch with the Nothing X app
-        2. Run: adb logcat | grep -i "k1"
+        2. Run: adb logcat | grep "NothingXKey"
         3. Copy the 32-character hex string to pair with GadgetBridge
     """.trimIndent(),
 ) {
