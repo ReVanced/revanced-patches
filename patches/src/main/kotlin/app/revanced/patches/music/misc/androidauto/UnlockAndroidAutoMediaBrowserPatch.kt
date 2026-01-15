@@ -3,8 +3,6 @@ package app.revanced.patches.music.misc.androidauto
 import app.revanced.patcher.extensions.InstructionExtensions.instructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.music.misc.extension.sharedExtensionPatch
-import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.util.getReference
 import app.revanced.util.registersUsed
 import app.revanced.util.returnEarly
@@ -16,11 +14,6 @@ val unlockAndroidAutoMediaBrowserPatch = bytecodePatch(
     name = "Android Auto Support",
     description = "Unlock Android Auto Media Browser",
 ) {
-    dependsOn(
-        sharedExtensionPatch,
-        settingsPatch
-    )
-
     compatibleWith(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
