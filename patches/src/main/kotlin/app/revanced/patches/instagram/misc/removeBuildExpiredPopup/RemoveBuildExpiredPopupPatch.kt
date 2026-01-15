@@ -18,7 +18,7 @@ val removeBuildExpiredPopupPatch = bytecodePatch(
         invokeMethodFingerprint.method.apply {
             val longToIntIndex = instructions.first { it.opcode == Opcode.LONG_TO_INT }.location.index
             val register = getInstruction<TwoRegisterInstruction>(longToIntIndex).registerA
-            addInstruction(longToIntIndex+1,"const v$register, 0x0")
+            addInstruction(longToIntIndex+1, "const v$register, 0x0")
         }
     }
 }
