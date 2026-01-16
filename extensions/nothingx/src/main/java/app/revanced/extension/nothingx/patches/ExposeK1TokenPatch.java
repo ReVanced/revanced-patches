@@ -62,16 +62,15 @@ public class ExposeK1TokenPatch {
 
     private static volatile boolean k1Logged = false;
     private static volatile boolean lifecycleCallbacksRegistered = false;
-    private static Set<String> cachedTokens = null;
     private static Context appContext;
 
     /**
-     * Hook to scan existing log files for K1 token.
+     * Get K1 tokens from database and log files.
      * Call this after the app initializes.
      *
      * @param context Application context
      */
-    public static void scanLogFilesForK1Token(Context context) {
+    public static void getK1Tokens(Context context) {
         if (k1Logged) {
             return;
         }
@@ -81,7 +80,7 @@ public class ExposeK1TokenPatch {
         Set<String> allTokens = new LinkedHashSet<>();
 
         // First try to get from database
-        String dbToken = getK1FromDatabase();
+        String dbToken = getK1TokensFromDatabase();
         if (dbToken != null) {
             allTokens.add(dbToken);
         }
@@ -94,26 +93,24 @@ public class ExposeK1TokenPatch {
             return;
         }
 
-        // Cache tokens for later display
-        cachedTokens = allTokens;
-
         // Log all found tokens
-        int index = 1;
-        for (String token : allTokens) {
-            Log.i(TAG, "#" + index + ": " + token.toUpperCase());
-            index++;
+        List<String> tokenList = new ArrayList<>(allTokens);
+        for (int i = 0; i < tokenList.size(); i++) {
+            Log.i(TAG, "#" + (i + 1) + ": " + tokenList.get(i).toUpperCase());
         }
 
         // Register lifecycle callbacks to show dialog when an Activity is ready
-        registerLifecycleCallbacks();
+        registerLifecycleCallbacks(allTokens);
 
         k1Logged = true;
     }
 
     /**
      * Register ActivityLifecycleCallbacks to show dialog when first Activity resumes.
+     *
+     * @param tokens Set of K1 tokens to display
      */
-    private static void registerLifecycleCallbacks() {
+    private static void registerLifecycleCallbacks(Set<String> tokens) {
         if (lifecycleCallbacksRegistered || !(appContext instanceof Application)) {
             return;
         }
@@ -130,13 +127,20 @@ public class ExposeK1TokenPatch {
 
             @Override
             public void onActivityResumed(Activity activity) {
+                // Check if user chose not to show dialog
+                SharedPreferences prefs = activity.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+                if (prefs.getBoolean(KEY_DONT_SHOW_DIALOG, false)) {
+                    application.unregisterActivityLifecycleCallbacks(this);
+                    lifecycleCallbacksRegistered = false;
+                    return;
+                }
+
                 // Show dialog on first Activity resume
-                if (cachedTokens != null && !cachedTokens.isEmpty()) {
-                    activity.runOnUiThread(() -> showK1TokenDialog(activity, cachedTokens));
+                if (tokens != null && !tokens.isEmpty()) {
+                    activity.runOnUiThread(() -> showK1TokenDialog(activity, tokens));
                     // Unregister after showing
                     application.unregisterActivityLifecycleCallbacks(this);
                     lifecycleCallbacksRegistered = false;
-                    cachedTokens = null;
                 }
             }
 
@@ -167,14 +171,8 @@ public class ExposeK1TokenPatch {
      * @param tokens   Set of K1 tokens
      */
     private static void showK1TokenDialog(Activity activity, Set<String> tokens) {
-        // Check if user chose not to show dialog
-        SharedPreferences prefs = activity.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        if (prefs.getBoolean(KEY_DONT_SHOW_DIALOG, false)) {
-            return;
-        }
-
         try {
-            // Create main container
+            // Create main container.
             LinearLayout mainLayout = new LinearLayout(activity);
             mainLayout.setOrientation(LinearLayout.VERTICAL);
             mainLayout.setBackgroundColor(COLOR_BG);
@@ -224,10 +222,11 @@ public class ExposeK1TokenPatch {
             scrollView.addView(tokensContainer);
 
             // Add each token as a card
-            int index = 1;
             boolean singleToken = tokens.size() == 1;
-            for (String token : tokens) {
-                LinearLayout tokenCard = createTokenCard(activity, token, index++, singleToken);
+            // Set doesn't have indexed access like allTokens.get(i). We'd need to convert to a List first.
+            List<String> tokenList = new ArrayList<>(tokens);
+            for (int i = 0; i < tokenList.size(); i++) {
+                LinearLayout tokenCard = createTokenCard(activity, tokenList.get(i), i + 1, singleToken);
                 LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
@@ -311,6 +310,7 @@ public class ExposeK1TokenPatch {
 
             // Set button click listeners after dialog is created
             dontShowButton.setOnClickListener(v -> {
+                SharedPreferences prefs = activity.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
                 prefs.edit().putBoolean(KEY_DONT_SHOW_DIALOG, true).apply();
                 Toast.makeText(activity, "Dialog disabled. Clear app data to re-enable.",
                              Toast.LENGTH_SHORT).show();
@@ -473,7 +473,7 @@ public class ExposeK1TokenPatch {
     /**
      * Try to get K1 token from the database.
      */
-    private static String getK1FromDatabase() {
+    private static String getK1TokensFromDatabase() {
         try {
             File dbDir = new File("/data/data/" + PACKAGE_NAME + "/databases");
             if (!dbDir.exists() || !dbDir.isDirectory()) {
@@ -488,7 +488,7 @@ public class ExposeK1TokenPatch {
             }
 
             for (File dbFile : dbFiles) {
-                String token = extractK1FromDatabase(dbFile);
+                String token = getK1TokensFromDatabase(dbFile);
                 if (token != null) {
                     return token;
                 }
@@ -503,7 +503,7 @@ public class ExposeK1TokenPatch {
     /**
      * Extract K1 from a database file.
      */
-    private static String extractK1FromDatabase(File dbFile) {
+    private static String getK1TokensFromDatabase(File dbFile) {
         SQLiteDatabase db = null;
         try {
             db = SQLiteDatabase.openDatabase(dbFile.getPath(), null, SQLiteDatabase.OPEN_READONLY);
@@ -578,7 +578,6 @@ public class ExposeK1TokenPatch {
      */
     public static void resetK1Logged() {
         k1Logged = false;
-        cachedTokens = null;
         lifecycleCallbacksRegistered = false;
     }
 
