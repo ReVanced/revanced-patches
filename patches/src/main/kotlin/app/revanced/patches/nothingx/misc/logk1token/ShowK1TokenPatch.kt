@@ -16,7 +16,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
  * The K1 token is displayed in a dialog and logged to logcat during the
  * pairing process.
  */
-val exposeK1TokenPatch = bytecodePatch(
+val showK1TokenPatch = bytecodePatch(
     name = "Show K1 token",
     description = "Displays the K1 authentication token in a dialog and logs it to logcat " +
         "for pairing with GadgetBridge. After installing this patch, pair your watch " +
