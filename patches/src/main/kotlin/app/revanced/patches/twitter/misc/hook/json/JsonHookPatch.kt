@@ -14,7 +14,7 @@ import java.io.InvalidClassException
  *
  * @param jsonHook The [JsonHook] to add.
  */
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 fun addJsonHook(
     jsonHook: JsonHook,
 ) {
@@ -92,14 +92,14 @@ val jsonHookPatch = bytecodePatch(
  * @param descriptor The class descriptor of the hook.
  * @throws ClassNotFoundException If the class could not be found.
  */
-context(BytecodePatchContext)
 class JsonHook(
+    context: BytecodePatchContext,
     internal val descriptor: String,
 ) {
     internal var added = false
 
     init {
-        classBy { it.type == descriptor }?.let {
+        context.classBy { it.type == descriptor }?.let {
             it.mutableClass.also { classDef ->
                 if (
                     classDef.superclass != JSON_HOOK_CLASS_DESCRIPTOR ||

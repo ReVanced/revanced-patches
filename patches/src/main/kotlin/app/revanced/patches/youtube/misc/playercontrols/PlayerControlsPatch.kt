@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.misc.playercontrols
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -188,6 +189,7 @@ fun initializeBottomControl(descriptor: String) {
  * Injects the code to change the visibility of controls.
  * @param descriptor The descriptor of the method which should be called.
  */
+context(_: BytecodePatchContext)
 fun injectVisibilityCheckCall(descriptor: String) {
     visibilityMethod.addInstruction(
         visibilityInsertIndex++,
