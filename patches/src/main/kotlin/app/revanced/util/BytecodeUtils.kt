@@ -1182,9 +1182,10 @@ private fun MutableMethod.overrideReturnValue(value: EncodedValue?, returnLate: 
                     return-wide v0
                     """
                 } else {
+                    check(implementation!!.registerCount >= 2) { "`long` literal doesn't fit into method $this (${implementation!!.registerCount} < 2)." }
                     """
                     const-wide v0, $encodedValue
-                    invoke-static { v0 }, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+                    invoke-static { v0, v1 }, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
                     move-result-object v0
                     return-object v0
                     """
@@ -1198,9 +1199,10 @@ private fun MutableMethod.overrideReturnValue(value: EncodedValue?, returnLate: 
                     return-wide v0
                     """
                 } else {
+                    check(implementation!!.registerCount >= 2) { "`double` literal doesn't fit into method $this (${implementation!!.registerCount} < 2)." }
                     """
                     const-wide v0, $encodedValue
-                    invoke-static { v0 }, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+                    invoke-static { v0, v1 }, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
                     move-result-object v0
                     return-object v0
                     """

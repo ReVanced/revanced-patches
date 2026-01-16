@@ -1,9 +1,14 @@
 package app.revanced.patches.strava.media.upload
 
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
 import app.revanced.patcher.patch.longOption
+import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.util.returnEarly
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 
 @Suppress("unused")
 val overwriteMediaUploadParametersPatch = bytecodePatch(
@@ -38,7 +43,41 @@ val overwriteMediaUploadParametersPatch = bytecodePatch(
         }
 
         maxDuration?.let { maxDuration ->
-            getMaxDurationFingerprint.match(mediaUploadParametersClass).method.returnEarly(maxDuration)
+            val getMaxDurationMethod = getMaxDurationFingerprint.match(mediaUploadParametersClass).method
+
+            if (getMaxDurationMethod.returnType == "J") {
+                getMaxDurationMethod.returnEarly(maxDuration)
+                return@let
+            }
+
+            val helperMethod = ImmutableMethod(
+                getMaxDurationMethod.definingClass,
+                "${getMaxDurationMethod.name}\$helper",
+                listOf(),
+                getMaxDurationMethod.returnType,
+                AccessFlags.PRIVATE.value or AccessFlags.STATIC.value,
+                setOf(),
+                setOf(),
+                MutableMethodImplementation(2)
+            ).toMutable().apply {
+                addInstructions(
+                    """
+                        const-wide v0, ${maxDuration}L
+                        invoke-static { v0, v1 }, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+                        move-result-object v0
+                        return-object v0
+                    """
+                )
+            }
+
+            getMaxDurationMethod.addInstructions(
+                0,
+                """
+                    invoke-static { }, $helperMethod
+                    move-result-object v0
+                    return-object v0
+                """
+            )
         }
 
         maxSize?.let {
