@@ -2,14 +2,17 @@ package app.revanced.patches.primevideo.ads
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.primevideo.misc.extension.sharedExtensionPatch
+import app.revanced.util.getReference
+import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Suppress("unused")
-val skipAdsPatch = bytecodePatch(
-    name = "Skip ads",
+@Suppress("unused", "ObjectPropertyName")
+val `Skip ads` by creatingBytecodePatch(
     description = "Automatically skips video stream ads.",
 ) {
     compatibleWith("com.amazon.avod.thirdpartyclient"("3.0.412.2947"))
@@ -20,13 +23,17 @@ val skipAdsPatch = bytecodePatch(
     // ad break. Instead, force the video player to seek over the entire break and reset the state machine.
     apply {
         // Force doTrigger() access to public so we can call it from our extension.
-        doTriggerFingerprint.method.accessFlags = AccessFlags.PUBLIC.value;
+        doTriggerMethod.accessFlags = AccessFlags.PUBLIC.value
 
-        val getPlayerIndex = enterServerInsertedAdBreakStateFingerprint.patternMatch.startIndex
-        enterServerInsertedAdBreakStateFingerprint.method.apply {
+        enterServerInsertedAdBreakStateMethod.apply {
             // Get register that stores VideoPlayer:
             //  invoke-virtual ->getPrimaryPlayer()
             //  move-result-object { playerRegister }
+            val getPlayerIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_VIRTUAL &&
+                        getReference<MethodReference>()?.name == "getPrimaryPlayer"
+            }
+
             val playerRegister = getInstruction<OneRegisterInstruction>(getPlayerIndex + 1).registerA
 
             // Reuse the params from the original method:
@@ -42,4 +49,3 @@ val skipAdsPatch = bytecodePatch(
         }
     }
 }
-

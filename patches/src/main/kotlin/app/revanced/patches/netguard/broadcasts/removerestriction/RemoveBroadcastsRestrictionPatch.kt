@@ -1,11 +1,10 @@
 package app.revanced.patches.netguard.broadcasts.removerestriction
 
-import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.creatingResourcePatch
 import org.w3c.dom.Element
 
-@Suppress("unused")
-val removeBroadcastsRestrictionPatch = resourcePatch(
-    name = "Remove broadcasts restriction",
+@Suppress("unused", "ObjectPropertyName")
+val `Remove broadcasts restriction` by creatingResourcePatch(
     description = "Enables starting/stopping NetGuard via broadcasts.",
 ) {
     compatibleWith("eu.faircode.netguard")

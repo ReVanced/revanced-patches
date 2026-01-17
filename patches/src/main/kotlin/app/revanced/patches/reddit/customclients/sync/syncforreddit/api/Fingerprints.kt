@@ -1,19 +1,24 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.api
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethod
+import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.string
 
-internal val getAuthorizationStringFingerprint = fingerprint {
-    strings("authorize.compact?client_id")
+internal val getAuthorizationStringMethodMatch = firstMethodComposite {
+    instructions(string("authorize.compact?client_id"::startsWith))
 }
 
-internal val getBearerTokenFingerprint = fingerprint {
-    strings("Basic")
+internal val getBearerTokenMethodMatch = firstMethodComposite {
+    instructions(string("Basic"::startsWith))
 }
 
-internal val getUserAgentFingerprint = fingerprint {
-    strings("android:com.laurencedawson.reddit_sync")
-}
+internal val BytecodePatchContext.getUserAgentMethod by gettingFirstMutableMethod(
+    "android:com.laurencedawson.reddit_sync"
+)
 
-internal val imgurImageAPIFingerprint = fingerprint {
-    strings("https://imgur-apiv3.p.rapidapi.com/3/image")
+internal val imgurImageAPIMethodMatch = firstMethodComposite {
+    instructions("https://imgur-apiv3.p.rapidapi.com/3/image"())
 }

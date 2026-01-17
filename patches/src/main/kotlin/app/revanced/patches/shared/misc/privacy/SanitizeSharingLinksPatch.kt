@@ -8,8 +8,6 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.PATCH_DESCRIPTION_SANITIZE_SHARING_LINKS
-import app.revanced.patches.shared.PATCH_NAME_SANITIZE_SHARING_LINKS
 import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
@@ -30,8 +28,8 @@ internal fun sanitizeSharingLinksPatch(
     preferenceScreen: BasePreferenceScreen.Screen,
     replaceMusicLinksWithYouTube: Boolean = false
 ) = bytecodePatch(
-    name = PATCH_NAME_SANITIZE_SHARING_LINKS,
-    description = PATCH_DESCRIPTION_SANITIZE_SHARING_LINKS,
+    name = "Sanitize sharing links",
+    description = "Removes the tracking query parameters from shared links.",
 ) {
     block()
 

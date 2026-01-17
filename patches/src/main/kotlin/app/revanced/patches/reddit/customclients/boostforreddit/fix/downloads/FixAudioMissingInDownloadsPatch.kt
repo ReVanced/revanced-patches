@@ -2,29 +2,26 @@ package app.revanced.patches.reddit.customclients.boostforreddit.fix.downloads
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Suppress("unused")
-val fixAudioMissingInDownloadsPatch = bytecodePatch(
-    name = "Fix missing audio in video downloads",
+@Suppress("unused", "ObjectPropertyName")
+val `Fix missing audio in video downloads` by creatingBytecodePatch(
     description = "Fixes audio missing in videos downloaded from v.redd.it.",
 ) {
     compatibleWith("com.rubenmayayo.reddit")
 
     apply {
-        val endpointReplacements = mapOf(
-            "/DASH_audio.mp4" to "/DASH_AUDIO_128.mp4",
-            "/audio" to "/DASH_AUDIO_64.mp4",
+        val endpointReplacements = arrayOf(
+            "/DASH_AUDIO_128.mp4",
+            "/DASH_AUDIO_64.mp4",
         )
 
-        downloadAudioFingerprint.method.apply {
-            downloadAudioFingerprint.stringMatches.forEach { match ->
-                val replacement = endpointReplacements[match.string]
-                val register = getInstruction<OneRegisterInstruction>(match.index).registerA
+        downloadAudioMethodMatch.indices.forEachIndexed { index, i ->
+            val replacement = endpointReplacements[i]
+            val register = downloadAudioMethodMatch.method.getInstruction<OneRegisterInstruction>(index).registerA
 
-                replaceInstruction(match.index, "const-string v$register, \"$replacement\"")
-            }
+            downloadAudioMethodMatch.method.replaceInstruction(index, "const-string v$register, \"$replacement\"")
         }
     }
 }

@@ -1,5 +1,6 @@
 package app.revanced.patches.music.misc.settings
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
@@ -65,7 +66,7 @@ private val settingsResourcePatch = resourcePatch {
 }
 
 val settingsPatch = bytecodePatch(
-    description = "Adds settings for ReVanced to YouTube Music.",
+    description = "Adds settings for ReVanced to YouTube Music."
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -100,8 +101,8 @@ val settingsPatch = bytecodePatch(
         )
 
         modifyActivityForSettingsInjection(
-            googleApiActivityFingerprint.classDef,
-            googleApiActivityFingerprint.method,
+            googleApiActivityMethod.classDef,
+            googleApiActivityMethod,
             GOOGLE_API_ACTIVITY_HOOK_CLASS_DESCRIPTOR,
             true
         )

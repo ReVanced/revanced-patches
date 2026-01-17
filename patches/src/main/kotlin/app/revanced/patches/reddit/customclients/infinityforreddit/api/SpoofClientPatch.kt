@@ -17,7 +17,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "infinity://localhost") { 
     val clientId by clientIdOption
 
     apply {
-        apiUtilsFingerprint.classDef.methods.apply {
+        apiUtilsMethod.classDef.methods.apply {
             val getClientIdMethod = single { it.name == "getId" }.also(::remove)
 
             val newGetClientIdMethod = ImmutableMethod(

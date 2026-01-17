@@ -3,6 +3,7 @@ package app.revanced.patches.primevideo.video.speed
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.primevideo.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -13,8 +14,8 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 private const val EXTENSION_CLASS_DESCRIPTOR = 
     "Lapp/revanced/extension/primevideo/videoplayer/PlaybackSpeedPatch;"
 
-val playbackSpeedPatch = bytecodePatch(
-    name = "Playback speed",
+@Suppress("unused", "ObjectPropertyName")
+val `Playback speed` by creatingBytecodePatch(
     description = "Adds playback speed controls to the video player.",
 ) {
     dependsOn(
@@ -26,7 +27,7 @@ val playbackSpeedPatch = bytecodePatch(
     )
 
     apply {
-        playbackUserControlsInitializeFingerprint.method.apply {
+        playbackUserControlsInitializeMethod.apply {
             val getIndex = indexOfFirstInstructionOrThrow {
                 opcode == Opcode.IPUT_OBJECT && 
                 getReference<FieldReference>()?.name == "mUserControls"
@@ -42,7 +43,7 @@ val playbackSpeedPatch = bytecodePatch(
             )
         }
 
-        playbackUserControlsPrepareForPlaybackFingerprint.method.apply {
+        playbackUserControlsPrepareForPlaybackMethod.apply {
             addInstructions(
                 0,
                 """

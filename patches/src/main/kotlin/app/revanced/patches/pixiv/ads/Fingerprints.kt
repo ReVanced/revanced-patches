@@ -1,12 +1,16 @@
 package app.revanced.patches.pixiv.ads
 
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
 
-internal val shouldShowAdsFingerprint = fingerprint {
+internal val BytecodePatchContext.shouldShowAdsMethod by gettingFirstMutableMethodDeclaratively {
+    definingClass("AdUtils;"::endsWith)
+    name("shouldShowAds")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    custom { methodDef, classDef ->
-        classDef.type.endsWith("AdUtils;") && methodDef.name == "shouldShowAds"
-    }
+    returnType("Z")
 }

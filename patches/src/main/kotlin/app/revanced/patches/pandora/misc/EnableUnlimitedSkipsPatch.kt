@@ -1,15 +1,13 @@
 package app.revanced.patches.pandora.misc
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
-val enableUnlimitedSkipsPatch = bytecodePatch(
-    name = "Enable unlimited skips",
-) {
+@Suppress("unused", "ObjectPropertyName")
+val `Enable unlimited skips` by creatingBytecodePatch {
     compatibleWith("com.pandora.android")
 
     apply {
-        skipLimitBehaviorFingerprint.method.returnEarly("unlimited")
+        getSkipLimitBehaviorMethod.returnEarly("unlimited")
     }
 }

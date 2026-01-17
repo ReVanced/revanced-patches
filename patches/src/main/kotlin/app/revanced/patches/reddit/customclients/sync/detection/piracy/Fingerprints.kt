@@ -1,26 +1,33 @@
 package app.revanced.patches.reddit.customclients.sync.detection.piracy
 
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclarativelyOrNull
+import app.revanced.patcher.InstructionMatchingFunctions.invoke
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.custom
 import app.revanced.patcher.extensions.instructions
-import app.revanced.patcher.fingerprint
-import app.revanced.util.getReference
+import app.revanced.patcher.extensions.reference
+import app.revanced.patcher.instructions
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.Reference
 
-internal val piracyDetectionFingerprint = fingerprint {
+internal val BytecodePatchContext.detectPiracyMethodOrNull by gettingFirstMutableMethodDeclarativelyOrNull(
+    "Lcom/github/javiersantos/piracychecker/PiracyChecker;"
+) {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    returns("V")
-    opcodes(
-        Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_DIRECT,
-        Opcode.NEW_INSTANCE,
-        Opcode.INVOKE_DIRECT,
-        Opcode.INVOKE_VIRTUAL,
+    returnType("V")
+    instructions(
+        Opcode.NEW_INSTANCE(),
+        Opcode.INVOKE_DIRECT(),
+        Opcode.NEW_INSTANCE(),
+        Opcode.INVOKE_DIRECT(),
+        Opcode.INVOKE_VIRTUAL(),
     )
-    custom { method, _ ->
-        method.implementation ?: return@custom false
-        method.instructions.any {
-            it.getReference<Reference>()?.toString() == "Lcom/github/javiersantos/piracychecker/PiracyChecker;"
+    // TODO: Convert to instructions() extension.
+    custom {
+        instructions.any {
+            it.reference.toString() == "Lcom/github/javiersantos/piracychecker/PiracyChecker;"
         }
     }
 }

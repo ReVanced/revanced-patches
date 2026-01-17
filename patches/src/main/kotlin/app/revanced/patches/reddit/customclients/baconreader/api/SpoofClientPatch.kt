@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.baconreader.api
 
-import app.revanced.patcher.Fingerprint
+import app.revanced.patcher.MatchBuilder
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
@@ -22,22 +22,20 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
     val clientId by clientIdOption
 
     apply {
-        fun Fingerprint.patch(replacementString: String) {
-            val clientIdIndex = stringMatches.first().index
+        fun MatchBuilder.patch(replacementString: String) {
+            val clientIdIndex = indices.first()
 
-            method.apply {
-                val clientIdRegister = getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
-                replaceInstruction(
-                    clientIdIndex,
-                    "const-string v$clientIdRegister, \"$replacementString\"",
-                )
-            }
+            val clientIdRegister = method.getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
+            method.replaceInstruction(
+                clientIdIndex,
+                "const-string v$clientIdRegister, \"$replacementString\"",
+            )
         }
 
         // Patch client id in authorization url.
-        getAuthorizationUrlFingerprint.patch("client_id=$clientId")
+        getAuthorizationUrlMethodMatch.patch("client_id=$clientId")
 
         // Patch client id for access token request.
-        requestTokenFingerprint.patch(clientId!!)
+        requestTokenMethodMatch.patch(clientId!!)
     }
 }

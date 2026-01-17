@@ -1,16 +1,14 @@
 package app.revanced.patches.pandora.ads
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
-val disableAudioAdsPatch = bytecodePatch(
-    name = "Disable audio ads",
-) {
+@Suppress("unused", "ObjectPropertyName")
+val `Disable Audio Ads` by creatingBytecodePatch {
     compatibleWith("com.pandora.android")
 
     apply {
-        getIsAdSupportedFingerprint.method.returnEarly(false)
-        requestAudioAdFingerprint.method.returnEarly()
+        getIsAdSupportedMethod.returnEarly(false)
+        requestAudioAdMethod.returnEarly()
     }
 }

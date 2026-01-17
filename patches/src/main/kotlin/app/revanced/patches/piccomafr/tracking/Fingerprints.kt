@@ -1,23 +1,20 @@
 package app.revanced.patches.piccomafr.tracking
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val appMeasurementFingerprint = fingerprint {
+internal val BytecodePatchContext.appMeasurementMethod by gettingFirstMutableMethodDeclaratively("config/app/", "Fetching remote configuration") {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    returns("V")
-    strings("config/app/", "Fetching remote configuration")
+    returnType("V")
 }
 
-internal val facebookSDKFingerprint = fingerprint {
+internal val BytecodePatchContext.facebookSDKMethod by gettingFirstMutableMethodDeclaratively("instagram.com", "facebook.com") {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-    strings("instagram.com", "facebook.com")
 }
 
-internal val firebaseInstallFingerprint = fingerprint {
+internal val BytecodePatchContext.firebaseInstallMethod by gettingFirstMutableMethodDeclaratively("https://%s/%s/%s", "firebaseinstallations.googleapis.com") {
     accessFlags(AccessFlags.PRIVATE)
-    strings(
-        "https://%s/%s/%s",
-        "firebaseinstallations.googleapis.com",
-    )
 }

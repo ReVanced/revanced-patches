@@ -1,11 +1,15 @@
 package app.revanced.patches.music.misc.settings
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.name
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 
-internal val googleApiActivityFingerprint = fingerprint {
-    returns("V")
-    parameters("Landroid/os/Bundle;")
-    custom { method, classDef ->
-        classDef.endsWith("GoogleApiActivity;") && method.name == "onCreate"
-    }
+internal val BytecodePatchContext.googleApiActivityMethod by gettingFirstMutableMethodDeclaratively {
+    name("onCreate")
+    definingClass("GoogleApiActivity;"::endsWith)
+    returnType("V")
+    parameterTypes("Landroid/os/Bundle;")
 }

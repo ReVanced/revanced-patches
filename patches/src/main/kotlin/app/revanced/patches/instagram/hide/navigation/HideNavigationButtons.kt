@@ -3,9 +3,8 @@ package app.revanced.patches.instagram.hide.navigation
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.booleanOption
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
-import app.revanced.patches.shared.PATCH_NAME_HIDE_NAVIGATION_BUTTONS
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
@@ -19,9 +18,8 @@ import java.util.logging.Logger
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/instagram/hide/navigation/HideNavigationButtonsPatch;"
 
-@Suppress("unused")
-val hideNavigationButtonsPatch = bytecodePatch(
-    name = PATCH_NAME_HIDE_NAVIGATION_BUTTONS,
+@Suppress("unused", "ObjectPropertyName")
+val `Hide navigation buttons` by creatingBytecodePatch(
     description = "Hides navigation bar buttons, such as the Reels and Create button.",
     use = false
 ) {
@@ -66,7 +64,7 @@ val hideNavigationButtonsPatch = bytecodePatch(
     )
 
     apply {
-        if (!hideHome!! &&!hideReels!! && !hideDirect!! && !hideSearch!! && !hideProfile!! && !hideCreate!!) {
+        if (!hideHome!! && !hideReels!! && !hideDirect!! && !hideSearch!! && !hideProfile!! && !hideCreate!!) {
             return@apply Logger.getLogger(this::class.java.name).warning(
                 "No hide navigation buttons options are enabled. No changes made."
             )

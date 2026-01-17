@@ -1,17 +1,16 @@
 package app.revanced.patches.protonvpn.delay
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
-val removeDelayPatch = bytecodePatch(
-    name = "Remove delay",
-    description = "Removes the delay when changing servers.",
+@Suppress("unused", "ObjectPropertyName")
+val `Remove delay` by creatingBytecodePatch(
+    description = "Removes the delay when changing servers."
 ) {
     compatibleWith("ch.protonvpn.android")
 
     apply {
-        longDelayFingerprint.method.returnEarly(0)
-        shortDelayFingerprint.method.returnEarly(0)
+        longDelayMethod.returnEarly(0)
+        shortDelayMethod.returnEarly(0)
     }
 }

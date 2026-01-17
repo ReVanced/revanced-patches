@@ -9,6 +9,6 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://www.ccrama.me") { 
     val clientId by clientIdOption
 
     apply {
-        getClientIdFingerprint.method.returnEarly(clientId!!)
+        getClientIdMethod.returnEarly(clientId!!)
     }
 }

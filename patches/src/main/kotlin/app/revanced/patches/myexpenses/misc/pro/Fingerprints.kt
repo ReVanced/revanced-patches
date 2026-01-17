@@ -1,8 +1,9 @@
 package app.revanced.patches.myexpenses.misc.pro
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 
-internal val isEnabledFingerprint = fingerprint {
-    returns("Z")
-    strings("feature", "feature.licenceStatus")
+internal val BytecodePatchContext.isEnabledMethod by gettingFirstMutableMethodDeclaratively("feature", "feature.licenceStatus") {
+    returnType("Z")
 }

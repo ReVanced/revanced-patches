@@ -1,18 +1,15 @@
 package app.revanced.patches.orfon.detection.root
 
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.shared.PATCH_DESCRIPTION_REMOVE_ROOT_DETECTION
-import app.revanced.patches.shared.PATCH_NAME_REMOVE_ROOT_DETECTION
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
-val removeRootDetectionPatch = bytecodePatch(
-    name = PATCH_NAME_REMOVE_ROOT_DETECTION,
-    description = PATCH_DESCRIPTION_REMOVE_ROOT_DETECTION
+@Suppress("unused", "ObjectPropertyName")
+val `Remove root detection` by creatingBytecodePatch(
+    description = "Removes the check for root permissions and unlocked bootloader."
 ) {
     compatibleWith("com.nousguide.android.orftvthek")
 
     apply {
-        isDeviceRootedFingeprint.method.returnEarly(false)
+        isDeviceRootedMethod.returnEarly(false)
     }
 }

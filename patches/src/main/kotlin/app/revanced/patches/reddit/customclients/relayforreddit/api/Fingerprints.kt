@@ -1,27 +1,33 @@
 package app.revanced.patches.reddit.customclients.relayforreddit.api
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.Opcode
 
-internal fun baseClientIdFingerprint(string: String) = fingerprint {
-    strings("dj-xCIZQYiLbEg", string)
+
+internal fun baseClientIdMethod(string: String) = firstMethodComposite {
+    instructions(
+        "dj-xCIZQYiLbEg"(),
+        string()
+    )
 }
 
-internal val getLoggedInBearerTokenFingerprint = baseClientIdFingerprint("authorization_code")
+internal val getLoggedInBearerTokenMethodMatch = baseClientIdMethod("authorization_code")
 
-internal val getLoggedOutBearerTokenFingerprint = baseClientIdFingerprint("https://oauth.reddit.com/grants/installed_client")
+internal val getLoggedOutBearerTokenMethodMatch = baseClientIdMethod("https://oauth.reddit.com/grants/installed_client")
 
-internal val getRefreshTokenFingerprint = baseClientIdFingerprint("refresh_token")
+internal val getRefreshTokenMethodMatch = baseClientIdMethod("refresh_token")
 
-internal val loginActivityClientIdFingerprint = baseClientIdFingerprint("&duration=permanent")
+internal val loginActivityClientIdMethodMatch = baseClientIdMethod("&duration=permanent")
 
-internal val redditCheckDisableAPIFingerprint = fingerprint {
-    opcodes(Opcode.IF_EQZ)
-    strings("Reddit Disabled")
+internal val BytecodePatchContext.redditCheckDisableAPIMethod by gettingFirstMutableMethodDeclaratively("Reddit Disabled") {
+    instructions(Opcode.IF_EQZ())
 }
 
-internal val setRemoteConfigFingerprint = fingerprint {
-    parameters("Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig;")
-    strings("reddit_oauth_url")
+internal val BytecodePatchContext.setRemoteConfigMethod by gettingFirstMutableMethodDeclaratively("reddit_oauth_url") {
+    parameterTypes("Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig;")
 }
-

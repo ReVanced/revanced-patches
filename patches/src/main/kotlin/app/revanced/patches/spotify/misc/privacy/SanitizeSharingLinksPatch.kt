@@ -3,8 +3,7 @@ package app.revanced.patches.spotify.misc.privacy
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.shared.PATCH_DESCRIPTION_SANITIZE_SHARING_LINKS
-import app.revanced.patches.shared.PATCH_NAME_SANITIZE_SHARING_LINKS
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -15,10 +14,9 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/spotify/misc/privacy/SanitizeSharingLinksPatch;"
 
-@Suppress("unused")
-val sanitizeSharingLinksPatch = bytecodePatch(
-    name = PATCH_NAME_SANITIZE_SHARING_LINKS,
-    description = PATCH_DESCRIPTION_SANITIZE_SHARING_LINKS,
+@Suppress("unused", "ObjectPropertyName")
+val `Sanitize sharing links` by creatingBytecodePatch(
+    description = "Removes the tracking query parameters from shared links.",
 ) {
     compatibleWith("com.spotify.music")
 

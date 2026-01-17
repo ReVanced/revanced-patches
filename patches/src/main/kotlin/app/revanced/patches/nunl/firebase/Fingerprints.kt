@@ -1,20 +1,20 @@
 package app.revanced.patches.nunl.firebase
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.BytecodePatchContextMethodMatching.firstMutableMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val getFingerprintHashForPackageFingerprints = arrayOf(
+internal fun BytecodePatchContext.getFingerprintHashForPackageMethods() = arrayOf(
     "Lcom/google/firebase/installations/remote/FirebaseInstallationServiceClient;",
     "Lcom/google/firebase/remoteconfig/internal/ConfigFetchHttpClient;",
     "Lcom/google/firebase/remoteconfig/internal/ConfigRealtimeHttpClient;"
-).map { className ->
-    fingerprint {
+).map {
+    firstMutableMethodDeclaratively {
+        name("getFingerprintHashForPackage")
+        definingClass(it)
         accessFlags(AccessFlags.PRIVATE)
-        parameters()
-        returns("Ljava/lang/String;")
-
-        custom { methodDef, classDef ->
-            classDef.type == className && methodDef.name == "getFingerprintHashForPackage"
-        }
+        returnType("Ljava/lang/String;")
+        parameterTypes()
     }
 }

@@ -20,27 +20,26 @@ val fixSlinksPatch = fixSLinksPatch(
     apply {
         // region Patch navigation handler.
 
-        handleNavigationFingerprint.method.apply {
-            val urlRegister = "p1"
-            val tempRegister = "v1"
+        val urlRegister = "p1"
+        val tempRegister = "v1"
 
-            addInstructionsWithLabels(
-                0,
-                """
-                    invoke-static { $urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->$RESOLVE_S_LINK_METHOD
-                    move-result $tempRegister
-                    if-eqz $tempRegister, :continue
-                    return $tempRegister
-                """,
-                ExternalLabel("continue", getInstruction(0)),
-            )
-        }
+        handleNavigationMethod.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static { $urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->$RESOLVE_S_LINK_METHOD
+                move-result $tempRegister
+                if-eqz $tempRegister, :continue
+                return $tempRegister
+            """,
+            ExternalLabel("continue", handleNavigationMethod.getInstruction(0)),
+        )
+
 
         // endregion
 
         // region Patch set access token.
 
-        getOAuthAccessTokenFingerprint.method.addInstruction(
+        getOAuthAccessTokenMethod.addInstruction(
             3,
             "invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->$SET_ACCESS_TOKEN_METHOD",
         )

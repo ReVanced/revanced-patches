@@ -1,21 +1,22 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.fix.slink
 
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
 
-internal val getOAuthAccessTokenFingerprint = fingerprint {
+internal val BytecodePatchContext.getOAuthAccessTokenMethod by gettingFirstMutableMethodDeclaratively("access_token") {
+    definingClass("Lnet/dean/jraw/http/oauth/OAuthData;")
     accessFlags(AccessFlags.PUBLIC)
-    returns("Ljava/lang/String")
-    strings("access_token")
-    custom { method, _ -> method.definingClass == "Lnet/dean/jraw/http/oauth/OAuthData;" }
+    returnType("Ljava/lang/String;")
 }
 
-internal val handleNavigationFingerprint = fingerprint {
-    strings(
-        "android.intent.action.SEARCH",
-        "subscription",
-        "sort",
-        "period",
-        "boostforreddit.com/themes",
-    )
-}
+internal val BytecodePatchContext.handleNavigationMethod by gettingFirstMutableMethodDeclaratively(
+    "android.intent.action.SEARCH",
+    "subscription",
+    "sort",
+    "period",
+    "boostforreddit.com/themes"
+)
