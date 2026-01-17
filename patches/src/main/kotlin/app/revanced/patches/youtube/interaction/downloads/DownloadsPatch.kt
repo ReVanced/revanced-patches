@@ -85,7 +85,7 @@ val downloadsPatch = bytecodePatch(
         injectVisibilityCheckCall(BUTTON_DESCRIPTOR)
 
         // Main activity is used to launch downloader intent.
-        mainActivityOnCreateMethod.method.addInstruction(
+        mainActivityOnCreateMethod.addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, ${EXTENSION_CLASS_DESCRIPTOR}->setMainActivity(Landroid/app/Activity;)V"
         )

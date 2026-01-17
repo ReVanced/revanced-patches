@@ -4,7 +4,7 @@ import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.youtube.layout.shortsplayer.openShortsInRegularPlayerPatch
+import app.revanced.patches.youtube.layout.shortsplayer.`Open Shorts in regular player`
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
@@ -15,7 +15,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/OpenVideosFullscreenHookPatch;"
 
 /**
- * Used by both [openVideosFullscreenPatch] and [openShortsInRegularPlayerPatch].
+ * Used by both [openVideosFullscreenPatch] and [`Open Shorts in regular player`].
  */
 internal val openVideosFullscreenHookPatch = bytecodePatch {
     dependsOn(

@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.misc.announcements
 
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -12,8 +12,8 @@ import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/announcements/AnnouncementsPatch;"
 
-val announcementsPatch = bytecodePatch(
-    name = "Announcements",
+@Suppress("unused")
+val Announcements by creatingBytecodePatch(
     description = "Adds an option to show announcements from ReVanced on app startup.",
 ) {
     dependsOn(
@@ -37,7 +37,7 @@ val announcementsPatch = bytecodePatch(
             SwitchPreference("revanced_announcements"),
         )
 
-        mainActivityOnCreateMethod.method.addInstruction(
+        mainActivityOnCreateMethod.addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->showAnnouncement(Landroid/app/Activity;)V",
         )

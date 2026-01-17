@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -31,8 +31,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ShortsAutoplayPatch;"
 
-val shortsAutoplayPatch = bytecodePatch(
-    name = "Shorts autoplay",
+@Suppress("ObjectPropertyName")
+val `Shorts autoplay` by creatingBytecodePatch(
     description = "Adds options to automatically play the next Short.",
 ) {
     dependsOn(
@@ -65,12 +65,12 @@ val shortsAutoplayPatch = bytecodePatch(
         }
 
         // Main activity is used to check if app is in pip mode.
-        mainActivityOnCreateMethod.method.addInstruction(
+        mainActivityOnCreateMethod.addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->setMainActivity(Landroid/app/Activity;)V",
         )
 
-        var reelEnumClass : String
+        var reelEnumClass: String
 
         reelEnumConstructorFingerprint.let {
             reelEnumClass = it.originalClassDef.type
@@ -85,7 +85,7 @@ val shortsAutoplayPatch = bytecodePatch(
                 """
             )
         }
-        
+
         reelPlaybackRepeatFingerprint.match(
             reelPlaybackRepeatParentFingerprint.originalClassDef
         ).method.apply {
@@ -93,8 +93,8 @@ val shortsAutoplayPatch = bytecodePatch(
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == reelEnumClass &&
-                    reference.parameterTypes.firstOrNull() == "I" &&
-                    reference.returnType == reelEnumClass
+                        reference.parameterTypes.firstOrNull() == "I" &&
+                        reference.returnType == reelEnumClass
             }.forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 

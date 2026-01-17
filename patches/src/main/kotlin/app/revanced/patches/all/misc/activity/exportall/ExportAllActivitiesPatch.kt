@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.creatingResourcePatch
 
 
 @Suppress("unused", "ObjectPropertyName")
-val `"Export all activities"` by creatingResourcePatch(
+val `Export all activities` by creatingResourcePatch(
     description = "Makes all app activities exportable.",
     use = false,
 ) {
