@@ -4,9 +4,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused", "ObjectPropertyName")
-val `Disable Audio Ads` by creatingBytecodePatch(
-    description = "Disable audio ads"
-) {
+val `Disable Audio Ads` by creatingBytecodePatch {
     compatibleWith("com.pandora.android")
 
     apply {

@@ -1,5 +1,6 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.annoyances.startup
 
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
 
@@ -14,10 +15,8 @@ val `Disable Sync for Lemmy bottom sheet` = creatingBytecodePatch(
     )
 
     apply {
-        mainActivityOnCreateMethod.apply {
-            val showBottomSheetIndex = implementation!!.instructions.lastIndex - 1
+        val showBottomSheetIndex = mainActivityOnCreateMethod.instructions.lastIndex - 1
 
-            removeInstruction(showBottomSheetIndex)
-        }
+        mainActivityOnCreateMethod.removeInstruction(showBottomSheetIndex)
     }
 }

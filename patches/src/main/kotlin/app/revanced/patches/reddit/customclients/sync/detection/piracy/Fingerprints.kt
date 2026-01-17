@@ -1,14 +1,18 @@
 package app.revanced.patches.reddit.customclients.sync.detection.piracy
 
-import app.revanced.patcher.*
-import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclarativelyOrNull
+import app.revanced.patcher.InstructionMatchingFunctions.invoke
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.custom
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.reference
+import app.revanced.patcher.instructions
 import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.piracyDetectionMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.detectPiracyMethodOrNull by gettingFirstMutableMethodDeclarativelyOrNull(
     "Lcom/github/javiersantos/piracychecker/PiracyChecker;"
 ) {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
