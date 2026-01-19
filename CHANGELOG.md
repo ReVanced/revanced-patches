@@ -1,3 +1,10 @@
+# [5.48.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.12...v5.48.0-dev.13) (2026-01-19)
+
+
+### Features
+
+* Add `Prevent screenshot detection` patch ([#6482](https://github.com/ReVanced/revanced-patches/issues/6482)) ([83c0127](https://github.com/ReVanced/revanced-patches/commit/83c0127ebb8f53ab8a067758619faaac5596c145))
+
 # [5.48.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.11...v5.48.0-dev.12) (2026-01-19)
 
 
