@@ -1,3 +1,18 @@
+# [5.48.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.9...v5.48.0-dev.10) (2026-01-19)
+
+
+### Bug Fixes
+
+* **Boost for Reddit - Fix missing audio in video downloads:** Make it work again by reflecting Reddits latest changes ([#6500](https://github.com/ReVanced/revanced-patches/issues/6500)) ([eecc44b](https://github.com/ReVanced/revanced-patches/commit/eecc44b9567bf2ca72ac99e0dafa483a6803c0f9))
+* **Instagram:** `Sanitize sharing links` ([#6483](https://github.com/ReVanced/revanced-patches/issues/6483)) ([8724759](https://github.com/ReVanced/revanced-patches/commit/87247590de3db74680cb02ba1d87bf683b2269e2))
+
+
+### Features
+
+* **Instagram:** Disable `Disable Reels scrolling` by default ([3401467](https://github.com/ReVanced/revanced-patches/commit/3401467a6d49fc75b6757a15e5c848330c1b7307))
+* **Strava:** Add `Add media download` patch ([#6449](https://github.com/ReVanced/revanced-patches/issues/6449)) ([778d13c](https://github.com/ReVanced/revanced-patches/commit/778d13ce8b28ca6df3a665530320e4a21a27ae44))
+* **YouTube:** Add `Pause on audio interrupt` patch ([#6464](https://github.com/ReVanced/revanced-patches/issues/6464)) ([19f146c](https://github.com/ReVanced/revanced-patches/commit/19f146c01dc381b3cccd61e61ba4901872ff12d8))
+
 # [5.48.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.8...v5.48.0-dev.9) (2026-01-08)
 
 
