@@ -18,8 +18,9 @@ val removeBuildExpiredPopupPatch = bytecodePatch(
         appUpdateLockoutBuilderFingerprint.method.apply {
             val longToIntIndex = instructions.first { it.opcode == Opcode.LONG_TO_INT }.location.index
             val appAgeRegister = getInstruction<TwoRegisterInstruction>(longToIntIndex).registerA
+
             // Set app age to 0 days old such that the build expired popup doesn't appear.
-            addInstruction(longToIntIndex+1, "const v$appAgeRegister, 0x0")
+            addInstruction(longToIntIndex + 1, "const v$appAgeRegister, 0x0")
         }
     }
 }
