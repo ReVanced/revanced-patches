@@ -124,6 +124,10 @@ public final class app/revanced/patches/all/misc/screencapture/RemoveScreenCaptu
 	public static final fun getRemoveScreenCaptureRestrictionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/all/misc/screenshot/PreventScreenshotDetectionPatchKt {
+	public static final fun getPreventScreenshotDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/all/misc/screenshot/RemoveScreenshotRestrictionPatchKt {
 	public static final fun getRemoveScreenshotRestrictionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
