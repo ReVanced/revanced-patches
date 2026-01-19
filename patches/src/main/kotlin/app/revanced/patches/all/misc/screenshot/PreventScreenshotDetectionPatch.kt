@@ -9,7 +9,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
-/** `Landroid/app/Activity;->registerScreenCaptureCallback(Ljava/util/concurrent/Executor;Landroid/app/Activity$ScreenCaptureCallback;)V` */
 private val registerScreenCaptureCallbackMethodReference = ImmutableMethodReference(
     "Landroid/app/Activity;",
     "registerScreenCaptureCallback",
@@ -20,7 +19,6 @@ private val registerScreenCaptureCallbackMethodReference = ImmutableMethodRefere
     "V"
 )
 
-/** `Landroid/app/Activity;->unregisterScreenCaptureCallback(Landroid/app/Activity$ScreenCaptureCallback;)V` */
 private val unregisterScreenCaptureCallbackMethodReference = ImmutableMethodReference(
     "Landroid/app/Activity;",
     "unregisterScreenCaptureCallback",
@@ -37,9 +35,8 @@ val preventScreenshotDetectionPatch = bytecodePatch(
 ) {
     dependsOn(transformInstructionsPatch(
         filterMap = { _, _, instruction, instructionIndex ->
-            if (instruction.opcode != Opcode.INVOKE_VIRTUAL) {
-                return@transformInstructionsPatch null
-            }
+            if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return@transformInstructionsPatch null
+            
             val reference = instruction.getReference<MethodReference>() ?: return@transformInstructionsPatch null
 			instructionIndex.takeIf {
 				MethodUtil.methodSignaturesMatch(reference, registerScreenCaptureCallbackMethodReference) ||
