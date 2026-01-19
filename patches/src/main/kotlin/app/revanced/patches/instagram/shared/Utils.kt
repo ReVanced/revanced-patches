@@ -14,7 +14,7 @@ internal fun Fingerprint.replaceStringWithBogus(
     val targetStringRegister = method.getInstruction<OneRegisterInstruction>(targetStringIndex).registerA
 
     /**
-     * Replaces the 'target string' with 'BOGUS'
+     * Replaces the 'target string' with 'BOGUS'.
      * This is usually done when we need to override a JSON key or url,
      * to skip with a random string that is not a valid JSON key.
      */
