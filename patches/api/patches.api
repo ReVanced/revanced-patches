@@ -308,6 +308,10 @@ public final class app/revanced/patches/instagram/hide/explore/HideExploreFeedKt
 	public static final fun getHideExploreFeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/instagram/hide/highlightsTray/HideHighlightsTrayPatchKt {
+	public static final fun getHideHighlightsTrayPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/instagram/hide/navigation/HideNavigationButtonsKt {
 	public static final fun getHideNavigationButtonsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
