@@ -15,7 +15,7 @@ private val navigationButtonsEnumClassDef = fingerprint {
     strings("FEED", "fragment_feed", "SEARCH", "fragment_search")
 }
 
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 internal val navigationButtonsEnumInitFingerprint get() = fingerprint {
     custom { method, classDef ->
         method.name == "<init>"

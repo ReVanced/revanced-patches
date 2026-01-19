@@ -7,7 +7,7 @@ internal val mainFeedRequestClassFingerprint = fingerprint {
     strings("Request{mReason=", ", mInstanceNumber=")
 }
 
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 internal val initMainFeedRequestFingerprint get() = fingerprint {
     custom { method, classDef ->
         method.name == "<init>" &&

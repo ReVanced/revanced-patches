@@ -6,11 +6,11 @@ internal val tabIdClassFingerprint = fingerprint {
     strings("shouldShowTabId")
 }
 
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 internal val shouldShowTabIdMethodFingerprint get() = fingerprint {
     parameters("I", "I")
     returns("Z")
-    custom { methodDef, classDef ->
+    custom { _, classDef ->
         classDef == tabIdClassFingerprint.classDef
     }
 }

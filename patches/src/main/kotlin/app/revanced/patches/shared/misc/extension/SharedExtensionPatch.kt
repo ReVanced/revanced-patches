@@ -90,10 +90,10 @@ class ExtensionHook internal constructor(
     private val insertIndexResolver: BytecodePatchContext.(Method) -> Int,
     private val contextRegisterResolver: BytecodePatchContext.(Method) -> String,
 ) {
-    context(BytecodePatchContext)
+    context(context: BytecodePatchContext)
     operator fun invoke(extensionClassDescriptor: String) {
-        val insertIndex = insertIndexResolver(fingerprint.method)
-        val contextRegister = contextRegisterResolver(fingerprint.method)
+        val insertIndex = context.insertIndexResolver(fingerprint.method)
+        val contextRegister = context.contextRegisterResolver(fingerprint.method)
 
         fingerprint.method.addInstruction(
             insertIndex,

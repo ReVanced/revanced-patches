@@ -43,7 +43,8 @@ tasks {
 
 kotlin {
     compilerOptions {
-        freeCompilerArgs = listOf("-Xcontext-receivers")
+        // FIXME Update Kotlin to v2.2
+        freeCompilerArgs = listOf("-Xcontext-parameters")
     }
 }
 

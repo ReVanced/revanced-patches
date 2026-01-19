@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 internal fun Fingerprint.replaceJsonFieldWithBogus(
     key: String,
 ) {

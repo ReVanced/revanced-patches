@@ -7,7 +7,7 @@ import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
-context(BytecodePatchContext)
+context(_: BytecodePatchContext)
 internal fun editShareLinksPatch(block: MutableMethod.(index: Int, register: Int) -> Unit) {
     val fingerprintsToPatch = arrayOf(
         permalinkResponseJsonParserFingerprint,
