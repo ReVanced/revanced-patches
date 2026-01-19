@@ -1,3 +1,11 @@
+# [5.48.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.11...v5.48.0-dev.12) (2026-01-19)
+
+
+### Features
+
+* **Instagram:** Add `Remove build expired popup` patch ([#6488](https://github.com/ReVanced/revanced-patches/issues/6488)) ([18c0b04](https://github.com/ReVanced/revanced-patches/commit/18c0b04f0cd1bf8cd78b05af3b8ebe3a6a5f9e48))
+* **Strava:** Add `Add 'Give Kudos' button to 'Group Activity'` patch ([#6475](https://github.com/ReVanced/revanced-patches/issues/6475)) ([4c4ba1c](https://github.com/ReVanced/revanced-patches/commit/4c4ba1c78c9f4568a2b572f5c69e9c6c734e1a7f))
+
 # [5.48.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.10...v5.48.0-dev.11) (2026-01-19)
 
 
