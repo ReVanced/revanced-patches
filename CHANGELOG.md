@@ -1,3 +1,10 @@
+# [5.48.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.10...v5.48.0-dev.11) (2026-01-19)
+
+
+### Features
+
+* **Instagram:** Add `Hide highlights tray` patch ([#6489](https://github.com/ReVanced/revanced-patches/issues/6489)) ([8725a49](https://github.com/ReVanced/revanced-patches/commit/8725a49ba3a06fee0280ffcf4be62cd960cd301e))
+
 # [5.48.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.9...v5.48.0-dev.10) (2026-01-19)
 
 
