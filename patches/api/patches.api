@@ -1200,8 +1200,8 @@ public final class app/revanced/patches/stocard/layout/HideStoryBubblesPatchKt {
 	public static final fun getHideStoryBubblesPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/strava/groupkudos/AddGiveGroupKudosButtonKt {
-	public static final fun getAddGiveGroupKudosButton ()Lapp/revanced/patcher/patch/BytecodePatch;
+public final class app/revanced/patches/strava/groupkudos/AddGiveGroupKudosButtonToGroupActivityKt {
+	public static final fun getAddGiveGroupKudosButtonToGroupActivity ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/strava/media/download/AddMediaDownloadPatchKt {
