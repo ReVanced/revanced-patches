@@ -14,8 +14,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableBooleanEncodedValue
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/strava/HideDistractionsPatch;"
-private const val MODULAR_FRAMEWORK_PREFIX = "Lcom/strava/modularframework/data/"
-private const val MODULAR_ENTRY_CLASS_DESCRIPTOR = "${MODULAR_FRAMEWORK_PREFIX}ModularEntry;"
+private const val MODULAR_FRAMEWORK_CLASS_DESCRIPTOR_PREFIX = "Lcom/strava/modularframework/data/"
+private const val MODULAR_ENTRY_CLASS_DESCRIPTOR = "${MODULAR_FRAMEWORK_CLASS_DESCRIPTOR_PREFIX}ModularEntry;"
 
 private const val METHOD_SUFFIX = "\$original"
 private const val GET_MODULES_NAME = "getModules"
@@ -158,7 +158,7 @@ val hideDistractionsPatch = bytecodePatch(
         // region Intercept all classes' `getSubmodules()` calls.
 
         classes.filter { classDef ->
-            classDef.type.startsWith(MODULAR_FRAMEWORK_PREFIX) && classDef.virtualMethods.any(
+            classDef.type.startsWith(MODULAR_FRAMEWORK_CLASS_DESCRIPTOR_PREFIX) && classDef.virtualMethods.any(
                 parameterlessMethodByName(GET_SUBMODULES_NAME)
             )
         }.map { proxy(it).mutableClass }.forEach { moduleClass ->
