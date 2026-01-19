@@ -38,9 +38,10 @@ val preventScreenshotDetectionPatch = bytecodePatch(
             if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return@transformInstructionsPatch null
             
             val reference = instruction.getReference<MethodReference>() ?: return@transformInstructionsPatch null
+
 			instructionIndex.takeIf {
 				MethodUtil.methodSignaturesMatch(reference, registerScreenCaptureCallbackMethodReference) ||
-					MethodUtil.methodSignaturesMatch(reference, unregisterScreenCaptureCallbackMethodReference
+					MethodUtil.methodSignaturesMatch(reference, unregisterScreenCaptureCallbackMethodReference)
 			}
         },
         transform = { mutableMethod, instructionIndex ->
