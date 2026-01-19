@@ -13,7 +13,7 @@ internal val storyUrlResponseJsonParserFingerprint = fingerprint {
 }
 
 internal val profileUrlResponseJsonParserFingerprint = fingerprint {
-    strings("profile_to_share_url", "ProfileUrlResponse")
+    strings("profile_to_share_url")
     custom { method, _ -> method.name == "parseFromJson" }
 }
 
