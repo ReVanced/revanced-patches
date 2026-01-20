@@ -37,9 +37,9 @@ import java.util.regex.Pattern;
  * Patches to expose the K1 token for Nothing X app to enable pairing with GadgetBridge.
  */
 @SuppressWarnings("unused")
-public class ExposeK1TokenPatch {
+public class ShowK1TokenPatch {
 
-    private static final String TAG = "NothingXKey";
+    private static final String TAG = "Revanced";
     private static final String PACKAGE_NAME = "com.nothing.smartcenter";
     private static final String EMPTY_MD5 = "d41d8cd98f00b204e9800998ecf8427e";
     private static final String PREFS_NAME = "revanced_nothingx_prefs";
@@ -70,7 +70,7 @@ public class ExposeK1TokenPatch {
      *
      * @param context Application context
      */
-    public static void getK1Tokens(Context context) {
+    public static void showK1Tokens(Context context) {
         if (k1Logged) {
             return;
         }
@@ -79,27 +79,27 @@ public class ExposeK1TokenPatch {
 
         Set<String> allTokens = new LinkedHashSet<>();
 
-        // First try to get from database
+        // First try to get from database.
         String dbToken = getK1TokensFromDatabase();
         if (dbToken != null) {
             allTokens.add(dbToken);
         }
 
-        // Then get from log files
-        Set<String> logTokens = getK1FromLogFiles();
+        // Then get from log files.
+        Set<String> logTokens = getK1TokensFromLogFiles();
         allTokens.addAll(logTokens);
 
         if (allTokens.isEmpty()) {
             return;
         }
 
-        // Log all found tokens
-        List<String> tokenList = new ArrayList<>(allTokens);
-        for (int i = 0; i < tokenList.size(); i++) {
-            Log.i(TAG, "#" + (i + 1) + ": " + tokenList.get(i).toUpperCase());
+        // Log all found tokens.
+        int index = 1;
+        for (String token : allTokens) {
+            Log.i(TAG, "#" + index++ + ": " + token.toUpperCase());
         }
 
-        // Register lifecycle callbacks to show dialog when an Activity is ready
+        // Register lifecycle callbacks to show dialog when an Activity is ready.
         registerLifecycleCallbacks(allTokens);
 
         k1Logged = true;
@@ -127,7 +127,7 @@ public class ExposeK1TokenPatch {
 
             @Override
             public void onActivityResumed(Activity activity) {
-                // Check if user chose not to show dialog
+                // Check if user chose not to show dialog.
                 SharedPreferences prefs = activity.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
                 if (prefs.getBoolean(KEY_DONT_SHOW_DIALOG, false)) {
                     application.unregisterActivityLifecycleCallbacks(this);
@@ -135,7 +135,7 @@ public class ExposeK1TokenPatch {
                     return;
                 }
 
-                // Show dialog on first Activity resume
+                // Show dialog on first Activity resume.
                 if (tokens != null && !tokens.isEmpty()) {
                     activity.runOnUiThread(() -> showK1TokenDialog(activity, tokens));
                     // Unregister after showing
@@ -179,7 +179,7 @@ public class ExposeK1TokenPatch {
             mainLayout.setPadding(dpToPx(activity, 24), dpToPx(activity, 16),
                                    dpToPx(activity, 24), dpToPx(activity, 16));
 
-            // Title
+            // Title.
             TextView titleView = new TextView(activity);
             titleView.setText("K1 Token(s) Found");
             titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
@@ -191,7 +191,7 @@ public class ExposeK1TokenPatch {
                 LinearLayout.LayoutParams.WRAP_CONTENT
             ));
 
-            // Subtitle
+            // Subtitle.
             TextView subtitleView = new TextView(activity);
             subtitleView.setText(tokens.size() == 1 ? "1 token found • Tap to copy" : tokens.size() + " tokens found • Tap to copy");
             subtitleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
@@ -205,7 +205,7 @@ public class ExposeK1TokenPatch {
             subtitleParams.bottomMargin = dpToPx(activity, 16);
             mainLayout.addView(subtitleView, subtitleParams);
 
-            // Scrollable content
+            // Scrollable content.
             ScrollView scrollView = new ScrollView(activity);
             scrollView.setVerticalScrollBarEnabled(false);
             LinearLayout.LayoutParams scrollParams = new LinearLayout.LayoutParams(
@@ -221,12 +221,11 @@ public class ExposeK1TokenPatch {
             tokensContainer.setOrientation(LinearLayout.VERTICAL);
             scrollView.addView(tokensContainer);
 
-            // Add each token as a card
+            // Add each token as a card.
             boolean singleToken = tokens.size() == 1;
-            // Set doesn't have indexed access like allTokens.get(i). We'd need to convert to a List first.
-            List<String> tokenList = new ArrayList<>(tokens);
-            for (int i = 0; i < tokenList.size(); i++) {
-                LinearLayout tokenCard = createTokenCard(activity, tokenList.get(i), i + 1, singleToken);
+            int index = 1;
+            for (String token : tokens) {
+                LinearLayout tokenCard = createTokenCard(activity, token, index++, singleToken);
                 LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
@@ -235,7 +234,7 @@ public class ExposeK1TokenPatch {
                 tokensContainer.addView(tokenCard, cardParams);
             }
 
-            // Info text
+            // Info text.
             TextView infoView = new TextView(activity);
             infoView.setText(tokens.size() == 1 ? "Tap the token to copy it" : "Tap any token to copy it");
             infoView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
@@ -249,7 +248,7 @@ public class ExposeK1TokenPatch {
             infoParams.topMargin = dpToPx(activity, 8);
             mainLayout.addView(infoView, infoParams);
 
-            // Button row
+            // Button row.
             LinearLayout buttonRow = new LinearLayout(activity);
             buttonRow.setOrientation(LinearLayout.HORIZONTAL);
             buttonRow.setGravity(Gravity.END);
@@ -260,7 +259,7 @@ public class ExposeK1TokenPatch {
             buttonRowParams.topMargin = dpToPx(activity, 16);
             mainLayout.addView(buttonRow, buttonRowParams);
 
-            // "Don't show again" button
+            // "Don't show again" button.
             Button dontShowButton = new Button(activity);
             dontShowButton.setText("Don't show again");
             dontShowButton.setTextColor(Color.WHITE);
@@ -277,7 +276,7 @@ public class ExposeK1TokenPatch {
             dontShowParams.rightMargin = dpToPx(activity, 8);
             buttonRow.addView(dontShowButton, dontShowParams);
 
-            // "OK" button
+            // "OK" button.
             Button okButton = new Button(activity);
             okButton.setText("OK");
             okButton.setTextColor(Color.BLACK);
@@ -295,20 +294,20 @@ public class ExposeK1TokenPatch {
                 LinearLayout.LayoutParams.WRAP_CONTENT
             ));
 
-            // Build dialog
+            // Build dialog.
             AlertDialog.Builder builder = new AlertDialog.Builder(activity);
             builder.setView(mainLayout);
 
             final AlertDialog dialog = builder.create();
 
-            // Style the dialog with dark background
+            // Style the dialog with dark background.
             if (dialog.getWindow() != null) {
                 dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
             }
 
             dialog.show();
 
-            // Set button click listeners after dialog is created
+            // Set button click listeners after dialog is created.
             dontShowButton.setOnClickListener(v -> {
                 SharedPreferences prefs = activity.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
                 prefs.edit().putBoolean(KEY_DONT_SHOW_DIALOG, true).apply();
@@ -341,7 +340,7 @@ public class ExposeK1TokenPatch {
         card.setClickable(true);
         card.setFocusable(true);
 
-        // Token label (only show if multiple tokens)
+        // Token label (only show if multiple tokens).
         if (!singleToken) {
             TextView labelView = new TextView(activity);
             labelView.setText("Token #" + index);
@@ -351,7 +350,7 @@ public class ExposeK1TokenPatch {
             card.addView(labelView);
         }
 
-        // Token value
+        // Token value.
         TextView tokenView = new TextView(activity);
         tokenView.setText(token.toUpperCase());
         tokenView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
@@ -367,7 +366,7 @@ public class ExposeK1TokenPatch {
         }
         card.addView(tokenView, tokenParams);
 
-        // Click to copy
+        // Click to copy.
         card.setOnClickListener(v -> {
             ClipboardManager clipboard = (ClipboardManager) activity.getSystemService(Context.CLIPBOARD_SERVICE);
             if (clipboard != null) {
@@ -394,7 +393,7 @@ public class ExposeK1TokenPatch {
      * Get K1 tokens from log files.
      * Prioritizes pairing K1 tokens over reconnect tokens.
      */
-    private static Set<String> getK1FromLogFiles() {
+    private static Set<String> getK1TokensFromLogFiles() {
         Set<String> pairingTokens = new LinkedHashSet<>();
         Set<String> reconnectTokens = new LinkedHashSet<>();
         try {
@@ -414,13 +413,13 @@ public class ExposeK1TokenPatch {
                 try (BufferedReader reader = new BufferedReader(new FileReader(logFile))) {
                     String line;
                     while ((line = reader.readLine()) != null) {
-                        // Determine if this is a pairing or reconnect context
+                        // Determine if this is a pairing or reconnect context.
                         boolean isPairingContext = line.toLowerCase().contains("watchbind");
                         boolean isReconnectContext = line.toLowerCase().contains("watchreconnect");
 
                         String k1Token = null;
 
-                        // First check for combined r3+k1 format (priority)
+                        // First check for combined r3+k1 format (priority).
                         Matcher combinedMatcher = K1_COMBINED_PATTERN.matcher(line);
                         if (combinedMatcher.find()) {
                             String combined = combinedMatcher.group(1);
@@ -430,7 +429,7 @@ public class ExposeK1TokenPatch {
                             }
                         }
 
-                        // Then check for standalone K1 format (only if not found in combined)
+                        // Then check for standalone K1 format (only if not found in combined).
                         if (k1Token == null) {
                             Matcher standaloneMatcher = K1_STANDALONE_PATTERN.matcher(line);
                             if (standaloneMatcher.find()) {
@@ -441,7 +440,7 @@ public class ExposeK1TokenPatch {
                             }
                         }
 
-                        // Add to appropriate set
+                        // Add to appropriate set.
                         if (k1Token != null) {
                             if (isPairingContext && !isReconnectContext) {
                                 pairingTokens.add(k1Token);
@@ -451,14 +450,14 @@ public class ExposeK1TokenPatch {
                         }
                     }
                 } catch (Exception e) {
-                    // Skip unreadable files
+                    // Skip unreadable files.
                 }
             }
         } catch (Exception ex) {
-            // Fail silently
+            // Fail silently.
         }
 
-        // Return pairing tokens first, add reconnect tokens if no pairing tokens found
+        // Return pairing tokens first, add reconnect tokens if no pairing tokens found.
         if (!pairingTokens.isEmpty()) {
             Log.i(TAG, "Found " + pairingTokens.size() + " pairing K1 token(s)");
             return pairingTokens;
@@ -508,7 +507,7 @@ public class ExposeK1TokenPatch {
         try {
             db = SQLiteDatabase.openDatabase(dbFile.getPath(), null, SQLiteDatabase.OPEN_READONLY);
 
-            // Get all tables
+            // Get all tables.
             Cursor cursor = db.rawQuery(
                 "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'",
                 null
@@ -520,7 +519,7 @@ public class ExposeK1TokenPatch {
             }
             cursor.close();
 
-            // Scan all columns for 32-char hex strings
+            // Scan all columns for 32-char hex strings.
             for (String table : tables) {
                 Cursor schemaCursor = null;
                 try {
@@ -538,7 +537,7 @@ public class ExposeK1TokenPatch {
                             while (dataCursor.moveToNext()) {
                                 String value = dataCursor.getString(0);
                                 if (value != null && value.length() == 32 && value.matches("[0-9a-fA-F]{32}")) {
-                                    // Skip obviously fake tokens (MD5 of empty string)
+                                    // Skip obviously fake tokens (MD5 of empty string).
                                     if (!value.equalsIgnoreCase(EMPTY_MD5)) {
                                         dataCursor.close();
                                         db.close();
@@ -547,7 +546,7 @@ public class ExposeK1TokenPatch {
                                 }
                             }
                         } catch (Exception e) {
-                            // Skip non-string columns
+                            // Skip non-string columns.
                         } finally {
                             if (dataCursor != null) {
                                 dataCursor.close();
@@ -555,7 +554,7 @@ public class ExposeK1TokenPatch {
                         }
                     }
                 } catch (Exception e) {
-                    // Continue to next table
+                    // Continue to next table.
                 } finally {
                     if (schemaCursor != null && !schemaCursor.isClosed()) {
                         schemaCursor.close();
