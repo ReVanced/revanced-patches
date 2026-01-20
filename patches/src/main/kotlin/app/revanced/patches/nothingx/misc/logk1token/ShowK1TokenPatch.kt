@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.nothingx.misc.extension.extensionPatch
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/nothingx/patches/ExposeK1TokenPatch;"
+    "Lapp/revanced/extension/nothingx/patches/ShowK1TokenPatch;"
 
 /**
  * Patch to show the K1 token for Nothing X app.
@@ -17,14 +17,14 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
  * pairing process.
  */
 val showK1TokenPatch = bytecodePatch(
-    name = "Show K1 token",
-    description = "Displays the K1 authentication token in a dialog and logs it to logcat " +
+    name = "Show K1 token(s)",
+    description = "Show the K1 authentication token in a dialog and logs it to logcat " +
         "for pairing with GadgetBridge. After installing this patch, pair your watch " +
         "with the Nothing X app and copy the token from the dialog.",
 ) {
     dependsOn(extensionPatch)
 
-    compatibleWith("com.nothing.smartcenter"("3.4.17"))
+    compatibleWith("com.nothing.smartcenter"())
 
     execute {
         // Hook Application.onCreate to get K1 tokens from database and log files.
@@ -32,7 +32,7 @@ val showK1TokenPatch = bytecodePatch(
         // p0 is the Application context in onCreate.
         applicationOnCreateFingerprint.method.addInstruction(
             0,
-            "invoke-static {p0}, $EXTENSION_CLASS_DESCRIPTOR->getK1Tokens(Landroid/content/Context;)V",
+            "invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->showK1Tokens(Landroid/content/Context;)V",
         )
     }
 }
