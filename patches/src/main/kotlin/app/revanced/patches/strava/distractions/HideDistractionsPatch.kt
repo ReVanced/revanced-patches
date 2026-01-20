@@ -9,17 +9,35 @@ import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patcher.util.proxy.mutableTypes.encodedValue.MutableBooleanEncodedValue.Companion.toMutable
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import app.revanced.patches.strava.misc.extension.sharedExtensionPatch
+import app.revanced.util.findMutableMethodOf
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableBooleanEncodedValue
+import com.android.tools.smali.dexlib2.util.MethodUtil
+import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/strava/HideDistractionsPatch;"
-private const val MODULAR_FRAMEWORK_CLASS_DESCRIPTOR_PREFIX = "Lcom/strava/modularframework/data/"
-private const val MODULAR_ENTRY_CLASS_DESCRIPTOR = "${MODULAR_FRAMEWORK_CLASS_DESCRIPTOR_PREFIX}ModularEntry;"
+private const val MODULAR_FRAMEWORK_CLASS_DESCRIPTOR_PREFIX = "Lcom/strava/modularframework"
 
 private const val METHOD_SUFFIX = "\$original"
-private const val GET_MODULES_NAME = "getModules"
-private const val GET_SUBMODULES_NAME = "getSubmodules"
+
+private data class FilterablePropertyFingerprint(
+    val name: String,
+    val parameterTypes: List<String> = listOf(),
+)
+
+private val fingerprints = arrayOf(
+    FilterablePropertyFingerprint("ChildrenEntries"),
+    FilterablePropertyFingerprint("Entries"),
+    FilterablePropertyFingerprint("Field", listOf("Ljava/lang/String;")),
+    FilterablePropertyFingerprint("Fields"),
+    FilterablePropertyFingerprint("MenuItems"),
+    FilterablePropertyFingerprint("Modules"),
+    FilterablePropertyFingerprint("Properties"),
+    FilterablePropertyFingerprint("StateMap"),
+    FilterablePropertyFingerprint("Submodules"),
+)
 
 @Suppress("unused")
 val hideDistractionsPatch = bytecodePatch(
@@ -28,79 +46,65 @@ val hideDistractionsPatch = bytecodePatch(
 ) {
     compatibleWith("com.strava")
 
-    extendWith("extensions/strava.rve")
+    dependsOn(sharedExtensionPatch)
 
-    // region Options.
+    val logger = Logger.getLogger(this::class.java.name)
 
-    val upsellingOption = booleanOption(
-        key = "upselling",
-        title = "Upselling",
-        description = "Elements that suggest you subscribe.",
-        default = true,
-        required = true,
+    val options = arrayOf(
+        booleanOption(
+            key = "upselling",
+            title = "Upselling",
+            description = "Elements that suggest you subscribe.",
+            default = true,
+            required = true,
+        ),
+        booleanOption(
+            key = "promo",
+            title = "Promotions",
+            default = true,
+            required = true,
+        ),
+        booleanOption(
+            key = "followSuggestions",
+            title = "Who to Follow",
+            description = "Popular athletes, followers, people near you etc.",
+            default = true,
+            required = true,
+        ),
+        booleanOption(
+            key = "challengeSuggestions",
+            title = "Suggested Challenges",
+            description = "Random challenges Strava wants you to join.",
+            default = true,
+            required = true,
+        ),
+        booleanOption(
+            key = "joinChallenge",
+            title = "Join Challenge",
+            description = "Challenges your follows have joined.",
+            default = false,
+            required = true,
+        ),
+        booleanOption(
+            key = "joinClub",
+            title = "Joined a club",
+            description = "Clubs your follows have joined.",
+            default = false,
+            required = true,
+        ),
+        booleanOption(
+            key = "activityLookback",
+            title = "Your activity from X years ago",
+            default = false,
+            required = true,
+        ),
     )
-
-    val promoOption = booleanOption(
-        key = "promo",
-        title = "Promotions",
-        default = true,
-        required = true,
-    )
-
-    val followSuggestionsOption = booleanOption(
-        key = "followSuggestions",
-        title = "Who to Follow",
-        description = "Popular athletes, followers, people near you etc.",
-        default = true,
-        required = true,
-    )
-
-    val challengeSuggestionsOption = booleanOption(
-        key = "challengeSuggestions",
-        title = "Suggested Challenges",
-        description = "Random challenges Strava wants you to join.",
-        default = true,
-        required = true,
-    )
-
-    val joinChallengeOption = booleanOption(
-        key = "joinChallenge",
-        title = "Join Challenge",
-        description = "Challenges your follows have joined.",
-        default = false,
-        required = true,
-    )
-
-    val joinClubOption = booleanOption(
-        key = "joinClub",
-        title = "Joined a club",
-        description = "Clubs your follows have joined.",
-        default = false,
-        required = true,
-    )
-
-    val activityLookbackOption = booleanOption(
-        key = "activityLookback",
-        title = "Your activity from X years ago",
-        default = false,
-        required = true,
-    )
-
-    // endregion
 
     execute {
         // region Write option values into extension class.
 
         classBy { it.type == EXTENSION_CLASS_DESCRIPTOR }!!.mutableClass.apply {
-            arrayOf(
-                upsellingOption,
-                promoOption,
-                followSuggestionsOption,
-                challengeSuggestionsOption,
-                joinChallengeOption,
-                joinClubOption,
-                activityLookbackOption,
-            ).forEach { option ->
+            options.forEach { option ->
                 staticFields.first { field -> field.name == option.key }.initialValue =
                     ImmutableBooleanEncodedValue.forBoolean(option.value == true).toMutable()
             }
@@ -108,36 +112,45 @@ val hideDistractionsPatch = bytecodePatch(
 
         // endregion
 
-        fun parameterlessMethodByName(name: String) = { method: MethodReference ->
-            method.name == name && method.parameterTypes.isEmpty()
-        }
+        // region Intercept all classes' property getter calls.
 
-        // region Copy interface's `getModules()` and rename it.
-
-        classBy { it.type == MODULAR_ENTRY_CLASS_DESCRIPTOR }!!.mutableClass.apply {
-            virtualMethods.first(parameterlessMethodByName(GET_MODULES_NAME)).let(ImmutableMethod::of).toMutable().apply {
-                name = "$GET_MODULES_NAME$METHOD_SUFFIX"
-            }.let(virtualMethods::add)
-        }
-
-        // endregion
-
-        fun MutableMethod.cloneAndHijack(
+        fun MutableMethod.cloneAndIntercept(
             classDef: MutableClass,
             extensionMethodName: String,
-            extensionMethodParameterType: String
+            extensionMethodParameterTypes: List<String>,
         ) {
             classDef.virtualMethods -= this
 
-            classDef.virtualMethods += ImmutableMethod.of(this).toMutable().apply {
-                removeInstructions(instructions.size)
-                addInstructions(
-                    """
-                        invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->$extensionMethodName($extensionMethodParameterType)$returnType
-                        move-result-object v0
-                        return-object v0
-                    """
+            val clone = ImmutableMethod.of(this).toMutable()
+
+            classDef.virtualMethods += clone
+
+            if (implementation != null) {
+                val registers = List(extensionMethodParameterTypes.size) { index -> "p$index" }.joinToString(
+                    separator = ",",
+                    prefix = "{",
+                    postfix = "}",
                 )
+
+                val extensionMethodReference = ImmutableMethodReference(
+                    EXTENSION_CLASS_DESCRIPTOR,
+                    extensionMethodName,
+                    extensionMethodParameterTypes,
+                    returnType,
+                )
+
+                clone.apply {
+                    removeInstructions(instructions.size)
+                    addInstructions(
+                        """
+                            invoke-static $registers, $extensionMethodReference
+                            move-result-object v0
+                            return-object v0
+                        """
+                    )
+                }
+
+                logger.fine { "Intercepted $this with $extensionMethodReference" }
             }
 
             name += METHOD_SUFFIX
@@ -145,26 +158,29 @@ val hideDistractionsPatch = bytecodePatch(
             classDef.virtualMethods += this
         }
 
-        // region Intercept all implementing classes' `getModules()` calls.
+        classes.filter { classDef -> classDef.type.startsWith(MODULAR_FRAMEWORK_CLASS_DESCRIPTOR_PREFIX) }
+            .forEach { classDef ->
+                classDef.virtualMethods.forEach { method ->
+                    fingerprints.find { fingerprint ->
+                        method.name == "get${fingerprint.name}" && method.parameterTypes == fingerprint.parameterTypes
+                    }?.let { fingerprint ->
+                        proxy(classDef).mutableClass.let { mutableClass ->
+                            // Upcast to the interface if this is an interface implementation.
+                            val parameterType = classDef.interfaces.find {
+                                classes.find { interfaceDef -> interfaceDef.type == it }?.virtualMethods?.any { interfaceMethod ->
+                                    MethodUtil.methodSignaturesMatch(interfaceMethod, method)
+                                } ?: false
+                            } ?: classDef.type
 
-        classes.filter { it.interfaces.contains(MODULAR_ENTRY_CLASS_DESCRIPTOR) }
-            .map { proxy(it).mutableClass }.forEach { modularEntryClass ->
-                modularEntryClass.virtualMethods.first(parameterlessMethodByName(GET_MODULES_NAME))
-                    .cloneAndHijack(modularEntryClass, "filterModules", MODULAR_ENTRY_CLASS_DESCRIPTOR)
+                            mutableClass.findMutableMethodOf(method).cloneAndIntercept(
+                                mutableClass,
+                                "filter${fingerprint.name}",
+                                listOf(parameterType) + fingerprint.parameterTypes
+                            )
+                        }
+                    }
+                }
             }
-
-        // endregion
-
-        // region Intercept all classes' `getSubmodules()` calls.
-
-        classes.filter { classDef ->
-            classDef.type.startsWith(MODULAR_FRAMEWORK_CLASS_DESCRIPTOR_PREFIX) && classDef.virtualMethods.any(
-                parameterlessMethodByName(GET_SUBMODULES_NAME)
-            )
-        }.map { proxy(it).mutableClass }.forEach { moduleClass ->
-            moduleClass.virtualMethods.first(parameterlessMethodByName(GET_SUBMODULES_NAME))
-                .cloneAndHijack(moduleClass, "filterSubmodules", moduleClass.type)
-        }
 
         // endregion
     }
