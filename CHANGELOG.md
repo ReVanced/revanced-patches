@@ -1,3 +1,151 @@
+# [5.48.0](https://github.com/ReVanced/revanced-patches/compare/v5.47.0...v5.48.0) (2026-01-19)
+
+
+### Bug Fixes
+
+* **Boost for Reddit - Fix missing audio in video downloads:** Make it work again by reflecting Reddits latest changes ([#6500](https://github.com/ReVanced/revanced-patches/issues/6500)) ([eecc44b](https://github.com/ReVanced/revanced-patches/commit/eecc44b9567bf2ca72ac99e0dafa483a6803c0f9))
+* **Disney+ - Skip ads:** Remove unsupported package names ([#6422](https://github.com/ReVanced/revanced-patches/issues/6422)) ([44e7dbc](https://github.com/ReVanced/revanced-patches/commit/44e7dbcf4d7eaf94dd0164baba847d3e19250154))
+* Fix build error introduced in `4046bee` ([#6417](https://github.com/ReVanced/revanced-patches/issues/6417)) ([789f0a5](https://github.com/ReVanced/revanced-patches/commit/789f0a562861825065633d172445ebf35a1ba8d8))
+* Fix compilation error introduced in `6bb6281` ([#6409](https://github.com/ReVanced/revanced-patches/issues/6409)) ([71c6cb5](https://github.com/ReVanced/revanced-patches/commit/71c6cb569ebf7b93cf73ee391839e5220557ce7c))
+* Fix compilation error introduced in dc69f243 ([#6392](https://github.com/ReVanced/revanced-patches/issues/6392)) ([a429824](https://github.com/ReVanced/revanced-patches/commit/a429824bb77b49aea14b0b54f2204ae24d5209a1))
+* **Instagram:** `Sanitize sharing links` ([#6483](https://github.com/ReVanced/revanced-patches/issues/6483)) ([8724759](https://github.com/ReVanced/revanced-patches/commit/87247590de3db74680cb02ba1d87bf683b2269e2))
+* **YouTube - Hide layout components:** Hide new type of crowdfunding box ([#6380](https://github.com/ReVanced/revanced-patches/issues/6380)) ([dc69f24](https://github.com/ReVanced/revanced-patches/commit/dc69f2433e2650654e2dffdd76b0b0c8a52bf515))
+
+
+### Features
+
+* Add `Disable Sentry telemetry` patch ([#6416](https://github.com/ReVanced/revanced-patches/issues/6416)) ([4cc3159](https://github.com/ReVanced/revanced-patches/commit/4cc315952db557c565872de9e8484805f2e42305))
+* Add `Prevent screenshot detection` patch ([#6482](https://github.com/ReVanced/revanced-patches/issues/6482)) ([83c0127](https://github.com/ReVanced/revanced-patches/commit/83c0127ebb8f53ab8a067758619faaac5596c145))
+* Disable Play Integrity patch ([#6412](https://github.com/ReVanced/revanced-patches/issues/6412)) ([6312fe8](https://github.com/ReVanced/revanced-patches/commit/6312fe8d60da24465c0c1b0fa4e94ceb79873d9c))
+* **Instagram - Hides navigation buttons:** Add more buttons to hide ([#6390](https://github.com/ReVanced/revanced-patches/issues/6390)) ([6bb6281](https://github.com/ReVanced/revanced-patches/commit/6bb62811493da04812cc3e392e68d874f95cbef9))
+* **Instagram:** Add `Hide highlights tray` patch ([#6489](https://github.com/ReVanced/revanced-patches/issues/6489)) ([8725a49](https://github.com/ReVanced/revanced-patches/commit/8725a49ba3a06fee0280ffcf4be62cd960cd301e))
+* **Instagram:** Add `Remove build expired popup` patch ([#6488](https://github.com/ReVanced/revanced-patches/issues/6488)) ([18c0b04](https://github.com/ReVanced/revanced-patches/commit/18c0b04f0cd1bf8cd78b05af3b8ebe3a6a5f9e48))
+* **Instagram:** Disable `Disable Reels scrolling` by default ([3401467](https://github.com/ReVanced/revanced-patches/commit/3401467a6d49fc75b6757a15e5c848330c1b7307))
+* **Letterboxd:** Add `Unlock app icons` patch ([#6415](https://github.com/ReVanced/revanced-patches/issues/6415)) ([d25dcfe](https://github.com/ReVanced/revanced-patches/commit/d25dcfe49ac331c9b3dca739ba0be95dbab669cc))
+* **ProtonVPN:** Add `Unlock split tunneling` patch ([#6353](https://github.com/ReVanced/revanced-patches/issues/6353)) ([e0f3346](https://github.com/ReVanced/revanced-patches/commit/e0f33468e6e96b9f10cf35ec67622d6488528c90))
+* **SBS On Demand:** Add `Remove ads` patch ([#6378](https://github.com/ReVanced/revanced-patches/issues/6378)) ([315931c](https://github.com/ReVanced/revanced-patches/commit/315931cbf8f61cd4b3a54ace1ff03685d748614c))
+* **Strava:** Add `Add 'Give Kudos' button to 'Group Activity'` patch ([#6475](https://github.com/ReVanced/revanced-patches/issues/6475)) ([4c4ba1c](https://github.com/ReVanced/revanced-patches/commit/4c4ba1c78c9f4568a2b572f5c69e9c6c734e1a7f))
+* **Strava:** Add `Add media download` patch ([#6449](https://github.com/ReVanced/revanced-patches/issues/6449)) ([778d13c](https://github.com/ReVanced/revanced-patches/commit/778d13ce8b28ca6df3a665530320e4a21a27ae44))
+* **Strava:** Add `Block Snowplow tracking` patch ([#6413](https://github.com/ReVanced/revanced-patches/issues/6413)) ([c47beae](https://github.com/ReVanced/revanced-patches/commit/c47beae21376dd17ab8bc09afe73e9094481bde9))
+* **Strava:** Add `Disable Quick Edit` patch ([#6452](https://github.com/ReVanced/revanced-patches/issues/6452)) ([f5cbb31](https://github.com/ReVanced/revanced-patches/commit/f5cbb31724d15f7e939b96ee0186fd0a108f9fdc))
+* **Strava:** Add `Enable password login` patch ([#6396](https://github.com/ReVanced/revanced-patches/issues/6396)) ([8f3f4c9](https://github.com/ReVanced/revanced-patches/commit/8f3f4c95bb8f151fc9a2c272bf7d0e905c2f01fc))
+* **Strava:** Add `Overwrite media upload parameters` patch ([#6410](https://github.com/ReVanced/revanced-patches/issues/6410)) ([b42ae27](https://github.com/ReVanced/revanced-patches/commit/b42ae27ce66ebad9e9cfc5b70fc121df5bad7567))
+* **YouTube:** Add `Pause on audio interrupt` patch ([#6464](https://github.com/ReVanced/revanced-patches/issues/6464)) ([19f146c](https://github.com/ReVanced/revanced-patches/commit/19f146c01dc381b3cccd61e61ba4901872ff12d8))
+
+# [5.48.0-dev.13](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.12...v5.48.0-dev.13) (2026-01-19)
+
+
+### Features
+
+* Add `Prevent screenshot detection` patch ([#6482](https://github.com/ReVanced/revanced-patches/issues/6482)) ([83c0127](https://github.com/ReVanced/revanced-patches/commit/83c0127ebb8f53ab8a067758619faaac5596c145))
+
+# [5.48.0-dev.12](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.11...v5.48.0-dev.12) (2026-01-19)
+
+
+### Features
+
+* **Instagram:** Add `Remove build expired popup` patch ([#6488](https://github.com/ReVanced/revanced-patches/issues/6488)) ([18c0b04](https://github.com/ReVanced/revanced-patches/commit/18c0b04f0cd1bf8cd78b05af3b8ebe3a6a5f9e48))
+* **Strava:** Add `Add 'Give Kudos' button to 'Group Activity'` patch ([#6475](https://github.com/ReVanced/revanced-patches/issues/6475)) ([4c4ba1c](https://github.com/ReVanced/revanced-patches/commit/4c4ba1c78c9f4568a2b572f5c69e9c6c734e1a7f))
+
+# [5.48.0-dev.11](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.10...v5.48.0-dev.11) (2026-01-19)
+
+
+### Features
+
+* **Instagram:** Add `Hide highlights tray` patch ([#6489](https://github.com/ReVanced/revanced-patches/issues/6489)) ([8725a49](https://github.com/ReVanced/revanced-patches/commit/8725a49ba3a06fee0280ffcf4be62cd960cd301e))
+
+# [5.48.0-dev.10](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.9...v5.48.0-dev.10) (2026-01-19)
+
+
+### Bug Fixes
+
+* **Boost for Reddit - Fix missing audio in video downloads:** Make it work again by reflecting Reddits latest changes ([#6500](https://github.com/ReVanced/revanced-patches/issues/6500)) ([eecc44b](https://github.com/ReVanced/revanced-patches/commit/eecc44b9567bf2ca72ac99e0dafa483a6803c0f9))
+* **Instagram:** `Sanitize sharing links` ([#6483](https://github.com/ReVanced/revanced-patches/issues/6483)) ([8724759](https://github.com/ReVanced/revanced-patches/commit/87247590de3db74680cb02ba1d87bf683b2269e2))
+
+
+### Features
+
+* **Instagram:** Disable `Disable Reels scrolling` by default ([3401467](https://github.com/ReVanced/revanced-patches/commit/3401467a6d49fc75b6757a15e5c848330c1b7307))
+* **Strava:** Add `Add media download` patch ([#6449](https://github.com/ReVanced/revanced-patches/issues/6449)) ([778d13c](https://github.com/ReVanced/revanced-patches/commit/778d13ce8b28ca6df3a665530320e4a21a27ae44))
+* **YouTube:** Add `Pause on audio interrupt` patch ([#6464](https://github.com/ReVanced/revanced-patches/issues/6464)) ([19f146c](https://github.com/ReVanced/revanced-patches/commit/19f146c01dc381b3cccd61e61ba4901872ff12d8))
+
+# [5.48.0-dev.9](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.8...v5.48.0-dev.9) (2026-01-08)
+
+
+### Features
+
+* Add `Disable Sentry telemetry` patch ([#6416](https://github.com/ReVanced/revanced-patches/issues/6416)) ([4cc3159](https://github.com/ReVanced/revanced-patches/commit/4cc315952db557c565872de9e8484805f2e42305))
+* Disable Play Integrity patch ([#6412](https://github.com/ReVanced/revanced-patches/issues/6412)) ([6312fe8](https://github.com/ReVanced/revanced-patches/commit/6312fe8d60da24465c0c1b0fa4e94ceb79873d9c))
+
+# [5.48.0-dev.8](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.7...v5.48.0-dev.8) (2026-01-04)
+
+
+### Features
+
+* **Letterboxd:** Add `Unlock app icons` patch ([#6415](https://github.com/ReVanced/revanced-patches/issues/6415)) ([d25dcfe](https://github.com/ReVanced/revanced-patches/commit/d25dcfe49ac331c9b3dca739ba0be95dbab669cc))
+
+# [5.48.0-dev.7](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.6...v5.48.0-dev.7) (2026-01-04)
+
+
+### Features
+
+* **Strava:** Add `Disable Quick Edit` patch ([#6452](https://github.com/ReVanced/revanced-patches/issues/6452)) ([f5cbb31](https://github.com/ReVanced/revanced-patches/commit/f5cbb31724d15f7e939b96ee0186fd0a108f9fdc))
+* **Strava:** Add `Overwrite media upload parameters` patch ([#6410](https://github.com/ReVanced/revanced-patches/issues/6410)) ([b42ae27](https://github.com/ReVanced/revanced-patches/commit/b42ae27ce66ebad9e9cfc5b70fc121df5bad7567))
+
+# [5.48.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.5...v5.48.0-dev.6) (2026-01-04)
+
+
+### Bug Fixes
+
+* Fix build error introduced in `4046bee` ([#6417](https://github.com/ReVanced/revanced-patches/issues/6417)) ([789f0a5](https://github.com/ReVanced/revanced-patches/commit/789f0a562861825065633d172445ebf35a1ba8d8))
+
+# [5.48.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.4...v5.48.0-dev.5) (2025-12-30)
+
+
+### Bug Fixes
+
+* **Disney+ - Skip ads:** Remove unsupported package names ([#6422](https://github.com/ReVanced/revanced-patches/issues/6422)) ([44e7dbc](https://github.com/ReVanced/revanced-patches/commit/44e7dbcf4d7eaf94dd0164baba847d3e19250154))
+
+# [5.48.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.3...v5.48.0-dev.4) (2025-12-29)
+
+
+### Features
+
+* **Strava:** Add `Block Snowplow tracking` patch ([#6413](https://github.com/ReVanced/revanced-patches/issues/6413)) ([c47beae](https://github.com/ReVanced/revanced-patches/commit/c47beae21376dd17ab8bc09afe73e9094481bde9))
+
+# [5.48.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.2...v5.48.0-dev.3) (2025-12-28)
+
+
+### Bug Fixes
+
+* Fix compilation error introduced in `6bb6281` ([#6409](https://github.com/ReVanced/revanced-patches/issues/6409)) ([71c6cb5](https://github.com/ReVanced/revanced-patches/commit/71c6cb569ebf7b93cf73ee391839e5220557ce7c))
+
+
+### Features
+
+* **Instagram - Hides navigation buttons:** Add more buttons to hide ([#6390](https://github.com/ReVanced/revanced-patches/issues/6390)) ([6bb6281](https://github.com/ReVanced/revanced-patches/commit/6bb62811493da04812cc3e392e68d874f95cbef9))
+
+# [5.48.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.48.0-dev.1...v5.48.0-dev.2) (2025-12-27)
+
+
+### Features
+
+* **Strava:** Add `Enable password login` patch ([#6396](https://github.com/ReVanced/revanced-patches/issues/6396)) ([8f3f4c9](https://github.com/ReVanced/revanced-patches/commit/8f3f4c95bb8f151fc9a2c272bf7d0e905c2f01fc))
+
+# [5.48.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.47.0...v5.48.0-dev.1) (2025-12-23)
+
+
+### Bug Fixes
+
+* Fix compilation error introduced in dc69f243 ([#6392](https://github.com/ReVanced/revanced-patches/issues/6392)) ([a429824](https://github.com/ReVanced/revanced-patches/commit/a429824bb77b49aea14b0b54f2204ae24d5209a1))
+* **YouTube - Hide layout components:** Hide new type of crowdfunding box ([#6380](https://github.com/ReVanced/revanced-patches/issues/6380)) ([dc69f24](https://github.com/ReVanced/revanced-patches/commit/dc69f2433e2650654e2dffdd76b0b0c8a52bf515))
+
+
+### Features
+
+* **ProtonVPN:** Add `Unlock split tunneling` patch ([#6353](https://github.com/ReVanced/revanced-patches/issues/6353)) ([e0f3346](https://github.com/ReVanced/revanced-patches/commit/e0f33468e6e96b9f10cf35ec67622d6488528c90))
+* **SBS On Demand:** Add `Remove ads` patch ([#6378](https://github.com/ReVanced/revanced-patches/issues/6378)) ([315931c](https://github.com/ReVanced/revanced-patches/commit/315931cbf8f61cd4b3a54ace1ff03685d748614c))
+
 # [5.47.0](https://github.com/ReVanced/revanced-patches/compare/v5.46.0...v5.47.0) (2025-12-18)
 
 
