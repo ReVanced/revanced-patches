@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy
 
-import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
-import app.revanced.patcher.InstructionMatchingFunctions.invoke
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.invoke
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.instructions

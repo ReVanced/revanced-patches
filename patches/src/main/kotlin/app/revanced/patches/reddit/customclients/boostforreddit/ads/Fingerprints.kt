@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.ads
 
-import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.maxMediationMethod by gettingFirstMutableMethodDeclaratively(

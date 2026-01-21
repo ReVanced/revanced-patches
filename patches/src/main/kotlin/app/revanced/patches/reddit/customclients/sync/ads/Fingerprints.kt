@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.sync.ads
 
-import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.accessFlags
 import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.patch.BytecodePatchContext

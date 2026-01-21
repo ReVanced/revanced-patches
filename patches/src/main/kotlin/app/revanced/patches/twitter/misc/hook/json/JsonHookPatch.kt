@@ -1,6 +1,6 @@
 package app.revanced.patches.twitter.misc.hook.json
 
-import app.revanced.patcher.BytecodePatchContextClassDefMatching.firstClassDef
+import app.revanced.patcher.firstClassDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.patch.BytecodePatchContext

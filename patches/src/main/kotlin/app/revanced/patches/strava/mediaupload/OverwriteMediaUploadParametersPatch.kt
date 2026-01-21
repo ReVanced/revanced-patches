@@ -1,6 +1,6 @@
 package app.revanced.patches.strava.mediaupload
 
-import app.revanced.patcher.BytecodePatchContextClassDefMatching.firstClassDef
+import app.revanced.patcher.firstClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
 import app.revanced.patcher.patch.longOption

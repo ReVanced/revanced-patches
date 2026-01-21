@@ -1,8 +1,8 @@
 package app.revanced.patches.twitter.misc.hook.json
 
 import app.revanced.patcher.*
-import app.revanced.patcher.BytecodePatchContextClassDefMatching.gettingFirstClassDef
-import app.revanced.patcher.ClassDefMethodMatching.firstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstClassDef
+import app.revanced.patcher.firstMutableMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef

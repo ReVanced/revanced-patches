@@ -10,9 +10,6 @@ val `Sanitize sharing links` by creatingBytecodePatch(
     compatibleWith("com.reddit.frontpage")
 
     apply {
-        shareLinkFormatterFingerprint.method.addInstructions(
-            0,
-            "return-object p0",
-        )
+        shareLinkFormatterMethod.addInstructions(0, "return-object p0",)
     }
 }

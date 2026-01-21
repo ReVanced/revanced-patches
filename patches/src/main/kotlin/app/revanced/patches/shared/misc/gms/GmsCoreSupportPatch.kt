@@ -48,7 +48,7 @@ fun gmsCoreSupportPatch(
     fromPackageName: String,
     toPackageName: String,
     getPrimeMethod: (BytecodePatchContext.() -> MutableMethod)? = null,
-    getEarlyReturnMethods: BytecodePatchContext.() -> Set<MutableMethod> = { setOf() },
+    getEarlyReturnMethods: Set<BytecodePatchContext.() -> MutableMethod> = emptySet(),
     getMainActivityOnCreateMethod: BytecodePatchContext.() -> MutableMethod,
     extensionPatch: Patch,
     gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>) -> Patch,

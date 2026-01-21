@@ -1,7 +1,7 @@
 package app.revanced.patches.nunl.firebase
 
 import app.revanced.patcher.*
-import app.revanced.patcher.BytecodePatchContextMethodMatching.firstMutableMethodDeclaratively
+import app.revanced.patcher.firstMutableMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 

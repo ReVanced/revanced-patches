@@ -1,5 +1,6 @@
 package app.revanced.patches.googlephotos.misc.gms
 
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.Option
 import app.revanced.patches.googlephotos.misc.extension.extensionPatch
 import app.revanced.patches.googlephotos.misc.gms.Constants.PHOTOS_PACKAGE_NAME
@@ -10,7 +11,7 @@ import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
 val gmsCoreSupportPatch = gmsCoreSupportPatch(
     fromPackageName = PHOTOS_PACKAGE_NAME,
     toPackageName = REVANCED_PHOTOS_PACKAGE_NAME,
-    getMainActivityOnCreateMethod = { homeActivityOnCreateMethod },
+    getMainActivityOnCreateMethod = BytecodePatchContext::homeActivityOnCreateMethod::get,
     extensionPatch = extensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {

@@ -5,7 +5,7 @@ package app.revanced.patches.samsung.radio.misc.fix.crash
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.samsung.radio.restrictions.device.bypassDeviceChecksPatch
+import app.revanced.patches.samsung.radio.restrictions.device.`Bypass device checks`
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
@@ -16,7 +16,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/samsung/
 val fixCrashPatch = bytecodePatch(
     name = "Fix crashes", description = "Prevents the app from crashing because of missing system permissions."
 ) {
-    dependsOn(addManifestPermissionsPatch, bypassDeviceChecksPatch)
+    dependsOn(addManifestPermissionsPatch, `Bypass device checks`)
     extendWith("extensions/samsung/radio.rve")
     compatibleWith("com.sec.android.app.fm"("12.4.00.7", "12.3.00.13", "12.3.00.11"))
 

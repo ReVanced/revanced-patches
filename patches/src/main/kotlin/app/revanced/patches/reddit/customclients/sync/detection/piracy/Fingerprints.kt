@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.sync.detection.piracy
 
-import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclarativelyOrNull
-import app.revanced.patcher.InstructionMatchingFunctions.invoke
+import app.revanced.patcher.gettingFirstMutableMethodDeclarativelyOrNull
+import app.revanced.patcher.invoke
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.custom
 import app.revanced.patcher.extensions.instructions

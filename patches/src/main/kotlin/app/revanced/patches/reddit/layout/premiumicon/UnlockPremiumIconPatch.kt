@@ -1,17 +1,16 @@
 package app.revanced.patches.reddit.layout.premiumicon
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 
-@Suppress("unused")
-val unlockPremiumIconsPatch = bytecodePatch(
-    name = "Unlock Premium icons",
+@Suppress("unused", "ObjectPropertyName")
+val `Unlock Premium icons` by creatingBytecodePatch(
     description = "Unlocks the Reddit Premium icons.",
 ) {
     compatibleWith("com.reddit.frontpage")
 
     apply {
-        hasPremiumIconAccessFingerprint.method.addInstructions(
+        hasPremiumIconAccessMethod.addInstructions(
             0,
             """
                 const/4 v0, 0x1

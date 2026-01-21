@@ -1,6 +1,6 @@
 package app.revanced.patches.shared
 
-import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.castContextFetchMethod by gettingFirstMutableMethodDeclaratively(

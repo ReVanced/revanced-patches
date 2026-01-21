@@ -1,11 +1,10 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.thumbnail
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 
-@Suppress("unused")
-val fixPostThumbnailsPatch = bytecodePatch(
-    name = "Fix post thumbnails",
+@Suppress("unused", "ObjectPropertyName")
+val `Fix post thumbnails` by creatingBytecodePatch(
     description = "Fixes loading post thumbnails by correcting their URLs.",
 ) {
 
@@ -17,7 +16,7 @@ val fixPostThumbnailsPatch = bytecodePatch(
 
     // Image URLs contain escaped ampersands (&amp;), let's replace these with unescaped ones (&).
     apply {
-        customImageViewLoadFingerprint.method.addInstructions(
+        customImageViewLoadMethod.addInstructions(
             0,
             """
 	            # url = url.replace("&amp;", "&");

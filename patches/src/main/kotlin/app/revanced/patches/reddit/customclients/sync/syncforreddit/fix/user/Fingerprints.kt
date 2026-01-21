@@ -1,36 +1,39 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.user
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal fun userEndpointFingerprint(source: String, accessFlags: Set<AccessFlags>? = null) = fingerprint {
-    strings("u/")
-    custom { _, classDef -> classDef.sourceFile == source }
-    accessFlags(*accessFlags?.toTypedArray() ?: return@fingerprint)
+internal fun userEndpointMethodMatch(
+    source: String,
+    accessFlags: Set<AccessFlags>? = null
+) = firstMethodComposite {
+    instructions("u/"(String::contains))
+    custom { immutableClassDef.sourceFile == source }
+    accessFlags(*accessFlags?.toTypedArray() ?: return@firstMethodComposite)
 }
 
-internal val oAuthFriendRequestFingerprint = userEndpointFingerprint(
+internal val oAuthFriendRequestMethodMatch = userEndpointMethodMatch(
     "OAuthFriendRequest.java",
 )
 
-internal val oAuthUnfriendRequestFingerprint = userEndpointFingerprint(
+internal val oAuthUnfriendRequestMethodMatch = userEndpointMethodMatch(
     "OAuthUnfriendRequest.java",
 )
 
-internal val oAuthUserIdRequestFingerprint = userEndpointFingerprint(
+internal val oAuthUserIdRequestMethodMatch = userEndpointMethodMatch(
     "OAuthUserIdRequest.java",
 )
 
-internal val oAuthUserInfoRequestFingerprint = userEndpointFingerprint(
+internal val oAuthUserInfoRequestMethodMatch = userEndpointMethodMatch(
     "OAuthUserInfoRequest.java",
 )
 
-internal val oAuthSubredditInfoRequestConstructorFingerprint = userEndpointFingerprint(
+internal val oAuthSubredditInfoRequestConstructorMethodMatch = userEndpointMethodMatch(
     "OAuthSubredditInfoRequest.java",
     setOf(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR),
 )
 
-internal val oAuthSubredditInfoRequestHelperFingerprint = userEndpointFingerprint(
+internal val oAuthSubredditInfoRequestHelperMethodMatch = userEndpointMethodMatch(
     "OAuthSubredditInfoRequest.java",
     setOf(AccessFlags.PRIVATE, AccessFlags.STATIC),
 )

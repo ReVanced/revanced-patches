@@ -1,8 +1,8 @@
 package app.revanced.patches.shared.misc.extension
 
 import app.revanced.patcher.*
-import app.revanced.patcher.BytecodePatchContextClassDefMatching.firstMutableClassDef
-import app.revanced.patcher.BytecodePatchContextMethodMatching.firstMutableMethodDeclaratively
+import app.revanced.patcher.firstMutableClassDef
+import app.revanced.patcher.firstMutableMethodDeclaratively
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch

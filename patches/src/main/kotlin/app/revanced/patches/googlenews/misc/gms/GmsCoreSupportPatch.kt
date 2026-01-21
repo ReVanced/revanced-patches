@@ -1,5 +1,6 @@
 package app.revanced.patches.googlenews.misc.gms
 
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.Option
 import app.revanced.patches.googlenews.misc.extension.extensionPatch
 import app.revanced.patches.googlenews.misc.gms.Constants.MAGAZINES_PACKAGE_NAME
@@ -11,7 +12,7 @@ import app.revanced.patches.shared.misc.gms.gmsCoreSupportResourcePatch
 val gmsCoreSupportPatch = gmsCoreSupportPatch(
     fromPackageName = MAGAZINES_PACKAGE_NAME,
     toPackageName = REVANCED_MAGAZINES_PACKAGE_NAME,
-    getMainActivityOnCreateMethod = { magazinesActivityOnCreateMethod },
+    getMainActivityOnCreateMethod = BytecodePatchContext::magazinesActivityOnCreateMethod::get,
     extensionPatch = extensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {

@@ -1,16 +1,15 @@
 package app.revanced.patches.reddit.layout.disablescreenshotpopup
 
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 
-@Suppress("unused")
-val disableScreenshotPopupPatch = bytecodePatch(
-    name = "Disable screenshot popup",
+@Suppress("unused", "ObjectPropertyName")
+val `Disable screenshot popup` by creatingBytecodePatch(
     description = "Disables the popup that shows up when taking a screenshot.",
 ) {
     compatibleWith("com.reddit.frontpage")
 
     apply {
-        disableScreenshotPopupFingerprint.method.addInstruction(0, "return-void")
+        disableScreenshotPopupMethod.addInstruction(0, "return-void")
     }
 }

@@ -26,30 +26,27 @@ val fixRedgifsApi = fixRedgifsApiPatch(
     apply {
         // region Patch Redgifs OkHttp3 client.
 
-        createOkHttpClientFingerprint.method.apply {
-            val index = indexOfFirstInstructionOrThrow {
-                val reference = getReference<MethodReference>()
-                reference?.name == "build" && reference.definingClass == "Lokhttp3/OkHttpClient\$Builder;"
-            }
-            val register = getInstruction<FiveRegisterInstruction>(index).registerC
-            replaceInstruction(
-                index,
-                """
-                invoke-static       { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$INSTALL_NEW_CLIENT_METHOD
-                """
-            )
+        val index = createOkHttpClientMethod.indexOfFirstInstructionOrThrow {
+            val reference = getReference<MethodReference>()
+            reference?.name == "build" && reference.definingClass == $$"Lokhttp3/OkHttpClient$Builder;"
         }
+        val register = createOkHttpClientMethod.getInstruction<FiveRegisterInstruction>(index).registerC
 
-        getDefaultUserAgentFingerprint.method.apply {
-            addInstructions(
-                0,
-                """
-                invoke-static { }, ${getOriginalUserAgentFingerprint.method}
-                move-result-object v0
-                return-object v0
-                """
-            )
-        }
+        createOkHttpClientMethod.replaceInstruction(
+            index,
+            """
+            invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$INSTALL_NEW_CLIENT_METHOD
+            """
+        )
+
+        getDefaultUserAgentMethod.addInstructions(
+            0,
+            """
+            invoke-static { }, $getOriginalUserAgentMethod
+            move-result-object v0
+            return-object v0
+            """
+        )
 
         // endregion
     }

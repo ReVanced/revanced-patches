@@ -1,6 +1,6 @@
 package app.revanced.patches.shared.misc.checks
 
-import app.revanced.patcher.BytecodePatchContextClassDefMatching.gettingFirstMutableClassDefDeclaratively
+import app.revanced.patcher.gettingFirstMutableClassDefDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.patchInfoClassDef by gettingFirstMutableClassDefDeclaratively(

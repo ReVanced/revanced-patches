@@ -1,7 +1,7 @@
 package app.revanced.patches.shared.misc.debugging
 
-import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMethodDeclaratively
-import app.revanced.patcher.ClassDefMethodMatching.firstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.firstMutableMethodDeclaratively
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext

@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.fix.slink
 
-import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.patch.BytecodePatchContext

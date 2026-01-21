@@ -1,9 +1,9 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.slink
 
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patches.reddit.customclients.RESOLVE_S_LINK_METHOD
 import app.revanced.patches.reddit.customclients.SET_ACCESS_TOKEN_METHOD
 import app.revanced.patches.reddit.customclients.fixSLinksPatch
@@ -24,27 +24,25 @@ val fixSLinksPatch = fixSLinksPatch(
     apply {
         // region Patch navigation handler.
 
-        linkHelperOpenLinkFingerprint.method.apply {
-            val urlRegister = "p3"
-            val tempRegister = "v2"
+        val urlRegister = "p3"
+        val tempRegister = "v2"
 
-            addInstructionsWithLabels(
-                0,
-                """
-                    invoke-static { $urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->$RESOLVE_S_LINK_METHOD
-                    move-result $tempRegister
-                    if-eqz $tempRegister, :continue
-                    return $tempRegister
-                """,
-                ExternalLabel("continue", getInstruction(0)),
-            )
-        }
+        linkHelperOpenLinkMethod.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static { $urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->$RESOLVE_S_LINK_METHOD
+                move-result $tempRegister
+                if-eqz $tempRegister, :continue
+                return $tempRegister
+            """,
+            ExternalLabel("continue", linkHelperOpenLinkMethod.getInstruction(0)),
+        )
 
         // endregion
 
         // region Patch set access token.
 
-        setAuthorizationHeaderFingerprint.method.addInstruction(
+        setAuthorizationHeaderMethod.addInstruction(
             0,
             "invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->$SET_ACCESS_TOKEN_METHOD",
         )

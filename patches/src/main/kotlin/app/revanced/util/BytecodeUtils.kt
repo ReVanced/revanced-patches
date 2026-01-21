@@ -1,7 +1,7 @@
 package app.revanced.util
 
-import app.revanced.patcher.BytecodePatchContextClassDefMatching.firstMutableClassDef
-import app.revanced.patcher.BytecodePatchContextClassDefMatching.firstMutableClassDefOrNull
+import app.revanced.patcher.firstMutableClassDef
+import app.revanced.patcher.firstMutableClassDefOrNull
 import app.revanced.patcher.FingerprintBuilder
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.BytecodePatchContext

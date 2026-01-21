@@ -9,10 +9,9 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.videoQualityChangedFingerprint
+import app.revanced.patches.youtube.shared.videoQualityChangedMethodMatch
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -33,32 +32,34 @@ val rememberVideoQualityPatch = bytecodePatch {
     apply {
         addResources("youtube", "video.quality.rememberVideoQualityPatch")
 
-        settingsMenuVideoQualityGroup.addAll(listOf(
-            ListPreference(
-                key = "revanced_video_quality_default_mobile",
-                entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values"
-            ),
-            ListPreference(
-                key = "revanced_video_quality_default_wifi",
-                entriesKey = "revanced_video_quality_default_entries",
-                entryValuesKey = "revanced_video_quality_default_entry_values"
-            ),
-            SwitchPreference("revanced_remember_video_quality_last_selected"),
+        settingsMenuVideoQualityGroup.addAll(
+            listOf(
+                ListPreference(
+                    key = "revanced_video_quality_default_mobile",
+                    entriesKey = "revanced_video_quality_default_entries",
+                    entryValuesKey = "revanced_video_quality_default_entry_values"
+                ),
+                ListPreference(
+                    key = "revanced_video_quality_default_wifi",
+                    entriesKey = "revanced_video_quality_default_entries",
+                    entryValuesKey = "revanced_video_quality_default_entry_values"
+                ),
+                SwitchPreference("revanced_remember_video_quality_last_selected"),
 
-            ListPreference(
-                key = "revanced_shorts_quality_default_mobile",
-                entriesKey = "revanced_shorts_quality_default_entries",
-                entryValuesKey = "revanced_shorts_quality_default_entry_values",
-            ),
-            ListPreference(
-                key = "revanced_shorts_quality_default_wifi",
-                entriesKey = "revanced_shorts_quality_default_entries",
-                entryValuesKey = "revanced_shorts_quality_default_entry_values"
-            ),
-            SwitchPreference("revanced_remember_shorts_quality_last_selected"),
-            SwitchPreference("revanced_remember_video_quality_last_selected_toast")
-        ))
+                ListPreference(
+                    key = "revanced_shorts_quality_default_mobile",
+                    entriesKey = "revanced_shorts_quality_default_entries",
+                    entryValuesKey = "revanced_shorts_quality_default_entry_values",
+                ),
+                ListPreference(
+                    key = "revanced_shorts_quality_default_wifi",
+                    entriesKey = "revanced_shorts_quality_default_entries",
+                    entryValuesKey = "revanced_shorts_quality_default_entry_values"
+                ),
+                SwitchPreference("revanced_remember_shorts_quality_last_selected"),
+                SwitchPreference("revanced_remember_video_quality_last_selected_toast")
+            )
+        )
 
         onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "newVideoStarted")
 
@@ -71,14 +72,13 @@ val rememberVideoQualityPatch = bytecodePatch {
         )
 
         // Inject a call to remember the user selected quality for regular videos.
-        videoQualityChangedFingerprint.method.apply {
-            val index = videoQualityChangedFingerprint.instructionMatches[3].index
-            val register = getInstruction<TwoRegisterInstruction>(index).registerA
+        videoQualityChangedMethodMatch.let { match ->
+            val index = match.indices[3]
+            val register = match.method.getInstruction<TwoRegisterInstruction>(index).registerA
 
-            addInstruction(
+            match.method.addInstruction(
                 index + 1,
-                "invoke-static { v$register }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
+                "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->userChangedQuality(I)V",
             )
         }
     }

@@ -1,20 +1,25 @@
 package app.revanced.patches.youtube.shared
 
-import app.revanced.patcher.BytecodePatchContextMethodMatching.firstMutableMethodDeclaratively
-import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
-import app.revanced.patcher.fieldAccess
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
-import app.revanced.patcher.newInstance
 import app.revanced.patcher.opcode
 import app.revanced.patcher.addString
+import app.revanced.patcher.after
+import app.revanced.patcher.allOf
 import app.revanced.patcher.definingClass
+import app.revanced.patcher.field
+import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.name
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
+import app.revanced.patcher.type
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -126,18 +131,14 @@ internal val subtitleButtonControllerFingerprint = fingerprint {
     )
 }
 
-internal val videoQualityChangedFingerprint = fingerprint {
+internal val videoQualityChangedMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters("L")
+    returnType("L")
+    parameterTypes("L")
     instructions(
-        newInstance("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"),
-        opcode(Opcode.IGET_OBJECT),
-        opcode(Opcode.CHECK_CAST),
-        fieldAccess(
-            type = "I",
-            opcode = Opcode.IGET,
-            location = MatchAfterImmediately()
-        ), // Video resolution (human readable).
+        allOf(Opcode.NEW_INSTANCE(), type("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;")),
+        Opcode.IGET_OBJECT(),
+        Opcode.CHECK_CAST(),
+        after(allOf(Opcode.IGET(), field { type == "I" })) // Video resolution (human-readable).
     )
 }

@@ -1,6 +1,6 @@
 package app.revanced.patches.myexpenses.misc.pro
 
-import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 

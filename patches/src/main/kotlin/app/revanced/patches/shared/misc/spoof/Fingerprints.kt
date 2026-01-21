@@ -1,5 +1,7 @@
 package app.revanced.patches.shared.misc.spoof
 
+import app.revanced.patcher.invoke
+import app.revanced.patcher.method
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.fingerprint
 import app.revanced.util.indexOfFirstInstruction
@@ -8,8 +10,6 @@ import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.method
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags

@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.relayforreddit.api
 
-import app.revanced.patcher.BytecodePatchContextMethodMatching.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
