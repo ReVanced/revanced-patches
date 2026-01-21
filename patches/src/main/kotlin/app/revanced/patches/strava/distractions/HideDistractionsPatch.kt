@@ -103,7 +103,9 @@ val hideDistractionsPatch = bytecodePatch(
     execute {
         // region Write option values into extension class.
 
-        classBy { it.type == EXTENSION_CLASS_DESCRIPTOR }!!.mutableClass.apply {
+        val extensionClass = classBy { it.type == EXTENSION_CLASS_DESCRIPTOR }!!.mutableClass
+
+        extensionClass.apply {
             options.forEach { option ->
                 staticFields.first { field -> field.name == option.key }.initialValue =
                     ImmutableBooleanEncodedValue.forBoolean(option.value == true).toMutable()
@@ -119,6 +121,20 @@ val hideDistractionsPatch = bytecodePatch(
             extensionMethodName: String,
             extensionMethodParameterTypes: List<String>,
         ) {
+            val extensionMethodReference = ImmutableMethodReference(
+                EXTENSION_CLASS_DESCRIPTOR,
+                extensionMethodName,
+                extensionMethodParameterTypes,
+                returnType,
+            )
+
+            if (extensionClass.directMethods.none { method ->
+                    MethodUtil.methodSignaturesMatch(method, extensionMethodReference)
+                }) {
+                logger.info { "Skipped interception of $this due to missing $extensionMethodReference" }
+                return
+            }
+
             classDef.virtualMethods -= this
 
             val clone = ImmutableMethod.of(this).toMutable()
@@ -130,13 +146,6 @@ val hideDistractionsPatch = bytecodePatch(
                     separator = ",",
                     prefix = "{",
                     postfix = "}",
-                )
-
-                val extensionMethodReference = ImmutableMethodReference(
-                    EXTENSION_CLASS_DESCRIPTOR,
-                    extensionMethodName,
-                    extensionMethodParameterTypes,
-                    returnType,
                 )
 
                 clone.apply {
