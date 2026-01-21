@@ -165,10 +165,14 @@ public class HideDistractionsPatch {
     }
 
     private static boolean hideGenericLayoutModule(GenericLayoutModule genericLayoutModule) {
-        return genericLayoutModule == null ||
-                hideByName(genericLayoutModule.getPage()) ||
-                hideByName(genericLayoutModule.getElement()) ||
-                hideByDestination(genericLayoutModule.getDestination());
+        try {
+            return genericLayoutModule == null ||
+                    hideByName(genericLayoutModule.getPage()) ||
+                    hideByName(genericLayoutModule.getElement()) ||
+                    hideByDestination(genericLayoutModule.getDestination());
+        } catch (RuntimeException getParentEntryOrThrowException) {
+            return false;
+        }
     }
 
     private static boolean hideListField(ListField listField) {
