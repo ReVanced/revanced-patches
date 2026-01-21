@@ -1,3 +1,10 @@
+## [5.48.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.48.0...v5.48.1-dev.1) (2026-01-21)
+
+
+### Bug Fixes
+
+* Disable `Prevent screenshot detection` by default ([#6511](https://github.com/ReVanced/revanced-patches/issues/6511)) ([5b5c502](https://github.com/ReVanced/revanced-patches/commit/5b5c50254d533faa0e04d542f4859cbef610713e))
+
 # [5.48.0](https://github.com/ReVanced/revanced-patches/compare/v5.47.0...v5.48.0) (2026-01-19)
 
 
