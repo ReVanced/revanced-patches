@@ -1,3 +1,12 @@
+# [5.50.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.49.0-dev.1...v5.50.0-dev.1) (2026-01-22)
+
+
+### Features
+
+* **Nothing X:** Add `Show K1 token(s)` patch ([#6490](https://github.com/ReVanced/revanced-patches/issues/6490)) ([421cb28](https://github.com/ReVanced/revanced-patches/commit/421cb2899ef5c0f100fb8007bae8b89137d0e41c))
+* **Strava:** Add `Hide distractions` patch ([#6479](https://github.com/ReVanced/revanced-patches/issues/6479)) ([66b0852](https://github.com/ReVanced/revanced-patches/commit/66b0852f8fa57c82b09997337a304374883d8ba5))
+* **YouTube Music:** Add `Unlock Android Auto Media Browser` patch ([#6477](https://github.com/ReVanced/revanced-patches/issues/6477)) ([5edd9dc](https://github.com/ReVanced/revanced-patches/commit/5edd9dccae3b1ab4edf19771a771812e3c9ccf80))
+
 # [5.50.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.48.0...v5.50.0-dev.1) (2026-01-22)
 
 
