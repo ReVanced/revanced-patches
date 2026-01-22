@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.components;
+package app.revanced.extension.shared.patches.components;
 
 import static app.revanced.extension.shared.StringRef.str;
 
@@ -15,13 +15,15 @@ import java.util.regex.Pattern;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ByteTrieSearch;
-import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
+import app.revanced.extension.shared.settings.YouTubeAndMusicSettings;
+import app.revanced.extension.shared.patches.litho.Filter;
 
 /**
  * Allows custom filtering using a path and optionally a proto buffer string.
  */
 @SuppressWarnings("unused")
-final class CustomFilter extends Filter {
+public final class CustomFilter extends Filter {
 
     private static void showInvalidSyntaxToast(@NonNull String expression) {
         Utils.showToastLong(str("revanced_custom_filter_toast_invalid_syntax", expression));
@@ -45,7 +47,7 @@ final class CustomFilter extends Filter {
         @NonNull
         @SuppressWarnings("ConstantConditions")
         static Collection<CustomFilterGroup> parseCustomFilterGroups() {
-            String rawCustomFilterText = Settings.CUSTOM_FILTER_STRINGS.get();
+            String rawCustomFilterText = YouTubeAndMusicSettings.CUSTOM_FILTER_STRINGS.get();
             if (rawCustomFilterText.isBlank()) {
                 return Collections.emptyList();
             }
@@ -100,7 +102,7 @@ final class CustomFilter extends Filter {
         ByteTrieSearch bufferSearch;
 
         CustomFilterGroup(boolean startsWith, @NonNull String path) {
-            super(Settings.CUSTOM_FILTER, path);
+            super(YouTubeAndMusicSettings.CUSTOM_FILTER, path);
             this.startsWith = startsWith;
         }
 
@@ -145,7 +147,7 @@ final class CustomFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // All callbacks are custom filter groups.
         CustomFilterGroup custom = (CustomFilterGroup) matchedGroup;
