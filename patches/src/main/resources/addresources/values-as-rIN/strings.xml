@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -224,11 +224,13 @@ Second \"item\" text"</string>
   <!-- Translations of this should not be longer than the original English text, otherwise the text can be clipped and not entirely shown. -->
   </patch>
   <patch id="misc.announcements.announcementsPatch">
-  <string name="revanced_announcements_dialog_dismiss">খাৰিজ কৰক</string>
+  <string name="youtube.misc.announcements.announcementsPatch.revanced_announcements_dialog_dismiss">খাৰিজ কৰক</string>
   </patch>
   <patch id="misc.loopvideo.loopVideoPatch">
   </patch>
   <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  </patch>
+  <patch id="misc.audiofocus.pauseOnAudioInterruptPatch">
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   </patch>
