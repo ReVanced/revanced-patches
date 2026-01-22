@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Nama aplikasi</string>
@@ -171,14 +172,6 @@ Anda tidak akan diberi tahu tentang kejadian yang tidak terduga."</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Tanda disimpan</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Tanda diatur ulang</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Tanda disalin ke papan klip</string>
-  <string name="revanced_debug_protobuffer_title">Buffer protokol log</string>
-  <string name="revanced_debug_protobuffer_summary_on">Pencatatan debug termasuk buffer proto</string>
-  <string name="revanced_debug_protobuffer_summary_off">Pencatatan debug tidak menyertakan buffer proto</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Mengaktifkan setelan ini akan mencatat data tata letak tambahan, termasuk teks pada layar untuk beberapa komponen UI.
-
-Ini dapat membantu mengidentifikasi komponen saat membuat filter khusus.
-
-Namun, mengaktifkan ini juga akan mencatat beberapa data pengguna seperti alamat IP Anda."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Bersihkan tautan berbagi</string>
@@ -188,16 +181,7 @@ Namun, mengaktifkan ini juga akan mencatat beberapa data pengguna seperti alamat
   <string name="revanced_replace_music_with_youtube_summary_on">Tautan yang dibagikan menggunakan youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Tautan yang dibagikan menggunakan music.youtube.com</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Penyaring khusus</string>
-  <string name="revanced_custom_filter_screen_summary">Sembunyikan komponen menggunakan penyaring khusus</string>
-  <string name="revanced_custom_filter_title">Aktifkan penyaring khusus</string>
-  <string name="revanced_custom_filter_summary_on">Penyaring khusus diaktifkan</string>
-  <string name="revanced_custom_filter_summary_off">Penyaring khusus dinonaktifkan</string>
-  <string name="revanced_custom_filter_strings_title">Penyaring khusus</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Daftar untaian pembuat jalur komponen untuk disaring dipisahkan oleh baris baru</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Penyaring khusus tidak sah: %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Tentang</string>
@@ -218,6 +202,16 @@ Namun, mengaktifkan ini juga akan mencatat beberapa data pengguna seperti alamat
   <string name="revanced_shorts_disable_background_playback_title">Nonaktifkan pemutaran Shorts di latar belakang</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Pemutaran Shorts di latar belakang dinonaktifkan</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Pemutaran Shorts di latar belakang diaktifkan</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">Buffer protokol log</string>
+  <string name="revanced_debug_protobuffer_summary_on">Pencatatan debug termasuk buffer proto</string>
+  <string name="revanced_debug_protobuffer_summary_off">Pencatatan debug tidak menyertakan buffer proto</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Mengaktifkan setelan ini akan mencatat data tata letak tambahan, termasuk teks pada layar untuk beberapa komponen UI.
+
+Ini dapat membantu mengidentifikasi komponen saat membuat filter khusus.
+
+Namun, mengaktifkan ini juga akan mencatat beberapa data pengguna seperti alamat IP Anda."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Sembunyikan kartu album</string>
@@ -445,6 +439,15 @@ Jika Doodle saat ini ditampilkan di wilayah Anda dan pengaturan penyembunyi ini 
   <string name="revanced_hide_comments_thanks_button_title">Sembunyikan tombol Terima Kasih</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tombol terima kasih disembunyikan</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tombol terima kasih ditampilkan</string>
+  <string name="revanced_custom_filter_screen_title">Penyaring khusus</string>
+  <string name="revanced_custom_filter_screen_summary">Sembunyikan komponen menggunakan penyaring khusus</string>
+  <string name="revanced_custom_filter_title">Aktifkan penyaring khusus</string>
+  <string name="revanced_custom_filter_summary_on">Penyaring khusus diaktifkan</string>
+  <string name="revanced_custom_filter_summary_off">Penyaring khusus dinonaktifkan</string>
+  <string name="revanced_custom_filter_strings_title">Penyaring khusus</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Daftar untaian pembuat jalur komponen untuk disaring dipisahkan oleh baris baru</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Penyaring khusus tidak sah: %s</string>
   <string name="revanced_hide_view_count_title">Sembunyikan jumlah penayangan</string>
   <string name="revanced_hide_view_count_summary_on">Jumlah penayangan disembunyikan di umpan dan hasil pencarian</string>
   <string name="revanced_hide_view_count_summary_off">Jumlah penayangan ditampilkan di umpan dan hasil pencarian</string>

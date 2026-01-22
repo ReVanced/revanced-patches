@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Tên ứng dụng</string>
@@ -171,14 +172,6 @@ Bạn sẽ không được thông báo khi xẩy ra lỗi bất ngờ."</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Đã lưu cờ</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Đã đặt lại cờ</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Đã sao chép cờ vào bảng nhớ tạm</string>
-  <string name="revanced_debug_protobuffer_title">Bộ đệm giao thức nhật ký</string>
-  <string name="revanced_debug_protobuffer_summary_on">Ghi nhật ký gỡ lỗi bao gồm thông tin bộ đệm nguyên mẫu</string>
-  <string name="revanced_debug_protobuffer_summary_off">Ghi nhật ký gỡ lỗi mà không có thông tin bộ đệm nguyên mẫu</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Bật cài đặt này sẽ ghi lại dữ liệu bố cục bổ sung, bao gồm cả văn bản trên màn hình cho một số thành phần giao diện người dùng.
-
-Điều này có thể giúp xác định các thành phần khi tạo bộ lọc tùy chỉnh.
-
-Tuy nhiên, bật tính năng này cũng sẽ ghi lại một số dữ liệu người dùng, chẳng hạn như địa chỉ IP của bạn."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Rút gọn liên kết chia sẻ</string>
@@ -188,16 +181,7 @@ Tuy nhiên, bật tính năng này cũng sẽ ghi lại một số dữ liệu n
   <string name="revanced_replace_music_with_youtube_summary_on">Liên kết chia sẻ bắt đầu bằng youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Liên kết chia sẻ bắt đầu bằng music.youtube.com</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Bộ lọc tùy chỉnh</string>
-  <string name="revanced_custom_filter_screen_summary">Ẩn các thành phần bằng bộ lọc tùy chỉnh</string>
-  <string name="revanced_custom_filter_title">Bật bộ lọc tùy chỉnh</string>
-  <string name="revanced_custom_filter_summary_on">Bộ lọc tùy chỉnh được bật</string>
-  <string name="revanced_custom_filter_summary_off">Bộ lọc tuỳ chỉnh đã tắt</string>
-  <string name="revanced_custom_filter_strings_title">Bộ lọc tùy chỉnh</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Danh sách các chuỗi dựng đường dẫn thành phần để lọc được ngăn cách bởi dòng mới</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Bộ lọc tuỳ chỉnh không hợp lệ: %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Giới thiệu</string>
@@ -218,6 +202,16 @@ Tuy nhiên, bật tính năng này cũng sẽ ghi lại một số dữ liệu n
   <string name="revanced_shorts_disable_background_playback_title">Tắt phát nền cho Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Phát nền cho Shorts đã tắt</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Phát nền cho Shorts được bật</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">Bộ đệm giao thức nhật ký</string>
+  <string name="revanced_debug_protobuffer_summary_on">Ghi nhật ký gỡ lỗi bao gồm thông tin bộ đệm nguyên mẫu</string>
+  <string name="revanced_debug_protobuffer_summary_off">Ghi nhật ký gỡ lỗi mà không có thông tin bộ đệm nguyên mẫu</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Bật cài đặt này sẽ ghi lại dữ liệu bố cục bổ sung, bao gồm cả văn bản trên màn hình cho một số thành phần giao diện người dùng.
+
+Điều này có thể giúp xác định các thành phần khi tạo bộ lọc tùy chỉnh.
+
+Tuy nhiên, bật tính năng này cũng sẽ ghi lại một số dữ liệu người dùng, chẳng hạn như địa chỉ IP của bạn."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Ẩn thẻ đĩa nhạc</string>
@@ -445,6 +439,15 @@ Nếu cài đặt này được bật và Doodle đang hiển thị tại khu v�
   <string name="revanced_hide_comments_thanks_button_title">Ẩn nút Cảm ơn</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Nút cảm ơn đã bị ẩn</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Nút cảm ơn được hiển thị</string>
+  <string name="revanced_custom_filter_screen_title">Bộ lọc tùy chỉnh</string>
+  <string name="revanced_custom_filter_screen_summary">Ẩn các thành phần bằng bộ lọc tùy chỉnh</string>
+  <string name="revanced_custom_filter_title">Bật bộ lọc tùy chỉnh</string>
+  <string name="revanced_custom_filter_summary_on">Bộ lọc tùy chỉnh được bật</string>
+  <string name="revanced_custom_filter_summary_off">Bộ lọc tuỳ chỉnh đã tắt</string>
+  <string name="revanced_custom_filter_strings_title">Bộ lọc tùy chỉnh</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Danh sách các chuỗi dựng đường dẫn thành phần để lọc được ngăn cách bởi dòng mới</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Bộ lọc tuỳ chỉnh không hợp lệ: %s</string>
   <string name="revanced_hide_view_count_title">Ẩn số lượt xem</string>
   <string name="revanced_hide_view_count_summary_on">Số lượt xem đã bị ẩn trên trang video và kết quả tìm kiếm</string>
   <string name="revanced_hide_view_count_summary_off">Số lượt xem được hiển thị trên trang video và kết quả tìm kiếm</string>

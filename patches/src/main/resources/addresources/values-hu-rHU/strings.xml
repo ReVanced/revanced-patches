@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Alkalmazás neve</string>
@@ -171,14 +172,6 @@ Nem fog értesülni semmilyen váratlan eseményről."</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Jelzők mentve</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Jelzők visszaállítva</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Jelzők vágólapra másolva</string>
-  <string name="revanced_debug_protobuffer_title">Napló protokoll puffer</string>
-  <string name="revanced_debug_protobuffer_summary_on">A hibakeresési naplók protopuffert tartalmaznak</string>
-  <string name="revanced_debug_protobuffer_summary_off">A hibakeresési naplók nem tartalmaznak protopuffert</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Ennek a beállításnak az engedélyezése további elrendezési adatokat fog naplózni, beleértve néhány felhasználói felületi komponens képernyőn megjelenő szövegét.
-
-Ez segíthet azonosítani az összetevőket egyedi szűrők létrehozásakor.
-
-Ez a funkció azonban néhány felhasználói adatot is naplóz, például az IP-címét."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Megosztási linkek tisztítása</string>
@@ -188,16 +181,7 @@ Ez a funkció azonban néhány felhasználói adatot is naplóz, például az IP
   <string name="revanced_replace_music_with_youtube_summary_on">A megosztott linkek a youtube.com-ot használják</string>
   <string name="revanced_replace_music_with_youtube_summary_off">A megosztott linkek a music.youtube.com-ot használják</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Egyedi szűrő</string>
-  <string name="revanced_custom_filter_screen_summary">Komponensek elrejtése egyedi szűrők használatával</string>
-  <string name="revanced_custom_filter_title">Egyedi szűrők engedélyezése</string>
-  <string name="revanced_custom_filter_summary_on">Az egyedi szűrő engedélyezve van</string>
-  <string name="revanced_custom_filter_summary_off">Az egyedi szűrő ki van kapcsolva</string>
-  <string name="revanced_custom_filter_strings_title">Egyedi szűrő</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">A szűrendő összetevő útvonal építő karakterláncok listája új sorral elválasztva</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Érvénytelen egyedi szűrő: %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Rólunk</string>
@@ -218,6 +202,16 @@ Ez a funkció azonban néhány felhasználói adatot is naplóz, például az IP
   <string name="revanced_shorts_disable_background_playback_title">A Shorts háttérben történő lejátszásának letiltása</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">A Shorts háttérben történő lejátszása le van tiltva</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">A Shorts háttérben történő lejátszása engedélyezve van</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">Napló protokoll puffer</string>
+  <string name="revanced_debug_protobuffer_summary_on">A hibakeresési naplók protopuffert tartalmaznak</string>
+  <string name="revanced_debug_protobuffer_summary_off">A hibakeresési naplók nem tartalmaznak protopuffert</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Ennek a beállításnak az engedélyezése további elrendezési adatokat fog naplózni, beleértve néhány felhasználói felületi komponens képernyőn megjelenő szövegét.
+
+Ez segíthet azonosítani az összetevőket egyedi szűrők létrehozásakor.
+
+Ez a funkció azonban néhány felhasználói adatot is naplóz, például az IP-címét."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Album kártyák elrejtése</string>
@@ -445,6 +439,15 @@ Ha a Doodle jelenleg a régiódában látható, és ez a rejtés beállítás be
   <string name="revanced_hide_comments_thanks_button_title">Köszönet gomb elrejtése</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">A köszönet gomb el van rejtve</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">A köszönet gomb látható</string>
+  <string name="revanced_custom_filter_screen_title">Egyedi szűrő</string>
+  <string name="revanced_custom_filter_screen_summary">Komponensek elrejtése egyedi szűrők használatával</string>
+  <string name="revanced_custom_filter_title">Egyedi szűrők engedélyezése</string>
+  <string name="revanced_custom_filter_summary_on">Az egyedi szűrő engedélyezve van</string>
+  <string name="revanced_custom_filter_summary_off">Az egyedi szűrő ki van kapcsolva</string>
+  <string name="revanced_custom_filter_strings_title">Egyedi szűrő</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">A szűrendő összetevő útvonal építő karakterláncok listája új sorral elválasztva</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Érvénytelen egyedi szűrő: %s</string>
   <string name="revanced_hide_view_count_title">Megtekintések számának elrejtése</string>
   <string name="revanced_hide_view_count_summary_on">A megtekintések száma elrejtve a hírfolyamban és a keresési eredményekben</string>
   <string name="revanced_hide_view_count_summary_off">A megtekintések száma látható a hírfolyamban és a keresési eredményekben</string>

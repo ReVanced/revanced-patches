@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Ime aplikacije</string>
@@ -171,14 +172,6 @@ Ne boste obveščeni o nobenih nepričakovanih dogodkih."</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Zastavice shranjene</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Zastavice ponastavljene</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Zastavice kopirane v odložišče</string>
-  <string name="revanced_debug_protobuffer_title">Dnevnik protokola pufra</string>
-  <string name="revanced_debug_protobuffer_summary_on">Dnevniki napak vključujejo protokol pufra</string>
-  <string name="revanced_debug_protobuffer_summary_off">Dnevniki napak ne vključujejo protokola pufra</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Če omogočite to nastavitev, se bodo beležili dodatni podatki o postavitvi, vključno z besedilom na zaslonu za nekatere komponente uporabniškega vmesnika.
-
-To lahko pomaga prepoznati komponente pri ustvarjanju filtrov po meri.
-
-Vendar pa bo omogočitev tega beležila tudi nekatere uporabniške podatke, kot je vaš naslov IP."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Sanitiziraj povezave za deljenje</string>
@@ -188,16 +181,7 @@ Vendar pa bo omogočitev tega beležila tudi nekatere uporabniške podatke, kot 
   <string name="revanced_replace_music_with_youtube_summary_on">Skupne povezave uporabljajo youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Skupne povezave uporabljajo music.youtube.com</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Prilagojeni filter</string>
-  <string name="revanced_custom_filter_screen_summary">Skrij komponente s prilagojenimi filtri</string>
-  <string name="revanced_custom_filter_title">Omogoči prilagojeni filter</string>
-  <string name="revanced_custom_filter_summary_on">Prilagojeni filter je omogočen</string>
-  <string name="revanced_custom_filter_summary_off">Prilagojeni filter je onemogočen</string>
-  <string name="revanced_custom_filter_strings_title">Prilagojeni filter</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Seznam nizov gradnikov poti komponent za filtriranje, ločenih z novimi vrsticami</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Neveljaven prilagojeni filter: %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">O nas</string>
@@ -218,6 +202,16 @@ Vendar pa bo omogočitev tega beležila tudi nekatere uporabniške podatke, kot 
   <string name="revanced_shorts_disable_background_playback_title">Onemogoči predvajanje Shorts v ozadju</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Predvajanje Shorts v ozadju je onemogočeno</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Predvajanje Shorts v ozadju je omogočeno</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">Dnevnik protokola pufra</string>
+  <string name="revanced_debug_protobuffer_summary_on">Dnevniki napak vključujejo protokol pufra</string>
+  <string name="revanced_debug_protobuffer_summary_off">Dnevniki napak ne vključujejo protokola pufra</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Če omogočite to nastavitev, se bodo beležili dodatni podatki o postavitvi, vključno z besedilom na zaslonu za nekatere komponente uporabniškega vmesnika.
+
+To lahko pomaga prepoznati komponente pri ustvarjanju filtrov po meri.
+
+Vendar pa bo omogočitev tega beležila tudi nekatere uporabniške podatke, kot je vaš naslov IP."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Skrij kartice albuma</string>
@@ -445,6 +439,15 @@ Vendar pa bo omogočitev tega beležila tudi nekatere uporabniške podatke, kot 
   <string name="revanced_hide_comments_thanks_button_title">Skrij gumb Hvala</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Gumb \"Hvala\" je skrit</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Gumb \"Hvala\" je prikazan</string>
+  <string name="revanced_custom_filter_screen_title">Prilagojeni filter</string>
+  <string name="revanced_custom_filter_screen_summary">Skrij komponente s prilagojenimi filtri</string>
+  <string name="revanced_custom_filter_title">Omogoči prilagojeni filter</string>
+  <string name="revanced_custom_filter_summary_on">Prilagojeni filter je omogočen</string>
+  <string name="revanced_custom_filter_summary_off">Prilagojeni filter je onemogočen</string>
+  <string name="revanced_custom_filter_strings_title">Prilagojeni filter</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Seznam nizov gradnikov poti komponent za filtriranje, ločenih z novimi vrsticami</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Neveljaven prilagojeni filter: %s</string>
   <string name="revanced_hide_view_count_title">Skrij število ogledov</string>
   <string name="revanced_hide_view_count_summary_on">Število ogledov je skrito v viru in rezultatih iskanja</string>
   <string name="revanced_hide_view_count_summary_off">Število ogledov je prikazano v viru in rezultatih iskanja</string>

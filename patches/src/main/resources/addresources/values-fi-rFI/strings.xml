@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Sovelluksen nimi</string>
@@ -171,14 +172,6 @@ Et saa ilmoituksia odottamattomista tapahtumista."</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Liput tallennettu</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Liput nollattu</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Liput kopioitu leikepöydälle</string>
-  <string name="revanced_debug_protobuffer_title">Kirjaa protokollapuskuri</string>
-  <string name="revanced_debug_protobuffer_summary_on">Virheenkorjauslokit sisältävät proto-puskurin</string>
-  <string name="revanced_debug_protobuffer_summary_off">Virheenkorjauslokit eivät sisällä proto-puskuria</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Tämän asetuksen käyttöönotto kirjaa lisätietoja asettelusta, mm. joidenkin käyttöliittymän osien näyttötekstiä.
-
-Tämä voi auttaa komponenttien tunnistamisessa, kun luot mukautettuja suodattimia.
-
-Tämän käyttöönotto kirjaa myös joitakin käyttäjätietoja, kuten IP-osoitteesi."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Puhdista jakamislinkit</string>
@@ -188,16 +181,7 @@ Tämän käyttöönotto kirjaa myös joitakin käyttäjätietoja, kuten IP-osoit
   <string name="revanced_replace_music_with_youtube_summary_on">Jaetut linkit käyttävät youtube.com-sivustoa</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Jaetut linkit käyttävät music.youtube.com-sivustoa</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Mukautettu suodatin</string>
-  <string name="revanced_custom_filter_screen_summary">Piilota osia mukautetuilla suodattimilla</string>
-  <string name="revanced_custom_filter_title">Ota mukautettu suodatin käyttöön</string>
-  <string name="revanced_custom_filter_summary_on">Mukautettu suodatin on käytössä</string>
-  <string name="revanced_custom_filter_summary_off">Mukautettu suodatin ei ole käytössä</string>
-  <string name="revanced_custom_filter_strings_title">Mukautettu suodatin</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Luettelo komponentin polun rakentajan merkkijonoista suodatettavaksi uudella rivillä erotettuna</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Virheellinen mukautettu suodatin: %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Tietoja</string>
@@ -218,6 +202,16 @@ Tämän käyttöönotto kirjaa myös joitakin käyttäjätietoja, kuten IP-osoit
   <string name="revanced_shorts_disable_background_playback_title">Poista Shortsien taustatoisto käytöstä</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Shortsien taustatoisto ei ole käytössä</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shortsien taustatoisto on käytössä</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">Kirjaa protokollapuskuri</string>
+  <string name="revanced_debug_protobuffer_summary_on">Virheenkorjauslokit sisältävät proto-puskurin</string>
+  <string name="revanced_debug_protobuffer_summary_off">Virheenkorjauslokit eivät sisällä proto-puskuria</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Tämän asetuksen käyttöönotto kirjaa lisätietoja asettelusta, mm. joidenkin käyttöliittymän osien näyttötekstiä.
+
+Tämä voi auttaa komponenttien tunnistamisessa, kun luot mukautettuja suodattimia.
+
+Tämän käyttöönotto kirjaa myös joitakin käyttäjätietoja, kuten IP-osoitteesi."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Piilota albumikortit</string>
@@ -445,6 +439,15 @@ Jos Doodle näkyy tällä hetkellä alueellasi ja tämä piilotusasetus on käyt
   <string name="revanced_hide_comments_thanks_button_title">Piilota Kiitos-painike</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Kiitos-painike piilotetaan</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Kiitos-painike näytetään</string>
+  <string name="revanced_custom_filter_screen_title">Mukautettu suodatin</string>
+  <string name="revanced_custom_filter_screen_summary">Piilota osia mukautetuilla suodattimilla</string>
+  <string name="revanced_custom_filter_title">Ota mukautettu suodatin käyttöön</string>
+  <string name="revanced_custom_filter_summary_on">Mukautettu suodatin on käytössä</string>
+  <string name="revanced_custom_filter_summary_off">Mukautettu suodatin ei ole käytössä</string>
+  <string name="revanced_custom_filter_strings_title">Mukautettu suodatin</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Luettelo komponentin polun rakentajan merkkijonoista suodatettavaksi uudella rivillä erotettuna</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Virheellinen mukautettu suodatin: %s</string>
   <string name="revanced_hide_view_count_title">Piilota katselukerrat</string>
   <string name="revanced_hide_view_count_summary_on">Katselukerrat piilotetaan syötteessä ja hakutuloksissa</string>
   <string name="revanced_hide_view_count_summary_off">Katselukerrat näytetään syötteessä ja hakutuloksissa</string>

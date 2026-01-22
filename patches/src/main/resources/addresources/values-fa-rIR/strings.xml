@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">نام برنامه</string>
@@ -99,6 +100,8 @@ Second \"item\" text"</string>
   <string name="revanced_settings_screen_12_video_title">ويدئو</string>
   </patch>
   <patch id="misc.backgroundplayback.backgroundPlaybackPatch">
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <!-- 'Notify me' should be translated using the same localized wording YouTube displays.

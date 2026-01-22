@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Lietotnes nosaukums</string>
@@ -171,14 +172,6 @@ Jūs netiksit informēts par neparedzētiem notikumiem."</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Karodziņi saglabāti</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Karodziņi atiestatīti</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Karodziņi kopēti starpliktuvē</string>
-  <string name="revanced_debug_protobuffer_title">Reģistrēt protokola buferi</string>
-  <string name="revanced_debug_protobuffer_summary_on">Atkļūdošanas žurnāli ietver protokola buferi</string>
-  <string name="revanced_debug_protobuffer_summary_off">Atkļūdošanas žurnāli neietver protokola buferi</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Iespējojot šo iestatījumu, tiks reģistrēti papildu izkārtojuma dati, tostarp teksta attēlojums ekrānā dažiem lietotāja interfeisa komponentiem.
-
-Tas var palīdzēt identificēt komponentus, veidojot pielāgotus filtrus.
-
-Tomēr, iespējojot šo iestatījumu, tiks reģistrēti arī daži lietotāja dati, piemēram, jūsu IP adrese."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Tīrīt koplietošanas saites</string>
@@ -188,16 +181,7 @@ Tomēr, iespējojot šo iestatījumu, tiks reģistrēti arī daži lietotāja da
   <string name="revanced_replace_music_with_youtube_summary_on">Kopīgotās saites izmanto youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Kopīgotās saites izmanto music.youtube.com</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Pielāgotais filtrs</string>
-  <string name="revanced_custom_filter_screen_summary">Paslēpt komponentus, izmantojot pielāgotos filtrus</string>
-  <string name="revanced_custom_filter_title">Aktivizēt pielāgoto filtru</string>
-  <string name="revanced_custom_filter_summary_on">Pielāgotais filtrs ir aktivizēts</string>
-  <string name="revanced_custom_filter_summary_off">Pielāgotais filtrs ir deaktivizēts</string>
-  <string name="revanced_custom_filter_strings_title">Pielāgotais filtrs</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Komponentu ceļa konstruktoru virkņu saraksts, ko filtrēt, atdalot ar jaunu rindu</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Nederīgs pielāgotais filtrs: %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Par</string>
@@ -218,6 +202,16 @@ Tomēr, iespējojot šo iestatījumu, tiks reģistrēti arī daži lietotāja da
   <string name="revanced_shorts_disable_background_playback_title">Atspējot Shorts fonu atskaņošanu</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Shorts fonu atskaņošana ir atspējota</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts fonu atskaņošana ir iespējota</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">Reģistrēt protokola buferi</string>
+  <string name="revanced_debug_protobuffer_summary_on">Atkļūdošanas žurnāli ietver protokola buferi</string>
+  <string name="revanced_debug_protobuffer_summary_off">Atkļūdošanas žurnāli neietver protokola buferi</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Iespējojot šo iestatījumu, tiks reģistrēti papildu izkārtojuma dati, tostarp teksta attēlojums ekrānā dažiem lietotāja interfeisa komponentiem.
+
+Tas var palīdzēt identificēt komponentus, veidojot pielāgotus filtrus.
+
+Tomēr, iespējojot šo iestatījumu, tiks reģistrēti arī daži lietotāja dati, piemēram, jūsu IP adrese."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Paslēpt albumu kartītes</string>
@@ -445,6 +439,15 @@ Ja Doodle pašlaik tiek rādīts jūsu reģionā un šis slēpšanas iestatījum
   <string name="revanced_hide_comments_thanks_button_title">Paslēpt pateicības pogu</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Paldies poga ir paslēpta</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Paldies poga ir redzama</string>
+  <string name="revanced_custom_filter_screen_title">Pielāgotais filtrs</string>
+  <string name="revanced_custom_filter_screen_summary">Paslēpt komponentus, izmantojot pielāgotos filtrus</string>
+  <string name="revanced_custom_filter_title">Aktivizēt pielāgoto filtru</string>
+  <string name="revanced_custom_filter_summary_on">Pielāgotais filtrs ir aktivizēts</string>
+  <string name="revanced_custom_filter_summary_off">Pielāgotais filtrs ir deaktivizēts</string>
+  <string name="revanced_custom_filter_strings_title">Pielāgotais filtrs</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Komponentu ceļa konstruktoru virkņu saraksts, ko filtrēt, atdalot ar jaunu rindu</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Nederīgs pielāgotais filtrs: %s</string>
   <string name="revanced_hide_view_count_title">Paslēpt skatījumu skaitu</string>
   <string name="revanced_hide_view_count_summary_on">Skatījumu skaits ir paslēpts plūsmā un meklēšanas rezultātos</string>
   <string name="revanced_hide_view_count_summary_off">Skatījumu skaits ir redzams plūsmā un meklēšanas rezultātos</string>

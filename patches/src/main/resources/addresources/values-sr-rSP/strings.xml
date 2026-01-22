@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Назив апликације</string>
@@ -171,14 +172,6 @@ Second \"item\" text"</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Ознаке су сачуване</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Ознаке су ресетоване</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Ознаке су копиране у привремену меморију</string>
-  <string name="revanced_debug_protobuffer_title">Евидентирање бафера протокола</string>
-  <string name="revanced_debug_protobuffer_summary_on">Евиденције отклањања грешака садрже бафер протокола</string>
-  <string name="revanced_debug_protobuffer_summary_off">Евиденције отклањања грешака не садрже бафер протокола</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Омогућавањем ове опције ће се евидентирати додатни подаци о изгледу, укључујући текст на екрану за неке компоненте корисничког интерфејса.
-
-Ово може помоћи у идентификацији компоненти приликом прављења прилагођених филтера.
-
-Међутим, омогућавање овога ће такође евидентирати неке корисничке податке, као што је ваша IP адреса."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Очисти дељене линкове</string>
@@ -188,16 +181,7 @@ Second \"item\" text"</string>
   <string name="revanced_replace_music_with_youtube_summary_on">Дељени линкови користе youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Дељени линкови користе music.youtube.com</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Прилагођени филтер</string>
-  <string name="revanced_custom_filter_screen_summary">Сакријте компоненте користећи прилагођене филтере</string>
-  <string name="revanced_custom_filter_title">Омогући прилагођени филтер</string>
-  <string name="revanced_custom_filter_summary_on">Прилагођени филтер је омогућен</string>
-  <string name="revanced_custom_filter_summary_off">Прилагођени филтер је онемогућен</string>
-  <string name="revanced_custom_filter_strings_title">Прилагођени филтер</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Листа стрингова за прављење путање компоненти за филтрирање, одвојена новим редом</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Неважећи прилагођени филтер: %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">О програму</string>
@@ -218,6 +202,16 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_disable_background_playback_title">Онемогући пуштање Shorts видеа у позадини</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Пуштање Shorts видеа у позадини је онемогућено</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Пуштање Shorts видеа у позадини је омогућено</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">Евидентирање бафера протокола</string>
+  <string name="revanced_debug_protobuffer_summary_on">Евиденције отклањања грешака садрже бафер протокола</string>
+  <string name="revanced_debug_protobuffer_summary_off">Евиденције отклањања грешака не садрже бафер протокола</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Омогућавањем ове опције ће се евидентирати додатни подаци о изгледу, укључујући текст на екрану за неке компоненте корисничког интерфејса.
+
+Ово може помоћи у идентификацији компоненти приликом прављења прилагођених филтера.
+
+Међутим, омогућавање овога ће такође евидентирати неке корисничке податке, као што је ваша IP адреса."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Сакриј картице албума</string>
@@ -445,6 +439,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_thanks_button_title">Сакриј дугме „Хвала”</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Дугме „Хвала” је скривено</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Дугме „Хвала” је приказано</string>
+  <string name="revanced_custom_filter_screen_title">Прилагођени филтер</string>
+  <string name="revanced_custom_filter_screen_summary">Сакријте компоненте користећи прилагођене филтере</string>
+  <string name="revanced_custom_filter_title">Омогући прилагођени филтер</string>
+  <string name="revanced_custom_filter_summary_on">Прилагођени филтер је омогућен</string>
+  <string name="revanced_custom_filter_summary_off">Прилагођени филтер је онемогућен</string>
+  <string name="revanced_custom_filter_strings_title">Прилагођени филтер</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Листа стрингова за прављење путање компоненти за филтрирање, одвојена новим редом</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Неважећи прилагођени филтер: %s</string>
   <string name="revanced_hide_view_count_title">Сакриј број прегледа</string>
   <string name="revanced_hide_view_count_summary_on">Број прегледа је скривен у фиду и резултатима претраге</string>
   <string name="revanced_hide_view_count_summary_off">Број прегледа је приказан у фиду и резултатима претраге</string>

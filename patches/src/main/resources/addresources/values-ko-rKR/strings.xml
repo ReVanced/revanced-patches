@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">앱 이름</string>
@@ -171,14 +172,6 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_debug_feature_flags_manager_toast_saved">플래그를 저장하였습니다</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">플래그를 초기화하였습니다</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">플래그를 클립보드에 복사하였습니다</string>
-  <string name="revanced_debug_protobuffer_title">로그 프로토콜 버퍼</string>
-  <string name="revanced_debug_protobuffer_summary_on">디버그 로그에 프로토콜 버퍼를 포함합니다</string>
-  <string name="revanced_debug_protobuffer_summary_off">디버그 로그에 프로토콜 버퍼를 포함하지 않습니다</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"이 설정을 활성화하면 일부 UI 구성 요소에 대한 화면 텍스트를 포함한 추가 레이아웃 데이터가 기록됩니다.
-
-이 설정은 사용자 정의 필터를 만들 경우에 구성 요소를 식별하는 데 도움이 될 수 있습니다.
-
-그러나 이 설정을 활성화하면 IP 주소와 같은 일부 사용자 데이터도 기록됩니다."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">추적 쿼리를 제거한 링크 공유하기</string>
@@ -188,16 +181,7 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_replace_music_with_youtube_summary_on">공유 링크를 youtube.com으로 사용합니다</string>
   <string name="revanced_replace_music_with_youtube_summary_off">공유 링크를 music.youtube.com으로 사용합니다</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">사용자 정의 필터</string>
-  <string name="revanced_custom_filter_screen_summary">사용자 정의 필터를 사용하여 구성요소를 숨길 수 있습니다</string>
-  <string name="revanced_custom_filter_title">사용자 정의 필터 활성화하기</string>
-  <string name="revanced_custom_filter_summary_on">사용자 정의 필터를 활성화합니다</string>
-  <string name="revanced_custom_filter_summary_off">사용자 정의 필터를 비활성화합니다</string>
-  <string name="revanced_custom_filter_strings_title">사용자 정의 필터</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">필터링할 컴포넌트 패스 빌더 문자열을 줄바꿈으로 구분하여 설정합니다</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">잘못된 사용자 정의 필터 값입니다: %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">정보</string>
@@ -218,6 +202,16 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_shorts_disable_background_playback_title">Shorts 백그라운드 재생 비활성화하기</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Shorts 백그라운드 재생을 비활성화합니다</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts 백그라운드 재생을 활성화합니다\n\n알림: Shorts 백그라운드 재생은 PIP 모드를 통해서만 사용할 수 있습니다</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">로그 프로토콜 버퍼</string>
+  <string name="revanced_debug_protobuffer_summary_on">디버그 로그에 프로토콜 버퍼를 포함합니다</string>
+  <string name="revanced_debug_protobuffer_summary_off">디버그 로그에 프로토콜 버퍼를 포함하지 않습니다</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"이 설정을 활성화하면 일부 UI 구성 요소에 대한 화면 텍스트를 포함한 추가 레이아웃 데이터가 기록됩니다.
+
+이 설정은 사용자 정의 필터를 만들 경우에 구성 요소를 식별하는 데 도움이 될 수 있습니다.
+
+그러나 이 설정을 활성화하면 IP 주소와 같은 일부 사용자 데이터도 기록됩니다."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">음악 앨범 카드 숨기기</string>
@@ -448,6 +442,15 @@ YouTube Premium 사용자라면 이 설정은 필요하지 않을 수 있습니�
   <string name="revanced_hide_comments_thanks_button_title">Thanks 버튼 숨기기</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Thanks 버튼이 숨겨집니다</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Thanks 버튼이 표시됩니다</string>
+  <string name="revanced_custom_filter_screen_title">사용자 정의 필터</string>
+  <string name="revanced_custom_filter_screen_summary">사용자 정의 필터를 사용하여 구성요소를 숨길 수 있습니다</string>
+  <string name="revanced_custom_filter_title">사용자 정의 필터 활성화하기</string>
+  <string name="revanced_custom_filter_summary_on">사용자 정의 필터를 활성화합니다</string>
+  <string name="revanced_custom_filter_summary_off">사용자 정의 필터를 비활성화합니다</string>
+  <string name="revanced_custom_filter_strings_title">사용자 정의 필터</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">필터링할 컴포넌트 패스 빌더 문자열을 줄바꿈으로 구분하여 설정합니다</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">잘못된 사용자 정의 필터 값입니다: %s</string>
   <string name="revanced_hide_view_count_title">조회수 숨기기</string>
   <string name="revanced_hide_view_count_summary_on">피드 및 검색 결과에서 조회수가 숨겨집니다</string>
   <string name="revanced_hide_view_count_summary_off">피드 및 검색 결과에서 조회수가 표시됩니다</string>

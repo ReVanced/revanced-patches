@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Uygulama adı</string>
@@ -171,14 +172,6 @@ Beklenmedik olaylar hakkında bilgilendirilmeyeceksiniz."</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">İşaretçiler kaydedildi</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">İşaretçiler sıfırlandı</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">İşaretçiler panoya kopyalandı</string>
-  <string name="revanced_debug_protobuffer_title">Protocol buffer\'ın kaydını tut</string>
-  <string name="revanced_debug_protobuffer_summary_on">Hata ayıklama kayıtları proto buffer\'ı içerir</string>
-  <string name="revanced_debug_protobuffer_summary_off">Hata ayıklama kayıtları proto buffer\'ı içermez</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Bu ayarın etkinleştirilmesi, bazı kullanıcı arayüzü bileşenleri için ek düzen verilerini, ekran üzerindeki metin dahil olmak üzere günlüğe kaydeder.
-
-Bu, özel filtreler oluştururken bileşenlerin belirlenmesine yardımcı olabilir.
-
-Ancak, bunun etkinleştirilmesi IP adresiniz gibi bazı kullanıcı verilerini de günlüğe kaydeder."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Paylaşım bağlantılarını temizle</string>
@@ -188,16 +181,7 @@ Ancak, bunun etkinleştirilmesi IP adresiniz gibi bazı kullanıcı verilerini d
   <string name="revanced_replace_music_with_youtube_summary_on">Paylaşılan bağlantılar youtube.com kullanır</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Paylaşılan bağlantılar music.youtube.com kullanır</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Özel filtre</string>
-  <string name="revanced_custom_filter_screen_summary">Özel filtreler kullanarak bileşenleri gizle</string>
-  <string name="revanced_custom_filter_title">Özel filtreyi etkinleştir</string>
-  <string name="revanced_custom_filter_summary_on">Özel filtre etkin</string>
-  <string name="revanced_custom_filter_summary_off">Özel filtre devre dışı</string>
-  <string name="revanced_custom_filter_strings_title">Özel filtre</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Filtrelenecek bileşen yolu oluşturucu dizelerinin yeni satırla ayrılmış şekilde listesi</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Geçersiz özel filtre: %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Hakkında</string>
@@ -218,6 +202,16 @@ Ancak, bunun etkinleştirilmesi IP adresiniz gibi bazı kullanıcı verilerini d
   <string name="revanced_shorts_disable_background_playback_title">Shorts\'un arka planda oynatılmasını devre dışı bırak</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Shorts\'un arka planda oynatılması devre dışı</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Shorts\'un arka planda oynatılması etkin</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">Protocol buffer\'ın kaydını tut</string>
+  <string name="revanced_debug_protobuffer_summary_on">Hata ayıklama kayıtları proto buffer\'ı içerir</string>
+  <string name="revanced_debug_protobuffer_summary_off">Hata ayıklama kayıtları proto buffer\'ı içermez</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Bu ayarın etkinleştirilmesi, bazı kullanıcı arayüzü bileşenleri için ek düzen verilerini, ekran üzerindeki metin dahil olmak üzere günlüğe kaydeder.
+
+Bu, özel filtreler oluştururken bileşenlerin belirlenmesine yardımcı olabilir.
+
+Ancak, bunun etkinleştirilmesi IP adresiniz gibi bazı kullanıcı verilerini de günlüğe kaydeder."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Albüm kartlarını gizle</string>
@@ -445,6 +439,15 @@ Bir Doodle şu anda bölgenizde gösteriliyorsa ve bu gizleme ayarı açıksa, a
   <string name="revanced_hide_comments_thanks_button_title">Teşekkürler düğmesini gizle</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Teşekkürler düğmesi gizli</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Teşekkürler düğmesi görünür</string>
+  <string name="revanced_custom_filter_screen_title">Özel filtre</string>
+  <string name="revanced_custom_filter_screen_summary">Özel filtreler kullanarak bileşenleri gizle</string>
+  <string name="revanced_custom_filter_title">Özel filtreyi etkinleştir</string>
+  <string name="revanced_custom_filter_summary_on">Özel filtre etkin</string>
+  <string name="revanced_custom_filter_summary_off">Özel filtre devre dışı</string>
+  <string name="revanced_custom_filter_strings_title">Özel filtre</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Filtrelenecek bileşen yolu oluşturucu dizelerinin yeni satırla ayrılmış şekilde listesi</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Geçersiz özel filtre: %s</string>
   <string name="revanced_hide_view_count_title">İzlenme sayısını gizle</string>
   <string name="revanced_hide_view_count_summary_on">İzlenme sayısı akışta ve arama sonuçlarında gizli</string>
   <string name="revanced_hide_view_count_summary_off">İzlenme sayısı akışta ve arama sonuçlarında görünür</string>

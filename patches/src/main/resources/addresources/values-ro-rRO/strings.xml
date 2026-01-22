@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Numele aplicației</string>
@@ -171,14 +172,6 @@ Nu veți fi notificat de niciun eveniment neașteptat."</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Steaguri salvate</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Steaguri resetate</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Steaguri copiate în clipboard</string>
-  <string name="revanced_debug_protobuffer_title">Jurnal protocol buffer</string>
-  <string name="revanced_debug_protobuffer_summary_on">Jurnalele de depanare includ bufferul de protocol</string>
-  <string name="revanced_debug_protobuffer_summary_off">Jurnalele de depanare nu includ memoria tampon</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Activarea acestei setări va înregistra date suplimentare despre aspect, inclusiv textul de pe ecran pentru unele componente UI.
-
-Acest lucru poate ajuta la identificarea componentelor atunci când creați filtre personalizate.
-
-Cu toate acestea, activarea acestei opțiuni va înregistra și unele date ale utilizatorului, cum ar fi adresa dvs. IP."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Igienizează linkurile de partajare</string>
@@ -188,16 +181,7 @@ Cu toate acestea, activarea acestei opțiuni va înregistra și unele date ale u
   <string name="revanced_replace_music_with_youtube_summary_on">Linkurile partajate utilizează youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Linkurile partajate utilizează music.youtube.com</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Filtru personalizat</string>
-  <string name="revanced_custom_filter_screen_summary">Ascunde componentele folosind filtre personalizate</string>
-  <string name="revanced_custom_filter_title">Activează filtru personalizat</string>
-  <string name="revanced_custom_filter_summary_on">Filtrul personalizat este activat</string>
-  <string name="revanced_custom_filter_summary_off">Filtrul personalizat este dezactivat</string>
-  <string name="revanced_custom_filter_strings_title">Filtru personalizat</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Lista șirurilor constructorului traiectoriei componentei pentru filtrarea separată de o linie nouă</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Filtru personalizat nevalid: %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Despre</string>
@@ -218,6 +202,16 @@ Cu toate acestea, activarea acestei opțiuni va înregistra și unele date ale u
   <string name="revanced_shorts_disable_background_playback_title">Dezactivează redarea în fundal a Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Redarea în fundal a Shorts este dezactivată</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Redarea Shorts în fundal este activată</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">Jurnal protocol buffer</string>
+  <string name="revanced_debug_protobuffer_summary_on">Jurnalele de depanare includ bufferul de protocol</string>
+  <string name="revanced_debug_protobuffer_summary_off">Jurnalele de depanare nu includ memoria tampon</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Activarea acestei setări va înregistra date suplimentare despre aspect, inclusiv textul de pe ecran pentru unele componente UI.
+
+Acest lucru poate ajuta la identificarea componentelor atunci când creați filtre personalizate.
+
+Cu toate acestea, activarea acestei opțiuni va înregistra și unele date ale utilizatorului, cum ar fi adresa dvs. IP."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Ascundeți cardurile de album</string>
@@ -445,6 +439,15 @@ Dacă un Doodle este afișat în prezent în regiunea dvs. și această setare d
   <string name="revanced_hide_comments_thanks_button_title">Ascunde butonul „Mulțumesc”</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Butonul de multumire este ascuns</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Butonul de multumire este afisat</string>
+  <string name="revanced_custom_filter_screen_title">Filtru personalizat</string>
+  <string name="revanced_custom_filter_screen_summary">Ascunde componentele folosind filtre personalizate</string>
+  <string name="revanced_custom_filter_title">Activează filtru personalizat</string>
+  <string name="revanced_custom_filter_summary_on">Filtrul personalizat este activat</string>
+  <string name="revanced_custom_filter_summary_off">Filtrul personalizat este dezactivat</string>
+  <string name="revanced_custom_filter_strings_title">Filtru personalizat</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Lista șirurilor constructorului traiectoriei componentei pentru filtrarea separată de o linie nouă</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Filtru personalizat nevalid: %s</string>
   <string name="revanced_hide_view_count_title">Ascunde numărul de vizualizări</string>
   <string name="revanced_hide_view_count_summary_on">Numărul de vizualizări este ascuns în feed și în rezultatele căutării</string>
   <string name="revanced_hide_view_count_summary_off">Numărul de vizualizări este afișat în feed și în rezultatele căutării</string>

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Nom de l\'application</string>
@@ -171,14 +172,6 @@ Vous ne serez pas informé des événements inattendus."</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Flags enregistrés</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Flags réinitialisés</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Flags copiés dans le presse-papiers</string>
-  <string name="revanced_debug_protobuffer_title">Journaliser les protobufs</string>
-  <string name="revanced_debug_protobuffer_summary_on">Les journaux de débogage incluent les protocol buffers</string>
-  <string name="revanced_debug_protobuffer_summary_off">Les journaux de débogage n\'incluent pas les protocol buffers</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"En activant cette option, des données supplémentaires relatives à la mise en page seront enregistrées, dont le texte à l'écran de certains composants de l'interface utilisateur.
-
-Cela peut aider à identifier les composants lors de la création de filtres personnalisés.
-
-Toutefois, l'activation de cette option entraînera également l'enregistrement de certaines données utilisateur, telles que votre adresse IP."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Nettoyer les liens de partage</string>
@@ -188,16 +181,7 @@ Toutefois, l'activation de cette option entraînera également l'enregistrement 
   <string name="revanced_replace_music_with_youtube_summary_on">Les liens partagés utilisent youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Les liens partagés utilisent music.youtube.com</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Filtre personnalisé</string>
-  <string name="revanced_custom_filter_screen_summary">Masquez des composants en utilisant des filtres personnalisés</string>
-  <string name="revanced_custom_filter_title">Activer les filtres personnalisés</string>
-  <string name="revanced_custom_filter_summary_on">Les filtres personnalisés sont activés</string>
-  <string name="revanced_custom_filter_summary_off">Les filtres personnalisés sont désactivés</string>
-  <string name="revanced_custom_filter_strings_title">Filtre personnalisé</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Liste des chemins des composants à filtrer, séparés par un retour à la ligne</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Filtre personnalisé invalide : %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">À propos</string>
@@ -218,6 +202,16 @@ Toutefois, l'activation de cette option entraînera également l'enregistrement 
   <string name="revanced_shorts_disable_background_playback_title">Désactiver la lecture en arrière-plan des Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">La lecture en arrière-plan des Shorts est désactivée</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">La lecture en arrière-plan des Shorts est activée</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">Journaliser les protobufs</string>
+  <string name="revanced_debug_protobuffer_summary_on">Les journaux de débogage incluent les protocol buffers</string>
+  <string name="revanced_debug_protobuffer_summary_off">Les journaux de débogage n\'incluent pas les protocol buffers</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"En activant cette option, des données supplémentaires relatives à la mise en page seront enregistrées, dont le texte à l'écran de certains composants de l'interface utilisateur.
+
+Cela peut aider à identifier les composants lors de la création de filtres personnalisés.
+
+Toutefois, l'activation de cette option entraînera également l'enregistrement de certaines données utilisateur, telles que votre adresse IP."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Masquer les fiches d\'album</string>
@@ -445,6 +439,15 @@ Si un Doodle est actuellement affiché dans votre région et que cette option de
   <string name="revanced_hide_comments_thanks_button_title">Masquer le bouton Merci</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Le bouton Merci est masqué</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Le bouton Merci est affiché</string>
+  <string name="revanced_custom_filter_screen_title">Filtre personnalisé</string>
+  <string name="revanced_custom_filter_screen_summary">Masquez des composants en utilisant des filtres personnalisés</string>
+  <string name="revanced_custom_filter_title">Activer les filtres personnalisés</string>
+  <string name="revanced_custom_filter_summary_on">Les filtres personnalisés sont activés</string>
+  <string name="revanced_custom_filter_summary_off">Les filtres personnalisés sont désactivés</string>
+  <string name="revanced_custom_filter_strings_title">Filtre personnalisé</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Liste des chemins des composants à filtrer, séparés par un retour à la ligne</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Filtre personnalisé invalide : %s</string>
   <string name="revanced_hide_view_count_title">Masquer le nombre de vues</string>
   <string name="revanced_hide_view_count_summary_on">Le nombre de vues est masqué dans le fil d\'actualité et les résultats de recherche</string>
   <string name="revanced_hide_view_count_summary_off">Le nombre de vues est affiché dans le fil d\'actualité et les résultats de recherche</string>

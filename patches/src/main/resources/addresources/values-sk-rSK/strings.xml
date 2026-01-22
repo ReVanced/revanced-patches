@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Názov aplikácie</string>
@@ -169,14 +170,6 @@ Nebudete informovaní o žiadnych nepredvídaných udalostiach."</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Príznaky uložené</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Príznaky resetované</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Príznaky skopírované do schránky</string>
-  <string name="revanced_debug_protobuffer_title">Vyrovnávacia pamäť protokolu</string>
-  <string name="revanced_debug_protobuffer_summary_on">Protokoly ladenia obsahujú proto buffer</string>
-  <string name="revanced_debug_protobuffer_summary_off">Protokoly ladenia neobsahujú proto buffer</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Povolením tohto nastavenia sa budú zaznamenávať ďalšie údaje o rozložení, vrátane textu na obrazovke pre niektoré komponenty používateľského rozhrania.
-
-Toto môže pomôcť identifikovať komponenty pri vytváraní vlastných filtrov.
-
-Povolením tejto funkcie sa však budú zaznamenávať aj niektoré používateľské údaje, ako napríklad vaša IP adresa."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Vyčistiť odkazy na zdieľanie</string>
@@ -186,16 +179,7 @@ Povolením tejto funkcie sa však budú zaznamenávať aj niektoré používate�
   <string name="revanced_replace_music_with_youtube_summary_on">Zdieľané odkazy používajú youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Zdieľané odkazy používajú music.youtube.com</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Vlastný filter</string>
-  <string name="revanced_custom_filter_screen_summary">Skryť komponenty pomocou vlastných filtrov</string>
-  <string name="revanced_custom_filter_title">Povoliť vlastný filter</string>
-  <string name="revanced_custom_filter_summary_on">Vlastný filter je povolený</string>
-  <string name="revanced_custom_filter_summary_off">Vlastný filter je zakázaný</string>
-  <string name="revanced_custom_filter_strings_title">Vlastný filter</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Zoznam reťazcov tvorcu cesty komponentu na filtrovanie oddelených novým riadkom</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Neplatný vlastný filter: %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Informácie</string>
@@ -216,6 +200,16 @@ Povolením tejto funkcie sa však budú zaznamenávať aj niektoré používate�
   <string name="revanced_shorts_disable_background_playback_title">Zakázať prehrávanie Shorts na pozadí</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Prehrávanie Shorts na pozadí je zakázané</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Prehrávanie Shorts na pozadí je povolené</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">Vyrovnávacia pamäť protokolu</string>
+  <string name="revanced_debug_protobuffer_summary_on">Protokoly ladenia obsahujú proto buffer</string>
+  <string name="revanced_debug_protobuffer_summary_off">Protokoly ladenia neobsahujú proto buffer</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Povolením tohto nastavenia sa budú zaznamenávať ďalšie údaje o rozložení, vrátane textu na obrazovke pre niektoré komponenty používateľského rozhrania.
+
+Toto môže pomôcť identifikovať komponenty pri vytváraní vlastných filtrov.
+
+Povolením tejto funkcie sa však budú zaznamenávať aj niektoré používateľské údaje, ako napríklad vaša IP adresa."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Skryť karty albumov</string>
@@ -443,6 +437,15 @@ Ak sa Doodle v súčasnosti zobrazuje vo vašom regióne a toto nastavenie skryt
   <string name="revanced_hide_comments_thanks_button_title">Skryť tlačidlo Ďakujem</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tlačidlo poďakovania je skryté</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Zobrazí sa tlačidlo Ďakujem</string>
+  <string name="revanced_custom_filter_screen_title">Vlastný filter</string>
+  <string name="revanced_custom_filter_screen_summary">Skryť komponenty pomocou vlastných filtrov</string>
+  <string name="revanced_custom_filter_title">Povoliť vlastný filter</string>
+  <string name="revanced_custom_filter_summary_on">Vlastný filter je povolený</string>
+  <string name="revanced_custom_filter_summary_off">Vlastný filter je zakázaný</string>
+  <string name="revanced_custom_filter_strings_title">Vlastný filter</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Zoznam reťazcov tvorcu cesty komponentu na filtrovanie oddelených novým riadkom</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Neplatný vlastný filter: %s</string>
   <string name="revanced_hide_view_count_title">Skryť počet zhliadnutí</string>
   <string name="revanced_hide_view_count_summary_on">Počet zhliadnutí je skrytý vo feede a výsledkoch vyhľadávania</string>
   <string name="revanced_hide_view_count_summary_off">Počet zhliadnutí je zobrazený vo feede a výsledkoch vyhľadávania</string>

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Appnavn</string>
@@ -171,14 +172,6 @@ Du modtager ikke notifikationer om uventede hændelser."</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Flag gemt</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Flag nulstillet</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Flag kopieret til udklipsholder</string>
-  <string name="revanced_debug_protobuffer_title">Logprotokolbuffer</string>
-  <string name="revanced_debug_protobuffer_summary_on">Fejlfindingslogge inkluderer protobuffer</string>
-  <string name="revanced_debug_protobuffer_summary_off">Fejlfindingslogge inkluderer ikke protobuffer</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Aktivering af denne indstilling logger yderligere layoutdata, inklusive tekst på skærmen for nogle UI-komponenter.
-
-Dette kan hjælpe med at identificere komponenter, når der oprettes brugerdefinerede filtre.
-
-Aktivering af dette vil dog også logge nogle brugerdata, såsom din IP-adresse."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Rens delingslinks</string>
@@ -188,16 +181,7 @@ Aktivering af dette vil dog også logge nogle brugerdata, såsom din IP-adresse.
   <string name="revanced_replace_music_with_youtube_summary_on">Delte links bruger youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Delte links bruger music.youtube.com</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Tilpasset filter</string>
-  <string name="revanced_custom_filter_screen_summary">Skjul komponenter ved hjælp af brugerdefinerede filtre</string>
-  <string name="revanced_custom_filter_title">Aktiver brugerdefineret filter</string>
-  <string name="revanced_custom_filter_summary_on">Brugerdefineret filter er aktiveret</string>
-  <string name="revanced_custom_filter_summary_off">Brugerdefineret filter er deaktiveret</string>
-  <string name="revanced_custom_filter_strings_title">Tilpasset filter</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Liste over stigenereringsstrenge til filtrering adskilt af ny linje</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Ugyldigt brugerdefineret filter: %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Om</string>
@@ -218,6 +202,16 @@ Aktivering af dette vil dog også logge nogle brugerdata, såsom din IP-adresse.
   <string name="revanced_shorts_disable_background_playback_title">Deaktiver baggrundsafspilning af Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">Baggrundsafspilning af Shorts er deaktiveret</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">Baggrundsafspilning af Shorts er aktiveret</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">Logprotokolbuffer</string>
+  <string name="revanced_debug_protobuffer_summary_on">Fejlfindingslogge inkluderer protobuffer</string>
+  <string name="revanced_debug_protobuffer_summary_off">Fejlfindingslogge inkluderer ikke protobuffer</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Aktivering af denne indstilling logger yderligere layoutdata, inklusive tekst på skærmen for nogle UI-komponenter.
+
+Dette kan hjælpe med at identificere komponenter, når der oprettes brugerdefinerede filtre.
+
+Aktivering af dette vil dog også logge nogle brugerdata, såsom din IP-adresse."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Skjul albumkort</string>
@@ -445,6 +439,15 @@ Hvis et Doodle vises i øjeblikket i din region, og denne skjuleindstilling er a
   <string name="revanced_hide_comments_thanks_button_title">Skjul \"Tak\"-knap</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">Tak knappen er skjult</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Tak knappen er vist</string>
+  <string name="revanced_custom_filter_screen_title">Tilpasset filter</string>
+  <string name="revanced_custom_filter_screen_summary">Skjul komponenter ved hjælp af brugerdefinerede filtre</string>
+  <string name="revanced_custom_filter_title">Aktiver brugerdefineret filter</string>
+  <string name="revanced_custom_filter_summary_on">Brugerdefineret filter er aktiveret</string>
+  <string name="revanced_custom_filter_summary_off">Brugerdefineret filter er deaktiveret</string>
+  <string name="revanced_custom_filter_strings_title">Tilpasset filter</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Liste over stigenereringsstrenge til filtrering adskilt af ny linje</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Ugyldigt brugerdefineret filter: %s</string>
   <string name="revanced_hide_view_count_title">Skjul antal visninger</string>
   <string name="revanced_hide_view_count_summary_on">Antal visninger er skjult i feed og søgeresultater</string>
   <string name="revanced_hide_view_count_summary_off">Antal visninger vises i feed og søgeresultater</string>

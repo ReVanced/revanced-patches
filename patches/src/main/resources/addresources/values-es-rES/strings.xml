@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">Nombre de la aplicación</string>
@@ -171,14 +172,6 @@ No se le notificará de ningún evento inesperado."</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">Banderas guardadas</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">Banderas restablecidas</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">Banderas copiadas al portapapeles</string>
-  <string name="revanced_debug_protobuffer_title">Búfer de protocolo de registro</string>
-  <string name="revanced_debug_protobuffer_summary_on">Los registros de depuración incluyen el búfer proto</string>
-  <string name="revanced_debug_protobuffer_summary_off">Los registros de depuración no incluyen el búfer proto</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"Si activas este ajuste, se registrarán datos de diseño adicionales, incluido el texto en pantalla de algunos componentes de la IU.
-
-Esto puede ayudar a identificar componentes al crear filtros personalizados.
-
-Sin embargo, si activas esto, también se registrarán algunos datos del usuario, como tu dirección IP."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">Sanear enlaces compartidos</string>
@@ -188,16 +181,7 @@ Sin embargo, si activas esto, también se registrarán algunos datos del usuario
   <string name="revanced_replace_music_with_youtube_summary_on">Los enlaces compartidos usan youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">Los enlaces compartidos usan music.youtube.com</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">Filtro personalizado</string>
-  <string name="revanced_custom_filter_screen_summary">Ocultar componentes usando filtros personalizados</string>
-  <string name="revanced_custom_filter_title">Activar filtro personalizado</string>
-  <string name="revanced_custom_filter_summary_on">Filtro personalizado activado</string>
-  <string name="revanced_custom_filter_summary_off">Filtro personalizado desactivado</string>
-  <string name="revanced_custom_filter_strings_title">Filtro personalizado</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">Lista de cadenas del constructor de rutas del componente para filtrar separadas por una nueva línea</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizado no válido: %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">Acerca de</string>
@@ -218,6 +202,16 @@ Sin embargo, si activas esto, también se registrarán algunos datos del usuario
   <string name="revanced_shorts_disable_background_playback_title">Desactivar la reproducción en segundo plano de Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">La reproducción en segundo plano de Shorts está deshabilitada</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">La reproducción en segundo plano de Shorts está habilitada</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">Búfer de protocolo de registro</string>
+  <string name="revanced_debug_protobuffer_summary_on">Los registros de depuración incluyen el búfer proto</string>
+  <string name="revanced_debug_protobuffer_summary_off">Los registros de depuración no incluyen el búfer proto</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"Si activas este ajuste, se registrarán datos de diseño adicionales, incluido el texto en pantalla de algunos componentes de la IU.
+
+Esto puede ayudar a identificar componentes al crear filtros personalizados.
+
+Sin embargo, si activas esto, también se registrarán algunos datos del usuario, como tu dirección IP."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">Ocultar tarjetas de álbum</string>
@@ -445,6 +439,15 @@ Si un doodle se está mostrando actualmente en tu región y este ajuste de ocult
   <string name="revanced_hide_comments_thanks_button_title">Ocultar botón Gracias</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">El botón de gracias está oculto</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">Se muestra el botón de gracias</string>
+  <string name="revanced_custom_filter_screen_title">Filtro personalizado</string>
+  <string name="revanced_custom_filter_screen_summary">Ocultar componentes usando filtros personalizados</string>
+  <string name="revanced_custom_filter_title">Activar filtro personalizado</string>
+  <string name="revanced_custom_filter_summary_on">Filtro personalizado activado</string>
+  <string name="revanced_custom_filter_summary_off">Filtro personalizado desactivado</string>
+  <string name="revanced_custom_filter_strings_title">Filtro personalizado</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">Lista de cadenas del constructor de rutas del componente para filtrar separadas por una nueva línea</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">Filtro personalizado no válido: %s</string>
   <string name="revanced_hide_view_count_title">Ocultar recuento de visualizaciones</string>
   <string name="revanced_hide_view_count_summary_on">El recuento de visualizaciones está oculto en el feed y los resultados de búsqueda</string>
   <string name="revanced_hide_view_count_summary_off">El recuento de visualizaciones se muestra en el feed y los resultados de búsqueda</string>

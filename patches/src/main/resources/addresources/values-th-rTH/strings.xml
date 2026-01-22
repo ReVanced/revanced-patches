@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -17,7 +17,8 @@
         <string name="summary_key">"First 'item' text
 Second \"item\" text"</string>
 
---><resources>
+-->
+<resources>
   <app id="shared">
   <patch id="layout.branding.baseCustomBrandingPatch">
   <string name="revanced_custom_branding_name_title">ชื่อแอป</string>
@@ -171,14 +172,6 @@ Second \"item\" text"</string>
   <string name="revanced_debug_feature_flags_manager_toast_saved">บันทึกแฟล็กแล้ว</string>
   <string name="revanced_debug_feature_flags_manager_toast_reset">รีเซ็ตแฟล็กแล้ว</string>
   <string name="revanced_debug_feature_flags_manager_toast_copied">คัดลอกแฟล็กไปยังคลิปบอร์ดแล้ว</string>
-  <string name="revanced_debug_protobuffer_title">บันทึกโปรโตคอลบัฟเฟอร์</string>
-  <string name="revanced_debug_protobuffer_summary_on">การบันทึกการแก้ไขข้อบกพร่องรวมถึงโปรโตคอลบัฟเฟอร์</string>
-  <string name="revanced_debug_protobuffer_summary_off">การบันทึกการแก้ไขข้อบกพร่องไม่รวมโปรโตคอลบัฟเฟอร์</string>
-  <string name="revanced_debug_protobuffer_user_dialog_message">"การเปิดใช้งานการตั้งค่านี้จะบันทึกข้อมูลเค้าโครงเพิ่มเติม รวมถึงข้อความบนหน้าจอสำหรับส่วนประกอบ UI บางส่วน
-
-ซึ่งจะช่วยระบุส่วนประกอบเมื่อสร้างตัวกรองที่กำหนดเองได้
-
-อย่างไรก็ตาม การเปิดใช้งานนี้จะบันทึกข้อมูลผู้ใช้บางอย่าง เช่น ที่อยู่ IP ของคุณด้วย"</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="revanced_sanitize_sharing_links_title">ล้างข้อมูลลิงก์ที่แชร์</string>
@@ -188,16 +181,7 @@ Second \"item\" text"</string>
   <string name="revanced_replace_music_with_youtube_summary_on">ลิงก์ที่แชร์ใช้ youtube.com</string>
   <string name="revanced_replace_music_with_youtube_summary_off">ลิงก์ที่แชร์ใช้ music.youtube.com</string>
   </patch>
-  <patch id="layout.hide.general.hideLayoutComponentsPatch"><string name="revanced_custom_filter_screen_title">ตัวกรองแบบกำหนดเอง</string>
-  <string name="revanced_custom_filter_screen_summary">ซ่อนส่วนประกอบโดยใช้ตัวกรองแบบกำหนดเอง</string>
-  <string name="revanced_custom_filter_title">เปิดใช้งานตัวกรองแบบกำหนดเอง</string>
-  <string name="revanced_custom_filter_summary_on">ตัวกรองแบบกำหนดเองเปิดใช้งาน</string>
-  <string name="revanced_custom_filter_summary_off">ตัวกรองแบบกำหนดเองปิดใช้งาน</string>
-  <string name="revanced_custom_filter_strings_title">ตัวกรองแบบกำหนดเอง</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="revanced_custom_filter_strings_summary">รายการสตริงตัวสร้างเส้นทางส่วนประกอบที่จะกรองคั่นด้วยบรรทัดใหม่</string>
-  <string name="revanced_custom_filter_toast_invalid_syntax">ตัวกรองแบบกำหนดเองไม่ถูกต้อง: %s</string>
-  </patch></app>
+  </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="revanced_settings_screen_00_about_title">เกี่ยวกับ</string>
@@ -218,6 +202,16 @@ Second \"item\" text"</string>
   <string name="revanced_shorts_disable_background_playback_title">ปิดการเล่นพื้นหลัง Shorts</string>
   <string name="revanced_shorts_disable_background_playback_summary_on">การเล่นพื้นหลัง Shorts ถูกปิดใช้งาน</string>
   <string name="revanced_shorts_disable_background_playback_summary_off">การเล่นพื้นหลัง Shorts ถูกเปิดใช้งาน</string>
+  </patch>
+  <patch id="misc.debugging.enableDebuggingPatch">
+  <string name="revanced_debug_protobuffer_title">บันทึกโปรโตคอลบัฟเฟอร์</string>
+  <string name="revanced_debug_protobuffer_summary_on">การบันทึกการแก้ไขข้อบกพร่องรวมถึงโปรโตคอลบัฟเฟอร์</string>
+  <string name="revanced_debug_protobuffer_summary_off">การบันทึกการแก้ไขข้อบกพร่องไม่รวมโปรโตคอลบัฟเฟอร์</string>
+  <string name="revanced_debug_protobuffer_user_dialog_message">"การเปิดใช้งานการตั้งค่านี้จะบันทึกข้อมูลเค้าโครงเพิ่มเติม รวมถึงข้อความบนหน้าจอสำหรับส่วนประกอบ UI บางส่วน
+
+ซึ่งจะช่วยระบุส่วนประกอบเมื่อสร้างตัวกรองที่กำหนดเองได้
+
+อย่างไรก็ตาม การเปิดใช้งานนี้จะบันทึกข้อมูลผู้ใช้บางอย่าง เช่น ที่อยู่ IP ของคุณด้วย"</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="revanced_hide_album_cards_title">ซ่อนการ์ดอัลบั้ม</string>
@@ -445,6 +439,15 @@ Second \"item\" text"</string>
   <string name="revanced_hide_comments_thanks_button_title">ซ่อนปุ่มขอบคุณ</string>
   <string name="revanced_hide_comments_thanks_button_summary_on">ปุ่มขอบคุณถูกซ่อนไว้</string>
   <string name="revanced_hide_comments_thanks_button_summary_off">ปุ่มขอบคุณจะแสดง</string>
+  <string name="revanced_custom_filter_screen_title">ตัวกรองแบบกำหนดเอง</string>
+  <string name="revanced_custom_filter_screen_summary">ซ่อนส่วนประกอบโดยใช้ตัวกรองแบบกำหนดเอง</string>
+  <string name="revanced_custom_filter_title">เปิดใช้งานตัวกรองแบบกำหนดเอง</string>
+  <string name="revanced_custom_filter_summary_on">ตัวกรองแบบกำหนดเองเปิดใช้งาน</string>
+  <string name="revanced_custom_filter_summary_off">ตัวกรองแบบกำหนดเองปิดใช้งาน</string>
+  <string name="revanced_custom_filter_strings_title">ตัวกรองแบบกำหนดเอง</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="revanced_custom_filter_strings_summary">รายการสตริงตัวสร้างเส้นทางส่วนประกอบที่จะกรองคั่นด้วยบรรทัดใหม่</string>
+  <string name="revanced_custom_filter_toast_invalid_syntax">ตัวกรองแบบกำหนดเองไม่ถูกต้อง: %s</string>
   <string name="revanced_hide_view_count_title">ซ่อนจำนวนการดู</string>
   <string name="revanced_hide_view_count_summary_on">จำนวนการดูถูกซ่อนอยู่ในฟีดและผลการค้นหา</string>
   <string name="revanced_hide_view_count_summary_off">จำนวนการดูแสดงอยู่ในฟีดและผลการค้นหา</string>
