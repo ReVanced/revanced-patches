@@ -1,3 +1,10 @@
+# [5.49.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.48.1-dev.1...v5.49.0-dev.1) (2026-01-22)
+
+
+### Features
+
+* **YouTube Music:** Add `Hide layout components` patch ([#6365](https://github.com/ReVanced/revanced-patches/issues/6365)) ([71ce823](https://github.com/ReVanced/revanced-patches/commit/71ce8230a959dcaf2d8cd5dad1a4f21b88819aa0))
+
 ## [5.48.1-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.48.0...v5.48.1-dev.1) (2026-01-21)
 
 
