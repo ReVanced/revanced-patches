@@ -1,8 +1,6 @@
 package app.revanced.patches.strava.distractions
 
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.instructions
-import app.revanced.patcher.extensions.InstructionExtensions.removeInstructions
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
@@ -103,9 +101,7 @@ val hideDistractionsPatch = bytecodePatch(
     execute {
         // region Write option values into extension class.
 
-        val extensionClass = classBy { it.type == EXTENSION_CLASS_DESCRIPTOR }!!.mutableClass
-
-        extensionClass.apply {
+        val extensionClass = classBy { it.type == EXTENSION_CLASS_DESCRIPTOR }!!.mutableClass.apply {
             options.forEach { option ->
                 staticFields.first { field -> field.name == option.key }.initialValue =
                     ImmutableBooleanEncodedValue.forBoolean(option.value == true).toMutable()
@@ -148,16 +144,14 @@ val hideDistractionsPatch = bytecodePatch(
                     postfix = "}",
                 )
 
-                clone.apply {
-                    removeInstructions(instructions.size)
-                    addInstructions(
-                        """
-                            invoke-static $registers, $extensionMethodReference
-                            move-result-object v0
-                            return-object v0
-                        """
-                    )
-                }
+                clone.addInstructions(
+                    0,
+                    """
+                        invoke-static $registers, $extensionMethodReference
+                        move-result-object v0
+                        return-object v0
+                    """
+                )
 
                 logger.fine { "Intercepted $this with $extensionMethodReference" }
             }
@@ -167,29 +161,30 @@ val hideDistractionsPatch = bytecodePatch(
             classDef.virtualMethods += this
         }
 
-        classes.filter { classDef -> classDef.type.startsWith(MODULAR_FRAMEWORK_CLASS_DESCRIPTOR_PREFIX) }
-            .forEach { classDef ->
-                classDef.virtualMethods.forEach { method ->
-                    fingerprints.find { fingerprint ->
-                        method.name == "get${fingerprint.name}" && method.parameterTypes == fingerprint.parameterTypes
-                    }?.let { fingerprint ->
-                        proxy(classDef).mutableClass.let { mutableClass ->
-                            // Upcast to the interface if this is an interface implementation.
-                            val parameterType = classDef.interfaces.find {
-                                classes.find { interfaceDef -> interfaceDef.type == it }?.virtualMethods?.any { interfaceMethod ->
-                                    MethodUtil.methodSignaturesMatch(interfaceMethod, method)
-                                } ?: false
-                            } ?: classDef.type
+        classes.filter { it.type.startsWith(MODULAR_FRAMEWORK_CLASS_DESCRIPTOR_PREFIX) }.forEach { classDef ->
+            val classDefProxy by lazy { proxy(classDef) }
 
-                            mutableClass.findMutableMethodOf(method).cloneAndIntercept(
-                                mutableClass,
-                                "filter${fingerprint.name}",
-                                listOf(parameterType) + fingerprint.parameterTypes
-                            )
-                        }
+            classDef.virtualMethods.forEach { method ->
+                fingerprints.find { fingerprint ->
+                    method.name == "get${fingerprint.name}" && method.parameterTypes == fingerprint.parameterTypes
+                }?.let { fingerprint ->
+                    classDefProxy.mutableClass.let { mutableClass ->
+                        // Upcast to the interface if this is an interface implementation.
+                        val parameterType = classDef.interfaces.find {
+                            classes.find { interfaceDef -> interfaceDef.type == it }?.virtualMethods?.any { interfaceMethod ->
+                                MethodUtil.methodSignaturesMatch(interfaceMethod, method)
+                            } == true
+                        } ?: classDef.type
+
+                        mutableClass.findMutableMethodOf(method).cloneAndIntercept(
+                            mutableClass,
+                            "filter${fingerprint.name}",
+                            listOf(parameterType) + fingerprint.parameterTypes
+                        )
                     }
                 }
             }
+        }
 
         // endregion
     }
