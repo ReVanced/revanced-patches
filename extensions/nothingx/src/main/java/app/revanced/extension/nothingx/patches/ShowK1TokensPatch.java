@@ -12,11 +12,9 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -37,9 +35,9 @@ import java.util.regex.Pattern;
  * Patches to expose the K1 token for Nothing X app to enable pairing with GadgetBridge.
  */
 @SuppressWarnings("unused")
-public class ShowK1TokenPatch {
+public class ShowK1TokensPatch {
 
-    private static final String TAG = "Revanced";
+    private static final String TAG = "ReVanced";
     private static final String PACKAGE_NAME = "com.nothing.smartcenter";
     private static final String EMPTY_MD5 = "d41d8cd98f00b204e9800998ecf8427e";
     private static final String PREFS_NAME = "revanced_nothingx_prefs";
@@ -137,7 +135,7 @@ public class ShowK1TokenPatch {
 
                 // Show dialog on first Activity resume.
                 if (tokens != null && !tokens.isEmpty()) {
-                    activity.runOnUiThread(() -> showK1TokenDialog(activity, tokens));
+                    activity.runOnUiThread(() -> showK1TokensDialog(activity, tokens));
                     // Unregister after showing
                     application.unregisterActivityLifecycleCallbacks(this);
                     lifecycleCallbacksRegistered = false;
@@ -170,7 +168,7 @@ public class ShowK1TokenPatch {
      * @param activity Activity context
      * @param tokens   Set of K1 tokens
      */
-    private static void showK1TokenDialog(Activity activity, Set<String> tokens) {
+    private static void showK1TokensDialog(Activity activity, Set<String> tokens) {
         try {
             // Create main container.
             LinearLayout mainLayout = new LinearLayout(activity);
@@ -470,7 +468,7 @@ public class ShowK1TokenPatch {
     }
 
     /**
-     * Try to get K1 token from the database.
+     * Try to get K1 tokens from the database.
      */
     private static String getK1TokensFromDatabase() {
         try {
@@ -500,7 +498,7 @@ public class ShowK1TokenPatch {
     }
 
     /**
-     * Extract K1 from a database file.
+     * Extract K1 tokens from a database file.
      */
     private static String getK1TokensFromDatabase(File dbFile) {
         SQLiteDatabase db = null;
