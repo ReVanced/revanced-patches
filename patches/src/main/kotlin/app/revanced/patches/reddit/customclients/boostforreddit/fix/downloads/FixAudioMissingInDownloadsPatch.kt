@@ -14,8 +14,8 @@ val fixAudioMissingInDownloadsPatch = bytecodePatch(
 
     execute {
         val endpointReplacements = mapOf(
-            "/DASH_audio.mp4" to "/DASH_AUDIO_128.mp4",
-            "/audio" to "/DASH_AUDIO_64.mp4",
+            "/DASH_audio.mp4" to "/CMAF_AUDIO_128.mp4",
+            "/audio" to "/CMAF_AUDIO_64.mp4",
         )
 
         downloadAudioFingerprint.method.apply {

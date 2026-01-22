@@ -9,7 +9,7 @@ val disableReelsScrollingPatch = bytecodePatch(
     name = "Disable Reels scrolling",
     description = "Disables the endless scrolling behavior in Instagram Reels, preventing swiping to the next Reel. " +
             "Note: On a clean install, the 'Tip' animation may appear but will stop on its own after a few seconds.",
-    use = true
+    use = false
 ) {
     compatibleWith("com.instagram.android")
 

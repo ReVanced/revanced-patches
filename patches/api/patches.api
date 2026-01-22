@@ -124,6 +124,10 @@ public final class app/revanced/patches/all/misc/screencapture/RemoveScreenCaptu
 	public static final fun getRemoveScreenCaptureRestrictionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/all/misc/screenshot/PreventScreenshotDetectionPatchKt {
+	public static final fun getPreventScreenshotDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/all/misc/screenshot/RemoveScreenshotRestrictionPatchKt {
 	public static final fun getRemoveScreenshotRestrictionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -308,6 +312,10 @@ public final class app/revanced/patches/instagram/hide/explore/HideExploreFeedKt
 	public static final fun getHideExploreFeedPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/instagram/hide/highlightsTray/HideHighlightsTrayPatchKt {
+	public static final fun getHideHighlightsTrayPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/instagram/hide/navigation/HideNavigationButtonsKt {
 	public static final fun getHideNavigationButtonsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -330,6 +338,10 @@ public final class app/revanced/patches/instagram/misc/extension/SharedExtension
 
 public final class app/revanced/patches/instagram/misc/links/OpenLinksExternallyPatchKt {
 	public static final fun getOpenLinksExternallyPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/instagram/misc/removeBuildExpiredPopup/RemoveBuildExpiredPopupPatchKt {
+	public static final fun getRemoveBuildExpiredPopupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/instagram/misc/share/domain/ChangeLinkSharingDomainPatchKt {
@@ -1214,8 +1226,20 @@ public final class app/revanced/patches/stocard/layout/HideStoryBubblesPatchKt {
 	public static final fun getHideStoryBubblesPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
-public final class app/revanced/patches/strava/mediaupload/OverwriteMediaUploadParametersPatchKt {
+public final class app/revanced/patches/strava/groupkudos/AddGiveGroupKudosButtonToGroupActivityKt {
+	public static final fun getAddGiveGroupKudosButtonToGroupActivity ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/strava/media/download/AddMediaDownloadPatchKt {
+	public static final fun getAddMediaDownloadPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/strava/media/upload/OverwriteMediaUploadParametersPatchKt {
 	public static final fun getOverwriteMediaUploadParametersPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/strava/misc/extension/SharedExtensionPatchKt {
+	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/strava/password/EnablePasswordLoginPatchKt {
@@ -1708,6 +1732,10 @@ public final class app/revanced/patches/youtube/layout/thumbnails/BypassImageReg
 
 public final class app/revanced/patches/youtube/misc/announcements/AnnouncementsPatchKt {
 	public static final fun getAnnouncementsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/youtube/misc/audiofocus/PauseOnAudioInterruptPatchKt {
+	public static final fun getPauseOnAudioInterruptPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/youtube/misc/autorepeat/AutoRepeatPatchKt {
