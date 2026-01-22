@@ -1,3 +1,10 @@
+# [5.50.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.48.0...v5.50.0-dev.1) (2026-01-22)
+
+
+### Features
+
+* **YouTube Music:** Add `Unlock Android Auto Media Browser` patch ([#6477](https://github.com/ReVanced/revanced-patches/issues/6477)) ([89645dc](https://github.com/ReVanced/revanced-patches/commit/89645dcc2e13603b8f2fedb5e16231cb396e5965))
+
 # [5.49.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.48.1-dev.1...v5.49.0-dev.1) (2026-01-22)
 
 
