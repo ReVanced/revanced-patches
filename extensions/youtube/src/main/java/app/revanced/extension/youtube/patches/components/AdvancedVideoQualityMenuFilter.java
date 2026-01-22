@@ -1,5 +1,7 @@
 package app.revanced.extension.youtube.patches.components;
 
+import app.revanced.extension.shared.patches.litho.Filter;
+import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
 import app.revanced.extension.youtube.patches.playback.quality.AdvancedVideoQualityMenuPatch;
 import app.revanced.extension.youtube.settings.Settings;
 
@@ -19,7 +21,7 @@ public final class AdvancedVideoQualityMenuFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         isVideoQualityMenuVisible = true;
 

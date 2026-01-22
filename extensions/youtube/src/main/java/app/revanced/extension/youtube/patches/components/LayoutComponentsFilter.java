@@ -14,6 +14,9 @@ import androidx.annotation.Nullable;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.StringTrieSearch;
+import app.revanced.extension.shared.patches.litho.Filter;
+import app.revanced.extension.shared.patches.litho.FilterGroup.*;
+import app.revanced.extension.shared.patches.litho.FilterGroupList.*;
 import app.revanced.extension.youtube.patches.ChangeHeaderPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;
@@ -247,8 +250,13 @@ public final class LayoutComponentsFilter extends Filter {
                 "sponsorships"
         );
 
+        final var crowdfundingBox = new StringFilterGroup(
+                Settings.HIDE_CROWDFUNDING_BOX,
+                "donation_shelf"
+        );
+
         final var channelWatermark = new StringFilterGroup(
-                Settings.HIDE_VIDEO_CHANNEL_WATERMARK,
+                Settings.HIDE_CHANNEL_WATERMARK,
                 "featured_channel_watermark_overlay"
         );
 
@@ -312,6 +320,7 @@ public final class LayoutComponentsFilter extends Filter {
                 compactChannelBar,
                 compactChannelBarInner,
                 communityPosts,
+                crowdfundingBox,
                 emergencyBox,
                 expandableMetadata,
                 forYouShelf,
@@ -336,7 +345,7 @@ public final class LayoutComponentsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // This identifier is used not only in players but also in search results:
         // https://github.com/ReVanced/revanced-patches/issues/3245
@@ -427,7 +436,7 @@ public final class LayoutComponentsFilter extends Filter {
      * Injection point.
      */
     public static boolean showWatermark() {
-        return !Settings.HIDE_VIDEO_CHANNEL_WATERMARK.get();
+        return !Settings.HIDE_CHANNEL_WATERMARK.get();
     }
 
     /**
