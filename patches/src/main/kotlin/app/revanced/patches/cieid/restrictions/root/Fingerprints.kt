@@ -1,9 +1,11 @@
 package app.revanced.patches.cieid.restrictions.root
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val checkRootFingerprint = fingerprint {
-    custom { method, _ ->
-        method.name == "onResume" && method.definingClass == "Lit/ipzs/cieid/BaseActivity;"
-    }
+internal val BytecodePatchContext.checkRootMethod by gettingFirstMutableMethodDeclaratively {
+    name("onResume")
+    definingClass("Lit/ipzs/cieid/BaseActivity;")
 }

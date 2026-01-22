@@ -1,13 +1,14 @@
 package app.revanced.patches.soundcloud.offlinesync
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val downloadOperationsURLBuilderFingerprint = fingerprint {
+internal val BytecodePatchContext.downloadOperationsURLBuilderFingerprint by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/String")
-    parameters("L", "L")
+    returnType("Ljava/lang/String")
+    parameterTypes("L", "L")
     opcodes(
         Opcode.IGET_OBJECT,
         Opcode.SGET_OBJECT,
@@ -15,15 +16,18 @@ internal val downloadOperationsURLBuilderFingerprint = fingerprint {
     )
 }
 
-internal val downloadOperationsHeaderVerificationFingerprint = fingerprint {
+internal val BytecodePatchContext.downloadOperationsHeaderVerificationFingerprint by gettingFirstMutableMethodDeclaratively(
+    "X-SC-Mime-Type",
+    "X-SC-Preset",
+    "X-SC-Quality"
+) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L", "L")
+    returnType("V")
+    parameterTypes("L", "L")
     opcodes(
         Opcode.CONST_STRING,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.CONST_STRING,
     )
-    strings("X-SC-Mime-Type", "X-SC-Preset", "X-SC-Quality")
 }

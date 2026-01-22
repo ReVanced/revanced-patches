@@ -1,9 +1,11 @@
 package app.revanced.patches.twitch.ad.audio
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val audioAdsPresenterPlayFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("AudioAdsPlayerPresenter;") && method.name == "playAd"
-    }
+internal val BytecodePatchContext.audioAdsPresenterPlayMethod by gettingFirstMutableMethodDeclaratively {
+    name("playAd")
+    definingClass("AudioAdsPlayerPresenter;"::endsWith)
 }

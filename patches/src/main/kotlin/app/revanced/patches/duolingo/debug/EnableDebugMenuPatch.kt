@@ -1,5 +1,6 @@
 package app.revanced.patches.duolingo.debug
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -15,16 +16,16 @@ val enableDebugMenuPatch = bytecodePatch(
 
     apply {
         // It seems all categories are allowed on release. Force this on anyway.
-        debugCategoryAllowOnReleaseBuildsFingerprint.method.returnEarly(true)
+        debugCategoryAllowOnReleaseBuildsMethod.returnEarly(true)
 
         // Change build config debug build flag.
-        buildConfigProviderConstructorFingerprint.match(
-            buildConfigProviderToStringFingerprint.classDef
+        buildConfigProviderConstructorMethod.match( // TODO
+            buildConfigProviderToStringMethod.classDef
         ).let {
-            val index = it.patternMatch.startIndex
+            val index = it.patternMatch.startIndex // TODO
 
-            it.method.apply {
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+            it.apply {
+                val register = getInstruction<OneRegisterInstruction>(index).registerA // TODO
                 addInstruction(
                     index + 1,
                     "const/4 v$register, 0x1"

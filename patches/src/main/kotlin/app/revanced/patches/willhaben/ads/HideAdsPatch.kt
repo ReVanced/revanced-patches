@@ -11,7 +11,7 @@ internal val hideAdsPatch = bytecodePatch(
     compatibleWith("at.willhaben")
 
     apply {
-        adResolverFingerprint.method.returnEarly(null)
-        whAdViewInjectorFingerprint.method.returnEarly()
+        adResolverMethod.returnEarly(null) // TODO
+        whAdViewInjectorMethod.returnEarly()
     }
 }

@@ -12,9 +12,7 @@ val enablePasswordLoginPatch = bytecodePatch(
     compatibleWith("com.strava")
 
     apply {
-        fun Fingerprint.returnTrue() = method.returnEarly(true)
-
-        logInGetUsePasswordFingerprint.returnTrue()
-        emailChangeGetUsePasswordFingerprint.returnTrue()
+        logInGetUsePasswordMethod.returnEarly(true)
+        emailChangeGetUsePasswordMethod.returnEarly(true)
     }
 }

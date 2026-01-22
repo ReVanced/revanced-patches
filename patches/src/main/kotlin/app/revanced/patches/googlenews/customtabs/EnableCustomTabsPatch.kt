@@ -13,8 +13,8 @@ val enableCustomTabsPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.magazines")
 
     apply {
-        launchCustomTabFingerprint.method.apply {
-            val checkIndex = launchCustomTabFingerprint.instructionMatches.last().index + 1
+        launchCustomTabMethod.apply {
+            val checkIndex = launchCustomTabMethod.instructionMatches.last().index + 1 // TODO
             val register = getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
             replaceInstruction(checkIndex, "const/4 v$register, 0x1")

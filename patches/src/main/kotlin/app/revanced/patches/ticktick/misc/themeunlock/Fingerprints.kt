@@ -1,15 +1,16 @@
 package app.revanced.patches.ticktick.misc.themeunlock
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val checkLockedThemesFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("Theme;") && method.name == "isLockedTheme"
-    }
+internal val BytecodePatchContext.checkLockedThemesFingerprint by gettingFirstMutableMethodDeclaratively {
+    name("isLockedTheme")
+    definingClass("Theme;"::endsWith)
 }
 
-internal val setThemeFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("ThemePreviewActivity;") && method.name == "lambda\$updateUserBtn\$1"
-    }
+internal val BytecodePatchContext.setThemeFingerprint by gettingFirstMutableMethodDeclaratively {
+    name("lambda\$updateUserBtn\$1")
+    definingClass("ThemePreviewActivity;"::endsWith)
 }

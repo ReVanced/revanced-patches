@@ -11,8 +11,8 @@ val skipAdsPatch = bytecodePatch(
     compatibleWith("com.disney.disneyplus")
 
     apply {
-        arrayOf(insertionGetPointsFingerprint, insertionGetRangesFingerprint).forEach {
-            it.method.addInstructions(
+        arrayOf(insertionGetPointsMethod, insertionGetRangesMethod).forEach {
+            it.addInstructions(
 	            0,
 	            """
 	                new-instance v0, Ljava/util/ArrayList;

@@ -40,8 +40,8 @@ val hideGetPremiumPatch = bytecodePatch(
             SwitchPreference("revanced_music_hide_get_premium_label"),
         )
 
-        hideGetPremiumFingerprint.method.apply {
-            val insertIndex = hideGetPremiumFingerprint.instructionMatches.last().index
+        hideGetPremiumMethod.apply {
+            val insertIndex = hideGetPremiumMethod.instructionMatches.last().index // TODO
 
             val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
             val getPremiumViewRegister = setVisibilityInstruction.registerC
@@ -55,11 +55,11 @@ val hideGetPremiumPatch = bytecodePatch(
             addInstruction(
                 insertIndex + 1,
                 "invoke-virtual {v$getPremiumViewRegister, v$visibilityRegister}, " +
-                    "Landroid/view/View;->setVisibility(I)V",
+                        "Landroid/view/View;->setVisibility(I)V",
             )
         }
 
-        membershipSettingsFingerprint.method.addInstructionsWithLabels(
+        membershipSettingsMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->hideGetPremiumLabel()Z

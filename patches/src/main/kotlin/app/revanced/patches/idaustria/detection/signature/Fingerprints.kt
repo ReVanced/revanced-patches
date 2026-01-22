@@ -1,13 +1,13 @@
 package app.revanced.patches.idaustria.detection.signature
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val spoofSignatureFingerprint = fingerprint {
+internal val BytecodePatchContext.spoofSignatureMethod by gettingFirstMutableMethodDeclaratively {
+    name("getPubKey")
+    definingClass("/SL2Step1Task;"::endsWith)
     accessFlags(AccessFlags.PRIVATE)
-    returns("L")
-    parameters("L")
-    custom { method, classDef ->
-        classDef.endsWith("/SL2Step1Task;") && method.name == "getPubKey"
-    }
+    returnType("L")
+    parameterTypes("L")
 }

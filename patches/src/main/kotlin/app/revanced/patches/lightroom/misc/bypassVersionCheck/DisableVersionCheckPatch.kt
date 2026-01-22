@@ -1,8 +1,7 @@
 package app.revanced.patches.lightroom.misc.version
 
-import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patches.lightroom.misc.bypassVersionCheck.refreshRemoteConfigurationMethod
 
 @Suppress("unused")
 val disableVersionCheckPatch = bytecodePatch(
@@ -12,8 +11,8 @@ val disableVersionCheckPatch = bytecodePatch(
     compatibleWith("com.adobe.lrmobile"("9.3.0"))
 
     apply {
-        refreshRemoteConfigurationFingerprint.method.apply {
-            val igetIndex = refreshRemoteConfigurationFingerprint.patternMatch!!.endIndex
+        refreshRemoteConfigurationMethod.apply {
+            val igetIndex = refreshRemoteConfigurationMethod.patternMatch!!.endIndex // TODO
 
             // This value represents the server command to clear all version restrictions.
             val statusForceReset = "-0x2";

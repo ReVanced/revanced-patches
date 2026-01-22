@@ -1,12 +1,16 @@
 package app.revanced.patches.soundcloud.shared
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val featureConstructorFingerprint = fingerprint {
+internal val BytecodePatchContext.featureConstructorMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("Ljava/lang/String;", "Z", "Ljava/util/List;")
+    parameterTypes("Ljava/lang/String;", "Z", "Ljava/util/List;")
     opcodes(
         Opcode.SGET_OBJECT,
         Opcode.CHECK_CAST,

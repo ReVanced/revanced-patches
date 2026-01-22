@@ -1,6 +1,7 @@
 package app.revanced.patches.trakt
 
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
@@ -10,12 +11,12 @@ val unlockProPatch = bytecodePatch(
     compatibleWith("tv.trakt.trakt"("1.1.1"))
 
     apply {
-        arrayOf(isVIPFingerprint, isVIPEPFingerprint).onEach { fingerprint ->
+        arrayOf(isVIPMethod, isVIPEPMethod).onEach { fingerprint ->
             // Resolve both fingerprints on the same class.
-            fingerprint.match(remoteUserFingerprint.originalClassDef)
+            fingerprint.match(remoteUserMethod.immutableClassDef) // TODO
         }.forEach { fingerprint ->
             // Return true for both VIP check methods.
-            fingerprint.method.addInstructions(
+            fingerprint.addInstructions(
                 0,
                 """
                     const/4 v0, 0x1

@@ -1,10 +1,12 @@
 package app.revanced.patches.irplus.ad
 
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
 
-internal val irplusAdsFingerprint = fingerprint {
+internal val BytecodePatchContext.irplusAdsMethod by gettingFirstMutableMethodDeclaratively("TAGGED") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("L", "Z")
-    strings("TAGGED")
+    parameterTypes("L", "Z")
 }

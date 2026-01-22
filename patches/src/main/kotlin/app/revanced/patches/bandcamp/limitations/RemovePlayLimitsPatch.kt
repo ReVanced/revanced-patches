@@ -11,6 +11,6 @@ val removePlayLimitsPatch = bytecodePatch(
     compatibleWith("com.bandcamp.android")
 
     apply {
-        handlePlaybackLimitsFingerprint.method.returnEarly()
+        handlePlaybackLimitsMethod.returnEarly()
     }
 }

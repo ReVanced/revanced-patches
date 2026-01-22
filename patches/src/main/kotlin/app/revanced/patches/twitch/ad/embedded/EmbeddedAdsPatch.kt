@@ -29,7 +29,7 @@ val embeddedAdsPatch = bytecodePatch(
         )
 
         // Inject OkHttp3 application interceptor
-        createsUsherClientFingerprint.method.addInstructions(
+        createsUsherClientMethod.addInstructions(
             3,
             """
                 invoke-static  {}, Lapp/revanced/extension/twitch/patches/EmbeddedAdsPatch;->createRequestInterceptor()Lapp/revanced/extension/twitch/api/RequestInterceptor;

@@ -1,5 +1,6 @@
 package app.revanced.patches.duolingo.energy
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.findFieldFromToString
@@ -12,12 +13,12 @@ val skipEnergyRechargeAdsPatch = bytecodePatch(
     compatibleWith("com.duolingo")
 
     apply {
-        initializeEnergyConfigFingerprint
-            .match(energyConfigToStringFingerprint.classDef)
+        initializeEnergyConfigMethod
+            .match(energyConfigToStringMethod.classDef) // TODO
             .method.apply {
-                val energyField = energyConfigToStringFingerprint.method
+                val energyField = energyConfigToStringMethod
                     .findFieldFromToString("energy=")
-                val insertIndex = initializeEnergyConfigFingerprint.patternMatch.startIndex
+                val insertIndex = initializeEnergyConfigMethod.patternMatch.startIndex // TODO
 
                 addInstructions(
                     insertIndex,

@@ -12,6 +12,6 @@ val removeAdsPatch = bytecodePatch(
     apply {
         // By overwriting the second parameter of the method,
         // the view which holds the advertisement is removed.
-        irplusAdsFingerprint.method.addInstruction(0, "const/4 p2, 0x0")
+        irplusAdsMethod.addInstruction(0, "const/4 p2, 0x0")
     }
 }

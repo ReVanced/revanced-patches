@@ -12,6 +12,6 @@ val disableStoryAutoFlippingPatch = bytecodePatch(
     compatibleWith("com.instagram.android")
 
     apply {
-        onStoryTimeoutActionFingerprint.method.returnEarly()
+        onStoryTimeoutActionMethod.returnEarly()
     }
 }

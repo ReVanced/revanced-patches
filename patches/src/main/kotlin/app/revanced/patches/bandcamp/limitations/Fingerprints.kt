@@ -1,7 +1,9 @@
 package app.revanced.patches.bandcamp.limitations
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val handlePlaybackLimitsFingerprint = fingerprint {
-    strings("track_id", "play_count")
-}
+internal val BytecodePatchContext.handlePlaybackLimitsMethod by gettingFirstMutableMethodDeclaratively(
+    "track_id",
+    "play_count"
+)

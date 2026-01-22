@@ -1,5 +1,6 @@
 package app.revanced.patches.strava.upselling
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -19,11 +20,11 @@ val disableSubscriptionSuggestionsPatch = bytecodePatch(
         val pageSuffix = "_upsell"
         val label = "original"
 
-        val className = getModulesFingerprint.originalClassDef.type
-        val originalMethod = getModulesFingerprint.method
+        val className = getModulesMethod.classDef.type
+        val originalMethod = getModulesMethod
         val returnType = originalMethod.returnType
 
-        getModulesFingerprint.classDef.methods.add(
+        getModulesMethod.classDef.methods.add(
             ImmutableMethod(
                 className,
                 helperMethodName,
@@ -52,7 +53,7 @@ val disableSubscriptionSuggestionsPatch = bytecodePatch(
             },
         )
 
-        val getModulesIndex = getModulesFingerprint.instructionMatches.first().index
+        val getModulesIndex = getModulesMethod.instructionMatches.first().index // TODO
         with(originalMethod) {
             removeInstruction(getModulesIndex)
             addInstructions(

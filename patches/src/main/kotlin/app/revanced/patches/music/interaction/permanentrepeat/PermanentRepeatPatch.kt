@@ -1,9 +1,9 @@
 package app.revanced.patches.music.interaction.permanentrepeat
 
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
@@ -39,10 +39,10 @@ val permanentRepeatPatch = bytecodePatch(
             SwitchPreference("revanced_music_play_permanent_repeat"),
         )
 
-        val startIndex = repeatTrackFingerprint.instructionMatches.last().index
+        val startIndex = repeatTrackMethod.instructionMatches.last().index // TODO
         val repeatIndex = startIndex + 1
 
-        repeatTrackFingerprint.method.apply {
+        repeatTrackMethod.apply {
             // Start index is at a branch, but the same
             // register is clobbered in both branch paths.
             val freeRegister = findFreeRegister(startIndex + 1)

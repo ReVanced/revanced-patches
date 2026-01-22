@@ -10,6 +10,6 @@ val `Remove root detection` by creatingBytecodePatch(
     compatibleWith("at.gv.bka.serviceportal")
 
     apply {
-        rootDetectionFingerprint.method.addInstruction(0, "return-void")
+        rootDetectionMethod.addInstruction(0, "return-void")
     }
 }

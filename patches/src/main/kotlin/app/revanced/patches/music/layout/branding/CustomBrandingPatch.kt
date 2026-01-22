@@ -32,7 +32,7 @@ private val disableSplashAnimationPatch = bytecodePatch {
         // Could replace the lottie animation file with our own custom animation (app_launch.json),
         // but the animation is not always the same size as the launch screen and it's still
         // barely shown. Instead turn off the animation entirely (app will also launch a little faster).
-        cairoSplashAnimationConfigFingerprint.method.apply {
+        cairoSplashAnimationConfigMethod.apply {
             val literalIndex = indexOfFirstLiteralInstructionOrThrow(
                 getResourceId(ResourceType.LAYOUT, "main_activity_launch_animation")
             )

@@ -1,12 +1,13 @@
 package app.revanced.patches.samsung.radio.misc.fix.crash
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val permissionRequestListFingerprint = fingerprint {
-    strings(
-        "android.permission.POST_NOTIFICATIONS",
-        "android.permission.READ_MEDIA_AUDIO",
-        "android.permission.RECORD_AUDIO"
-    )
-    custom { method, _ ->  method.name == "<clinit>" }
+internal val BytecodePatchContext.permissionRequestListMethod by gettingFirstMutableMethodDeclaratively(
+    "android.permission.POST_NOTIFICATIONS",
+    "android.permission.READ_MEDIA_AUDIO",
+    "android.permission.RECORD_AUDIO"
+) {
+    name("<clinit>")
 }

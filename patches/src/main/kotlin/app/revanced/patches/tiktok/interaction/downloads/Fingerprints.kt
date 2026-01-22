@@ -1,46 +1,42 @@
 package app.revanced.patches.tiktok.interaction.downloads
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val aclCommonShareFingerprint = fingerprint {
+internal val BytecodePatchContext.aclCommonShareMethod by gettingFirstMutableMethodDeclaratively {
+    name("getCode")
+    definingClass("/ACLCommonShare;"::endsWith)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("I")
-    custom { method, classDef ->
-        classDef.endsWith("/ACLCommonShare;") &&
-                method.name == "getCode"
-    }
+    returnType("I")
 }
-
-internal val aclCommonShare2Fingerprint = fingerprint {
+internal val BytecodePatchContext.aclCommonShare2Method by gettingFirstMutableMethodDeclaratively {
+    name("getShowType")
+    definingClass("/ACLCommonShare;"::endsWith)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("I")
-    custom { method, classDef ->
-        classDef.endsWith("/ACLCommonShare;") &&
-                method.name == "getShowType"
-    }
+    returnType("I")
 }
-
-internal val aclCommonShare3Fingerprint = fingerprint {
+internal val BytecodePatchContext.aclCommonShare3Method by gettingFirstMutableMethodDeclaratively {
+    name("getTranscode")
+    definingClass("/ACLCommonShare;"::endsWith)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("I")
-    custom { method, classDef ->
-        classDef.endsWith("/ACLCommonShare;") &&
-                method.name == "getTranscode"
-    }
+    returnType("I")
 }
-
-internal val downloadUriFingerprint = fingerprint {
+internal val BytecodePatchContext.downloadUriMethod by gettingFirstMutableMethodDeclaratively(
+    "/",
+    "/Camera",
+    "/Camera/",
+    "video/mp4"
+) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Landroid/net/Uri;")
-    parameters(
+    returnType("Landroid/net/Uri;")
+    parameterTypes(
         "Landroid/content/Context;",
         "Ljava/lang/String;"
-    )
-    strings(
-        "/",
-        "/Camera",
-        "/Camera/",
-        "video/mp4"
     )
 }

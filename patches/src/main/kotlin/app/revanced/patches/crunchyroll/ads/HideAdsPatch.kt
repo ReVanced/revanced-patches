@@ -1,5 +1,6 @@
 package app.revanced.patches.crunchyroll.ads
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
@@ -20,19 +21,19 @@ val hideAdsPatch = bytecodePatch(
 
     apply {
         // Get obfuscated "enableAds" field from toString method.
-        val enableAdsField = videoUrlReadyToStringFingerprint.let {
-            val strIndex = videoUrlReadyToStringFingerprint.stringMatches.last().index
-            val fieldIndex = it.method.indexOfFirstInstruction(strIndex, Opcode.IGET_BOOLEAN)
-            it.method.getInstruction<ReferenceInstruction>(fieldIndex).getReference<FieldReference>()!!
+        val enableAdsField = videoUrlReadyToStringMethod.let {
+            val strIndex = videoUrlReadyToStringMethod.stringMatches.last().index // TODO
+            val fieldIndex = it.indexOfFirstInstruction(strIndex, Opcode.IGET_BOOLEAN)
+            it.getInstruction<ReferenceInstruction>(fieldIndex).getReference<FieldReference>()!!
         }
 
         // Remove final access flag on field.
-        videoUrlReadyToStringFingerprint.classDef.fields
+        videoUrlReadyToStringMethod.classDef.fields
             .first { it.name == enableAdsField.name }
             .removeFlags(AccessFlags.FINAL)
 
         // Override enableAds field in non-default constructor.
-        val constructor = videoUrlReadyToStringFingerprint.classDef.methods.first {
+        val constructor = videoUrlReadyToStringMethod.classDef.methods.first {
             AccessFlags.CONSTRUCTOR.isSet(it.accessFlags) && it.parameters.isNotEmpty()
         }
         constructor.addInstructions(

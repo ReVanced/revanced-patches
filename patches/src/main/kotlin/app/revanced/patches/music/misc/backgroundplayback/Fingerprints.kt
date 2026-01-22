@@ -1,13 +1,14 @@
 package app.revanced.patches.music.misc.backgroundplayback
 
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.Opcode
 
-internal val backgroundPlaybackDisableFingerprint = fingerprint {
+internal val BytecodePatchContext.backgroundPlaybackDisableMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Z")
-    parameters("L")
+    returnType("Z")
+    parameterTypes("L")
     opcodes(
         Opcode.CONST_4,
         Opcode.IF_EQZ,
@@ -21,10 +22,10 @@ internal val backgroundPlaybackDisableFingerprint = fingerprint {
     )
 }
 
-internal val kidsBackgroundPlaybackPolicyControllerFingerprint = fingerprint {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("I", "L", "Z")
+internal val BytecodePatchContext.kidsBackgroundPlaybackPolicyControllerMethod by gettingFirstMutableMethodDeclaratively {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    returnType("V")
+    parameterTypes("I", "L", "Z")
     opcodes(
         Opcode.IGET,
         Opcode.IF_NE,

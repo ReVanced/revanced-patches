@@ -11,6 +11,6 @@ val bypassRootChecksPatch = bytecodePatch(
     compatibleWith("it.ipzs.cieid")
 
     apply {
-        checkRootFingerprint.method.addInstruction(1, "return-void")
+        checkRootMethod.addInstruction(1, "return-void")
     }
 }

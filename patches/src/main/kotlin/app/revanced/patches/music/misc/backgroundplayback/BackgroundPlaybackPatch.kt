@@ -23,11 +23,11 @@ val backgroundPlaybackPatch = bytecodePatch(
     )
 
     apply {
-        kidsBackgroundPlaybackPolicyControllerFingerprint.method.addInstruction(
+        kidsBackgroundPlaybackPolicyControllerMethod.addInstruction(
             0,
             "return-void",
         )
 
-        backgroundPlaybackDisableFingerprint.method.returnEarly(true)
+        backgroundPlaybackDisableMethod.returnEarly(true)
     }
 }

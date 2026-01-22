@@ -11,6 +11,6 @@ val unlockSubscriptionPatch = bytecodePatch(
     compatibleWith("com.strava")
 
     apply {
-        getSubscribedFingerprint.method.returnEarly(true)
+        getSubscribedMethod.returnEarly(true)
     }
 }

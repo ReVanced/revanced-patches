@@ -1,13 +1,14 @@
 package app.revanced.patches.facebook.ads.mainfeed
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val baseModelMapperFingerprint = fingerprint {
+internal val BytecodePatchContext.baseModelMapperMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Lcom/facebook/graphql/modelutil/BaseModelWithTree;")
-    parameters("Ljava/lang/Class", "I", "I")
+    returnType("Lcom/facebook/graphql/modelutil/BaseModelWithTree;")
+    parameterTypes("Ljava/lang/Class", "I", "I")
     opcodes(
         Opcode.SGET_OBJECT,
         Opcode.INVOKE_STATIC,
@@ -16,11 +17,11 @@ internal val baseModelMapperFingerprint = fingerprint {
         Opcode.IF_EQ,
     )
 }
-
-internal val getSponsoredDataModelTemplateFingerprint = fingerprint {
+internal val BytecodePatchContext.getSponsoredDataModelTemplateMethod by gettingFirstMutableMethodDeclaratively {
+    definingClass("Lcom/facebook/graphql/model/GraphQLFBMultiAdsFeedUnit;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters()
+    returnType("L")
+    parameterTypes()
     opcodes(
         Opcode.CONST,
         Opcode.CONST,
@@ -28,14 +29,11 @@ internal val getSponsoredDataModelTemplateFingerprint = fingerprint {
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.RETURN_OBJECT,
     )
-    custom { _, classDef ->
-        classDef.type == "Lcom/facebook/graphql/model/GraphQLFBMultiAdsFeedUnit;"
-    }
-}
 
-internal val getStoryVisibilityFingerprint = fingerprint {
+}
+internal val BytecodePatchContext.getStoryVisibilityMethod by gettingFirstMutableMethodDeclaratively("This should not be called for base class object") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
+    returnType("Ljava/lang/String;")
     opcodes(
         Opcode.INSTANCE_OF,
         Opcode.IF_NEZ,
@@ -45,5 +43,4 @@ internal val getStoryVisibilityFingerprint = fingerprint {
         Opcode.IF_NEZ,
         Opcode.CONST,
     )
-    strings("This should not be called for base class object")
 }

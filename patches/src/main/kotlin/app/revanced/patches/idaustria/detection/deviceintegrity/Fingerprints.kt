@@ -1,22 +1,19 @@
 package app.revanced.patches.idaustria.detection.deviceintegrity
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val isDeviceBootloaderOpenFingerprint = fingerprint {
+internal val BytecodePatchContext.isDeviceBootloaderOpenMethod by gettingFirstMutableMethodDeclaratively {
+    name("isDeviceBootloaderOpen")
+    definingClass("/DeviceIntegrityCheckProviderImpl;"::endsWith)
     accessFlags(AccessFlags.PUBLIC)
-    returns("Ljava/lang/Object;")
-    custom { method, classDef ->
-        method.name == "isDeviceBootloaderOpen" &&
-                classDef.endsWith("/DeviceIntegrityCheckProviderImpl;")
-    }
+    returnType("Ljava/lang/Object;")
 }
 
-internal val isDeviceRootedFingerprint = fingerprint {
+internal val BytecodePatchContext.isDeviceRootedMethod by gettingFirstMutableMethodDeclaratively {
+    name("isDeviceRooted")
+    definingClass("/DeviceIntegrityCheckProviderImpl;"::endsWith)
     accessFlags(AccessFlags.PUBLIC)
-    returns("Z")
-    custom { method, classDef ->
-        method.name == "isDeviceRooted" &&
-                classDef.endsWith("/DeviceIntegrityCheckProviderImpl;")
-    }
+    returnType("Z")
 }

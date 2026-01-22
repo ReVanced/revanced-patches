@@ -1,9 +1,11 @@
 package app.revanced.patches.twitch.ad.embedded
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val createsUsherClientFingerprint = fingerprint {
-    custom { method, _ ->
-        method.name == "buildOkHttpClient" && method.definingClass.endsWith("Ltv/twitch/android/network/OkHttpClientFactory;")
-    }
+internal val BytecodePatchContext.createsUsherClientMethod by gettingFirstMutableMethodDeclaratively {
+    name("buildOkHttpClient")
+    definingClass("Ltv/twitch/android/network/OkHttpClientFactory;"::endsWith)
 }

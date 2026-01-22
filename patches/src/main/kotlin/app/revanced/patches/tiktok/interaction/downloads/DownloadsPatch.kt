@@ -34,11 +34,11 @@ val downloadsPatch = bytecodePatch(
     )
 
     apply {
-        aclCommonShareFingerprint.method.returnEarly(0)
-        aclCommonShare2Fingerprint.method.returnEarly(2)
+        aclCommonShareMethod.returnEarly(0)
+        aclCommonShare2Method.returnEarly(2)
 
         // Download videos without watermark.
-        aclCommonShare3Fingerprint.method.addInstructionsWithLabels(
+        aclCommonShare3Method.addInstructionsWithLabels(
             0,
             """
                 invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->shouldRemoveWatermark()Z
@@ -52,7 +52,7 @@ val downloadsPatch = bytecodePatch(
         )
 
         // Change the download path patch.
-        downloadUriFingerprint.method.apply {
+        downloadUriMethod.apply {
             findInstructionIndicesReversedOrThrow {
                 getReference<FieldReference>().let {
                     it?.definingClass == "Landroid/os/Environment;" && it.name.startsWith("DIRECTORY_")
@@ -75,7 +75,7 @@ val downloadsPatch = bytecodePatch(
             }
         }
 
-        settingsStatusLoadFingerprint.method.addInstruction(
+        settingsStatusLoadFingerprint.method.addInstruction( // TODO
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableDownload()V",
         )

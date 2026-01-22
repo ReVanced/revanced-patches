@@ -1,12 +1,14 @@
 package app.revanced.patches.mifitness.misc.login
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val xiaomiAccountManagerConstructorFingerprint = fingerprint {
+internal val BytecodePatchContext.xiaomiAccountManagerConstructorMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
-    parameters("Landroid/content/Context;", "Z")
-    custom { method, _ ->
-        method.definingClass == "Lcom/xiaomi/passport/accountmanager/XiaomiAccountManager;"
-    }
+    parameterTypes("Landroid/content/Context;", "Z")
+    definingClass("Lcom/xiaomi/passport/accountmanager/XiaomiAccountManager;")
 }

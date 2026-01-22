@@ -1,7 +1,7 @@
 package app.revanced.patches.instagram.ads
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.meta.ads.adInjectorFingerprint
+import app.revanced.patches.meta.ads.adInjectorMethod
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
@@ -11,6 +11,6 @@ val hideAdsPatch = bytecodePatch(
     compatibleWith("com.instagram.android")
 
     apply {
-        adInjectorFingerprint.method.returnEarly(false)
+        adInjectorMethod.returnEarly(false)
     }
 }

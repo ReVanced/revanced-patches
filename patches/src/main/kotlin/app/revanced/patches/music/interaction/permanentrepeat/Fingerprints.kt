@@ -1,13 +1,14 @@
 package app.revanced.patches.music.interaction.permanentrepeat
 
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.Opcode
 
-internal val repeatTrackFingerprint = fingerprint {
+internal val BytecodePatchContext.repeatTrackMethod by gettingFirstMutableMethodDeclaratively("w_st") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L", "L")
+    returnType("V")
+    parameterTypes("L", "L")
     opcodes(
         Opcode.IGET_OBJECT,
         Opcode.IGET_OBJECT,
@@ -16,5 +17,4 @@ internal val repeatTrackFingerprint = fingerprint {
         Opcode.MOVE_RESULT,
         Opcode.IF_NEZ
     )
-    strings("w_st")
 }

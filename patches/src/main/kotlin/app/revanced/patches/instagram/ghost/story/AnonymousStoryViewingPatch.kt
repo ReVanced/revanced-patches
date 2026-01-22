@@ -18,6 +18,6 @@ val anonymousStoryViewingPatch = bytecodePatch(
 
     apply {
         // Prevent the hashmap of the seen media to be filled
-        setMediaSeenHashmapFingerprint.method.returnEarly()
+        setMediaSeenHashmapMethod.returnEarly()
     }
 }

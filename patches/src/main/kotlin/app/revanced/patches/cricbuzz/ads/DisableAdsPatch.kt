@@ -23,11 +23,11 @@ val disableAdsPatch = bytecodePatch (
     dependsOn(sharedExtensionPatch)
 
     apply {
-        userStateSwitchFingerprint.method.returnEarly(true)
+        userStateSwitchMethod.returnEarly(true)
 
         // Remove region-specific Cricbuzz11 elements.
-        cb11ConstructorFingerprint.method.addInstruction(0, "const/4 p7, 0x0")
-        getBottomBarFingerprint.method.apply {
+        cb11ConstructorMethod.addInstruction(0, "const/4 p7, 0x0")
+        getBottomBarMethod.apply {
             val getIndex = indexOfFirstInstructionOrThrow() {
                 opcode == Opcode.IGET_OBJECT && getReference<FieldReference>()?.name == "bottomBar"
             }

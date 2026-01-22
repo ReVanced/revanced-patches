@@ -1,25 +1,20 @@
 package app.revanced.patches.messenger.metaai
 
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.Opcode
-import app.revanced.patcher.fingerprint
 
-internal val getMobileConfigBoolFingerprint = fingerprint {
-    parameters("J")
-    returns("Z")
+internal val BytecodePatchContext.getMobileConfigBoolMethod by gettingFirstMutableMethodDeclaratively {
+    returnType("Z")
     opcodes(Opcode.RETURN)
-    custom { _, classDef ->
-        classDef.interfaces.contains("Lcom/facebook/mobileconfig/factory/MobileConfigUnsafeContext;")
-    }
+    custom { immutableClassDef.interfaces.contains("Lcom/facebook/mobileconfig/factory/MobileConfigUnsafeContext;") }
 }
 
-internal val metaAIKillSwitchCheckFingerprint = fingerprint {
+internal val BytecodePatchContext.metaAIKillSwitchCheckMethod by gettingFirstMutableMethodDeclaratively("SearchAiagentImplementationsKillSwitch") {
     opcodes(Opcode.CONST_WIDE)
-    strings("SearchAiagentImplementationsKillSwitch")
-}
 
-internal val extensionMethodFingerprint = fingerprint {
-    strings("REPLACED_BY_PATCH")
-    custom { method, classDef ->
-        method.name == EXTENSION_METHOD_NAME && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
+}
+internal val BytecodePatchContext.extensionMethodMethod by gettingFirstMutableMethodDeclaratively("REPLACED_BY_PATCH") {
+    name(EXTENSION_METHOD_NAME)
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
 }

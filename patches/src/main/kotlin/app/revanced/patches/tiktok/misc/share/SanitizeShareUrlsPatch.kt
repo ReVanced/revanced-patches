@@ -27,7 +27,7 @@ val `Sanitize sharing links` by creatingBytecodePatch(
     )
 
     apply {
-        urlShorteningFingerprint.method.apply {
+        urlShorteningMethod.apply {
             val invokeIndex = indexOfFirstInstructionOrThrow {
                 val ref = getReference<MethodReference>()
                 ref?.name == "LIZ" && ref.definingClass.startsWith("LX/")

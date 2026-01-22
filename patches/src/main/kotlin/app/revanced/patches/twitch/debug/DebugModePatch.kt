@@ -30,11 +30,11 @@ val debugModePatch = bytecodePatch(
         )
 
         listOf(
-            isDebugConfigEnabledFingerprint,
-            isOmVerificationEnabledFingerprint,
-            shouldShowDebugOptionsFingerprint,
+            isDebugConfigEnabledMethod,
+            isOmVerificationEnabledMethod,
+            shouldShowDebugOptionsMethod,
         ).forEach { fingerprint ->
-            fingerprint.method.addInstructions(
+            fingerprint.addInstructions(
                 0,
                 """
                     invoke-static {}, Lapp/revanced/extension/twitch/patches/DebugModePatch;->isDebugModeEnabled()Z

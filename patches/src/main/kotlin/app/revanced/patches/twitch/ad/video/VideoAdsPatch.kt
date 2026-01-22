@@ -111,7 +111,7 @@ val videoAdsPatch = bytecodePatch(
                 )
 
                 // Pretend our player is ineligible for all ads.
-                checkAdEligibilityLambdaFingerprint.method.addInstructionsWithLabels(
+                checkAdEligibilityLambdaMethod.addInstructionsWithLabels(
                     0,
                     """
                         ${createConditionInstructions("v0")}
@@ -122,13 +122,13 @@ val videoAdsPatch = bytecodePatch(
                     """,
                     ExternalLabel(
                         skipLabelName,
-                        checkAdEligibilityLambdaFingerprint.method.getInstruction(0),
+                        checkAdEligibilityLambdaMethod.getInstruction(0),
                     ),
                 )
 
                 val adFormatDeclined =
                     "Ltv/twitch/android/shared/display/ads/theatre/StreamDisplayAdsPresenter\$Action\$AdFormatDeclined;"
-                getReadyToShowAdFingerprint.method.addInstructionsWithLabels(
+                getReadyToShowAdMethod.addInstructionsWithLabels(
                     0,
                     """
                     ${createConditionInstructions("v0")}
@@ -137,12 +137,12 @@ val videoAdsPatch = bytecodePatch(
                     move-result-object p1
                     return-object p1
                 """,
-                    ExternalLabel(skipLabelName, getReadyToShowAdFingerprint.method.getInstruction(0)),
+                    ExternalLabel(skipLabelName, getReadyToShowAdMethod.getInstruction(0)),
                 )
 
                 // Spoof showAds JSON field.
                 // Late versions of the app don't have the method anymore.
-                contentConfigShowAdsFingerprint.methodOrNull?.addInstructions(
+                contentConfigShowAdsMethod.addInstructions(
                     0,
                     """
                         ${createConditionInstructions("v0")}

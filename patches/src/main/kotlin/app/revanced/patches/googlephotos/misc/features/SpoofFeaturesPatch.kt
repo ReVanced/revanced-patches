@@ -60,7 +60,7 @@ val spoofFeaturesPatch = bytecodePatch(
         @Suppress("NAME_SHADOWING")
         val featuresToDisable = featuresToDisable!!.toSet()
 
-        initializeFeaturesEnumFingerprint.method.apply {
+        initializeFeaturesEnumMethod.apply {
             instructions.filter { it.opcode == Opcode.CONST_STRING }.forEach {
                 val feature = it.getReference<StringReference>()!!.string
 

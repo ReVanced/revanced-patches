@@ -31,7 +31,7 @@ val audioAdsPatch = bytecodePatch(
         )
 
         // Block playAds call
-        audioAdsPresenterPlayFingerprint.method.addInstructionsWithLabels(
+        audioAdsPresenterPlayMethod.addInstructionsWithLabels(
             0,
             """
                     invoke-static { }, Lapp/revanced/extension/twitch/patches/AudioAdsPatch;->shouldBlockAudioAds()Z
@@ -39,7 +39,7 @@ val audioAdsPatch = bytecodePatch(
                     if-eqz v0, :show_audio_ads
                     return-void
                 """,
-            ExternalLabel("show_audio_ads", audioAdsPresenterPlayFingerprint.method.getInstruction(0)),
+            ExternalLabel("show_audio_ads", audioAdsPresenterPlayMethod.getInstruction(0)),
         )
     }
 }

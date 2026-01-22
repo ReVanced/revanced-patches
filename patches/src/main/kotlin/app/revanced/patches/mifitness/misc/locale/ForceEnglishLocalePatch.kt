@@ -16,8 +16,8 @@ val forceEnglishLocalePatch = bytecodePatch(
     dependsOn(fixLoginPatch)
 
     apply {
-        syncBluetoothLanguageFingerprint.method.apply {
-            val resolvePhoneLocaleInstruction = syncBluetoothLanguageFingerprint.instructionMatches.first().index
+        syncBluetoothLanguageMethod.apply {
+            val resolvePhoneLocaleInstruction = syncBluetoothLanguageMethod.instructionMatches.first().index // TODO
             val registerIndexToUpdate = getInstruction<OneRegisterInstruction>(resolvePhoneLocaleInstruction).registerA
 
             replaceInstruction(

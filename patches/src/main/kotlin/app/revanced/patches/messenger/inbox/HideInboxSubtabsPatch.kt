@@ -11,6 +11,6 @@ val hideInboxSubtabsPatch = bytecodePatch(
     compatibleWith("com.facebook.orca")
 
     apply {
-        createInboxSubTabsFingerprint.method.replaceInstruction(2, "const/4 v0, 0x0")
+        createInboxSubTabsMethod.replaceInstruction(2, "const/4 v0, 0x0")
     }
 }

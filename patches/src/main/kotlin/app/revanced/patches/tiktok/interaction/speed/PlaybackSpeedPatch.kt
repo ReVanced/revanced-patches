@@ -1,5 +1,6 @@
 package app.revanced.patches.tiktok.interaction.speed
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
@@ -23,8 +24,8 @@ val playbackSpeedPatch = bytecodePatch(
     )
 
     apply {
-        setSpeedFingerprint.let { onVideoSwiped ->
-            getSpeedFingerprint.method.apply {
+        setSpeedMethod.let { onVideoSwiped ->
+            getSpeedMethod.apply {
                 val injectIndex =
                     indexOfFirstInstructionOrThrow { getReference<MethodReference>()?.returnType == "F" } + 2
                 val register = getInstruction<Instruction11x>(injectIndex - 1).registerA
@@ -53,7 +54,7 @@ val playbackSpeedPatch = bytecodePatch(
                     # Desired playback speed retrieved using getPlaybackSpeed method.
                     invoke-static { }, Lapp/revanced/extension/tiktok/speed/PlaybackSpeedPatch;->getPlaybackSpeed()F
                     move-result v2
-                    invoke-static { v0, v1, v2 }, ${onVideoSwiped.originalMethod}
+                    invoke-static { v0, v1, v2 }, ${onVideoSwiped.originalMethod} // TODO
                 """,
             )
 

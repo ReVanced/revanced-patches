@@ -1,5 +1,6 @@
 package app.revanced.patches.instagram.reels
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
@@ -14,12 +15,12 @@ val disableReelsScrollingPatch = bytecodePatch(
     compatibleWith("com.instagram.android")
 
     apply {
-        val viewPagerField = clipsViewPagerImplGetViewAtIndexFingerprint.classDef.fields.first {
+        val viewPagerField = clipsViewPagerImplGetViewAtIndexMethod.classDef.fields.first {
             it.type == "Landroidx/viewpager2/widget/ViewPager2;"
         }
 
         // Disable user input on the ViewPager2 to prevent scrolling.
-        clipsViewPagerImplGetViewAtIndexFingerprint.method.addInstructions(
+        clipsViewPagerImplGetViewAtIndexMethod.addInstructions(
             0,
             """
                iget-object v0, p0, $viewPagerField
@@ -29,6 +30,6 @@ val disableReelsScrollingPatch = bytecodePatch(
         )
 
         // Return false in onInterceptTouchEvent to disable pull-to-refresh.
-        clipsSwipeRefreshLayoutOnInterceptTouchEventFingerprint.method.returnEarly(false)
+        clipsSwipeRefreshLayoutOnInterceptTouchEventMethod.returnEarly(false)
     }
 }

@@ -11,7 +11,7 @@ val deepLinkingPatch = bytecodePatch(
     compatibleWith("com.amazon.mShop.android.shopping")
 
     apply {
-        deepLinkingFingerprint.method.addInstructions(
+        deepLinkingMethod.addInstructions(
             0,
             """
                 const/4 v0, 0x1

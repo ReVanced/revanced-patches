@@ -3,7 +3,6 @@ package app.revanced.patches.music.misc.fileprovider
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
-import app.revanced.patches.music.utils.fix.fileprovider.fileProviderResolverFingerprint
 
 internal fun fileProviderPatch(
     youtubePackageName: String,
@@ -22,7 +21,7 @@ internal fun fileProviderPatch(
         // https://github.com/ReVanced/revanced-patches/issues/55
         //
         // To solve this issue, replace the package name of YouTube with YT Music's package name.
-        fileProviderResolverFingerprint.method.addInstructionsWithLabels(
+        fileProviderResolverMethod.addInstructionsWithLabels(
             0,
             """
                 const-string v0, "com.google.android.youtube.fileprovider"

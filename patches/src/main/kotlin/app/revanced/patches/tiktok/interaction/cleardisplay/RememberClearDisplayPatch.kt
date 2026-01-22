@@ -21,7 +21,7 @@ val rememberClearDisplayPatch = bytecodePatch(
     )
 
     apply {
-        onClearDisplayEventFingerprint.method.let {
+        onClearDisplayEventMethod.let {
             // region Hook the "Clear display" configuration save event to remember the state of clear display.
 
             val isEnabledIndex = it.indexOfFirstInstructionOrThrow(Opcode.IGET_BOOLEAN) + 1

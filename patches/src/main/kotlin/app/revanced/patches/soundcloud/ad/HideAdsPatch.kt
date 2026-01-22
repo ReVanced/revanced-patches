@@ -1,12 +1,8 @@
 package app.revanced.patches.soundcloud.ad
 
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
-import app.revanced.patches.soundcloud.shared.featureConstructorFingerprint
+import app.revanced.patches.soundcloud.shared.featureConstructorMethod
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
@@ -19,7 +15,7 @@ val hideAdsPatch = bytecodePatch(
         // This method is the constructor of a class representing a "Feature" object parsed from JSON data.
         // p1 is the name of the feature.
         // p2 is true if the feature is enabled, false otherwise.
-        featureConstructorFingerprint.method.apply {
+        featureConstructorMethod.apply {
             val afterCheckNotNullIndex = 2
             addInstructionsWithLabels(
                 afterCheckNotNullIndex,
@@ -41,7 +37,7 @@ val hideAdsPatch = bytecodePatch(
         // p4 is the "consumerPlanUpsells" value, a list of plans to try to sell to the user.
         // p5 is the "currentConsumerPlan" value, the type of plan currently subscribed to.
         // p6 is the "currentConsumerPlanTitle" value, the name of the plan currently subscribed to, shown to the user.
-        userConsumerPlanConstructorFingerprint.method.addInstructions(
+        userConsumerPlanConstructorMethod.addInstructions(
             0,
             """
                 const-string p1, "high_tier"
@@ -54,8 +50,8 @@ val hideAdsPatch = bytecodePatch(
 
         // Prevent verification of an HTTP header containing the user's current plan, which would contradict the previous patch.
 
-        val conditionIndex = interceptFingerprint.instructionMatches.last().index + 1
-        interceptFingerprint.method.addInstruction(
+        val conditionIndex = interceptFingerprint.instructionMatches.last().index + 1 // TODO
+        interceptFingerprint.addInstruction(
             conditionIndex,
             "return-object p1",
         )

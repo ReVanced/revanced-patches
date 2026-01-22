@@ -1,24 +1,24 @@
 package app.revanced.patches.soundcloud.ad
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val interceptFingerprint = fingerprint {
+internal val BytecodePatchContext.interceptFingerprint by gettingFirstMutableMethodDeclaratively("SC-Mob-UserPlan", "Configuration") {
     accessFlags(AccessFlags.PUBLIC)
-    returns("L")
-    parameters("L")
+    returnType("L")
+    parameterTypes("L")
     opcodes(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT
     )
-    strings("SC-Mob-UserPlan", "Configuration")
 }
 
-internal val userConsumerPlanConstructorFingerprint = fingerprint {
+internal val BytecodePatchContext.userConsumerPlanConstructorMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters(
+    parameterTypes(
         "Ljava/lang/String;",
         "Z",
         "Ljava/lang/String;",

@@ -10,7 +10,7 @@ val `Remove root detection` by creatingBytecodePatch(
     compatibleWith("at.gv.bmf.bmf2go")
 
     apply {
-        rootDetectionFingerprint.method.addInstructions(
+        rootDetectionMethod.addInstructions(
             0,
             """
                 sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;

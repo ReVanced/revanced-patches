@@ -1,11 +1,17 @@
 package app.revanced.patches.amazon
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val deepLinkingFingerprint = fingerprint {
+internal val BytecodePatchContext.deepLinkingMethod by gettingFirstMutableMethodDeclaratively(
+    "https://www.",
+    "android.intent.action.VIEW"
+) {
     accessFlags(AccessFlags.PRIVATE)
-    returns("Z")
-    parameters("L")
-    strings("https://www.", "android.intent.action.VIEW")
+    returnType("Z")
+    parameterTypes("L")
 }

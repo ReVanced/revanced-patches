@@ -1,13 +1,17 @@
 package app.revanced.patches.soundcloud.analytics
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val createTrackingApiFingerprint = fingerprint {
+internal val BytecodePatchContext.createTrackingApiMethod by gettingFirstMutableMethodDeclaratively(
+    "backend",
+    "boogaloo"
+) {
+    name("create")
     accessFlags(AccessFlags.PUBLIC)
-    returns("L")
-    custom { methodDef, _ ->
-        methodDef.name == "create"
-    }
-    strings("backend", "boogaloo")
+    returnType("L")
 }

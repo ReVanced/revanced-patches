@@ -11,6 +11,6 @@ val disableQuickEditPatch = bytecodePatch(
     compatibleWith("com.strava")
 
     apply {
-        getHasAccessToQuickEditFingerprint.method.returnEarly()
+        getHasAccessToQuickEditMethod.returnEarly()
     }
 }

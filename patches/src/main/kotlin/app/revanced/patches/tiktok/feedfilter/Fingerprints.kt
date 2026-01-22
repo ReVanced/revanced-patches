@@ -1,19 +1,18 @@
 package app.revanced.patches.tiktok.feedfilter
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val feedApiServiceLIZFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("/FeedApiService;") && method.name == "fetchFeedList"
-    }
+internal val BytecodePatchContext.feedApiServiceLIZMethod by gettingFirstMutableMethodDeclaratively {
+    name("fetchFeedList")
+    definingClass("/FeedApiService;")
 }
 
-internal val followFeedFingerprint = fingerprint {
+internal val BytecodePatchContext.followFeedMethod by gettingFirstMutableMethodDeclaratively("getFollowFeedList") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Lcom/ss/android/ugc/aweme/follow/presenter/FollowFeedList;")
-    strings("getFollowFeedList")
+    returnType("Lcom/ss/android/ugc/aweme/follow/presenter/FollowFeedList;")
     opcodes(
         Opcode.INVOKE_INTERFACE_RANGE,
         Opcode.MOVE_RESULT_OBJECT,

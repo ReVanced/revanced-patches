@@ -1,15 +1,16 @@
 package app.revanced.patches.cricbuzz.ads
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val userStateSwitchFingerprint = fingerprint {
+internal val BytecodePatchContext.userStateSwitchMethod by gettingFirstMutableMethodDeclaratively("key.user.state", "NA") {
     opcodes(Opcode.SPARSE_SWITCH)
-    strings("key.user.state", "NA")
-}
 
-internal val cb11ConstructorFingerprint = fingerprint {
-    parameters(
+}
+internal val BytecodePatchContext.cb11ConstructorMethod by gettingFirstMutableMethodDeclaratively {
+    definingClass("CB11Details;"::endsWith)
+    parameterTypes(
         "Ljava/lang/String;",
         "Ljava/lang/String;",
         "Ljava/lang/String;",
@@ -21,13 +22,8 @@ internal val cb11ConstructorFingerprint = fingerprint {
         "Ljava/lang/String;",
         "L"
     )
-    custom { _, classDef ->
-        classDef.endsWith("CB11Details;")
-    }
 }
-
-internal val getBottomBarFingerprint = fingerprint {
-    custom { method, classDef ->
-        method.name == "getBottomBar" && classDef.endsWith("HomeMenu;")
-    }
+internal val BytecodePatchContext.getBottomBarMethod by gettingFirstMutableMethodDeclaratively {
+    name("getBottombar")
+    definingClass("HomeMenu;"::endsWith)
 }

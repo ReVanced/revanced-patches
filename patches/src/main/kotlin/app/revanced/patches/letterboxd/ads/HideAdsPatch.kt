@@ -1,7 +1,6 @@
-
 package app.revanced.patches.letterboxd.ads
 
-import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
@@ -12,9 +11,9 @@ val hideAdsPatch = bytecodePatch(
     compatibleWith("com.letterboxd.letterboxd")
 
     apply {
-        admobHelperSetShowAdsFingerprint.method.addInstruction(0, "const p1, 0x0")
-        listOf(admobHelperShouldShowAdsFingerprint, filmFragmentShowAdsFingerprint, memberExtensionShowAdsFingerprint).forEach {
-            it.method.returnEarly(false)
+        admobHelperSetShowAdsMethod.addInstruction(0, "const p1, 0x0")
+        listOf(admobHelperShouldShowAdsMethod, filmFragmentShowAdsMethod, memberExtensionShowAdsMethod).forEach {
+            it.returnEarly(false)
         }
     }
 }

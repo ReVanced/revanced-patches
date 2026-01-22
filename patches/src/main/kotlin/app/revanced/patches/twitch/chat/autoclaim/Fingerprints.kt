@@ -1,10 +1,11 @@
 package app.revanced.patches.twitch.chat.autoclaim
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val communityPointsButtonViewDelegateFingerprint = fingerprint {
-    custom { method, classDef ->
-        classDef.endsWith("CommunityPointsButtonViewDelegate;") &&
-            method.name == "showClaimAvailable"
-    }
+internal val BytecodePatchContext.communityPointsButtonViewDelegateMethod by gettingFirstMutableMethodDeclaratively {
+    name("showClaimAvailable")
+    definingClass("CommunityPointsButtonViewDelegate;"::endsWith)
 }

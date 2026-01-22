@@ -1,13 +1,14 @@
 package app.revanced.patches.music.misc.androidauto
 
-import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 
-internal val checkCertificateFingerprint = fingerprint {
-    returns("Z")
-    parameters("Ljava/lang/String;")
-    strings(
-        "X509",
-        "Failed to get certificate" // Partial String match.
-    )
+internal val BytecodePatchContext.checkCertificateMethod by gettingFirstMutableMethodDeclaratively(
+    "X509",
+    "Failed to get certificate" // Partial String match.
+) {
+    returnType("Z")
+    parameterTypes("Ljava/lang/String;")
 }

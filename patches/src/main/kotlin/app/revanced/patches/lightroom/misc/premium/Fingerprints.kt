@@ -1,17 +1,20 @@
 package app.revanced.patches.lightroom.misc.premium
 
-import com.android.tools.smali.dexlib2.Opcode
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
-import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.Opcode
 
-internal val hasPurchasedFingerprint = fingerprint {
+internal val BytecodePatchContext.hasPurchasedMethod by gettingFirstMutableMethodDeclaratively("isPurchaseDoneRecently = true, access platform profile present? = ") {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    returns("Z")
+    returnType("Z")
     opcodes(
         Opcode.SGET_OBJECT,
         Opcode.CONST_4,
         Opcode.CONST_4,
         Opcode.CONST_4,
     )
-    strings("isPurchaseDoneRecently = true, access platform profile present? = ")
 }

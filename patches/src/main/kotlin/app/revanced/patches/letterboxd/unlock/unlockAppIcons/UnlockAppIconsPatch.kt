@@ -10,6 +10,6 @@ val unlockAppIconsPatch = bytecodePatch(
     compatibleWith("com.letterboxd.letterboxd")
 
     apply {
-        getCanChangeAppIconFingerprint.method.returnEarly(true)
+        getCanChangeAppIconMethod.returnEarly(true)
     }
 }

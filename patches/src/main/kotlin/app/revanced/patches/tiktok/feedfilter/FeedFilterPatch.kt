@@ -29,8 +29,8 @@ val feedFilterPatch = bytecodePatch(
 
     apply {
         arrayOf(
-            feedApiServiceLIZFingerprint.method to "$EXTENSION_CLASS_DESCRIPTOR->filter(Lcom/ss/android/ugc/aweme/feed/model/FeedItemList;)V",
-            followFeedFingerprint.method to "$EXTENSION_CLASS_DESCRIPTOR->filter(Lcom/ss/android/ugc/aweme/follow/presenter/FollowFeedList;)V"
+            feedApiServiceLIZMethod to "$EXTENSION_CLASS_DESCRIPTOR->filter(Lcom/ss/android/ugc/aweme/feed/model/FeedItemList;)V",
+            followFeedMethod to "$EXTENSION_CLASS_DESCRIPTOR->filter(Lcom/ss/android/ugc/aweme/follow/presenter/FollowFeedList;)V"
         ).forEach { (method, filterSignature) ->
             val returnInstruction = method.instructions.first { it.opcode == Opcode.RETURN_OBJECT }
             val register = (returnInstruction as OneRegisterInstruction).registerA

@@ -1,5 +1,6 @@
 package app.revanced.patches.instagram.feed
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.fingerprint
@@ -30,11 +31,11 @@ val limitFeedToFollowedProfiles = bytecodePatch(
          */
         val mainFeedRequestHeaderFieldName: String
 
-        with(mainFeedHeaderMapFinderFingerprint.method) {
+        with(mainFeedHeaderMapFinderMethod) {
             mainFeedRequestHeaderFieldName = indexOfFirstInstructionOrThrow {
                 getReference<FieldReference>().let { ref ->
                     ref?.type == "Ljava/util/Map;" &&
-                            ref.definingClass == mainFeedRequestClassFingerprint.classDef.toString()
+                            ref.definingClass == mainFeedRequestClassMethod.classDef.toString()
 
                 }
             }.let { instructionIndex ->
@@ -45,7 +46,7 @@ val limitFeedToFollowedProfiles = bytecodePatch(
         val initMainFeedRequestFingerprint = fingerprint {
             custom { method, classDef ->
                 method.name == "<init>" &&
-                        classDef == mainFeedRequestClassFingerprint.classDef
+                        classDef == mainFeedRequestClassMethod.classDef
             }
         }
         initMainFeedRequestFingerprint.method.apply {
