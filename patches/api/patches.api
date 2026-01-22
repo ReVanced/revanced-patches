@@ -472,6 +472,10 @@ public final class app/revanced/patches/music/layout/compactheader/HideCategoryB
 	public static final fun getHideCategoryBar ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/music/layout/hide/general/HideLayoutComponentsPatchKt {
+	public static final fun getHideLayoutComponentsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/music/layout/miniplayercolor/ChangeMiniplayerColorKt {
 	public static final fun getChangeMiniplayerColor ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
@@ -519,6 +523,10 @@ public final class app/revanced/patches/music/misc/gms/Constants {
 
 public final class app/revanced/patches/music/misc/gms/GmsCoreSupportPatchKt {
 	public static final fun getGmsCoreSupportPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
+public final class app/revanced/patches/music/misc/litho/filter/LithoFilterPatchKt {
+	public static final fun getLithoFilterPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/music/misc/privacy/SanitizeSharingLinksPatchKt {
@@ -930,6 +938,12 @@ public final class app/revanced/patches/shared/misc/hex/Replacement {
 	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public fun <init> ([B[BLjava/lang/String;)V
 	public final fun getReplacementBytesPadded ()[B
+}
+
+public final class app/revanced/patches/shared/misc/litho/filter/LithoFilterPatchKt {
+	public static final fun getAddLithoFilter ()Lkotlin/jvm/functions/Function1;
+	public static final fun lithoFilterPatch (Lkotlin/jvm/functions/Function1;Lapp/revanced/patcher/Fingerprint;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lapp/revanced/patcher/patch/BytecodePatch;
+	public static synthetic fun lithoFilterPatch$default (Lkotlin/jvm/functions/Function1;Lapp/revanced/patcher/Fingerprint;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
 public final class app/revanced/patches/shared/misc/mapping/ResourceElement {
