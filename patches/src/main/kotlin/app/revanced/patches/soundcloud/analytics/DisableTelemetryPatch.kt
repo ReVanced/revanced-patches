@@ -1,11 +1,10 @@
 package app.revanced.patches.soundcloud.analytics
 
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 
 @Suppress("unused")
-val disableTelemetryPatch = bytecodePatch(
-    name = "Disable telemetry",
+val `Disable telemetry` by creatingBytecodePatch(
     description = "Disables SoundCloud's telemetry system.",
 ) {
     compatibleWith("com.soundcloud.android"("2025.05.27-release"))

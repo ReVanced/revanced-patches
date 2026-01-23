@@ -4,7 +4,7 @@ import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -14,8 +14,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/instagram/feed/LimitFeedToFollowedProfiles;"
 
 @Suppress("unused")
-val limitFeedToFollowedProfiles = bytecodePatch(
-    name = "Limit feed to followed profiles",
+val `Limit feed to followed profiles` by creatingBytecodePatch(
     description = "Filters the home feed to display only content from profiles you follow.",
     use = false,
 ) {

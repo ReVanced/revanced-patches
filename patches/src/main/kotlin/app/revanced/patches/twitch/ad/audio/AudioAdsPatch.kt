@@ -1,23 +1,22 @@
 package app.revanced.patches.twitch.ad.audio
 
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
-import app.revanced.patches.twitch.misc.settings.settingsPatch
+import app.revanced.patches.twitch.misc.settings.Settings
 
-val audioAdsPatch = bytecodePatch(
-    name = "Block audio ads",
+val `Block audio ads` by creatingBytecodePatch(
     description = "Blocks audio ads in streams and VODs.",
 ) {
     dependsOn(
         sharedExtensionPatch,
-        settingsPatch,
+        Settings,
         addResourcesPatch,
     )
 

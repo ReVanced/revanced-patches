@@ -1,10 +1,10 @@
 package app.revanced.patches.twitch.ad.video
 
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -12,10 +12,9 @@ import app.revanced.patches.twitch.ad.shared.util.ReturnMethod
 import app.revanced.patches.twitch.ad.shared.util.adPatch
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
-import app.revanced.patches.twitch.misc.settings.settingsPatch
+import app.revanced.patches.twitch.misc.settings.Settings
 
-val videoAdsPatch = bytecodePatch(
-    name = "Block video ads",
+val `Block video ads` by creatingBytecodePatch(
     description = "Blocks video ads in streams and VODs.",
 ) {
     val conditionCall = "Lapp/revanced/extension/twitch/patches/VideoAdsPatch;->shouldBlockVideoAds()Z"
@@ -23,7 +22,7 @@ val videoAdsPatch = bytecodePatch(
 
     dependsOn(
         sharedExtensionPatch,
-        settingsPatch,
+        Settings,
         addResourcesPatch,
         adPatch(conditionCall, skipLabelName) { createConditionInstructions, blockMethods ->
 

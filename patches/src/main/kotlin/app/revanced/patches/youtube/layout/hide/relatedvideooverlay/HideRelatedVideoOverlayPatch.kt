@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.hide.relatedvideooverlay
 
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -16,8 +16,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HideRelatedVideoOverlayPatch;"
 
 @Suppress("unused")
-val hideRelatedVideoOverlayPatch = bytecodePatch(
-    name = "Hide related video overlay",
+val `Hide related video overlay` by creatingBytecodePatch(
     description = "Adds an option to hide the related video overlay shown when swiping up in fullscreen.",
 ) {
     dependsOn(

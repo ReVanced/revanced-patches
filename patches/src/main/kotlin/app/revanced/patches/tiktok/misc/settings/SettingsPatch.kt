@@ -1,10 +1,10 @@
 package app.revanced.patches.tiktok.misc.settings
 
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.shared.layout.branding.addBrandLicensePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.Opcode
@@ -15,8 +15,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/tiktok/settings/TikTokActivityHook;"
 
-val settingsPatch = bytecodePatch(
-    name = "Settings",
+val Settings by creatingBytecodePatch(
     description = "Adds ReVanced settings to TikTok.",
 ) {
     dependsOn(sharedExtensionPatch, addBrandLicensePatch)
@@ -29,14 +28,14 @@ val settingsPatch = bytecodePatch(
     apply {
         val initializeSettingsMethodDescriptor =
             "$EXTENSION_CLASS_DESCRIPTOR->initialize(" +
-                "Lcom/bytedance/ies/ugc/aweme/commercialize/compliance/personalization/AdPersonalizationActivity;" +
-                ")Z"
+                    "Lcom/bytedance/ies/ugc/aweme/commercialize/compliance/personalization/AdPersonalizationActivity;" +
+                    ")Z"
 
         val createSettingsEntryMethodDescriptor =
             "$EXTENSION_CLASS_DESCRIPTOR->createSettingsEntry(" +
-                "Ljava/lang/String;" +
-                "Ljava/lang/String;" +
-                ")Ljava/lang/Object;"
+                    "Ljava/lang/String;" +
+                    "Ljava/lang/String;" +
+                    ")Ljava/lang/Object;"
 
         fun String.toClassName(): String = substring(1, this.length - 1).replace("/", ".")
 

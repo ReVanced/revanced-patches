@@ -1,11 +1,10 @@
 package app.revanced.patches.all.misc.spoof
 
-import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.creatingResourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.util.getNode
 import com.android.apksig.ApkVerifier
 import com.android.apksig.apk.ApkFormatException
-import org.w3c.dom.Element
 import java.io.File
 import java.io.IOException
 import java.nio.file.InvalidPathException
@@ -15,8 +14,8 @@ import java.security.cert.CertificateFactory
 import java.util.*
 
 @Suppress("unused")
-val enableRomSignatureSpoofing = resourcePatch(
-    name = "Enable ROM signature spoofing",
+val `Enable ROM signature spoofing` = creatingResourcePatch(
+    name = "",
     description = "Spoofs the signature via the manifest meta-data \"fake-signature\". " +
             "This patch only works with ROMs that support signature spoofing.",
     use = false,

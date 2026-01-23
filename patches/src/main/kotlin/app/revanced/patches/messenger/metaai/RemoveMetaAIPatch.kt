@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.method
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.messenger.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
@@ -13,8 +13,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/messeng
 internal const val EXTENSION_METHOD_NAME = "overrideBooleanFlag"
 
 @Suppress("unused")
-val removeMetaAIPatch = bytecodePatch(
-    name = "Remove Meta AI",
+val `Remove Meta AI` by creatingBytecodePatch(
     description = "Removes UI elements related to Meta AI."
 ) {
     compatibleWith("com.facebook.orca")

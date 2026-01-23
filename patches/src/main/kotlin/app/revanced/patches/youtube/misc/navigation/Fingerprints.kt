@@ -4,7 +4,7 @@ import app.revanced.patcher.*
 import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
+import app.revanced.patches.youtube.layout.buttons.navigation.`Navigation buttons`
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 

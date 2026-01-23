@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.tudortmund.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
@@ -16,8 +16,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/tudortmund/lockscreen/ShowOnLockscreenPatch;"
 
 @Suppress("unused")
-val showOnLockscreenPatch = bytecodePatch(
-    name = "Show on lockscreen",
+val `Show on lockscreen` by creatingBytecodePatch(
     description = "Shows student id and student ticket on lockscreen.",
 ) {
     dependsOn(sharedExtensionPatch)
@@ -62,10 +61,10 @@ val showOnLockscreenPatch = bytecodePatch(
             replaceInstruction(
                 windowIndex,
                 "invoke-static { v$activityRegister, v$brightnessRegister }, " +
-                    "$EXTENSION_CLASS_DESCRIPTOR->" +
-                    "getWindow" +
-                    "(Landroidx/appcompat/app/AppCompatActivity;F)" +
-                    "Landroid/view/Window;",
+                        "$EXTENSION_CLASS_DESCRIPTOR->" +
+                        "getWindow" +
+                        "(Landroidx/appcompat/app/AppCompatActivity;F)" +
+                        "Landroid/view/Window;",
             )
 
             // Normally, the brightness is loaded into a register after the getWindow call.

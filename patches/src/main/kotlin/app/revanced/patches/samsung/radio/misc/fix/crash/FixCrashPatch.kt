@@ -4,7 +4,7 @@ package app.revanced.patches.samsung.radio.misc.fix.crash
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.samsung.radio.restrictions.device.`Bypass device checks`
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.indexOfFirstInstruction
@@ -13,8 +13,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/samsung/radio/misc/fix/crash/FixCrashPatch;"
 
-val fixCrashPatch = bytecodePatch(
-    name = "Fix crashes", description = "Prevents the app from crashing because of missing system permissions."
+val `Fix crashes` by creatingBytecodePatch(
+    description = "Prevents the app from crashing because of missing system permissions."
 ) {
     dependsOn(addManifestPermissionsPatch, `Bypass device checks`)
     extendWith("extensions/samsung/radio.rve")

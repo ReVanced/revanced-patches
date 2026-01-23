@@ -15,7 +15,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/OpenVideosFullscreenHookPatch;"
 
 /**
- * Used by both [openVideosFullscreenPatch] and [`Open Shorts in regular player`].
+ * Used by both [`Open videos fullscreen`] and [`Open Shorts in regular player`].
  */
 internal val openVideosFullscreenHookPatch = bytecodePatch {
     dependsOn(

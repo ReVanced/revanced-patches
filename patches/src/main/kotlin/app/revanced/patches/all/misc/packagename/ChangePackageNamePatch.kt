@@ -26,10 +26,9 @@ fun setOrGetFallbackPackageName(fallbackPackageName: String): String {
     }
 }
 
-val changePackageNamePatch = resourcePatch(
-    name = "Change package name",
+val `Change package name` = creatingResourcePatch(
     description = "Appends \".revanced\" to the package name by default. " +
-        "Changing the package name of the app can lead to unexpected issues.",
+            "Changing the package name of the app can lead to unexpected issues.",
     use = false,
 ) {
     packageNameOption = stringOption(
@@ -46,14 +45,14 @@ val changePackageNamePatch = resourcePatch(
         default = false,
         name = "Update permissions",
         description = "Update compatibility receiver permissions. " +
-            "Enabling this can fix installation errors, but this can also break features in certain apps.",
+                "Enabling this can fix installation errors, but this can also break features in certain apps.",
     )
 
     val updateProviders by booleanOption(
         default = false,
         name = "Update providers",
         description = "Update provider names declared by the app. " +
-            "Enabling this can fix installation errors, but this can also break features in certain apps.",
+                "Enabling this can fix installation errors, but this can also break features in certain apps.",
     )
 
     afterDependents {

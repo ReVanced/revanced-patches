@@ -1,11 +1,10 @@
 package app.revanced.patches.spotify.misc.fix.login
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val fixFacebookLoginPatch = bytecodePatch(
-    name = "Fix Facebook login",
+val `Fix Facebook login` by creatingBytecodePatch(
     description =
         "Fix logging in with Facebook when the app is patched by always opening the login in a web browser window.",
 ) {

@@ -1,12 +1,10 @@
 package app.revanced.patches.stocard.layout
 
-import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.creatingResourcePatch
 import app.revanced.util.getNode
 
 @Suppress("unused")
-val hideStoryBubblesPatch = resourcePatch(
-    name = "Hide story bubbles",
-) {
+val `Hide story bubbles` by creatingResourcePatch {
     compatibleWith("de.stocard.stocard")
 
     apply {

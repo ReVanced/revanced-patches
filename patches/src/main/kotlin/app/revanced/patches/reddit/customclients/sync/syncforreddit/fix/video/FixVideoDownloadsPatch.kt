@@ -2,7 +2,7 @@ package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.video
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.reddit.customclients.sync.syncforreddit.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 
@@ -11,8 +11,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 private const val GET_LINKS_METHOD = "getLinks([B)[Ljava/lang/String;"
 
 @Suppress("unused")
-val fixVideoDownloadsPatch = bytecodePatch(
-    name = "Fix video downloads",
+val `Fix video downloads` by creatingBytecodePatch(
     description = "Fixes a bug in Sync's MPD parser resulting in only the audio-track being saved.",
 ) {
     dependsOn(sharedExtensionPatch)

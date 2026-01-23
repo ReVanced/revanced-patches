@@ -1,12 +1,10 @@
 package app.revanced.patches.inshorts.ad
 
-import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
+import app.revanced.patcher.patch.creatingBytecodePatch
 
 @Suppress("unused")
-val hideAdsPatch = bytecodePatch(
-    name = "Hide ads",
-) {
+val `Hide ads` by creatingBytecodePatch {
     compatibleWith("com.nis.app")
 
     apply {

@@ -15,7 +15,7 @@ fun spoofClientPatch(
     redirectUri: String,
     block: BytecodePatchBuilder.(Option<String>) -> Unit = {},
 ) = bytecodePatch(
-    name = "Spoof client",
+    name = "Spoof client", // TODO
     description = "Restores functionality of the app by using custom client ID.",
 ) {
     block(

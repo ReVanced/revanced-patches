@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.wideLiteral
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.creatingResourcePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.util.Document
 import app.revanced.patches.all.misc.resources.addResources
@@ -94,8 +94,7 @@ private val changeHeaderBytecodePatch = bytecodePatch {
 }
 
 @Suppress("unused")
-val changeHeaderPatch = resourcePatch(
-    name = "Change header",
+val `Change header` by creatingResourcePatch(
     description = "Adds an option to change the header logo in the top left corner of the app.",
 ) {
     dependsOn(addResourcesPatch, changeHeaderBytecodePatch)

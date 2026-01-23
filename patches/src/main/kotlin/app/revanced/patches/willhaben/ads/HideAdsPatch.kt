@@ -1,11 +1,10 @@
 package app.revanced.patches.willhaben.ads
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-internal val hideAdsPatch = bytecodePatch(
-    name = "Hide ads",
+internal val `Hide ads` by creatingBytecodePatch(
     description = "Hides all in-app ads.",
 ) {
     compatibleWith("at.willhaben")

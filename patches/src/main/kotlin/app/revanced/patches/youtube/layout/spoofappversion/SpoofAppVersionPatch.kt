@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.layout.spoofappversion
 
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -23,8 +23,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/spoof/SpoofAppVersionPatch;"
 
-val spoofAppVersionPatch = bytecodePatch(
-    name = "Spoof app version",
+val `Spoof app version` by creatingBytecodePatch(
     description = "Adds an option to trick YouTube into thinking you are running an older version of the app. " +
             "This can be used to restore old UI elements and features."
 ) {

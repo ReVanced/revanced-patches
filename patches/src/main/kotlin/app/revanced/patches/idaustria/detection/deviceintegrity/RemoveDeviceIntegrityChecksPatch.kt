@@ -1,12 +1,11 @@
 package app.revanced.patches.idaustria.detection.deviceintegrity
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val removeDeviceIntegrityChecksPatch = bytecodePatch(
-    name = "Remove device integrity checks",
+val `Remove device integrity checks` by creatingBytecodePatch(
     description = "Removes the check for root permissions and unlocked bootloader.",
 ) {
     compatibleWith("at.gv.oe.app")

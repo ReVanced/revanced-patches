@@ -3,7 +3,7 @@ package app.revanced.patches.music.layout.navigationbar
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -27,8 +27,7 @@ internal var text1 = -1L
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/NavigationBarPatch;"
 
 @Suppress("unused")
-val navigationBarPatch = bytecodePatch(
-    name = "Navigation bar",
+val `Navigation bar` by creatingBytecodePatch(
     description = "Adds options to hide navigation bar, labels and buttons.",
 ) {
     dependsOn(

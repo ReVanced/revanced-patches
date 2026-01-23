@@ -1,12 +1,10 @@
 package app.revanced.patches.strava.password
 
-import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val enablePasswordLoginPatch = bytecodePatch(
-    name = "Enable password login",
+val `Enable password login` by creatingBytecodePatch(
     description = "Re-enables password login after having used an OTP code.",
 ) {
     compatibleWith("com.strava")

@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.layout.sponsorblock
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -27,11 +27,7 @@ import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.information.videoTimeHook
 import app.revanced.patches.youtube.video.videoid.hookBackgroundPlayVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
-import app.revanced.util.ResourceGroup
-import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.copyResources
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -114,8 +110,7 @@ private const val EXTENSION_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/sponsorblock/ui/SponsorBlockViewController;"
 
 @Suppress("unused")
-val sponsorBlockPatch = bytecodePatch(
-    name = "SponsorBlock",
+val SponsorBlock by creatingBytecodePatch(
     description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments such as sponsored content.",
 ) {
     dependsOn(
@@ -148,7 +143,7 @@ val sponsorBlockPatch = bytecodePatch(
 
         hookBackgroundPlayVideoId(
             EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR +
-                "->setCurrentVideoId(Ljava/lang/String;)V",
+                    "->setCurrentVideoId(Ljava/lang/String;)V",
         )
 
         // Set seekbar draw rectangle.

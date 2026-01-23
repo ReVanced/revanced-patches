@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.hide.signintotvpopup
 
 import app.revanced.patcher.extensions.addInstructionsWithLabels
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -13,8 +13,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableSignInToTvPopupPatch;"
 
-val disableSignInToTvPopupPatch = bytecodePatch(
-    name = "Disable sign in to TV popup",
+val `Disable sign in to TV popup` by creatingBytecodePatch(
     description = "Adds an option to disable the popup asking to sign into a TV on the same local network.",
 ) {
     dependsOn(

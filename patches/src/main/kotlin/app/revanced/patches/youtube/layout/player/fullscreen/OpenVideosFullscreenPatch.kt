@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -9,8 +9,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val openVideosFullscreenPatch = bytecodePatch(
-    name = "Open videos fullscreen",
+val `Open videos fullscreen` by creatingBytecodePatch(
     description = "Adds an option to open videos in full screen portrait mode.",
 ) {
     dependsOn(

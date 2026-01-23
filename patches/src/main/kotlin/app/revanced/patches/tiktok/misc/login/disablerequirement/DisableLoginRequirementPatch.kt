@@ -1,12 +1,10 @@
 package app.revanced.patches.tiktok.misc.login.disablerequirement
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 
 @Suppress("unused")
-val disableLoginRequirementPatch = bytecodePatch(
-    name = "Disable login requirement",
-) {
+val `Disable login requirement` by creatingBytecodePatch {
     compatibleWith(
         "com.ss.android.ugc.trill",
         "com.zhiliaoapp.musically",

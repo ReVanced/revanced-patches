@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.hide.fullscreenambientmode
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -17,8 +17,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableFullscreenAmbientModePatch;"
 
-val disableFullscreenAmbientModePatch = bytecodePatch(
-    name = "Disable fullscreen ambient mode",
+val `Disable fullscreen ambient mode` by creatingBytecodePatch(
     description = "Adds an option to disable the ambient mode when in fullscreen.",
 ) {
     dependsOn(

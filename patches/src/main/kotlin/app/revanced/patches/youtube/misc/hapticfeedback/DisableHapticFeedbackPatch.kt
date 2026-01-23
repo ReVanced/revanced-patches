@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.misc.hapticfeedback
 
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
@@ -15,8 +15,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableHapticFeedbackPatch;"
 
 @Suppress("unused")
-val disableHapticFeedbackPatch = bytecodePatch(
-    name = "Disable haptic feedback",
+val `Disable haptic feedback` by creatingBytecodePatch(
     description = "Adds an option to disable haptic feedback in the player for various actions.",
 ) {
     dependsOn(

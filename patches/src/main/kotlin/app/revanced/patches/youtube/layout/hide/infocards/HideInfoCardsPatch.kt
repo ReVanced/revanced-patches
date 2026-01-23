@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -35,8 +35,7 @@ private val hideInfocardsResourcePatch = resourcePatch {
 }
 
 @Suppress("unused")
-val hideInfoCardsPatch = bytecodePatch(
-    name = "Hide info cards",
+val `Hide info cards` by creatingBytecodePatch(
     description = "Adds an option to hide info cards that creators add in the video player.",
 ) {
     dependsOn(
@@ -67,13 +66,13 @@ val hideInfoCardsPatch = bytecodePatch(
         infocardsIncognitoFingerprint.match(infocardsIncognitoParentFingerprint.originalClassDef).method.apply {
             val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
-                    ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")
+                        ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")
             }
 
             addInstruction(
                 invokeInstructionIndex,
                 "invoke-static {v${getInstruction<FiveRegisterInstruction>(invokeInstructionIndex).registerC}}," +
-                    " Lapp/revanced/extension/youtube/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V",
+                        " Lapp/revanced/extension/youtube/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V",
             )
         }
 

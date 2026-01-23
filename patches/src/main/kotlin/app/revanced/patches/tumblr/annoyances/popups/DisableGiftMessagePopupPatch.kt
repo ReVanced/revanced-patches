@@ -1,11 +1,10 @@
 package app.revanced.patches.tumblr.annoyances.popups
 
-import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
+import app.revanced.patcher.patch.creatingBytecodePatch
 
 @Suppress("unused")
-val disableGiftMessagePopupPatch = bytecodePatch(
-    name = "Disable gift message popup",
+val `Disable gift message popup` by creatingBytecodePatch(
     description = "Disables the popup suggesting to buy TumblrMart items for other people.",
 ) {
     compatibleWith("com.tumblr")

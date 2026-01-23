@@ -1,10 +1,10 @@
 package app.revanced.patches.instagram.hide.stories
+
 import app.revanced.patcher.extensions.removeInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 
 @Suppress("unused")
-val hideStoriesPatch = bytecodePatch(
-    name = "Hide Stories from Home",
+val `Hide Stories from Home` by creatingBytecodePatch(
     description = "Hides Stories from the main page, by removing the buttons.",
     use = false
 ) {

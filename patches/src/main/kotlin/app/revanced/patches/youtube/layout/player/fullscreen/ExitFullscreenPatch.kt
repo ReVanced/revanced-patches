@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
@@ -16,8 +16,7 @@ import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 
 @Suppress("unused")
-internal val exitFullscreenPatch = bytecodePatch(
-    name = "Exit fullscreen mode",
+internal val `Exit fullscreen mode` by creatingBytecodePatch(
     description = "Adds options to automatically exit fullscreen mode when a video reaches the end."
 ) {
 

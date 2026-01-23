@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.player.flyoutmenupanel
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
@@ -11,8 +11,7 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
-val hidePlayerFlyoutMenuPatch = bytecodePatch(
-    name = "Hide player flyout menu items",
+val `Hide player flyout menu items` by creatingBytecodePatch(
     description = "Adds options to hide menu items that appear when pressing the gear icon in the video player.",
 ) {
     dependsOn(

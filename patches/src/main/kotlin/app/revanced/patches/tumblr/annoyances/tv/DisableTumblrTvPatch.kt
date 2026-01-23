@@ -1,12 +1,11 @@
 package app.revanced.patches.tumblr.annoyances.tv
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.tumblr.featureflags.addFeatureFlagOverride
 import app.revanced.patches.tumblr.featureflags.overrideFeatureFlagsPatch
 
 @Suppress("unused")
-val disableTumblrTvPatch = bytecodePatch(
-    name = "Disable Tumblr TV",
+val `Disable Tumblr TV` by creatingBytecodePatch(
     description = "Removes the Tumblr TV navigation button from the bottom navigation bar.",
 ) {
     dependsOn(overrideFeatureFlagsPatch)

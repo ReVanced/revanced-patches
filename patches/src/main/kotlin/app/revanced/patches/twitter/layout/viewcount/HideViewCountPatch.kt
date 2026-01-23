@@ -1,11 +1,10 @@
 package app.revanced.patches.twitter.layout.viewcount
 
-import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
+import app.revanced.patcher.patch.creatingBytecodePatch
 
 @Suppress("unused")
-val hideViewCountPatch = bytecodePatch(
-    name = "Hide view count",
+val `Hide view count` by creatingBytecodePatch(
     description = "Hides the view count of Posts.",
     use = false,
 ) {

@@ -2,12 +2,10 @@ package app.revanced.patches.trakt
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.immutableClassDef
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 
 @Suppress("unused")
-val unlockProPatch = bytecodePatch(
-    name = "Unlock pro",
-) {
+val `Unlock pro` by creatingBytecodePatch {
     compatibleWith("tv.trakt.trakt"("1.1.1"))
 
     apply {

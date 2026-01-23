@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.searchbar
 
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -24,8 +24,7 @@ import java.util.logging.Logger
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/WideSearchbarPatch;"
 
-val wideSearchbarPatch = bytecodePatch(
-    name = "Wide search bar",
+val `Wide search bar` by creatingBytecodePatch(
     description = "Adds an option to replace the search icon with a wide search bar. " +
             "This will hide the YouTube logo when active.",
 ) {

@@ -2,12 +2,11 @@ package app.revanced.patches.solidexplorer2.functionality.filesize
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.ThreeRegisterInstruction
 
 @Suppress("unused")
-val removeFileSizeLimitPatch = bytecodePatch(
-    name = "Remove file size limit",
+val `Remove file size limit` by creatingBytecodePatch(
     description = "Allows opening files larger than 2 MB in the text editor.",
 ) {
     compatibleWith("pl.solidexplorer2")

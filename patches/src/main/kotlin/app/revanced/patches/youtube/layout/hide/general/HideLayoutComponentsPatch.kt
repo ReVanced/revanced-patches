@@ -1,9 +1,8 @@
 package app.revanced.patches.youtube.layout.hide.general
 
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.*
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -81,11 +80,10 @@ private const val CUSTOM_FILTER_CLASS_NAME =
 private const val KEYWORD_FILTER_CLASS_NAME =
     "Lapp/revanced/extension/youtube/patches/components/KeywordContentFilter;"
 
-val hideLayoutComponentsPatch = bytecodePatch(
-    name = "Hide layout components",
+val `Hide layout components` by creatingBytecodePatch(
     description = "Adds options to hide general layout components.",
 
-) {
+    ) {
     dependsOn(
         lithoFilterPatch,
         settingsPatch,
@@ -315,7 +313,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static {v$objectRegister}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                        "->hideCrowdfundingBox(Landroid/view/View;)V",
+                            "->hideCrowdfundingBox(Landroid/view/View;)V",
                 )
             }
         }
@@ -333,7 +331,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                        "->hideAlbumCard(Landroid/view/View;)V",
+                            "->hideAlbumCard(Landroid/view/View;)V",
                 )
             }
         }
@@ -448,7 +446,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         relatedChipCloudFingerprint.patch<OneRegisterInstruction>(1) { register ->
             "invoke-static { v$register }, " +
-                "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
+                    "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
         }
     }
 }

@@ -1,7 +1,7 @@
 package app.revanced.patches.soundcloud.offlinesync
 
 import app.revanced.patcher.extensions.*
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.soundcloud.shared.featureConstructorMethod
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
@@ -9,9 +9,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Suppress("unused")
-val enableOfflineSync = bytecodePatch(
-    name = "Enable offline sync",
-) {
+val `Enable offline sync` by creatingBytecodePatch {
     compatibleWith("com.soundcloud.android"("2025.05.27-release"))
 
     apply {

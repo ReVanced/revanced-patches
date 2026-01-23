@@ -1,11 +1,10 @@
 package app.revanced.patches.strava.privacy
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val blockSnowplowTrackingPatch = bytecodePatch(
-    name = "Block Snowplow tracking",
+val `Block Snowplow tracking` by creatingBytecodePatch(
     description = "Blocks Snowplow analytics. See https://snowplow.io for more information.",
 ) {
     compatibleWith("com.strava")

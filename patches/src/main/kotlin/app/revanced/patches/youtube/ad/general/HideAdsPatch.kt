@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.extensions.wideLiteral
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -62,8 +62,7 @@ private val hideAdsResourcePatch = resourcePatch {
 }
 
 @Suppress("unused")
-val hideAdsPatch = bytecodePatch(
-    name = "Hide ads",
+val `Hide ads` by creatingBytecodePatch(
     description = "Adds options to remove general ads.",
 ) {
     dependsOn(

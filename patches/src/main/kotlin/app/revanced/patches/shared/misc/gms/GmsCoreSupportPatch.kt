@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patches.all.misc.packagename.changePackageNamePatch
+import app.revanced.patches.all.misc.packagename.`Change package name`
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -55,7 +55,7 @@ fun gmsCoreSupportPatch(
     executeBlock: BytecodePatchContext.() -> Unit = {},
     block: BytecodePatchBuilder.() -> Unit = {},
 ) = bytecodePatch(
-    name = "GmsCore support",
+    name = "GmsCore support", // TODO
     description = "Allows the app to work without root by using a different package name when patched " +
             "using a GmsCore instead of Google Play Services.",
 ) {
@@ -71,7 +71,7 @@ fun gmsCoreSupportPatch(
     ) { it!!.matches(Regex(PACKAGE_NAME_REGEX_PATTERN)) }
 
     dependsOn(
-        changePackageNamePatch,
+        `Change package name`,
         gmsCoreSupportResourcePatchFactory(gmsCoreVendorGroupIdOption),
         extensionPatch,
     )
@@ -519,7 +519,7 @@ fun gmsCoreSupportResourcePatch(
     block: ResourcePatchBuilder.() -> Unit = {},
 ) = resourcePatch {
     dependsOn(
-        changePackageNamePatch,
+        `Change package name`,
         addResourcesPatch,
     )
 

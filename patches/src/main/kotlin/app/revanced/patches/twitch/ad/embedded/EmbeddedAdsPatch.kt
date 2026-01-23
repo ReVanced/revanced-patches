@@ -1,22 +1,21 @@
 package app.revanced.patches.twitch.ad.embedded
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
-import app.revanced.patches.twitch.ad.video.videoAdsPatch
+import app.revanced.patches.twitch.ad.video.`Block video ads`
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
-import app.revanced.patches.twitch.misc.settings.settingsPatch
+import app.revanced.patches.twitch.misc.settings.Settings
 
-val embeddedAdsPatch = bytecodePatch(
-    name = "Block embedded ads",
+val `Block embedded ads` by creatingBytecodePatch(
     description = "Blocks embedded stream ads using services like Luminous or PurpleAdBlocker.",
 ) {
     dependsOn(
-        videoAdsPatch,
+        `Block video ads`,
         sharedExtensionPatch,
-        settingsPatch,
+        Settings,
     )
 
     compatibleWith("tv.twitch.android.app"("16.9.1", "25.3.0"))

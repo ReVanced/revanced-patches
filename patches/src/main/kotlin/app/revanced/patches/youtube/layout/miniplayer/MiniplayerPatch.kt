@@ -7,7 +7,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -70,8 +70,7 @@ private val miniplayerResourcePatch = resourcePatch {
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/MiniplayerPatch;"
 
 @Suppress("unused")
-val miniplayerPatch = bytecodePatch(
-    name = "Miniplayer",
+val Miniplayer by creatingBytecodePatch(
     description = "Adds options to change the in-app minimized player.",
 ) {
     dependsOn(
@@ -438,7 +437,7 @@ val miniplayerPatch = bytecodePatch(
         ).method.addInstruction(
             0,
             "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                "hideMiniplayerSubTexts(Landroid/view/View;)V",
+                    "hideMiniplayerSubTexts(Landroid/view/View;)V",
         )
 
         // Modern 2 has a broken overlay subtitle view that is always present.

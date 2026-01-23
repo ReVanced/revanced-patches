@@ -2,7 +2,7 @@ package app.revanced.patches.viber.ads
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
@@ -10,20 +10,20 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 @Suppress("unused")
-val hideAdsPatch = bytecodePatch(
-    name = "Hide Ads",
+val `Hide Ads` by creatingBytecodePatch(
     description = "Hides ad banners between chats.",
 ) {
     compatibleWith("com.viber.voip"("25.9.2.0", "26.1.2.0"))
 
     apply {
         val method = findAdStringFingerprint.method
- 
+
         // Find the ads free string index
         val stringIndex = findAdStringFingerprint.stringMatches.first().index
 
         // Search backwards from the string to find the `new-instance` (TypeReference) instruction
-        val typeRefIndex = method.indexOfFirstInstructionReversedOrThrow(stringIndex) { this.opcode == Opcode.NEW_INSTANCE }
+        val typeRefIndex =
+            method.indexOfFirstInstructionReversedOrThrow(stringIndex) { this.opcode == Opcode.NEW_INSTANCE }
 
         // Get the class name from the TypeReference
         val targetClass = method.getInstruction<ReferenceInstruction>(typeRefIndex).reference as TypeReference

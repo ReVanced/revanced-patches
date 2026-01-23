@@ -1,11 +1,7 @@
 package app.revanced.patches.youtube.layout.buttons.overlay
 
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.extensions.*
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -17,11 +13,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
 import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
-import app.revanced.util.findFreeRegister
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.indexOfFirstResourceIdOrThrow
-import app.revanced.util.insertLiteralOverride
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -30,10 +22,9 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HidePlayerOverlayButtonsPatch;"
 
-val hidePlayerOverlayButtonsPatch = bytecodePatch(
-    name = "Hide player overlay buttons",
+val `Hide player overlay buttons` by creatingBytecodePatch(
     description = "Adds options to hide the player Cast, Autoplay, Captions, Previous & Next buttons, and the player " +
-        "control buttons background.",
+            "control buttons background.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -131,8 +122,8 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
             val gotoIndex = indexOfFirstInstructionOrThrow(constIndex) {
                 val parameterTypes = getReference<MethodReference>()?.parameterTypes
                 opcode == Opcode.INVOKE_VIRTUAL &&
-                    parameterTypes?.size == 2 &&
-                    parameterTypes.first() == "Landroid/view/ViewStub;"
+                        parameterTypes?.size == 2 &&
+                        parameterTypes.first() == "Landroid/view/ViewStub;"
             } + 1
 
             addInstructionsWithLabels(

@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.layout.returnyoutubedislike
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
@@ -14,11 +14,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_33_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_07_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_10_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_41_or_greater
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
+import app.revanced.patches.youtube.misc.playservice.*
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
@@ -26,11 +22,7 @@ import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateF
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.hookVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
-import app.revanced.util.addInstructionsAtControlFlowLabel
-import app.revanced.util.findFreeRegister
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.returnLate
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -40,6 +32,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import java.util.logging.Logger
+import kotlin.jvm.java
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/ReturnYouTubeDislikePatch;"
@@ -47,8 +40,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 private const val FILTER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/components/ReturnYouTubeDislikeFilter;"
 
-val returnYouTubeDislikePatch = bytecodePatch(
-    name = "Return YouTube Dislike",
+val `Return YouTube Dislike` by creatingBytecodePatch(
     description = "Adds an option to show the dislike count of videos with Return YouTube Dislike.",
 ) {
     dependsOn(
@@ -157,7 +149,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
             } else {
                 insertIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.NEW_INSTANCE &&
-                        getReference<TypeReference>()?.type == textDataClassType
+                            getReference<TypeReference>()?.type == textDataClassType
                 }
 
                 val charSequenceIndex = indexOfFirstInstructionOrThrow(insertIndex) {
