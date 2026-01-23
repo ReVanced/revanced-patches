@@ -140,7 +140,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         // so this works regardless which layout is used.
         actionBarSearchResultsMethod.let {
             it.method.apply {
-                val instructionIndex = it.instructionMatches.last().index
+                val instructionIndex = it.indices.last()
                 val viewRegister = getInstruction<FiveRegisterInstruction>(instructionIndex).registerC
 
                 addInstruction(
@@ -155,7 +155,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
 
         toolbarLayoutMethod.let {
             it.method.apply {
-                val index = it.instructionMatches.last().index
+                val index = it.indices.last()
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstruction(
@@ -218,7 +218,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
                 .instructionMatches.last().getInstruction<ReferenceInstruction>().reference
 
             setEnumMapMethod.apply {
-                val setEnumIntegerIndex = setEnumMapMethod.instructionMatches.last().index
+                val setEnumIntegerIndex = setEnumMapMethod.indices.last()
                 val enumMapRegister = getInstruction<FiveRegisterInstruction>(setEnumIntegerIndex).registerC
                 val insertIndex = setEnumIntegerIndex + 1
                 val freeRegister = findFreeRegister(insertIndex, enumMapRegister)

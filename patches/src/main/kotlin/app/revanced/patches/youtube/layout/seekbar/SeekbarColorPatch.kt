@@ -49,7 +49,7 @@ val seekbarColorPatch = bytecodePatch(
 
         playerSeekbarColorMethod.let {
             it.method.apply {
-                addColorChangeInstructions(it.instructionMatches.last().index)
+                addColorChangeInstructions(it.indices.last())
                 addColorChangeInstructions(it.instructionMatches.first().index)
             }
         }
@@ -82,7 +82,7 @@ val seekbarColorPatch = bytecodePatch(
             handleBarColorFingerprints += playerSeekbarHandle2ColorMethod
         }
         handleBarColorFingerprints.forEach {
-            it.method.addColorChangeInstructions(it.instructionMatches.last().index)
+            it.method.addColorChangeInstructions(it.indices.last())
         }
 
         // If hiding feed seekbar thumbnails, then turn off the cairo gradient
@@ -125,7 +125,7 @@ val seekbarColorPatch = bytecodePatch(
 
         playerFingerprint.let {
             it.method.apply {
-                val index = it.instructionMatches.last().index
+                val index = it.indices.last()
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(

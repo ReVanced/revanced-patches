@@ -12,7 +12,7 @@ val verticalScrollPatch = bytecodePatch(
     apply {
         canScrollVerticallyMethod.let {
             it.method.apply {
-                val moveResultIndex = it.instructionMatches.last().index
+                val moveResultIndex = it.indices.last()
                 val moveResultRegister = getInstruction<OneRegisterInstruction>(moveResultIndex).registerA
 
                 val insertIndex = moveResultIndex + 1

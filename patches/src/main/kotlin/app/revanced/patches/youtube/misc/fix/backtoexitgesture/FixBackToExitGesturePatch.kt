@@ -18,7 +18,7 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
     apply {
         recyclerViewTopScrollingMethod.let {
             it.method.addInstructionsAtControlFlowLabel(
-                it.instructionMatches.last().index + 1,
+                it.indices.last() + 1,
                 "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->onTopView()V",
             )
         }

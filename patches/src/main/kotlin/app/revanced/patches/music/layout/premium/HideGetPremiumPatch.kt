@@ -28,8 +28,8 @@ val `Hide 'Get Music Premium'` by creatingBytecodePatch(
     compatibleWith(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
-            "8.10.52"
-        )
+            "8.10.52",
+        ),
     )
 
     apply {
@@ -40,7 +40,7 @@ val `Hide 'Get Music Premium'` by creatingBytecodePatch(
         )
 
         hideGetPremiumMethod.apply {
-            val insertIndex = hideGetPremiumMethod.instructionMatches.last().index // TODO
+            val insertIndex = hideGetPremiumMethod.indices.last() // TODO
 
             val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
             val getPremiumViewRegister = setVisibilityInstruction.registerC
@@ -54,7 +54,7 @@ val `Hide 'Get Music Premium'` by creatingBytecodePatch(
             addInstruction(
                 insertIndex + 1,
                 "invoke-virtual {v$getPremiumViewRegister, v$visibilityRegister}, " +
-                        "Landroid/view/View;->setVisibility(I)V",
+                    "Landroid/view/View;->setVisibility(I)V",
             )
         }
 
@@ -68,7 +68,7 @@ val `Hide 'Get Music Premium'` by creatingBytecodePatch(
                 return-object v0
                 :show
                 nop
-            """
+            """,
         )
     }
 }

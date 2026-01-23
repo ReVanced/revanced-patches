@@ -36,7 +36,7 @@ val playerTypeHookPatch = bytecodePatch(
 
         reelWatchPagerMethod.let {
             it.method.apply {
-                val index = it.instructionMatches.last().index
+                val index = it.indices.last()
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstruction(

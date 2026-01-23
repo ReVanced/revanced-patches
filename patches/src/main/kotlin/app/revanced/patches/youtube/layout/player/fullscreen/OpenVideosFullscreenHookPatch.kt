@@ -36,13 +36,13 @@ internal val openVideosFullscreenHookPatch = bytecodePatch {
                 // Shorts fullscreen regular player does not use fullscreen
                 // if the player is minimized and it must be forced using other conditional check.
                 it.method.insertLiteralOverride(
-                    it.instructionMatches.last().index,
+                    it.indices.last(),
                     false,
                 )
             }
         } else {
             fingerprint = openVideosFullscreenPortraitLegacyMethod
-            insertIndex = fingerprint.instructionMatches.last().index
+            insertIndex = fingerprint.indices.last()
         }
 
         fingerprint.let {

@@ -64,7 +64,7 @@ val `Change form factor` by creatingBytecodePatch(
 
         createPlayerRequestBodyWithModelFingerprint.let {
             it.method.apply {
-                val index = it.instructionMatches.last().index
+                val index = it.indices.last()
                 val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
                 addInstructions(

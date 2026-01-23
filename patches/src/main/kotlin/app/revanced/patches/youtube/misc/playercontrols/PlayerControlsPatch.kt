@@ -248,7 +248,7 @@ val playerControlsPatch = bytecodePatch(
             it.method.apply {
                 inflateBottomControlMethod = this
 
-                val inflateReturnObjectIndex = it.instructionMatches.last().index
+                val inflateReturnObjectIndex = it.indices.last()
                 inflateBottomControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
                 inflateBottomControlInsertIndex = inflateReturnObjectIndex + 1
             }
@@ -258,7 +258,7 @@ val playerControlsPatch = bytecodePatch(
             it.method.apply {
                 inflateTopControlMethod = this
 
-                val inflateReturnObjectIndex = it.instructionMatches.last().index
+                val inflateReturnObjectIndex = it.indices.last()
                 inflateTopControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
                 inflateTopControlInsertIndex = inflateReturnObjectIndex + 1
             }
@@ -272,7 +272,7 @@ val playerControlsPatch = bytecodePatch(
         // when seeking and other situations.
         overlayViewInflateMethod.let {
             it.method.apply {
-                val index = it.instructionMatches.last().index
+                val index = it.indices.last()
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstruction(

@@ -75,7 +75,7 @@ val enableSlideToSeekPatch = bytecodePatch(
         if (is_19_17_or_greater) {
             disableFastForwardGestureMethod.let {
                 it.method.apply {
-                    val targetIndex = it.instructionMatches.last().index
+                    val targetIndex = it.indices.last()
                     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
@@ -90,7 +90,7 @@ val enableSlideToSeekPatch = bytecodePatch(
         } else {
             disableFastForwardLegacyMethod.let {
                 it.method.apply {
-                    val insertIndex = it.instructionMatches.last().index + 1
+                    val insertIndex = it.indices.last() + 1
                     val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(

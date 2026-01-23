@@ -34,7 +34,7 @@ internal val accountCredentialsInvalidTextPatch = bytecodePatch {
             loadingFrameLayoutControllerMethod,
         ).forEach { fingerprint ->
             fingerprint.apply {
-                val index = instructionMatches.last().index
+                val index = indices.last()
                 val register = method.getInstruction<OneRegisterInstruction>(index).registerA
 
                 method.addInstructions(

@@ -62,7 +62,7 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
         // and for the Shorts quality flyout on newer app versions.
         videoQualityMenuViewInflateMethod.let {
             it.method.apply {
-                val checkCastIndex = it.instructionMatches.last().index
+                val checkCastIndex = it.indices.last()
                 val listViewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
                 addInstruction(

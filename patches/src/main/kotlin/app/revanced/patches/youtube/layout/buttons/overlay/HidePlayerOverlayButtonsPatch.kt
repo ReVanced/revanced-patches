@@ -138,7 +138,7 @@ val `Hide player overlay buttons` by creatingBytecodePatch(
 
         inflateControlsGroupLayoutStubMethodMatch.let {
             it.method.apply {
-                val insertIndex = it.instructionMatches.last().index + 1
+                val insertIndex = it.indices.last() + 1
                 val freeRegister = findFreeRegister(insertIndex)
 
                 addInstructions(

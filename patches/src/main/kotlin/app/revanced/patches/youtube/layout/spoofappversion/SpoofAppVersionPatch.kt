@@ -83,7 +83,7 @@ val `Spoof app version` by creatingBytecodePatch(
         toolBarButtonMethod.apply {
             val imageResourceIndex = instructionMatches[2].index
             val register = method.getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
-            val jumpIndex = instructionMatches.last().index + 1
+            val jumpIndex = indices.last() + 1
 
             method.addInstructionsWithLabels(
                 imageResourceIndex + 1,

@@ -289,7 +289,7 @@ val `Hide layout components` by creatingBytecodePatch(
 
         (if (is_20_26_or_greater) hideShowMoreButtonMethod else hideShowMoreLegacyButtonMethod).let {
             it.method.apply {
-                val moveRegisterIndex = it.instructionMatches.last().index
+                val moveRegisterIndex = it.indices.last()
                 val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
                 val insertIndex = moveRegisterIndex + 1
@@ -306,7 +306,7 @@ val `Hide layout components` by creatingBytecodePatch(
         // region crowdfunding box
         crowdfundingBoxMethod.let {
             it.method.apply {
-                val insertIndex = it.instructionMatches.last().index
+                val insertIndex = it.indices.last()
                 val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
@@ -323,7 +323,7 @@ val `Hide layout components` by creatingBytecodePatch(
 
         albumCardsMethod.let {
             it.method.apply {
-                val checkCastAnchorIndex = it.instructionMatches.last().index
+                val checkCastAnchorIndex = it.indices.last()
                 val insertIndex = checkCastAnchorIndex + 1
                 val register = getInstruction<OneRegisterInstruction>(checkCastAnchorIndex).registerA
 
@@ -341,7 +341,7 @@ val `Hide layout components` by creatingBytecodePatch(
 
         showFloatingMicrophoneButtonMethod.let {
             it.method.apply {
-                val index = it.instructionMatches.last().index
+                val index = it.indices.last()
                 val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
                 addInstructions(
@@ -422,7 +422,7 @@ val `Hide layout components` by creatingBytecodePatch(
             hookRegisterOffset: Int = 0,
             instructions: (Int) -> String,
         ) = method.apply {
-            val endIndex = instructionMatches.last().index
+            val endIndex = indices.last()
             val insertIndex = endIndex + insertIndexOffset
             val register = getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
 

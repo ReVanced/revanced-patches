@@ -93,7 +93,7 @@ val lithoFilterPatch = bytecodePatch(
             protobufBufferReferenceMethod.let {
                 // Hook the buffer after the call to jniDecode().
                 it.method.addInstruction(
-                    it.instructionMatches.last().index + 1,
+                    it.indices.last() + 1,
                     "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer([B)V",
                 )
             }

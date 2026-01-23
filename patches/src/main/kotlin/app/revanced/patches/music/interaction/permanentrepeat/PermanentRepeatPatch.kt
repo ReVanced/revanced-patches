@@ -16,7 +16,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/pa
 
 @Suppress("unused")
 val `Permanent repeat` by creatingBytecodePatch(
-    description = "Adds an option to always repeat even if the playlist ends or another track is played."
+    description = "Adds an option to always repeat even if the playlist ends or another track is played.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -27,8 +27,8 @@ val `Permanent repeat` by creatingBytecodePatch(
     compatibleWith(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
-            "8.10.52"
-        )
+            "8.10.52",
+        ),
     )
 
     apply {
@@ -38,7 +38,7 @@ val `Permanent repeat` by creatingBytecodePatch(
             SwitchPreference("revanced_music_play_permanent_repeat"),
         )
 
-        val startIndex = repeatTrackMethod.instructionMatches.last().index // TODO
+        val startIndex = repeatTrackMethod.indices.last() // TODO
         val repeatIndex = startIndex + 1
 
         repeatTrackMethod.apply {

@@ -210,7 +210,7 @@ val `Hide Shorts componentsby creatingBytecodePatch(
             setPivotBarVisibilityParentMethod.originalClassDef,
         ).let { result ->
             result.method.apply {
-                val insertIndex = result.instructionMatches.last().index
+                val insertIndex = result.indices.last()
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
                 addInstruction(
                     insertIndex,
@@ -239,7 +239,7 @@ val `Hide Shorts componentsby creatingBytecodePatch(
         // Hide the bottom bar container of the Shorts player.
         shortsBottomBarContainerMethod.let {
             it.method.apply {
-                val targetIndex = it.instructionMatches.last().index
+                val targetIndex = it.indices.last()
                 val heightRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(

@@ -47,7 +47,7 @@ val `Unlock downloads` by creatingBytecodePatch(
                         const/4 v${checkMediaTypeInstruction.registerB}, 0x2 # GIF
                         if-eq v${checkMediaTypeInstruction.registerA}, v${checkMediaTypeInstruction.registerB}, :video
                     """,
-                    ExternalLabel("video", getInstruction(it.instructionMatches.last().index)),
+                    ExternalLabel("video", getInstruction(it.indices.last())),
                 )
 
                 // Remove media.isDownloadable check.

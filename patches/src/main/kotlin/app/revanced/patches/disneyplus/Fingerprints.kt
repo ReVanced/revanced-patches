@@ -6,7 +6,6 @@ import app.revanced.patcher.name
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 
-
 internal val BytecodePatchContext.insertionGetPointsMethod by gettingFirstMutableMethodDeclaratively {
     name("getPoints")
     definingClass("Lcom/dss/sdk/internal/media/Insertion;")
@@ -18,4 +17,3 @@ internal val BytecodePatchContext.insertionGetRangesMethod by gettingFirstMutabl
     definingClass("Lcom/dss/sdk/internal/media/Insertion;")
     returnType("Ljava/util/List")
 }
-

@@ -249,7 +249,7 @@ val Miniplayer by creatingBytecodePatch(
 
             // region Legacy tablet miniplayer hooks.
             miniplayerOverrideMethod.let {
-                val appNameStringIndex = it.instructionMatches.last().index
+                val appNameStringIndex = it.indices.last()
                 navigate(it.originalMethod).to(appNameStringIndex).stop().apply {
                     findReturnIndicesReversed().forEach { index ->
                         insertLegacyTabletMiniplayerOverride(
@@ -260,7 +260,7 @@ val Miniplayer by creatingBytecodePatch(
             }
 
             miniplayerResponseModelSizeCheckMethod.let {
-                it.method.insertLegacyTabletMiniplayerOverride(it.instructionMatches.last().index)
+                it.method.insertLegacyTabletMiniplayerOverride(it.indices.last())
             }
         }
 
@@ -421,7 +421,7 @@ val Miniplayer by creatingBytecodePatch(
             fingerprint.match(
                 miniplayerModernViewParentMethod.classDef,
             ).method.apply {
-                val index = fingerprint.instructionMatches.last().index
+                val index = fingerprint.indices.last()
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstruction(

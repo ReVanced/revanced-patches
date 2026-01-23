@@ -40,12 +40,12 @@ val enableSeekbarTappingPatch = bytecodePatch(
 
             listOf(
                 getReference(it.instructionMatches.first().index),
-                getReference(it.instructionMatches.last().index),
+                getReference(it.indices.last()),
             )
         }
 
         seekbarTappingMethod.let {
-            val insertIndex = it.instructionMatches.last().index + 1
+            val insertIndex = it.indices.last() + 1
 
             it.method.apply {
                 val thisInstanceRegister = getInstruction<FiveRegisterInstruction>(

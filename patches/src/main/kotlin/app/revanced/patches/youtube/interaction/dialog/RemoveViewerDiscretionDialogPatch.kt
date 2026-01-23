@@ -42,7 +42,7 @@ val `Remove viewer discretion dialog` by creatingBytecodePatch(
 
         createDialogMethod.let {
             it.method.apply {
-                val showDialogIndex = it.instructionMatches.last().index // TODO
+                val showDialogIndex = it.indices.last() // TODO
                 val dialogRegister = getInstruction<FiveRegisterInstruction>(showDialogIndex).registerC
 
                 replaceInstructions(

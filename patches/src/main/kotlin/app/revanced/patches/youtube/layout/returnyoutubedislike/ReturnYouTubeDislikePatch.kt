@@ -222,7 +222,7 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
 
         rollingNumberSetterMethod.apply {
             val insertIndex = 1
-            val dislikesIndex = rollingNumberSetterMethod.instructionMatches.last().index
+            val dislikesIndex = rollingNumberSetterMethod.indices.last()
             val charSequenceInstanceRegister =
                 getInstruction<OneRegisterInstruction>(0).registerA
             val charSequenceFieldReference =
@@ -248,7 +248,7 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
         rollingNumberMeasureAnimatedTextMethod.let {
             // Additional check to verify the opcodes are at the start of the method
             if (it.instructionMatches.first().index != 0) throw PatchException("Unexpected opcode location")
-            val endIndex = it.instructionMatches.last().index
+            val endIndex = it.indices.last()
 
             it.method.apply {
                 val measuredTextWidthRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA

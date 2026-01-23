@@ -76,7 +76,7 @@ val `Shorts autoplay` by creatingBytecodePatch(
             reelEnumClass = it.originalClassDef.type
 
             it.method.addInstructions(
-                it.instructionMatches.last().index,
+                it.indices.last(),
                 """
                     # Pass the first enum value to extension.
                     # Any enum value of this type will work.
