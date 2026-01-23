@@ -1,13 +1,20 @@
 package app.revanced.patches.youtube.video.playerresponse
 
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
  * For targets 20.46 and later.
  */
-internal val playerParameterBuilderFingerprint = fingerprint {
+internal val BytecodePatchContext.playerParameterBuilderMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes(
@@ -33,7 +40,7 @@ internal val playerParameterBuilderFingerprint = fingerprint {
 /**
  * For targets 20.26 and later.
  */
-internal val playerParameterBuilder2026Fingerprint = fingerprint {
+internal val BytecodePatchContext.playerParameterBuilder2026Method by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes(
@@ -62,7 +69,7 @@ internal val playerParameterBuilder2026Fingerprint = fingerprint {
 /**
  * For targets 20.15 to 20.25
  */
-internal val playerParameterBuilder2015Fingerprint = fingerprint {
+internal val BytecodePatchContext.playerParameterBuilder2015Method by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes(
@@ -90,7 +97,7 @@ internal val playerParameterBuilder2015Fingerprint = fingerprint {
 /**
  * For targets 20.10 to 20.14.
  */
-internal val playerParameterBuilder2010Fingerprint = fingerprint {
+internal val BytecodePatchContext.playerParameterBuilder2010Method by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes(
@@ -119,7 +126,7 @@ internal val playerParameterBuilder2010Fingerprint = fingerprint {
 /**
  * For targets 20.02 to 20.09.
  */
-internal val playerParameterBuilder2002Fingerprint = fingerprint {
+internal val BytecodePatchContext.playerParameterBuilder2002Method by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes(
@@ -147,7 +154,7 @@ internal val playerParameterBuilder2002Fingerprint = fingerprint {
 /**
  * For targets 19.25 to 19.50.
  */
-internal val playerParameterBuilder1925Fingerprint = fingerprint {
+internal val BytecodePatchContext.playerParameterBuilder1925Method by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes(
@@ -174,7 +181,7 @@ internal val playerParameterBuilder1925Fingerprint = fingerprint {
 /**
  * For targets 19.01 to 19.24.
  */
-internal val playerParameterBuilderLegacyFingerprint = fingerprint {
+internal val BytecodePatchContext.playerParameterBuilderLegacyMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes(

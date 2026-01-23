@@ -22,20 +22,20 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/pa
 
 @Suppress("unused")
 val `Change miniplayer color` by creatingBytecodePatch(
-    description = "Adds an option to change the miniplayer background color to match the fullscreen player."
+    description = "Adds an option to change the miniplayer background color to match the fullscreen player.",
 ) {
     dependsOn(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        resourceMappingPatch
+        resourceMappingPatch,
     )
 
     compatibleWith(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
-            "8.10.52"
-        )
+            "8.10.52",
+        ),
     )
 
     apply {
@@ -45,34 +45,37 @@ val `Change miniplayer color` by creatingBytecodePatch(
             SwitchPreference("revanced_music_change_miniplayer_color"),
         )
 
-        switchToggleColorFingerprint.match(miniPlayerConstructorFingerprint.classDef).let {
+        switchToggleColorMethod.match(miniPlayerConstructorMethod.classDef).let {
             val relativeIndex = it.patternMatch.endIndex + 1
 
             val invokeVirtualIndex = it.method.indexOfFirstInstructionOrThrow(
-                relativeIndex, Opcode.INVOKE_VIRTUAL
+                relativeIndex,
+                Opcode.INVOKE_VIRTUAL,
             )
             val colorMathPlayerInvokeVirtualReference = it.method
                 .getInstruction<ReferenceInstruction>(invokeVirtualIndex).reference
 
             val iGetIndex = it.method.indexOfFirstInstructionOrThrow(
-                relativeIndex, Opcode.IGET
+                relativeIndex,
+                Opcode.IGET,
             )
             val colorMathPlayerIGetReference = it.method
                 .getInstruction<ReferenceInstruction>(iGetIndex).reference as FieldReference
 
-            val colorGreyIndex = miniPlayerConstructorFingerprint.method.indexOfFirstInstructionReversedOrThrow {
+            val colorGreyIndex = miniPlayerConstructorMethod.indexOfFirstInstructionReversedOrThrow {
                 getReference<MethodReference>()?.name == "getColor"
             }
-            val iPutIndex = miniPlayerConstructorFingerprint.method.indexOfFirstInstructionOrThrow(
-                colorGreyIndex, Opcode.IPUT
+            val iPutIndex = miniPlayerConstructorMethod.indexOfFirstInstructionOrThrow(
+                colorGreyIndex,
+                Opcode.IPUT,
             )
-            val colorMathPlayerIPutReference = miniPlayerConstructorFingerprint.method
+            val colorMathPlayerIPutReference = miniPlayerConstructorMethod
                 .getInstruction<ReferenceInstruction>(iPutIndex).reference
 
-            miniPlayerConstructorFingerprint.classDef.methods.single { method ->
+            miniPlayerConstructorMethod.classDef.methods.single { method ->
                 method.accessFlags == AccessFlags.PUBLIC.value or AccessFlags.FINAL.value &&
-                        method.returnType == "V" &&
-                        method.parameters == it.originalMethod.parameters
+                    method.returnType == "V" &&
+                    method.parameters == it.originalMethod.parameters
             }.apply {
                 val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_DIRECT)
                 val freeRegister = findFreeRegister(insertIndex)
@@ -90,7 +93,7 @@ val `Change miniplayer color` by creatingBytecodePatch(
                         iput v$freeRegister, p0, $colorMathPlayerIPutReference
                         :off
                         nop
-                    """
+                    """,
                 )
             }
         }

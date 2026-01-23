@@ -1,16 +1,23 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
 import app.revanced.patcher.InstructionLocation.*
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val shortsBottomBarContainerFingerprint = fingerprint {
+internal val BytecodePatchContext.shortsBottomBarContainerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/view/View;", "Landroid/os/Bundle;")
@@ -25,7 +32,7 @@ internal val shortsBottomBarContainerFingerprint = fingerprint {
 /**
  * 19.41 to 20.44.
  */
-internal val renderBottomNavigationBarFingerprint = fingerprint {
+internal val BytecodePatchContext.renderBottomNavigationBarMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     parameterTypes("Ljava/lang/String;")
     instructions(
@@ -46,7 +53,7 @@ internal val renderBottomNavigationBarFingerprint = fingerprint {
 /**
  * Less than 19.41.
  */
-internal val legacyRenderBottomNavigationBarLegacyParentFingerprint = fingerprint {
+internal val BytecodePatchContext.legacyRenderBottomNavigationBarLegacyParentMethod by gettingFirstMethodDeclaratively {
     parameterTypes(
         "I",
         "I",
@@ -61,10 +68,10 @@ internal val legacyRenderBottomNavigationBarLegacyParentFingerprint = fingerprin
 }
 
 /**
- * Identical to [legacyRenderBottomNavigationBarLegacyParentFingerprint]
+ * Identical to [legacyRenderBottomNavigationBarLegacyParentMethod]
  * except this has an extra parameter.
  */
-internal val renderBottomNavigationBarLegacy1941ParentFingerprint = fingerprint {
+internal val BytecodePatchContext.renderBottomNavigationBarLegacy1941ParentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes(
         "I",
@@ -80,7 +87,7 @@ internal val renderBottomNavigationBarLegacy1941ParentFingerprint = fingerprint 
     )
 }
 
-internal val renderBottomNavigationBarParentFingerprint = fingerprint {
+internal val BytecodePatchContext.renderBottomNavigationBarParentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("[Ljava/lang/Class;")
     parameterTypes(
@@ -93,7 +100,7 @@ internal val renderBottomNavigationBarParentFingerprint = fingerprint {
     )
 }
 
-internal val setPivotBarVisibilityFingerprint = fingerprint {
+internal val BytecodePatchContext.setPivotBarVisibilityMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Z")
@@ -103,14 +110,14 @@ internal val setPivotBarVisibilityFingerprint = fingerprint {
     )
 }
 
-internal val setPivotBarVisibilityParentFingerprint = fingerprint {
+internal val BytecodePatchContext.setPivotBarVisibilityParentMethod by gettingFirstMethodDeclaratively {
     parameterTypes("Z")
     instructions(
         addString("FEnotifications_inbox"),
     )
 }
 
-internal val shortsExperimentalPlayerFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.shortsExperimentalPlayerFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
@@ -119,7 +126,7 @@ internal val shortsExperimentalPlayerFeatureFlagFingerprint = fingerprint {
     )
 }
 
-internal val renderNextUIFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.renderNextUIFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

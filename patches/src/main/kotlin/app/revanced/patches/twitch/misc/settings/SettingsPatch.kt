@@ -1,6 +1,5 @@
 package app.revanced.patches.twitch.misc.settings
 
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
@@ -98,9 +97,9 @@ val Settings by creatingBytecodePatch(
                     name,
                     MENU_ITEM_ENUM_CLASS_DESCRIPTOR,
                     AccessFlags.PUBLIC.value or
-                            AccessFlags.FINAL.value or
-                            AccessFlags.ENUM.value or
-                            AccessFlags.STATIC.value,
+                        AccessFlags.FINAL.value or
+                        AccessFlags.ENUM.value or
+                        AccessFlags.STATIC.value,
                     null,
                     null,
                     null,

@@ -21,29 +21,35 @@ val `Disable video codecs` by creatingBytecodePatch(
     description = "Adds options to disable HDR and VP9 codecs.",
 ) {
     dependsOn(
-        sharedExtensionPatch, settingsPatch, addResourcesPatch,
+        sharedExtensionPatch,
+        settingsPatch,
+        addResourcesPatch,
         /**
          * Override all calls of `getSupportedHdrTypes`.
          */
-        transformInstructionsPatch(filterMap = filterMap@{ classDef, _, instruction, instructionIndex ->
-            if (classDef.type.startsWith("Lapp/revanced/")) {
+        transformInstructionsPatch(
+            filterMap = filterMap@{ classDef, _, instruction, instructionIndex ->
+                if (classDef.type.startsWith("Lapp/revanced/")) {
+                    return@filterMap null
+                }
+
+                val reference = instruction.getReference<MethodReference>()
+                if (reference?.definingClass == "Landroid/view/Display\$HdrCapabilities;" && reference.name == "getSupportedHdrTypes") {
+                    return@filterMap instruction to instructionIndex
+                }
                 return@filterMap null
-            }
+            },
+            transform = { method, entry ->
+                val (instruction, index) = entry
+                val register = (instruction as FiveRegisterInstruction).registerC
 
-            val reference = instruction.getReference<MethodReference>()
-            if (reference?.definingClass == "Landroid/view/Display\$HdrCapabilities;" && reference.name == "getSupportedHdrTypes") {
-                return@filterMap instruction to instructionIndex
-            }
-            return@filterMap null
-        }, transform = { method, entry ->
-            val (instruction, index) = entry
-            val register = (instruction as FiveRegisterInstruction).registerC
-
-            method.replaceInstruction(
-                index,
-                "invoke-static/range { v$register .. v$register }, $EXTENSION_CLASS_DESCRIPTOR->" + "disableHdrVideo(Landroid/view/Display\$HdrCapabilities;)[I",
-            )
-        }))
+                method.replaceInstruction(
+                    index,
+                    "invoke-static/range { v$register .. v$register }, $EXTENSION_CLASS_DESCRIPTOR->" + "disableHdrVideo(Landroid/view/Display\$HdrCapabilities;)[I",
+                )
+            },
+        ),
+    )
 
     compatibleWith(
         "com.google.android.youtube"(
@@ -51,25 +57,27 @@ val `Disable video codecs` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
         addResources("youtube", "video.codecs.disableVideoCodecsPatch")
 
         PreferenceScreen.VIDEO.addPreferences(
-            SwitchPreference("revanced_disable_hdr_video"), SwitchPreference("revanced_force_avc_codec")
+            SwitchPreference("revanced_disable_hdr_video"),
+            SwitchPreference("revanced_force_avc_codec"),
         )
 
-        vp9CapabilityFingerprint.method.addInstructionsWithLabels(
-            0, """
+        vp9CapabilityMethod.addInstructionsWithLabels(
+            0,
+            """
                 invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->allowVP9()Z
                 move-result v0
                 if-nez v0, :default
                 return v0
                 :default
                 nop
-            """
+            """,
         )
     }
 }

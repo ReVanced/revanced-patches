@@ -31,7 +31,7 @@ val `Custom player overlay opacity` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -41,7 +41,7 @@ val `Custom player overlay opacity` by creatingBytecodePatch(
             TextPreference("revanced_player_overlay_opacity", inputType = InputType.NUMBER),
         )
 
-        createPlayerOverviewFingerprint.let {
+        createPlayerOverviewMethod.let {
             it.method.apply {
                 val viewRegisterIndex = it.instructionMatches.last().index
                 val viewRegister = getInstruction<OneRegisterInstruction>(viewRegisterIndex).registerA
@@ -49,7 +49,7 @@ val `Custom player overlay opacity` by creatingBytecodePatch(
                 addInstruction(
                     viewRegisterIndex + 1,
                     "invoke-static { v$viewRegister }, " +
-                            "$EXTENSION_CLASS_DESCRIPTOR->changeOpacity(Landroid/widget/ImageView;)V",
+                        "$EXTENSION_CLASS_DESCRIPTOR->changeOpacity(Landroid/widget/ImageView;)V",
                 )
             }
         }

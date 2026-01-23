@@ -3,13 +3,15 @@ package app.revanced.patches.shared.misc.spoof
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.custom
 import app.revanced.patcher.extensions.methodReference
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.method
+import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -80,7 +82,7 @@ internal val buildRequestMethodMatch = firstMethodComposite {
     }
 }
 
-internal val protobufClassParseByteBufferFingerprint = fingerprint {
+internal val BytecodePatchContext.protobufClassParseByteBufferMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.STATIC)
     returnType("L")
     parameterTypes("L", "Ljava/nio/ByteBuffer;")
@@ -110,7 +112,7 @@ internal val createStreamingDataMethodMatch = firstMethodComposite {
     }
 }
 
-internal val buildMediaDataSourceFingerprint = fingerprint {
+internal val BytecodePatchContext.buildMediaDataSourceMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes(
         "Landroid/net/Uri;",
@@ -145,7 +147,7 @@ internal val mediaFetchEnumConstructorMethodMatch = firstMethodComposite {
     )
 }
 
-internal val nerdsStatsVideoFormatBuilderFingerprint = fingerprint {
+internal val BytecodePatchContext.nerdsStatsVideoFormatBuilderMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     parameterTypes("L")
@@ -154,7 +156,7 @@ internal val nerdsStatsVideoFormatBuilderFingerprint = fingerprint {
     )
 }
 
-internal val patchIncludedExtensionMethodFingerprint = fingerprint {
+internal val BytecodePatchContext.patchIncludedExtensionMethodMethod by gettingFirstMethodDeclaratively {
     returnType("Z")
     parameterTypes()
     custom { method, classDef ->

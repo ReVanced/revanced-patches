@@ -32,7 +32,7 @@ val `Change start page` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -46,15 +46,15 @@ val `Change start page` by creatingBytecodePatch(
                 preferences = setOf(
                     ListPreference(
                         key = "revanced_change_start_page",
-                        tag = "app.revanced.extension.shared.settings.preference.SortedListPreference"
+                        tag = "app.revanced.extension.shared.settings.preference.SortedListPreference",
                     ),
-                    SwitchPreference("revanced_change_start_page_always")
-                )
-            )
+                    SwitchPreference("revanced_change_start_page_always"),
+                ),
+            ),
         )
 
         // Hook browseId.
-        browseIdFingerprint.let {
+        browseIdMethod.let {
             it.method.apply {
                 val browseIdIndex = it.instructionMatches.first().index
                 val browseIdRegister = getInstruction<OneRegisterInstruction>(browseIdIndex).registerA
@@ -64,14 +64,14 @@ val `Change start page` by creatingBytecodePatch(
                     """
                         invoke-static { v$browseIdRegister }, $EXTENSION_CLASS_DESCRIPTOR->overrideBrowseId(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$browseIdRegister
-                    """
+                    """,
                 )
             }
         }
 
         // There is no browserId assigned to Shorts and Search.
         // Just hook the Intent action.
-        intentActionFingerprint.method.addInstruction(
+        intentActionMethod.addInstruction(
             0,
             "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->overrideIntentAction(Landroid/content/Intent;)V",
         )

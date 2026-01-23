@@ -24,8 +24,8 @@ val `Hide music video ads` by creatingBytecodePatch(
     compatibleWith(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
-            "8.10.52"
-        )
+            "8.10.52",
+        ),
     )
 
     apply {
@@ -35,15 +35,15 @@ val `Hide music video ads` by creatingBytecodePatch(
             SwitchPreference("revanced_music_hide_video_ads"),
         )
 
-        navigate(showVideoAdsParentFingerprint.originalMethod)
-            .to(showVideoAdsParentFingerprint.instructionMatches.first().index + 1)
+        navigate(showVideoAdsParentMethod.originalMethod)
+            .to(showVideoAdsParentMethod.instructionMatches.first().index + 1)
             .stop()
             .addInstructions(
                 0,
                 """
                     invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->showVideoAds(Z)Z
                     move-result p1
-                """
+                """,
             )
     }
 }

@@ -5,7 +5,6 @@ import app.revanced.patcher.after
 import app.revanced.patcher.allOf
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.field
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.firstMutableMethodDeclaratively
@@ -16,6 +15,7 @@ import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.method
 import app.revanced.patcher.name
+import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
@@ -60,7 +60,7 @@ internal fun getLayoutConstructorMethodMatch() = firstMethodComposite {
     )
 }
 
-internal val mainActivityConstructorFingerprint = fingerprint {
+internal val BytecodePatchContext.mainActivityConstructorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes()
     custom { _, classDef ->
@@ -68,7 +68,7 @@ internal val mainActivityConstructorFingerprint = fingerprint {
     }
 }
 
-internal val mainActivityOnBackPressedFingerprint = fingerprint {
+internal val BytecodePatchContext.mainActivityOnBackPressedMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()
@@ -84,7 +84,7 @@ internal val BytecodePatchContext.mainActivityOnCreateMethod by gettingFirstMuta
     parameterTypes("Landroid/os/Bundle;")
 }
 
-internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
+internal val BytecodePatchContext.rollingNumberTextViewAnimationUpdateMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/graphics/Bitmap;")
@@ -126,7 +126,7 @@ internal fun getSeekbarOnDrawMethodMatch() = firstMethodComposite {
     )
 }
 
-internal val subtitleButtonControllerFingerprint = fingerprint {
+internal val BytecodePatchContext.subtitleButtonControllerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")

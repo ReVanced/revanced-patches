@@ -1,16 +1,23 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
 import app.revanced.patcher.InstructionLocation.MatchAfterWithin
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
  * 19.46+
  */
-internal val openVideosFullscreenPortraitFingerprint = fingerprint {
+internal val BytecodePatchContext.openVideosFullscreenPortraitMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     parameterTypes("L", "Lj\$/util/Optional;")
     instructions(
@@ -24,7 +31,7 @@ internal val openVideosFullscreenPortraitFingerprint = fingerprint {
 /**
  * Pre 19.46.
  */
-internal val openVideosFullscreenPortraitLegacyFingerprint = fingerprint {
+internal val BytecodePatchContext.openVideosFullscreenPortraitLegacyMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L", "Lj\$/util/Optional;")
@@ -43,7 +50,7 @@ internal val openVideosFullscreenPortraitLegacyFingerprint = fingerprint {
     )
 }
 
-internal val openVideosFullscreenHookPatchExtensionFingerprint = fingerprint {
+internal val BytecodePatchContext.openVideosFullscreenHookPatchExtensionMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("Z")
     parameterTypes()

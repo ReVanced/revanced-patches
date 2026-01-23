@@ -1,8 +1,5 @@
 package app.revanced.patches.youtube.misc.settings
 
-import com.android.tools.smali.dexlib2.mutable.MutableClassDef
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
-import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -29,6 +26,9 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.mutable.MutableClassDef
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
+import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val BASE_ACTIVITY_HOOK_CLASS_DESCRIPTOR =
@@ -46,7 +46,7 @@ private val settingsResourcePatch = resourcePatch {
                 IntentPreference(
                     titleKey = "revanced_settings_title",
                     summaryKey = null,
-                    intent = newIntent("revanced_settings_intent")
+                    intent = newIntent("revanced_settings_intent"),
                 ) to "settings_fragment",
 
                 PreferenceCategory(
@@ -58,13 +58,13 @@ private val settingsResourcePatch = resourcePatch {
                             summaryKey = null,
                             icon = "@drawable/revanced_settings_icon_dynamic",
                             layout = "@layout/preference_with_icon",
-                            intent = newIntent("revanced_settings_intent")
-                        )
-                    )
-                ) to "settings_fragment_cairo"
+                            intent = newIntent("revanced_settings_intent"),
+                        ),
+                    ),
+                ) to "settings_fragment_cairo",
             ),
-            preferences = preferences
-        )
+            preferences = preferences,
+        ),
     )
 
     apply {
@@ -73,7 +73,8 @@ private val settingsResourcePatch = resourcePatch {
 
         copyResources(
             "settings",
-            ResourceGroup("drawable",
+            ResourceGroup(
+                "drawable",
                 "revanced_settings_icon_dynamic.xml",
                 "revanced_settings_icon.xml",
                 "revanced_settings_icon_bold.xml",
@@ -103,7 +104,7 @@ private val settingsResourcePatch = resourcePatch {
                 "revanced_settings_screen_11_misc_bold.xml",
                 "revanced_settings_screen_12_video.xml",
                 "revanced_settings_screen_12_video_bold.xml",
-            )
+            ),
         )
 
         // Remove horizontal divider from the settings Preferences
@@ -141,7 +142,7 @@ private val settingsResourcePatch = resourcePatch {
 
             licenseElement.setAttribute(
                 "android:configChanges",
-                "orientation|screenSize|keyboardHidden"
+                "orientation|screenSize|keyboardHidden",
             )
 
             val mimeType = document.createElement("data")
@@ -186,14 +187,13 @@ val settingsPatch = bytecodePatch(
 
         if (is_19_34_or_greater) {
             PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-                SwitchPreference("revanced_restore_old_settings_menus")
+                SwitchPreference("revanced_restore_old_settings_menus"),
             )
         }
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             SwitchPreference("revanced_settings_search_history"),
         )
-
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
             if (is_20_31_or_greater) {
@@ -203,12 +203,12 @@ val settingsPatch = bytecodePatch(
                     tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
                     preferences = setOf(
                         SwitchPreference("revanced_show_menu_icons"),
-                        SwitchPreference("revanced_settings_disable_bold_icons")
-                    )
+                        SwitchPreference("revanced_settings_disable_bold_icons"),
+                    ),
                 )
             } else {
                 SwitchPreference("revanced_show_menu_icons")
-            }
+            },
         )
 
         PreferenceScreen.MISC.addPreferences(
@@ -221,14 +221,14 @@ val settingsPatch = bytecodePatch(
             ),
             ListPreference(
                 key = "revanced_language",
-                tag = "app.revanced.extension.shared.settings.preference.SortedListPreference"
-            )
+                tag = "app.revanced.extension.shared.settings.preference.SortedListPreference",
+            ),
         )
 
         // Update shared dark mode status based on YT theme.
         // This is needed because YT allows forcing light/dark mode
         // which then differs from the system dark mode status.
-        setThemeFingerprint.method.apply {
+        setThemeMethod.apply {
             findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
                 addInstructionsAtControlFlowLabel(
@@ -239,27 +239,27 @@ val settingsPatch = bytecodePatch(
         }
 
         // Add setting to force Cairo settings fragment on/off.
-        cairoFragmentConfigFingerprint.method.insertLiteralOverride(
-            cairoFragmentConfigFingerprint.instructionMatches.first().index,
-            "$YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z"
+        cairoFragmentConfigMethod.insertLiteralOverride(
+            cairoFragmentConfigMethod.instructionMatches.first().index,
+            "$YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z",
         )
 
         // Bold icon resources are found starting in 20.23, but many YT icons are not bold.
         // 20.31 is the first version that seems to have all the bold icons.
         if (is_20_31_or_greater) {
-            boldIconsFeatureFlagFingerprint.let {
+            boldIconsFeatureFlagMethod.let {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
-                    "$YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useBoldIcons(Z)Z"
+                    "$YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useBoldIcons(Z)Z",
                 )
             }
         }
 
         modifyActivityForSettingsInjection(
-            licenseActivityOnCreateFingerprint.classDef,
-            licenseActivityOnCreateFingerprint.method,
+            licenseActivityOnCreateMethod.classDef,
+            licenseActivityOnCreateMethod,
             YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR,
-            false
+            false,
         )
     }
 
@@ -275,7 +275,7 @@ internal fun modifyActivityForSettingsInjection(
     activityOnCreateClass: MutableClassDef,
     activityOnCreateMethod: MutableMethod,
     extensionClassType: String,
-    isYouTubeMusic: Boolean
+    isYouTubeMusic: Boolean,
 ) {
     // Modify Activity and remove all existing layout code.
     // Must modify an existing activity and cannot add a new activity to the manifest,
@@ -286,7 +286,7 @@ internal fun modifyActivityForSettingsInjection(
             invoke-super { p0, p1 }, ${activityOnCreateClass.superclass}->onCreate(Landroid/os/Bundle;)V
             invoke-static { p0 }, $extensionClassType->initialize(Landroid/app/Activity;)V
             return-void
-        """
+        """,
     )
 
     // Remove other methods as they will break as the onCreate method is modified above.
@@ -311,7 +311,7 @@ internal fun modifyActivityForSettingsInjection(
                 move-result-object p1
                 invoke-super { p0, p1 }, ${activityOnCreateClass.superclass}->attachBaseContext(Landroid/content/Context;)V
                 return-void
-            """
+            """,
         )
     }.let(activityOnCreateClass.methods::add)
 
@@ -338,7 +338,7 @@ internal fun modifyActivityForSettingsInjection(
                 $invokeFinishOpcode { p0 }, Landroid/app/Activity;->finish()V
                 :search_handled
                 return-void
-            """
+            """,
         )
     }.let(activityOnCreateClass.methods::add)
 }

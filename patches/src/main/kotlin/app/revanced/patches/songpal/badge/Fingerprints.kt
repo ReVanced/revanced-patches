@@ -1,6 +1,13 @@
 package app.revanced.patches.songpal.badge
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -8,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 
 // Located @ ub.i0.h#p (9.5.0)
-internal val createTabsFingerprint = fingerprint {
+internal val BytecodePatchContext.createTabsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE)
     returnType("Ljava/util/List;")
     custom { method, _ ->
@@ -26,7 +33,7 @@ internal val createTabsFingerprint = fingerprint {
 }
 
 // Located @ com.sony.songpal.mdr.vim.activity.MdrRemoteBaseActivity.e#run (9.5.0)
-internal val showNotificationFingerprint = fingerprint {
+internal val BytecodePatchContext.showNotificationMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC)
     returnType("V")
     custom { method, _ ->

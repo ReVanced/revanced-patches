@@ -61,8 +61,8 @@ val `Remove background playback restrictions` by creatingBytecodePatch(
         )
 
         arrayOf(
-            backgroundPlaybackManagerFingerprint to "isBackgroundPlaybackAllowed",
-            backgroundPlaybackManagerShortsFingerprint to "isBackgroundShortsPlaybackAllowed",
+            backgroundPlaybackManagerMethod to "isBackgroundPlaybackAllowed",
+            backgroundPlaybackManagerShortsMethod to "isBackgroundShortsPlaybackAllowed",
         ).forEach { (fingerprint, integrationsMethod) ->
             fingerprint.method.apply {
                 findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
@@ -80,7 +80,7 @@ val `Remove background playback restrictions` by creatingBytecodePatch(
         }
 
         // Enable background playback option in YouTube settings
-        backgroundPlaybackSettingsFingerprint.originalMethod.apply {
+        backgroundPlaybackSettingsMethod.originalMethod.apply {
             val booleanCalls = instructions.withIndex().filter {
                 it.value.getReference<MethodReference>()?.returnType == "Z"
             }
@@ -93,14 +93,14 @@ val `Remove background playback restrictions` by creatingBytecodePatch(
         }
 
         // Force allowing background play for Shorts.
-        shortsBackgroundPlaybackFeatureFlagFingerprint.method.returnEarly(true)
+        shortsBackgroundPlaybackFeatureFlagMethod.returnEarly(true)
 
         // Force allowing background play for videos labeled for kids.
-        kidsBackgroundPlaybackPolicyControllerFingerprint.method.returnEarly()
+        kidsBackgroundPlaybackPolicyControllerMethod.returnEarly()
 
         // Fix PiP buttons not working after locking/unlocking device screen.
         if (is_19_34_or_greater) {
-            pipInputConsumerFeatureFlagFingerprint.let {
+            pipInputConsumerFeatureFlagMethod.let {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     false,

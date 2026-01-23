@@ -12,8 +12,8 @@ val `Disable login requirement` by creatingBytecodePatch {
 
     apply {
         listOf(
-            mandatoryLoginServiceFingerprint,
-            mandatoryLoginService2Fingerprint,
+            mandatoryLoginServiceMethod,
+            mandatoryLoginService2Method,
         ).forEach { fingerprint ->
             fingerprint.method.addInstructions(
                 0,

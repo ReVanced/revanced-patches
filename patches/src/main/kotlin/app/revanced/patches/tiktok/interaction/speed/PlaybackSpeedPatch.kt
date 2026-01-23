@@ -5,8 +5,8 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
-import app.revanced.patches.tiktok.shared.getEnterFromFingerprint
-import app.revanced.patches.tiktok.shared.onRenderFirstFrameFingerprint
+import app.revanced.patches.tiktok.shared.getEnterFromMethod
+import app.revanced.patches.tiktok.shared.onRenderFirstFrameMethod
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.returnEarly
@@ -38,12 +38,12 @@ val `Playback speed` by creatingBytecodePatch(
 
         // By default, the playback speed will reset to 1.0 at the start of each video.
         // Instead, override it with the desired playback speed.
-        onRenderFirstFrameFingerprint.method.addInstructions(
+        onRenderFirstFrameMethod.addInstructions(
             0,
             """
                 # Video playback location (e.g. home page, following page or search result page) retrieved using getEnterFrom method.
                 const/4 v0, 0x1
-                invoke-virtual { p0, v0 },  ${getEnterFromFingerprint.originalMethod}
+                invoke-virtual { p0, v0 },  ${getEnterFromMethod.originalMethod}
                 move-result-object v0
 
                 # Model of current video retrieved using getCurrentAweme method.

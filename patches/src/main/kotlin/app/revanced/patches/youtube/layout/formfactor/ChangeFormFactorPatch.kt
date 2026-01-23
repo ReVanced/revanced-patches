@@ -4,7 +4,6 @@ import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.fieldAccess
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.instructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -56,7 +55,7 @@ val `Change form factor` by creatingBytecodePatch(
             instructions(
                 fieldAccess(smali = "Landroid/os/Build;->MODEL:Ljava/lang/String;"),
                 fieldAccess(
-                    definingClass = formFactorEnumConstructorFingerprint.originalClassDef.type,
+                    definingClass = formFactorEnumConstructorMethod.originalClassDef.type,
                     type = "I",
                     location = MatchAfterWithin(50),
                 ),

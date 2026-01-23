@@ -13,7 +13,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR =
 @Suppress("unused")
 val `Change link sharing domain` by creatingBytecodePatch(
     description = "Replaces the domain name of shared links.",
-    use = false
+    use = false,
 ) {
     compatibleWith("com.instagram.android")
 
@@ -22,11 +22,11 @@ val `Change link sharing domain` by creatingBytecodePatch(
     val customDomainHost by stringOption(
         default = "imginn.com",
         name = "Domain name",
-        description = "The domain name to use when sharing links."
+        description = "The domain name to use when sharing links.",
     )
 
     apply {
-        getCustomShareDomainFingerprint.method.returnEarly(customDomainHost!!)
+        getCustomShareDomainMethod.returnEarly(customDomainHost!!)
 
         editShareLinksPatch { index, register ->
             addInstructions(
@@ -34,7 +34,7 @@ val `Change link sharing domain` by creatingBytecodePatch(
                 """
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setCustomShareDomain(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$register
-                """
+                """,
             )
         }
     }

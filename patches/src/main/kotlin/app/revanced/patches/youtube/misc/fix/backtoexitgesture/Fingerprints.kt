@@ -1,15 +1,22 @@
 package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 
 import app.revanced.patcher.InstructionLocation.*
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.checkCast
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val scrollPositionFingerprint = fingerprint {
+internal val BytecodePatchContext.scrollPositionMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")
@@ -21,7 +28,7 @@ internal val scrollPositionFingerprint = fingerprint {
     strings("scroll_position")
 }
 
-internal val recyclerViewTopScrollingFingerprint = fingerprint {
+internal val BytecodePatchContext.recyclerViewTopScrollingMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()

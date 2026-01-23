@@ -3,13 +3,13 @@ package app.revanced.patches.youtube.video.videoid
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.video.playerresponse.Hook
 import app.revanced.patches.youtube.video.playerresponse.addPlayerResponseMethodHook
 import app.revanced.patches.youtube.video.playerresponse.playerResponseMethodHookPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 
 /**
  * Hooks the new video id when the video changes.
@@ -92,7 +92,7 @@ val videoIdPatch = bytecodePatch(
     )
 
     apply {
-        videoIdFingerprint.match(videoIdParentFingerprint.originalClassDef).let {
+        videoIdMethod.match(videoIdParentFingerprint.originalClassDef).let {
             it.method.apply {
                 videoIdMethod = this
                 val index = it.instructionMatches.first().index
@@ -101,7 +101,7 @@ val videoIdPatch = bytecodePatch(
             }
         }
 
-        videoIdBackgroundPlayFingerprint.let {
+        videoIdBackgroundPlayMethod.let {
             it.method.apply {
                 backgroundPlaybackMethod = this
                 val index = it.instructionMatches.first().index

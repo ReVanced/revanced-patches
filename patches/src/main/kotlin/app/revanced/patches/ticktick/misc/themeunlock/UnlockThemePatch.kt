@@ -19,6 +19,6 @@ val `Unlock themes` by creatingBytecodePatch(
             """,
         )
 
-        setThemeFingerprint.removeInstructions(0, 10)
+        setThemeMethod.removeInstructions(0, 10)
     }
 }

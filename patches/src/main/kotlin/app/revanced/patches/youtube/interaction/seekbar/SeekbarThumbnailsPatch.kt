@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
-import app.revanced.patches.youtube.layout.seekbar.fullscreenSeekbarThumbnailsFingerprint
+import app.revanced.patches.youtube.layout.seekbar.fullscreenSeekbarThumbnailsMethod
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_09_or_greater
@@ -49,7 +49,7 @@ val seekbarThumbnailsPatch = bytecodePatch(
                 ),
             )
 
-            fullscreenSeekbarThumbnailsFingerprint.method.apply {
+            fullscreenSeekbarThumbnailsMethod.apply {
                 val moveResultIndex = instructions.lastIndex - 1
 
                 addInstruction(

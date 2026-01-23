@@ -29,7 +29,7 @@ val `Bypass URL redirects` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -41,11 +41,11 @@ val `Bypass URL redirects` by creatingBytecodePatch(
 
         arrayOf(
             if (is_20_37_or_greater) {
-                (abUriParserFingerprint to 2)
+                (abUriParserMethod to 2)
             } else {
-                (abUriParserLegacyFingerprint to 2)
+                (abUriParserLegacyMethod to 2)
             },
-            httpUriParserFingerprint to 0
+            httpUriParserMethod to 0,
         ).forEach { (fingerprint, index) ->
             fingerprint.method.apply {
                 val insertIndex = fingerprint.instructionMatches[index].index
@@ -54,7 +54,7 @@ val `Bypass URL redirects` by creatingBytecodePatch(
                 replaceInstruction(
                     insertIndex,
                     "invoke-static { v$uriStringRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                            "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;",
+                        "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;",
                 )
             }
         }

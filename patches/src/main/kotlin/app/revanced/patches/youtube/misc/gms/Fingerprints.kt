@@ -1,14 +1,21 @@
 package app.revanced.patches.youtube.misc.gms
 
 import app.revanced.patcher.InstructionLocation.*
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val specificNetworkErrorViewControllerFingerprint = fingerprint {
+internal val BytecodePatchContext.specificNetworkErrorViewControllerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()
@@ -22,7 +29,7 @@ internal val specificNetworkErrorViewControllerFingerprint = fingerprint {
 
 // It's not clear if this second class is ever used and it may be dead code,
 // but it the layout image/text is identical to the network error fingerprint above.
-internal val loadingFrameLayoutControllerFingerprint = fingerprint {
+internal val BytecodePatchContext.loadingFrameLayoutControllerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")

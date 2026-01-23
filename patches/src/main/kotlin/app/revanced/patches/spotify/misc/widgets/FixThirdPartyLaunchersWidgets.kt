@@ -13,6 +13,6 @@ val `Fix third party launchers widgets` by creatingBytecodePatch(
         // Only system app launchers are granted the BIND_APPWIDGET permission.
         // Override the method that checks for it to always return true, as this permission is not actually required
         // for the widgets to work.
-        canBindAppWidgetPermissionFingerprint.method.returnEarly(true)
+        canBindAppWidgetPermissionMethod.returnEarly(true)
     }
 }

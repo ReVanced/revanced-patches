@@ -1,14 +1,21 @@
 package app.revanced.patches.youtube.misc.playertype
 
 import app.revanced.patcher.InstructionLocation.MatchAfterWithin
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val playerTypeEnumFingerprint = fingerprint {
+internal val BytecodePatchContext.playerTypeEnumMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     strings(
         "NONE",
@@ -25,7 +32,7 @@ internal val playerTypeEnumFingerprint = fingerprint {
     )
 }
 
-internal val reelWatchPagerFingerprint = fingerprint {
+internal val BytecodePatchContext.reelWatchPagerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
     instructions(
@@ -34,7 +41,7 @@ internal val reelWatchPagerFingerprint = fingerprint {
     )
 }
 
-internal val videoStateEnumFingerprint = fingerprint {
+internal val BytecodePatchContext.videoStateEnumMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     parameterTypes()
     strings(
@@ -48,7 +55,7 @@ internal val videoStateEnumFingerprint = fingerprint {
 }
 
 // 20.33 and lower class name ControlsState. 20.34+ class name is obfuscated.
-internal val controlsStateToStringFingerprint = fingerprint {
+internal val BytecodePatchContext.controlsStateToStringMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes()
     returnType("Ljava/lang/String;")

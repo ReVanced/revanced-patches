@@ -1,10 +1,8 @@
 package app.revanced.patches.youtube.video.playerresponse
 
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_23_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_02_or_greater
@@ -13,6 +11,7 @@ import app.revanced.patches.youtube.misc.playservice.is_20_15_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_26_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 
 private val hooks = mutableSetOf<Hook>()
 
@@ -41,28 +40,28 @@ val playerResponseMethodHookPatch = bytecodePatch {
     )
 
     apply {
-        val fingerprint : Fingerprint
+        val fingerprint: Fingerprint
         if (is_20_46_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 13
-            fingerprint = playerParameterBuilderFingerprint
+            fingerprint = playerParameterBuilderMethod
         } else if (is_20_26_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 13
-            fingerprint = playerParameterBuilder2026Fingerprint
+            fingerprint = playerParameterBuilder2026Method
         } else if (is_20_15_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 13
-            fingerprint = playerParameterBuilder2015Fingerprint
+            fingerprint = playerParameterBuilder2015Method
         } else if (is_20_10_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 13
-            fingerprint = playerParameterBuilder2010Fingerprint
+            fingerprint = playerParameterBuilder2010Method
         } else if (is_20_02_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 12
-            fingerprint = playerParameterBuilder2002Fingerprint
+            fingerprint = playerParameterBuilder2002Method
         } else if (is_19_23_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 12
-            fingerprint = playerParameterBuilder1925Fingerprint
+            fingerprint = playerParameterBuilder1925Method
         } else {
             parameterIsShortAndOpeningOrPlaying = 11
-            fingerprint = playerParameterBuilderLegacyFingerprint
+            fingerprint = playerParameterBuilderLegacyMethod
         }
         playerResponseMethod = fingerprint.method
 

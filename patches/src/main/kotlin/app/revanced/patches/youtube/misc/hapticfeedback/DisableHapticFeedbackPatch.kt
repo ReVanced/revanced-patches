@@ -29,7 +29,7 @@ val `Disable haptic feedback` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -43,15 +43,15 @@ val `Disable haptic feedback` by creatingBytecodePatch(
                     SwitchPreference("revanced_disable_haptic_feedback_precise_seeking"),
                     SwitchPreference("revanced_disable_haptic_feedback_seek_undo"),
                     SwitchPreference("revanced_disable_haptic_feedback_zoom"),
-                )
-            )
+                ),
+            ),
         )
 
         arrayOf(
-            markerHapticsFingerprint to "disableChapterVibrate",
-            scrubbingHapticsFingerprint to "disablePreciseSeekingVibrate",
-            seekUndoHapticsFingerprint to "disableSeekUndoVibrate",
-            zoomHapticsFingerprint to "disableZoomVibrate"
+            markerHapticsMethod to "disableChapterVibrate",
+            scrubbingHapticsMethod to "disablePreciseSeekingVibrate",
+            seekUndoHapticsMethod to "disableSeekUndoVibrate",
+            zoomHapticsMethod to "disableZoomVibrate",
         ).forEach { (fingerprint, methodName) ->
             fingerprint.method.apply {
                 addInstructionsWithLabels(
@@ -62,7 +62,7 @@ val `Disable haptic feedback` by creatingBytecodePatch(
                         if-eqz v0, :vibrate
                         return-void
                     """,
-                    ExternalLabel("vibrate", getInstruction(0))
+                    ExternalLabel("vibrate", getInstruction(0)),
                 )
             }
         }

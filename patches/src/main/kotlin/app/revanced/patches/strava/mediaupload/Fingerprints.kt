@@ -1,20 +1,18 @@
 package app.revanced.patches.strava.mediaupload
 
-import app.revanced.patcher.fingerprint
-
-internal val getCompressionQualityFingerprint = fingerprint {
+internal val BytecodePatchContext.getCompressionQualityMethod by gettingFirstMethodDeclaratively {
     custom { method, _ ->
         method.name == "getCompressionQuality"
     }
 }
 
-internal val getMaxDurationFingerprint = fingerprint {
+internal val BytecodePatchContext.getMaxDurationMethod by gettingFirstMethodDeclaratively {
     custom { method, _ ->
         method.name == "getMaxDuration"
     }
 }
 
-internal val getMaxSizeFingerprint = fingerprint {
+internal val BytecodePatchContext.getMaxSizeMethod by gettingFirstMethodDeclaratively {
     custom { method, _ ->
         method.name == "getMaxSize"
     }

@@ -57,14 +57,14 @@ fun gmsCoreSupportPatch(
 ) = bytecodePatch(
     name = "GmsCore support", // TODO
     description = "Allows the app to work without root by using a different package name when patched " +
-            "using a GmsCore instead of Google Play Services.",
+        "using a GmsCore instead of Google Play Services.",
 ) {
     val gmsCoreVendorGroupIdOption = stringOption(
         default = "app.revanced",
         values =
-            mapOf(
-                "ReVanced" to "app.revanced",
-            ),
+        mapOf(
+            "ReVanced" to "app.revanced",
+        ),
         name = "GmsCore vendor group ID",
         description = "The vendor's group ID for GmsCore.",
         required = true,
@@ -124,10 +124,11 @@ fun gmsCoreSupportPatch(
             in PERMISSIONS,
             in ACTIONS,
             in AUTHORITIES,
-                -> referencedString.replace("com.google", gmsCoreVendorGroupId!!)
+            -> referencedString.replace("com.google", gmsCoreVendorGroupId!!)
 
             // No vendor prefix for whatever reason...
             "subscribedfeeds" -> "$gmsCoreVendorGroupId.subscribedfeeds"
+
             else -> null
         }
 
@@ -159,7 +160,7 @@ fun gmsCoreSupportPatch(
             when (string) {
                 "$fromPackageName.SuggestionProvider",
                 "$fromPackageName.fileprovider",
-                    -> string.replace(fromPackageName, toPackageName)
+                -> string.replace(fromPackageName, toPackageName)
 
                 else -> null
             }
@@ -203,25 +204,25 @@ fun gmsCoreSupportPatch(
 
         // Return these methods early to prevent the app from crashing.
         getEarlyReturnMethods().forEach { it.returnEarly() }
-        serviceCheckFingerprint.method.returnEarly()
+        serviceCheckMethod.returnEarly()
 
         // Google Play Utility is not present in all apps, so we need to check if it's present.
-        if (googlePlayUtilityFingerprint.methodOrNull != null) {
-            googlePlayUtilityFingerprint.method.returnEarly(0)
+        if (googlePlayUtilityMethodOrNull != null) {
+            googlePlayUtilityMethod.returnEarly(0)
         }
 
         // Set original and patched package names for extension to use.
-        originalPackageNameExtensionFingerprint.method.returnEarly(fromPackageName)
+        originalPackageNameExtensionMethod.returnEarly(fromPackageName)
 
         // Verify GmsCore is installed and whitelisted for power optimizations and background usage.
         getMainActivityOnCreateMethod().addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                    "checkGmsCore(Landroid/app/Activity;)V"
+                "checkGmsCore(Landroid/app/Activity;)V",
         )
 
         // Change the vendor of GmsCore in the extension.
-        gmsCoreSupportFingerprint.method.returnEarly(gmsCoreVendorGroupId!!)
+        gmsCoreSupportMethod.returnEarly(gmsCoreVendorGroupId!!)
 
         executeBlock()
     }

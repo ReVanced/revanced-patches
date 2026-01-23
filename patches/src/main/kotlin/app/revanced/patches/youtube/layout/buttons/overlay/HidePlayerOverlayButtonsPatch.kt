@@ -12,7 +12,7 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.getLayoutConstructorMethodMatch
-import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
+import app.revanced.patches.youtube.shared.subtitleButtonControllerMethod
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
@@ -96,7 +96,7 @@ val `Hide player overlay buttons` by creatingBytecodePatch(
 
         // region Hide captions button.
 
-        subtitleButtonControllerFingerprint.method.apply {
+        subtitleButtonControllerMethod.apply {
             val insertIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_BOOLEAN) + 1
 
             addInstruction(

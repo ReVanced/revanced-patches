@@ -16,7 +16,7 @@ import app.revanced.patches.youtube.misc.playservice.is_20_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.mainActivityConstructorFingerprint
+import app.revanced.patches.youtube.shared.mainActivityConstructorMethod
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
@@ -40,7 +40,7 @@ private val swipeControlsResourcePatch = resourcePatch {
         // Flag was completely removed in 20.34+
         if (is_19_43_or_greater && !is_20_22_or_greater) {
             PreferenceScreen.SWIPE_CONTROLS.addPreferences(
-                SwitchPreference("revanced_swipe_change_video")
+                SwitchPreference("revanced_swipe_change_video"),
             )
         }
 
@@ -56,12 +56,12 @@ private val swipeControlsResourcePatch = resourcePatch {
             TextPreference(
                 "revanced_swipe_overlay_progress_brightness_color",
                 tag = "app.revanced.extension.shared.settings.preference.ColorPickerWithOpacitySliderPreference",
-                inputType = InputType.TEXT_CAP_CHARACTERS
+                inputType = InputType.TEXT_CAP_CHARACTERS,
             ),
             TextPreference(
                 "revanced_swipe_overlay_progress_volume_color",
                 tag = "app.revanced.extension.shared.settings.preference.ColorPickerWithOpacitySliderPreference",
-                inputType = InputType.TEXT_CAP_CHARACTERS
+                inputType = InputType.TEXT_CAP_CHARACTERS,
             ),
             TextPreference("revanced_swipe_text_overlay_size", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
@@ -103,12 +103,12 @@ val `Swipe controls` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
-        val wrapperClass = swipeControlsHostActivityFingerprint.classDef
-        val targetClass = mainActivityConstructorFingerprint.classDef
+        val wrapperClass = swipeControlsHostActivityMethod.classDef
+        val targetClass = mainActivityConstructorMethod.classDef
 
         // Inject the wrapper class from the extension into the class hierarchy of MainActivity.
         wrapperClass.setSuperClass(targetClass.superclass)
@@ -134,10 +134,10 @@ val `Swipe controls` by creatingBytecodePatch(
         // region patch to enable/disable swipe to change video.
 
         if (is_19_43_or_greater && !is_20_34_or_greater) {
-            swipeChangeVideoFingerprint.let {
+            swipeChangeVideoMethod.let {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.last().index, // TODO
-                    "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeChangeVideo(Z)Z"
+                    "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeChangeVideo(Z)Z",
                 )
             }
         }

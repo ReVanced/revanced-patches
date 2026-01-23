@@ -14,7 +14,7 @@ internal val loadOrbitLibraryHook = extensionHook {
     // FIXME: Creating this is a mess and needs refactoring.
     extensionHook(
         getInsertIndex = {
-            loadOrbitLibraryFingerprint.stringMatches.last().index
+            loadOrbitLibraryMethod.stringMatches.last().index
         },
         getContextRegister = { method ->
             val contextReferenceIndex = method.indexOfFirstInstruction {
@@ -25,6 +25,6 @@ internal val loadOrbitLibraryHook = extensionHook {
 
             "v$contextRegister"
         },
-        fingerprint = loadOrbitLibraryFingerprint,
+        fingerprint = loadOrbitLibraryMethod,
     )
 }

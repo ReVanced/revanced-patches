@@ -16,7 +16,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 val `Remove viewer discretion dialog` by creatingBytecodePatch(
     description = "Adds an option to remove the dialog that appears when opening a video that has been age-restricted " +
-            "by accepting it automatically. This does not bypass the age restriction.",
+        "by accepting it automatically. This does not bypass the age restriction.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -30,7 +30,7 @@ val `Remove viewer discretion dialog` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -40,7 +40,7 @@ val `Remove viewer discretion dialog` by creatingBytecodePatch(
             SwitchPreference("revanced_remove_viewer_discretion_dialog"),
         )
 
-        createDialogFingerprint.let {
+        createDialogMethod.let {
             it.method.apply {
                 val showDialogIndex = it.instructionMatches.last().index // TODO
                 val dialogRegister = getInstruction<FiveRegisterInstruction>(showDialogIndex).registerC

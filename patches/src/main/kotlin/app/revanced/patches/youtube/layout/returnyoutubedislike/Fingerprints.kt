@@ -1,33 +1,40 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val dislikeFingerprint = fingerprint {
+internal val BytecodePatchContext.dislikeMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     instructions(
         addString("like/dislike"),
     )
 }
 
-internal val likeFingerprint = fingerprint {
+internal val BytecodePatchContext.likeMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     instructions(
         addString("like/like"),
     )
 }
 
-internal val removeLikeFingerprint = fingerprint {
+internal val BytecodePatchContext.removeLikeMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     instructions(
         addString("like/removelike"),
     )
 }
 
-internal val rollingNumberMeasureAnimatedTextFingerprint = fingerprint {
+internal val BytecodePatchContext.rollingNumberMeasureAnimatedTextMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Lj\$/util/Optional;")
     parameterTypes("L", "Ljava/lang/String;", "L")
@@ -46,9 +53,9 @@ internal val rollingNumberMeasureAnimatedTextFingerprint = fingerprint {
 }
 
 /**
- * Matches to class found in [rollingNumberMeasureStaticLabelParentFingerprint].
+ * Matches to class found in [rollingNumberMeasureStaticLabelParentMethod].
  */
-internal val rollingNumberMeasureStaticLabelFingerprint = fingerprint {
+internal val BytecodePatchContext.rollingNumberMeasureStaticLabelMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("F")
     parameterTypes("Ljava/lang/String;")
@@ -60,7 +67,7 @@ internal val rollingNumberMeasureStaticLabelFingerprint = fingerprint {
     )
 }
 
-internal val rollingNumberMeasureStaticLabelParentFingerprint = fingerprint {
+internal val BytecodePatchContext.rollingNumberMeasureStaticLabelParentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/String;")
     parameterTypes()
@@ -69,7 +76,7 @@ internal val rollingNumberMeasureStaticLabelParentFingerprint = fingerprint {
     )
 }
 
-internal val rollingNumberSetterFingerprint = fingerprint {
+internal val BytecodePatchContext.rollingNumberSetterMethod by gettingFirstMethodDeclaratively {
     opcodes(
         Opcode.INVOKE_DIRECT,
         Opcode.IGET_OBJECT,
@@ -78,7 +85,7 @@ internal val rollingNumberSetterFingerprint = fingerprint {
     strings("RollingNumberType required properties missing! Need")
 }
 
-internal val rollingNumberTextViewFingerprint = fingerprint {
+internal val BytecodePatchContext.rollingNumberTextViewMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L", "F", "F")
@@ -96,14 +103,14 @@ internal val rollingNumberTextViewFingerprint = fingerprint {
     }
 }
 
-internal val textComponentConstructorFingerprint = fingerprint {
+internal val BytecodePatchContext.textComponentConstructorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PRIVATE)
     instructions(
         addString("TextComponent"),
     )
 }
 
-internal val textComponentDataFingerprint = fingerprint {
+internal val BytecodePatchContext.textComponentDataMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes("L", "L")
     instructions(
@@ -115,9 +122,9 @@ internal val textComponentDataFingerprint = fingerprint {
 }
 
 /**
- * Matches against the same class found in [textComponentConstructorFingerprint].
+ * Matches against the same class found in [textComponentConstructorMethod].
  */
-internal val textComponentLookupFingerprint = fingerprint {
+internal val BytecodePatchContext.textComponentLookupMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returnType("L")
     parameterTypes("L")
@@ -126,7 +133,7 @@ internal val textComponentLookupFingerprint = fingerprint {
     )
 }
 
-internal val textComponentFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.textComponentFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

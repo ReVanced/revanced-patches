@@ -3,12 +3,20 @@ package app.revanced.patches.youtube.misc.navigation
 import app.revanced.patcher.*
 import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.InstructionLocation.MatchAfterWithin
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.youtube.layout.buttons.navigation.`Navigation buttons`
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val actionBarSearchResultsFingerprint = fingerprint {
+internal val BytecodePatchContext.actionBarSearchResultsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
     instructions(
@@ -17,7 +25,7 @@ internal val actionBarSearchResultsFingerprint = fingerprint {
     )
 }
 
-internal val toolbarLayoutFingerprint = fingerprint {
+internal val BytecodePatchContext.toolbarLayoutMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.ID("toolbar_container"),
@@ -28,7 +36,7 @@ internal val toolbarLayoutFingerprint = fingerprint {
 /**
  * Matches to https://android.googlesource.com/platform/frameworks/support/+/9eee6ba/v7/appcompat/src/android/support/v7/widget/Toolbar.java#963
  */
-internal val appCompatToolbarBackButtonFingerprint = fingerprint {
+internal val BytecodePatchContext.appCompatToolbarBackButtonMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/graphics/drawable/Drawable;")
     parameterTypes()
@@ -38,9 +46,9 @@ internal val appCompatToolbarBackButtonFingerprint = fingerprint {
 }
 
 /**
- * Matches to the class found in [pivotBarConstructorFingerprint].
+ * Matches to the class found in [pivotBarConstructorMethod].
  */
-internal val initializeButtonsFingerprint = fingerprint {
+internal val BytecodePatchContext.initializeButtonsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     instructions(
@@ -52,7 +60,7 @@ internal val initializeButtonsFingerprint = fingerprint {
  * Extension method, used for callback into to other patches.
  * Specifically, [navigationButtonsPatch].
  */
-internal val navigationBarHookCallbackFingerprint = fingerprint {
+internal val BytecodePatchContext.navigationBarHookCallbackMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("V")
     parameterTypes(EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR, "Landroid/view/View;")
@@ -65,7 +73,7 @@ internal val navigationBarHookCallbackFingerprint = fingerprint {
 /**
  * Matches to the Enum class that looks up ordinal -> instance.
  */
-internal val navigationEnumFingerprint = fingerprint {
+internal val BytecodePatchContext.navigationEnumMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     strings(
         "PIVOT_HOME",
@@ -79,7 +87,7 @@ internal val navigationEnumFingerprint = fingerprint {
     )
 }
 
-internal val pivotBarButtonsCreateDrawableViewFingerprint = fingerprint {
+internal val BytecodePatchContext.pivotBarButtonsCreateDrawableViewMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
     custom { method, _ ->
@@ -89,7 +97,7 @@ internal val pivotBarButtonsCreateDrawableViewFingerprint = fingerprint {
     }
 }
 
-internal val pivotBarButtonsCreateResourceStyledViewFingerprint = fingerprint {
+internal val BytecodePatchContext.pivotBarButtonsCreateResourceStyledViewMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
     parameterTypes("L", "Z", "I", "L")
@@ -101,7 +109,7 @@ internal val pivotBarButtonsCreateResourceStyledViewFingerprint = fingerprint {
 /**
  * 20.21+
  */
-internal val pivotBarButtonsCreateResourceIntViewFingerprint = fingerprint {
+internal val BytecodePatchContext.pivotBarButtonsCreateResourceIntViewMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
     custom { method, _ ->
@@ -111,7 +119,7 @@ internal val pivotBarButtonsCreateResourceIntViewFingerprint = fingerprint {
     }
 }
 
-internal val pivotBarButtonsViewSetSelectedFingerprint = fingerprint {
+internal val BytecodePatchContext.pivotBarButtonsViewSetSelectedMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("I", "Z")
@@ -123,14 +131,14 @@ internal val pivotBarButtonsViewSetSelectedFingerprint = fingerprint {
     }
 }
 
-internal val pivotBarConstructorFingerprint = fingerprint {
+internal val BytecodePatchContext.pivotBarConstructorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         addString("com.google.android.apps.youtube.app.endpoint.flags"),
     )
 }
 
-internal val imageEnumConstructorFingerprint = fingerprint {
+internal val BytecodePatchContext.imageEnumConstructorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
         addString("TAB_ACTIVITY_CAIRO"),
@@ -139,7 +147,7 @@ internal val imageEnumConstructorFingerprint = fingerprint {
     )
 }
 
-internal val setEnumMapFingerprint = fingerprint {
+internal val BytecodePatchContext.setEnumMapMethod by gettingFirstMethodDeclaratively {
     instructions(
         ResourceType.DRAWABLE("yt_fill_bell_black_24"),
         methodCall(smali = "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;", location = MatchAfterWithin(10)),

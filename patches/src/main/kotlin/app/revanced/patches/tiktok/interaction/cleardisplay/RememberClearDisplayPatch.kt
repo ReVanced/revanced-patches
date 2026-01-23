@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
-import app.revanced.patches.tiktok.shared.onRenderFirstFrameFingerprint
+import app.revanced.patches.tiktok.shared.onRenderFirstFrameMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -29,7 +29,7 @@ val `Remember clear display` by creatingBytecodePatch(
             addInstructions(
                 isEnabledIndex,
                 "invoke-static { v$isEnabledRegister }, " +
-                        "Lapp/revanced/extension/tiktok/cleardisplay/RememberClearDisplayPatch;->rememberClearDisplayState(Z)V",
+                    "Lapp/revanced/extension/tiktok/cleardisplay/RememberClearDisplayPatch;->rememberClearDisplayState(Z)V",
             )
 
             // endregion
@@ -37,7 +37,7 @@ val `Remember clear display` by creatingBytecodePatch(
             // region Override the "Clear display" configuration load event to load the state of clear display.
 
             val clearDisplayEventClass = parameters[0].type
-            onRenderFirstFrameFingerprint.method.addInstructionsWithLabels(
+            onRenderFirstFrameMethod.addInstructionsWithLabels(
                 0,
                 """
                     # Create a new clearDisplayEvent and post it to the EventBus (https://github.com/greenrobot/EventBus)
@@ -60,7 +60,7 @@ val `Remember clear display` by creatingBytecodePatch(
                     invoke-direct { v0, v1, v2, v3, v4 }, $clearDisplayEventClass-><init>(ILjava/lang/String;Ljava/lang/String;Z)V
                     invoke-virtual { v0 }, $clearDisplayEventClass->post()Lcom/ss/android/ugc/governance/eventbus/IEvent;
                     """,
-                ExternalLabel("clear_display_disabled", onRenderFirstFrameFingerprint.method.getInstruction(0)),
+                ExternalLabel("clear_display_disabled", onRenderFirstFrameMethod.getInstruction(0)),
             )
 
             // endregion

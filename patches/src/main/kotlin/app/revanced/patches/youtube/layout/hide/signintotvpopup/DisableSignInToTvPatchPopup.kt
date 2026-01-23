@@ -20,7 +20,7 @@ val `Disable sign in to TV popup` by creatingBytecodePatch(
         settingsPatch,
         sharedExtensionPatch,
         addResourcesPatch,
-        resourceMappingPatch
+        resourceMappingPatch,
     )
 
     compatibleWith(
@@ -29,7 +29,7 @@ val `Disable sign in to TV popup` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -39,7 +39,7 @@ val `Disable sign in to TV popup` by creatingBytecodePatch(
             SwitchPreference("revanced_disable_signin_to_tv_popup"),
         )
 
-        signInToTvPopupFingerprint.method.addInstructionsWithLabels(
+        signInToTvPopupMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disableSignInToTvPopup()Z
@@ -49,7 +49,7 @@ val `Disable sign in to TV popup` by creatingBytecodePatch(
                 return v0
                 :allow_sign_in_popup
                 nop
-            """
+            """,
         )
     }
 }

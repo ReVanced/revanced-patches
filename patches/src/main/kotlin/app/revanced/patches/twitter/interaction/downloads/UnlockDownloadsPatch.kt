@@ -1,6 +1,5 @@
 package app.revanced.patches.twitter.interaction.downloads
 
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.creatingBytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
@@ -20,7 +19,7 @@ val `Unlock downloads` by creatingBytecodePatch(
         }
 
         // Allow downloads for non-premium users.
-        showDownloadVideoUpsellBottomSheetFingerprint.patch {
+        showDownloadVideoUpsellBottomSheetMethod.patch {
             val checkIndex = instructionMatches.first().index
             val register = method.getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
@@ -28,7 +27,7 @@ val `Unlock downloads` by creatingBytecodePatch(
         }
 
         // Force show the download menu item.
-        constructMediaOptionsSheetFingerprint.patch {
+        constructMediaOptionsSheetMethod.patch {
             val showDownloadButtonIndex = method.instructions.lastIndex - 1
             val register = method.getInstruction<TwoRegisterInstruction>(showDownloadButtonIndex).registerA
 
@@ -36,7 +35,7 @@ val `Unlock downloads` by creatingBytecodePatch(
         }
 
         // Make GIFs downloadable.
-        buildMediaOptionsSheetFingerprint.let {
+        buildMediaOptionsSheetMethod.let {
             it.method.apply {
                 val checkMediaTypeIndex = it.instructionMatches.first().index
                 val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)

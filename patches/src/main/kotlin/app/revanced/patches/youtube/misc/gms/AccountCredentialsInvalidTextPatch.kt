@@ -14,7 +14,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 internal val accountCredentialsInvalidTextPatch = bytecodePatch {
     dependsOn(
         sharedExtensionPatch,
-        addResourcesPatch
+        addResourcesPatch,
     )
 
     apply {
@@ -30,8 +30,8 @@ internal val accountCredentialsInvalidTextPatch = bytecodePatch {
         // MicroG accounts look almost identical to Google device accounts
         // and it's more foolproof to instead uninstall/reinstall.
         arrayOf(
-            specificNetworkErrorViewControllerFingerprint,
-            loadingFrameLayoutControllerFingerprint
+            specificNetworkErrorViewControllerMethod,
+            loadingFrameLayoutControllerMethod,
         ).forEach { fingerprint ->
             fingerprint.apply {
                 val index = instructionMatches.last().index
@@ -42,7 +42,7 @@ internal val accountCredentialsInvalidTextPatch = bytecodePatch {
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getOfflineNetworkErrorString(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$register  
-                    """
+                    """,
                 )
             }
         }

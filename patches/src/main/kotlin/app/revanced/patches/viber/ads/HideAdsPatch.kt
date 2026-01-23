@@ -1,7 +1,6 @@
 package app.revanced.patches.viber.ads
 
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.returnEarly
@@ -16,10 +15,10 @@ val `Hide Ads` by creatingBytecodePatch(
     compatibleWith("com.viber.voip"("25.9.2.0", "26.1.2.0"))
 
     apply {
-        val method = findAdStringFingerprint.method
+        val method = findAdStringMethod
 
         // Find the ads free string index
-        val stringIndex = findAdStringFingerprint.stringMatches.first().index
+        val stringIndex = findAdStringMethod.stringMatches.first().index
 
         // Search backwards from the string to find the `new-instance` (TypeReference) instruction
         val typeRefIndex =

@@ -62,7 +62,7 @@ internal const val BUTTON_DESCRIPTOR = "Lapp/revanced/extension/youtube/videopla
 @Suppress("unused")
 val Downloads by creatingBytecodePatch(
     description = "Adds support to download videos with an external downloader app " +
-            "using the in-app download button or a video player action button.",
+        "using the in-app download button or a video player action button.",
 ) {
     dependsOn(
         downloadsResourcePatch,
@@ -76,7 +76,7 @@ val Downloads by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -86,10 +86,10 @@ val Downloads by creatingBytecodePatch(
         // Main activity is used to launch downloader intent.
         mainActivityOnCreateMethod.addInstruction(
             0,
-            "invoke-static/range { p0 .. p0 }, ${EXTENSION_CLASS_DESCRIPTOR}->setMainActivity(Landroid/app/Activity;)V"
+            "invoke-static/range { p0 .. p0 }, ${EXTENSION_CLASS_DESCRIPTOR}->setMainActivity(Landroid/app/Activity;)V",
         )
 
-        offlineVideoEndpointFingerprint.method.apply {
+        offlineVideoEndpointMethod.apply {
             addInstructionsWithLabels(
                 0,
                 """

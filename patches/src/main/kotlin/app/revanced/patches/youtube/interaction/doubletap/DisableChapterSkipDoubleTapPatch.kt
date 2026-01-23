@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.interaction.doubletap
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -57,7 +56,7 @@ val `Disable double tap actions` by creatingBytecodePatch(
         val doubleTapInfoGetSeekSourceFingerprint = fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             parameterTypes("Z")
-            returnType(seekTypeEnumFingerprint.originalClassDef.type)
+            returnType(seekTypeEnumMethod.originalClassDef.type)
             opcodes(
                 Opcode.IF_EQZ,
                 Opcode.SGET_OBJECT,
@@ -79,7 +78,7 @@ val `Disable double tap actions` by creatingBytecodePatch(
             """,
         )
 
-        doubleTapInfoCtorFingerprint.match(
+        doubleTapInfoCtorMethod.match(
             doubleTapInfoGetSeekSourceFingerprint.classDef,
         ).method.addInstructions(
             0,

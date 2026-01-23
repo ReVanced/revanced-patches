@@ -32,18 +32,18 @@ val `Hide related video overlay` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
         addResources("youtube", "layout.hide.relatedvideooverlay.hideRelatedVideoOverlayPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            SwitchPreference("revanced_hide_related_videos_overlay")
+            SwitchPreference("revanced_hide_related_videos_overlay"),
         )
 
-        relatedEndScreenResultsFingerprint.match(
-            relatedEndScreenResultsParentFingerprint.originalClassDef
+        relatedEndScreenResultsMethod.match(
+            relatedEndScreenResultsParentMethod.originalClassDef,
         ).method.apply {
             addInstructionsWithLabels(
                 0,
@@ -53,7 +53,7 @@ val `Hide related video overlay` by creatingBytecodePatch(
                     if-eqz v0, :show
                     return-void
                 """,
-                ExternalLabel("show", getInstruction(0))
+                ExternalLabel("show", getInstruction(0)),
             )
         }
     }

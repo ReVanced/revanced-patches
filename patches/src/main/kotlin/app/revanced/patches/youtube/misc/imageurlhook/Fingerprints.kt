@@ -1,11 +1,18 @@
 package app.revanced.patches.youtube.misc.imageurlhook
 
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
 import app.revanced.patcher.anyInstruction
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val onFailureFingerprint = fingerprint {
+internal val BytecodePatchContext.onFailureMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes(
@@ -19,7 +26,7 @@ internal val onFailureFingerprint = fingerprint {
 }
 
 // Acts as a parent fingerprint.
-internal val onResponseStartedFingerprint = fingerprint {
+internal val BytecodePatchContext.onResponseStartedMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
@@ -34,7 +41,7 @@ internal val onResponseStartedFingerprint = fingerprint {
     }
 }
 
-internal val onSucceededFingerprint = fingerprint {
+internal val BytecodePatchContext.onSucceededMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
@@ -45,19 +52,19 @@ internal val onSucceededFingerprint = fingerprint {
 
 internal const val CRONET_URL_REQUEST_CLASS_DESCRIPTOR = "Lorg/chromium/net/impl/CronetUrlRequest;"
 
-internal val requestFingerprint = fingerprint {
+internal val BytecodePatchContext.requestMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     custom { _, classDef ->
         classDef.type == CRONET_URL_REQUEST_CLASS_DESCRIPTOR
     }
 }
 
-internal val messageDigestImageUrlFingerprint = fingerprint {
+internal val BytecodePatchContext.messageDigestImageUrlMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes("Ljava/lang/String;", "L")
 }
 
-internal val messageDigestImageUrlParentFingerprint = fingerprint {
+internal val BytecodePatchContext.messageDigestImageUrlParentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/String;")
     parameterTypes()

@@ -2,19 +2,26 @@ package app.revanced.patches.youtube.layout.startupshortsreset
 
 import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.StringComparisonType
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
 import app.revanced.patcher.checkCast
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
  * 20.02+
  */
-internal val userWasInShortsAlternativeFingerprint = fingerprint {
+internal val BytecodePatchContext.userWasInShortsAlternativeMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("Ljava/lang/Object;")
@@ -30,7 +37,7 @@ internal val userWasInShortsAlternativeFingerprint = fingerprint {
 /**
  * Pre 20.02
  */
-internal val userWasInShortsLegacyFingerprint = fingerprint {
+internal val BytecodePatchContext.userWasInShortsLegacyMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("Ljava/lang/Object;")
@@ -42,7 +49,7 @@ internal val userWasInShortsLegacyFingerprint = fingerprint {
 /**
  * 18.15.40+
  */
-internal val userWasInShortsConfigFingerprint = fingerprint {
+internal val BytecodePatchContext.userWasInShortsConfigMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

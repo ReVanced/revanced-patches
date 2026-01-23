@@ -1,29 +1,36 @@
 package app.revanced.patches.youtube.misc.litho.filter
 
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
 import app.revanced.patcher.fieldAccess
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.util.containsLiteralInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val componentCreateFingerprint = fingerprint {
+internal val BytecodePatchContext.componentCreateMethod by gettingFirstMethodDeclaratively {
     instructions(
         addString("Element missing correct type extension"),
         addString("Element missing type"),
     )
 }
 
-internal val lithoFilterFingerprint = fingerprint {
+internal val BytecodePatchContext.lithoFilterMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     custom { _, classDef ->
         classDef.endsWith("/LithoFilterPatch;")
     }
 }
 
-internal val protobufBufferReferenceFingerprint = fingerprint {
+internal val BytecodePatchContext.protobufBufferReferenceMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("[B")
@@ -40,7 +47,7 @@ internal val protobufBufferReferenceFingerprint = fingerprint {
     )
 }
 
-internal val protobufBufferReferenceLegacyFingerprint = fingerprint {
+internal val BytecodePatchContext.protobufBufferReferenceLegacyMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("I", "Ljava/nio/ByteBuffer;")
@@ -52,7 +59,7 @@ internal val protobufBufferReferenceLegacyFingerprint = fingerprint {
     )
 }
 
-internal val emptyComponentFingerprint = fingerprint {
+internal val BytecodePatchContext.emptyComponentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
     parameterTypes()
     instructions(
@@ -63,7 +70,7 @@ internal val emptyComponentFingerprint = fingerprint {
     }
 }
 
-internal val lithoThreadExecutorFingerprint = fingerprint {
+internal val BytecodePatchContext.lithoThreadExecutorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes("I", "I", "I")
     custom { method, classDef ->
@@ -72,7 +79,7 @@ internal val lithoThreadExecutorFingerprint = fingerprint {
     }
 }
 
-internal val lithoComponentNameUpbFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.lithoComponentNameUpbFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
@@ -81,7 +88,7 @@ internal val lithoComponentNameUpbFeatureFlagFingerprint = fingerprint {
     )
 }
 
-internal val lithoConverterBufferUpbFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.lithoConverterBufferUpbFeatureFlagMethod by gettingFirstMethodDeclaratively {
     returnType("L")
     instructions(
         45419603L(),

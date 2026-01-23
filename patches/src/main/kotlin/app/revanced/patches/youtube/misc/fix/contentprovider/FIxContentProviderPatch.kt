@@ -13,13 +13,13 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
  * Fixes crashing for some users with a beta release where the YouTube content provider uses null map values.
  * It unknown if this crash can happen on stable releases.
  */
-internal val fixContentProviderPatch = bytecodePatch{
+internal val fixContentProviderPatch = bytecodePatch {
     dependsOn(
-        sharedExtensionPatch
+        sharedExtensionPatch,
     )
 
     apply {
-        unstableContentProviderFingerprint.let {
+        unstableContentProviderMethod.let {
             val insertIndex = it.instructionMatches.first().index
 
             it.method.apply {
@@ -27,7 +27,7 @@ internal val fixContentProviderPatch = bytecodePatch{
 
                 it.method.addInstruction(
                     insertIndex,
-                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->removeNullMapEntries(Ljava/util/Map;)V"
+                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->removeNullMapEntries(Ljava/util/Map;)V",
                 )
             }
         }

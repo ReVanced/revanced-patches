@@ -6,7 +6,6 @@ import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.Document
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
@@ -25,6 +24,7 @@ import app.revanced.util.returnEarly
 import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import org.w3c.dom.Node
 
 /**
@@ -78,7 +78,7 @@ internal val playerControlsResourcePatch = resourcePatch {
         // do no harm to earlier releases.
         bottomTargetDocumentChildNodes.findElementByAttributeValueOrThrow(
             "android:id",
-            "@id/youtube_controls_fullscreen_button_stub"
+            "@id/youtube_controls_fullscreen_button_stub",
         ).apply {
             setAttribute("android:layout_marginBottom", "6.0dip")
             setAttribute("android:layout_width", "48.0dip")
@@ -220,7 +220,7 @@ private lateinit var inflateBottomControlMethod: MutableMethod
 private var inflateBottomControlInsertIndex = -1
 private var inflateBottomControlRegister = -1
 
-private lateinit var visibilityImmediateCallbacksExistMethod : MutableMethod
+private lateinit var visibilityImmediateCallbacksExistMethod: MutableMethod
 private var visibilityImmediateCallbacksExistModified = false
 
 private lateinit var visibilityMethod: MutableMethod
@@ -240,11 +240,11 @@ val playerControlsPatch = bytecodePatch(
         sharedExtensionPatch,
         resourceMappingPatch, // Used by fingerprints.
         playerControlsOverlayVisibilityPatch,
-        versionCheckPatch
+        versionCheckPatch,
     )
 
     apply {
-        playerBottomControlsInflateFingerprint.let {
+        playerBottomControlsInflateMethod.let {
             it.method.apply {
                 inflateBottomControlMethod = this
 
@@ -254,7 +254,7 @@ val playerControlsPatch = bytecodePatch(
             }
         }
 
-        playerTopControlsInflateFingerprint.let {
+        playerTopControlsInflateMethod.let {
             it.method.apply {
                 inflateTopControlMethod = this
 
@@ -264,13 +264,13 @@ val playerControlsPatch = bytecodePatch(
             }
         }
 
-        visibilityMethod = controlsOverlayVisibilityFingerprint.match(
-            playerTopControlsInflateFingerprint.originalClassDef,
+        visibilityMethod = controlsOverlayVisibilityMethod.match(
+            playerTopControlsInflateMethod.originalClassDef,
         ).method
 
         // Hook the fullscreen close button.  Used to fix visibility
         // when seeking and other situations.
-        overlayViewInflateFingerprint.let {
+        overlayViewInflateMethod.let {
             it.method.apply {
                 val index = it.instructionMatches.last().index
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -278,15 +278,15 @@ val playerControlsPatch = bytecodePatch(
                 addInstruction(
                     index + 1,
                     "invoke-static { v$register }, " +
-                            "$EXTENSION_CLASS_DESCRIPTOR->setFullscreenCloseButton(Landroid/widget/ImageView;)V",
+                        "$EXTENSION_CLASS_DESCRIPTOR->setFullscreenCloseButton(Landroid/widget/ImageView;)V",
                 )
             }
         }
 
-        visibilityImmediateCallbacksExistMethod = playerControlsExtensionHookListenersExistFingerprint.method
-        visibilityImmediateMethod = playerControlsExtensionHookFingerprint.method
+        visibilityImmediateCallbacksExistMethod = playerControlsExtensionHookListenersExistMethod
+        visibilityImmediateMethod = playerControlsExtensionHookMethod
 
-        motionEventFingerprint.match(youtubeControlsOverlayFingerprint.originalClassDef).let {
+        motionEventMethod.match(youtubeControlsOverlayMethod.originalClassDef).let {
             visibilityNegatedImmediateMethod = it.method
             visibilityNegatedImmediateInsertIndex = it.instructionMatches.first().index + 1
         }
@@ -296,7 +296,7 @@ val playerControlsPatch = bytecodePatch(
         // The change to support this is simple and only requires adding buttons to both layout files,
         // but for now force this different layout off since it's still an experimental test.
         if (is_19_35_or_greater) {
-            playerBottomControlsExploderFeatureFlagFingerprint.method.returnLate(false)
+            playerBottomControlsExploderFeatureFlagMethod.returnLate(false)
         }
 
         // A/B test of different top overlay controls. Two different layouts can be used:
@@ -305,7 +305,7 @@ val playerControlsPatch = bytecodePatch(
         //
         // Flag was removed in 20.19+
         if (is_19_25_or_greater && !is_20_19_or_greater) {
-            playerTopControlsExperimentalLayoutFeatureFlagFingerprint.method.apply {
+            playerTopControlsExperimentalLayoutFeatureFlagMethod.apply {
                 val index = indexOfFirstInstructionOrThrow(Opcode.MOVE_RESULT_OBJECT)
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -315,14 +315,14 @@ val playerControlsPatch = bytecodePatch(
 
         // Turn off a/b tests of ugly player buttons that don't match the style of custom player buttons.
         if (is_20_20_or_greater) {
-            playerControlsFullscreenLargeButtonsFeatureFlagFingerprint.method.returnLate(false)
+            playerControlsFullscreenLargeButtonsFeatureFlagMethod.returnLate(false)
 
             if (is_20_28_or_greater) {
-                playerControlsLargeOverlayButtonsFeatureFlagFingerprint.method.returnLate(false)
+                playerControlsLargeOverlayButtonsFeatureFlagMethod.returnLate(false)
             }
 
             if (is_20_30_or_greater) {
-                playerControlsButtonStrokeFeatureFlagFingerprint.method.returnLate(false)
+                playerControlsButtonStrokeFeatureFlagMethod.returnLate(false)
             }
         }
     }

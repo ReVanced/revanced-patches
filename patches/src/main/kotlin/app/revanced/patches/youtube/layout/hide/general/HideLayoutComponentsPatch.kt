@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.hide.general
 
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -83,7 +82,7 @@ private const val KEYWORD_FILTER_CLASS_NAME =
 val `Hide layout components` by creatingBytecodePatch(
     description = "Adds options to hide general layout components.",
 
-    ) {
+) {
     dependsOn(
         lithoFilterPatch,
         settingsPatch,
@@ -240,8 +239,8 @@ val `Hide layout components` by creatingBytecodePatch(
 
         // region Mix playlists
 
-        parseElementFromBufferFingerprint.method.apply {
-            val startIndex = parseElementFromBufferFingerprint.instructionMatches.first().index
+        parseElementFromBufferMethod.apply {
+            val startIndex = parseElementFromBufferMethod.instructionMatches.first().index
             val insertIndex = startIndex + 1
 
             val byteArrayParameter = "p3"
@@ -269,8 +268,8 @@ val `Hide layout components` by creatingBytecodePatch(
 
         // region Watermark (legacy code for old versions of YouTube)
 
-        showWatermarkFingerprint.match(
-            playerOverlayFingerprint.originalClassDef,
+        showWatermarkMethod.match(
+            playerOverlayMethod.originalClassDef,
         ).method.apply {
             val index = implementation!!.instructions.size - 5
 
@@ -288,7 +287,7 @@ val `Hide layout components` by creatingBytecodePatch(
 
         // region Show more button
 
-        (if (is_20_26_or_greater) hideShowMoreButtonFingerprint else hideShowMoreLegacyButtonFingerprint).let {
+        (if (is_20_26_or_greater) hideShowMoreButtonMethod else hideShowMoreLegacyButtonMethod).let {
             it.method.apply {
                 val moveRegisterIndex = it.instructionMatches.last().index
                 val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
@@ -305,7 +304,7 @@ val `Hide layout components` by creatingBytecodePatch(
         // endregion
 
         // region crowdfunding box
-        crowdfundingBoxFingerprint.let {
+        crowdfundingBoxMethod.let {
             it.method.apply {
                 val insertIndex = it.instructionMatches.last().index
                 val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
@@ -313,7 +312,7 @@ val `Hide layout components` by creatingBytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static {v$objectRegister}, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                            "->hideCrowdfundingBox(Landroid/view/View;)V",
+                        "->hideCrowdfundingBox(Landroid/view/View;)V",
                 )
             }
         }
@@ -322,7 +321,7 @@ val `Hide layout components` by creatingBytecodePatch(
 
         // region hide album cards
 
-        albumCardsFingerprint.let {
+        albumCardsMethod.let {
             it.method.apply {
                 val checkCastAnchorIndex = it.instructionMatches.last().index
                 val insertIndex = checkCastAnchorIndex + 1
@@ -331,7 +330,7 @@ val `Hide layout components` by creatingBytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                            "->hideAlbumCard(Landroid/view/View;)V",
+                        "->hideAlbumCard(Landroid/view/View;)V",
                 )
             }
         }
@@ -340,7 +339,7 @@ val `Hide layout components` by creatingBytecodePatch(
 
         // region hide floating microphone
 
-        showFloatingMicrophoneButtonFingerprint.let {
+        showFloatingMicrophoneButtonMethod.let {
             it.method.apply {
                 val index = it.instructionMatches.last().index
                 val register = getInstruction<TwoRegisterInstruction>(index).registerA
@@ -359,7 +358,7 @@ val `Hide layout components` by creatingBytecodePatch(
 
         // region 'Yoodles'
 
-        yoodlesImageViewFingerprint.method.apply {
+        yoodlesImageViewMethod.apply {
             findInstructionIndicesReversedOrThrow {
                 getReference<MethodReference>()?.name == "setImageDrawable"
             }.forEach { insertIndex ->
@@ -378,8 +377,8 @@ val `Hide layout components` by creatingBytecodePatch(
 
         // region hide view count
 
-        hideViewCountFingerprint.method.apply {
-            val startIndex = hideViewCountFingerprint.patternMatch.startIndex
+        hideViewCountMethod.apply {
+            val startIndex = hideViewCountMethod.patternMatch.startIndex
             var returnStringRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
 
             // Find the instruction where the text dimension is retrieved.
@@ -430,23 +429,23 @@ val `Hide layout components` by creatingBytecodePatch(
             addInstructions(insertIndex, instructions(register))
         }
 
-        filterBarHeightFingerprint.patch<TwoRegisterInstruction> { register ->
+        filterBarHeightMethod.patch<TwoRegisterInstruction> { register ->
             """
                 invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInFeed(I)I
                 move-result v$register
             """
         }
 
-        searchResultsChipBarFingerprint.patch<OneRegisterInstruction>(-1, -2) { register ->
+        searchResultsChipBarMethod.patch<OneRegisterInstruction>(-1, -2) { register ->
             """
                 invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInSearch(I)I
                 move-result v$register
             """
         }
 
-        relatedChipCloudFingerprint.patch<OneRegisterInstruction>(1) { register ->
+        relatedChipCloudMethod.patch<OneRegisterInstruction>(1) { register ->
             "invoke-static { v$register }, " +
-                    "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
+                "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
         }
     }
 }

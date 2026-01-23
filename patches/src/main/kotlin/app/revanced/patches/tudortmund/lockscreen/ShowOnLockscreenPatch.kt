@@ -24,7 +24,7 @@ val `Show on lockscreen` by creatingBytecodePatch(
     compatibleWith("de.tudortmund.app")
 
     apply {
-        brightnessFingerprint.method.apply {
+        brightnessMethod.apply {
             // Find the instruction where the brightness value is loaded into a register
             val brightnessInstruction = instructions.firstNotNullOf { instruction ->
                 if (instruction.opcode != Opcode.IGET_OBJECT) return@firstNotNullOf null
@@ -61,10 +61,10 @@ val `Show on lockscreen` by creatingBytecodePatch(
             replaceInstruction(
                 windowIndex,
                 "invoke-static { v$activityRegister, v$brightnessRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->" +
-                        "getWindow" +
-                        "(Landroidx/appcompat/app/AppCompatActivity;F)" +
-                        "Landroid/view/Window;",
+                    "$EXTENSION_CLASS_DESCRIPTOR->" +
+                    "getWindow" +
+                    "(Landroidx/appcompat/app/AppCompatActivity;F)" +
+                    "Landroid/view/Window;",
             )
 
             // Normally, the brightness is loaded into a register after the getWindow call.

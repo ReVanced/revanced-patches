@@ -41,7 +41,7 @@ val fixPlaybackSpeedWhilePlayingPatch = bytecodePatch {
             return@apply
         }
 
-        playbackSpeedInFeedsFingerprint.method.apply {
+        playbackSpeedInFeedsMethod.apply {
             val playbackSpeedIndex = indexOfGetPlaybackSpeedInstruction(this)
             val playbackSpeedRegister = getInstruction<TwoRegisterInstruction>(playbackSpeedIndex).registerA
             val returnIndex = indexOfFirstInstructionOrThrow(playbackSpeedIndex, Opcode.RETURN_VOID)
@@ -55,7 +55,7 @@ val fixPlaybackSpeedWhilePlayingPatch = bytecodePatch {
                     move-result v$freeRegister
                     if-nez v$freeRegister, :do_not_change
                 """,
-                ExternalLabel("do_not_change", getInstruction(returnIndex))
+                ExternalLabel("do_not_change", getInstruction(returnIndex)),
             )
         }
     }

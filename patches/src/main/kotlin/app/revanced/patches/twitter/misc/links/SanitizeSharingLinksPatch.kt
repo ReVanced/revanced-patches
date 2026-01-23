@@ -11,11 +11,11 @@ val `Sanitize sharing links` by creatingBytecodePatch(
         "com.twitter.android"(
             "10.60.0-release.0",
             "10.86.0-release.0",
-        )
+        ),
     )
 
     apply {
-        sanitizeSharingLinksFingerprint.method.addInstructions(
+        sanitizeSharingLinksMethod.addInstructions(
             0,
             """
                 # Method takes in a link (string, param 0) and then appends the tracking query params,

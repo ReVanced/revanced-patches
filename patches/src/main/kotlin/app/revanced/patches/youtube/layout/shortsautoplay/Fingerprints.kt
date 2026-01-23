@@ -1,15 +1,22 @@
 package app.revanced.patches.youtube.layout.shortsautoplay
 
 import app.revanced.patcher.InstructionLocation.*
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
 import app.revanced.patcher.fieldAccess
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val reelEnumConstructorFingerprint = fingerprint {
+internal val BytecodePatchContext.reelEnumConstructorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
         addString("REEL_LOOP_BEHAVIOR_UNKNOWN"),
@@ -20,7 +27,7 @@ internal val reelEnumConstructorFingerprint = fingerprint {
     )
 }
 
-internal val reelPlaybackRepeatParentFingerprint = fingerprint {
+internal val BytecodePatchContext.reelPlaybackRepeatParentMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     parameterTypes("Ljava/lang/String;", "J")
     instructions(
@@ -29,9 +36,9 @@ internal val reelPlaybackRepeatParentFingerprint = fingerprint {
 }
 
 /**
- * Matches class found in [reelPlaybackRepeatParentFingerprint].
+ * Matches class found in [reelPlaybackRepeatParentMethod].
  */
-internal val reelPlaybackRepeatFingerprint = fingerprint {
+internal val BytecodePatchContext.reelPlaybackRepeatMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     parameterTypes("L")
     instructions(
@@ -39,7 +46,7 @@ internal val reelPlaybackRepeatFingerprint = fingerprint {
     )
 }
 
-internal val reelPlaybackFingerprint = fingerprint {
+internal val BytecodePatchContext.reelPlaybackMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("J")
     returnType("V")

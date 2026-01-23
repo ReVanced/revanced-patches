@@ -1,16 +1,23 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
 import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.checkCast
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val playerControlsVisibilityEntityModelFingerprint = fingerprint {
+internal val BytecodePatchContext.playerControlsVisibilityEntityModelMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC)
     returnType("L")
     parameterTypes()
@@ -23,7 +30,7 @@ internal val playerControlsVisibilityEntityModelFingerprint = fingerprint {
     }
 }
 
-internal val youtubeControlsOverlayFingerprint = fingerprint {
+internal val BytecodePatchContext.youtubeControlsOverlayMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     parameterTypes()
     instructions(
@@ -33,7 +40,7 @@ internal val youtubeControlsOverlayFingerprint = fingerprint {
     )
 }
 
-internal val motionEventFingerprint = fingerprint {
+internal val BytecodePatchContext.motionEventMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     parameterTypes("Landroid/view/MotionEvent;")
     instructions(
@@ -41,7 +48,7 @@ internal val motionEventFingerprint = fingerprint {
     )
 }
 
-internal val playerControlsExtensionHookListenersExistFingerprint = fingerprint {
+internal val BytecodePatchContext.playerControlsExtensionHookListenersExistMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("Z")
     parameterTypes()
@@ -51,7 +58,7 @@ internal val playerControlsExtensionHookListenersExistFingerprint = fingerprint 
     }
 }
 
-internal val playerControlsExtensionHookFingerprint = fingerprint {
+internal val BytecodePatchContext.playerControlsExtensionHookMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("V")
     parameterTypes("Z")
@@ -61,7 +68,7 @@ internal val playerControlsExtensionHookFingerprint = fingerprint {
     }
 }
 
-internal val playerTopControlsInflateFingerprint = fingerprint {
+internal val BytecodePatchContext.playerTopControlsInflateMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()
@@ -72,7 +79,7 @@ internal val playerTopControlsInflateFingerprint = fingerprint {
     )
 }
 
-internal val playerBottomControlsInflateFingerprint = fingerprint {
+internal val BytecodePatchContext.playerBottomControlsInflateMethod by gettingFirstMethodDeclaratively {
     returnType("Ljava/lang/Object;")
     parameterTypes()
     instructions(
@@ -82,7 +89,7 @@ internal val playerBottomControlsInflateFingerprint = fingerprint {
     )
 }
 
-internal val overlayViewInflateFingerprint = fingerprint {
+internal val BytecodePatchContext.overlayViewInflateMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/view/View;")
@@ -94,15 +101,15 @@ internal val overlayViewInflateFingerprint = fingerprint {
 }
 
 /**
- * Resolves to the class found in [playerTopControlsInflateFingerprint].
+ * Resolves to the class found in [playerTopControlsInflateMethod].
  */
-internal val controlsOverlayVisibilityFingerprint = fingerprint {
+internal val BytecodePatchContext.controlsOverlayVisibilityMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Z", "Z")
 }
 
-internal val playerBottomControlsExploderFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.playerBottomControlsExploderFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
@@ -111,7 +118,7 @@ internal val playerBottomControlsExploderFeatureFlagFingerprint = fingerprint {
     )
 }
 
-internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.playerTopControlsExperimentalLayoutFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("I")
     parameterTypes()
@@ -120,7 +127,7 @@ internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint = fingerp
     )
 }
 
-internal val playerControlsLargeOverlayButtonsFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.playerControlsLargeOverlayButtonsFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
@@ -129,7 +136,7 @@ internal val playerControlsLargeOverlayButtonsFeatureFlagFingerprint = fingerpri
     )
 }
 
-internal val playerControlsFullscreenLargeButtonsFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.playerControlsFullscreenLargeButtonsFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
@@ -138,11 +145,11 @@ internal val playerControlsFullscreenLargeButtonsFeatureFlagFingerprint = finger
     )
 }
 
-internal val playerControlsButtonStrokeFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.playerControlsButtonStrokeFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
     instructions(
-        45713296(),
+        45713296L(),
     )
 }

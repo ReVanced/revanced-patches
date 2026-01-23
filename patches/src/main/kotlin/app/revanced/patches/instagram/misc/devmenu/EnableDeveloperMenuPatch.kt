@@ -15,22 +15,21 @@ val `Enable developer menu` by creatingBytecodePatch(
         
         It is recommended to use this patch with an alpha/beta Instagram release. Patching a stable release works, but the developer menu shows the developer flags as numbers and does not show a human readable description.
     """.trimIndentMultiline(),
-    use = false
+    use = false,
 ) {
     compatibleWith("com.instagram.android")
 
     apply {
-        with(clearNotificationReceiverFingerprint.method) {
-            indexOfFirstInstructionReversedOrThrow(clearNotificationReceiverFingerprint.stringMatches.first().index) {
+        with(clearNotificationReceiverMethod) {
+            indexOfFirstInstructionReversedOrThrow(clearNotificationReceiverMethod.stringMatches.first().index) {
                 val reference = getReference<MethodReference>()
                 opcode in listOf(Opcode.INVOKE_STATIC, Opcode.INVOKE_STATIC_RANGE) &&
-                        reference?.parameterTypes?.size == 1 &&
-                        reference.parameterTypes.first() == "Lcom/instagram/common/session/UserSession;" &&
-                        reference.returnType == "Z"
+                    reference?.parameterTypes?.size == 1 &&
+                    reference.parameterTypes.first() == "Lcom/instagram/common/session/UserSession;" &&
+                    reference.returnType == "Z"
             }.let { index ->
                 navigate(this).to(index).stop().returnEarly(true)
             }
         }
     }
 }
-

@@ -11,7 +11,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateFingerprint
+import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateMethod
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -32,7 +32,7 @@ val `Disable rolling number animations` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -44,7 +44,7 @@ val `Disable rolling number animations` by creatingBytecodePatch(
 
         // Animations are disabled by preventing an Image from being applied to the text span,
         // which prevents the animations from appearing.
-        rollingNumberTextViewAnimationUpdateFingerprint.let {
+        rollingNumberTextViewAnimationUpdateMethod.let {
             val blockStartIndex = it.instructionMatches.first().index
             val blockEndIndex = it.instructionMatches.last().index + 1
             it.method.apply {

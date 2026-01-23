@@ -26,7 +26,7 @@ val `Video ads` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -36,7 +36,7 @@ val `Video ads` by creatingBytecodePatch(
             SwitchPreference("revanced_hide_video_ads"),
         )
 
-        loadVideoAdsFingerprint.method.addInstructionsWithLabels(
+        loadVideoAdsMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, Lapp/revanced/extension/youtube/patches/VideoAdsPatch;->shouldShowAds()Z
@@ -44,7 +44,7 @@ val `Video ads` by creatingBytecodePatch(
                 if-nez v0, :show_video_ads
                 return-void
             """,
-            ExternalLabel("show_video_ads", loadVideoAdsFingerprint.method.getInstruction(0)),
+            ExternalLabel("show_video_ads", loadVideoAdsMethod.getInstruction(0)),
         )
     }
 }

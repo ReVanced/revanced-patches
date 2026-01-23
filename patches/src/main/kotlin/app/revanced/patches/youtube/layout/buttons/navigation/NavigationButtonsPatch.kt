@@ -32,7 +32,7 @@ val `Navigation buttons` by creatingBytecodePatch(
         settingsPatch,
         addResourcesPatch,
         navigationBarHookPatch,
-        versionCheckPatch
+        versionCheckPatch,
     )
 
     compatibleWith(
@@ -41,7 +41,7 @@ val `Navigation buttons` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -62,13 +62,13 @@ val `Navigation buttons` by creatingBytecodePatch(
             preferences += SwitchPreference("revanced_disable_translucent_navigation_bar_dark")
 
             PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-                SwitchPreference("revanced_disable_translucent_status_bar")
+                SwitchPreference("revanced_disable_translucent_status_bar"),
             )
         }
 
         if (is_20_15_or_greater) {
             PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-                SwitchPreference("revanced_navigation_bar_animations")
+                SwitchPreference("revanced_navigation_bar_animations"),
             )
         }
 
@@ -76,12 +76,12 @@ val `Navigation buttons` by creatingBytecodePatch(
             PreferenceScreenPreference(
                 key = "revanced_navigation_buttons_screen",
                 sorting = Sorting.UNSORTED,
-                preferences = preferences
-            )
+                preferences = preferences,
+            ),
         )
 
         // Switch create with notifications button.
-        addCreateButtonViewFingerprint.let {
+        addCreateButtonViewMethod.let {
             it.method.apply {
                 val conditionalCheckIndex = it.instructionMatches[1].index
                 val conditionRegister =
@@ -98,7 +98,7 @@ val `Navigation buttons` by creatingBytecodePatch(
         }
 
         // Hide navigation button labels.
-        createPivotBarFingerprint.let {
+        createPivotBarMethod.let {
             it.method.apply {
                 val setTextIndex = it.instructionMatches.first().index
                 val targetRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
@@ -106,7 +106,7 @@ val `Navigation buttons` by creatingBytecodePatch(
                 addInstruction(
                     setTextIndex,
                     "invoke-static { v$targetRegister }, " +
-                            "$EXTENSION_CLASS_DESCRIPTOR->hideNavigationButtonLabels(Landroid/widget/TextView;)V",
+                        "$EXTENSION_CLASS_DESCRIPTOR->hideNavigationButtonLabels(Landroid/widget/TextView;)V",
                 )
             }
         }
@@ -116,21 +116,21 @@ val `Navigation buttons` by creatingBytecodePatch(
 
         // Force on/off translucent effect on status bar and navigation buttons.
         if (is_19_25_or_greater) {
-            translucentNavigationStatusBarFeatureFlagFingerprint.let {
+            translucentNavigationStatusBarFeatureFlagMethod.let {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
                 )
             }
 
-            translucentNavigationButtonsFeatureFlagFingerprint.let {
+            translucentNavigationButtonsFeatureFlagMethod.let {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
                 )
             }
 
-            translucentNavigationButtonsSystemFeatureFlagFingerprint.let {
+            translucentNavigationButtonsSystemFeatureFlagMethod.let {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
@@ -139,10 +139,10 @@ val `Navigation buttons` by creatingBytecodePatch(
         }
 
         if (is_20_15_or_greater) {
-            animatedNavigationTabsFeatureFlagFingerprint.let {
+            animatedNavigationTabsFeatureFlagMethod.let {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
-                    "$EXTENSION_CLASS_DESCRIPTOR->useAnimatedNavigationButtons(Z)Z"
+                    "$EXTENSION_CLASS_DESCRIPTOR->useAnimatedNavigationButtons(Z)Z",
                 )
             }
         }

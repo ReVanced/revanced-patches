@@ -7,14 +7,13 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.interaction.seekbar.customTapAndHoldFingerprint
+import app.revanced.patches.youtube.interaction.seekbar.customTapAndHoldMethod
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
@@ -30,6 +29,7 @@ import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
+import com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
 
 private const val FILTER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/components/PlaybackSpeedMenuFilter;"
@@ -47,7 +47,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         lithoFilterPatch,
         versionCheckPatch,
         recyclerViewTreeHookPatch,
-        resourceMappingPatch
+        resourceMappingPatch,
     )
 
     apply {
@@ -59,9 +59,9 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                 SwitchPreference("revanced_restore_old_speed_menu"),
                 TextPreference(
                     "revanced_custom_playback_speeds",
-                    inputType = InputType.TEXT_MULTI_LINE
-                )
-            )
+                    inputType = InputType.TEXT_MULTI_LINE,
+                ),
+            ),
         )
 
         if (is_19_47_or_greater) {
@@ -71,7 +71,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         }
 
         // Override the min/max speeds that can be used.
-        (if (is_20_34_or_greater) speedLimiterFingerprint else speedLimiterLegacyFingerprint).method.apply {
+        (if (is_20_34_or_greater) speedLimiterMethod else speedLimiterLegacyMethod).method.apply {
             val limitMinIndex = indexOfFirstLiteralInstructionOrThrow(0.25f)
             // Older unsupported targets use 2.0f and not 4.0f
             val limitMaxIndex = indexOfFirstLiteralInstructionOrThrow(4.0f)
@@ -85,13 +85,13 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         // Turn off client side flag that use server provided min/max speeds.
         if (is_20_34_or_greater) {
-            serverSideMaxSpeedFeatureFlagFingerprint.method.returnEarly(false)
+            serverSideMaxSpeedFeatureFlagMethod.returnEarly(false)
         }
 
         // region Force old video quality menu.
 
         // Replace the speeds float array with custom speeds.
-        speedArrayGeneratorFingerprint.let {
+        speedArrayGeneratorMethod.let {
             val matches = it.instructionMatches
             it.method.apply {
                 val playbackSpeedsArrayType = "$EXTENSION_CLASS_DESCRIPTOR->customPlaybackSpeeds:[F"
@@ -101,7 +101,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                 val originalArrayFetchDestination = matches[5].getInstruction<OneRegisterInstruction>().registerA
                 replaceInstruction(
                     originalArrayFetchIndex,
-                    "sget-object v$originalArrayFetchDestination, $playbackSpeedsArrayType"
+                    "sget-object v$originalArrayFetchDestination, $playbackSpeedsArrayType",
                 )
 
                 val arrayLengthConstDestination = matches[3].getInstruction<OneRegisterInstruction>().registerA
@@ -111,7 +111,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                     """
                         sget-object v$arrayLengthConstDestination, $playbackSpeedsArrayType
                         array-length v$arrayLengthConstDestination, v$arrayLengthConstDestination
-                    """
+                    """,
                 )
 
                 val sizeCallIndex = matches[0].index + 1
@@ -124,28 +124,28 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // This is later used to call "showOldPlaybackSpeedMenu" on the instance.
 
         val instanceField = ImmutableField(
-            getOldPlaybackSpeedsFingerprint.originalClassDef.type,
+            getOldPlaybackSpeedsMethod.originalClassDef.type,
             "INSTANCE",
-            getOldPlaybackSpeedsFingerprint.originalClassDef.type,
+            getOldPlaybackSpeedsMethod.originalClassDef.type,
             AccessFlags.PUBLIC.value or AccessFlags.STATIC.value,
             null,
             null,
             null,
         ).toMutable()
 
-        getOldPlaybackSpeedsFingerprint.classDef.staticFields.add(instanceField)
+        getOldPlaybackSpeedsMethod.classDef.staticFields.add(instanceField)
         // Set the INSTANCE field to the instance of the class.
         // In order to prevent a conflict with another patch, add the instruction at index 1.
-        getOldPlaybackSpeedsFingerprint.method.addInstruction(1, "sput-object p0, $instanceField")
+        getOldPlaybackSpeedsMethod.addInstruction(1, "sput-object p0, $instanceField")
 
         // Get the "showOldPlaybackSpeedMenu" method.
         // This is later called on the field INSTANCE.
-        val showOldPlaybackSpeedMenuMethod = showOldPlaybackSpeedMenuFingerprint.match(
-            getOldPlaybackSpeedsFingerprint.classDef,
+        val showOldPlaybackSpeedMenuMethod = showOldPlaybackSpeedMenuMethod.match(
+            getOldPlaybackSpeedsMethod.classDef,
         ).method
 
         // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
-        showOldPlaybackSpeedMenuExtensionFingerprint.method.apply {
+        showOldPlaybackSpeedMenuExtensionMethod.apply {
             addInstructionsWithLabels(
                 instructions.lastIndex,
                 """
@@ -154,7 +154,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                     return-void
                     :not_null
                     invoke-virtual { v0 }, $showOldPlaybackSpeedMenuMethod
-                """
+                """,
             )
         }
 
@@ -171,7 +171,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // region Custom tap and hold 2x speed.
 
         if (is_19_47_or_greater) {
-            customTapAndHoldFingerprint.let {
+            customTapAndHoldMethod.let {
                 it.method.apply {
                     val index = it.instructionMatches.first().index
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -181,7 +181,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                         """
                             invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->tapAndHoldSpeed()F
                             move-result v$register
-                        """
+                        """,
                     )
                 }
             }

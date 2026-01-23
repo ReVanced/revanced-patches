@@ -37,12 +37,12 @@ val rememberVideoQualityPatch = bytecodePatch {
                 ListPreference(
                     key = "revanced_video_quality_default_mobile",
                     entriesKey = "revanced_video_quality_default_entries",
-                    entryValuesKey = "revanced_video_quality_default_entry_values"
+                    entryValuesKey = "revanced_video_quality_default_entry_values",
                 ),
                 ListPreference(
                     key = "revanced_video_quality_default_wifi",
                     entriesKey = "revanced_video_quality_default_entries",
-                    entryValuesKey = "revanced_video_quality_default_entry_values"
+                    entryValuesKey = "revanced_video_quality_default_entry_values",
                 ),
                 SwitchPreference("revanced_remember_video_quality_last_selected"),
 
@@ -54,21 +54,21 @@ val rememberVideoQualityPatch = bytecodePatch {
                 ListPreference(
                     key = "revanced_shorts_quality_default_wifi",
                     entriesKey = "revanced_shorts_quality_default_entries",
-                    entryValuesKey = "revanced_shorts_quality_default_entry_values"
+                    entryValuesKey = "revanced_shorts_quality_default_entry_values",
                 ),
                 SwitchPreference("revanced_remember_shorts_quality_last_selected"),
-                SwitchPreference("revanced_remember_video_quality_last_selected_toast")
-            )
+                SwitchPreference("revanced_remember_video_quality_last_selected_toast"),
+            ),
         )
 
         onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "newVideoStarted")
 
         // Inject a call to remember the selected quality for Shorts.
-        videoQualityItemOnClickFingerprint.match(
-            videoQualityItemOnClickParentFingerprint.classDef
+        videoQualityItemOnClickMethod.match(
+            videoQualityItemOnClickParentMethod.classDef,
         ).method.addInstruction(
             0,
-            "invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->userChangedShortsQuality(I)V"
+            "invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->userChangedShortsQuality(I)V",
         )
 
         // Inject a call to remember the user selected quality for regular videos.

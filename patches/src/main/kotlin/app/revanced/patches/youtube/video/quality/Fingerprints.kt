@@ -1,12 +1,19 @@
 package app.revanced.patches.youtube.video.quality
 
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val videoQualityItemOnClickParentFingerprint = fingerprint {
+internal val BytecodePatchContext.videoQualityItemOnClickParentMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     instructions(
         addString("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT"),
@@ -14,9 +21,9 @@ internal val videoQualityItemOnClickParentFingerprint = fingerprint {
 }
 
 /**
- * Resolves to class found in [videoQualityItemOnClickFingerprint].
+ * Resolves to class found in [videoQualityItemOnClickMethod].
  */
-internal val videoQualityItemOnClickFingerprint = fingerprint {
+internal val BytecodePatchContext.videoQualityItemOnClickMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     parameterTypes(
         "Landroid/widget/AdapterView;",
@@ -29,7 +36,7 @@ internal val videoQualityItemOnClickFingerprint = fingerprint {
     }
 }
 
-internal val videoQualityMenuOptionsFingerprint = fingerprint {
+internal val BytecodePatchContext.videoQualityMenuOptionsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.STATIC)
     returnType("[L")
     parameterTypes("Landroid/content/Context", "L", "L")
@@ -43,7 +50,7 @@ internal val videoQualityMenuOptionsFingerprint = fingerprint {
     literal { videoQualityQuickMenuAdvancedMenuDescription }
 }
 
-internal val videoQualityMenuViewInflateFingerprint = fingerprint {
+internal val BytecodePatchContext.videoQualityMenuViewInflateMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes("L", "L", "L")

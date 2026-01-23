@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.fieldAccess
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -24,7 +23,7 @@ val playerTypeHookPatch = bytecodePatch(
         val playerOverlaysSetPlayerTypeFingerprint = fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             returnType("V")
-            parameterTypes(playerTypeEnumFingerprint.originalClassDef.type)
+            parameterTypes(playerTypeEnumMethod.originalClassDef.type)
             custom { _, classDef ->
                 classDef.endsWith("/YouTubePlayerOverlaysLayout;")
             }
@@ -35,7 +34,7 @@ val playerTypeHookPatch = bytecodePatch(
             "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V",
         )
 
-        reelWatchPagerFingerprint.let {
+        reelWatchPagerMethod.let {
             it.method.apply {
                 val index = it.instructionMatches.last().index
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -47,7 +46,7 @@ val playerTypeHookPatch = bytecodePatch(
             }
         }
 
-        val controlStateType = controlsStateToStringFingerprint.originalClassDef.type
+        val controlStateType = controlsStateToStringMethod.originalClassDef.type
 
         val videoStateFingerprint = fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -57,7 +56,7 @@ val playerTypeHookPatch = bytecodePatch(
                 // Obfuscated parameter field name.
                 fieldAccess(
                     definingClass = controlStateType,
-                    type = videoStateEnumFingerprint.originalClassDef.type,
+                    type = videoStateEnumMethod.originalClassDef.type,
                 ),
                 ResourceType.STRING("accessibility_play"),
                 ResourceType.STRING("accessibility_pause"),

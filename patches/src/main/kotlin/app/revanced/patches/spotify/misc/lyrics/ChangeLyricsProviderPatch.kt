@@ -3,7 +3,6 @@ package app.revanced.patches.spotify.misc.lyrics
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.util.getReference
@@ -60,7 +59,7 @@ val `Change lyrics provider` by creatingBytecodePatch(
     }
 
     apply {
-        val httpClientBuilderMethod = httpClientBuilderFingerprint.originalMethod
+        val httpClientBuilderMethod = httpClientBuilderMethod.originalMethod
 
         // region Create a modified copy of the HTTP client builder method with the custom lyrics provider host.
 
@@ -83,7 +82,7 @@ val `Change lyrics provider` by creatingBytecodePatch(
                 )
 
                 // Add the patched method to the class.
-                httpClientBuilderFingerprint.classDef.methods.add(this)
+                httpClientBuilderMethod.classDef.methods.add(this)
             }
         }
 

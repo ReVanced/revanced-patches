@@ -28,7 +28,7 @@ val `Disable resuming Shorts on startup` by creatingBytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        versionCheckPatch
+        versionCheckPatch,
     )
 
     compatibleWith(
@@ -37,7 +37,7 @@ val `Disable resuming Shorts on startup` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -48,7 +48,7 @@ val `Disable resuming Shorts on startup` by creatingBytecodePatch(
         )
 
         if (is_20_03_or_greater) {
-            userWasInShortsAlternativeFingerprint.let {
+            userWasInShortsAlternativeMethod.let {
                 it.method.apply {
                     val match = it.instructionMatches[2]
                     val insertIndex = match.index + 1
@@ -59,16 +59,16 @@ val `Disable resuming Shorts on startup` by creatingBytecodePatch(
                         """
                             invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer(Z)Z
                             move-result v$register
-                        """
+                        """,
                     )
                 }
             }
         } else {
-            userWasInShortsLegacyFingerprint.method.apply {
+            userWasInShortsLegacyMethod.apply {
                 val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_INTERFACE &&
-                            getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
-                            getReference<MethodReference>()?.name == "isDone"
+                        getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
+                        getReference<MethodReference>()?.name == "isDone"
                 }
                 val freeRegister = findFreeRegister(listenableInstructionIndex)
 
@@ -86,7 +86,7 @@ val `Disable resuming Shorts on startup` by creatingBytecodePatch(
             }
         }
 
-        userWasInShortsConfigFingerprint.method.addInstructions(
+        userWasInShortsConfigMethod.addInstructions(
             0,
             """
                 invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableResumingStartupShortsPlayer()Z
@@ -96,7 +96,7 @@ val `Disable resuming Shorts on startup` by creatingBytecodePatch(
                 return v0
                 :show
                 nop
-            """
+            """,
         )
     }
 }

@@ -22,7 +22,7 @@ val `Loop video` by creatingBytecodePatch(
         sharedExtensionPatch,
         addResourcesPatch,
         loopVideoButtonPatch,
-        videoInformationPatch
+        videoInformationPatch,
     )
 
     compatibleWith(
@@ -31,7 +31,7 @@ val `Loop video` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -56,7 +56,7 @@ val `Loop video` by creatingBytecodePatch(
                     return-void
                     :do_not_loop
                     nop
-                """
+                """,
             )
         }
     }

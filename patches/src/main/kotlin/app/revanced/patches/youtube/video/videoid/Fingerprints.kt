@@ -1,13 +1,20 @@
 package app.revanced.patches.youtube.video.videoid
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val videoIdFingerprint = fingerprint {
+internal val BytecodePatchContext.videoIdMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")
@@ -20,7 +27,7 @@ internal val videoIdFingerprint = fingerprint {
     )
 }
 
-internal val videoIdBackgroundPlayFingerprint = fingerprint {
+internal val BytecodePatchContext.videoIdBackgroundPlayMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.DECLARED_SYNCHRONIZED, AccessFlags.FINAL, AccessFlags.PUBLIC)
     returnType("V")
     parameterTypes("L")

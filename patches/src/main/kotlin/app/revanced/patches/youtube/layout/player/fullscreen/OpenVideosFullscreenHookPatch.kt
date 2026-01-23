@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -20,7 +19,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR =
 internal val openVideosFullscreenHookPatch = bytecodePatch {
     dependsOn(
         sharedExtensionPatch,
-        versionCheckPatch
+        versionCheckPatch,
     )
 
     apply {
@@ -28,21 +27,21 @@ internal val openVideosFullscreenHookPatch = bytecodePatch {
         var insertIndex: Int
 
         if (is_19_46_or_greater) {
-            fingerprint = openVideosFullscreenPortraitFingerprint
+            fingerprint = openVideosFullscreenPortraitMethod
             insertIndex = fingerprint.instructionMatches.first().index
 
-            openVideosFullscreenPortraitFingerprint.let {
+            openVideosFullscreenPortraitMethod.let {
                 // Remove A/B feature call that forces what this patch already does.
                 // Cannot use the A/B flag to accomplish the same goal because 19.50+
                 // Shorts fullscreen regular player does not use fullscreen
                 // if the player is minimized and it must be forced using other conditional check.
                 it.method.insertLiteralOverride(
                     it.instructionMatches.last().index,
-                    false
+                    false,
                 )
             }
         } else {
-            fingerprint = openVideosFullscreenPortraitLegacyFingerprint
+            fingerprint = openVideosFullscreenPortraitLegacyMethod
             insertIndex = fingerprint.instructionMatches.last().index
         }
 
@@ -55,7 +54,7 @@ internal val openVideosFullscreenHookPatch = bytecodePatch {
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->doNotOpenVideoFullscreenPortrait(Z)Z
                         move-result v$register
-                    """
+                    """,
                 )
             }
         }

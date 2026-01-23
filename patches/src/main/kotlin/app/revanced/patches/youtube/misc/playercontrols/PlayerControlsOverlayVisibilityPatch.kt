@@ -16,7 +16,7 @@ val playerControlsOverlayVisibilityPatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
 
     apply {
-        playerControlsVisibilityEntityModelFingerprint.let {
+        playerControlsVisibilityEntityModelMethod.let {
             it.method.apply {
                 val startIndex = it.instructionMatches.first().index
                 val iGetReference = getInstruction<ReferenceInstruction>(startIndex).reference
@@ -33,7 +33,7 @@ val playerControlsOverlayVisibilityPatch = bytecodePatch {
                             invoke-static { v$targetRegister }, $staticReference
                             move-result-object v$targetRegister
                             invoke-static { v$targetRegister }, $EXTENSION_PLAYER_CONTROLS_VISIBILITY_HOOK_CLASS_DESCRIPTOR->setPlayerControlsVisibility(Ljava/lang/Enum;)V
-                        """
+                        """,
                     )
                 }
             }

@@ -30,7 +30,7 @@ internal val domainNameOption = stringOption(
         InetAddress.getByName(it)
     } catch (_: UnknownHostException) {
         Logger.getLogger(this::class.java.name).warning(
-            "Host \"$it\" did not resolve to any domain."
+            "Host \"$it\" did not resolve to any domain.",
         )
     } catch (_: Exception) {
         // Must ignore any kind of exception. Trying to resolve network
@@ -61,7 +61,7 @@ internal val changeLinkSharingDomainResourcePatch = resourcePatch {
 @Suppress("unused")
 val `Change link sharing domain` by creatingBytecodePatch(
     description = "Replaces the domain name of shared links. Using this patch can prevent making posts that quote other posts.",
-    use = false
+    use = false,
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -71,28 +71,28 @@ val `Change link sharing domain` by creatingBytecodePatch(
         "com.twitter.android"(
             "10.60.0-release.0",
             "10.86.0-release.0",
-        )
+        ),
     )
 
     val domainName by domainNameOption()
 
     apply {
         // Replace the domain name in the link sharing extension methods.
-        linkSharingDomainHelperFingerprint.method.returnEarly(domainName!!)
+        linkSharingDomainHelperMethod.returnEarly(domainName!!)
 
         // Replace the domain name when copying a link with "Copy link" button.
-        linkBuilderFingerprint.method.addInstructions(
+        linkBuilderMethod.addInstructions(
             0,
             """
                 invoke-static { p0, p1, p2 }, $EXTENSION_CLASS_DESCRIPTOR->formatLink(JLjava/lang/String;)Ljava/lang/String;
                 move-result-object p0
                 return-object p0
-            """
+            """,
         )
 
         // TODO remove this once changeLinkSharingDomainResourcePatch is restored
         // Replace the domain name in the "Share via..." dialog.
-        linkResourceGetterFingerprint.method.apply {
+        linkResourceGetterMethod.apply {
             val templateIdConstIndex = indexOfFirstInstructionOrThrow(Opcode.CONST)
 
             // Format the link with the new domain name register (1 instruction below the const).
@@ -103,7 +103,7 @@ val `Change link sharing domain` by creatingBytecodePatch(
             replaceInstruction(
                 formatLinkCallIndex,
                 "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                        "formatResourceLink([Ljava/lang/Object;)Ljava/lang/String;",
+                    "formatResourceLink([Ljava/lang/Object;)Ljava/lang/String;",
             )
         }
     }

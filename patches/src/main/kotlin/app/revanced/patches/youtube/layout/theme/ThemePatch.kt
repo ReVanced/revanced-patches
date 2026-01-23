@@ -35,7 +35,7 @@ val themePatch = baseThemePatch(
         val lightThemeBackgroundColor by stringOption(
             key = "lightThemeBackgroundColor",
             default = "@android:color/white",
-            values =  mapOf(
+            values = mapOf(
                 "White" to "@android:color/white",
                 "Material You" to "@android:color/system_neutral1_50",
                 "Catppuccin (Latte)" to "#E6E9EF",
@@ -47,7 +47,7 @@ val themePatch = baseThemePatch(
                 "Light red" to "#FFD6D6",
             ),
             name = "Light theme background color",
-            description = THEME_COLOR_OPTION_DESCRIPTION
+            description = THEME_COLOR_OPTION_DESCRIPTION,
         )
 
         val themeResourcePatch = resourcePatch {
@@ -56,7 +56,7 @@ val themePatch = baseThemePatch(
             apply {
                 overrideThemeColors(
                     lightThemeBackgroundColor!!,
-                    darkThemeBackgroundColorOption.value!!
+                    darkThemeBackgroundColorOption.value!!,
                 )
 
                 fun addColorResource(
@@ -73,7 +73,7 @@ val themePatch = baseThemePatch(
                                 setAttribute("name", colorName)
                                 setAttribute("category", "color")
                                 textContent = colorValue
-                            }
+                            },
                         )
                     }
                 }
@@ -83,12 +83,12 @@ val themePatch = baseThemePatch(
                 addColorResource(
                     "res/values/colors.xml",
                     splashBackgroundColorKey,
-                    lightThemeBackgroundColor!!
+                    lightThemeBackgroundColor!!,
                 )
                 addColorResource(
                     "res/values-night/colors.xml",
                     splashBackgroundColorKey,
-                    darkThemeBackgroundColorOption.value!!
+                    darkThemeBackgroundColorOption.value!!,
                 )
 
                 // Edit splash screen files and change the background color.
@@ -98,12 +98,12 @@ val themePatch = baseThemePatch(
                 ).forEach editSplashScreen@{ resourceFileName ->
                     document(resourceFileName).use { document ->
                         document.getElementsByTagName(
-                            "layer-list"
+                            "layer-list",
                         ).item(0).forEachChildElement { node ->
                             if (node.hasAttribute("android:drawable")) {
                                 node.setAttribute(
                                     "android:drawable",
-                                    "@color/$splashBackgroundColorKey"
+                                    "@color/$splashBackgroundColorKey",
                                 )
                                 return@editSplashScreen
                             }
@@ -149,9 +149,9 @@ val themePatch = baseThemePatch(
             addResourcesPatch,
             seekbarColorPatch,
             baseThemeResourcePatch(
-                lightColorReplacement = { lightThemeBackgroundColor!! }
+                lightColorReplacement = { lightThemeBackgroundColor!! },
             ),
-            themeResourcePatch
+            themeResourcePatch,
         )
 
         compatibleWith(
@@ -160,7 +160,7 @@ val themePatch = baseThemePatch(
                 "20.14.43",
                 "20.21.37",
                 "20.31.40",
-            )
+            ),
         )
     },
 
@@ -168,7 +168,7 @@ val themePatch = baseThemePatch(
         addResources("youtube", "layout.theme.themePatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            SwitchPreference("revanced_gradient_loading_screen")
+            SwitchPreference("revanced_gradient_loading_screen"),
         )
 
         val preferences = mutableSetOf(
@@ -176,13 +176,13 @@ val themePatch = baseThemePatch(
             TextPreference(
                 "revanced_seekbar_custom_color_primary",
                 tag = "app.revanced.extension.shared.settings.preference.ColorPickerPreference",
-                inputType = InputType.TEXT_CAP_CHARACTERS
+                inputType = InputType.TEXT_CAP_CHARACTERS,
             ),
             TextPreference(
                 "revanced_seekbar_custom_color_accent",
                 tag = "app.revanced.extension.shared.settings.preference.ColorPickerPreference",
-                inputType = InputType.TEXT_CAP_CHARACTERS
-            )
+                inputType = InputType.TEXT_CAP_CHARACTERS,
+            ),
         )
 
         PreferenceScreen.SEEKBAR.addPreferences(
@@ -190,31 +190,31 @@ val themePatch = baseThemePatch(
                 titleKey = null,
                 sorting = Sorting.UNSORTED,
                 tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
-                preferences = preferences
-            )
+                preferences = preferences,
+            ),
         )
 
         if (is_19_47_or_greater) {
             PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-                ListPreference("revanced_splash_screen_animation_style")
+                ListPreference("revanced_splash_screen_animation_style"),
             )
         }
 
-        useGradientLoadingScreenFingerprint.let {
+        useGradientLoadingScreenMethod.let {
             it.method.insertLiteralOverride(
                 it.instructionMatches.first().index,
-                "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z"
+                "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z",
             )
         }
 
         if (is_19_47_or_greater) {
             // Lottie splash screen exists in earlier versions, but it may not be always on.
-            splashScreenStyleFingerprint.let {
+            splashScreenStyleMethod.let {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
-                    "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I"
+                    "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I",
                 )
             }
         }
-    }
+    },
 )

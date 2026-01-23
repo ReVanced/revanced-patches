@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
-import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -28,6 +27,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ShortsAutoplayPatch;"
 
@@ -48,7 +48,7 @@ val `Shorts autoplay` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -72,7 +72,7 @@ val `Shorts autoplay` by creatingBytecodePatch(
 
         var reelEnumClass: String
 
-        reelEnumConstructorFingerprint.let {
+        reelEnumConstructorMethod.let {
             reelEnumClass = it.originalClassDef.type
 
             it.method.addInstructions(
@@ -82,19 +82,19 @@ val `Shorts autoplay` by creatingBytecodePatch(
                     # Any enum value of this type will work.
                     sget-object v0, $reelEnumClass->a:$reelEnumClass
                     invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->setYTShortsRepeatEnum(Ljava/lang/Enum;)V
-                """
+                """,
             )
         }
 
-        reelPlaybackRepeatFingerprint.match(
-            reelPlaybackRepeatParentFingerprint.originalClassDef
+        reelPlaybackRepeatMethod.match(
+            reelPlaybackRepeatParentMethod.originalClassDef,
         ).method.apply {
             // The behavior enums are looked up from an ordinal value to an enum type.
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == reelEnumClass &&
-                        reference.parameterTypes.firstOrNull() == "I" &&
-                        reference.returnType == reelEnumClass
+                    reference.parameterTypes.firstOrNull() == "I" &&
+                    reference.returnType == reelEnumClass
             }.forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
@@ -103,7 +103,7 @@ val `Shorts autoplay` by creatingBytecodePatch(
                     """
                         invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->changeShortsRepeatBehavior(Ljava/lang/Enum;)Ljava/lang/Enum;
                         move-result-object v$register
-                    """
+                    """,
                 )
             }
         }
@@ -112,23 +112,23 @@ val `Shorts autoplay` by creatingBytecodePatch(
         // Manually restore the removed 'Autoplay' code.
         if (is_20_09_or_greater) {
             // Variable names are only a rough guess of what these methods do.
-            val userActionMethodReference = reelPlaybackFingerprint.instructionMatches[1]
+            val userActionMethodReference = reelPlaybackMethod.instructionMatches[1]
                 .getInstruction<ReferenceInstruction>().reference as MethodReference
-            val reelSequenceControllerMethodReference = reelPlaybackFingerprint.instructionMatches[2]
+            val reelSequenceControllerMethodReference = reelPlaybackMethod.instructionMatches[2]
                 .getInstruction<ReferenceInstruction>().reference as MethodReference
 
-            reelPlaybackRepeatFingerprint.method.apply {
+            reelPlaybackRepeatMethod.apply {
                 // Find the first call modified by extension code above.
                 val extensionReturnResultIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_STATIC &&
-                            getReference<MethodReference>()?.definingClass == EXTENSION_CLASS_DESCRIPTOR
+                        getReference<MethodReference>()?.definingClass == EXTENSION_CLASS_DESCRIPTOR
                 } + 1
                 val enumRegister = getInstruction<OneRegisterInstruction>(extensionReturnResultIndex).registerA
                 val getReelSequenceControllerIndex = indexOfFirstInstructionOrThrow {
                     val reference = getReference<FieldReference>()
                     opcode == Opcode.IGET_OBJECT &&
-                            reference?.definingClass == definingClass &&
-                            reference.type == reelSequenceControllerMethodReference.definingClass
+                        reference?.definingClass == definingClass &&
+                        reference.type == reelSequenceControllerMethodReference.definingClass
                 }
                 val getReelSequenceControllerReference =
                     getInstruction<ReferenceInstruction>(getReelSequenceControllerIndex).reference
@@ -165,10 +165,10 @@ val `Shorts autoplay` by creatingBytecodePatch(
                             return-object v4
                             :ignore
                             return-object p1
-                        """
+                        """,
                     )
                 }
-                reelPlaybackRepeatFingerprint.classDef.methods.add(helperMethod)
+                reelPlaybackRepeatMethod.classDef.methods.add(helperMethod)
 
                 addInstructionsWithLabels(
                     extensionReturnResultIndex + 1,
@@ -179,7 +179,7 @@ val `Shorts autoplay` by creatingBytecodePatch(
                         return-void     # Autoplay was performed.
                         :ignore
                         nop
-                    """
+                    """,
                 )
             }
         }

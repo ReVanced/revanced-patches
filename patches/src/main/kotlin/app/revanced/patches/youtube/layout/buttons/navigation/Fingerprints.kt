@@ -1,15 +1,22 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
 import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val addCreateButtonViewFingerprint = fingerprint {
+internal val BytecodePatchContext.addCreateButtonViewMethod by gettingFirstMethodDeclaratively {
     instructions(
         addString("Android Wear"),
         opcode(Opcode.IF_EQZ),
@@ -17,7 +24,7 @@ internal val addCreateButtonViewFingerprint = fingerprint {
     )
 }
 
-internal val createPivotBarFingerprint = fingerprint {
+internal val BytecodePatchContext.createPivotBarMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes(
         "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;",
@@ -30,7 +37,7 @@ internal val createPivotBarFingerprint = fingerprint {
     )
 }
 
-internal val animatedNavigationTabsFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.animatedNavigationTabsFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     instructions(
@@ -38,7 +45,7 @@ internal val animatedNavigationTabsFeatureFlagFingerprint = fingerprint {
     )
 }
 
-internal val translucentNavigationStatusBarFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.translucentNavigationStatusBarFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     instructions(
@@ -49,7 +56,7 @@ internal val translucentNavigationStatusBarFeatureFlagFingerprint = fingerprint 
 /**
  * YouTube nav buttons.
  */
-internal val translucentNavigationButtonsFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.translucentNavigationButtonsFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     instructions(
@@ -60,7 +67,7 @@ internal val translucentNavigationButtonsFeatureFlagFingerprint = fingerprint {
 /**
  * Device on screen back/home/recent buttons.
  */
-internal val translucentNavigationButtonsSystemFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.translucentNavigationButtonsSystemFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     instructions(

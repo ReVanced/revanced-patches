@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.Settings
-import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
+import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadMethod
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -14,7 +14,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/tiktok/f
 @Suppress("unused")
 val `Feed filter` by creatingBytecodePatch(
     description = "Removes ads, livestreams, stories, image videos " +
-            "and videos with a specific amount of views or likes from the feed.",
+        "and videos with a specific amount of views or likes from the feed.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -29,20 +29,19 @@ val `Feed filter` by creatingBytecodePatch(
     apply {
         arrayOf(
             feedApiServiceLIZMethod to "$EXTENSION_CLASS_DESCRIPTOR->filter(Lcom/ss/android/ugc/aweme/feed/model/FeedItemList;)V",
-            followFeedMethod to "$EXTENSION_CLASS_DESCRIPTOR->filter(Lcom/ss/android/ugc/aweme/follow/presenter/FollowFeedList;)V"
+            followFeedMethod to "$EXTENSION_CLASS_DESCRIPTOR->filter(Lcom/ss/android/ugc/aweme/follow/presenter/FollowFeedList;)V",
         ).forEach { (method, filterSignature) ->
             val returnInstruction = method.instructions.first { it.opcode == Opcode.RETURN_OBJECT }
             val register = (returnInstruction as OneRegisterInstruction).registerA
             method.addInstruction(
                 returnInstruction.location.index,
-                "invoke-static { v$register }, $filterSignature"
+                "invoke-static { v$register }, $filterSignature",
             )
         }
 
-        settingsStatusLoadFingerprint.method.addInstruction(
+        settingsStatusLoadMethod.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableFeedFilter()V",
         )
     }
-
 }

@@ -34,7 +34,7 @@ val `Hide end screen suggested video` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -44,19 +44,19 @@ val `Hide end screen suggested video` by creatingBytecodePatch(
             SwitchPreference("revanced_end_screen_suggested_video"),
         )
 
-        removeOnLayoutChangeListenerFingerprint.let {
+        removeOnLayoutChangeListenerMethod.let {
             val endScreenMethod = navigate(it.originalMethod).to(it.instructionMatches.last().index).stop() // TODO
 
             endScreenMethod.apply {
-                val autoNavStatusMethodName = autoNavStatusFingerprint.match(
-                    autoNavConstructorFingerprint.classDef
+                val autoNavStatusMethodName = autoNavStatusMethod.match(
+                    autoNavConstructorMethod.classDef,
                 ).originalMethod.name
 
                 val invokeIndex = indexOfFirstInstructionOrThrow {
                     val reference = getReference<MethodReference>()
                     reference?.name == autoNavStatusMethodName &&
-                            reference.returnType == "Z" &&
-                            reference.parameterTypes.isEmpty()
+                        reference.returnType == "Z" &&
+                        reference.parameterTypes.isEmpty()
                 }
                 val iGetObjectIndex = indexOfFirstInstructionReversedOrThrow(invokeIndex, Opcode.IGET_OBJECT)
                 val invokeReference = getInstruction<ReferenceInstruction>(invokeIndex).reference
@@ -80,7 +80,7 @@ val `Hide end screen suggested video` by creatingBytecodePatch(
                         if-nez v0, :show_end_screen_recommendation
                         return-void
                     """,
-                    ExternalLabel("show_end_screen_recommendation", getInstruction(0))
+                    ExternalLabel("show_end_screen_recommendation", getInstruction(0)),
                 )
             }
         }

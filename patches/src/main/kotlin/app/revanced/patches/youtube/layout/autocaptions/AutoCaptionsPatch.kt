@@ -27,7 +27,7 @@ val `Disable auto captions` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -37,7 +37,7 @@ val `Disable auto captions` by creatingBytecodePatch(
             SwitchPreference("revanced_disable_auto_captions"),
         )
 
-        subtitleTrackFingerprint.method.addInstructions(
+        subtitleTrackMethod.addInstructions(
             0,
             """
                 invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->disableAutoCaptions()Z
@@ -47,19 +47,19 @@ val `Disable auto captions` by creatingBytecodePatch(
                 return v0
                 :auto_captions_enabled
                 nop
-            """
+            """,
         )
 
         arrayOf(
-            startVideoInformerFingerprint to 0,
-            storyboardRendererDecoderRecommendedLevelFingerprint to 1
+            startVideoInformerMethod to 0,
+            storyboardRendererDecoderRecommendedLevelMethod to 1,
         ).forEach { (fingerprint, enabled) ->
             fingerprint.method.addInstructions(
                 0,
                 """
                     const/4 v0, 0x$enabled
                     invoke-static { v0 }, $EXTENSION_CLASS_DESCRIPTOR->setCaptionsButtonStatus(Z)V
-                """
+                """,
             )
         }
     }

@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.Settings
-import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
+import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadMethod
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
 import app.revanced.util.returnEarly
@@ -70,7 +70,7 @@ val Downloads by creatingBytecodePatch(
             }
         }
 
-        settingsStatusLoadFingerprint.method.addInstruction(
+        settingsStatusLoadMethod.addInstruction(
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableDownload()V",
         )

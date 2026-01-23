@@ -207,8 +207,8 @@ val `Hide Shorts componentsby creatingBytecodePatch(
         // region Hide the navigation bar.
 
         // Hook to get the pivotBar view.
-        setPivotBarVisibilityFingerprint.match(
-            setPivotBarVisibilityParentFingerprint.originalClassDef,
+        setPivotBarVisibilityMethod.match(
+            setPivotBarVisibilityParentMethod.originalClassDef,
         ).let { result ->
             result.method.apply {
                 val insertIndex = result.instructionMatches.last().index
@@ -222,14 +222,14 @@ val `Hide Shorts componentsby creatingBytecodePatch(
         }
 
         // Hook to hide the shared navigation bar when the Shorts player is opened.
-        renderBottomNavigationBarFingerprint.match(
+        renderBottomNavigationBarMethod.match(
             (
                 if (is_20_45_or_greater) {
-                    renderBottomNavigationBarParentFingerprint
+                    renderBottomNavigationBarParentMethod
                 } else if (is_19_41_or_greater) {
-                    renderBottomNavigationBarLegacy1941ParentFingerprint
+                    renderBottomNavigationBarLegacy1941ParentMethod
                 } else {
-                    legacyRenderBottomNavigationBarLegacyParentFingerprint
+                    legacyRenderBottomNavigationBarLegacyParentMethod
                 }
                 ).originalClassDef,
         ).method.addInstruction(
@@ -238,7 +238,7 @@ val `Hide Shorts componentsby creatingBytecodePatch(
         )
 
         // Hide the bottom bar container of the Shorts player.
-        shortsBottomBarContainerFingerprint.let {
+        shortsBottomBarContainerMethod.let {
             it.method.apply {
                 val targetIndex = it.instructionMatches.last().index
                 val heightRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
@@ -267,12 +267,12 @@ val `Hide Shorts componentsby creatingBytecodePatch(
             // Since the buttons are native components and not Litho, it should be possible to
             // fix the RYD Shorts loading delay by asynchronously loading RYD and updating
             // the button text after RYD has loaded.
-            shortsExperimentalPlayerFeatureFlagFingerprint.method.returnLate(false)
+            shortsExperimentalPlayerFeatureFlagMethod.returnLate(false)
 
             // Experimental UI renderer must also be disabled since it requires the
             // experimental Shorts player.  If this is enabled but Shorts player
             // is disabled then the app crashes when the Shorts player is opened.
-            renderNextUIFeatureFlagFingerprint.method.returnLate(false)
+            renderNextUIFeatureFlagMethod.returnLate(false)
         }
 
         // endregion

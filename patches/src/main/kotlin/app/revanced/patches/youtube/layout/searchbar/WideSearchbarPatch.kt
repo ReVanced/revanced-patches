@@ -26,14 +26,14 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 val `Wide search bar` by creatingBytecodePatch(
     description = "Adds an option to replace the search icon with a wide search bar. " +
-            "This will hide the YouTube logo when active.",
+        "This will hide the YouTube logo when active.",
 ) {
     dependsOn(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
         resourceMappingPatch,
-        versionCheckPatch
+        versionCheckPatch,
     )
 
     compatibleWith(
@@ -42,7 +42,7 @@ val `Wide search bar` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             // 20.31.40+ not supported. YouTube code was removed.
-        )
+        ),
     )
 
     apply {
@@ -51,7 +51,7 @@ val `Wide search bar` by creatingBytecodePatch(
             // This functionality could be restored by adding a search text field to the toolbar
             // with a listener that artificially clicks the toolbar search button.
             return@apply Logger.getLogger(this::class.java.name).warning(
-                "Wide searchbar is not compatible with 20.31+"
+                "Wide searchbar is not compatible with 20.31+",
             )
         }
 
@@ -61,12 +61,12 @@ val `Wide search bar` by creatingBytecodePatch(
             SwitchPreference("revanced_wide_searchbar"),
         )
 
-        setWordmarkHeaderFingerprint.let {
+        setWordmarkHeaderMethod.let {
             // Navigate to the method that checks if the YT logo is shown beside the search bar.
             val shouldShowLogoMethod = with(it.originalMethod) {
                 val invokeStaticIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_STATIC &&
-                            getReference<MethodReference>()?.returnType == "Z"
+                        getReference<MethodReference>()?.returnType == "Z"
                 }
                 navigate(this).to(invokeStaticIndex).stop()
             }
@@ -80,24 +80,24 @@ val `Wide search bar` by creatingBytecodePatch(
                         """
                             invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->enableWideSearchbar(Z)Z
                             move-result v$register
-                        """
+                        """,
                     )
                 }
             }
         }
 
         // Fix missing left padding when using wide searchbar.
-        wideSearchbarLayoutFingerprint.method.apply {
+        wideSearchbarLayoutMethod.apply {
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
-                reference?.definingClass == "Landroid/view/LayoutInflater;"
-                        && reference.name == "inflate"
+                reference?.definingClass == "Landroid/view/LayoutInflater;" &&
+                    reference.name == "inflate"
             }.forEach { inflateIndex ->
                 val register = getInstruction<OneRegisterInstruction>(inflateIndex + 1).registerA
 
                 addInstruction(
                     inflateIndex + 2,
-                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setActionBar(Landroid/view/View;)V"
+                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->setActionBar(Landroid/view/View;)V",
                 )
             }
         }

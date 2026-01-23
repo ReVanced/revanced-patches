@@ -25,14 +25,14 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 
 val `Spoof app version` by creatingBytecodePatch(
     description = "Adds an option to trick YouTube into thinking you are running an older version of the app. " +
-            "This can be used to restore old UI elements and features."
+        "This can be used to restore old UI elements and features.",
 ) {
     dependsOn(
         resourceMappingPatch,
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        versionCheckPatch
+        versionCheckPatch,
     )
 
     compatibleWith(
@@ -41,7 +41,7 @@ val `Spoof app version` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -62,17 +62,17 @@ val `Spoof app version` by creatingBytecodePatch(
                         ListPreference(
                             key = "revanced_spoof_app_version_target",
                             entriesKey = "revanced_spoof_app_version_target_legacy_20_13_entries",
-                            entryValuesKey = "revanced_spoof_app_version_target_legacy_20_13_entry_values"
+                            entryValuesKey = "revanced_spoof_app_version_target_legacy_20_13_entry_values",
                         )
                     } else {
                         ListPreference(
                             key = "revanced_spoof_app_version_target",
                             entriesKey = "revanced_spoof_app_version_target_legacy_19_34_entries",
-                            entryValuesKey = "revanced_spoof_app_version_target_legacy_19_34_entry_values"
+                            entryValuesKey = "revanced_spoof_app_version_target_legacy_19_34_entry_values",
                         )
-                    }
-                )
-            )
+                    },
+                ),
+            ),
         )
 
         /**
@@ -80,7 +80,7 @@ val `Spoof app version` by creatingBytecodePatch(
          * missing image resources. As a workaround, do not set an image in the
          * toolbar when the enum name is UNKNOWN.
          */
-        toolBarButtonFingerprint.apply {
+        toolBarButtonMethod.apply {
             val imageResourceIndex = instructionMatches[2].index
             val register = method.getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
             val jumpIndex = instructionMatches.last().index + 1
@@ -88,11 +88,11 @@ val `Spoof app version` by creatingBytecodePatch(
             method.addInstructionsWithLabels(
                 imageResourceIndex + 1,
                 "if-eqz v$register, :ignore",
-                ExternalLabel("ignore", method.getInstruction(jumpIndex))
+                ExternalLabel("ignore", method.getInstruction(jumpIndex)),
             )
         }
 
-        spoofAppVersionFingerprint.apply {
+        spoofAppVersionMethod.apply {
             val index = instructionMatches.first().index
             val register = method.getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -101,7 +101,7 @@ val `Spoof app version` by creatingBytecodePatch(
                 """
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getYouTubeVersionOverride(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$register
-                """
+                """,
             )
         }
     }

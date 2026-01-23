@@ -1,11 +1,18 @@
 package app.revanced.patches.youtube.misc.backgroundplayback
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val backgroundPlaybackManagerFingerprint = fingerprint {
+internal val BytecodePatchContext.backgroundPlaybackManagerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Z")
     parameterTypes("L")
@@ -38,7 +45,7 @@ internal val backgroundPlaybackManagerFingerprint = fingerprint {
     )
 }
 
-internal val backgroundPlaybackSettingsFingerprint = fingerprint {
+internal val BytecodePatchContext.backgroundPlaybackSettingsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/String;")
     parameterTypes()
@@ -54,7 +61,7 @@ internal val backgroundPlaybackSettingsFingerprint = fingerprint {
     literal { prefBackgroundAndOfflineCategoryId }
 }
 
-internal val kidsBackgroundPlaybackPolicyControllerFingerprint = fingerprint {
+internal val BytecodePatchContext.kidsBackgroundPlaybackPolicyControllerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("I", "L", "L")
@@ -71,7 +78,7 @@ internal val kidsBackgroundPlaybackPolicyControllerFingerprint = fingerprint {
     literal { 5 }
 }
 
-internal val backgroundPlaybackManagerShortsFingerprint = fingerprint {
+internal val BytecodePatchContext.backgroundPlaybackManagerShortsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Z")
     parameterTypes("L")
@@ -80,7 +87,7 @@ internal val backgroundPlaybackManagerShortsFingerprint = fingerprint {
     )
 }
 
-internal val shortsBackgroundPlaybackFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.shortsBackgroundPlaybackFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
@@ -90,7 +97,7 @@ internal val shortsBackgroundPlaybackFeatureFlagFingerprint = fingerprint {
 }
 
 // Fix 'E/InputDispatcher: Window handle pip_input_consumer has no registered input channel'
-internal val pipInputConsumerFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.pipInputConsumerFeatureFlagMethod by gettingFirstMethodDeclaratively {
     instructions(
         // PiP input consumer feature flag.
         app.revanced.patcher.literal(45638483L),

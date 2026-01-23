@@ -26,7 +26,7 @@ val `Hide timestamp` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -36,7 +36,7 @@ val `Hide timestamp` by creatingBytecodePatch(
             SwitchPreference("revanced_hide_timestamp"),
         )
 
-        timeCounterFingerprint.method.addInstructionsWithLabels(
+        timeCounterMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->hideTimestamp()Z
@@ -45,7 +45,7 @@ val `Hide timestamp` by creatingBytecodePatch(
                 return-void
                 :hide_time
                 nop
-            """
+            """,
         )
     }
 }

@@ -2,13 +2,20 @@ package app.revanced.patches.youtube.layout.hide.general
 
 import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.StringComparisonType
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
 import app.revanced.patcher.checkCast
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.youtube.layout.searchbar.wideSearchbarLayoutFingerprint
+import app.revanced.patches.youtube.layout.searchbar.wideSearchbarLayoutMethod
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -16,7 +23,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * 20.26+
  */
-internal val hideShowMoreButtonFingerprint = fingerprint {
+internal val BytecodePatchContext.hideShowMoreButtonMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL, AccessFlags.SYNTHETIC)
     returnType("V")
     parameterTypes("L", "Ljava/lang/Object;")
@@ -27,7 +34,7 @@ internal val hideShowMoreButtonFingerprint = fingerprint {
     )
 }
 
-internal val hideShowMoreLegacyButtonFingerprint = fingerprint {
+internal val BytecodePatchContext.hideShowMoreLegacyButtonMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.LAYOUT("expand_button_down"),
@@ -36,7 +43,7 @@ internal val hideShowMoreLegacyButtonFingerprint = fingerprint {
     )
 }
 
-internal val parseElementFromBufferFingerprint = fingerprint {
+internal val BytecodePatchContext.parseElementFromBufferMethod by gettingFirstMethodDeclaratively {
     parameterTypes("L", "L", "[B", "L", "L")
     instructions(
         opcode(Opcode.IGET_OBJECT),
@@ -48,7 +55,7 @@ internal val parseElementFromBufferFingerprint = fingerprint {
     )
 }
 
-internal val playerOverlayFingerprint = fingerprint {
+internal val BytecodePatchContext.playerOverlayMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     instructions(
@@ -56,16 +63,16 @@ internal val playerOverlayFingerprint = fingerprint {
     )
 }
 
-internal val showWatermarkFingerprint = fingerprint {
+internal val BytecodePatchContext.showWatermarkMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L", "L")
 }
 
 /**
- * Matches same method as [wideSearchbarLayoutFingerprint].
+ * Matches same method as [wideSearchbarLayoutMethod].
  */
-internal val yoodlesImageViewFingerprint = fingerprint {
+internal val BytecodePatchContext.yoodlesImageViewMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
     parameterTypes("L", "L")
@@ -74,7 +81,7 @@ internal val yoodlesImageViewFingerprint = fingerprint {
     )
 }
 
-internal val crowdfundingBoxFingerprint = fingerprint {
+internal val BytecodePatchContext.crowdfundingBoxMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.INVOKE_VIRTUAL,
@@ -84,7 +91,7 @@ internal val crowdfundingBoxFingerprint = fingerprint {
     literal { crowdfundingBoxId }
 }
 
-internal val albumCardsFingerprint = fingerprint {
+internal val BytecodePatchContext.albumCardsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.MOVE_RESULT_OBJECT,
@@ -97,7 +104,7 @@ internal val albumCardsFingerprint = fingerprint {
     literal { albumCardId }
 }
 
-internal val filterBarHeightFingerprint = fingerprint {
+internal val BytecodePatchContext.filterBarHeightMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.CONST,
@@ -108,7 +115,7 @@ internal val filterBarHeightFingerprint = fingerprint {
     literal { filterBarHeightId }
 }
 
-internal val relatedChipCloudFingerprint = fingerprint {
+internal val BytecodePatchContext.relatedChipCloudMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.CONST,
@@ -118,7 +125,7 @@ internal val relatedChipCloudFingerprint = fingerprint {
     literal { relatedChipCloudMarginId }
 }
 
-internal val searchResultsChipBarFingerprint = fingerprint {
+internal val BytecodePatchContext.searchResultsChipBarMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.CONST,
@@ -130,7 +137,7 @@ internal val searchResultsChipBarFingerprint = fingerprint {
     literal { barContainerHeightId }
 }
 
-internal val showFloatingMicrophoneButtonFingerprint = fingerprint {
+internal val BytecodePatchContext.showFloatingMicrophoneButtonMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()
@@ -141,7 +148,7 @@ internal val showFloatingMicrophoneButtonFingerprint = fingerprint {
     )
 }
 
-internal val hideViewCountFingerprint = fingerprint {
+internal val BytecodePatchContext.hideViewCountMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Ljava/lang/CharSequence;")
 

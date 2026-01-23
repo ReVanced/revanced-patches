@@ -69,7 +69,7 @@ val lithoFilterPatch = bytecodePatch(
     apply {
         // Remove dummy filter from extenion static field
         // and add the filters included during patching.
-        lithoFilterFingerprint.method.apply {
+        lithoFilterMethod.apply {
             removeInstructions(2, 4) // Remove dummy filter.
 
             addLithoFilter = { classDescriptor ->
@@ -80,7 +80,7 @@ val lithoFilterPatch = bytecodePatch(
                         invoke-direct { v1 }, $classDescriptor-><init>()V
                         const/16 v2, ${filterCount++}
                         aput-object v1, v0, v2
-                    """
+                    """,
                 )
             }
         }
@@ -90,7 +90,7 @@ val lithoFilterPatch = bytecodePatch(
         if (is_20_22_or_greater) {
             // Hook method that bridges between UPB buffer native code and FB Litho.
             // Method is found in 19.25+, but is forcefully turned off for 20.21 and lower.
-            protobufBufferReferenceFingerprint.let {
+            protobufBufferReferenceMethod.let {
                 // Hook the buffer after the call to jniDecode().
                 it.method.addInstruction(
                     it.instructionMatches.last().index + 1,
@@ -100,13 +100,12 @@ val lithoFilterPatch = bytecodePatch(
         }
 
         // Legacy Non native buffer.
-        protobufBufferReferenceLegacyFingerprint.method.addInstruction(
+        protobufBufferReferenceLegacyMethod.addInstruction(
             0,
             "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
         )
 
         // endregion
-
 
         // region Modify the create component method and
         // if the component is filtered then return an empty component.
@@ -120,14 +119,15 @@ val lithoFilterPatch = bytecodePatch(
             .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
 
         // Find class and methods to create an empty component.
-        val builderMethodDescriptor = emptyComponentFingerprint.classDef.methods.single {
-            // The only static method in the class.
-                method -> AccessFlags.STATIC.isSet(method.accessFlags)
+        val builderMethodDescriptor = emptyComponentMethod.classDef.methods.single {
+                // The only static method in the class.
+                method ->
+            AccessFlags.STATIC.isSet(method.accessFlags)
         }
 
         val emptyComponentField = firstClassDef(builderMethodDescriptor.returnType).fields.single()
 
-        componentCreateFingerprint.method.apply {
+        componentCreateMethod.apply {
             val insertIndex = if (is_19_17_or_greater) {
                 indexOfFirstInstructionOrThrow(Opcode.RETURN_OBJECT)
             } else {
@@ -164,27 +164,25 @@ val lithoFilterPatch = bytecodePatch(
         
                     :unfiltered
                     nop
-                """
+                """,
             )
         }
 
         // endregion
 
-
         // region Change Litho thread executor to 1 thread to fix layout issue in unpatched YouTube.
 
-        lithoThreadExecutorFingerprint.method.addInstructions(
+        lithoThreadExecutorMethod.addInstructions(
             0,
             """
                 invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->getExecutorCorePoolSize(I)I
                 move-result p1
                 invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->getExecutorMaxThreads(I)I
                 move-result p2
-            """
+            """,
         )
 
         // endregion
-
 
         // region A/B test of new Litho native code.
 
@@ -194,16 +192,16 @@ val lithoFilterPatch = bytecodePatch(
         // Flag was removed in 20.05. It appears a new flag might be used instead (45660109L),
         // but if the flag is forced on then litho filtering still works correctly.
         if (is_19_25_or_greater && !is_20_05_or_greater) {
-            lithoComponentNameUpbFeatureFlagFingerprint.method.returnLate(false)
+            lithoComponentNameUpbFeatureFlagMethod.returnLate(false)
         }
 
         // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
-        lithoConverterBufferUpbFeatureFlagFingerprint.let {
+        lithoConverterBufferUpbFeatureFlagMethod.let {
             // 20.22 the flag is still enabled in one location, but what it does is not known.
             // Disable it anyway.
             it.method.insertLiteralOverride(
                 it.instructionMatches.first().index,
-                false
+                false,
             )
         }
 
@@ -211,6 +209,6 @@ val lithoFilterPatch = bytecodePatch(
     }
 
     afterDependents {
-        lithoFilterFingerprint.method.replaceInstruction(0, "const/16 v0, $filterCount")
+        lithoFilterMethod.replaceInstruction(0, "const/16 v0, $filterCount")
     }
 }

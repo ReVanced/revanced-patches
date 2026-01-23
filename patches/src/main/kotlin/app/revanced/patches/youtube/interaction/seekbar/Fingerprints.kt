@@ -4,7 +4,6 @@ import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.fieldAccess
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.firstMutableMethodDeclaratively
 import app.revanced.patcher.gettingFirstMethodDeclaratively
@@ -14,6 +13,7 @@ import app.revanced.patcher.invoke
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.newInstance
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
@@ -59,7 +59,7 @@ internal fun ClassDef.getAllowSwipingUpGestureMethod() = firstMutableMethodDecla
     parameterTypes("L")
 }
 
-internal val disableFastForwardLegacyFingerprint = fingerprint {
+internal val BytecodePatchContext.disableFastForwardLegacyMethod by gettingFirstMethodDeclaratively {
     returnType("Z")
     parameterTypes()
     opcodes(Opcode.MOVE_RESULT)
@@ -67,7 +67,7 @@ internal val disableFastForwardLegacyFingerprint = fingerprint {
     literal { 45411330 }
 }
 
-internal val disableFastForwardGestureFingerprint = fingerprint {
+internal val BytecodePatchContext.disableFastForwardGestureMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
@@ -82,7 +82,7 @@ internal val disableFastForwardGestureFingerprint = fingerprint {
     }
 }
 
-internal val customTapAndHoldFingerprint = fingerprint {
+internal val BytecodePatchContext.customTapAndHoldMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()
@@ -102,7 +102,7 @@ internal val customTapAndHoldFingerprint = fingerprint {
     }
 }
 
-internal val onTouchEventHandlerFingerprint = fingerprint {
+internal val BytecodePatchContext.onTouchEventHandlerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.PUBLIC)
     returnType("Z")
     parameterTypes("L")
@@ -125,7 +125,7 @@ internal val onTouchEventHandlerFingerprint = fingerprint {
     custom { method, _ -> method.name == "onTouchEvent" }
 }
 
-internal val seekbarTappingFingerprint = fingerprint {
+internal val BytecodePatchContext.seekbarTappingMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes("Landroid/view/MotionEvent;")
@@ -146,7 +146,7 @@ internal val seekbarTappingFingerprint = fingerprint {
     custom { method, _ -> method.name == "onTouchEvent" }
 }
 
-internal val slideToSeekFingerprint = fingerprint {
+internal val BytecodePatchContext.slideToSeekMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/view/View;", "F")

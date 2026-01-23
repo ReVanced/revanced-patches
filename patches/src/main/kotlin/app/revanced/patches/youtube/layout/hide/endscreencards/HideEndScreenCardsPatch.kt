@@ -70,9 +70,9 @@ val `Hide end screen cards` by creatingBytecodePatch(
 
     apply {
         listOf(
-            layoutCircleFingerprint,
-            layoutIconFingerprint,
-            layoutVideoFingerprint,
+            layoutCircleMethod,
+            layoutIconMethod,
+            layoutVideoMethod,
         ).forEach { fingerprint ->
             fingerprint.method.apply {
                 val insertIndex = fingerprint.instructionMatches.last().index + 1 // TODO
@@ -87,7 +87,7 @@ val `Hide end screen cards` by creatingBytecodePatch(
         }
 
         if (is_19_43_or_greater) {
-            showEndscreenCardsFingerprint.method.addInstructionsWithLabels(
+            showEndscreenCardsMethod.addInstructionsWithLabels(
                 0,
                 """
                     invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideEndScreenCards()Z

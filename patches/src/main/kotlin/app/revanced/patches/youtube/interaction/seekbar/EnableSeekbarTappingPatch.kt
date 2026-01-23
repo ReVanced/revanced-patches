@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -34,30 +34,32 @@ val enableSeekbarTappingPatch = bytecodePatch(
         )
 
         // Find the required methods to tap the seekbar.
-        val seekbarTappingMethods = onTouchEventHandlerFingerprint.let {
+        val seekbarTappingMethods = onTouchEventHandlerMethod.let {
             fun getReference(index: Int) = it.method.getInstruction<ReferenceInstruction>(index)
                 .reference as MethodReference
 
             listOf(
                 getReference(it.instructionMatches.first().index),
-                getReference(it.instructionMatches.last().index)
+                getReference(it.instructionMatches.last().index),
             )
         }
 
-        seekbarTappingFingerprint.let {
+        seekbarTappingMethod.let {
             val insertIndex = it.instructionMatches.last().index + 1
 
             it.method.apply {
                 val thisInstanceRegister = getInstruction<FiveRegisterInstruction>(
-                    insertIndex - 1
+                    insertIndex - 1,
                 ).registerC
 
                 val xAxisRegister = this.getInstruction<FiveRegisterInstruction>(
-                    it.instructionMatches[2].index
+                    it.instructionMatches[2].index,
                 ).registerD
 
                 val freeRegister = findFreeRegister(
-                    insertIndex, thisInstanceRegister, xAxisRegister
+                    insertIndex,
+                    thisInstanceRegister,
+                    xAxisRegister,
                 )
 
                 val oMethod = seekbarTappingMethods[0]

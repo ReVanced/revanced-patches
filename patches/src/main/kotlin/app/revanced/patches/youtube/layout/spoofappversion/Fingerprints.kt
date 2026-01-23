@@ -1,15 +1,22 @@
 package app.revanced.patches.youtube.layout.spoofappversion
 
 import app.revanced.patcher.InstructionLocation.*
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.fieldAccess
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val toolBarButtonFingerprint = fingerprint {
+internal val BytecodePatchContext.toolBarButtonMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     instructions(
@@ -28,7 +35,7 @@ internal val toolBarButtonFingerprint = fingerprint {
     }
 }
 
-internal val spoofAppVersionFingerprint = fingerprint {
+internal val BytecodePatchContext.spoofAppVersionMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("L")
     parameterTypes("L")

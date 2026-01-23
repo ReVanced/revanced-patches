@@ -22,7 +22,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/
 
 val enableSlideToSeekPatch = bytecodePatch(
     description = "Adds an option to enable slide to seek " +
-        "instead of playing at 2x speed when pressing and holding in the video player."
+        "instead of playing at 2x speed when pressing and holding in the video player.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -42,14 +42,14 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         // Restore the behaviour to slide to seek.
 
-        val checkIndex = slideToSeekFingerprint.instructionMatches.first().index
-        val checkReference = slideToSeekFingerprint.method.getInstruction(checkIndex)
+        val checkIndex = slideToSeekMethod.instructionMatches.first().index
+        val checkReference = slideToSeekMethod.getInstruction(checkIndex)
             .getReference<MethodReference>()!!
 
         val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->isSlideToSeekDisabled(Z)Z"
 
         // A/B check method was only called on this class.
-        slideToSeekFingerprint.classDef.methods.forEach { method ->
+        slideToSeekMethod.classDef.methods.forEach { method ->
             method.findInstructionIndicesReversed {
                 opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>() == checkReference
             }.forEach { index ->
@@ -73,7 +73,7 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         // Disable the double speed seek gesture.
         if (is_19_17_or_greater) {
-            disableFastForwardGestureFingerprint.let {
+            disableFastForwardGestureMethod.let {
                 it.method.apply {
                     val targetIndex = it.instructionMatches.last().index
                     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
@@ -88,7 +88,7 @@ val enableSlideToSeekPatch = bytecodePatch(
                 }
             }
         } else {
-            disableFastForwardLegacyFingerprint.let {
+            disableFastForwardLegacyMethod.let {
                 it.method.apply {
                     val insertIndex = it.instructionMatches.last().index + 1
                     val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA

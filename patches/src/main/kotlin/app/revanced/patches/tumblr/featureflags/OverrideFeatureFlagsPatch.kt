@@ -3,11 +3,11 @@ package app.revanced.patches.tumblr.featureflags
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
 /**
  * Override a feature flag with a value.
@@ -24,15 +24,15 @@ val overrideFeatureFlagsPatch = bytecodePatch(
 ) {
 
     apply {
-        val configurationClass = getFeatureValueFingerprint.originalMethod.definingClass
-        val featureClass = getFeatureValueFingerprint.originalMethod.parameterTypes[0].toString()
+        val configurationClass = getFeatureValueMethod.originalMethod.definingClass
+        val featureClass = getFeatureValueMethod.originalMethod.parameterTypes[0].toString()
 
         // The method we want to inject into does not have enough registers, so we inject a helper method
         // and inject more instructions into it later, see addOverride.
         // This is not in an extension since the unused variable would get compiled away and the method would
         // get compiled to only have one register, which is not enough for our later injected instructions.
         val helperMethod = ImmutableMethod(
-            getFeatureValueFingerprint.originalMethod.definingClass,
+            getFeatureValueMethod.originalMethod.definingClass,
             "getValueOverride",
             listOf(ImmutableMethodParameter(featureClass, null, "feature")),
             "Ljava/lang/String;",
@@ -62,15 +62,15 @@ val overrideFeatureFlagsPatch = bytecodePatch(
                 """,
             )
         }.also { helperMethod ->
-            getFeatureValueFingerprint.classDef.methods.add(helperMethod)
+            getFeatureValueMethod.classDef.methods.add(helperMethod)
         }
 
         // Here we actually insert the hook to call our helper method and return its value if it returns not null
         // This is equivalent to
         //   String forcedValue = getValueOverride(feature)
         //   if (forcedValue != null) return forcedValue
-        val getFeatureIndex = getFeatureValueFingerprint.instructionMatches.first().index
-        getFeatureValueFingerprint.method.addInstructionsWithLabels(
+        val getFeatureIndex = getFeatureValueMethod.instructionMatches.first().index
+        getFeatureValueMethod.addInstructionsWithLabels(
             getFeatureIndex,
             """
                 # Call the Helper Method with the Feature

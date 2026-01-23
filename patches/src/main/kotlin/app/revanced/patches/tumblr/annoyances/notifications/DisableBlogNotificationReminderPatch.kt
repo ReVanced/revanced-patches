@@ -10,7 +10,7 @@ val `Disable blog notification reminder` by creatingBytecodePatch(
     compatibleWith("com.tumblr")
 
     apply {
-        isBlogNotifyEnabledFingerprint.method.addInstructions(
+        isBlogNotifyEnabledMethod.addInstructions(
             0,
             """
                 # Return false for BlogNotifyCtaDialog.isEnabled() method.

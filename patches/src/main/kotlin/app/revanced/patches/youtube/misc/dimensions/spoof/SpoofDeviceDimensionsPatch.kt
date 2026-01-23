@@ -27,7 +27,7 @@ val `Spoof device dimensions` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -37,7 +37,7 @@ val `Spoof device dimensions` by creatingBytecodePatch(
             SwitchPreference("revanced_spoof_device_dimensions"),
         )
 
-        deviceDimensionsModelToStringFingerprint
+        deviceDimensionsModelToStringMethod
             .classDef.methods.first { method -> method.name == "<init>" }
             // Override the parameters containing the dimensions.
             .addInstructions(

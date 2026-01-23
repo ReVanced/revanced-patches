@@ -19,10 +19,10 @@ private val customThemeBytecodePatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
 
     apply {
-        val colorSpaceUtilsClassDef = colorSpaceUtilsClassFingerprint.originalClassDef
+        val colorSpaceUtilsClassDef = colorSpaceUtilsClassMethod.originalClassDef
 
         // Hook a util method that converts ARGB to RGBA in the sRGB color space to replace hardcoded accent colors.
-        convertArgbToRgbaFingerprint.match(colorSpaceUtilsClassDef).method.apply {
+        convertArgbToRgbaMethod.match(colorSpaceUtilsClassDef).method.apply {
             addInstructions(
                 0,
                 """
@@ -30,21 +30,21 @@ private val customThemeBytecodePatch = bytecodePatch {
                     invoke-static { p0 }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I
                     move-result p0
                     int-to-long p0, p0
-                """
+                """,
             )
         }
 
         // Lottie JSON parser method. It parses the JSON Lottie animation into its own class,
         // including the solid color of it.
-        parseLottieJsonFingerprint.method.apply {
+        parseLottieJsonMethod.apply {
             val invokeParseColorIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()
-                reference?.definingClass == "Landroid/graphics/Color;"
-                        && reference.name == "parseColor"
+                reference?.definingClass == "Landroid/graphics/Color;" &&
+                    reference.name == "parseColor"
             }
             val parsedColorRegister = getInstruction<OneRegisterInstruction>(invokeParseColorIndex + 1).registerA
 
-            val replaceColorDescriptor =  "$EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I"
+            val replaceColorDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I"
 
             addInstructions(
                 invokeParseColorIndex + 2,
@@ -52,16 +52,16 @@ private val customThemeBytecodePatch = bytecodePatch {
                     # Use invoke-static/range because the register number is too large.
                     invoke-static/range { v$parsedColorRegister .. v$parsedColorRegister }, $replaceColorDescriptor
                     move-result v$parsedColorRegister
-                """
+                """,
             )
         }
 
         // Lottie animated color parser.
-        parseAnimatedColorFingerprint.method.apply {
+        parseAnimatedColorMethod.apply {
             val invokeArgbIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()
-                reference?.definingClass == "Landroid/graphics/Color;"
-                        && reference.name == "argb"
+                reference?.definingClass == "Landroid/graphics/Color;" &&
+                    reference.name == "argb"
             }
             val argbColorRegister = getInstruction<OneRegisterInstruction>(invokeArgbIndex + 1).registerA
 
@@ -70,7 +70,7 @@ private val customThemeBytecodePatch = bytecodePatch {
                 """
                     invoke-static { v$argbColorRegister }, $EXTENSION_CLASS_DESCRIPTOR->replaceColor(I)I
                     move-result v$argbColorRegister
-                """
+                """,
             )
         }
     }
@@ -97,7 +97,7 @@ val customThemePatch = resourcePatch(
         default = false,
         name = "Override player gradient color",
         description =
-            "Apply primary background color to the player gradient color, which changes dynamically with the song.",
+        "Apply primary background color to the player gradient color, which changes dynamically with the song.",
         required = false,
     )
 
@@ -105,7 +105,7 @@ val customThemePatch = resourcePatch(
         default = "#FF121212",
         name = "Secondary background color",
         description = "The secondary background color. (e.g. playlist list in home, player artist, song credits). " +
-                "Can be a hex color or a resource reference.\",",
+            "Can be a hex color or a resource reference.\",",
         required = true,
     )
 
@@ -120,7 +120,7 @@ val customThemePatch = resourcePatch(
         default = "#FF1ABC54",
         name = "Pressed accent color",
         description = "The color when accented buttons are pressed, by default slightly darker than accent. " +
-                "Can be a hex color or a resource reference.",
+            "Can be a hex color or a resource reference.",
         required = true,
     )
 
@@ -155,7 +155,7 @@ val customThemePatch = resourcePatch(
                     "sthlm_blk", "sthlm_blk_grad_start",
                     // Misc.
                     "image_placeholder_color",
-                        -> backgroundColor
+                    -> backgroundColor
 
                     // "About the artist" background color in song player.
                     "gray_15",
@@ -164,17 +164,17 @@ val customThemePatch = resourcePatch(
                     // Playlist list background in home page.
                     "opacity_white_10",
                     // "What's New" pills background.
-                    "dark_base_background_tinted_highlight"
-                        -> backgroundColorSecondary
+                    "dark_base_background_tinted_highlight",
+                    -> backgroundColorSecondary
 
                     "dark_brightaccent_background_base",
                     "dark_base_text_brightaccent",
                     "green_light",
-                    "spotify_green_157"
-                        -> accentColor
+                    "spotify_green_157",
+                    -> accentColor
 
-                    "dark_brightaccent_background_press"
-                        -> accentColorPressed
+                    "dark_brightaccent_background_press",
+                    -> accentColorPressed
 
                     else -> continue
                 }

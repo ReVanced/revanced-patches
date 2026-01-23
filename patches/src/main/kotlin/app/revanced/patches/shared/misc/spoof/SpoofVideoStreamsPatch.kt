@@ -1,7 +1,6 @@
 package app.revanced.patches.shared.misc.spoof
 
 import app.revanced.patcher.extensions.*
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
@@ -55,7 +54,7 @@ internal fun spoofVideoStreamsPatch(
 
         // region Enable extension helper method used by other patches
 
-        patchIncludedExtensionMethodFingerprint.method.returnEarly(true)
+        patchIncludedExtensionMethodMethod.returnEarly(true)
 
         // endregion
 
@@ -128,7 +127,7 @@ internal fun spoofVideoStreamsPatch(
                     "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
             )
 
-            val protobufClass = protobufClassParseByteBufferFingerprint.method.definingClass
+            val protobufClass = protobufClassParseByteBufferMethod.definingClass
             val setStreamingDataIndex = createStreamingDataMethodMatch.indices.first()
 
             val playerProtoClass = getInstruction(setStreamingDataIndex + 1)
@@ -212,7 +211,7 @@ internal fun spoofVideoStreamsPatch(
         // Requesting streams intended for other platforms with a body tuned for Android could be the cause of 400 errors.
         // A proper fix may include modifying the request body to match the platforms expected body.
 
-        buildMediaDataSourceFingerprint.method.apply {
+        buildMediaDataSourceMethod.apply {
             val targetIndex = instructions.lastIndex
 
             // Instructions are added just before the method returns,
@@ -238,7 +237,7 @@ internal fun spoofVideoStreamsPatch(
 
         // region Append spoof info.
 
-        nerdsStatsVideoFormatBuilderFingerprint.method.apply {
+        nerdsStatsVideoFormatBuilderMethod.apply {
             findInstructionIndicesReversedOrThrow(Opcode.RETURN_OBJECT).forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 

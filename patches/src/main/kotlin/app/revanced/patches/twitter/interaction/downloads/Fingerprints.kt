@@ -1,10 +1,17 @@
 package app.revanced.patches.twitter.interaction.downloads
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val buildMediaOptionsSheetFingerprint = fingerprint {
+internal val BytecodePatchContext.buildMediaOptionsSheetMethod by gettingFirstMethodDeclaratively {
     opcodes(
         Opcode.IF_EQ,
         Opcode.SGET_OBJECT,
@@ -14,12 +21,12 @@ internal val buildMediaOptionsSheetFingerprint = fingerprint {
     strings("mediaEntity", "media_options_sheet")
 }
 
-internal val constructMediaOptionsSheetFingerprint = fingerprint {
+internal val BytecodePatchContext.constructMediaOptionsSheetMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     strings("captionsState")
 }
 
-internal val showDownloadVideoUpsellBottomSheetFingerprint = fingerprint {
+internal val BytecodePatchContext.showDownloadVideoUpsellBottomSheetMethod by gettingFirstMethodDeclaratively {
     returnType("Z")
     strings("mediaEntity", "url")
     opcodes(Opcode.IF_EQZ)

@@ -2,17 +2,24 @@ package app.revanced.patches.youtube.layout.seekbar
 
 import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.InstructionLocation.MatchAfterWithin
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
 import app.revanced.patcher.anyInstruction
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val fullscreenSeekbarThumbnailsFingerprint = fingerprint {
+internal val BytecodePatchContext.fullscreenSeekbarThumbnailsMethod by gettingFirstMethodDeclaratively {
     returnType("Z")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes()
@@ -21,7 +28,7 @@ internal val fullscreenSeekbarThumbnailsFingerprint = fingerprint {
     )
 }
 
-internal val playerSeekbarColorFingerprint = fingerprint {
+internal val BytecodePatchContext.playerSeekbarColorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.COLOR("inline_time_bar_played_not_highlighted_color"),
@@ -30,19 +37,19 @@ internal val playerSeekbarColorFingerprint = fingerprint {
 }
 
 // class is ControlsOverlayStyle in 20.32 and lower, and obfuscated in 20.33+
-internal val setSeekbarClickedColorFingerprint = fingerprint {
+internal val BytecodePatchContext.setSeekbarClickedColorMethod by gettingFirstMethodDeclaratively {
     opcodes(Opcode.CONST_HIGH16)
     strings("YOUTUBE", "PREROLL", "POSTROLL", "REMOTE_LIVE", "AD_LARGE_CONTROLS")
 }
 
-internal val shortsSeekbarColorFingerprint = fingerprint {
+internal val BytecodePatchContext.shortsSeekbarColorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.COLOR("reel_time_bar_played_color"),
     )
 }
 
-internal val playerSeekbarHandle1ColorFingerprint = fingerprint {
+internal val BytecodePatchContext.playerSeekbarHandle1ColorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.COLOR("inline_time_bar_live_seekable_range"),
@@ -50,7 +57,7 @@ internal val playerSeekbarHandle1ColorFingerprint = fingerprint {
     )
 }
 
-internal val playerSeekbarHandle2ColorFingerprint = fingerprint {
+internal val BytecodePatchContext.playerSeekbarHandle2ColorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes("Landroid/content/Context;")
     instructions(
@@ -59,7 +66,7 @@ internal val playerSeekbarHandle2ColorFingerprint = fingerprint {
     )
 }
 
-internal val watchHistoryMenuUseProgressDrawableFingerprint = fingerprint {
+internal val BytecodePatchContext.watchHistoryMenuUseProgressDrawableMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")
@@ -70,7 +77,7 @@ internal val watchHistoryMenuUseProgressDrawableFingerprint = fingerprint {
     )
 }
 
-internal val lithoLinearGradientFingerprint = fingerprint {
+internal val BytecodePatchContext.lithoLinearGradientMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.STATIC)
     returnType("Landroid/graphics/LinearGradient;")
     parameterTypes("F", "F", "F", "F", "[I", "[F")
@@ -79,7 +86,7 @@ internal val lithoLinearGradientFingerprint = fingerprint {
 /**
  * 19.49+
  */
-internal val playerLinearGradientFingerprint = fingerprint {
+internal val BytecodePatchContext.playerLinearGradientMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     parameterTypes("I", "I", "I", "I", "Landroid/content/Context;", "I")
     returnType("Landroid/graphics/LinearGradient;")
@@ -94,7 +101,7 @@ internal val playerLinearGradientFingerprint = fingerprint {
 /**
  * 19.25 - 19.47
  */
-internal val playerLinearGradientLegacyFingerprint = fingerprint {
+internal val BytecodePatchContext.playerLinearGradientLegacyMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     instructions(
         ResourceType.COLOR("yt_youtube_magenta"),
@@ -106,7 +113,7 @@ internal val playerLinearGradientLegacyFingerprint = fingerprint {
 
 internal const val LOTTIE_ANIMATION_VIEW_CLASS_TYPE = "Lcom/airbnb/lottie/LottieAnimationView;"
 
-internal val lottieAnimationViewSetAnimationIntFingerprint = fingerprint {
+internal val BytecodePatchContext.lottieAnimationViewSetAnimationIntMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("I")
     returnType("V")
@@ -118,7 +125,7 @@ internal val lottieAnimationViewSetAnimationIntFingerprint = fingerprint {
     }
 }
 
-internal val lottieCompositionFactoryZipFingerprint = fingerprint {
+internal val BytecodePatchContext.lottieCompositionFactoryZipMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     parameterTypes("Landroid/content/Context;", "Ljava/util/zip/ZipInputStream;", "Ljava/lang/String;")
     returnType("L")
@@ -129,11 +136,11 @@ internal val lottieCompositionFactoryZipFingerprint = fingerprint {
 }
 
 /**
- * Resolves using class found in [lottieCompositionFactoryZipFingerprint].
+ * Resolves using class found in [lottieCompositionFactoryZipMethod].
  *
  * [Original method](https://github.com/airbnb/lottie-android/blob/26ad8bab274eac3f93dccccfa0cafc39f7408d13/lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java#L386)
  */
-internal val lottieCompositionFactoryFromJsonInputStreamFingerprint = fingerprint {
+internal val BytecodePatchContext.lottieCompositionFactoryFromJsonInputStreamMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     parameterTypes("Ljava/io/InputStream;", "Ljava/lang/String;")
     returnType("L")

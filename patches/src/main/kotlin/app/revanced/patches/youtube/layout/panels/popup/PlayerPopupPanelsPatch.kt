@@ -26,7 +26,7 @@ val `Disable player popup panels` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -36,7 +36,7 @@ val `Disable player popup panels` by creatingBytecodePatch(
             SwitchPreference("revanced_hide_player_popup_panels"),
         )
 
-        engagementPanelControllerFingerprint.method.addInstructionsWithLabels(
+        engagementPanelControllerMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disablePlayerPopupPanels()Z
@@ -47,7 +47,7 @@ val `Disable player popup panels` by creatingBytecodePatch(
                 return-object v0
                 :player_popup_panels
                 nop
-            """
+            """,
         )
     }
 }

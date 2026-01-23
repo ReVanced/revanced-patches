@@ -1,9 +1,16 @@
 package app.revanced.patches.shared.layout.branding
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val numberOfPresetAppNamesExtensionFingerprint = fingerprint {
+internal val BytecodePatchContext.numberOfPresetAppNamesExtensionMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("I")
     parameterTypes()
@@ -14,7 +21,7 @@ internal val numberOfPresetAppNamesExtensionFingerprint = fingerprint {
 
 // A much simpler fingerprint exists that can set the small icon (contains string "414843287017"),
 // but that has limited usage and this fingerprint allows changing any part of the notification.
-internal val notificationFingerprint = fingerprint {
+internal val BytecodePatchContext.notificationMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes("L")
     strings("key_action_priority")

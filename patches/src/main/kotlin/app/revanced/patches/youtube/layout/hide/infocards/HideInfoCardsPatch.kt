@@ -63,21 +63,21 @@ val `Hide info cards` by creatingBytecodePatch(
         )
 
         // Edit: This old non litho code may be obsolete and no longer used by any supported versions.
-        infocardsIncognitoFingerprint.match(infocardsIncognitoParentFingerprint.originalClassDef).method.apply {
+        infocardsIncognitoMethod.match(infocardsIncognitoParentMethod.originalClassDef).method.apply {
             val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
-                        ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")
+                    ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")
             }
 
             addInstruction(
                 invokeInstructionIndex,
                 "invoke-static {v${getInstruction<FiveRegisterInstruction>(invokeInstructionIndex).registerC}}," +
-                        " Lapp/revanced/extension/youtube/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V",
+                    " Lapp/revanced/extension/youtube/patches/HideInfoCardsPatch;->hideInfoCardsIncognito(Landroid/view/View;)V",
             )
         }
 
         // Edit: This old non litho code may be obsolete and no longer used by any supported versions.
-        infocardsMethodCallFingerprint.let {
+        infocardsMethodCallMethod.let {
             val invokeInterfaceIndex = it.instructionMatches.last().index
             it.method.apply {
                 val register = implementation!!.registerCount - 1

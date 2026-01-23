@@ -17,11 +17,11 @@ val `Enable exclusive audio playback` by creatingBytecodePatch(
     compatibleWith(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
-            "8.10.52"
-        )
+            "8.10.52",
+        ),
     )
 
     apply {
-        allowExclusiveAudioPlaybackFingerprint.method.returnEarly(true)
+        allowExclusiveAudioPlaybackMethod.returnEarly(true)
     }
 }

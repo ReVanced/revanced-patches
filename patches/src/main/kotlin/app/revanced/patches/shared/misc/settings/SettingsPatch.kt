@@ -17,8 +17,8 @@ import app.revanced.util.insertFirst
 import app.revanced.util.returnEarly
 import org.w3c.dom.Node
 
-private var lightThemeColor : String? = null
-private var darkThemeColor : String? = null
+private var lightThemeColor: String? = null
+private var darkThemeColor: String? = null
 
 /**
  * Sets the default theme colors used in various ReVanced specific settings menus.
@@ -33,10 +33,10 @@ fun overrideThemeColors(lightThemeColorString: String?, darkThemeColorString: St
 private val settingsColorPatch = bytecodePatch {
     afterDependents {
         if (lightThemeColor != null) {
-            themeLightColorResourceNameFingerprint.method.returnEarly(lightThemeColor!!)
+            themeLightColorResourceNameMethod.returnEarly(lightThemeColor!!)
         }
         if (darkThemeColor != null) {
-            themeDarkColorResourceNameFingerprint.method.returnEarly(darkThemeColor!!)
+            themeDarkColorResourceNameMethod.returnEarly(darkThemeColor!!)
         }
     }
 }
@@ -48,28 +48,31 @@ private val settingsColorPatch = bytecodePatch {
  *                        File names that do not exist are ignored and not processed.
  * @param preferences A set of preferences to add to the ReVanced fragment.
  */
-fun settingsPatch (
+fun settingsPatch(
     rootPreferences: List<Pair<BasePreference, String>>? = null,
     preferences: Set<BasePreference>,
 ) = resourcePatch {
     dependsOn(
         addResourcesPatch,
         settingsColorPatch,
-        addBrandLicensePatch
+        addBrandLicensePatch,
     )
 
     apply {
         copyResources(
             "settings",
-            ResourceGroup("xml",
+            ResourceGroup(
+                "xml",
                 "revanced_prefs.xml",
                 "revanced_prefs_icons.xml",
-                "revanced_prefs_icons_bold.xml"
+                "revanced_prefs_icons_bold.xml",
             ),
-            ResourceGroup("menu",
-                "revanced_search_menu.xml"
+            ResourceGroup(
+                "menu",
+                "revanced_search_menu.xml",
             ),
-            ResourceGroup("drawable",
+            ResourceGroup(
+                "drawable",
                 // CustomListPreference resources.
                 "revanced_ic_dialog_alert.xml",
                 // Search resources.
@@ -84,7 +87,8 @@ fun settingsPatch (
                 "revanced_settings_toolbar_arrow_left.xml",
                 "revanced_settings_toolbar_arrow_left_bold.xml",
             ),
-            ResourceGroup("layout",
+            ResourceGroup(
+                "layout",
                 "revanced_custom_list_item_checked.xml",
                 // Color picker.
                 "revanced_color_dot_widget.xml",
@@ -98,8 +102,8 @@ fun settingsPatch (
                 "revanced_preference_search_result_list.xml",
                 "revanced_preference_search_result_regular.xml",
                 "revanced_preference_search_result_switch.xml",
-                "revanced_settings_with_toolbar.xml"
-            )
+                "revanced_settings_with_toolbar.xml",
+            ),
         )
 
         addResources("shared", "misc.settings.settingsResourcePatch")

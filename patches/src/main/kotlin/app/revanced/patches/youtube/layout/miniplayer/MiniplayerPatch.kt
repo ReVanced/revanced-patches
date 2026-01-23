@@ -2,7 +2,6 @@
 
 package app.revanced.patches.youtube.layout.miniplayer
 
-import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
@@ -236,8 +235,8 @@ val Miniplayer by creatingBytecodePatch(
         // Parts of the YT code is removed in 20.37+ and the legacy player no longer works.
 
         if (!is_20_37_or_greater) {
-            miniplayerOverrideNoContextFingerprint.match(
-                miniplayerDimensionsCalculatorParentFingerprint.originalClassDef,
+            miniplayerOverrideNoContextMethod.match(
+                miniplayerDimensionsCalculatorParentMethod.originalClassDef,
             ).method.apply {
                 findReturnIndicesReversed().forEach { index ->
                     insertLegacyTabletMiniplayerOverride(
@@ -249,7 +248,7 @@ val Miniplayer by creatingBytecodePatch(
             // endregion
 
             // region Legacy tablet miniplayer hooks.
-            miniplayerOverrideFingerprint.let {
+            miniplayerOverrideMethod.let {
                 val appNameStringIndex = it.instructionMatches.last().index
                 navigate(it.originalMethod).to(appNameStringIndex).stop().apply {
                     findReturnIndicesReversed().forEach { index ->
@@ -260,7 +259,7 @@ val Miniplayer by creatingBytecodePatch(
                 }
             }
 
-            miniplayerResponseModelSizeCheckFingerprint.let {
+            miniplayerResponseModelSizeCheckMethod.let {
                 it.method.insertLegacyTabletMiniplayerOverride(it.instructionMatches.last().index)
             }
         }
@@ -269,7 +268,7 @@ val Miniplayer by creatingBytecodePatch(
 
         // region Enable modern miniplayer.
 
-        miniplayerModernConstructorFingerprint.classDef.methods.forEach {
+        miniplayerModernConstructorMethod.classDef.methods.forEach {
             it.apply {
                 if (AccessFlags.CONSTRUCTOR.isSet(accessFlags)) {
                     val iPutIndex = indexOfFirstInstructionOrThrow {
@@ -284,31 +283,31 @@ val Miniplayer by creatingBytecodePatch(
         }
 
         if (is_19_23_or_greater) {
-            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
+            miniplayerModernConstructorMethod.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DRAG_DROP_FEATURE_KEY,
                 "getMiniplayerDragAndDrop",
             )
         }
 
         if (is_19_25_or_greater) {
-            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
+            miniplayerModernConstructorMethod.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_MODERN_FEATURE_LEGACY_KEY,
                 "getModernMiniplayerOverride",
             )
 
-            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
+            miniplayerModernConstructorMethod.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_MODERN_FEATURE_KEY,
                 "getModernFeatureFlagsActiveOverride",
             )
 
-            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
+            miniplayerModernConstructorMethod.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DOUBLE_TAP_FEATURE_KEY,
                 "getMiniplayerDoubleTapAction",
             )
         }
 
         if (is_19_26_or_greater) {
-            miniplayerModernConstructorFingerprint.method.apply {
+            miniplayerModernConstructorMethod.apply {
                 val literalIndex = indexOfFirstLiteralInstructionOrThrow(
                     MINIPLAYER_INITIAL_SIZE_FEATURE_KEY,
                 )
@@ -325,7 +324,7 @@ val Miniplayer by creatingBytecodePatch(
             }
 
             // Override a minimum size constant.
-            miniplayerMinimumSizeFingerprint.let {
+            miniplayerMinimumSizeMethod.let {
                 it.method.apply {
                     val index = it.instructionMatches[1].index
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -339,24 +338,24 @@ val Miniplayer by creatingBytecodePatch(
         }
 
         if (is_19_36_or_greater) {
-            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
+            miniplayerModernConstructorMethod.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_ROUNDED_CORNERS_FEATURE_KEY,
                 "getRoundedCorners",
             )
         }
 
         if (is_19_43_or_greater) {
-            miniplayerOnCloseHandlerFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
+            miniplayerOnCloseHandlerMethod.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DISABLED_FEATURE_KEY,
                 "getMiniplayerOnCloseHandler",
             )
 
-            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
+            miniplayerModernConstructorMethod.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_HORIZONTAL_DRAG_FEATURE_KEY,
                 "getHorizontalDrag",
             )
 
-            miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
+            miniplayerModernConstructorMethod.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY,
                 "getMaximizeAnimation",
             )
@@ -368,8 +367,8 @@ val Miniplayer by creatingBytecodePatch(
         // YT fixed this mistake in 19.17.
         // Fix this, by swapping the drawable resource values with each other.
         if (!is_19_17_or_greater) {
-            miniplayerModernExpandCloseDrawablesFingerprint.match(
-                miniplayerModernViewParentFingerprint.originalClassDef,
+            miniplayerModernExpandCloseDrawablesMethod.match(
+                miniplayerModernViewParentMethod.originalClassDef,
             ).method.apply {
                 listOf(
                     ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
@@ -388,7 +387,7 @@ val Miniplayer by creatingBytecodePatch(
         // region fix minimal miniplayer using the wrong pause/play bold icons.
 
         if (is_20_31_or_greater) {
-            miniplayerSetIconsFingerprint.method.apply {
+            miniplayerSetIconsMethod.apply {
                 findInstructionIndicesReversedOrThrow {
                     val reference = getReference<MethodReference>()
                     opcode == Opcode.INVOKE_INTERFACE &&
@@ -412,15 +411,15 @@ val Miniplayer by creatingBytecodePatch(
         // region Add hooks to hide modern miniplayer buttons.
 
         listOf(
-            miniplayerModernExpandButtonFingerprint to "hideMiniplayerExpandClose",
-            miniplayerModernCloseButtonFingerprint to "hideMiniplayerExpandClose",
-            miniplayerModernActionButtonFingerprint to "hideMiniplayerActionButton",
-            miniplayerModernRewindButtonFingerprint to "hideMiniplayerRewindForward",
-            miniplayerModernForwardButtonFingerprint to "hideMiniplayerRewindForward",
-            miniplayerModernOverlayViewFingerprint to "adjustMiniplayerOpacity",
+            miniplayerModernExpandButtonMethod to "hideMiniplayerExpandClose",
+            miniplayerModernCloseButtonMethod to "hideMiniplayerExpandClose",
+            miniplayerModernActionButtonMethod to "hideMiniplayerActionButton",
+            miniplayerModernRewindButtonMethod to "hideMiniplayerRewindForward",
+            miniplayerModernForwardButtonMethod to "hideMiniplayerRewindForward",
+            miniplayerModernOverlayViewMethod to "adjustMiniplayerOpacity",
         ).forEach { (fingerprint, methodName) ->
             fingerprint.match(
-                miniplayerModernViewParentFingerprint.classDef,
+                miniplayerModernViewParentMethod.classDef,
             ).method.apply {
                 val index = fingerprint.instructionMatches.last().index
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -432,12 +431,12 @@ val Miniplayer by creatingBytecodePatch(
             }
         }
 
-        miniplayerModernAddViewListenerFingerprint.match(
-            miniplayerModernViewParentFingerprint.classDef,
+        miniplayerModernAddViewListenerMethod.match(
+            miniplayerModernViewParentMethod.classDef,
         ).method.addInstruction(
             0,
             "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                    "hideMiniplayerSubTexts(Landroid/view/View;)V",
+                "hideMiniplayerSubTexts(Landroid/view/View;)V",
         )
 
         // Modern 2 has a broken overlay subtitle view that is always present.
@@ -449,7 +448,7 @@ val Miniplayer by creatingBytecodePatch(
         // NOTE: Modern 2 uses the same video UI as the regular player except resized to smaller.
         // This patch code could be used to hide other player overlays that do not use Litho.
         if (!is_19_17_or_greater) {
-            playerOverlaysLayoutFingerprint.classDef.methods.add(
+            playerOverlaysLayoutMethod.classDef.methods.add(
                 ImmutableMethod(
                     YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME,
                     "addView",

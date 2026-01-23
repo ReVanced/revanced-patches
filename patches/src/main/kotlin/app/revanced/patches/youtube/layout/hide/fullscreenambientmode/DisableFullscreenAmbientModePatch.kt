@@ -32,7 +32,7 @@ val `Disable fullscreen ambient mode` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -42,7 +42,7 @@ val `Disable fullscreen ambient mode` by creatingBytecodePatch(
             SwitchPreference("revanced_disable_fullscreen_ambient_mode"),
         )
 
-        setFullScreenBackgroundColorFingerprint.method.apply {
+        setFullScreenBackgroundColorMethod.apply {
             val insertIndex = indexOfFirstInstructionReversedOrThrow {
                 getReference<MethodReference>()?.name == "setBackgroundColor"
             }

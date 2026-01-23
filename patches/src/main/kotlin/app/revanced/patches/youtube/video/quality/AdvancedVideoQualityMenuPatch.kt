@@ -60,7 +60,7 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
         // region Patch for the old type of the video quality menu.
         // Used for regular videos when spoofing to old app version,
         // and for the Shorts quality flyout on newer app versions.
-        videoQualityMenuViewInflateFingerprint.let {
+        videoQualityMenuViewInflateMethod.let {
             it.method.apply {
                 val checkCastIndex = it.instructionMatches.last().index
                 val listViewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
@@ -74,7 +74,7 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
         }
 
         // Force YT to add the 'advanced' quality menu for Shorts.
-        videoQualityMenuOptionsFingerprint.let {
+        videoQualityMenuOptionsMethod.let {
             val patternMatch = it.instructionMatches
             val startIndex = patternMatch.first().index
             val insertIndex = patternMatch.last().index

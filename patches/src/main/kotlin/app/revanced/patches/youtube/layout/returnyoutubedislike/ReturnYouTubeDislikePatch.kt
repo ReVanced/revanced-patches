@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.misc.playservice.*
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
-import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateFingerprint
+import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateMethod
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.hookVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
@@ -60,7 +60,7 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
             "20.21.37",
             "20.31.40",
             // 20.40+ does not support yet support the Shorts player.
-        )
+        ),
     )
 
     apply {
@@ -82,8 +82,8 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
                 key = "revanced_ryd_statistics_category",
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
                 preferences = emptySet(), // Preferences are added by custom class at runtime.
-                tag = "app.revanced.extension.youtube.returnyoutubedislike.ui.ReturnYouTubeDislikeDebugStatsPreferenceCategory"
-            )
+                tag = "app.revanced.extension.youtube.returnyoutubedislike.ui.ReturnYouTubeDislikeDebugStatsPreferenceCategory",
+            ),
         )
 
         // region Inject newVideoLoaded event handler to update dislikes when a new video is loaded.
@@ -98,9 +98,9 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
         // region Hook like/dislike/remove like button clicks to send votes to the API.
 
         arrayOf(
-            likeFingerprint to Vote.LIKE,
-            dislikeFingerprint to Vote.DISLIKE,
-            removeLikeFingerprint to Vote.REMOVE_LIKE,
+            likeMethod to Vote.LIKE,
+            dislikeMethod to Vote.DISLIKE,
+            removeLikeMethod to Vote.REMOVE_LIKE,
         ).forEach { (fingerprint, vote) ->
             fingerprint.method.addInstructions(
                 0,
@@ -121,40 +121,40 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
 
         // Find the field name of the conversion context.
         val conversionContextClass = conversionContextFingerprintToString.originalClassDef
-        val textComponentConversionContextField = textComponentConstructorFingerprint.originalClassDef.fields.find {
-            it.type == conversionContextClass.type
-                    // 20.41+ uses superclass field type.
-                    || it.type == conversionContextClass.superclass
+        val textComponentConversionContextField = textComponentConstructorMethod.originalClassDef.fields.find {
+            it.type == conversionContextClass.type ||
+                // 20.41+ uses superclass field type.
+                it.type == conversionContextClass.superclass
         } ?: throw PatchException("Could not find conversion context field")
 
-        textComponentLookupFingerprint.match(textComponentConstructorFingerprint.originalClassDef).method.apply {
+        textComponentLookupMethod.match(textComponentConstructorMethod.originalClassDef).method.apply {
             // Find the instruction for creating the text data object.
-            val textDataClassType = textComponentDataFingerprint.originalClassDef.type
+            val textDataClassType = textComponentDataMethod.originalClassDef.type
 
             val insertIndex: Int
             val charSequenceRegister: Int
 
             if (is_19_33_or_greater && !is_20_10_or_greater) {
                 val index = indexOfFirstInstructionOrThrow {
-                    (opcode == Opcode.INVOKE_STATIC || opcode == Opcode.INVOKE_STATIC_RANGE)
-                            && getReference<MethodReference>()?.returnType == textDataClassType
+                    (opcode == Opcode.INVOKE_STATIC || opcode == Opcode.INVOKE_STATIC_RANGE) &&
+                        getReference<MethodReference>()?.returnType == textDataClassType
                 }
 
                 insertIndex = indexOfFirstInstructionOrThrow(index) {
                     opcode == Opcode.INVOKE_VIRTUAL &&
-                            getReference<MethodReference>()?.parameterTypes?.firstOrNull() == "Ljava/lang/CharSequence;"
+                        getReference<MethodReference>()?.parameterTypes?.firstOrNull() == "Ljava/lang/CharSequence;"
                 }
 
                 charSequenceRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
             } else {
                 insertIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.NEW_INSTANCE &&
-                            getReference<TypeReference>()?.type == textDataClassType
+                        getReference<TypeReference>()?.type == textDataClassType
                 }
 
                 val charSequenceIndex = indexOfFirstInstructionOrThrow(insertIndex) {
                     opcode == Opcode.IPUT_OBJECT &&
-                            getReference<FieldReference>()?.type == "Ljava/lang/CharSequence;"
+                        getReference<FieldReference>()?.type == "Ljava/lang/CharSequence;"
                 }
                 charSequenceRegister = getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
             }
@@ -179,7 +179,7 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
                     
                     :ignore
                     nop
-                """
+                """,
             )
         }
 
@@ -200,16 +200,16 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
                 // Turning off this flag on later versions can break the Shorts overlay and nothing is shown.
                 Logger.getLogger(this::class.java.name).warning(
                     "\n!!!" +
-                            "\n!!! Dislikes are not yet fully supported when patching YouTube 20.40+" +
-                            "\n!!! Patch 20.21.37 or lower if you want to see dislikes" +
-                            "\n!!!"
+                        "\n!!! Dislikes are not yet fully supported when patching YouTube 20.40+" +
+                        "\n!!! Patch 20.21.37 or lower if you want to see dislikes" +
+                        "\n!!!",
                 )
 
                 Logger.getLogger(this::class.java.name).warning(
-                    "20.40+ Shorts player is not fully supported yet. Shorts Dislikes may not show."
+                    "20.40+ Shorts player is not fully supported yet. Shorts Dislikes may not show.",
                 )
             } else {
-                textComponentFeatureFlagFingerprint.method.returnLate(false)
+                textComponentFeatureFlagMethod.returnLate(false)
             }
         }
 
@@ -220,9 +220,9 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
 
         // region Hook rolling numbers.
 
-        rollingNumberSetterFingerprint.method.apply {
+        rollingNumberSetterMethod.apply {
             val insertIndex = 1
-            val dislikesIndex = rollingNumberSetterFingerprint.instructionMatches.last().index
+            val dislikesIndex = rollingNumberSetterMethod.instructionMatches.last().index
             val charSequenceInstanceRegister =
                 getInstruction<OneRegisterInstruction>(0).registerA
             val charSequenceFieldReference =
@@ -239,13 +239,13 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
                     invoke-static {v$conversionContextRegister, v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberLoaded(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$freeRegister
                     iput-object v$freeRegister, v$charSequenceInstanceRegister, $charSequenceFieldReference
-                """
+                """,
             )
         }
 
         // Rolling Number text views use the measured width of the raw string for layout.
         // Modify the measure text calculation to include the left drawable separator if needed.
-        rollingNumberMeasureAnimatedTextFingerprint.let {
+        rollingNumberMeasureAnimatedTextMethod.let {
             // Additional check to verify the opcodes are at the start of the method
             if (it.instructionMatches.first().index != 0) throw PatchException("Unexpected opcode location")
             val endIndex = it.instructionMatches.last().index
@@ -258,15 +258,15 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
                     """
                         invoke-static {p1, v$measuredTextWidthRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
                         move-result v$measuredTextWidthRegister
-                    """
+                    """,
                 )
             }
         }
 
         // Additional text measurement method. Used if YouTube decides not to animate the likes count
         // and sometimes used for initial video load.
-        rollingNumberMeasureStaticLabelFingerprint.match(
-            rollingNumberMeasureStaticLabelParentFingerprint.originalClassDef,
+        rollingNumberMeasureStaticLabelMethod.match(
+            rollingNumberMeasureStaticLabelParentMethod.originalClassDef,
         ).let {
             val measureTextIndex = it.instructionMatches.first().index + 1
             it.method.apply {
@@ -277,7 +277,7 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
                     """
                         move-result v$freeRegister
                         invoke-static {p1, v$freeRegister}, $EXTENSION_CLASS_DESCRIPTOR->onRollingNumberMeasured(Ljava/lang/String;F)F
-                    """
+                    """,
                 )
             }
         }
@@ -286,10 +286,10 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
             // The rolling number Span is missing styling since it's initially set as a String.
             // Modify the UI text view and use the styled like/dislike Span.
             // Initial TextView is set in this method.
-            rollingNumberTextViewFingerprint.method,
+            rollingNumberTextViewMethod,
             // Videos less than 24 hours after uploaded, like counts will be updated in real time.
             // Whenever like counts are updated, TextView is set in this method.
-            rollingNumberTextViewAnimationUpdateFingerprint.method,
+            rollingNumberTextViewAnimationUpdateMethod,
         ).forEach { insertMethod ->
             insertMethod.apply {
                 val setTextIndex = indexOfFirstInstructionOrThrow {
@@ -304,7 +304,7 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
                     """
                         invoke-static {v$textViewRegister, v$textSpanRegister}, $EXTENSION_CLASS_DESCRIPTOR->updateRollingNumber(Landroid/widget/TextView;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
                         move-result-object v$textSpanRegister
-                    """
+                    """,
                 )
             }
         }

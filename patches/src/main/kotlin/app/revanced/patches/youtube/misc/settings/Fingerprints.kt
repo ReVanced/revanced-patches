@@ -1,14 +1,21 @@
 package app.revanced.patches.youtube.misc.settings
 
 import app.revanced.patcher.InstructionLocation.MatchAfterWithin
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
 import app.revanced.patcher.opcode
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val licenseActivityOnCreateFingerprint = fingerprint {
+internal val BytecodePatchContext.licenseActivityOnCreateMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/os/Bundle;")
@@ -17,7 +24,7 @@ internal val licenseActivityOnCreateFingerprint = fingerprint {
     }
 }
 
-internal val setThemeFingerprint = fingerprint {
+internal val BytecodePatchContext.setThemeMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes()
@@ -26,7 +33,7 @@ internal val setThemeFingerprint = fingerprint {
     )
 }
 
-internal val cairoFragmentConfigFingerprint = fingerprint {
+internal val BytecodePatchContext.cairoFragmentConfigMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     instructions(
@@ -37,7 +44,7 @@ internal val cairoFragmentConfigFingerprint = fingerprint {
 
 // Flag is present in 20.23, but bold icons are missing and forcing them crashes the app.
 // 20.31 is the first target with all the bold icons present.
-internal val boldIconsFeatureFlagFingerprint = fingerprint {
+internal val BytecodePatchContext.boldIconsFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

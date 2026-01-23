@@ -1,10 +1,17 @@
 package app.revanced.patches.shared.misc.settings
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.extension.EXTENSION_CLASS_DESCRIPTOR
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val themeLightColorResourceNameFingerprint = fingerprint {
+internal val BytecodePatchContext.themeLightColorResourceNameMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     parameterTypes()
@@ -13,7 +20,7 @@ internal val themeLightColorResourceNameFingerprint = fingerprint {
     }
 }
 
-internal val themeDarkColorResourceNameFingerprint = fingerprint {
+internal val BytecodePatchContext.themeDarkColorResourceNameMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     parameterTypes()

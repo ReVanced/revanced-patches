@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 @Suppress("unused")
 val `Fix old versions` by creatingBytecodePatch(
     description = "Fixes old versions of the app (v33.2 and earlier) breaking due to Tumblr removing remnants of Tumblr" +
-            " Live from the API, which causes many requests to fail. This patch has no effect on newer versions of the app.",
+        " Live from the API, which causes many requests to fail. This patch has no effect on newer versions of the app.",
     use = false,
 ) {
     compatibleWith("com.tumblr")
@@ -19,8 +19,8 @@ val `Fix old versions` by creatingBytecodePatch(
 
         // Remove the live query parameters from the path when it's specified via a @METHOD annotation.
         for (liveQueryParameter in liveQueryParameters) {
-            httpPathParserFingerprint.method.addInstructions(
-                httpPathParserFingerprint.instructionMatches.last().index + 1,
+            httpPathParserMethod.addInstructions(
+                httpPathParserMethod.instructionMatches.last().index + 1,
                 """
                     # urlPath = urlPath.replace(liveQueryParameter, "")
                     const-string p1, "$liveQueryParameter"
@@ -38,7 +38,7 @@ val `Fix old versions` by creatingBytecodePatch(
         // which would result in the path "api/me/inf0?fields[blog]=${value}"
         // Here we make sure that this value doesn't contain the broken query parameters.
         for (liveQueryParameter in liveQueryParameters) {
-            addQueryParamFingerprint.method.addInstructions(
+            addQueryParamMethod.addInstructions(
                 0,
                 """
                     # queryParameterValue = queryParameterValue.replace(liveQueryParameter, "")
