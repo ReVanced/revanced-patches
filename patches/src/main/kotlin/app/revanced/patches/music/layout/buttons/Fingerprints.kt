@@ -1,28 +1,43 @@
 package app.revanced.patches.music.layout.buttons
 
-import app.revanced.patcher.fingerprint
+import app.revanced.patcher.accessFlags
+import app.revanced.patcher.custom
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.immutableClassDef
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.literal
+import app.revanced.patcher.matchIndexed
+import app.revanced.patcher.method
+import app.revanced.patcher.opcodes
+import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.predicate
+import app.revanced.patcher.rememberMatchIndexed
+import app.revanced.patcher.returnType
+import app.revanced.patcher.unorderedAllOf
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val mediaRouteButtonFingerprint = fingerprint {
+internal val BytecodePatchContext.mediaRouteButtonMethod by gettingFirstMutableMethodDeclaratively("MediaRouteButton") {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    returns("Z")
-    strings("MediaRouteButton")
+    returnType("Z")
 }
 
-internal val playerOverlayChipFingerprint = fingerprint {
+internal val BytecodePatchContext.playerOverlayChipMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    literal { playerOverlayChip }
+    returnType("L")
+    custom {
+        instructions { literal { playerOverlayChip() } }
+    }
 }
 
 internal val BytecodePatchContext.historyMenuItemMethod by gettingFirstMutableMethodDeclaratively {
-    definingClass {
-        it.methods.count()
-        methods.count()
-    }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/view/Menu;")
@@ -31,8 +46,8 @@ internal val BytecodePatchContext.historyMenuItemMethod by gettingFirstMutableMe
         Opcode.RETURN_VOID,
     )
     historyMenuItem()
-    custom { _, classDef ->
-        classDef.methods.count() == 5
+    custom {
+        immutableClassDef.methods.count() == 5 // TODO CONFIRM
     }
 }
 

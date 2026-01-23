@@ -6,8 +6,8 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val BytecodePatchContext.userStateSwitchMethod by gettingFirstMutableMethodDeclaratively("key.user.state", "NA") {
     opcodes(Opcode.SPARSE_SWITCH)
-
 }
+
 internal val BytecodePatchContext.cb11ConstructorMethod by gettingFirstMutableMethodDeclaratively {
     definingClass("CB11Details;"::endsWith)
     parameterTypes(
@@ -20,9 +20,10 @@ internal val BytecodePatchContext.cb11ConstructorMethod by gettingFirstMutableMe
         "Z",
         "Ljava/lang/String;",
         "Ljava/lang/String;",
-        "L"
+        "L",
     )
 }
+
 internal val BytecodePatchContext.getBottomBarMethod by gettingFirstMutableMethodDeclaratively {
     name("getBottombar")
     definingClass("HomeMenu;"::endsWith)

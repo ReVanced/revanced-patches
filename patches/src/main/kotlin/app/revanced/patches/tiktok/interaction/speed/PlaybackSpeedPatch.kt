@@ -9,13 +9,14 @@ import app.revanced.patches.tiktok.shared.getEnterFromFingerprint
 import app.revanced.patches.tiktok.shared.onRenderFirstFrameFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction11x
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
 val `Playback speed` by creatingBytecodePatch(
     description = "Enables the playback speed option for all videos and " +
-            "retains the speed configurations in between videos.",
+        "retains the speed configurations in between videos.",
 ) {
     compatibleWith(
         "com.ss.android.ugc.trill"("36.5.4"),
@@ -57,12 +58,6 @@ val `Playback speed` by creatingBytecodePatch(
         )
 
         // Force enable the playback speed option for all videos.
-        setSpeedMethod.classDef.methods.find { method -> method.returnType == "Z" }?.addInstructions(
-            0,
-            """
-                const/4 v0, 0x1
-                return v0
-            """,
-        )
+        setSpeedMethod.classDef.methods.find { method -> method.returnType == "Z" }?.returnEarly(true)
     }
 }

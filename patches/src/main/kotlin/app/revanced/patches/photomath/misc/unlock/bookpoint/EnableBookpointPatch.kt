@@ -1,7 +1,7 @@
 package app.revanced.patches.photomath.misc.unlock.bookpoint
 
-import app.revanced.patcher.extensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val enableBookpointPatch = bytecodePatch(
@@ -9,12 +9,6 @@ val enableBookpointPatch = bytecodePatch(
 ) {
 
     apply {
-        isBookpointEnabledMethod.replaceInstructions(
-            0,
-            """
-                const/4 v0, 0x1
-                return v0
-            """,
-        )
+        isBookpointEnabledMethod.returnEarly(true) // TODO: CHECK IF THIS IS FINE IN REPLACEMENT OF replaceInstructions
     }
 }

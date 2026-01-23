@@ -2,6 +2,7 @@ package app.revanced.patches.tiktok.interaction.seekbar
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val `Show seekbar` by creatingBytecodePatch(
@@ -13,13 +14,7 @@ val `Show seekbar` by creatingBytecodePatch(
     )
 
     apply {
-        shouldShowSeekBarMethod.addInstructions(
-            0,
-            """
-                const/4 v0, 0x1
-                return v0
-            """,
-        )
+        shouldShowSeekBarMethod.returnEarly(true)
         setSeekBarShowTypeMethod.apply {
             val typeRegister = implementation!!.registerCount - 1
 

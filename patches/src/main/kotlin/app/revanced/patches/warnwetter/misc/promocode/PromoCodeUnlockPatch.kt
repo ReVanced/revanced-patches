@@ -1,8 +1,8 @@
 package app.revanced.patches.warnwetter.misc.promocode
 
-import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.warnwetter.misc.firebasegetcert.firebaseGetCertPatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val `Promo code unlock` by creatingBytecodePatch(
@@ -13,12 +13,6 @@ val `Promo code unlock` by creatingBytecodePatch(
     compatibleWith("de.dwd.warnapp"("4.2.2"))
 
     apply {
-        promoCodeUnlockMethod.addInstructions(
-            0,
-            """
-                const/4 v0, 0x1
-                return v0
-            """,
-        )
+        promoCodeUnlockMethod.returnEarly(true)
     }
 }
