@@ -11,7 +11,6 @@ import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -30,7 +29,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/pa
 @Suppress("unused")
 val navigationBarPatch = bytecodePatch(
     name = "Navigation bar",
-    description = "Adds options to hide navigation bar, labels and buttons."
+    description = "Adds options to hide navigation bar, labels and buttons.",
 ) {
     dependsOn(
         resourceMappingPatch,
@@ -52,18 +51,18 @@ val navigationBarPatch = bytecodePatch(
                     }
                 }
             }
-        }
+        },
     )
 
     compatibleWith(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
-            "8.10.52"
-        )
+            "8.10.52",
+        ),
     )
 
     apply {
-        text1 = getResourceId(ResourceType.ID, "text1")
+        text1 = ResourceType.ID["text1"]
 
         addResources("music", "layout.navigationbar.navigationBarPatch")
 
@@ -80,8 +79,8 @@ val navigationBarPatch = bytecodePatch(
 
                     SwitchPreference("revanced_music_hide_navigation_bar"),
                     SwitchPreference("revanced_music_hide_navigation_bar_labels"),
-                )
-            )
+                ),
+            ),
         )
 
         tabLayoutTextFingerprint.method.apply {
@@ -91,12 +90,13 @@ val navigationBarPatch = bytecodePatch(
             val targetParameter = getInstruction<ReferenceInstruction>(targetIndex).reference
             val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            if (!targetParameter.toString().endsWith("Landroid/widget/TextView;"))
+            if (!targetParameter.toString().endsWith("Landroid/widget/TextView;")) {
                 throw PatchException("Method signature parameter did not match: $targetParameter")
+            }
 
             addInstruction(
                 targetIndex + 1,
-                "invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationLabel(Landroid/widget/TextView;)V"
+                "invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationLabel(Landroid/widget/TextView;)V",
             )
 
             // Set navigation enum and hide navigation buttons.
@@ -109,12 +109,12 @@ val navigationBarPatch = bytecodePatch(
 
             addInstruction(
                 pivotTabIndex,
-                "invoke-static { v$pivotTabRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V"
+                "invoke-static { v$pivotTabRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideNavigationButton(Landroid/view/View;)V",
             )
 
             addInstruction(
                 insertEnumIndex,
-                "invoke-static { v$enumRegister }, $EXTENSION_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V"
+                "invoke-static { v$enumRegister }, $EXTENSION_CLASS_DESCRIPTOR->setLastAppNavigationEnum(Ljava/lang/Enum;)V",
             )
         }
     }

@@ -6,7 +6,6 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.youtube.shared.seekbarFingerprint
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversed
@@ -20,10 +19,10 @@ internal val appendTimeFingerprint = fingerprint {
     returns("V")
     parameters("Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;")
     instructions(
-        resourceLiteral(ResourceType.STRING, "total_time"),
+        ResourceType.STRING("total_time"),
 
         methodCall(smali = "Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately())
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
     )
 }
 
@@ -31,8 +30,8 @@ internal val controlsOverlayFingerprint = fingerprint {
     returns("V")
     parameters()
     instructions(
-        resourceLiteral(ResourceType.ID, "inset_overlay_view_layout"),
-        checkCast("Landroid/widget/FrameLayout;", MatchAfterWithin(20))
+        ResourceType.ID("inset_overlay_view_layout"),
+        checkCast("Landroid/widget/FrameLayout;", MatchAfterWithin(20)),
     )
 }
 
@@ -43,7 +42,7 @@ internal val rectangleFieldInvalidatorFingerprint = fingerprint {
     returns("V")
     parameters()
     instructions(
-        methodCall(name = "invalidate")
+        methodCall(name = "invalidate"),
     )
 }
 
@@ -56,11 +55,9 @@ internal val adProgressTextViewVisibilityFingerprint = fingerprint {
     }
 }
 
-internal fun indexOfAdProgressTextViewVisibilityInstruction(method: Method) =
-    method.indexOfFirstInstructionReversed {
-        val reference = getReference<MethodReference>()
-        reference?.definingClass ==
-                "Lcom/google/android/libraries/youtube/ads/player/ui/AdProgressTextView;"
-                && reference.name =="setVisibility"
-    }
-
+internal fun indexOfAdProgressTextViewVisibilityInstruction(method: Method) = method.indexOfFirstInstructionReversed {
+    val reference = getReference<MethodReference>()
+    reference?.definingClass ==
+        "Lcom/google/android/libraries/youtube/ads/player/ui/AdProgressTextView;" &&
+        reference.name == "setVisibility"
+}

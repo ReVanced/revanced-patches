@@ -8,7 +8,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
@@ -37,14 +36,14 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
         addResourcesPatch,
         lithoFilterPatch,
         recyclerViewTreeHookPatch,
-        resourceMappingPatch
+        resourceMappingPatch,
     )
 
     apply {
         addResources("youtube", "video.quality.advancedVideoQualityMenuPatch")
 
         settingsMenuVideoQualityGroup.add(
-            SwitchPreference("revanced_advanced_video_quality_menu")
+            SwitchPreference("revanced_advanced_video_quality_menu"),
         )
 
         // Used for the old type of the video quality menu.
@@ -69,7 +68,7 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
                 addInstruction(
                     checkCastIndex + 1,
                     "invoke-static { v$listViewRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                            "addVideoQualityListMenuListener(Landroid/widget/ListView;)V",
+                        "addVideoQualityListMenuListener(Landroid/widget/ListView;)V",
                 )
             }
         }
@@ -91,7 +90,7 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->forceAdvancedVideoQualityMenuCreation(Z)Z
                         move-result v$register
-                    """
+                    """,
                 )
             }
         }

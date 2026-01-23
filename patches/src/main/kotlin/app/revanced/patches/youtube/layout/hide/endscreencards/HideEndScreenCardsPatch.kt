@@ -8,7 +8,6 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
@@ -39,7 +38,7 @@ private val hideEndScreenCardsResourcePatch = resourcePatch {
             SwitchPreference("revanced_hide_endscreen_cards"),
         )
 
-        fun idOf(name: String) = getResourceId(ResourceType.LAYOUT, "endscreen_element_layout_$name")
+        fun idOf(name: String) = ResourceType.LAYOUT["endscreen_element_layout_$name"]
 
         layoutCircle = idOf("circle")
         layoutIcon = idOf("icon")
@@ -58,7 +57,7 @@ val hideEndScreenCardsPatch = bytecodePatch(
     dependsOn(
         sharedExtensionPatch,
         hideEndScreenCardsResourcePatch,
-        versionCheckPatch
+        versionCheckPatch,
     )
 
     compatibleWith(
@@ -67,7 +66,7 @@ val hideEndScreenCardsPatch = bytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -83,7 +82,7 @@ val hideEndScreenCardsPatch = bytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$viewRegister }, " +
-                            "$EXTENSION_CLASS_DESCRIPTOR->hideEndScreenCardView(Landroid/view/View;)V",
+                        "$EXTENSION_CLASS_DESCRIPTOR->hideEndScreenCardView(Landroid/view/View;)V",
                 )
             }
         }
@@ -98,7 +97,7 @@ val hideEndScreenCardsPatch = bytecodePatch(
                     return-void
                     :show
                     nop
-                """
+                """,
             )
         }
     }

@@ -9,7 +9,6 @@ import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
@@ -21,7 +20,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/pa
 @Suppress("unused")
 val hideCategoryBar = bytecodePatch(
     name = "Hide category bar",
-    description = "Adds an option to hide the category bar at the top of the homepage."
+    description = "Adds an option to hide the category bar at the top of the homepage.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -32,8 +31,8 @@ val hideCategoryBar = bytecodePatch(
     compatibleWith(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
-            "8.10.52"
-        )
+            "8.10.52",
+        ),
     )
 
     apply {
@@ -43,7 +42,7 @@ val hideCategoryBar = bytecodePatch(
             SwitchPreference("revanced_music_hide_category_bar"),
         )
 
-        chipCloud = getResourceId(ResourceType.LAYOUT, "chip_cloud")
+        chipCloud = ResourceType.LAYOUT["chip_cloud"]
 
         chipCloudFingerprint.method.apply {
             val targetIndex = chipCloudFingerprint.patternMatch.endIndex
@@ -51,7 +50,7 @@ val hideCategoryBar = bytecodePatch(
 
             addInstruction(
                 targetIndex + 1,
-                "invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideCategoryBar(Landroid/view/View;)V"
+                "invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideCategoryBar(Landroid/view/View;)V",
             )
         }
     }

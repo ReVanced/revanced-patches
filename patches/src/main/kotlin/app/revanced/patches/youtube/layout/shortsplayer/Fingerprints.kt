@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.layout.shortsplayer
 
+import app.revanced.patcher.addString
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
-import app.revanced.patcher.addString
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -24,9 +23,9 @@ internal val playbackStartFeatureFlagFingerprint = fingerprint {
     instructions(
         methodCall(
             definingClass = "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
-            returnType = "Ljava/lang/String;"
+            returnType = "Ljava/lang/String;",
         ),
-        literal(45380134L)
+        literal(45380134L),
     )
 }
 
@@ -41,20 +40,19 @@ internal val watchPanelVideoIdFingerprint = fingerprint {
     instructions(
         fieldAccess(
             opcode = Opcode.IGET_OBJECT,
-            type = "Lcom/google/android/apps/youtube/app/common/player/queue/WatchPanelId;"
+            type = "Lcom/google/android/apps/youtube/app/common/player/queue/WatchPanelId;",
         ),
         checkCast("Lcom/google/android/apps/youtube/app/common/player/queue/DefaultWatchPanelId;"),
         methodCall(
             definingClass = "Lcom/google/android/apps/youtube/app/common/player/queue/DefaultWatchPanelId;",
-            returnType = "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;"
+            returnType = "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
         ),
         methodCall(
             definingClass = "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
-            returnType = "Ljava/lang/String;"
-        )
+            returnType = "Ljava/lang/String;",
+        ),
     )
 }
-
 
 // Pre 19.25
 internal val shortsPlaybackIntentLegacyFingerprint = fingerprint {
@@ -66,14 +64,14 @@ internal val shortsPlaybackIntentLegacyFingerprint = fingerprint {
         "J",
         "Ljava/lang/String;",
         "Z",
-        "Ljava/util/Map;"
+        "Ljava/util/Map;",
     )
     instructions(
         methodCall(returnType = "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;"),
         // None of these strings are unique.
         addString("com.google.android.apps.youtube.app.endpoint.flags"),
         addString("ReelWatchFragmentArgs"),
-        addString("reels_fragment_descriptor")
+        addString("reels_fragment_descriptor"),
     )
 }
 
@@ -84,13 +82,13 @@ internal val shortsPlaybackIntentFingerprint = fingerprint {
         "Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;",
         "Ljava/util/Map;",
         "J",
-        "Ljava/lang/String;"
+        "Ljava/lang/String;",
     )
     instructions(
         // None of these strings are unique.
         addString("com.google.android.apps.youtube.app.endpoint.flags"),
         addString("ReelWatchFragmentArgs"),
-        addString("reels_fragment_descriptor")
+        addString("reels_fragment_descriptor"),
     )
 }
 
@@ -98,6 +96,6 @@ internal val exitVideoPlayerFingerprint = fingerprint {
     returns("V")
     parameters()
     instructions(
-        resourceLiteral(ResourceType.ID, "mdx_drawer_layout")
+        ResourceType.ID("mdx_drawer_layout"),
     )
 }

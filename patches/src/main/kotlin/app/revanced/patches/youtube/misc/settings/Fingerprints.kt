@@ -5,7 +5,6 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.opcode
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -23,7 +22,7 @@ internal val setThemeFingerprint = fingerprint {
     returns("L")
     parameters()
     instructions(
-        resourceLiteral(ResourceType.STRING, "app_theme_appearance_dark"),
+        ResourceType.STRING("app_theme_appearance_dark"),
     )
 }
 
@@ -32,7 +31,7 @@ internal val cairoFragmentConfigFingerprint = fingerprint {
     returns("Z")
     instructions(
         literal(45532100L),
-        opcode(Opcode.MOVE_RESULT, location = MatchAfterWithin(10))
+        opcode(Opcode.MOVE_RESULT, location = MatchAfterWithin(10)),
     )
 }
 
@@ -43,6 +42,6 @@ internal val boldIconsFeatureFlagFingerprint = fingerprint {
     returns("Z")
     parameters()
     instructions(
-        literal(45685201L)
+        literal(45685201L),
     )
 }

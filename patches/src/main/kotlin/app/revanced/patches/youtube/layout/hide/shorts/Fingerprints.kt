@@ -1,13 +1,12 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
 import app.revanced.patcher.InstructionLocation.*
+import app.revanced.patcher.addString
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
-import app.revanced.patcher.addString
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -17,9 +16,9 @@ internal val shortsBottomBarContainerFingerprint = fingerprint {
     parameters("Landroid/view/View;", "Landroid/os/Bundle;")
     instructions(
         addString("r_pfvc"),
-        resourceLiteral(ResourceType.ID, "bottom_bar_container"),
+        ResourceType.ID("bottom_bar_container"),
         methodCall(name = "getHeight"),
-        opcode(Opcode.MOVE_RESULT)
+        opcode(Opcode.MOVE_RESULT),
     )
 }
 
@@ -57,7 +56,7 @@ internal val legacyRenderBottomNavigationBarLegacyParentFingerprint = fingerprin
         "L",
     )
     instructions(
-        addString("aa")
+        addString("aa"),
     )
 }
 
@@ -77,7 +76,7 @@ internal val renderBottomNavigationBarLegacy1941ParentFingerprint = fingerprint 
         "L",
     )
     instructions(
-        addString("aa")
+        addString("aa"),
     )
 }
 
@@ -87,10 +86,10 @@ internal val renderBottomNavigationBarParentFingerprint = fingerprint {
     parameters(
         "Ljava/lang/Class;",
         "Ljava/lang/Object;",
-        "I"
+        "I",
     )
     instructions(
-        addString("RPCAC")
+        addString("RPCAC"),
     )
 }
 
@@ -107,7 +106,7 @@ internal val setPivotBarVisibilityFingerprint = fingerprint {
 internal val setPivotBarVisibilityParentFingerprint = fingerprint {
     parameters("Z")
     instructions(
-        addString("FEnotifications_inbox")
+        addString("FEnotifications_inbox"),
     )
 }
 
@@ -116,7 +115,7 @@ internal val shortsExperimentalPlayerFeatureFlagFingerprint = fingerprint {
     returns("Z")
     parameters()
     instructions(
-        literal(45677719L)
+        literal(45677719L),
     )
 }
 
@@ -125,6 +124,6 @@ internal val renderNextUIFeatureFlagFingerprint = fingerprint {
     returns("Z")
     parameters()
     instructions(
-        literal(45649743L)
+        literal(45649743L),
     )
 }

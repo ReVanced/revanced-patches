@@ -1,27 +1,26 @@
 package app.revanced.patches.youtube.shared
 
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.accessFlags
-import app.revanced.patcher.fingerprint
-import app.revanced.patcher.literal
-import app.revanced.patcher.methodCall
-import app.revanced.patcher.opcode
 import app.revanced.patcher.addString
 import app.revanced.patcher.after
 import app.revanced.patcher.allOf
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.field
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
+import app.revanced.patcher.literal
+import app.revanced.patcher.methodCall
 import app.revanced.patcher.name
+import app.revanced.patcher.opcode
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 import app.revanced.patcher.type
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -35,7 +34,7 @@ internal val conversionContextFingerprintToString = fingerprint {
         ", heightConstraint=",
         ", templateLoggerFactory=",
         ", rootDisposableContainer=",
-        ", identifierProperty="
+        ", identifierProperty=",
     )
     custom { method, _ ->
         method.name == "toString"
@@ -47,9 +46,9 @@ internal val layoutConstructorFingerprint = fingerprint {
     returns("V")
     instructions(
         literal(159962),
-        resourceLiteral(ResourceType.ID, "player_control_previous_button_touch_area"),
-        resourceLiteral(ResourceType.ID, "player_control_next_button_touch_area"),
-        methodCall(parameters = listOf("Landroid/view/View;", "I"))
+        ResourceType.ID("player_control_previous_button_touch_area"),
+        ResourceType.ID("player_control_next_button_touch_area"),
+        methodCall(parameters = listOf("Landroid/view/View;", "I")),
     )
 }
 
@@ -98,8 +97,8 @@ internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
     )
     custom { _, classDef ->
         classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;" ||
-                classDef.superclass ==
-                "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
+            classDef.superclass ==
+            "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
     }
 }
 
@@ -116,7 +115,7 @@ internal val seekbarFingerprint = fingerprint {
 internal val seekbarOnDrawFingerprint = fingerprint {
     instructions(
         methodCall(smali = "Ljava/lang/Math;->round(F)I"),
-        opcode(Opcode.MOVE_RESULT, location = MatchAfterImmediately())
+        opcode(Opcode.MOVE_RESULT, location = MatchAfterImmediately()),
     )
     custom { method, _ -> method.name == "onDraw" }
 }
@@ -126,8 +125,8 @@ internal val subtitleButtonControllerFingerprint = fingerprint {
     returns("V")
     parameters("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")
     instructions(
-        resourceLiteral(ResourceType.STRING, "accessibility_captions_unavailable"),
-        resourceLiteral(ResourceType.STRING, "accessibility_captions_button_name"),
+        ResourceType.STRING("accessibility_captions_unavailable"),
+        ResourceType.STRING("accessibility_captions_button_name"),
     )
 }
 
@@ -139,6 +138,6 @@ internal val videoQualityChangedMethodMatch = firstMethodComposite {
         allOf(Opcode.NEW_INSTANCE(), type("Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;")),
         Opcode.IGET_OBJECT(),
         Opcode.CHECK_CAST(),
-        after(allOf(Opcode.IGET(), field { type == "I" })) // Video resolution (human-readable).
+        after(allOf(Opcode.IGET(), field { type == "I" })), // Video resolution (human-readable).
     )
 }

@@ -6,7 +6,6 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
@@ -38,7 +37,7 @@ val backgroundPlaybackPatch = bytecodePatch(
         playerTypeHookPatch,
         videoInformationPatch,
         settingsPatch,
-        versionCheckPatch
+        versionCheckPatch,
     )
 
     compatibleWith(
@@ -47,19 +46,19 @@ val backgroundPlaybackPatch = bytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
         addResources("youtube", "misc.backgroundplayback.backgroundPlaybackPatch")
 
         PreferenceScreen.SHORTS.addPreferences(
-            SwitchPreference("revanced_shorts_disable_background_playback")
+            SwitchPreference("revanced_shorts_disable_background_playback"),
         )
 
         prefBackgroundAndOfflineCategoryId = getResourceId(
             ResourceType.STRING,
-            "pref_background_and_offline_category"
+            "pref_background_and_offline_category",
         )
 
         arrayOf(
@@ -105,7 +104,7 @@ val backgroundPlaybackPatch = bytecodePatch(
             pipInputConsumerFeatureFlagFingerprint.let {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
-                    false
+                    false,
                 )
             }
         }

@@ -11,7 +11,6 @@ import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.shared.layout.branding.EXTENSION_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.layout.branding.baseCustomBrandingPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -34,11 +33,11 @@ private val disableSplashAnimationPatch = bytecodePatch {
         // barely shown. Instead turn off the animation entirely (app will also launch a little faster).
         cairoSplashAnimationConfigMethod.apply {
             val literalIndex = indexOfFirstLiteralInstructionOrThrow(
-                getResourceId(ResourceType.LAYOUT, "main_activity_launch_animation")
+                ResourceType.LAYOUT["main_activity_launch_animation"],
             )
             val checkCastIndex = indexOfFirstInstructionOrThrow(literalIndex) {
                 opcode == Opcode.CHECK_CAST &&
-                        getReference<TypeReference>()?.type == "Lcom/airbnb/lottie/LottieAnimationView;"
+                    getReference<TypeReference>()?.type == "Lcom/airbnb/lottie/LottieAnimationView;"
             }
             val register = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
@@ -48,7 +47,7 @@ private val disableSplashAnimationPatch = bytecodePatch {
                 """
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getLottieViewOrNull(Landroid/view/View;)Landroid/view/View;
                     move-result-object v$register
-                """
+                """,
             )
         }
     }
@@ -73,8 +72,8 @@ val customBrandingPatch = baseCustomBrandingPatch(
         compatibleWith(
             "com.google.android.apps.youtube.music"(
                 "7.29.52",
-                "8.10.52"
-            )
+                "8.10.52",
+            ),
         )
-    }
+    },
 )

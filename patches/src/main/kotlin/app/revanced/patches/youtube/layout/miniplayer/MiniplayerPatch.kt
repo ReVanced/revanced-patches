@@ -9,12 +9,9 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
-import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
@@ -32,6 +29,8 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
+import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
 // Only available in 19.15 and upwards.
 internal var ytOutlineXWhite24 = -1L
@@ -73,7 +72,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/
 @Suppress("unused")
 val miniplayerPatch = bytecodePatch(
     name = "Miniplayer",
-    description = "Adds options to change the in-app minimized player."
+    description = "Adds options to change the in-app minimized player.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -88,14 +87,13 @@ val miniplayerPatch = bytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
         addResources("youtube", "layout.miniplayer.miniplayerPatch")
 
         val preferences = mutableSetOf<BasePreference>()
-
 
         preferences +=
             if (is_20_37_or_greater) {
@@ -104,19 +102,19 @@ val miniplayerPatch = bytecodePatch(
                 ListPreference(
                     key = "revanced_miniplayer_type",
                     entriesKey = "revanced_miniplayer_type_legacy_20_03_entries",
-                    entryValuesKey = "revanced_miniplayer_type_legacy_20_03_entry_values"
+                    entryValuesKey = "revanced_miniplayer_type_legacy_20_03_entry_values",
                 )
             } else if (is_19_43_or_greater) {
                 ListPreference(
                     key = "revanced_miniplayer_type",
                     entriesKey = "revanced_miniplayer_type_legacy_19_43_entries",
-                    entryValuesKey = "revanced_miniplayer_type_legacy_19_43_entry_values"
+                    entryValuesKey = "revanced_miniplayer_type_legacy_19_43_entry_values",
                 )
             } else {
                 ListPreference(
                     key = "revanced_miniplayer_type",
                     entriesKey = "revanced_miniplayer_type_legacy_19_16_entries",
-                    entryValuesKey = "revanced_miniplayer_type_legacy_19_16_entry_values"
+                    entryValuesKey = "revanced_miniplayer_type_legacy_19_16_entry_values",
                 )
             }
 
@@ -173,7 +171,7 @@ val miniplayerPatch = bytecodePatch(
                 """
                     invoke-static {v$register}, $EXTENSION_CLASS_DESCRIPTOR->$methodName(Z)Z
                     move-result v$register
-                """
+                """,
             )
         }
 
@@ -198,7 +196,7 @@ val miniplayerPatch = bytecodePatch(
             extensionMethod: String,
         ) = method.insertLiteralOverride(
             literal,
-            "$EXTENSION_CLASS_DESCRIPTOR->$extensionMethod(Z)Z"
+            "$EXTENSION_CLASS_DESCRIPTOR->$extensionMethod(Z)Z",
         )
 
         fun Fingerprint.insertMiniplayerFeatureFlagFloatOverride(
@@ -215,7 +213,7 @@ val miniplayerPatch = bytecodePatch(
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$extensionMethod(F)F
                         move-result v$register
-                    """
+                    """,
                 )
             }
         }
@@ -231,7 +229,7 @@ val miniplayerPatch = bytecodePatch(
                 """
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getModernMiniplayerOverrideType(I)I
                     move-result v$register
-                """
+                """,
             )
         }
 
@@ -244,7 +242,7 @@ val miniplayerPatch = bytecodePatch(
             ).method.apply {
                 findReturnIndicesReversed().forEach { index ->
                     insertLegacyTabletMiniplayerOverride(
-                        index
+                        index,
                     )
                 }
             }
@@ -257,7 +255,7 @@ val miniplayerPatch = bytecodePatch(
                 navigate(it.originalMethod).to(appNameStringIndex).stop().apply {
                     findReturnIndicesReversed().forEach { index ->
                         insertLegacyTabletMiniplayerOverride(
-                            index
+                            index,
                         )
                     }
                 }
@@ -323,7 +321,7 @@ val miniplayerPatch = bytecodePatch(
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getMiniplayerDefaultSize(I)I
                         move-result v$register
-                    """
+                    """,
                 )
             }
 
@@ -351,7 +349,7 @@ val miniplayerPatch = bytecodePatch(
         if (is_19_43_or_greater) {
             miniplayerOnCloseHandlerFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
                 MINIPLAYER_DISABLED_FEATURE_KEY,
-                "getMiniplayerOnCloseHandler"
+                "getMiniplayerOnCloseHandler",
             )
 
             miniplayerModernConstructorFingerprint.insertMiniplayerFeatureFlagBooleanOverride(
@@ -394,8 +392,8 @@ val miniplayerPatch = bytecodePatch(
             miniplayerSetIconsFingerprint.method.apply {
                 findInstructionIndicesReversedOrThrow {
                     val reference = getReference<MethodReference>()
-                    opcode == Opcode.INVOKE_INTERFACE
-                        && reference?.returnType == "Z" && reference.parameterTypes.isEmpty()
+                    opcode == Opcode.INVOKE_INTERFACE &&
+                        reference?.returnType == "Z" && reference.parameterTypes.isEmpty()
                 }.forEach { index ->
                     val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
@@ -404,7 +402,7 @@ val miniplayerPatch = bytecodePatch(
                         """
                             invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->allowBoldIcons(Z)Z
                             move-result v$register
-                        """
+                        """,
                     )
                 }
             }
@@ -420,7 +418,7 @@ val miniplayerPatch = bytecodePatch(
             miniplayerModernActionButtonFingerprint to "hideMiniplayerActionButton",
             miniplayerModernRewindButtonFingerprint to "hideMiniplayerRewindForward",
             miniplayerModernForwardButtonFingerprint to "hideMiniplayerRewindForward",
-            miniplayerModernOverlayViewFingerprint to "adjustMiniplayerOpacity"
+            miniplayerModernOverlayViewFingerprint to "adjustMiniplayerOpacity",
         ).forEach { (fingerprint, methodName) ->
             fingerprint.match(
                 miniplayerModernViewParentFingerprint.classDef,
@@ -462,7 +460,7 @@ val miniplayerPatch = bytecodePatch(
                         ImmutableMethodParameter(
                             "Landroid/view/ViewGroup\$LayoutParams;",
                             null,
-                            null
+                            null,
                         ),
                     ),
                     "V",
@@ -476,9 +474,9 @@ val miniplayerPatch = bytecodePatch(
                         invoke-super { p0, p1, p2, p3 }, Landroid/view/ViewGroup;->addView(Landroid/view/View;ILandroid/view/ViewGroup${'$'}LayoutParams;)V
                         invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->playerOverlayGroupCreated(Landroid/view/View;)V
                         return-void
-                    """
+                    """,
                     )
-                }
+                },
             )
         }
 

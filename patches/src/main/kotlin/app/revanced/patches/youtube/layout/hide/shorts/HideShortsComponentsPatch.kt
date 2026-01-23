@@ -10,7 +10,6 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -66,9 +65,9 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
             // FIXME: The buffer is very different for 20.22+ and these current cannot be hidden.
             Logger.getLogger(this::class.java.name).warning(
                 "\n!!!" +
-                        "\n!!! Shorts action buttons currently cannot be set hidden when patching 20.22+" +
-                        "\n!!! Patch 20.21.37 or lower if you want to hide Shorts action buttons" +
-                        "\n!!!"
+                    "\n!!! Shorts action buttons currently cannot be set hidden when patching 20.22+" +
+                    "\n!!! Patch 20.21.37 or lower if you want to hide Shorts action buttons" +
+                    "\n!!!",
             )
         } else {
             preferences.addAll(
@@ -76,8 +75,8 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                     SwitchPreference("revanced_hide_shorts_comments_button"),
                     SwitchPreference("revanced_hide_shorts_share_button"),
                     SwitchPreference("revanced_hide_shorts_remix_button"),
-                    SwitchPreference("revanced_hide_shorts_sound_button")
-                )
+                    SwitchPreference("revanced_hide_shorts_sound_button"),
+                ),
             )
         }
 
@@ -97,7 +96,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                 SwitchPreference("revanced_hide_shorts_effect_button"),
                 SwitchPreference("revanced_hide_shorts_green_screen_button"),
                 SwitchPreference("revanced_hide_shorts_hashtag_button"),
-                SwitchPreference("revanced_hide_shorts_live_preview"),SwitchPreference("revanced_hide_shorts_new_posts_button"),
+                SwitchPreference("revanced_hide_shorts_live_preview"), SwitchPreference("revanced_hide_shorts_new_posts_button"),
                 SwitchPreference("revanced_hide_shorts_shop_button"),
                 SwitchPreference("revanced_hide_shorts_tagged_products"),
                 SwitchPreference("revanced_hide_shorts_search_suggestions"),
@@ -105,14 +104,14 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                 SwitchPreference("revanced_hide_shorts_stickers"),
 
                 // Bottom of the screen.
-                SwitchPreference("revanced_hide_shorts_auto_dubbed_label"),SwitchPreference("revanced_hide_shorts_location_label"),
+                SwitchPreference("revanced_hide_shorts_auto_dubbed_label"), SwitchPreference("revanced_hide_shorts_location_label"),
                 SwitchPreference("revanced_hide_shorts_channel_bar"),
                 SwitchPreference("revanced_hide_shorts_info_panel"),
                 SwitchPreference("revanced_hide_shorts_full_video_link_label"),
                 SwitchPreference("revanced_hide_shorts_video_title"),
                 SwitchPreference("revanced_hide_shorts_sound_metadata_label"),
                 SwitchPreference("revanced_hide_shorts_navigation_bar"),
-            )
+            ),
         )
 
         PreferenceScreen.SHORTS.addPreferences(
@@ -125,7 +124,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                 key = "revanced_shorts_player_screen",
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
                 preferences = preferences,
-            )
+            ),
         )
 
         // Verify the file has the expected node, even if the patch option is off.
@@ -175,7 +174,7 @@ val hideShortsComponentsPatch = bytecodePatch(
             "20.14.43",
             "20.21.37",
             // 20.22+ does not yet support hiding Shorts action buttons.
-        )
+        ),
     )
 
     hideShortsAppShortcutOption()
@@ -184,7 +183,7 @@ val hideShortsComponentsPatch = bytecodePatch(
     apply {
         addLithoFilter(FILTER_CLASS_DESCRIPTOR)
 
-        val id = getResourceId(ResourceType.DIMEN, "reel_player_right_pivot_v2_size")
+        val id = ResourceType.DIMEN["reel_player_right_pivot_v2_size"]
 
         forEachInstructionAsSequence { _, method, i, instruction ->
             if (instruction.wideLiteral != id) return@forEachInstructionAsSequence
@@ -200,10 +199,9 @@ val hideShortsComponentsPatch = bytecodePatch(
                 """
                     invoke-static { v$sizeRegister }, $FILTER_CLASS_DESCRIPTOR->getSoundButtonSize(I)I
                     move-result v$sizeRegister
-                """
+                """,
             )
         }
-
 
         // endregion
 
@@ -219,20 +217,22 @@ val hideShortsComponentsPatch = bytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static {v$viewRegister}," +
-                            " $FILTER_CLASS_DESCRIPTOR->setNavigationBar(Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;)V",
+                        " $FILTER_CLASS_DESCRIPTOR->setNavigationBar(Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;)V",
                 )
             }
         }
 
         // Hook to hide the shared navigation bar when the Shorts player is opened.
         renderBottomNavigationBarFingerprint.match(
-            (if (is_20_45_or_greater) {
-                renderBottomNavigationBarParentFingerprint
-            } else if (is_19_41_or_greater) {
-                renderBottomNavigationBarLegacy1941ParentFingerprint
-            } else {
-                legacyRenderBottomNavigationBarLegacyParentFingerprint
-            }).originalClassDef
+            (
+                if (is_20_45_or_greater) {
+                    renderBottomNavigationBarParentFingerprint
+                } else if (is_19_41_or_greater) {
+                    renderBottomNavigationBarLegacy1941ParentFingerprint
+                } else {
+                    legacyRenderBottomNavigationBarLegacyParentFingerprint
+                }
+                ).originalClassDef,
         ).method.addInstruction(
             0,
             "invoke-static { p1 }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Ljava/lang/String;)V",
@@ -249,13 +249,12 @@ val hideShortsComponentsPatch = bytecodePatch(
                     """
                         invoke-static { v$heightRegister }, $FILTER_CLASS_DESCRIPTOR->getNavigationBarHeight(I)I
                         move-result v$heightRegister
-                    """
+                    """,
                 )
             }
         }
 
         // endregion
-
 
         // region Disable experimental Shorts flags.
 

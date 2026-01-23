@@ -7,7 +7,6 @@ import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -17,7 +16,7 @@ internal val playerControlsVisibilityEntityModelFingerprint = fingerprint {
     parameters()
     opcodes(
         Opcode.IGET,
-        Opcode.INVOKE_STATIC
+        Opcode.INVOKE_STATIC,
     )
     custom { method, _ ->
         method.name == "getPlayerControlsVisibility"
@@ -29,8 +28,8 @@ internal val youtubeControlsOverlayFingerprint = fingerprint {
     parameters()
     instructions(
         methodCall(name = "setFocusableInTouchMode"),
-        resourceLiteral(ResourceType.ID, "inset_overlay_view_layout"),
-        resourceLiteral(ResourceType.ID, "scrim_overlay"),
+        ResourceType.ID("inset_overlay_view_layout"),
+        ResourceType.ID("scrim_overlay"),
     )
 }
 
@@ -38,7 +37,7 @@ internal val motionEventFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/view/MotionEvent;")
     instructions(
-        methodCall(name = "setTranslationY")
+        methodCall(name = "setTranslationY"),
     )
 }
 
@@ -48,7 +47,7 @@ internal val playerControlsExtensionHookListenersExistFingerprint = fingerprint 
     parameters()
     custom { methodDef, classDef ->
         methodDef.name == "fullscreenButtonVisibilityCallbacksExist" &&
-                classDef.type == EXTENSION_CLASS_DESCRIPTOR
+            classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
 }
 
@@ -67,9 +66,9 @@ internal val playerTopControlsInflateFingerprint = fingerprint {
     returns("V")
     parameters()
     instructions(
-        resourceLiteral(ResourceType.ID, "controls_layout_stub"),
+        ResourceType.ID("controls_layout_stub"),
         methodCall("Landroid/view/ViewStub;", "inflate"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately())
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
     )
 }
 
@@ -77,9 +76,9 @@ internal val playerBottomControlsInflateFingerprint = fingerprint {
     returns("Ljava/lang/Object;")
     parameters()
     instructions(
-        resourceLiteral(ResourceType.ID, "bottom_ui_container_stub"),
+        ResourceType.ID("bottom_ui_container_stub"),
         methodCall("Landroid/view/ViewStub;", "inflate"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately())
+        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
     )
 }
 
@@ -88,9 +87,9 @@ internal val overlayViewInflateFingerprint = fingerprint {
     returns("V")
     parameters("Landroid/view/View;")
     instructions(
-        resourceLiteral(ResourceType.ID, "heatseeker_viewstub"),
-        resourceLiteral(ResourceType.ID, "fullscreen_button"),
-        checkCast("Landroid/widget/ImageView;")
+        ResourceType.ID("heatseeker_viewstub"),
+        ResourceType.ID("fullscreen_button"),
+        checkCast("Landroid/widget/ImageView;"),
     )
 }
 
@@ -108,7 +107,7 @@ internal val playerBottomControlsExploderFeatureFlagFingerprint = fingerprint {
     returns("Z")
     parameters()
     instructions(
-        literal(45643739L)
+        literal(45643739L),
     )
 }
 
@@ -117,7 +116,7 @@ internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint = fingerp
     returns("I")
     parameters()
     instructions(
-        literal(45629424L)
+        literal(45629424L),
     )
 }
 
@@ -126,7 +125,7 @@ internal val playerControlsLargeOverlayButtonsFeatureFlagFingerprint = fingerpri
     returns("Z")
     parameters()
     instructions(
-        literal(45709810L)
+        literal(45709810L),
     )
 }
 
@@ -135,7 +134,7 @@ internal val playerControlsFullscreenLargeButtonsFeatureFlagFingerprint = finger
     returns("Z")
     parameters()
     instructions(
-        literal(45686474L)
+        literal(45686474L),
     )
 }
 
@@ -144,6 +143,6 @@ internal val playerControlsButtonStrokeFeatureFlagFingerprint = fingerprint {
     returns("Z")
     parameters()
     instructions(
-        literal(45713296)
+        literal(45713296),
     )
 }

@@ -1,11 +1,10 @@
 package app.revanced.patches.youtube.misc.playertype
 
 import app.revanced.patcher.InstructionLocation.MatchAfterWithin
+import app.revanced.patcher.addString
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.opcode
-import app.revanced.patcher.addString
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -30,8 +29,8 @@ internal val reelWatchPagerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Landroid/view/View;")
     instructions(
-        resourceLiteral(ResourceType.ID, "reel_watch_player"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterWithin(10))
+        ResourceType.ID("reel_watch_player"),
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterWithin(10)),
     )
 }
 
@@ -44,7 +43,7 @@ internal val videoStateEnumFingerprint = fingerprint {
         "PAUSED",
         "RECOVERABLE_ERROR",
         "UNRECOVERABLE_ERROR",
-        "ENDED"
+        "ENDED",
     )
 }
 
@@ -55,6 +54,6 @@ internal val controlsStateToStringFingerprint = fingerprint {
     returns("Ljava/lang/String;")
     instructions(
         addString("videoState"),
-        addString("isBuffering")
+        addString("isBuffering"),
     )
 }

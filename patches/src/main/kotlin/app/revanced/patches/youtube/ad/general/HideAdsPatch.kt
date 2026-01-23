@@ -10,7 +10,6 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.fix.verticalscroll.verticalScrollPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.ad.getpremium.hideGetPremiumPatch
@@ -57,8 +56,8 @@ private val hideAdsResourcePatch = resourcePatch {
 
         addLithoFilter("Lapp/revanced/extension/youtube/patches/components/AdsFilter;")
 
-        adAttributionId = getResourceId(ResourceType.ID, "ad_attribution")
-        fullScreenEngagementAdContainer = getResourceId(ResourceType.ID, "fullscreen_engagement_ad_container")
+        adAttributionId = ResourceType.ID["ad_attribution"]
+        fullScreenEngagementAdContainer = ResourceType.ID["fullscreen_engagement_ad_container"]
     }
 }
 
@@ -80,7 +79,7 @@ val hideAdsPatch = bytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -95,7 +94,7 @@ val hideAdsPatch = bytecodePatch(
             replaceInstruction(
                 addListIndex,
                 "invoke-static { v$listRegister, v$objectRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
-                        "->hideEndScreenStoreBanner(Ljava/util/List;Ljava/lang/Object;)V"
+                    "->hideEndScreenStoreBanner(Ljava/util/List;Ljava/lang/Object;)V",
             )
         }
 
@@ -104,7 +103,6 @@ val hideAdsPatch = bytecodePatch(
         forEachInstructionAsSequence { _, method, index, instruction ->
             if (instruction.opcode != Opcode.CONST) return@forEachInstructionAsSequence
             if (instruction.wideLiteral != adAttributionId) return@forEachInstructionAsSequence
-
 
             val insertIndex = index + 1
 

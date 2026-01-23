@@ -1,17 +1,15 @@
 package app.revanced.patches.youtube.video.speed.custom
 
+import app.revanced.patcher.addString
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.newInstance
 import app.revanced.patcher.opcode
-import app.revanced.patcher.addString
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-
 
 internal val getOldPlaybackSpeedsFingerprint = fingerprint {
     parameters("[L", "I")
@@ -20,7 +18,7 @@ internal val getOldPlaybackSpeedsFingerprint = fingerprint {
 
 internal val showOldPlaybackSpeedMenuFingerprint = fingerprint {
     instructions(
-        resourceLiteral(ResourceType.STRING, "varispeed_unavailable_message")
+        ResourceType.STRING("varispeed_unavailable_message"),
     )
 }
 
@@ -32,7 +30,7 @@ internal val serverSideMaxSpeedFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(
-        literal(45719140L)
+        literal(45719140L),
     )
 }
 
@@ -46,7 +44,7 @@ internal val speedArrayGeneratorFingerprint = fingerprint {
         addString("0.0#"),
         literal(7),
         opcode(Opcode.NEW_ARRAY),
-        fieldAccess(definingClass = "/PlayerConfigModel;", type = "[F")
+        fieldAccess(definingClass = "/PlayerConfigModel;", type = "[F"),
     )
 }
 
@@ -59,7 +57,7 @@ internal val speedLimiterFingerprint = fingerprint {
     parameters("F", "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;")
     instructions(
         literal(0.25f),
-        literal(4.0f)
+        literal(4.0f),
     )
 }
 

@@ -10,7 +10,6 @@ import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.PreferenceScreen
 import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -35,28 +34,28 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/pa
 @Suppress("unused")
 val hideButtons = bytecodePatch(
     name = "Hide buttons",
-    description = "Adds options to hide the cast, history, notification, and search buttons."
+    description = "Adds options to hide the cast, history, notification, and search buttons.",
 ) {
     dependsOn(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        resourceMappingPatch
+        resourceMappingPatch,
     )
 
     compatibleWith(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
-            "8.10.52"
-        )
+            "8.10.52",
+        ),
     )
 
     apply {
-        playerOverlayChip = getResourceId(ResourceType.ID, "player_overlay_chip")
-        historyMenuItem = getResourceId(ResourceType.ID, "history_menu_item")
-        offlineSettingsMenuItem = getResourceId(ResourceType.ID, "offline_settings_menu_item")
-        searchButton = getResourceId(ResourceType.LAYOUT, "search_button")
-        topBarMenuItemImageView = getResourceId(ResourceType.ID, "top_bar_menu_item_image_view")
+        playerOverlayChip = ResourceType.ID["player_overlay_chip"]
+        historyMenuItem = ResourceType.ID["history_menu_item"]
+        offlineSettingsMenuItem = ResourceType.ID["offline_settings_menu_item"]
+        searchButton = ResourceType.LAYOUT["search_button"]
+        topBarMenuItemImageView = ResourceType.ID["top_bar_menu_item_image_view"]
 
         addResources("music", "layout.buttons.hideButtons")
 
@@ -64,13 +63,13 @@ val hideButtons = bytecodePatch(
             SwitchPreference("revanced_music_hide_cast_button"),
             SwitchPreference("revanced_music_hide_history_button"),
             SwitchPreference("revanced_music_hide_notification_button"),
-            SwitchPreference("revanced_music_hide_search_button")
+            SwitchPreference("revanced_music_hide_search_button"),
         )
 
         // Region for hide history button in the top bar.
         arrayOf(
             historyMenuItemFingerprint,
-            historyMenuItemOfflineTabFingerprint
+            historyMenuItemOfflineTabFingerprint,
         ).forEach { fingerprint ->
             fingerprint.method.apply {
                 val targetIndex = fingerprint.patternMatch.startIndex
@@ -81,7 +80,7 @@ val hideButtons = bytecodePatch(
                     """
                         invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideHistoryButton(Z)Z
                         move-result v$targetRegister
-                    """
+                    """,
                 )
             }
         }
@@ -90,19 +89,20 @@ val hideButtons = bytecodePatch(
         arrayOf(
             Triple(playerOverlayChipFingerprint, playerOverlayChip, "hideCastButton"),
             Triple(searchActionViewFingerprint, searchButton, "hideSearchButton"),
-            Triple(topBarMenuItemImageViewFingerprint, topBarMenuItemImageView, "hideNotificationButton")
+            Triple(topBarMenuItemImageViewFingerprint, topBarMenuItemImageView, "hideNotificationButton"),
         ).forEach { (fingerprint, resourceIdLiteral, methodName) ->
             fingerprint.method.apply {
                 val resourceIndex = indexOfFirstLiteralInstructionOrThrow(resourceIdLiteral)
                 val targetIndex = indexOfFirstInstructionOrThrow(
-                    resourceIndex, Opcode.MOVE_RESULT_OBJECT
+                    resourceIndex,
+                    Opcode.MOVE_RESULT_OBJECT,
                 )
                 val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstruction(
                     targetIndex + 1,
                     "invoke-static { v$targetRegister }, " +
-                            "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V"
+                        "$EXTENSION_CLASS_DESCRIPTOR->$methodName(Landroid/view/View;)V",
                 )
             }
         }
@@ -115,7 +115,7 @@ val hideButtons = bytecodePatch(
             """
                 invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->hideCastButton(I)I
                 move-result p1
-            """
+            """,
         )
     }
 }

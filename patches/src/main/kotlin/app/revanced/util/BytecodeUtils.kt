@@ -7,7 +7,6 @@ import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.util.InstructionUtils.Companion.branchOpcodes
 import app.revanced.util.InstructionUtils.Companion.returnOpcodes
@@ -358,7 +357,7 @@ fun MutableMethod.addInstructionsAtControlFlowLabel(
  * @see [indexOfFirstResourceIdOrThrow], [indexOfFirstLiteralInstructionReversed]
  */
 fun Method.indexOfFirstResourceId(resourceName: String): Int {
-    return indexOfFirstLiteralInstruction(getResourceId(ResourceType.ID, resourceName))
+    return indexOfFirstLiteralInstruction(ResourceType.ID[resourceName)]
 }
 
 /**

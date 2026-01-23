@@ -2,14 +2,13 @@ package app.revanced.patches.youtube.layout.seekbar
 
 import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.InstructionLocation.MatchAfterWithin
+import app.revanced.patcher.addString
 import app.revanced.patcher.anyInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
-import app.revanced.patcher.addString
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -18,15 +17,15 @@ internal val fullscreenSeekbarThumbnailsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     instructions(
-        literal(45398577)
+        literal(45398577),
     )
 }
 
 internal val playerSeekbarColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        resourceLiteral(ResourceType.COLOR, "inline_time_bar_played_not_highlighted_color"),
-        resourceLiteral(ResourceType.COLOR, "inline_time_bar_colorized_bar_played_color_dark")
+        ResourceType.COLOR("inline_time_bar_played_not_highlighted_color"),
+        ResourceType.COLOR("inline_time_bar_colorized_bar_played_color_dark"),
     )
 }
 
@@ -39,15 +38,15 @@ internal val setSeekbarClickedColorFingerprint = fingerprint {
 internal val shortsSeekbarColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        resourceLiteral(ResourceType.COLOR, "reel_time_bar_played_color")
+        ResourceType.COLOR("reel_time_bar_played_color"),
     )
 }
 
 internal val playerSeekbarHandle1ColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        resourceLiteral(ResourceType.COLOR, "inline_time_bar_live_seekable_range"),
-        resourceLiteral(ResourceType.ATTR, "ytStaticBrandRed"),
+        ResourceType.COLOR("inline_time_bar_live_seekable_range"),
+        ResourceType.ATTR("ytStaticBrandRed"),
     )
 }
 
@@ -55,8 +54,8 @@ internal val playerSeekbarHandle2ColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("Landroid/content/Context;")
     instructions(
-        resourceLiteral(ResourceType.ATTR, "ytTextSecondary"),
-        resourceLiteral(ResourceType.ATTR, "ytStaticBrandRed"),
+        ResourceType.ATTR("ytTextSecondary"),
+        ResourceType.ATTR("ytStaticBrandRed"),
     )
 }
 
@@ -67,7 +66,7 @@ internal val watchHistoryMenuUseProgressDrawableFingerprint = fingerprint {
     instructions(
         methodCall("Landroid/widget/ProgressBar;", "setMax"),
         opcode(Opcode.MOVE_RESULT),
-        literal(-1712394514)
+        literal(-1712394514),
     )
 }
 
@@ -85,10 +84,10 @@ internal val playerLinearGradientFingerprint = fingerprint {
     parameters("I", "I", "I", "I", "Landroid/content/Context;", "I")
     returns("Landroid/graphics/LinearGradient;")
     instructions(
-        resourceLiteral(ResourceType.COLOR, "yt_youtube_magenta"),
+        ResourceType.COLOR("yt_youtube_magenta"),
 
         opcode(Opcode.FILLED_NEW_ARRAY, location = MatchAfterWithin(5)),
-        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately())
+        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
     )
 }
 
@@ -98,7 +97,7 @@ internal val playerLinearGradientFingerprint = fingerprint {
 internal val playerLinearGradientLegacyFingerprint = fingerprint {
     returns("V")
     instructions(
-        resourceLiteral(ResourceType.COLOR, "yt_youtube_magenta"),
+        ResourceType.COLOR("yt_youtube_magenta"),
 
         opcode(Opcode.FILLED_NEW_ARRAY),
         opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
@@ -112,7 +111,7 @@ internal val lottieAnimationViewSetAnimationIntFingerprint = fingerprint {
     parameters("I")
     returns("V")
     instructions(
-        methodCall("this", "isInEditMode")
+        methodCall("this", "isInEditMode"),
     )
     custom { _, classDef ->
         classDef.type == LOTTIE_ANIMATION_VIEW_CLASS_TYPE
@@ -125,7 +124,7 @@ internal val lottieCompositionFactoryZipFingerprint = fingerprint {
     returns("L")
     instructions(
         addString("Unable to parse composition"),
-        addString(" however it was not found in the animation.")
+        addString(" however it was not found in the animation."),
     )
 }
 
@@ -139,7 +138,6 @@ internal val lottieCompositionFactoryFromJsonInputStreamFingerprint = fingerprin
     parameters("Ljava/io/InputStream;", "Ljava/lang/String;")
     returns("L")
     instructions(
-        anyInstruction(literal(2), literal(3))
+        anyInstruction(literal(2), literal(3)),
     )
 }
-

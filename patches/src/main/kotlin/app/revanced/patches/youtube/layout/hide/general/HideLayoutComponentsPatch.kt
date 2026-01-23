@@ -8,7 +8,6 @@ import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
@@ -94,7 +93,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         hideLayoutComponentsResourcePatch,
         navigationBarHookPatch,
         versionCheckPatch,
-        resourceMappingPatch
+        resourceMappingPatch,
     )
 
     compatibleWith(
@@ -103,7 +102,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -168,7 +167,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
                     TextPreference("revanced_hide_keyword_content_phrases", inputType = InputType.TEXT_MULTI_LINE),
                     NonInteractivePreference(
                         key = "revanced_hide_keyword_content_about",
-                        tag = "app.revanced.extension.shared.settings.preference.BulletPointPreference"
+                        tag = "app.revanced.extension.shared.settings.preference.BulletPointPreference",
                     ),
                     NonInteractivePreference(
                         key = "revanced_hide_keyword_content_about_whole_words",
@@ -206,7 +205,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
             SwitchPreference("revanced_hide_floating_microphone_button"),
             SwitchPreference(
                 key = "revanced_hide_horizontal_shelves",
-                tag = "app.revanced.extension.shared.settings.preference.BulletPointSwitchPreference"
+                tag = "app.revanced.extension.shared.settings.preference.BulletPointSwitchPreference",
             ),
             SwitchPreference("revanced_hide_image_shelf"),
             SwitchPreference("revanced_hide_latest_posts"),
@@ -300,7 +299,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$viewRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR" +
-                            "->hideShowMoreButton(Landroid/view/View;)V",
+                        "->hideShowMoreButton(Landroid/view/View;)V",
                 )
             }
         }
@@ -372,13 +371,12 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 replaceInstruction(
                     insertIndex,
                     "invoke-static { v$imageViewRegister, v$drawableRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->" +
-                            "setDoodleDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V"
+                        "setDoodleDrawable(Landroid/widget/ImageView;Landroid/graphics/drawable/Drawable;)V",
                 )
             }
         }
 
         // endregion
-
 
         // region hide view count
 
@@ -390,15 +388,15 @@ val hideLayoutComponentsPatch = bytecodePatch(
             val applyDimensionIndex = indexOfFirstInstructionReversedOrThrow {
                 val reference = getReference<MethodReference>()
                 opcode == Opcode.INVOKE_STATIC &&
-                        reference?.definingClass == "Landroid/util/TypedValue;" &&
-                        reference.returnType == "F" &&
-                        reference.name == "applyDimension" &&
-                        reference.parameterTypes == listOf("I", "F", "Landroid/util/DisplayMetrics;")
+                    reference?.definingClass == "Landroid/util/TypedValue;" &&
+                    reference.returnType == "F" &&
+                    reference.name == "applyDimension" &&
+                    reference.parameterTypes == listOf("I", "F", "Landroid/util/DisplayMetrics;")
             }
 
             // A float value is passed which is used to determine subtitle text size.
             val floatDimensionRegister = getInstruction<OneRegisterInstruction>(
-                applyDimensionIndex + 1
+                applyDimensionIndex + 1,
             ).registerA
 
             addInstructions(
@@ -406,7 +404,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
                 """
                     invoke-static { v$returnStringRegister, v$floatDimensionRegister }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->modifyFeedSubtitleSpan(Landroid/text/SpannableString;F)Landroid/text/SpannableString;
                     move-result-object v$returnStringRegister
-                """
+                """,
             )
         }
 

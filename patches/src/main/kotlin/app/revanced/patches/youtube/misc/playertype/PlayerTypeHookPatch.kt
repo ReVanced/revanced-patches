@@ -7,7 +7,6 @@ import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.resourceLiteral
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -43,7 +42,7 @@ val playerTypeHookPatch = bytecodePatch(
 
                 addInstruction(
                     index + 1,
-                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->onShortsCreate(Landroid/view/View;)V"
+                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->onShortsCreate(Landroid/view/View;)V",
                 )
             }
         }
@@ -58,17 +57,17 @@ val playerTypeHookPatch = bytecodePatch(
                 // Obfuscated parameter field name.
                 fieldAccess(
                     definingClass = controlStateType,
-                    type = videoStateEnumFingerprint.originalClassDef.type
+                    type = videoStateEnumFingerprint.originalClassDef.type,
                 ),
-                resourceLiteral(ResourceType.STRING, "accessibility_play"),
-                resourceLiteral(ResourceType.STRING, "accessibility_pause")
+                ResourceType.STRING("accessibility_play"),
+                ResourceType.STRING("accessibility_pause"),
             )
         }
 
         videoStateFingerprint.let {
             it.method.apply {
                 val videoStateFieldName = getInstruction<ReferenceInstruction>(
-                    it.instructionMatches.first().index
+                    it.instructionMatches.first().index,
                 ).reference
 
                 addInstructions(
@@ -76,7 +75,7 @@ val playerTypeHookPatch = bytecodePatch(
                     """
                         iget-object v0, p1, $videoStateFieldName  # copy VideoState parameter field
                         invoke-static {v0}, $EXTENSION_CLASS_DESCRIPTOR->setVideoState(Ljava/lang/Enum;)V
-                    """
+                    """,
                 )
             }
         }

@@ -12,7 +12,6 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.layout.branding.addBrandLicensePatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.getResourceId
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -30,7 +29,7 @@ private val targetResourceDirectoryNames = mapOf(
     "drawable-hdpi" to "194x72 px",
     "drawable-xhdpi" to "258x96 px",
     "drawable-xxhdpi" to "387x144 px",
-    "drawable-xxxhdpi" to "512x192 px"
+    "drawable-xxxhdpi" to "512x192 px",
 )
 
 /**
@@ -58,25 +57,25 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/
 private val changeHeaderBytecodePatch = bytecodePatch {
     dependsOn(
         resourceMappingPatch,
-        addBrandLicensePatch
+        addBrandLicensePatch,
     )
 
     apply {
         // Verify images exist. Resources are not used during patching but extension code does.
         arrayOf(
             "yt_ringo2_wordmark_header",
-            "yt_ringo2_premium_wordmark_header"
+            "yt_ringo2_premium_wordmark_header",
         ).forEach { resource ->
             variants.forEach { theme ->
-                getResourceId(ResourceType.DRAWABLE, resource + "_" + theme)
+                ResourceType.DRAWABLE[resource + "_" + theme]
             }
         }
 
         arrayOf(
             "ytWordmarkHeader",
-            "ytPremiumWordmarkHeader"
+            "ytPremiumWordmarkHeader",
         ).forEach { resourceName ->
-            val id = getResourceId(ResourceType.ATTR, resourceName)
+            val id = ResourceType.ATTR[resourceName]
 
             forEachInstructionAsSequence { _, method, i, instruction ->
                 if (instruction.wideLiteral != id) return@forEachInstructionAsSequence
@@ -87,7 +86,7 @@ private val changeHeaderBytecodePatch = bytecodePatch {
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getHeaderAttributeId(I)I
                         move-result v$register    
-                    """
+                    """,
                 )
             }
         }
@@ -107,7 +106,7 @@ val changeHeaderPatch = resourcePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     val custom by stringOption(
@@ -123,7 +122,7 @@ val changeHeaderPatch = resourcePatch(
 
             The image dimensions must be as follows:
             ${targetResourceDirectoryNames.map { (dpi, dim) -> "- $dpi: $dim" }.joinToString("\n")}
-        """.trimIndentMultiline()
+        """.trimIndentMultiline(),
     )
 
     apply {
@@ -136,9 +135,9 @@ val changeHeaderPatch = resourcePatch(
                 ListPreference(
                     key = "revanced_header_logo",
                     entriesKey = "revanced_header_logo_custom_entries",
-                    entryValuesKey = "revanced_header_logo_custom_entry_values"
+                    entryValuesKey = "revanced_header_logo_custom_entry_values",
                 )
-            }
+            },
         )
 
         logoResourceNames.forEach { logo ->
@@ -147,8 +146,8 @@ val changeHeaderPatch = resourcePatch(
                     "change-header",
                     ResourceGroup(
                         "drawable",
-                        logo + "_" + variant + ".xml"
-                    )
+                        logo + "_" + variant + ".xml",
+                    ),
                 )
             }
         }
@@ -161,8 +160,8 @@ val changeHeaderPatch = resourcePatch(
                     "change-header",
                     ResourceGroup(
                         dpi,
-                        *customHeaderResourceFileNames
-                    )
+                        *customHeaderResourceFileNames,
+                    ),
                 )
             }
         }
@@ -191,10 +190,11 @@ val changeHeaderPatch = resourcePatch(
                 "Base.Theme.YouTube.Light" to "light",
                 "Base.Theme.YouTube.Dark" to "dark",
                 "CairoLightThemeRingo2Updates" to "light",
-                "CairoDarkThemeRingo2Updates" to "dark"
+                "CairoDarkThemeRingo2Updates" to "dark",
             ).forEach { (style, mode) ->
                 val styleElement = document.childNodes.findElementByAttributeValueOrThrow(
-                    "name", style
+                    "name",
+                    style,
                 )
 
                 fun addDrawableElement(document: Document, logoName: String, mode: String) {
@@ -218,14 +218,14 @@ val changeHeaderPatch = resourcePatch(
             if (!customFile.exists()) {
                 throw PatchException(
                     "The custom header path cannot be found: " +
-                            customFile.absolutePath
+                        customFile.absolutePath,
                 )
             }
 
             if (!customFile.isDirectory) {
                 throw PatchException(
-                    "The custom header path must be a folder: "
-                            + customFile.absolutePath
+                    "The custom header path must be a folder: " +
+                        customFile.absolutePath,
                 )
             }
 
@@ -248,7 +248,8 @@ val changeHeaderPatch = resourcePatch(
                 if (customFiles.isNotEmpty() && customFiles.size != variants.size) {
                     throw PatchException(
                         "Both light/dark mode images " +
-                                "must be specified but only found: " + customFiles.map { it.name })
+                            "must be specified but only found: " + customFiles.map { it.name },
+                    )
                 }
 
                 customFiles.forEach { imgSourceFile ->
@@ -261,9 +262,9 @@ val changeHeaderPatch = resourcePatch(
 
             if (!copiedFiles) {
                 throw PatchException(
-                    "Expected to find directories and files: "
-                            + customHeaderResourceFileNames.contentToString()
-                            + "\nBut none were found in the provided option file path: " + customFile.absolutePath
+                    "Expected to find directories and files: " +
+                        customHeaderResourceFileNames.contentToString() +
+                        "\nBut none were found in the provided option file path: " + customFile.absolutePath,
                 )
             }
         }
