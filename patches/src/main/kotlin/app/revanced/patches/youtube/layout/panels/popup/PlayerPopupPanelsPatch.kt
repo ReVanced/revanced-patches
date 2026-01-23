@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.panels.popup
 
 import app.revanced.patcher.extensions.addInstructionsWithLabels
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -11,8 +11,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/DisablePlayerPopupPanelsPatch;"
 
-val playerPopupPanelsPatch = bytecodePatch(
-    name = "Disable player popup panels",
+val `Disable player popup panels` by creatingBytecodePatch(
     description = "Adds an option to disable panels (such as live chat) from opening automatically.",
 ) {
     dependsOn(

@@ -1,13 +1,12 @@
 package app.revanced.patches.all.misc.targetSdk
 
-import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.creatingResourcePatch
 import app.revanced.util.getNode
 import org.w3c.dom.Element
 import java.util.logging.Logger
 
 @Suppress("unused")
-val setTargetSdkVersion34 = resourcePatch(
-    name = "Set target SDK version 34",
+val `Set target SDK version 34` = creatingResourcePatch(
     description = "Changes the target SDK to version 34 (Android 14). " +
             "For devices running Android 15+, this will disable edge-to-edge display.",
     use = false,

@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.buttons.action
 
-import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.creatingResourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -13,8 +13,7 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import java.util.logging.Logger
 
-val hideButtonsPatch = resourcePatch(
-    name = "Hide video action buttons",
+val `Hide video action buttons` by creatingResourcePatch(
     description = "Adds options to hide action buttons (such as the Download button) under videos.",
 ) {
     dependsOn(
@@ -41,7 +40,7 @@ val hideButtonsPatch = resourcePatch(
             SwitchPreference("revanced_hide_download_button"),
             SwitchPreference("revanced_hide_like_dislike_button"),
             SwitchPreference("revanced_hide_comments_button"),
-                    SwitchPreference("revanced_hide_save_button"),
+            SwitchPreference("revanced_hide_save_button"),
         )
 
         if (is_20_22_or_greater) {

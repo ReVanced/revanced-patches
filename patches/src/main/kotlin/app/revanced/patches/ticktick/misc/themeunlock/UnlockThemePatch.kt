@@ -2,11 +2,10 @@ package app.revanced.patches.ticktick.misc.themeunlock
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstructions
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 
 @Suppress("unused")
-val unlockProPatch = bytecodePatch(
-    name = "Unlock themes",
+val `Unlock themes` by creatingBytecodePatch(
     description = "Unlocks all themes that are inaccessible until a certain level is reached.",
 ) {
     compatibleWith("com.ticktick.task")

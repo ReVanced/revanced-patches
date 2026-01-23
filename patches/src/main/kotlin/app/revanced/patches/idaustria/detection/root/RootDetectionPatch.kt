@@ -1,10 +1,10 @@
 package app.revanced.patches.idaustria.detection.root
 
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.idaustria.detection.deviceintegrity.removeDeviceIntegrityChecksPatch
+import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patches.idaustria.detection.deviceintegrity.`Remove device integrity checks`
 
-@Deprecated("Patch was superseded", ReplaceWith("removeDeviceIntegrityChecksPatch"))
+@Deprecated("Patch was superseded", ReplaceWith("`Remove device integrity checks`"))
 @Suppress("unused")
-val rootDetectionPatch = bytecodePatch {
-    dependsOn(removeDeviceIntegrityChecksPatch)
+val rootDetectionPatch by creatingBytecodePatch {
+    dependsOn(`Remove device integrity checks`)
 }

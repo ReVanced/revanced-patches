@@ -1,18 +1,17 @@
 package app.revanced.patches.tiktok.interaction.cleardisplay
 
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.tiktok.shared.onRenderFirstFrameFingerprint
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Suppress("unused")
-val rememberClearDisplayPatch = bytecodePatch(
-    name = "Remember clear display",
+val `Remember clear display` by creatingBytecodePatch(
     description = "Remembers the clear display configurations in between videos.",
 ) {
     compatibleWith(
@@ -30,7 +29,7 @@ val rememberClearDisplayPatch = bytecodePatch(
             it.addInstructions(
                 isEnabledIndex,
                 "invoke-static { v$isEnabledRegister }, " +
-                    "Lapp/revanced/extension/tiktok/cleardisplay/RememberClearDisplayPatch;->rememberClearDisplayState(Z)V",
+                        "Lapp/revanced/extension/tiktok/cleardisplay/RememberClearDisplayPatch;->rememberClearDisplayState(Z)V",
             )
 
             // endregion

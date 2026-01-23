@@ -28,7 +28,7 @@ internal fun sanitizeSharingLinksPatch(
     preferenceScreen: BasePreferenceScreen.Screen,
     replaceMusicLinksWithYouTube: Boolean = false
 ) = bytecodePatch(
-    name = "Sanitize sharing links",
+    name = "Sanitize sharing links", // TODO
     description = "Removes the tracking query parameters from shared links.",
 ) {
     block()

@@ -1,8 +1,7 @@
 package app.revanced.patches.youtube.interaction.swipecontrols
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
-import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
@@ -21,8 +20,10 @@ import app.revanced.patches.youtube.shared.mainActivityConstructorFingerprint
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
-internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/swipecontrols/SwipeControlsHostActivity;"
+internal const val EXTENSION_CLASS_DESCRIPTOR =
+    "Lapp/revanced/extension/youtube/swipecontrols/SwipeControlsHostActivity;"
 
 private val swipeControlsResourcePatch = resourcePatch {
     dependsOn(
@@ -52,12 +53,16 @@ private val swipeControlsResourcePatch = resourcePatch {
             SwitchPreference("revanced_swipe_lowest_value_enable_auto_brightness"),
             ListPreference("revanced_swipe_overlay_style"),
             TextPreference("revanced_swipe_overlay_background_opacity", inputType = InputType.NUMBER),
-            TextPreference("revanced_swipe_overlay_progress_brightness_color",
+            TextPreference(
+                "revanced_swipe_overlay_progress_brightness_color",
                 tag = "app.revanced.extension.shared.settings.preference.ColorPickerWithOpacitySliderPreference",
-                inputType = InputType.TEXT_CAP_CHARACTERS),
-            TextPreference("revanced_swipe_overlay_progress_volume_color",
+                inputType = InputType.TEXT_CAP_CHARACTERS
+            ),
+            TextPreference(
+                "revanced_swipe_overlay_progress_volume_color",
                 tag = "app.revanced.extension.shared.settings.preference.ColorPickerWithOpacitySliderPreference",
-                inputType = InputType.TEXT_CAP_CHARACTERS),
+                inputType = InputType.TEXT_CAP_CHARACTERS
+            ),
             TextPreference("revanced_swipe_text_overlay_size", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_overlay_timeout", inputType = InputType.NUMBER),
             TextPreference("revanced_swipe_threshold", inputType = InputType.NUMBER),
@@ -83,8 +88,7 @@ private val swipeControlsResourcePatch = resourcePatch {
 }
 
 @Suppress("unused")
-val swipeControlsPatch = bytecodePatch(
-    name = "Swipe controls",
+val `Swipe controls` by creatingBytecodePatch(
     description = "Adds options to enable and configure volume and brightness swipe controls.",
 ) {
     dependsOn(
@@ -132,7 +136,7 @@ val swipeControlsPatch = bytecodePatch(
         if (is_19_43_or_greater && !is_20_34_or_greater) {
             swipeChangeVideoFingerprint.let {
                 it.method.insertLiteralOverride(
-                    it.instructionMatches.last().index,
+                    it.instructionMatches.last().index, // TODO
                     "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeChangeVideo(Z)Z"
                 )
             }

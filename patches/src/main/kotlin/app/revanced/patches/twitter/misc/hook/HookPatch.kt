@@ -8,7 +8,7 @@ import app.revanced.patches.twitter.misc.hook.json.jsonHookPatch
 fun hookPatch(
     name: String,
     hookClassDescriptor: String,
-) = bytecodePatch(name) {
+) = bytecodePatch(name) { // TODO: NAME
     dependsOn(jsonHookPatch)
 
     compatibleWith(

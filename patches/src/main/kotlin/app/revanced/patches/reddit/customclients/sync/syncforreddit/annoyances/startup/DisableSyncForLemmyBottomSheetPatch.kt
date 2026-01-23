@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
 
 @Suppress("unused", "ObjectPropertyName")
-val `Disable Sync for Lemmy bottom sheet` = creatingBytecodePatch(
+val `Disable Sync for Lemmy bottom sheet` by creatingBytecodePatch(
     description = "Disables the bottom sheet at the startup that asks you to signup to \"Sync for Lemmy\".",
 ) {
     compatibleWith(

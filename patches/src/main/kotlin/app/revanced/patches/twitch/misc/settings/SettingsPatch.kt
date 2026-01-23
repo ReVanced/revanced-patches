@@ -1,23 +1,19 @@
 package app.revanced.patches.twitch.misc.settings
 
 import app.revanced.patcher.Fingerprint
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
-import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import app.revanced.patches.shared.misc.settings.preference.BasePreference
-import app.revanced.patches.shared.misc.settings.preference.BasePreferenceScreen
-import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
-import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
-import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.shared.misc.settings.preference.*
 import app.revanced.patches.shared.misc.settings.settingsPatch
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
+import com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
 
 private const val REVANCED_SETTINGS_MENU_ITEM_NAME = "RevancedSettings"
 private const val REVANCED_SETTINGS_MENU_ITEM_ID = 0x7
@@ -38,8 +34,7 @@ fun addSettingPreference(screen: BasePreference) {
     preferences += screen
 }
 
-val settingsPatch = bytecodePatch(
-    name = "Settings",
+val Settings by creatingBytecodePatch(
     description = "Adds settings menu to Twitch.",
 ) {
     dependsOn(
@@ -103,9 +98,9 @@ val settingsPatch = bytecodePatch(
                     name,
                     MENU_ITEM_ENUM_CLASS_DESCRIPTOR,
                     AccessFlags.PUBLIC.value or
-                        AccessFlags.FINAL.value or
-                        AccessFlags.ENUM.value or
-                        AccessFlags.STATIC.value,
+                            AccessFlags.FINAL.value or
+                            AccessFlags.ENUM.value or
+                            AccessFlags.STATIC.value,
                     null,
                     null,
                     null,

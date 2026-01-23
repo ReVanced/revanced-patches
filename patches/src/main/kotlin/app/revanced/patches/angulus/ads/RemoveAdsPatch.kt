@@ -1,14 +1,14 @@
 package app.revanced.patches.angulus.ads
 
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.shared.misc.pairip.license.disableLicenseCheckPatch
+import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patches.shared.misc.pairip.license.`Disable Pairip license check`
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val angulusPatch = bytecodePatch(name = "Hide ads") {
+val `Hide ads` by creatingBytecodePatch {
     compatibleWith("com.drinkplusplus.angulus")
 
-    dependsOn(disableLicenseCheckPatch)
+    dependsOn(`Disable Pairip license check`)
 
     apply {
         // Always return 0 as the daily measurement count.

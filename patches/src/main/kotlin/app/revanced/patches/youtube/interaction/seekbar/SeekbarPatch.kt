@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 
 @Suppress("unused")
-val seekbarPatch = bytecodePatch(
-    name = "Seekbar",
+val Seekbar by creatingBytecodePatch(
     description = "Adds options to disable precise seeking when swiping up on the seekbar, " +
             "slide to seek instead of playing at 2x speed when pressing and holding, " +
             "tapping the player seekbar to seek, " +

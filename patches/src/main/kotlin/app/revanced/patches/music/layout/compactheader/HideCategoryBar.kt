@@ -2,7 +2,7 @@ package app.revanced.patches.music.layout.compactheader
 
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
@@ -19,8 +19,7 @@ internal var chipCloud = -1L
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideCategoryBarPatch;"
 
 @Suppress("unused")
-val hideCategoryBar = bytecodePatch(
-    name = "Hide category bar",
+val `Hide category bar` by creatingBytecodePatch(
     description = "Adds an option to hide the category bar at the top of the homepage."
 ) {
     dependsOn(

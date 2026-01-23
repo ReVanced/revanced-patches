@@ -1,13 +1,9 @@
 package app.revanced.patches.tiktok.interaction.downloads
 
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.extensions.removeInstructions
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.extensions.*
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
-import app.revanced.patches.tiktok.misc.settings.settingsPatch
+import app.revanced.patches.tiktok.misc.settings.Settings
 import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
@@ -19,13 +15,12 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/tiktok/download/DownloadsPatch;"
 
 @Suppress("unused")
-val downloadsPatch = bytecodePatch(
-    name = "Downloads",
+val Downloads by creatingBytecodePatch(
     description = "Removes download restrictions and changes the default path to download to.",
 ) {
     dependsOn(
         sharedExtensionPatch,
-        settingsPatch,
+        Settings,
     )
 
     compatibleWith(
@@ -75,7 +70,8 @@ val downloadsPatch = bytecodePatch(
             }
         }
 
-        settingsStatusLoadFingerprint.method.addInstruction( // TODO
+        settingsStatusLoadFingerprint.method.addInstruction(
+            // TODO
             0,
             "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableDownload()V",
         )

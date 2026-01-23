@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.layout.startpage
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
@@ -17,8 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ChangeStartPagePatch;"
 
-val changeStartPagePatch = bytecodePatch(
-    name = "Change start page",
+val `Change start page` by creatingBytecodePatch(
     description = "Adds an option to set which page the app opens in instead of the homepage.",
 ) {
     dependsOn(

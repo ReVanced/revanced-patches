@@ -1,18 +1,17 @@
 package app.revanced.patches.com.sbs.ondemand.tv
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.shared.misc.pairip.license.disableLicenseCheckPatch
+import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patches.shared.misc.pairip.license.`Disable Pairip license check`
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val removeAdsPatch = bytecodePatch(
-    name = "Remove ads",
+val `Remove ads` by creatingBytecodePatch(
     description = "Removes pre-roll, pause and on-demand advertisements from SBS On Demand TV.",
 ) {
     compatibleWith("com.sbs.ondemand.tv")
 
-    dependsOn(disableLicenseCheckPatch)
+    dependsOn(`Disable Pairip license check`)
 
     apply {
         shouldShowAdvertisingTVMethod.returnEarly(true)
@@ -25,7 +24,7 @@ val removeAdsPatch = bytecodePatch(
         // 3. Exception triggers fallbackToAkamaiProvider() which loads actual content.
         // 4. This preserves the intended app flow: first try ads, then fail gracefully, then load content.
         requestAdStreamMethod.addInstructions(
-            0, 
+            0,
             """
                 new-instance v0, Ljava/lang/RuntimeException;
                 const-string v1, "Ad stream disabled"

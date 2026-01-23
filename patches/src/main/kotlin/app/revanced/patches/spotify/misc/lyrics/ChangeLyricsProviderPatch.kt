@@ -4,9 +4,8 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.stringOption
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -15,6 +14,7 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction35c
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import java.net.InetAddress
 import java.net.URI
 import java.net.URISyntaxException
@@ -22,8 +22,7 @@ import java.net.UnknownHostException
 import java.util.logging.Logger
 
 @Suppress("unused")
-val changeLyricsProviderPatch = bytecodePatch(
-    name = "Change lyrics provider",
+val `Change lyrics provider` by creatingBytecodePatch(
     description = "Changes the lyrics provider to a custom one.",
     use = false,
 ) {

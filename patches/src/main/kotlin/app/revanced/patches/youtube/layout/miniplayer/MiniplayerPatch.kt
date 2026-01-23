@@ -7,10 +7,8 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
-import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
@@ -32,6 +30,8 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
+import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
 // Only available in 19.15 and upwards.
 internal var ytOutlineXWhite24 = -1L
@@ -71,8 +71,7 @@ private val miniplayerResourcePatch = resourcePatch {
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/MiniplayerPatch;"
 
 @Suppress("unused")
-val miniplayerPatch = bytecodePatch(
-    name = "Miniplayer",
+val Miniplayer by creatingBytecodePatch(
     description = "Adds options to change the in-app minimized player."
 ) {
     dependsOn(
@@ -395,7 +394,7 @@ val miniplayerPatch = bytecodePatch(
                 findInstructionIndicesReversedOrThrow {
                     val reference = getReference<MethodReference>()
                     opcode == Opcode.INVOKE_INTERFACE
-                        && reference?.returnType == "Z" && reference.parameterTypes.isEmpty()
+                            && reference?.returnType == "Z" && reference.parameterTypes.isEmpty()
                 }.forEach { index ->
                     val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
@@ -440,7 +439,7 @@ val miniplayerPatch = bytecodePatch(
         ).method.addInstruction(
             0,
             "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                "hideMiniplayerSubTexts(Landroid/view/View;)V",
+                    "hideMiniplayerSubTexts(Landroid/view/View;)V",
         )
 
         // Modern 2 has a broken overlay subtitle view that is always present.

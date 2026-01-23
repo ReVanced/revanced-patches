@@ -1,7 +1,7 @@
 package app.revanced.patches.music.ad.video
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
@@ -12,8 +12,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideVideoAdsPatch;"
 
 @Suppress("unused")
-val hideVideoAdsPatch = bytecodePatch(
-    name = "Hide music video ads",
+val `Hide music video ads` by creatingBytecodePatch(
     description = "Adds an option to hide ads that appear while listening to or streaming music videos, podcasts, or songs.",
 ) {
     dependsOn(

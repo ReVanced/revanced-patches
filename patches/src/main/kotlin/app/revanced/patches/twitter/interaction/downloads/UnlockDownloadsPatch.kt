@@ -1,20 +1,14 @@
 package app.revanced.patches.twitter.interaction.downloads
 
 import app.revanced.patcher.Fingerprint
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.extensions.instructions
-import app.revanced.patcher.extensions.removeInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.extensions.*
+import app.revanced.patcher.patch.creatingBytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Suppress("unused")
-val unlockDownloadsPatch = bytecodePatch(
-    name = "Unlock downloads",
+val `Unlock downloads` by creatingBytecodePatch(
     description = "Unlocks the ability to download any video. GIFs can be downloaded via the menu on long press.",
 ) {
     compatibleWith("com.twitter.android")

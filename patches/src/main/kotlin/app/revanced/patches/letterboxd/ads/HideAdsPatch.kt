@@ -1,13 +1,11 @@
 package app.revanced.patches.letterboxd.ads
 
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val hideAdsPatch = bytecodePatch(
-    name = "Hide ads",
-) {
+val `Hide ads` by creatingBytecodePatch {
     compatibleWith("com.letterboxd.letterboxd")
 
     apply {

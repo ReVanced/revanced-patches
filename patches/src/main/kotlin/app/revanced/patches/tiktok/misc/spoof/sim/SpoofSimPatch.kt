@@ -3,9 +3,9 @@ package app.revanced.patches.tiktok.misc.spoof.sim
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
-import app.revanced.patches.tiktok.misc.settings.settingsPatch
+import app.revanced.patches.tiktok.misc.settings.Settings
 import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import app.revanced.util.findMutableMethodOf
 import com.android.tools.smali.dexlib2.Opcode
@@ -14,14 +14,13 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused")
-val spoofSimPatch = bytecodePatch(
-    name = "SIM spoof",
+val `SIM spoof` by creatingBytecodePatch(
     description = "Spoofs the information which is retrieved from the SIM card.",
     use = false,
 ) {
     dependsOn(
         sharedExtensionPatch,
-        settingsPatch,
+        Settings,
     )
 
     compatibleWith(

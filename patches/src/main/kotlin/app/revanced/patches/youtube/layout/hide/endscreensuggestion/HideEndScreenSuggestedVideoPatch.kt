@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.hide.endscreensuggestion
 
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -20,8 +20,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HideEndScreenSuggestedVideoPatch;"
 
 @Suppress("unused")
-val hideEndScreenSuggestedVideoPatch = bytecodePatch(
-    name = "Hide end screen suggested video",
+val `Hide end screen suggested video` by creatingBytecodePatch(
     description = "Adds an option to hide the suggested video at the end of videos.",
 ) {
     dependsOn(
@@ -46,7 +45,7 @@ val hideEndScreenSuggestedVideoPatch = bytecodePatch(
         )
 
         removeOnLayoutChangeListenerFingerprint.let {
-            val endScreenMethod = navigate(it.originalMethod).to(it.instructionMatches.last().index).stop()
+            val endScreenMethod = navigate(it.originalMethod).to(it.instructionMatches.last().index).stop() // TODO
 
             endScreenMethod.apply {
                 val autoNavStatusMethodName = autoNavStatusFingerprint.match(

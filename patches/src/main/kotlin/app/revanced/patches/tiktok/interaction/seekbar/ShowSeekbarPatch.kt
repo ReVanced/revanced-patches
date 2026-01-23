@@ -1,11 +1,10 @@
 package app.revanced.patches.tiktok.interaction.seekbar
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 
 @Suppress("unused")
-val showSeekbarPatch = bytecodePatch(
-    name = "Show seekbar",
+val `Show seekbar` by creatingBytecodePatch(
     description = "Shows progress bar for all video.",
 ) {
     compatibleWith(

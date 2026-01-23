@@ -28,7 +28,7 @@ internal fun enableDebuggingPatch(
     preferenceScreen: BasePreferenceScreen.Screen,
     additionalDebugPreferences: List<BasePreference> = emptyList()
 ) = bytecodePatch(
-    name = "Enable debugging",
+    name = "Enable debugging", // TODO
     description = "Adds options for debugging and exporting ReVanced logs to the clipboard.",
 ) {
 

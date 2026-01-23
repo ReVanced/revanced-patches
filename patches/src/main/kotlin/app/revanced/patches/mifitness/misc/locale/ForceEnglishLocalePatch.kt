@@ -2,18 +2,17 @@ package app.revanced.patches.mifitness.misc.locale
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patches.mifitness.misc.login.fixLoginPatch
+import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patches.mifitness.misc.login.`Fix login`
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
-val forceEnglishLocalePatch = bytecodePatch(
-    name = "Force English locale",
+val `Force English locale` by creatingBytecodePatch(
     description = "Forces wearable devices to use the English locale.",
 ) {
     compatibleWith("com.xiaomi.wearable")
 
-    dependsOn(fixLoginPatch)
+    dependsOn(`Fix login`)
 
     apply {
         syncBluetoothLanguageMethod.apply {

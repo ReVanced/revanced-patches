@@ -1,11 +1,10 @@
 package app.revanced.patches.spotify.misc.widgets
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
 @Suppress("unused")
-val fixThirdPartyLaunchersWidgets = bytecodePatch(
-    name = "Fix third party launchers widgets",
+val `Fix third party launchers widgets` by creatingBytecodePatch(
     description = "Fixes Spotify widgets not working in third party launchers, like Nova Launcher.",
 ) {
     compatibleWith("com.spotify.music")

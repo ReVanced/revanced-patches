@@ -1,11 +1,10 @@
 package app.revanced.patches.messenger.inbox
 
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 
 @Suppress("unused")
-val hideInboxAdsPatch = bytecodePatch(
-    name = "Hide inbox ads",
+val `Hide inbox ads` by creatingBytecodePatch(
     description = "Hides ads in inbox.",
 ) {
     compatibleWith("com.facebook.orca")

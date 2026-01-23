@@ -18,7 +18,7 @@ internal fun checkWatchHistoryDomainNameResolutionPatch(
     executeBlock: BytecodePatchContext.() -> Unit = {},
     getMainActivityMethod: BytecodePatchContext.() -> MutableMethod
 ) = bytecodePatch(
-    name = "Check watch history domain name resolution",
+    name = "Check watch history domain name resolution", // TODO
     description = "Checks if the device DNS server is preventing user watch history from being saved.",
 ) {
     block()

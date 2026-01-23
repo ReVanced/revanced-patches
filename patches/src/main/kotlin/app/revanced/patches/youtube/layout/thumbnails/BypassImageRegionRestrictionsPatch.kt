@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.thumbnails
 
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -13,10 +13,9 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/BypassImageRegionRestrictionsPatch;"
 
-val bypassImageRegionRestrictionsPatch = bytecodePatch(
-    name = "Bypass image region restrictions",
+val `Bypass image region restrictions` by creatingBytecodePatch(
     description = "Adds an option to use a different host for user avatar and channel images " +
-        "and can fix missing images that are blocked in some countries.",
+            "and can fix missing images that are blocked in some countries.",
 ) {
     dependsOn(
         sharedExtensionPatch,

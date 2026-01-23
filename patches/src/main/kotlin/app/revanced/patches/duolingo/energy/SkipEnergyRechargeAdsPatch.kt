@@ -2,12 +2,11 @@ package app.revanced.patches.duolingo.energy
 
 import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.findFieldFromToString
 
 @Suppress("unused")
-val skipEnergyRechargeAdsPatch = bytecodePatch(
-    name = "Skip energy recharge ads",
+val `Skip energy recharge ads` by creatingBytecodePatch(
     description = "Skips watching ads to recharge energy."
 ) {
     compatibleWith("com.duolingo")

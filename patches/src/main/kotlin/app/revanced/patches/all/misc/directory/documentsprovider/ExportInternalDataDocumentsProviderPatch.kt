@@ -1,15 +1,14 @@
 package app.revanced.patches.all.misc.directory.documentsprovider
 
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.patch.resourcePatch
+import app.revanced.patcher.patch.creatingResourcePatch
 import app.revanced.util.asSequence
 import app.revanced.util.getNode
 
 @Suppress("unused")
-val exportInternalDataDocumentsProviderPatch = resourcePatch(
-    name = "Export internal data documents provider",
+val `Export internal data documents provider` = creatingResourcePatch(
     description = "Exports a documents provider that grants access to the internal data directory of this app " +
-        "to file managers and other apps that support the Storage Access Framework.",
+            "to file managers and other apps that support the Storage Access Framework.",
     use = false,
 ) {
     dependsOn(

@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.interaction.downloads
 
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructionsWithLabels
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -60,10 +60,9 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/
 internal const val BUTTON_DESCRIPTOR = "Lapp/revanced/extension/youtube/videoplayer/ExternalDownloadButton;"
 
 @Suppress("unused")
-val downloadsPatch = bytecodePatch(
-    name = "Downloads",
+val Downloads by creatingBytecodePatch(
     description = "Adds support to download videos with an external downloader app " +
-        "using the in-app download button or a video player action button.",
+            "using the in-app download button or a video player action button.",
 ) {
     dependsOn(
         downloadsResourcePatch,

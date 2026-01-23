@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.layout.buttons.navigation
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
@@ -24,8 +24,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/NavigationButtonsPatch;"
 
-val navigationButtonsPatch = bytecodePatch(
-    name = "Navigation buttons",
+val `Navigation buttons` by creatingBytecodePatch(
     description = "Adds options to hide and change navigation buttons (such as the Shorts button).",
 ) {
     dependsOn(

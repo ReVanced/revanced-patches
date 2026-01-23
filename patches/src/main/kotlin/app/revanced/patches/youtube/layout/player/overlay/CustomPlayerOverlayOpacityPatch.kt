@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.layout.player.overlay
 
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -16,11 +16,11 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/CustomPlayerOverlayOpacityPatch;"
 
 @Suppress("unused")
-val customPlayerOverlayOpacityPatch = bytecodePatch(
-    name = "Custom player overlay opacity",
+val `Custom player overlay opacity` by creatingBytecodePatch(
     description = "Adds an option to change the opacity of the video player background when player controls are visible.",
 ) {
-    dependsOn(settingsPatch,
+    dependsOn(
+        settingsPatch,
         resourceMappingPatch,
         addResourcesPatch,
     )

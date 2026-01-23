@@ -1,11 +1,10 @@
 package app.revanced.patches.tiktok.misc.login.fixgoogle
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 
 @Suppress("unused")
-val fixGoogleLoginPatch = bytecodePatch(
-    name = "Fix Google login",
+val `Fix Google login` by creatingBytecodePatch(
     description = "Allows logging in with a Google account.",
 ) {
     compatibleWith(

@@ -4,7 +4,7 @@ import app.revanced.patcher.Fingerprint
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 context(BytecodePatchContext)
@@ -26,8 +26,7 @@ internal fun Fingerprint.replaceJsonFieldWithBogus(
 }
 
 @Suppress("unused")
-val hideExploreFeedPatch = bytecodePatch(
-    name = "Hide explore feed",
+val `Hide explore feed` by creatingBytecodePatch(
     description = "Hides posts and reels from the explore/search page.",
     use = false,
 ) {

@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.layout.hide.rollingnumber
 
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -17,8 +17,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableRollingNumberAnimationsPatch;"
 
-val disableRollingNumberAnimationPatch = bytecodePatch(
-    name = "Disable rolling number animations",
+val `Disable rolling number animations` by creatingBytecodePatch(
     description = "Adds an option to disable rolling number animations of video view count, user likes, and upload time.",
 ) {
     dependsOn(

@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.startupshortsreset
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -21,8 +21,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableResumingStartupShortsPlayerPatch;"
 
-val disableResumingShortsOnStartupPatch = bytecodePatch(
-    name = "Disable resuming Shorts on startup",
+val `Disable resuming Shorts on startup` by creatingBytecodePatch(
     description = "Adds an option to disable the Shorts player from resuming on app startup when Shorts were last being watched.",
 ) {
     dependsOn(

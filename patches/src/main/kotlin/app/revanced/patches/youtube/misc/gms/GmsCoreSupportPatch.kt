@@ -8,7 +8,7 @@ import app.revanced.patches.shared.castContextFetchMethod
 import app.revanced.patches.shared.misc.gms.gmsCoreSupportPatch
 import app.revanced.patches.shared.misc.settings.preference.IntentPreference
 import app.revanced.patches.shared.primeMethod
-import app.revanced.patches.youtube.layout.buttons.overlay.hidePlayerOverlayButtonsPatch
+import app.revanced.patches.youtube.layout.buttons.overlay.`Hide player overlay buttons`
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.gms.Constants.REVANCED_YOUTUBE_PACKAGE_NAME
 import app.revanced.patches.youtube.misc.gms.Constants.YOUTUBE_PACKAGE_NAME
@@ -28,7 +28,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
 ) {
     dependsOn(
-        hidePlayerOverlayButtonsPatch, // Hide non-functional cast button.
+        `Hide player overlay buttons`, // Hide non-functional cast button.
         spoofVideoStreamsPatch,
     )
 
