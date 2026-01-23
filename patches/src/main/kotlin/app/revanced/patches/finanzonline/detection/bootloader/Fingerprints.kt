@@ -29,10 +29,9 @@ internal val BytecodePatchContext.bootStateMethod by gettingFirstMutableMethodDe
         Opcode.IF_NE,
         Opcode.GOTO,
         Opcode.MOVE,
-        Opcode.RETURN
+        Opcode.RETURN,
     )
 }
-
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.AttestationHelper#createKey (3.0.1)
 internal val BytecodePatchContext.createKeyMethod by gettingFirstMutableMethodDeclaratively(
@@ -40,7 +39,7 @@ internal val BytecodePatchContext.createKeyMethod by gettingFirstMutableMethodDe
     "SHA-256",
     "random",
     "EC",
-    "AndroidKeyStore"
+    "AndroidKeyStore",
 ) {
     accessFlags(AccessFlags.PUBLIC)
     returnType("Z")

@@ -1,7 +1,7 @@
 package app.revanced.patches.amazon
 
-import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val deepLinkingPatch = bytecodePatch(
@@ -11,12 +11,6 @@ val deepLinkingPatch = bytecodePatch(
     compatibleWith("com.amazon.mShop.android.shopping")
 
     apply {
-        deepLinkingMethod.addInstructions(
-            0,
-            """
-                const/4 v0, 0x1
-                return v0
-            """,
-        )
+        deepLinkingMethod.returnEarly(true)
     }
 }

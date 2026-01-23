@@ -12,17 +12,16 @@ internal val BytecodePatchContext.debugCategoryAllowOnReleaseBuildsMethod by get
     parameterTypes()
 }
 
-internal val BytecodePatchContext.buildConfigProviderConstructorMethod by gettingFirstMutableMethodDeclaratively {
+internal val buildConfigProviderConstructorMethodMatch = firstMethodComposite {
 
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes()
     opcodes(Opcode.CONST_4)
 }
 
-internal val BytecodePatchContext.buildConfigProviderToStringMethod by gettingFirstMutableMethodDeclaratively(
-    "BuildConfigProvider(" // Partial string match.
-) {
+internal val BytecodePatchContext.buildConfigProviderToStringMethod by gettingFirstMutableMethodDeclaratively {
     name("toString")
     parameterTypes()
     returnType("Ljava/lang/String;")
+    instructions(string("BuildConfigProvider(", String::contains))
 }

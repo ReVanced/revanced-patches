@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.downloadOperationsURLBuilderFingerprint by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.downloadOperationsURLBuilderMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/String")
     parameterTypes("L", "L")
@@ -16,10 +16,10 @@ internal val BytecodePatchContext.downloadOperationsURLBuilderFingerprint by get
     )
 }
 
-internal val BytecodePatchContext.downloadOperationsHeaderVerificationFingerprint by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.downloadOperationsHeaderVerificationMethod by gettingFirstMutableMethodDeclaratively(
     "X-SC-Mime-Type",
     "X-SC-Preset",
-    "X-SC-Quality"
+    "X-SC-Quality",
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")

@@ -1,13 +1,12 @@
 package app.revanced.patches.strava.upselling
 
-import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
 @Suppress("unused")
 val disableSubscriptionSuggestionsPatch = bytecodePatch(
@@ -20,11 +19,11 @@ val disableSubscriptionSuggestionsPatch = bytecodePatch(
         val pageSuffix = "_upsell"
         val label = "original"
 
-        val className = getModulesMethod.classDef.type
-        val originalMethod = getModulesMethod
+        val className = getModulesMethodMatch.classDef.type
+        val originalMethod = getModulesMethodMatch.method
         val returnType = originalMethod.returnType
 
-        getModulesMethod.classDef.methods.add(
+        getModulesMethodMatch.classDef.methods.add(
             ImmutableMethod(
                 className,
                 helperMethodName,
@@ -53,16 +52,14 @@ val disableSubscriptionSuggestionsPatch = bytecodePatch(
             },
         )
 
-        val getModulesIndex = getModulesMethod.instructionMatches.first().index // TODO
-        with(originalMethod) {
-            removeInstruction(getModulesIndex)
-            addInstructions(
-                getModulesIndex,
-                """
-                    invoke-direct {p0}, $className->$helperMethodName()$returnType
-                    move-result-object v0
-                """,
-            )
-        }
+        val getModulesIndex = getModulesMethodMatch.indices.first()
+        originalMethod.removeInstruction(getModulesIndex)
+        originalMethod.addInstructions(
+            getModulesIndex,
+            """
+                invoke-direct {p0}, $className->$helperMethodName()$returnType
+                move-result-object v0
+            """,
+        )
     }
 }

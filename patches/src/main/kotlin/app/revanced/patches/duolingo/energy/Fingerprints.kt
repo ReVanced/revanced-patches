@@ -14,10 +14,12 @@ internal val BytecodePatchContext.initializeEnergyConfigMethod by gettingFirstMu
 }
 
 // Class name currently is not obfuscated, but it may be in the future.
-internal val BytecodePatchContext.energyConfigToStringMethod by gettingFirstMutableMethodDeclaratively(
-    "EnergyConfig(", "maxEnergy=" // Partial string matches.
-) {
+internal val BytecodePatchContext.energyConfigToStringMethod by gettingFirstMutableMethodDeclaratively {
     name("toString")
     parameterTypes()
     returnType("Ljava/lang/String;")
+    instructions(
+        string("EnergyConfig(", String::contains),
+        string("maxEnergy=", String::contains),
+    )
 }

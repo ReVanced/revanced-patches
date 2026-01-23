@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Suppress("unused")
 val enableDebugMenuPatch = bytecodePatch(
     name = "Enable debug menu",
-    use = false
+    use = false,
 ) {
     compatibleWith("com.duolingo")
 
@@ -19,18 +19,13 @@ val enableDebugMenuPatch = bytecodePatch(
         debugCategoryAllowOnReleaseBuildsMethod.returnEarly(true)
 
         // Change build config debug build flag.
-        buildConfigProviderConstructorMethod.match( // TODO
-            buildConfigProviderToStringMethod.classDef
+        buildConfigProviderConstructorMethodMatch.match(
+            buildConfigProviderToStringMethod.classDef,
         ).let {
-            val index = it.patternMatch.startIndex // TODO
+            val index = it.indices.first()
 
-            it.apply {
-                val register = getInstruction<OneRegisterInstruction>(index).registerA // TODO
-                addInstruction(
-                    index + 1,
-                    "const/4 v$register, 0x1"
-                )
-            }
+            val register = it.method.getInstruction<OneRegisterInstruction>(index).registerA
+            it.method.addInstruction(index + 1, "const/4 v$register, 0x1")
         }
     }
 }

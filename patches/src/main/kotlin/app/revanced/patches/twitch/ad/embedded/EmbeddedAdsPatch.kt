@@ -28,7 +28,7 @@ val embeddedAdsPatch = bytecodePatch(
             ListPreference("revanced_block_embedded_ads"),
         )
 
-        // Inject OkHttp3 application interceptor
+        // Inject OkHttp3 application interceptor.
         createsUsherClientMethod.addInstructions(
             3,
             """

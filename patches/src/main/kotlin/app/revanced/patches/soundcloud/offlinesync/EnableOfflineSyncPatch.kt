@@ -37,7 +37,7 @@ val enableOfflineSync = bytecodePatch(
 
         // Patch the URL builder to use the HTTPS_STREAM endpoint
         // instead of the offline sync endpoint to downloading the track.
-        downloadOperationsURLBuilderFingerprint.apply {
+        downloadOperationsURLBuilderMethod.apply {
             val getEndpointsEnumFieldIndex = 1
             val getEndpointsEnumFieldInstruction = getInstruction<OneRegisterInstruction>(getEndpointsEnumFieldIndex)
 
@@ -53,7 +53,7 @@ val enableOfflineSync = bytecodePatch(
         // The HTTPS_STREAM endpoint does not return the necessary headers for offline sync.
         // Mock the headers to prevent the app from crashing by setting them to empty strings.
         // The headers are all cosmetic and do not affect the functionality of the app.
-        downloadOperationsHeaderVerificationFingerprint.apply {
+        downloadOperationsHeaderVerificationMethod.apply {
             // The first three null checks need to be patched.
             instructions.asSequence().filter {
                 it.opcode == Opcode.IF_EQZ

@@ -1,7 +1,7 @@
 package app.revanced.patches.finanzonline.detection.bootloader
 
-import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val bootloaderDetectionPatch = bytecodePatch(
@@ -11,14 +11,8 @@ val bootloaderDetectionPatch = bytecodePatch(
     compatibleWith("at.gv.bmf.bmf2go")
 
     apply {
-        setOf(createKeyMethod, bootStateMethod).forEach { fingerprint ->
-            fingerprint.addInstructions(
-                0,
-                """
-                    const/4 v0, 0x1
-                    return v0
-                """,
-            )
+        setOf(createKeyMethod, bootStateMethod).forEach { method ->
+            method.returnEarly(true)
         }
     }
 }

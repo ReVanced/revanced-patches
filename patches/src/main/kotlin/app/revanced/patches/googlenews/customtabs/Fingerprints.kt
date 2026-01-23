@@ -2,13 +2,12 @@ package app.revanced.patches.googlenews.customtabs
 
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.definingClass
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.opcodes
-import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.launchCustomTabMethod by gettingFirstMutableMethodDeclaratively {
+internal val launchCustomTabMethodMatch = firstMethodComposite {
     definingClass("CustomTabsArticleLauncher;"::endsWith)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(

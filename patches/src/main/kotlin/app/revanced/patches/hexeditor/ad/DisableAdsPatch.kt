@@ -1,7 +1,7 @@
 package app.revanced.patches.hexeditor.ad
 
-import app.revanced.patcher.extensions.replaceInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val disableAdsPatch = bytecodePatch(
@@ -10,12 +10,6 @@ val disableAdsPatch = bytecodePatch(
     compatibleWith("com.myprog.hexedit")
 
     apply {
-        primaryAdsMethod.replaceInstructions(
-            0,
-            """
-                const/4 v0, 0x1
-                return v0
-            """,
-        )
+        primaryAdsMethod.returnEarly(true)
     }
 }

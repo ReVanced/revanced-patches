@@ -1,7 +1,6 @@
 package app.revanced.patches.shared.misc.mapping
 
-import app.revanced.patcher.InstructionLocation
-import app.revanced.patcher.LiteralFilter
+import app.revanced.patcher.Predicate
 import app.revanced.patcher.extensions.wideLiteral
 import app.revanced.patcher.literal
 import app.revanced.patcher.patch.PatchException
@@ -35,10 +34,12 @@ enum class ResourceType(val value: String) {
     STYLEABLE("styleable"),
     TRANSITION("transition"),
     VALUES("values"),
-    XML("xml");
+    XML("xml"),
+    ;
 
-    operator fun invoke(name: String): Instruction.() -> Boolean =
-        getResourceId(this, name).let { { wideLiteral(it) } }
+    val id = getResourceId(this, name)
+
+    operator fun invoke(name: String): Predicate<Instruction> = { wideLiteral == id }
 
     companion object {
         private val VALUE_MAP: Map<String, ResourceType> = entries.associateBy { it.value }
@@ -82,7 +83,7 @@ fun hasResourceId(type: ResourceType, name: String) = resourceMappings[type.valu
 fun resourceLiteral(
     type: ResourceType,
     name: String,
-    location: InstructionLocation = InstructionLocation.MatchAfterAnywhere()
+    location: InstructionLocation = InstructionLocation.MatchAfterAnywhere(),
 ) = literal({ getResourceId(type, name) }, null, location)
 
 val resourceMappingPatch = resourcePatch {

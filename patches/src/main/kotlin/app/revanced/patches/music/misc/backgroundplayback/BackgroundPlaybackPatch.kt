@@ -1,6 +1,5 @@
 package app.revanced.patches.music.misc.backgroundplayback
 
-import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.settingsPatch
@@ -12,22 +11,18 @@ val backgroundPlaybackPatch = bytecodePatch(
 ) {
     dependsOn(
         sharedExtensionPatch,
-        settingsPatch
+        settingsPatch,
     )
 
     compatibleWith(
         "com.google.android.apps.youtube.music"(
             "7.29.52",
-            "8.10.52"
-        )
+            "8.10.52",
+        ),
     )
 
     apply {
-        kidsBackgroundPlaybackPolicyControllerMethod.addInstruction(
-            0,
-            "return-void",
-        )
-
+        kidsBackgroundPlaybackPolicyControllerMethod.returnEarly()
         backgroundPlaybackDisableMethod.returnEarly(true)
     }
 }

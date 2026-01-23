@@ -13,8 +13,8 @@ val enableCustomTabsPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.magazines")
 
     apply {
-        launchCustomTabMethod.apply {
-            val checkIndex = launchCustomTabMethod.instructionMatches.last().index + 1 // TODO
+        launchCustomTabMethodMatch.method.apply {
+            val checkIndex = launchCustomTabMethodMatch.indices.last() + 1
             val register = getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
             replaceInstruction(checkIndex, "const/4 v$register, 0x1")
