@@ -50,8 +50,8 @@ val hideAdsPatch = bytecodePatch(
 
         // Prevent verification of an HTTP header containing the user's current plan, which would contradict the previous patch.
 
-        val conditionIndex = interceptFingerprint.instructionMatches.last().index + 1 // TODO
-        interceptFingerprint.addInstruction(
+        val conditionIndex = interceptMethodMatch.indices.last() + 1 // TODO
+        interceptMethodMatch.method.addInstruction(
             conditionIndex,
             "return-object p1",
         )

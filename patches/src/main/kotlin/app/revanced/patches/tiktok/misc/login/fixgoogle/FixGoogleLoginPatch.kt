@@ -1,7 +1,8 @@
 package app.revanced.patches.tiktok.misc.login.fixgoogle
 
-import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 
 @Suppress("unused")
 val fixGoogleLoginPatch = bytecodePatch(
@@ -14,17 +15,6 @@ val fixGoogleLoginPatch = bytecodePatch(
     )
 
     apply {
-        listOf(
-            googleOneTapAuthAvailableMethod,
-            googleAuthAvailableMethod,
-        ).forEach { method ->
-            method.addInstructions(
-                0,
-                """
-                    const/4 v0, 0x0
-                    return v0
-                """,
-            )
-        }
+        listOf(googleOneTapAuthAvailableMethod, googleAuthAvailableMethod).forEach(MutableMethod::returnEarly)
     }
 }

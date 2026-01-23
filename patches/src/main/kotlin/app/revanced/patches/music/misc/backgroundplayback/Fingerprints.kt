@@ -23,7 +23,7 @@ internal val BytecodePatchContext.backgroundPlaybackDisableMethod by gettingFirs
 }
 
 internal val BytecodePatchContext.kidsBackgroundPlaybackPolicyControllerMethod by gettingFirstMutableMethodDeclaratively {
-    accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("I", "L", "Z")
     opcodes(

@@ -1,10 +1,10 @@
 package app.revanced.patches.tiktok.interaction.cleardisplay
 
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patches.tiktok.shared.onRenderFirstFrameFingerprint
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
@@ -21,13 +21,13 @@ val rememberClearDisplayPatch = bytecodePatch(
     )
 
     apply {
-        onClearDisplayEventMethod.let {
+        onClearDisplayEventMethod.apply {
             // region Hook the "Clear display" configuration save event to remember the state of clear display.
 
-            val isEnabledIndex = it.indexOfFirstInstructionOrThrow(Opcode.IGET_BOOLEAN) + 1
-            val isEnabledRegister = it.getInstruction<TwoRegisterInstruction>(isEnabledIndex - 1).registerA
+            val isEnabledIndex = indexOfFirstInstructionOrThrow(Opcode.IGET_BOOLEAN) + 1
+            val isEnabledRegister = getInstruction<TwoRegisterInstruction>(isEnabledIndex - 1).registerA
 
-            it.addInstructions(
+            addInstructions(
                 isEnabledIndex,
                 "invoke-static { v$isEnabledRegister }, " +
                     "Lapp/revanced/extension/tiktok/cleardisplay/RememberClearDisplayPatch;->rememberClearDisplayState(Z)V",
@@ -37,7 +37,7 @@ val rememberClearDisplayPatch = bytecodePatch(
 
             // region Override the "Clear display" configuration load event to load the state of clear display.
 
-            val clearDisplayEventClass = it.parameters[0].type
+            val clearDisplayEventClass = parameters[0].type
             onRenderFirstFrameFingerprint.method.addInstructionsWithLabels(
                 0,
                 """

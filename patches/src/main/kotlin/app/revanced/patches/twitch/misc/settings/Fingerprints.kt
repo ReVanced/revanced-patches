@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.menuGroupsOnClickMethod by gettingFirstMutableMethodDeclaratively {
-    name(String::contains("render")) // TODO
+    name("render"::contains)
     definingClass("/SettingsMenuViewDelegate;"::endsWith)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC, AccessFlags.FINAL)
     returnType("V")

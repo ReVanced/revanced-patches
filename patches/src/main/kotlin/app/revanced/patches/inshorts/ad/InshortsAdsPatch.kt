@@ -1,7 +1,7 @@
 package app.revanced.patches.inshorts.ad
 
-import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val hideAdsPatch = bytecodePatch(
@@ -10,11 +10,6 @@ val hideAdsPatch = bytecodePatch(
     compatibleWith("com.nis.app")
 
     apply {
-        inshortsAdsMethod.addInstruction(
-            0,
-            """
-                return-void
-            """,
-        )
+        inshortsAdsMethod.returnEarly()
     }
 }

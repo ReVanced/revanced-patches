@@ -29,8 +29,8 @@ val `Sanitize sharing links` by creatingBytecodePatch(
     apply {
         urlShorteningMethod.apply {
             val invokeIndex = indexOfFirstInstructionOrThrow {
-                val ref = getReference<MethodReference>()
-                ref?.name == "LIZ" && ref.definingClass.startsWith("LX/")
+                val reference = getReference<MethodReference>()
+                reference?.name == "LIZ" && reference.definingClass.startsWith("LX/")
             }
 
             val moveResultIndex = indexOfFirstInstructionOrThrow(invokeIndex, Opcode.MOVE_RESULT_OBJECT)
@@ -74,7 +74,7 @@ val `Sanitize sharing links` by creatingBytecodePatch(
 
                     :skip_sanitization
                     nop
-                """
+                """,
             )
         }
     }

@@ -26,7 +26,7 @@ internal fun sanitizeSharingLinksPatch(
     block: BytecodePatchBuilder.() -> Unit = {},
     executeBlock: BytecodePatchContext.() -> Unit = {},
     preferenceScreen: BasePreferenceScreen.Screen,
-    replaceMusicLinksWithYouTube: Boolean = false
+    replaceMusicLinksWithYouTube: Boolean = false,
 ) = bytecodePatch(
     name = "Sanitize sharing links",
     description = "Removes the tracking query parameters from shared links.",
@@ -50,12 +50,12 @@ internal fun sanitizeSharingLinksPatch(
                     tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
                     preferences = setOf(
                         sanitizePreference,
-                        SwitchPreference("revanced_replace_music_with_youtube")
-                    )
+                        SwitchPreference("revanced_replace_music_with_youtube"),
+                    ),
                 )
             } else {
                 sanitizePreference
-            }
+            },
         )
 
         fun MatchBuilder.hookUrlString(matchIndex: Int) {
@@ -67,7 +67,7 @@ internal fun sanitizeSharingLinksPatch(
                 """
                     invoke-static { v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$urlRegister
-                """
+                """,
             )
         }
 
@@ -80,7 +80,7 @@ internal fun sanitizeSharingLinksPatch(
                 """
                     invoke-static { v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$urlRegister
-                """
+                """,
             )
         }
 

@@ -17,7 +17,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/instagr
 val limitFeedToFollowedProfiles = bytecodePatch(
     name = "Limit feed to followed profiles",
     description = "Filters the home feed to display only content from profiles you follow.",
-    use = false
+    use = false,
 ) {
     compatibleWith("com.instagram.android")
 
@@ -31,12 +31,11 @@ val limitFeedToFollowedProfiles = bytecodePatch(
          */
         val mainFeedRequestHeaderFieldName: String
 
-        with(mainFeedHeaderMapFinderMethod) {
+        mainFeedHeaderMapFinderMethod.apply {
             mainFeedRequestHeaderFieldName = indexOfFirstInstructionOrThrow {
                 getReference<FieldReference>().let { ref ->
                     ref?.type == "Ljava/util/Map;" &&
-                            ref.definingClass == mainFeedRequestClassMethod.classDef.toString()
-
+                        ref.definingClass == mainFeedRequestClassMethod.classDef.toString()
                 }
             }.let { instructionIndex ->
                 getInstruction(instructionIndex).getReference<FieldReference>()!!.name
@@ -46,7 +45,7 @@ val limitFeedToFollowedProfiles = bytecodePatch(
         val initMainFeedRequestFingerprint = fingerprint {
             custom { method, classDef ->
                 method.name == "<init>" &&
-                        classDef == mainFeedRequestClassMethod.classDef
+                    classDef == mainFeedRequestClassMethod.classDef
             }
         }
         initMainFeedRequestFingerprint.method.apply {
@@ -65,7 +64,7 @@ val limitFeedToFollowedProfiles = bytecodePatch(
                 """
                     invoke-static { v$paramHeaderRegister }, $EXTENSION_CLASS_DESCRIPTOR->setFollowingHeader(Ljava/util/Map;)Ljava/util/Map;
                     move-result-object v$paramHeaderRegister
-                """
+                """,
             )
         }
     }

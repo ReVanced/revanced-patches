@@ -14,16 +14,14 @@ val removeDeviceIntegrityChecksPatch = bytecodePatch(
     apply {
         isDeviceRootedMethod.returnEarly(false)
 
-        isDeviceBootloaderOpenMethod.apply {
-            addInstructions(
-                0,
-                """
-                    const/4 v0, 0x0
-                    invoke-static { v0 }, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
-                    move-result-object v0
-                    return-object v0
-                """
-            )
-        }
+        isDeviceBootloaderOpenMethod.addInstructions(
+            0,
+            """
+                const/4 v0, 0x0
+                invoke-static { v0 }, Lkotlin/coroutines/jvm/internal/Boxing;->boxBoolean(Z)Ljava/lang/Boolean;
+                move-result-object v0
+                return-object v0
+            """,
+        )
     }
 }

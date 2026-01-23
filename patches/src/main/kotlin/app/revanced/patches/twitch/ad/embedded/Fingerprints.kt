@@ -7,5 +7,5 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.createsUsherClientMethod by gettingFirstMutableMethodDeclaratively {
     name("buildOkHttpClient")
-    definingClass("Ltv/twitch/android/network/OkHttpClientFactory;"::endsWith)
+    definingClass("Ltv/twitch/android/network/OkHttpClientFactory;")
 }

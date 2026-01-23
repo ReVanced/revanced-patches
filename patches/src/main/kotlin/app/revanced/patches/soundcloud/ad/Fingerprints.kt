@@ -5,14 +5,14 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.interceptFingerprint by gettingFirstMutableMethodDeclaratively("SC-Mob-UserPlan", "Configuration") {
+internal val interceptMethodMatch = firstMethodComposite("SC-Mob-UserPlan", "Configuration") {
     accessFlags(AccessFlags.PUBLIC)
     returnType("L")
     parameterTypes("L")
     opcodes(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT
+        Opcode.MOVE_RESULT_OBJECT,
     )
 }
 
