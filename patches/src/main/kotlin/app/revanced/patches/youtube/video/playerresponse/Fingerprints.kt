@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.video.playerresponse
 
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.addString
+import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
@@ -9,11 +9,11 @@ import com.android.tools.smali.dexlib2.AccessFlags
  */
 internal val playerParameterBuilderFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters(
-        "Ljava/lang/String;",  // VideoId.
+    returnType("L")
+    parameterTypes(
+        "Ljava/lang/String;", // VideoId.
         "[B",
-        "Ljava/lang/String;",  // Player parameters proto buffer.
+        "Ljava/lang/String;", // Player parameters proto buffer.
         "Ljava/lang/String;",
         "I",
         "Z",
@@ -26,7 +26,7 @@ internal val playerParameterBuilderFingerprint = fingerprint {
         "Z", // Appears to indicate if the video id is being opened or is currently playing.
         "Z",
         "Z",
-        "Lj\$/time/Duration;"
+        "Lj\$/time/Duration;",
     )
 }
 
@@ -35,11 +35,11 @@ internal val playerParameterBuilderFingerprint = fingerprint {
  */
 internal val playerParameterBuilder2026Fingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters(
-        "Ljava/lang/String;",  // VideoId.
+    returnType("L")
+    parameterTypes(
+        "Ljava/lang/String;", // VideoId.
         "[B",
-        "Ljava/lang/String;",  // Player parameters proto buffer.
+        "Ljava/lang/String;", // Player parameters proto buffer.
         "Ljava/lang/String;",
         "I",
         "Z",
@@ -52,10 +52,10 @@ internal val playerParameterBuilder2026Fingerprint = fingerprint {
         "Z", // Appears to indicate if the video id is being opened or is currently playing.
         "Z",
         "Z",
-        "Lj\$/time/Duration;"
+        "Lj\$/time/Duration;",
     )
     instructions(
-        addString("psps")
+        addString("psps"),
     )
 }
 
@@ -64,11 +64,11 @@ internal val playerParameterBuilder2026Fingerprint = fingerprint {
  */
 internal val playerParameterBuilder2015Fingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters(
-        "Ljava/lang/String;",  // VideoId.
+    returnType("L")
+    parameterTypes(
+        "Ljava/lang/String;", // VideoId.
         "[B",
-        "Ljava/lang/String;",  // Player parameters proto buffer.
+        "Ljava/lang/String;", // Player parameters proto buffer.
         "Ljava/lang/String;",
         "I",
         "Z",
@@ -83,7 +83,7 @@ internal val playerParameterBuilder2015Fingerprint = fingerprint {
         "Z",
     )
     instructions(
-        addString("psps")
+        addString("psps"),
     )
 }
 
@@ -92,11 +92,11 @@ internal val playerParameterBuilder2015Fingerprint = fingerprint {
  */
 internal val playerParameterBuilder2010Fingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters(
-        "Ljava/lang/String;",  // VideoId.
+    returnType("L")
+    parameterTypes(
+        "Ljava/lang/String;", // VideoId.
         "[B",
-        "Ljava/lang/String;",  // Player parameters proto buffer.
+        "Ljava/lang/String;", // Player parameters proto buffer.
         "Ljava/lang/String;",
         "I",
         "Z",
@@ -109,10 +109,10 @@ internal val playerParameterBuilder2010Fingerprint = fingerprint {
         "Z", // Appears to indicate if the video id is being opened or is currently playing.
         "Z",
         "Z",
-        "Z"
+        "Z",
     )
     instructions(
-        addString("psps")
+        addString("psps"),
     )
 }
 
@@ -121,8 +121,8 @@ internal val playerParameterBuilder2010Fingerprint = fingerprint {
  */
 internal val playerParameterBuilder2002Fingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters(
+    returnType("L")
+    parameterTypes(
         "Ljava/lang/String;", // VideoId.
         "[B",
         "Ljava/lang/String;", // Player parameters proto buffer.
@@ -149,8 +149,8 @@ internal val playerParameterBuilder2002Fingerprint = fingerprint {
  */
 internal val playerParameterBuilder1925Fingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters(
+    returnType("L")
+    parameterTypes(
         "Ljava/lang/String;", // VideoId.
         "[B",
         "Ljava/lang/String;", // Player parameters proto buffer.
@@ -167,7 +167,7 @@ internal val playerParameterBuilder1925Fingerprint = fingerprint {
         "Z",
     )
     instructions(
-        addString("psps")
+        addString("psps"),
     )
 }
 
@@ -176,8 +176,8 @@ internal val playerParameterBuilder1925Fingerprint = fingerprint {
  */
 internal val playerParameterBuilderLegacyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters(
+    returnType("L")
+    parameterTypes(
         "Ljava/lang/String;", // VideoId.
         "[B",
         "Ljava/lang/String;", // Player parameters proto buffer.

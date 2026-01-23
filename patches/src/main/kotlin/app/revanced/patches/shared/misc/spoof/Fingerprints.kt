@@ -1,17 +1,17 @@
 package app.revanced.patches.shared.misc.spoof
 
-import app.revanced.patcher.invoke
-import app.revanced.patcher.method
 import app.revanced.patcher.accessFlags
-import app.revanced.patcher.fingerprint
-import app.revanced.util.indexOfFirstInstruction
 import app.revanced.patcher.custom
 import app.revanced.patcher.extensions.methodReference
+import app.revanced.patcher.fingerprint
 import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.method
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.returnType
+import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
@@ -36,7 +36,7 @@ internal val buildPlayerRequestURIMethodMatch = firstMethodComposite("key", "asi
     )
 }
 
-internal val buildRequestMethodMatch = firstMethodComposite() {
+internal val buildRequestMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Lorg/chromium/net/UrlRequest") // UrlRequest; or UrlRequest$Builder;
     instructions(
@@ -75,15 +75,15 @@ internal val buildRequestMethodMatch = firstMethodComposite() {
         val parameterTypes = parameterTypes
         val parameterTypesSize = parameterTypes.size
         (parameterTypesSize == 6 || parameterTypesSize == 7 || parameterTypesSize == 8) &&
-                parameterTypes[1] == "Ljava/util/Map;" // URL headers.
-                && indexOfNewUrlRequestBuilderInstruction(this) >= 0
+            parameterTypes[1] == "Ljava/util/Map;" && // URL headers.
+            indexOfNewUrlRequestBuilderInstruction(this) >= 0
     }
 }
 
 internal val protobufClassParseByteBufferFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.STATIC)
-    returns("L")
-    parameters("L", "Ljava/nio/ByteBuffer;")
+    returnType("L")
+    parameterTypes("L", "Ljava/nio/ByteBuffer;")
     opcodes(
         Opcode.SGET_OBJECT,
         Opcode.INVOKE_STATIC,
@@ -112,7 +112,7 @@ internal val createStreamingDataMethodMatch = firstMethodComposite {
 
 internal val buildMediaDataSourceFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters(
+    parameterTypes(
         "Landroid/net/Uri;",
         "J",
         "I",
@@ -130,7 +130,7 @@ internal val hlsCurrentTimeMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("Z", "L")
     instructions(
-        45355374L() // HLS current time feature flag.
+        45355374L(), // HLS current time feature flag.
     )
 }
 
@@ -141,22 +141,22 @@ internal val mediaFetchEnumConstructorMethodMatch = firstMethodComposite {
     instructions(
         "ENABLED"(),
         "DISABLED_FOR_PLAYBACK"(),
-        DISABLED_BY_SABR_STREAMING_URI_STRING()
+        DISABLED_BY_SABR_STREAMING_URI_STRING(),
     )
 }
 
 internal val nerdsStatsVideoFormatBuilderFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters("L")
+    returnType("Ljava/lang/String;")
+    parameterTypes("L")
     instructions(
-        addString("codecs=\"")
+        addString("codecs=\""),
     )
 }
 
 internal val patchIncludedExtensionMethodFingerprint = fingerprint {
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
     custom { method, classDef ->
         method.name == "isPatchIncluded" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
@@ -180,7 +180,7 @@ internal val mediaFetchHotConfigAlternativeMethodMatch = firstMethodComposite {
 // but its exact purpose is not known. If this flag is enabled while stream spoofing
 // then videos will never start playback and load forever.
 // Flag does not seem to affect playback if spoofing is off.
-internal val playbackStartDescriptorFeatureFlagMethodMatch = firstMethodComposite() {
+internal val playbackStartDescriptorFeatureFlagMethodMatch = firstMethodComposite {
     parameterTypes()
     returnType("Z")
     instructions(45665455L())
@@ -189,10 +189,10 @@ internal val playbackStartDescriptorFeatureFlagMethodMatch = firstMethodComposit
 internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) = method.indexOfFirstInstruction {
     val reference = methodReference ?: return@indexOfFirstInstruction false
 
-    opcode == Opcode.INVOKE_VIRTUAL && reference.definingClass == "Lorg/chromium/net/CronetEngine;"
-            && reference.name == "newUrlRequestBuilder"
-            && reference.parameterTypes.size == 3
-            && reference.parameterTypes[0] == "Ljava/lang/String;"
-            && reference.parameterTypes[1] == "Lorg/chromium/net/UrlRequest\$Callback;"
-            && reference.parameterTypes[2] == "Ljava/util/concurrent/Executor;"
+    opcode == Opcode.INVOKE_VIRTUAL && reference.definingClass == "Lorg/chromium/net/CronetEngine;" &&
+        reference.name == "newUrlRequestBuilder" &&
+        reference.parameterTypes.size == 3 &&
+        reference.parameterTypes[0] == "Ljava/lang/String;" &&
+        reference.parameterTypes[1] == "Lorg/chromium/net/UrlRequest\$Callback;" &&
+        reference.parameterTypes[2] == "Ljava/util/concurrent/Executor;"
 }

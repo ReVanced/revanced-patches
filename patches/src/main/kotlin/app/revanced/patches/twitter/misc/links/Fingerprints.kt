@@ -4,7 +4,7 @@ import app.revanced.patcher.fingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val sanitizeSharingLinksFingerprint = fingerprint {
-    returns("Ljava/lang/String;")
+    returnType("Ljava/lang/String;")
     strings("<this>", "shareParam", "sessionToken")
 }
 
@@ -17,7 +17,7 @@ internal val linkBuilderFingerprint = fingerprint {
 // Returns a shareable link for the "Share via..." dialog.
 internal val linkResourceGetterFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Landroid/content/res/Resources;")
+    parameterTypes("Landroid/content/res/Resources;")
     custom { _, classDef ->
         classDef.fields.any { field ->
             field.type.startsWith("Lcom/twitter/model/core/")

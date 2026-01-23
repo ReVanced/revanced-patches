@@ -27,7 +27,7 @@ internal val playerTypeEnumFingerprint = fingerprint {
 
 internal val reelWatchPagerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/view/View;")
+    returnType("Landroid/view/View;")
     instructions(
         ResourceType.ID("reel_watch_player"),
         opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterWithin(10)),
@@ -36,7 +36,7 @@ internal val reelWatchPagerFingerprint = fingerprint {
 
 internal val videoStateEnumFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-    parameters()
+    parameterTypes()
     strings(
         "NEW",
         "PLAYING",
@@ -50,8 +50,8 @@ internal val videoStateEnumFingerprint = fingerprint {
 // 20.33 and lower class name ControlsState. 20.34+ class name is obfuscated.
 internal val controlsStateToStringFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters()
-    returns("Ljava/lang/String;")
+    parameterTypes()
+    returnType("Ljava/lang/String;")
     instructions(
         addString("videoState"),
         addString("isBuffering"),

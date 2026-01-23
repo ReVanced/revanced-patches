@@ -8,31 +8,31 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val autoNavConstructorFingerprint = fingerprint {
-    returns("V")
+    returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     strings("main_app_autonav")
 }
 
 internal val autoNavStatusFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
 }
 
 internal val removeOnLayoutChangeListenerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
+    returnType("V")
+    parameterTypes()
     opcodes(
         Opcode.IPUT,
-        Opcode.INVOKE_VIRTUAL
+        Opcode.INVOKE_VIRTUAL,
     )
     // This is the only reference present in the entire smali.
     custom { method, _ ->
         method.indexOfFirstInstruction {
             val reference = getReference<MethodReference>()
             reference?.name == "removeOnLayoutChangeListener" &&
-            reference.definingClass.endsWith("/YouTubePlayerOverlaysLayout;")
+                reference.definingClass.endsWith("/YouTubePlayerOverlaysLayout;")
         } >= 0
     }
 }

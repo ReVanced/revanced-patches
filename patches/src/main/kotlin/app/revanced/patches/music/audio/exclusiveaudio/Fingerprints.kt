@@ -1,13 +1,13 @@
 package app.revanced.patches.music.audio.exclusiveaudio
 
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
 
 internal val allowExclusiveAudioPlaybackFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
     opcodes(
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT_OBJECT,
@@ -18,6 +18,6 @@ internal val allowExclusiveAudioPlaybackFingerprint = fingerprint {
         Opcode.IF_NEZ,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT
+        Opcode.MOVE_RESULT,
     )
 }

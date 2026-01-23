@@ -1,12 +1,12 @@
 package app.revanced.patches.youtube.misc.dimensions.spoof
 
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.addString
+import app.revanced.patcher.fingerprint
 
 internal val deviceDimensionsModelToStringFingerprint = fingerprint {
-    returns("L")
+    returnType("L")
     instructions(
         addString("minh."),
-        addString(";maxh.")
+        addString(";maxh."),
     )
 }

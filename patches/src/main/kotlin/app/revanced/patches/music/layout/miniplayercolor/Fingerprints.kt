@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val miniPlayerConstructorFingerprint = fingerprint {
-    returns("V")
+    returnType("V")
     instructions(
         ResourceType.ID("mpp_player_bottom_sheet"),
     )
@@ -18,8 +18,8 @@ internal val miniPlayerConstructorFingerprint = fingerprint {
  */
 internal val switchToggleColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    returns("V")
-    parameters("L", "J")
+    returnType("V")
+    parameterTypes("L", "J")
     opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,

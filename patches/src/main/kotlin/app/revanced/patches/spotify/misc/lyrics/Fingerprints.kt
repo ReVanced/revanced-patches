@@ -9,13 +9,12 @@ internal val httpClientBuilderFingerprint = fingerprint {
     strings("client == null", "scheduler == null")
 }
 
-internal fun getLyricsHttpClientFingerprint(httpClientBuilderMethodReference: MethodReference) =
-    fingerprint {
-        returns(httpClientBuilderMethodReference.returnType)
-        parameters()
-        custom { method, _ ->
-            method.indexOfFirstInstruction {
-                getReference<MethodReference>() == httpClientBuilderMethodReference
-            } >= 0
-        }
+internal fun getLyricsHttpClientFingerprint(httpClientBuilderMethodReference: MethodReference) = fingerprint {
+    returnType(httpClientBuilderMethodReference.returnType)
+    parameterTypes()
+    custom { method, _ ->
+        method.indexOfFirstInstruction {
+            getReference<MethodReference>() == httpClientBuilderMethodReference
+        } >= 0
     }
+}

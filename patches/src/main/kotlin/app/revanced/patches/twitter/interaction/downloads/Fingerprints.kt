@@ -20,7 +20,7 @@ internal val constructMediaOptionsSheetFingerprint = fingerprint {
 }
 
 internal val showDownloadVideoUpsellBottomSheetFingerprint = fingerprint {
-    returns("Z")
+    returnType("Z")
     strings("mediaEntity", "url")
     opcodes(Opcode.IF_EQZ)
 }

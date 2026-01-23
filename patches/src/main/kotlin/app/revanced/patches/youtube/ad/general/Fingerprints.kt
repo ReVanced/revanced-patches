@@ -10,16 +10,14 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val fullScreenEngagementAdContainerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
+    returnType("V")
+    parameterTypes()
     custom { method, _ ->
-        method.containsLiteralInstruction(fullScreenEngagementAdContainer)
-                && indexOfAddListInstruction(method) >= 0
+        method.containsLiteralInstruction(fullScreenEngagementAdContainer) &&
+            indexOfAddListInstruction(method) >= 0
     }
 }
 
-internal fun indexOfAddListInstruction(method: Method) =
-    method.indexOfFirstInstructionReversed {
-        getReference<MethodReference>()?.name == "add"
-    }
-
+internal fun indexOfAddListInstruction(method: Method) = method.indexOfFirstInstructionReversed {
+    getReference<MethodReference>()?.name == "add"
+}

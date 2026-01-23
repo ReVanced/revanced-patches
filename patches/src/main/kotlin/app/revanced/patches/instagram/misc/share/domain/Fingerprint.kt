@@ -5,8 +5,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val getCustomShareDomainFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
+    returnType("Ljava/lang/String;")
+    parameterTypes()
     custom { method, classDef ->
         method.name == "getCustomShareDomain" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }

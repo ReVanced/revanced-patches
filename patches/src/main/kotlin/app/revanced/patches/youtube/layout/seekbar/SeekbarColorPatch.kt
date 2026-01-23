@@ -6,8 +6,6 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
-import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patches.shared.layout.theme.lithoColorHookPatch
 import app.revanced.patches.shared.layout.theme.lithoColorOverrideHook
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -28,6 +26,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
+import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/theme/SeekbarColorPatch;"
 
@@ -38,14 +38,14 @@ val seekbarColorPatch = bytecodePatch(
         sharedExtensionPatch,
         lithoColorHookPatch,
         resourceMappingPatch,
-        versionCheckPatch
+        versionCheckPatch,
     )
 
     apply {
         fun MutableMethod.addColorChangeInstructions(index: Int) {
             insertLiteralOverride(
                 index,
-                "$EXTENSION_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I"
+                "$EXTENSION_CLASS_DESCRIPTOR->getVideoPlayerSeekbarColor(I)I",
             )
         }
 
@@ -70,7 +70,7 @@ val seekbarColorPatch = bytecodePatch(
                     """
                         invoke-static { v$colorRegister }, $EXTENSION_CLASS_DESCRIPTOR->getVideoPlayerSeekbarClickedColor(I)I
                         move-result v$colorRegister
-                    """
+                    """,
                 )
             }
         }
@@ -101,7 +101,7 @@ val seekbarColorPatch = bytecodePatch(
                         """
                             invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->showWatchHistoryProgressDrawable(Z)Z
                             move-result v$register            
-                        """
+                        """,
                     )
                 }
             }
@@ -112,7 +112,7 @@ val seekbarColorPatch = bytecodePatch(
             """
                 invoke-static/range { p4 .. p5 },  $EXTENSION_CLASS_DESCRIPTOR->getLithoLinearGradient([I[F)[I
                 move-result-object p4   
-            """
+            """,
         )
 
         val playerFingerprint: Fingerprint
@@ -142,7 +142,7 @@ val seekbarColorPatch = bytecodePatch(
                            invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getPlayerLinearGradient([I)[I
                            move-result-object v$register
                         """
-                    }
+                    },
                 )
             }
         }
@@ -160,15 +160,15 @@ val seekbarColorPatch = bytecodePatch(
 
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
-                reference?.definingClass == LOTTIE_ANIMATION_VIEW_CLASS_TYPE
-                        && reference.name == setAnimationIntMethodName
+                reference?.definingClass == LOTTIE_ANIMATION_VIEW_CLASS_TYPE &&
+                    reference.name == setAnimationIntMethodName
             }.forEach { index ->
                 val instruction = getInstruction<FiveRegisterInstruction>(index)
 
                 replaceInstruction(
                     index,
                     "invoke-static { v${instruction.registerC}, v${instruction.registerD} }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->setSplashAnimationLottie(Lcom/airbnb/lottie/LottieAnimationView;I)V"
+                        "$EXTENSION_CLASS_DESCRIPTOR->setSplashAnimationLottie(Lcom/airbnb/lottie/LottieAnimationView;I)V",
                 )
             }
         }
@@ -180,29 +180,31 @@ val seekbarColorPatch = bytecodePatch(
             val setAnimationIntName = lottieAnimationViewSetAnimationIntFingerprint
                 .originalMethod.name
 
-            add(ImmutableMethod(
-                LOTTIE_ANIMATION_VIEW_CLASS_TYPE,
-                addedMethodName,
-                listOf(ImmutableMethodParameter("I", null, null)),
-                "V",
-                AccessFlags.PUBLIC.value,
-                null,
-                null,
-                MutableMethodImplementation(2),
-            ).toMutable().apply {
-                addInstructions(
-                    """
+            add(
+                ImmutableMethod(
+                    LOTTIE_ANIMATION_VIEW_CLASS_TYPE,
+                    addedMethodName,
+                    listOf(ImmutableMethodParameter("I", null, null)),
+                    "V",
+                    AccessFlags.PUBLIC.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(2),
+                ).toMutable().apply {
+                    addInstructions(
+                        """
                         invoke-virtual { p0, p1 }, Lcom/airbnb/lottie/LottieAnimationView;->$setAnimationIntName(I)V
                         return-void
-                    """
-                )
-            })
+                    """,
+                    )
+                },
+            )
 
             val factoryStreamClass: CharSequence
             val factoryStreamName: CharSequence
             val factoryStreamReturnType: CharSequence
             lottieCompositionFactoryFromJsonInputStreamFingerprint.match(
-                lottieCompositionFactoryZipFingerprint.originalClassDef
+                lottieCompositionFactoryZipFingerprint.originalClassDef,
             ).originalMethod.apply {
                 factoryStreamClass = definingClass
                 factoryStreamName = name
@@ -211,8 +213,8 @@ val seekbarColorPatch = bytecodePatch(
 
             val lottieAnimationViewSetAnimationStreamFingerprint = fingerprint {
                 accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-                parameters(factoryStreamReturnType.toString())
-                returns("V")
+                parameterTypes(factoryStreamReturnType.toString())
+                returnType("V")
                 custom { _, classDef ->
                     classDef.type == lottieAnimationViewSetAnimationIntFingerprint.originalClassDef.type
                 }
@@ -220,28 +222,30 @@ val seekbarColorPatch = bytecodePatch(
             val setAnimationStreamName = lottieAnimationViewSetAnimationStreamFingerprint
                 .originalMethod.name
 
-            add(ImmutableMethod(
-                LOTTIE_ANIMATION_VIEW_CLASS_TYPE,
-                addedMethodName,
-                listOf(
-                    ImmutableMethodParameter("Ljava/io/InputStream;", null, null),
-                    ImmutableMethodParameter("Ljava/lang/String;", null, null)
-                ),
-                "V",
-                AccessFlags.PUBLIC.value,
-                null,
-                null,
-                MutableMethodImplementation(4),
-            ).toMutable().apply {
-                addInstructions(
-                    """
+            add(
+                ImmutableMethod(
+                    LOTTIE_ANIMATION_VIEW_CLASS_TYPE,
+                    addedMethodName,
+                    listOf(
+                        ImmutableMethodParameter("Ljava/io/InputStream;", null, null),
+                        ImmutableMethodParameter("Ljava/lang/String;", null, null),
+                    ),
+                    "V",
+                    AccessFlags.PUBLIC.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(4),
+                ).toMutable().apply {
+                    addInstructions(
+                        """
                         invoke-static { p1, p2 }, $factoryStreamClass->$factoryStreamName(Ljava/io/InputStream;Ljava/lang/String;)$factoryStreamReturnType
                         move-result-object v0
                         invoke-virtual { p0, v0}, Lcom/airbnb/lottie/LottieAnimationView;->$setAnimationStreamName($factoryStreamReturnType)V
                         return-void
-                    """
-                )
-            })
+                    """,
+                    )
+                },
+            )
         }
 
         // endregion

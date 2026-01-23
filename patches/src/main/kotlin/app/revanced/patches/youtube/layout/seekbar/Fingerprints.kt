@@ -13,9 +13,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val fullscreenSeekbarThumbnailsFingerprint = fingerprint {
-    returns("Z")
+    returnType("Z")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters()
+    parameterTypes()
     instructions(
         45398577(),
     )
@@ -52,7 +52,7 @@ internal val playerSeekbarHandle1ColorFingerprint = fingerprint {
 
 internal val playerSeekbarHandle2ColorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("Landroid/content/Context;")
+    parameterTypes("Landroid/content/Context;")
     instructions(
         ResourceType.ATTR("ytTextSecondary"),
         ResourceType.ATTR("ytStaticBrandRed"),
@@ -61,8 +61,8 @@ internal val playerSeekbarHandle2ColorFingerprint = fingerprint {
 
 internal val watchHistoryMenuUseProgressDrawableFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
+    returnType("V")
+    parameterTypes("L")
     instructions(
         methodCall("Landroid/widget/ProgressBar;", "setMax"),
         opcode(Opcode.MOVE_RESULT),
@@ -72,8 +72,8 @@ internal val watchHistoryMenuUseProgressDrawableFingerprint = fingerprint {
 
 internal val lithoLinearGradientFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC)
-    returns("Landroid/graphics/LinearGradient;")
-    parameters("F", "F", "F", "F", "[I", "[F")
+    returnType("Landroid/graphics/LinearGradient;")
+    parameterTypes("F", "F", "F", "F", "[I", "[F")
 }
 
 /**
@@ -81,8 +81,8 @@ internal val lithoLinearGradientFingerprint = fingerprint {
  */
 internal val playerLinearGradientFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    parameters("I", "I", "I", "I", "Landroid/content/Context;", "I")
-    returns("Landroid/graphics/LinearGradient;")
+    parameterTypes("I", "I", "I", "I", "Landroid/content/Context;", "I")
+    returnType("Landroid/graphics/LinearGradient;")
     instructions(
         ResourceType.COLOR("yt_youtube_magenta"),
 
@@ -95,7 +95,7 @@ internal val playerLinearGradientFingerprint = fingerprint {
  * 19.25 - 19.47
  */
 internal val playerLinearGradientLegacyFingerprint = fingerprint {
-    returns("V")
+    returnType("V")
     instructions(
         ResourceType.COLOR("yt_youtube_magenta"),
 
@@ -108,8 +108,8 @@ internal const val LOTTIE_ANIMATION_VIEW_CLASS_TYPE = "Lcom/airbnb/lottie/Lottie
 
 internal val lottieAnimationViewSetAnimationIntFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("I")
-    returns("V")
+    parameterTypes("I")
+    returnType("V")
     instructions(
         methodCall("this", "isInEditMode"),
     )
@@ -120,8 +120,8 @@ internal val lottieAnimationViewSetAnimationIntFingerprint = fingerprint {
 
 internal val lottieCompositionFactoryZipFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    parameters("Landroid/content/Context;", "Ljava/util/zip/ZipInputStream;", "Ljava/lang/String;")
-    returns("L")
+    parameterTypes("Landroid/content/Context;", "Ljava/util/zip/ZipInputStream;", "Ljava/lang/String;")
+    returnType("L")
     instructions(
         addString("Unable to parse composition"),
         addString(" however it was not found in the animation."),
@@ -135,8 +135,8 @@ internal val lottieCompositionFactoryZipFingerprint = fingerprint {
  */
 internal val lottieCompositionFactoryFromJsonInputStreamFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    parameters("Ljava/io/InputStream;", "Ljava/lang/String;")
-    returns("L")
+    parameterTypes("Ljava/io/InputStream;", "Ljava/lang/String;")
+    returnType("L")
     instructions(
         anyInstruction(literal(2), literal(3)),
     )

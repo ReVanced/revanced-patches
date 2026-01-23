@@ -10,8 +10,8 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val licenseActivityOnCreateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Landroid/os/Bundle;")
+    returnType("V")
+    parameterTypes("Landroid/os/Bundle;")
     custom { method, classDef ->
         method.name == "onCreate" && classDef.endsWith("/LicenseActivity;")
     }
@@ -19,8 +19,8 @@ internal val licenseActivityOnCreateFingerprint = fingerprint {
 
 internal val setThemeFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters()
+    returnType("L")
+    parameterTypes()
     instructions(
         ResourceType.STRING("app_theme_appearance_dark"),
     )
@@ -28,7 +28,7 @@ internal val setThemeFingerprint = fingerprint {
 
 internal val cairoFragmentConfigFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
+    returnType("Z")
     instructions(
         45532100L(),
         opcode(Opcode.MOVE_RESULT, location = MatchAfterWithin(10)),
@@ -39,8 +39,8 @@ internal val cairoFragmentConfigFingerprint = fingerprint {
 // 20.31 is the first target with all the bold icons present.
 internal val boldIconsFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
     instructions(
         45685201L(),
     )

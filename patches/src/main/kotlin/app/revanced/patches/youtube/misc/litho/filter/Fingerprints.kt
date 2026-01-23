@@ -25,8 +25,8 @@ internal val lithoFilterFingerprint = fingerprint {
 
 internal val protobufBufferReferenceFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("[B")
+    returnType("V")
+    parameterTypes("[B")
     instructions(
         fieldAccess(
             opcode = Opcode.IGET_OBJECT,
@@ -42,8 +42,8 @@ internal val protobufBufferReferenceFingerprint = fingerprint {
 
 internal val protobufBufferReferenceLegacyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("I", "Ljava/nio/ByteBuffer;")
+    returnType("V")
+    parameterTypes("I", "Ljava/nio/ByteBuffer;")
     opcodes(
         Opcode.IPUT,
         Opcode.INVOKE_VIRTUAL,
@@ -54,7 +54,7 @@ internal val protobufBufferReferenceLegacyFingerprint = fingerprint {
 
 internal val emptyComponentFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
-    parameters()
+    parameterTypes()
     instructions(
         addString("EmptyComponent"),
     )
@@ -65,7 +65,7 @@ internal val emptyComponentFingerprint = fingerprint {
 
 internal val lithoThreadExecutorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("I", "I", "I")
+    parameterTypes("I", "I", "I")
     custom { method, classDef ->
         classDef.superclass == "Ljava/util/concurrent/ThreadPoolExecutor;" &&
             method.containsLiteralInstruction(1L) // 1L = default thread timeout.
@@ -74,15 +74,15 @@ internal val lithoThreadExecutorFingerprint = fingerprint {
 
 internal val lithoComponentNameUpbFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
     instructions(
         45631264L(),
     )
 }
 
 internal val lithoConverterBufferUpbFeatureFlagFingerprint = fingerprint {
-    returns("L")
+    returnType("L")
     instructions(
         45419603L(),
     )

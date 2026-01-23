@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.misc.links
 
 import app.revanced.patcher.StringComparisonType
+import app.revanced.patcher.addString
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.methodCall
-import app.revanced.patcher.addString
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
@@ -11,12 +11,12 @@ import com.android.tools.smali.dexlib2.AccessFlags
  */
 internal val abUriParserLegacyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/Object;")
-    parameters("Ljava/lang/Object;")
+    returnType("Ljava/lang/Object;")
+    parameterTypes("Ljava/lang/Object;")
     instructions(
         addString("Found entityKey=`"),
-        addString("that does not contain a PlaylistVideoEntityId", comparison =  StringComparisonType.CONTAINS),
-        methodCall(smali = "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;")
+        addString("that does not contain a PlaylistVideoEntityId", comparison = StringComparisonType.CONTAINS),
+        methodCall(smali = "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"),
     )
 }
 
@@ -25,8 +25,8 @@ internal val abUriParserLegacyFingerprint = fingerprint {
  */
 internal val abUriParserFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/Object;")
-    parameters("Ljava/lang/Object;")
+    returnType("Ljava/lang/Object;")
+    parameterTypes("Ljava/lang/Object;")
     instructions(
         // Method is a switch statement of unrelated code,
         // and there's no strings or anything unique to fingerprint.
@@ -39,8 +39,8 @@ internal val abUriParserFingerprint = fingerprint {
 
 internal val httpUriParserFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Landroid/net/Uri;")
-    parameters("Ljava/lang/String;")
+    returnType("Landroid/net/Uri;")
+    parameterTypes("Ljava/lang/String;")
     instructions(
         methodCall(smali = "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"),
         addString("https"),
@@ -48,4 +48,3 @@ internal val httpUriParserFingerprint = fingerprint {
         addString("https:"),
     )
 }
-

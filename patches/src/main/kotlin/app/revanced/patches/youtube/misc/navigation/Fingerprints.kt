@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val actionBarSearchResultsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/view/View;")
+    returnType("Landroid/view/View;")
     instructions(
         ResourceType.LAYOUT("action_bar_search_results_view_mic"),
         methodCall(name = "setLayoutDirection"),
@@ -30,8 +30,8 @@ internal val toolbarLayoutFingerprint = fingerprint {
  */
 internal val appCompatToolbarBackButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/graphics/drawable/Drawable;")
-    parameters()
+    returnType("Landroid/graphics/drawable/Drawable;")
+    parameterTypes()
     custom { _, classDef ->
         classDef.type == "Landroid/support/v7/widget/Toolbar;"
     }
@@ -42,7 +42,7 @@ internal val appCompatToolbarBackButtonFingerprint = fingerprint {
  */
 internal val initializeButtonsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
+    returnType("V")
     instructions(
         ResourceType.LAYOUT("image_only_tab"),
     )
@@ -54,8 +54,8 @@ internal val initializeButtonsFingerprint = fingerprint {
  */
 internal val navigationBarHookCallbackFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("V")
-    parameters(EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR, "Landroid/view/View;")
+    returnType("V")
+    parameterTypes(EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR, "Landroid/view/View;")
     custom { method, _ ->
         method.name == "navigationTabCreatedCallback" &&
             method.definingClass == EXTENSION_CLASS_DESCRIPTOR
@@ -81,7 +81,7 @@ internal val navigationEnumFingerprint = fingerprint {
 
 internal val pivotBarButtonsCreateDrawableViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/view/View;")
+    returnType("Landroid/view/View;")
     custom { method, _ ->
         method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
             // Only one view creation method has a Drawable parameter.
@@ -91,8 +91,8 @@ internal val pivotBarButtonsCreateDrawableViewFingerprint = fingerprint {
 
 internal val pivotBarButtonsCreateResourceStyledViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/view/View;")
-    parameters("L", "Z", "I", "L")
+    returnType("Landroid/view/View;")
+    parameterTypes("L", "Z", "I", "L")
     custom { method, _ ->
         method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
     }
@@ -103,7 +103,7 @@ internal val pivotBarButtonsCreateResourceStyledViewFingerprint = fingerprint {
  */
 internal val pivotBarButtonsCreateResourceIntViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/view/View;")
+    returnType("Landroid/view/View;")
     custom { method, _ ->
         method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
             // Only one view creation method has an int first parameter.
@@ -113,8 +113,8 @@ internal val pivotBarButtonsCreateResourceIntViewFingerprint = fingerprint {
 
 internal val pivotBarButtonsViewSetSelectedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("I", "Z")
+    returnType("V")
+    parameterTypes("I", "Z")
     instructions(
         methodCall(name = "setSelected"),
     )

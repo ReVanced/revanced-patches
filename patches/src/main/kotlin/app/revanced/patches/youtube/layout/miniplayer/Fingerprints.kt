@@ -34,8 +34,8 @@ internal val miniplayerModernConstructorFingerprint = fingerprint {
 
 internal val miniplayerDimensionsCalculatorParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
+    returnType("V")
+    parameterTypes("L")
     instructions(
         ResourceType.DIMEN("floaty_bar_button_top_margin"),
     )
@@ -43,8 +43,8 @@ internal val miniplayerDimensionsCalculatorParentFingerprint = fingerprint {
 
 internal val miniplayerModernViewParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/String;")
-    parameters()
+    returnType("Ljava/lang/String;")
+    parameterTypes()
     instructions(
         addString("player_overlay_modern_mini_player_controls"),
     )
@@ -55,8 +55,8 @@ internal val miniplayerModernViewParentFingerprint = fingerprint {
  */
 internal val miniplayerModernAddViewListenerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Landroid/view/View;")
+    returnType("V")
+    parameterTypes("Landroid/view/View;")
 }
 
 /**
@@ -64,8 +64,8 @@ internal val miniplayerModernAddViewListenerFingerprint = fingerprint {
  */
 internal val miniplayerModernCloseButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters()
+    returnType("L")
+    parameterTypes()
     instructions(
         ResourceType.ID("modern_miniplayer_close"),
         checkCast("Landroid/widget/ImageView;"),
@@ -77,8 +77,8 @@ internal val miniplayerModernCloseButtonFingerprint = fingerprint {
  */
 internal val miniplayerModernExpandButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters()
+    returnType("L")
+    parameterTypes()
     instructions(
         ResourceType.ID("modern_miniplayer_expand"),
         checkCast("Landroid/widget/ImageView;"),
@@ -90,8 +90,8 @@ internal val miniplayerModernExpandButtonFingerprint = fingerprint {
  */
 internal val miniplayerModernExpandCloseDrawablesFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
+    returnType("V")
+    parameterTypes("L")
     instructions(
         ytOutlinePictureInPictureWhite24(),
     )
@@ -102,8 +102,8 @@ internal val miniplayerModernExpandCloseDrawablesFingerprint = fingerprint {
  */
 internal val miniplayerModernForwardButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters()
+    returnType("L")
+    parameterTypes()
     instructions(
         ResourceType.ID("modern_miniplayer_forward_button"),
         opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterWithin(5)),
@@ -112,7 +112,7 @@ internal val miniplayerModernForwardButtonFingerprint = fingerprint {
 
 internal val miniplayerModernOverlayViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters()
+    parameterTypes()
     instructions(
         ResourceType.ID("scrim_overlay"),
         opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterWithin(5)),
@@ -124,8 +124,8 @@ internal val miniplayerModernOverlayViewFingerprint = fingerprint {
  */
 internal val miniplayerModernRewindButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters()
+    returnType("L")
+    parameterTypes()
     instructions(
         ResourceType.ID("modern_miniplayer_rewind_button"),
         opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterWithin(5)),
@@ -137,8 +137,8 @@ internal val miniplayerModernRewindButtonFingerprint = fingerprint {
  */
 internal val miniplayerModernActionButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters()
+    returnType("L")
+    parameterTypes()
     instructions(
         ResourceType.ID("modern_miniplayer_overlay_action_button"),
         opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterWithin(5)),
@@ -156,7 +156,7 @@ internal val miniplayerMinimumSizeFingerprint = fingerprint {
 
 internal val miniplayerOverrideFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
+    returnType("L")
     instructions(
         addString("appName"),
         methodCall(
@@ -169,7 +169,7 @@ internal val miniplayerOverrideFingerprint = fingerprint {
 
 internal val miniplayerOverrideNoContextFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    returns("Z")
+    returnType("Z")
     instructions(
         opcode(Opcode.IGET_BOOLEAN), // Anchor to insert the instruction.
     )
@@ -180,8 +180,8 @@ internal val miniplayerOverrideNoContextFingerprint = fingerprint {
  */
 internal val miniplayerResponseModelSizeCheckFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters("Ljava/lang/Object;", "Ljava/lang/Object;")
+    returnType("L")
+    parameterTypes("Ljava/lang/Object;", "Ljava/lang/Object;")
     opcodes(
         Opcode.RETURN_OBJECT,
         Opcode.CHECK_CAST,
@@ -194,7 +194,7 @@ internal val miniplayerResponseModelSizeCheckFingerprint = fingerprint {
 
 internal val miniplayerOnCloseHandlerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
+    returnType("Z")
     instructions(
         MINIPLAYER_DISABLED_FEATURE_KEY(),
     )
@@ -210,8 +210,8 @@ internal val playerOverlaysLayoutFingerprint = fingerprint {
 }
 
 internal val miniplayerSetIconsFingerprint = fingerprint {
-    returns("V")
-    parameters("I", "Ljava/lang/Runnable;")
+    returnType("V")
+    parameterTypes("I", "Ljava/lang/Runnable;")
     instructions(
         ResourceType.DRAWABLE("yt_fill_pause_white_36"),
         ResourceType.DRAWABLE("yt_fill_pause_black_36"),

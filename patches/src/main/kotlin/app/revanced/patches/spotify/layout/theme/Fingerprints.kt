@@ -10,8 +10,8 @@ internal val colorSpaceUtilsClassFingerprint = fingerprint {
 
 internal val convertArgbToRgbaFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC, AccessFlags.FINAL)
-    returns("J")
-    parameters("J")
+    returnType("J")
+    parameterTypes("J")
 }
 
 internal val parseLottieJsonFingerprint = fingerprint {
@@ -19,10 +19,10 @@ internal val parseLottieJsonFingerprint = fingerprint {
 }
 
 internal val parseAnimatedColorFingerprint = fingerprint {
-    parameters("L", "F")
-    returns("Ljava/lang/Object;")
+    parameterTypes("L", "F")
+    returnType("Ljava/lang/Object;")
     custom { method, _ ->
         method.containsLiteralInstruction(255.0) &&
-                method.containsLiteralInstruction(1.0)
+            method.containsLiteralInstruction(1.0)
     }
 }

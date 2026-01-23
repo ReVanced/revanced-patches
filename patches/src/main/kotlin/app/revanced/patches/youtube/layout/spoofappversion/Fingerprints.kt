@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val toolBarButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
+    returnType("V")
     instructions(
         ResourceType.ID("menu_item_view"),
         methodCall(returnType = "I", opcode = Opcode.INVOKE_INTERFACE),
@@ -30,8 +30,8 @@ internal val toolBarButtonFingerprint = fingerprint {
 
 internal val spoofAppVersionFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("L")
-    parameters("L")
+    returnType("L")
+    parameterTypes("L")
     opcodes(
         Opcode.IGET_OBJECT,
         Opcode.GOTO,

@@ -10,8 +10,8 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val specificNetworkErrorViewControllerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
+    returnType("V")
+    parameterTypes()
     instructions(
         ResourceType.DRAWABLE("ic_offline_no_content_upside_down"),
         ResourceType.STRING("offline_no_content_body_text_not_offline_eligible"),
@@ -24,8 +24,8 @@ internal val specificNetworkErrorViewControllerFingerprint = fingerprint {
 // but it the layout image/text is identical to the network error fingerprint above.
 internal val loadingFrameLayoutControllerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
+    returnType("V")
+    parameterTypes("L")
     instructions(
         ResourceType.DRAWABLE("ic_offline_no_content_upside_down"),
         ResourceType.STRING("offline_no_content_body_text_not_offline_eligible"),

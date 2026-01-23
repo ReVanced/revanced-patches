@@ -11,26 +11,26 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val scrollPositionFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
+    returnType("V")
+    parameterTypes("L")
     opcodes(
         Opcode.IF_NEZ,
         Opcode.INVOKE_DIRECT,
-        Opcode.RETURN_VOID
+        Opcode.RETURN_VOID,
     )
     strings("scroll_position")
 }
 
 internal val recyclerViewTopScrollingFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
+    returnType("V")
+    parameterTypes()
     instructions(
         methodCall(smali = "Ljava/util/Iterator;->next()Ljava/lang/Object;"),
         opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
         checkCast("Landroid/support/v7/widget/RecyclerView;", MatchAfterImmediately()),
         literal(0, location = MatchAfterImmediately()),
         methodCall(definingClass = "Landroid/support/v7/widget/RecyclerView;", location = MatchAfterImmediately()),
-        opcode(Opcode.GOTO, MatchAfterImmediately())
+        opcode(Opcode.GOTO, MatchAfterImmediately()),
     )
 }

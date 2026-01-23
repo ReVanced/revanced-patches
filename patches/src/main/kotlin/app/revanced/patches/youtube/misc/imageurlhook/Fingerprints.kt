@@ -1,17 +1,17 @@
 package app.revanced.patches.youtube.misc.imageurlhook
 
+import app.revanced.patcher.addString
 import app.revanced.patcher.anyInstruction
 import app.revanced.patcher.fingerprint
-import app.revanced.patcher.addString
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val onFailureFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters(
+    returnType("V")
+    parameterTypes(
         "Lorg/chromium/net/UrlRequest;",
         "Lorg/chromium/net/UrlResponseInfo;",
-        "Lorg/chromium/net/CronetException;"
+        "Lorg/chromium/net/CronetException;",
     )
     custom { method, _ ->
         method.name == "onFailed"
@@ -21,8 +21,8 @@ internal val onFailureFingerprint = fingerprint {
 // Acts as a parent fingerprint.
 internal val onResponseStartedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
+    returnType("V")
+    parameterTypes("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
     strings(
         "Content-Length",
         "Content-Type",
@@ -36,8 +36,8 @@ internal val onResponseStartedFingerprint = fingerprint {
 
 internal val onSucceededFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
+    returnType("V")
+    parameterTypes("Lorg/chromium/net/UrlRequest;", "Lorg/chromium/net/UrlResponseInfo;")
     custom { method, _ ->
         method.name == "onSucceeded"
     }
@@ -54,17 +54,17 @@ internal val requestFingerprint = fingerprint {
 
 internal val messageDigestImageUrlFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("Ljava/lang/String;", "L")
+    parameterTypes("Ljava/lang/String;", "L")
 }
 
 internal val messageDigestImageUrlParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/String;")
-    parameters()
+    returnType("Ljava/lang/String;")
+    parameterTypes()
     instructions(
         anyInstruction(
             addString("@#&=*+-_.,:!?()/~'%;\$"),
             addString("@#&=*+-_.,:!?()/~'%;\$[]"), // 20.38+
-        )
+        ),
     )
 }

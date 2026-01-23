@@ -12,8 +12,8 @@ internal val useGradientLoadingScreenFingerprint = fingerprint {
 }
 
 internal val splashScreenStyleFingerprint = fingerprint {
-    returns("V")
-    parameters("Landroid/os/Bundle;")
+    returnType("V")
+    parameterTypes("Landroid/os/Bundle;")
     instructions(
         anyInstruction(
             1074339245(), // 20.30+

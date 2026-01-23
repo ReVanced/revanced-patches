@@ -7,8 +7,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val setWordmarkHeaderFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Landroid/widget/ImageView;")
+    returnType("V")
+    parameterTypes("Landroid/widget/ImageView;")
     instructions(
         ResourceType.ATTR("ytPremiumWordmarkHeader"),
         ResourceType.ATTR("ytWordmarkHeader"),
@@ -20,8 +20,8 @@ internal val setWordmarkHeaderFingerprint = fingerprint {
  */
 internal val wideSearchbarLayoutFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/view/View;")
-    parameters("L", "L")
+    returnType("Landroid/view/View;")
+    parameterTypes("L", "L")
     instructions(
         ResourceType.LAYOUT("action_bar_ringo"),
     )

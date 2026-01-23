@@ -49,7 +49,7 @@ val `Change lyrics provider` by creatingBytecodePatch(
             InetAddress.getByName(host)
         } catch (_: UnknownHostException) {
             Logger.getLogger(this::class.java.name).warning(
-                "Host \"$host\" did not resolve to any domain."
+                "Host \"$host\" did not resolve to any domain.",
             )
         } catch (_: Exception) {
             // Must ignore any kind of exception. Trying to resolve network
@@ -71,7 +71,7 @@ val `Change lyrics provider` by creatingBytecodePatch(
             val setUrlBuilderHostIndex = indexOfFirstInstructionReversedOrThrow(invokeBuildUrlIndex) {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == "Lokhttp3/HttpUrl${"$"}Builder;" &&
-                        reference.parameterTypes.firstOrNull() == "Ljava/lang/String;"
+                    reference.parameterTypes.firstOrNull() == "Ljava/lang/String;"
             }
             val hostRegister = getInstruction<FiveRegisterInstruction>(setUrlBuilderHostIndex).registerD
 
@@ -79,7 +79,7 @@ val `Change lyrics provider` by creatingBytecodePatch(
                 name = "rv_getCustomLyricsProviderHttpClient"
                 addInstruction(
                     setUrlBuilderHostIndex,
-                    "const-string v$hostRegister, \"$lyricsProviderHost\""
+                    "const-string v$hostRegister, \"$lyricsProviderHost\"",
                 )
 
                 // Add the patched method to the class.
@@ -91,10 +91,9 @@ val `Change lyrics provider` by creatingBytecodePatch(
 
         // region Replace the call to the HTTP client builder method used exclusively for lyrics by the modified one.
 
-
         val getLyricsHttpClientFingerprint = fingerprint {
-            returns(httpClientBuilderMethod.returnType)
-            parameters()
+            returnType(httpClientBuilderMethod.returnType)
+            parameterTypes()
             custom { method, _ ->
                 method.indexOfFirstInstruction {
                     getReference<MethodReference>() == httpClientBuilderMethod
@@ -123,9 +122,9 @@ val `Change lyrics provider` by creatingBytecodePatch(
                         patchedHttpClientBuilderMethod.definingClass,
                         patchedHttpClientBuilderMethod.name, // Only difference from the original method.
                         patchedHttpClientBuilderMethod.parameters,
-                        patchedHttpClientBuilderMethod.returnType
-                    )
-                )
+                        patchedHttpClientBuilderMethod.returnType,
+                    ),
+                ),
             )
         }
 

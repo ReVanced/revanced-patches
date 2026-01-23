@@ -5,8 +5,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val numberOfPresetAppNamesExtensionFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("I")
-    parameters()
+    returnType("I")
+    parameterTypes()
     custom { method, classDef ->
         method.name == "numberOfPresetAppNames" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
@@ -16,6 +16,6 @@ internal val numberOfPresetAppNamesExtensionFingerprint = fingerprint {
 // but that has limited usage and this fingerprint allows changing any part of the notification.
 internal val notificationFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("L")
+    parameterTypes("L")
     strings("key_action_priority")
 }

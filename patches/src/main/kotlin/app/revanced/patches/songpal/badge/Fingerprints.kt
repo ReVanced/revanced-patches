@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodRefere
 // Located @ ub.i0.h#p (9.5.0)
 internal val createTabsFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE)
-    returns("Ljava/util/List;")
+    returnType("Ljava/util/List;")
     custom { method, _ ->
         method.implementation?.instructions?.any { instruction ->
             if (instruction.opcode != Opcode.INVOKE_STATIC) return@any false
@@ -28,7 +28,7 @@ internal val createTabsFingerprint = fingerprint {
 // Located @ com.sony.songpal.mdr.vim.activity.MdrRemoteBaseActivity.e#run (9.5.0)
 internal val showNotificationFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
-    returns("V")
+    returnType("V")
     custom { method, _ ->
         method.implementation?.instructions?.any { instruction ->
             if (instruction.opcode != Opcode.INVOKE_VIRTUAL) return@any false

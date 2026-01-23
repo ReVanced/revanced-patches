@@ -10,8 +10,8 @@ internal val isValidSignatureClassFingerprint = fingerprint {
 }
 
 internal val isValidSignatureMethodFingerprint = fingerprint {
-    parameters("L", "Z")
-    returns("Z")
+    parameterTypes("L", "Z")
+    returnType("Z")
     custom { method, _ ->
         method.indexOfFirstInstruction {
             getReference<MethodReference>()?.name == "keySet"

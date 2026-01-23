@@ -6,7 +6,7 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patches.shared.misc.mapping.ResourceType
 
 internal val createPlayerOverviewFingerprint = fingerprint {
-    returns("V")
+    returnType("V")
     instructions(
         ResourceType.ID("scrim_overlay"),
         checkCast("Landroid/widget/ImageView;", location = MatchAfterWithin(10)),

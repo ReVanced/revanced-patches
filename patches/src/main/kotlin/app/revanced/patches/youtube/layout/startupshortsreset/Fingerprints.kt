@@ -15,9 +15,9 @@ import com.android.tools.smali.dexlib2.Opcode
  * 20.02+
  */
 internal val userWasInShortsAlternativeFingerprint = fingerprint {
-    returns("V")
+    returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Ljava/lang/Object;")
+    parameterTypes("Ljava/lang/Object;")
     instructions(
         checkCast("Ljava/lang/Boolean;"),
         methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z", location = MatchAfterImmediately()),
@@ -31,9 +31,9 @@ internal val userWasInShortsAlternativeFingerprint = fingerprint {
  * Pre 20.02
  */
 internal val userWasInShortsLegacyFingerprint = fingerprint {
-    returns("V")
+    returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Ljava/lang/Object;")
+    parameterTypes("Ljava/lang/Object;")
     instructions(
         addString("Failed to read user_was_in_shorts proto after successful warmup"),
     )
@@ -44,8 +44,8 @@ internal val userWasInShortsLegacyFingerprint = fingerprint {
  */
 internal val userWasInShortsConfigFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
     instructions(
         45358360L(),
     )

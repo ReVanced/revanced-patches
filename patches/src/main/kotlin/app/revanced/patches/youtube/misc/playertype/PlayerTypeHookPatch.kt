@@ -23,8 +23,8 @@ val playerTypeHookPatch = bytecodePatch(
     apply {
         val playerOverlaysSetPlayerTypeFingerprint = fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-            returns("V")
-            parameters(playerTypeEnumFingerprint.originalClassDef.type)
+            returnType("V")
+            parameterTypes(playerTypeEnumFingerprint.originalClassDef.type)
             custom { _, classDef ->
                 classDef.endsWith("/YouTubePlayerOverlaysLayout;")
             }
@@ -51,8 +51,8 @@ val playerTypeHookPatch = bytecodePatch(
 
         val videoStateFingerprint = fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-            returns("V")
-            parameters(controlStateType)
+            returnType("V")
+            parameterTypes(controlStateType)
             instructions(
                 // Obfuscated parameter field name.
                 fieldAccess(

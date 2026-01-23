@@ -7,21 +7,21 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val dislikeFingerprint = fingerprint {
-    returns("V")
+    returnType("V")
     instructions(
         addString("like/dislike"),
     )
 }
 
 internal val likeFingerprint = fingerprint {
-    returns("V")
+    returnType("V")
     instructions(
         addString("like/like"),
     )
 }
 
 internal val removeLikeFingerprint = fingerprint {
-    returns("V")
+    returnType("V")
     instructions(
         addString("like/removelike"),
     )
@@ -29,8 +29,8 @@ internal val removeLikeFingerprint = fingerprint {
 
 internal val rollingNumberMeasureAnimatedTextFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Lj\$/util/Optional;")
-    parameters("L", "Ljava/lang/String;", "L")
+    returnType("Lj\$/util/Optional;")
+    parameterTypes("L", "Ljava/lang/String;", "L")
     opcodes(
         Opcode.IGET, // First instruction of method
         Opcode.IGET_OBJECT,
@@ -50,8 +50,8 @@ internal val rollingNumberMeasureAnimatedTextFingerprint = fingerprint {
  */
 internal val rollingNumberMeasureStaticLabelFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("F")
-    parameters("Ljava/lang/String;")
+    returnType("F")
+    parameterTypes("Ljava/lang/String;")
     opcodes(
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
@@ -62,8 +62,8 @@ internal val rollingNumberMeasureStaticLabelFingerprint = fingerprint {
 
 internal val rollingNumberMeasureStaticLabelParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/String;")
-    parameters()
+    returnType("Ljava/lang/String;")
+    parameterTypes()
     instructions(
         addString("RollingNumberFontProperties{paint="),
     )
@@ -80,8 +80,8 @@ internal val rollingNumberSetterFingerprint = fingerprint {
 
 internal val rollingNumberTextViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L", "F", "F")
+    returnType("V")
+    parameterTypes("L", "F", "F")
     opcodes(
         Opcode.IPUT,
         null, // invoke-direct or invoke-virtual
@@ -105,7 +105,7 @@ internal val textComponentConstructorFingerprint = fingerprint {
 
 internal val textComponentDataFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters("L", "L")
+    parameterTypes("L", "L")
     instructions(
         addString("text"),
     )
@@ -119,8 +119,8 @@ internal val textComponentDataFingerprint = fingerprint {
  */
 internal val textComponentLookupFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
-    returns("L")
-    parameters("L")
+    returnType("L")
+    parameterTypes("L")
     instructions(
         addString("…"),
     )
@@ -128,8 +128,8 @@ internal val textComponentLookupFingerprint = fingerprint {
 
 internal val textComponentFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.FINAL)
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
     instructions(
         45675738L(),
     )

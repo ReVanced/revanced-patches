@@ -4,8 +4,8 @@ import app.revanced.patcher.fingerprint
 import app.revanced.patches.shared.misc.mapping.ResourceType
 
 internal val signInToTvPopupFingerprint = fingerprint {
-    returns("Z")
-    parameters("Ljava/lang/String;", "Z", "L")
+    returnType("Z")
+    parameterTypes("Ljava/lang/String;", "Z", "L")
     instructions(
         resourceLiteral(
             ResourceType.STRING,

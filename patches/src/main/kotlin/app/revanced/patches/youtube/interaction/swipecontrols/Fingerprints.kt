@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val swipeControlsHostActivityFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters()
+    parameterTypes()
     custom { method, _ ->
         method.definingClass == EXTENSION_CLASS_DESCRIPTOR
     }

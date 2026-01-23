@@ -11,8 +11,8 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal val layoutCircleFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters()
-    returns("Landroid/view/View;")
+    parameterTypes()
+    returnType("Landroid/view/View;")
     opcodes(
         Opcode.CONST,
         Opcode.CONST_4,
@@ -25,8 +25,8 @@ internal val layoutCircleFingerprint = fingerprint {
 
 internal val layoutIconFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters()
-    returns("Landroid/view/View;")
+    parameterTypes()
+    returnType("Landroid/view/View;")
     opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
@@ -38,8 +38,8 @@ internal val layoutIconFingerprint = fingerprint {
 
 internal val layoutVideoFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
-    parameters()
-    returns("Landroid/view/View;")
+    parameterTypes()
+    returnType("Landroid/view/View;")
     opcodes(
         Opcode.CONST,
         Opcode.CONST_4,
@@ -52,16 +52,16 @@ internal val layoutVideoFingerprint = fingerprint {
 
 internal val showEndscreenCardsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
+    returnType("V")
+    parameterTypes("L")
     custom { method, classDef ->
-        classDef.methods.count() == 5
-                && method.containsLiteralInstruction(0)
-                && method.containsLiteralInstruction(5)
-                && method.containsLiteralInstruction(8)
-                && method.indexOfFirstInstruction {
-            val reference = getReference<FieldReference>()
-            reference?.type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
-        } >= 0
+        classDef.methods.count() == 5 &&
+            method.containsLiteralInstruction(0) &&
+            method.containsLiteralInstruction(5) &&
+            method.containsLiteralInstruction(8) &&
+            method.indexOfFirstInstruction {
+                val reference = getReference<FieldReference>()
+                reference?.type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
+            } >= 0
     }
 }

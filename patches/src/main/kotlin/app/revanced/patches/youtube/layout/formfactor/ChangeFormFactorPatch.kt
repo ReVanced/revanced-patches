@@ -28,7 +28,7 @@ val `Change form factor` by creatingBytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        `Navigation buttons`
+        `Navigation buttons`,
     )
 
     compatibleWith(
@@ -37,29 +37,29 @@ val `Change form factor` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
         addResources("youtube", "layout.formfactor.changeFormFactorPatch")
 
         PreferenceScreen.GENERAL_LAYOUT.addPreferences(
-            ListPreference("revanced_change_form_factor")
+            ListPreference("revanced_change_form_factor"),
         )
 
         hookNavigationButtonCreated(EXTENSION_CLASS_DESCRIPTOR)
 
         val createPlayerRequestBodyWithModelFingerprint = fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-            returns("L")
-            parameters()
+            returnType("L")
+            parameterTypes()
             instructions(
                 fieldAccess(smali = "Landroid/os/Build;->MODEL:Ljava/lang/String;"),
                 fieldAccess(
                     definingClass = formFactorEnumConstructorFingerprint.originalClassDef.type,
                     type = "I",
-                    location = MatchAfterWithin(50)
-                )
+                    location = MatchAfterWithin(50),
+                ),
             )
         }
 
@@ -73,7 +73,7 @@ val `Change form factor` by creatingBytecodePatch(
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getFormFactor(I)I
                         move-result v$register
-                    """
+                    """,
                 )
             }
         }

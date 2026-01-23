@@ -9,8 +9,8 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val videoIdFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
+    returnType("V")
+    parameterTypes("L")
     instructions(
         methodCall(
             definingClass = "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;",
@@ -22,8 +22,8 @@ internal val videoIdFingerprint = fingerprint {
 
 internal val videoIdBackgroundPlayFingerprint = fingerprint {
     accessFlags(AccessFlags.DECLARED_SYNCHRONIZED, AccessFlags.FINAL, AccessFlags.PUBLIC)
-    returns("V")
-    parameters("L")
+    returnType("V")
+    parameterTypes("L")
     instructions(
         methodCall(
             definingClass = "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;",
@@ -47,8 +47,8 @@ internal val videoIdBackgroundPlayFingerprint = fingerprint {
 
 internal val videoIdParentFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("[L")
-    parameters("L")
+    returnType("[L")
+    parameterTypes("L")
     instructions(
         524288L(),
     )

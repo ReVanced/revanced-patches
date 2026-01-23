@@ -18,8 +18,8 @@ import com.android.tools.smali.dexlib2.Opcode
  */
 internal val hideShowMoreButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL, AccessFlags.SYNTHETIC)
-    returns("V")
-    parameters("L", "Ljava/lang/Object;")
+    returnType("V")
+    parameterTypes("L", "Ljava/lang/Object;")
     instructions(
         ResourceType.LAYOUT("expand_button_down"),
         methodCall(smali = "Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;"),
@@ -37,7 +37,7 @@ internal val hideShowMoreLegacyButtonFingerprint = fingerprint {
 }
 
 internal val parseElementFromBufferFingerprint = fingerprint {
-    parameters("L", "L", "[B", "L", "L")
+    parameterTypes("L", "L", "[B", "L", "L")
     instructions(
         opcode(Opcode.IGET_OBJECT),
         // IGET_BOOLEAN // 20.07+
@@ -50,7 +50,7 @@ internal val parseElementFromBufferFingerprint = fingerprint {
 
 internal val playerOverlayFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
+    returnType("L")
     instructions(
         addString("player_overlay_in_video_programming"),
     )
@@ -58,8 +58,8 @@ internal val playerOverlayFingerprint = fingerprint {
 
 internal val showWatermarkFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L", "L")
+    returnType("V")
+    parameterTypes("L", "L")
 }
 
 /**
@@ -67,8 +67,8 @@ internal val showWatermarkFingerprint = fingerprint {
  */
 internal val yoodlesImageViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/view/View;")
-    parameters("L", "L")
+    returnType("Landroid/view/View;")
+    parameterTypes("L", "L")
     instructions(
         ResourceType.ID("youtube_logo"),
     )
@@ -132,8 +132,8 @@ internal val searchResultsChipBarFingerprint = fingerprint {
 
 internal val showFloatingMicrophoneButtonFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
+    returnType("V")
+    parameterTypes()
     instructions(
         ResourceType.ID("fab"),
         checkCast("/FloatingActionButton;", location = MatchAfterWithin(10)),
@@ -143,7 +143,7 @@ internal val showFloatingMicrophoneButtonFingerprint = fingerprint {
 
 internal val hideViewCountFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Ljava/lang/CharSequence;")
+    returnType("Ljava/lang/CharSequence;")
 
     opcodes(
         Opcode.RETURN_OBJECT,

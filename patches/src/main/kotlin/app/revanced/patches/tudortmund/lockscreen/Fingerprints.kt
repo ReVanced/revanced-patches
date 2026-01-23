@@ -1,12 +1,12 @@
 package app.revanced.patches.tudortmund.lockscreen
 
-import com.android.tools.smali.dexlib2.AccessFlags
 import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val brightnessFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC)
-    returns("V")
-    parameters()
+    returnType("V")
+    parameterTypes()
     custom { method, classDef ->
         method.name == "run" &&
             method.definingClass.contains("/ScreenPlugin\$") &&

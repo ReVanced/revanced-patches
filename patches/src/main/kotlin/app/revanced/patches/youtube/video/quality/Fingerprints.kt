@@ -1,13 +1,13 @@
 package app.revanced.patches.youtube.video.quality
 
-import app.revanced.patcher.fingerprint
 import app.revanced.patcher.addString
+import app.revanced.patcher.fingerprint
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val videoQualityItemOnClickParentFingerprint = fingerprint {
-    returns("V")
+    returnType("V")
     instructions(
         addString("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT"),
     )
@@ -17,12 +17,12 @@ internal val videoQualityItemOnClickParentFingerprint = fingerprint {
  * Resolves to class found in [videoQualityItemOnClickFingerprint].
  */
 internal val videoQualityItemOnClickFingerprint = fingerprint {
-    returns("V")
-    parameters(
+    returnType("V")
+    parameterTypes(
         "Landroid/widget/AdapterView;",
         "Landroid/view/View;",
         "I",
-        "J"
+        "J",
     )
     custom { method, _ ->
         method.name == "onItemClick"
@@ -31,8 +31,8 @@ internal val videoQualityItemOnClickFingerprint = fingerprint {
 
 internal val videoQualityMenuOptionsFingerprint = fingerprint {
     accessFlags(AccessFlags.STATIC)
-    returns("[L")
-    parameters("Landroid/content/Context", "L", "L")
+    returnType("[L")
+    parameterTypes("Landroid/content/Context", "L", "L")
     opcodes(
         Opcode.CONST_4, // First instruction of method.
         Opcode.CONST_4,
@@ -45,8 +45,8 @@ internal val videoQualityMenuOptionsFingerprint = fingerprint {
 
 internal val videoQualityMenuViewInflateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("L")
-    parameters("L", "L", "L")
+    returnType("L")
+    parameterTypes("L", "L", "L")
     opcodes(
         Opcode.INVOKE_SUPER,
         Opcode.CONST,

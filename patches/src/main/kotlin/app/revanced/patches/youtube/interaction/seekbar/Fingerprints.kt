@@ -60,8 +60,8 @@ internal fun ClassDef.getAllowSwipingUpGestureMethod() = firstMutableMethodDecla
 }
 
 internal val disableFastForwardLegacyFingerprint = fingerprint {
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
     opcodes(Opcode.MOVE_RESULT)
     // Intent start flag only used in the subscription activity
     literal { 45411330 }
@@ -69,8 +69,8 @@ internal val disableFastForwardLegacyFingerprint = fingerprint {
 
 internal val disableFastForwardGestureFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
     opcodes(
         Opcode.IF_EQZ,
         Opcode.INVOKE_VIRTUAL,
@@ -84,8 +84,8 @@ internal val disableFastForwardGestureFingerprint = fingerprint {
 
 internal val customTapAndHoldFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
+    returnType("V")
+    parameterTypes()
     instructions(
         2.0f(),
     )
@@ -104,8 +104,8 @@ internal val customTapAndHoldFingerprint = fingerprint {
 
 internal val onTouchEventHandlerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.PUBLIC)
-    returns("Z")
-    parameters("L")
+    returnType("Z")
+    parameterTypes("L")
     opcodes(
         Opcode.INVOKE_VIRTUAL, // nMethodReference
         Opcode.RETURN,
@@ -127,8 +127,8 @@ internal val onTouchEventHandlerFingerprint = fingerprint {
 
 internal val seekbarTappingFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters("Landroid/view/MotionEvent;")
+    returnType("Z")
+    parameterTypes("Landroid/view/MotionEvent;")
     instructions(
         Int.MAX_VALUE(),
 
@@ -148,8 +148,8 @@ internal val seekbarTappingFingerprint = fingerprint {
 
 internal val slideToSeekFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
-    returns("V")
-    parameters("Landroid/view/View;", "F")
+    returnType("V")
+    parameterTypes("Landroid/view/View;", "F")
     opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,

@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val getOldPlaybackSpeedsFingerprint = fingerprint {
-    parameters("[L", "I")
+    parameterTypes("[L", "I")
     strings("menu_item_playback_speed")
 }
 
@@ -28,7 +28,7 @@ internal val showOldPlaybackSpeedMenuExtensionFingerprint = fingerprint {
 
 internal val serverSideMaxSpeedFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
+    returnType("Z")
     instructions(
         45719140L(),
     )
@@ -36,8 +36,8 @@ internal val serverSideMaxSpeedFeatureFlagFingerprint = fingerprint {
 
 internal val speedArrayGeneratorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("[L")
-    parameters("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;")
+    returnType("[L")
+    parameterTypes("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;")
     instructions(
         methodCall(name = "size", returnType = "I"),
         newInstance("Ljava/text/DecimalFormat;"),
@@ -53,8 +53,8 @@ internal val speedArrayGeneratorFingerprint = fingerprint {
  */
 internal val speedLimiterFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("F", "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;")
+    returnType("V")
+    parameterTypes("F", "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;")
     instructions(
         0.25f(),
         4.0f(),
@@ -66,8 +66,8 @@ internal val speedLimiterFingerprint = fingerprint {
  */
 internal val speedLimiterLegacyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("F")
+    returnType("V")
+    parameterTypes("F")
     opcodes(
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,

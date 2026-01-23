@@ -19,7 +19,7 @@ internal val addCreateButtonViewFingerprint = fingerprint {
 
 internal val createPivotBarFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters(
+    parameterTypes(
         "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;",
         "Landroid/widget/TextView;",
         "Ljava/lang/CharSequence;",
@@ -32,7 +32,7 @@ internal val createPivotBarFingerprint = fingerprint {
 
 internal val animatedNavigationTabsFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
+    returnType("Z")
     instructions(
         45680008L(),
     )
@@ -40,7 +40,7 @@ internal val animatedNavigationTabsFeatureFlagFingerprint = fingerprint {
 
 internal val translucentNavigationStatusBarFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
+    returnType("Z")
     instructions(
         45400535L(), // Translucent status bar feature flag.
     )
@@ -51,7 +51,7 @@ internal val translucentNavigationStatusBarFeatureFlagFingerprint = fingerprint 
  */
 internal val translucentNavigationButtonsFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
+    returnType("V")
     instructions(
         45630927L(), // Translucent navigation bar buttons feature flag.
     )
@@ -62,7 +62,7 @@ internal val translucentNavigationButtonsFeatureFlagFingerprint = fingerprint {
  */
 internal val translucentNavigationButtonsSystemFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
+    returnType("Z")
     instructions(
         45632194L(), // Translucent system buttons feature flag.
     )

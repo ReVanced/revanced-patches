@@ -6,8 +6,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val themeLightColorResourceNameFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
+    returnType("Ljava/lang/String;")
+    parameterTypes()
     custom { method, classDef ->
         method.name == "getThemeLightColorResourceName" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
@@ -15,8 +15,8 @@ internal val themeLightColorResourceNameFingerprint = fingerprint {
 
 internal val themeDarkColorResourceNameFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
+    returnType("Ljava/lang/String;")
+    parameterTypes()
     custom { method, classDef ->
         method.name == "getThemeDarkColorResourceName" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }

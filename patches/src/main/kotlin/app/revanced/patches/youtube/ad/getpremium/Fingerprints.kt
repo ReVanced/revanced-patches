@@ -6,8 +6,8 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val getPremiumViewFingerprint = fingerprint {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
-    returns("V")
-    parameters("I", "I")
+    returnType("V")
+    parameterTypes("I", "I")
     opcodes(
         Opcode.ADD_INT_2ADDR,
         Opcode.ADD_INT_2ADDR,

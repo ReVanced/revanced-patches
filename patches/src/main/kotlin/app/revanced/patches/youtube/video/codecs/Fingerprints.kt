@@ -5,9 +5,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val vp9CapabilityFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
+    returnType("Z")
     strings(
         "vp9_supported",
-        "video/x-vnd.on2.vp9"
+        "video/x-vnd.on2.vp9",
     )
 }

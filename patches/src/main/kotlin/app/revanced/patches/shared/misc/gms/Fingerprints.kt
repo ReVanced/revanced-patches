@@ -5,8 +5,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val googlePlayUtilityFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("I")
-    parameters("L", "I")
+    returnType("I")
+    parameterTypes("L", "I")
     strings(
         "This should never happen.",
         "MetadataValueReader",
@@ -16,15 +16,15 @@ internal val googlePlayUtilityFingerprint = fingerprint {
 
 internal val serviceCheckFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("V")
-    parameters("L", "I")
+    returnType("V")
+    parameterTypes("L", "I")
     strings("Google Play Services not available")
 }
 
 internal val gmsCoreSupportFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
+    returnType("Ljava/lang/String;")
+    parameterTypes()
     custom { method, classDef ->
         method.name == "getGmsCoreVendorGroupId" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }
@@ -32,8 +32,8 @@ internal val gmsCoreSupportFingerprint = fingerprint {
 
 internal val originalPackageNameExtensionFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Ljava/lang/String;")
-    parameters()
+    returnType("Ljava/lang/String;")
+    parameterTypes()
     custom { methodDef, classDef ->
         methodDef.name == "getOriginalPackageName" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }

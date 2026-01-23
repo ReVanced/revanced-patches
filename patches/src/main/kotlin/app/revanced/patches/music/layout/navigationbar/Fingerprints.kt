@@ -11,8 +11,8 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 internal val tabLayoutTextFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
+    returnType("V")
+    parameterTypes("L")
     opcodes(
         Opcode.IGET,
         Opcode.INVOKE_STATIC,
@@ -20,7 +20,7 @@ internal val tabLayoutTextFingerprint = fingerprint {
         Opcode.IF_NEZ,
         Opcode.SGET_OBJECT,
         Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT
+        Opcode.MOVE_RESULT,
     )
     strings("FEmusic_search")
     custom { method, _ ->
@@ -29,8 +29,7 @@ internal val tabLayoutTextFingerprint = fingerprint {
     }
 }
 
-internal fun indexOfGetVisibilityInstruction(method: Method) =
-    method.indexOfFirstInstruction {
-        opcode == Opcode.INVOKE_VIRTUAL &&
-                getReference<MethodReference>()?.name == "getVisibility"
-    }
+internal fun indexOfGetVisibilityInstruction(method: Method) = method.indexOfFirstInstruction {
+    opcode == Opcode.INVOKE_VIRTUAL &&
+        getReference<MethodReference>()?.name == "getVisibility"
+}

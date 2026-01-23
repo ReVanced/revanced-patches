@@ -14,8 +14,8 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
  */
 internal val playbackSpeedInFeedsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L")
+    returnType("V")
+    parameterTypes("L")
     opcodes(
         Opcode.IGET,
         Opcode.MUL_INT_LIT16,
@@ -31,8 +31,7 @@ internal val playbackSpeedInFeedsFingerprint = fingerprint {
     }
 }
 
-internal fun indexOfGetPlaybackSpeedInstruction(method: Method) =
-    method.indexOfFirstInstructionReversed {
-        opcode == Opcode.IGET &&
-                getReference<FieldReference>()?.type == "F"
-    }
+internal fun indexOfGetPlaybackSpeedInstruction(method: Method) = method.indexOfFirstInstructionReversed {
+    opcode == Opcode.IGET &&
+        getReference<FieldReference>()?.type == "F"
+}

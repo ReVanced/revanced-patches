@@ -7,8 +7,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val initializeNavigationButtonsListFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Lcom/instagram/common/session/UserSession;", "Z")
-    returns("Ljava/util/List;")
+    parameterTypes("Lcom/instagram/common/session/UserSession;", "Z")
+    returnType("Ljava/util/List;")
 }
 
 internal val navigationButtonsEnumClassDef = fingerprint {

@@ -48,7 +48,7 @@ internal fun spoofVideoStreamsPatch(
 
         getMainActivityOnCreateMethod().addInstruction(
             0,
-            "invoke-static { }, $extensionClassDescriptor->setClientOrderToUse()V"
+            "invoke-static { }, $extensionClassDescriptor->setClientOrderToUse()V",
         )
 
         // TODO?: Force off 45708738L ?
@@ -61,7 +61,6 @@ internal fun spoofVideoStreamsPatch(
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
-
         buildInitPlaybackRequestMatch.method.apply {
             val moveUriStringIndex = buildInitPlaybackRequestMatch.indices.first()
             val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
@@ -71,7 +70,7 @@ internal fun spoofVideoStreamsPatch(
                 """
                     invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockInitPlaybackRequest(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$targetRegister
-                """
+                """,
             )
         }
 
@@ -88,7 +87,7 @@ internal fun spoofVideoStreamsPatch(
                 """
                     invoke-static { v$uriRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetWatchRequest(Landroid/net/Uri;)Landroid/net/Uri;
                     move-result-object v$uriRegister
-                """
+                """,
             )
         }
 
@@ -108,7 +107,7 @@ internal fun spoofVideoStreamsPatch(
                 """
                     move-object v$freeRegister, p1
                     invoke-static { v$buildRequestMethodUrlRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->fetchStreams(Ljava/lang/String;Ljava/util/Map;)V
-                """
+                """,
             )
         }
 
@@ -126,7 +125,7 @@ internal fun spoofVideoStreamsPatch(
             addInstruction(
                 videoDetailsIndex + 1,
                 "invoke-direct { p0, v$videoDetailsRegister }, " +
-                        "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
+                    "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
             )
 
             val protobufClass = protobufClassParseByteBufferFingerprint.method.definingClass
@@ -198,10 +197,11 @@ internal fun spoofVideoStreamsPatch(
             val insertIndex = indexOfNewUrlRequestBuilderInstruction(this)
 
             addInstructions(
-                insertIndex, """
+                insertIndex,
+                """
                     invoke-static { v$buildRequestMethodUrlRegister }, $EXTENSION_CLASS_DESCRIPTOR->blockGetAttRequest(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$buildRequestMethodUrlRegister
-                """
+                """,
             )
         }
 
@@ -247,7 +247,7 @@ internal fun spoofVideoStreamsPatch(
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->appendSpoofedClient(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$register
-                    """
+                    """,
                 )
             }
         }
@@ -258,7 +258,7 @@ internal fun spoofVideoStreamsPatch(
 
         hlsCurrentTimeMethodMatch.method.insertLiteralOverride(
             hlsCurrentTimeMethodMatch.indices.first(),
-            "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z"
+            "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z",
         )
 
         // endregion
@@ -272,17 +272,17 @@ internal fun spoofVideoStreamsPatch(
             val mediaFetchEnumClass = definingClass
             val sabrFieldIndex = indexOfFirstInstructionOrThrow(disabledBySABRStreamingUrlString) {
                 opcode == Opcode.SPUT_OBJECT &&
-                        getReference<FieldReference>()?.type == mediaFetchEnumClass
+                    getReference<FieldReference>()?.type == mediaFetchEnumClass
             }
 
             Pair(
                 mediaFetchEnumClass,
-                getInstruction<ReferenceInstruction>(sabrFieldIndex).reference
+                getInstruction<ReferenceInstruction>(sabrFieldIndex).reference,
             )
         }
 
         val sabrFingerprint = fingerprint {
-            returns(mediaFetchEnumClass)
+            returnType(mediaFetchEnumClass)
             opcodes(
                 Opcode.SGET_OBJECT,
                 Opcode.RETURN_OBJECT,
@@ -301,7 +301,7 @@ internal fun spoofVideoStreamsPatch(
                 return-object v0
                 :ignore
                 nop
-            """
+            """,
         )
 
         // endregion
@@ -311,21 +311,21 @@ internal fun spoofVideoStreamsPatch(
         if (fixMediaFetchHotConfig()) {
             mediaFetchHotConfigMethodMatch.method.insertLiteralOverride(
                 mediaFetchHotConfigMethodMatch.indices.first(),
-                "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
+                "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z",
             )
         }
 
         if (fixMediaFetchHotConfigAlternative()) {
             mediaFetchHotConfigAlternativeMethodMatch.method.insertLiteralOverride(
                 mediaFetchHotConfigAlternativeMethodMatch.indices.first(),
-                "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z"
+                "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z",
             )
         }
 
         if (fixParsePlaybackResponseFeatureFlag()) {
             playbackStartDescriptorFeatureFlagMethodMatch.method.insertLiteralOverride(
                 playbackStartDescriptorFeatureFlagMethodMatch.indices.first(),
-                "$EXTENSION_CLASS_DESCRIPTOR->usePlaybackStartFeatureFlag(Z)Z"
+                "$EXTENSION_CLASS_DESCRIPTOR->usePlaybackStartFeatureFlag(Z)Z",
             )
         }
 

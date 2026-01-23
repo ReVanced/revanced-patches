@@ -30,8 +30,8 @@ val `Hide Ads` by creatingBytecodePatch(
 
         // Patch the ads-free method to always return true
         val adFreeFingerprint = fingerprint {
-            returns("I")
-            parameters()
+            returnType("I")
+            parameterTypes()
             custom { method, classDef ->
                 classDef == targetClass
             }

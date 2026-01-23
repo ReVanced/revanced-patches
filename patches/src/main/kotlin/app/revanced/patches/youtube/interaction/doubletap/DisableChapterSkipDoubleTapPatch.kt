@@ -27,7 +27,7 @@ val `Disable double tap actions` by creatingBytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        versionCheckPatch
+        versionCheckPatch,
     )
 
     compatibleWith(
@@ -35,7 +35,7 @@ val `Disable double tap actions` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -44,7 +44,7 @@ val `Disable double tap actions` by creatingBytecodePatch(
             // just to prevent spamming a cryptic error message the user may not understand
             // and don't add in app settings that won't work.
             return@apply Logger.getLogger(this::class.java.name).warning(
-                "Disable double tap actions requires 20.14.43+"
+                "Disable double tap actions requires 20.14.43+",
             )
         }
 
@@ -56,8 +56,8 @@ val `Disable double tap actions` by creatingBytecodePatch(
 
         val doubleTapInfoGetSeekSourceFingerprint = fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-            parameters("Z")
-            returns(seekTypeEnumFingerprint.originalClassDef.type)
+            parameterTypes("Z")
+            returnType(seekTypeEnumFingerprint.originalClassDef.type)
             opcodes(
                 Opcode.IF_EQZ,
                 Opcode.SGET_OBJECT,
@@ -76,17 +76,17 @@ val `Disable double tap actions` by creatingBytecodePatch(
             """
                 invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->disableDoubleTapChapters(Z)Z
                 move-result p1
-            """
+            """,
         )
 
         doubleTapInfoCtorFingerprint.match(
-            doubleTapInfoGetSeekSourceFingerprint.classDef
+            doubleTapInfoGetSeekSourceFingerprint.classDef,
         ).method.addInstructions(
             0,
             """
                 invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->disableDoubleTapChapters(Z)Z
                 move-result p3
-            """
+            """,
         )
     }
 }

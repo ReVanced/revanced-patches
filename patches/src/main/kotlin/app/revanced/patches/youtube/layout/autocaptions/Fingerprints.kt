@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val startVideoInformerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
+    returnType("V")
     opcodes(
         Opcode.INVOKE_INTERFACE,
         Opcode.RETURN_VOID,
@@ -15,16 +15,16 @@ internal val startVideoInformerFingerprint = fingerprint {
 }
 
 internal val storyboardRendererDecoderRecommendedLevelFingerprint = fingerprint {
-    returns("V")
+    returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("L")
+    parameterTypes("L")
     strings("#-1#")
 }
 
 internal val subtitleTrackFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
     opcodes(
         Opcode.CONST_STRING,
         Opcode.INVOKE_VIRTUAL,

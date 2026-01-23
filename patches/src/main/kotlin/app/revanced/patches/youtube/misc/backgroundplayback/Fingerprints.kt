@@ -7,8 +7,8 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val backgroundPlaybackManagerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Z")
-    parameters("L")
+    returnType("Z")
+    parameterTypes("L")
     opcodes(
         Opcode.CONST_4,
         Opcode.IF_EQZ,
@@ -40,8 +40,8 @@ internal val backgroundPlaybackManagerFingerprint = fingerprint {
 
 internal val backgroundPlaybackSettingsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Ljava/lang/String;")
-    parameters()
+    returnType("Ljava/lang/String;")
+    parameterTypes()
     opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
@@ -56,8 +56,8 @@ internal val backgroundPlaybackSettingsFingerprint = fingerprint {
 
 internal val kidsBackgroundPlaybackPolicyControllerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("I", "L", "L")
+    returnType("V")
+    parameterTypes("I", "L", "L")
     opcodes(
         Opcode.CONST_4,
         Opcode.IF_NE,
@@ -73,19 +73,19 @@ internal val kidsBackgroundPlaybackPolicyControllerFingerprint = fingerprint {
 
 internal val backgroundPlaybackManagerShortsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returns("Z")
-    parameters("L")
+    returnType("Z")
+    parameterTypes("L")
     instructions(
-        app.revanced.patcher.literal(151635310)
+        app.revanced.patcher.literal(151635310),
     )
 }
 
 internal val shortsBackgroundPlaybackFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
     instructions(
-        app.revanced.patcher.literal(45415425)
+        app.revanced.patcher.literal(45415425),
     )
 }
 
@@ -93,6 +93,6 @@ internal val shortsBackgroundPlaybackFeatureFlagFingerprint = fingerprint {
 internal val pipInputConsumerFeatureFlagFingerprint = fingerprint {
     instructions(
         // PiP input consumer feature flag.
-        app.revanced.patcher.literal(45638483L)
+        app.revanced.patcher.literal(45638483L),
     )
 }

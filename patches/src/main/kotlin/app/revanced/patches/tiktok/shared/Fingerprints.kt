@@ -5,9 +5,9 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val getEnterFromFingerprint = fingerprint {
-    returns("Ljava/lang/String;")
+    returnType("Ljava/lang/String;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters("Z")
+    parameterTypes("Z")
     opcodes(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,

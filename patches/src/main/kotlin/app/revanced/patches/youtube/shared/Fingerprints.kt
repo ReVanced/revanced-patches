@@ -28,7 +28,7 @@ import com.android.tools.smali.dexlib2.Opcode
 internal const val YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE = "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
 
 internal val conversionContextFingerprintToString = fingerprint {
-    parameters()
+    parameterTypes()
     strings(
         "ConversionContext{", // Partial string match.
         ", widthConstraint=",
@@ -62,7 +62,7 @@ internal fun getLayoutConstructorMethodMatch() = firstMethodComposite {
 
 internal val mainActivityConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    parameters()
+    parameterTypes()
     custom { _, classDef ->
         classDef.type == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
     }
@@ -70,8 +70,8 @@ internal val mainActivityConstructorFingerprint = fingerprint {
 
 internal val mainActivityOnBackPressedFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters()
+    returnType("V")
+    parameterTypes()
     custom { method, classDef ->
         method.name == "onBackPressed" && classDef.type == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
     }
@@ -86,8 +86,8 @@ internal val BytecodePatchContext.mainActivityOnCreateMethod by gettingFirstMuta
 
 internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Landroid/graphics/Bitmap;")
+    returnType("V")
+    parameterTypes("Landroid/graphics/Bitmap;")
     opcodes(
         Opcode.NEW_INSTANCE, // bitmap ImageSpan
         Opcode.INVOKE_VIRTUAL,
@@ -128,8 +128,8 @@ internal fun getSeekbarOnDrawMethodMatch() = firstMethodComposite {
 
 internal val subtitleButtonControllerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")
+    returnType("V")
+    parameterTypes("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")
     instructions(
         ResourceType.STRING("accessibility_captions_unavailable"),
         ResourceType.STRING("accessibility_captions_button_name"),

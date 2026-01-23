@@ -11,8 +11,8 @@ import com.android.tools.smali.dexlib2.Opcode
  * 19.46+
  */
 internal val openVideosFullscreenPortraitFingerprint = fingerprint {
-    returns("V")
-    parameters("L", "Lj\$/util/Optional;")
+    returnType("V")
+    parameterTypes("L", "Lj\$/util/Optional;")
     instructions(
         opcode(Opcode.MOVE_RESULT), // Conditional check to modify.
         // Open videos fullscreen portrait feature flag.
@@ -26,8 +26,8 @@ internal val openVideosFullscreenPortraitFingerprint = fingerprint {
  */
 internal val openVideosFullscreenPortraitLegacyFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("L", "Lj\$/util/Optional;")
+    returnType("V")
+    parameterTypes("L", "Lj\$/util/Optional;")
     opcodes(
         Opcode.GOTO,
         Opcode.SGET_OBJECT,
@@ -39,14 +39,14 @@ internal val openVideosFullscreenPortraitLegacyFingerprint = fingerprint {
         Opcode.IF_EQ,
         Opcode.IGET_OBJECT,
         Opcode.INVOKE_VIRTUAL,
-        Opcode.MOVE_RESULT  // Conditional check to modify.
+        Opcode.MOVE_RESULT, // Conditional check to modify.
     )
 }
 
 internal val openVideosFullscreenHookPatchExtensionFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
-    returns("Z")
-    parameters()
+    returnType("Z")
+    parameterTypes()
     custom { methodDef, classDef ->
         methodDef.name == "isFullScreenPatchIncluded" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
     }

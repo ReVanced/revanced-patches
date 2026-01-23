@@ -9,15 +9,15 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val timeCounterFingerprint = fingerprint {
-    returns("V")
+    returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters()
+    parameterTypes()
     instructions(
         opcode(Opcode.SUB_LONG_2ADDR),
         methodCall(
             opcode = Opcode.INVOKE_STATIC,
             returnType = "Ljava/lang/CharSequence;",
-            location = MatchAfterImmediately()
+            location = MatchAfterImmediately(),
         ),
         opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
         fieldAccess(opcode = Opcode.IGET_WIDE, type = "J", location = MatchAfterImmediately()),
@@ -27,7 +27,7 @@ internal val timeCounterFingerprint = fingerprint {
         methodCall(
             opcode = Opcode.INVOKE_STATIC,
             returnType = "Ljava/lang/CharSequence;",
-            location = MatchAfterWithin(5)
-        )
+            location = MatchAfterWithin(5),
+        ),
     )
 }
