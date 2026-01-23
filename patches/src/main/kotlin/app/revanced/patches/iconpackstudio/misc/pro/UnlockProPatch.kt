@@ -1,6 +1,5 @@
 package app.revanced.patches.iconpackstudio.misc.pro
 
-import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 

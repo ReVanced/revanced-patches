@@ -33,7 +33,7 @@ val `Hide ads` by creatingBytecodePatch {
 
             addInstruction(
                 getIndex + 1,
-                "invoke-static { v$getRegister }, $EXTENSION_CLASS_DESCRIPTOR->filterCb11(Ljava/util/List;)V"
+                "invoke-static { v$getRegister }, $EXTENSION_CLASS_DESCRIPTOR->filterCb11(Ljava/util/List;)V",
             )
         }
     }

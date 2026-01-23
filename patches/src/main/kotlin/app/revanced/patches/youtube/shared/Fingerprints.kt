@@ -6,11 +6,8 @@ import app.revanced.patcher.allOf
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.field
 import app.revanced.patcher.firstMethodComposite
-import app.revanced.patcher.firstMethodDeclaratively
-import app.revanced.patcher.firstMutableMethodDeclaratively
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
-import app.revanced.patcher.instruction
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.method
@@ -21,7 +18,6 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 import app.revanced.patcher.type
 import app.revanced.patches.shared.misc.mapping.ResourceType
-import app.revanced.patches.shared.misc.mapping.ResourceType.IndexedMatcherPredicateExtension.invoke
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 

@@ -4,23 +4,17 @@ import app.revanced.patcher.accessFlags
 import app.revanced.patcher.custom
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.extensions.instructions
-import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
 import app.revanced.patcher.matchIndexed
-import app.revanced.patcher.method
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.predicate
-import app.revanced.patcher.rememberMatchIndexed
 import app.revanced.patcher.returnType
 import app.revanced.patcher.unorderedAllOf
-import app.revanced.util.containsLiteralInstruction
-import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 

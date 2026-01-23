@@ -1,6 +1,5 @@
 package app.revanced.patches.cieid.restrictions.root
 
-import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 

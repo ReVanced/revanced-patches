@@ -2,15 +2,12 @@ package app.revanced.patches.youtube.layout.hide.infocards
 
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
-import app.revanced.patcher.firstMethodBuilder
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
-import app.revanced.patcher.string
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode

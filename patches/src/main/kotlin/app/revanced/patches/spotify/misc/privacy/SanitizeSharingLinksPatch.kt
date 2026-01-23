@@ -2,7 +2,6 @@ package app.revanced.patches.spotify.misc.privacy
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference

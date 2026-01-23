@@ -2,7 +2,6 @@ package app.revanced.patches.primevideo.misc.permissions
 
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.creatingResourcePatch
-import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.asSequence
 import app.revanced.util.getNode
 import org.w3c.dom.Element
@@ -10,8 +9,8 @@ import org.w3c.dom.Element
 @Suppress("unused", "ObjectPropertyName")
 val `Rename shared permissions` by creatingResourcePatch(
     description = "Rename certain permissions shared across Amazon apps. " +
-            "Applying this patch can fix installation errors, but can also break features in certain apps.",
-    use = false
+        "Applying this patch can fix installation errors, but can also break features in certain apps.",
+    use = false,
 ) {
     compatibleWith("com.amazon.avod.thirdpartyclient")
 
@@ -21,7 +20,7 @@ val `Rename shared permissions` by creatingResourcePatch(
         "com.amazon.dcp.sso.permission.account.changed",
         "com.amazon.dcp.sso.permission.AmazonAccountPropertyService.property.changed",
         "com.amazon.identity.permission.CALL_AMAZON_DEVICE_INFORMATION_PROVIDER",
-        "com.amazon.appmanager.preload.permission.READ_PRELOAD_DEVICE_INFO_PROVIDER"
+        "com.amazon.appmanager.preload.permission.READ_PRELOAD_DEVICE_INFO_PROVIDER",
     )
 
     apply {
