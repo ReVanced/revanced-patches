@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.layout.sponsorblock
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -19,9 +20,9 @@ import app.revanced.patches.youtube.misc.playercontrols.playerControlsPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
-import app.revanced.patches.youtube.shared.seekbarFingerprint
-import app.revanced.patches.youtube.shared.seekbarOnDrawFingerprint
+import app.revanced.patches.youtube.shared.getLayoutConstructorMethodMatch
+import app.revanced.patches.youtube.shared.getSeekbarOnDrawMethodMatch
+import app.revanced.patches.youtube.shared.seekbarMethod
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.information.videoTimeHook
@@ -52,13 +53,13 @@ private val sponsorBlockResourcePatch = resourcePatch {
                 key = "revanced_settings_screen_10_sponsorblock",
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
                 preferences = emptySet(), // Preferences are added by custom class at runtime.
-                tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup"
+                tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockPreferenceGroup",
             ),
             PreferenceCategory(
                 key = "revanced_sb_stats",
                 sorting = PreferenceScreenPreference.Sorting.UNSORTED,
                 preferences = emptySet(), // Preferences are added by custom class at runtime.
-                tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockStatsPreferenceCategory"
+                tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockStatsPreferenceCategory",
             ),
             PreferenceCategory(
                 key = "revanced_sb_about",
@@ -68,9 +69,9 @@ private val sponsorBlockResourcePatch = resourcePatch {
                         key = "revanced_sb_about_api",
                         tag = "app.revanced.extension.youtube.sponsorblock.ui.SponsorBlockAboutPreference",
                         selectable = true,
-                    )
-                )
-            )
+                    ),
+                ),
+            ),
         )
 
         arrayOf(
@@ -91,7 +92,7 @@ private val sponsorBlockResourcePatch = resourcePatch {
                 "revanced_sb_logo_bold.xml",
                 "revanced_sb_publish.xml",
                 "revanced_sb_voting.xml",
-            )
+            ),
         ).forEach { resourceGroup ->
             copyResources("sponsorblock", resourceGroup)
         }
@@ -131,7 +132,7 @@ val SponsorBlock by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -143,17 +144,15 @@ val SponsorBlock by creatingBytecodePatch(
 
         hookBackgroundPlayVideoId(
             EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR +
-                    "->setCurrentVideoId(Ljava/lang/String;)V",
+                "->setCurrentVideoId(Ljava/lang/String;)V",
         )
 
         // Set seekbar draw rectangle.
         val rectangleFieldName: FieldReference
-        rectangleFieldInvalidatorFingerprint.match(
-            seekbarFingerprint.originalClassDef
-        ).let {
+        rectangleFieldInvalidatorMethodMatch.match(seekbarMethod.immutableClassDef).let {
             it.method.apply {
                 val rectangleIndex = indexOfFirstInstructionReversedOrThrow(
-                    it.instructionMatches.first().index
+                    it.indices.first(),
                 ) {
                     getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
                 }
@@ -163,19 +162,17 @@ val SponsorBlock by creatingBytecodePatch(
 
         // Seekbar drawing.
 
-        // Shared fingerprint and indexes may have changed.
-        seekbarOnDrawFingerprint.clearMatch()
         // Cannot match using original immutable class because
         // class may have been modified by other patches
-        seekbarOnDrawFingerprint.match(seekbarFingerprint.classDef).let {
+        getSeekbarOnDrawMethodMatch().match(seekbarMethod.immutableClassDef).let {
             it.method.apply {
                 // Set seekbar thickness.
-                val thicknessIndex = it.instructionMatches.last().index
+                val thicknessIndex = it.indices.last()
                 val thicknessRegister = getInstruction<OneRegisterInstruction>(thicknessIndex).registerA
                 addInstruction(
                     thicknessIndex + 1,
                     "invoke-static { v$thicknessRegister }, " +
-                            "$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSeekbarThickness(I)V",
+                        "$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSeekbarThickness(I)V",
                 )
 
                 // Find the drawCircle call and draw the segment before it.
@@ -189,8 +186,8 @@ val SponsorBlock by creatingBytecodePatch(
                 addInstruction(
                     drawCircleIndex,
                     "invoke-static { v$canvasInstanceRegister, v$centerYRegister }, " +
-                            "$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->" +
-                            "drawSegmentTimeBars(Landroid/graphics/Canvas;F)V",
+                        "$EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->" +
+                        "drawSegmentTimeBars(Landroid/graphics/Canvas;F)V",
                 )
 
                 // Set seekbar bounds.
@@ -200,7 +197,7 @@ val SponsorBlock by creatingBytecodePatch(
                         move-object/from16 v0, p0
                         iget-object v0, v0, $rectangleFieldName
                         invoke-static { v0 }, $EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setSeekbarRectangle(Landroid/graphics/Rect;)V
-                    """
+                    """,
                 )
             }
         }
@@ -213,9 +210,9 @@ val SponsorBlock by creatingBytecodePatch(
         injectVisibilityCheckCall(EXTENSION_VOTING_BUTTON_CONTROLLER_CLASS_DESCRIPTOR)
 
         // Append the new time to the player layout.
-        appendTimeFingerprint.let {
+        appendTimeMethodMatch.let {
             it.method.apply {
-                val index = it.instructionMatches.last().index
+                val index = it.indices.last()
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(
@@ -223,7 +220,7 @@ val SponsorBlock by creatingBytecodePatch(
                     """
                         invoke-static { v$register }, $EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->appendTimeWithoutSegments(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$register
-                    """
+                    """,
                 )
             }
         }
@@ -232,8 +229,9 @@ val SponsorBlock by creatingBytecodePatch(
         onCreateHook(EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR, "initialize")
 
         // Initialize the SponsorBlock view.
-        controlsOverlayFingerprint.match(layoutConstructorFingerprint.originalClassDef).let {
-            val checkCastIndex = it.instructionMatches.last().index
+        controlsOverlayMethodMatch.match(getLayoutConstructorMethodMatch().immutableClassDef).let {
+            val checkCastIndex = it.indices.last()
+
             it.method.apply {
                 val frameLayoutRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
                 addInstruction(
@@ -243,13 +241,13 @@ val SponsorBlock by creatingBytecodePatch(
             }
         }
 
-        adProgressTextViewVisibilityFingerprint.method.apply {
-            val index = indexOfAdProgressTextViewVisibilityInstruction(this)
-            val register = getInstruction<FiveRegisterInstruction>(index).registerD
+        adProgressTextViewVisibilityMethodMatch.let {
+            val setVisibilityIndex = it.indices.first()
+            val register = it.method.getInstruction<FiveRegisterInstruction>(setVisibilityIndex).registerD
 
-            addInstructionsAtControlFlowLabel(
-                index,
-                "invoke-static { v$register }, $EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setAdProgressTextVisibility(I)V"
+            it.method.addInstructionsAtControlFlowLabel(
+                setVisibilityIndex,
+                "invoke-static { v$register }, $EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR->setAdProgressTextVisibility(I)V",
             )
         }
     }

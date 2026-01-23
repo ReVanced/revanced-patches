@@ -18,47 +18,48 @@ internal val playerOverlayChipFingerprint = fingerprint {
     literal { playerOverlayChip }
 }
 
-internal val historyMenuItemFingerprint = fingerprint {
+internal val BytecodePatchContext.historyMenuItemMethod by gettingFirstMutableMethodDeclaratively {
+    definingClass {
+        it.methods.count()
+        methods.count()
+    }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Landroid/view/Menu;")
+    returnType("V")
+    parameterTypes("Landroid/view/Menu;")
     opcodes(
         Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID
+        Opcode.RETURN_VOID,
     )
-    literal { historyMenuItem }
+    historyMenuItem()
     custom { _, classDef ->
         classDef.methods.count() == 5
     }
 }
 
-internal val historyMenuItemOfflineTabFingerprint = fingerprint {
+internal val BytecodePatchContext.historyMenuItemOfflineTabMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
-    parameters("Landroid/view/Menu;")
+    returnType("V")
+    parameterTypes("Landroid/view/Menu;")
     opcodes(
         Opcode.INVOKE_INTERFACE,
-        Opcode.RETURN_VOID
+        Opcode.RETURN_VOID,
     )
-    custom { method, _ ->
-        method.containsLiteralInstruction(historyMenuItem) &&
-                method.containsLiteralInstruction(offlineSettingsMenuItem)
+    custom {
+        instructions.matchIndexed("literals", items = unorderedAllOf(historyMenuItem(), offlineSettingsMenuItem()))
     }
 }
 
-internal val searchActionViewFingerprint = fingerprint {
+internal val BytecodePatchContext.searchActionViewMethod by gettingFirstMutableMethodDeclaratively {
+    definingClass("/SearchActionProvider;"::endsWith)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/view/View;")
-    parameters()
-    literal { searchButton }
-    custom { _, classDef ->
-        classDef.type.endsWith("/SearchActionProvider;")
-    }
+    returnType("Landroid/view/View;")
+    parameterTypes()
+    searchButton()
 }
 
-internal val topBarMenuItemImageViewFingerprint = fingerprint {
+internal val BytecodePatchContext.topBarMenuItemImageViewMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("Landroid/view/View;")
-    parameters()
-    literal { topBarMenuItemImageView }
+    returnType("Landroid/view/View;")
+    parameterTypes()
+    topBarMenuItemImageView()
 }

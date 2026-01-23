@@ -1,6 +1,6 @@
 package app.revanced.patches.shared.misc.mapping
 
-import app.revanced.patcher.Predicate
+import app.revanced.patcher.IndexedMatcherPredicate
 import app.revanced.patcher.extensions.wideLiteral
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.resourcePatch
@@ -35,10 +35,10 @@ enum class ResourceType(val value: String) {
     XML("xml"),
     ;
 
-    operator fun invoke(name: String): Predicate<Instruction> {
-        val id = getResourceId(this, name)
+    operator fun invoke(name: String): IndexedMatcherPredicate<Instruction> {
+        val id = get(name)
 
-        return { wideLiteral == id }
+        return { _, _, _ -> wideLiteral == id }
     }
 
     /**
@@ -59,13 +59,6 @@ enum class ResourceType(val value: String) {
 data class ResourceElement(val type: ResourceType, val name: String, val id: Long)
 
 private lateinit var resourceMappings: MutableMap<String, ResourceElement>
-
-/**
- * @return A resource id of the given resource type and name.
- * @throws PatchException if the resource is not found.
- */
-fun getResourceId(type: ResourceType, name: String) = resourceMappings[type.value + name]?.id
-    ?: throw PatchException("Could not find resource type: $type name: $name")
 
 val resourceMappingPatch = resourcePatch {
     apply {

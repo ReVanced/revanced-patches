@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -41,7 +40,7 @@ val `Open Shorts in regular player` by creatingBytecodePatch(
         openVideosFullscreenHookPatch,
         navigationBarHookPatch,
         versionCheckPatch,
-        resourceMappingPatch
+        resourceMappingPatch,
     )
 
     compatibleWith(
@@ -50,31 +49,31 @@ val `Open Shorts in regular player` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
         addResources("youtube", "layout.shortsplayer.shortsPlayerTypePatch")
 
         PreferenceScreen.SHORTS.addPreferences(
-            ListPreference("revanced_shorts_player_type")
+            ListPreference("revanced_shorts_player_type"),
         )
 
         // Activity is used as the context to launch an Intent.
-        mainActivityOnCreateMethod.method.addInstruction(
+        mainActivityOnCreateMethod.addInstruction(
             0,
             "invoke-static/range { p0 .. p0 }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                    "setMainActivity(Landroid/app/Activity;)V",
+                "setMainActivity(Landroid/app/Activity;)V",
         )
 
         // Find the obfuscated method name for PlaybackStartDescriptor.videoId()
         val (videoIdStartMethod, videoIdIndex) = if (is_20_39_or_greater) {
-            watchPanelVideoIdFingerprint.let {
-                it.method to it.instructionMatches.last().index
+            watchPanelVideoIdMethodMatch.let {
+                it.method to it.indices.last()
             }
         } else {
-            playbackStartFeatureFlagFingerprint.let {
-                it.method to it.instructionMatches.first().index
+            playbackStartFeatureFlagMethodMatch.let {
+                it.method to it.indices.first()
             }
         }
         val playbackStartVideoIdMethodName = navigate(videoIdStartMethod).to(videoIdIndex).stop().name
@@ -93,24 +92,24 @@ val `Open Shorts in regular player` by creatingBytecodePatch(
             """
 
         if (is_19_25_or_greater) {
-            shortsPlaybackIntentFingerprint.method.addInstructionsWithLabels(
+            shortsPlaybackIntentMethod.addInstructionsWithLabels(
                 0,
                 """
                     move-object/from16 v0, p1
                     ${extensionInstructions(0, 1)}
-                """
+                """,
             )
         } else {
-            shortsPlaybackIntentLegacyFingerprint.let {
+            shortsPlaybackIntentLegacyMethodMatch.let {
                 it.method.apply {
-                    val index = it.instructionMatches.first().index
+                    val index = it.indices.first()
                     val playbackStartRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
                     val insertIndex = index + 2
                     val freeRegister = findFreeRegister(insertIndex, playbackStartRegister)
 
                     addInstructionsWithLabels(
                         insertIndex,
-                        extensionInstructions(playbackStartRegister, freeRegister)
+                        extensionInstructions(playbackStartRegister, freeRegister),
                     )
                 }
             }
@@ -119,7 +118,7 @@ val `Open Shorts in regular player` by creatingBytecodePatch(
         // Fix issue with back button exiting the app instead of minimizing the player.
         // Without this change this issue can be difficult to reproduce, but seems to occur
         // most often with 'open video in regular player' and not open in fullscreen player.
-        exitVideoPlayerFingerprint.method.apply {
+        exitVideoPlayerMethod.apply {
             // Method call for Activity.finish()
             val finishIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()
@@ -135,7 +134,7 @@ val `Open Shorts in regular player` by creatingBytecodePatch(
                 """
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->overrideBackPressToExit(Z)Z    
                     move-result v$register
-                """
+                """,
             )
         }
     }

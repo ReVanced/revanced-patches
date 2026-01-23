@@ -115,7 +115,7 @@ internal val shortsExperimentalPlayerFeatureFlagFingerprint = fingerprint {
     returns("Z")
     parameters()
     instructions(
-        literal(45677719L),
+        45677719L(),
     )
 }
 
@@ -124,6 +124,6 @@ internal val renderNextUIFeatureFlagFingerprint = fingerprint {
     returns("Z")
     parameters()
     instructions(
-        literal(45649743L),
+        45649743L(),
     )
 }

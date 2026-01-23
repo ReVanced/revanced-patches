@@ -5,10 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-/**
- * Matches the class found in [initializeEnergyConfigMethod].
- */
-internal val BytecodePatchContext.initializeEnergyConfigMethod by gettingFirstMutableMethodDeclaratively {
+internal val initializeEnergyConfigMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(Opcode.RETURN_VOID)
 }

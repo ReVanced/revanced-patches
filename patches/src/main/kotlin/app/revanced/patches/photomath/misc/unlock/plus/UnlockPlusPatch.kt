@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.photomath.detection.signature.signatureDetectionPatch
 import app.revanced.patches.photomath.misc.unlock.bookpoint.enableBookpointPatch
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Unlock plus` by creatingBytecodePatch {
     dependsOn(signatureDetectionPatch, enableBookpointPatch)
 

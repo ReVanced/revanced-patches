@@ -107,7 +107,7 @@ internal val playerBottomControlsExploderFeatureFlagFingerprint = fingerprint {
     returns("Z")
     parameters()
     instructions(
-        literal(45643739L),
+        45643739L(),
     )
 }
 
@@ -116,7 +116,7 @@ internal val playerTopControlsExperimentalLayoutFeatureFlagFingerprint = fingerp
     returns("I")
     parameters()
     instructions(
-        literal(45629424L),
+        45629424L(),
     )
 }
 
@@ -125,7 +125,7 @@ internal val playerControlsLargeOverlayButtonsFeatureFlagFingerprint = fingerpri
     returns("Z")
     parameters()
     instructions(
-        literal(45709810L),
+        45709810L(),
     )
 }
 
@@ -134,7 +134,7 @@ internal val playerControlsFullscreenLargeButtonsFeatureFlagFingerprint = finger
     returns("Z")
     parameters()
     instructions(
-        literal(45686474L),
+        45686474L(),
     )
 }
 
@@ -143,6 +143,6 @@ internal val playerControlsButtonStrokeFeatureFlagFingerprint = fingerprint {
     returns("Z")
     parameters()
     instructions(
-        literal(45713296),
+        45713296(),
     )
 }

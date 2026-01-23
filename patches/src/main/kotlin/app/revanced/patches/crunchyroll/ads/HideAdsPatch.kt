@@ -1,6 +1,5 @@
 package app.revanced.patches.crunchyroll.ads
 
-import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
@@ -13,34 +12,36 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide ads` by creatingBytecodePatch {
     compatibleWith("com.crunchyroll.crunchyroid")
 
     apply {
         // Get obfuscated "enableAds" field from toString method.
-        val enableAdsField = videoUrlReadyToStringMethod.let {
-            val strIndex = videoUrlReadyToStringMethod.stringMatches.last().index // TODO
-            val fieldIndex = it.indexOfFirstInstruction(strIndex, Opcode.IGET_BOOLEAN)
-            it.getInstruction<ReferenceInstruction>(fieldIndex).getReference<FieldReference>()!!
+        val enableAdsField = videoUrlReadyToStringMethodMatch.method.apply {
+            val stringIndex = videoUrlReadyToStringMethodMatch.indices.last()
+            val fieldIndex = indexOfFirstInstruction(stringIndex, Opcode.IGET_BOOLEAN)
+
+            getInstruction<ReferenceInstruction>(fieldIndex).getReference<FieldReference>()!!
         }
 
         // Remove final access flag on field.
-        videoUrlReadyToStringMethod.classDef.fields
+        videoUrlReadyToStringMethodMatch.classDef.fields
             .first { it.name == enableAdsField.name }
             .removeFlags(AccessFlags.FINAL)
 
         // Override enableAds field in non-default constructor.
-        val constructor = videoUrlReadyToStringMethod.classDef.methods.first {
+        val constructor = videoUrlReadyToStringMethodMatch.classDef.methods.first {
             AccessFlags.CONSTRUCTOR.isSet(it.accessFlags) && it.parameters.isNotEmpty()
         }
+
         constructor.addInstructions(
             constructor.instructions.count() - 1,
             """
                 move-object/from16 v0, p0
                 const/4 v1, 0x0
                 iput-boolean v1, v0, $enableAdsField
-            """
+            """,
         )
     }
 }

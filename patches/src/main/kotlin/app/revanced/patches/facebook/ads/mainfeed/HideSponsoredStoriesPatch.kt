@@ -10,13 +10,12 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide 'Sponsored Stories'` by creatingBytecodePatch {
     compatibleWith("com.facebook.katana"("490.0.0.63.82"))
 
     apply {
-        val sponsoredDataModelTemplateMethod = getSponsoredDataModelTemplateFingerprint.originalMethod
-        val baseModelMapperMethod = baseModelMapperFingerprint.originalMethod
+        val sponsoredDataModelTemplateMethod = getSponsoredDataModelTemplateMethod
         val baseModelWithTreeType = baseModelMapperMethod.returnType
 
         val graphQlStoryClassDescriptor = "Lcom/facebook/graphql/model/GraphQLStory;"
@@ -26,7 +25,7 @@ val `Hide 'Sponsored Stories'` by creatingBytecodePatch {
         // could change in future version, we need to extract them and call the base implementation directly.
 
         val getSponsoredDataHelperMethod = ImmutableMethod(
-            getStoryVisibilityFingerprint.originalClassDef.type,
+            getStoryVisibilityMethodMatch.immutableClassDef.type,
             "getSponsoredData",
             listOf(ImmutableMethodParameter(graphQlStoryClassDescriptor, null, null)),
             baseModelWithTreeType,
@@ -60,12 +59,12 @@ val `Hide 'Sponsored Stories'` by creatingBytecodePatch {
             )
         }
 
-        getStoryVisibilityFingerprint.classDef.methods.add(getSponsoredDataHelperMethod)
+        getStoryVisibilityMethodMatch.classDef.methods.add(getSponsoredDataHelperMethod)
 
         // Check if the parameter type is GraphQLStory and if sponsoredDataModelGetter returns a non-null value.
         // If so, hide the story by setting the visibility to StoryVisibility.GONE.
-        getStoryVisibilityFingerprint.method.addInstructionsWithLabels(
-            getStoryVisibilityFingerprint.instructionMatches.first().index,
+        getStoryVisibilityMethodMatch.method.addInstructionsWithLabels(
+            getStoryVisibilityMethodMatch.indices.first(),
             """
                 instance-of v0, p0, $graphQlStoryClassDescriptor
                 if-eqz v0, :resume_normal

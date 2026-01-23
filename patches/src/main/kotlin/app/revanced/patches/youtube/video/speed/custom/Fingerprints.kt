@@ -30,7 +30,7 @@ internal val serverSideMaxSpeedFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(
-        literal(45719140L),
+        45719140L(),
     )
 }
 
@@ -42,7 +42,7 @@ internal val speedArrayGeneratorFingerprint = fingerprint {
         methodCall(name = "size", returnType = "I"),
         newInstance("Ljava/text/DecimalFormat;"),
         addString("0.0#"),
-        literal(7),
+        7(),
         opcode(Opcode.NEW_ARRAY),
         fieldAccess(definingClass = "/PlayerConfigModel;", type = "[F"),
     )
@@ -56,8 +56,8 @@ internal val speedLimiterFingerprint = fingerprint {
     returns("V")
     parameters("F", "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;")
     instructions(
-        literal(0.25f),
-        literal(4.0f),
+        0.25f(),
+        4.0f(),
     )
 }
 

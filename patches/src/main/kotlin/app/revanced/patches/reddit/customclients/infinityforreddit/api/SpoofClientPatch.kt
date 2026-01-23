@@ -1,5 +1,6 @@
 package app.revanced.patches.reddit.customclients.infinityforreddit.api
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.toInstructions
 import app.revanced.patches.reddit.customclients.spoofClientPatch
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -11,7 +12,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "infinity://localhost") { 
     compatibleWith(
         "ml.docilealligator.infinityforreddit",
         "ml.docilealligator.infinityforreddit.plus",
-        "ml.docilealligator.infinityforreddit.patreon"
+        "ml.docilealligator.infinityforreddit.patreon",
     )
 
     val clientId by clientIdOption

@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
 import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -11,8 +12,8 @@ import app.revanced.patches.youtube.misc.playservice.is_20_28_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.seekbarFingerprint
-import app.revanced.patches.youtube.shared.seekbarOnDrawFingerprint
+import app.revanced.patches.youtube.shared.getSeekbarOnDrawMethodMatch
+import app.revanced.patches.youtube.shared.seekbarMethod
 import app.revanced.util.insertLiteralOverride
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/HideSeekbarPatch;"
@@ -37,7 +38,7 @@ val hideSeekbarPatch = bytecodePatch(
             SwitchPreference("revanced_fullscreen_large_seekbar"),
         )
 
-        seekbarOnDrawFingerprint.match(seekbarFingerprint.originalClassDef).method.addInstructionsWithLabels(
+        getSeekbarOnDrawMethodMatch().match(seekbarMethod.immutableClassDef).method.addInstructionsWithLabels(
             0,
             """
                 const/4 v0, 0x0
@@ -51,7 +52,7 @@ val hideSeekbarPatch = bytecodePatch(
         )
 
         if (is_20_28_or_greater) {
-            fullscreenLargeSeekbarFeatureFlagFingerprint.let {
+            fullscreenLargeSeekbarFeatureFlagMethodMatch.let {
                 it.method.insertLiteralOverride(
                     it.instructionMatches.first().index,
                     "$EXTENSION_CLASS_DESCRIPTOR->useFullscreenLargeSeekbar(Z)Z"

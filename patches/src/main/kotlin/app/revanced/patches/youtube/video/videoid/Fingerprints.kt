@@ -14,7 +14,7 @@ internal val videoIdFingerprint = fingerprint {
     instructions(
         methodCall(
             definingClass = "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;",
-            returnType = "Ljava/lang/String;"
+            returnType = "Ljava/lang/String;",
         ),
         opcode(Opcode.MOVE_RESULT_OBJECT),
     )
@@ -27,19 +27,21 @@ internal val videoIdBackgroundPlayFingerprint = fingerprint {
     instructions(
         methodCall(
             definingClass = "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;",
-            returnType = "Ljava/lang/String;"
+            returnType = "Ljava/lang/String;",
         ),
         opcode(Opcode.MOVE_RESULT_OBJECT),
         opcode(Opcode.IPUT_OBJECT),
         opcode(Opcode.MONITOR_EXIT),
         opcode(Opcode.RETURN_VOID),
         opcode(Opcode.MONITOR_EXIT),
-        opcode(Opcode.RETURN_VOID)
+        opcode(Opcode.RETURN_VOID),
     )
     custom { method, classDef ->
         method.implementation != null &&
-                (classDef.methods.count() == 17 // 20.39 and lower.
-                        || classDef.methods.count() == 16) // 20.40+
+            (
+                classDef.methods.count() == 17 || // 20.39 and lower.
+                    classDef.methods.count() == 16
+                ) // 20.40+
     }
 }
 
@@ -48,6 +50,6 @@ internal val videoIdParentFingerprint = fingerprint {
     returns("[L")
     parameters("L")
     instructions(
-        literal(524288L)
+        524288L(),
     )
 }

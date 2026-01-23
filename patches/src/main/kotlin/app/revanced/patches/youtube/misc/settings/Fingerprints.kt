@@ -30,7 +30,7 @@ internal val cairoFragmentConfigFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(
-        literal(45532100L),
+        45532100L(),
         opcode(Opcode.MOVE_RESULT, location = MatchAfterWithin(10)),
     )
 }
@@ -42,6 +42,6 @@ internal val boldIconsFeatureFlagFingerprint = fingerprint {
     returns("Z")
     parameters()
     instructions(
-        literal(45685201L),
+        45685201L(),
     )
 }

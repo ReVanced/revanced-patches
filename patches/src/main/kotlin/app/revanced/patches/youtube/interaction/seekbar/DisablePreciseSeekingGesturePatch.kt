@@ -1,9 +1,10 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
+import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
-import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -30,9 +31,7 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
             SwitchPreference("revanced_disable_precise_seeking_gesture"),
         )
 
-        allowSwipingUpGestureFingerprint.match(
-            swipingUpGestureParentFingerprint.originalClassDef,
-        ).method.apply {
+        swipingUpGestureParentMethod.immutableClassDef.getAllowSwipingUpGestureMethod().apply {
             addInstructionsWithLabels(
                 0,
                 """
@@ -45,9 +44,7 @@ val disablePreciseSeekingGesturePatch = bytecodePatch(
             )
         }
 
-        showSwipingUpGuideFingerprint.match(
-            swipingUpGestureParentFingerprint.originalClassDef,
-        ).method.apply {
+        swipingUpGestureParentMethod.immutableClassDef.getShowSwipingUpGuideMethod().apply {
             addInstructionsWithLabels(
                 0,
                 """

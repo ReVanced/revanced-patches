@@ -6,16 +6,16 @@ import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Remove device restrictions` by creatingBytecodePatch(
     description = "Removes restrictions from using the app on any device. Requires mounting patched app over original.",
 ) {
     compatibleWith("com.google.android.apps.recorder")
 
     apply {
-        val featureStringIndex = onApplicationCreateFingerprint.stringMatches.first().index
+        val featureStringIndex = onApplicationCreateMethodMatch.indices.first()
 
-        onApplicationCreateFingerprint.method.apply {
+        onApplicationCreateMethodMatch.method.apply {
             // Remove check for device restrictions.
             removeInstructions(featureStringIndex - 2, 5)
 

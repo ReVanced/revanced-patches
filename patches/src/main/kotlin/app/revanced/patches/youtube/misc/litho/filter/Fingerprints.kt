@@ -1,18 +1,18 @@
 package app.revanced.patches.youtube.misc.litho.filter
 
+import app.revanced.patcher.addString
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.fingerprint
-import app.revanced.util.containsLiteralInstruction
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
-import app.revanced.patcher.addString
+import app.revanced.util.containsLiteralInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val componentCreateFingerprint = fingerprint {
     instructions(
         addString("Element missing correct type extension"),
-        addString("Element missing type")
+        addString("Element missing type"),
     )
 }
 
@@ -31,12 +31,12 @@ internal val protobufBufferReferenceFingerprint = fingerprint {
         fieldAccess(
             opcode = Opcode.IGET_OBJECT,
             definingClass = "this",
-            type = "Lcom/google/android/libraries/elements/adl/UpbMessage;"
+            type = "Lcom/google/android/libraries/elements/adl/UpbMessage;",
         ),
         methodCall(
             definingClass = "Lcom/google/android/libraries/elements/adl/UpbMessage;",
-            name = "jniDecode"
-        )
+            name = "jniDecode",
+        ),
     )
 }
 
@@ -56,7 +56,7 @@ internal val emptyComponentFingerprint = fingerprint {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
     parameters()
     instructions(
-        addString("EmptyComponent")
+        addString("EmptyComponent"),
     )
     custom { _, classDef ->
         classDef.methods.filter { AccessFlags.STATIC.isSet(it.accessFlags) }.size == 1
@@ -77,13 +77,13 @@ internal val lithoComponentNameUpbFeatureFlagFingerprint = fingerprint {
     returns("Z")
     parameters()
     instructions(
-        literal(45631264L)
+        45631264L(),
     )
 }
 
 internal val lithoConverterBufferUpbFeatureFlagFingerprint = fingerprint {
     returns("L")
     instructions(
-        literal(45419603L)
+        45419603L(),
     )
 }

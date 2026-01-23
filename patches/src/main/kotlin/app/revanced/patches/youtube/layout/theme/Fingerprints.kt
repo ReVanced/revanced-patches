@@ -7,7 +7,7 @@ import app.revanced.patches.youtube.shared.YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
 
 internal val useGradientLoadingScreenFingerprint = fingerprint {
     instructions(
-        literal(45412406L)
+        45412406L(),
     )
 }
 
@@ -16,9 +16,9 @@ internal val splashScreenStyleFingerprint = fingerprint {
     parameters("Landroid/os/Bundle;")
     instructions(
         anyInstruction(
-            literal(1074339245), // 20.30+
-            literal(269032877L) // 20.29 and lower.
-        )
+            1074339245(), // 20.30+
+            269032877L(), // 20.29 and lower.
+        ),
     )
     custom { method, classDef ->
         method.name == "onCreate" && classDef.type == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE

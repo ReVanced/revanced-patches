@@ -1,38 +1,33 @@
 package app.revanced.patches.youtube.layout.buttons.overlay
 
-import app.revanced.patcher.fingerprint
-import app.revanced.patcher.literal
-import app.revanced.patcher.methodCall
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.ResourceType.IndexedMatcherPredicateExtension.invoke
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val mediaRouteButtonFingerprint = fingerprint {
-    parameters("I")
-    custom { methodDef, _ ->
-        methodDef.definingClass.endsWith("/MediaRouteButton;") && methodDef.name == "setVisibility"
-    }
+internal val BytecodePatchContext.mediaRouteButtonMethod by gettingFirstMutableMethodDeclaratively {
+    name("setVisibility")
+    definingClass("/MediaRouteButton;"::endsWith)
+    parameterTypes("I")
 }
 
-internal val castButtonPlayerFeatureFlagFingerprint = fingerprint {
-    returns("Z")
-    instructions(
-        literal(45690091),
-    )
+internal val castButtonPlayerFeatureFlagMethodMatch = firstMethodComposite {
+    returnType("Z")
+    instructions(45690091L())
 }
 
-internal val castButtonActionFeatureFlagFingerprint = fingerprint {
-    returns("Z")
-    instructions(
-        literal(45690090),
-    )
+internal val castButtonActionFeatureFlagMethodMatch = firstMethodComposite {
+    returnType("Z")
+    instructions(45690090L())
 }
 
-internal val inflateControlsGroupLayoutStubFingerprint = fingerprint {
+internal val inflateControlsGroupLayoutStubMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    parameters()
-    returns("V")
+    parameterTypes()
+    returnType("V")
     instructions(
         ResourceType.ID("youtube_controls_button_group_layout_stub"),
-        methodCall(name = "inflate"),
+        method("inflate"),
     )
 }

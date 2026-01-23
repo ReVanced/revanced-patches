@@ -15,6 +15,6 @@ internal val swipeControlsHostActivityFingerprint = fingerprint {
 internal val swipeChangeVideoFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        literal(45631116L) // Swipe to change fullscreen video feature flag.
+        45631116L(), // Swipe to change fullscreen video feature flag.
     )
 }

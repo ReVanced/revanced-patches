@@ -1,29 +1,29 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
+import app.revanced.patcher.addString
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.literal
-import app.revanced.patcher.addString
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val dislikeFingerprint = fingerprint {
     returns("V")
     instructions(
-        addString("like/dislike")
+        addString("like/dislike"),
     )
 }
 
 internal val likeFingerprint = fingerprint {
     returns("V")
     instructions(
-        addString("like/like")
+        addString("like/like"),
     )
 }
 
 internal val removeLikeFingerprint = fingerprint {
     returns("V")
     instructions(
-        addString("like/removelike")
+        addString("like/removelike"),
     )
 }
 
@@ -65,7 +65,7 @@ internal val rollingNumberMeasureStaticLabelParentFingerprint = fingerprint {
     returns("Ljava/lang/String;")
     parameters()
     instructions(
-        addString("RollingNumberFontProperties{paint=")
+        addString("RollingNumberFontProperties{paint="),
     )
 }
 
@@ -92,14 +92,14 @@ internal val rollingNumberTextViewFingerprint = fingerprint {
     )
     custom { _, classDef ->
         classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;" || classDef.superclass ==
-                "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
+            "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
     }
 }
 
 internal val textComponentConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PRIVATE)
     instructions(
-        addString("TextComponent")
+        addString("TextComponent"),
     )
 }
 
@@ -107,7 +107,7 @@ internal val textComponentDataFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameters("L", "L")
     instructions(
-        addString("text")
+        addString("text"),
     )
     custom { _, classDef ->
         classDef.fields.find { it.type == "Ljava/util/BitSet;" } != null
@@ -122,7 +122,7 @@ internal val textComponentLookupFingerprint = fingerprint {
     returns("L")
     parameters("L")
     instructions(
-        addString("…")
+        addString("…"),
     )
 }
 
@@ -130,7 +130,7 @@ internal val textComponentFeatureFlagFingerprint = fingerprint {
     accessFlags(AccessFlags.FINAL)
     returns("Z")
     parameters()
-    instructions (
-        literal(45675738L)
+    instructions(
+        45675738L(),
     )
 }

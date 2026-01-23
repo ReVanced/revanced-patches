@@ -1,9 +1,11 @@
 package app.revanced.patches.instagram.hide.suggestions
 
+import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
-import app.revanced.patches.instagram.hide.explore.replaceJsonFieldWithBogus
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide suggested content` by creatingBytecodePatch(
     description = "Hides suggested stories, reels, threads and survey from feed (Suggested posts will still be shown).",
     use = false,
@@ -11,8 +13,12 @@ val `Hide suggested content` by creatingBytecodePatch(
     compatibleWith("com.instagram.android")
 
     apply {
-        FEED_ITEM_KEYS_TO_BE_HIDDEN.forEach { key ->
-            feedItemParseFromJsonFingerprint.replaceJsonFieldWithBogus(key)
+        feedItemParseFromJsonMethodMatch.method.apply {
+            feedItemParseFromJsonMethodMatch.indices.forEach { targetStringIndex ->
+                val targetStringRegister = getInstruction<OneRegisterInstruction>(targetStringIndex).registerA
+
+                replaceInstruction(targetStringIndex, "const-string v$targetStringRegister, \"BOGUS\"")
+            }
         }
     }
 }

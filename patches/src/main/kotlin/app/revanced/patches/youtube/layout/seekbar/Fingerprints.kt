@@ -17,7 +17,7 @@ internal val fullscreenSeekbarThumbnailsFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameters()
     instructions(
-        literal(45398577),
+        45398577(),
     )
 }
 
@@ -66,7 +66,7 @@ internal val watchHistoryMenuUseProgressDrawableFingerprint = fingerprint {
     instructions(
         methodCall("Landroid/widget/ProgressBar;", "setMax"),
         opcode(Opcode.MOVE_RESULT),
-        literal(-1712394514),
+        -1712394514(),
     )
 }
 

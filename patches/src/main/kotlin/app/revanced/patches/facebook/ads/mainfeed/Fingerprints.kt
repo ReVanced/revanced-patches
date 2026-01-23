@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.baseModelMapperMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.baseModelMapperMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Lcom/facebook/graphql/modelutil/BaseModelWithTree;")
     parameterTypes("Ljava/lang/Class", "I", "I")
@@ -17,7 +17,7 @@ internal val BytecodePatchContext.baseModelMapperMethod by gettingFirstMutableMe
         Opcode.IF_EQ,
     )
 }
-internal val BytecodePatchContext.getSponsoredDataModelTemplateMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.getSponsoredDataModelTemplateMethod by gettingFirstMethodDeclaratively {
     definingClass("Lcom/facebook/graphql/model/GraphQLFBMultiAdsFeedUnit;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
@@ -29,9 +29,8 @@ internal val BytecodePatchContext.getSponsoredDataModelTemplateMethod by getting
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.RETURN_OBJECT,
     )
-
 }
-internal val BytecodePatchContext.getStoryVisibilityMethod by gettingFirstMutableMethodDeclaratively("This should not be called for base class object") {
+internal val getStoryVisibilityMethodMatch = firstMethodComposite("This should not be called for base class object") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     opcodes(

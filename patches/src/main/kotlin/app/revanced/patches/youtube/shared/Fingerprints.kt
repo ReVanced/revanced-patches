@@ -1,26 +1,27 @@
 package app.revanced.patches.youtube.shared
 
-import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.accessFlags
-import app.revanced.patcher.addString
 import app.revanced.patcher.after
 import app.revanced.patcher.allOf
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.field
 import app.revanced.patcher.fingerprint
 import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.firstMethodDeclaratively
+import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.instruction
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
-import app.revanced.patcher.literal
-import app.revanced.patcher.methodCall
+import app.revanced.patcher.method
 import app.revanced.patcher.name
-import app.revanced.patcher.opcode
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 import app.revanced.patcher.type
 import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.shared.misc.mapping.ResourceType.IndexedMatcherPredicateExtension.invoke
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -41,14 +42,21 @@ internal val conversionContextFingerprintToString = fingerprint {
     }
 }
 
-internal val layoutConstructorFingerprint = fingerprint {
+internal fun getLayoutConstructorMethodMatch() = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
-    returns("V")
+    returnType("V")
+    parameterTypes()
+
+    val methodParameterTypePrefixes = listOf("Landroid/view/View;", "I")
+
     instructions(
-        literal(159962),
+        159962L(),
         ResourceType.ID("player_control_previous_button_touch_area"),
         ResourceType.ID("player_control_next_button_touch_area"),
-        methodCall(parameters = listOf("Landroid/view/View;", "I")),
+        method {
+            parameterTypes.size == 2 &&
+                parameterTypes.zip(methodParameterTypePrefixes).all { (a, b) -> a.startsWith(b) }
+        },
     )
 }
 
@@ -102,22 +110,20 @@ internal val rollingNumberTextViewAnimationUpdateFingerprint = fingerprint {
     }
 }
 
-internal val seekbarFingerprint = fingerprint {
-    returns("V")
-    instructions(
-        addString("timed_markers_width"),
-    )
+internal val BytecodePatchContext.seekbarMethod by gettingFirstMethodDeclaratively {
+    returnType("V")
+    instructions("timed_markers_width"())
 }
 
 /**
- * Matches to _mutable_ class found in [seekbarFingerprint].
+ * Matches to _mutable_ class found in [seekbarMethod].
  */
-internal val seekbarOnDrawFingerprint = fingerprint {
+internal fun getSeekbarOnDrawMethodMatch() = firstMethodComposite {
+    name("onDraw")
     instructions(
-        methodCall(smali = "Ljava/lang/Math;->round(F)I"),
-        opcode(Opcode.MOVE_RESULT, location = MatchAfterImmediately()),
+        method { toString() == "Ljava/lang/Math;->round(F)I" },
+        after(Opcode.MOVE_RESULT()),
     )
-    custom { method, _ -> method.name == "onDraw" }
 }
 
 internal val subtitleButtonControllerFingerprint = fingerprint {

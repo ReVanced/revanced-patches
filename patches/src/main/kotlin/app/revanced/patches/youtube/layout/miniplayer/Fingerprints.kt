@@ -28,7 +28,7 @@ internal const val MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY = 45644360L
 internal val miniplayerModernConstructorFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        literal(45623000L), // Magic number found in the constructor.
+        45623000L(), // Magic number found in the constructor.
     )
 }
 
@@ -93,7 +93,7 @@ internal val miniplayerModernExpandCloseDrawablesFingerprint = fingerprint {
     returns("V")
     parameters("L")
     instructions(
-        literal(ytOutlinePictureInPictureWhite24),
+        ytOutlinePictureInPictureWhite24(),
     )
 }
 
@@ -149,8 +149,8 @@ internal val miniplayerMinimumSizeFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.DIMEN("miniplayer_max_size"),
-        literal(192), // Default miniplayer width constant.
-        literal(128), // Default miniplayer height constant.
+        192(), // Default miniplayer width constant.
+        128(), // Default miniplayer height constant.
     )
 }
 
@@ -196,7 +196,7 @@ internal val miniplayerOnCloseHandlerFingerprint = fingerprint {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returns("Z")
     instructions(
-        literal(MINIPLAYER_DISABLED_FEATURE_KEY),
+        MINIPLAYER_DISABLED_FEATURE_KEY(),
     )
 }
 

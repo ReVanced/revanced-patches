@@ -11,7 +11,7 @@ import app.revanced.patches.youtube.misc.playservice.is_20_28_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.layoutConstructorFingerprint
+import app.revanced.patches.youtube.shared.getLayoutConstructorMethodMatch
 import app.revanced.patches.youtube.shared.subtitleButtonControllerFingerprint
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
@@ -22,16 +22,17 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HidePlayerOverlayButtonsPatch;"
 
+@Suppress("ObjectPropertyName")
 val `Hide player overlay buttons` by creatingBytecodePatch(
     description = "Adds options to hide the player Cast, Autoplay, Captions, Previous & Next buttons, and the player " +
-            "control buttons background.",
+        "control buttons background.",
 ) {
     dependsOn(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
         resourceMappingPatch, // Used by fingerprints.
-        versionCheckPatch
+        versionCheckPatch,
     )
 
     compatibleWith(
@@ -40,7 +41,7 @@ val `Hide player overlay buttons` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -56,44 +57,38 @@ val `Hide player overlay buttons` by creatingBytecodePatch(
 
         // region Hide player next/previous button.
 
-        layoutConstructorFingerprint.let {
-            it.clearMatch() // Fingerprint is shared with other patches.
+        getLayoutConstructorMethodMatch().let {
+            val insertIndex = it.indices.last()
+            val viewRegister = it.method.getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
-            it.method.apply {
-                val insertIndex = it.instructionMatches.last().index
-                val viewRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
-
-                addInstruction(
-                    insertIndex,
-                    "invoke-static { v$viewRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
-                            "->hidePreviousNextButtons(Landroid/view/View;)V",
-                )
-            }
+            it.method.addInstruction(
+                insertIndex,
+                "invoke-static { v$viewRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
+                    "->hidePreviousNextButtons(Landroid/view/View;)V",
+            )
         }
 
         // endregion
 
         // region Hide cast button.
 
-        mediaRouteButtonFingerprint.method.addInstructions(
+        mediaRouteButtonMethod.addInstructions(
             0,
             """
                 invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->getCastButtonOverrideV2(I)I
                 move-result p1
-            """
+            """,
         )
 
         if (is_20_28_or_greater) {
             arrayOf(
-                castButtonPlayerFeatureFlagFingerprint,
-                castButtonActionFeatureFlagFingerprint
-            ).forEach { fingerprint ->
-                fingerprint.let {
-                    it.method.insertLiteralOverride(
-                        it.instructionMatches.first().index,
-                        "$EXTENSION_CLASS_DESCRIPTOR->getCastButtonOverrideV2(Z)Z"
-                    )
-                }
+                castButtonPlayerFeatureFlagMethodMatch,
+                castButtonActionFeatureFlagMethodMatch,
+            ).forEach { match ->
+                match.method.insertLiteralOverride(
+                    match.indices.first(),
+                    "$EXTENSION_CLASS_DESCRIPTOR->getCastButtonOverrideV2(Z)Z",
+                )
             }
         }
 
@@ -114,7 +109,7 @@ val `Hide player overlay buttons` by creatingBytecodePatch(
 
         // region Hide autoplay button.
 
-        layoutConstructorFingerprint.method.apply {
+        getLayoutConstructorMethodMatch().method.apply {
             val constIndex = indexOfFirstResourceIdOrThrow("autonav_toggle")
             val constRegister = getInstruction<OneRegisterInstruction>(constIndex).registerA
 
@@ -122,8 +117,8 @@ val `Hide player overlay buttons` by creatingBytecodePatch(
             val gotoIndex = indexOfFirstInstructionOrThrow(constIndex) {
                 val parameterTypes = getReference<MethodReference>()?.parameterTypes
                 opcode == Opcode.INVOKE_VIRTUAL &&
-                        parameterTypes?.size == 2 &&
-                        parameterTypes.first() == "Landroid/view/ViewStub;"
+                    parameterTypes?.size == 2 &&
+                    parameterTypes.first() == "Landroid/view/ViewStub;"
             } + 1
 
             addInstructionsWithLabels(
@@ -141,7 +136,7 @@ val `Hide player overlay buttons` by creatingBytecodePatch(
 
         // region Hide player control buttons background.
 
-        inflateControlsGroupLayoutStubFingerprint.let {
+        inflateControlsGroupLayoutStubMethodMatch.let {
             it.method.apply {
                 val insertIndex = it.instructionMatches.last().index + 1
                 val freeRegister = findFreeRegister(insertIndex)
@@ -153,7 +148,7 @@ val `Hide player overlay buttons` by creatingBytecodePatch(
                         # The result of the inflate method is by default not moved to a register after the method is called.
                         move-result-object v$freeRegister
                         invoke-static { v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->hidePlayerControlButtonsBackground(Landroid/view/View;)V
-                    """
+                    """,
                 )
             }
         }

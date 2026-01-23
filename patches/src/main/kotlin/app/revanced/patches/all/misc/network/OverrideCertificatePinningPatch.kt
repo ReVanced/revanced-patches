@@ -1,19 +1,17 @@
-@file:Suppress("ObjectPropertyName")
-
 package app.revanced.patches.all.misc.network
 
 import app.revanced.patcher.patch.creatingResourcePatch
-import app.revanced.patches.all.misc.debugging.enableAndroidDebuggingPatch
+import app.revanced.patches.all.misc.debugging.`Enable Android debugging`
 import app.revanced.util.Utils.trimIndentMultiline
 import org.w3c.dom.Element
 import java.io.File
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Override certificate pinning` by creatingResourcePatch(
     description = "Overrides certificate pinning, allowing to inspect traffic via a proxy.",
     use = false,
 ) {
-    dependsOn(enableAndroidDebuggingPatch)
+    dependsOn(`Enable Android debugging`)
 
     apply {
         val resXmlDirectory = get("res/xml")

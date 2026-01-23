@@ -13,11 +13,10 @@ import java.security.cert.CertificateException
 import java.security.cert.CertificateFactory
 import java.util.*
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Enable ROM signature spoofing` = creatingResourcePatch(
-    name = "",
     description = "Spoofs the signature via the manifest meta-data \"fake-signature\". " +
-            "This patch only works with ROMs that support signature spoofing.",
+        "This patch only works with ROMs that support signature spoofing.",
     use = false,
 ) {
     val signatureOrPath by stringOption(
@@ -36,7 +35,6 @@ val `Enable ROM signature spoofing` = creatingResourcePatch(
                 setAttribute("android:name", "android.permission.FAKE_PACKAGE_SIGNATURE")
             }
             val manifest = document.getNode("manifest").appendChild(permission)
-
 
             val fakeSignatureMetadata = document.createElement("meta-data").apply {
                 setAttribute("android:name", "fake-signature")
@@ -68,15 +66,17 @@ private fun parseSignature(optionValue: String): String? {
 
         val hexFormat = HexFormat.of()
 
-        val signature = (if (result.isVerifiedUsingV3Scheme) {
-            result.v3SchemeSigners[0].certificate
-        } else if (result.isVerifiedUsingV2Scheme) {
-            result.v2SchemeSigners[0].certificate
-        } else if (result.isVerifiedUsingV1Scheme) {
-            result.v1SchemeSigners[0].certificate
-        } else {
-            return null
-        }).encoded
+        val signature = (
+            if (result.isVerifiedUsingV3Scheme) {
+                result.v3SchemeSigners[0].certificate
+            } else if (result.isVerifiedUsingV2Scheme) {
+                result.v2SchemeSigners[0].certificate
+            } else if (result.isVerifiedUsingV1Scheme) {
+                result.v1SchemeSigners[0].certificate
+            } else {
+                return null
+            }
+            ).encoded
 
         return hexFormat.formatHex(signature)
     } catch (_: IOException) {

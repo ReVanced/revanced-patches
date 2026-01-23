@@ -13,13 +13,12 @@ import app.revanced.patches.youtube.misc.playservice.is_19_17_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_09_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
-import java.util.logging.Logger
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/SeekbarThumbnailsPatch;"
 
 val seekbarThumbnailsPatch = bytecodePatch(
-    description = "Adds an option to use high quality fullscreen seekbar thumbnails."
+    description = "Adds an option to use high quality fullscreen seekbar thumbnails.",
 ) {
     dependsOn(
         sharedExtensionPatch,
@@ -38,7 +37,7 @@ val seekbarThumbnailsPatch = bytecodePatch(
 
         if (is_19_17_or_greater) {
             PreferenceScreen.SEEKBAR.addPreferences(
-                SwitchPreference("revanced_seekbar_thumbnails_high_quality")
+                SwitchPreference("revanced_seekbar_thumbnails_high_quality"),
             )
         } else {
             PreferenceScreen.SEEKBAR.addPreferences(
@@ -46,8 +45,8 @@ val seekbarThumbnailsPatch = bytecodePatch(
                 SwitchPreference(
                     key = "revanced_seekbar_thumbnails_high_quality",
                     summaryOnKey = "revanced_seekbar_thumbnails_high_quality_legacy_summary_on",
-                    summaryOffKey = "revanced_seekbar_thumbnails_high_quality_legacy_summary_on"
-                )
+                    summaryOffKey = "revanced_seekbar_thumbnails_high_quality_legacy_summary_on",
+                ),
             )
 
             fullscreenSeekbarThumbnailsFingerprint.method.apply {
@@ -60,13 +59,13 @@ val seekbarThumbnailsPatch = bytecodePatch(
             }
         }
 
-        fullscreenSeekbarThumbnailsQualityFingerprint.method.addInstructions(
+        fullscreenSeekbarThumbnailsQualityMethod.addInstructions(
             0,
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->useHighQualityFullscreenThumbnails()Z
                 move-result v0
                 return v0
-            """
+            """,
         )
     }
 }

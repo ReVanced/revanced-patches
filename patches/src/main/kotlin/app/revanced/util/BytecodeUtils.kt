@@ -1,9 +1,9 @@
 package app.revanced.util
 
-import app.revanced.patcher.firstMutableClassDef
-import app.revanced.patcher.firstMutableClassDefOrNull
 import app.revanced.patcher.FingerprintBuilder
 import app.revanced.patcher.extensions.*
+import app.revanced.patcher.firstMutableClassDef
+import app.revanced.patcher.firstMutableClassDefOrNull
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.shared.misc.mapping.ResourceType
@@ -91,7 +91,7 @@ fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): In
             // This method is simple and does not follow branching.
             throw IllegalArgumentException(
                 "Encountered a branch statement before " +
-                        "a free register could be found from startIndex: $startIndex"
+                    "a free register could be found from startIndex: $startIndex",
             )
         }
 
@@ -111,7 +111,7 @@ fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): In
             // In practice this never occurs.
             throw IllegalArgumentException(
                 "Could not find a free register from startIndex: " +
-                        "$startIndex excluding: $registersToExclude"
+                    "$startIndex excluding: $registersToExclude",
             )
         }
     }
@@ -139,9 +139,13 @@ internal val Instruction.registersUsed: List<Int>
         }
 
         is ThreeRegisterInstruction -> listOf(registerA, registerB, registerC)
+
         is TwoRegisterInstruction -> listOf(registerA, registerB)
+
         is OneRegisterInstruction -> listOf(registerA)
+
         is RegisterRangeInstruction -> (startRegister until (startRegister + registerCount)).toList()
+
         else -> emptyList()
     }
 
@@ -191,7 +195,7 @@ private fun Method.findInstructionIndexFromToString(fieldName: String): Int {
     val stringUsageIndex = indexOfFirstInstruction(stringIndex) {
         val reference = getReference<MethodReference>()
         reference?.definingClass == "Ljava/lang/StringBuilder;" &&
-                (this as? FiveRegisterInstruction)?.registerD == stringRegister
+            (this as? FiveRegisterInstruction)?.registerD == stringRegister
     }
     if (stringUsageIndex < 0) {
         throw IllegalArgumentException("Could not find StringBuilder usage in: $this")
@@ -249,11 +253,9 @@ internal fun Method.findFieldFromToString(fieldName: String): FieldReference {
 /**
  * Adds public [AccessFlags] and removes private and protected flags (if present).
  */
-internal fun Int.toPublicAccessFlags(): Int {
-    return this.or(AccessFlags.PUBLIC.value)
-        .and(AccessFlags.PROTECTED.value.inv())
-        .and(AccessFlags.PRIVATE.value.inv())
-}
+internal fun Int.toPublicAccessFlags(): Int = this.or(AccessFlags.PUBLIC.value)
+    .and(AccessFlags.PROTECTED.value.inv())
+    .and(AccessFlags.PRIVATE.value.inv())
 
 /**
  * Find the [MutableMethod] from a given [Method] in a [MutableClass].
@@ -294,7 +296,6 @@ fun MutableMethod.injectHideViewCall(
     "invoke-static { v$viewRegister }, $classDescriptor->$targetMethod(Landroid/view/View;)V",
 )
 
-
 /**
  * Inserts instructions at a given index, using the existing control flow label at that index.
  * Inserted instructions can have it's own control flow labels as well.
@@ -311,7 +312,7 @@ fun MutableMethod.injectHideViewCall(
 // TODO: delete this on next major version bump.
 fun MutableMethod.addInstructionsAtControlFlowLabel(
     insertIndex: Int,
-    instructions: String
+    instructions: String,
 ) = addInstructionsAtControlFlowLabel(insertIndex, instructions, *arrayOf<ExternalLabel>())
 
 /**
@@ -330,7 +331,7 @@ fun MutableMethod.addInstructionsAtControlFlowLabel(
 fun MutableMethod.addInstructionsAtControlFlowLabel(
     insertIndex: Int,
     instructions: String,
-    vararg externalLabels: ExternalLabel
+    vararg externalLabels: ExternalLabel,
 ) {
     // Duplicate original instruction and add to +1 index.
     addInstruction(insertIndex + 1, getInstruction(insertIndex))
@@ -356,9 +357,7 @@ fun MutableMethod.addInstructionsAtControlFlowLabel(
  * @throws PatchException if the resource cannot be found.
  * @see [indexOfFirstResourceIdOrThrow], [indexOfFirstLiteralInstructionReversed]
  */
-fun Method.indexOfFirstResourceId(resourceName: String): Int {
-    return indexOfFirstLiteralInstruction(ResourceType.ID[resourceName)]
-}
+fun Method.indexOfFirstResourceId(resourceName: String): Int = indexOfFirstLiteralInstruction(ResourceType.ID[resourceName])
 
 /**
  * Get the index of the first instruction with the id of the given resource name or throw a [PatchException].
@@ -407,8 +406,7 @@ fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Long): Int {
  * @return the first literal instruction with the value, or -1 if not found.
  * @see indexOfFirstLiteralInstructionOrThrow
  */
-fun Method.indexOfFirstLiteralInstruction(literal: Float) =
-    indexOfFirstLiteralInstruction(literal.toRawBits().toLong())
+fun Method.indexOfFirstLiteralInstruction(literal: Float) = indexOfFirstLiteralInstruction(literal.toRawBits().toLong())
 
 /**
  * Find the index of the first literal instruction with the given float value,
@@ -428,8 +426,7 @@ fun Method.indexOfFirstLiteralInstructionOrThrow(literal: Float): Int {
  * @return the first literal instruction with the value, or -1 if not found.
  * @see indexOfFirstLiteralInstructionOrThrow
  */
-fun Method.indexOfFirstLiteralInstruction(literal: Double) =
-    indexOfFirstLiteralInstruction(literal.toRawBits())
+fun Method.indexOfFirstLiteralInstruction(literal: Double) = indexOfFirstLiteralInstruction(literal.toRawBits())
 
 /**
  * Find the index of the first literal instruction with the given double value,
@@ -473,8 +470,7 @@ fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Long): Int {
  * @return the last literal instruction with the value, or -1 if not found.
  * @see indexOfFirstLiteralInstructionOrThrow
  */
-fun Method.indexOfFirstLiteralInstructionReversed(literal: Float) =
-    indexOfFirstLiteralInstructionReversed(literal.toRawBits().toLong())
+fun Method.indexOfFirstLiteralInstructionReversed(literal: Float) = indexOfFirstLiteralInstructionReversed(literal.toRawBits().toLong())
 
 /**
  * Find the index of the last wide literal instruction with the given float value,
@@ -494,8 +490,7 @@ fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Float): Int {
  * @return the last literal instruction with the value, or -1 if not found.
  * @see indexOfFirstLiteralInstructionOrThrow
  */
-fun Method.indexOfFirstLiteralInstructionReversed(literal: Double) =
-    indexOfFirstLiteralInstructionReversed(literal.toRawBits())
+fun Method.indexOfFirstLiteralInstructionReversed(literal: Double) = indexOfFirstLiteralInstructionReversed(literal.toRawBits())
 
 /**
  * Find the index of the last wide literal instruction with the given double value,
@@ -567,10 +562,9 @@ fun Method.indexOfFirstInstruction(targetOpcode: Opcode): Int = indexOfFirstInst
  * @return The index of the first opcode specified, or -1 if not found.
  * @see indexOfFirstInstructionOrThrow
  */
-fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): Int =
-    indexOfFirstInstruction(startIndex) {
-        opcode == targetOpcode
-    }
+fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): Int = indexOfFirstInstruction(startIndex) {
+    opcode == targetOpcode
+}
 
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
@@ -605,10 +599,9 @@ fun Method.indexOfFirstInstructionOrThrow(targetOpcode: Opcode): Int = indexOfFi
  * @throws PatchException
  * @see indexOfFirstInstruction
  */
-fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, targetOpcode: Opcode): Int =
-    indexOfFirstInstructionOrThrow(startIndex) {
-        opcode == targetOpcode
-    }
+fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, targetOpcode: Opcode): Int = indexOfFirstInstructionOrThrow(startIndex) {
+    opcode == targetOpcode
+}
 
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
@@ -634,10 +627,9 @@ fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, filter: Instructi
  * @return -1 if the instruction is not found.
  * @see indexOfFirstInstructionReversedOrThrow
  */
-fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode: Opcode): Int =
-    indexOfFirstInstructionReversed(startIndex) {
-        opcode == targetOpcode
-    }
+fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode: Opcode): Int = indexOfFirstInstructionReversed(startIndex) {
+    opcode == targetOpcode
+}
 
 /**
  * Get the index of matching instruction,
@@ -674,10 +666,9 @@ fun Method.indexOfFirstInstructionReversed(targetOpcode: Opcode): Int = indexOfF
  * @return The index of the instruction.
  * @see indexOfFirstInstructionReversed
  */
-fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targetOpcode: Opcode): Int =
-    indexOfFirstInstructionReversedOrThrow(startIndex) {
-        opcode == targetOpcode
-    }
+fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targetOpcode: Opcode): Int = indexOfFirstInstructionReversedOrThrow(startIndex) {
+    opcode == targetOpcode
+}
 
 /**
  * Get the index of matching instruction,
@@ -734,8 +725,7 @@ fun Method.findInstructionIndicesReversedOrThrow(filter: Instruction.() -> Boole
  *  _Returns an empty list if no indices are found_
  * @see findInstructionIndicesReversedOrThrow
  */
-fun Method.findInstructionIndicesReversed(opcode: Opcode): List<Int> =
-    findInstructionIndicesReversed { this.opcode == opcode }
+fun Method.findInstructionIndicesReversed(opcode: Opcode): List<Int> = findInstructionIndicesReversed { this.opcode == opcode }
 
 /**
  * @return An immutable list of indices of the opcode in reverse order.
@@ -773,7 +763,7 @@ internal fun MutableMethod.insertLiteralOverride(literalIndex: Int, extensionMet
         """
             $operation, $extensionMethodDescriptor
             move-result v$register
-        """
+        """,
     )
 }
 
@@ -795,7 +785,7 @@ internal fun MutableMethod.insertLiteralOverride(literalIndex: Int, override: Bo
 
     addInstruction(
         index + 1,
-        "const v$register, $overrideValue"
+        "const v$register, $overrideValue",
     )
 }
 
@@ -822,7 +812,7 @@ fun BytecodePatchContext.forEachInstructionAsSequence(
                         mutableClassDef,
                         mutableMethod,
                         instructions.size - 1 - index,
-                        instruction
+                        instruction,
                     )
                 } // Reverse indices again.
             }
@@ -1230,7 +1220,7 @@ internal fun BytecodePatchContext.addStaticFieldToExtension(
     methodName: String,
     fieldName: String,
     objectClass: String,
-    smaliInstructions: String
+    smaliInstructions: String,
 ) {
     val mutableClass = firstMutableClassDef(type)
     val objectCall = "$mutableClass->$fieldName:$objectClass"
@@ -1245,15 +1235,15 @@ internal fun BytecodePatchContext.addStaticFieldToExtension(
                     AccessFlags.PUBLIC.value or AccessFlags.STATIC.value,
                     null,
                     annotations,
-                    null
-                ).toMutable()
+                    null,
+                ).toMutable(),
             )
 
             addInstructionsWithLabels(
                 0,
                 """
                     sget-object v0, $objectCall
-                """ + smaliInstructions
+                """ + smaliInstructions,
             )
         }
     }
@@ -1277,12 +1267,16 @@ private class InstructionUtils {
             GOTO, GOTO_16, GOTO_32,
             IF_EQ, IF_NE, IF_LT, IF_GE, IF_GT, IF_LE,
             IF_EQZ, IF_NEZ, IF_LTZ, IF_GEZ, IF_GTZ, IF_LEZ,
-            PACKED_SWITCH_PAYLOAD, SPARSE_SWITCH_PAYLOAD
+            PACKED_SWITCH_PAYLOAD, SPARSE_SWITCH_PAYLOAD,
         )
 
         val returnOpcodes: EnumSet<Opcode> = EnumSet.of(
-            RETURN_VOID, RETURN, RETURN_WIDE, RETURN_OBJECT, RETURN_VOID_NO_BARRIER,
-            THROW
+            RETURN_VOID,
+            RETURN,
+            RETURN_WIDE,
+            RETURN_OBJECT,
+            RETURN_VOID_NO_BARRIER,
+            THROW,
         )
 
         val writeOpcodes: EnumSet<Opcode> = EnumSet.of(
