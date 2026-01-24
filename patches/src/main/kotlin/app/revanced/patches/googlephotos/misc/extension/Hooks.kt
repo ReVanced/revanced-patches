@@ -28,7 +28,7 @@ internal val homeActivityInitHook = extensionHook(
     },
 ) {
     name("onCreate")
-    definingClass("/HomeActivity;"::endsWith)
+    definingClass { endsWith("/HomeActivity;") }
     instructions(
         Opcode.CONST_STRING(),
         Opcode.INVOKE_STATIC(),

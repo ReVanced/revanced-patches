@@ -9,15 +9,15 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.chatUtilCreateDeletedSpanMethod by gettingFirstMutableMethodDeclaratively {
     name("createDeletedSpanFromChatMessageSpan")
-    definingClass("ChatUtil\$Companion;"::endsWith)
+    definingClass { endsWith("ChatUtil\$Companion;") }
 }
 
 internal val BytecodePatchContext.deletedMessageClickableSpanCtorMethod by gettingFirstMutableMethodDeclaratively {
-    definingClass("DeletedMessageClickableSpan;"::endsWith)
+    definingClass { endsWith("DeletedMessageClickableSpan;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
 }
 
 internal val BytecodePatchContext.setHasModAccessMethod by gettingFirstMutableMethodDeclaratively {
     name("setHasModAccess")
-    definingClass("DeletedMessageClickableSpan;"::endsWith)
+    definingClass { endsWith("DeletedMessageClickableSpan;") }
 }

@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.spoofSignatureMethod by gettingFirstMutableMethodDeclaratively {
     name("getPubKey")
-    definingClass("/SL2Step1Task;"::endsWith)
+    definingClass { endsWith("/SL2Step1Task;") }
     accessFlags(AccessFlags.PRIVATE)
     returnType("L")
     parameterTypes("L")

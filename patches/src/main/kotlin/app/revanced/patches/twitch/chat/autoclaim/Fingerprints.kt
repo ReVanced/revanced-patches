@@ -7,5 +7,5 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.communityPointsButtonViewDelegateMethod by gettingFirstMutableMethodDeclaratively {
     name("showClaimAvailable")
-    definingClass("CommunityPointsButtonViewDelegate;"::endsWith)
+    definingClass { endsWith("CommunityPointsButtonViewDelegate;") }
 }

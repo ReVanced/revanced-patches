@@ -8,7 +8,7 @@ import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.rootDetectionMethod by gettingFirstMutableMethodDeclaratively {
-    definingClass("/DeviceIntegrityCheck;"::endsWith)
+    definingClass { endsWith("/DeviceIntegrityCheck;") }
     accessFlags(AccessFlags.PUBLIC)
     returnType("V")
 }

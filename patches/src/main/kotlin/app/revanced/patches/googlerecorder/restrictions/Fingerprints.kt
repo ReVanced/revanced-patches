@@ -4,6 +4,6 @@ import app.revanced.patcher.*
 
 internal val onApplicationCreateMethodMatch = firstMethodComposite {
     name("onCreate")
-    definingClass("RecorderApplication"::endsWith)
+    definingClass { endsWith("RecorderApplication") }
     instructions("com.google.android.feature.PIXEL_2017_EXPERIENCE"())
 }

@@ -7,5 +7,5 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.primaryAdsMethod by gettingFirstMutableMethodDeclaratively {
     name("isAdsDisabled")
-    definingClass("PreferencesHelper;"::endsWith)
+    definingClass { endsWith("PreferencesHelper;") }
 }

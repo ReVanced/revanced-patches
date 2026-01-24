@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val launchCustomTabMethodMatch = firstMethodComposite {
-    definingClass("CustomTabsArticleLauncher;"::endsWith)
+    definingClass { endsWith("CustomTabsArticleLauncher;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.IPUT_OBJECT,

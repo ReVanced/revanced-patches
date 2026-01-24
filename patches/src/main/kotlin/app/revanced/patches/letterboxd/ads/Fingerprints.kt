@@ -19,11 +19,10 @@ internal val BytecodePatchContext.admobHelperShouldShowAdsMethod by gettingFirst
 
 internal val BytecodePatchContext.filmFragmentShowAdsMethod by gettingFirstMutableMethodDeclaratively {
     name("showAds")
-    definingClass("/FilmFragment;"::endsWith)
-
+    definingClass { endsWith("/FilmFragment;") }
 }
 
 internal val BytecodePatchContext.memberExtensionShowAdsMethod by gettingFirstMutableMethodDeclaratively {
     name("showAds")
-    definingClass("/AMemberExtensionKt;"::endsWith)
+    definingClass { endsWith("/AMemberExtensionKt;") }
 }

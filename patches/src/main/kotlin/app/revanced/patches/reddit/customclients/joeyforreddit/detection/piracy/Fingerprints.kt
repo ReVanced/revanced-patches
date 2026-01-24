@@ -1,10 +1,10 @@
 package app.revanced.patches.reddit.customclients.joeyforreddit.detection.piracy
 
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
-import app.revanced.patcher.invoke
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -19,7 +19,7 @@ internal val BytecodePatchContext.detectPiracyMethod by gettingFirstMutableMetho
         Opcode.CONST_WIDE_16(),
         Opcode.INVOKE_DIRECT(),
         Opcode.INVOKE_VIRTUAL(),
-        Opcode.RETURN_VOID()
+        Opcode.RETURN_VOID(),
     )
-    definingClass("ProcessLifeCyleListener;"::endsWith)
+    definingClass { endsWith("ProcessLifeCyleListener;") }
 }

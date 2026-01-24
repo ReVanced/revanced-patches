@@ -8,5 +8,5 @@ import app.revanced.patcher.patch.BytecodePatchContext
 internal val BytecodePatchContext.onClearDisplayEventMethod by gettingFirstMutableMethodDeclaratively {
     // Internally the feature is called "Clear mode".
     name("onClearModeEvent")
-    definingClass("/ClearModePanelComponent;"::endsWith)
+    definingClass { endsWith("/ClearModePanelComponent;") }
 }

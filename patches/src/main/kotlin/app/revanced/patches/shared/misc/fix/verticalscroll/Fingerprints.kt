@@ -5,7 +5,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val canScrollVerticallyMethodMatch = firstMethodComposite {
-    definingClass("SwipeRefreshLayout;"::endsWith)
+    definingClass { endsWith("SwipeRefreshLayout;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

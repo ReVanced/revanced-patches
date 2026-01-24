@@ -6,6 +6,6 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 
 internal val BytecodePatchContext.checkProMethod by gettingFirstMutableMethodDeclaratively {
-    definingClass("IPSPurchaseRepository;"::endsWith)
+    definingClass { endsWith("IPSPurchaseRepository;") }
     returnType("Z")
 }

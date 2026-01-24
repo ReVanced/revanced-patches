@@ -28,7 +28,7 @@ internal val startActivityInitHook = extensionHook(
     },
 ) {
     name("onCreate")
-    definingClass("/StartActivity;"::endsWith)
+    definingClass { endsWith("/StartActivity;") }
     instructions(
         Opcode.INVOKE_STATIC(),
         Opcode.MOVE_RESULT(),

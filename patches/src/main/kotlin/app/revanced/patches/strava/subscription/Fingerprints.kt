@@ -7,5 +7,5 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.getSubscribedMethod by gettingFirstMutableMethodDeclaratively {
     name("getSubscribed")
-    definingClass("/SubscriptionDetailResponse;"::endsWith)
+    definingClass { endsWith("/SubscriptionDetailResponse;") }
 }

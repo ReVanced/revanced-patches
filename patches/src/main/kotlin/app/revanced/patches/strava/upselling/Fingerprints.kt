@@ -8,6 +8,6 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val getModulesMethodMatch = firstMethodComposite {
     name("getModules")
-    definingClass("/GenericLayoutEntry;"::endsWith)
+    definingClass { endsWith("/GenericLayoutEntry;") }
     opcodes(Opcode.IGET_OBJECT)
 }

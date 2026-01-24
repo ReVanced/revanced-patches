@@ -1,8 +1,8 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.redgifs
 
 import app.revanced.patcher.*
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.writeRegister
@@ -33,7 +33,7 @@ internal val BytecodePatchContext.getDefaultUserAgentMethod by gettingFirstMutab
 
 internal val BytecodePatchContext.getOriginalUserAgentMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
-    returnType("Ljava/lang/String;"::startsWith)
+    returnType { startsWith("Ljava/lang/String;") }
     parameterTypes()
     custom { immutableClassDef.sourceFile == "AccountSingleton.java" }
 }

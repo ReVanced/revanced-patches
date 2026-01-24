@@ -1,13 +1,11 @@
 package app.revanced.patches.music.misc.gms
 
 import app.revanced.patcher.*
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
-
 
 internal val BytecodePatchContext.musicActivityOnCreateMethod by gettingFirstMutableMethodDeclaratively {
     name("onCreate")
-    definingClass("/MusicActivity;"::endsWith)
+    definingClass { endsWith("/MusicActivity;") }
     returnType("V")
     parameterTypes("Landroid/os/Bundle;")
 }

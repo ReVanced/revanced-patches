@@ -7,15 +7,15 @@ import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.isDebugConfigEnabledMethod by gettingFirstMutableMethodDeclaratively {
     name("isDebugConfigEnabled")
-    definingClass("/BuildConfigUtil;"::endsWith)
+    definingClass { endsWith("/BuildConfigUtil;") }
 }
 
 internal val BytecodePatchContext.isOmVerificationEnabledMethod by gettingFirstMutableMethodDeclaratively {
     name("isOmVerificationEnabled")
-    definingClass("/BuildConfigUtil;"::endsWith)
+    definingClass { endsWith("/BuildConfigUtil;") }
 }
 
 internal val BytecodePatchContext.shouldShowDebugOptionsMethod by gettingFirstMutableMethodDeclaratively {
     name("shouldShowDebugOptions")
-    definingClass("/BuildConfigUtil;"::endsWith)
+    definingClass { endsWith("/BuildConfigUtil;") }
 }

@@ -11,19 +11,19 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.aclCommonShareMethod by gettingFirstMutableMethodDeclaratively {
     name("getCode")
-    definingClass("/ACLCommonShare;"::endsWith)
+    definingClass { endsWith("/ACLCommonShare;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("I")
 }
 internal val BytecodePatchContext.aclCommonShare2Method by gettingFirstMutableMethodDeclaratively {
     name("getShowType")
-    definingClass("/ACLCommonShare;"::endsWith)
+    definingClass { endsWith("/ACLCommonShare;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("I")
 }
 internal val BytecodePatchContext.aclCommonShare3Method by gettingFirstMutableMethodDeclaratively {
     name("getTranscode")
-    definingClass("/ACLCommonShare;"::endsWith)
+    definingClass { endsWith("/ACLCommonShare;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("I")
 }
@@ -31,12 +31,12 @@ internal val BytecodePatchContext.downloadUriMethod by gettingFirstMutableMethod
     "/",
     "/Camera",
     "/Camera/",
-    "video/mp4"
+    "video/mp4",
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Landroid/net/Uri;")
     parameterTypes(
         "Landroid/content/Context;",
-        "Ljava/lang/String;"
+        "Ljava/lang/String;",
     )
 }
