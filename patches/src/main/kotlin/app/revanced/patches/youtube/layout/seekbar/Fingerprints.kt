@@ -72,7 +72,7 @@ internal val BytecodePatchContext.watchHistoryMenuUseProgressDrawableMethod by g
     parameterTypes("L")
     instructions(
         methodCall("Landroid/widget/ProgressBar;", "setMax"),
-        opcode(Opcode.MOVE_RESULT),
+        Opcode.MOVE_RESULT(),
         -1712394514(),
     )
 }
@@ -106,7 +106,7 @@ internal val BytecodePatchContext.playerLinearGradientLegacyMethod by gettingFir
     instructions(
         ResourceType.COLOR("yt_youtube_magenta"),
 
-        opcode(Opcode.FILLED_NEW_ARRAY),
+        Opcode.FILLED_NEW_ARRAY(),
         opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
     )
 }

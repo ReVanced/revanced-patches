@@ -24,7 +24,7 @@ internal val BytecodePatchContext.shortsBottomBarContainerMethod by gettingFirst
         addString("r_pfvc"),
         ResourceType.ID("bottom_bar_container"),
         methodCall(name = "getHeight"),
-        opcode(Opcode.MOVE_RESULT),
+        Opcode.MOVE_RESULT(),
     )
 }
 
@@ -41,7 +41,7 @@ internal val BytecodePatchContext.renderBottomNavigationBarMethod by gettingFirs
         opcode(Opcode.IF_EQZ, MatchAfterImmediately()),
         opcode(Opcode.INVOKE_INTERFACE, MatchAfterImmediately()),
 
-        opcode(Opcode.MONITOR_EXIT),
+        Opcode.MONITOR_EXIT(),
         opcode(Opcode.RETURN_VOID, MatchAfterImmediately()),
         opcode(Opcode.MOVE_EXCEPTION, MatchAfterImmediately()),
         opcode(Opcode.MONITOR_EXIT, MatchAfterImmediately()),

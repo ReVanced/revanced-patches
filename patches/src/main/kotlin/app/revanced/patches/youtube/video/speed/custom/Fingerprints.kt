@@ -49,7 +49,7 @@ internal val BytecodePatchContext.speedArrayGeneratorMethod by gettingFirstMetho
         newInstance("Ljava/text/DecimalFormat;"),
         addString("0.0#"),
         7L(),
-        opcode(Opcode.NEW_ARRAY),
+        Opcode.NEW_ARRAY(),
         fieldAccess(definingClass = "/PlayerConfigModel;", type = "[F"),
     )
 }

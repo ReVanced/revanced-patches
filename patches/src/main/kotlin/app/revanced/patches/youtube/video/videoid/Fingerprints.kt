@@ -21,7 +21,7 @@ internal val BytecodePatchContext.videoIdMethod by gettingFirstMethodDeclarative
             definingClass = "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;",
             returnType = "Ljava/lang/String;",
         ),
-        opcode(Opcode.MOVE_RESULT_OBJECT),
+        Opcode.MOVE_RESULT_OBJECT(),
     )
 }
 
@@ -34,12 +34,12 @@ internal val BytecodePatchContext.videoIdBackgroundPlayMethod by gettingFirstMet
             definingClass = "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;",
             returnType = "Ljava/lang/String;",
         ),
-        opcode(Opcode.MOVE_RESULT_OBJECT),
-        opcode(Opcode.IPUT_OBJECT),
-        opcode(Opcode.MONITOR_EXIT),
-        opcode(Opcode.RETURN_VOID),
-        opcode(Opcode.MONITOR_EXIT),
-        opcode(Opcode.RETURN_VOID),
+        Opcode.MOVE_RESULT_OBJECT(),
+        Opcode.IPUT_OBJECT(),
+        Opcode.MONITOR_EXIT(),
+        Opcode.RETURN_VOID(),
+        Opcode.MONITOR_EXIT(),
+        Opcode.RETURN_VOID(),
     )
     custom { method, classDef ->
         method.implementation != null &&

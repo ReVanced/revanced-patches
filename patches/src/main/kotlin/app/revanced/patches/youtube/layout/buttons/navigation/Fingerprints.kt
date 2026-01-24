@@ -17,7 +17,7 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val BytecodePatchContext.addCreateButtonViewMethod by gettingFirstMethodDeclaratively {
     instructions(
         addString("Android Wear"),
-        opcode(Opcode.IF_EQZ),
+        Opcode.IF_EQZ(),
         addString("Android Automotive", location = MatchAfterImmediately()),
     )
 }
@@ -31,7 +31,7 @@ internal val BytecodePatchContext.createPivotBarMethod by gettingFirstMethodDecl
     )
     instructions(
         methodCall(definingClass = "Landroid/widget/TextView;", name = "setText"),
-        opcode(Opcode.RETURN_VOID),
+        Opcode.RETURN_VOID(),
     )
 }
 

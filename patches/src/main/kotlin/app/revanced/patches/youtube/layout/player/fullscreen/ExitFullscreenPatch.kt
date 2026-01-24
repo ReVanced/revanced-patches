@@ -15,18 +15,17 @@ import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 
-@Suppress("unused")
-internal val `Exit fullscreen mode` by creatingBytecodePatch(
-    description = "Adds options to automatically exit fullscreen mode when a video reaches the end."
+@Suppress("unused", "ObjectPropertyName")
+val `Exit fullscreen` by creatingBytecodePatch(
+    description = "Adds options to automatically exit fullscreen mode when a video reaches the end.",
 ) {
-
     compatibleWith(
         "com.google.android.youtube"(
             "19.43.41",
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     dependsOn(
@@ -35,7 +34,7 @@ internal val `Exit fullscreen mode` by creatingBytecodePatch(
         addResourcesPatch,
         playerTypeHookPatch,
         playerControlsPatch,
-        videoInformationPatch
+        videoInformationPatch,
     )
 
     // Cannot declare as top level since this patch is in the same package as
@@ -48,7 +47,7 @@ internal val `Exit fullscreen mode` by creatingBytecodePatch(
         addResources("youtube", "layout.player.fullscreen.exitFullscreenPatch")
 
         PreferenceScreen.PLAYER.addPreferences(
-            ListPreference("revanced_exit_fullscreen")
+            ListPreference("revanced_exit_fullscreen"),
         )
 
         videoEndMethod.apply {

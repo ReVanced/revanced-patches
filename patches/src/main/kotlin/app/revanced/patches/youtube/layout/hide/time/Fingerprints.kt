@@ -18,7 +18,7 @@ internal val BytecodePatchContext.timeCounterMethod by gettingFirstMethodDeclara
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes()
     instructions(
-        opcode(Opcode.SUB_LONG_2ADDR),
+        Opcode.SUB_LONG_2ADDR(),
         methodCall(
             opcode = Opcode.INVOKE_STATIC,
             returnType = "Ljava/lang/CharSequence;",

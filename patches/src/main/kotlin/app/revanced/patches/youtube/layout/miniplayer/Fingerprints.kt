@@ -176,8 +176,8 @@ internal val BytecodePatchContext.miniplayerOverrideMethod by gettingFirstMethod
 internal val BytecodePatchContext.miniplayerOverrideNoContextMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("Z")
-    instructions(
-        opcode(Opcode.IGET_BOOLEAN), // Anchor to insert the instruction.
+    opcodes(
+        Opcode.IGET_BOOLEAN, // Anchor to insert the instruction.
     )
 }
 

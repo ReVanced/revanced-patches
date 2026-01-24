@@ -21,7 +21,7 @@ internal val BytecodePatchContext.reelEnumConstructorMethod by gettingFirstMetho
         addString("REEL_LOOP_BEHAVIOR_SINGLE_PLAY"),
         addString("REEL_LOOP_BEHAVIOR_REPEAT"),
         addString("REEL_LOOP_BEHAVIOR_END_SCREEN"),
-        opcode(Opcode.RETURN_VOID),
+        Opcode.RETURN_VOID(),
     )
 }
 

@@ -37,14 +37,14 @@ internal val BytecodePatchContext.hideShowMoreLegacyButtonMethod by gettingFirst
     instructions(
         ResourceType.LAYOUT("expand_button_down"),
         methodCall(smali = "Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;"),
-        opcode(Opcode.MOVE_RESULT_OBJECT),
+        Opcode.MOVE_RESULT_OBJECT(),
     )
 }
 
 internal val BytecodePatchContext.parseElementFromBufferMethod by gettingFirstMethodDeclaratively {
     parameterTypes("L", "L", "[B", "L", "L")
     instructions(
-        opcode(Opcode.IGET_OBJECT),
+        Opcode.IGET_OBJECT(),
         // IGET_BOOLEAN // 20.07+
         opcode(Opcode.INVOKE_INTERFACE, location = MatchAfterWithin(1)),
         opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
