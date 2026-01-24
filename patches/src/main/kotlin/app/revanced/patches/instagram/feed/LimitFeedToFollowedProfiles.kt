@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/instagram/feed/LimitFeedToFollowedProfiles;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Limit feed to followed profiles` by creatingBytecodePatch(
     description = "Filters the home feed to display only content from profiles you follow.",
     use = false,

@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Unlock downloads` by creatingBytecodePatch(
     description = "Unlocks the ability to download any video. GIFs can be downloaded via the menu on long press.",
 ) {

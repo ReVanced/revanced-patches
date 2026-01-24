@@ -20,7 +20,7 @@ import java.net.URISyntaxException
 import java.net.UnknownHostException
 import java.util.logging.Logger
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Change lyrics provider` by creatingBytecodePatch(
     description = "Changes the lyrics provider to a custom one.",
     use = false,

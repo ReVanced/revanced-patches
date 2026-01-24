@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.meta.ads.adInjectorMethod
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide ads` by creatingBytecodePatch {
     compatibleWith("com.instagram.barcelona"("382.0.0.51.85"))
 

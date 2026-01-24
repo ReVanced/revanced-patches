@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ChangeFormFactorPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Change form factor` by creatingBytecodePatch(
     description = "Adds an option to change the UI appearance to a phone, tablet, or automotive device.",
 ) {

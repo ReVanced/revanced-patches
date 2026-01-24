@@ -3,7 +3,7 @@ package app.revanced.patches.soundcloud.analytics
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Disable telemetry` by creatingBytecodePatch(
     description = "Disables SoundCloud's telemetry system.",
 ) {

@@ -26,7 +26,7 @@ internal var text1 = -1L
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/NavigationBarPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Navigation bar` by creatingBytecodePatch(
     description = "Adds options to hide navigation bar, labels and buttons.",
 ) {

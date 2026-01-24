@@ -3,7 +3,7 @@ package app.revanced.patches.messenger.inbox
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide inbox ads` by creatingBytecodePatch(
     description = "Hides ads in inbox.",
 ) {

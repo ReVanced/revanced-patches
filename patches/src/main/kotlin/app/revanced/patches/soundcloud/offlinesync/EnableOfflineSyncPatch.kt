@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Enable offline sync` by creatingBytecodePatch {
     compatibleWith("com.soundcloud.android"("2025.05.27-release"))
 

@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.memegenerator.detection.license.licenseValidationPatch
 import app.revanced.patches.memegenerator.detection.signature.signatureVerificationPatch
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Unlock pro` by creatingBytecodePatch {
     dependsOn(signatureVerificationPatch, licenseValidationPatch)
 

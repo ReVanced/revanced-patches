@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Unlock themes` by creatingBytecodePatch(
     description = "Unlocks all themes that are inaccessible until a certain level is reached.",
 ) {

@@ -14,7 +14,7 @@ import app.revanced.util.findFreeRegister
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/PermanentRepeatPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Permanent repeat` by creatingBytecodePatch(
     description = "Adds an option to always repeat even if the playlist ends or another track is played.",
 ) {

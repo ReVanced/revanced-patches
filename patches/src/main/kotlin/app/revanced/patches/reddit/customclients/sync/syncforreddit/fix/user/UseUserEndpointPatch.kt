@@ -6,12 +6,12 @@ import app.revanced.patcher.extensions.stringReference
 import app.revanced.patcher.patch.creatingBytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Use /user/ endpoint` by creatingBytecodePatch(
     description = "Replaces the deprecated endpoint for viewing user profiles /u with /user, that used to fix a bug.",
     use = false,
 
-    ) {
+) {
     compatibleWith(
         "com.laurencedawson.reddit_sync",
         "com.laurencedawson.reddit_sync.pro",
@@ -25,7 +25,7 @@ val `Use /user/ endpoint` by creatingBytecodePatch(
             oAuthSubredditInfoRequestHelperMethodMatch,
             oAuthUnfriendRequestMethodMatch,
             oAuthUserIdRequestMethodMatch,
-            oAuthUserInfoRequestMethodMatch
+            oAuthUserInfoRequestMethodMatch,
         ).map { match ->
             match.stringIndices.values.first() to match.method
         }.forEach { (userPathStringIndex, method) ->

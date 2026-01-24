@@ -5,10 +5,10 @@ import app.revanced.patcher.patch.intOption
 import app.revanced.util.getNode
 import org.w3c.dom.Element
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Change version code` = creatingResourcePatch(
     description = "Changes the version code of the app. This will turn off app store updates " +
-            "and allows downgrading an existing app install to an older app version.",
+        "and allows downgrading an existing app install to an older app version.",
     use = false,
 ) {
     val versionCode by intOption(
@@ -19,7 +19,7 @@ val `Change version code` = creatingResourcePatch(
         ),
         name = "Version code",
         description = "The version code to use. Using the highest value turns off app store " +
-                "updates and allows downgrading an existing app install to an older app version.",
+            "updates and allows downgrading an existing app install to an older app version.",
         required = true,
     ) { versionCode -> versionCode!! >= 1 }
 

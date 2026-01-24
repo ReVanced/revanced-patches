@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Disable subscription suggestions` by creatingBytecodePatch {
     compatibleWith("com.strava")
 

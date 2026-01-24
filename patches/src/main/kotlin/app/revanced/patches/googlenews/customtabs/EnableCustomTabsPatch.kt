@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Enable CustomTabs` by creatingBytecodePatch(
     description = "Enables CustomTabs to open articles in your default browser.",
 ) {

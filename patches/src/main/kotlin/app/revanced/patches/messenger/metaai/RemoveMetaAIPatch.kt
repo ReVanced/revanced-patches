@@ -12,9 +12,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.WideLiteralInstruction
 internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/messenger/metaai/RemoveMetaAIPatch;"
 internal const val EXTENSION_METHOD_NAME = "overrideBooleanFlag"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Remove Meta AI` by creatingBytecodePatch(
-    description = "Removes UI elements related to Meta AI."
+    description = "Removes UI elements related to Meta AI.",
 ) {
     compatibleWith("com.facebook.orca")
 
@@ -30,7 +30,7 @@ val `Remove Meta AI` by creatingBytecodePatch(
                 """
                     invoke-static { p1, p2, v$returnRegister }, $EXTENSION_CLASS_DESCRIPTOR->$EXTENSION_METHOD_NAME(JZ)Z
                     move-result v$returnRegister
-                """
+                """,
             )
         }
 
@@ -44,7 +44,7 @@ val `Remove Meta AI` by creatingBytecodePatch(
             stringM.first().index, // TODO
             """
                     const-string v1, "$relevantDigits"
-                """
+                """,
         )
     }
 }

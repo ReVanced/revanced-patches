@@ -16,7 +16,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/DisableVideoCodecsPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Disable video codecs` by creatingBytecodePatch(
     description = "Adds options to disable HDR and VP9 codecs.",
 ) {

@@ -13,7 +13,7 @@ import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction11x
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Playback speed` by creatingBytecodePatch(
     description = "Enables the playback speed option for all videos and " +
         "retains the speed configurations in between videos.",

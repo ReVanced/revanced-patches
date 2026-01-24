@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.intOption
 import app.revanced.patcher.patch.longOption
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Overwrite media upload parameters` by creatingBytecodePatch(
     description = "Overwrites the compression, resize and trim media (images and videos) parameters returned by Strava's server before upload.",
 ) {

@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.util.*
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Spoof SIM provider` by creatingBytecodePatch(
     description = "Spoofs information about the SIM card provider.",
     use = false,
@@ -39,7 +39,7 @@ val `Spoof SIM provider` by creatingBytecodePatch(
     val networkOperator by intOption(
         name = "MCC+MNC network operator code",
         description = "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the network operator.",
-        validator = { isMccMncValid(it) }
+        validator = { isMccMncValid(it) },
     )
 
     val networkOperatorName by stringOption(
@@ -52,7 +52,7 @@ val `Spoof SIM provider` by creatingBytecodePatch(
     val simOperator by intOption(
         name = "MCC+MNC SIM operator code",
         description = "The 5 or 6 digits MCC+MNC (Mobile Country Code + Mobile Network Code) of the SIM operator.",
-        validator = { isMccMncValid(it) }
+        validator = { isMccMncValid(it) },
     )
 
     val simOperatorName by stringOption(

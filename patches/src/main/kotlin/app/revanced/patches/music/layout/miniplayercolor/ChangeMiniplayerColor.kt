@@ -20,7 +20,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/ChangeMiniplayerColorPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Change miniplayer color` by creatingBytecodePatch(
     description = "Adds an option to change the miniplayer background color to match the fullscreen player.",
 ) {

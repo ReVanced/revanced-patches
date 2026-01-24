@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.mifitness.misc.login.`Fix login`
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Force English locale` by creatingBytecodePatch(
     description = "Forces wearable devices to use the English locale.",
 ) {

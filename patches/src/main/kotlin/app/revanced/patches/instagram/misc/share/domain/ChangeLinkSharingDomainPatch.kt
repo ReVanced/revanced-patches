@@ -10,7 +10,7 @@ import app.revanced.util.returnEarly
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/instagram/misc/share/domain/ChangeLinkSharingDomainPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Change link sharing domain` by creatingBytecodePatch(
     description = "Replaces the domain name of shared links.",
     use = false,

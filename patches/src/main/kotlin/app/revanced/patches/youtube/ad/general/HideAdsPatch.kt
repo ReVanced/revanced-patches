@@ -61,7 +61,7 @@ private val hideAdsResourcePatch = resourcePatch {
     }
 }
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide ads` by creatingBytecodePatch(
     description = "Adds options to remove general ads.",
 ) {

@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/CustomPlayerOverlayOpacityPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Custom player overlay opacity` by creatingBytecodePatch(
     description = "Adds an option to change the opacity of the video player background when player controls are visible.",
 ) {

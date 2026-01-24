@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Show seekbar` by creatingBytecodePatch(
     description = "Shows progress bar for all video.",
 ) {

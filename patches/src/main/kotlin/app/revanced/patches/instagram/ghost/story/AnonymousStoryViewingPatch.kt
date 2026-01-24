@@ -4,14 +4,14 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Anonymous story viewing` by creatingBytecodePatch(
     description = """
         View stories without sending any information to the server. 
         Your view will not appear in the story viewers list. 
         Note: Since no data is sent, a story you have already viewed may appear as new on another device.
     """.trimIndentMultiline(),
-    use = false
+    use = false,
 ) {
     compatibleWith("com.instagram.android")
 

@@ -1,5 +1,3 @@
-@file:Suppress("unused")
-
 package app.revanced.patches.all.misc.connectivity.location.hide
 
 import app.revanced.patcher.extensions.replaceInstruction

@@ -5,7 +5,7 @@ import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Enable exclusive audio playback` by creatingBytecodePatch(
     description = "Enables the option to play audio without video.",
 ) {

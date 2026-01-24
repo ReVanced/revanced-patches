@@ -3,7 +3,7 @@ package app.revanced.patches.disneyplus
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Skip ads` by creatingBytecodePatch(
     description = "Automatically skips ads.",
 ) {

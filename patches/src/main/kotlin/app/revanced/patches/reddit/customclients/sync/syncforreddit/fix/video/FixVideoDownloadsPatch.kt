@@ -10,7 +10,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/syncforreddit/FixRedditVideoDownloadPatch;"
 private const val GET_LINKS_METHOD = "getLinks([B)[Ljava/lang/String;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Fix video downloads` by creatingBytecodePatch(
     description = "Fixes a bug in Sync's MPD parser resulting in only the audio-track being saved.",
 ) {

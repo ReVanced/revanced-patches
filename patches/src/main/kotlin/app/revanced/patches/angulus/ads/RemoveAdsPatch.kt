@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.shared.misc.pairip.license.`Disable Pairip license check`
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide ads` by creatingBytecodePatch {
     compatibleWith("com.drinkplusplus.angulus")
 

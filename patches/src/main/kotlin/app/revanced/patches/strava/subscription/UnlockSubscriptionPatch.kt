@@ -3,7 +3,7 @@ package app.revanced.patches.strava.subscription
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Unlock subscription features` by creatingBytecodePatch(
     description = "Unlocks \"Routes\", \"Matched Runs\" and \"Segment Efforts\".",
 ) {

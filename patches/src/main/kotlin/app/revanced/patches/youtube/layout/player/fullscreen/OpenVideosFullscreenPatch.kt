@@ -8,7 +8,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Open videos fullscreen` by creatingBytecodePatch(
     description = "Adds an option to open videos in full screen portrait mode.",
 ) {

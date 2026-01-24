@@ -7,7 +7,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Enable debug menu` by creatingBytecodePatch(
     use = false,
 ) {

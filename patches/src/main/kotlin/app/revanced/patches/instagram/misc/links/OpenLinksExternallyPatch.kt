@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/instagram/misc/links/OpenLinksExternallyPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Open links externally` by creatingBytecodePatch(
     description = "Changes links to always open in your external browser, instead of the in-app browser.",
     use = false,
@@ -21,12 +21,13 @@ val `Open links externally` by creatingBytecodePatch(
     compatibleWith("com.instagram.android")
 
     apply {
-        inAppBrowserFunctionFingerprint.let {
+        inAppBrowserFunctionMethodMatch.let {
             val stringMatchIndex = it.stringMatches?.first { match -> match.string == TARGET_STRING }!!.index
 
             it.method.apply {
                 val urlResultObjIndex = indexOfFirstInstructionOrThrow(
-                    stringMatchIndex, Opcode.MOVE_OBJECT_FROM16
+                    stringMatchIndex,
+                    Opcode.MOVE_OBJECT_FROM16,
                 )
 
                 // Register that contains the url after moving from a higher register.
@@ -38,7 +39,7 @@ val `Open links externally` by creatingBytecodePatch(
                         invoke-static { v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->openExternally(Ljava/lang/String;)Z
                         move-result v$urlRegister
                         return v$urlRegister
-                    """
+                    """,
                 )
             }
         }

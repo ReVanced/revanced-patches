@@ -34,7 +34,7 @@ private val hideInfocardsResourcePatch = resourcePatch {
     }
 }
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide info cards` by creatingBytecodePatch(
     description = "Adds an option to hide info cards that creators add in the video player.",
 ) {

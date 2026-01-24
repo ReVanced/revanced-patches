@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide Ads` by creatingBytecodePatch(
     description = "Hides ad banners between chats.",
 ) {

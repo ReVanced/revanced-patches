@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.ThreeRegisterInstruction
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Remove file size limit` by creatingBytecodePatch(
     description = "Allows opening files larger than 2 MB in the text editor.",
 ) {

@@ -15,7 +15,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HideRelatedVideoOverlayPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide related video overlay` by creatingBytecodePatch(
     description = "Adds an option to hide the related video overlay shown when swiping up in fullscreen.",
 ) {

@@ -31,7 +31,7 @@ internal var topBarMenuItemImageView = -1L
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideButtonsPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide buttons` by creatingBytecodePatch(
     description = "Adds options to hide the cast, history, notification, and search buttons.",
 ) {

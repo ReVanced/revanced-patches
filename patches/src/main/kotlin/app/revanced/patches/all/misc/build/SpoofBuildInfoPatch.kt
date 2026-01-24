@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.longOption
 import app.revanced.patcher.patch.stringOption
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Spoof build info` by creatingBytecodePatch(
     description = "Spoofs the information about the current build.",
     use = false,
@@ -103,8 +103,8 @@ val `Spoof build info` by creatingBytecodePatch(
         default = null,
         name = "Radio",
         description = "This field was deprecated in API level 15. " +
-                "The radio firmware version is frequently not available when this class is initialized, " +
-                "leading to a blank or \"unknown\" value for this string. Use getRadioVersion() instead.",
+            "The radio firmware version is frequently not available when this class is initialized, " +
+            "leading to a blank or \"unknown\" value for this string. Use getRadioVersion() instead.",
     )
 
     val serial by stringOption(
@@ -183,6 +183,6 @@ val `Spoof build info` by creatingBytecodePatch(
                 type,
                 user,
             )
-        }
+        },
     )
 }

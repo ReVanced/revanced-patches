@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.creatingResourcePatch
 import java.io.FileWriter
 import java.nio.file.Files
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Dynamic color` by creatingResourcePatch(
     description = "Replaces the default X (Formerly Twitter) Blue with the user's Material You palette.",
 ) {
@@ -13,7 +13,7 @@ val `Dynamic color` by creatingResourcePatch(
         "com.twitter.android"(
             "10.60.0-release.0",
             "10.86.0-release.0",
-        )
+        ),
     )
 
     apply {

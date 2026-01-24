@@ -11,14 +11,14 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
  */
 internal val settingsMenuVideoQualityGroup = mutableSetOf<BasePreference>()
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Video quality` by creatingBytecodePatch(
-    description = "Adds options to set default video qualities and always use the advanced video quality menu."
+    description = "Adds options to set default video qualities and always use the advanced video quality menu.",
 ) {
     dependsOn(
         rememberVideoQualityPatch,
         advancedVideoQualityMenuPatch,
-        videoQualityDialogButtonPatch
+        videoQualityDialogButtonPatch,
     )
 
     compatibleWith(
@@ -27,7 +27,7 @@ val `Video quality` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -38,8 +38,8 @@ val `Video quality` by creatingBytecodePatch(
                 titleKey = null,
                 sorting = Sorting.UNSORTED,
                 tag = "app.revanced.extension.shared.settings.preference.NoTitlePreferenceCategory",
-                preferences = settingsMenuVideoQualityGroup
-            )
+                preferences = settingsMenuVideoQualityGroup,
+            ),
         )
     }
 }

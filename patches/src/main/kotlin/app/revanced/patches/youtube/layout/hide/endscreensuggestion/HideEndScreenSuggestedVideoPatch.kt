@@ -19,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HideEndScreenSuggestedVideoPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide end screen suggested video` by creatingBytecodePatch(
     description = "Adds an option to hide the suggested video at the end of videos.",
 ) {

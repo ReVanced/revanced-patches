@@ -3,7 +3,7 @@ package app.revanced.patches.strava.privacy
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Block Snowplow tracking` by creatingBytecodePatch(
     description = "Blocks Snowplow analytics. See https://snowplow.io for more information.",
 ) {

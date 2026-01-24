@@ -58,7 +58,7 @@ internal val changeLinkSharingDomainResourcePatch = resourcePatch {
 }
 */
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Change link sharing domain` by creatingBytecodePatch(
     description = "Replaces the domain name of shared links. Using this patch can prevent making posts that quote other posts.",
     use = false,

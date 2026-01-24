@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.tumblr.timelinefilter.addTimelineObjectTypeFilter
 import app.revanced.patches.tumblr.timelinefilter.filterTimelineObjectsPatch
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Disable dashboard ads` by creatingBytecodePatch(
     description = "Disables ads in the dashboard.",
 ) {

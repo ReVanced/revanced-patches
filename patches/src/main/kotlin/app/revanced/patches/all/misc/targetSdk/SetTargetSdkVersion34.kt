@@ -5,10 +5,10 @@ import app.revanced.util.getNode
 import org.w3c.dom.Element
 import java.util.logging.Logger
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Set target SDK version 34` = creatingResourcePatch(
     description = "Changes the target SDK to version 34 (Android 14). " +
-            "For devices running Android 15+, this will disable edge-to-edge display.",
+        "For devices running Android 15+, this will disable edge-to-edge display.",
     use = false,
 ) {
     apply {
@@ -23,12 +23,12 @@ val `Set target SDK version 34` = creatingResourcePatch(
             try {
                 val manifestElement = document.getNode("manifest") as Element
                 val compileSdkVersion = Integer.parseInt(
-                    manifestElement.getAttribute("android:compileSdkVersion")
+                    manifestElement.getAttribute("android:compileSdkVersion"),
                 )
                 if (compileSdkVersion <= targetSdkOverride) {
                     getLogger().warning(
                         "This app does not appear to use a target SDK above $targetSdkOverride: " +
-                                "(compileSdkVersion: $compileSdkVersion)"
+                            "(compileSdkVersion: $compileSdkVersion)",
                     )
                 }
             } catch (_: Exception) {

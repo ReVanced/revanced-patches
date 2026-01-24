@@ -10,7 +10,7 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Remember clear display` by creatingBytecodePatch(
     description = "Remembers the clear display configurations in between videos.",
 ) {

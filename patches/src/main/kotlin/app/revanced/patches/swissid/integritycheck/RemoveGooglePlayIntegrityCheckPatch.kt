@@ -5,14 +5,14 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 
 private const val RESULT_METHOD_REFERENCE =
     " Lcom/swisssign/deviceintegrity/DeviceintegrityPlugin\$onMethodCall\$1;->" +
-            "\$result:Lio/flutter/plugin/common/MethodChannel\$Result;"
+        "\$result:Lio/flutter/plugin/common/MethodChannel\$Result;"
 private const val SUCCESS_METHOD_REFERENCE =
     "Lio/flutter/plugin/common/MethodChannel\$Result;->success(Ljava/lang/Object;)V"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Remove Google Play Integrity check` by creatingBytecodePatch(
     description = "Removes the Google Play Integrity check. With this it's possible to use SwissID on custom ROMS." +
-            "If the device is rooted, root permissions must be hidden from the app.",
+        "If the device is rooted, root permissions must be hidden from the app.",
 ) {
     compatibleWith("com.swisssign.swissid.mobile"("5.2.9"))
 

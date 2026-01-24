@@ -14,7 +14,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableHapticFeedbackPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Disable haptic feedback` by creatingBytecodePatch(
     description = "Adds an option to disable haptic feedback in the player for various actions.",
 ) {

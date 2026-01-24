@@ -49,7 +49,7 @@ private val hideEndScreenCardsResourcePatch = resourcePatch {
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HideEndScreenCardsPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide end screen cards` by creatingBytecodePatch(
     description = "Adds an option to hide suggested video cards at the end of videos.",
 ) {

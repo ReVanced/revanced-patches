@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/tudortmund/lockscreen/ShowOnLockscreenPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Show on lockscreen` by creatingBytecodePatch(
     description = "Shows student id and student ticket on lockscreen.",
 ) {

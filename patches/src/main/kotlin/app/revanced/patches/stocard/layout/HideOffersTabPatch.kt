@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.creatingResourcePatch
 import app.revanced.util.childElementsSequence
 import app.revanced.util.getNode
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide offers tab` by creatingResourcePatch {
     compatibleWith("de.stocard.stocard")
 

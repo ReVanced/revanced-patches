@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.warnwetter.misc.firebasegetcert.firebaseGetCertPatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Promo code unlock` by creatingBytecodePatch(
     description = "Disables the validation of promo code. Any code will work to unlock all features.",
 ) {

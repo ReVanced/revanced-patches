@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Remove device integrity checks` by creatingBytecodePatch(
     description = "Removes the check for root permissions and unlocked bootloader.",
 ) {

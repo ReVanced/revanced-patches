@@ -1,4 +1,3 @@
-@file:Suppress("unused")
 
 package app.revanced.patches.samsung.radio.misc.fix.crash
 
@@ -13,8 +12,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/samsung/radio/misc/fix/crash/FixCrashPatch;"
 
+@Suppress("unused", "ObjectPropertyName")
 val `Fix crashes` by creatingBytecodePatch(
-    description = "Prevents the app from crashing because of missing system permissions."
+    description = "Prevents the app from crashing because of missing system permissions.",
 ) {
     dependsOn(addManifestPermissionsPatch, `Bypass device checks`)
     extendWith("extensions/samsung/radio.rve")
@@ -31,10 +31,11 @@ val `Fix crashes` by creatingBytecodePatch(
 
                 // Invoke the method from the extension
                 addInstructions(
-                    moveResultIndex + 1, """
+                    moveResultIndex + 1,
+                    """
                         invoke-static { v$arrayRegister }, ${EXTENSION_CLASS_DESCRIPTOR}->fixPermissionRequestList([Ljava/lang/String;)[Ljava/lang/String;
                         move-result-object v$arrayRegister
-                    """
+                    """,
                 )
             }
         }

@@ -18,7 +18,7 @@ import kotlin.jvm.java
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableDoubleTapActionsPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Disable double tap actions` by creatingBytecodePatch(
     description = "Adds an option to disable player double tap gestures.",
 ) {

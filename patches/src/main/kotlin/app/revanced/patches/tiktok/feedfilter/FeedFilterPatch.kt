@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/tiktok/feedfilter/FeedItemsFilter;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Feed filter` by creatingBytecodePatch(
     description = "Removes ads, livestreams, stories, image videos " +
         "and videos with a specific amount of views or likes from the feed.",

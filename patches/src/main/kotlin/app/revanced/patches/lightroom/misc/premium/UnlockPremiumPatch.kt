@@ -3,7 +3,7 @@ package app.revanced.patches.lightroom.misc.premium
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Unlock Premium` by creatingBytecodePatch {
     compatibleWith("com.adobe.lrmobile"("9.3.0"))
 

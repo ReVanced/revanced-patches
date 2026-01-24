@@ -8,7 +8,7 @@ import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Enable developer menu` by creatingBytecodePatch(
     description = """
         Enables the developer menu, which can be found at the bottom of settings menu with name 'Internal Settings'.

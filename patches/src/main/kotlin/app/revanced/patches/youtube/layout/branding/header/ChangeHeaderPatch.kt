@@ -93,7 +93,7 @@ private val changeHeaderBytecodePatch = bytecodePatch {
     }
 }
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Change header` by creatingResourcePatch(
     description = "Adds an option to change the header logo in the top left corner of the app.",
 ) {

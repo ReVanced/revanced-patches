@@ -5,7 +5,7 @@ import app.revanced.util.asSequence
 import app.revanced.util.getNode
 import org.w3c.dom.Element
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Disable Sentry telemetry` = creatingResourcePatch(
     description = "Disables Sentry telemetry. See https://sentry.io/for/android/ for more information.",
     use = false,
@@ -19,10 +19,12 @@ val `Disable Sentry telemetry` = creatingResourcePatch(
             if (targetChild != null) {
                 targetChild.setAttribute("android:value", attributeValue)
             } else {
-                appendChild(ownerDocument.createElement(tagName).apply {
-                    setAttribute("android:name", attributeName)
-                    setAttribute("android:value", attributeValue)
-                })
+                appendChild(
+                    ownerDocument.createElement(tagName).apply {
+                        setAttribute("android:name", attributeName)
+                        setAttribute("android:value", attributeValue)
+                    },
+                )
             }
         }
 

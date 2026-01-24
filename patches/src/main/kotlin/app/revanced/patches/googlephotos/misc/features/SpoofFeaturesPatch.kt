@@ -9,7 +9,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Spoof features` by creatingBytecodePatch(
     description = "Spoofs the device to enable Google Pixel exclusive features, including unlimited storage.",
 ) {
@@ -48,7 +48,7 @@ val `Spoof features` by creatingBytecodePatch(
         ),
         name = "Features to disable",
         description = "Google Pixel exclusive features to disable." +
-                "Features after Pixel XL may have to be disabled for unlimited storage depending on the device.",
+            "Features after Pixel XL may have to be disabled for unlimited storage depending on the device.",
         required = true,
     )
 

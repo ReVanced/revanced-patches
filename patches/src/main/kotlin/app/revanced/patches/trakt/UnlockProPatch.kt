@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.creatingBytecodePatch
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Unlock pro` by creatingBytecodePatch {
     compatibleWith("tv.trakt.trakt"("1.1.1"))
 

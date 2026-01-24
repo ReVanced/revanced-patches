@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 
 internal const val ACTIVITY_TAB_DESCRIPTOR = "Ljp/co/sony/vim/framework/ui/yourheadphones/YhContract\$Tab;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Remove badge tab` by creatingBytecodePatch(
     description = "Removes the badge tab from the activity tab.",
 ) {

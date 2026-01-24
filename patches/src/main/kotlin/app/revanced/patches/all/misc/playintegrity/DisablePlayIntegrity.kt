@@ -15,11 +15,10 @@ private val CONTEXT_BIND_SERVICE_METHOD_REFERENCE = ImmutableMethodReference(
     "Landroid/content/Context;",
     "bindService",
     listOf("Landroid/content/Intent;", "Landroid/content/ServiceConnection;", "I"),
-    "Z"
+    "Z",
 )
 
-
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Disable Play Integrity` by creatingBytecodePatch(
     description = "Prevents apps from using Play Integrity by pretending it is not available.",
     use = false,
@@ -46,9 +45,9 @@ val `Disable Play Integrity` by creatingBytecodePatch(
 
                 method.replaceInstruction(
                     index,
-                    "invoke-static { $registerString }, $EXTENSION_CLASS_DESCRIPTOR->bindService(Landroid/content/Context;$parameterString)Z"
+                    "invoke-static { $registerString }, $EXTENSION_CLASS_DESCRIPTOR->bindService(Landroid/content/Context;$parameterString)Z",
                 )
-            }
-        )
+            },
+        ),
     )
 }

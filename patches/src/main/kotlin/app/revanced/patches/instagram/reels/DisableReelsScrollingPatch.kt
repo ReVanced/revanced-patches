@@ -5,11 +5,11 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Disable Reels scrolling` by creatingBytecodePatch(
     description = "Disables the endless scrolling behavior in Instagram Reels, preventing swiping to the next Reel. " +
-            "Note: On a clean install, the 'Tip' animation may appear but will stop on its own after a few seconds.",
-    use = true
+        "Note: On a clean install, the 'Tip' animation may appear but will stop on its own after a few seconds.",
+    use = true,
 ) {
     compatibleWith("com.instagram.android")
 
@@ -25,7 +25,7 @@ val `Disable Reels scrolling` by creatingBytecodePatch(
                iget-object v0, p0, $viewPagerField
                const/4 v1, 0x0
                invoke-virtual { v0, v1 }, Landroidx/viewpager2/widget/ViewPager2;->setUserInputEnabled(Z)V
-            """
+            """,
         )
 
         // Return false in onInterceptTouchEvent to disable pull-to-refresh.

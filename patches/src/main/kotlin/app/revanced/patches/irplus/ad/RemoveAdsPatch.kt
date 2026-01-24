@@ -3,7 +3,7 @@ package app.revanced.patches.irplus.ad
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Remove ads` by creatingBytecodePatch {
     compatibleWith("net.binarymode.android.irplus")
 

@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.shared.misc.pairip.license.`Disable Pairip license check`
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Remove ads` by creatingBytecodePatch(
     description = "Removes pre-roll, pause and on-demand advertisements from SBS On Demand TV.",
 ) {
@@ -30,7 +30,7 @@ val `Remove ads` by creatingBytecodePatch(
                 const-string v1, "Ad stream disabled"
                 invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
                 throw v0
-            """
+            """,
         )
     }
 }

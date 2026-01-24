@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/cricbuzz/ads/HideAdsPatch;"
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide ads` by creatingBytecodePatch {
     compatibleWith("com.cricbuzz.android"("6.24.01"))
 

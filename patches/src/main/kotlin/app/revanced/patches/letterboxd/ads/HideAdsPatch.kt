@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide ads` by creatingBytecodePatch {
     compatibleWith("com.letterboxd.letterboxd")
 

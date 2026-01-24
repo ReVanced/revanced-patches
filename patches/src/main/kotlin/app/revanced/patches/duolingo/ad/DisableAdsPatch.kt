@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Disable ads` by creatingBytecodePatch {
     // 6.55.3 and higher can show ads after each exercise.
     compatibleWith("com.duolingo"("6.54.5"))

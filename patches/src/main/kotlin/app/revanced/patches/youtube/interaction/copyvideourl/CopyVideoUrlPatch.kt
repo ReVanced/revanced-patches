@@ -40,7 +40,7 @@ private val copyVideoUrlResourcePatch = resourcePatch {
     }
 }
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Copy video URL` by creatingBytecodePatch(
     description = "Adds options to display buttons in the video player to copy video URLs.",
 ) {
@@ -56,7 +56,7 @@ val `Copy video URL` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {

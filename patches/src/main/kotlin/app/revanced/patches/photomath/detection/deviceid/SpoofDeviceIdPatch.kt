@@ -5,7 +5,7 @@ import app.revanced.patches.photomath.detection.signature.signatureDetectionPatc
 import app.revanced.util.returnEarly
 import kotlin.random.Random
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Spoof device ID` by creatingBytecodePatch(
     description = "Spoofs device ID to mitigate manual bans by developers.",
 ) {

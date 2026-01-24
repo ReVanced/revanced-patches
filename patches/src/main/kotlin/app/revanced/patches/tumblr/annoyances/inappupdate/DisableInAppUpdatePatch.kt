@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.tumblr.featureflags.addFeatureFlagOverride
 import app.revanced.patches.tumblr.featureflags.overrideFeatureFlagsPatch
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Disable in-app update` by creatingBytecodePatch(
     description = "Disables the in-app update check and update prompt.",
 ) {

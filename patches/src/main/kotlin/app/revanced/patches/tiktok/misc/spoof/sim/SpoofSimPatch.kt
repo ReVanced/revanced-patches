@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `SIM spoof` by creatingBytecodePatch(
     description = "Spoofs the information which is retrieved from the SIM card.",
     use = false,

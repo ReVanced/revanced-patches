@@ -4,7 +4,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.mutable.MutableMethod
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Hide story ads` by creatingBytecodePatch(
     description = "Hides the ads in the Facebook app stories.",
 ) {

@@ -9,7 +9,7 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Suppress("unused")
+@Suppress("unused", "ObjectPropertyName")
 val `Unlock split tunneling` by creatingBytecodePatch {
     compatibleWith("ch.protonvpn.android")
 
