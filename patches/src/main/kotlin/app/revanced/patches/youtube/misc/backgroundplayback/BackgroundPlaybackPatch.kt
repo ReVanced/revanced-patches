@@ -26,6 +26,7 @@ internal var prefBackgroundAndOfflineCategoryId = -1L
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/BackgroundPlaybackPatch;"
 
+@Suppress("unused", "ObjectPropertyName")
 val `Remove background playback restrictions` by creatingBytecodePatch(
     description = "Removes restrictions on background playback, including playing kids videos in the background.",
 ) {

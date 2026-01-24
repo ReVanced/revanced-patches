@@ -3,6 +3,9 @@ package app.revanced.patches.youtube.interaction.seekbar
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.after
 import app.revanced.patcher.afterAtMost
+import app.revanced.patcher.allOf
+import app.revanced.patcher.custom
+import app.revanced.patcher.field
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.firstMutableMethodDeclaratively
@@ -10,13 +13,16 @@ import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
+import app.revanced.patcher.method
 import app.revanced.patcher.methodCall
+import app.revanced.patcher.name
 import app.revanced.patcher.newInstance
 import app.revanced.patcher.opcode
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
+import app.revanced.patcher.type
 import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
@@ -126,24 +132,22 @@ internal val BytecodePatchContext.onTouchEventHandlerMethod by gettingFirstMetho
 }
 
 internal val BytecodePatchContext.seekbarTappingMethod by gettingFirstMethodDeclaratively {
+    name("onTouchEvent")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes("Landroid/view/MotionEvent;")
     instructions(
-        Int.MAX_VALUE(),
-
-        newInstance("Landroid/graphics/Point;"),
-        methodCall(smali = "Landroid/graphics/Point;-><init>(II)V", after()),
+        Int.MAX_VALUE.toLong()(),
+        allOf(Opcode.NEW_INSTANCE, type("Landroid/graphics/Point;")),
+        after(method { toString() == "Landroid/graphics/Point;-><init>(II)V" }),
         methodCall(
             smali = "Lj\$/util/Optional;->of(Ljava/lang/Object;)Lj\$/util/Optional;",
             after(),
         ),
         after(Opcode.MOVE_RESULT_OBJECT()),
-        fieldAccess(opcode = Opcode.IPUT_OBJECT, type = "Lj\$/util/Optional;", after()),
-
+        after(allOf(Opcode.IPUT_OBJECT(), field { type == "Lj\$/util/Optional;" })),
         afterAtMost(10, Opcode.INVOKE_VIRTUAL()),
     )
-    custom { method, _ -> method.name == "onTouchEvent" }
 }
 
 internal val BytecodePatchContext.slideToSeekMethod by gettingFirstMethodDeclaratively {

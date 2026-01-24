@@ -12,6 +12,7 @@ import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.Settings
 
+@Suppress("unused", "ObjectPropertyName")
 val `Show deleted messages` by creatingBytecodePatch(
     description = "Shows deleted chat messages behind a clickable spoiler.",
 ) {
@@ -33,7 +34,7 @@ val `Show deleted messages` by creatingBytecodePatch(
         addResources("twitch", "chat.antidelete.showDeletedMessagesPatch")
 
         PreferenceScreen.CHAT.GENERAL.addPreferences(
-            ListPreference("revanced_show_deleted_messages")
+            ListPreference("revanced_show_deleted_messages"),
         )
 
         // Spoiler mode: Force set hasModAccess member to true in constructor

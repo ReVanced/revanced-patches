@@ -12,6 +12,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableAutoCaptionsPatch;"
 
+@Suppress("unused", "ObjectPropertyName")
 val `Disable auto captions` by creatingBytecodePatch(
     description = "Adds an option to disable captions from being automatically enabled.",
 ) {

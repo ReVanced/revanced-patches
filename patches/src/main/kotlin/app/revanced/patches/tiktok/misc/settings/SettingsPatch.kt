@@ -1,16 +1,13 @@
 package app.revanced.patches.tiktok.misc.settings
 
-import app.revanced.patcher.extensions.ExternalLabel
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.*
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.shared.layout.branding.addBrandLicensePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
+import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/tiktok/settings/TikTokActivityHook;"
@@ -37,16 +34,16 @@ val Settings by creatingBytecodePatch(
                 "Ljava/lang/String;" +
                 ")Ljava/lang/Object;"
 
-        fun String.toClassName(): String = substring(1, this.length - 1).replace("/", ".")
+        fun String.toClassName() = substring(1, this.length - 1).replace("/", ".")
 
         // Find the class name of classes which construct a settings entry
-        val settingsButtonClass = settingsEntryMethod.originalClassDef.type.toClassName()
-        val settingsButtonInfoClass = settingsEntryInfoMethod.originalClassDef.type.toClassName()
+        val settingsButtonClass = settingsEntryMethod.immutableClassDef.type.toClassName()
+        val settingsButtonInfoClass = settingsEntryInfoMethod.immutableClassDef.type.toClassName()
 
         // Create a settings entry for 'revanced settings' and add it to settings fragment
         addSettingsEntryMethod.apply {
-            val markIndex = implementation!!.instructions.indexOfFirst {
-                it.opcode == Opcode.IGET_OBJECT && ((it as Instruction22c).reference as FieldReference).name == "headerUnit"
+            val markIndex = indexOfFirstInstruction {
+                opcode == Opcode.IGET_OBJECT && fieldReference?.name == "headerUnit"
             }
 
             val getUnitManager = getInstruction(markIndex + 2)
@@ -67,24 +64,22 @@ val Settings by creatingBytecodePatch(
                     const-string v1, "$settingsButtonInfoClass"
                     invoke-static {v0, v1}, $createSettingsEntryMethodDescriptor
                     move-result-object v0
-                    check-cast v0, ${settingsEntryMethod.originalClassDef.type}
+                    check-cast v0, ${settingsEntryMethod.immutableClassDef.type}
                 """,
             )
         }
 
         // Initialize the settings menu once the replaced setting entry is clicked.
         adPersonalizationActivityOnCreateMethod.apply {
-            val initializeSettingsIndex = implementation!!.instructions.indexOfFirst {
-                it.opcode == Opcode.INVOKE_SUPER
-            } + 1
+            val initializeSettingsIndex = indexOfFirstInstruction(Opcode.INVOKE_SUPER) + 1
 
-            val thisRegister = getInstruction<Instruction35c>(initializeSettingsIndex - 1).registerC
+            val thisRegister = getInstruction<FiveRegisterInstruction>(initializeSettingsIndex - 1).registerC
             val usableRegister = implementation!!.registerCount - parameters.size - 2
 
             addInstructionsWithLabels(
                 initializeSettingsIndex,
                 """
-                    invoke-static {v$thisRegister}, $initializeSettingsMethodDescriptor
+                    invoke-static { v$thisRegister }, $initializeSettingsMethodDescriptor
                     move-result v$usableRegister
                     if-eqz v$usableRegister, :do_not_open
                     return-void

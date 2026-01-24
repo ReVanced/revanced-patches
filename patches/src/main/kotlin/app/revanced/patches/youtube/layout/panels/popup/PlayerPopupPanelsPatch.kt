@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/DisablePlayerPopupPanelsPatch;"
 
+@Suppress("unused", "ObjectPropertyName")
 val `Disable player popup panels` by creatingBytecodePatch(
     description = "Adds an option to disable panels (such as live chat) from opening automatically.",
 ) {

@@ -15,6 +15,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/LoopVideoPatch;"
 
+@Suppress("ObjectPropertyName")
 val `Loop video` by creatingBytecodePatch(
     description = "Adds an option to loop videos and display loop video button in the video player.",
 ) {

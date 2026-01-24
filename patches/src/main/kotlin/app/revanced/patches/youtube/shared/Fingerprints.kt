@@ -122,7 +122,7 @@ internal fun getSeekbarOnDrawMethodMatch() = firstMethodComposite {
     )
 }
 
-internal val BytecodePatchContext.subtitleButtonControllerMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.subtitleButtonControllerMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")

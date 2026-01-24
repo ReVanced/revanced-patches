@@ -14,6 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/RemoveViewerDiscretionDialogPatch;"
 
+@Suppress("unused", "ObjectPropertyName")
 val `Remove viewer discretion dialog` by creatingBytecodePatch(
     description = "Adds an option to remove the dialog that appears when opening a video that has been age-restricted " +
         "by accepting it automatically. This does not bypass the age restriction.",

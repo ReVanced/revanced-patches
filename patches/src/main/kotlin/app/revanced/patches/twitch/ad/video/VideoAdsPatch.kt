@@ -14,6 +14,7 @@ import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.Settings
 
+@Suppress("ObjectPropertyName")
 val `Block video ads` by creatingBytecodePatch(
     description = "Blocks video ads in streams and VODs.",
 ) {

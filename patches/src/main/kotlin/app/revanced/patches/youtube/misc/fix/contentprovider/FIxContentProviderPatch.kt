@@ -19,13 +19,13 @@ internal val fixContentProviderPatch = bytecodePatch {
     )
 
     apply {
-        unstableContentProviderMethod.let {
-            val insertIndex = it.instructionMatches.first().index
+        unstableContentProviderMethodMatch.let {
+            val insertIndex = it.indices.first()
 
             it.method.apply {
                 val register = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
 
-                it.method.addInstruction(
+                addInstruction(
                     insertIndex,
                     "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->removeNullMapEntries(Ljava/util/Map;)V",
                 )

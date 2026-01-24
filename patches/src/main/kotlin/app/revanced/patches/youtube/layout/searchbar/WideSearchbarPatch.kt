@@ -24,6 +24,7 @@ import java.util.logging.Logger
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/WideSearchbarPatch;"
 
+@Suppress("unused", "ObjectPropertyName")
 val `Wide search bar` by creatingBytecodePatch(
     description = "Adds an option to replace the search icon with a wide search bar. " +
         "This will hide the YouTube logo when active.",

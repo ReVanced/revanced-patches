@@ -9,23 +9,24 @@ import app.revanced.util.getNode
 import org.w3c.dom.Element
 import java.io.File
 
+@Suppress("unused", "ObjectPropertyName")
 val `Custom network security` = creatingResourcePatch(
     description = "Allows trusting custom certificate authorities for a specific domain.",
-    use = false
+    use = false,
 ) {
 
     val targetDomains by stringsOption(
         name = "Target domains",
         description = "List of domains to which the custom trust configuration will be applied (one domain per entry).",
         default = listOf("example.com"),
-        required = true
+        required = true,
     )
 
     val includeSubdomains by booleanOption(
         name = "Include subdomains",
         description = "Applies the configuration to all subdomains of the target domains.",
         default = false,
-        required = true
+        required = true,
     )
 
     val customCAFilePaths by stringsOption(
@@ -40,35 +41,35 @@ val `Custom network security` = creatingResourcePatch(
             CA files will be bundled in res/raw/ of resulting APK
         """.trimIndentMultiline(),
         default = null,
-        required = false
+        required = false,
     )
 
     val allowUserCerts by booleanOption(
         name = "Trust user added CAs",
         description = "Makes an app trust certificates from the Android user store for the specified domains, and if the option \"Include Subdomains\" is enabled then also the subdomains.",
         default = false,
-        required = true
+        required = true,
     )
 
     val allowSystemCerts by booleanOption(
         name = "Trust system CAs",
         description = "Makes an app trust certificates from the Android system store for the specified domains, and and if the option \"Include Subdomains\" is enabled then also the subdomains.",
         default = true,
-        required = true
+        required = true,
     )
 
     val allowCleartextTraffic by booleanOption(
         name = "Allow cleartext traffic (HTTP)",
         description = "Allows unencrypted HTTP traffic for the specified domains, and if \"Include Subdomains\" is enabled then also the subdomains.",
         default = false,
-        required = true
+        required = true,
     )
 
     val overridePins by booleanOption(
         name = "Override certificate pinning",
         description = "Overrides certificate pinning for the specified domains and their subdomains if the option \"Include Subdomains\" is enabled to allow inspecting app traffic via a proxy.",
         default = false,
-        required = true
+        required = true,
     )
 
     fun generateNetworkSecurityConfig(): String {
@@ -113,9 +114,8 @@ ${trustAnchorsXML.trimEnd()}
                 </trust-anchors>
             </domain-config>
         </network-security-config>
-    """.trimIndent()
+        """.trimIndent()
     }
-
 
     apply {
         val nscFileNameBare = "network_security_config"
@@ -123,45 +123,38 @@ ${trustAnchorsXML.trimEnd()}
         val resRawDir = "res/raw"
         val nscFileNameWithSuffix = "$nscFileNameBare.xml"
 
-
         document("AndroidManifest.xml").use { document ->
             val applicationNode = document.getNode("application") as Element
             applicationNode.setAttribute("android:networkSecurityConfig", "@xml/$nscFileNameBare")
         }
 
-
         File(get(resXmlDir), nscFileNameWithSuffix).apply {
             writeText(generateNetworkSecurityConfig())
         }
-
-
 
         for (customCAFilePath in customCAFilePaths ?: emptyList()) {
             val file = File(customCAFilePath)
             if (!file.exists()) {
                 throw PatchException(
                     "The custom CA file path cannot be found: " +
-                            file.absolutePath
+                        file.absolutePath,
                 )
             }
 
             if (!file.isFile) {
                 throw PatchException(
-                    "The custom CA file path must be a file: "
-                            + file.absolutePath
+                    "The custom CA file path must be a file: " +
+                        file.absolutePath,
                 )
             }
             val caFileNameWithoutSuffix = customCAFilePath.substringAfterLast('/').substringBefore('.')
             val caFile = File(customCAFilePath)
             File(
                 get(resRawDir),
-                caFileNameWithoutSuffix
+                caFileNameWithoutSuffix,
             ).writeText(
-                caFile.readText()
+                caFile.readText(),
             )
-
         }
-
-
     }
 }

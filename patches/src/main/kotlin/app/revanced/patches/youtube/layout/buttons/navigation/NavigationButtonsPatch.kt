@@ -24,6 +24,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/NavigationButtonsPatch;"
 
+@Suppress("ObjectPropertyName")
 val `Navigation buttons` by creatingBytecodePatch(
     description = "Adds options to hide and change navigation buttons (such as the Shorts button).",
 ) {
@@ -81,20 +82,18 @@ val `Navigation buttons` by creatingBytecodePatch(
         )
 
         // Switch create with notifications button.
-        addCreateButtonViewMethod.let {
-            it.method.apply {
-                val conditionalCheckIndex = it.instructionMatches[1].index
-                val conditionRegister =
-                    getInstruction<OneRegisterInstruction>(conditionalCheckIndex).registerA
+        addCreateButtonViewMethodMatch.method.apply {
+            val conditionalCheckIndex = addCreateButtonViewMethodMatch.indices[1]
+            val conditionRegister =
+                getInstruction<OneRegisterInstruction>(conditionalCheckIndex).registerA
 
-                addInstructions(
-                    conditionalCheckIndex,
-                    """
-                        invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->switchCreateWithNotificationButton()Z
-                        move-result v$conditionRegister
-                    """,
-                )
-            }
+            addInstructions(
+                conditionalCheckIndex,
+                """
+                    invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->switchCreateWithNotificationButton()Z
+                    move-result v$conditionRegister
+                """,
+            )
         }
 
         // Hide navigation button labels.

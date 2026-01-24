@@ -17,6 +17,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableFullscreenAmbientModePatch;"
 
+@Suppress("unused", "ObjectPropertyName")
 val `Disable fullscreen ambient mode` by creatingBytecodePatch(
     description = "Adds an option to disable the ambient mode when in fullscreen.",
 ) {

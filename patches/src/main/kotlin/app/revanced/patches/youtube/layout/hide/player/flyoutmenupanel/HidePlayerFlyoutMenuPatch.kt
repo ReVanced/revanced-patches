@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
+@Suppress("unused", "ObjectPropertyName")
 val `Hide player flyout menu items` by creatingBytecodePatch(
     description = "Adds options to hide menu items that appear when pressing the gear icon in the video player.",
 ) {
@@ -27,7 +28,7 @@ val `Hide player flyout menu items` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -50,7 +51,7 @@ val `Hide player flyout menu items` by creatingBytecodePatch(
                     SwitchPreference("revanced_hide_player_flyout_lock_screen"),
                     SwitchPreference(
                         key = "revanced_hide_player_flyout_audio_track",
-                        tag = "app.revanced.extension.youtube.settings.preference.HideAudioFlyoutMenuPreference"
+                        tag = "app.revanced.extension.youtube.settings.preference.HideAudioFlyoutMenuPreference",
                     ),
                     SwitchPreference("revanced_hide_player_flyout_watch_in_vr"),
                     SwitchPreference("revanced_hide_player_flyout_sleep_timer"),

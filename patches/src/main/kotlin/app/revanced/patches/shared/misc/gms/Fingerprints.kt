@@ -7,22 +7,22 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val BytecodePatchContext.googlePlayUtilityMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.googlePlayUtilityMethod by gettingFirstMethodDeclaratively(
+    "This should never happen.",
+    "MetadataValueReader",
+    "com.google.android.gms",
+) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("I")
     parameterTypes("L", "I")
-    strings(
-        "This should never happen.",
-        "MetadataValueReader",
-        "com.google.android.gms",
-    )
 }
 
-internal val BytecodePatchContext.serviceCheckMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.serviceCheckMethod by gettingFirstMethodDeclaratively(
+    "Google Play Services not available",
+) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("V")
     parameterTypes("L", "I")
-    strings("Google Play Services not available")
 }
 
 internal val BytecodePatchContext.gmsCoreSupportMethod by gettingFirstMethodDeclaratively {

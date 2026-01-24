@@ -10,6 +10,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
+@Suppress("unused", "ObjectPropertyName")
 val `Open links externally` by creatingBytecodePatch(
     description = "Adds an option to always open links in your browser instead of the in-app browser.",
 ) {
@@ -44,7 +45,7 @@ val `Open links externally` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {

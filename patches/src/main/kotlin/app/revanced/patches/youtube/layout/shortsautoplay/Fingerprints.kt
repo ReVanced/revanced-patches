@@ -1,10 +1,13 @@
 package app.revanced.patches.youtube.layout.shortsautoplay
 
 import app.revanced.patcher.accessFlags
-import app.revanced.patcher.addString
-import app.revanced.patcher.fieldAccess
+import app.revanced.patcher.afterAtMost
+import app.revanced.patcher.field
+import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
+import app.revanced.patcher.method
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.parameterTypes
@@ -13,7 +16,7 @@ import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.reelEnumConstructorMethod by gettingFirstMethodDeclaratively {
+internal val reelEnumConstructorMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
         "REEL_LOOP_BEHAVIOR_UNKNOWN"(),
@@ -38,24 +41,23 @@ internal val BytecodePatchContext.reelPlaybackRepeatParentMethod by gettingFirst
 internal val BytecodePatchContext.reelPlaybackRepeatMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     parameterTypes("L")
-    instructions(
-        methodCall(smali = "Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z"),
-    )
+    instructions(method { toString() == "Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z" })
 }
 
-internal val BytecodePatchContext.reelPlaybackMethod by gettingFirstMethodDeclaratively {
+internal val reelPlaybackMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("J")
     returnType("V")
+
+    val methodParametersPrefix = listOf("I", "L", "L")
     instructions(
-        fieldAccess(
-            definingClass = "Ljava/util/concurrent/TimeUnit;",
-            name = "MILLISECONDS",
-        ),
-        methodCall(
-            name = "<init>",
-            parameters = listOf("I", "L", "L"),
-            afterAtMost(15),
+        field { definingClass == "Ljava/util/concurrent/TimeUnit;" && name == "MILLISECONDS" },
+        afterAtMost(
+            15,
+            method {
+                name == "<init>" &&
+                    parameterTypes.zip(methodParametersPrefix).all { (a, b) -> a.startsWith(b) }
+            },
         ),
         methodCall(
             opcode = Opcode.INVOKE_VIRTUAL,

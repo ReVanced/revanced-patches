@@ -1,22 +1,24 @@
 package app.revanced.patches.tiktok.misc.settings
 
-internal val BytecodePatchContext.addSettingsEntryMethod by gettingFirstMethodDeclaratively {
-    custom { method, classDef ->
-        classDef.endsWith("/SettingNewVersionFragment;") &&
-            method.name == "initUnitManger"
-    }
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
+
+internal val BytecodePatchContext.addSettingsEntryMethod by gettingFirstMutableMethodDeclaratively {
+    name("initUnitManger")
+    definingClass { endsWith("/SettingNewVersionFragment;") }
 }
 
-internal val BytecodePatchContext.adPersonalizationActivityOnCreateMethod by gettingFirstMethodDeclaratively {
-    custom { method, classDef ->
-        classDef.endsWith("/AdPersonalizationActivity;") &&
-            method.name == "onCreate"
-    }
+internal val BytecodePatchContext.adPersonalizationActivityOnCreateMethod by gettingFirstMutableMethodDeclaratively {
+    name("onCreate")
+    definingClass { endsWith("/AdPersonalizationActivity;") }
 }
 
-internal val BytecodePatchContext.settingsEntryMethod by gettingFirstMethodDeclaratively {
-    strings("pls pass item or extends the EventUnit")
-}
+internal val BytecodePatchContext.settingsEntryMethod by gettingFirstMethodDeclaratively(
+    "pls pass item or extends the EventUnit",
+)
 
 internal val BytecodePatchContext.settingsEntryInfoMethod by gettingFirstMethodDeclaratively {
     strings(

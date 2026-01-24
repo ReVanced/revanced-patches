@@ -9,6 +9,7 @@ import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.Settings
 
+@Suppress("unused", "ObjectPropertyName")
 val `Block embedded ads` by creatingBytecodePatch(
     description = "Blocks embedded stream ads using services like Luminous or PurpleAdBlocker.",
 ) {

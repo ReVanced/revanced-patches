@@ -1,9 +1,12 @@
 package app.revanced.patches.youtube.layout.panels.popup
 
-internal val BytecodePatchContext.engagementPanelControllerMethod by gettingFirstMethodDeclaratively {
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
+
+internal val BytecodePatchContext.engagementPanelControllerMethod by gettingFirstMutableMethodDeclaratively(
+    "EngagementPanelController: cannot show EngagementPanel before EngagementPanelController.init() has been called.",
+    "[EngagementPanel] Cannot show EngagementPanel before EngagementPanelController.init() has been called.",
+) {
     returnType("L")
-    strings(
-        "EngagementPanelController: cannot show EngagementPanel before EngagementPanelController.init() has been called.",
-        "[EngagementPanel] Cannot show EngagementPanel before EngagementPanelController.init() has been called.",
-    )
 }

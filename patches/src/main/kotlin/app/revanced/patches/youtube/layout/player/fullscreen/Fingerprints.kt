@@ -1,17 +1,7 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.after
-import app.revanced.patcher.afterAtMost
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.literal
-import app.revanced.patcher.opcode
-import app.revanced.patcher.opcodes
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -24,7 +14,7 @@ internal val BytecodePatchContext.openVideosFullscreenPortraitMethod by gettingF
     instructions(
         Opcode.MOVE_RESULT(), // Conditional check to modify.
         // Open videos fullscreen portrait feature flag.
-        literal(45666112L, afterAtMost(5)), // Cannot be more than 5.
+        afterAtMost(5, 45666112L()), // Cannot be more than 5.
         afterAtMost(10, Opcode.MOVE_RESULT()),
     )
 }
@@ -51,11 +41,10 @@ internal val BytecodePatchContext.openVideosFullscreenPortraitLegacyMethod by ge
     )
 }
 
-internal val BytecodePatchContext.openVideosFullscreenHookPatchExtensionMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.openVideosFullscreenHookPatchExtensionMethod by gettingFirstMutableMethodDeclaratively {
+    name("isFullScreenPatchIncluded")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("Z")
     parameterTypes()
-    custom { methodDef, classDef ->
-        methodDef.name == "isFullScreenPatchIncluded" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
 }

@@ -1,9 +1,11 @@
 package app.revanced.patches.twitch.misc.settings
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -13,6 +15,7 @@ import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
+import com.android.tools.smali.dexlib2.mutable.MutableMethod
 
 private const val REVANCED_SETTINGS_MENU_ITEM_NAME = "RevancedSettings"
 private const val REVANCED_SETTINGS_MENU_ITEM_ID = 0x7
@@ -68,23 +71,22 @@ val Settings by creatingBytecodePatch(
         )
 
         // Hook onCreate to handle fragment creation.
-        val insertIndex = settingsActivityOnCreateFingerprint.method.implementation!!.instructions.size - 2
-        settingsActivityOnCreateFingerprint.method.addInstructionsWithLabels(
-            insertIndex,
-            """
-                invoke-static { p0 }, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingsCreation(Landroidx/appcompat/app/AppCompatActivity;)Z
-                move-result v0
-                if-eqz v0, :no_rv_settings_init
-                return-void
-            """,
-            ExternalLabel(
-                "no_rv_settings_init",
-                settingsActivityOnCreateFingerprint.method.getInstruction(insertIndex),
-            ),
-        )
+        settingsActivityOnCreateMethod.apply {
+            val insertIndex = instructions.size - 2
+            addInstructionsWithLabels(
+                insertIndex,
+                """
+                    invoke-static { p0 }, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingsCreation(Landroidx/appcompat/app/AppCompatActivity;)Z
+                    move-result v0
+                    if-eqz v0, :no_rv_settings_init
+                    return-void
+                """,
+                ExternalLabel("no_rv_settings_init", getInstruction(insertIndex)),
+            )
+        }
 
         // Create new menu item for settings menu.
-        fun Fingerprint.injectMenuItem(
+        fun MutableMethod.injectMenuItem(
             name: String,
             value: Int,
             titleResourceName: String,
@@ -93,7 +95,7 @@ val Settings by creatingBytecodePatch(
             // Add new static enum member field
             classDef.staticFields.add(
                 ImmutableField(
-                    method.definingClass,
+                    definingClass,
                     name,
                     MENU_ITEM_ENUM_CLASS_DESCRIPTOR,
                     AccessFlags.PUBLIC.value or
@@ -107,8 +109,8 @@ val Settings by creatingBytecodePatch(
             )
 
             // Add initializer for the new enum member
-            method.addInstructions(
-                method.implementation!!.instructions.size - 4,
+            addInstructions(
+                instructions.size - 4,
                 """   
                 new-instance        v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR
                 const-string        v1, "$titleResourceName"
@@ -125,7 +127,7 @@ val Settings by creatingBytecodePatch(
             )
         }
 
-        settingsMenuItemEnumFingerprint.injectMenuItem(
+        settingsMenuItemEnumMethod.injectMenuItem(
             REVANCED_SETTINGS_MENU_ITEM_NAME,
             REVANCED_SETTINGS_MENU_ITEM_ID,
             REVANCED_SETTINGS_MENU_ITEM_TITLE_RES,
@@ -133,7 +135,7 @@ val Settings by creatingBytecodePatch(
         )
 
         // Intercept settings menu creation and add new menu item.
-        menuGroupsUpdatedFingerprint.method.addInstructions(
+        menuGroupsUpdatedMethod.addInstructions(
             0,
             """
                 sget-object v0, $MENU_ITEM_ENUM_CLASS_DESCRIPTOR->$REVANCED_SETTINGS_MENU_ITEM_NAME:$MENU_ITEM_ENUM_CLASS_DESCRIPTOR 

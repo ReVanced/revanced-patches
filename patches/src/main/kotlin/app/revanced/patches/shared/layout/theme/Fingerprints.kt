@@ -1,9 +1,12 @@
 package app.revanced.patches.shared.layout.theme
 
 import app.revanced.patcher.accessFlags
+import app.revanced.patcher.allOf
+import app.revanced.patcher.field
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -16,6 +19,7 @@ internal val BytecodePatchContext.lithoOnBoundsChangeMethod by gettingFirstMetho
     returnType("V")
     parameterTypes("Landroid/graphics/Rect;")
     instructions(
+        allOf(Opcode.IPUT_OBJECT(), field { definingClass  type == "Landroid/graphics/Path;" }),
         fieldAccess(
             opcode = Opcode.IPUT_OBJECT,
             definingClass = "this",

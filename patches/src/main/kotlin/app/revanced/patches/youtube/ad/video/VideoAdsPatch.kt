@@ -11,6 +11,7 @@ import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
+@Suppress("ObjectPropertyName")
 val `Video ads` by creatingBytecodePatch(
     description = "Adds an option to remove ads in the video player.",
 ) {

@@ -40,6 +40,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 private const val FILTER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/components/ReturnYouTubeDislikeFilter;"
 
+@Suppress("ObjectPropertyName")
 val `Return YouTube Dislike` by creatingBytecodePatch(
     description = "Adds an option to show the dislike count of videos with Return YouTube Dislike.",
 ) {

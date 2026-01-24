@@ -4,6 +4,8 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -72,11 +74,11 @@ val `Shorts autoplay` by creatingBytecodePatch(
 
         var reelEnumClass: String
 
-        reelEnumConstructorMethod.let {
-            reelEnumClass = it.originalClassDef.type
+        reelEnumConstructorMethodMatch.apply {
+            reelEnumClass = immutableClassDef.type
 
-            it.method.addInstructions(
-                it.indices.last(),
+            method.addInstructions(
+                indices.last(),
                 """
                     # Pass the first enum value to extension.
                     # Any enum value of this type will work.
@@ -87,7 +89,7 @@ val `Shorts autoplay` by creatingBytecodePatch(
         }
 
         reelPlaybackRepeatMethod.match(
-            reelPlaybackRepeatParentMethod.originalClassDef,
+            reelPlaybackRepeatParentMethod.immutableClassDef,
         ).method.apply {
             // The behavior enums are looked up from an ordinal value to an enum type.
             findInstructionIndicesReversedOrThrow {
@@ -112,10 +114,10 @@ val `Shorts autoplay` by creatingBytecodePatch(
         // Manually restore the removed 'Autoplay' code.
         if (is_20_09_or_greater) {
             // Variable names are only a rough guess of what these methods do.
-            val userActionMethodReference = reelPlaybackMethod.instructionMatches[1]
-                .getInstruction<ReferenceInstruction>().reference as MethodReference
-            val reelSequenceControllerMethodReference = reelPlaybackMethod.instructionMatches[2]
-                .getInstruction<ReferenceInstruction>().reference as MethodReference
+            val userActionMethodReference =
+                reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch.indices[1]).methodReference
+            val reelSequenceControllerMethodReference =
+                reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch.indices[2]).methodReference
 
             reelPlaybackRepeatMethod.apply {
                 // Find the first call modified by extension code above.

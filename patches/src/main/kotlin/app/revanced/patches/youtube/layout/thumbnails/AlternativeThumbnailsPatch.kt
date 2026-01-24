@@ -19,6 +19,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/AlternativeThumbnailsPatch;"
 
+@Suppress("unused", "ObjectPropertyName")
 val `Alternative thumbnails` by creatingBytecodePatch(
     description = "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
 ) {
@@ -36,7 +37,7 @@ val `Alternative thumbnails` by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {
@@ -48,27 +49,27 @@ val `Alternative thumbnails` by creatingBytecodePatch(
             ListPreference(
                 key = "revanced_alt_thumbnail_home",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             ListPreference(
                 key = "revanced_alt_thumbnail_subscription",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             ListPreference(
                 key = "revanced_alt_thumbnail_library",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             ListPreference(
                 key = "revanced_alt_thumbnail_player",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             ListPreference(
                 key = "revanced_alt_thumbnail_search",
                 entriesKey = entries,
-                entryValuesKey = values
+                entryValuesKey = values,
             ),
             NonInteractivePreference(
                 "revanced_alt_thumbnail_dearrow_about",

@@ -14,6 +14,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/BypassURLRedirectsPatch;"
 
+@Suppress("unused", "ObjectPropertyName")
 val `Bypass URL redirects` by creatingBytecodePatch(
     description = "Adds an option to bypass URL redirects and open the original URL directly.",
 ) {
@@ -41,22 +42,20 @@ val `Bypass URL redirects` by creatingBytecodePatch(
 
         arrayOf(
             if (is_20_37_or_greater) {
-                (abUriParserMethod to 2)
+                (abUriParserMethodMatch to 2)
             } else {
-                (abUriParserLegacyMethod to 2)
+                (abUriParserLegacyMethodMatch to 2)
             },
-            httpUriParserMethod to 0,
-        ).forEach { (fingerprint, index) ->
-            fingerprint.method.apply {
-                val insertIndex = fingerprint.instructionMatches[index].index
-                val uriStringRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+            httpUriParserMethodMatch to 0,
+        ).forEach { (match, index) ->
+            val insertIndex = match.indices[index]
+            val uriStringRegister = match.method.getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
-                replaceInstruction(
-                    insertIndex,
-                    "invoke-static { v$uriStringRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
-                        "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;",
-                )
-            }
+            match.method.replaceInstruction(
+                insertIndex,
+                "invoke-static { v$uriStringRegister }, $EXTENSION_CLASS_DESCRIPTOR->" +
+                    "parseRedirectUri(Ljava/lang/String;)Landroid/net/Uri;",
+            )
         }
     }
 }

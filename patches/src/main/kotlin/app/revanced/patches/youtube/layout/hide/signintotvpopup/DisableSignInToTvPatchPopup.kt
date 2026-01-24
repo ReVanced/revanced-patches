@@ -13,6 +13,7 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableSignInToTvPopupPatch;"
 
+@Suppress("unused", "ObjectPropertyName")
 val `Disable sign in to TV popup` by creatingBytecodePatch(
     description = "Adds an option to disable the popup asking to sign into a TV on the same local network.",
 ) {
