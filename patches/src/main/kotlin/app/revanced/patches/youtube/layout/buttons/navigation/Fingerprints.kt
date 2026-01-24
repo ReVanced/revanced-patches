@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
-import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
 import app.revanced.patcher.gettingFirstMethodDeclaratively
@@ -16,9 +15,9 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val BytecodePatchContext.addCreateButtonViewMethod by gettingFirstMethodDeclaratively {
     instructions(
-        addString("Android Wear"),
+        "Android Wear"(),
         Opcode.IF_EQZ(),
-        addString("Android Automotive", location = MatchAfterImmediately()),
+        addString("Android Automotive", after()),
     )
 }
 

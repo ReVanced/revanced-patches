@@ -9,6 +9,6 @@ import app.revanced.patcher.patch.BytecodePatchContext
 internal val BytecodePatchContext.initializePlaybackSpeedValuesMethod by gettingFirstMethodDeclaratively {
     parameterTypes("[L", "I")
     instructions(
-        addString("menu_item_playback_speed"),
+        "menu_item_playback_speed"(),
     )
 }

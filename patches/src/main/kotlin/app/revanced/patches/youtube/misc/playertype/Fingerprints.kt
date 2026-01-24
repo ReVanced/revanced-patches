@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.misc.playertype
 
-import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.accessFlags
-import app.revanced.patcher.addString
+import app.revanced.patcher.after
+import app.revanced.patcher.afterAtMost
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
-import app.revanced.patcher.opcode
+import app.revanced.patcher.invoke
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
@@ -35,7 +35,7 @@ internal val BytecodePatchContext.reelWatchPagerMethod by gettingFirstMethodDecl
     returnType("Landroid/view/View;")
     instructions(
         ResourceType.ID("reel_watch_player"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterWithin(10)),
+        afterAtMost(10, Opcode.MOVE_RESULT_OBJECT()),
     )
 }
 
@@ -58,7 +58,7 @@ internal val BytecodePatchContext.controlsStateToStringMethod by gettingFirstMet
     parameterTypes()
     returnType("Ljava/lang/String;")
     instructions(
-        addString("videoState"),
-        addString("isBuffering"),
+        "videoState"(),
+        "isBuffering"(),
     )
 }

@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.startupshortsreset
 
-import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.StringComparisonType
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
@@ -25,10 +24,10 @@ internal val BytecodePatchContext.userWasInShortsAlternativeMethod by gettingFir
     parameterTypes("Ljava/lang/Object;")
     instructions(
         checkCast("Ljava/lang/Boolean;"),
-        methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z", location = MatchAfterImmediately()),
-        opcode(Opcode.MOVE_RESULT, MatchAfterImmediately()),
+        methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z", after()),
+        after(Opcode.MOVE_RESULT()),
         // 20.40+ string was merged into another string and is a partial match.
-        addString("userIsInShorts: ", comparison = StringComparisonType.CONTAINS, location = MatchAfterWithin(15)),
+        addString("userIsInShorts: ", comparison = StringComparisonType.CONTAINS, afterAtMost(15)),
     )
 }
 
@@ -40,7 +39,7 @@ internal val BytecodePatchContext.userWasInShortsLegacyMethod by gettingFirstMet
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("Ljava/lang/Object;")
     instructions(
-        addString("Failed to read user_was_in_shorts proto after successful warmup"),
+        "Failed to read user_was_in_shorts proto after successful warmup"(),
     )
 }
 

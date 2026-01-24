@@ -1,8 +1,9 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
-import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
+import app.revanced.patcher.after
+import app.revanced.patcher.at
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
@@ -21,7 +22,7 @@ internal val BytecodePatchContext.shortsBottomBarContainerMethod by gettingFirst
     returnType("V")
     parameterTypes("Landroid/view/View;", "Landroid/os/Bundle;")
     instructions(
-        addString("r_pfvc"),
+        "r_pfvc"(),
         ResourceType.ID("bottom_bar_container"),
         methodCall(name = "getHeight"),
         Opcode.MOVE_RESULT(),
@@ -35,17 +36,17 @@ internal val BytecodePatchContext.renderBottomNavigationBarMethod by gettingFirs
     returnType("V")
     parameterTypes("Ljava/lang/String;")
     instructions(
-        opcode(Opcode.IGET_OBJECT, MatchFirst()),
-        opcode(Opcode.MONITOR_ENTER, MatchAfterImmediately()),
-        opcode(Opcode.IGET_OBJECT, MatchAfterImmediately()),
-        opcode(Opcode.IF_EQZ, MatchAfterImmediately()),
-        opcode(Opcode.INVOKE_INTERFACE, MatchAfterImmediately()),
+        Opcode.IGET_OBJECT(),
+        after(Opcode.MONITOR_ENTER()),
+        after(Opcode.IGET_OBJECT()),
+        after(Opcode.IF_EQZ()),
+        after(Opcode.INVOKE_INTERFACE()),
 
         Opcode.MONITOR_EXIT(),
-        opcode(Opcode.RETURN_VOID, MatchAfterImmediately()),
-        opcode(Opcode.MOVE_EXCEPTION, MatchAfterImmediately()),
-        opcode(Opcode.MONITOR_EXIT, MatchAfterImmediately()),
-        opcode(Opcode.THROW, MatchAfterImmediately()),
+        after(Opcode.RETURN_VOID()),
+        after(Opcode.MOVE_EXCEPTION()),
+        after(Opcode.MONITOR_EXIT()),
+        after(Opcode.THROW()),
     )
 }
 
@@ -62,7 +63,7 @@ internal val BytecodePatchContext.legacyRenderBottomNavigationBarLegacyParentMet
         "L",
     )
     instructions(
-        addString("aa"),
+        "aa"(),
     )
 }
 
@@ -82,7 +83,7 @@ internal val BytecodePatchContext.renderBottomNavigationBarLegacy1941ParentMetho
         "L",
     )
     instructions(
-        addString("aa"),
+        "aa"(),
     )
 }
 
@@ -95,7 +96,7 @@ internal val BytecodePatchContext.renderBottomNavigationBarParentMethod by getti
         "I",
     )
     instructions(
-        addString("RPCAC"),
+        "RPCAC"(),
     )
 }
 
@@ -112,7 +113,7 @@ internal val BytecodePatchContext.setPivotBarVisibilityMethod by gettingFirstMet
 internal val BytecodePatchContext.setPivotBarVisibilityParentMethod by gettingFirstMethodDeclaratively {
     parameterTypes("Z")
     instructions(
-        addString("FEnotifications_inbox"),
+        "FEnotifications_inbox"(),
     )
 }
 

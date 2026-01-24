@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.layout.hide.infocards
 
 import app.revanced.patcher.accessFlags
-import app.revanced.patcher.addString
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -17,7 +17,7 @@ internal val BytecodePatchContext.infocardsIncognitoMethod by gettingFirstMethod
     returnType("Ljava/lang/Boolean;")
     parameterTypes("L", "J")
     instructions(
-        addString("vibrator"),
+        "vibrator"(),
     )
 }
 
@@ -25,7 +25,7 @@ internal val BytecodePatchContext.infocardsIncognitoParentMethod by gettingFirst
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/String;")
     instructions(
-        addString("player_overlay_info_card_teaser"),
+        "player_overlay_info_card_teaser"(),
     )
 }
 

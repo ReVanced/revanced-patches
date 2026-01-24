@@ -1,9 +1,8 @@
 package app.revanced.patches.youtube.layout.seekbar
 
-import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
-import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
+import app.revanced.patcher.afterAtMost
 import app.revanced.patcher.anyInstruction
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
@@ -93,8 +92,8 @@ internal val BytecodePatchContext.playerLinearGradientMethod by gettingFirstMeth
     instructions(
         ResourceType.COLOR("yt_youtube_magenta"),
 
-        opcode(Opcode.FILLED_NEW_ARRAY, location = MatchAfterWithin(5)),
-        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
+        afterAtMost(5, Opcode.FILLED_NEW_ARRAY()),
+        after(Opcode.MOVE_RESULT_OBJECT()),
     )
 }
 
@@ -107,7 +106,7 @@ internal val BytecodePatchContext.playerLinearGradientLegacyMethod by gettingFir
         ResourceType.COLOR("yt_youtube_magenta"),
 
         Opcode.FILLED_NEW_ARRAY(),
-        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
+        after(Opcode.MOVE_RESULT_OBJECT()),
     )
 }
 
@@ -130,8 +129,8 @@ internal val BytecodePatchContext.lottieCompositionFactoryZipMethod by gettingFi
     parameterTypes("Landroid/content/Context;", "Ljava/util/zip/ZipInputStream;", "Ljava/lang/String;")
     returnType("L")
     instructions(
-        addString("Unable to parse composition"),
-        addString(" however it was not found in the animation."),
+        "Unable to parse composition"(),
+        " however it was not found in the animation."(),
     )
 }
 

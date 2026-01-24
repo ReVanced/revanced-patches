@@ -15,7 +15,7 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val BytecodePatchContext.videoQualityItemOnClickParentMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     instructions(
-        addString("VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT"),
+        "VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT"(),
     )
 }
 

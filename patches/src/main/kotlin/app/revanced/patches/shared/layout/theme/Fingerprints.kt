@@ -1,7 +1,5 @@
 package app.revanced.patches.shared.layout.theme
 
-import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
-import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.gettingFirstMethodDeclaratively
@@ -28,18 +26,18 @@ internal val BytecodePatchContext.lithoOnBoundsChangeMethod by gettingFirstMetho
             definingClass = "this",
             name = "isStateful",
             returnType = "Z",
-            location = MatchAfterWithin(5),
+            afterAtMost(5),
         ),
 
         fieldAccess(
             opcode = Opcode.IGET_OBJECT,
             definingClass = "this",
             type = "Landroid/graphics/Paint",
-            location = MatchAfterWithin(5),
+            afterAtMost(5),
         ),
         methodCall(
             smali = "Landroid/graphics/Paint;->setColor(I)V",
-            location = MatchAfterImmediately(),
+            after(),
         ),
     )
     custom { method, _ ->

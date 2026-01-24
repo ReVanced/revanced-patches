@@ -1,10 +1,11 @@
 package app.revanced.patches.youtube.layout.hide.time
 
-import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.accessFlags
+import app.revanced.patcher.after
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.parameterTypes
@@ -22,17 +23,17 @@ internal val BytecodePatchContext.timeCounterMethod by gettingFirstMethodDeclara
         methodCall(
             opcode = Opcode.INVOKE_STATIC,
             returnType = "Ljava/lang/CharSequence;",
-            location = MatchAfterImmediately(),
+            after(),
         ),
-        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
-        fieldAccess(opcode = Opcode.IGET_WIDE, type = "J", location = MatchAfterImmediately()),
-        fieldAccess(opcode = Opcode.IGET_WIDE, type = "J", location = MatchAfterImmediately()),
-        opcode(Opcode.SUB_LONG_2ADDR, location = MatchAfterImmediately()),
+        after(Opcode.MOVE_RESULT_OBJECT()),
+        fieldAccess(opcode = Opcode.IGET_WIDE, type = "J", after()),
+        fieldAccess(opcode = Opcode.IGET_WIDE, type = "J", after()),
+        after(Opcode.SUB_LONG_2ADDR()),
 
         methodCall(
             opcode = Opcode.INVOKE_STATIC,
             returnType = "Ljava/lang/CharSequence;",
-            location = MatchAfterWithin(5),
+            afterAtMost(5),
         ),
     )
 }

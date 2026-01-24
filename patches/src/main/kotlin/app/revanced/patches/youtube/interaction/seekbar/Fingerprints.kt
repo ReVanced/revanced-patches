@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
-import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
-import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.accessFlags
+import app.revanced.patcher.after
+import app.revanced.patcher.afterAtMost
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.firstMutableMethodDeclaratively
@@ -133,15 +133,15 @@ internal val BytecodePatchContext.seekbarTappingMethod by gettingFirstMethodDecl
         Int.MAX_VALUE(),
 
         newInstance("Landroid/graphics/Point;"),
-        methodCall(smali = "Landroid/graphics/Point;-><init>(II)V", location = MatchAfterImmediately()),
+        methodCall(smali = "Landroid/graphics/Point;-><init>(II)V", after()),
         methodCall(
             smali = "Lj\$/util/Optional;->of(Ljava/lang/Object;)Lj\$/util/Optional;",
-            location = MatchAfterImmediately(),
+            after(),
         ),
-        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
-        fieldAccess(opcode = Opcode.IPUT_OBJECT, type = "Lj\$/util/Optional;", location = MatchAfterImmediately()),
+        after(Opcode.MOVE_RESULT_OBJECT()),
+        fieldAccess(opcode = Opcode.IPUT_OBJECT, type = "Lj\$/util/Optional;", after()),
 
-        opcode(Opcode.INVOKE_VIRTUAL, location = MatchAfterWithin(10)),
+        afterAtMost(10, Opcode.INVOKE_VIRTUAL()),
     )
     custom { method, _ -> method.name == "onTouchEvent" }
 }

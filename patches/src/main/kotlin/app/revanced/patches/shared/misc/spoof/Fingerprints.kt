@@ -152,7 +152,7 @@ internal val BytecodePatchContext.nerdsStatsVideoFormatBuilderMethod by gettingF
     returnType("Ljava/lang/String;")
     parameterTypes("L")
     instructions(
-        addString("codecs=\""),
+        "codecs=\""(),
     )
 }
 

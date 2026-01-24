@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.player.overlay
 
-import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
@@ -12,6 +11,6 @@ internal val BytecodePatchContext.createPlayerOverviewMethod by gettingFirstMeth
     returnType("V")
     instructions(
         ResourceType.ID("scrim_overlay"),
-        checkCast("Landroid/widget/ImageView;", location = MatchAfterWithin(10)),
+        checkCast("Landroid/widget/ImageView;", afterAtMost(10)),
     )
 }

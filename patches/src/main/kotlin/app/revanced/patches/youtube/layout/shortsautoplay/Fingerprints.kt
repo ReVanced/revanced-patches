@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.shortsautoplay
 
-import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
 import app.revanced.patcher.fieldAccess
@@ -17,10 +16,10 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val BytecodePatchContext.reelEnumConstructorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        addString("REEL_LOOP_BEHAVIOR_UNKNOWN"),
-        addString("REEL_LOOP_BEHAVIOR_SINGLE_PLAY"),
-        addString("REEL_LOOP_BEHAVIOR_REPEAT"),
-        addString("REEL_LOOP_BEHAVIOR_END_SCREEN"),
+        "REEL_LOOP_BEHAVIOR_UNKNOWN"(),
+        "REEL_LOOP_BEHAVIOR_SINGLE_PLAY"(),
+        "REEL_LOOP_BEHAVIOR_REPEAT"(),
+        "REEL_LOOP_BEHAVIOR_END_SCREEN"(),
         Opcode.RETURN_VOID(),
     )
 }
@@ -29,7 +28,7 @@ internal val BytecodePatchContext.reelPlaybackRepeatParentMethod by gettingFirst
     returnType("V")
     parameterTypes("Ljava/lang/String;", "J")
     instructions(
-        addString("Reels[%s] Playback Time: %d ms"),
+        "Reels[%s] Playback Time: %d ms"(),
     )
 }
 
@@ -56,13 +55,13 @@ internal val BytecodePatchContext.reelPlaybackMethod by gettingFirstMethodDeclar
         methodCall(
             name = "<init>",
             parameters = listOf("I", "L", "L"),
-            location = MatchAfterWithin(15),
+            afterAtMost(15),
         ),
         methodCall(
             opcode = Opcode.INVOKE_VIRTUAL,
             parameters = listOf("L"),
             returnType = "I",
-            location = MatchAfterWithin(5),
+            afterAtMost(5),
         ),
     )
 }

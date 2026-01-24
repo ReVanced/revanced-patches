@@ -9,7 +9,7 @@ import app.revanced.patcher.returnType
 internal val BytecodePatchContext.deviceDimensionsModelToStringMethod by gettingFirstMethodDeclaratively {
     returnType("L")
     instructions(
-        addString("minh."),
-        addString(";maxh."),
+        "minh."(),
+        ";maxh."(),
     )
 }

@@ -13,7 +13,7 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val BytecodePatchContext.intentActionMethod by gettingFirstMethodDeclaratively {
     parameterTypes("Landroid/content/Intent;")
     instructions(
-        addString("has_handled_intent"),
+        "has_handled_intent"(),
     )
 }
 
@@ -22,7 +22,7 @@ internal val BytecodePatchContext.browseIdMethod by gettingFirstMethodDeclarativ
 
     // parameterTypes() // 20.30 and earlier is no parameters.  20.31+ parameter is L.
     instructions(
-        addString("FEwhat_to_watch"),
+        "FEwhat_to_watch"(),
         512(),
         fieldAccess(opcode = Opcode.IPUT_OBJECT, type = "Ljava/lang/String;"),
     )

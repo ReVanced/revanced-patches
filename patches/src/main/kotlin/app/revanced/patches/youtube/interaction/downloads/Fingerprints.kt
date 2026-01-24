@@ -19,6 +19,6 @@ internal val BytecodePatchContext.offlineVideoEndpointMethod by gettingFirstMeth
         "L",
     )
     instructions(
-        addString("Object is not an offlineable video: "),
+        "Object is not an offlineable video: "(),
     )
 }

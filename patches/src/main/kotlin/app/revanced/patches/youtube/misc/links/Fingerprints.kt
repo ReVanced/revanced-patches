@@ -19,7 +19,7 @@ internal val BytecodePatchContext.abUriParserLegacyMethod by gettingFirstMethodD
     returnType("Ljava/lang/Object;")
     parameterTypes("Ljava/lang/Object;")
     instructions(
-        addString("Found entityKey=`"),
+        "Found entityKey=`"(),
         addString("that does not contain a PlaylistVideoEntityId", comparison = StringComparisonType.CONTAINS),
         methodCall(smali = "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"),
     )
@@ -48,8 +48,8 @@ internal val BytecodePatchContext.httpUriParserMethod by gettingFirstMethodDecla
     parameterTypes("Ljava/lang/String;")
     instructions(
         methodCall(smali = "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;"),
-        addString("https"),
-        addString("://"),
-        addString("https:"),
+        "https"(),
+        "://"(),
+        "https:"(),
     )
 }

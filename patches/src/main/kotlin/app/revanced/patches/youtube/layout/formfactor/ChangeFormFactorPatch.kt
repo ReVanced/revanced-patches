@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.formfactor
 
-import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.fieldAccess
@@ -57,7 +56,7 @@ val `Change form factor` by creatingBytecodePatch(
                 fieldAccess(
                     definingClass = formFactorEnumConstructorMethod.originalClassDef.type,
                     type = "I",
-                    location = MatchAfterWithin(50),
+                    afterAtMost(50),
                 ),
             )
         }

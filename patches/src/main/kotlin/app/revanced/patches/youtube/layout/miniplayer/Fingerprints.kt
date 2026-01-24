@@ -2,9 +2,9 @@
 
 package app.revanced.patches.youtube.layout.miniplayer
 
-import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
+import app.revanced.patcher.afterAtMost
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
@@ -52,7 +52,7 @@ internal val BytecodePatchContext.miniplayerModernViewParentMethod by gettingFir
     returnType("Ljava/lang/String;")
     parameterTypes()
     instructions(
-        addString("player_overlay_modern_mini_player_controls"),
+        "player_overlay_modern_mini_player_controls"(),
     )
 }
 
@@ -112,7 +112,7 @@ internal val BytecodePatchContext.miniplayerModernForwardButtonMethod by getting
     parameterTypes()
     instructions(
         ResourceType.ID("modern_miniplayer_forward_button"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterWithin(5)),
+        afterAtMost(5, Opcode.MOVE_RESULT_OBJECT()),
     )
 }
 
@@ -121,7 +121,7 @@ internal val BytecodePatchContext.miniplayerModernOverlayViewMethod by gettingFi
     parameterTypes()
     instructions(
         ResourceType.ID("scrim_overlay"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterWithin(5)),
+        afterAtMost(5, Opcode.MOVE_RESULT_OBJECT()),
     )
 }
 
@@ -134,7 +134,7 @@ internal val BytecodePatchContext.miniplayerModernRewindButtonMethod by gettingF
     parameterTypes()
     instructions(
         ResourceType.ID("modern_miniplayer_rewind_button"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterWithin(5)),
+        afterAtMost(5, Opcode.MOVE_RESULT_OBJECT()),
     )
 }
 
@@ -147,7 +147,7 @@ internal val BytecodePatchContext.miniplayerModernActionButtonMethod by gettingF
     parameterTypes()
     instructions(
         ResourceType.ID("modern_miniplayer_overlay_action_button"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterWithin(5)),
+        afterAtMost(5, Opcode.MOVE_RESULT_OBJECT()),
     )
 }
 
@@ -164,11 +164,11 @@ internal val BytecodePatchContext.miniplayerOverrideMethod by gettingFirstMethod
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     instructions(
-        addString("appName"),
+        "appName"(),
         methodCall(
             parameters = listOf("Landroid/content/Context;"),
             returnType = "Z",
-            location = MatchAfterWithin(10),
+            afterAtMost(10),
         ),
     )
 }

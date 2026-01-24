@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
-import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.gettingFirstMethodDeclaratively
@@ -74,7 +73,7 @@ internal val BytecodePatchContext.playerTopControlsInflateMethod by gettingFirst
     instructions(
         ResourceType.ID("controls_layout_stub"),
         methodCall("Landroid/view/ViewStub;", "inflate"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
+        after(Opcode.MOVE_RESULT_OBJECT()),
     )
 }
 
@@ -84,7 +83,7 @@ internal val BytecodePatchContext.playerBottomControlsInflateMethod by gettingFi
     instructions(
         ResourceType.ID("bottom_ui_container_stub"),
         methodCall("Landroid/view/ViewStub;", "inflate"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
+        after(Opcode.MOVE_RESULT_OBJECT()),
     )
 }
 

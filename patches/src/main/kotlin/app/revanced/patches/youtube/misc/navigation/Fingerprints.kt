@@ -1,8 +1,6 @@
 package app.revanced.patches.youtube.misc.navigation
 
 import app.revanced.patcher.*
-import app.revanced.patcher.InstructionLocation.MatchAfterImmediately
-import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
@@ -131,26 +129,26 @@ internal val BytecodePatchContext.pivotBarButtonsViewSetSelectedMethod by gettin
 internal val BytecodePatchContext.pivotBarConstructorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        addString("com.google.android.apps.youtube.app.endpoint.flags"),
+        "com.google.android.apps.youtube.app.endpoint.flags"(),
     )
 }
 
 internal val BytecodePatchContext.imageEnumConstructorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
-        addString("TAB_ACTIVITY_CAIRO"),
-        opcode(Opcode.INVOKE_DIRECT, location = MatchAfterImmediately()),
-        opcode(Opcode.SPUT_OBJECT, location = MatchAfterImmediately()),
+        "TAB_ACTIVITY_CAIRO"(),
+        after(Opcode.INVOKE_DIRECT()),
+        after(Opcode.SPUT_OBJECT()),
     )
 }
 
 internal val BytecodePatchContext.setEnumMapMethod by gettingFirstMethodDeclaratively {
     instructions(
         ResourceType.DRAWABLE("yt_fill_bell_black_24"),
-        methodCall(smali = "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;", location = MatchAfterWithin(10)),
+        methodCall(smali = "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;", afterAtMost(10)),
         methodCall(
             smali = "Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;",
-            location = MatchAfterWithin(10),
+            afterAtMost(10),
         ),
     )
 }

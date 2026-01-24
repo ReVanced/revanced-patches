@@ -20,6 +20,6 @@ internal val BytecodePatchContext.unstableContentProviderMethod by gettingFirstM
             name = "putAll",
             parameters = listOf("Ljava/util/Map;"),
         ),
-        addString("ContentProvider query returned null cursor"),
+        "ContentProvider query returned null cursor"(),
     )
 }

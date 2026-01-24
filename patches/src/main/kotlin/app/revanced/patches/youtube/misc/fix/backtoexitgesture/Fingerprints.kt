@@ -1,10 +1,11 @@
 package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 
-import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.accessFlags
+import app.revanced.patcher.after
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
@@ -33,10 +34,10 @@ internal val BytecodePatchContext.recyclerViewTopScrollingMethod by gettingFirst
     parameterTypes()
     instructions(
         methodCall(smali = "Ljava/util/Iterator;->next()Ljava/lang/Object;"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
+        after(Opcode.MOVE_RESULT_OBJECT()),
         checkCast("Landroid/support/v7/widget/RecyclerView;", MatchAfterImmediately()),
-        literal(0, location = MatchAfterImmediately()),
-        methodCall(definingClass = "Landroid/support/v7/widget/RecyclerView;", location = MatchAfterImmediately()),
-        opcode(Opcode.GOTO, MatchAfterImmediately()),
+        literal(0, after()),
+        methodCall(definingClass = "Landroid/support/v7/widget/RecyclerView;", after()),
+        after(Opcode.GOTO()),
     )
 }

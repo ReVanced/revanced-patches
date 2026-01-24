@@ -1,9 +1,11 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
-import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.accessFlags
+import app.revanced.patcher.after
+import app.revanced.patcher.afterAtMost
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
 import app.revanced.patcher.opcode
 import app.revanced.patcher.opcodes
@@ -22,8 +24,8 @@ internal val BytecodePatchContext.openVideosFullscreenPortraitMethod by gettingF
     instructions(
         Opcode.MOVE_RESULT(), // Conditional check to modify.
         // Open videos fullscreen portrait feature flag.
-        literal(45666112L, location = MatchAfterWithin(5)), // Cannot be more than 5.
-        opcode(Opcode.MOVE_RESULT, location = MatchAfterWithin(10)),
+        literal(45666112L, afterAtMost(5)), // Cannot be more than 5.
+        afterAtMost(10, Opcode.MOVE_RESULT()),
     )
 }
 

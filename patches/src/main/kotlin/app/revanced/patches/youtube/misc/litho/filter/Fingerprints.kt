@@ -17,8 +17,8 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val BytecodePatchContext.componentCreateMethod by gettingFirstMethodDeclaratively {
     instructions(
-        addString("Element missing correct type extension"),
-        addString("Element missing type"),
+        "Element missing correct type extension"(),
+        "Element missing type"(),
     )
 }
 
@@ -62,7 +62,7 @@ internal val BytecodePatchContext.emptyComponentMethod by gettingFirstMethodDecl
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
     parameterTypes()
     instructions(
-        addString("EmptyComponent"),
+        "EmptyComponent"(),
     )
     custom { _, classDef ->
         classDef.methods.filter { AccessFlags.STATIC.isSet(it.accessFlags) }.size == 1

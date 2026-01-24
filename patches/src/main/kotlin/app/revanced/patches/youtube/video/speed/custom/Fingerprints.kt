@@ -47,7 +47,7 @@ internal val BytecodePatchContext.speedArrayGeneratorMethod by gettingFirstMetho
     instructions(
         methodCall(name = "size", returnType = "I"),
         newInstance("Ljava/text/DecimalFormat;"),
-        addString("0.0#"),
+        "0.0#"(),
         7L(),
         Opcode.NEW_ARRAY(),
         fieldAccess(definingClass = "/PlayerConfigModel;", type = "[F"),

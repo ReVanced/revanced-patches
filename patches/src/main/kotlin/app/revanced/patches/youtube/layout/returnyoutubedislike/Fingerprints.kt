@@ -15,21 +15,21 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val BytecodePatchContext.dislikeMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     instructions(
-        addString("like/dislike"),
+        "like/dislike"(),
     )
 }
 
 internal val BytecodePatchContext.likeMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     instructions(
-        addString("like/like"),
+        "like/like"(),
     )
 }
 
 internal val BytecodePatchContext.removeLikeMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     instructions(
-        addString("like/removelike"),
+        "like/removelike"(),
     )
 }
 
@@ -71,7 +71,7 @@ internal val BytecodePatchContext.rollingNumberMeasureStaticLabelParentMethod by
     returnType("Ljava/lang/String;")
     parameterTypes()
     instructions(
-        addString("RollingNumberFontProperties{paint="),
+        "RollingNumberFontProperties{paint="(),
     )
 }
 
@@ -105,7 +105,7 @@ internal val BytecodePatchContext.rollingNumberTextViewMethod by gettingFirstMet
 internal val BytecodePatchContext.textComponentConstructorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PRIVATE)
     instructions(
-        addString("TextComponent"),
+        "TextComponent"(),
     )
 }
 
@@ -113,7 +113,7 @@ internal val BytecodePatchContext.textComponentDataMethod by gettingFirstMethodD
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes("L", "L")
     instructions(
-        addString("text"),
+        "text"(),
     )
     custom { _, classDef ->
         classDef.fields.find { it.type == "Ljava/util/BitSet;" } != null
@@ -128,7 +128,7 @@ internal val BytecodePatchContext.textComponentLookupMethod by gettingFirstMetho
     returnType("L")
     parameterTypes("L")
     instructions(
-        addString("…"),
+        "…"(),
     )
 }
 

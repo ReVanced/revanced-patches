@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.layout.spoofappversion
 
-import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.gettingFirstMethodDeclaratively
@@ -21,10 +20,10 @@ internal val BytecodePatchContext.toolBarButtonMethod by gettingFirstMethodDecla
     instructions(
         ResourceType.ID("menu_item_view"),
         methodCall(returnType = "I", opcode = Opcode.INVOKE_INTERFACE),
-        opcode(Opcode.MOVE_RESULT, MatchAfterImmediately()),
-        fieldAccess(type = "Landroid/widget/ImageView;", opcode = Opcode.IGET_OBJECT, location = MatchAfterWithin(6)),
-        methodCall("Landroid/content/res/Resources;", "getDrawable", location = MatchAfterWithin(8)),
-        methodCall("Landroid/widget/ImageView;", "setImageDrawable", location = MatchAfterWithin(4)),
+        after(Opcode.MOVE_RESULT()),
+        fieldAccess(type = "Landroid/widget/ImageView;", opcode = Opcode.IGET_OBJECT, afterAtMost(6)),
+        methodCall("Landroid/content/res/Resources;", "getDrawable", afterAtMost(8)),
+        methodCall("Landroid/widget/ImageView;", "setImageDrawable", afterAtMost(4)),
     )
     custom { method, _ ->
         // 20.37+ has second parameter of "Landroid/content/Context;"

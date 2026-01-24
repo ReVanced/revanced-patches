@@ -1,12 +1,7 @@
 package app.revanced.patches.youtube.video.playerresponse
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.addString
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
@@ -31,7 +26,7 @@ internal val BytecodePatchContext.playerParameterBuilderMethod by gettingFirstMe
         "Z", // Appears to indicate if the video id is being opened or is currently playing.
         "Z",
         "Z",
-        "Lj\$/time/Duration;",
+        "Lj$/time/Duration;",
     )
 }
 
@@ -57,11 +52,9 @@ internal val BytecodePatchContext.playerParameterBuilder2026Method by gettingFir
         "Z", // Appears to indicate if the video id is being opened or is currently playing.
         "Z",
         "Z",
-        "Lj\$/time/Duration;",
+        "Lj$/time/Duration;",
     )
-    instructions(
-        addString("psps"),
-    )
+    instructions("psps"())
 }
 
 /**
@@ -87,9 +80,7 @@ internal val BytecodePatchContext.playerParameterBuilder2015Method by gettingFir
         "Z",
         "Z",
     )
-    instructions(
-        addString("psps"),
-    )
+    instructions("psps"())
 }
 
 /**
@@ -116,9 +107,7 @@ internal val BytecodePatchContext.playerParameterBuilder2010Method by gettingFir
         "Z",
         "Z",
     )
-    instructions(
-        addString("psps"),
-    )
+    instructions("psps"())
 }
 
 /**
@@ -144,9 +133,7 @@ internal val BytecodePatchContext.playerParameterBuilder2002Method by gettingFir
         "Z",
         "Z",
     )
-    instructions(
-        addString("psps"),
-    )
+    instructions("psps"())
 }
 
 /**
@@ -171,9 +158,7 @@ internal val BytecodePatchContext.playerParameterBuilder1925Method by gettingFir
         "Z",
         "Z",
     )
-    instructions(
-        addString("psps"),
-    )
+    instructions("psps"())
 }
 
 /**

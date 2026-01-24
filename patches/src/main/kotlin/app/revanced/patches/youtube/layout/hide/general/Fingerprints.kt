@@ -1,12 +1,14 @@
 package app.revanced.patches.youtube.layout.hide.general
 
-import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.StringComparisonType
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
+import app.revanced.patcher.after
+import app.revanced.patcher.afterAtMost
 import app.revanced.patcher.checkCast
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.opcodes
@@ -28,7 +30,7 @@ internal val BytecodePatchContext.hideShowMoreButtonMethod by gettingFirstMethod
     instructions(
         ResourceType.LAYOUT("expand_button_down"),
         methodCall(smali = "Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
+        after(Opcode.MOVE_RESULT_OBJECT()),
     )
 }
 
@@ -46,8 +48,8 @@ internal val BytecodePatchContext.parseElementFromBufferMethod by gettingFirstMe
     instructions(
         Opcode.IGET_OBJECT(),
         // IGET_BOOLEAN // 20.07+
-        opcode(Opcode.INVOKE_INTERFACE, location = MatchAfterWithin(1)),
-        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
+        afterAtMost(1, Opcode.INVOKE_INTERFACE()),
+        after(Opcode.MOVE_RESULT_OBJECT()),
 
         addString("Failed to parse Element", comparison = StringComparisonType.STARTS_WITH),
     )
@@ -57,7 +59,7 @@ internal val BytecodePatchContext.playerOverlayMethod by gettingFirstMethodDecla
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     instructions(
-        addString("player_overlay_in_video_programming"),
+        "player_overlay_in_video_programming"(),
     )
 }
 
@@ -141,8 +143,8 @@ internal val BytecodePatchContext.showFloatingMicrophoneButtonMethod by gettingF
     parameterTypes()
     instructions(
         ResourceType.ID("fab"),
-        checkCast("/FloatingActionButton;", location = MatchAfterWithin(10)),
-        opcode(Opcode.IGET_BOOLEAN, location = MatchAfterWithin(15)),
+        checkCast("/FloatingActionButton;", afterAtMost(10)),
+        afterAtMost(15, Opcode.IGET_BOOLEAN()),
     )
 }
 

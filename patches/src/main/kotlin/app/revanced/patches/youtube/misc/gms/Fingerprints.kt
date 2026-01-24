@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.misc.gms
 
-import app.revanced.patcher.InstructionLocation.*
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
@@ -21,7 +20,7 @@ internal val BytecodePatchContext.specificNetworkErrorViewControllerMethod by ge
         ResourceType.DRAWABLE("ic_offline_no_content_upside_down"),
         ResourceType.STRING("offline_no_content_body_text_not_offline_eligible"),
         methodCall(name = "getString", returnType = "Ljava/lang/String;"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, location = MatchAfterImmediately()),
+        after(Opcode.MOVE_RESULT_OBJECT()),
     )
 }
 
@@ -35,6 +34,6 @@ internal val BytecodePatchContext.loadingFrameLayoutControllerMethod by gettingF
         ResourceType.DRAWABLE("ic_offline_no_content_upside_down"),
         ResourceType.STRING("offline_no_content_body_text_not_offline_eligible"),
         methodCall(name = "getString", returnType = "Ljava/lang/String;"),
-        opcode(Opcode.MOVE_RESULT_OBJECT, MatchAfterImmediately()),
+        after(Opcode.MOVE_RESULT_OBJECT()),
     )
 }

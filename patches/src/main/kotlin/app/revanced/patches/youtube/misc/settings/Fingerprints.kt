@@ -1,7 +1,8 @@
 package app.revanced.patches.youtube.misc.settings
 
-import app.revanced.patcher.InstructionLocation.MatchAfterWithin
 import app.revanced.patcher.accessFlags
+import app.revanced.patcher.after
+import app.revanced.patcher.afterAtMost
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
@@ -36,7 +37,8 @@ internal val BytecodePatchContext.cairoFragmentConfigMethod by gettingFirstMetho
     returnType("Z")
     instructions(
         45532100L(),
-        opcode(Opcode.MOVE_RESULT, location = MatchAfterWithin(10)),
+
+        afterAtMost(10, Opcode.MOVE_RESULT()),
     )
 }
 
