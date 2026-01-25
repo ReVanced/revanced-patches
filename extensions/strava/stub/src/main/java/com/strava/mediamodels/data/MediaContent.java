@@ -1,4 +1,4 @@
-package com.strava.core.data;
+package com.strava.mediamodels.data;
 
 import java.io.Serializable;
 
