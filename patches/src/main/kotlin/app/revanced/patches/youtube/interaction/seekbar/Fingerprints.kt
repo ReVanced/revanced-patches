@@ -1,36 +1,15 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.after
-import app.revanced.patcher.afterAtMost
-import app.revanced.patcher.allOf
-import app.revanced.patcher.custom
-import app.revanced.patcher.field
-import app.revanced.patcher.firstMethodComposite
-import app.revanced.patcher.firstMutableMethodDeclaratively
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.method
-import app.revanced.patcher.name
-import app.revanced.patcher.opcodes
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.stringReference
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
-import app.revanced.patcher.type
-import app.revanced.patches.youtube.misc.playservice.is_19_34_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_19_47_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_31_or_greater
-import app.revanced.util.getReference
+import app.revanced.patches.youtube.misc.playservice.*
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
-import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
 internal val BytecodePatchContext.swipingUpGestureParentMethod by gettingFirstMethodDeclaratively {
     returnType("Z")
@@ -70,6 +49,7 @@ internal val BytecodePatchContext.disableFastForwardLegacyMethod by gettingFirst
 }
 
 internal val BytecodePatchContext.disableFastForwardGestureMethod by gettingFirstMethodDeclaratively {
+    definingClass { endsWith("/NextGenWatchLayout;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
@@ -78,26 +58,22 @@ internal val BytecodePatchContext.disableFastForwardGestureMethod by gettingFirs
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
     )
-    custom { methodDef, classDef ->
-        methodDef.implementation!!.instructions.count() > 30 &&
-            classDef.type.endsWith("/NextGenWatchLayout;")
-    }
+    custom { instructions.count() > 30 }
 }
 
-internal val BytecodePatchContext.customTapAndHoldMethod by gettingFirstMethodDeclaratively {
+internal val customTapAndHoldMethodMatch = firstMethodComposite {
+    name("run")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()
-    instructions(
-        2.0f(),
-    )
-    custom { method, _ ->
+    instructions(2.0f.toRawBits().toLong()())
+    custom {
         // Code is found in different methods with different strings.
         val findSearchLandingKey = (is_19_34_or_greater && !is_19_47_or_greater) ||
             (is_20_19_or_greater && !is_20_20_or_greater) || is_20_31_or_greater
 
-        method.name == "run" && method.indexOfFirstInstruction {
-            val string = getReference<StringReference>()?.string
+        indexOfFirstInstruction {
+            val string = stringReference?.string
             string == "Failed to easy seek haptics vibrate." ||
                 (findSearchLandingKey && string == "search_landing_cache_key")
         } >= 0
@@ -105,6 +81,7 @@ internal val BytecodePatchContext.customTapAndHoldMethod by gettingFirstMethodDe
 }
 
 internal val BytecodePatchContext.onTouchEventHandlerMethod by gettingFirstMethodDeclaratively {
+    name("onTouchEvent")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.PUBLIC)
     returnType("Z")
     parameterTypes("L")
@@ -124,7 +101,6 @@ internal val BytecodePatchContext.onTouchEventHandlerMethod by gettingFirstMetho
         Opcode.INVOKE_VIRTUAL,
         Opcode.INVOKE_VIRTUAL, // oMethodReference
     )
-    custom { method, _ -> method.name == "onTouchEvent" }
 }
 
 internal val BytecodePatchContext.seekbarTappingMethod by gettingFirstMethodDeclaratively {
@@ -134,12 +110,9 @@ internal val BytecodePatchContext.seekbarTappingMethod by gettingFirstMethodDecl
     parameterTypes("Landroid/view/MotionEvent;")
     instructions(
         Int.MAX_VALUE.toLong()(),
-        allOf(Opcode.NEW_INSTANCE, type("Landroid/graphics/Point;")),
+        allOf(Opcode.NEW_INSTANCE(), type("Landroid/graphics/Point;")),
         after(method { toString() == "Landroid/graphics/Point;-><init>(II)V" }),
-        methodCall(
-            smali = "Lj\$/util/Optional;->of(Ljava/lang/Object;)Lj\$/util/Optional;",
-            after(),
-        ),
+        after(method { toString() == "Landroid/view/MotionEvent;->getX()F" }),
         after(Opcode.MOVE_RESULT_OBJECT()),
         after(allOf(Opcode.IPUT_OBJECT(), field { type == "Lj\$/util/Optional;" })),
         afterAtMost(10, Opcode.INVOKE_VIRTUAL()),

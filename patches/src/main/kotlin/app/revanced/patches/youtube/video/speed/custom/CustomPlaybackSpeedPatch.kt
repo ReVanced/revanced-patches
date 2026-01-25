@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.video.speed.custom
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
@@ -14,7 +15,7 @@ import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.shared.misc.settings.preference.InputType
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.shared.misc.settings.preference.TextPreference
-import app.revanced.patches.youtube.interaction.seekbar.customTapAndHoldMethod
+import app.revanced.patches.youtube.interaction.seekbar.customTapAndHoldMethodMatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
@@ -139,9 +140,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         // Get the "showOldPlaybackSpeedMenu" method.
         // This is later called on the field INSTANCE.
-        val showOldPlaybackSpeedMenuMethod = showOldPlaybackSpeedMenuMethod.match(
-            getOldPlaybackSpeedsMethod.classDef,
-        ).method
+        val showOldPlaybackSpeedMenuMethod = getOldPlaybackSpeedsMethod.classDef.getShowOldPlaybackSpeedMenuMethod()
 
         // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
         showOldPlaybackSpeedMenuExtensionMethod.apply {
@@ -170,7 +169,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // region Custom tap and hold 2x speed.
 
         if (is_19_47_or_greater) {
-            customTapAndHoldMethod.let {
+            customTapAndHoldMethodMatch.let {
                 it.method.apply {
                     val index = it.instructionMatches.first().index
                     val register = getInstruction<OneRegisterInstruction>(index).registerA

@@ -5,6 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
 internal val BytecodePatchContext.getOldPlaybackSpeedsMethod by gettingFirstMutableMethodDeclaratively(
     "menu_item_playback_speed",
@@ -12,13 +13,14 @@ internal val BytecodePatchContext.getOldPlaybackSpeedsMethod by gettingFirstMuta
     parameterTypes("[L", "I")
 }
 
-internal val BytecodePatchContext.showOldPlaybackSpeedMenuMethod by gettingFirstMethodDeclaratively {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getShowOldPlaybackSpeedMenuMethod() = firstMutableMethodDeclaratively {
     instructions(
         ResourceType.STRING("varispeed_unavailable_message"),
     )
 }
 
-internal val BytecodePatchContext.showOldPlaybackSpeedMenuExtensionMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.showOldPlaybackSpeedMenuExtensionMethod by gettingFirstMutableMethodDeclaratively {
     name("showOldPlaybackSpeedMenu")
 }
 

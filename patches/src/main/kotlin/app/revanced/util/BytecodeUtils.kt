@@ -1,6 +1,7 @@
 package app.revanced.util
 
-import app.revanced.patcher.FingerprintBuilder
+import app.revanced.patcher.MutablePredicateList
+import app.revanced.patcher.custom
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.firstMutableClassDef
 import app.revanced.patcher.firstMutableClassDefOrNull
@@ -1254,11 +1255,9 @@ internal fun BytecodePatchContext.addStaticFieldToExtension(
  *
  * @param literalSupplier The supplier for the literal value to check for.
  */
-@Deprecated("Instead use instruction filters and `literal()`")
-fun FingerprintBuilder.literal(literalSupplier: () -> Long) {
-    custom { method, _ ->
-        method.containsLiteralInstruction(literalSupplier())
-    }
+@Deprecated("Instead use `literal()`")
+fun MutablePredicateList<Method>.literal(literalSupplier: () -> Long) {
+    custom { containsLiteralInstruction(literalSupplier()) }
 }
 
 private class InstructionUtils {

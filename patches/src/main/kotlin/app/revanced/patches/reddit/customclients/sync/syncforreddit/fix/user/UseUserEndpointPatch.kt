@@ -3,11 +3,12 @@ package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.user
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.extensions.stringReference
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Suppress("unused", "ObjectPropertyName")
-val `Use /user/ endpoint` by creatingBytecodePatch(
+@Suppress("unused")
+val useUserEndpointPatch = bytecodePatch(
+    name = "Use /user/ endpoint",
     description = "Replaces the deprecated endpoint for viewing user profiles /u with /user, that used to fix a bug.",
     use = false,
 
