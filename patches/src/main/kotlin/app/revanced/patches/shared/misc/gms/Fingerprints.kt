@@ -1,13 +1,10 @@
 package app.revanced.patches.shared.misc.gms
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val BytecodePatchContext.googlePlayUtilityMethod by gettingFirstMethodDeclaratively(
+internal val BytecodePatchContext.googlePlayUtilityMethod by gettingFirstMutableMethodDeclarativelyOrNull(
     "This should never happen.",
     "MetadataValueReader",
     "com.google.android.gms",
@@ -17,7 +14,7 @@ internal val BytecodePatchContext.googlePlayUtilityMethod by gettingFirstMethodD
     parameterTypes("L", "I")
 }
 
-internal val BytecodePatchContext.serviceCheckMethod by gettingFirstMethodDeclaratively(
+internal val BytecodePatchContext.serviceCheckMethod by gettingFirstMutableMethodDeclaratively(
     "Google Play Services not available",
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
@@ -25,20 +22,18 @@ internal val BytecodePatchContext.serviceCheckMethod by gettingFirstMethodDeclar
     parameterTypes("L", "I")
 }
 
-internal val BytecodePatchContext.gmsCoreSupportMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.gmsCoreSupportMethod by gettingFirstMutableMethodDeclaratively {
+    name("getGmsCoreVendorGroupId")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     parameterTypes()
-    custom { method, classDef ->
-        method.name == "getGmsCoreVendorGroupId" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
 }
 
-internal val BytecodePatchContext.originalPackageNameExtensionMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.originalPackageNameExtensionMethod by gettingFirstMutableMethodDeclaratively {
+    name("getOriginalPackageName")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     parameterTypes()
-    custom { methodDef, classDef ->
-        methodDef.name == "getOriginalPackageName" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
 }

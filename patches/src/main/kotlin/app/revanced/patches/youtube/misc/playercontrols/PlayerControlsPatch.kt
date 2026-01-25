@@ -2,26 +2,15 @@ package app.revanced.patches.youtube.misc.playercontrols
 
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.util.Document
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.playservice.is_19_25_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_19_35_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_19_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_20_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_28_or_greater
-import app.revanced.patches.youtube.misc.playservice.is_20_30_or_greater
-import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
-import app.revanced.util.copyXmlNode
-import app.revanced.util.findElementByAttributeValue
-import app.revanced.util.findElementByAttributeValueOrThrow
-import app.revanced.util.indexOfFirstInstructionOrThrow
-import app.revanced.util.inputStreamFromBundledResource
-import app.revanced.util.returnEarly
-import app.revanced.util.returnLate
+import app.revanced.patches.youtube.misc.playservice.*
+import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.mutable.MutableMethod
@@ -244,51 +233,44 @@ val playerControlsPatch = bytecodePatch(
     )
 
     apply {
-        playerBottomControlsInflateMethod.let {
-            it.method.apply {
-                inflateBottomControlMethod = this
+        playerBottomControlsInflateMethodMatch.method.apply {
+            inflateBottomControlMethod = this
 
-                val inflateReturnObjectIndex = it.indices.last()
-                inflateBottomControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
-                inflateBottomControlInsertIndex = inflateReturnObjectIndex + 1
-            }
+            val inflateReturnObjectIndex = playerBottomControlsInflateMethodMatch.indices.last()
+            inflateBottomControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
+            inflateBottomControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
-        playerTopControlsInflateMethod.let {
-            it.method.apply {
-                inflateTopControlMethod = this
+        playerTopControlsInflateMethod.method.apply {
+            inflateTopControlMethod = this
 
-                val inflateReturnObjectIndex = it.indices.last()
-                inflateTopControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
-                inflateTopControlInsertIndex = inflateReturnObjectIndex + 1
-            }
+            val inflateReturnObjectIndex = playerTopControlsInflateMethod.indices.last()
+            inflateTopControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
+            inflateTopControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
-        visibilityMethod = controlsOverlayVisibilityMethod.match(
-            playerTopControlsInflateMethod.originalClassDef,
-        ).method
+        visibilityMethod =
+            playerTopControlsInflateMethod.immutableClassDef.getControlsOverlayVisibilityMethod()
 
         // Hook the fullscreen close button.  Used to fix visibility
         // when seeking and other situations.
-        overlayViewInflateMethod.let {
-            it.method.apply {
-                val index = it.indices.last()
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+        overlayViewInflateMethodMatch.method.apply {
+            val index = overlayViewInflateMethodMatch.indices.last()
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                addInstruction(
-                    index + 1,
-                    "invoke-static { v$register }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->setFullscreenCloseButton(Landroid/widget/ImageView;)V",
-                )
-            }
+            addInstruction(
+                index + 1,
+                "invoke-static { v$register }, " +
+                    "$EXTENSION_CLASS_DESCRIPTOR->setFullscreenCloseButton(Landroid/widget/ImageView;)V",
+            )
         }
 
         visibilityImmediateCallbacksExistMethod = playerControlsExtensionHookListenersExistMethod
         visibilityImmediateMethod = playerControlsExtensionHookMethod
 
-        motionEventMethod.match(youtubeControlsOverlayMethod.originalClassDef).let {
+        motionEventMethodMatch.match(youtubeControlsOverlayMethod.immutableClassDef).let {
             visibilityNegatedImmediateMethod = it.method
-            visibilityNegatedImmediateInsertIndex = it.instructionMatches.first().index + 1
+            visibilityNegatedImmediateInsertIndex = it.indices.first() + 1
         }
 
         // A/B test for a slightly different bottom overlay controls,

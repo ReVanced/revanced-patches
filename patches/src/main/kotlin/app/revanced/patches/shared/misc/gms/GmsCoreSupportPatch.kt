@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.patch.*
-import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patches.all.misc.packagename.`Change package name`
 import app.revanced.patches.all.misc.packagename.setOrGetFallbackPackageName
 import app.revanced.patches.all.misc.resources.addResources
@@ -36,7 +35,7 @@ private const val PACKAGE_NAME_REGEX_PATTERN = "^[a-z]\\w*(\\.[a-z]\\w*)+\$"
  * @param fromPackageName The package name of the original app.
  * @param toPackageName The package name to fall back to if no custom package name is specified in patch options.
  * @param getPrimeMethod The "prime" method that needs to be patched.
- * @param getEarlyReturnMethods The methods that need to be returned early.
+ * @param earlyReturnMethods The methods that need to be returned early.
  * @param getMainActivityOnCreateMethod The main activity onCreate method.
  * @param extensionPatch The patch responsible for the extension.
  * @param gmsCoreSupportResourcePatchFactory The factory for the corresponding resource patch
@@ -48,7 +47,7 @@ fun gmsCoreSupportPatch(
     fromPackageName: String,
     toPackageName: String,
     getPrimeMethod: (BytecodePatchContext.() -> MutableMethod)? = null,
-    getEarlyReturnMethods: Set<BytecodePatchContext.() -> MutableMethod> = emptySet(),
+    earlyReturnMethods: Set<BytecodePatchContext.() -> MutableMethod> = emptySet(),
     getMainActivityOnCreateMethod: BytecodePatchContext.() -> MutableMethod,
     extensionPatch: Patch,
     gmsCoreSupportResourcePatchFactory: (gmsCoreVendorGroupIdOption: Option<String>) -> Patch,
@@ -203,13 +202,11 @@ fun gmsCoreSupportPatch(
         getPrimeMethod?.let { transformPrimeMethod(packageName) }
 
         // Return these methods early to prevent the app from crashing.
-        getEarlyReturnMethods().forEach { it.returnEarly() }
+        earlyReturnMethods.forEach { it().returnEarly() }
         serviceCheckMethod.returnEarly()
 
         // Google Play Utility is not present in all apps, so we need to check if it's present.
-        if (googlePlayUtilityMethodOrNull != null) {
-            googlePlayUtilityMethod.returnEarly(0)
-        }
+        googlePlayUtilityMethod?.returnEarly(0)
 
         // Set original and patched package names for extension to use.
         originalPackageNameExtensionMethod.returnEarly(fromPackageName)

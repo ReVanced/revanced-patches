@@ -1,9 +1,10 @@
 package app.revanced.patches.youtube.video.quality
 
 import app.revanced.patcher.accessFlags
-import app.revanced.patcher.addString
+import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.firstMutableMethodDeclaratively
 import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.instructions
+import app.revanced.patcher.name
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -12,17 +13,15 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.videoQualityItemOnClickParentMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.videoQualityItemOnClickParentMethod by gettingFirstMethodDeclaratively(
+    "VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT",
+) {
     returnType("V")
-    instructions(
-        "VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT"(),
-    )
 }
 
-/**
- * Resolves to class found in [videoQualityItemOnClickMethod].
- */
-internal val BytecodePatchContext.videoQualityItemOnClickMethod by gettingFirstMethodDeclaratively {
+context(_: BytecodePatchContext)
+internal fun com.android.tools.smali.dexlib2.iface.ClassDef.getVideoQualityItemOnClickMethod() = firstMutableMethodDeclaratively {
+    name("onItemClick")
     returnType("V")
     parameterTypes(
         "Landroid/widget/AdapterView;",
@@ -30,12 +29,9 @@ internal val BytecodePatchContext.videoQualityItemOnClickMethod by gettingFirstM
         "I",
         "J",
     )
-    custom { method, _ ->
-        method.name == "onItemClick"
-    }
 }
 
-internal val BytecodePatchContext.videoQualityMenuOptionsMethod by gettingFirstMethodDeclaratively {
+internal val videoQualityMenuOptionsMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.STATIC)
     returnType("[L")
     parameterTypes("Landroid/content/Context", "L", "L")
@@ -49,7 +45,7 @@ internal val BytecodePatchContext.videoQualityMenuOptionsMethod by gettingFirstM
     literal { videoQualityQuickMenuAdvancedMenuDescription }
 }
 
-internal val BytecodePatchContext.videoQualityMenuViewInflateMethod by gettingFirstMethodDeclaratively {
+internal val videoQualityMenuViewInflateMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes("L", "L", "L")

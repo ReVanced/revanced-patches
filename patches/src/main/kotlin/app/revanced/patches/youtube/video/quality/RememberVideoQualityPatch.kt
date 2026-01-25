@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.video.quality
 
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -64,9 +65,7 @@ val rememberVideoQualityPatch = bytecodePatch {
         onCreateHook(EXTENSION_CLASS_DESCRIPTOR, "newVideoStarted")
 
         // Inject a call to remember the selected quality for Shorts.
-        videoQualityItemOnClickMethod.match(
-            videoQualityItemOnClickParentMethod.classDef,
-        ).method.addInstruction(
+        videoQualityItemOnClickParentMethod.immutableClassDef.getVideoQualityItemOnClickMethod().addInstruction(
             0,
             "invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->userChangedShortsQuality(I)V",
         )

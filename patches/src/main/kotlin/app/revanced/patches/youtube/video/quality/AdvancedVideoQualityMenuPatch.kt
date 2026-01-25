@@ -47,20 +47,15 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
         )
 
         // Used for the old type of the video quality menu.
-        videoQualityBottomSheetListFragmentname = getResourceId(
-            ResourceType.LAYOUT,
-            "video_quality_bottom_sheet_list_fragment_title",
-        )
-
-        videoQualityQuickMenuAdvancedMenuDescription = getResourceId(
-            ResourceType.STRING,
-            "video_quality_quick_menu_advanced_menu_description",
-        )
+        videoQualityBottomSheetListFragmentname =
+            ResourceType.LAYOUT["video_quality_bottom_sheet_list_fragment_title"]
+        videoQualityQuickMenuAdvancedMenuDescription =
+            ResourceType.STRING["video_quality_quick_menu_advanced_menu_description"]
 
         // region Patch for the old type of the video quality menu.
         // Used for regular videos when spoofing to old app version,
         // and for the Shorts quality flyout on newer app versions.
-        videoQualityMenuViewInflateMethod.let {
+        videoQualityMenuViewInflateMethodMatch.let {
             it.method.apply {
                 val checkCastIndex = it.indices.last()
                 val listViewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
@@ -74,10 +69,10 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
         }
 
         // Force YT to add the 'advanced' quality menu for Shorts.
-        videoQualityMenuOptionsMethod.let {
-            val patternMatch = it.instructionMatches
-            val startIndex = patternMatch.first().index
-            val insertIndex = patternMatch.last().index
+        videoQualityMenuOptionsMethodMatch.let {
+            val startIndex = it.indices.first()
+            val insertIndex = it.indices.last()
+
             if (startIndex != 0) throw PatchException("Unexpected opcode start index: $startIndex")
 
             it.method.apply {

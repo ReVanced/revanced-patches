@@ -22,7 +22,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     fromPackageName = YOUTUBE_PACKAGE_NAME,
     toPackageName = REVANCED_YOUTUBE_PACKAGE_NAME,
     getPrimeMethod = BytecodePatchContext::primeMethod::get,
-    getEarlyReturnMethods = setOf(BytecodePatchContext::castContextFetchMethod::get),
+    earlyReturnMethods = setOf(BytecodePatchContext::castContextFetchMethod::get),
     getMainActivityOnCreateMethod = BytecodePatchContext::mainActivityOnCreateMethod::get,
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
@@ -38,7 +38,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 }
 
@@ -59,14 +59,14 @@ private fun gmsCoreSupportResourcePatch(
                 "microg_settings",
                 intent = IntentPreference.Intent("", "org.microg.gms.ui.SettingsActivity") {
                     "$gmsCoreVendorGroupId.android.gms"
-                }
-            )
+                },
+            ),
         )
-    }
+    },
 ) {
     dependsOn(
         addResourcesPatch,
         settingsPatch,
-        accountCredentialsInvalidTextPatch
+        accountCredentialsInvalidTextPatch,
     )
 }

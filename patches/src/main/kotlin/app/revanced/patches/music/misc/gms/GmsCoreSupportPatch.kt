@@ -1,5 +1,6 @@
 package app.revanced.patches.music.misc.gms
 
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.Option
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -19,7 +20,7 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     fromPackageName = MUSIC_PACKAGE_NAME,
     toPackageName = REVANCED_MUSIC_PACKAGE_NAME,
     getPrimeMethod = { primeMethod },
-    getEarlyReturnMethods = { setOf(castContextFetchMethod) },
+    earlyReturnMethods = setOf(BytecodePatchContext::castContextFetchMethod::get),
     getMainActivityOnCreateMethod = { musicActivityOnCreateMethod },
     extensionPatch = sharedExtensionPatch,
     gmsCoreSupportResourcePatchFactory = ::gmsCoreSupportResourcePatch,
@@ -28,8 +29,8 @@ val gmsCoreSupportPatch = gmsCoreSupportPatch(
     compatibleWith(
         MUSIC_PACKAGE_NAME(
             "7.29.52",
-            "8.10.52"
-        )
+            "8.10.52",
+        ),
     )
 }
 
@@ -50,17 +51,17 @@ private fun gmsCoreSupportResourcePatch(
                 "microg_settings",
                 intent = IntentPreference.Intent("", "org.microg.gms.ui.SettingsActivity") {
                     "$gmsCoreVendorGroupId.android.gms"
-                }
-            )
+                },
+            ),
         )
-    }
+    },
 ) {
     dependsOn(
         addResourcesPatch,
         settingsPatch,
         fileProviderPatch(
             MUSIC_PACKAGE_NAME,
-            REVANCED_MUSIC_PACKAGE_NAME
-        )
+            REVANCED_MUSIC_PACKAGE_NAME,
+        ),
     )
 }

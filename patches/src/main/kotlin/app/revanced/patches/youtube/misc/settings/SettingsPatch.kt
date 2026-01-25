@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.settings
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -239,8 +240,8 @@ val settingsPatch = bytecodePatch(
         }
 
         // Add setting to force Cairo settings fragment on/off.
-        cairoFragmentConfigMethod.insertLiteralOverride(
-            cairoFragmentConfigMethod.instructionMatches.first().index,
+        cairoFragmentConfigMethodMatch.method.insertLiteralOverride(
+            cairoFragmentConfigMethodMatch.indices.first(),
             "$YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z",
         )
 
@@ -249,7 +250,7 @@ val settingsPatch = bytecodePatch(
         if (is_20_31_or_greater) {
             boldIconsFeatureFlagMethod.let {
                 it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
+                    it.indices.first(),
                     "$YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useBoldIcons(Z)Z",
                 )
             }

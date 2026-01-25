@@ -334,7 +334,7 @@ internal fun baseCustomBrandingPatch(
                 )
 
                 // Bundled icons.
-                iconStyleNames.forEachIndexed { index, style ->
+                iconStyleNames.forEach { style ->
                     application.appendChild(
                         createAlias(
                             aliasName = aliasName(style),

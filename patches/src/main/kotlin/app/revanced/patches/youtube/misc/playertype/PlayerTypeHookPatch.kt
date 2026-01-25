@@ -1,9 +1,9 @@
 package app.revanced.patches.youtube.misc.playertype
 
+import app.revanced.patcher.*
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -20,54 +20,44 @@ val playerTypeHookPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch, resourceMappingPatch)
 
     apply {
-        val playerOverlaysSetPlayerTypeFingerprint = fingerprint {
+        firstMutableMethodDeclaratively {
+            definingClass { endsWith("/YouTubePlayerOverlaysLayout;") }
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             returnType("V")
-            parameterTypes(playerTypeEnumMethod.originalClassDef.type)
-            custom { _, classDef ->
-                classDef.endsWith("/YouTubePlayerOverlaysLayout;")
-            }
-        }
-
-        playerOverlaysSetPlayerTypeFingerprint.method.addInstruction(
+            parameterTypes(playerTypeEnumMethod.immutableClassDef.type)
+        }.addInstruction(
             0,
             "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->setPlayerType(Ljava/lang/Enum;)V",
         )
 
-        reelWatchPagerMethod.let {
-            it.method.apply {
-                val index = it.indices.last()
-                val register = getInstruction<OneRegisterInstruction>(index).registerA
+        reelWatchPagerMethodMatch.method.apply {
+            val index = reelWatchPagerMethodMatch.indices.last()
+            val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                addInstruction(
-                    index + 1,
-                    "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->onShortsCreate(Landroid/view/View;)V",
-                )
-            }
+            addInstruction(
+                index + 1,
+                "invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->onShortsCreate(Landroid/view/View;)V",
+            )
         }
 
-        val controlStateType = controlsStateToStringMethod.originalClassDef.type
+        val controlStateType = controlsStateToStringMethod.immutableClassDef.type
 
-        val videoStateFingerprint = fingerprint {
+        val videoStateEnumMethod = videoStateEnumMethod
+        firstMethodComposite {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             returnType("V")
             parameterTypes(controlStateType)
             instructions(
+                field {
+                    definingClass == controlStateType && type == videoStateEnumMethod.immutableClassDef.type
+                },
                 // Obfuscated parameter field name.
-                fieldAccess(
-                    definingClass = controlStateType,
-                    type = videoStateEnumMethod.originalClassDef.type,
-                ),
                 ResourceType.STRING("accessibility_play"),
                 ResourceType.STRING("accessibility_pause"),
             )
-        }
-
-        videoStateFingerprint.let {
+        }.let {
             it.method.apply {
-                val videoStateFieldName = getInstruction<ReferenceInstruction>(
-                    it.instructionMatches.first().index,
-                ).reference
+                val videoStateFieldName = getInstruction<ReferenceInstruction>(it.indices.first()).reference
 
                 addInstructions(
                     0,
