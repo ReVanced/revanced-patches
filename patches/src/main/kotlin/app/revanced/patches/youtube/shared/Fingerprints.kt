@@ -3,11 +3,15 @@ package app.revanced.patches.youtube.shared
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.after
 import app.revanced.patcher.allOf
+import app.revanced.patcher.custom
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.field
 import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.immutableClassDef
+import app.revanced.patcher.instruction
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.method
@@ -23,19 +27,16 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal const val YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE = "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
 
-internal val conversionContextFingerprintToString = fingerprint {
+internal val BytecodePatchContext.conversionContextToStringMethod by gettingFirstMethodDeclaratively(
+    ", widthConstraint=",
+    ", heightConstraint=",
+    ", templateLoggerFactory=",
+    ", rootDisposableContainer=",
+    ", identifierProperty=",
+) {
+    name("toString")
     parameterTypes()
-    strings(
-        "ConversionContext{", // Partial string match.
-        ", widthConstraint=",
-        ", heightConstraint=",
-        ", templateLoggerFactory=",
-        ", rootDisposableContainer=",
-        ", identifierProperty=",
-    )
-    custom { method, _ ->
-        method.name == "toString"
-    }
+    instructions("ConversionContext{"(String::startsWith)) // Partial string match.
 }
 
 internal fun getLayoutConstructorMethodMatch() = firstMethodComposite {
@@ -57,20 +58,17 @@ internal fun getLayoutConstructorMethodMatch() = firstMethodComposite {
 }
 
 internal val BytecodePatchContext.mainActivityConstructorMethod by gettingFirstMethodDeclaratively {
+    definingClass(YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes()
-    custom { _, classDef ->
-        classDef.type == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
-    }
 }
 
-internal val BytecodePatchContext.mainActivityOnBackPressedMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.mainActivityOnBackPressedMethod by gettingFirstMutableMethodDeclaratively {
+    name("onBackPressed")
+    definingClass(YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()
-    custom { method, classDef ->
-        method.name == "onBackPressed" && classDef.type == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
-    }
 }
 
 internal val BytecodePatchContext.mainActivityOnCreateMethod by gettingFirstMutableMethodDeclaratively {
@@ -99,9 +97,9 @@ internal val BytecodePatchContext.rollingNumberTextViewAnimationUpdateMethod by 
         Opcode.INT_TO_FLOAT,
         Opcode.INVOKE_VIRTUAL, // set textview padding using bitmap width
     )
-    custom { _, classDef ->
-        classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;" ||
-            classDef.superclass ==
+    custom {
+        immutableClassDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;" ||
+            immutableClassDef.superclass ==
             "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
     }
 }

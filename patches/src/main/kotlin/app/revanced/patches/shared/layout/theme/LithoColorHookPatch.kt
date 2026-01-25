@@ -11,10 +11,10 @@ val lithoColorHookPatch = bytecodePatch(
 ) {
 
     apply {
-        var insertionIndex = lithoOnBoundsChangeMethod.patternMatch.endIndex - 1
+        var insertionIndex = lithoOnBoundsChangeMethodMatch.indices.last() - 1
 
         lithoColorOverrideHook = { targetMethodClass, targetMethodName ->
-            lithoOnBoundsChangeMethod.addInstructions(
+            lithoOnBoundsChangeMethodMatch.method.addInstructions(
                 insertionIndex,
                 """
                     invoke-static { p1 }, $targetMethodClass->$targetMethodName(I)I

@@ -16,27 +16,25 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
 ) {
 
     apply {
-        recyclerViewTopScrollingMethod.let {
-            it.method.addInstructionsAtControlFlowLabel(
-                it.indices.last() + 1,
+        with(recyclerViewTopScrollingMethodMatch) {
+            method.addInstructionsAtControlFlowLabel(
+                indices.last() + 1,
                 "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->onTopView()V",
             )
         }
 
-        scrollPositionMethod.let {
-            navigate(it.originalMethod)
-                .to(it.patternMatch.startIndex + 1)
-                .stop().apply {
-                    val index = indexOfFirstInstructionOrThrow {
-                        opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.definingClass ==
-                            "Landroid/support/v7/widget/RecyclerView;"
-                    }
-
-                    addInstruction(
-                        index,
-                        "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->onScrollingViews()V",
-                    )
+        with(scrollPositionMethodMatch) {
+            navigate(immutableMethod).to(indices.first() + 1).stop().apply {
+                val index = indexOfFirstInstructionOrThrow {
+                    opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.definingClass ==
+                        "Landroid/support/v7/widget/RecyclerView;"
                 }
+
+                addInstruction(
+                    index,
+                    "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->onScrollingViews()V",
+                )
+            }
         }
 
         mainActivityOnBackPressedMethod.apply {

@@ -6,7 +6,7 @@ import app.revanced.util.getNode
 import org.w3c.dom.Element
 
 @Suppress("unused", "ObjectPropertyName")
-val `Change version code` = creatingResourcePatch(
+val `Change version code` by creatingResourcePatch(
     description = "Changes the version code of the app. This will turn off app store updates " +
         "and allows downgrading an existing app install to an older app version.",
     use = false,

@@ -27,7 +27,7 @@ val `Use /user/ endpoint` by creatingBytecodePatch(
             oAuthUserIdRequestMethodMatch,
             oAuthUserInfoRequestMethodMatch,
         ).map { match ->
-            match.stringIndices.values.first() to match.method
+            match.indices.first() to match.method
         }.forEach { (userPathStringIndex, method) ->
             val userPathStringInstruction = method.getInstruction<OneRegisterInstruction>(userPathStringIndex)
 

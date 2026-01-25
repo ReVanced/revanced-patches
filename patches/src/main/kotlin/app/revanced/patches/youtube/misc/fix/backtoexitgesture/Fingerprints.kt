@@ -3,20 +3,18 @@ package app.revanced.patches.youtube.misc.fix.backtoexitgesture
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.after
 import app.revanced.patcher.checkCast
-import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
 import app.revanced.patcher.methodCall
-import app.revanced.patcher.opcode
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
-import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.scrollPositionMethod by gettingFirstMethodDeclaratively {
+internal val scrollPositionMethodMatch = firstMethodComposite("scroll_position") {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")
@@ -25,10 +23,9 @@ internal val BytecodePatchContext.scrollPositionMethod by gettingFirstMethodDecl
         Opcode.INVOKE_DIRECT,
         Opcode.RETURN_VOID,
     )
-    strings("scroll_position")
 }
 
-internal val BytecodePatchContext.recyclerViewTopScrollingMethod by gettingFirstMethodDeclaratively {
+internal val recyclerViewTopScrollingMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()

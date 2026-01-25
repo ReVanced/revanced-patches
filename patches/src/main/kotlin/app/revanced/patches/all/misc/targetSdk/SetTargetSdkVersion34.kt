@@ -6,7 +6,7 @@ import org.w3c.dom.Element
 import java.util.logging.Logger
 
 @Suppress("unused", "ObjectPropertyName")
-val `Set target SDK version 34` = creatingResourcePatch(
+val `Set target SDK version 34` by creatingResourcePatch(
     description = "Changes the target SDK to version 34 (Android 14). " +
         "For devices running Android 15+, this will disable edge-to-edge display.",
     use = false,

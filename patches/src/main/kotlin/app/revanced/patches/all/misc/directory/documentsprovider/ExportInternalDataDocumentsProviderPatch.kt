@@ -6,7 +6,7 @@ import app.revanced.util.asSequence
 import app.revanced.util.getNode
 
 @Suppress("unused", "ObjectPropertyName")
-val `Export internal data documents provider` = creatingResourcePatch(
+val `Export internal data documents provider` by creatingResourcePatch(
     description = "Exports a documents provider that grants access to the internal data directory of this app " +
         "to file managers and other apps that support the Storage Access Framework.",
     use = false,

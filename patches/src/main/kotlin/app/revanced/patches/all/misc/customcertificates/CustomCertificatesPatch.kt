@@ -10,7 +10,7 @@ import org.w3c.dom.Element
 import java.io.File
 
 @Suppress("unused", "ObjectPropertyName")
-val `Custom network security` = creatingResourcePatch(
+val `Custom network security` by creatingResourcePatch(
     description = "Allows trusting custom certificate authorities for a specific domain.",
     use = false,
 ) {

@@ -8,7 +8,7 @@ import java.io.FileNotFoundException
 import java.util.logging.Logger
 
 @Suppress("unused", "ObjectPropertyName")
-val `Remove share targets` = creatingResourcePatch(
+val `Remove share targets` by creatingResourcePatch(
     description = "Removes share targets like directly sharing to a frequent contact.",
     use = false,
 ) {

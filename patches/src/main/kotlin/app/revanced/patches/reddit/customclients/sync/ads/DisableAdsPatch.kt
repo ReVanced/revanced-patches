@@ -1,10 +1,12 @@
 package app.revanced.patches.reddit.customclients.sync.ads
 
 import app.revanced.patcher.patch.BytecodePatchBuilder
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
-fun `Disable ads`(block: BytecodePatchBuilder.() -> Unit = {}) = creatingBytecodePatch {
+fun disableAdsPatch(block: BytecodePatchBuilder.() -> Unit = {}) = bytecodePatch(
+    name = "Disable ads",
+) {
     apply {
         isAdsEnabledMethod.returnEarly(false)
     }

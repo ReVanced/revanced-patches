@@ -14,7 +14,7 @@ import java.security.cert.CertificateFactory
 import java.util.*
 
 @Suppress("unused", "ObjectPropertyName")
-val `Enable ROM signature spoofing` = creatingResourcePatch(
+val `Enable ROM signature spoofing` by creatingResourcePatch(
     description = "Spoofs the signature via the manifest meta-data \"fake-signature\". " +
         "This patch only works with ROMs that support signature spoofing.",
     use = false,

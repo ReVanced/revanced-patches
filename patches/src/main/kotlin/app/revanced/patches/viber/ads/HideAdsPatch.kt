@@ -1,12 +1,14 @@
 package app.revanced.patches.viber.ads
 
+import app.revanced.patcher.definingClass
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.typeReference
+import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.creatingBytecodePatch
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.patcher.returnType
 import app.revanced.util.returnEarly
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 
 @Suppress("unused", "ObjectPropertyName")
 val `Hide Ads` by creatingBytecodePatch(
@@ -15,26 +17,15 @@ val `Hide Ads` by creatingBytecodePatch(
     compatibleWith("com.viber.voip"("25.9.2.0", "26.1.2.0"))
 
     apply {
-        val method = findAdStringMethod
+        val referenceIndex = findAdStringMethodMatch.indices.first()
 
-        // Find the ads free string index
-        val stringIndex = findAdStringMethod.stringMatches.first().index
+        val targetClass =
+            findAdStringMethodMatch.immutableMethod.getInstruction<ReferenceInstruction>(referenceIndex).typeReference
 
-        // Search backwards from the string to find the `new-instance` (TypeReference) instruction
-        val typeRefIndex =
-            method.indexOfFirstInstructionReversedOrThrow(stringIndex) { this.opcode == Opcode.NEW_INSTANCE }
-
-        // Get the class name from the TypeReference
-        val targetClass = method.getInstruction<ReferenceInstruction>(typeRefIndex).reference as TypeReference
-
-        // Patch the ads-free method to always return true
-        val adFreeFingerprint = fingerprint {
+        val adFreeFingerprint = firstMutableMethodDeclaratively {
+            definingClass(targetClass!!.type)
             returnType("I")
             parameterTypes()
-            custom { method, classDef ->
-                classDef == targetClass
-            }
-        }
-        adFreeFingerprint.method.returnEarly(1)
+        }.returnEarly(1)
     }
 }

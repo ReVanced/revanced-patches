@@ -10,7 +10,7 @@ import app.revanced.patcher.firstClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.*
-import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
+import app.revanced.patches.youtube.shared.conversionContextToStringMethod
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -112,10 +112,10 @@ val lithoFilterPatch = bytecodePatch(
 
         // Find the identifier/path fields of the conversion context.
 
-        val conversionContextIdentifierField = conversionContextFingerprintToString.method
+        val conversionContextIdentifierField = conversionContextToStringMethod.method
             .findFieldFromToString("identifierProperty=")
 
-        val conversionContextPathBuilderField = conversionContextFingerprintToString.originalClassDef
+        val conversionContextPathBuilderField = conversionContextToStringMethod.originalClassDef
             .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
 
         // Find class and methods to create an empty component.
@@ -146,7 +146,7 @@ val lithoFilterPatch = bytecodePatch(
                     
                     # 20.41 field is the abstract superclass.
                     # Verify it's the expected subclass just in case. 
-                    instance-of v$identifierRegister, v$freeRegister, ${conversionContextFingerprintToString.classDef.type}
+                    instance-of v$identifierRegister, v$freeRegister, ${conversionContextToStringMethod.classDef.type}
                     if-eqz v$identifierRegister, :unfiltered
                     
                     iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField

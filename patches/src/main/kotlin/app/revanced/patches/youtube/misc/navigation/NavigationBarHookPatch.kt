@@ -1,9 +1,11 @@
 package app.revanced.patches.youtube.misc.navigation
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -75,7 +77,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             }
         }
 
-        initializeButtonsMethod.match(pivotBarConstructorMethod.originalClassDef).method.apply {
+        pivotBarConstructorMethod.immutableClassDef.getInitializeButtonsMethod().apply {
             // Hook the current navigation bar enum value. Note, the 'You' tab does not have an enum value.
             val navigationEnumClassName = navigationEnumMethod.classDef.type
             addHook(NavigationHook.SET_LAST_APP_NAVIGATION_ENUM) {
@@ -93,37 +95,33 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             }
 
             if (is_20_21_or_greater && !is_20_28_or_greater) {
-                val imageResourceIntTabMethod = pivotBarButtonsCreateResourceIntViewMethod.originalMethod
                 addHook(NavigationHook.NAVIGATION_TAB_LOADED) predicate@{
                     MethodUtil.methodSignaturesMatch(
                         getReference<MethodReference>() ?: return@predicate false,
-                        imageResourceIntTabMethod,
+                        pivotBarButtonsCreateResourceIntViewMethod,
                     )
                 }
             }
 
-            val imageResourceTabMethod = pivotBarButtonsCreateResourceStyledViewMethod.originalMethod
             addHook(NavigationHook.NAVIGATION_IMAGE_RESOURCE_TAB_LOADED) predicate@{
                 MethodUtil.methodSignaturesMatch(
                     getReference<MethodReference>() ?: return@predicate false,
-                    imageResourceTabMethod,
+                    pivotBarButtonsCreateResourceStyledViewMethod,
                 )
             }
         }
 
-        pivotBarButtonsViewSetSelectedMethod.let {
-            it.method.apply {
-                val index = it.instructionMatches.first().index
-                val instruction = getInstruction<FiveRegisterInstruction>(index)
-                val viewRegister = instruction.registerC
-                val isSelectedRegister = instruction.registerD
+        pivotBarButtonsViewSetSelectedMethodMatch.method.apply {
+            val index = pivotBarButtonsViewSetSelectedMethodMatch.indices.first()
+            val instruction = getInstruction<FiveRegisterInstruction>(index)
+            val viewRegister = instruction.registerC
+            val isSelectedRegister = instruction.registerD
 
-                addInstruction(
-                    index + 1,
-                    "invoke-static { v$viewRegister, v$isSelectedRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->navigationTabSelected(Landroid/view/View;Z)V",
-                )
-            }
+            addInstruction(
+                index + 1,
+                "invoke-static { v$viewRegister, v$isSelectedRegister }, " +
+                    "$EXTENSION_CLASS_DESCRIPTOR->navigationTabSelected(Landroid/view/View;Z)V",
+            )
         }
 
         // Hook onto back button pressed.  Needed to fix race problem with

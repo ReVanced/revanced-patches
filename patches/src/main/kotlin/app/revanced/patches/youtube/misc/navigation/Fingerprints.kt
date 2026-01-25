@@ -10,6 +10,7 @@ import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
 internal val BytecodePatchContext.actionBarSearchResultsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -43,7 +44,8 @@ internal val BytecodePatchContext.appCompatToolbarBackButtonMethod by gettingFir
 /**
  * Matches to the class found in [pivotBarConstructorMethod].
  */
-internal val BytecodePatchContext.initializeButtonsMethod by gettingFirstMethodDeclaratively {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getInitializeButtonsMethod() = firstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     instructions(
@@ -114,16 +116,12 @@ internal val BytecodePatchContext.pivotBarButtonsCreateResourceIntViewMethod by 
     }
 }
 
-internal val BytecodePatchContext.pivotBarButtonsViewSetSelectedMethod by gettingFirstMethodDeclaratively {
+internal val pivotBarButtonsViewSetSelectedMethodMatch = firstMethodComposite {
+    definingClass("Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("I", "Z")
-    instructions(
-        methodCall(name = "setSelected"),
-    )
-    custom { method, _ ->
-        method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
-    }
+    instructions(method("setSelected"))
 }
 
 internal val BytecodePatchContext.pivotBarConstructorMethod by gettingFirstMethodDeclaratively {

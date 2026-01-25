@@ -4,10 +4,13 @@ import app.revanced.patcher.accessFlags
 import app.revanced.patcher.addString
 import app.revanced.patcher.afterAtMost
 import app.revanced.patcher.anyInstruction
+import app.revanced.patcher.custom
+import app.revanced.patcher.definingClass
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.literal
+import app.revanced.patcher.method
 import app.revanced.patcher.methodCall
 import app.revanced.patcher.opcode
 import app.revanced.patcher.opcodes
@@ -113,15 +116,18 @@ internal val BytecodePatchContext.playerLinearGradientLegacyMethod by gettingFir
 internal const val LOTTIE_ANIMATION_VIEW_CLASS_TYPE = "Lcom/airbnb/lottie/LottieAnimationView;"
 
 internal val BytecodePatchContext.lottieAnimationViewSetAnimationIntMethod by gettingFirstMethodDeclaratively {
+    definingClass(LOTTIE_ANIMATION_VIEW_CLASS_TYPE)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("I")
     returnType("V")
-    instructions(
-        methodCall("this", "isInEditMode"),
-    )
-    custom { _, classDef ->
-        classDef.type == LOTTIE_ANIMATION_VIEW_CLASS_TYPE
+
+    lateinit var methodDefiningClass: String
+    custom {
+        methodDefiningClass = definingClass
+        true
     }
+
+    instructions(method { name == "isInEditMode" && definingClass == methodDefiningClass })
 }
 
 internal val BytecodePatchContext.lottieCompositionFactoryZipMethod by gettingFirstMethodDeclaratively {

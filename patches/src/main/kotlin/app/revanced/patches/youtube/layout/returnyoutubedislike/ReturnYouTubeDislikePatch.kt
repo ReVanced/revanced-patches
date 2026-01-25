@@ -17,7 +17,7 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.*
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.conversionContextFingerprintToString
+import app.revanced.patches.youtube.shared.conversionContextToStringMethod
 import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateMethod
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.hookVideoId
@@ -121,7 +121,7 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
         // This hook handles all situations, as it's where the created Spans are stored and later reused.
 
         // Find the field name of the conversion context.
-        val conversionContextClass = conversionContextFingerprintToString.originalClassDef
+        val conversionContextClass = conversionContextToStringMethod.originalClassDef
         val textComponentConversionContextField = textComponentConstructorMethod.originalClassDef.fields.find {
             it.type == conversionContextClass.type ||
                 // 20.41+ uses superclass field type.

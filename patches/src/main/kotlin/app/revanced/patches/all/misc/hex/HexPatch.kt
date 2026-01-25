@@ -8,7 +8,7 @@ import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.util.Utils.trimIndentMultiline
 
 @Suppress("unused")
-val Hex = creatingRawResourcePatch(
+val Hex by creatingRawResourcePatch(
     description = "Replaces a hexadecimal patterns of bytes of files in an APK.",
     use = false,
 ) {
@@ -40,13 +40,13 @@ val Hex = creatingRawResourcePatch(
                     } catch (e: Exception) {
                         throw PatchException(
                             "Invalid replacement: $replacement.\n" +
-                                    "Every pattern must be followed by a pipe ('|'), " +
-                                    "the replacement pattern, another pipe ('|'), " +
-                                    "and the path to the file to make the changes in relative to the APK root. ",
+                                "Every pattern must be followed by a pipe ('|'), " +
+                                "the replacement pattern, another pipe ('|'), " +
+                                "and the path to the file to make the changes in relative to the APK root. ",
                         )
                     }
                 }
             },
-        )
+        ),
     )
 }

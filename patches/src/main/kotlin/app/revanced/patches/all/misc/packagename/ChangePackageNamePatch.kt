@@ -27,7 +27,7 @@ fun setOrGetFallbackPackageName(fallbackPackageName: String): String {
 }
 
 @Suppress("ObjectPropertyName")
-val `Change package name` = creatingResourcePatch(
+val `Change package name` by creatingResourcePatch(
     description = "Appends \".revanced\" to the package name by default. " +
         "Changing the package name of the app can lead to unexpected issues.",
     use = false,

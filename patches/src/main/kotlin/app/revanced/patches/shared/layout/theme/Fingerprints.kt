@@ -1,50 +1,39 @@
 package app.revanced.patches.shared.layout.theme
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.allOf
-import app.revanced.patcher.field
-import app.revanced.patcher.fieldAccess
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.methodCall
-import app.revanced.patcher.parameterTypes
-import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
+import app.revanced.patcher.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.lithoOnBoundsChangeMethod by gettingFirstMethodDeclaratively {
+internal val lithoOnBoundsChangeMethodMatch = firstMethodComposite {
+    name("onBoundsChange")
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/graphics/Rect;")
+
+    lateinit var methodDefiningClass: String
+    custom {
+        methodDefiningClass = definingClass
+        true
+    }
+
     instructions(
-        allOf(Opcode.IPUT_OBJECT(), field { definingClass  type == "Landroid/graphics/Path;" }),
-        fieldAccess(
-            opcode = Opcode.IPUT_OBJECT,
-            definingClass = "this",
-            type = "Landroid/graphics/Path;",
+        allOf(
+            Opcode.IPUT_OBJECT(),
+            field { type == "Landroid/graphics/Path;" && definingClass == methodDefiningClass },
         ),
-
-        methodCall(
-            definingClass = "this",
-            name = "isStateful",
-            returnType = "Z",
-            afterAtMost(5),
+        afterAtMost(
+            5,
+            method { returnType == "Z" && name == "isStateful" && definingClass == methodDefiningClass },
         ),
-
-        fieldAccess(
-            opcode = Opcode.IGET_OBJECT,
-            definingClass = "this",
-            type = "Landroid/graphics/Paint",
-            afterAtMost(5),
+        afterAtMost(
+            5,
+            allOf(
+                Opcode.IGET_OBJECT(),
+                field { type == "Landroid/graphics/Path;" && definingClass == methodDefiningClass },
+            ),
         ),
-        methodCall(
-            smali = "Landroid/graphics/Paint;->setColor(I)V",
-            after(),
+        after(
+            method { toString() == "Landroid/graphics/Paint;->setColor(I)V" },
         ),
     )
-    custom { method, _ ->
-        method.name == "onBoundsChange"
-    }
 }

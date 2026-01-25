@@ -6,7 +6,7 @@ import app.revanced.util.getNode
 import org.w3c.dom.Element
 
 @Suppress("unused", "ObjectPropertyName")
-val `Disable Sentry telemetry` = creatingResourcePatch(
+val `Disable Sentry telemetry` by creatingResourcePatch(
     description = "Disables Sentry telemetry. See https://sentry.io/for/android/ for more information.",
     use = false,
 ) {
