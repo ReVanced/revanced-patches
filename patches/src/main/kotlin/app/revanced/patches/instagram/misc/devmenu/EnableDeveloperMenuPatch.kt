@@ -4,6 +4,7 @@ import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.indexOfFirstStringInstruction
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
@@ -20,8 +21,9 @@ val `Enable developer menu` by creatingBytecodePatch(
     compatibleWith("com.instagram.android")
 
     apply {
-        with(clearNotificationReceiverMethod) {
-            indexOfFirstInstructionReversedOrThrow(clearNotificationReceiverMethod.stringMatches.first().index) {
+        clearNotificationReceiverMethod.apply {
+            val stringIndex = indexOfFirstStringInstruction("NOTIFICATION_DISMISSED")
+            indexOfFirstInstructionReversedOrThrow(stringIndex) {
                 val reference = getReference<MethodReference>()
                 opcode in listOf(Opcode.INVOKE_STATIC, Opcode.INVOKE_STATIC_RANGE) &&
                     reference?.parameterTypes?.size == 1 &&

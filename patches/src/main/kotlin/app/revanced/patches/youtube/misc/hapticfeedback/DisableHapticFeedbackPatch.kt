@@ -52,19 +52,17 @@ val `Disable haptic feedback` by creatingBytecodePatch(
             scrubbingHapticsMethod to "disablePreciseSeekingVibrate",
             seekUndoHapticsMethod to "disableSeekUndoVibrate",
             zoomHapticsMethod to "disableZoomVibrate",
-        ).forEach { (fingerprint, methodName) ->
-            fingerprint.method.apply {
-                addInstructionsWithLabels(
-                    0,
-                    """
-                        invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->$methodName()Z
-                        move-result v0
-                        if-eqz v0, :vibrate
-                        return-void
-                    """,
-                    ExternalLabel("vibrate", getInstruction(0)),
-                )
-            }
+        ).forEach { (method, methodName) ->
+            method.addInstructionsWithLabels(
+                0,
+                """
+                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->$methodName()Z
+                    move-result v0
+                    if-eqz v0, :vibrate
+                    return-void
+                """,
+                ExternalLabel("vibrate", method.getInstruction(0)),
+            )
         }
     }
 }

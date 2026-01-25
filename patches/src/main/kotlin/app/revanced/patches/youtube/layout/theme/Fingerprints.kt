@@ -1,21 +1,16 @@
 package app.revanced.patches.youtube.layout.theme
 
-import app.revanced.patcher.anyInstruction
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import app.revanced.patches.youtube.shared.YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
 
-internal val BytecodePatchContext.useGradientLoadingScreenMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.useGradientLoadingScreenMethod by gettingFirstMutableMethodDeclaratively {
     instructions(
         45412406L(),
     )
 }
 
-internal val BytecodePatchContext.splashScreenStyleMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.splashScreenStyleMethod by gettingFirstMutableMethodDeclaratively {
     returnType("V")
     parameterTypes("Landroid/os/Bundle;")
     instructions(
@@ -24,7 +19,6 @@ internal val BytecodePatchContext.splashScreenStyleMethod by gettingFirstMethodD
             269032877L(), // 20.29 and lower.
         ),
     )
-    custom { method, classDef ->
-        method.name == "onCreate" && classDef.type == YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
-    }
+    definingClass(YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE)
+    name("onCreate")
 }

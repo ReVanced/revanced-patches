@@ -11,9 +11,11 @@ val `Hide Stories from Home` by creatingBytecodePatch(
     compatibleWith("com.instagram.android")
 
     apply {
-        val addStoryEndIndex = getOrCreateAvatarViewMethod.indices.last()
+        getOrCreateAvatarViewMethodMatch.let {
+            val addStoryEndIndex = it.indices.last()
 
-        // Remove addView of Story.
-        getOrCreateAvatarViewMethod.removeInstruction(addStoryEndIndex)
+            // Remove addView of Story.
+            it.method.removeInstruction(addStoryEndIndex)
+        }
     }
 }

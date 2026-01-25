@@ -1,10 +1,11 @@
-
 package app.revanced.patches.instagram.misc.devmenu
 
-internal val BytecodePatchContext.clearNotificationReceiverMethod by gettingFirstMethodDeclaratively {
-    custom { method, classDef ->
-        method.name == "onReceive" &&
-            classDef.type == "Lcom/instagram/notifications/push/ClearNotificationReceiver;"
-    }
-    strings("NOTIFICATION_DISMISSED")
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
+
+internal val BytecodePatchContext.clearNotificationReceiverMethod by gettingFirstMutableMethodDeclaratively(
+    "NOTIFICATION_DISMISSED",
+) {
+    name("onReceive")
+    definingClass("Lcom/instagram/notifications/push/ClearNotificationReceiver;")
 }

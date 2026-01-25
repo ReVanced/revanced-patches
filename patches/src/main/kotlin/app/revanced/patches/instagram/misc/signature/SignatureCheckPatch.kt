@@ -13,7 +13,7 @@ val `Disable signature check` by creatingBytecodePatch(
 
     apply {
         isValidSignatureMethodMethod
-            .match(isValidSignatureClassMethod.classDef)
+            .match(isValidSignatureClassMethodMatch.classDef)
             .method
             .returnEarly(true)
     }

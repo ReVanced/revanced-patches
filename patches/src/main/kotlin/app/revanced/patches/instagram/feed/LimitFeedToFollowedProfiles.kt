@@ -1,8 +1,9 @@
 package app.revanced.patches.instagram.feed
 
-import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.name
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
@@ -33,20 +34,16 @@ val `Limit feed to followed profiles` by creatingBytecodePatch(
             mainFeedRequestHeaderFieldName = indexOfFirstInstructionOrThrow {
                 getReference<FieldReference>().let { ref ->
                     ref?.type == "Ljava/util/Map;" &&
-                        ref.definingClass == mainFeedRequestClassMethod.classDef.toString()
+                        ref.definingClass == mainFeedRequestClassMethod.immutableClassDef.toString()
                 }
             }.let { instructionIndex ->
                 getInstruction(instructionIndex).getReference<FieldReference>()!!.name
             }
         }
 
-        val initMainFeedRequestMethod = fingerprint {
-            custom { method, classDef ->
-                method.name == "<init>" &&
-                    classDef == mainFeedRequestClassMethod.classDef
-            }
-        }
-        initMainFeedRequestMethod.apply {
+        mainFeedRequestClassMethod.immutableClassDef.firstMutableMethodDeclaratively {
+            name("<init>")
+        }.apply {
             // Finds the instruction where the map is being initialized in the constructor
             val getHeaderIndex = indexOfFirstInstructionOrThrow {
                 getReference<FieldReference>().let {

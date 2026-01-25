@@ -3,7 +3,6 @@ package app.revanced.patches.messenger.metaai
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.method
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.messenger.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -21,11 +20,11 @@ val `Remove Meta AI` by creatingBytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     apply {
-        getMobileConfigBoolMethod.apply {
-            val returnIndex = getMobileConfigBoolMethod.patternMatch.startIndex // TODO
-            val returnRegister = getInstruction<OneRegisterInstruction>(returnIndex).registerA
+        getMobileConfigBoolMethodMatch.let {
+            val returnIndex = it.indices.first()
+            val returnRegister = it.method.getInstruction<OneRegisterInstruction>(returnIndex).registerA
 
-            addInstructions(
+            it.method.addInstructions(
                 returnIndex,
                 """
                     invoke-static { p1, p2, v$returnRegister }, $EXTENSION_CLASS_DESCRIPTOR->$EXTENSION_METHOD_NAME(JZ)Z
@@ -35,16 +34,18 @@ val `Remove Meta AI` by creatingBytecodePatch(
         }
 
         // Extract the common starting digits of Meta AI flag IDs from a flag found in code.
-        val relevantDigits = with(metaAIKillSwitchCheckMethod) {
-            method.getInstruction<WideLiteralInstruction>(patternMatch.startIndex).wideLiteral // TODO
+        val relevantDigits = metaAIKillSwitchCheckMethodMatch.let {
+            it.method.getInstruction<WideLiteralInstruction>(it.indices.first()).wideLiteral
         }.toString().substring(0, 7)
 
         // Replace placeholder in the extension method.
-        extensionMethodMethod.replaceInstruction(
-            stringM.first().index, // TODO
-            """
+        extensionMethodMethodMatch.let {
+            it.method.replaceInstruction(
+                it.indices.first(),
+                """
                     const-string v1, "$relevantDigits"
                 """,
-        )
+            )
+        }
     }
 }
