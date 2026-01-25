@@ -1,6 +1,5 @@
 package app.revanced.patches.youtube.video.speed.remember
 
-import app.revanced.patcher.addString
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.parameterTypes

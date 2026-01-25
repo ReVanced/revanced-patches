@@ -1,14 +1,11 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
 import app.revanced.patcher.accessFlags
-import app.revanced.patcher.addString
 import app.revanced.patcher.after
 import app.revanced.patcher.at
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
-import app.revanced.patcher.methodCall
-import app.revanced.patcher.opcode
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext

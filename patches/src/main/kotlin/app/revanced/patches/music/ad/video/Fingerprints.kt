@@ -3,7 +3,6 @@ package app.revanced.patches.music.ad.video
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.strings
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val BytecodePatchContext.showVideoAdsParentMethod by gettingFirstMethodDeclaratively {

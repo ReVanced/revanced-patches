@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.formfactor
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.instructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources

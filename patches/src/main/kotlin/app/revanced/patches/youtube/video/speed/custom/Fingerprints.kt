@@ -1,14 +1,10 @@
 package app.revanced.patches.youtube.video.speed.custom
 
 import app.revanced.patcher.accessFlags
-import app.revanced.patcher.addString
-import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
-import app.revanced.patcher.methodCall
-import app.revanced.patcher.newInstance
-import app.revanced.patcher.opcode
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -57,7 +53,7 @@ internal val BytecodePatchContext.speedArrayGeneratorMethod by gettingFirstMetho
 /**
  * 20.34+
  */
-internal val BytecodePatchContext.speedLimiterMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.speedLimiterMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("F", "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;")
@@ -70,7 +66,7 @@ internal val BytecodePatchContext.speedLimiterMethod by gettingFirstMethodDeclar
 /**
  * 20.33 and lower.
  */
-internal val BytecodePatchContext.speedLimiterLegacyMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.speedLimiterLegacyMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("F")

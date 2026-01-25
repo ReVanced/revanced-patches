@@ -6,7 +6,6 @@ import app.revanced.patcher.afterAtMost
 import app.revanced.patcher.allOf
 import app.revanced.patcher.custom
 import app.revanced.patcher.field
-import app.revanced.patcher.fieldAccess
 import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.firstMutableMethodDeclaratively
 import app.revanced.patcher.gettingFirstMethodDeclaratively
@@ -14,10 +13,7 @@ import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.method
-import app.revanced.patcher.methodCall
 import app.revanced.patcher.name
-import app.revanced.patcher.newInstance
-import app.revanced.patcher.opcode
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext

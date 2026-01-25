@@ -2,11 +2,9 @@ package app.revanced.patches.youtube.misc.links
 
 import app.revanced.patcher.StringComparisonType
 import app.revanced.patcher.accessFlags
-import app.revanced.patcher.addString
 import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
-import app.revanced.patcher.methodCall
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags

@@ -71,14 +71,13 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         }
 
         // Override the min/max speeds that can be used.
-        (if (is_20_34_or_greater) speedLimiterMethod else speedLimiterLegacyMethod).method.apply {
+        (if (is_20_34_or_greater) speedLimiterMethod else speedLimiterLegacyMethod).apply {
             val limitMinIndex = indexOfFirstLiteralInstructionOrThrow(0.25f)
             // Older unsupported targets use 2.0f and not 4.0f
             val limitMaxIndex = indexOfFirstLiteralInstructionOrThrow(4.0f)
 
             val limitMinRegister = getInstruction<OneRegisterInstruction>(limitMinIndex).registerA
             val limitMaxRegister = getInstruction<OneRegisterInstruction>(limitMaxIndex).registerA
-
             replaceInstruction(limitMinIndex, "const/high16 v$limitMinRegister, 0.0f")
             replaceInstruction(limitMaxIndex, "const/high16 v$limitMaxRegister, 8.0f")
         }

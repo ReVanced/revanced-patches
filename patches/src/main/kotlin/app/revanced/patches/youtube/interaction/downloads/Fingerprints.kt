@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.interaction.downloads
 
 import app.revanced.patcher.accessFlags
-import app.revanced.patcher.addString
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.parameterTypes
