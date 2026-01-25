@@ -1,3 +1,10 @@
+# [5.50.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.1...v5.50.0-dev.2) (2026-01-25)
+
+
+### Bug Fixes
+
+* **Letterboxd - Hide ads:** Fix patch by returning the correct return type ([#6527](https://github.com/ReVanced/revanced-patches/issues/6527)) ([80c34b9](https://github.com/ReVanced/revanced-patches/commit/80c34b9d74a42018a0cd52b4a584ee71206bf963))
+
 # [5.50.0-dev.1](https://github.com/ReVanced/revanced-patches/compare/v5.49.0-dev.1...v5.50.0-dev.1) (2026-01-25)
 
 
