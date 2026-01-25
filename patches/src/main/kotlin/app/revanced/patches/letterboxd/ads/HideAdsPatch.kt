@@ -14,7 +14,7 @@ val hideAdsPatch = bytecodePatch(
     execute {
         admobHelperSetShowAdsFingerprint.method.addInstruction(0, "const p1, 0x0")
         listOf(admobHelperShouldShowAdsFingerprint, filmFragmentShowAdsFingerprint, memberExtensionShowAdsFingerprint).forEach {
-            it.method.returnEarly(false)
+            it.method.returnEarly()
         }
     }
 }
