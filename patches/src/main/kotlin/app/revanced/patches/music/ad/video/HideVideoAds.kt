@@ -35,7 +35,7 @@ val `Hide music video ads` by creatingBytecodePatch(
             SwitchPreference("revanced_music_hide_video_ads"),
         )
 
-        navigate(showVideoAdsParentMethod.originalMethod)
+        navigate(showVideoAdsParentMethod.immutableMethod)
             .to(showVideoAdsParentMethod.instructionMatches.first().index + 1)
             .stop()
             .addInstructions(

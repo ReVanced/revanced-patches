@@ -18,8 +18,8 @@ val `Disable subscription suggestions` by creatingBytecodePatch {
         val label = "original"
 
         val className = getModulesMethodMatch.classDef.type
-        val originalMethod = getModulesMethodMatch.method
-        val returnType = originalMethod.returnType
+        val immutableMethod = getModulesMethodMatch.method
+        val returnType = immutableMethod.returnType
 
         getModulesMethodMatch.classDef.methods.add(
             ImmutableMethod(
@@ -51,8 +51,8 @@ val `Disable subscription suggestions` by creatingBytecodePatch {
         )
 
         val getModulesIndex = getModulesMethodMatch.indices.first()
-        originalMethod.removeInstruction(getModulesIndex)
-        originalMethod.addInstructions(
+        immutableMethod.removeInstruction(getModulesIndex)
+        immutableMethod.addInstructions(
             getModulesIndex,
             """
                 invoke-direct {p0}, $className->$helperMethodName()$returnType

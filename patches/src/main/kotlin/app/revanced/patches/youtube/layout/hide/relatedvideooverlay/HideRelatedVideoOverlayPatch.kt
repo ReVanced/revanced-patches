@@ -43,7 +43,7 @@ val `Hide related video overlay` by creatingBytecodePatch(
         )
 
         relatedEndScreenResultsMethod.match(
-            relatedEndScreenResultsParentMethod.originalClassDef,
+            relatedEndScreenResultsParentMethod.immutableClassDef,
         ).method.apply {
             addInstructionsWithLabels(
                 0,

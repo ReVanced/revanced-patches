@@ -169,7 +169,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
                 interfaces.add(EXTENSION_TOOLBAR_INTERFACE)
 
                 val definingClass = type
-                val obfuscatedMethodName = it.originalMethod.name
+                val obfuscatedMethodName = it.immutableMethod.name
                 val returnType = "Landroid/graphics/drawable/Drawable;"
 
                 methods.add(

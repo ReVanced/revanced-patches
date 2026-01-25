@@ -58,7 +58,7 @@ val seekbarColorPatch = bytecodePatch(
             it.method.addColorChangeInstructions(it.instructionMatches.first().index)
         }
 
-        setSeekbarClickedColorMethod.originalMethod.let {
+        setSeekbarClickedColorMethod.immutableMethod.let {
             val setColorMethodIndex = setSeekbarClickedColorMethod.instructionMatches.first().index + 1
 
             navigate(it).to(setColorMethodIndex).stop().apply {
@@ -154,7 +154,7 @@ val seekbarColorPatch = bytecodePatch(
         // Hook the splash animation to set the a seekbar color.
         mainActivityOnCreateMethod.apply {
             val setAnimationIntMethodName =
-                lottieAnimationViewSetAnimationIntMethod.originalMethod.name
+                lottieAnimationViewSetAnimationIntMethod.immutableMethod.name
 
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
@@ -176,7 +176,7 @@ val seekbarColorPatch = bytecodePatch(
         lottieAnimationViewSetAnimationIntMethod.classDef.methods.apply {
             val addedMethodName = "patch_setAnimation"
             val setAnimationIntName = lottieAnimationViewSetAnimationIntMethod
-                .originalMethod.name
+                .immutableMethod.name
 
             add(
                 ImmutableMethod(
@@ -202,8 +202,8 @@ val seekbarColorPatch = bytecodePatch(
             val factoryStreamName: CharSequence
             val factoryStreamReturnType: CharSequence
             lottieCompositionFactoryFromJsonInputStreamMethod.match(
-                lottieCompositionFactoryZipMethod.originalClassDef,
-            ).originalMethod.apply {
+                lottieCompositionFactoryZipMethod.immutableClassDef,
+            ).immutableMethod.apply {
                 factoryStreamClass = definingClass
                 factoryStreamName = name
                 factoryStreamReturnType = returnType
@@ -214,11 +214,11 @@ val seekbarColorPatch = bytecodePatch(
                 parameterTypes(factoryStreamReturnType.toString())
                 returnType("V")
                 custom { _, classDef ->
-                    classDef.type == lottieAnimationViewSetAnimationIntMethod.originalClassDef.type
+                    classDef.type == lottieAnimationViewSetAnimationIntMethod.immutableClassDef.type
                 }
             }
             val setAnimationStreamName = lottieAnimationViewSetAnimationStreamFingerprint
-                .originalMethod.name
+                .immutableMethod.name
 
             add(
                 ImmutableMethod(

@@ -19,7 +19,7 @@ private val customThemeBytecodePatch = bytecodePatch {
     dependsOn(sharedExtensionPatch)
 
     apply {
-        val colorSpaceUtilsClassDef = colorSpaceUtilsClassMethod.originalClassDef
+        val colorSpaceUtilsClassDef = colorSpaceUtilsClassMethod.immutableClassDef
 
         // Hook a util method that converts ARGB to RGBA in the sRGB color space to replace hardcoded accent colors.
         convertArgbToRgbaMethod.match(colorSpaceUtilsClassDef).method.apply {

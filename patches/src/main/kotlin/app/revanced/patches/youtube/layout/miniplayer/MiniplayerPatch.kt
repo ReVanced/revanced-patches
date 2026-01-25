@@ -236,7 +236,7 @@ val Miniplayer by creatingBytecodePatch(
 
         if (!is_20_37_or_greater) {
             miniplayerOverrideNoContextMethod.match(
-                miniplayerDimensionsCalculatorParentMethod.originalClassDef,
+                miniplayerDimensionsCalculatorParentMethod.immutableClassDef,
             ).method.apply {
                 findReturnIndicesReversed().forEach { index ->
                     insertLegacyTabletMiniplayerOverride(
@@ -250,7 +250,7 @@ val Miniplayer by creatingBytecodePatch(
             // region Legacy tablet miniplayer hooks.
             miniplayerOverrideMethod.let {
                 val appNameStringIndex = it.indices.last()
-                navigate(it.originalMethod).to(appNameStringIndex).stop().apply {
+                navigate(it.immutableMethod).to(appNameStringIndex).stop().apply {
                     findReturnIndicesReversed().forEach { index ->
                         insertLegacyTabletMiniplayerOverride(
                             index,
@@ -368,7 +368,7 @@ val Miniplayer by creatingBytecodePatch(
         // Fix this, by swapping the drawable resource values with each other.
         if (!is_19_17_or_greater) {
             miniplayerModernExpandCloseDrawablesMethod.match(
-                miniplayerModernViewParentMethod.originalClassDef,
+                miniplayerModernViewParentMethod.immutableClassDef,
             ).method.apply {
                 listOf(
                     ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,

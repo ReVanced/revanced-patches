@@ -270,7 +270,7 @@ val `Hide layout components` by creatingBytecodePatch(
         // region Watermark (legacy code for old versions of YouTube)
 
         showWatermarkMethod.match(
-            playerOverlayMethod.originalClassDef,
+            playerOverlayMethod.immutableClassDef,
         ).method.apply {
             val index = implementation!!.instructions.size - 5
 

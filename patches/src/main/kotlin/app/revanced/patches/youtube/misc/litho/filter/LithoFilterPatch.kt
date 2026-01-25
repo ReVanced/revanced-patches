@@ -115,7 +115,7 @@ val lithoFilterPatch = bytecodePatch(
         val conversionContextIdentifierField = conversionContextToStringMethod.method
             .findFieldFromToString("identifierProperty=")
 
-        val conversionContextPathBuilderField = conversionContextToStringMethod.originalClassDef
+        val conversionContextPathBuilderField = conversionContextToStringMethod.immutableClassDef
             .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
 
         // Find class and methods to create an empty component.

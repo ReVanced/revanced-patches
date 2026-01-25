@@ -17,7 +17,7 @@ val `Fix Facebook login` by creatingBytecodePatch(
         // Override the Facebook SDK to always handle the login using the web browser, which does not perform
         // signature checks.
 
-        val katanaProxyLoginMethodHandlerClass = katanaProxyLoginMethodHandlerClassMethod.originalClassDef
+        val katanaProxyLoginMethodHandlerClass = katanaProxyLoginMethodHandlerClassMethod.immutableClassDef
         // Always return 0 (no Intent was launched) as the result of trying to authorize with the Facebook app to
         // make the login fallback to a web browser window.
         katanaProxyLoginMethodTryAuthorizeMethod

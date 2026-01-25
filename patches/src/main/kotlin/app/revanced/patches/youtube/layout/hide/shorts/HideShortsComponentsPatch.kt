@@ -207,7 +207,7 @@ val `Hide Shorts componentsby creatingBytecodePatch(
 
         // Hook to get the pivotBar view.
         setPivotBarVisibilityMethod.match(
-            setPivotBarVisibilityParentMethod.originalClassDef,
+            setPivotBarVisibilityParentMethod.immutableClassDef,
         ).let { result ->
             result.method.apply {
                 val insertIndex = result.indices.last()
@@ -230,7 +230,7 @@ val `Hide Shorts componentsby creatingBytecodePatch(
                 } else {
                     legacyRenderBottomNavigationBarLegacyParentMethod
                 }
-                ).originalClassDef,
+                ).immutableClassDef,
         ).method.addInstruction(
             0,
             "invoke-static { p1 }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Ljava/lang/String;)V",

@@ -25,7 +25,7 @@ val `Sanitize sharing links` by creatingBytecodePatch(
         val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->" +
             "sanitizeSharingLink(Ljava/lang/String;)Ljava/lang/String;"
 
-        val copyFingerprint = if (shareCopyUrlMethod.originalMethodOrNull != null) {
+        val copyFingerprint = if (shareCopyUrlMethod.immutableMethodOrNull != null) {
             shareCopyUrlMethod
         } else {
             oldShareCopyUrlMethod
@@ -48,8 +48,8 @@ val `Sanitize sharing links` by creatingBytecodePatch(
 
         // Android native share sheet is used for all other quick share types (X, WhatsApp, etc).
         val shareUrlParameter: String
-        val shareSheetFingerprint = if (formatAndroidShareSheetUrlMethod.originalMethodOrNull != null) {
-            val methodAccessFlags = formatAndroidShareSheetUrlMethod.originalMethod
+        val shareSheetFingerprint = if (formatAndroidShareSheetUrlMethod.immutableMethodOrNull != null) {
+            val methodAccessFlags = formatAndroidShareSheetUrlMethod.immutableMethod
             shareUrlParameter = if (AccessFlags.STATIC.isSet(methodAccessFlags.accessFlags)) {
                 // In newer implementations the method is static, so p0 is not `this`.
                 "p1"

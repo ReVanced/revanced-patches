@@ -64,7 +64,7 @@ val `Wide search bar` by creatingBytecodePatch(
 
         setWordmarkHeaderMethod.let {
             // Navigate to the method that checks if the YT logo is shown beside the search bar.
-            val shouldShowLogoMethod = with(it.originalMethod) {
+            val shouldShowLogoMethod = with(it.immutableMethod) {
                 val invokeStaticIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_STATIC &&
                         getReference<MethodReference>()?.returnType == "Z"

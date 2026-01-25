@@ -1,21 +1,15 @@
 package app.revanced.patches.youtube.video.speed.custom
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.opcodes
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.getOldPlaybackSpeedsMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.getOldPlaybackSpeedsMethod by gettingFirstMutableMethodDeclaratively(
+    "menu_item_playback_speed",
+) {
     parameterTypes("[L", "I")
-    strings("menu_item_playback_speed")
 }
 
 internal val BytecodePatchContext.showOldPlaybackSpeedMenuMethod by gettingFirstMethodDeclaratively {
@@ -25,10 +19,10 @@ internal val BytecodePatchContext.showOldPlaybackSpeedMenuMethod by gettingFirst
 }
 
 internal val BytecodePatchContext.showOldPlaybackSpeedMenuExtensionMethod by gettingFirstMethodDeclaratively {
-    custom { method, _ -> method.name == "showOldPlaybackSpeedMenu" }
+    name("showOldPlaybackSpeedMenu")
 }
 
-internal val BytecodePatchContext.serverSideMaxSpeedFeatureFlagMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.serverSideMaxSpeedFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     instructions(
@@ -36,17 +30,17 @@ internal val BytecodePatchContext.serverSideMaxSpeedFeatureFlagMethod by getting
     )
 }
 
-internal val BytecodePatchContext.speedArrayGeneratorMethod by gettingFirstMethodDeclaratively {
+internal val speedArrayGeneratorMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("[L")
     parameterTypes("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;")
     instructions(
-        methodCall(name = "size", returnType = "I"),
-        newInstance("Ljava/text/DecimalFormat;"),
+        method { name == "size" && returnType == "I" },
+        allOf(Opcode.NEW_INSTANCE(), type("Ljava/text/DecimalFormat;")),
         "0.0#"(),
         7L(),
         Opcode.NEW_ARRAY(),
-        fieldAccess(definingClass = "/PlayerConfigModel;", type = "[F"),
+        field { definingClass == "/PlayerConfigModel;" && type == "[F" },
     )
 }
 
@@ -58,8 +52,8 @@ internal val BytecodePatchContext.speedLimiterMethod by gettingFirstMutableMetho
     returnType("V")
     parameterTypes("F", "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;")
     instructions(
-        0.25f(),
-        4.0f(),
+        0.25f.toRawBits().toLong()(),
+        4.0f.toRawBits().toLong()(),
     )
 }
 

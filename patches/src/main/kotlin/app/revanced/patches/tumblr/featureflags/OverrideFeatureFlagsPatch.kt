@@ -24,15 +24,15 @@ val overrideFeatureFlagsPatch = bytecodePatch(
 ) {
 
     apply {
-        val configurationClass = getFeatureValueMethod.originalMethod.definingClass
-        val featureClass = getFeatureValueMethod.originalMethod.parameterTypes[0].toString()
+        val configurationClass = getFeatureValueMethod.immutableMethod.definingClass
+        val featureClass = getFeatureValueMethod.immutableMethod.parameterTypes[0].toString()
 
         // The method we want to inject into does not have enough registers, so we inject a helper method
         // and inject more instructions into it later, see addOverride.
         // This is not in an extension since the unused variable would get compiled away and the method would
         // get compiled to only have one register, which is not enough for our later injected instructions.
         val helperMethod = ImmutableMethod(
-            getFeatureValueMethod.originalMethod.definingClass,
+            getFeatureValueMethod.immutableMethod.definingClass,
             "getValueOverride",
             listOf(ImmutableMethodParameter(featureClass, null, "feature")),
             "Ljava/lang/String;",

@@ -75,7 +75,7 @@ val `Change miniplayer color` by creatingBytecodePatch(
             miniPlayerConstructorMethod.classDef.methods.single { method ->
                 method.accessFlags == AccessFlags.PUBLIC.value or AccessFlags.FINAL.value &&
                     method.returnType == "V" &&
-                    method.parameters == it.originalMethod.parameters
+                    method.parameters == it.immutableMethod.parameters
             }.apply {
                 val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_DIRECT)
                 val freeRegister = findFreeRegister(insertIndex)

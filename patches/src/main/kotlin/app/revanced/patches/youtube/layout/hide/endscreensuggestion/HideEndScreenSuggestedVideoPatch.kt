@@ -45,12 +45,12 @@ val `Hide end screen suggested video` by creatingBytecodePatch(
         )
 
         removeOnLayoutChangeListenerMethod.let {
-            val endScreenMethod = navigate(it.originalMethod).to(it.indices.last()).stop() // TODO
+            val endScreenMethod = navigate(it.immutableMethod).to(it.indices.last()).stop() // TODO
 
             endScreenMethod.apply {
                 val autoNavStatusMethodName = autoNavStatusMethod.match(
                     autoNavConstructorMethod.classDef,
-                ).originalMethod.name
+                ).immutableMethod.name
 
                 val invokeIndex = indexOfFirstInstructionOrThrow {
                     val reference = getReference<MethodReference>()

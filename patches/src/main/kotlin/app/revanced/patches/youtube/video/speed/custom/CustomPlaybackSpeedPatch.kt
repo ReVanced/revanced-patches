@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -90,21 +91,20 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // region Force old video quality menu.
 
         // Replace the speeds float array with custom speeds.
-        speedArrayGeneratorMethod.let {
-            val matches = it.instructionMatches
+        speedArrayGeneratorMethodMatch.let {
             it.method.apply {
                 val playbackSpeedsArrayType = "$EXTENSION_CLASS_DESCRIPTOR->customPlaybackSpeeds:[F"
                 // Apply changes from last index to first to preserve indexes.
 
-                val originalArrayFetchIndex = matches[5].index
-                val originalArrayFetchDestination = matches[5].getInstruction<OneRegisterInstruction>().registerA
+                val originalArrayFetchIndex = it.indices[5]
+                val originalArrayFetchDestination = getInstruction<OneRegisterInstruction>(it.indices[5]).registerA
                 replaceInstruction(
                     originalArrayFetchIndex,
                     "sget-object v$originalArrayFetchDestination, $playbackSpeedsArrayType",
                 )
 
-                val arrayLengthConstDestination = matches[3].getInstruction<OneRegisterInstruction>().registerA
-                val newArrayIndex = matches[4].index
+                val arrayLengthConstDestination = getInstruction<OneRegisterInstruction>(it.indices[3]).registerA
+                val newArrayIndex = it.indices[4]
                 addInstructions(
                     newArrayIndex,
                     """
@@ -113,7 +113,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                     """,
                 )
 
-                val sizeCallIndex = matches[0].index + 1
+                val sizeCallIndex = it.indices[0] + 1
                 val sizeCallResultRegister = getInstruction<OneRegisterInstruction>(sizeCallIndex).registerA
                 replaceInstruction(sizeCallIndex, "const/4 v$sizeCallResultRegister, 0x0")
             }
@@ -123,9 +123,9 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         // This is later used to call "showOldPlaybackSpeedMenu" on the instance.
 
         val instanceField = ImmutableField(
-            getOldPlaybackSpeedsMethod.originalClassDef.type,
+            getOldPlaybackSpeedsMethod.immutableClassDef.type,
             "INSTANCE",
-            getOldPlaybackSpeedsMethod.originalClassDef.type,
+            getOldPlaybackSpeedsMethod.immutableClassDef.type,
             AccessFlags.PUBLIC.value or AccessFlags.STATIC.value,
             null,
             null,

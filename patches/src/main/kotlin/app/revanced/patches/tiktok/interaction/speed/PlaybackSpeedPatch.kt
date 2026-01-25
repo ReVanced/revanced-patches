@@ -43,7 +43,7 @@ val `Playback speed` by creatingBytecodePatch(
             """
                 # Video playback location (e.g. home page, following page or search result page) retrieved using getEnterFrom method.
                 const/4 v0, 0x1
-                invoke-virtual { p0, v0 },  ${getEnterFromMethod.originalMethod}
+                invoke-virtual { p0, v0 },  ${getEnterFromMethod.immutableMethod}
                 move-result-object v0
 
                 # Model of current video retrieved using getCurrentAweme method.

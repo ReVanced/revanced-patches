@@ -56,7 +56,7 @@ val `Disable double tap actions` by creatingBytecodePatch(
         val doubleTapInfoGetSeekSourceFingerprint = fingerprint {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             parameterTypes("Z")
-            returnType(seekTypeEnumMethod.originalClassDef.type)
+            returnType(seekTypeEnumMethod.immutableClassDef.type)
             opcodes(
                 Opcode.IF_EQZ,
                 Opcode.SGET_OBJECT,

@@ -92,7 +92,7 @@ val videoIdPatch = bytecodePatch(
     )
 
     apply {
-        videoIdMethod.match(videoIdParentFingerprint.originalClassDef).let {
+        videoIdMethod.match(videoIdParentFingerprint.immutableClassDef).let {
             it.method.apply {
                 videoIdMethod = this
                 val index = it.instructionMatches.first().index

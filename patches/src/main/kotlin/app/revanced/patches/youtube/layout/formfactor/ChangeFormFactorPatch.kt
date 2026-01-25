@@ -53,7 +53,7 @@ val `Change form factor` by creatingBytecodePatch(
             instructions(
                 fieldAccess(smali = "Landroid/os/Build;->MODEL:Ljava/lang/String;"),
                 fieldAccess(
-                    definingClass = formFactorEnumConstructorMethod.originalClassDef.type,
+                    definingClass = formFactorEnumConstructorMethod.immutableClassDef.type,
                     type = "I",
                     afterAtMost(50),
                 ),

@@ -59,7 +59,7 @@ val `Change lyrics provider` by creatingBytecodePatch(
     }
 
     apply {
-        val httpClientBuilderMethod = httpClientBuilderMethod.originalMethod
+        val httpClientBuilderMethod = httpClientBuilderMethod.immutableMethod
 
         // region Create a modified copy of the HTTP client builder method with the custom lyrics provider host.
 

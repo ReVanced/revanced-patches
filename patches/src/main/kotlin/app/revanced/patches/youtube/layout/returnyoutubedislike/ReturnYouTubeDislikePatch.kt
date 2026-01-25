@@ -121,16 +121,16 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
         // This hook handles all situations, as it's where the created Spans are stored and later reused.
 
         // Find the field name of the conversion context.
-        val conversionContextClass = conversionContextToStringMethod.originalClassDef
-        val textComponentConversionContextField = textComponentConstructorMethod.originalClassDef.fields.find {
+        val conversionContextClass = conversionContextToStringMethod.immutableClassDef
+        val textComponentConversionContextField = textComponentConstructorMethod.immutableClassDef.fields.find {
             it.type == conversionContextClass.type ||
                 // 20.41+ uses superclass field type.
                 it.type == conversionContextClass.superclass
         } ?: throw PatchException("Could not find conversion context field")
 
-        textComponentLookupMethod.match(textComponentConstructorMethod.originalClassDef).method.apply {
+        textComponentLookupMethod.match(textComponentConstructorMethod.immutableClassDef).method.apply {
             // Find the instruction for creating the text data object.
-            val textDataClassType = textComponentDataMethod.originalClassDef.type
+            val textDataClassType = textComponentDataMethod.immutableClassDef.type
 
             val insertIndex: Int
             val charSequenceRegister: Int
@@ -267,7 +267,7 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
         // Additional text measurement method. Used if YouTube decides not to animate the likes count
         // and sometimes used for initial video load.
         rollingNumberMeasureStaticLabelMethod.match(
-            rollingNumberMeasureStaticLabelParentMethod.originalClassDef,
+            rollingNumberMeasureStaticLabelParentMethod.immutableClassDef,
         ).let {
             val measureTextIndex = it.instructionMatches.first().index + 1
             it.method.apply {

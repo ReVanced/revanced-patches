@@ -81,7 +81,7 @@ val `Remove background playback restrictions` by creatingBytecodePatch(
         }
 
         // Enable background playback option in YouTube settings
-        backgroundPlaybackSettingsMethod.originalMethod.apply {
+        backgroundPlaybackSettingsMethod.immutableMethod.apply {
             val booleanCalls = instructions.withIndex().filter {
                 it.value.getReference<MethodReference>()?.returnType == "Z"
             }
