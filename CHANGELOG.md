@@ -1,3 +1,10 @@
+# [5.50.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.2...v5.50.0-dev.3) (2026-01-26)
+
+
+### Features
+
+* **Kleinanzeigen:** Add `Hide ads` patch ([#6533](https://github.com/ReVanced/revanced-patches/issues/6533)) ([bd6e544](https://github.com/ReVanced/revanced-patches/commit/bd6e544007d539ac2eb890d9bdcb6850435f96cb))
+
 # [5.50.0-dev.2](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.1...v5.50.0-dev.2) (2026-01-25)
 
 
