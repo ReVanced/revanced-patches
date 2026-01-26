@@ -43,8 +43,11 @@ public class TikTokActivityHook {
      * @return Whether the settings menu should be initialized.
      */
     public static boolean initialize(AdPersonalizationActivity base) {
-        Bundle extras = base.getIntent().getExtras();
-        if (extras != null && !extras.getBoolean("revanced", false)) return false;
+        Intent intent = base.getIntent();
+        Bundle extras = intent.getExtras();
+        if ((extras == null || !extras.getBoolean("revanced", false)) && !"revanced_settings".equals(intent.getAction())) {
+            return false;
+        }
 
         SettingsStatus.load();
 

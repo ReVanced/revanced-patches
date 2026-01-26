@@ -12,6 +12,7 @@ public class ShopFilter implements IFilter {
 
     @Override
     public boolean getFiltered(Aweme item) {
-        return item.getShareUrl().contains(SHOP_INFO);
+        String shareUrl = item.getShareUrl();
+        return shareUrl != null && shareUrl.contains(SHOP_INFO);
     }
 }
