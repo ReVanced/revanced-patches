@@ -18,12 +18,13 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
 val settingsPatch = bytecodePatch(
     name = "Settings",
     description = "Adds ReVanced settings to TikTok.",
+    use = false,
 ) {
     dependsOn(sharedExtensionPatch, addBrandLicensePatch)
 
     compatibleWith(
-        "com.ss.android.ugc.trill"("36.5.4"),
-        "com.zhiliaoapp.musically"("36.5.4"),
+        "com.ss.android.ugc.trill"("43.6.2"),
+        "com.zhiliaoapp.musically"("43.6.2"),
     )
 
     execute {

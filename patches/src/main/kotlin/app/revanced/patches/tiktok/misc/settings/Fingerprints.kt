@@ -33,3 +33,51 @@ internal val settingsStatusLoadFingerprint = fingerprint {
             method.name == "load"
     }
 }
+
+internal val supportGroupDefaultStateFingerprint = fingerprint {
+    custom { method, classDef ->
+        classDef.endsWith("/SupportGroupVM;") && method.name == "defaultState"
+    }
+}
+
+internal val openDebugCellVmDefaultStateFingerprint = fingerprint {
+    custom { method, classDef ->
+        classDef.endsWith("/OpenDebugCellVM;") && method.name == "defaultState"
+    }
+}
+
+internal val openDebugCellStateConstructorFingerprint = fingerprint {
+    custom { method, classDef ->
+        classDef.endsWith("LX/05iN;") &&
+            method.name == "<init>" &&
+            method.parameterTypes == listOf(
+                "LX/05hd;",
+                "Ljava/lang/Integer;",
+                "Ljava/lang/Integer;",
+                "Ljava/lang/Integer;",
+                "Lkotlin/jvm/internal/AwS526S0100000_2;",
+            )
+    }
+}
+
+internal val openDebugCellComposeFingerprint = fingerprint {
+    custom { method, _ ->
+        method.name == "LIZ" &&
+            method.returnType == "V" &&
+            method.parameterTypes == listOf(
+                "LX/05iN;",
+                "Z",
+                "Z",
+                "LX/06c6;",
+                "I",
+            )
+    }
+}
+
+internal val openDebugCellClickWrapperFingerprint = fingerprint {
+    custom { method, classDef ->
+        classDef.endsWith("Lkotlin/jvm/internal/AwS350S0200000_2;") &&
+            method.name == "invoke\$85" &&
+            method.parameterTypes == listOf("Lkotlin/jvm/internal/AwS350S0200000_2;")
+    }
+}

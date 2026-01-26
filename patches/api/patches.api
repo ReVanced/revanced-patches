@@ -1292,6 +1292,10 @@ public final class app/revanced/patches/tiktok/misc/login/fixgoogle/FixGoogleLog
 	public static final fun getFixGoogleLoginPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/tiktok/misc/settings/EnableOpenDebugPatchKt {
+	public static final fun getEnableOpenDebugPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/tiktok/misc/settings/SettingsPatchKt {
 	public static final fun getSettingsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }

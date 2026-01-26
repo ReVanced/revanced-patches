@@ -5,7 +5,6 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
-import app.revanced.patches.tiktok.misc.settings.settingsPatch
 import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadFingerprint
 import app.revanced.util.findMutableMethodOf
 import com.android.tools.smali.dexlib2.Opcode
@@ -21,7 +20,6 @@ val spoofSimPatch = bytecodePatch(
 ) {
     dependsOn(
         sharedExtensionPatch,
-        settingsPatch,
     )
 
     compatibleWith(
@@ -30,6 +28,11 @@ val spoofSimPatch = bytecodePatch(
     )
 
     execute {
+        settingsStatusLoadFingerprint.method.addInstruction(
+            0,
+            "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableSimSpoof()V",
+        )
+
         val replacements = hashMapOf(
             "getSimCountryIso" to "getCountryIso",
             "getNetworkCountryIso" to "getCountryIso",
@@ -90,11 +93,5 @@ val spoofSimPatch = bytecodePatch(
                 }
             }
         }
-
-        // Enable patch in settings.
-        settingsStatusLoadFingerprint.method.addInstruction(
-            0,
-            "invoke-static {}, Lapp/revanced/extension/tiktok/settings/SettingsStatus;->enableSimSpoof()V",
-        )
     }
 }
