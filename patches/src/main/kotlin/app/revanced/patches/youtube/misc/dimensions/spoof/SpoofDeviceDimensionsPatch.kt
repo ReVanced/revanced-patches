@@ -1,6 +1,8 @@
 package app.revanced.patches.youtube.misc.dimensions.spoof
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.firstMutableMethod
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -38,21 +40,20 @@ val `Spoof device dimensions` by creatingBytecodePatch(
             SwitchPreference("revanced_spoof_device_dimensions"),
         )
 
-        deviceDimensionsModelToStringMethodMatch.classDef.methods.first { method -> method.name == "<init>" }
-            // Override the parameters containing the dimensions.
-            .addInstructions(
-                1, // Add after super call.
-                arrayOf(
-                    1 to "MinHeightOrWidth", // p1 = min height
-                    2 to "MaxHeightOrWidth", // p2 = max height
-                    3 to "MinHeightOrWidth", // p3 = min width
-                    4 to "MaxHeightOrWidth", // p4 = max width
-                ).map { (parameter, method) ->
-                    """
-                        invoke-static { p$parameter }, $EXTENSION_CLASS_DESCRIPTOR->get$method(I)I
-                        move-result p$parameter
-                    """
-                }.joinToString("\n") { it },
-            )
+        // Override the parameters containing the dimensions.
+        deviceDimensionsModelToStringMethod.classDef.methods.firstMutableMethod { name == "<init>" }.addInstructions(
+            1, // Add after super call.
+            arrayOf(
+                1 to "MinHeightOrWidth", // p1 = min height
+                2 to "MaxHeightOrWidth", // p2 = max height
+                3 to "MinHeightOrWidth", // p3 = min width
+                4 to "MaxHeightOrWidth", // p4 = max width
+            ).map { (parameter, method) ->
+                """
+                    invoke-static { p$parameter }, $EXTENSION_CLASS_DESCRIPTOR->get$method(I)I
+                    move-result p$parameter
+                """
+            }.joinToString("\n") { it },
+        )
     }
 }

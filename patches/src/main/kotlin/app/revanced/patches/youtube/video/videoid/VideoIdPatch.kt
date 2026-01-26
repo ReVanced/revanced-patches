@@ -92,17 +92,19 @@ val videoIdPatch = bytecodePatch(
     )
 
     apply {
-        videoIdParentMethodMatch.classDef.getVideoIdMethodMatch().let {
+        videoIdParentMethodMatch.immutableClassDef.getVideoIdMethodMatch().let {
             videoIdMethod = it.method
+
             val index = it.indices.first()
-            videoIdRegister = videoIdMethod.getInstruction<OneRegisterInstruction>(index + 1).registerA
+            videoIdRegister = it.method.getInstruction<OneRegisterInstruction>(index + 1).registerA
             videoIdInsertIndex = index + 2
         }
 
         videoIdBackgroundPlayMethodMatch.let {
             backgroundPlaybackMethod = it.method
+
             val index = it.indices.first()
-            backgroundPlaybackVideoIdRegister = backgroundPlaybackMethod.getInstruction<OneRegisterInstruction>(index + 1).registerA
+            backgroundPlaybackVideoIdRegister = it.method.getInstruction<OneRegisterInstruction>(index + 1).registerA
             backgroundPlaybackInsertIndex = index + 2
         }
     }

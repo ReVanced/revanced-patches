@@ -1,5 +1,6 @@
 package app.revanced.patches.instagram.misc.signature
 
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.returnEarly
 
@@ -12,9 +13,6 @@ val `Disable signature check` by creatingBytecodePatch(
     compatibleWith("com.instagram.android")
 
     apply {
-        isValidSignatureMethodMethod
-            .match(isValidSignatureClassMethodMatch.classDef)
-            .method
-            .returnEarly(true)
+        isValidSignatureMethodMethod.immutableClassDef.getIsValidSignatureClassMethod().returnEarly(true)
     }
 }

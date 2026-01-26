@@ -16,8 +16,8 @@ internal fun ClassDef.getVideoIdMethodMatch() = firstMethodComposite {
     parameterTypes("L")
     instructions(
         method {
-            definingClass == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
-                && returnType == "Ljava/lang/String;"
+            definingClass == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;" &&
+                returnType == "Ljava/lang/String;"
         },
         Opcode.MOVE_RESULT_OBJECT(),
     )
@@ -29,8 +29,8 @@ internal val videoIdBackgroundPlayMethodMatch = firstMethodComposite {
     parameterTypes("L")
     instructions(
         method {
-            definingClass == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
-                && returnType == "Ljava/lang/String;"
+            definingClass == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;" &&
+                returnType == "Ljava/lang/String;"
         },
         Opcode.MOVE_RESULT_OBJECT(),
         Opcode.IPUT_OBJECT(),
@@ -40,11 +40,8 @@ internal val videoIdBackgroundPlayMethodMatch = firstMethodComposite {
         Opcode.RETURN_VOID(),
     )
     custom {
-        implementation != null &&
-            (
-                definingClass.methods.count() == 17 || // 20.39 and lower.
-                    definingClass.methods.count() == 16
-                ) // 20.40+
+        immutableClassDef.methods.count() == 17 || // 20.39 and lower.
+            immutableClassDef.methods.count() == 16 // 20.40+
     }
 }
 

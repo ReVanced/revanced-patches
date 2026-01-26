@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.misc.gms
 
 import app.revanced.patcher.*
-import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -14,7 +13,7 @@ internal val specificNetworkErrorViewControllerMethodMatch = firstMethodComposit
         ResourceType.DRAWABLE("ic_offline_no_content_upside_down"),
         ResourceType.STRING("offline_no_content_body_text_not_offline_eligible"),
         method { name == "getString" && returnType == "Ljava/lang/String;" },
-        Opcode.MOVE_RESULT_OBJECT(),
+        after(Opcode.MOVE_RESULT_OBJECT()),
     )
 }
 
@@ -28,6 +27,6 @@ internal val loadingFrameLayoutControllerMethodMatch = firstMethodComposite {
         ResourceType.DRAWABLE("ic_offline_no_content_upside_down"),
         ResourceType.STRING("offline_no_content_body_text_not_offline_eligible"),
         method { name == "getString" && returnType == "Ljava/lang/String;" },
-        Opcode.MOVE_RESULT_OBJECT(),
+        after(Opcode.MOVE_RESULT_OBJECT()),
     )
 }

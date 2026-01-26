@@ -39,12 +39,10 @@ val `Remove Meta AI` by creatingBytecodePatch(
         }.toString().substring(0, 7)
 
         // Replace placeholder in the extension method.
-        extensionMethodMethodMatch.let {
+        extensionMethodMatch.let {
             it.method.replaceInstruction(
                 it.indices.first(),
-                """
-                    const-string v1, "$relevantDigits"
-                """,
+                "const-string v1, \"$relevantDigits\"",
             )
         }
     }

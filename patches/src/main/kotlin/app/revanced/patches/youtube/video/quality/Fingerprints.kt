@@ -12,6 +12,7 @@ import app.revanced.patcher.returnType
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
 internal val BytecodePatchContext.videoQualityItemOnClickParentMethod by gettingFirstMethodDeclaratively(
     "VIDEO_QUALITIES_MENU_BOTTOM_SHEET_FRAGMENT",
@@ -20,7 +21,7 @@ internal val BytecodePatchContext.videoQualityItemOnClickParentMethod by getting
 }
 
 context(_: BytecodePatchContext)
-internal fun com.android.tools.smali.dexlib2.iface.ClassDef.getVideoQualityItemOnClickMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getVideoQualityItemOnClickMethod() = firstMutableMethodDeclaratively {
     name("onItemClick")
     returnType("V")
     parameterTypes(

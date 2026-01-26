@@ -1,4 +1,3 @@
-
 package app.revanced.patches.instagram.hide.navigation
 
 import app.revanced.patcher.*
@@ -11,6 +10,9 @@ internal val BytecodePatchContext.initializeNavigationButtonsListMethod by getti
     returnType("Ljava/util/List;")
 }
 
-internal val navigationButtonsEnumClassDefMatch = firstMethodComposite(
-    "FEED", "fragment_feed", "SEARCH", "fragment_search",
+internal val BytecodePatchContext.navigationButtonsEnumMethod by gettingFirstMethodDeclaratively(
+    "FEED",
+    "fragment_feed",
+    "SEARCH",
+    "fragment_search",
 )

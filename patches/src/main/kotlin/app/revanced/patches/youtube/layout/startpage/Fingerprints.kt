@@ -10,12 +10,11 @@ internal val BytecodePatchContext.intentActionMethod by gettingFirstMutableMetho
     parameterTypes("Landroid/content/Intent;")
 }
 
-internal val BytecodePatchContext.browseIdMethod by gettingFirstMutableMethodDeclaratively(
-    "FEwhat_to_watch",
-) {
+internal val browseIdMethodMatch = firstMethodComposite {
     returnType("Lcom/google/android/apps/youtube/app/common/ui/navigation/PaneDescriptor;")
     // parameterTypes() // 20.30 and earlier is no parameters.  20.31+ parameter is L.
     instructions(
+        "FEwhat_to_watch"(),
         512L(),
         allOf(Opcode.IPUT_OBJECT(), field { type == "Ljava/lang/String;" }),
     )

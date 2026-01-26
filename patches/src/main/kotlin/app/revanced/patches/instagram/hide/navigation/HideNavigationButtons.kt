@@ -2,6 +2,7 @@ package app.revanced.patches.instagram.hide.navigation
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.name
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.creatingBytecodePatch
@@ -73,7 +74,7 @@ val `Hide navigation buttons` by creatingBytecodePatch(
 
         // Get the field name which contains the name of the enum for the navigation button
         // ("fragment_clips", "fragment_share", ...)
-        val enumNameField = navigationButtonsEnumClassDefMatch.classDef.firstMutableMethodDeclaratively {
+        val enumNameField = navigationButtonsEnumMethod.immutableClassDef.firstMutableMethodDeclaratively {
             name("<init>")
         }.let { method ->
             method.indexOfFirstInstructionOrThrow {

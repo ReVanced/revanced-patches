@@ -1,13 +1,15 @@
 package app.revanced.patches.youtube.misc.dimensions.spoof
 
-import app.revanced.patcher.*
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patcher.returnType
 
-// Strings are partial matches (format delimiters), so keep in instructions block.
-internal val deviceDimensionsModelToStringMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.deviceDimensionsModelToStringMethod by gettingFirstMutableMethodDeclaratively {
     returnType("L")
-    strings {
-        +"minh."
-        +";maxh."
-    }
+    instructions(
+        "minh."(),
+        ";maxh."(),
+    )
 }

@@ -13,7 +13,8 @@ internal val metaAIKillSwitchCheckMethodMatch = firstMethodComposite("SearchAiag
     opcodes(Opcode.CONST_WIDE)
 }
 
-internal val extensionMethodMethodMatch = firstMethodComposite("REPLACED_BY_PATCH") {
+internal val extensionMethodMatch = firstMethodComposite {
     name(EXTENSION_METHOD_NAME)
     definingClass(EXTENSION_CLASS_DESCRIPTOR)
+    instructions("REPLACED_BY_PATCH"())
 }

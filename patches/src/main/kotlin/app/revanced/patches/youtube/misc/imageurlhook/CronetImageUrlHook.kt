@@ -1,8 +1,10 @@
 package app.revanced.patches.youtube.misc.imageurlhook
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
@@ -30,14 +32,9 @@ val cronetImageUrlHookPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     apply {
-        loadImageUrlMethod = messageDigestImageUrlMethod
-            .match(messageDigestImageUrlParentMethodMatch.classDef)
-
-        loadImageSuccessCallbackMethod = onSucceededMethod
-            .match(onResponseStartedMethodMatch.classDef)
-
-        loadImageErrorCallbackMethod = onFailureMethod
-            .match(onResponseStartedMethodMatch.classDef)
+        loadImageUrlMethod = messageDigestImageUrlParentMethod.immutableClassDef.getMessageDigestImageUrlMethod()
+        loadImageSuccessCallbackMethod = onResponseStartedMethod.immutableClassDef.getOnSucceededMethod()
+        loadImageErrorCallbackMethod = onResponseStartedMethod.immutableClassDef.getOnFailureMethod()
 
         // The URL is required for the failure callback hook, but the URL field is obfuscated.
         // Add a helper get method that returns the URL field.

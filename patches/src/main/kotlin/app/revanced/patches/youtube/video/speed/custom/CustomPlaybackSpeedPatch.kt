@@ -140,7 +140,8 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
 
         // Get the "showOldPlaybackSpeedMenu" method.
         // This is later called on the field INSTANCE.
-        val showOldPlaybackSpeedMenuMethod = getOldPlaybackSpeedsMethod.classDef.getShowOldPlaybackSpeedMenuMethod()
+        val showOldPlaybackSpeedMenuMethod =
+            getOldPlaybackSpeedsMethod.immutableClassDef.getShowOldPlaybackSpeedMenuMethod()
 
         // Insert the call to the "showOldPlaybackSpeedMenu" method on the field INSTANCE.
         showOldPlaybackSpeedMenuExtensionMethod.apply {

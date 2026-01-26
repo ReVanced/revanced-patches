@@ -1,13 +1,11 @@
 package app.revanced.patches.instagram.misc.devmenu
 
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.util.Utils.trimIndentMultiline
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
-import app.revanced.util.indexOfFirstStringInstruction
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Suppress("unused", "ObjectPropertyName")
 val `Enable developer menu` by creatingBytecodePatch(
@@ -21,16 +19,17 @@ val `Enable developer menu` by creatingBytecodePatch(
     compatibleWith("com.instagram.android")
 
     apply {
-        clearNotificationReceiverMethod.apply {
-            val stringIndex = indexOfFirstStringInstruction("NOTIFICATION_DISMISSED")
-            indexOfFirstInstructionReversedOrThrow(stringIndex) {
-                val reference = getReference<MethodReference>()
+        clearNotificationReceiverMethodMatch.let {
+            val stringIndex = it.indices.first()
+
+            it.method.indexOfFirstInstructionReversedOrThrow(stringIndex) {
+                val reference = methodReference
                 opcode in listOf(Opcode.INVOKE_STATIC, Opcode.INVOKE_STATIC_RANGE) &&
                     reference?.parameterTypes?.size == 1 &&
                     reference.parameterTypes.first() == "Lcom/instagram/common/session/UserSession;" &&
                     reference.returnType == "Z"
             }.let { index ->
-                navigate(this).to(index).stop().returnEarly(true)
+                navigate(it.method).to(index).stop().returnEarly(true)
             }
         }
     }

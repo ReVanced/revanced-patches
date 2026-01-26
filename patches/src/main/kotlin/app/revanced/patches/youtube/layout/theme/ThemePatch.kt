@@ -200,15 +200,15 @@ val themePatch = baseThemePatch(
             )
         }
 
-        useGradientLoadingScreenMethod.insertLiteralOverride(
-            45412406L,
+        useGradientLoadingScreenMethodMatch.method.insertLiteralOverride(
+            useGradientLoadingScreenMethodMatch.indices.first(),
             "$EXTENSION_CLASS_DESCRIPTOR->gradientLoadingScreenEnabled(Z)Z",
         )
 
         if (is_19_47_or_greater) {
             // Lottie splash screen exists in earlier versions, but it may not be always on.
-            splashScreenStyleMethod.insertLiteralOverride(
-                1074339245L,
+            splashScreenStyleMethodMatch.method.insertLiteralOverride(
+                splashScreenStyleMethodMatch.indices.first(),
                 "$EXTENSION_CLASS_DESCRIPTOR->getLoadingScreenType(I)I",
             )
         }

@@ -21,25 +21,27 @@ val `Open links externally` by creatingBytecodePatch(
     compatibleWith("com.instagram.android")
 
     apply {
-        inAppBrowserFunctionMethodMatch.method.apply {
-            val stringMatchIndex = inAppBrowserFunctionMethodMatch.indices.first()
+        inAppBrowserFunctionMethodMatch.let {
+            val stringMatchIndex = it.indices.first()
 
-            val urlResultObjIndex = indexOfFirstInstructionOrThrow(
-                stringMatchIndex,
-                Opcode.MOVE_OBJECT_FROM16,
-            )
+            it.method.apply {
+                val urlResultObjIndex = indexOfFirstInstructionOrThrow(
+                    stringMatchIndex,
+                    Opcode.MOVE_OBJECT_FROM16,
+                )
 
-            // Register that contains the url after moving from a higher register.
-            val urlRegister = getInstruction<TwoRegisterInstruction>(urlResultObjIndex).registerA
+                // Register that contains the url after moving from a higher register.
+                val urlRegister = getInstruction<TwoRegisterInstruction>(urlResultObjIndex).registerA
 
-            addInstructions(
-                urlResultObjIndex + 1,
-                """
-                    invoke-static { v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->openExternally(Ljava/lang/String;)Z
-                    move-result v$urlRegister
-                    return v$urlRegister
-                """,
-            )
+                addInstructions(
+                    urlResultObjIndex + 1,
+                    """
+                        invoke-static { v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->openExternally(Ljava/lang/String;)Z
+                        move-result v$urlRegister
+                        return v$urlRegister
+                    """,
+                )
+            }
         }
     }
 }

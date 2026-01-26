@@ -10,13 +10,10 @@ internal val abUriParserLegacyMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/Object;")
     parameterTypes("Ljava/lang/Object;")
-    strings {
-        // Partial string match - keep in instructions block
-        +"Found entityKey=`"
-        // "that does not contain a PlaylistVideoEntityId" - partial, skipped
-    }
     instructions(
-        method { smali == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;" },
+        "Found entityKey=`"(),
+        "that does not contain a PlaylistVideoEntityId"(String::contains),
+        method { toString() == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;" },
     )
 }
 
@@ -30,10 +27,10 @@ internal val abUriParserMethodMatch = firstMethodComposite {
     instructions(
         // Method is a switch statement of unrelated code,
         // and there's no strings or anything unique to fingerprint.
-        method { smali == "Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;" },
-        method { smali == "Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;" },
-        method { smali == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;" },
-        method { smali == "Ljava/util/List;->get(I)Ljava/lang/Object;" },
+        method { toString() == "Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;" },
+        method { toString() == "Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;" },
+        method { toString() == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;" },
+        method { toString() == "Ljava/util/List;->get(I)Ljava/lang/Object;" },
     )
 }
 
@@ -42,11 +39,9 @@ internal val httpUriParserMethodMatch = firstMethodComposite {
     returnType("Landroid/net/Uri;")
     parameterTypes("Ljava/lang/String;")
     instructions(
-        method { smali == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;" },
+        method { toString() == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;" },
+        "https"(),
+        "://"(),
+        "https:"(),
     )
-    strings {
-        +"https"
-        +"://"
-        +"https:"
-    }
 }

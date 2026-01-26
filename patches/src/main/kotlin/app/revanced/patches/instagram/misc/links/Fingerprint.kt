@@ -7,7 +7,7 @@ import app.revanced.patcher.returnType
 
 internal const val TARGET_STRING = "Tracking.ARG_CLICK_SOURCE"
 
-internal val inAppBrowserFunctionMethodMatch = firstMethodComposite {
-    instructions("TrackingInfo.ARG_MODULE_NAME"(), TARGET_STRING())
+internal val inAppBrowserFunctionMethodMatch = firstMethodComposite("TrackingInfo.ARG_MODULE_NAME") {
+    instructions(TARGET_STRING())
     returnType("Z")
 }
