@@ -326,7 +326,7 @@ val Miniplayer by creatingBytecodePatch(
             // Override a minimum size constant.
             miniplayerMinimumSizeMethod.let {
                 it.method.apply {
-                    val index = it.instructionMatches[1].index
+                    val index = it.indices[1]
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                     // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.

@@ -40,7 +40,7 @@ val hideGetPremiumPatch = bytecodePatch(
         )
 
         getPremiumViewMethod.apply {
-            val startIndex = getPremiumViewMethod.instructionMatches.first().index
+            val startIndex = getPremiumViewMethod.indices.first()
             val measuredWidthRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
             val measuredHeightInstruction = getInstruction<TwoRegisterInstruction>(startIndex + 1)
 

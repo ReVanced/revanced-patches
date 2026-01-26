@@ -103,7 +103,7 @@ val `Remove background playback restrictions` by creatingBytecodePatch(
         if (is_19_34_or_greater) {
             pipInputConsumerFeatureFlagMethod.let {
                 it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
+                    it.indices.first(),
                     false,
                 )
             }

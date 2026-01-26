@@ -20,7 +20,7 @@ val `Unlock downloads` by creatingBytecodePatch(
 
         // Allow downloads for non-premium users.
         showDownloadVideoUpsellBottomSheetMethod.patch {
-            val checkIndex = instructionMatches.first().index
+            val checkIndex = indices.first()
             val register = method.getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
             checkIndex to register
@@ -37,7 +37,7 @@ val `Unlock downloads` by creatingBytecodePatch(
         // Make GIFs downloadable.
         buildMediaOptionsSheetMethod.let {
             it.method.apply {
-                val checkMediaTypeIndex = it.instructionMatches.first().index
+                val checkMediaTypeIndex = it.indices.first()
                 val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)
 
                 // Treat GIFs as videos.

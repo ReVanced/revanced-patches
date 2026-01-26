@@ -248,7 +248,7 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
         // Modify the measure text calculation to include the left drawable separator if needed.
         rollingNumberMeasureAnimatedTextMethod.let {
             // Additional check to verify the opcodes are at the start of the method
-            if (it.instructionMatches.first().index != 0) throw PatchException("Unexpected opcode location")
+            if (it.indices.first() != 0) throw PatchException("Unexpected opcode location")
             val endIndex = it.indices.last()
 
             it.method.apply {
@@ -269,7 +269,7 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
         rollingNumberMeasureStaticLabelMethod.match(
             rollingNumberMeasureStaticLabelParentMethod.immutableClassDef,
         ).let {
-            val measureTextIndex = it.instructionMatches.first().index + 1
+            val measureTextIndex = it.indices.first() + 1
             it.method.apply {
                 val freeRegister = getInstruction<TwoRegisterInstruction>(0).registerA
 

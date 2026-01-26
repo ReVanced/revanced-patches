@@ -200,7 +200,7 @@ val lithoFilterPatch = bytecodePatch(
             // 20.22 the flag is still enabled in one location, but what it does is not known.
             // Disable it anyway.
             it.method.insertLiteralOverride(
-                it.instructionMatches.first().index,
+                it.indices.first(),
                 false,
             )
         }

@@ -46,7 +46,7 @@ val `Disable rolling number animations` by creatingBytecodePatch(
         // Animations are disabled by preventing an Image from being applied to the text span,
         // which prevents the animations from appearing.
         rollingNumberTextViewAnimationUpdateMethod.let {
-            val blockStartIndex = it.instructionMatches.first().index
+            val blockStartIndex = it.indices.first()
             val blockEndIndex = it.indices.last() + 1
             it.method.apply {
                 val freeRegister = getInstruction<OneRegisterInstruction>(blockStartIndex).registerA

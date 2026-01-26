@@ -42,7 +42,7 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         // Restore the behaviour to slide to seek.
 
-        val checkIndex = slideToSeekMethod.instructionMatches.first().index
+        val checkIndex = slideToSeekMethod.indices.first()
         val checkReference = slideToSeekMethod.getInstruction(checkIndex)
             .getReference<MethodReference>()!!
 

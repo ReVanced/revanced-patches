@@ -13,7 +13,7 @@ val `Remove file size limit` by creatingBytecodePatch(
 
     apply {
         onReadyMethod.apply {
-            val cmpIndex = onReadyMethod.instructionMatches.first().index + 1 // TODO
+            val cmpIndex = onReadyMethod.indices.first() + 1 // TODO
             val cmpResultRegister = getInstruction<ThreeRegisterInstruction>(cmpIndex).registerA
 
             replaceInstruction(cmpIndex, "const/4 v$cmpResultRegister, 0x0")

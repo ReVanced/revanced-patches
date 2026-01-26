@@ -50,16 +50,16 @@ val seekbarColorPatch = bytecodePatch(
         playerSeekbarColorMethod.let {
             it.method.apply {
                 addColorChangeInstructions(it.indices.last())
-                addColorChangeInstructions(it.instructionMatches.first().index)
+                addColorChangeInstructions(it.indices.first())
             }
         }
 
         shortsSeekbarColorMethod.let {
-            it.method.addColorChangeInstructions(it.instructionMatches.first().index)
+            it.method.addColorChangeInstructions(it.indices.first())
         }
 
         setSeekbarClickedColorMethod.immutableMethod.let {
-            val setColorMethodIndex = setSeekbarClickedColorMethod.instructionMatches.first().index + 1
+            val setColorMethodIndex = setSeekbarClickedColorMethod.indices.first() + 1
 
             navigate(it).to(setColorMethodIndex).stop().apply {
                 val colorRegister = getInstruction<TwoRegisterInstruction>(0).registerA
@@ -91,7 +91,7 @@ val seekbarColorPatch = bytecodePatch(
         if (is_19_34_or_greater) {
             watchHistoryMenuUseProgressDrawableMethod.let {
                 it.method.apply {
-                    val index = it.instructionMatches[1].index
+                    val index = it.indices[1]
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                     addInstructions(

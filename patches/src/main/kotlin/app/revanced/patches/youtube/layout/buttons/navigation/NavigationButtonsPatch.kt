@@ -97,9 +97,9 @@ val `Navigation buttons` by creatingBytecodePatch(
         }
 
         // Hide navigation button labels.
-        createPivotBarMethod.let {
+        createPivotBarMethodMatch.let {
             it.method.apply {
-                val setTextIndex = it.instructionMatches.first().index
+                val setTextIndex = it.indices.first()
                 val targetRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerC
 
                 addInstruction(
@@ -115,32 +115,32 @@ val `Navigation buttons` by creatingBytecodePatch(
 
         // Force on/off translucent effect on status bar and navigation buttons.
         if (is_19_25_or_greater) {
-            translucentNavigationStatusBarFeatureFlagMethod.let {
+            translucentNavigationStatusBarFeatureFlagMethodMatch.let {
                 it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
+                    it.indices.first(),
                     "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationStatusBar(Z)Z",
                 )
             }
 
-            translucentNavigationButtonsFeatureFlagMethod.let {
+            translucentNavigationButtonsFeatureFlagMethodMatch.let {
                 it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
+                    it.indices.first(),
                     "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
                 )
             }
 
-            translucentNavigationButtonsSystemFeatureFlagMethod.let {
+            translucentNavigationButtonsSystemFeatureFlagMethodMatch.let {
                 it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
+                    it.indices.first(),
                     "$EXTENSION_CLASS_DESCRIPTOR->useTranslucentNavigationButtons(Z)Z",
                 )
             }
         }
 
         if (is_20_15_or_greater) {
-            animatedNavigationTabsFeatureFlagMethod.let {
+            animatedNavigationTabsFeatureFlagMethodMatch.let {
                 it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
+                    it.indices.first(),
                     "$EXTENSION_CLASS_DESCRIPTOR->useAnimatedNavigationButtons(Z)Z",
                 )
             }

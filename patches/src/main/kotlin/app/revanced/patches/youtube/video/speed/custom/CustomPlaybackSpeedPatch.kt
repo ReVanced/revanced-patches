@@ -172,7 +172,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         if (is_19_47_or_greater) {
             customTapAndHoldMethodMatch.let {
                 it.method.apply {
-                    val index = it.instructionMatches.first().index
+                    val index = it.indices.first()
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                     addInstructions(

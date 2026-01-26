@@ -241,7 +241,7 @@ val `Hide layout components` by creatingBytecodePatch(
         // region Mix playlists
 
         parseElementFromBufferMethod.apply {
-            val startIndex = parseElementFromBufferMethod.instructionMatches.first().index
+            val startIndex = parseElementFromBufferMethod.indices.first()
             val insertIndex = startIndex + 1
 
             val byteArrayParameter = "p3"

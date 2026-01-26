@@ -54,7 +54,7 @@ val hideSeekbarPatch = bytecodePatch(
         if (is_20_28_or_greater) {
             fullscreenLargeSeekbarFeatureFlagMethodMatch.let {
                 it.method.insertLiteralOverride(
-                    it.instructionMatches.first().index,
+                    it.indices.first(),
                     "$EXTENSION_CLASS_DESCRIPTOR->useFullscreenLargeSeekbar(Z)Z",
                 )
             }

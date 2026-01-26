@@ -28,7 +28,7 @@ internal val openVideosFullscreenHookPatch = bytecodePatch {
 
         if (is_19_46_or_greater) {
             fingerprint = openVideosFullscreenPortraitMethod
-            insertIndex = fingerprint.instructionMatches.first().index
+            insertIndex = fingerprint.indices.first()
 
             openVideosFullscreenPortraitMethod.let {
                 // Remove A/B feature call that forces what this patch already does.
