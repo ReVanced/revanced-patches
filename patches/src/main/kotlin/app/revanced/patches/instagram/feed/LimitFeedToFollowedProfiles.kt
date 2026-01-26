@@ -1,8 +1,11 @@
 package app.revanced.patches.instagram.feed
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.name
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.instagram.misc.extension.sharedExtensionPatch
@@ -32,10 +35,9 @@ val `Limit feed to followed profiles` by creatingBytecodePatch(
 
         mainFeedHeaderMapFinderMethod.apply {
             mainFeedRequestHeaderFieldName = indexOfFirstInstructionOrThrow {
-                getReference<FieldReference>().let { ref ->
-                    ref?.type == "Ljava/util/Map;" &&
-                        ref.definingClass == mainFeedRequestClassMethod.immutableClassDef.toString()
-                }
+                val reference = fieldReference
+                reference?.type == "Ljava/util/Map;" &&
+                    reference.definingClass == mainFeedRequestClassMethod.classDef.type
             }.let { instructionIndex ->
                 getInstruction(instructionIndex).getReference<FieldReference>()!!.name
             }

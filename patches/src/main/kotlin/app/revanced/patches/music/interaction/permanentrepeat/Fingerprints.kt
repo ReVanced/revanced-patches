@@ -1,11 +1,10 @@
 package app.revanced.patches.music.interaction.permanentrepeat
 
 import app.revanced.patcher.*
-import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.repeatTrackMethod by gettingFirstMutableMethodDeclaratively("w_st") {
+internal val repeatTrackMethodMatch = firstMethodComposite("w_st") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L", "L")

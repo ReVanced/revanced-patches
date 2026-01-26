@@ -1,28 +1,24 @@
 package app.revanced.patches.music.layout.miniplayercolor
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.opcodes
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.miniPlayerConstructorMethod by gettingFirstMethodDeclaratively {
+internal val miniPlayerConstructorMethodMatch = firstMethodComposite {
     returnType("V")
     instructions(
         ResourceType.ID("mpp_player_bottom_sheet"),
+        "sharedToggleMenuItemMutations"(),
     )
-    strings("sharedToggleMenuItemMutations")
 }
 
 /**
- * Matches to the class found in [miniPlayerConstructorMethod].
+ * Matches to the class found in [miniPlayerConstructorMethodMatch].
  */
-internal val BytecodePatchContext.switchToggleColorMethod by gettingFirstMethodDeclaratively {
+internal val switchToggleColorMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L", "J")

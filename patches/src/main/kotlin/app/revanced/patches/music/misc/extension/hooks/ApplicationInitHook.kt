@@ -1,5 +1,7 @@
 package app.revanced.patches.music.misc.extension.hooks
 
+import app.revanced.patcher.instructions
+import app.revanced.patcher.invoke
 import app.revanced.patcher.name
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.returnType
@@ -11,7 +13,7 @@ internal val applicationInitHook = extensionHook {
     name("onCreate")
     returnType("V")
     parameterTypes()
-    strings("activity")
+    instructions("activity"())
 }
 
 internal val applicationInitOnCreateHook = activityOnCreateExtensionHook(YOUTUBE_MUSIC_MAIN_ACTIVITY_CLASS_TYPE)

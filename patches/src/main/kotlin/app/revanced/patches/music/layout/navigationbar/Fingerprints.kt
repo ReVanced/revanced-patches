@@ -1,11 +1,6 @@
 package app.revanced.patches.music.layout.navigationbar
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.opcodes
-import app.revanced.patcher.parameterTypes
-import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
+import app.revanced.patcher.*
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -14,7 +9,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val BytecodePatchContext.tabLayoutTextMethod by gettingFirstMethodDeclaratively {
+internal val tabLayoutTextMethodMatch = firstMethodComposite("FEmusic_search") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")
@@ -27,10 +22,9 @@ internal val BytecodePatchContext.tabLayoutTextMethod by gettingFirstMethodDecla
         Opcode.INVOKE_INTERFACE,
         Opcode.MOVE_RESULT,
     )
-    strings("FEmusic_search")
-    custom { method, _ ->
-        method.containsLiteralInstruction(text1) &&
-            indexOfGetVisibilityInstruction(method) >= 0
+    custom {
+        containsLiteralInstruction(text1) &&
+            indexOfGetVisibilityInstruction(this) >= 0
     }
 }
 

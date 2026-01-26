@@ -39,23 +39,25 @@ val `Hide 'Get Music Premium'` by creatingBytecodePatch(
             SwitchPreference("revanced_music_hide_get_premium_label"),
         )
 
-        hideGetPremiumMethod.apply {
-            val insertIndex = hideGetPremiumMethod.indices.last() // TODO
+        hideGetPremiumMethodMatch.let {
+            val insertIndex = it.indices.last()
 
-            val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
-            val getPremiumViewRegister = setVisibilityInstruction.registerC
-            val visibilityRegister = setVisibilityInstruction.registerD
+            it.method.apply {
+                val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)
+                val getPremiumViewRegister = setVisibilityInstruction.registerC
+                val visibilityRegister = setVisibilityInstruction.registerD
 
-            replaceInstruction(
-                insertIndex,
-                "const/16 v$visibilityRegister, 0x8",
-            )
+                replaceInstruction(
+                    insertIndex,
+                    "const/16 v$visibilityRegister, 0x8",
+                )
 
-            addInstruction(
-                insertIndex + 1,
-                "invoke-virtual {v$getPremiumViewRegister, v$visibilityRegister}, " +
-                    "Landroid/view/View;->setVisibility(I)V",
-            )
+                addInstruction(
+                    insertIndex + 1,
+                    "invoke-virtual {v$getPremiumViewRegister, v$visibilityRegister}, " +
+                        "Landroid/view/View;->setVisibility(I)V",
+                )
+            }
         }
 
         membershipSettingsMethod.addInstructionsWithLabels(

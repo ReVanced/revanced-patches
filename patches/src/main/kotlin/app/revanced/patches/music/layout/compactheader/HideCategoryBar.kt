@@ -43,11 +43,11 @@ val `Hide category bar` by creatingBytecodePatch(
 
         chipCloud = ResourceType.LAYOUT["chip_cloud"]
 
-        chipCloudMethod.apply {
-            val targetIndex = chipCloudMethod.patternMatch.endIndex
-            val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+        chipCloudMethodMatch.let {
+            val targetIndex = it.indices.last()
+            val targetRegister = it.method.getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            addInstruction(
+            it.method.addInstruction(
                 targetIndex + 1,
                 "invoke-static { v$targetRegister }, $EXTENSION_CLASS_DESCRIPTOR->hideCategoryBar(Landroid/view/View;)V",
             )

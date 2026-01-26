@@ -69,11 +69,11 @@ val `Open Shorts in regular player` by creatingBytecodePatch(
         // Find the obfuscated method name for PlaybackStartDescriptor.videoId()
         val (videoIdStartMethod, videoIdIndex) = if (is_20_39_or_greater) {
             watchPanelVideoIdMethodMatch.let {
-                it.method to it.indices.last()
+                it.immutableMethod to it.indices.last()
             }
         } else {
             playbackStartFeatureFlagMethodMatch.let {
-                it.method to it.indices.first()
+                it.immutableMethod to it.indices.first()
             }
         }
         val playbackStartVideoIdMethodName = navigate(videoIdStartMethod).to(videoIdIndex).stop().name

@@ -15,11 +15,11 @@ val `Force English locale` by creatingBytecodePatch(
     dependsOn(`Fix login`)
 
     apply {
-        syncBluetoothLanguageMethod.apply {
-            val resolvePhoneLocaleInstruction = syncBluetoothLanguageMethod.instructionMatches.first().index // TODO
-            val registerIndexToUpdate = getInstruction<OneRegisterInstruction>(resolvePhoneLocaleInstruction).registerA
+        syncBluetoothLanguageMethodMatch.let {
+            val resolvePhoneLocaleInstruction = it.indices.first()
+            val registerIndexToUpdate = it.method.getInstruction<OneRegisterInstruction>(resolvePhoneLocaleInstruction).registerA
 
-            replaceInstruction(
+            it.method.replaceInstruction(
                 resolvePhoneLocaleInstruction,
                 "const-string v$registerIndexToUpdate, \"en_gb\"",
             )

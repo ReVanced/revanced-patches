@@ -14,11 +14,10 @@ val `Unlock split tunneling` by creatingBytecodePatch {
     compatibleWith("ch.protonvpn.android")
 
     apply {
-        val registerIndex = enableSplitTunnelingUiMethod.patternMatch!!.endIndex - 1 // TODO
-
-        enableSplitTunnelingUiMethod.apply {
-            val register = getInstruction<OneRegisterInstruction>(registerIndex).registerA
-            replaceInstruction(registerIndex, "const/4 v$register, 0x0")
+        enableSplitTunnelingUiMethodMatch.let {
+            val registerIndex = it.indices.last() - 1
+            val register = it.method.getInstruction<OneRegisterInstruction>(registerIndex).registerA
+            it.method.replaceInstruction(registerIndex, "const/4 v$register, 0x0")
         }
 
         initializeSplitTunnelingSettingsUIMethod.apply {

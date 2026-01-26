@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.hideGetPremiumMethod by gettingFirstMutableMethodDeclaratively(
+internal val hideGetPremiumMethodMatch = firstMethodComposite(
     "FEmusic_history",
     "FEmusic_offline"
 ) {

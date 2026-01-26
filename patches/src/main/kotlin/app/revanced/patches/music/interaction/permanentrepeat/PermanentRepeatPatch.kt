@@ -38,10 +38,10 @@ val `Permanent repeat` by creatingBytecodePatch(
             SwitchPreference("revanced_music_play_permanent_repeat"),
         )
 
-        val startIndex = repeatTrackMethod.indices.last() // TODO
-        val repeatIndex = startIndex + 1
+        repeatTrackMethodMatch.method.apply {
+            val startIndex = repeatTrackMethodMatch.indices.last()
+            val repeatIndex = startIndex + 1
 
-        repeatTrackMethod.apply {
             // Start index is at a branch, but the same
             // register is clobbered in both branch paths.
             val freeRegister = findFreeRegister(startIndex + 1)

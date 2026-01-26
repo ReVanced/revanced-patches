@@ -2,8 +2,12 @@
 
 package app.revanced.patches.music.layout.miniplayercolor
 
+import app.revanced.patcher.accessFlags
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.returnType
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
@@ -45,8 +49,8 @@ val `Change miniplayer color` by creatingBytecodePatch(
             SwitchPreference("revanced_music_change_miniplayer_color"),
         )
 
-        switchToggleColorMethod.match(miniPlayerConstructorMethod.classDef).let {
-            val relativeIndex = it.patternMatch.endIndex + 1
+        switchToggleColorMethodMatch.match(miniPlayerConstructorMethodMatch.immutableClassDef).let {
+            val relativeIndex = it.indices.last() + 1
 
             val invokeVirtualIndex = it.method.indexOfFirstInstructionOrThrow(
                 relativeIndex,
@@ -62,20 +66,24 @@ val `Change miniplayer color` by creatingBytecodePatch(
             val colorMathPlayerIGetReference = it.method
                 .getInstruction<ReferenceInstruction>(iGetIndex).reference as FieldReference
 
-            val colorGreyIndex = miniPlayerConstructorMethod.indexOfFirstInstructionReversedOrThrow {
-                getReference<MethodReference>()?.name == "getColor"
-            }
-            val iPutIndex = miniPlayerConstructorMethod.indexOfFirstInstructionOrThrow(
+            val colorGreyIndex =
+                miniPlayerConstructorMethodMatch.immutableMethod.indexOfFirstInstructionReversedOrThrow {
+                    getReference<MethodReference>()?.name == "getColor"
+                }
+            val iPutIndex = miniPlayerConstructorMethodMatch.immutableMethod.indexOfFirstInstructionOrThrow(
                 colorGreyIndex,
                 Opcode.IPUT,
             )
-            val colorMathPlayerIPutReference = miniPlayerConstructorMethod
+            val colorMathPlayerIPutReference = miniPlayerConstructorMethodMatch.immutableMethod
                 .getInstruction<ReferenceInstruction>(iPutIndex).reference
 
-            miniPlayerConstructorMethod.classDef.methods.single { method ->
-                method.accessFlags == AccessFlags.PUBLIC.value or AccessFlags.FINAL.value &&
-                    method.returnType == "V" &&
-                    method.parameters == it.immutableMethod.parameters
+            miniPlayerConstructorMethodMatch.immutableClassDef.firstMutableMethodDeclaratively {
+                accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+                returnType("V")
+                parameterTypes(
+                    parameterTypePrefixes = it.method.parameterTypes.map { type -> type.toString() }
+                        .toTypedArray(),
+                )
             }.apply {
                 val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.INVOKE_DIRECT)
                 val freeRegister = findFreeRegister(insertIndex)

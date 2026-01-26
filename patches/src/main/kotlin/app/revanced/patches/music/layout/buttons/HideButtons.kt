@@ -3,6 +3,8 @@ package app.revanced.patches.music.layout.buttons
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.firstMutableMethod
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -67,11 +69,11 @@ val `Hide buttons` by creatingBytecodePatch(
 
         // Region for hide history button in the top bar.
         arrayOf(
-            historyMenuItemFingerprint,
-            historyMenuItemOfflineTabFingerprint,
-        ).forEach { fingerprint ->
-            fingerprint.method.apply {
-                val targetIndex = fingerprint.patternMatch.startIndex
+            historyMenuItemMethodMatch,
+            historyMenuItemOfflineTabMethodMatch,
+        ).forEach { match ->
+            match.method.apply {
+                val targetIndex = match.indices.first()
                 val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerD
 
                 addInstructions(
@@ -86,11 +88,11 @@ val `Hide buttons` by creatingBytecodePatch(
 
         // Region for hide cast, search and notification buttons in the top bar.
         arrayOf(
-            Triple(playerOverlayChipFingerprint, playerOverlayChip, "hideCastButton"),
-            Triple(searchActionViewFingerprint, searchButton, "hideSearchButton"),
-            Triple(topBarMenuItemImageViewFingerprint, topBarMenuItemImageView, "hideNotificationButton"),
-        ).forEach { (fingerprint, resourceIdLiteral, methodName) ->
-            fingerprint.method.apply {
+            Triple(playerOverlayChipMethod, playerOverlayChip, "hideCastButton"),
+            Triple(searchActionViewMethod, searchButton, "hideSearchButton"),
+            Triple(topBarMenuItemImageViewMethod, topBarMenuItemImageView, "hideNotificationButton"),
+        ).forEach { (method, resourceIdLiteral, methodName) ->
+            method.apply {
                 val resourceIndex = indexOfFirstLiteralInstructionOrThrow(resourceIdLiteral)
                 val targetIndex = indexOfFirstInstructionOrThrow(
                     resourceIndex,
@@ -107,8 +109,8 @@ val `Hide buttons` by creatingBytecodePatch(
         }
 
         // Region for hide cast button in the player.
-        mediaRouteButtonFingerprint.classDef.methods.single { method ->
-            method.name == "setVisibility"
+        mediaRouteButtonMethod.immutableClassDef.firstMutableMethod {
+            name == "setVisibility"
         }.addInstructions(
             0,
             """

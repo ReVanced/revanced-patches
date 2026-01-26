@@ -22,14 +22,14 @@ val `Enable developer menu` by creatingBytecodePatch(
         clearNotificationReceiverMethodMatch.let {
             val stringIndex = it.indices.first()
 
-            it.method.indexOfFirstInstructionReversedOrThrow(stringIndex) {
+            it.immutableMethod.indexOfFirstInstructionReversedOrThrow(stringIndex) {
                 val reference = methodReference
                 opcode in listOf(Opcode.INVOKE_STATIC, Opcode.INVOKE_STATIC_RANGE) &&
                     reference?.parameterTypes?.size == 1 &&
                     reference.parameterTypes.first() == "Lcom/instagram/common/session/UserSession;" &&
                     reference.returnType == "Z"
             }.let { index ->
-                navigate(it.method).to(index).stop().returnEarly(true)
+                navigate(it.immutableMethod).to(index).stop().returnEarly(true)
             }
         }
     }
