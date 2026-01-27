@@ -332,6 +332,10 @@ public final class app/revanced/patches/instagram/misc/devmenu/EnableDeveloperMe
 	public static final fun getEnableDeveloperMenuPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/instagram/misc/disableAnalytics/DisableAnalyticsPatchKt {
+	public static final fun getRemoveBuildExpiredPopupPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/instagram/misc/extension/SharedExtensionPatchKt {
 	public static final fun getSharedExtensionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
