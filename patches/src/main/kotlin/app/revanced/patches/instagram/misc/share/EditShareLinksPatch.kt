@@ -16,15 +16,14 @@ internal fun editShareLinksPatch(block: MutableMethod.(index: Int, register: Int
         liveUrlResponseJsonParserFingerprint
     )
 
-    for (fingerprint in fingerprintsToPatch) {
+    fingerprintsToPatch.forEachIndexed { index, fingerprint ->
+
         fingerprint.method.apply {
             val putSharingUrlIndex = indexOfFirstInstruction(
-                permalinkResponseJsonParserFingerprint.stringMatches!!.first().index,
+                index,
                 Opcode.IPUT_OBJECT
             )
-
             val sharingUrlRegister = getInstruction<TwoRegisterInstruction>(putSharingUrlIndex).registerA
-
             block(putSharingUrlIndex, sharingUrlRegister)
         }
     }

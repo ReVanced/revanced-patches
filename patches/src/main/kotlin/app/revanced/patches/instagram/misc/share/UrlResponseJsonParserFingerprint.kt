@@ -1,23 +1,32 @@
 package app.revanced.patches.instagram.misc.share
 
 import app.revanced.patcher.fingerprint
+import com.android.tools.smali.dexlib2.Opcode
+
+internal val TARGET_STRING_ARRAY =  arrayOf(
+    "permalink",
+    "story_item_to_share_url",
+    "profile_to_share_url",
+    "live_to_share_url",
+)
 
 internal val permalinkResponseJsonParserFingerprint = fingerprint {
-    strings("permalink", "PermalinkResponse")
+    strings(TARGET_STRING_ARRAY[0])
+    opcodes(Opcode.NEW_INSTANCE,Opcode.INVOKE_DIRECT,Opcode.INVOKE_VIRTUAL)
     custom { method, _ -> method.name == "parseFromJson" }
 }
 
 internal val storyUrlResponseJsonParserFingerprint = fingerprint {
-    strings("story_item_to_share_url", "StoryItemUrlResponse")
+    strings(TARGET_STRING_ARRAY[1])
     custom { method, _ -> method.name == "parseFromJson" }
 }
 
 internal val profileUrlResponseJsonParserFingerprint = fingerprint {
-    strings("profile_to_share_url")
+    strings(TARGET_STRING_ARRAY[2])
     custom { method, _ -> method.name == "parseFromJson" }
 }
 
 internal val liveUrlResponseJsonParserFingerprint = fingerprint {
-    strings("live_to_share_url", "LiveItemLinkUrlResponse")
+    strings(TARGET_STRING_ARRAY[3])
     custom { method, _ -> method.name == "parseFromJson" }
 }
