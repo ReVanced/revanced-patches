@@ -1,3 +1,10 @@
+# [5.50.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.3...v5.50.0-dev.4) (2026-01-27)
+
+
+### Bug Fixes
+
+* **Instagram - Open links externally:** Fix patch by handling >4-bit register ([#6538](https://github.com/ReVanced/revanced-patches/issues/6538)) ([f681a6f](https://github.com/ReVanced/revanced-patches/commit/f681a6ffd45f05a61743e7d272cd68c4b743be42))
+
 # [5.50.0-dev.3](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.2...v5.50.0-dev.3) (2026-01-26)
 
 
