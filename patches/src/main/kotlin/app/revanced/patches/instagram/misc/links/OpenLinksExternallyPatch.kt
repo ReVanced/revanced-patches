@@ -33,16 +33,10 @@ val openLinksExternallyPatch = bytecodePatch(
                 // Register that contains the url after moving from a higher register.
                 val urlRegister = getInstruction<TwoRegisterInstruction>(urlResultObjIndex).registerA
 
-                val invokeStatic = if (urlRegister < 0x10) {
-                    "invoke-static { v$urlRegister }"
-                } else {
-                    "invoke-static/range { v$urlRegister .. v$urlRegister }"
-                }
-
                 addInstructions(
                     urlResultObjIndex + 1,
                     """
-                        $invokeStatic, $EXTENSION_CLASS_DESCRIPTOR->openExternally(Ljava/lang/String;)Z
+                        invoke-static/range { v$urlRegister .. v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->openExternally(Ljava/lang/String;)Z
                         move-result v0
                         return v0
                     """
