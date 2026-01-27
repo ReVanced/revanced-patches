@@ -36,9 +36,9 @@ val openLinksExternallyPatch = bytecodePatch(
                 addInstructions(
                     urlResultObjIndex + 1,
                     """
-                        invoke-static { v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->openExternally(Ljava/lang/String;)Z
-                        move-result v$urlRegister
-                        return v$urlRegister
+                        invoke-static/range { v$urlRegister .. v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->openExternally(Ljava/lang/String;)Z
+                        move-result v0
+                        return v0
                     """
                 )
             }

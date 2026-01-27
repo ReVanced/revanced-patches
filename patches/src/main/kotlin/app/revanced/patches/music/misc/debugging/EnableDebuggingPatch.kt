@@ -7,20 +7,15 @@ import app.revanced.patches.shared.misc.debugging.enableDebuggingPatch
 
 @Suppress("unused")
 val enableDebuggingPatch = enableDebuggingPatch(
-    block = {
-        dependsOn(
-            sharedExtensionPatch,
-            settingsPatch,
+    sharedExtensionPatch = sharedExtensionPatch,
+    settingsPatch = settingsPatch,
+    compatibleWithPackages = arrayOf(
+        "com.google.android.apps.youtube.music" to setOf(
+            "7.29.52",
+            "8.10.52"
         )
-
-        compatibleWith(
-            "com.google.android.apps.youtube.music"(
-                "7.29.52",
-                "8.10.52"
-            )
-        )
-    },
+    ),
     // String feature flag does not appear to be present with YT Music.
     hookStringFeatureFlag = false,
-    preferenceScreen = PreferenceScreen.MISC
+    preferenceScreen = PreferenceScreen.MISC,
 )

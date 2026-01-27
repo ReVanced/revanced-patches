@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--
 
     All strings must have a unique path, even if the same string is declared in two different apps.
@@ -26,12 +26,12 @@ Second \"item\" text"</string>
   <!-- Translations of this should be identical to revanced_custom_branding_name_entry_5 -->
   </patch>
   <patch id="misc.checks.checkEnvironmentPatch">
-  <string name="revanced_check_environment_failed_title">Provjere nisu uspjele</string>
+  <string name="shared.misc.checks.checkEnvironmentPatch.revanced_check_environment_failed_title">Provjere nisu uspjele</string>
   </patch>
   <patch id="misc.dns.checkWatchHistoryDomainNameResolutionPatch">
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
-  <string name="revanced_settings_save">Sačuvaj</string>
+  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_save">Sačuvaj</string>
   <!-- Settings about dialog. -->
   <!-- NOTE: the about strings above are duplicated in the TikTok about screen code,
                  and changes made here must also be made there. -->
@@ -230,6 +230,8 @@ Second \"item\" text"</string>
   <patch id="misc.loopvideo.loopVideoPatch">
   </patch>
   <patch id="misc.loopvideo.button.loopVideoButtonPatch">
+  </patch>
+  <patch id="misc.audiofocus.pauseOnAudioInterruptPatch">
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   </patch>

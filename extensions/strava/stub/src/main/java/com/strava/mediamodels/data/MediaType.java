@@ -1,4 +1,4 @@
-package com.strava.core.data;
+package com.strava.mediamodels.data;
 
 public enum MediaType {
     PHOTO(1),

@@ -17,6 +17,8 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ByteTrieSearch;
 import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.shared.TrieSearch;
+import app.revanced.extension.shared.patches.litho.Filter;
+import app.revanced.extension.shared.patches.litho.FilterGroup.*;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;
 import app.revanced.extension.youtube.shared.PlayerType;
@@ -41,7 +43,7 @@ import app.revanced.extension.youtube.shared.PlayerType;
  * - When using whole word syntax, some keywords may need additional pluralized variations.
  */
 @SuppressWarnings("unused")
-final class KeywordContentFilter extends Filter {
+public final class KeywordContentFilter extends Filter {
 
     /**
      * Strings found in the buffer for every videos.  Full strings should be specified.
@@ -554,8 +556,8 @@ final class KeywordContentFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String identifier, String path, byte[] buffer,
-                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    public boolean isFiltered(String identifier, String path, byte[] buffer,
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (contentIndex != 0 && matchedGroup == startsWithFilter) {
             return false;
         }

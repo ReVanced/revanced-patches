@@ -11,3 +11,19 @@ internal val mainActivityOnCreateFingerprint = fingerprint {
         method.name == "onCreate" && classDef.type == YOUTUBE_MUSIC_MAIN_ACTIVITY_CLASS_TYPE
     }
 }
+
+internal val conversionContextFingerprintToString = fingerprint {
+    parameters()
+    strings(
+        "ConversionContext{containerInternal=",
+        ", gridColumnCount=",
+        ", gridColumnIndex=",
+        ", templateLoggerFactory=",
+        ", rootDisposableContainer=",
+        ", elementId=",
+        ", identifierProperty="
+    )
+    custom { method, _ ->
+        method.name == "toString"
+    }
+}
