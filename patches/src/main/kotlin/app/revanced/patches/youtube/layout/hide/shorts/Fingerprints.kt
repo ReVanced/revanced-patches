@@ -1,20 +1,13 @@
 package app.revanced.patches.youtube.layout.hide.shorts
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.after
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.method
-import app.revanced.patcher.opcodes
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.shortsBottomBarContainerMethod by gettingFirstMethodDeclaratively {
+internal val shortsBottomBarContainerMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/view/View;", "Landroid/os/Bundle;")
@@ -29,7 +22,9 @@ internal val BytecodePatchContext.shortsBottomBarContainerMethod by gettingFirst
 /**
  * 19.41 to 20.44.
  */
-internal val BytecodePatchContext.renderBottomNavigationBarMethod by gettingFirstMethodDeclaratively {
+
+context(_: BytecodePatchContext)
+internal fun ClassDef.getRenderBottomNavigationBarMethodMatch() = firstMutableMethodDeclaratively {
     returnType("V")
     parameterTypes("Ljava/lang/String;")
     instructions(
@@ -38,7 +33,6 @@ internal val BytecodePatchContext.renderBottomNavigationBarMethod by gettingFirs
         after(Opcode.IGET_OBJECT()),
         after(Opcode.IF_EQZ()),
         after(Opcode.INVOKE_INTERFACE()),
-
         Opcode.MONITOR_EXIT(),
         after(Opcode.RETURN_VOID()),
         after(Opcode.MOVE_EXCEPTION()),
@@ -97,7 +91,7 @@ internal val BytecodePatchContext.renderBottomNavigationBarParentMethod by getti
     )
 }
 
-internal val BytecodePatchContext.setPivotBarVisibilityMethod by gettingFirstMethodDeclaratively {
+internal val setPivotBarVisibilityMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Z")
@@ -114,7 +108,7 @@ internal val BytecodePatchContext.setPivotBarVisibilityParentMethod by gettingFi
     )
 }
 
-internal val BytecodePatchContext.shortsExperimentalPlayerFeatureFlagMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.shortsExperimentalPlayerFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
@@ -123,7 +117,7 @@ internal val BytecodePatchContext.shortsExperimentalPlayerFeatureFlagMethod by g
     )
 }
 
-internal val BytecodePatchContext.renderNextUIFeatureFlagMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.renderNextUIFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

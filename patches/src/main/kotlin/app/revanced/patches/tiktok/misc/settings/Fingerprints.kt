@@ -19,7 +19,7 @@ internal val BytecodePatchContext.settingsEntryMethod by gettingFirstMethodDecla
 
 internal val BytecodePatchContext.settingsEntryInfoMethod by gettingFirstMethod("ExposeItem(title=", ", icon=")
 
-internal val BytecodePatchContext.settingsStatusLoadMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.settingsStatusLoadMethod by gettingFirstMutableMethodDeclaratively {
     name("load")
-    definingClass { endsWith("Lapp/revanced/extension/tiktok/settings/SettingsStatus;") }
+    definingClass("Lapp/revanced/extension/tiktok/settings/SettingsStatus;")
 }

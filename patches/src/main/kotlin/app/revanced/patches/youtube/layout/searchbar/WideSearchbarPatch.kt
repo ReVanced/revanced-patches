@@ -62,28 +62,26 @@ val `Wide search bar` by creatingBytecodePatch(
             SwitchPreference("revanced_wide_searchbar"),
         )
 
-        setWordmarkHeaderMethod.let {
-            // Navigate to the method that checks if the YT logo is shown beside the search bar.
-            val shouldShowLogoMethod = with(it.immutableMethod) {
-                val invokeStaticIndex = indexOfFirstInstructionOrThrow {
-                    opcode == Opcode.INVOKE_STATIC &&
-                        getReference<MethodReference>()?.returnType == "Z"
-                }
-                navigate(this).to(invokeStaticIndex).stop()
+        // Navigate to the method that checks if the YT logo is shown beside the search bar.
+        val shouldShowLogoMethod = with(setWordmarkHeaderMethod) {
+            val invokeStaticIndex = indexOfFirstInstructionOrThrow {
+                opcode == Opcode.INVOKE_STATIC &&
+                    getReference<MethodReference>()?.returnType == "Z"
             }
+            navigate(this).to(invokeStaticIndex).stop()
+        }
 
-            shouldShowLogoMethod.apply {
-                findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
-                    val register = getInstruction<OneRegisterInstruction>(index).registerA
+        shouldShowLogoMethod.apply {
+            findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
+                val register = getInstruction<OneRegisterInstruction>(index).registerA
 
-                    addInstructionsAtControlFlowLabel(
-                        index,
-                        """
-                            invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->enableWideSearchbar(Z)Z
-                            move-result v$register
-                        """,
-                    )
-                }
+                addInstructionsAtControlFlowLabel(
+                    index,
+                    """
+                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->enableWideSearchbar(Z)Z
+                        move-result v$register
+                    """,
+                )
             }
         }
 

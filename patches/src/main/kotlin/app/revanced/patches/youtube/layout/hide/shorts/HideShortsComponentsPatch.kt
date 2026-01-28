@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.wideLiteral
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -209,11 +210,9 @@ val `Hide Shorts components` by creatingBytecodePatch(
         // region Hide the navigation bar.
 
         // Hook to get the pivotBar view.
-        setPivotBarVisibilityMethod.match(
-            setPivotBarVisibilityParentMethod.immutableClassDef,
-        ).let { result ->
-            result.method.apply {
-                val insertIndex = result.indices.last()
+        setPivotBarVisibilityMethodMatch.match(setPivotBarVisibilityParentMethod.immutableClassDef).let { match ->
+            match.method.apply {
+                val insertIndex = match.indices.last()
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
                 addInstruction(
                     insertIndex,
@@ -224,23 +223,21 @@ val `Hide Shorts components` by creatingBytecodePatch(
         }
 
         // Hook to hide the shared navigation bar when the Shorts player is opened.
-        renderBottomNavigationBarMethod.match(
-            (
-                if (is_20_45_or_greater) {
-                    renderBottomNavigationBarParentMethod
-                } else if (is_19_41_or_greater) {
-                    renderBottomNavigationBarLegacy1941ParentMethod
-                } else {
-                    legacyRenderBottomNavigationBarLegacyParentMethod
-                }
-                ).immutableClassDef,
-        ).method.addInstruction(
+        (
+            if (is_20_45_or_greater) {
+                renderBottomNavigationBarParentMethod
+            } else if (is_19_41_or_greater) {
+                renderBottomNavigationBarLegacy1941ParentMethod
+            } else {
+                legacyRenderBottomNavigationBarLegacyParentMethod
+            }
+            ).immutableClassDef.getRenderBottomNavigationBarMethodMatch().addInstruction(
             0,
             "invoke-static { p1 }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Ljava/lang/String;)V",
         )
 
         // Hide the bottom bar container of the Shorts player.
-        shortsBottomBarContainerMethod.let {
+        shortsBottomBarContainerMethodMatch.let {
             it.method.apply {
                 val targetIndex = it.indices.last()
                 val heightRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA

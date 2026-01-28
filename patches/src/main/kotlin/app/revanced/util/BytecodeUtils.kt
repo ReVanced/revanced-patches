@@ -1,10 +1,7 @@
 package app.revanced.util
 
-import app.revanced.patcher.MutablePredicateList
-import app.revanced.patcher.custom
+import app.revanced.patcher.*
 import app.revanced.patcher.extensions.*
-import app.revanced.patcher.firstMutableClassDef
-import app.revanced.patcher.firstMutableClassDefOrNull
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.shared.misc.mapping.ResourceType
@@ -257,16 +254,6 @@ internal fun Method.findFieldFromToString(fieldName: String): FieldReference {
 internal fun Int.toPublicAccessFlags(): Int = this.or(AccessFlags.PUBLIC.value)
     .and(AccessFlags.PROTECTED.value.inv())
     .and(AccessFlags.PRIVATE.value.inv())
-
-/**
- * Find the [MutableMethod] from a given [Method] in a [MutableClass].
- *
- * @param method The [Method] to find.
- * @return The [MutableMethod].
- */
-fun MutableClassDef.findMutableMethodOf(method: Method) = this.methods.first {
-    MethodUtil.methodSignaturesMatch(it, method)
-}
 
 /**
  * Apply a transform to all methods of the class.
@@ -805,7 +792,7 @@ fun BytecodePatchContext.forEachInstructionAsSequence(
             val instructions =
                 method.instructionsOrNull as? List<Instruction> ?: return@flatMap emptySequence<() -> Unit>()
 
-            val mutableMethod by lazy { mutableClassDef.findMutableMethodOf(method) }
+            val mutableMethod by lazy { mutableClassDef.firstMutableMethod(method) }
 
             instructions.asReversed().asSequence().mapIndexed { index, instruction ->
                 {

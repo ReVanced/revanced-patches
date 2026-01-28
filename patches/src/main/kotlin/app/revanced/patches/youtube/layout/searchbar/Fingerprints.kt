@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.layout.searchbar
 
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -23,7 +24,7 @@ internal val BytecodePatchContext.setWordmarkHeaderMethod by gettingFirstMethodD
 /**
  * Matches the same method as [yoodlesImageViewMethod].
  */
-internal val BytecodePatchContext.wideSearchbarLayoutMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.wideSearchbarLayoutMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
     parameterTypes("L", "L")

@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.layout.hide.relatedvideooverlay
 import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -42,19 +43,18 @@ val `Hide related video overlay` by creatingBytecodePatch(
             SwitchPreference("revanced_hide_related_videos_overlay"),
         )
 
-        relatedEndScreenResultsMethod.match(
-            relatedEndScreenResultsParentMethod.immutableClassDef,
-        ).method.apply {
-            addInstructionsWithLabels(
-                0,
-                """
-                    invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideRelatedVideoOverlay()Z
-                    move-result v0
-                    if-eqz v0, :show
-                    return-void
-                """,
-                ExternalLabel("show", getInstruction(0)),
-            )
-        }
+        val relatedEndScreenResultsMethod =
+            relatedEndScreenResultsParentMethod.immutableClassDef.getRelatedEndScreenResultsMethod()
+
+        relatedEndScreenResultsMethod.addInstructionsWithLabels(
+            0,
+            """
+                invoke-static {}, $EXTENSION_CLASS_DESCRIPTOR->hideRelatedVideoOverlay()Z
+                move-result v0
+                if-eqz v0, :show
+                return-void
+            """,
+            ExternalLabel("show", relatedEndScreenResultsMethod.getInstruction(0)),
+        )
     }
 }

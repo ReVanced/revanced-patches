@@ -4,6 +4,7 @@ import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.firstMutableClassDef
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.tiktok.shared.getEnterFromMethod
 import app.revanced.patches.tiktok.shared.onRenderFirstFrameMethod
@@ -43,7 +44,7 @@ val `Playback speed` by creatingBytecodePatch(
             """
                 # Video playback location (e.g. home page, following page or search result page) retrieved using getEnterFrom method.
                 const/4 v0, 0x1
-                invoke-virtual { p0, v0 },  ${getEnterFromMethod.immutableMethod}
+                invoke-virtual { p0, v0 },  $getEnterFromMethod
                 move-result-object v0
 
                 # Model of current video retrieved using getCurrentAweme method.
@@ -53,7 +54,7 @@ val `Playback speed` by creatingBytecodePatch(
                 # Desired playback speed retrieved using getPlaybackSpeed method.
                 invoke-static { }, Lapp/revanced/extension/tiktok/speed/PlaybackSpeedPatch;->getPlaybackSpeed()F
                 move-result v2
-                invoke-static { v0, v1, v2 }, $setSpeedMethod
+                invoke-static { v0, v1, v2 }, ${setSpeedMethod.definingClass}->${setSpeedMethod.name}(Ljava/lang/String;Lcom/ss/android/ugc/aweme/feed/model/Aweme;F)V
             """,
         )
 

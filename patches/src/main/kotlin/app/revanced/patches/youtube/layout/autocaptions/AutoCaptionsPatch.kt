@@ -54,8 +54,8 @@ val `Disable auto captions` by creatingBytecodePatch(
         arrayOf(
             startVideoInformerMethod to 0,
             storyboardRendererDecoderRecommendedLevelMethod to 1,
-        ).forEach { (fingerprint, enabled) ->
-            fingerprint.method.addInstructions(
+        ).forEach { (method, enabled) ->
+            method.addInstructions(
                 0,
                 """
                     const/4 v0, 0x$enabled

@@ -116,9 +116,9 @@ val `Shorts autoplay` by creatingBytecodePatch(
         if (is_20_09_or_greater) {
             // Variable names are only a rough guess of what these methods do.
             val userActionMethodReference =
-                reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch.indices[1]).methodReference
+                reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch.indices[1]).methodReference!!
             val reelSequenceControllerMethodReference =
-                reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch.indices[2]).methodReference
+                reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch.indices[2]).methodReference!!
 
             reelPlaybackRepeatMethod.apply {
                 // Find the first call modified by extension code above.

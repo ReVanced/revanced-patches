@@ -3,11 +3,11 @@ package app.revanced.patches.tiktok.misc.spoof.sim
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.firstMutableMethod
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.Settings
 import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadMethod
-import app.revanced.util.findMutableMethodOf
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -68,23 +68,21 @@ val `SIM spoof` by creatingBytecodePatch(
                 }
             }
         }.forEach { (classDef, methods) ->
-            with(classDef.getOrReplaceMutable()) {
-                methods.forEach { (method, patches) ->
-                    with(findMutableMethodOf(method)) {
-                        while (!patches.isEmpty()) {
-                            val (index, replacement) = patches.removeLast()
+            methods.forEach { (method, patches) ->
+                with(classDef.firstMutableMethod(method)) {
+                    while (!patches.isEmpty()) {
+                        val (index, replacement) = patches.removeLast()
 
-                            val resultReg = getInstruction<OneRegisterInstruction>(index + 1).registerA
+                        val resultReg = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
-                            // Patch Android API and return fake sim information.
-                            addInstructions(
-                                index + 2,
-                                """
-                                    invoke-static {v$resultReg}, Lapp/revanced/extension/tiktok/spoof/sim/SpoofSimPatch;->$replacement(Ljava/lang/String;)Ljava/lang/String;
-                                    move-result-object v$resultReg
-                                """,
-                            )
-                        }
+                        // Patch Android API and return fake sim information.
+                        addInstructions(
+                            index + 2,
+                            """
+                                invoke-static {v$resultReg}, Lapp/revanced/extension/tiktok/spoof/sim/SpoofSimPatch;->$replacement(Ljava/lang/String;)Ljava/lang/String;
+                                move-result-object v$resultReg
+                            """,
+                        )
                     }
                 }
             }

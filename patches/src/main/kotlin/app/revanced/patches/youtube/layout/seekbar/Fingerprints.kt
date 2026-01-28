@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.fullscreenSeekbarThumbnailsMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.fullscreenSeekbarThumbnailsMethod by gettingFirstMutableMethodDeclaratively {
     returnType("Z")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes()

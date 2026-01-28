@@ -4,7 +4,7 @@ import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val BytecodePatchContext.offlineVideoEndpointMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.offlineVideoEndpointMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes(

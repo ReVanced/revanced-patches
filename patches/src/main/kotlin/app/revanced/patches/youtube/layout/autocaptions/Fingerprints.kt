@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.startVideoInformerMethod by gettingFirstMethodDeclaratively("pc") {
+internal val BytecodePatchContext.startVideoInformerMethod by gettingFirstMutableMethodDeclaratively("pc") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     opcodes(
@@ -14,13 +14,13 @@ internal val BytecodePatchContext.startVideoInformerMethod by gettingFirstMethod
     )
 }
 
-internal val BytecodePatchContext.storyboardRendererDecoderRecommendedLevelMethod by gettingFirstMethodDeclaratively("#-1#") {
+internal val BytecodePatchContext.storyboardRendererDecoderRecommendedLevelMethod by gettingFirstMutableMethodDeclaratively("#-1#") {
     returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("L")
 }
 
-internal val BytecodePatchContext.subtitleTrackMethod by gettingFirstMethodDeclaratively("DISABLE_CAPTIONS_OPTION") {
+internal val BytecodePatchContext.subtitleTrackMethod by gettingFirstMutableMethodDeclaratively("DISABLE_CAPTIONS_OPTION") {
     definingClass { endsWith("/SubtitleTrack;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
