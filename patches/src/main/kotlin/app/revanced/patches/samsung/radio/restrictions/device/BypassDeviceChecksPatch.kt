@@ -2,7 +2,7 @@ package app.revanced.patches.samsung.radio.restrictions.device
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.findFreeRegister
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -12,10 +12,11 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/samsung/radio/restrictions/device/BypassDeviceChecksPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Bypass device checks` by creatingBytecodePatch(
+@Suppress("unused")
+val bypassDeviceChecksPatch = bytecodePatch(
+    name = "Bypass device checks",
     description = "Removes firmware and region blacklisting. " +
-            "This patch will still not allow the app to run on devices that do not have the required hardware.",
+        "This patch will still not allow the app to run on devices that do not have the required hardware.",
 ) {
     extendWith("extensions/samsung/radio.rve")
     compatibleWith("com.sec.android.app.fm"("12.4.00.7", "12.3.00.13", "12.3.00.11"))
@@ -24,7 +25,7 @@ val `Bypass device checks` by creatingBytecodePatch(
         // Find the first string that start with "SM-", that's the list of incompatible devices.
         val firstStringIndex = checkDeviceMethod.indexOfFirstInstructionOrThrow {
             opcode == Opcode.CONST_STRING &&
-                    getReference<StringReference>()?.string?.startsWith("SM-") == true
+                getReference<StringReference>()?.string?.startsWith("SM-") == true
         }
 
         // Find the following filled-new-array (or filled-new-array/range) instruction.
@@ -42,12 +43,11 @@ val `Bypass device checks` by creatingBytecodePatch(
                     invoke-static { v$resultRegister }, $EXTENSION_CLASS_DESCRIPTOR->checkIfDeviceIsIncompatible([Ljava/lang/String;)Z
                     move-result v$resultRegister
                     return v$resultRegister
-                """
+                """,
         )
 
         // Remove the instructions before our strings.
         // Return false = The device is not blacklisted.
         checkDeviceMethod.removeInstructions(0, firstStringIndex)
     }
-
 }

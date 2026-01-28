@@ -1,10 +1,10 @@
 package app.revanced.patches.hexeditor.ad
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused", "ObjectPropertyName")
-val `Disable ads` by creatingBytecodePatch {
+@Suppress("unused")
+val disableAdsPatch = bytecodePatch("Disable ads") {
     compatibleWith("com.myprog.hexedit")
 
     apply {

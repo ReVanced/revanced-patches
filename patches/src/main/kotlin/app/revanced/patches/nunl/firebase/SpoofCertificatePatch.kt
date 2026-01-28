@@ -1,10 +1,11 @@
 package app.revanced.patches.nunl.firebase
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused", "ObjectPropertyName")
-val `Spoof certificate` by creatingBytecodePatch(
+@Suppress("unused")
+val spoofCertificatePatch = bytecodePatch(
+    name = "Spoof certificate",
     description = "Spoofs the X-Android-Cert header to allow push messages.",
 ) {
     compatibleWith("nl.sanomamedia.android.nu")

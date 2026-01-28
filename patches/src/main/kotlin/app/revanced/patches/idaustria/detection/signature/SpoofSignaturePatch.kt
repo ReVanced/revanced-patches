@@ -1,10 +1,11 @@
 package app.revanced.patches.idaustria.detection.signature
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused", "ObjectPropertyName")
-val `Spoof signature` by creatingBytecodePatch(
+@Suppress("unused")
+val spoofSignaturePatch = bytecodePatch(
+    name = "Spoof signature",
     description = "Spoofs the signature of the app.",
 ) {
     compatibleWith("at.gv.oe.app")

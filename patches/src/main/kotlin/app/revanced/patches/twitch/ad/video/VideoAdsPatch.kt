@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -15,7 +15,8 @@ import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.Settings
 
 @Suppress("ObjectPropertyName")
-val `Block video ads` by creatingBytecodePatch(
+val blockVideoAdsPatch = bytecodePatch(
+    name = "Block video ads",
     description = "Blocks video ads in streams and VODs.",
 ) {
     val conditionCall = "Lapp/revanced/extension/twitch/patches/VideoAdsPatch;->shouldBlockVideoAds()Z"

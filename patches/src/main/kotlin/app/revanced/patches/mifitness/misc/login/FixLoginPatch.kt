@@ -1,10 +1,11 @@
 package app.revanced.patches.mifitness.misc.login
 
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("ObjectPropertyName")
-val `Fix login` by creatingBytecodePatch(
+val fixLoginPatch = bytecodePatch(
+    name = "Fix login",
     description = "Fixes login for uncertified Mi Fitness app",
 ) {
     compatibleWith("com.xiaomi.wearable")

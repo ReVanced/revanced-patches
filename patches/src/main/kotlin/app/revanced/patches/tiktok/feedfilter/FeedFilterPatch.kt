@@ -2,7 +2,7 @@ package app.revanced.patches.tiktok.feedfilter
 
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.instructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.Settings
 import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadMethod
@@ -11,8 +11,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/tiktok/feedfilter/FeedItemsFilter;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Feed filter` by creatingBytecodePatch(
+@Suppress("unused")
+val feedFilterPatch = bytecodePatch(
+    name = "Feed filter",
     description = "Removes ads, livestreams, stories, image videos " +
         "and videos with a specific amount of views or likes from the feed.",
 ) {

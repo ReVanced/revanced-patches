@@ -2,7 +2,7 @@ package app.revanced.patches.facebook.ads.mainfeed
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
@@ -10,8 +10,8 @@ import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide 'Sponsored Stories'` by creatingBytecodePatch {
+@Suppress("unused")
+val hideSponsoredStoriesPatch = bytecodePatch("Hide 'Sponsored Stories'") {
     compatibleWith("com.facebook.katana"("490.0.0.63.82"))
 
     apply {

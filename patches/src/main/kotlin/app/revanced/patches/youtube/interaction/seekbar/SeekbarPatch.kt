@@ -1,20 +1,20 @@
 package app.revanced.patches.youtube.interaction.seekbar
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
-val Seekbar by creatingBytecodePatch(
+val Seekbar = bytecodePatch(
     description = "Adds options to disable precise seeking when swiping up on the seekbar, " +
-            "slide to seek instead of playing at 2x speed when pressing and holding, " +
-            "tapping the player seekbar to seek, " +
-            "and hiding the video player seekbar."
+        "slide to seek instead of playing at 2x speed when pressing and holding, " +
+        "tapping the player seekbar to seek, " +
+        "and hiding the video player seekbar.",
 ) {
     dependsOn(
         disablePreciseSeekingGesturePatch,
         enableSlideToSeekPatch,
         enableSeekbarTappingPatch,
         hideSeekbarPatch,
-        seekbarThumbnailsPatch
+        seekbarThumbnailsPatch,
     )
 
     compatibleWith(
@@ -23,6 +23,6 @@ val Seekbar by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 }

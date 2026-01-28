@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
@@ -15,8 +15,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideGetPremiumPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide 'Get Music Premium'` by creatingBytecodePatch(
+@Suppress("unused")
+val hideGetMusicPremiumPatch = bytecodePatch(
+    name = "Hide 'Get Music Premium'",
     description = "Adds an option to hide the \"Get Music Premium\" label in the settings and account menu.",
 ) {
     dependsOn(

@@ -1,12 +1,13 @@
 package app.revanced.patches.protonmail.signature
 
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.creatingResourcePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.findElementByAttributeValue
 import java.io.File
 
-@Suppress("unused", "ObjectPropertyName")
-val `Remove 'Sent from' signature` by creatingResourcePatch(
+@Suppress("unused")
+val removeSentFromSignaturePatch = resourcePatch(
+    name = "Remove 'Sent from' signature",
     description = "Removes the 'Sent from Proton Mail mobile' signature from emails.",
 ) {
     compatibleWith("ch.protonmail.android"("4.15.0"))

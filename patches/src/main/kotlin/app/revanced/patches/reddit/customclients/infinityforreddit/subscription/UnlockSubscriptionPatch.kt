@@ -1,11 +1,12 @@
 package app.revanced.patches.reddit.customclients.infinityforreddit.subscription
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.reddit.customclients.infinityforreddit.api.spoofClientPatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused", "ObjectPropertyName")
-val `Unlock subscription` by creatingBytecodePatch(
+@Suppress("unused")
+val unlockSubscriptionPatch = bytecodePatch(
+    name = "Unlock subscription",
     description = "Unlocks the subscription feature but requires a custom client ID.",
 ) {
     dependsOn(spoofClientPatch)
@@ -13,7 +14,7 @@ val `Unlock subscription` by creatingBytecodePatch(
     compatibleWith(
         "ml.docilealligator.infinityforreddit",
         "ml.docilealligator.infinityforreddit.plus",
-        "ml.docilealligator.infinityforreddit.patreon"
+        "ml.docilealligator.infinityforreddit.patreon",
     )
 
     apply {

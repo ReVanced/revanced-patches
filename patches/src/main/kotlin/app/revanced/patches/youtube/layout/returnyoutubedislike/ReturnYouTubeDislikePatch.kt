@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
@@ -43,7 +43,8 @@ private const val FILTER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/components/ReturnYouTubeDislikeFilter;"
 
 @Suppress("ObjectPropertyName")
-val `Return YouTube Dislike` by creatingBytecodePatch(
+val returnYouTubeDislikePatch = bytecodePatch(
+    name = "Return YouTube Dislike",
     description = "Adds an option to show the dislike count of videos with Return YouTube Dislike.",
 ) {
     dependsOn(

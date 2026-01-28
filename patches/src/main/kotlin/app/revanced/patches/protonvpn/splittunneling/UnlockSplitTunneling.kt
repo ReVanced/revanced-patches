@@ -3,14 +3,14 @@ package app.revanced.patches.protonvpn.splittunneling
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.removeInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Suppress("unused", "ObjectPropertyName")
-val `Unlock split tunneling` by creatingBytecodePatch {
+@Suppress("unused")
+val unlockSplitTunnelingPatch = bytecodePatch("Unlock split tunneling") {
     compatibleWith("ch.protonvpn.android")
 
     apply {

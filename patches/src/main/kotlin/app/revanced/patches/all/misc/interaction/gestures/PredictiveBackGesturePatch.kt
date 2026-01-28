@@ -1,9 +1,10 @@
 package app.revanced.patches.all.misc.interaction.gestures
 
-import app.revanced.patcher.patch.creatingResourcePatch
+import app.revanced.patcher.patch.resourcePatch
 
-@Suppress("unused", "ObjectPropertyName")
-val `Predictive back gesture` by creatingResourcePatch(
+@Suppress("unused")
+val predictiveBackGesturePatch = resourcePatch(
+    name = "Predictive back gesture",
     description = "Enables the predictive back gesture introduced on Android 13.",
     use = false,
 ) {

@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.firstMutableMethod
 import app.revanced.patcher.immutableClassDef
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
@@ -33,8 +33,9 @@ internal var topBarMenuItemImageView = -1L
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/HideButtonsPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide buttons` by creatingBytecodePatch(
+@Suppress("unused")
+val hideButtonsPatch = bytecodePatch(
+    name = "Hide buttons",
     description = "Adds options to hide the cast, history, notification, and search buttons.",
 ) {
     dependsOn(

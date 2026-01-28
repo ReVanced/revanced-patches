@@ -1,20 +1,21 @@
 package app.revanced.patches.twitch.ad.embedded
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
-import app.revanced.patches.twitch.ad.video.`Block video ads`
+import app.revanced.patches.twitch.ad.video.blockVideoAdsPatch
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.Settings
 
-@Suppress("unused", "ObjectPropertyName")
-val `Block embedded ads` by creatingBytecodePatch(
+@Suppress("unused")
+val blockEmbeddedAdsPatch = bytecodePatch(
+    name = "Block embedded ads",
     description = "Blocks embedded stream ads using services like Luminous or PurpleAdBlocker.",
 ) {
     dependsOn(
-        `Block video ads`,
+        blockVideoAdsPatch,
         sharedExtensionPatch,
         Settings,
     )

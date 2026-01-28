@@ -1,17 +1,18 @@
 package app.revanced.patches.com.sbs.ondemand.tv
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
-import app.revanced.patches.shared.misc.pairip.license.`Disable Pairip license check`
+import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patches.shared.misc.pairip.license.disablePairipLicenseCheckPatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused", "ObjectPropertyName")
-val `Remove ads` by creatingBytecodePatch(
+@Suppress("unused")
+val removeAdsPatch = bytecodePatch(
+    name = "Remove ads",
     description = "Removes pre-roll, pause and on-demand advertisements from SBS On Demand TV.",
 ) {
     compatibleWith("com.sbs.ondemand.tv")
 
-    dependsOn(`Disable Pairip license check`)
+    dependsOn(disablePairipLicenseCheckPatch)
 
     apply {
         shouldShowAdvertisingTVMethod.returnEarly(true)

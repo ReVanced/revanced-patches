@@ -6,7 +6,7 @@ import app.revanced.patcher.accessFlags
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.firstMutableMethodDeclaratively
 import app.revanced.patcher.parameterTypes
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.returnType
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -24,8 +24,9 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/ChangeMiniplayerColorPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Change miniplayer color` by creatingBytecodePatch(
+@Suppress("unused")
+val changeMiniplayerColorPatch = bytecodePatch(
+    name = "Change miniplayer color",
     description = "Adds an option to change the miniplayer background color to match the fullscreen player.",
 ) {
     dependsOn(

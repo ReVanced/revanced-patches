@@ -1,17 +1,18 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.thumbnail
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused", "ObjectPropertyName")
-val `Fix post thumbnails` by creatingBytecodePatch(
+@Suppress("unused")
+val fixPostThumbnailsPatch = bytecodePatch(
+    name = "Fix post thumbnails",
     description = "Fixes loading post thumbnails by correcting their URLs.",
 ) {
 
     compatibleWith(
         "com.laurencedawson.reddit_sync",
         "com.laurencedawson.reddit_sync.pro",
-        "com.laurencedawson.reddit_sync.dev"
+        "com.laurencedawson.reddit_sync.dev",
     )
 
     // Image URLs contain escaped ampersands (&amp;), let's replace these with unescaped ones (&).
@@ -24,7 +25,7 @@ val `Fix post thumbnails` by creatingBytecodePatch(
 	            const-string v1, "&"
 	            invoke-virtual { p1, v0, v1 }, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 	            move-result-object p1
-	        """
+	        """,
         )
     }
 }

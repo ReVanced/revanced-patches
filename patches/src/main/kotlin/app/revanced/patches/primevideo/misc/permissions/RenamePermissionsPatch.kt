@@ -1,13 +1,14 @@
 package app.revanced.patches.primevideo.misc.permissions
 
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.creatingResourcePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.asSequence
 import app.revanced.util.getNode
 import org.w3c.dom.Element
 
-@Suppress("unused", "ObjectPropertyName")
-val `Rename shared permissions` by creatingResourcePatch(
+@Suppress("unused")
+val renameSharedPermissionsPatch = resourcePatch(
+    name = "Rename shared permissions",
     description = "Rename certain permissions shared across Amazon apps. " +
         "Applying this patch can fix installation errors, but can also break features in certain apps.",
     use = false,

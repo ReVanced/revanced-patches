@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.firstMutableClassDef
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.shared.getEnterFromMethod
 import app.revanced.patches.tiktok.shared.onRenderFirstFrameMethod
 import app.revanced.util.getReference
@@ -14,8 +14,9 @@ import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction11x
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Suppress("unused", "ObjectPropertyName")
-val `Playback speed` by creatingBytecodePatch(
+@Suppress("unused")
+val playbackSpeedPatch = bytecodePatch(
+    name = "Playback speed",
     description = "Enables the playback speed option for all videos and " +
         "retains the speed configurations in between videos.",
 ) {

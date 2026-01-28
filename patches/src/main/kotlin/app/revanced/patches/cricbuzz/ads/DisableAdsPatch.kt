@@ -2,7 +2,7 @@ package app.revanced.patches.cricbuzz.ads
 
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.cricbuzz.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -14,8 +14,8 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/cricbuzz/ads/HideAdsPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide ads` by creatingBytecodePatch {
+@Suppress("unused")
+val hideAdsPatch = bytecodePatch("Hide ads") {
     compatibleWith("com.cricbuzz.android"("6.24.01"))
 
     dependsOn(sharedExtensionPatch)

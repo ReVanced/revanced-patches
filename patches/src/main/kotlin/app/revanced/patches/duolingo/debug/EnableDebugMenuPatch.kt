@@ -3,12 +3,13 @@ package app.revanced.patches.duolingo.debug
 import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Suppress("unused", "ObjectPropertyName")
-val `Enable debug menu` by creatingBytecodePatch(
+@Suppress("unused")
+val enableDebugMenuPatch = bytecodePatch(
+    name = "Enable debug menu",
     use = false,
 ) {
     compatibleWith("com.duolingo")

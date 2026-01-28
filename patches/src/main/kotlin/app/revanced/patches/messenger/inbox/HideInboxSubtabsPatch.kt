@@ -1,10 +1,11 @@
 package app.revanced.patches.messenger.inbox
 
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide inbox subtabs` by creatingBytecodePatch(
+@Suppress("unused")
+val hideInboxSubtabsPatch = bytecodePatch(
+    name = "Hide inbox subtabs",
     description = "Hides Home and Channels tabs between active now tray and chats.",
 ) {
     compatibleWith("com.facebook.orca")

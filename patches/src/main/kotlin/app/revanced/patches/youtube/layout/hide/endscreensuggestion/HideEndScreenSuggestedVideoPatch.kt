@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.immutableClassDef
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -19,8 +19,9 @@ import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HideEndScreenSuggestedVideoPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide end screen suggested video` by creatingBytecodePatch(
+@Suppress("unused")
+val hideEndScreenSuggestedVideoPatch = bytecodePatch(
+    name = "Hide end screen suggested video",
     description = "Adds an option to hide the suggested video at the end of videos.",
 ) {
     dependsOn(

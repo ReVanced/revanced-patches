@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.ad.video
 import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -12,7 +12,8 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 
 @Suppress("ObjectPropertyName")
-val `Video ads` by creatingBytecodePatch(
+val videoAdsPatch = bytecodePatch(
+    name = "Video ads",
     description = "Adds an option to remove ads in the video player.",
 ) {
     dependsOn(

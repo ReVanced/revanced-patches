@@ -1,10 +1,11 @@
 package app.revanced.patches.finanzonline.detection.bootloader
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused", "ObjectPropertyName")
-val `Remove bootloader detection` by creatingBytecodePatch(
+@Suppress("unused")
+val removeBootloaderDetectionPatch = bytecodePatch(
+    name = "Remove bootloader detection",
     description = "Removes the check for an unlocked bootloader.",
 ) {
     compatibleWith("at.gv.bmf.bmf2go")

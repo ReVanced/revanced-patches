@@ -1,7 +1,7 @@
 package app.revanced.patches.twitch.debug
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -10,7 +10,8 @@ import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.Settings
 
 @Suppress("ObjectPropertyName")
-val `Debug mode` by creatingBytecodePatch(
+val debugModePatch = bytecodePatch(
+    name = "Debug mode",
     description = "Enables Twitch's internal debugging mode.",
     use = false,
 ) {

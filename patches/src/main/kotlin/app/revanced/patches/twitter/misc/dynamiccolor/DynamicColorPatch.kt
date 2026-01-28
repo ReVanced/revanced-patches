@@ -1,12 +1,13 @@
 package app.revanced.patches.twitter.misc.dynamiccolor
 
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.creatingResourcePatch
+import app.revanced.patcher.patch.resourcePatch
 import java.io.FileWriter
 import java.nio.file.Files
 
-@Suppress("unused", "ObjectPropertyName")
-val `Dynamic color` by creatingResourcePatch(
+@Suppress("unused")
+val dynamicColorPatch = resourcePatch(
+    name = "Dynamic color",
     description = "Replaces the default X (Formerly Twitter) Blue with the user's Material You palette.",
 ) {
     compatibleWith(

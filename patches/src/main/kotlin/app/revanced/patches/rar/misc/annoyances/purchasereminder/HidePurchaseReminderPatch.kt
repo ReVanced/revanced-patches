@@ -1,11 +1,12 @@
 package app.revanced.patches.rar.misc.annoyances.purchasereminder
 
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide purchase reminder` by creatingBytecodePatch(
-    description = "Hides the popup that reminds you to purchase the app."
+@Suppress("unused")
+val hidePurchaseReminderPatch = bytecodePatch(
+    name = "Hide purchase reminder",
+    description = "Hides the popup that reminds you to purchase the app.",
 ) {
     compatibleWith("com.rarlab.rar")
 

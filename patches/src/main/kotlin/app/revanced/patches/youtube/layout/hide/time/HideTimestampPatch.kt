@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.hide.time
 
 import app.revanced.patcher.extensions.addInstructionsWithLabels
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -11,8 +11,9 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/HideTimestampPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide timestamp` by creatingBytecodePatch(
+@Suppress("unused")
+val hideTimestampPatch = bytecodePatch(
+    name = "Hide timestamp",
     description = "Adds an option to hide the timestamp in the bottom left of the video player.",
 ) {
     dependsOn(

@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.thumbnails
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
@@ -19,8 +19,9 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/AlternativeThumbnailsPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Alternative thumbnails` by creatingBytecodePatch(
+@Suppress("unused")
+val alternativeThumbnailsPatch = bytecodePatch(
+    name = "Alternative thumbnails",
     description = "Adds options to replace video thumbnails using the DeArrow API or image captures from the video.",
 ) {
     dependsOn(

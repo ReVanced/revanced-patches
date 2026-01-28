@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tudortmund.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
@@ -15,8 +15,9 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/tudortmund/lockscreen/ShowOnLockscreenPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Show on lockscreen` by creatingBytecodePatch(
+@Suppress("unused")
+val showOnLockscreenPatch = bytecodePatch(
+    name = "Show on lockscreen",
     description = "Shows student id and student ticket on lockscreen.",
 ) {
     dependsOn(sharedExtensionPatch)

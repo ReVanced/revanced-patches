@@ -1,14 +1,15 @@
 package app.revanced.patches.all.misc.shortcut.sharetargets
 
-import app.revanced.patcher.patch.creatingResourcePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.asSequence
 import app.revanced.util.getNode
 import org.w3c.dom.Element
 import java.io.FileNotFoundException
 import java.util.logging.Logger
 
-@Suppress("unused", "ObjectPropertyName")
-val `Remove share targets` by creatingResourcePatch(
+@Suppress("unused")
+val removeShareTargetsPatch = resourcePatch(
+    name = "Remove share targets",
     description = "Removes share targets like directly sharing to a frequent contact.",
     use = false,
 ) {

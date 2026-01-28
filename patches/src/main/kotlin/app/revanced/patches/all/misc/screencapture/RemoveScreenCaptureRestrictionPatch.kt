@@ -1,6 +1,6 @@
 package app.revanced.patches.all.misc.screencapture
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
@@ -28,8 +28,9 @@ private const val EXTENSION_CLASS_DESCRIPTOR_PREFIX =
     "Lapp/revanced/extension/all/misc/screencapture/removerestriction/RemoveScreenCaptureRestrictionPatch"
 private const val EXTENSION_CLASS_DESCRIPTOR = "$EXTENSION_CLASS_DESCRIPTOR_PREFIX;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Remove screen capture restriction` by creatingBytecodePatch(
+@Suppress("unused")
+val removeScreenCaptureRestrictionPatch = bytecodePatch(
+    name = "Remove screen capture restriction",
     description = "Removes the restriction of capturing audio from apps that normally wouldn't allow it.",
     use = false,
 ) {

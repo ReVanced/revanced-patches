@@ -2,11 +2,12 @@ package app.revanced.patches.reddit.customclients.boostforreddit.fix.downloads
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Suppress("unused", "ObjectPropertyName")
-val `Fix missing audio in video downloads` by creatingBytecodePatch(
+@Suppress("unused")
+val fixMissingAudioInVideoDownloadsPatch = bytecodePatch(
+    name = "Fix missing audio in video downloads",
     description = "Fixes audio missing in videos downloaded from v.redd.it.",
 ) {
     compatibleWith("com.rubenmayayo.reddit")

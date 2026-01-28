@@ -1,6 +1,6 @@
 package app.revanced.patches.all.misc.connectivity.wifi.spoof
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
@@ -10,8 +10,9 @@ private const val EXTENSION_CLASS_DESCRIPTOR_PREFIX =
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "$EXTENSION_CLASS_DESCRIPTOR_PREFIX;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Spoof Wi-Fi connection` by creatingBytecodePatch(
+@Suppress("unused")
+val spoofWiFiConnectionPatch = bytecodePatch(
+    name = "Spoof Wi-Fi connection",
     description = "Spoofs an existing Wi-Fi connection.",
     use = false,
 ) {

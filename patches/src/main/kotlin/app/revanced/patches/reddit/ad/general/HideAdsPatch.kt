@@ -2,7 +2,7 @@ package app.revanced.patches.reddit.ad.general
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.reddit.ad.comments.hideCommentAdsPatch
 import app.revanced.patches.reddit.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
@@ -13,8 +13,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide ads` by creatingBytecodePatch {
+@Suppress("unused")
+val hideAdsPatch = bytecodePatch("Hide ads") {
     dependsOn(hideCommentAdsPatch, sharedExtensionPatch)
 
     compatibleWith("com.reddit.frontpage")
@@ -24,7 +24,7 @@ val `Hide ads` by creatingBytecodePatch {
 
         val filterMethodDescriptor =
             "Lapp/revanced/extension/reddit/patches/FilterPromotedLinksPatch;" +
-                    "->filterChildren(Ljava/lang/Iterable;)Ljava/util/List;"
+                "->filterChildren(Ljava/lang/Iterable;)Ljava/util/List;"
 
         val setPostsListChildren = adPostMethod.implementation!!.instructions.first { instruction ->
             if (instruction.opcode != Opcode.IPUT_OBJECT) return@first false

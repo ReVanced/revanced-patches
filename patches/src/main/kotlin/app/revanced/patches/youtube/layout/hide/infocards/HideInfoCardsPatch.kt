@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.immutableClassDef
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -32,8 +32,9 @@ private val hideInfocardsResourcePatch = resourcePatch {
     }
 }
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide info cards` by creatingBytecodePatch(
+@Suppress("unused")
+val hideInfoCardsPatch = bytecodePatch(
+    name = "Hide info cards",
     description = "Adds an option to hide info cards that creators add in the video player.",
 ) {
     dependsOn(

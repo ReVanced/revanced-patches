@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.*
@@ -36,7 +36,7 @@ fun addSettingPreference(screen: BasePreference) {
     preferences += screen
 }
 
-val Settings by creatingBytecodePatch(
+val Settings = bytecodePatch(
     description = "Adds settings menu to Twitch.",
 ) {
     dependsOn(

@@ -8,7 +8,7 @@ import app.revanced.patcher.firstMutableMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.method
 import app.revanced.patcher.parameterTypes
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patcher.returnType
 import app.revanced.util.getReference
@@ -26,8 +26,9 @@ import java.net.URISyntaxException
 import java.net.UnknownHostException
 import java.util.logging.Logger
 
-@Suppress("unused", "ObjectPropertyName")
-val `Change lyrics provider` by creatingBytecodePatch(
+@Suppress("unused")
+val changeLyricsProviderPatch = bytecodePatch(
+    name = "Change lyrics provider",
     description = "Changes the lyrics provider to a custom one.",
     use = false,
 ) {
@@ -74,7 +75,7 @@ val `Change lyrics provider` by creatingBytecodePatch(
             val setUrlBuilderHostIndex = indexOfFirstInstructionReversedOrThrow(invokeBuildUrlIndex) {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == "Lokhttp3/HttpUrl${"$"}Builder;" &&
-                        reference.parameterTypes.firstOrNull() == "Ljava/lang/String;"
+                    reference.parameterTypes.firstOrNull() == "Ljava/lang/String;"
             }
             val hostRegister = getInstruction<FiveRegisterInstruction>(setUrlBuilderHostIndex).registerD
 

@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.interaction.copyvideourl
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -40,8 +40,9 @@ private val copyVideoUrlResourcePatch = resourcePatch {
     }
 }
 
-@Suppress("unused", "ObjectPropertyName")
-val `Copy video URL` by creatingBytecodePatch(
+@Suppress("unused")
+val copyVideoURLPatch = bytecodePatch(
+    name = "Copy video URL",
     description = "Adds options to display buttons in the video player to copy video URLs.",
 ) {
     dependsOn(

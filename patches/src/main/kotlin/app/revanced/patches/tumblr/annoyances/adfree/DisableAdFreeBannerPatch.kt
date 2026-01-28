@@ -1,11 +1,12 @@
 package app.revanced.patches.tumblr.annoyances.adfree
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tumblr.featureflags.addFeatureFlagOverride
 import app.revanced.patches.tumblr.featureflags.overrideFeatureFlagsPatch
 
-@Suppress("unused", "ObjectPropertyName")
-val `Disable Ad-Free Banner` by creatingBytecodePatch(
+@Suppress("unused")
+val disableAdFreeBannerPatch = bytecodePatch(
+    name = "Disable Ad-Free Banner",
     description = "Disables the banner with a frog, prompting you to buy Tumblr Ad-Free.",
 ) {
     dependsOn(overrideFeatureFlagsPatch)

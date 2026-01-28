@@ -15,7 +15,7 @@ val forceOriginalAudioPatch = forceOriginalAudioPatch(
         dependsOn(
             sharedExtensionPatch,
             settingsPatch,
-            versionCheckPatch
+            versionCheckPatch,
         )
 
         compatibleWith(
@@ -24,7 +24,7 @@ val forceOriginalAudioPatch = forceOriginalAudioPatch(
                 "20.14.43",
                 "20.21.37",
                 "20.31.40",
-            )
+            ),
         )
     },
     fixUseLocalizedAudioTrackFlag = { is_20_07_or_greater },

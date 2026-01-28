@@ -1,11 +1,12 @@
 package app.revanced.patches.all.misc.build
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.longOption
 import app.revanced.patcher.patch.stringOption
 
-@Suppress("unused", "ObjectPropertyName")
-val `Spoof build info` by creatingBytecodePatch(
+@Suppress("unused")
+val spoofBuildInfoPatch = bytecodePatch(
+    name = "Spoof build info",
     description = "Spoofs the information about the current build.",
     use = false,
 ) {

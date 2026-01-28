@@ -1,11 +1,12 @@
 package app.revanced.patches.myfitnesspal.ads
 
 import app.revanced.patcher.extensions.replaceInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide ads` by creatingBytecodePatch(
-    description = "Hides most of the ads across the app."
+@Suppress("unused")
+val hideAdsPatch = bytecodePatch(
+    name = "Hide ads",
+    description = "Hides most of the ads across the app.",
 ) {
     compatibleWith("com.myfitnesspal.android"("24.14.2"))
 

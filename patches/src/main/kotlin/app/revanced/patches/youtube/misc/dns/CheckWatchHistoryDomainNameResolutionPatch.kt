@@ -8,7 +8,7 @@ import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
 val checkWatchHistoryDomainNameResolutionPatch = checkWatchHistoryDomainNameResolutionPatch(
     block = {
         dependsOn(
-            sharedExtensionPatch
+            sharedExtensionPatch,
         )
 
         compatibleWith(
@@ -17,8 +17,8 @@ val checkWatchHistoryDomainNameResolutionPatch = checkWatchHistoryDomainNameReso
                 "20.14.43",
                 "20.21.37",
                 "20.31.40",
-            )
+            ),
         )
     },
-    getMainActivityMethod = BytecodePatchContext::mainActivityOnCreateMethod::get
+    getMainActivityMethod = BytecodePatchContext::mainActivityOnCreateMethod::get,
 )

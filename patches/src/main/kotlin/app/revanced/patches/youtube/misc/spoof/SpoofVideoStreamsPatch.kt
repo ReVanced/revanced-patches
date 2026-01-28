@@ -37,13 +37,13 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
                 "20.14.43",
                 "20.21.37",
                 "20.31.40",
-            )
+            ),
         )
 
         dependsOn(
             userAgentClientSpoofPatch,
             settingsPatch,
-            versionCheckPatch
+            versionCheckPatch,
         )
     },
 
@@ -61,12 +61,12 @@ val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
                         // Requires a key and title but the actual text is chosen at runtime.
                         key = "revanced_spoof_video_streams_about",
                         summaryKey = null,
-                        tag = "app.revanced.extension.youtube.settings.preference.SpoofStreamingDataSideEffectsPreference"
+                        tag = "app.revanced.extension.youtube.settings.preference.SpoofStreamingDataSideEffectsPreference",
                     ),
                     SwitchPreference("revanced_spoof_video_streams_av1"),
                     SwitchPreference("revanced_spoof_streaming_data_stats_for_nerds"),
-                )
-            )
+                ),
+            ),
         )
-    }
+    },
 )

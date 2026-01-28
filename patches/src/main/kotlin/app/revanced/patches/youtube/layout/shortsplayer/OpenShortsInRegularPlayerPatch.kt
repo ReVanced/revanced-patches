@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -29,8 +29,9 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/OpenShortsInRegularPlayerPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Open Shorts in regular player` by creatingBytecodePatch(
+@Suppress("unused")
+val openShortsInRegularPlayerPatch = bytecodePatch(
+    name = "Open Shorts in regular player",
     description = "Adds options to open Shorts in the regular video player.",
 ) {
     dependsOn(

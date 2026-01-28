@@ -1,10 +1,11 @@
 package app.revanced.patches.finanzonline.detection.root
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused", "ObjectPropertyName")
-val `Remove root detection` by creatingBytecodePatch(
+@Suppress("unused")
+val removeRootDetectionPatch = bytecodePatch(
+    name = "Remove root detection",
     description = "Removes the check for root permissions and unlocked bootloader.",
 ) {
     compatibleWith("at.gv.bmf.bmf2go")

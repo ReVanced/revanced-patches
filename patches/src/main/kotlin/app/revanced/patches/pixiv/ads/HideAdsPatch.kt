@@ -1,10 +1,10 @@
 package app.revanced.patches.pixiv.ads
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide ads` by creatingBytecodePatch {
+@Suppress("unused")
+val hideAdsPatch = bytecodePatch("Hide ads") {
     compatibleWith("jp.pxv.android"("6.141.1"))
 
     apply {

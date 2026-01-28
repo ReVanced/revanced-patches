@@ -2,7 +2,7 @@ package app.revanced.patches.all.misc.connectivity.telephony.sim.spoof
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
@@ -14,8 +14,9 @@ import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.util.*
 
-@Suppress("unused", "ObjectPropertyName")
-val `Spoof SIM provider` by creatingBytecodePatch(
+@Suppress("unused")
+val spoofSIMProviderPatch = bytecodePatch(
+    name = "Spoof SIM provider",
     description = "Spoofs information about the SIM card provider.",
     use = false,
 ) {

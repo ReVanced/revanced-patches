@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.layout.buttons.overlay
 
 import app.revanced.patcher.extensions.*
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -23,7 +23,8 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HidePlayerOverlayButtonsPatch;"
 
 @Suppress("ObjectPropertyName")
-val `Hide player overlay buttons` by creatingBytecodePatch(
+val hidePlayerOverlayButtonsPatch = bytecodePatch(
+    name = "Hide player overlay buttons",
     description = "Adds options to hide the player Cast, Autoplay, Captions, Previous & Next buttons, and the player " +
         "control buttons background.",
 ) {

@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.layout.hide.endscreencards
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -49,8 +49,9 @@ private val hideEndScreenCardsResourcePatch = resourcePatch {
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HideEndScreenCardsPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide end screen cards` by creatingBytecodePatch(
+@Suppress("unused")
+val hideEndScreenCardsPatch = bytecodePatch(
+    name = "Hide end screen cards",
     description = "Adds an option to hide suggested video cards at the end of videos.",
 ) {
     dependsOn(

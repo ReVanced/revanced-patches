@@ -1,12 +1,13 @@
 package app.revanced.patches.music.misc.androidauto
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
 import app.revanced.patches.music.misc.settings.settingsPatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused", "ObjectPropertyName")
-val `Bypass certificate checks` by creatingBytecodePatch(
+@Suppress("unused")
+val bypassCertificateChecksPatch = bytecodePatch(
+    name = "Bypass certificate checks",
     description = "Bypasses certificate checks which prevent YouTube Music from working on Android Auto.",
 ) {
     dependsOn(

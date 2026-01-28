@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.buttons.action
 
-import app.revanced.patcher.patch.creatingResourcePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -13,8 +13,9 @@ import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import java.util.logging.Logger
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide video action buttons` by creatingResourcePatch(
+@Suppress("unused")
+val hideVideoActionButtonsPatch = resourcePatch(
+    name = "Hide video action buttons",
     description = "Adds options to hide action buttons (such as the Download button) under videos.",
 ) {
     dependsOn(

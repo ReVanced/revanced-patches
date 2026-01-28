@@ -1,11 +1,12 @@
 package app.revanced.patches.protonmail.account
 
-import app.revanced.patcher.patch.creatingResourcePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.findElementByAttributeValueOrThrow
 
-@Suppress("unused", "ObjectPropertyName")
-val `Remove free accounts limit` by creatingResourcePatch(
-    description = "Removes the limit for maximum free accounts logged in."
+@Suppress("unused")
+val removeFreeAccountsLimitPatch = resourcePatch(
+    name = "Remove free accounts limit",
+    description = "Removes the limit for maximum free accounts logged in.",
 ) {
     compatibleWith("ch.protonmail.android"("4.15.0"))
 

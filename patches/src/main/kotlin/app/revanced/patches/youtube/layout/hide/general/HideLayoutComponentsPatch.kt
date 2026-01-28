@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.layout.hide.general
 import app.revanced.patcher.MatchBuilder
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.immutableClassDef
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -66,8 +66,9 @@ private const val CUSTOM_FILTER_CLASS_NAME =
 private const val KEYWORD_FILTER_CLASS_NAME =
     "Lapp/revanced/extension/youtube/patches/components/KeywordContentFilter;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide layout components` by creatingBytecodePatch(
+@Suppress("unused")
+val hideLayoutComponentsPatch = bytecodePatch(
+    name = "Hide layout components",
     description = "Adds options to hide general layout components.",
 
 ) {

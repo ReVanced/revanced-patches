@@ -1,14 +1,15 @@
 package app.revanced.patches.instagram.misc.devmenu
 
 import app.revanced.patcher.extensions.methodReference
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.Opcode
 
-@Suppress("unused", "ObjectPropertyName")
-val `Enable developer menu` by creatingBytecodePatch(
+@Suppress("unused")
+val enableDeveloperMenuPatch = bytecodePatch(
+    name = "Enable developer menu",
     description = """
         Enables the developer menu, which can be found at the bottom of settings menu with name 'Internal Settings'.
         

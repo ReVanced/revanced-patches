@@ -4,14 +4,15 @@ import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.shared.onRenderFirstFrameMethod
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
-@Suppress("unused", "ObjectPropertyName")
-val `Remember clear display` by creatingBytecodePatch(
+@Suppress("unused")
+val rememberClearDisplayPatch = bytecodePatch(
+    name = "Remember clear display",
     description = "Remembers the clear display configurations in between videos.",
 ) {
     compatibleWith(

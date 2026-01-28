@@ -1,13 +1,14 @@
 package app.revanced.patches.spotify.misc.fix.login
 
 import app.revanced.patcher.immutableClassDef
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused", "ObjectPropertyName")
-val `Fix Facebook login` by creatingBytecodePatch(
+@Suppress("unused")
+val fixFacebookLoginPatch = bytecodePatch(
+    name = "Fix Facebook login",
     description =
-        "Fix logging in with Facebook when the app is patched by always opening the login in a web browser window.",
+    "Fix logging in with Facebook when the app is patched by always opening the login in a web browser window.",
 ) {
     compatibleWith("com.spotify.music")
 

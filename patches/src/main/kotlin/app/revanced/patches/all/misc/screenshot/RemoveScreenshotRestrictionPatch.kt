@@ -1,7 +1,7 @@
 package app.revanced.patches.all.misc.screenshot
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.filterMapInstruction35c
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
@@ -13,8 +13,9 @@ private const val EXTENSION_CLASS_DESCRIPTOR_PREFIX =
     "Lapp/revanced/extension/all/misc/screenshot/removerestriction/RemoveScreenshotRestrictionPatch"
 private const val EXTENSION_CLASS_DESCRIPTOR = "$EXTENSION_CLASS_DESCRIPTOR_PREFIX;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Remove screenshot restriction` by creatingBytecodePatch(
+@Suppress("unused")
+val removeScreenshotRestrictionPatch = bytecodePatch(
+    name = "Remove screenshot restriction",
     description = "Removes the restriction of taking screenshots in apps that normally wouldn't allow it.",
     use = false,
 ) {

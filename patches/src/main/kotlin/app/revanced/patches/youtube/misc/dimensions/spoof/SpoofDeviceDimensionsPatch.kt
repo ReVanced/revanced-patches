@@ -3,7 +3,7 @@ package app.revanced.patches.youtube.misc.dimensions.spoof
 import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.firstMutableMethod
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -14,8 +14,9 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/spoof/SpoofDeviceDimensionsPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Spoof device dimensions` by creatingBytecodePatch(
+@Suppress("unused")
+val spoofDeviceDimensionsPatch = bytecodePatch(
+    name = "Spoof device dimensions",
     description = "Adds an option to spoof the device dimensions which can unlock higher video qualities.",
 ) {
     dependsOn(

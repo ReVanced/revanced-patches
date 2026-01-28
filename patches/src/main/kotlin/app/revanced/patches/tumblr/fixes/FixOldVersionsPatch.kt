@@ -1,10 +1,11 @@
 package app.revanced.patches.tumblr.fixes
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused", "ObjectPropertyName")
-val `Fix old versions` by creatingBytecodePatch(
+@Suppress("unused")
+val fixOldVersionsPatch = bytecodePatch(
+    name = "Fix old versions",
     description = "Fixes old versions of the app (v33.2 and earlier) breaking due to Tumblr removing remnants of Tumblr" +
         " Live from the API, which causes many requests to fail. This patch has no effect on newer versions of the app.",
     use = false,

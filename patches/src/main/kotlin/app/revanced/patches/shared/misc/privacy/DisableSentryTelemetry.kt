@@ -1,12 +1,13 @@
 package app.revanced.patches.shared.misc.privacy
 
-import app.revanced.patcher.patch.creatingResourcePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.asSequence
 import app.revanced.util.getNode
 import org.w3c.dom.Element
 
-@Suppress("unused", "ObjectPropertyName")
-val `Disable Sentry telemetry` by creatingResourcePatch(
+@Suppress("unused")
+val disableSentryTelemetryPatch = resourcePatch(
+    name = "Disable Sentry telemetry",
     description = "Disables Sentry telemetry. See https://sentry.io/for/android/ for more information.",
     use = false,
 ) {

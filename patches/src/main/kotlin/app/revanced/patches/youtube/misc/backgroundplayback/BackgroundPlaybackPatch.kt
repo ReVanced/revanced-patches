@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.misc.backgroundplayback
 
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
@@ -26,8 +26,9 @@ internal var prefBackgroundAndOfflineCategoryId = -1L
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/BackgroundPlaybackPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Remove background playback restrictions` by creatingBytecodePatch(
+@Suppress("unused")
+val removeBackgroundPlaybackRestrictionsPatch = bytecodePatch(
+    name = "Remove background playback restrictions",
     description = "Removes restrictions on background playback, including playing kids videos in the background.",
 ) {
     dependsOn(

@@ -2,7 +2,7 @@ package app.revanced.patches.tiktok.misc.settings
 
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.immutableClassDef
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.layout.branding.addBrandLicensePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.util.indexOfFirstInstruction
@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/tiktok/settings/TikTokActivityHook;"
 
-val Settings by creatingBytecodePatch(
+val Settings = bytecodePatch(
     description = "Adds ReVanced settings to TikTok.",
 ) {
     dependsOn(sharedExtensionPatch, addBrandLicensePatch)

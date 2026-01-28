@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.interaction.doubletap
 
 import app.revanced.patcher.*
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -18,8 +18,9 @@ import java.util.logging.Logger
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableDoubleTapActionsPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Disable double tap actions` by creatingBytecodePatch(
+@Suppress("unused")
+val disableDoubleTapActionsPatch = bytecodePatch(
+    name = "Disable double tap actions",
     description = "Adds an option to disable player double tap gestures.",
 ) {
     dependsOn(

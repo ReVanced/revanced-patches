@@ -3,7 +3,7 @@ package app.revanced.patches.twitter.misc.links
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.patches.twitter.misc.extension.sharedExtensionPatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -58,8 +58,9 @@ internal val changeLinkSharingDomainResourcePatch = resourcePatch {
 }
 */
 
-@Suppress("unused", "ObjectPropertyName")
-val `Change link sharing domain` by creatingBytecodePatch(
+@Suppress("unused")
+val changeLinkSharingDomainPatch = bytecodePatch(
+    name = "Change link sharing domain",
     description = "Replaces the domain name of shared links. Using this patch can prevent making posts that quote other posts.",
     use = false,
 ) {

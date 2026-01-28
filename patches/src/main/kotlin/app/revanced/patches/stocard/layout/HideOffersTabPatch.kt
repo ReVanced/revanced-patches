@@ -1,11 +1,11 @@
 package app.revanced.patches.stocard.layout
 
-import app.revanced.patcher.patch.creatingResourcePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.childElementsSequence
 import app.revanced.util.getNode
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide offers tab` by creatingResourcePatch {
+@Suppress("unused")
+val hideOffersTabPatch = resourcePatch("Hide offers tab") {
     compatibleWith("de.stocard.stocard")
 
     apply {

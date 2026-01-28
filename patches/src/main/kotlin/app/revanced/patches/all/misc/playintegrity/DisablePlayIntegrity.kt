@@ -1,7 +1,7 @@
 package app.revanced.patches.all.misc.playintegrity
 
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
@@ -18,8 +18,9 @@ private val CONTEXT_BIND_SERVICE_METHOD_REFERENCE = ImmutableMethodReference(
     "Z",
 )
 
-@Suppress("unused", "ObjectPropertyName")
-val `Disable Play Integrity` by creatingBytecodePatch(
+@Suppress("unused")
+val disablePlayIntegrityPatch = bytecodePatch(
+    name = "Disable Play Integrity",
     description = "Prevents apps from using Play Integrity by pretending it is not available.",
     use = false,
 ) {

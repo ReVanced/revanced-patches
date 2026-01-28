@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.wideLiteral
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.booleanOption
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -157,8 +157,9 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
 
 private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/components/ShortsFilter;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide Shorts components` by creatingBytecodePatch(
+@Suppress("unused")
+val hideShortsComponentsPatch = bytecodePatch(
+    name = "Hide Shorts components",
     description = "Adds options to hide components related to Shorts.",
 ) {
     dependsOn(

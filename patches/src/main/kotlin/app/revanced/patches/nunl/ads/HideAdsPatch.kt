@@ -3,14 +3,15 @@ package app.revanced.patches.nunl.ads
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.removeInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("ObjectPropertyName")
-val `Hide ads` by creatingBytecodePatch(
+val hideAdsPatch = bytecodePatch(
+    name = "Hide ads",
     description = "Hide ads and sponsored articles in list pages and remove pre-roll ads on videos.",
 ) {
     compatibleWith("nl.sanomamedia.android.nu")

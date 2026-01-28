@@ -2,12 +2,13 @@ package app.revanced.patches.songpal.badge
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
 internal const val ACTIVITY_TAB_DESCRIPTOR = "Ljp/co/sony/vim/framework/ui/yourheadphones/YhContract\$Tab;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Remove badge tab` by creatingBytecodePatch(
+@Suppress("unused")
+val removeBadgeTabPatch = bytecodePatch(
+    name = "Remove badge tab",
     description = "Removes the badge tab from the activity tab.",
 ) {
     compatibleWith("com.sony.songpal.mdr")

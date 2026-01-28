@@ -2,13 +2,14 @@ package app.revanced.patches.twitter.interaction.downloads
 
 import app.revanced.patcher.MatchBuilder
 import app.revanced.patcher.extensions.*
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
-@Suppress("unused", "ObjectPropertyName")
-val `Unlock downloads` by creatingBytecodePatch(
+@Suppress("unused")
+val unlockDownloadsPatch = bytecodePatch(
+    name = "Unlock downloads",
     description = "Unlocks the ability to download any video. GIFs can be downloaded via the menu on long press.",
 ) {
     compatibleWith("com.twitter.android")

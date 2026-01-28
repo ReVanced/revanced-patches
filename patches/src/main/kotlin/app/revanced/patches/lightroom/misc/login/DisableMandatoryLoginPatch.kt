@@ -2,10 +2,10 @@ package app.revanced.patches.lightroom.misc.login
 
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused", "ObjectPropertyName")
-val `Disable mandatory login` by creatingBytecodePatch {
+@Suppress("unused")
+val disableMandatoryLoginPatch = bytecodePatch("Disable mandatory login") {
     compatibleWith("com.adobe.lrmobile"("9.3.0"))
 
     apply {

@@ -3,7 +3,7 @@ package app.revanced.patches.music.interaction.permanentrepeat
 import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.instructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.music.misc.extension.sharedExtensionPatch
@@ -14,8 +14,9 @@ import app.revanced.util.findFreeRegister
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/music/patches/PermanentRepeatPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Permanent repeat` by creatingBytecodePatch(
+@Suppress("unused")
+val permanentRepeatPatch = bytecodePatch(
+    name = "Permanent repeat",
     description = "Adds an option to always repeat even if the playlist ends or another track is played.",
 ) {
     dependsOn(

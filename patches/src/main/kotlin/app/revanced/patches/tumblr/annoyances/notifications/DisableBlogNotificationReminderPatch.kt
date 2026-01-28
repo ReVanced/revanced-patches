@@ -1,10 +1,11 @@
 package app.revanced.patches.tumblr.annoyances.notifications
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused", "ObjectPropertyName")
-val `Disable blog notification reminder` by creatingBytecodePatch(
+@Suppress("unused")
+val disableBlogNotificationReminderPatch = bytecodePatch(
+    name = "Disable blog notification reminder",
     description = "Disables the reminder to enable notifications for blogs you visit.",
 ) {
     compatibleWith("com.tumblr")

@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.video.quality
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.settings.preference.BasePreference
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference.Sorting
@@ -11,8 +11,9 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
  */
 internal val settingsMenuVideoQualityGroup = mutableSetOf<BasePreference>()
 
-@Suppress("unused", "ObjectPropertyName")
-val `Video quality` by creatingBytecodePatch(
+@Suppress("unused")
+val videoQualityPatch = bytecodePatch(
+    name = "Video quality",
     description = "Adds options to set default video qualities and always use the advanced video quality menu.",
 ) {
     dependsOn(

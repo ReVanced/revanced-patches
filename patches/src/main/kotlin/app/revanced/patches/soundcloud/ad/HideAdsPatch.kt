@@ -1,11 +1,11 @@
 package app.revanced.patches.soundcloud.ad
 
 import app.revanced.patcher.extensions.*
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.soundcloud.shared.featureConstructorMethod
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide ads` by creatingBytecodePatch {
+@Suppress("unused")
+val hideAdsPatch = bytecodePatch("Hide ads") {
     compatibleWith("com.soundcloud.android"("2025.05.27-release"))
 
     apply {

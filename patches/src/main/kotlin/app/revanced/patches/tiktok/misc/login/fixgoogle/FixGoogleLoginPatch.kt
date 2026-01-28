@@ -1,11 +1,12 @@
 package app.revanced.patches.tiktok.misc.login.fixgoogle
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.mutable.MutableMethod
 
-@Suppress("unused", "ObjectPropertyName")
-val `Fix Google login` by creatingBytecodePatch(
+@Suppress("unused")
+val fixGoogleLoginPatch = bytecodePatch(
+    name = "Fix Google login",
     description = "Allows logging in with a Google account.",
 ) {
     compatibleWith(

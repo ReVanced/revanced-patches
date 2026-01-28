@@ -2,7 +2,7 @@ package app.revanced.patches.primevideo.video.speed
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.primevideo.misc.extension.sharedExtensionPatch
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -13,8 +13,9 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/primevideo/videoplayer/PlaybackSpeedPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Playback speed` by creatingBytecodePatch(
+@Suppress("unused")
+val playbackSpeedPatch = bytecodePatch(
+    name = "Playback speed",
     description = "Adds playback speed controls to the video player.",
 ) {
     dependsOn(
@@ -53,4 +54,4 @@ val `Playback speed` by creatingBytecodePatch(
             )
         }
     }
-} 
+}

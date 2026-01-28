@@ -2,10 +2,11 @@ package app.revanced.patches.reddit.customclients.sync.syncforreddit.annoyances.
 
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.removeInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused", "ObjectPropertyName")
-val `Disable Sync for Lemmy bottom sheet` by creatingBytecodePatch(
+@Suppress("unused")
+val disableSyncForLemmyBottomSheetPatch = bytecodePatch(
+    name = "Disable Sync for Lemmy bottom sheet",
     description = "Disables the bottom sheet at the startup that asks you to signup to \"Sync for Lemmy\".",
 ) {
     compatibleWith(

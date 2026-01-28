@@ -5,13 +5,14 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.typeReference
 import app.revanced.patcher.firstMutableMethodDeclaratively
 import app.revanced.patcher.parameterTypes
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.returnType
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide Ads` by creatingBytecodePatch(
+@Suppress("unused")
+val hideAdsPatch = bytecodePatch(
+    name = "Hide Ads",
     description = "Hides ad banners between chats.",
 ) {
     compatibleWith("com.viber.voip"("25.9.2.0", "26.1.2.0"))

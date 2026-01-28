@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.immutableClassDef
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -111,7 +111,7 @@ private const val EXTENSION_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/sponsorblock/ui/SponsorBlockViewController;"
 
 @Suppress("unused")
-val SponsorBlock by creatingBytecodePatch(
+val SponsorBlock = bytecodePatch(
     description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments such as sponsored content.",
 ) {
     dependsOn(

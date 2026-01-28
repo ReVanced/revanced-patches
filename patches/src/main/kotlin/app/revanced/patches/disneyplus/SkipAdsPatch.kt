@@ -1,10 +1,11 @@
 package app.revanced.patches.disneyplus
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused", "ObjectPropertyName")
-val `Skip ads` by creatingBytecodePatch(
+@Suppress("unused")
+val skipAdsPatch = bytecodePatch(
+    name = "Skip ads",
     description = "Automatically skips ads.",
 ) {
     compatibleWith("com.disney.disneyplus")

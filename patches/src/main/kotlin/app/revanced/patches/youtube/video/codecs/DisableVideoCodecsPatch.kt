@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.video.codecs
 
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
@@ -16,8 +16,9 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/DisableVideoCodecsPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Disable video codecs` by creatingBytecodePatch(
+@Suppress("unused")
+val disableVideoCodecsPatch = bytecodePatch(
+    name = "Disable video codecs",
     description = "Adds options to disable HDR and VP9 codecs.",
 ) {
     dependsOn(

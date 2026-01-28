@@ -4,7 +4,7 @@ import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
@@ -12,8 +12,9 @@ import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.Settings
 
-@Suppress("unused", "ObjectPropertyName")
-val `Show deleted messages` by creatingBytecodePatch(
+@Suppress("unused")
+val showDeletedMessagesPatch = bytecodePatch(
+    name = "Show deleted messages",
     description = "Shows deleted chat messages behind a clickable spoiler.",
 ) {
     dependsOn(

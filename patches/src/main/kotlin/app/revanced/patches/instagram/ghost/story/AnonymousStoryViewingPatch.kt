@@ -1,11 +1,12 @@
 package app.revanced.patches.instagram.ghost.story
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.returnEarly
 
-@Suppress("unused", "ObjectPropertyName")
-val `Anonymous story viewing` by creatingBytecodePatch(
+@Suppress("unused")
+val anonymousStoryViewingPatch = bytecodePatch(
+    name = "Anonymous story viewing",
     description = """
         View stories without sending any information to the server. 
         Your view will not appear in the story viewers list. 

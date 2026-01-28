@@ -1,11 +1,11 @@
 package app.revanced.patches.trakt
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.mutable.MutableMethod
 
-@Suppress("unused", "ObjectPropertyName")
-val `Unlock pro` by creatingBytecodePatch {
+@Suppress("unused")
+val unlockProPatch = bytecodePatch("Unlock pro") {
     compatibleWith("tv.trakt.trakt"("1.1.1"))
 
     apply {

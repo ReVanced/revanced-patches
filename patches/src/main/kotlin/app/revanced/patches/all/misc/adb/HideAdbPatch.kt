@@ -1,7 +1,7 @@
 package app.revanced.patches.all.misc.adb
 
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
@@ -16,28 +16,28 @@ private val SETTINGS_GLOBAL_GET_INT_OR_THROW_METHOD_REFERENCE = ImmutableMethodR
     "Landroid/provider/Settings\$Global;",
     "getInt",
     listOf("Landroid/content/ContentResolver;", "Ljava/lang/String;"),
-    "I"
+    "I",
 )
 
 private val SETTINGS_GLOBAL_GET_INT_OR_DEFAULT_METHOD_REFERENCE = ImmutableMethodReference(
     "Landroid/provider/Settings\$Global;",
     "getInt",
     listOf("Landroid/content/ContentResolver;", "Ljava/lang/String;", "I"),
-    "I"
+    "I",
 )
 
 private val getIntMethodReferences = listOf(
     SETTINGS_GLOBAL_GET_INT_OR_THROW_METHOD_REFERENCE,
-    SETTINGS_GLOBAL_GET_INT_OR_DEFAULT_METHOD_REFERENCE
+    SETTINGS_GLOBAL_GET_INT_OR_DEFAULT_METHOD_REFERENCE,
 )
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide ADB status` by creatingBytecodePatch(
+@Suppress("unused")
+val hideADBStatusPatch = bytecodePatch(
+    name = "Hide ADB status",
     description = "Hides enabled development settings and/or ADB.",
     use = false,
 ) {
     extendWith("extensions/all/misc/adb/hide-adb.rve")
-
 
     dependsOn(
         transformInstructionsPatch(
@@ -63,9 +63,9 @@ val `Hide ADB status` by creatingBytecodePatch(
 
                 method.replaceInstruction(
                     index,
-                    "invoke-static { $registerString }, $EXTENSION_CLASS_DESCRIPTOR->getInt($parameterString)I"
+                    "invoke-static { $registerString }, $EXTENSION_CLASS_DESCRIPTOR->getInt($parameterString)I",
                 )
-            }
-        )
+            },
+        ),
     )
 }

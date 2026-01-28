@@ -1,14 +1,14 @@
 package app.revanced.patches.all.misc.hex
 
 import app.revanced.patcher.patch.PatchException
-import app.revanced.patcher.patch.creatingRawResourcePatch
+import app.revanced.patcher.patch.rawResourcePatch
 import app.revanced.patcher.patch.stringsOption
 import app.revanced.patches.shared.misc.hex.HexPatchBuilder
 import app.revanced.patches.shared.misc.hex.hexPatch
 import app.revanced.util.Utils.trimIndentMultiline
 
 @Suppress("unused")
-val Hex by creatingRawResourcePatch(
+val Hex = rawResourcePatch(
     description = "Replaces a hexadecimal patterns of bytes of files in an APK.",
     use = false,
 ) {

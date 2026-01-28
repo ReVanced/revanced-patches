@@ -3,11 +3,12 @@ package app.revanced.patches.googlerecorder.restrictions
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.removeInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-@Suppress("unused", "ObjectPropertyName")
-val `Remove device restrictions` by creatingBytecodePatch(
+@Suppress("unused")
+val removeDeviceRestrictionsPatch = bytecodePatch(
+    name = "Remove device restrictions",
     description = "Removes restrictions from using the app on any device. Requires mounting patched app over original.",
 ) {
     compatibleWith("com.google.android.apps.recorder")

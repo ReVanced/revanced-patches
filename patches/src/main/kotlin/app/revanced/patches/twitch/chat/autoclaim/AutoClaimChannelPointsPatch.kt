@@ -4,15 +4,16 @@ import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
 import app.revanced.patches.twitch.misc.settings.Settings
 
-@Suppress("unused", "ObjectPropertyName")
-val `Auto claim channel points` by creatingBytecodePatch(
+@Suppress("unused")
+val autoClaimChannelPointsPatch = bytecodePatch(
+    name = "Auto claim channel points",
     description = "Automatically claim Channel Points.",
 ) {
     dependsOn(

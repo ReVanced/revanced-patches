@@ -1,12 +1,13 @@
 package app.revanced.patches.all.misc.versioncode
 
-import app.revanced.patcher.patch.creatingResourcePatch
 import app.revanced.patcher.patch.intOption
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.util.getNode
 import org.w3c.dom.Element
 
-@Suppress("unused", "ObjectPropertyName")
-val `Change version code` by creatingResourcePatch(
+@Suppress("unused")
+val changeVersionCodePatch = resourcePatch(
+    name = "Change version code",
     description = "Changes the version code of the app. This will turn off app store updates " +
         "and allows downgrading an existing app install to an older app version.",
     use = false,

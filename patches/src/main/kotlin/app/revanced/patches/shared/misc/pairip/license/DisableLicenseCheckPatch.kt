@@ -1,12 +1,13 @@
 package app.revanced.patches.shared.misc.pairip.license
 
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 import java.util.logging.Logger
 
-@Suppress("unused", "ObjectPropertyName")
-val `Disable Pairip license check` by creatingBytecodePatch(
+@Suppress("unused")
+val disablePairipLicenseCheckPatch = bytecodePatch(
+    name = "Disable Pairip license check",
     description = "Disables Play Integrity API (Pairip) client-side license check.",
     use = false,
 ) {

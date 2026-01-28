@@ -2,15 +2,16 @@ package app.revanced.patches.googlephotos.misc.features
 
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringsOption
 import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.StringReference
 
-@Suppress("unused", "ObjectPropertyName")
-val `Spoof features` by creatingBytecodePatch(
+@Suppress("unused")
+val spoofFeaturesPatch = bytecodePatch(
+    name = "Spoof features",
     description = "Spoofs the device to enable Google Pixel exclusive features, including unlimited storage.",
 ) {
     compatibleWith("com.google.android.apps.photos")

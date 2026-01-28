@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
@@ -15,8 +15,9 @@ import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 
-@Suppress("unused", "ObjectPropertyName")
-val `Exit fullscreen` by creatingBytecodePatch(
+@Suppress("unused")
+val exitFullscreenPatch = bytecodePatch(
+    name = "Exit fullscreen",
     description = "Adds options to automatically exit fullscreen mode when a video reaches the end.",
 ) {
     compatibleWith(

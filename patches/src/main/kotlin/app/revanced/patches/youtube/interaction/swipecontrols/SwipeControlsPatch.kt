@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.interaction.swipecontrols
 
 import app.revanced.patcher.classDef
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -88,8 +88,9 @@ private val swipeControlsResourcePatch = resourcePatch {
     }
 }
 
-@Suppress("unused", "ObjectPropertyName")
-val `Swipe controls` by creatingBytecodePatch(
+@Suppress("unused")
+val swipeControlsPatch = bytecodePatch(
+    name = "Swipe controls",
     description = "Adds options to enable and configure volume and brightness swipe controls.",
 ) {
     dependsOn(

@@ -2,15 +2,16 @@ package app.revanced.patches.all.misc.customcertificates
 
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.booleanOption
-import app.revanced.patcher.patch.creatingResourcePatch
+import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patcher.patch.stringsOption
 import app.revanced.util.Utils.trimIndentMultiline
 import app.revanced.util.getNode
 import org.w3c.dom.Element
 import java.io.File
 
-@Suppress("unused", "ObjectPropertyName")
-val `Custom network security` by creatingResourcePatch(
+@Suppress("unused")
+val customNetworkSecurityPatch = resourcePatch(
+    name = "Custom network security",
     description = "Allows trusting custom certificate authorities for a specific domain.",
     use = false,
 ) {

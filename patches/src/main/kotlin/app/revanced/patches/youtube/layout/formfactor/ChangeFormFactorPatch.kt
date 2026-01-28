@@ -3,11 +3,11 @@ package app.revanced.patches.youtube.layout.formfactor
 import app.revanced.patcher.*
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
-import app.revanced.patches.youtube.layout.buttons.navigation.`Navigation buttons`
+import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.navigation.hookNavigationButtonCreated
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
@@ -17,15 +17,16 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/ChangeFormFactorPatch;"
 
-@Suppress("unused", "ObjectPropertyName")
-val `Change form factor` by creatingBytecodePatch(
+@Suppress("unused")
+val changeFormFactorPatch = bytecodePatch(
+    name = "Change form factor",
     description = "Adds an option to change the UI appearance to a phone, tablet, or automotive device.",
 ) {
     dependsOn(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        `Navigation buttons`,
+        navigationButtonsPatch,
     )
 
     compatibleWith(

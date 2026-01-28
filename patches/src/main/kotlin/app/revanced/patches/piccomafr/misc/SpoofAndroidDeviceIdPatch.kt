@@ -1,11 +1,12 @@
 package app.revanced.patches.piccomafr.misc
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.stringOption
 import app.revanced.util.returnEarly
 
-@Suppress("unused", "ObjectPropertyName")
-val `Spoof Android device ID` by creatingBytecodePatch(
+@Suppress("unused")
+val spoofAndroidDeviceIDPatch = bytecodePatch(
+    name = "Spoof Android device ID",
     description = "Spoofs the Android device ID used by the app for account authentication." +
         "This can be used to copy the account to another device.",
     use = false,

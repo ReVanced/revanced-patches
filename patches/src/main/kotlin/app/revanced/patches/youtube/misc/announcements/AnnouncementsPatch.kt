@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.misc.announcements
 
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -13,7 +13,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/announcements/AnnouncementsPatch;"
 
 @Suppress("unused")
-val Announcements by creatingBytecodePatch(
+val Announcements = bytecodePatch(
     description = "Adds an option to show announcements from ReVanced on app startup.",
 ) {
     dependsOn(
@@ -27,7 +27,7 @@ val Announcements by creatingBytecodePatch(
             "20.14.43",
             "20.21.37",
             "20.31.40",
-        )
+        ),
     )
 
     apply {

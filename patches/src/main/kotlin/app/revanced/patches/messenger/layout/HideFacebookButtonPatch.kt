@@ -1,10 +1,11 @@
 package app.revanced.patches.messenger.layout
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide Facebook button` by creatingBytecodePatch(
+@Suppress("unused")
+val hideFacebookButtonPatch = bytecodePatch(
+    name = "Hide Facebook button",
     description = "Hides the Facebook button in the top toolbar.",
 ) {
     compatibleWith("com.facebook.orca")

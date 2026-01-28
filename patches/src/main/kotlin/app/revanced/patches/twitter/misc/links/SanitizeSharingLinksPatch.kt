@@ -1,10 +1,11 @@
 package app.revanced.patches.twitter.misc.links
 
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 
-@Suppress("unused", "ObjectPropertyName")
-val `Sanitize sharing links` by creatingBytecodePatch(
+@Suppress("unused")
+val sanitizeSharingLinksPatch = bytecodePatch(
+    name = "Sanitize sharing links",
     description = "Removes the tracking query parameters from shared links.",
 ) {
     compatibleWith(

@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.misc.loopvideo
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
@@ -16,7 +16,8 @@ import com.android.tools.smali.dexlib2.Opcode
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/LoopVideoPatch;"
 
 @Suppress("ObjectPropertyName")
-val `Loop video` by creatingBytecodePatch(
+val loopVideoPatch = bytecodePatch(
+    name = "Loop video",
     description = "Adds an option to loop videos and display loop video button in the video player.",
 ) {
     dependsOn(

@@ -1,7 +1,7 @@
 package app.revanced.patches.all.misc.connectivity.location.hide
 
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.transformation.IMethodCall
 import app.revanced.patches.all.misc.transformation.fromMethodReference
 import app.revanced.patches.all.misc.transformation.transformInstructionsPatch
@@ -9,8 +9,9 @@ import app.revanced.util.getReference
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-@Suppress("unused", "ObjectPropertyName")
-val `Hide mock location` by creatingBytecodePatch(
+@Suppress("unused")
+val hideMockLocationPatch = bytecodePatch(
+    name = "Hide mock location",
     description = "Prevents the app from knowing the device location is being mocked by a third party app.",
     use = false,
 ) {

@@ -1,10 +1,10 @@
 package app.revanced.patches.pandora.misc
 
-import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 
-@Suppress("unused", "ObjectPropertyName")
-val `Enable unlimited skips` by creatingBytecodePatch {
+@Suppress("unused")
+val enableUnlimitedSkipsPatch = bytecodePatch("Enable unlimited skips") {
     compatibleWith("com.pandora.android")
 
     apply {
