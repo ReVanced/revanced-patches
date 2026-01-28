@@ -169,6 +169,14 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_saved">Flamujt u ruajtën</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_reset">Flamujt u rivendosën</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_copied">Flamujt u kopjuan në kujtesën e punës</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Regjistro protokol buffer</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">Regjistrimet e depurimit përfshijnë proto buffer</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">Regjistrimet e depurimit nuk përfshijnë proto buffer</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"Aktivizimi i këtij opsioni do të regjistrojë të dhëna shtesë të paraqitjes, duke përfshirë tekstin në ekran për disa komponentë të ndërfaqes përdoruese.
+
+Kjo mund të ndihmojë në identifikimin e komponentëve kur krijoni filtra të personalizuar.
+
+Gjithsesi, aktivizimi i këtij opsioni do të regjistrojë edhe disa të dhëna të përdoruesit, siç është adresa juaj IP."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_title">Pastro lidhjet e ndarjes</string>
@@ -177,6 +185,17 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_title">Ndrysho lidhjet e ndarjes në youtube.com</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_on">Lidhjet e ndara përdorin youtube.com</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_off">Lidhjet e ndara përdorin music.youtube.com</string>
+  </patch>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Filtri i personalizuar</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Fsheh komponentë duke përdorur filtre të personalizuara</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Aktivizo filtrin e personalizuar</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Filtri i personalizuar është i aktivizuar</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Filtri i personalizuar është i çaktivizuar</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Filtri i personalizuar</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">Lista e stringjeve të ndërtuesit të rrugës së komponentit për të filtruar, të ndara me një rresht të ri</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Filtri i personalizuar i pavlefshëm: %s</string>
   </patch>
   </app>
   <app id="youtube">
@@ -198,16 +217,6 @@ Ju nuk do të njoftoheni për ndonjë ngjarje të papritur."</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_title">Çaktivizo luajtjen në sfond të Shorts</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_on">Lujtja në sfond e Shorts është e çaktivizuar</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_off">Lujtja në sfond e Shorts është e aktivizuar</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Regjistro protokol buffer</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">Regjistrimet e depurimit përfshijnë proto buffer</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">Regjistrimet e depurimit nuk përfshijnë proto buffer</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"Aktivizimi i këtij opsioni do të regjistrojë të dhëna shtesë të paraqitjes, duke përfshirë tekstin në ekran për disa komponentë të ndërfaqes përdoruese.
-
-Kjo mund të ndihmojë në identifikimin e komponentëve kur krijoni filtra të personalizuar.
-
-Gjithsesi, aktivizimi i këtij opsioni do të regjistrojë edhe disa të dhëna të përdoruesit, siç është adresa juaj IP."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_title">Fshih kartat e albumit</string>
@@ -435,15 +444,6 @@ Nëse një Doodle po shfaqet aktualisht në rajonin tuaj dhe kjo fshehje është
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_title">Fsheh butonin Faleminderit</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_on">Butoni i falënderimit është i fshehur</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_off">Butoni i falënderimit është i dukshëm</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Filtri i personalizuar</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Fsheh komponentë duke përdorur filtre të personalizuara</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Aktivizo filtrin e personalizuar</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Filtri i personalizuar është i aktivizuar</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Filtri i personalizuar është i çaktivizuar</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Filtri i personalizuar</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">Lista e stringjeve të ndërtuesit të rrugës së komponentit për të filtruar, të ndara me një rresht të ri</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Filtri i personalizuar i pavlefshëm: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_title">Fshih numrin e shikimeve</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_on">Numri i shikimeve është i fshehur në burim dhe rezultatet e kërkimit</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_off">Numri i shikimeve shfaqet në burim dhe rezultatet e kërkimit</string>

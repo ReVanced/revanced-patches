@@ -26,6 +26,7 @@ Second \"item\" text"</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_name_entry_5">Personalizzato</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_title">Icona dell\'app</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_1">Originale</string>
+  <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_2">ReVanced</string>
   <!-- Translation of this should be identical to revanced_header_logo_entry_5 -->
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_3">ReVanced minimale</string>
   <string name="shared.layout.branding.baseCustomBrandingPatch.revanced_custom_branding_icon_entry_4">ReVanced ridimensionato</string>
@@ -50,6 +51,7 @@ Second \"item\" text"</string>
   </patch>
   <patch id="misc.settings.settingsResourcePatch">
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_submenu_title">Impostazioni</string>
+  <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_title">ReVanced</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_confirm_user_dialog_title">Sei sicuro di voler procedere?</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_save">Salva</string>
   <string name="shared.misc.settings.settingsResourcePatch.revanced_settings_reset">Reimposta</string>
@@ -121,6 +123,8 @@ Tocca il pulsante Continua e consenti le modifiche di ottimizzazione."</string>
   <patch id="misc.fix.playback.spoofVideoStreamsPatch">
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_title">Falsifica i flussi video</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_summary">Falsifica i flussi video del client per prevenire problemi di riproduzione</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_title">Falsifica i flussi video</string>
+  <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_screen_summary">Altera i flussi video del client per evitare problemi di riproduzione</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_title">Simula il client del flusso video</string>
   <string name="shared.misc.fix.playback.spoofVideoStreamsPatch.revanced_spoof_video_streams_summary_on">"I flussi video sono falsificati
 
@@ -170,6 +174,14 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_saved">Flag salvati</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_reset">Flag ripristinati</string>
   <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_feature_flags_manager_toast_copied">Flag copiati negli appunti</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Buffer di protocollo per log</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">I log di debug includono proto buffer</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">I log di debug non includono proto buffer</string>
+  <string name="shared.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"L'abilitazione di questa impostazione registrerà dati di layout aggiuntivi, incluso il testo su schermo per alcuni componenti dell'interfaccia utente.
+
+Questo può aiutare a identificare i componenti durante la creazione di filtri personalizzati.
+
+Tuttavia, l'abilitazione di questa opzione registrerà anche alcuni dati dell'utente come il tuo indirizzo IP."</string>
   </patch>
   <patch id="misc.privacy.sanitizeSharingLinksPatch">
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_sanitize_sharing_links_title">Sanifica collegamenti di condivisione</string>
@@ -179,17 +191,32 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_on">I link condivisi usano youtube.com</string>
   <string name="shared.misc.privacy.sanitizeSharingLinksPatch.revanced_replace_music_with_youtube_summary_off">I link condivisi usano music.youtube.com</string>
   </patch>
+  <patch id="layout.hide.general.hideLayoutComponentsPatch">
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Filtro personalizzato</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Nascondi i componenti usando i filtri personalizzati</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Attiva il filtro personalizzato</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Il filtro personalizzato è attivo</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Il filtro personalizzato è disattivo</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Filtro personalizzato</string>
+  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">L\'elenco dei componenti da filtrare separati da nuove righe</string>
+  <string name="shared.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Filtro personalizzato non valido: %s</string>
+  </patch>
   </app>
   <app id="youtube">
   <patch id="misc.settings.settingsPatch">
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_00_about_title">Informazioni</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_01_ads_title">Pubblicità</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_02_alt_thumbnails_title">Miniature alternative</string>
+  <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_03_feed_title">Feed</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_04_general_title">Generale</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_05_player_title">Lettore</string>
+  <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_06_shorts_title">Shorts</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_07_seekbar_title">Barra di avanzamento</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_08_swipe_controls_title">Controlli a gesti</string>
+  <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_09_return_youtube_dislike_title">Return YouTube Dislike</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_11_misc_title">Varie</string>
+  <string name="youtube.misc.settings.settingsPatch.revanced_settings_screen_12_video_title">Video</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_title">Ripristina i vecchi menu delle impostazioni</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_summary_on">I vecchi menu delle impostazioni vengono mostrati</string>
   <string name="youtube.misc.settings.settingsPatch.revanced_restore_old_settings_menus_summary_off">I vecchi menu delle impostazioni non vengono mostrati</string>
@@ -198,16 +225,6 @@ Non sarai notificato di eventi imprevisti."</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_title">Disattiva la riproduzione degli Shorts in background</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_on">La riproduzione in background degli Shorts è disattivata</string>
   <string name="youtube.misc.backgroundplayback.backgroundPlaybackPatch.revanced_shorts_disable_background_playback_summary_off">La riproduzione in background degli Shorts è abilitata</string>
-  </patch>
-  <patch id="misc.debugging.enableDebuggingPatch">
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_title">Buffer di protocollo per log</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_on">I log di debug includono proto buffer</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_summary_off">I log di debug non includono proto buffer</string>
-  <string name="youtube.misc.debugging.enableDebuggingPatch.revanced_debug_protobuffer_user_dialog_message">"L'abilitazione di questa impostazione registrerà dati di layout aggiuntivi, incluso il testo su schermo per alcuni componenti dell'interfaccia utente.
-
-Questo può aiutare a identificare i componenti durante la creazione di filtri personalizzati.
-
-Tuttavia, l'abilitazione di questa opzione registrerà anche alcuni dati dell'utente come il tuo indirizzo IP."</string>
   </patch>
   <patch id="layout.hide.general.hideLayoutComponentsPatch">
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_album_cards_title">Nascondi le schede degli album</string>
@@ -435,15 +452,6 @@ Se al momento un Doodle è visibile nella tua regione e questa impostazione nasc
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_title">Nascondi il pulsante Grazie</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_on">Il pulsante Grazie è nascosto</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_comments_thanks_button_summary_off">Il pulsante Grazie è visibile</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_title">Filtro personalizzato</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_screen_summary">Nascondi i componenti usando i filtri personalizzati</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_title">Attiva il filtro personalizzato</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_on">Il filtro personalizzato è attivo</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_summary_off">Il filtro personalizzato è disattivo</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_title">Filtro personalizzato</string>
-  <!-- 'Component path builder strings' is the technical name for identifying the Litho UI layout items to hide. This is an advanced feature and most users will never use this. -->
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_strings_summary">L\'elenco dei componenti da filtrare separati da nuove righe</string>
-  <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_custom_filter_toast_invalid_syntax">Filtro personalizzato non valido: %s</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_title">Nascondi il numero di visualizzazioni</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_on">Il numero di visualizzazioni è nascosto nel feed e nei risultati di ricerca</string>
   <string name="youtube.layout.hide.general.hideLayoutComponentsPatch.revanced_hide_view_count_summary_off">Il numero di visualizzazioni è mostrato nel feed e nei risultati di ricerca</string>
@@ -1043,6 +1051,7 @@ Impostazioni → Riproduzione → Riproduzione automatica video successivo"</str
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_failure_ryd_enabled_while_playing_video_then_user_voted">Ricarica il video per votare usando Return YouTube Dislike</string>
   <!-- Video likes have been set to hidden by the video uploader. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_video_likes_hidden_by_video_owner">Nascosto dal proprietario</string>
+  <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_title">Return YouTube Dislike</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_summary_on">I Non Mi Piace sono visibili</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_enabled_summary_off">I Non Mi Piace non sono visibili</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_shorts_title">Mostra i Non Mi Piace degli Shorts</string>
@@ -1063,6 +1072,7 @@ Limitazione: i \"Non mi piace\" potrebbero non apparire in modalità incognito"<
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_title">Mostra un toast se l\'API non è disponibile</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_summary_on">Una notifica è mostrata se Return YouTube Dislike non è disponibile</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_toast_on_connection_error_summary_off">Nessuna notifica viene mostrata se Return YouTube Dislike non è disponibile</string>
+  <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_attribution_title">ReturnYouTubeDislike.com</string>
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_attribution_summary">I dati vengono forniti dall\'API Return YouTube Dislike. Tocca qui per saperne di più</string>
   <!-- Statistic strings are shown in the settings only when ReVanced debug mode is enabled. Typical users will never see these. -->
   <string name="youtube.layout.returnyoutubedislike.returnYouTubeDislikePatch.revanced_ryd_statistics_category_title">Statistiche dell\'API di ReturnYouTubeDislike per questo dispositivo</string>
@@ -1091,6 +1101,8 @@ Limitazione: i \"Non mi piace\" potrebbero non apparire in modalità incognito"<
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_title">Abilita miniature di alta qualità</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_summary_on">Le miniature della barra di avanzamento sono di alta qualità</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_summary_off">Le miniature della barra di avanzamento sono di media qualità</string>
+  <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_legacy_summary_on">Le miniature della barra di ricerca a schermo intero sono di alta qualità</string>
+  <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_legacy_summary_off">Le miniature della barra di ricerca a schermo intero sono di media qualità</string>
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_seekbar_thumbnails_high_quality_dialog_message">"Questo ripristinerà anche le miniature sulle dirette che non hanno miniature della barra di avanzamento.
 
 Le miniature della barra di avanzamento utilizzeranno la stessa qualità del video corrente.
@@ -1101,6 +1113,7 @@ Questa funzione funziona meglio con una qualità video di 720p o inferiore e qua
   <string name="youtube.layout.seekbar.seekbarThumbnailsPatch.revanced_restore_old_seekbar_thumbnails_summary_off">Le miniature della barra di avanzamento appariranno a schermo intero</string>
   </patch>
   <patch id="layout.sponsorblock.sponsorBlockResourcePatch">
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_settings_screen_10_sponsorblock_title">SponsorBlock</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_sb">Abilita SponsorBlock</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_enable_sb_sum">SponsorBlock è un sistema collaborativo creato per saltare le parti fastidiose nei video di YouTube</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_appearance_category">Aspetto</string>
@@ -1309,12 +1322,15 @@ Pronto per l'invio?"</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_color_opacity_label">Opacità:</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_color_dot_label">Colore:</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_title">Informazioni</string>
+  <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_api_title">sponsor.ajay.app</string>
   <string name="youtube.layout.sponsorblock.sponsorBlockResourcePatch.revanced_sb_about_api_summary">I dati sono forniti dall\'API di SponsorBlock. Tocca qui per saperne di più e vedere i download per altre piattaforme</string>
   </patch>
   <patch id="layout.formfactor.changeFormFactorPatch">
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_title">Fattore di forma del layout</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_1">Predefinito</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_2">Telefono</string>
+  <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_3">Tablet</string>
+  <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_entry_4">Automotive</string>
   <string name="youtube.layout.formfactor.changeFormFactorPatch.revanced_change_form_factor_user_dialog_message">"Le modifiche includono:
 
 Layout per tablet
@@ -1359,6 +1375,7 @@ Se in seguito verrà disattivato, si consiglia di cancellare i dati dell'app per
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_playlists">Playlist</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_search">Cerca</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_shopping">Acquisti</string>
+  <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_shorts">Shorts</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_sports">Sport</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_subscriptions">Iscrizioni</string>
   <string name="youtube.layout.startpage.changeStartPagePatch.revanced_change_start_page_entry_trending">Tendenze</string>
@@ -1391,11 +1408,13 @@ Limitazione: l'utilizzo del pulsante Indietro sulla barra degli strumenti potreb
   <string name="youtube.layout.shortsautoplay.shortsAutoplayPatch.revanced_shorts_autoplay_background_summary_off">Gli Short in background si ripeteranno</string>
   </patch>
   <patch id="layout.miniplayer.miniplayerPatch">
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_screen_title">Riproduttore minimizzato</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_screen_summary">Modifica lo stile del player minimizzato in-app</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_title">Tipo di Miniplayer</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_entry_0">Disattivato</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_entry_1">Predefinito</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_entry_2">Minimale</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_entry_3">Tablet</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_entry_4">Moderno 1</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_entry_5">Moderno 2</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_type_entry_6">Moderno 3</string>
@@ -1422,6 +1441,11 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_title">Nascondi i pulsanti di overlay</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_summary_on">I pulsanti di overlay sono nascosti</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_summary_off">I pulsanti di overlay sono visualizzati</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_title">Nascondi i pulsanti Espandi e Chiudi</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_summary_on">"I pulsanti sono nascosti
+
+Trascina per espandere o chiudere"</string>
+  <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_overlay_buttons_legacy_summary_off">I pulsanti Espandi e Chiudi sono visibili</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_title">Nascondi sottotitoli</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_summary_on">I sottotitoli sono nascosti</string>
   <string name="youtube.layout.miniplayer.miniplayerPatch.revanced_miniplayer_hide_subtext_summary_off">I sottotitoli sono visibili</string>
@@ -1452,11 +1476,16 @@ Il riproduttore minimizzato può essere trascinato fuori dallo schermo a sinistr
   <string name="youtube.layout.theme.themePatch.revanced_seekbar_custom_color_invalid">Valore colore barra di avanzamento non valido</string>
   </patch>
   <patch id="layout.branding.customBrandingPatch">
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_2">YouTube ReVanced</string>
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_3">YT ReVanced</string>
+  <string name="youtube.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_4">YT</string>
   </patch>
   <patch id="layout.branding.changeHeaderPatch">
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_title">Logo dell\'intestazione</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_1">Predefinito</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_2">Regolare</string>
+  <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_3">Premium</string>
+  <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_4">ReVanced</string>
   <!-- Translation of this should be identical to revanced_custom_branding_icon_entry_3 -->
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_5">ReVanced minimale</string>
   <string name="youtube.layout.branding.changeHeaderPatch.revanced_header_logo_entry_6">Personalizzato</string>
@@ -1481,6 +1510,7 @@ Abilitare questa opzione può risolvere le immagini mancanti che sono bloccate i
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_2">DeArrow &amp; miniature originali</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_3">DeArrow &amp; Cattura ancora</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_options_entry_4">Istantanea</string>
+  <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_about_title">DeArrow</string>
   <string name="youtube.layout.thumbnails.alternativeThumbnailsPatch.revanced_alt_thumbnail_dearrow_about_summary">"DeArrow fornisce miniature crowdsourced per i video di YouTube. Queste miniature sono spesso più pertinenti di quelle fornite da YouTube
 
 Se abilitato, gli URL dei video verranno inviati al server API e non verranno inviati altri dati. Se un video non ha miniature DeArrow, vengono mostrati i fermo immagine o le miniature originali
@@ -1525,6 +1555,9 @@ Tocca qui per saperne di più su DeArrow"</string>
   <string name="youtube.misc.loopvideo.button.loopVideoButtonPatch.revanced_loop_video_button_toast_off">Riproduzione video in loop disattivata</string>
   </patch>
   <patch id="misc.audiofocus.pauseOnAudioInterruptPatch">
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_title">Pausa se l\'audio si interrompe</string>
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_summary_on">La riproduzione si ferma quando vengono riprodotti altri audio (es. il navigatore)</string>
+  <string name="youtube.misc.audiofocus.pauseOnAudioInterruptPatch.revanced_pause_on_audio_interrupt_summary_off">Il volume diminuisce quando si riproducono altri audio</string>
   </patch>
   <patch id="misc.dimensions.spoof.spoofDeviceDimensionsPatch">
   <string name="youtube.misc.dimensions.spoof.spoofDeviceDimensionsPatch.revanced_spoof_device_dimensions_title">Simula le dimensioni del dispositivo</string>
@@ -1582,6 +1615,7 @@ Abilitare questa opzione può sbloccare qualità video più elevate"</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_shorts_quality_default_wifi_title">Qualità predefinita di Shorts sulla rete Wi-Fi</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_shorts_quality_default_mobile_title">Qualità predefinita di Shorts sulla rete mobile</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_mobile">cellulare</string>
+  <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_wifi">WiFi</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_toast">Modificato la qualità predefinita %1$s in: %2$s</string>
   <string name="youtube.video.quality.rememberVideoQualityPatch.revanced_remember_video_quality_toast_shorts">Modificata la qualità Shorts %1$s in: %2$s</string>
   </patch>
@@ -1672,6 +1706,9 @@ La riproduzione video con AV1 potrebbe rallentare o perdere fotogrammi."</string
   </app>
   <app id="music">
   <patch id="layout.branding.customBrandingPatch">
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_2">YT Music ReVanced</string>
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_3">Music ReVanced</string>
+  <string name="music.layout.branding.customBrandingPatch.revanced_custom_branding_name_entry_4">Music</string>
   </patch>
   <patch id="misc.settings.settingsPatch">
   <string name="music.misc.settings.settingsPatch.revanced_settings_music_screen_0_about_title">Informazioni</string>
@@ -1798,6 +1835,7 @@ La riproduzione video con AV1 potrebbe rallentare o perdere fotogrammi."</string
   <string name="twitch.misc.settings.settingsPatch.revanced_about_summary">Informazioni su ReVanced</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_ads_screen_title">Blocco annunci</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_ads_screen_summary">Impostazioni blocco annunci</string>
+  <string name="twitch.misc.settings.settingsPatch.revanced_chat_screen_title">Chat</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_chat_screen_summary">Impostazioni della chat</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_misc_screen_title">Varie</string>
   <string name="twitch.misc.settings.settingsPatch.revanced_misc_screen_summary">Impostazioni varie</string>
