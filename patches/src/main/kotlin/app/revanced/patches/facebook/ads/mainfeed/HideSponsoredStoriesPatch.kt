@@ -1,5 +1,6 @@
 package app.revanced.patches.facebook.ads.mainfeed
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
@@ -8,7 +9,6 @@ import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
-import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
 @Suppress("unused")
 val hideSponsoredStoriesPatch = bytecodePatch("Hide 'Sponsored Stories'") {

@@ -4,6 +4,7 @@ import app.revanced.patcher.*
 import com.android.tools.smali.dexlib2.Opcode
 
 internal val getMobileConfigBoolMethodMatch = firstMethodComposite {
+    parameterTypes("J")
     returnType("Z")
     opcodes(Opcode.RETURN)
     custom { "Lcom/facebook/mobileconfig/factory/MobileConfigUnsafeContext;" in immutableClassDef.interfaces }

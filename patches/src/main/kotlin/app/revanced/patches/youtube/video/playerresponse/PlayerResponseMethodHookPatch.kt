@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.video.playerresponse
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
@@ -11,7 +12,6 @@ import app.revanced.patches.youtube.misc.playservice.is_20_15_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_26_or_greater
 import app.revanced.patches.youtube.misc.playservice.is_20_46_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
 
 private val hooks = mutableSetOf<Hook>()
 

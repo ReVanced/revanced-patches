@@ -1,5 +1,7 @@
 package app.revanced.patches.shared.misc.spoof
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.custom
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.firstMutableMethodDeclaratively
@@ -21,8 +23,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
-import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/shared/spoof/SpoofVideoStreamsPatch;"
@@ -128,7 +128,7 @@ internal fun spoofVideoStreamsPatch(
             addInstruction(
                 videoDetailsIndex + 1,
                 "invoke-direct { p0, v$videoDetailsRegister }, " +
-                        "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
+                    "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
             )
 
             val protobufClass = protobufClassParseByteBufferMethod.definingClass
@@ -275,7 +275,7 @@ internal fun spoofVideoStreamsPatch(
             val mediaFetchEnumClass = definingClass
             val sabrFieldIndex = indexOfFirstInstructionOrThrow(disabledBySABRStreamingUrlString) {
                 opcode == Opcode.SPUT_OBJECT &&
-                        getReference<FieldReference>()?.type == mediaFetchEnumClass
+                    getReference<FieldReference>()?.type == mediaFetchEnumClass
             }
 
             Pair(

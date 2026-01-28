@@ -1,5 +1,9 @@
 package app.revanced.util
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableClassDef
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableField
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.*
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -23,10 +27,6 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.iface.value.*
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.value.*
-import com.android.tools.smali.dexlib2.mutable.MutableClassDef
-import com.android.tools.smali.dexlib2.mutable.MutableField
-import com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.util.*
 

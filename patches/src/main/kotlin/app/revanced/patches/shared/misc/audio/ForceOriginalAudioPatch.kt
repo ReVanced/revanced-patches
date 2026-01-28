@@ -1,5 +1,8 @@
 package app.revanced.patches.shared.misc.audio
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
@@ -21,9 +24,6 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
-import com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
-import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/shared/patches/ForceOriginalAudioPatch;"
@@ -37,12 +37,11 @@ internal fun forceOriginalAudioPatch(
     fixUseLocalizedAudioTrackFlag: BytecodePatchContext.() -> Boolean,
     getMainActivityOnCreateMethod: BytecodePatchContext.() -> MutableMethod,
     subclassExtensionClassDescriptor: String,
-    preferenceScreen: BasePreferenceScreen.Screen
+    preferenceScreen: BasePreferenceScreen.Screen,
 ) = bytecodePatch(
     name = "Force original audio", // TODO
     description = "Adds an option to always use the original audio track.",
 ) {
-
     block()
 
     dependsOn(addResourcesPatch)
@@ -53,13 +52,13 @@ internal fun forceOriginalAudioPatch(
         preferenceScreen.addPreferences(
             SwitchPreference(
                 key = "revanced_force_original_audio",
-                tag = "app.revanced.extension.shared.settings.preference.ForceOriginalAudioSwitchPreference"
-            )
+                tag = "app.revanced.extension.shared.settings.preference.ForceOriginalAudioSwitchPreference",
+            ),
         )
 
         getMainActivityOnCreateMethod().addInstruction(
             0,
-            "invoke-static { }, $subclassExtensionClassDescriptor->setEnabled()V"
+            "invoke-static { }, $subclassExtensionClassDescriptor->setEnabled()V",
         )
 
         // Disable feature flag that ignores the default track flag
@@ -67,7 +66,7 @@ internal fun forceOriginalAudioPatch(
         if (fixUseLocalizedAudioTrackFlag()) {
             selectAudioStreamMethodMatch.method.insertLiteralOverride(
                 selectAudioStreamMethodMatch.indices.first(),
-                "$EXTENSION_CLASS_DESCRIPTOR->ignoreDefaultAudioStream(Z)Z"
+                "$EXTENSION_CLASS_DESCRIPTOR->ignoreDefaultAudioStream(Z)Z",
             )
         }
 
@@ -93,8 +92,8 @@ internal fun forceOriginalAudioPatch(
                     AccessFlags.PRIVATE.value or AccessFlags.VOLATILE.value,
                     null,
                     null,
-                    null
-                ).toMutable()
+                    null,
+                ).toMutable(),
             )
 
             // Add a helper method because the isDefaultAudioTrack() has only 2 registers and 3 are needed.
@@ -133,7 +132,7 @@ internal fun forceOriginalAudioPatch(
                         move-result-object v0
                         iput-object v0, p0, $helperMethodClass->$helperFieldName:Ljava/lang/Boolean;
                         return v3
-                    """
+                    """,
                 )
             }
             methods.add(helperMethod)
@@ -148,7 +147,7 @@ internal fun forceOriginalAudioPatch(
                     """
                             invoke-direct { p0, v$register }, $helperMethodClass->$helperMethodName(Z)Z
                             move-result v$register
-                        """
+                        """,
                 )
             }
         }

@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.playercontrols
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.immutableClassDef
@@ -13,7 +14,6 @@ import app.revanced.patches.youtube.misc.playservice.*
 import app.revanced.util.*
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import org.w3c.dom.Node
 
 /**

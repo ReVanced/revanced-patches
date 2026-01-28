@@ -1,8 +1,8 @@
 package app.revanced.patches.facebook.ads.story
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
 
 @Suppress("unused")
 val hideStoryAdsPatch = bytecodePatch(

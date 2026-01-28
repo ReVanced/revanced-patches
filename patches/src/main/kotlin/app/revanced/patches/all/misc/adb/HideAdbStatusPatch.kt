@@ -13,14 +13,14 @@ import com.android.tools.smali.dexlib2.util.MethodUtil
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/all/misc/hide/adb/HideAdbPatch;"
 
 private val SETTINGS_GLOBAL_GET_INT_OR_THROW_METHOD_REFERENCE = ImmutableMethodReference(
-    "Landroid/provider/Settings\$Global;",
+    $$"Landroid/provider/Settings$Global;",
     "getInt",
     listOf("Landroid/content/ContentResolver;", "Ljava/lang/String;"),
     "I",
 )
 
 private val SETTINGS_GLOBAL_GET_INT_OR_DEFAULT_METHOD_REFERENCE = ImmutableMethodReference(
-    "Landroid/provider/Settings\$Global;",
+    $$"Landroid/provider/Settings$Global;",
     "getInt",
     listOf("Landroid/content/ContentResolver;", "Ljava/lang/String;", "I"),
     "I",

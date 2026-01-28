@@ -1,5 +1,7 @@
 package app.revanced.patches.twitch.misc.settings
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructions
@@ -14,8 +16,6 @@ import app.revanced.patches.shared.misc.settings.settingsPatch
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
-import com.android.tools.smali.dexlib2.mutable.MutableField.Companion.toMutable
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
 
 private const val REVANCED_SETTINGS_MENU_ITEM_NAME = "RevancedSettings"
 private const val REVANCED_SETTINGS_MENU_ITEM_ID = 0x7

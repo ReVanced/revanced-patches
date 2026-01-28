@@ -1,5 +1,6 @@
 package app.revanced.patches.tumblr.featureflags
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.bytecodePatch
@@ -7,7 +8,6 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
-import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 
 /**
  * Override a feature flag with a value.
@@ -73,7 +73,7 @@ val overrideFeatureFlagsPatch = bytecodePatch(
             val getFeatureIndex = match.indices.first()
             match.method.addInstructionsWithLabels(
                 getFeatureIndex,
-            """
+                """
                 # Call the Helper Method with the Feature
                 invoke-virtual {p0, p1}, $configurationClass->getValueOverride($featureClass)Ljava/lang/String;
                 move-result-object v0

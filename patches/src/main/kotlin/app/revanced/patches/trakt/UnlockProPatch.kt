@@ -1,8 +1,8 @@
 package app.revanced.patches.trakt
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
 
 @Suppress("unused")
 val unlockProPatch = bytecodePatch("Unlock pro") {

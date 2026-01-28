@@ -1,5 +1,8 @@
 package app.revanced.patches.youtube.video.information
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableClassDef
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.firstMutableClassDef
@@ -34,9 +37,6 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodImplementation
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
-import com.android.tools.smali.dexlib2.mutable.MutableClassDef
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
-import com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/VideoInformation;"
@@ -106,7 +106,7 @@ val videoInformationPatch = bytecodePatch(
             addSeekInterfaceMethods(
                 playVideoCheckVideoStreamingDataResponseMethod.classDef,
                 classDef.getSeekMethod(),
-                classDef.getSeekRelativeMethod()
+                classDef.getSeekRelativeMethod(),
             )
         }
 
@@ -125,7 +125,7 @@ val videoInformationPatch = bytecodePatch(
             addSeekInterfaceMethods(
                 classDef,
                 classDef.getMdxSeekMethod(),
-                classDef.getMdxSeekRelativeMethod()
+                classDef.getMdxSeekRelativeMethod(),
             )
         }
 
@@ -140,7 +140,7 @@ val videoInformationPatch = bytecodePatch(
                 addInstruction(
                     videoLengthMethodMatch.indices.last(),
                     "invoke-static {v$videoLengthRegister, v$dummyRegisterForLong}, " +
-                            "$EXTENSION_CLASS_DESCRIPTOR->setVideoLength(J)V",
+                        "$EXTENSION_CLASS_DESCRIPTOR->setVideoLength(J)V",
                 )
             }
         }
@@ -162,7 +162,7 @@ val videoInformationPatch = bytecodePatch(
         addPlayerResponseMethodHook(
             Hook.ProtoBufferParameterBeforeVideoId(
                 "$EXTENSION_CLASS_DESCRIPTOR->" +
-                        "newPlayerResponseSignature(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;",
+                    "newPlayerResponseSignature(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;",
             ),
         )
 
@@ -232,9 +232,11 @@ val videoInformationPatch = bytecodePatch(
 
                             :ignore
                             return-void
-                        """.toInstructions(), null, null
-                    )
-                ).toMutable()
+                        """.toInstructions(),
+                        null,
+                        null,
+                    ),
+                ).toMutable(),
             )
         }
 
@@ -246,7 +248,7 @@ val videoInformationPatch = bytecodePatch(
             // Set playback speed class.
             addInstructionsAtControlFlowLabel(
                 index,
-                "sput-object v$register, $EXTENSION_CLASS_DESCRIPTOR->playbackSpeedClass:$playbackSpeedClass"
+                "sput-object v$register, $EXTENSION_CLASS_DESCRIPTOR->playbackSpeedClass:$playbackSpeedClass",
             )
 
             val smaliInstructions =
@@ -263,7 +265,7 @@ val videoInformationPatch = bytecodePatch(
                 "overridePlaybackSpeed",
                 "playbackSpeedClass",
                 playbackSpeedClass,
-                smaliInstructions
+                smaliInstructions,
             )
         }
 
@@ -286,7 +288,7 @@ val videoInformationPatch = bytecodePatch(
                 """
                     invoke-static { $nameRegister, p1 }, $EXTENSION_CLASS_DESCRIPTOR->fixVideoQualityResolution(Ljava/lang/String;I)I    
                     move-result p1
-                """
+                """,
             )
 
             // Add methods to access obfuscated quality fields.
@@ -312,9 +314,9 @@ val videoInformationPatch = bytecodePatch(
                             """
                                 iget-object v0, p0, $qualityNameField
                                 return-object v0
-                            """
+                            """,
                         )
-                    }
+                    },
                 )
 
                 methods.add(
@@ -337,9 +339,9 @@ val videoInformationPatch = bytecodePatch(
                             """
                                 iget v0, p0, $resolutionField
                                 return v0
-                            """
+                            """,
                         )
-                    }
+                    },
                 )
             }
         }
@@ -360,7 +362,7 @@ val videoInformationPatch = bytecodePatch(
                         type,
                         "patch_setQuality",
                         listOf(
-                            ImmutableMethodParameter(YOUTUBE_VIDEO_QUALITY_CLASS_TYPE, null, null)
+                            ImmutableMethodParameter(YOUTUBE_VIDEO_QUALITY_CLASS_TYPE, null, null),
                         ),
                         "V",
                         AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
@@ -377,9 +379,9 @@ val videoInformationPatch = bytecodePatch(
                             """
                                 invoke-virtual { p0, p1 }, $setQualityMenuIndexMethod
                                 return-void
-                            """
+                            """,
                         )
-                    }
+                    },
                 )
             }
 
@@ -392,7 +394,7 @@ val videoInformationPatch = bytecodePatch(
                     
                     invoke-static { p1, v0, p2 }, $EXTENSION_CLASS_DESCRIPTOR->setVideoQuality([$YOUTUBE_VIDEO_QUALITY_CLASS_TYPE${EXTENSION_VIDEO_QUALITY_MENU_INTERFACE}I)I
                     move-result p2
-                """
+                """,
             )
         }
 
@@ -450,11 +452,9 @@ private fun addSeekInterfaceMethods(targetClass: MutableClassDef, seekToMethod: 
     }
 }
 
-private fun MutableMethod.insert(insertIndex: Int, register: String, descriptor: String) =
-    addInstruction(insertIndex, "invoke-static { $register }, $descriptor")
+private fun MutableMethod.insert(insertIndex: Int, register: String, descriptor: String) = addInstruction(insertIndex, "invoke-static { $register }, $descriptor")
 
-private fun MutableMethod.insertTimeHook(insertIndex: Int, descriptor: String) =
-    insert(insertIndex, "p1, p2", descriptor)
+private fun MutableMethod.insertTimeHook(insertIndex: Int, descriptor: String) = insert(insertIndex, "p1, p2", descriptor)
 
 /**
  * Hook the player controller.  Called when a video is opened or the current video is changed.
@@ -465,12 +465,11 @@ private fun MutableMethod.insertTimeHook(insertIndex: Int, descriptor: String) =
  * @param targetMethodClass The descriptor for the class to invoke when the player controller is created.
  * @param targetMethodName The name of the static method to invoke when the player controller is created.
  */
-internal fun onCreateHook(targetMethodClass: String, targetMethodName: String) =
-    playerInitMethod.insert(
-        playerInitInsertIndex++,
-        "v$playerInitInsertRegister",
-        "$targetMethodClass->$targetMethodName($EXTENSION_PLAYER_INTERFACE)V",
-    )
+internal fun onCreateHook(targetMethodClass: String, targetMethodName: String) = playerInitMethod.insert(
+    playerInitInsertIndex++,
+    "v$playerInitInsertRegister",
+    "$targetMethodClass->$targetMethodName($EXTENSION_PLAYER_INTERFACE)V",
+)
 
 /**
  * Hook the MDX player director. Called when playing videos while casting to a big screen device.
@@ -478,12 +477,11 @@ internal fun onCreateHook(targetMethodClass: String, targetMethodName: String) =
  * @param targetMethodClass The descriptor for the class to invoke when the player controller is created.
  * @param targetMethodName The name of the static method to invoke when the player controller is created.
  */
-internal fun onCreateHookMdx(targetMethodClass: String, targetMethodName: String) =
-    mdxInitMethod.insert(
-        mdxInitInsertIndex++,
-        "v$mdxInitInsertRegister",
-        "$targetMethodClass->$targetMethodName($EXTENSION_PLAYER_INTERFACE)V",
-    )
+internal fun onCreateHookMdx(targetMethodClass: String, targetMethodName: String) = mdxInitMethod.insert(
+    mdxInitInsertIndex++,
+    "v$mdxInitInsertRegister",
+    "$targetMethodClass->$targetMethodName($EXTENSION_PLAYER_INTERFACE)V",
+)
 
 /**
  * Hook the video time.
@@ -492,20 +490,18 @@ internal fun onCreateHookMdx(targetMethodClass: String, targetMethodName: String
  * @param targetMethodClass The descriptor for the static method to invoke when the player controller is created.
  * @param targetMethodName The name of the static method to invoke when the player controller is created.
  */
-fun videoTimeHook(targetMethodClass: String, targetMethodName: String) =
-    timeMethod.insertTimeHook(
-        timeInitInsertIndex++,
-        "$targetMethodClass->$targetMethodName(J)V",
-    )
+fun videoTimeHook(targetMethodClass: String, targetMethodName: String) = timeMethod.insertTimeHook(
+    timeInitInsertIndex++,
+    "$targetMethodClass->$targetMethodName(J)V",
+)
 
 /**
  * Hook when the video speed is changed for any reason _except when the user manually selects a new speed_.
  */
-fun videoSpeedChangedHook(targetMethodClass: String, targetMethodName: String) =
-    setPlaybackSpeedMethod.addInstruction(
-        setPlaybackSpeedMethodIndex++,
-        "invoke-static { p1 }, $targetMethodClass->$targetMethodName(F)V"
-    )
+fun videoSpeedChangedHook(targetMethodClass: String, targetMethodName: String) = setPlaybackSpeedMethod.addInstruction(
+    setPlaybackSpeedMethodIndex++,
+    "invoke-static { p1 }, $targetMethodClass->$targetMethodName(F)V",
+)
 
 /**
  * Hook the video speed selected by the user.
@@ -513,7 +509,7 @@ fun videoSpeedChangedHook(targetMethodClass: String, targetMethodName: String) =
 fun userSelectedPlaybackSpeedHook(targetMethodClass: String, targetMethodName: String) {
     legacySpeedSelectionInsertMethod.addInstruction(
         legacySpeedSelectionInsertIndex++,
-        "invoke-static { v$legacySpeedSelectionValueRegister }, $targetMethodClass->$targetMethodName(F)V"
+        "invoke-static { v$legacySpeedSelectionValueRegister }, $targetMethodClass->$targetMethodName(F)V",
     )
 
     speedSelectionInsertMethod.addInstruction(

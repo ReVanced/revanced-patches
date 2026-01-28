@@ -1,19 +1,19 @@
 package app.revanced.patches.shared.misc.checks
 
 import android.os.Build.*
+import app.revanced.com.android.tools.smali.dexlib2.iface.value.MutableEncodedValue
+import app.revanced.com.android.tools.smali.dexlib2.iface.value.MutableLongEncodedValue
+import app.revanced.com.android.tools.smali.dexlib2.iface.value.MutableStringEncodedValue
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableClassDef
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.Patch
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
-import com.android.tools.smali.dexlib2.iface.value.MutableEncodedValue
-import com.android.tools.smali.dexlib2.iface.value.MutableLongEncodedValue
-import com.android.tools.smali.dexlib2.iface.value.MutableStringEncodedValue
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableLongEncodedValue
 import com.android.tools.smali.dexlib2.immutable.value.ImmutableStringEncodedValue
-import com.android.tools.smali.dexlib2.mutable.MutableClassDef
-import com.android.tools.smali.dexlib2.mutable.MutableMethod
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 import kotlin.io.encoding.Base64
