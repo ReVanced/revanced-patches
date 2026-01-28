@@ -41,9 +41,9 @@ val `Remove viewer discretion dialog` by creatingBytecodePatch(
             SwitchPreference("revanced_remove_viewer_discretion_dialog"),
         )
 
-        createDialogMethod.let {
+        createDialogMethodMatch.let {
             it.method.apply {
-                val showDialogIndex = it.indices.last() // TODO
+                val showDialogIndex = it.indices.last()
                 val dialogRegister = getInstruction<FiveRegisterInstruction>(showDialogIndex).registerC
 
                 replaceInstructions(

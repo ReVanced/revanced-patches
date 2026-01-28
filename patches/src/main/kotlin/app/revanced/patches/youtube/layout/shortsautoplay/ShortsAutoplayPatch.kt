@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.shortsautoplay
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
@@ -88,15 +89,15 @@ val `Shorts autoplay` by creatingBytecodePatch(
             )
         }
 
-        reelPlaybackRepeatMethod.match(
-            reelPlaybackRepeatParentMethod.immutableClassDef,
-        ).method.apply {
+        val reelPlaybackRepeatMethod = reelPlaybackRepeatParentMethod.immutableClassDef.getReelPlaybackRepeatMethod()
+
+        reelPlaybackRepeatMethod.apply {
             // The behavior enums are looked up from an ordinal value to an enum type.
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == reelEnumClass &&
-                    reference.parameterTypes.firstOrNull() == "I" &&
-                    reference.returnType == reelEnumClass
+                        reference.parameterTypes.firstOrNull() == "I" &&
+                        reference.returnType == reelEnumClass
             }.forEach { index ->
                 val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
 
@@ -123,14 +124,14 @@ val `Shorts autoplay` by creatingBytecodePatch(
                 // Find the first call modified by extension code above.
                 val extensionReturnResultIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_STATIC &&
-                        getReference<MethodReference>()?.definingClass == EXTENSION_CLASS_DESCRIPTOR
+                            getReference<MethodReference>()?.definingClass == EXTENSION_CLASS_DESCRIPTOR
                 } + 1
                 val enumRegister = getInstruction<OneRegisterInstruction>(extensionReturnResultIndex).registerA
                 val getReelSequenceControllerIndex = indexOfFirstInstructionOrThrow {
                     val reference = getReference<FieldReference>()
                     opcode == Opcode.IGET_OBJECT &&
-                        reference?.definingClass == definingClass &&
-                        reference.type == reelSequenceControllerMethodReference.definingClass
+                            reference?.definingClass == definingClass &&
+                            reference.type == reelSequenceControllerMethodReference.definingClass
                 }
                 val getReelSequenceControllerReference =
                     getInstruction<ReferenceInstruction>(getReelSequenceControllerIndex).reference

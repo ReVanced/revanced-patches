@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.playerControlsVisibilityEntityModelMethod by gettingFirstMethodDeclaratively {
+internal val playerControlsVisibilityEntityModelMethodMatch = firstMethodComposite {
     name("getPlayerControlsVisibility")
     accessFlags(AccessFlags.PUBLIC)
     returnType("L")

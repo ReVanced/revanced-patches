@@ -2,6 +2,7 @@ package app.revanced.patches.youtube.interaction.seekbar
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -42,16 +43,16 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         // Restore the behaviour to slide to seek.
 
-        val checkIndex = slideToSeekMethod.indices.first()
-        val checkReference = slideToSeekMethod.getInstruction(checkIndex)
+        val checkIndex = slideToSeekMethodMatch.indices.first()
+        val checkReference = slideToSeekMethodMatch.method.getInstruction(checkIndex)
             .getReference<MethodReference>()!!
 
         val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->isSlideToSeekDisabled(Z)Z"
 
         // A/B check method was only called on this class.
-        slideToSeekMethod.classDef.methods.forEach { method ->
+        slideToSeekMethodMatch.classDef.methods.forEach { method ->
             method.findInstructionIndicesReversed {
-                opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>() == checkReference
+                opcode == Opcode.INVOKE_VIRTUAL && methodReference == checkReference
             }.forEach { index ->
                 method.apply {
                     val register = getInstruction<OneRegisterInstruction>(index + 1).registerA
@@ -73,7 +74,7 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         // Disable the double speed seek gesture.
         if (is_19_17_or_greater) {
-            disableFastForwardGestureMethod.let {
+            disableFastForwardGestureMethodMatch.let {
                 it.method.apply {
                     val targetIndex = it.indices.last()
                     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
@@ -88,7 +89,7 @@ val enableSlideToSeekPatch = bytecodePatch(
                 }
             }
         } else {
-            disableFastForwardLegacyMethod.let {
+            disableFastForwardLegacyMethodMatch.let {
                 it.method.apply {
                     val insertIndex = it.indices.last() + 1
                     val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA

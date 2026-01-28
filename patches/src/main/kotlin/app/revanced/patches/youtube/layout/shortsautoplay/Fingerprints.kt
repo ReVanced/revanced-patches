@@ -1,18 +1,10 @@
 package app.revanced.patches.youtube.layout.shortsautoplay
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.afterAtMost
-import app.revanced.patcher.field
-import app.revanced.patcher.firstMethodComposite
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.method
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
 internal val reelEnumConstructorMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
@@ -36,7 +28,8 @@ internal val BytecodePatchContext.reelPlaybackRepeatParentMethod by gettingFirst
 /**
  * Matches class found in [reelPlaybackRepeatParentMethod].
  */
-internal val BytecodePatchContext.reelPlaybackRepeatMethod by gettingFirstMethodDeclaratively {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getReelPlaybackRepeatMethod() = firstMutableMethodDeclaratively {
     returnType("V")
     parameterTypes("L")
     instructions(method { toString() == "Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z" })
@@ -54,14 +47,15 @@ internal val reelPlaybackMethodMatch = firstMethodComposite {
             15,
             method {
                 name == "<init>" &&
-                    parameterTypes.zip(methodParametersPrefix).all { (a, b) -> a.startsWith(b) }
+                        parameterTypes.zip(methodParametersPrefix).all { (a, b) -> a.startsWith(b) }
             },
         ),
-        methodCall(
-            opcode = Opcode.INVOKE_VIRTUAL,
-            parameters = listOf("L"),
-            returnType = "I",
-            afterAtMost(5),
+        afterAtMost(
+            5,
+            allOf(
+                Opcode.INVOKE_VIRTUAL(),
+                method { returnType == "I" && parameterTypes.count() == 1 && parameterTypes.first() == "L" },
+            ),
         ),
     )
 }

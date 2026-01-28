@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.layout.seekbar
 
+import app.revanced.patcher.*
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
@@ -47,19 +48,19 @@ val seekbarColorPatch = bytecodePatch(
             )
         }
 
-        playerSeekbarColorMethod.let {
+        playerSeekbarColorMethodMatch.let {
             it.method.apply {
                 addColorChangeInstructions(it.indices.last())
                 addColorChangeInstructions(it.indices.first())
             }
         }
 
-        shortsSeekbarColorMethod.let {
+        shortsSeekbarColorMethodMatch.let {
             it.method.addColorChangeInstructions(it.indices.first())
         }
 
-        setSeekbarClickedColorMethod.immutableMethod.let {
-            val setColorMethodIndex = setSeekbarClickedColorMethod.indices.first() + 1
+        setSeekbarClickedColorMethodMatch.immutableMethod.let {
+            val setColorMethodIndex = setSeekbarClickedColorMethodMatch.indices.first() + 1
 
             navigate(it).to(setColorMethodIndex).stop().apply {
                 val colorRegister = getInstruction<TwoRegisterInstruction>(0).registerA
@@ -77,9 +78,9 @@ val seekbarColorPatch = bytecodePatch(
 
         // 19.25+ changes
 
-        var handleBarColorFingerprints = mutableListOf(playerSeekbarHandle1ColorMethod)
+        var handleBarColorFingerprints = mutableListOf(playerSeekbarHandle1ColorMethodMatch)
         if (!is_20_34_or_greater) {
-            handleBarColorFingerprints += playerSeekbarHandle2ColorMethod
+            handleBarColorFingerprints += playerSeekbarHandle2ColorMethodMatch
         }
         handleBarColorFingerprints.forEach {
             it.method.addColorChangeInstructions(it.indices.last())
@@ -89,7 +90,7 @@ val seekbarColorPatch = bytecodePatch(
         // of the watch history menu items as they use the same gradient as the
         // player and there is no easy way to distinguish which to use a transparent color.
         if (is_19_34_or_greater) {
-            watchHistoryMenuUseProgressDrawableMethod.let {
+            watchHistoryMenuUseProgressDrawableMethodMatch.let {
                 it.method.apply {
                     val index = it.indices[1]
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -113,17 +114,17 @@ val seekbarColorPatch = bytecodePatch(
             """,
         )
 
-        val playerFingerprint: Fingerprint
+        val playerMatch: MatchBuilder
         val checkGradientCoordinates: Boolean
         if (is_19_49_or_greater) {
-            playerFingerprint = playerLinearGradientMethod
+            playerMatch = playerLinearGradientMethodMatch
             checkGradientCoordinates = true
         } else {
-            playerFingerprint = playerLinearGradientLegacyMethod
+            playerMatch = playerLinearGradientLegacyMethodMatch
             checkGradientCoordinates = false
         }
 
-        playerFingerprint.let {
+        playerMatch.let {
             it.method.apply {
                 val index = it.indices.last()
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -153,8 +154,7 @@ val seekbarColorPatch = bytecodePatch(
 
         // Hook the splash animation to set the a seekbar color.
         mainActivityOnCreateMethod.apply {
-            val setAnimationIntMethodName =
-                lottieAnimationViewSetAnimationIntMethod.immutableMethod.name
+            val setAnimationIntMethodName = lottieAnimationViewSetAnimationIntMethod.name
 
             findInstructionIndicesReversedOrThrow {
                 val reference = getReference<MethodReference>()
@@ -175,8 +175,7 @@ val seekbarColorPatch = bytecodePatch(
         // and `setAnimation(InputStream, String)` so extension code can call them.
         lottieAnimationViewSetAnimationIntMethod.classDef.methods.apply {
             val addedMethodName = "patch_setAnimation"
-            val setAnimationIntName = lottieAnimationViewSetAnimationIntMethod
-                .immutableMethod.name
+            val setAnimationIntMethodName = lottieAnimationViewSetAnimationIntMethod.name
 
             add(
                 ImmutableMethod(
@@ -191,9 +190,9 @@ val seekbarColorPatch = bytecodePatch(
                 ).toMutable().apply {
                     addInstructions(
                         """
-                        invoke-virtual { p0, p1 }, Lcom/airbnb/lottie/LottieAnimationView;->$setAnimationIntName(I)V
-                        return-void
-                    """,
+                            invoke-virtual { p0, p1 }, Lcom/airbnb/lottie/LottieAnimationView;->$setAnimationIntMethodName(I)V
+                            return-void
+                        """,
                     )
                 },
             )
@@ -201,24 +200,21 @@ val seekbarColorPatch = bytecodePatch(
             val factoryStreamClass: CharSequence
             val factoryStreamName: CharSequence
             val factoryStreamReturnType: CharSequence
-            lottieCompositionFactoryFromJsonInputStreamMethod.match(
-                lottieCompositionFactoryZipMethod.immutableClassDef,
-            ).immutableMethod.apply {
-                factoryStreamClass = definingClass
-                factoryStreamName = name
-                factoryStreamReturnType = returnType
-            }
 
-            val lottieAnimationViewSetAnimationStreamFingerprint = fingerprint {
+            lottieCompositionFactoryZipMethod.immutableClassDef.getLottieCompositionFactoryFromJsonInputStreamMethod()
+                .let {
+                    factoryStreamClass = it.definingClass
+                    factoryStreamName = it.name
+                    factoryStreamReturnType = it.returnType
+                }
+
+            val lottieAnimationViewSetAnimationStreamMethod = firstMutableMethodDeclaratively {
+                definingClass(lottieAnimationViewSetAnimationIntMethod.immutableClassDef.type)
                 accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
                 parameterTypes(factoryStreamReturnType.toString())
                 returnType("V")
-                custom { _, classDef ->
-                    classDef.type == lottieAnimationViewSetAnimationIntMethod.immutableClassDef.type
-                }
             }
-            val setAnimationStreamName = lottieAnimationViewSetAnimationStreamFingerprint
-                .immutableMethod.name
+            val setAnimationStreamMethodName = lottieAnimationViewSetAnimationStreamMethod.name
 
             add(
                 ImmutableMethod(
@@ -236,11 +232,11 @@ val seekbarColorPatch = bytecodePatch(
                 ).toMutable().apply {
                     addInstructions(
                         """
-                        invoke-static { p1, p2 }, $factoryStreamClass->$factoryStreamName(Ljava/io/InputStream;Ljava/lang/String;)$factoryStreamReturnType
-                        move-result-object v0
-                        invoke-virtual { p0, v0}, Lcom/airbnb/lottie/LottieAnimationView;->$setAnimationStreamName($factoryStreamReturnType)V
-                        return-void
-                    """,
+                            invoke-static { p1, p2 }, $factoryStreamClass->$factoryStreamName(Ljava/io/InputStream;Ljava/lang/String;)$factoryStreamReturnType
+                            move-result-object v0
+                            invoke-virtual { p0, v0}, Lcom/airbnb/lottie/LottieAnimationView;->$setAnimationStreamMethodName($factoryStreamReturnType)V
+                            return-void
+                        """,
                     )
                 },
             )

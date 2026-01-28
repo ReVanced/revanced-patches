@@ -12,15 +12,15 @@ val `Disable Pairip license check` by creatingBytecodePatch(
 ) {
 
     apply {
-        if (processLicenseResponseMethodOrNull == null || validateLicenseResponseMethodOrNull == null) {
+        if (processLicenseResponseMethod == null || validateLicenseResponseMethod == null) {
             return@apply Logger.getLogger(this::class.java.name)
                 .warning("Could not find Pairip licensing check. No changes applied.")
         }
 
         // Set first parameter (responseCode) to 0 (success status).
-        processLicenseResponseMethod.addInstruction(0, "const/4 p1, 0x0")
+        processLicenseResponseMethod!!.addInstruction(0, "const/4 p1, 0x0")
 
         // Short-circuit the license response validation.
-        validateLicenseResponseMethod.returnEarly()
+        validateLicenseResponseMethod!!.returnEarly()
     }
 }

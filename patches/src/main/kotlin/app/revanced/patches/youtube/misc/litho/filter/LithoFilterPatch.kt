@@ -7,6 +7,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.firstClassDef
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.playservice.*
@@ -90,7 +91,7 @@ val lithoFilterPatch = bytecodePatch(
         if (is_20_22_or_greater) {
             // Hook method that bridges between UPB buffer native code and FB Litho.
             // Method is found in 19.25+, but is forcefully turned off for 20.21 and lower.
-            protobufBufferReferenceMethod.let {
+            protobufBufferReferenceMethodMatch.let {
                 // Hook the buffer after the call to jniDecode().
                 it.method.addInstruction(
                     it.indices.last() + 1,
@@ -112,14 +113,14 @@ val lithoFilterPatch = bytecodePatch(
 
         // Find the identifier/path fields of the conversion context.
 
-        val conversionContextIdentifierField = conversionContextToStringMethod.method
+        val conversionContextIdentifierField = conversionContextToStringMethod
             .findFieldFromToString("identifierProperty=")
 
         val conversionContextPathBuilderField = conversionContextToStringMethod.immutableClassDef
             .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
 
         // Find class and methods to create an empty component.
-        val builderMethodDescriptor = emptyComponentMethod.classDef.methods.single {
+        val builderMethodDescriptor = emptyComponentMethod.immutableClassDef.methods.single {
                 // The only static method in the class.
                 method ->
             AccessFlags.STATIC.isSet(method.accessFlags)
@@ -146,7 +147,7 @@ val lithoFilterPatch = bytecodePatch(
                     
                     # 20.41 field is the abstract superclass.
                     # Verify it's the expected subclass just in case. 
-                    instance-of v$identifierRegister, v$freeRegister, ${conversionContextToStringMethod.classDef.type}
+                    instance-of v$identifierRegister, v$freeRegister, ${conversionContextToStringMethod.immutableClassDef.type}
                     if-eqz v$identifierRegister, :unfiltered
                     
                     iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
@@ -196,7 +197,7 @@ val lithoFilterPatch = bytecodePatch(
         }
 
         // Turn off a feature flag that enables native code of protobuf parsing (Upb protobuf).
-        lithoConverterBufferUpbFeatureFlagMethod.let {
+        lithoConverterBufferUpbFeatureFlagMethodMatch.let {
             // 20.22 the flag is still enabled in one location, but what it does is not known.
             // Disable it anyway.
             it.method.insertLiteralOverride(

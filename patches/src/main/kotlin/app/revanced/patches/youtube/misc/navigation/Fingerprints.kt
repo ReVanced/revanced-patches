@@ -12,20 +12,23 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.actionBarSearchResultsMethod by gettingFirstMethodDeclaratively {
+internal val actionBarSearchResultsMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
     instructions(
         ResourceType.LAYOUT("action_bar_search_results_view_mic"),
-        methodCall(name = "setLayoutDirection"),
+        method("setLayoutDirection"),
     )
 }
 
-internal val BytecodePatchContext.toolbarLayoutMethod by gettingFirstMethodDeclaratively {
+internal val toolbarLayoutMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.ID("toolbar_container"),
-        checkCast("Lcom/google/android/apps/youtube/app/ui/actionbar/MainCollapsingToolbarLayout;"),
+        allOf(
+            Opcode.CHECK_CAST(),
+            type("Lcom/google/android/apps/youtube/app/ui/actionbar/MainCollapsingToolbarLayout;")
+        )
     )
 }
 
@@ -33,12 +36,10 @@ internal val BytecodePatchContext.toolbarLayoutMethod by gettingFirstMethodDecla
  * Matches to https://android.googlesource.com/platform/frameworks/support/+/9eee6ba/v7/appcompat/src/android/support/v7/widget/Toolbar.java#963
  */
 internal val BytecodePatchContext.appCompatToolbarBackButtonMethod by gettingFirstMethodDeclaratively {
+    definingClass("Landroid/support/v7/widget/Toolbar;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/graphics/drawable/Drawable;")
     parameterTypes()
-    custom { _, classDef ->
-        classDef.type == "Landroid/support/v7/widget/Toolbar;"
-    }
 }
 
 /**
@@ -57,62 +58,57 @@ internal fun ClassDef.getInitializeButtonsMethod() = firstMutableMethodDeclarati
  * Extension method, used for callback into to other patches.
  * Specifically, [navigationButtonsPatch].
  */
-internal val BytecodePatchContext.navigationBarHookCallbackMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.navigationBarHookCallbackMethod by gettingFirstMutableMethodDeclaratively {
+    name("navigationTabCreatedCallback")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("V")
     parameterTypes(EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR, "Landroid/view/View;")
-    custom { method, _ ->
-        method.name == "navigationTabCreatedCallback" &&
-            method.definingClass == EXTENSION_CLASS_DESCRIPTOR
-    }
 }
 
 /**
  * Matches to the Enum class that looks up ordinal -> instance.
  */
-internal val BytecodePatchContext.navigationEnumMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.navigationEnumMethod by gettingFirstMethodDeclaratively(
+    "PIVOT_HOME",
+    "TAB_SHORTS",
+    "CREATION_TAB_LARGE",
+    "PIVOT_SUBSCRIPTIONS",
+    "TAB_ACTIVITY",
+    "VIDEO_LIBRARY_WHITE",
+    "INCOGNITO_CIRCLE",
+    "UNKNOWN", // Required to distinguish from patch extension class.
+) {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-    strings(
-        "PIVOT_HOME",
-        "TAB_SHORTS",
-        "CREATION_TAB_LARGE",
-        "PIVOT_SUBSCRIPTIONS",
-        "TAB_ACTIVITY",
-        "VIDEO_LIBRARY_WHITE",
-        "INCOGNITO_CIRCLE",
-        "UNKNOWN", // Required to distinguish from patch extension class.
-    )
 }
 
 internal val BytecodePatchContext.pivotBarButtonsCreateDrawableViewMethod by gettingFirstMethodDeclaratively {
+    definingClass("Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
-    custom { method, _ ->
-        method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
-            // Only one view creation method has a Drawable parameter.
-            method.parameterTypes.firstOrNull() == "Landroid/graphics/drawable/Drawable;"
+    custom {
+        // Only one view creation method has a Drawable parameter.
+        parameterTypes.firstOrNull() == "Landroid/graphics/drawable/Drawable;"
     }
 }
 
 internal val BytecodePatchContext.pivotBarButtonsCreateResourceStyledViewMethod by gettingFirstMethodDeclaratively {
+    definingClass("Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
     parameterTypes("L", "Z", "I", "L")
-    custom { method, _ ->
-        method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;"
-    }
 }
 
 /**
  * 20.21+
  */
 internal val BytecodePatchContext.pivotBarButtonsCreateResourceIntViewMethod by gettingFirstMethodDeclaratively {
+    definingClass("Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
-    custom { method, _ ->
-        method.definingClass == "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;" &&
-            // Only one view creation method has an int first parameter.
-            method.parameterTypes.firstOrNull() == "I"
+    custom {
+        // Only one view creation method has an int first parameter.
+        parameterTypes.firstOrNull() == "I"
     }
 }
 
@@ -131,7 +127,7 @@ internal val BytecodePatchContext.pivotBarConstructorMethod by gettingFirstMetho
     )
 }
 
-internal val BytecodePatchContext.imageEnumConstructorMethod by gettingFirstMethodDeclaratively {
+internal val imageEnumConstructorMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
         "TAB_ACTIVITY_CAIRO"(),
@@ -140,13 +136,13 @@ internal val BytecodePatchContext.imageEnumConstructorMethod by gettingFirstMeth
     )
 }
 
-internal val BytecodePatchContext.setEnumMapMethod by gettingFirstMethodDeclaratively {
+internal val setEnumMapMethodMatch = firstMethodComposite {
     instructions(
         ResourceType.DRAWABLE("yt_fill_bell_black_24"),
-        methodCall(smali = "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;", afterAtMost(10)),
-        methodCall(
-            smali = "Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;",
-            afterAtMost(10),
-        ),
+        afterAtMost(10, method { toString() == "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;" }),
+        afterAtMost(
+            10,
+            method { toString() == "Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;" }
+        )
     )
 }

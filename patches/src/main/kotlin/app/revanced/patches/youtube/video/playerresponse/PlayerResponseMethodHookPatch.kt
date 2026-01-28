@@ -40,30 +40,30 @@ val playerResponseMethodHookPatch = bytecodePatch {
     )
 
     apply {
-        val fingerprint: Fingerprint
+        val method: MutableMethod
         if (is_20_46_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 13
-            fingerprint = playerParameterBuilderMethod
+            method = playerParameterBuilderMethod
         } else if (is_20_26_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 13
-            fingerprint = playerParameterBuilder2026Method
+            method = playerParameterBuilder2026Method
         } else if (is_20_15_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 13
-            fingerprint = playerParameterBuilder2015Method
+            method = playerParameterBuilder2015Method
         } else if (is_20_10_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 13
-            fingerprint = playerParameterBuilder2010Method
+            method = playerParameterBuilder2010Method
         } else if (is_20_02_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 12
-            fingerprint = playerParameterBuilder2002Method
+            method = playerParameterBuilder2002Method
         } else if (is_19_23_or_greater) {
             parameterIsShortAndOpeningOrPlaying = 12
-            fingerprint = playerParameterBuilder1925Method
+            method = playerParameterBuilder1925Method
         } else {
             parameterIsShortAndOpeningOrPlaying = 11
-            fingerprint = playerParameterBuilderLegacyMethod
+            method = playerParameterBuilderLegacyMethod
         }
-        playerResponseMethod = fingerprint.method
+        playerResponseMethod = method
 
         // On some app targets the method has too many registers pushing the parameters past v15.
         // If needed, move the parameters to 4-bit registers, so they can be passed to the extension.

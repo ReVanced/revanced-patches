@@ -2,6 +2,7 @@ package app.revanced.patches.spotify.layout.theme
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -22,7 +23,7 @@ private val customThemeBytecodePatch = bytecodePatch {
         val colorSpaceUtilsClassDef = colorSpaceUtilsClassMethod.immutableClassDef
 
         // Hook a util method that converts ARGB to RGBA in the sRGB color space to replace hardcoded accent colors.
-        convertArgbToRgbaMethod.match(colorSpaceUtilsClassDef).method.apply {
+        colorSpaceUtilsClassDef.getConvertArgbToRgbaMethod().apply {
             addInstructions(
                 0,
                 """
@@ -40,7 +41,7 @@ private val customThemeBytecodePatch = bytecodePatch {
             val invokeParseColorIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == "Landroid/graphics/Color;" &&
-                    reference.name == "parseColor"
+                        reference.name == "parseColor"
             }
             val parsedColorRegister = getInstruction<OneRegisterInstruction>(invokeParseColorIndex + 1).registerA
 
@@ -61,7 +62,7 @@ private val customThemeBytecodePatch = bytecodePatch {
             val invokeArgbIndex = indexOfFirstInstructionOrThrow {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == "Landroid/graphics/Color;" &&
-                    reference.name == "argb"
+                        reference.name == "argb"
             }
             val argbColorRegister = getInstruction<OneRegisterInstruction>(invokeArgbIndex + 1).registerA
 
@@ -97,7 +98,7 @@ val customThemePatch = resourcePatch(
         default = false,
         name = "Override player gradient color",
         description =
-        "Apply primary background color to the player gradient color, which changes dynamically with the song.",
+            "Apply primary background color to the player gradient color, which changes dynamically with the song.",
         required = false,
     )
 
@@ -105,7 +106,7 @@ val customThemePatch = resourcePatch(
         default = "#FF121212",
         name = "Secondary background color",
         description = "The secondary background color. (e.g. playlist list in home, player artist, song credits). " +
-            "Can be a hex color or a resource reference.\",",
+                "Can be a hex color or a resource reference.\",",
         required = true,
     )
 
@@ -120,7 +121,7 @@ val customThemePatch = resourcePatch(
         default = "#FF1ABC54",
         name = "Pressed accent color",
         description = "The color when accented buttons are pressed, by default slightly darker than accent. " +
-            "Can be a hex color or a resource reference.",
+                "Can be a hex color or a resource reference.",
         required = true,
     )
 
@@ -143,38 +144,38 @@ val customThemePatch = resourcePatch(
                 node.textContent = when (name) {
                     // Main background color.
                     "gray_7",
-                    // Left sidebar background color in tablet mode.
+                        // Left sidebar background color in tablet mode.
                     "gray_10",
-                    // Gradient next to user photo and "All" in home page.
+                        // Gradient next to user photo and "All" in home page.
                     "dark_base_background_base",
-                    // "Add account", "Settings and privacy", "View Profile" left sidebar background color.
+                        // "Add account", "Settings and privacy", "View Profile" left sidebar background color.
                     "dark_base_background_elevated_base",
-                    // Song/player gradient start/end color.
+                        // Song/player gradient start/end color.
                     "bg_gradient_start_color", "bg_gradient_end_color",
-                    // Login screen background color and gradient start.
+                        // Login screen background color and gradient start.
                     "sthlm_blk", "sthlm_blk_grad_start",
-                    // Misc.
+                        // Misc.
                     "image_placeholder_color",
-                    -> backgroundColor
+                        -> backgroundColor
 
                     // "About the artist" background color in song player.
                     "gray_15",
-                    // Track credits, merch background color in song player.
+                        // Track credits, merch background color in song player.
                     "track_credits_card_bg", "benefit_list_default_color", "merch_card_background",
-                    // Playlist list background in home page.
+                        // Playlist list background in home page.
                     "opacity_white_10",
-                    // "What's New" pills background.
+                        // "What's New" pills background.
                     "dark_base_background_tinted_highlight",
-                    -> backgroundColorSecondary
+                        -> backgroundColorSecondary
 
                     "dark_brightaccent_background_base",
                     "dark_base_text_brightaccent",
                     "green_light",
                     "spotify_green_157",
-                    -> accentColor
+                        -> accentColor
 
                     "dark_brightaccent_background_press",
-                    -> accentColorPressed
+                        -> accentColorPressed
 
                     else -> continue
                 }

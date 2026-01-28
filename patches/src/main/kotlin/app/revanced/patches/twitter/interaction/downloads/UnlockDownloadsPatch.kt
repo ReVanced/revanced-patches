@@ -1,5 +1,6 @@
 package app.revanced.patches.twitter.interaction.downloads
 
+import app.revanced.patcher.MatchBuilder
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.creatingBytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
@@ -13,13 +14,13 @@ val `Unlock downloads` by creatingBytecodePatch(
     compatibleWith("com.twitter.android")
 
     apply {
-        fun Fingerprint.patch(getRegisterAndIndex: Fingerprint.() -> Pair<Int, Int>) {
+        fun MatchBuilder.patch(getRegisterAndIndex: MatchBuilder.() -> Pair<Int, Int>) {
             val (index, register) = getRegisterAndIndex()
             method.addInstruction(index, "const/4 v$register, 0x1")
         }
 
         // Allow downloads for non-premium users.
-        showDownloadVideoUpsellBottomSheetMethod.patch {
+        showDownloadVideoUpsellBottomSheetMethodMatch.patch {
             val checkIndex = indices.first()
             val register = method.getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
@@ -27,7 +28,7 @@ val `Unlock downloads` by creatingBytecodePatch(
         }
 
         // Force show the download menu item.
-        constructMediaOptionsSheetMethod.patch {
+        constructMediaOptionsSheetMethodMatch.patch {
             val showDownloadButtonIndex = method.instructions.lastIndex - 1
             val register = method.getInstruction<TwoRegisterInstruction>(showDownloadButtonIndex).registerA
 
@@ -35,7 +36,7 @@ val `Unlock downloads` by creatingBytecodePatch(
         }
 
         // Make GIFs downloadable.
-        buildMediaOptionsSheetMethod.let {
+        buildMediaOptionsSheetMethodMatch.let {
             it.method.apply {
                 val checkMediaTypeIndex = it.indices.first()
                 val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)

@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.misc.spoof
 
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.shared.misc.settings.preference.NonInteractivePreference
@@ -13,10 +14,11 @@ import app.revanced.patches.youtube.misc.playservice.is_20_14_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
+import app.revanced.patches.youtube.shared.mainActivityOnCreateMethod
 
 val spoofVideoStreamsPatch = spoofVideoStreamsPatch(
     extensionClassDescriptor = "Lapp/revanced/extension/youtube/patches/spoof/SpoofVideoStreamsPatch;",
-    getMainActivityOnCreateMethod = mainActivityOnCreateFingerprint,
+    getMainActivityOnCreateMethod = BytecodePatchContext::mainActivityOnCreateMethod::get,
     fixMediaFetchHotConfig = {
         is_19_34_or_greater
     },

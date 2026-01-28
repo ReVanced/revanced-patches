@@ -1,11 +1,7 @@
 package app.revanced.patches.youtube.layout.hide.endscreencards
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.opcodes
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -14,7 +10,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-internal val BytecodePatchContext.layoutCircleMethod by gettingFirstMethodDeclaratively {
+internal val layoutCircleMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes()
     returnType("Landroid/view/View;")
@@ -28,7 +24,7 @@ internal val BytecodePatchContext.layoutCircleMethod by gettingFirstMethodDeclar
     literal { layoutCircle }
 }
 
-internal val BytecodePatchContext.layoutIconMethod by gettingFirstMethodDeclaratively {
+internal val layoutIconMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes()
     returnType("Landroid/view/View;")
@@ -41,7 +37,7 @@ internal val BytecodePatchContext.layoutIconMethod by gettingFirstMethodDeclarat
     literal { layoutIcon }
 }
 
-internal val BytecodePatchContext.layoutVideoMethod by gettingFirstMethodDeclaratively {
+internal val layoutVideoMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC)
     parameterTypes()
     returnType("Landroid/view/View;")
@@ -55,16 +51,16 @@ internal val BytecodePatchContext.layoutVideoMethod by gettingFirstMethodDeclara
     literal { layoutVideo }
 }
 
-internal val BytecodePatchContext.showEndscreenCardsMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.showEndscreenCardsMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")
-    custom { method, classDef ->
-        classDef.methods.count() == 5 &&
-            method.containsLiteralInstruction(0) &&
-            method.containsLiteralInstruction(5) &&
-            method.containsLiteralInstruction(8) &&
-            method.indexOfFirstInstruction {
+    custom {
+        immutableClassDef.methods.count() == 5 &&
+            containsLiteralInstruction(0) &&
+            containsLiteralInstruction(5) &&
+            containsLiteralInstruction(8) &&
+            indexOfFirstInstruction {
                 val reference = getReference<FieldReference>()
                 reference?.type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;"
             } >= 0

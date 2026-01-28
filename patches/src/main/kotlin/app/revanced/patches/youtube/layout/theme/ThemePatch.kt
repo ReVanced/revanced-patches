@@ -33,7 +33,7 @@ val themePatch = baseThemePatch(
 
     block = {
         val lightThemeBackgroundColor by stringOption(
-            key = "lightThemeBackgroundColor",
+            name = "Light theme background color",
             default = "@android:color/white",
             values = mapOf(
                 "White" to "@android:color/white",
@@ -46,7 +46,6 @@ val themePatch = baseThemePatch(
                 "Light orange" to "#FFE6CC",
                 "Light red" to "#FFD6D6",
             ),
-            name = "Light theme background color",
             description = THEME_COLOR_OPTION_DESCRIPTION,
         )
 

@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.layout.startupshortsreset
 
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -49,11 +50,10 @@ val `Disable resuming Shorts on startup` by creatingBytecodePatch(
         )
 
         if (is_20_03_or_greater) {
-            userWasInShortsAlternativeMethod.let {
+            userWasInShortsAlternativeMethodMatch.let {
                 it.method.apply {
-                    val match = it.instructionMatches[2]
-                    val insertIndex = match.index + 1
-                    val register = match.getInstruction<OneRegisterInstruction>().registerA
+                    val insertIndex = it.indices[2] + 1
+                    val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(
                         insertIndex,
@@ -68,8 +68,8 @@ val `Disable resuming Shorts on startup` by creatingBytecodePatch(
             userWasInShortsLegacyMethod.apply {
                 val listenableInstructionIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_INTERFACE &&
-                        getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
-                        getReference<MethodReference>()?.name == "isDone"
+                            getReference<MethodReference>()?.definingClass == "Lcom/google/common/util/concurrent/ListenableFuture;" &&
+                            getReference<MethodReference>()?.name == "isDone"
                 }
                 val freeRegister = findFreeRegister(listenableInstructionIndex)
 

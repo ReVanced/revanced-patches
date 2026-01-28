@@ -12,11 +12,11 @@ val `Remove file size limit` by creatingBytecodePatch(
     compatibleWith("pl.solidexplorer2")
 
     apply {
-        onReadyMethod.apply {
-            val cmpIndex = onReadyMethod.indices.first() + 1 // TODO
-            val cmpResultRegister = getInstruction<ThreeRegisterInstruction>(cmpIndex).registerA
+        onReadyMethodMatch.let {
+            val cmpIndex = it.indices.first() + 1
+            val cmpResultRegister = it.method.getInstruction<ThreeRegisterInstruction>(cmpIndex).registerA
 
-            replaceInstruction(cmpIndex, "const/4 v$cmpResultRegister, 0x0")
+            it.method.replaceInstruction(cmpIndex, "const/4 v$cmpResultRegister, 0x0")
         }
     }
 }

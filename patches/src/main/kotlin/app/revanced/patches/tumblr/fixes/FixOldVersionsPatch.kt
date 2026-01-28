@@ -19,8 +19,8 @@ val `Fix old versions` by creatingBytecodePatch(
 
         // Remove the live query parameters from the path when it's specified via a @METHOD annotation.
         for (liveQueryParameter in liveQueryParameters) {
-            httpPathParserMethod.addInstructions(
-                httpPathParserMethod.indices.last() + 1,
+            httpPathParserMethodMatch.method.addInstructions(
+                httpPathParserMethodMatch.indices.last() + 1,
                 """
                     # urlPath = urlPath.replace(liveQueryParameter, "")
                     const-string p1, "$liveQueryParameter"

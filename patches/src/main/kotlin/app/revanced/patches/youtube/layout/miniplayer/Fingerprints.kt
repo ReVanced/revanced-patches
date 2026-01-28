@@ -2,19 +2,12 @@
 
 package app.revanced.patches.youtube.layout.miniplayer
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.afterAtMost
-import app.revanced.patcher.checkCast
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.opcodes
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
 internal const val MINIPLAYER_MODERN_FEATURE_KEY = 45622882L
 
@@ -28,7 +21,7 @@ internal const val MINIPLAYER_INITIAL_SIZE_FEATURE_KEY = 45640023L
 internal const val MINIPLAYER_DISABLED_FEATURE_KEY = 45657015L
 internal const val MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY = 45644360L
 
-internal val BytecodePatchContext.miniplayerModernConstructorMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.miniplayerModernConstructorMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         45623000L(), // Magic number found in the constructor.
@@ -56,7 +49,8 @@ internal val BytecodePatchContext.miniplayerModernViewParentMethod by gettingFir
 /**
  * Matches using the class found in [miniplayerModernViewParentMethod].
  */
-internal val BytecodePatchContext.miniplayerModernAddViewListenerMethod by gettingFirstMethodDeclaratively {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getMiniplayerModernAddViewListenerMethod() = firstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/view/View;")
@@ -65,33 +59,34 @@ internal val BytecodePatchContext.miniplayerModernAddViewListenerMethod by getti
 /**
  * Matches using the class found in [miniplayerModernViewParentMethod].
  */
-internal val BytecodePatchContext.miniplayerModernCloseButtonMethod by gettingFirstMethodDeclaratively {
+internal val miniplayerModernCloseButtonMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes()
     instructions(
         ResourceType.ID("modern_miniplayer_close"),
-        checkCast("Landroid/widget/ImageView;"),
+        allOf(Opcode.CHECK_CAST(), "Landroid/widget/ImageView;"()),
     )
 }
 
 /**
  * Matches using the class found in [miniplayerModernViewParentMethod].
  */
-internal val BytecodePatchContext.miniplayerModernExpandButtonMethod by gettingFirstMethodDeclaratively {
+internal val miniplayerModernExpandButtonMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes()
     instructions(
         ResourceType.ID("modern_miniplayer_expand"),
-        checkCast("Landroid/widget/ImageView;"),
+        allOf(Opcode.CHECK_CAST(), "Landroid/widget/ImageView;"()),
     )
 }
 
 /**
  * Matches using the class found in [miniplayerModernViewParentMethod].
  */
-internal val BytecodePatchContext.miniplayerModernExpandCloseDrawablesMethod by gettingFirstMethodDeclaratively {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getMiniplayerModernExpandCloseDrawablesMethod() = firstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")
@@ -103,7 +98,7 @@ internal val BytecodePatchContext.miniplayerModernExpandCloseDrawablesMethod by 
 /**
  * Matches using the class found in [miniplayerModernViewParentMethod].
  */
-internal val BytecodePatchContext.miniplayerModernForwardButtonMethod by gettingFirstMethodDeclaratively {
+internal val miniplayerModernForwardButtonMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes()
@@ -113,7 +108,7 @@ internal val BytecodePatchContext.miniplayerModernForwardButtonMethod by getting
     )
 }
 
-internal val BytecodePatchContext.miniplayerModernOverlayViewMethod by gettingFirstMethodDeclaratively {
+internal val miniplayerModernOverlayViewMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes()
     instructions(
@@ -125,7 +120,7 @@ internal val BytecodePatchContext.miniplayerModernOverlayViewMethod by gettingFi
 /**
  * Matches using the class found in [miniplayerModernViewParentMethod].
  */
-internal val BytecodePatchContext.miniplayerModernRewindButtonMethod by gettingFirstMethodDeclaratively {
+internal val miniplayerModernRewindButtonMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes()
@@ -138,7 +133,7 @@ internal val BytecodePatchContext.miniplayerModernRewindButtonMethod by gettingF
 /**
  * Matches using the class found in [miniplayerModernViewParentMethod].
  */
-internal val BytecodePatchContext.miniplayerModernActionButtonMethod by gettingFirstMethodDeclaratively {
+internal val miniplayerModernActionButtonMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes()
@@ -148,7 +143,7 @@ internal val BytecodePatchContext.miniplayerModernActionButtonMethod by gettingF
     )
 }
 
-internal val BytecodePatchContext.miniplayerMinimumSizeMethod by gettingFirstMethodDeclaratively {
+internal val miniplayerMinimumSizeMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.DIMEN("miniplayer_max_size"),
@@ -157,20 +152,20 @@ internal val BytecodePatchContext.miniplayerMinimumSizeMethod by gettingFirstMet
     )
 }
 
-internal val BytecodePatchContext.miniplayerOverrideMethod by gettingFirstMethodDeclaratively {
+internal val miniplayerOverrideMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     instructions(
         "appName"(),
-        methodCall(
-            parameters = listOf("Landroid/content/Context;"),
-            returnType = "Z",
-            afterAtMost(10),
+        afterAtMost(
+            10,
+            method { parameterTypes.count() == 1 && parameterTypes.first() == "Landroid/content/Context;" && returnType == "Z" },
         ),
     )
 }
 
-internal val BytecodePatchContext.miniplayerOverrideNoContextMethod by gettingFirstMethodDeclaratively {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getMiniplayerOverrideNoContextMethod() = firstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("Z")
     opcodes(
@@ -181,7 +176,7 @@ internal val BytecodePatchContext.miniplayerOverrideNoContextMethod by gettingFi
 /**
  * 20.36 and lower. Codes appears to be removed in 20.37+
  */
-internal val BytecodePatchContext.miniplayerResponseModelSizeCheckMethod by gettingFirstMethodDeclaratively {
+internal val miniplayerResponseModelSizeCheckMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes("Ljava/lang/Object;", "Ljava/lang/Object;")
@@ -195,7 +190,7 @@ internal val BytecodePatchContext.miniplayerResponseModelSizeCheckMethod by gett
     )
 }
 
-internal val BytecodePatchContext.miniplayerOnCloseHandlerMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.miniplayerOnCloseHandlerMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     instructions(
@@ -207,12 +202,10 @@ internal const val YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME =
     "Lcom/google/android/apps/youtube/app/common/player/overlay/YouTubePlayerOverlaysLayout;"
 
 internal val BytecodePatchContext.playerOverlaysLayoutMethod by gettingFirstMethodDeclaratively {
-    custom { method, _ ->
-        method.definingClass == YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME
-    }
+    definingClass(YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME)
 }
 
-internal val BytecodePatchContext.miniplayerSetIconsMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.miniplayerSetIconsMethod by gettingFirstMutableMethodDeclaratively {
     returnType("V")
     parameterTypes("I", "Ljava/lang/Runnable;")
     instructions(

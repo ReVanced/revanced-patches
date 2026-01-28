@@ -39,15 +39,15 @@ val hideGetPremiumPatch = bytecodePatch(
             SwitchPreference("revanced_hide_get_premium"),
         )
 
-        getPremiumViewMethod.apply {
-            val startIndex = getPremiumViewMethod.indices.first()
-            val measuredWidthRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
-            val measuredHeightInstruction = getInstruction<TwoRegisterInstruction>(startIndex + 1)
+        getPremiumViewMethodMatch.let {
+            val startIndex = it.indices.first()
+            val measuredWidthRegister = it.method.getInstruction<TwoRegisterInstruction>(startIndex).registerA
+            val measuredHeightInstruction = it.method.getInstruction<TwoRegisterInstruction>(startIndex + 1)
 
             val measuredHeightRegister = measuredHeightInstruction.registerA
             val tempRegister = measuredHeightInstruction.registerB
 
-            addInstructionsWithLabels(
+            it.method.addInstructionsWithLabels(
                 startIndex + 2,
                 """
                     # Override the internal measurement of the layout with zero values.

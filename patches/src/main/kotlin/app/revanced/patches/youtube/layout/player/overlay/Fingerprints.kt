@@ -1,16 +1,13 @@
 package app.revanced.patches.youtube.layout.player.overlay
 
-import app.revanced.patcher.checkCast
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
+import app.revanced.patcher.*
 import app.revanced.patches.shared.misc.mapping.ResourceType
+import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.createPlayerOverviewMethod by gettingFirstMethodDeclaratively {
+internal val createPlayerOverviewMethodMatch = firstMethodComposite {
     returnType("V")
     instructions(
         ResourceType.ID("scrim_overlay"),
-        checkCast("Landroid/widget/ImageView;", afterAtMost(10)),
+        afterAtMost(10, allOf(Opcode.CHECK_CAST(), type("Landroid/widget/ImageView;"))),
     )
 }

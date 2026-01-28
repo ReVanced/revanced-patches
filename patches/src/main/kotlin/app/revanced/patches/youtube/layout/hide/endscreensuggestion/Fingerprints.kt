@@ -1,30 +1,26 @@
 package app.revanced.patches.youtube.layout.hide.endscreensuggestion
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.opcodes
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
+import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstruction
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.autoNavConstructorMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.autoNavConstructorMethod by gettingFirstMethodDeclaratively("main_app_autonav") {
     returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    strings("main_app_autonav")
 }
 
-internal val BytecodePatchContext.autoNavStatusMethod by gettingFirstMethodDeclaratively {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getAutoNavStatusMethod() = firstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
 }
 
-internal val BytecodePatchContext.removeOnLayoutChangeListenerMethod by gettingFirstMethodDeclaratively {
+internal val removeOnLayoutChangeListenerMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()
@@ -33,11 +29,10 @@ internal val BytecodePatchContext.removeOnLayoutChangeListenerMethod by gettingF
         Opcode.INVOKE_VIRTUAL,
     )
     // This is the only reference present in the entire smali.
-    custom { method, _ ->
-        method.indexOfFirstInstruction {
-            val reference = getReference<MethodReference>()
-            reference?.name == "removeOnLayoutChangeListener" &&
-                reference.definingClass.endsWith("/YouTubePlayerOverlaysLayout;")
-        } >= 0
+    custom {
+        instructions.anyInstruction {
+            val reference = methodReference
+            reference?.name == "removeOnLayoutChangeListener" && reference.definingClass.endsWith("/YouTubePlayerOverlaysLayout;")
+        }
     }
 }

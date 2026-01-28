@@ -3,18 +3,18 @@ package app.revanced.patches.youtube.layout.hide.endscreensuggestion
 import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import app.revanced.util.indexOfFirstInstructionReversedOrThrow
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/HideEndScreenSuggestedVideoPatch;"
@@ -44,20 +44,19 @@ val `Hide end screen suggested video` by creatingBytecodePatch(
             SwitchPreference("revanced_end_screen_suggested_video"),
         )
 
-        removeOnLayoutChangeListenerMethod.let {
+        removeOnLayoutChangeListenerMethodMatch.let {
             val endScreenMethod = navigate(it.immutableMethod).to(it.indices.last()).stop() // TODO
 
             endScreenMethod.apply {
-                val autoNavStatusMethodName = autoNavStatusMethod.match(
-                    autoNavConstructorMethod.classDef,
-                ).immutableMethod.name
+                val autoNavStatusMethodName = autoNavConstructorMethod.immutableClassDef.getAutoNavStatusMethod().name
 
                 val invokeIndex = indexOfFirstInstructionOrThrow {
-                    val reference = getReference<MethodReference>()
+                    val reference = methodReference
                     reference?.name == autoNavStatusMethodName &&
                         reference.returnType == "Z" &&
                         reference.parameterTypes.isEmpty()
                 }
+
                 val iGetObjectIndex = indexOfFirstInstructionReversedOrThrow(invokeIndex, Opcode.IGET_OBJECT)
                 val invokeReference = getInstruction<ReferenceInstruction>(invokeIndex).reference
                 val iGetObjectReference = getInstruction<ReferenceInstruction>(iGetObjectIndex).reference

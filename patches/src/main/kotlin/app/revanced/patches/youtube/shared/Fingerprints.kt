@@ -78,7 +78,7 @@ internal val BytecodePatchContext.mainActivityOnCreateMethod by gettingFirstMuta
     parameterTypes("Landroid/os/Bundle;")
 }
 
-internal val BytecodePatchContext.rollingNumberTextViewAnimationUpdateMethod by gettingFirstMethodDeclaratively {
+internal val rollingNumberTextViewAnimationUpdateMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/graphics/Bitmap;")

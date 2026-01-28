@@ -11,7 +11,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateMethod
+import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateMethodMatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
@@ -45,7 +45,7 @@ val `Disable rolling number animations` by creatingBytecodePatch(
 
         // Animations are disabled by preventing an Image from being applied to the text span,
         // which prevents the animations from appearing.
-        rollingNumberTextViewAnimationUpdateMethod.let {
+        rollingNumberTextViewAnimationUpdateMethodMatch.let {
             val blockStartIndex = it.indices.first()
             val blockEndIndex = it.indices.last() + 1
             it.method.apply {

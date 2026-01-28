@@ -18,7 +18,7 @@ import app.revanced.patches.youtube.misc.recyclerviewtree.hook.recyclerViewTreeH
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
-internal var videoQualityBottomSheetListFragmentname = -1L
+internal var videoQualityBottomSheetListFragmentTitle = -1L
     private set
 internal var videoQualityQuickMenuAdvancedMenuDescription = -1L
     private set
@@ -47,7 +47,7 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
         )
 
         // Used for the old type of the video quality menu.
-        videoQualityBottomSheetListFragmentname =
+        videoQualityBottomSheetListFragmentTitle =
             ResourceType.LAYOUT["video_quality_bottom_sheet_list_fragment_title"]
         videoQualityQuickMenuAdvancedMenuDescription =
             ResourceType.STRING["video_quality_quick_menu_advanced_menu_description"]

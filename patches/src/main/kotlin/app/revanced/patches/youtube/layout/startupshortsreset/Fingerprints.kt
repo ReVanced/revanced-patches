@@ -1,30 +1,23 @@
 package app.revanced.patches.youtube.layout.startupshortsreset
 
-import app.revanced.patcher.StringComparisonType
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.checkCast
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 /**
  * 20.02+
  */
-internal val BytecodePatchContext.userWasInShortsAlternativeMethod by gettingFirstMethodDeclaratively {
+internal val userWasInShortsAlternativeMethodMatch = firstMethodComposite {
     returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("Ljava/lang/Object;")
     instructions(
-        checkCast("Ljava/lang/Boolean;"),
-        methodCall(smali = "Ljava/lang/Boolean;->booleanValue()Z", after()),
+        allOf(Opcode.CHECK_CAST(), type("Ljava/lang/Boolean;")),
+        after(method { toString() == "Ljava/lang/Boolean;->booleanValue()Z" }),
         after(Opcode.MOVE_RESULT()),
         // 20.40+ string was merged into another string and is a partial match.
-        addString("userIsInShorts: ", comparison = StringComparisonType.CONTAINS, afterAtMost(15)),
+        afterAtMost(15, "userIsInShorts: "(String::contains)),
     )
 }
 

@@ -1,17 +1,12 @@
 package app.revanced.patches.youtube.misc.backgroundplayback
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.opcodes
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.backgroundPlaybackManagerMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.backgroundPlaybackManagerMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Z")
     parameterTypes("L")
@@ -60,7 +55,7 @@ internal val BytecodePatchContext.backgroundPlaybackSettingsMethod by gettingFir
     literal { prefBackgroundAndOfflineCategoryId }
 }
 
-internal val BytecodePatchContext.kidsBackgroundPlaybackPolicyControllerMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.kidsBackgroundPlaybackPolicyControllerMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("I", "L", "L")
@@ -77,28 +72,24 @@ internal val BytecodePatchContext.kidsBackgroundPlaybackPolicyControllerMethod b
     literal { 5 }
 }
 
-internal val BytecodePatchContext.backgroundPlaybackManagerShortsMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.backgroundPlaybackManagerShortsMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Z")
     parameterTypes("L")
-    instructions(
-        app.revanced.patcher.literal(151635310),
-    )
+    instructions(151635310L())
 }
 
-internal val BytecodePatchContext.shortsBackgroundPlaybackFeatureFlagMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.shortsBackgroundPlaybackFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
-    instructions(
-        app.revanced.patcher.literal(45415425),
-    )
+    instructions(45415425L())
 }
 
 // Fix 'E/InputDispatcher: Window handle pip_input_consumer has no registered input channel'
-internal val BytecodePatchContext.pipInputConsumerFeatureFlagMethod by gettingFirstMethodDeclaratively {
+internal val pipInputConsumerFeatureFlagMethodMatch = firstMethodComposite {
     instructions(
         // PiP input consumer feature flag.
-        app.revanced.patcher.literal(45638483L),
+        45638483L(),
     )
 }

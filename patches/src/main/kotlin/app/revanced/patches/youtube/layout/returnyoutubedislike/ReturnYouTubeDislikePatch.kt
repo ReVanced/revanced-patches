@@ -1,7 +1,10 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -18,21 +21,20 @@ import app.revanced.patches.youtube.misc.playservice.*
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.conversionContextToStringMethod
-import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateMethod
+import app.revanced.patches.youtube.shared.rollingNumberTextViewAnimationUpdateMethodMatch
 import app.revanced.patches.youtube.video.videoid.hookPlayerResponseVideoId
 import app.revanced.patches.youtube.video.videoid.hookVideoId
 import app.revanced.patches.youtube.video.videoid.videoIdPatch
-import app.revanced.util.*
+import app.revanced.util.addInstructionsAtControlFlowLabel
+import app.revanced.util.findFreeRegister
+import app.revanced.util.indexOfFirstInstructionOrThrow
+import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.iface.reference.TypeReference
 import java.util.logging.Logger
-import kotlin.jvm.java
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/ReturnYouTubeDislikePatch;"
@@ -102,8 +104,8 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
             likeMethod to Vote.LIKE,
             dislikeMethod to Vote.DISLIKE,
             removeLikeMethod to Vote.REMOVE_LIKE,
-        ).forEach { (fingerprint, vote) ->
-            fingerprint.method.addInstructions(
+        ).forEach { (method, vote) ->
+            method.addInstructions(
                 0,
                 """
                     const/4 v0, ${vote.value}
@@ -128,7 +130,7 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
                 it.type == conversionContextClass.superclass
         } ?: throw PatchException("Could not find conversion context field")
 
-        textComponentLookupMethod.match(textComponentConstructorMethod.immutableClassDef).method.apply {
+        textComponentConstructorMethod.immutableClassDef.getTextComponentLookupMethod().apply {
             // Find the instruction for creating the text data object.
             val textDataClassType = textComponentDataMethod.immutableClassDef.type
 
@@ -138,24 +140,24 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
             if (is_19_33_or_greater && !is_20_10_or_greater) {
                 val index = indexOfFirstInstructionOrThrow {
                     (opcode == Opcode.INVOKE_STATIC || opcode == Opcode.INVOKE_STATIC_RANGE) &&
-                        getReference<MethodReference>()?.returnType == textDataClassType
+                        methodReference?.returnType == textDataClassType
                 }
 
                 insertIndex = indexOfFirstInstructionOrThrow(index) {
                     opcode == Opcode.INVOKE_VIRTUAL &&
-                        getReference<MethodReference>()?.parameterTypes?.firstOrNull() == "Ljava/lang/CharSequence;"
+                        methodReference?.parameterTypes?.firstOrNull() == "Ljava/lang/CharSequence;"
                 }
 
                 charSequenceRegister = getInstruction<FiveRegisterInstruction>(insertIndex).registerD
             } else {
                 insertIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.NEW_INSTANCE &&
-                        getReference<TypeReference>()?.type == textDataClassType
+                        fieldReference?.type == textDataClassType
                 }
 
                 val charSequenceIndex = indexOfFirstInstructionOrThrow(insertIndex) {
                     opcode == Opcode.IPUT_OBJECT &&
-                        getReference<FieldReference>()?.type == "Ljava/lang/CharSequence;"
+                        fieldReference?.type == "Ljava/lang/CharSequence;"
                 }
                 charSequenceRegister = getInstruction<TwoRegisterInstruction>(charSequenceIndex).registerA
             }
@@ -221,13 +223,11 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
 
         // region Hook rolling numbers.
 
-        rollingNumberSetterMethod.apply {
+        rollingNumberSetterMethodMatch.method.apply {
             val insertIndex = 1
-            val dislikesIndex = rollingNumberSetterMethod.indices.last()
-            val charSequenceInstanceRegister =
-                getInstruction<OneRegisterInstruction>(0).registerA
-            val charSequenceFieldReference =
-                getInstruction<ReferenceInstruction>(dislikesIndex).reference
+            val dislikesIndex = rollingNumberSetterMethodMatch.indices.last()
+            val charSequenceInstanceRegister = getInstruction<OneRegisterInstruction>(0).registerA
+            val charSequenceFieldReference = getInstruction<ReferenceInstruction>(dislikesIndex).reference
 
             val conversionContextRegister = implementation!!.registerCount - parameters.size + 1
 
@@ -246,7 +246,7 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
 
         // Rolling Number text views use the measured width of the raw string for layout.
         // Modify the measure text calculation to include the left drawable separator if needed.
-        rollingNumberMeasureAnimatedTextMethod.let {
+        rollingNumberMeasureAnimatedTextMethodMatch.let {
             // Additional check to verify the opcodes are at the start of the method
             if (it.indices.first() != 0) throw PatchException("Unexpected opcode location")
             val endIndex = it.indices.last()
@@ -290,11 +290,11 @@ val `Return YouTube Dislike` by creatingBytecodePatch(
             rollingNumberTextViewMethod,
             // Videos less than 24 hours after uploaded, like counts will be updated in real time.
             // Whenever like counts are updated, TextView is set in this method.
-            rollingNumberTextViewAnimationUpdateMethod,
+            rollingNumberTextViewAnimationUpdateMethodMatch.method,
         ).forEach { insertMethod ->
             insertMethod.apply {
                 val setTextIndex = indexOfFirstInstructionOrThrow {
-                    getReference<MethodReference>()?.name == "setText"
+                    methodReference?.name == "setText"
                 }
 
                 val textViewRegister = getInstruction<FiveRegisterInstruction>(setTextIndex).registerC

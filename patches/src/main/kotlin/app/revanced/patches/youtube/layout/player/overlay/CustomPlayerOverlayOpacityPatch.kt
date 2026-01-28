@@ -41,7 +41,7 @@ val `Custom player overlay opacity` by creatingBytecodePatch(
             TextPreference("revanced_player_overlay_opacity", inputType = InputType.NUMBER),
         )
 
-        createPlayerOverviewMethod.let {
+        createPlayerOverviewMethodMatch.let {
             it.method.apply {
                 val viewRegisterIndex = it.indices.last()
                 val viewRegister = getInstruction<OneRegisterInstruction>(viewRegisterIndex).registerA

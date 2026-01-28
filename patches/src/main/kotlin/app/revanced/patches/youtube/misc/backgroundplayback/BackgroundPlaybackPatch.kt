@@ -56,16 +56,13 @@ val `Remove background playback restrictions` by creatingBytecodePatch(
             SwitchPreference("revanced_shorts_disable_background_playback"),
         )
 
-        prefBackgroundAndOfflineCategoryId = getResourceId(
-            ResourceType.STRING,
-            "pref_background_and_offline_category",
-        )
+        prefBackgroundAndOfflineCategoryId = ResourceType.STRING["pref_background_and_offline_category"]
 
         arrayOf(
             backgroundPlaybackManagerMethod to "isBackgroundPlaybackAllowed",
             backgroundPlaybackManagerShortsMethod to "isBackgroundShortsPlaybackAllowed",
-        ).forEach { (fingerprint, integrationsMethod) ->
-            fingerprint.method.apply {
+        ).forEach { (method, integrationsMethod) ->
+            method.apply {
                 findInstructionIndicesReversedOrThrow(Opcode.RETURN).forEach { index ->
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -81,7 +78,7 @@ val `Remove background playback restrictions` by creatingBytecodePatch(
         }
 
         // Enable background playback option in YouTube settings
-        backgroundPlaybackSettingsMethod.immutableMethod.apply {
+        backgroundPlaybackSettingsMethod.apply {
             val booleanCalls = instructions.withIndex().filter {
                 it.value.getReference<MethodReference>()?.returnType == "Z"
             }
@@ -101,7 +98,7 @@ val `Remove background playback restrictions` by creatingBytecodePatch(
 
         // Fix PiP buttons not working after locking/unlocking device screen.
         if (is_19_34_or_greater) {
-            pipInputConsumerFeatureFlagMethod.let {
+            pipInputConsumerFeatureFlagMethodMatch.let {
                 it.method.insertLiteralOverride(
                     it.indices.first(),
                     false,

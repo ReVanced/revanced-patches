@@ -1,24 +1,18 @@
 package app.revanced.patches.youtube.layout.hide.infocards
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.opcodes
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.infocardsIncognitoMethod by gettingFirstMethodDeclaratively {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getInfocardsIncognitoMethod() = firstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/Boolean;")
     parameterTypes("L", "J")
-    instructions(
-        "vibrator"(),
-    )
+    instructions("vibrator"())
 }
 
 internal val BytecodePatchContext.infocardsIncognitoParentMethod by gettingFirstMethodDeclaratively {
@@ -29,12 +23,12 @@ internal val BytecodePatchContext.infocardsIncognitoParentMethod by gettingFirst
     )
 }
 
-internal val BytecodePatchContext.infocardsMethodCallMethod by gettingFirstMethodDeclaratively {
-    opcodes(
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE,
-    )
-    strings("Missing ControlsOverlayPresenter for InfoCards to work.")
-    literal { drawerResourceId }
-}
+internal val infocardsMethodCallMethodMatch =
+    firstMethodComposite("Missing ControlsOverlayPresenter for InfoCards to work.") {
+        opcodes(
+            Opcode.INVOKE_VIRTUAL,
+            Opcode.IGET_OBJECT,
+            Opcode.INVOKE_INTERFACE,
+        )
+        literal { drawerResourceId }
+    }

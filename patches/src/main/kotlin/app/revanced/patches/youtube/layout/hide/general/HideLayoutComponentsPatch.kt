@@ -1,6 +1,8 @@
 package app.revanced.patches.youtube.layout.hide.general
 
+import app.revanced.patcher.MatchBuilder
 import app.revanced.patcher.extensions.*
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -41,30 +43,15 @@ private val hideLayoutComponentsResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
 
     apply {
-        albumCardId = getResourceId(
-            ResourceType.LAYOUT,
-            "album_card",
-        )
+        albumCardId = ResourceType.LAYOUT["album_card"]
 
-        crowdfundingBoxId = getResourceId(
-            ResourceType.LAYOUT,
-            "donation_companion",
-        )
+        crowdfundingBoxId = ResourceType.LAYOUT["donation_companion"]
 
-        relatedChipCloudMarginId = getResourceId(
-            ResourceType.LAYOUT,
-            "related_chip_cloud_reduced_margins",
-        )
+        relatedChipCloudMarginId = ResourceType.LAYOUT["related_chip_cloud_reduced_margins"]
 
-        filterBarHeightId = getResourceId(
-            ResourceType.DIMEN,
-            "filter_bar_height",
-        )
+        filterBarHeightId = ResourceType.DIMEN["filter_bar_height"]
 
-        barContainerHeightId = getResourceId(
-            ResourceType.DIMEN,
-            "bar_container_height",
-        )
+        barContainerHeightId = ResourceType.DIMEN["bar_container_height"]
     }
 }
 
@@ -240,38 +227,40 @@ val `Hide layout components` by creatingBytecodePatch(
 
         // region Mix playlists
 
-        parseElementFromBufferMethod.apply {
-            val startIndex = parseElementFromBufferMethod.indices.first()
-            val insertIndex = startIndex + 1
+        parseElementFromBufferMethodMatch.let {
+            it.method.apply {
+                val startIndex = it.indices.first()
+                val insertIndex = startIndex + 1
 
-            val byteArrayParameter = "p3"
-            val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
-            val returnEmptyComponentInstruction = instructions.last { it.opcode == Opcode.INVOKE_STATIC }
-            val returnEmptyComponentRegister = (returnEmptyComponentInstruction as FiveRegisterInstruction).registerC
-            val freeRegister = findFreeRegister(insertIndex, conversionContextRegister, returnEmptyComponentRegister)
+                val byteArrayParameter = "p3"
+                val conversionContextRegister = getInstruction<TwoRegisterInstruction>(startIndex).registerA
+                val returnEmptyComponentInstruction = instructions.last { it.opcode == Opcode.INVOKE_STATIC }
+                val returnEmptyComponentRegister =
+                    (returnEmptyComponentInstruction as FiveRegisterInstruction).registerC
+                val freeRegister =
+                    findFreeRegister(insertIndex, conversionContextRegister, returnEmptyComponentRegister)
 
-            addInstructionsWithLabels(
-                insertIndex,
-                """
-                    invoke-static { v$conversionContextRegister, $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
-                    move-result v$freeRegister 
-                    if-eqz v$freeRegister, :show
-                    move-object v$returnEmptyComponentRegister, p1   # Required for 19.47
-                    goto :return_empty_component
-                    :show
-                    nop
-                """,
-                ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
-            )
+                addInstructionsWithLabels(
+                    insertIndex,
+                    """
+                        invoke-static { v$conversionContextRegister, $byteArrayParameter }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->filterMixPlaylists(Ljava/lang/Object;[B)Z
+                        move-result v$freeRegister 
+                        if-eqz v$freeRegister, :show
+                        move-object v$returnEmptyComponentRegister, p1   # Required for 19.47
+                        goto :return_empty_component
+                        :show
+                        nop
+                    """,
+                    ExternalLabel("return_empty_component", returnEmptyComponentInstruction),
+                )
+            }
         }
 
         // endregion
 
         // region Watermark (legacy code for old versions of YouTube)
 
-        showWatermarkMethod.match(
-            playerOverlayMethod.immutableClassDef,
-        ).method.apply {
+        playerOverlayMethod.immutableClassDef.getShowWatermarkMethod().apply {
             val index = implementation!!.instructions.size - 5
 
             removeInstruction(index)
@@ -288,7 +277,7 @@ val `Hide layout components` by creatingBytecodePatch(
 
         // region Show more button
 
-        (if (is_20_26_or_greater) hideShowMoreButtonMethod else hideShowMoreLegacyButtonMethod).let {
+        (if (is_20_26_or_greater) hideShowMoreButtonMethodMatch else hideShowMoreLegacyButtonMethodMatch).let {
             it.method.apply {
                 val moveRegisterIndex = it.indices.last()
                 val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
@@ -305,7 +294,7 @@ val `Hide layout components` by creatingBytecodePatch(
         // endregion
 
         // region crowdfunding box
-        crowdfundingBoxMethod.let {
+        crowdfundingBoxMethodMatch.let {
             it.method.apply {
                 val insertIndex = it.indices.last()
                 val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
@@ -322,7 +311,7 @@ val `Hide layout components` by creatingBytecodePatch(
 
         // region hide album cards
 
-        albumCardsMethod.let {
+        albumCardsMethodMatch.let {
             it.method.apply {
                 val checkCastAnchorIndex = it.indices.last()
                 val insertIndex = checkCastAnchorIndex + 1
@@ -340,7 +329,7 @@ val `Hide layout components` by creatingBytecodePatch(
 
         // region hide floating microphone
 
-        showFloatingMicrophoneButtonMethod.let {
+        showFloatingMicrophoneButtonMethodMatch.let {
             it.method.apply {
                 val index = it.indices.last()
                 val register = getInstruction<TwoRegisterInstruction>(index).registerA
@@ -378,8 +367,8 @@ val `Hide layout components` by creatingBytecodePatch(
 
         // region hide view count
 
-        hideViewCountMethod.apply {
-            val startIndex = hideViewCountMethod.patternMatch.startIndex
+        hideViewCountMethodMatch.method.apply {
+            val startIndex = hideViewCountMethodMatch.indices.first()
             var returnStringRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
 
             // Find the instruction where the text dimension is retrieved.
@@ -414,11 +403,11 @@ val `Hide layout components` by creatingBytecodePatch(
          * Patch a [Method] with a given [instructions].
          *
          * @param RegisterInstruction The type of instruction to get the register from.
-         * @param insertIndexOffset The offset to add to the end index of the [Match.patternMatch].
+         * @param insertIndexOffset The offset to add to the end index of the [MatchBuilder.indices].
          * @param hookRegisterOffset The offset to add to the register of the hook.
          * @param instructions The instructions to add with the register as a parameter.
          */
-        fun <RegisterInstruction : OneRegisterInstruction> Fingerprint.patch(
+        fun <RegisterInstruction : OneRegisterInstruction> MatchBuilder.patch(
             insertIndexOffset: Int = 0,
             hookRegisterOffset: Int = 0,
             instructions: (Int) -> String,
@@ -430,21 +419,21 @@ val `Hide layout components` by creatingBytecodePatch(
             addInstructions(insertIndex, instructions(register))
         }
 
-        filterBarHeightMethod.patch<TwoRegisterInstruction> { register ->
+        filterBarHeightMethodMatch.patch<TwoRegisterInstruction> { register ->
             """
                 invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInFeed(I)I
                 move-result v$register
             """
         }
 
-        searchResultsChipBarMethod.patch<OneRegisterInstruction>(-1, -2) { register ->
+        searchResultsChipBarMethodMatch.patch<OneRegisterInstruction>(-1, -2) { register ->
             """
                 invoke-static { v$register }, $LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInSearch(I)I
                 move-result v$register
             """
         }
 
-        relatedChipCloudMethod.patch<OneRegisterInstruction>(1) { register ->
+        relatedChipCloudMethodMatch.patch<OneRegisterInstruction>(1) { register ->
             "invoke-static { v$register }, " +
                 "$LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR->hideInRelatedVideos(Landroid/view/View;)V"
         }

@@ -1,10 +1,16 @@
 package app.revanced.patches.spotify.misc.lyrics
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.instructions
+import app.revanced.patcher.method
+import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.stringOption
+import app.revanced.patcher.returnType
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -59,8 +65,6 @@ val `Change lyrics provider` by creatingBytecodePatch(
     }
 
     apply {
-        val httpClientBuilderMethod = httpClientBuilderMethod.immutableMethod
-
         // region Create a modified copy of the HTTP client builder method with the custom lyrics provider host.
 
         val patchedHttpClientBuilderMethod = with(httpClientBuilderMethod) {
@@ -70,7 +74,7 @@ val `Change lyrics provider` by creatingBytecodePatch(
             val setUrlBuilderHostIndex = indexOfFirstInstructionReversedOrThrow(invokeBuildUrlIndex) {
                 val reference = getReference<MethodReference>()
                 reference?.definingClass == "Lokhttp3/HttpUrl${"$"}Builder;" &&
-                    reference.parameterTypes.firstOrNull() == "Ljava/lang/String;"
+                        reference.parameterTypes.firstOrNull() == "Ljava/lang/String;"
             }
             val hostRegister = getInstruction<FiveRegisterInstruction>(setUrlBuilderHostIndex).registerD
 
@@ -90,17 +94,13 @@ val `Change lyrics provider` by creatingBytecodePatch(
 
         // region Replace the call to the HTTP client builder method used exclusively for lyrics by the modified one.
 
-        val getLyricsHttpClientFingerprint = fingerprint {
+        val getLyricsHttpClientMethod = firstMutableMethodDeclaratively {
             returnType(httpClientBuilderMethod.returnType)
             parameterTypes()
-            custom { method, _ ->
-                method.indexOfFirstInstruction {
-                    getReference<MethodReference>() == httpClientBuilderMethod
-                } >= 0
-            }
+            instructions(method { this == httpClientBuilderMethod })
         }
 
-        getLyricsHttpClientFingerprint.method.apply {
+        getLyricsHttpClientMethod.apply {
             val getLyricsHttpClientIndex = indexOfFirstInstructionOrThrow {
                 getReference<MethodReference>() == httpClientBuilderMethod
             }

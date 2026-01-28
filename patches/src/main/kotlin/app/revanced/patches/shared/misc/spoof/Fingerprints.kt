@@ -2,13 +2,16 @@ package app.revanced.patches.shared.misc.spoof
 
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.custom
+import app.revanced.patcher.definingClass
 import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.method
+import app.revanced.patcher.name
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -77,12 +80,13 @@ internal val buildRequestMethodMatch = firstMethodComposite {
         val parameterTypes = parameterTypes
         val parameterTypesSize = parameterTypes.size
         (parameterTypesSize == 6 || parameterTypesSize == 7 || parameterTypesSize == 8) &&
-            parameterTypes[1] == "Ljava/util/Map;" && // URL headers.
-            indexOfNewUrlRequestBuilderInstruction(this) >= 0
+                parameterTypes[1] == "Ljava/util/Map;" && // URL headers.
+                indexOfNewUrlRequestBuilderInstruction(this) >= 0
     }
 }
 
 internal val BytecodePatchContext.protobufClassParseByteBufferMethod by gettingFirstMethodDeclaratively {
+    name("parseFrom")
     accessFlags(AccessFlags.PROTECTED, AccessFlags.STATIC)
     returnType("L")
     parameterTypes("L", "Ljava/nio/ByteBuffer;")
@@ -92,7 +96,6 @@ internal val BytecodePatchContext.protobufClassParseByteBufferMethod by gettingF
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.RETURN_OBJECT,
     )
-    custom { method, _ -> method.name == "parseFrom" }
 }
 
 internal val createStreamingDataMethodMatch = firstMethodComposite {
@@ -112,7 +115,7 @@ internal val createStreamingDataMethodMatch = firstMethodComposite {
     }
 }
 
-internal val BytecodePatchContext.buildMediaDataSourceMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.buildMediaDataSourceMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes(
         "Landroid/net/Uri;",
@@ -147,7 +150,7 @@ internal val mediaFetchEnumConstructorMethodMatch = firstMethodComposite {
     )
 }
 
-internal val BytecodePatchContext.nerdsStatsVideoFormatBuilderMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.nerdsStatsVideoFormatBuilderMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     parameterTypes("L")
@@ -156,12 +159,11 @@ internal val BytecodePatchContext.nerdsStatsVideoFormatBuilderMethod by gettingF
     )
 }
 
-internal val BytecodePatchContext.patchIncludedExtensionMethodMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.patchIncludedExtensionMethodMethod by gettingFirstMutableMethodDeclaratively {
+    name("isPatchIncluded")
+    definingClass(EXTENSION_CLASS_DESCRIPTOR)
     returnType("Z")
     parameterTypes()
-    custom { method, classDef ->
-        method.name == "isPatchIncluded" && classDef.type == EXTENSION_CLASS_DESCRIPTOR
-    }
 }
 
 // Feature flag that turns on Platypus programming language code compiled to native C++.
@@ -192,9 +194,9 @@ internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) = method.ind
     val reference = methodReference ?: return@indexOfFirstInstruction false
 
     opcode == Opcode.INVOKE_VIRTUAL && reference.definingClass == "Lorg/chromium/net/CronetEngine;" &&
-        reference.name == "newUrlRequestBuilder" &&
-        reference.parameterTypes.size == 3 &&
-        reference.parameterTypes[0] == "Ljava/lang/String;" &&
-        reference.parameterTypes[1] == "Lorg/chromium/net/UrlRequest\$Callback;" &&
-        reference.parameterTypes[2] == "Ljava/util/concurrent/Executor;"
+            reference.name == "newUrlRequestBuilder" &&
+            reference.parameterTypes.size == 3 &&
+            reference.parameterTypes[0] == "Ljava/lang/String;" &&
+            reference.parameterTypes[1] == "Lorg/chromium/net/UrlRequest\$Callback;" &&
+            reference.parameterTypes[2] == "Ljava/util/concurrent/Executor;"
 }

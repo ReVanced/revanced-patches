@@ -2,10 +2,12 @@
 
 package app.revanced.patches.youtube.layout.miniplayer
 
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -46,22 +48,12 @@ private val miniplayerResourcePatch = resourcePatch {
     apply {
         // Resource id is not used during patching, but is used by extension.
         // Verify the resource is present while patching.
-        getResourceId(
-            ResourceType.ID,
-            "modern_miniplayer_subtitle_text",
-        )
+        ResourceType.ID["modern_miniplayer_subtitle_text"]
 
         // Only required for exactly 19.16
         if (!is_19_17_or_greater) {
-            ytOutlinePictureInPictureWhite24 = getResourceId(
-                ResourceType.DRAWABLE,
-                "yt_outline_picture_in_picture_white_24",
-            )
-
-            ytOutlineXWhite24 = getResourceId(
-                ResourceType.DRAWABLE,
-                "yt_outline_x_white_24",
-            )
+            ytOutlinePictureInPictureWhite24 = ResourceType.DRAWABLE["yt_outline_picture_in_picture_white_24"]
+            ytOutlineXWhite24 = ResourceType.DRAWABLE["yt_outline_x_white_24"]
         }
     }
 }
@@ -189,31 +181,29 @@ val Miniplayer by creatingBytecodePatch(
             insertMiniplayerBooleanOverride(index, "getModernMiniplayerOverride")
         }
 
-        fun Fingerprint.insertMiniplayerFeatureFlagBooleanOverride(
+        fun MutableMethod.insertMiniplayerFeatureFlagBooleanOverride(
             literal: Long,
             extensionMethod: String,
-        ) = method.insertLiteralOverride(
+        ) = insertLiteralOverride(
             literal,
             "$EXTENSION_CLASS_DESCRIPTOR->$extensionMethod(Z)Z",
         )
 
-        fun Fingerprint.insertMiniplayerFeatureFlagFloatOverride(
+        fun MutableMethod.insertMiniplayerFeatureFlagFloatOverride(
             literal: Long,
             extensionMethod: String,
-        ) {
-            method.apply {
-                val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
-                val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.DOUBLE_TO_FLOAT)
-                val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
+        ) = apply {
+            val literalIndex = indexOfFirstLiteralInstructionOrThrow(literal)
+            val targetIndex = indexOfFirstInstructionOrThrow(literalIndex, Opcode.DOUBLE_TO_FLOAT)
+            val register = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-                addInstructions(
-                    targetIndex + 1,
-                    """
-                        invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$extensionMethod(F)F
-                        move-result v$register
-                    """,
-                )
-            }
+            addInstructions(
+                targetIndex + 1,
+                """
+                    invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->$extensionMethod(F)F
+                    move-result v$register
+                """,
+            )
         }
 
         /**
@@ -235,20 +225,16 @@ val Miniplayer by creatingBytecodePatch(
         // Parts of the YT code is removed in 20.37+ and the legacy player no longer works.
 
         if (!is_20_37_or_greater) {
-            miniplayerOverrideNoContextMethod.match(
-                miniplayerDimensionsCalculatorParentMethod.immutableClassDef,
-            ).method.apply {
+            miniplayerDimensionsCalculatorParentMethod.immutableClassDef.getMiniplayerOverrideNoContextMethod().apply {
                 findReturnIndicesReversed().forEach { index ->
-                    insertLegacyTabletMiniplayerOverride(
-                        index,
-                    )
+                    insertLegacyTabletMiniplayerOverride(index)
                 }
             }
 
             // endregion
 
             // region Legacy tablet miniplayer hooks.
-            miniplayerOverrideMethod.let {
+            miniplayerOverrideMethodMatch.let {
                 val appNameStringIndex = it.indices.last()
                 navigate(it.immutableMethod).to(appNameStringIndex).stop().apply {
                     findReturnIndicesReversed().forEach { index ->
@@ -259,7 +245,7 @@ val Miniplayer by creatingBytecodePatch(
                 }
             }
 
-            miniplayerResponseModelSizeCheckMethod.let {
+            miniplayerResponseModelSizeCheckMethodMatch.let {
                 it.method.insertLegacyTabletMiniplayerOverride(it.indices.last())
             }
         }
@@ -324,7 +310,7 @@ val Miniplayer by creatingBytecodePatch(
             }
 
             // Override a minimum size constant.
-            miniplayerMinimumSizeMethod.let {
+            miniplayerMinimumSizeMethodMatch.let {
                 it.method.apply {
                     val index = it.indices[1]
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -367,9 +353,7 @@ val Miniplayer by creatingBytecodePatch(
         // YT fixed this mistake in 19.17.
         // Fix this, by swapping the drawable resource values with each other.
         if (!is_19_17_or_greater) {
-            miniplayerModernExpandCloseDrawablesMethod.match(
-                miniplayerModernViewParentMethod.immutableClassDef,
-            ).method.apply {
+            miniplayerModernViewParentMethod.immutableClassDef.getMiniplayerModernExpandCloseDrawablesMethod().apply {
                 listOf(
                     ytOutlinePictureInPictureWhite24 to ytOutlineXWhite24,
                     ytOutlineXWhite24 to ytOutlinePictureInPictureWhite24,
@@ -411,17 +395,15 @@ val Miniplayer by creatingBytecodePatch(
         // region Add hooks to hide modern miniplayer buttons.
 
         listOf(
-            miniplayerModernExpandButtonMethod to "hideMiniplayerExpandClose",
-            miniplayerModernCloseButtonMethod to "hideMiniplayerExpandClose",
-            miniplayerModernActionButtonMethod to "hideMiniplayerActionButton",
-            miniplayerModernRewindButtonMethod to "hideMiniplayerRewindForward",
-            miniplayerModernForwardButtonMethod to "hideMiniplayerRewindForward",
-            miniplayerModernOverlayViewMethod to "adjustMiniplayerOpacity",
-        ).forEach { (fingerprint, methodName) ->
-            fingerprint.match(
-                miniplayerModernViewParentMethod.classDef,
-            ).method.apply {
-                val index = fingerprint.indices.last()
+            miniplayerModernExpandButtonMethodMatch to "hideMiniplayerExpandClose",
+            miniplayerModernCloseButtonMethodMatch to "hideMiniplayerExpandClose",
+            miniplayerModernActionButtonMethodMatch to "hideMiniplayerActionButton",
+            miniplayerModernRewindButtonMethodMatch to "hideMiniplayerRewindForward",
+            miniplayerModernForwardButtonMethodMatch to "hideMiniplayerRewindForward",
+            miniplayerModernOverlayViewMethodMatch to "adjustMiniplayerOpacity",
+        ).forEach { (match, methodName) ->
+            match.match(miniplayerModernViewParentMethod.immutableClassDef).method.apply {
+                val index = match.indices.last()
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstruction(
@@ -431,9 +413,7 @@ val Miniplayer by creatingBytecodePatch(
             }
         }
 
-        miniplayerModernAddViewListenerMethod.match(
-            miniplayerModernViewParentMethod.classDef,
-        ).method.addInstruction(
+        miniplayerModernViewParentMethod.immutableClassDef.getMiniplayerModernAddViewListenerMethod().addInstruction(
             0,
             "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->" +
                 "hideMiniplayerSubTexts(Landroid/view/View;)V",

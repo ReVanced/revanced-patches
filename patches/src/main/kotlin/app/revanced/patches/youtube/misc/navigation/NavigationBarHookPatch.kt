@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
+import app.revanced.patcher.extensions.reference
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -72,7 +73,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
                 addInstruction(
                     insertIndex,
                     "invoke-static { v$register }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->${hook.methodName}(${hook.parameters})V",
+                            "$EXTENSION_CLASS_DESCRIPTOR->${hook.methodName}(${hook.parameters})V",
                 )
             }
         }
@@ -82,7 +83,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             val navigationEnumClassName = navigationEnumMethod.classDef.type
             addHook(NavigationHook.SET_LAST_APP_NAVIGATION_ENUM) {
                 opcode == Opcode.INVOKE_STATIC &&
-                    getReference<MethodReference>()?.definingClass == navigationEnumClassName
+                        getReference<MethodReference>()?.definingClass == navigationEnumClassName
             }
 
             // Hook the creation of navigation tab views.
@@ -120,7 +121,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
             addInstruction(
                 index + 1,
                 "invoke-static { v$viewRegister, v$isSelectedRegister }, " +
-                    "$EXTENSION_CLASS_DESCRIPTOR->navigationTabSelected(Landroid/view/View;Z)V",
+                        "$EXTENSION_CLASS_DESCRIPTOR->navigationTabSelected(Landroid/view/View;Z)V",
             )
         }
 
@@ -136,7 +137,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         // Two different layouts are used at the hooked code.
         // Insert before the first ViewGroup method call after inflating,
         // so this works regardless which layout is used.
-        actionBarSearchResultsMethod.let {
+        actionBarSearchResultsMethodMatch.let {
             it.method.apply {
                 val instructionIndex = it.indices.last()
                 val viewRegister = getInstruction<FiveRegisterInstruction>(instructionIndex).registerC
@@ -144,14 +145,14 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
                 addInstruction(
                     instructionIndex,
                     "invoke-static { v$viewRegister }, " +
-                        "$EXTENSION_CLASS_DESCRIPTOR->searchBarResultsViewLoaded(Landroid/view/View;)V",
+                            "$EXTENSION_CLASS_DESCRIPTOR->searchBarResultsViewLoaded(Landroid/view/View;)V",
                 )
             }
         }
 
         // Hook the back button visibility.
 
-        toolbarLayoutMethod.let {
+        toolbarLayoutMethodMatch.let {
             it.method.apply {
                 val index = it.indices.last()
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
@@ -164,43 +165,41 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         }
 
         // Add interface for extensions code to call obfuscated methods.
-        appCompatToolbarBackButtonMethod.let {
-            it.classDef.apply {
-                interfaces.add(EXTENSION_TOOLBAR_INTERFACE)
+        appCompatToolbarBackButtonMethod.classDef.apply {
+            interfaces.add(EXTENSION_TOOLBAR_INTERFACE)
 
-                val definingClass = type
-                val obfuscatedMethodName = it.immutableMethod.name
-                val returnType = "Landroid/graphics/drawable/Drawable;"
+            val definingClass = type
+            val obfuscatedMethodName = appCompatToolbarBackButtonMethod.name
+            val returnType = "Landroid/graphics/drawable/Drawable;"
 
-                methods.add(
-                    ImmutableMethod(
-                        definingClass,
-                        "patch_getNavigationIcon",
-                        listOf(),
-                        returnType,
-                        AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
-                        null,
-                        null,
-                        MutableMethodImplementation(2),
-                    ).toMutable().apply {
-                        addInstructions(
-                            0,
-                            """
+            methods.add(
+                ImmutableMethod(
+                    definingClass,
+                    "patch_getNavigationIcon",
+                    listOf(),
+                    returnType,
+                    AccessFlags.PUBLIC.value or AccessFlags.FINAL.value,
+                    null,
+                    null,
+                    MutableMethodImplementation(2),
+                ).toMutable().apply {
+                    addInstructions(
+                        0,
+                        """
                                 invoke-virtual { p0 }, $definingClass->$obfuscatedMethodName()$returnType
                                 move-result-object v0
                                 return-object v0
                             """,
-                        )
-                    },
-                )
-            }
+                    )
+                },
+            )
         }
 
         hookNavigationButtonCreated = { extensionClassDescriptor ->
             navigationBarHookCallbackMethod.addInstruction(
                 0,
                 "invoke-static { p0, p1 }, $extensionClassDescriptor->navigationTabCreated" +
-                    "(${EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR}Landroid/view/View;)V",
+                        "(${EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR}Landroid/view/View;)V",
             )
         }
 
@@ -212,22 +211,24 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
 
         // Fix YT bug of notification tab missing the filled icon.
         if (is_19_35_or_greater && !is_20_39_or_greater) { // FIXME: 20.39+ needs this fix.
-            val cairoNotificationEnumReference = imageEnumConstructorMethod
-                .instructionMatches.last().getInstruction<ReferenceInstruction>().reference
+            val cairoNotificationEnumReference =
+                imageEnumConstructorMethodMatch.method.getInstruction(imageEnumConstructorMethodMatch.indices.last()).reference
 
-            setEnumMapMethod.apply {
-                val setEnumIntegerIndex = setEnumMapMethod.indices.last()
-                val enumMapRegister = getInstruction<FiveRegisterInstruction>(setEnumIntegerIndex).registerC
-                val insertIndex = setEnumIntegerIndex + 1
-                val freeRegister = findFreeRegister(insertIndex, enumMapRegister)
+            setEnumMapMethodMatch.apply {
+                val setEnumIntegerIndex = setEnumMapMethodMatch.indices.last()
+                method.apply {
+                    val enumMapRegister = getInstruction<FiveRegisterInstruction>(setEnumIntegerIndex).registerC
+                    val insertIndex = setEnumIntegerIndex + 1
+                    val freeRegister = findFreeRegister(insertIndex, enumMapRegister)
 
-                addInstructions(
-                    insertIndex,
-                    """
-                        sget-object v$freeRegister, $cairoNotificationEnumReference
-                        invoke-static { v$enumMapRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->setCairoNotificationFilledIcon(Ljava/util/EnumMap;Ljava/lang/Enum;)V
-                    """,
-                )
+                    addInstructions(
+                        insertIndex,
+                        """
+                            sget-object v$freeRegister, $cairoNotificationEnumReference
+                            invoke-static { v$enumMapRegister, v$freeRegister }, $EXTENSION_CLASS_DESCRIPTOR->setCairoNotificationFilledIcon(Ljava/util/EnumMap;Ljava/lang/Enum;)V
+                        """,
+                    )
+                }
             }
         }
     }

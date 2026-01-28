@@ -34,7 +34,7 @@ val enableSeekbarTappingPatch = bytecodePatch(
         )
 
         // Find the required methods to tap the seekbar.
-        val seekbarTappingMethods = onTouchEventHandlerMethod.let {
+        val seekbarTappingMethods = onTouchEventHandlerMethodMatch.let {
             fun getReference(index: Int) = it.method.getInstruction<ReferenceInstruction>(index)
                 .reference as MethodReference
 
@@ -44,7 +44,7 @@ val enableSeekbarTappingPatch = bytecodePatch(
             )
         }
 
-        seekbarTappingMethod.let {
+        seekbarTappingMethodMatch.let {
             val insertIndex = it.indices.last() + 1
 
             it.method.apply {

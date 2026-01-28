@@ -1,9 +1,13 @@
 package app.revanced.patches.shared.misc.spoof
 
+import app.revanced.patcher.custom
 import app.revanced.patcher.extensions.*
+import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.opcodes
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
+import app.revanced.patcher.returnType
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.util.*
@@ -124,7 +128,7 @@ internal fun spoofVideoStreamsPatch(
             addInstruction(
                 videoDetailsIndex + 1,
                 "invoke-direct { p0, v$videoDetailsRegister }, " +
-                    "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
+                        "$resultMethodType->$setStreamDataMethodName($videoDetailsClass)V",
             )
 
             val protobufClass = protobufClassParseByteBufferMethod.definingClass
@@ -212,7 +216,7 @@ internal fun spoofVideoStreamsPatch(
         // A proper fix may include modifying the request body to match the platforms expected body.
 
         buildMediaDataSourceMethod.apply {
-            val targetIndex = instructions.lastIndex
+            val targetIndex = instructions.count() - 1
 
             // Instructions are added just before the method returns,
             // so there's no concern of clobbering in-use registers.
@@ -271,7 +275,7 @@ internal fun spoofVideoStreamsPatch(
             val mediaFetchEnumClass = definingClass
             val sabrFieldIndex = indexOfFirstInstructionOrThrow(disabledBySABRStreamingUrlString) {
                 opcode == Opcode.SPUT_OBJECT &&
-                    getReference<FieldReference>()?.type == mediaFetchEnumClass
+                        getReference<FieldReference>()?.type == mediaFetchEnumClass
             }
 
             Pair(
@@ -280,17 +284,15 @@ internal fun spoofVideoStreamsPatch(
             )
         }
 
-        val sabrFingerprint = fingerprint {
+        val sabrMethod = firstMutableMethodDeclaratively {
             returnType(mediaFetchEnumClass)
             opcodes(
                 Opcode.SGET_OBJECT,
                 Opcode.RETURN_OBJECT,
             )
-            custom { method, _ ->
-                !method.parameterTypes.isEmpty()
-            }
+            custom { parameterTypes.isEmpty() }
         }
-        sabrFingerprint.method.addInstructionsWithLabels(
+        sabrMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->disableSABR()Z

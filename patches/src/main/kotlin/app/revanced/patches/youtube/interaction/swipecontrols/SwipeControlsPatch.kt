@@ -134,9 +134,9 @@ val `Swipe controls` by creatingBytecodePatch(
         // region patch to enable/disable swipe to change video.
 
         if (is_19_43_or_greater && !is_20_34_or_greater) {
-            swipeChangeVideoMethod.let {
+            swipeChangeVideoMethodMatch.let {
                 it.method.insertLiteralOverride(
-                    it.indices.last(), // TODO
+                    it.indices.last(),
                     "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeChangeVideo(Z)Z",
                 )
             }

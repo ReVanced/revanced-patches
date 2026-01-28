@@ -1,43 +1,33 @@
 package app.revanced.patches.youtube.layout.returnyoutubedislike
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.opcodes
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
+import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.dislikeMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.dislikeMethod by gettingFirstMutableMethodDeclaratively {
     returnType("V")
-    instructions(
-        "like/dislike"(),
-    )
+    instructions("like/dislike"())
 }
 
-internal val BytecodePatchContext.likeMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.likeMethod by gettingFirstMutableMethodDeclaratively {
     returnType("V")
-    instructions(
-        "like/like"(),
-    )
+    instructions("like/like"())
 }
 
-internal val BytecodePatchContext.removeLikeMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.removeLikeMethod by gettingFirstMutableMethodDeclaratively {
     returnType("V")
-    instructions(
-        "like/removelike"(),
-    )
+    instructions("like/removelike"())
 }
 
-internal val BytecodePatchContext.rollingNumberMeasureAnimatedTextMethod by gettingFirstMethodDeclaratively {
+internal val rollingNumberMeasureAnimatedTextMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Lj\$/util/Optional;")
     parameterTypes("L", "Ljava/lang/String;", "L")
     opcodes(
-        Opcode.IGET, // First instruction of method
+        Opcode.IGET, // First instruction of method.
         Opcode.IGET_OBJECT,
         Opcode.IGET_OBJECT,
         Opcode.CONST_HIGH16,
@@ -46,14 +36,14 @@ internal val BytecodePatchContext.rollingNumberMeasureAnimatedTextMethod by gett
         Opcode.CONST_4,
         Opcode.AGET,
         Opcode.CONST_4,
-        Opcode.CONST_4, // Measured text width
+        Opcode.CONST_4, // Measured text width.
     )
 }
 
 /**
  * Matches to class found in [rollingNumberMeasureStaticLabelParentMethod].
  */
-internal val BytecodePatchContext.rollingNumberMeasureStaticLabelMethod by gettingFirstMethodDeclaratively {
+internal val rollingNumberMeasureStaticLabelMethod = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("F")
     parameterTypes("Ljava/lang/String;")
@@ -74,29 +64,33 @@ internal val BytecodePatchContext.rollingNumberMeasureStaticLabelParentMethod by
     )
 }
 
-internal val BytecodePatchContext.rollingNumberSetterMethod by gettingFirstMethodDeclaratively {
+internal val rollingNumberSetterMethodMatch = firstMethodComposite {
     opcodes(
         Opcode.INVOKE_DIRECT,
         Opcode.IGET_OBJECT,
     )
-    // Partial string match.
-    strings("RollingNumberType required properties missing! Need")
+    custom {
+        instructions.matchIndexed(
+            "string",
+            "RollingNumberType required properties missing! Need"(String::contains),
+        )
+    }
 }
 
-internal val BytecodePatchContext.rollingNumberTextViewMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.rollingNumberTextViewMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L", "F", "F")
-    opcodes(
-        Opcode.IPUT,
-        null, // invoke-direct or invoke-virtual
-        Opcode.IPUT_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.RETURN_VOID,
+    instructions(
+        Opcode.IPUT(),
+        anyOf(Opcode.INVOKE_DIRECT(), Opcode.INVOKE_VIRTUAL()),
+        Opcode.IPUT_OBJECT(),
+        Opcode.IGET_OBJECT(),
+        Opcode.INVOKE_VIRTUAL(),
+        Opcode.RETURN_VOID(),
     )
-    custom { _, classDef ->
-        classDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;" || classDef.superclass ==
+    custom {
+        immutableClassDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;" || immutableClassDef.superclass ==
             "Lcom/google/android/libraries/youtube/rendering/ui/spec/typography/YouTubeAppCompatTextView;"
     }
 }
@@ -114,28 +108,23 @@ internal val BytecodePatchContext.textComponentDataMethod by gettingFirstMethodD
     instructions(
         "text"(),
     )
-    custom { _, classDef ->
-        classDef.fields.find { it.type == "Ljava/util/BitSet;" } != null
-    }
+    custom { immutableClassDef.anyField { type == "Ljava/util/BitSet;" } }
 }
 
 /**
  * Matches against the same class found in [textComponentConstructorMethod].
  */
-internal val BytecodePatchContext.textComponentLookupMethod by gettingFirstMethodDeclaratively {
+context(_: BytecodePatchContext)
+internal fun ClassDef.getTextComponentLookupMethod() = firstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returnType("L")
     parameterTypes("L")
-    instructions(
-        "…"(),
-    )
+    instructions("…"())
 }
 
-internal val BytecodePatchContext.textComponentFeatureFlagMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.textComponentFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
-    instructions(
-        45675738L(),
-    )
+    instructions(45675738L())
 }

@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -27,10 +28,7 @@ private val hideInfocardsResourcePatch = resourcePatch {
     dependsOn(resourceMappingPatch)
 
     apply {
-        drawerResourceId = getResourceId(
-            ResourceType.ID,
-            "info_cards_drawer_header",
-        )
+        drawerResourceId = ResourceType.ID["info_cards_drawer_header"]
     }
 }
 
@@ -63,7 +61,7 @@ val `Hide info cards` by creatingBytecodePatch(
         )
 
         // Edit: This old non litho code may be obsolete and no longer used by any supported versions.
-        infocardsIncognitoMethod.match(infocardsIncognitoParentMethod.immutableClassDef).method.apply {
+        infocardsIncognitoParentMethod.immutableClassDef.getInfocardsIncognitoMethod().apply {
             val invokeInstructionIndex = implementation!!.instructions.indexOfFirst {
                 it.opcode.ordinal == Opcode.INVOKE_VIRTUAL.ordinal &&
                     ((it as ReferenceInstruction).reference.toString() == "Landroid/view/View;->setVisibility(I)V")
@@ -77,7 +75,7 @@ val `Hide info cards` by creatingBytecodePatch(
         }
 
         // Edit: This old non litho code may be obsolete and no longer used by any supported versions.
-        infocardsMethodCallMethod.let {
+        infocardsMethodCallMethodMatch.let {
             val invokeInterfaceIndex = it.indices.last()
             it.method.apply {
                 val register = implementation!!.registerCount - 1

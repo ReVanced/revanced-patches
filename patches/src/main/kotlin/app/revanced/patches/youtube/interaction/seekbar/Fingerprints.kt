@@ -40,7 +40,7 @@ internal fun ClassDef.getAllowSwipingUpGestureMethod() = firstMutableMethodDecla
     parameterTypes("L")
 }
 
-internal val BytecodePatchContext.disableFastForwardLegacyMethod by gettingFirstMethodDeclaratively {
+internal val disableFastForwardLegacyMethodMatch = firstMethodComposite {
     returnType("Z")
     parameterTypes()
     opcodes(Opcode.MOVE_RESULT)
@@ -48,7 +48,7 @@ internal val BytecodePatchContext.disableFastForwardLegacyMethod by gettingFirst
     literal { 45411330 }
 }
 
-internal val BytecodePatchContext.disableFastForwardGestureMethod by gettingFirstMethodDeclaratively {
+internal val disableFastForwardGestureMethodMatch = firstMethodComposite {
     definingClass { endsWith("/NextGenWatchLayout;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
@@ -80,7 +80,7 @@ internal val customTapAndHoldMethodMatch = firstMethodComposite {
     }
 }
 
-internal val BytecodePatchContext.onTouchEventHandlerMethod by gettingFirstMethodDeclaratively {
+internal val onTouchEventHandlerMethodMatch = firstMethodComposite {
     name("onTouchEvent")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.PUBLIC)
     returnType("Z")
@@ -103,7 +103,7 @@ internal val BytecodePatchContext.onTouchEventHandlerMethod by gettingFirstMetho
     )
 }
 
-internal val BytecodePatchContext.seekbarTappingMethod by gettingFirstMethodDeclaratively {
+internal val seekbarTappingMethodMatch = firstMethodComposite {
     name("onTouchEvent")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
@@ -119,7 +119,7 @@ internal val BytecodePatchContext.seekbarTappingMethod by gettingFirstMethodDecl
     )
 }
 
-internal val BytecodePatchContext.slideToSeekMethod by gettingFirstMethodDeclaratively {
+internal val slideToSeekMethodMatch = firstMethodComposite {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/view/View;", "F")

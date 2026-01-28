@@ -81,23 +81,23 @@ val `Spoof app version` by creatingBytecodePatch(
          * missing image resources. As a workaround, do not set an image in the
          * toolbar when the enum name is UNKNOWN.
          */
-        toolBarButtonMethod.apply {
-            val imageResourceIndex = indices[2]
-            val register = method.getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
-            val jumpIndex = indices.last() + 1
+        toolBarButtonMethodMatch.let {
+            val imageResourceIndex = it.indices[2]
+            val register = it.method.getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
+            val jumpIndex = it.indices.last() + 1
 
-            method.addInstructionsWithLabels(
+            it.method.addInstructionsWithLabels(
                 imageResourceIndex + 1,
                 "if-eqz v$register, :ignore",
-                ExternalLabel("ignore", method.getInstruction(jumpIndex)),
+                ExternalLabel("ignore", it.method.getInstruction(jumpIndex)),
             )
         }
 
-        spoofAppVersionMethod.apply {
-            val index = indices.first()
-            val register = method.getInstruction<OneRegisterInstruction>(index).registerA
+        spoofAppVersionMethodMatch.let {
+            val index = it.indices.first()
+            val register = it.method.getInstruction<OneRegisterInstruction>(index).registerA
 
-            method.addInstructions(
+            it.method.addInstructions(
                 index + 1,
                 """
                     invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getYouTubeVersionOverride(Ljava/lang/String;)Ljava/lang/String;
