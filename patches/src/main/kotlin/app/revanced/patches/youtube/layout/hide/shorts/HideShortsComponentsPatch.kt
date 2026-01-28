@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.wideLiteral
 import app.revanced.patcher.patch.booleanOption
+import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -95,7 +96,8 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                 SwitchPreference("revanced_hide_shorts_effect_button"),
                 SwitchPreference("revanced_hide_shorts_green_screen_button"),
                 SwitchPreference("revanced_hide_shorts_hashtag_button"),
-                SwitchPreference("revanced_hide_shorts_live_preview"), SwitchPreference("revanced_hide_shorts_new_posts_button"),
+                SwitchPreference("revanced_hide_shorts_live_preview"),
+                SwitchPreference("revanced_hide_shorts_new_posts_button"),
                 SwitchPreference("revanced_hide_shorts_shop_button"),
                 SwitchPreference("revanced_hide_shorts_tagged_products"),
                 SwitchPreference("revanced_hide_shorts_search_suggestions"),
@@ -103,7 +105,8 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
                 SwitchPreference("revanced_hide_shorts_stickers"),
 
                 // Bottom of the screen.
-                SwitchPreference("revanced_hide_shorts_auto_dubbed_label"), SwitchPreference("revanced_hide_shorts_location_label"),
+                SwitchPreference("revanced_hide_shorts_auto_dubbed_label"),
+                SwitchPreference("revanced_hide_shorts_location_label"),
                 SwitchPreference("revanced_hide_shorts_channel_bar"),
                 SwitchPreference("revanced_hide_shorts_info_panel"),
                 SwitchPreference("revanced_hide_shorts_full_video_link_label"),
@@ -154,7 +157,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
 private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/components/ShortsFilter;"
 
 @Suppress("unused", "ObjectPropertyName")
-val `Hide Shorts componentsby creatingBytecodePatch(
+val `Hide Shorts components` by creatingBytecodePatch(
     description = "Adds options to hide components related to Shorts.",
 ) {
     dependsOn(

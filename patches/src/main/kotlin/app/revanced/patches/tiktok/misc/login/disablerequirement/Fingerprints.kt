@@ -1,15 +1,14 @@
 package app.revanced.patches.tiktok.misc.login.disablerequirement
 
-internal val BytecodePatchContext.mandatoryLoginServiceMethod by gettingFirstMethodDeclaratively {
-    custom { method, classDef ->
-        classDef.endsWith("/MandatoryLoginService;") &&
-            method.name == "enableForcedLogin"
-    }
+import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
+
+internal val BytecodePatchContext.mandatoryLoginServiceMethod by gettingFirstMutableMethodDeclaratively {
+    name("enableForcedLogin")
+    definingClass { endsWith("/MandatoryLoginService;") }
 }
 
-internal val BytecodePatchContext.mandatoryLoginService2Method by gettingFirstMethodDeclaratively {
-    custom { method, classDef ->
-        classDef.endsWith("/MandatoryLoginService;") &&
-            method.name == "shouldShowForcedLogin"
-    }
+internal val BytecodePatchContext.mandatoryLoginService2Method by gettingFirstMutableMethodDeclaratively {
+    name("shouldShowForcedLogin")
+    definingClass { endsWith("/MandatoryLoginService;") }
 }

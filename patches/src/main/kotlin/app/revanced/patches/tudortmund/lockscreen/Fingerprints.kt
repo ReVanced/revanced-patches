@@ -1,19 +1,14 @@
 package app.revanced.patches.tudortmund.lockscreen
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
 internal val BytecodePatchContext.brightnessMethod by gettingFirstMethodDeclaratively {
+    name("run")
+    definingClass { contains("/ScreenPlugin$") }
     accessFlags(AccessFlags.PUBLIC)
     returnType("V")
     parameterTypes()
-    custom { method, classDef ->
-        method.name == "run" &&
-            method.definingClass.contains("/ScreenPlugin\$") &&
-            classDef.fields.any { it.type == "Ljava/lang/Float;" }
-    }
+    custom { immutableClassDef.anyField { type == "Ljava/lang/Float;" } }
 }

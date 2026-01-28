@@ -1,5 +1,6 @@
 package app.revanced.patches.youtube.interaction.doubletap
 
+import app.revanced.patcher.*
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -13,7 +14,6 @@ import app.revanced.patches.youtube.misc.settings.settingsPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import java.util.logging.Logger
-import kotlin.jvm.java
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/DisableDoubleTapActionsPatch;"
@@ -53,7 +53,7 @@ val `Disable double tap actions` by creatingBytecodePatch(
             SwitchPreference("revanced_disable_chapter_skip_double_tap"),
         )
 
-        val doubleTapInfoGetSeekSourceFingerprint = fingerprint {
+        val doubleTapInfoGetSeekSourceMethod = firstMutableMethodDeclaratively {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             parameterTypes("Z")
             returnType(seekTypeEnumMethod.immutableClassDef.type)
@@ -64,13 +64,11 @@ val `Disable double tap actions` by creatingBytecodePatch(
                 Opcode.SGET_OBJECT,
                 Opcode.RETURN_OBJECT,
             )
-            custom { _, classDef ->
-                classDef.fields.count() == 4
-            }
+            custom { immutableClassDef.fields.count() == 4 }
         }
 
         // Force isChapterSeek flag to false.
-        doubleTapInfoGetSeekSourceFingerprint.method.addInstructions(
+        doubleTapInfoGetSeekSourceMethod.addInstructions(
             0,
             """
                 invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->disableDoubleTapChapters(Z)Z
@@ -78,9 +76,7 @@ val `Disable double tap actions` by creatingBytecodePatch(
             """,
         )
 
-        doubleTapInfoCtorMethod.match(
-            doubleTapInfoGetSeekSourceFingerprint.classDef,
-        ).method.addInstructions(
+        doubleTapInfoGetSeekSourceMethod.immutableClassDef.getDoubleTapInfoCtorMethod().addInstructions(
             0,
             """
                 invoke-static { p3 }, $EXTENSION_CLASS_DESCRIPTOR->disableDoubleTapChapters(Z)Z

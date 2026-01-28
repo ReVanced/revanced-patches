@@ -1,34 +1,30 @@
 package app.revanced.patches.spotify.misc.privacy
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.opcodes
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.shareCopyUrlMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.shareCopyUrlMethod by gettingFirstMutableMethodDeclarativelyOrNull(
+    "clipboard",
+    "Spotify Link",
+) {
+    name("invokeSuspend")
     returnType("Ljava/lang/Object;")
     parameterTypes("Ljava/lang/Object;")
-    strings("clipboard", "Spotify Link")
-    custom { method, _ ->
-        method.name == "invokeSuspend"
-    }
 }
 
-internal val BytecodePatchContext.oldShareCopyUrlMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.oldShareCopyUrlMethod by gettingFirstMutableMethodDeclaratively(
+    "clipboard",
+    "createNewSession failed",
+) {
+    name("apply")
     returnType("Ljava/lang/Object;")
     parameterTypes("Ljava/lang/Object;")
-    strings("clipboard", "createNewSession failed")
-    custom { method, _ ->
-        method.name == "apply"
-    }
 }
 
-internal val BytecodePatchContext.formatAndroidShareSheetUrlMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.formatAndroidShareSheetUrlMethod by gettingFirstMutableMethodDeclarativelyOrNull {
     returnType("Ljava/lang/String;")
     parameterTypes("L", "Ljava/lang/String;")
     opcodes(
@@ -38,16 +34,12 @@ internal val BytecodePatchContext.formatAndroidShareSheetUrlMethod by gettingFir
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.RETURN_OBJECT,
     )
-    literal {
-        '\n'.code.toLong()
-    }
+    literal { '\n'.code.toLong() }
 }
 
-internal val BytecodePatchContext.oldFormatAndroidShareSheetUrlMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.oldFormatAndroidShareSheetUrlMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC)
     returnType("Ljava/lang/String;")
     parameterTypes("Lcom/spotify/share/social/sharedata/ShareData;", "Ljava/lang/String;")
-    literal {
-        '\n'.code.toLong()
-    }
+    instructions('\n'.code.toLong()())
 }

@@ -1,8 +1,6 @@
 package app.revanced.patches.spotify.misc.extension
 
-import app.revanced.patcher.firstMethodComposite
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
+import app.revanced.patcher.*
 
 internal val loadOrbitLibraryMethodMatch = firstMethodComposite {
     instructions(

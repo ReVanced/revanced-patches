@@ -1,6 +1,7 @@
 package app.revanced.patches.youtube.ad.general
 
 import app.revanced.patcher.accessFlags
+import app.revanced.patcher.custom
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -16,9 +17,9 @@ internal val BytecodePatchContext.fullScreenEngagementAdContainerMethod by getti
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()
-    custom { method, _ ->
-        method.containsLiteralInstruction(fullScreenEngagementAdContainer) &&
-            indexOfAddListInstruction(method) >= 0
+    custom {
+        containsLiteralInstruction(fullScreenEngagementAdContainer) &&
+            indexOfAddListInstruction(this) >= 0
     }
 }
 

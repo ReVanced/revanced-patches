@@ -5,12 +5,11 @@ import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val BytecodePatchContext.formFactorEnumConstructorMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.formFactorEnumConstructorMethod by gettingFirstMethodDeclaratively(
+    "UNKNOWN_FORM_FACTOR",
+    "SMALL_FORM_FACTOR",
+    "LARGE_FORM_FACTOR",
+    "AUTOMOTIVE_FORM_FACTOR",
+) {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
-    strings(
-        "UNKNOWN_FORM_FACTOR",
-        "SMALL_FORM_FACTOR",
-        "LARGE_FORM_FACTOR",
-        "AUTOMOTIVE_FORM_FACTOR",
-    )
 }

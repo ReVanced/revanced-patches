@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.layout.formfactor
 
+import app.revanced.patcher.*
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.instructions
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -46,21 +46,19 @@ val `Change form factor` by creatingBytecodePatch(
 
         hookNavigationButtonCreated(EXTENSION_CLASS_DESCRIPTOR)
 
-        val createPlayerRequestBodyWithModelFingerprint = fingerprint {
+        val formFactorEnumConstructorClass = formFactorEnumConstructorMethod.definingClass
+
+        val createPlayerRequestBodyWithModelMatch = firstMethodComposite {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             returnType("L")
             parameterTypes()
             instructions(
-                fieldAccess(smali = "Landroid/os/Build;->MODEL:Ljava/lang/String;"),
-                fieldAccess(
-                    definingClass = formFactorEnumConstructorMethod.immutableClassDef.type,
-                    type = "I",
-                    afterAtMost(50),
-                ),
+                field { name == "MODEL" && definingClass == "Landroid/os/Build;" },
+                field { type == "I" && definingClass == formFactorEnumConstructorClass },
             )
         }
 
-        createPlayerRequestBodyWithModelFingerprint.let {
+        createPlayerRequestBodyWithModelMatch.let {
             it.method.apply {
                 val index = it.indices.last()
                 val register = getInstruction<TwoRegisterInstruction>(index).registerA

@@ -1,7 +1,7 @@
 package app.revanced.patches.tiktok.misc.login.disablerequirement
 
-import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.patch.creatingBytecodePatch
+import app.revanced.util.returnEarly
 
 @Suppress("unused", "ObjectPropertyName")
 val `Disable login requirement` by creatingBytecodePatch {
@@ -14,14 +14,6 @@ val `Disable login requirement` by creatingBytecodePatch {
         listOf(
             mandatoryLoginServiceMethod,
             mandatoryLoginService2Method,
-        ).forEach { fingerprint ->
-            fingerprint.method.addInstructions(
-                0,
-                """
-                    const/4 v0, 0x0
-                    return v0
-                """,
-            )
-        }
+        ).forEach { method -> method.returnEarly() }
     }
 }

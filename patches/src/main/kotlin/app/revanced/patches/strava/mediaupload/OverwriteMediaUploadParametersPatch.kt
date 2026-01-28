@@ -31,15 +31,15 @@ val `Overwrite media upload parameters` by creatingBytecodePatch(
         val mediaUploadParametersClass = firstClassDef { type.endsWith("/MediaUploadParameters;") }
 
         compressionQuality?.let { compressionQuality ->
-            getCompressionQualityMethod.match(mediaUploadParametersClass).method.returnEarly(compressionQuality / 100f)
+            mediaUploadParametersClass.getGetCompressionQualityMethod().returnEarly(compressionQuality / 100f)
         }
 
         maxDuration?.let { maxDuration ->
-            getMaxDurationMethod.match(mediaUploadParametersClass).method.returnEarly(maxDuration)
+            mediaUploadParametersClass.getGetMaxDurationMethod().returnEarly(maxDuration)
         }
 
         maxSize?.let {
-            getMaxSizeMethod.match(mediaUploadParametersClass).method.returnEarly(it)
+            mediaUploadParametersClass.getGetMaxSizeMethod().returnEarly(it)
         }
     }
 }

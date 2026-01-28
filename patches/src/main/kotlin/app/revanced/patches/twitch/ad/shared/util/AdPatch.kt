@@ -3,7 +3,7 @@ package app.revanced.patches.twitch.ad.shared.util
 import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.firstClassDefMutableOrNull
+import app.revanced.patcher.firstMutableClassDefOrNull
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
@@ -30,10 +30,10 @@ fun adPatch(
         classDefType: String,
         methodNames: Set<String>,
         returnMethod: ReturnMethod,
-    ) = with(firstClassDefMutableOrNull(classDefType)) {
-        this ?: return false
+    ): Boolean {
+        val classDef = firstMutableClassDefOrNull(classDefType) ?: return false
 
-        methods.filter { it.name in methodNames }.forEach {
+        classDef.methods.filter { it.name in methodNames }.forEach { method ->
             val retInstruction = when (returnMethod.returnType) {
                 'V' -> "return-void"
                 'Z' ->
@@ -45,17 +45,17 @@ fun adPatch(
                 else -> throw NotImplementedError()
             }
 
-            it.addInstructionsWithLabels(
+            method.addInstructionsWithLabels(
                 0,
                 """
                         ${createConditionInstructions("v0")}
                         $retInstruction
                     """,
-                ExternalLabel(skipLabelName, it.getInstruction(0)),
+                ExternalLabel(skipLabelName, method.getInstruction(0)),
             )
         }
 
-        true
+        return true
     }
 
     block(::createConditionInstructions, BytecodePatchContext::blockMethods)

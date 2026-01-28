@@ -2,13 +2,12 @@ package app.revanced.patches.spotify.misc.privacy
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.patch.creatingBytecodePatch
 import app.revanced.patches.spotify.misc.extension.sharedExtensionPatch
-import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/spotify/misc/privacy/SanitizeSharingLinksPatch;"
@@ -25,15 +24,15 @@ val `Sanitize sharing links` by creatingBytecodePatch(
         val extensionMethodDescriptor = "$EXTENSION_CLASS_DESCRIPTOR->" +
             "sanitizeSharingLink(Ljava/lang/String;)Ljava/lang/String;"
 
-        val copyFingerprint = if (shareCopyUrlMethod.immutableMethodOrNull != null) {
+        val copyMethod = if (shareCopyUrlMethod != null) {
             shareCopyUrlMethod
         } else {
             oldShareCopyUrlMethod
         }
 
-        copyFingerprint.method.apply {
+        copyMethod!!.apply {
             val newPlainTextInvokeIndex = indexOfFirstInstructionOrThrow {
-                getReference<MethodReference>()?.name == "newPlainText"
+                methodReference?.name == "newPlainText"
             }
             val urlRegister = getInstruction<FiveRegisterInstruction>(newPlainTextInvokeIndex).registerD
 
@@ -48,9 +47,8 @@ val `Sanitize sharing links` by creatingBytecodePatch(
 
         // Android native share sheet is used for all other quick share types (X, WhatsApp, etc).
         val shareUrlParameter: String
-        val shareSheetFingerprint = if (formatAndroidShareSheetUrlMethod.immutableMethodOrNull != null) {
-            val methodAccessFlags = formatAndroidShareSheetUrlMethod.immutableMethod
-            shareUrlParameter = if (AccessFlags.STATIC.isSet(methodAccessFlags.accessFlags)) {
+        val shareSheetMethod = if (formatAndroidShareSheetUrlMethod != null) {
+            shareUrlParameter = if (AccessFlags.STATIC.isSet(formatAndroidShareSheetUrlMethod!!.accessFlags)) {
                 // In newer implementations the method is static, so p0 is not `this`.
                 "p1"
             } else {
@@ -65,7 +63,7 @@ val `Sanitize sharing links` by creatingBytecodePatch(
             oldFormatAndroidShareSheetUrlMethod
         }
 
-        shareSheetFingerprint.method.addInstructions(
+        shareSheetMethod!!.addInstructions(
             0,
             """
                 invoke-static { $shareUrlParameter }, $extensionMethodDescriptor

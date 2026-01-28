@@ -1,9 +1,6 @@
 package app.revanced.patches.tiktok.misc.settings
 
-import app.revanced.patcher.definingClass
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
-import app.revanced.patcher.name
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 
 internal val BytecodePatchContext.addSettingsEntryMethod by gettingFirstMutableMethodDeclaratively {
@@ -20,16 +17,9 @@ internal val BytecodePatchContext.settingsEntryMethod by gettingFirstMethodDecla
     "pls pass item or extends the EventUnit",
 )
 
-internal val BytecodePatchContext.settingsEntryInfoMethod by gettingFirstMethodDeclaratively {
-    strings(
-        "ExposeItem(title=",
-        ", icon=",
-    )
-}
+internal val BytecodePatchContext.settingsEntryInfoMethod by gettingFirstMethod("ExposeItem(title=", ", icon=")
 
 internal val BytecodePatchContext.settingsStatusLoadMethod by gettingFirstMethodDeclaratively {
-    custom { method, classDef ->
-        classDef.endsWith("Lapp/revanced/extension/tiktok/settings/SettingsStatus;") &&
-            method.name == "load"
-    }
+    name("load")
+    definingClass { endsWith("Lapp/revanced/extension/tiktok/settings/SettingsStatus;") }
 }

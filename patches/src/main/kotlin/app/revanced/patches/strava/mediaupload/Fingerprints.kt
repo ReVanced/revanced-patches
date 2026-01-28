@@ -1,19 +1,25 @@
 package app.revanced.patches.strava.mediaupload
 
-internal val BytecodePatchContext.getCompressionQualityMethod by gettingFirstMethodDeclaratively {
-    custom { method, _ ->
-        method.name == "getCompressionQuality"
-    }
+import app.revanced.patcher.definingClass
+import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.name
+import app.revanced.patcher.patch.BytecodePatchContext
+import com.android.tools.smali.dexlib2.iface.ClassDef
+
+context(_: BytecodePatchContext)
+internal fun ClassDef.getGetCompressionQualityMethod() = firstMutableMethodDeclaratively {
+    name("getCompressionQuality")
+    definingClass { endsWith("/MediaUploadParameters;") }
 }
 
-internal val BytecodePatchContext.getMaxDurationMethod by gettingFirstMethodDeclaratively {
-    custom { method, _ ->
-        method.name == "getMaxDuration"
-    }
+context(_: BytecodePatchContext)
+internal fun ClassDef.getGetMaxDurationMethod() = firstMutableMethodDeclaratively {
+    name("getMaxDuration")
+    definingClass { endsWith("/MediaUploadParameters;") }
 }
 
-internal val BytecodePatchContext.getMaxSizeMethod by gettingFirstMethodDeclaratively {
-    custom { method, _ ->
-        method.name == "getMaxSize"
-    }
+context(_: BytecodePatchContext)
+internal fun ClassDef.getGetMaxSizeMethod() = firstMutableMethodDeclaratively {
+    name("getMaxSize")
+    definingClass { endsWith("/MediaUploadParameters;") }
 }

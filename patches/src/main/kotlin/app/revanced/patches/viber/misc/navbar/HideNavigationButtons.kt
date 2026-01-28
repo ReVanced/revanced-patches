@@ -1,6 +1,7 @@
 package app.revanced.patches.viber.misc.navbar
 
 import app.revanced.patcher.extensions.addInstructionsWithLabels
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.creatingBytecodePatch
 import java.util.logging.Logger
@@ -8,7 +9,7 @@ import java.util.logging.Logger
 @Suppress("unused", "ObjectPropertyName")
 val `Hide navigation buttons` by creatingBytecodePatch(
     description = "Permanently hides navigation bar buttons, such as Explore and Marketplace.",
-    use = false
+    use = false,
 ) {
     compatibleWith("com.viber.voip")
 
@@ -26,7 +27,7 @@ val `Hide navigation buttons` by creatingBytecodePatch(
 
         if (allowedItems.size == AllowedNavigationItems.entries.size) {
             return@apply Logger.getLogger(this::class.java.name).warning(
-                "No hide navigation buttons options are enabled. No changes applied."
+                "No hide navigation buttons options are enabled. No changes applied.",
             )
         }
 
@@ -42,7 +43,7 @@ val `Hide navigation buttons` by creatingBytecodePatch(
                 nop
             """
 
-        shouldShowTabIdMethodFingerprint.method
+        tabIdClassMethod.immutableClassDef.getShouldShowTabIdMethod()
             .addInstructionsWithLabels(0, injectionInstructions)
     }
 }
@@ -54,7 +55,7 @@ val `Hide navigation buttons` by creatingBytecodePatch(
 private enum class AllowedNavigationItems(
     val defaultHideOption: Boolean,
     private val itemName: String,
-    private vararg val ids: Int
+    private vararg val ids: Int,
 ) {
     CHATS(false, "Chats", 0),
     CALLS(false, "Calls", 1, 7),
@@ -62,16 +63,16 @@ private enum class AllowedNavigationItems(
     MORE(false, "More", 3),
     PAY(true, "Pay", 5),
     CAMERA(true, "Camera", 6),
-    MARKETPLACE(true, "Marketplace", 8);
+    MARKETPLACE(true, "Marketplace", 8),
+    ;
 
     val optionName = "Hide $itemName"
     val description = "Permanently hides the $itemName button."
 
-    fun buildAllowInstruction(): String =
-        ids.joinToString("\n") { id ->
-            """
+    fun buildAllowInstruction(): String = ids.joinToString("\n") { id ->
+        """
                 const/4 v0, $id  # If tabId == $id ($itemName), don't hide it
                 if-eq p1, v0, :continue
             """
-        }
+    }
 }

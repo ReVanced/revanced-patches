@@ -145,7 +145,7 @@ val Settings by creatingBytecodePatch(
         )
 
         // Intercept onclick events for the settings menu
-        menuGroupsOnClickFingerprint.method.addInstructionsWithLabels(
+        menuGroupsOnClickMethod.addInstructionsWithLabels(
             0,
             """
                 invoke-static {p1}, $ACTIVITY_HOOKS_CLASS_DESCRIPTOR->handleSettingMenuOnClick(Ljava/lang/Enum;)Z
@@ -157,7 +157,7 @@ val Settings by creatingBytecodePatch(
             """,
             ExternalLabel(
                 "no_rv_settings_onclick",
-                menuGroupsOnClickFingerprint.method.getInstruction(0),
+                menuGroupsOnClickMethod.getInstruction(0),
             ),
         )
     }
