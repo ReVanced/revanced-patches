@@ -16,7 +16,7 @@ internal val BytecodePatchContext.fullscreenSeekbarThumbnailsMethod by gettingFi
     )
 }
 
-internal val playerSeekbarColorMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.playerSeekbarColorMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.COLOR("inline_time_bar_played_not_highlighted_color"),
@@ -25,7 +25,7 @@ internal val playerSeekbarColorMethodMatch = firstMethodComposite {
 }
 
 // class is ControlsOverlayStyle in 20.32 and lower, and obfuscated in 20.33+
-internal val setSeekbarClickedColorMethodMatch = firstMethodComposite(
+internal val BytecodePatchContext.setSeekbarClickedColorMethodMatch by composingFirstMethod(
     "YOUTUBE",
     "PREROLL",
     "POSTROLL",
@@ -35,14 +35,14 @@ internal val setSeekbarClickedColorMethodMatch = firstMethodComposite(
     opcodes(Opcode.CONST_HIGH16)
 }
 
-internal val shortsSeekbarColorMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.shortsSeekbarColorMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.COLOR("reel_time_bar_played_color"),
     )
 }
 
-internal val playerSeekbarHandle1ColorMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.playerSeekbarHandle1ColorMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.COLOR("inline_time_bar_live_seekable_range"),
@@ -50,7 +50,7 @@ internal val playerSeekbarHandle1ColorMethodMatch = firstMethodComposite {
     )
 }
 
-internal val playerSeekbarHandle2ColorMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.playerSeekbarHandle2ColorMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes("Landroid/content/Context;")
     instructions(
@@ -59,7 +59,7 @@ internal val playerSeekbarHandle2ColorMethodMatch = firstMethodComposite {
     )
 }
 
-internal val watchHistoryMenuUseProgressDrawableMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.watchHistoryMenuUseProgressDrawableMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")
@@ -79,7 +79,7 @@ internal val BytecodePatchContext.lithoLinearGradientMethod by gettingFirstMutab
 /**
  * 19.49+
  */
-internal val playerLinearGradientMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.playerLinearGradientMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     parameterTypes("I", "I", "I", "I", "Landroid/content/Context;", "I")
     returnType("Landroid/graphics/LinearGradient;")
@@ -94,7 +94,7 @@ internal val playerLinearGradientMethodMatch = firstMethodComposite {
 /**
  * 19.25 - 19.47
  */
-internal val playerLinearGradientLegacyMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.playerLinearGradientLegacyMethodMatch by composingFirstMethod {
     returnType("V")
     instructions(
         ResourceType.COLOR("yt_youtube_magenta"),

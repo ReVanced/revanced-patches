@@ -41,7 +41,7 @@ val hideGetMusicPremiumPatch = bytecodePatch(
         )
 
         hideGetPremiumMethodMatch.let {
-            val insertIndex = it.indices.last()
+            val insertIndex = it[-1]
 
             it.method.apply {
                 val setVisibilityInstruction = getInstruction<FiveRegisterInstruction>(insertIndex)

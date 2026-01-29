@@ -1,10 +1,10 @@
 package app.revanced.patches.shared.misc.spoof
 
 import app.revanced.patcher.accessFlags
+import app.revanced.patcher.composingFirstMethod
 import app.revanced.patcher.custom
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.extensions.methodReference
-import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.immutableClassDef
@@ -21,15 +21,15 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 
-internal val buildInitPlaybackRequestMatch = firstMethodComposite("Content-Type", "Range") {
-    returnType("Lorg/chromium/net/UrlRequest\$Builder;")
+internal val BytecodePatchContext.buildInitPlaybackRequestMethodMatch by composingFirstMethod("Content-Type", "Range") {
+    returnType($$"Lorg/chromium/net/UrlRequest$Builder;")
     instructions(
         Opcode.MOVE_RESULT_OBJECT(),
         Opcode.IGET_OBJECT(), // Moves the request URI string to a register to build the request with.
     )
 }
 
-internal val buildPlayerRequestURIMethodMatch = firstMethodComposite("key", "asig") {
+internal val BytecodePatchContext.buildPlayerRequestURIMethodMatch by composingFirstMethod("key", "asig") {
     returnType("Ljava/lang/String;")
     instructions(
         Opcode.INVOKE_VIRTUAL(), // Register holds player request URI.
@@ -41,7 +41,7 @@ internal val buildPlayerRequestURIMethodMatch = firstMethodComposite("key", "asi
     )
 }
 
-internal val buildRequestMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.buildRequestMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Lorg/chromium/net/UrlRequest") // UrlRequest; or UrlRequest$Builder;
     instructions(
@@ -80,8 +80,8 @@ internal val buildRequestMethodMatch = firstMethodComposite {
         val parameterTypes = parameterTypes
         val parameterTypesSize = parameterTypes.size
         (parameterTypesSize == 6 || parameterTypesSize == 7 || parameterTypesSize == 8) &&
-                parameterTypes[1] == "Ljava/util/Map;" && // URL headers.
-                indexOfNewUrlRequestBuilderInstruction(this) >= 0
+            parameterTypes[1] == "Ljava/util/Map;" && // URL headers.
+            indexOfNewUrlRequestBuilderInstruction(this) >= 0
     }
 }
 
@@ -98,7 +98,7 @@ internal val BytecodePatchContext.protobufClassParseByteBufferMethod by gettingF
     )
 }
 
-internal val createStreamingDataMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.createStreamingDataMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes("L")
     instructions(
@@ -131,7 +131,7 @@ internal val BytecodePatchContext.buildMediaDataSourceMethod by gettingFirstMuta
     )
 }
 
-internal val hlsCurrentTimeMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.hlsCurrentTimeMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("Z", "L")
     instructions(
@@ -141,7 +141,7 @@ internal val hlsCurrentTimeMethodMatch = firstMethodComposite {
 
 internal const val DISABLED_BY_SABR_STREAMING_URI_STRING = "DISABLED_BY_SABR_STREAMING_URI"
 
-internal val mediaFetchEnumConstructorMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.mediaFetchEnumConstructorMethodMatch by composingFirstMethod {
     returnType("V")
     instructions(
         "ENABLED"(),
@@ -170,13 +170,13 @@ internal val BytecodePatchContext.patchIncludedExtensionMethodMethod by gettingF
 // This code appears to replace the player config after the streams are loaded.
 // Flag is present in YouTube 19.34, but is missing Platypus stream replacement code until 19.43.
 // Flag and Platypus code is also present in newer versions of YouTube Music.
-internal val mediaFetchHotConfigMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.mediaFetchHotConfigMethodMatch by composingFirstMethod {
     instructions(45645570L())
 }
 
 // YT 20.10+, YT Music 8.11 - 8.14.
 // Flag is missing in YT Music 8.15+, and it is not known if a replacement flag/feature exists.
-internal val mediaFetchHotConfigAlternativeMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.mediaFetchHotConfigAlternativeMethodMatch by composingFirstMethod {
     instructions(45683169L())
 }
 
@@ -184,7 +184,7 @@ internal val mediaFetchHotConfigAlternativeMethodMatch = firstMethodComposite {
 // but its exact purpose is not known. If this flag is enabled while stream spoofing
 // then videos will never start playback and load forever.
 // Flag does not seem to affect playback if spoofing is off.
-internal val playbackStartDescriptorFeatureFlagMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.playbackStartDescriptorFeatureFlagMethodMatch by composingFirstMethod {
     parameterTypes()
     returnType("Z")
     instructions(45665455L())
@@ -194,9 +194,9 @@ internal fun indexOfNewUrlRequestBuilderInstruction(method: Method) = method.ind
     val reference = methodReference ?: return@indexOfFirstInstruction false
 
     opcode == Opcode.INVOKE_VIRTUAL && reference.definingClass == "Lorg/chromium/net/CronetEngine;" &&
-            reference.name == "newUrlRequestBuilder" &&
-            reference.parameterTypes.size == 3 &&
-            reference.parameterTypes[0] == "Ljava/lang/String;" &&
-            reference.parameterTypes[1] == "Lorg/chromium/net/UrlRequest\$Callback;" &&
-            reference.parameterTypes[2] == "Ljava/util/concurrent/Executor;"
+        reference.name == "newUrlRequestBuilder" &&
+        reference.parameterTypes.size == 3 &&
+        reference.parameterTypes[0] == "Ljava/lang/String;" &&
+        reference.parameterTypes[1] == "Lorg/chromium/net/UrlRequest\$Callback;" &&
+        reference.parameterTypes[2] == "Ljava/util/concurrent/Executor;"
 }

@@ -17,7 +17,7 @@ internal val BytecodePatchContext.lithoFilterMethod by gettingFirstMutableMethod
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
 }
 
-internal val protobufBufferReferenceMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.protobufBufferReferenceMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("[B")
@@ -72,7 +72,7 @@ internal val BytecodePatchContext.lithoComponentNameUpbFeatureFlagMethod by gett
     instructions(45631264L())
 }
 
-internal val lithoConverterBufferUpbFeatureFlagMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.lithoConverterBufferUpbFeatureFlagMethodMatch by composingFirstMethod {
     returnType("L")
     instructions(45419603L())
 }

@@ -211,9 +211,9 @@ val hideShortsComponentsPatch = bytecodePatch(
         // region Hide the navigation bar.
 
         // Hook to get the pivotBar view.
-        setPivotBarVisibilityMethodMatch.match(setPivotBarVisibilityParentMethod.immutableClassDef).let { match ->
+        setPivotBarVisibilityParentMethod.immutableClassDef.setPivotBarVisibilityMethodMatch.let { match ->
             match.method.apply {
-                val insertIndex = match.indices.last()
+                val insertIndex = match[-1]
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
                 addInstruction(
                     insertIndex,
@@ -240,7 +240,7 @@ val hideShortsComponentsPatch = bytecodePatch(
         // Hide the bottom bar container of the Shorts player.
         shortsBottomBarContainerMethodMatch.let {
             it.method.apply {
-                val targetIndex = it.indices.last()
+                val targetIndex = it[-1]
                 val heightRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                 addInstructions(

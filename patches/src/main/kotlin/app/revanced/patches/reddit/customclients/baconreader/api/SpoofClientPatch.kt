@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.baconreader.api
 
-import app.revanced.patcher.MatchBuilder
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
@@ -11,7 +11,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
     dependsOn(
         // Redirects from SSL to WWW domain are bugged causing auth problems.
         // Manually rewrite the URLs to fix this.
-        replaceStringPatch("ssl.reddit.com", "www.reddit.com")
+        replaceStringPatch("ssl.reddit.com", "www.reddit.com"),
     )
 
     compatibleWith(
@@ -22,8 +22,8 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
     val clientId by clientIdOption
 
     apply {
-        fun MatchBuilder.patch(replacementString: String) {
-            val clientIdIndex = indices.first()
+        fun Match.patch(replacementString: String) {
+            val clientIdIndex = get(0)
 
             val clientIdRegister = method.getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
             method.replaceInstruction(

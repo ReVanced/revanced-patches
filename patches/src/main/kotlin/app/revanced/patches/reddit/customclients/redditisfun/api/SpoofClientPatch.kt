@@ -1,7 +1,6 @@
 package app.revanced.patches.reddit.customclients.redditisfun.api
 
 import app.revanced.patcher.Match
-import app.revanced.patcher.MatchBuilder
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
@@ -31,11 +30,11 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "redditisfun://auth") { cl
          * @param getReplacementIndex A function that returns the index of the instruction to replace
          * using the [Match.indices] list from the [Match].
          */
-        fun MatchBuilder.replaceWith(
+        fun Match.replaceWith(
             string: String,
             getReplacementIndex: List<Int>.() -> Int,
         ) = method.apply {
-            val replacementIndex = indices.getReplacementIndex()
+            val replacementIndex = indices[0].getReplacementIndex()
             val clientIdRegister = getInstruction<OneRegisterInstruction>(replacementIndex).registerA
 
             replaceInstruction(replacementIndex, "const-string v$clientIdRegister, \"$string\"")

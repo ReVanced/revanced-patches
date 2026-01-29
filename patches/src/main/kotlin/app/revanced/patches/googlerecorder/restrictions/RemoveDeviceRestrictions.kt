@@ -14,7 +14,7 @@ val removeDeviceRestrictionsPatch = bytecodePatch(
     compatibleWith("com.google.android.apps.recorder")
 
     apply {
-        val featureStringIndex = onApplicationCreateMethodMatch.indices.first()
+        val featureStringIndex = onApplicationCreateMethodMatch[0]
 
         onApplicationCreateMethodMatch.method.apply {
             // Remove check for device restrictions.

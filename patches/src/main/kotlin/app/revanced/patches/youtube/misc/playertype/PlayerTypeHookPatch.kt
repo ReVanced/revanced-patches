@@ -31,7 +31,7 @@ val playerTypeHookPatch = bytecodePatch(
         )
 
         reelWatchPagerMethodMatch.method.apply {
-            val index = reelWatchPagerMethodMatch.indices.last()
+            val index = reelWatchPagerMethodMatch[-1]
             val register = getInstruction<OneRegisterInstruction>(index).registerA
 
             addInstruction(
@@ -57,7 +57,7 @@ val playerTypeHookPatch = bytecodePatch(
             )
         }.let {
             it.method.apply {
-                val videoStateFieldName = getInstruction<ReferenceInstruction>(it.indices.first()).reference
+                val videoStateFieldName = getInstruction<ReferenceInstruction>(it[0]).reference
 
                 addInstructions(
                     0,

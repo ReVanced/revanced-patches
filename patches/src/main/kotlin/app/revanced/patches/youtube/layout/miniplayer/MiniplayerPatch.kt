@@ -25,6 +25,7 @@ import app.revanced.util.*
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
@@ -235,7 +236,7 @@ val Miniplayer = bytecodePatch(
 
             // region Legacy tablet miniplayer hooks.
             miniplayerOverrideMethodMatch.let {
-                val appNameStringIndex = it.indices.last()
+                val appNameStringIndex = it[-1]
                 navigate(it.immutableMethod).to(appNameStringIndex).stop().apply {
                     findReturnIndicesReversed().forEach { index ->
                         insertLegacyTabletMiniplayerOverride(
@@ -246,7 +247,7 @@ val Miniplayer = bytecodePatch(
             }
 
             miniplayerResponseModelSizeCheckMethodMatch.let {
-                it.method.insertLegacyTabletMiniplayerOverride(it.indices.last())
+                it.method.insertLegacyTabletMiniplayerOverride(it[-1])
             }
         }
 
@@ -312,7 +313,7 @@ val Miniplayer = bytecodePatch(
             // Override a minimum size constant.
             miniplayerMinimumSizeMethodMatch.let {
                 it.method.apply {
-                    val index = it.indices[1]
+                    val index = it[1]
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                     // Smaller sizes can be used, but the miniplayer will always start in size 170 if set any smaller.
@@ -395,15 +396,17 @@ val Miniplayer = bytecodePatch(
         // region Add hooks to hide modern miniplayer buttons.
 
         listOf(
-            miniplayerModernExpandButtonMethodMatch to "hideMiniplayerExpandClose",
-            miniplayerModernCloseButtonMethodMatch to "hideMiniplayerExpandClose",
-            miniplayerModernActionButtonMethodMatch to "hideMiniplayerActionButton",
-            miniplayerModernRewindButtonMethodMatch to "hideMiniplayerRewindForward",
-            miniplayerModernForwardButtonMethodMatch to "hideMiniplayerRewindForward",
-            miniplayerModernOverlayViewMethodMatch to "adjustMiniplayerOpacity",
-        ).forEach { (match, methodName) ->
-            match.match(miniplayerModernViewParentMethod.immutableClassDef).method.apply {
-                val index = match.indices.last()
+            ClassDef::miniplayerModernExpandButtonMethodMatch to "hideMiniplayerExpandClose",
+            ClassDef::miniplayerModernCloseButtonMethodMatch to "hideMiniplayerExpandClose",
+            ClassDef::miniplayerModernActionButtonMethodMatch to "hideMiniplayerActionButton",
+            ClassDef::miniplayerModernRewindButtonMethodMatch to "hideMiniplayerRewindForward",
+            ClassDef::miniplayerModernForwardButtonMethodMatch to "hideMiniplayerRewindForward",
+            ClassDef::miniplayerModernOverlayViewMethodMatch to "adjustMiniplayerOpacity",
+        ).forEach { (matching, methodName) ->
+            val match = matching.get(miniplayerModernViewParentMethod.immutableClassDef)
+
+            match.method.apply {
+                val index = match[-1]
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstruction(

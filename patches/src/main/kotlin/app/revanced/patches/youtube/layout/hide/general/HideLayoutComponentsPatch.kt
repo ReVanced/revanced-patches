@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.general
 
-import app.revanced.patcher.MatchBuilder
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
@@ -230,7 +230,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         parseElementFromBufferMethodMatch.let {
             it.method.apply {
-                val startIndex = it.indices.first()
+                val startIndex = it[0]
                 val insertIndex = startIndex + 1
 
                 val byteArrayParameter = "p3"
@@ -280,7 +280,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         (if (is_20_26_or_greater) hideShowMoreButtonMethodMatch else hideShowMoreLegacyButtonMethodMatch).let {
             it.method.apply {
-                val moveRegisterIndex = it.indices.last()
+                val moveRegisterIndex = it[-1]
                 val viewRegister = getInstruction<OneRegisterInstruction>(moveRegisterIndex).registerA
 
                 val insertIndex = moveRegisterIndex + 1
@@ -297,7 +297,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region crowdfunding box
         crowdfundingBoxMethodMatch.let {
             it.method.apply {
-                val insertIndex = it.indices.last()
+                val insertIndex = it[-1]
                 val objectRegister = getInstruction<TwoRegisterInstruction>(insertIndex).registerA
 
                 addInstruction(
@@ -314,7 +314,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         albumCardsMethodMatch.let {
             it.method.apply {
-                val checkCastAnchorIndex = it.indices.last()
+                val checkCastAnchorIndex = it[-1]
                 val insertIndex = checkCastAnchorIndex + 1
                 val register = getInstruction<OneRegisterInstruction>(checkCastAnchorIndex).registerA
 
@@ -332,7 +332,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
 
         showFloatingMicrophoneButtonMethodMatch.let {
             it.method.apply {
-                val index = it.indices.last()
+                val index = it[-1]
                 val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
                 addInstructions(
@@ -369,7 +369,7 @@ val hideLayoutComponentsPatch = bytecodePatch(
         // region hide view count
 
         hideViewCountMethodMatch.method.apply {
-            val startIndex = hideViewCountMethodMatch.indices.first()
+            val startIndex = hideViewCountMethodMatch[0]
             var returnStringRegister = getInstruction<OneRegisterInstruction>(startIndex).registerA
 
             // Find the instruction where the text dimension is retrieved.
@@ -404,16 +404,16 @@ val hideLayoutComponentsPatch = bytecodePatch(
          * Patch a [Method] with a given [instructions].
          *
          * @param RegisterInstruction The type of instruction to get the register from.
-         * @param insertIndexOffset The offset to add to the end index of the [MatchBuilder.indices].
+         * @param insertIndexOffset The offset to add to the end index of the [Match.indices].
          * @param hookRegisterOffset The offset to add to the register of the hook.
          * @param instructions The instructions to add with the register as a parameter.
          */
-        fun <RegisterInstruction : OneRegisterInstruction> MatchBuilder.patch(
+        fun <RegisterInstruction : OneRegisterInstruction> Match.patch(
             insertIndexOffset: Int = 0,
             hookRegisterOffset: Int = 0,
             instructions: (Int) -> String,
         ) = method.apply {
-            val endIndex = indices.last()
+            val endIndex = get(-1)
             val insertIndex = endIndex + insertIndexOffset
             val register = getInstruction<RegisterInstruction>(endIndex + hookRegisterOffset).registerA
 

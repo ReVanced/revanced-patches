@@ -70,7 +70,7 @@ val overrideFeatureFlagsPatch = bytecodePatch(
             // This is equivalent to
             //   String forcedValue = getValueOverride(feature)
             //   if (forcedValue != null) return forcedValue
-            val getFeatureIndex = match.indices.first()
+            val getFeatureIndex = match[0]
             match.method.addInstructionsWithLabels(
                 getFeatureIndex,
                 """

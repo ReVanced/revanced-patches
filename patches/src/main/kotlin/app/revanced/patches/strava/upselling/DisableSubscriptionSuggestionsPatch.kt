@@ -50,7 +50,7 @@ val disableSubscriptionSuggestionsPatch = bytecodePatch("Disable subscription su
             },
         )
 
-        val getModulesIndex = getModulesMethodMatch.indices.first()
+        val getModulesIndex = getModulesMethodMatch[0]
         immutableMethod.removeInstruction(getModulesIndex)
         immutableMethod.addInstructions(
             getModulesIndex,

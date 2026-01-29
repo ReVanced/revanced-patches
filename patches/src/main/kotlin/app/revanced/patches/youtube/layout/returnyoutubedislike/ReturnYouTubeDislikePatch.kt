@@ -226,7 +226,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         rollingNumberSetterMethodMatch.method.apply {
             val insertIndex = 1
-            val dislikesIndex = rollingNumberSetterMethodMatch.indices.last()
+            val dislikesIndex = rollingNumberSetterMethodMatch[-1]
             val charSequenceInstanceRegister = getInstruction<OneRegisterInstruction>(0).registerA
             val charSequenceFieldReference = getInstruction<ReferenceInstruction>(dislikesIndex).reference
 
@@ -249,8 +249,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
         // Modify the measure text calculation to include the left drawable separator if needed.
         rollingNumberMeasureAnimatedTextMethodMatch.let {
             // Additional check to verify the opcodes are at the start of the method
-            if (it.indices.first() != 0) throw PatchException("Unexpected opcode location")
-            val endIndex = it.indices.last()
+            if (it[0] != 0) throw PatchException("Unexpected opcode location")
+            val endIndex = it[-1]
 
             it.method.apply {
                 val measuredTextWidthRegister = getInstruction<OneRegisterInstruction>(endIndex).registerA
@@ -267,10 +267,8 @@ val returnYouTubeDislikePatch = bytecodePatch(
 
         // Additional text measurement method. Used if YouTube decides not to animate the likes count
         // and sometimes used for initial video load.
-        rollingNumberMeasureStaticLabelMethod.match(
-            rollingNumberMeasureStaticLabelParentMethod.immutableClassDef,
-        ).let {
-            val measureTextIndex = it.indices.first() + 1
+        rollingNumberMeasureStaticLabelParentMethod.immutableClassDef.rollingNumberMeasureStaticLabelMethodMatch.let {
+            val measureTextIndex = it[0] + 1
             it.method.apply {
                 val freeRegister = getInstruction<TwoRegisterInstruction>(0).registerA
 

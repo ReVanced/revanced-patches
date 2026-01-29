@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.Opcode
  * the obfuscated name of the videoId() method in PlaybackStartDescriptor.
  * 20.38 and lower.
  */
-internal val playbackStartFeatureFlagMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.playbackStartFeatureFlagMethodMatch by composingFirstMethod {
     returnType("Z")
     parameterTypes("Lcom/google/android/libraries/youtube/player/model/PlaybackStartDescriptor;")
     instructions(
@@ -28,7 +28,7 @@ internal val playbackStartFeatureFlagMethodMatch = firstMethodComposite {
  * the obfuscated name of the videoId() method in PlaybackStartDescriptor.
  * 20.39+
  */
-internal val watchPanelVideoIdMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.watchPanelVideoIdMethodMatch by composingFirstMethod {
     returnType("Ljava/lang/String;")
     parameterTypes()
     instructions(
@@ -53,7 +53,7 @@ internal val watchPanelVideoIdMethodMatch = firstMethodComposite {
 }
 
 // Pre 19.25
-internal val shortsPlaybackIntentLegacyMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.shortsPlaybackIntentLegacyMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes(

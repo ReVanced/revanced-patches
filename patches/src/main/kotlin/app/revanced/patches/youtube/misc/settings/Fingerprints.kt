@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 internal val BytecodePatchContext.licenseActivityOnCreateMethod by gettingFirstMutableMethodDeclaratively {
     name("onCreate")
-    definingClass("/LicenseActivity;")
+    definingClass { endsWith("/LicenseActivity;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/os/Bundle;")
@@ -21,7 +21,7 @@ internal val BytecodePatchContext.setThemeMethod by gettingFirstMutableMethodDec
     instructions(ResourceType.STRING("app_theme_appearance_dark"))
 }
 
-internal val cairoFragmentConfigMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.cairoFragmentConfigMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     instructions(
@@ -32,7 +32,7 @@ internal val cairoFragmentConfigMethodMatch = firstMethodComposite {
 
 // Flag is present in 20.23, but bold icons are missing and forcing them crashes the app.
 // 20.31 is the first target with all the bold icons present.
-internal val boldIconsFeatureFlagMethod = firstMethodComposite {
+internal val BytecodePatchContext.boldIconsFeatureFlagMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

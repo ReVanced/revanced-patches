@@ -18,7 +18,7 @@ val spoofClientPatch = spoofClientPatch(
         disablePiracyDetectionPatch,
         // Redirects from SSL to WWW domain are bugged causing auth problems.
         // Manually rewrite the URLs to fix this.
-        replaceStringPatch("ssl.reddit.com", "www.reddit.com")
+        replaceStringPatch("ssl.reddit.com", "www.reddit.com"),
     )
 
     compatibleWith(
@@ -32,11 +32,11 @@ val spoofClientPatch = spoofClientPatch(
     apply {
         // region Patch client id.
 
-        getBearerTokenMethodMatch.match(getAuthorizationStringMethodMatch.immutableClassDef).method.apply {
+        getAuthorizationStringMethodMatch.immutableClassDef.getBearerTokenMethodMatch.method.apply {
             val auth = Base64.getEncoder().encodeToString("$clientId:".toByteArray(Charsets.UTF_8))
             returnEarly("Basic $auth")
 
-            val occurrenceIndex = getAuthorizationStringMethodMatch.indices.first()
+            val occurrenceIndex = getAuthorizationStringMethodMatch[0]
 
             getAuthorizationStringMethodMatch.method.apply {
                 val authorizationStringInstruction = getInstruction<OneRegisterInstruction>(occurrenceIndex)
@@ -68,7 +68,7 @@ val spoofClientPatch = spoofClientPatch(
 
         // region Patch Imgur API URL.
 
-        val apiUrlIndex = imgurImageAPIMethodMatch.indices.first()
+        val apiUrlIndex = imgurImageAPIMethodMatch[0]
         imgurImageAPIMethodMatch.method.replaceInstruction(
             apiUrlIndex,
             "const-string v1, \"https://api.imgur.com/3/image\"",

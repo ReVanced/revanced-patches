@@ -1,7 +1,7 @@
 package app.revanced.patches.youtube.video.quality
 
 import app.revanced.patcher.accessFlags
-import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.composingFirstMethod
 import app.revanced.patcher.firstMutableMethodDeclaratively
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.name
@@ -32,7 +32,7 @@ internal fun ClassDef.getVideoQualityItemOnClickMethod() = firstMutableMethodDec
     )
 }
 
-internal val videoQualityMenuOptionsMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.videoQualityMenuOptionsMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.STATIC)
     returnType("[L")
     parameterTypes("Landroid/content/Context", "L", "L")
@@ -46,7 +46,7 @@ internal val videoQualityMenuOptionsMethodMatch = firstMethodComposite {
     literal { videoQualityQuickMenuAdvancedMenuDescription }
 }
 
-internal val videoQualityMenuViewInflateMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.videoQualityMenuViewInflateMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes("L", "L", "L")

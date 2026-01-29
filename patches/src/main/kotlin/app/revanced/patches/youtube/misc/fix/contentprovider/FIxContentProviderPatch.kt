@@ -20,7 +20,7 @@ internal val fixContentProviderPatch = bytecodePatch {
 
     apply {
         unstableContentProviderMethodMatch.let {
-            val insertIndex = it.indices.first()
+            val insertIndex = it[0]
 
             it.method.apply {
                 val register = getInstruction<FiveRegisterInstruction>(insertIndex).registerD

@@ -15,7 +15,7 @@ val hideSuggestedContentPatch = bytecodePatch(
 
     apply {
         feedItemParseFromJsonMethodMatch.method.apply {
-            feedItemParseFromJsonMethodMatch.indices.forEach { targetStringIndex ->
+            feedItemParseFromJsonMethodMatch.indices[0].forEach { targetStringIndex ->
                 val targetStringRegister = getInstruction<OneRegisterInstruction>(targetStringIndex).registerA
 
                 replaceInstruction(targetStringIndex, "const-string v$targetStringRegister, \"BOGUS\"")

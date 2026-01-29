@@ -12,7 +12,7 @@ val unlockThemesPatch = bytecodePatch(
     compatibleWith("com.ticktick.task")
 
     apply {
-        checkLockedThemesFingerprint.addInstructions(
+        checkLockedThemesMethod.addInstructions(
             0,
             """
             const/4 v0, 0x0

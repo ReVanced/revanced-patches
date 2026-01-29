@@ -50,17 +50,17 @@ val seekbarColorPatch = bytecodePatch(
 
         playerSeekbarColorMethodMatch.let {
             it.method.apply {
-                addColorChangeInstructions(it.indices.last())
-                addColorChangeInstructions(it.indices.first())
+                addColorChangeInstructions(it[-1])
+                addColorChangeInstructions(it[0])
             }
         }
 
         shortsSeekbarColorMethodMatch.let {
-            it.method.addColorChangeInstructions(it.indices.first())
+            it.method.addColorChangeInstructions(it[0])
         }
 
         setSeekbarClickedColorMethodMatch.immutableMethod.let {
-            val setColorMethodIndex = setSeekbarClickedColorMethodMatch.indices.first() + 1
+            val setColorMethodIndex = setSeekbarClickedColorMethodMatch[0] + 1
 
             navigate(it).to(setColorMethodIndex).stop().apply {
                 val colorRegister = getInstruction<TwoRegisterInstruction>(0).registerA
@@ -78,12 +78,12 @@ val seekbarColorPatch = bytecodePatch(
 
         // 19.25+ changes
 
-        var handleBarColorFingerprints = mutableListOf(playerSeekbarHandle1ColorMethodMatch)
+        var handleBarColorMethodMatches = mutableListOf(playerSeekbarHandle1ColorMethodMatch)
         if (!is_20_34_or_greater) {
-            handleBarColorFingerprints += playerSeekbarHandle2ColorMethodMatch
+            handleBarColorMethodMatches += playerSeekbarHandle2ColorMethodMatch
         }
-        handleBarColorFingerprints.forEach {
-            it.method.addColorChangeInstructions(it.indices.last())
+        handleBarColorMethodMatches.forEach {
+            it.method.addColorChangeInstructions(it[-1])
         }
 
         // If hiding feed seekbar thumbnails, then turn off the cairo gradient
@@ -92,7 +92,7 @@ val seekbarColorPatch = bytecodePatch(
         if (is_19_34_or_greater) {
             watchHistoryMenuUseProgressDrawableMethodMatch.let {
                 it.method.apply {
-                    val index = it.indices[1]
+                    val index = it[1]
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                     addInstructions(
@@ -114,7 +114,7 @@ val seekbarColorPatch = bytecodePatch(
             """,
         )
 
-        val playerMatch: MatchBuilder
+        val playerMatch: Match
         val checkGradientCoordinates: Boolean
         if (is_19_49_or_greater) {
             playerMatch = playerLinearGradientMethodMatch
@@ -126,7 +126,7 @@ val seekbarColorPatch = bytecodePatch(
 
         playerMatch.let {
             it.method.apply {
-                val index = it.indices.last()
+                val index = it[-1]
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(

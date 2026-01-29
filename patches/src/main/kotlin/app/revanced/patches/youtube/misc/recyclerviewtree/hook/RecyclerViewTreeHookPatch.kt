@@ -12,7 +12,7 @@ val recyclerViewTreeHookPatch = bytecodePatch {
 
     apply {
         recyclerViewTreeObserverMethodMatch.let {
-            val insertIndex = it.indices.first() + 1
+            val insertIndex = it[0] + 1
             val recyclerViewParameter = 2
 
             addRecyclerViewTreeHook = { classDescriptor ->

@@ -2,6 +2,7 @@ package app.revanced.patches.duolingo.energy
 
 import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.findFieldFromToString
 
@@ -13,17 +14,19 @@ val skipEnergyRechargeAdsPatch = bytecodePatch(
     compatibleWith("com.duolingo")
 
     apply {
-        initializeEnergyConfigMethodMatch.match(energyConfigToStringMethod.classDef).method.apply {
-            val energyField = energyConfigToStringMethod.findFieldFromToString("energy=")
-            val insertIndex = initializeEnergyConfigMethodMatch.indices.first() // TODO
+        energyConfigToStringMethod.immutableClassDef.initializeEnergyConfigMethodMatch.let {
+            it.method.apply {
+                val energyField = energyConfigToStringMethod.findFieldFromToString("energy=")
+                val insertIndex = it[0]
 
-            addInstructions(
-                insertIndex,
-                """
+                addInstructions(
+                    insertIndex,
+                    """
                     const/16 v0, 99
                     iput v0, p0, $energyField
                 """,
-            )
+                )
+            }
         }
     }
 }

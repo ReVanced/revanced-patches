@@ -1,10 +1,11 @@
 package app.revanced.patches.youtube.layout.buttons.navigation
 
 import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val addCreateButtonViewMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.addCreateButtonViewMethodMatch by composingFirstMethod {
     instructions(
         "Android Wear"(),
         Opcode.IF_EQZ(),
@@ -12,7 +13,7 @@ internal val addCreateButtonViewMethodMatch = firstMethodComposite {
     )
 }
 
-internal val createPivotBarMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.createPivotBarMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes(
         "Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;",
@@ -25,7 +26,7 @@ internal val createPivotBarMethodMatch = firstMethodComposite {
     )
 }
 
-internal val animatedNavigationTabsFeatureFlagMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.animatedNavigationTabsFeatureFlagMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     instructions(
@@ -33,7 +34,7 @@ internal val animatedNavigationTabsFeatureFlagMethodMatch = firstMethodComposite
     )
 }
 
-internal val translucentNavigationStatusBarFeatureFlagMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.translucentNavigationStatusBarFeatureFlagMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     instructions(
@@ -44,7 +45,7 @@ internal val translucentNavigationStatusBarFeatureFlagMethodMatch = firstMethodC
 /**
  * YouTube nav buttons.
  */
-internal val translucentNavigationButtonsFeatureFlagMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.translucentNavigationButtonsFeatureFlagMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     instructions(
@@ -55,7 +56,7 @@ internal val translucentNavigationButtonsFeatureFlagMethodMatch = firstMethodCom
 /**
  * Device on screen back/home/recent buttons.
  */
-internal val translucentNavigationButtonsSystemFeatureFlagMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.translucentNavigationButtonsSystemFeatureFlagMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     instructions(

@@ -1,8 +1,9 @@
 package app.revanced.patches.youtube.interaction.dialog
 
 import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val createDialogMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.createDialogMethodMatch by composingFirstMethod {
     returnType("V")
     parameterTypes("L", "L", "Ljava/lang/String;")
     instructions(

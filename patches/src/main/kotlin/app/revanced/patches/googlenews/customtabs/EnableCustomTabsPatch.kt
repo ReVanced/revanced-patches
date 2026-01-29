@@ -14,7 +14,7 @@ val enableCustomTabsPatch = bytecodePatch(
 
     apply {
         launchCustomTabMethodMatch.method.apply {
-            val checkIndex = launchCustomTabMethodMatch.indices.last() + 1
+            val checkIndex = launchCustomTabMethodMatch[-1] + 1
             val register = getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
             replaceInstruction(checkIndex, "const/4 v$register, 0x1")

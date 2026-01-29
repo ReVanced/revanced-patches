@@ -21,7 +21,7 @@ val enableDeveloperMenuPatch = bytecodePatch(
 
     apply {
         clearNotificationReceiverMethodMatch.let {
-            val stringIndex = it.indices.first()
+            val stringIndex = it[0]
 
             it.immutableMethod.indexOfFirstInstructionReversedOrThrow(stringIndex) {
                 val reference = methodReference

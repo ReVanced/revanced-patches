@@ -39,7 +39,7 @@ internal fun forceOriginalAudioPatch(
     subclassExtensionClassDescriptor: String,
     preferenceScreen: BasePreferenceScreen.Screen,
 ) = bytecodePatch(
-    name = "Force original audio", // TODO
+    name = "Force original audio",
     description = "Adds an option to always use the original audio track.",
 ) {
     block()
@@ -65,7 +65,7 @@ internal fun forceOriginalAudioPatch(
         // and instead overrides to the user region language.
         if (fixUseLocalizedAudioTrackFlag()) {
             selectAudioStreamMethodMatch.method.insertLiteralOverride(
-                selectAudioStreamMethodMatch.indices.first(),
+                selectAudioStreamMethodMatch[0],
                 "$EXTENSION_CLASS_DESCRIPTOR->ignoreDefaultAudioStream(Z)Z",
             )
         }

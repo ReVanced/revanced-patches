@@ -1,10 +1,11 @@
 package app.revanced.patches.music.ad.video
 
-import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.composingFirstMethod
 import app.revanced.patcher.opcodes
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val showVideoAdsParentMethodMatch = firstMethodComposite(
+internal val BytecodePatchContext.showVideoAdsParentMethodMatch by composingFirstMethod(
     "maybeRegenerateCpnAndStatsClient called unexpectedly, but no error.",
 ) {
     opcodes(

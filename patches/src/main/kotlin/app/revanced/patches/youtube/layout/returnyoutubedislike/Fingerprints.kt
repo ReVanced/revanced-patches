@@ -22,7 +22,7 @@ internal val BytecodePatchContext.removeLikeMethod by gettingFirstMutableMethodD
     instructions("like/removelike"())
 }
 
-internal val rollingNumberMeasureAnimatedTextMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.rollingNumberMeasureAnimatedTextMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Lj\$/util/Optional;")
     parameterTypes("L", "Ljava/lang/String;", "L")
@@ -43,7 +43,7 @@ internal val rollingNumberMeasureAnimatedTextMethodMatch = firstMethodComposite 
 /**
  * Matches to class found in [rollingNumberMeasureStaticLabelParentMethod].
  */
-internal val rollingNumberMeasureStaticLabelMethod = firstMethodComposite {
+internal val ClassDef.rollingNumberMeasureStaticLabelMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("F")
     parameterTypes("Ljava/lang/String;")
@@ -64,17 +64,14 @@ internal val BytecodePatchContext.rollingNumberMeasureStaticLabelParentMethod by
     )
 }
 
-internal val rollingNumberSetterMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.rollingNumberSetterMethodMatch by composingFirstMethod {
     opcodes(
         Opcode.INVOKE_DIRECT,
         Opcode.IGET_OBJECT,
     )
-    custom {
-        instructions.matchIndexed(
-            "string",
-            "RollingNumberType required properties missing! Need"(String::contains),
-        )
-    }
+
+    val match = indexedMatcher("RollingNumberType required properties missing! Need"(String::contains))
+    custom { match(instructions) }
 }
 
 internal val BytecodePatchContext.rollingNumberTextViewMethod by gettingFirstMutableMethodDeclaratively {

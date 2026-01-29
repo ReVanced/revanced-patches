@@ -12,8 +12,8 @@ internal val BytecodePatchContext.numberOfPresetAppNamesExtensionMethod by getti
     parameterTypes()
 }
 
-// A much simpler fingerprint exists that can set the small icon (contains string "414843287017"),
-// but that has limited usage and this fingerprint allows changing any part of the notification.
+// A much simpler method exists that can set the small icon (contains string "414843287017"),
+// but that has limited usage and this one allows changing any part of the notification.
 internal val BytecodePatchContext.notificationMethod by gettingFirstMutableMethodDeclaratively(
     "key_action_priority",
 ) {

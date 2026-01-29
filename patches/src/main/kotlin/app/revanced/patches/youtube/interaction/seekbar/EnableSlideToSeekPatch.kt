@@ -43,7 +43,7 @@ val enableSlideToSeekPatch = bytecodePatch(
 
         // Restore the behaviour to slide to seek.
 
-        val checkIndex = slideToSeekMethodMatch.indices.first()
+        val checkIndex = slideToSeekMethodMatch[0]
         val checkReference = slideToSeekMethodMatch.method.getInstruction(checkIndex)
             .getReference<MethodReference>()!!
 
@@ -76,7 +76,7 @@ val enableSlideToSeekPatch = bytecodePatch(
         if (is_19_17_or_greater) {
             disableFastForwardGestureMethodMatch.let {
                 it.method.apply {
-                    val targetIndex = it.indices.last()
+                    val targetIndex = it[-1]
                     val targetRegister = getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
                     addInstructions(
@@ -91,7 +91,7 @@ val enableSlideToSeekPatch = bytecodePatch(
         } else {
             disableFastForwardLegacyMethodMatch.let {
                 it.method.apply {
-                    val insertIndex = it.indices.last() + 1
+                    val insertIndex = it[-1] + 1
                     val targetRegister = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(

@@ -1,9 +1,10 @@
 package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.video
 
 import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val parseRedditVideoNetworkResponseMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.parseRedditVideoNetworkResponseMethodMatch by composingFirstMethod {
     name("parseNetworkResponse")
     opcodes(
         Opcode.NEW_INSTANCE,

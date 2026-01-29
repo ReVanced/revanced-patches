@@ -40,7 +40,7 @@ val permanentRepeatPatch = bytecodePatch(
         )
 
         repeatTrackMethodMatch.method.apply {
-            val startIndex = repeatTrackMethodMatch.indices.last()
+            val startIndex = repeatTrackMethodMatch[-1]
             val repeatIndex = startIndex + 1
 
             // Start index is at a branch, but the same

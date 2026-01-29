@@ -11,7 +11,7 @@ val hideAdsPatch = bytecodePatch(
     compatibleWith("at.willhaben")
 
     apply {
-        adResolverMethod.returnEarly() // TODO
+        adResolverMethod.returnEarly()
         whAdViewInjectorMethod.returnEarly()
     }
 }

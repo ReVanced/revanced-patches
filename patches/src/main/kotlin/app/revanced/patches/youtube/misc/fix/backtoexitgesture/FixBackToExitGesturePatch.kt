@@ -18,13 +18,13 @@ internal val fixBackToExitGesturePatch = bytecodePatch(
     apply {
         with(recyclerViewTopScrollingMethodMatch) {
             method.addInstructionsAtControlFlowLabel(
-                indices.last() + 1,
+                recyclerViewTopScrollingMethodMatch[-1] + 1,
                 "invoke-static { }, $EXTENSION_CLASS_DESCRIPTOR->onTopView()V",
             )
         }
 
         with(scrollPositionMethodMatch) {
-            navigate(immutableMethod).to(indices.first() + 1).stop().apply {
+            navigate(immutableMethod).to(scrollPositionMethodMatch[0] + 1).stop().apply {
                 val index = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.INVOKE_VIRTUAL && getReference<MethodReference>()?.definingClass ==
                         "Landroid/support/v7/widget/RecyclerView;"

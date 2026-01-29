@@ -95,7 +95,7 @@ val videoIdPatch = bytecodePatch(
         videoIdParentMethodMatch.immutableClassDef.getVideoIdMethodMatch().let {
             videoIdMethod = it.method
 
-            val index = it.indices.first()
+            val index = it[0]
             videoIdRegister = it.method.getInstruction<OneRegisterInstruction>(index + 1).registerA
             videoIdInsertIndex = index + 2
         }
@@ -103,7 +103,7 @@ val videoIdPatch = bytecodePatch(
         videoIdBackgroundPlayMethodMatch.let {
             backgroundPlaybackMethod = it.method
 
-            val index = it.indices.first()
+            val index = it[0]
             backgroundPlaybackVideoIdRegister = it.method.getInstruction<OneRegisterInstruction>(index + 1).registerA
             backgroundPlaybackInsertIndex = index + 2
         }

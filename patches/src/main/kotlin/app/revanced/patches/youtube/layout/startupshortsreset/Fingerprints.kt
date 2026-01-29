@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * 20.02+
  */
-internal val userWasInShortsAlternativeMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.userWasInShortsAlternativeMethodMatch by composingFirstMethod {
     returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("Ljava/lang/Object;")

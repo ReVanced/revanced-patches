@@ -94,7 +94,7 @@ val lithoFilterPatch = bytecodePatch(
             protobufBufferReferenceMethodMatch.let {
                 // Hook the buffer after the call to jniDecode().
                 it.method.addInstruction(
-                    it.indices.last() + 1,
+                    it[-1] + 1,
                     "invoke-static { p1 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer([B)V",
                 )
             }
@@ -201,7 +201,7 @@ val lithoFilterPatch = bytecodePatch(
             // 20.22 the flag is still enabled in one location, but what it does is not known.
             // Disable it anyway.
             it.method.insertLiteralOverride(
-                it.indices.first(),
+                it[0],
                 false,
             )
         }

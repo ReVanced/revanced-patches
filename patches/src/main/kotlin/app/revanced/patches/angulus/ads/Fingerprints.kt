@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 //     dailyAdResetCount
 //     MeasurementPrefs
 
-// This fingerprint targets a method that returns the daily measurement count.
+// This targets a method that returns the daily measurement count.
 // This method is used to determine if the user has reached the daily limit of measurements.
 internal val BytecodePatchContext.getDailyMeasurementCountMethod by gettingFirstMutableMethodDeclaratively("dailyMeasurementCount") {
     accessFlags(AccessFlags.PRIVATE)

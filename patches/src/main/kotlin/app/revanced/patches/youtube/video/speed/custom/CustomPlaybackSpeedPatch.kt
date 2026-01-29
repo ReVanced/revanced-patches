@@ -97,15 +97,15 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                 val playbackSpeedsArrayType = "$EXTENSION_CLASS_DESCRIPTOR->customPlaybackSpeeds:[F"
                 // Apply changes from last index to first to preserve indexes.
 
-                val originalArrayFetchIndex = it.indices[5]
-                val originalArrayFetchDestination = getInstruction<OneRegisterInstruction>(it.indices[5]).registerA
+                val originalArrayFetchIndex = it[5]
+                val originalArrayFetchDestination = getInstruction<OneRegisterInstruction>(it[5]).registerA
                 replaceInstruction(
                     originalArrayFetchIndex,
                     "sget-object v$originalArrayFetchDestination, $playbackSpeedsArrayType",
                 )
 
-                val arrayLengthConstDestination = getInstruction<OneRegisterInstruction>(it.indices[3]).registerA
-                val newArrayIndex = it.indices[4]
+                val arrayLengthConstDestination = getInstruction<OneRegisterInstruction>(it[3]).registerA
+                val newArrayIndex = it[4]
                 addInstructions(
                     newArrayIndex,
                     """
@@ -114,7 +114,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
                     """,
                 )
 
-                val sizeCallIndex = it.indices[0] + 1
+                val sizeCallIndex = it[0] + 1
                 val sizeCallResultRegister = getInstruction<OneRegisterInstruction>(sizeCallIndex).registerA
                 replaceInstruction(sizeCallIndex, "const/4 v$sizeCallResultRegister, 0x0")
             }
@@ -172,7 +172,7 @@ internal val customPlaybackSpeedPatch = bytecodePatch(
         if (is_19_47_or_greater) {
             customTapAndHoldMethodMatch.let {
                 it.method.apply {
-                    val index = it.indices.first()
+                    val index = it[0]
                     val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                     addInstructions(

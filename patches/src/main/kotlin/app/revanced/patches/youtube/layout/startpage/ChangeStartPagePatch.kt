@@ -58,7 +58,7 @@ val changeStartPagePatch = bytecodePatch(
         // Hook browseId.
         browseIdMethodMatch.let {
             it.method.apply {
-                val browseIdIndex = it.indices.first()
+                val browseIdIndex = it[0]
                 val browseIdRegister = getInstruction<OneRegisterInstruction>(browseIdIndex).registerA
 
                 addInstructions(

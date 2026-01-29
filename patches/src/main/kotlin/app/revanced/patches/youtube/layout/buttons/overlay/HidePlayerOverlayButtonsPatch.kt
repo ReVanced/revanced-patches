@@ -32,7 +32,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
         sharedExtensionPatch,
         settingsPatch,
         addResourcesPatch,
-        resourceMappingPatch, // Used by fingerprints.
+        resourceMappingPatch, // Used for finding methods.
         versionCheckPatch,
     )
 
@@ -59,7 +59,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
         // region Hide player next/previous button.
 
         getLayoutConstructorMethodMatch().let {
-            val insertIndex = it.indices.last()
+            val insertIndex = it[-1]
             val viewRegister = it.method.getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
             it.method.addInstruction(
@@ -87,7 +87,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
                 castButtonActionFeatureFlagMethodMatch,
             ).forEach { match ->
                 match.method.insertLiteralOverride(
-                    match.indices.first(),
+                    match[0],
                     "$EXTENSION_CLASS_DESCRIPTOR->getCastButtonOverrideV2(Z)Z",
                 )
             }
@@ -139,7 +139,7 @@ val hidePlayerOverlayButtonsPatch = bytecodePatch(
 
         inflateControlsGroupLayoutStubMethodMatch.let {
             it.method.apply {
-                val insertIndex = it.indices.last() + 1
+                val insertIndex = it[-1] + 1
                 val freeRegister = findFreeRegister(insertIndex)
 
                 addInstructions(

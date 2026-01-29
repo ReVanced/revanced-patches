@@ -1,12 +1,13 @@
 package app.revanced.patches.solidexplorer2.functionality.filesize
 
+import app.revanced.patcher.composingFirstMethod
 import app.revanced.patcher.definingClass
-import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.name
 import app.revanced.patcher.opcodes
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val onReadyMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.onReadyMethodMatch by composingFirstMethod {
     name("onReady")
     definingClass("Lpl/solidexplorer/plugins/texteditor/TextEditor;")
     opcodes(

@@ -21,8 +21,8 @@ import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.getLayoutConstructorMethodMatch
-import app.revanced.patches.youtube.shared.getSeekbarOnDrawMethodMatch
 import app.revanced.patches.youtube.shared.seekbarMethod
+import app.revanced.patches.youtube.shared.seekbarOnDrawMethodMatch
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.information.videoTimeHook
@@ -149,10 +149,10 @@ val SponsorBlock = bytecodePatch(
 
         // Set seekbar draw rectangle.
         val rectangleFieldName: FieldReference
-        rectangleFieldInvalidatorMethodMatch.match(seekbarMethod.immutableClassDef).let {
+        seekbarMethod.immutableClassDef.rectangleFieldInvalidatorMethodMatch.let {
             it.method.apply {
                 val rectangleIndex = indexOfFirstInstructionReversedOrThrow(
-                    it.indices.first(),
+                    it[0],
                 ) {
                     getReference<FieldReference>()?.type == "Landroid/graphics/Rect;"
                 }
@@ -164,10 +164,10 @@ val SponsorBlock = bytecodePatch(
 
         // Cannot match using original immutable class because
         // class may have been modified by other patches
-        getSeekbarOnDrawMethodMatch().match(seekbarMethod.immutableClassDef).let {
+        seekbarMethod.immutableClassDef.seekbarOnDrawMethodMatch.let {
             it.method.apply {
                 // Set seekbar thickness.
-                val thicknessIndex = it.indices.last()
+                val thicknessIndex = it[-1]
                 val thicknessRegister = getInstruction<OneRegisterInstruction>(thicknessIndex).registerA
                 addInstruction(
                     thicknessIndex + 1,
@@ -212,7 +212,7 @@ val SponsorBlock = bytecodePatch(
         // Append the new time to the player layout.
         appendTimeMethodMatch.let {
             it.method.apply {
-                val index = it.indices.last()
+                val index = it[-1]
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstructions(
@@ -229,8 +229,8 @@ val SponsorBlock = bytecodePatch(
         onCreateHook(EXTENSION_SEGMENT_PLAYBACK_CONTROLLER_CLASS_DESCRIPTOR, "initialize")
 
         // Initialize the SponsorBlock view.
-        controlsOverlayMethodMatch.match(getLayoutConstructorMethodMatch().immutableClassDef).let {
-            val checkCastIndex = it.indices.last()
+        getLayoutConstructorMethodMatch().immutableClassDef.controlsOverlayMethodMatch.let {
+            val checkCastIndex = it[-1]
 
             it.method.apply {
                 val frameLayoutRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
@@ -242,7 +242,7 @@ val SponsorBlock = bytecodePatch(
         }
 
         adProgressTextViewVisibilityMethodMatch.let {
-            val setVisibilityIndex = it.indices.first()
+            val setVisibilityIndex = it[0]
             val register = it.method.getInstruction<FiveRegisterInstruction>(setVisibilityIndex).registerD
 
             it.method.addInstructionsAtControlFlowLabel(

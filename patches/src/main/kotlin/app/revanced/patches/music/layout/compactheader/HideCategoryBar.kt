@@ -45,7 +45,7 @@ val hideCategoryBarPatch = bytecodePatch(
         chipCloud = ResourceType.LAYOUT["chip_cloud"]
 
         chipCloudMethodMatch.let {
-            val targetIndex = it.indices.last()
+            val targetIndex = it[-1]
             val targetRegister = it.method.getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
             it.method.addInstruction(

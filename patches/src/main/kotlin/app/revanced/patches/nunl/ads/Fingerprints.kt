@@ -14,7 +14,7 @@ import com.android.tools.smali.dexlib2.Opcode val BytecodePatchContext.jwPlayerC
     accessFlags(AccessFlags.PUBLIC)
 }
 
-internal val screenMapperMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.screenMapperMethodMatch by composingFirstMethod {
     name("map")
     definingClass("Lnl/nu/android/bff/data/mappers/ScreenMapper;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -27,7 +27,7 @@ internal val screenMapperMethodMatch = firstMethodComposite {
     )
 }
 
-internal val nextPageRepositoryImplMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.nextPageRepositoryImplMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("Lnl/nu/android/bff/domain/models/Page;")
     parameterTypes("Lnl/nu/performance/api/client/PacResponse;", "Ljava/lang/String;")

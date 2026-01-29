@@ -12,8 +12,8 @@ import app.revanced.patches.youtube.misc.playservice.is_20_28_or_greater
 import app.revanced.patches.youtube.misc.playservice.versionCheckPatch
 import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
-import app.revanced.patches.youtube.shared.getSeekbarOnDrawMethodMatch
 import app.revanced.patches.youtube.shared.seekbarMethod
+import app.revanced.patches.youtube.shared.seekbarOnDrawMethodMatch
 import app.revanced.util.insertLiteralOverride
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/HideSeekbarPatch;"
@@ -38,7 +38,7 @@ val hideSeekbarPatch = bytecodePatch(
             SwitchPreference("revanced_fullscreen_large_seekbar"),
         )
 
-        getSeekbarOnDrawMethodMatch().match(seekbarMethod.immutableClassDef).method.addInstructionsWithLabels(
+        seekbarMethod.immutableClassDef.seekbarOnDrawMethodMatch.method.addInstructionsWithLabels(
             0,
             """
                 const/4 v0, 0x0
@@ -54,7 +54,7 @@ val hideSeekbarPatch = bytecodePatch(
         if (is_20_28_or_greater) {
             fullscreenLargeSeekbarFeatureFlagMethodMatch.let {
                 it.method.insertLiteralOverride(
-                    it.indices.first(),
+                    it[0],
                     "$EXTENSION_CLASS_DESCRIPTOR->useFullscreenLargeSeekbar(Z)Z",
                 )
             }

@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val interceptMethodMatch = firstMethodComposite("SC-Mob-UserPlan", "Configuration") {
+internal val BytecodePatchContext.interceptMethodMatch by composingFirstMethod("SC-Mob-UserPlan", "Configuration") {
     accessFlags(AccessFlags.PUBLIC)
     returnType("L")
     parameterTypes("L")

@@ -15,7 +15,7 @@ val unlockSplitTunnelingPatch = bytecodePatch("Unlock split tunneling") {
 
     apply {
         enableSplitTunnelingUiMethodMatch.let {
-            val registerIndex = it.indices.last() - 1
+            val registerIndex = it[-1] - 1
             val register = it.method.getInstruction<OneRegisterInstruction>(registerIndex).registerA
             it.method.replaceInstruction(registerIndex, "const/4 v$register, 0x0")
         }

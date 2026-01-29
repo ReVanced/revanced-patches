@@ -74,7 +74,7 @@ val hideButtonsPatch = bytecodePatch(
             historyMenuItemOfflineTabMethodMatch,
         ).forEach { match ->
             match.method.apply {
-                val targetIndex = match.indices.first()
+                val targetIndex = match[0]
                 val targetRegister = getInstruction<FiveRegisterInstruction>(targetIndex).registerD
 
                 addInstructions(

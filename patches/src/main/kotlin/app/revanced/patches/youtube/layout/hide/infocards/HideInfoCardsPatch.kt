@@ -77,7 +77,7 @@ val hideInfoCardsPatch = bytecodePatch(
 
         // Edit: This old non litho code may be obsolete and no longer used by any supported versions.
         infocardsMethodCallMethodMatch.let {
-            val invokeInterfaceIndex = it.indices.last()
+            val invokeInterfaceIndex = it[-1]
             it.method.apply {
                 val register = implementation!!.registerCount - 1
 

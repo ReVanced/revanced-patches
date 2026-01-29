@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
-import app.revanced.patcher.MatchBuilder
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -25,12 +25,12 @@ internal val openVideosFullscreenHookPatch = bytecodePatch {
     )
 
     apply {
-        var match: MatchBuilder
+        var match: Match
         var insertIndex: Int
 
         if (is_19_46_or_greater) {
             match = openVideosFullscreenPortraitMethodMatch
-            insertIndex = match.indices.first()
+            insertIndex = match[0]
 
             openVideosFullscreenPortraitMethodMatch.let {
                 // Remove A/B feature call that forces what this patch already does.
@@ -38,13 +38,13 @@ internal val openVideosFullscreenHookPatch = bytecodePatch {
                 // Shorts fullscreen regular player does not use fullscreen
                 // if the player is minimized and it must be forced using other conditional check.
                 it.method.insertLiteralOverride(
-                    it.indices.last(),
+                    it[-1],
                     false,
                 )
             }
         } else {
             match = openVideosFullscreenPortraitLegacyMethodMatch
-            insertIndex = match.indices.last()
+            insertIndex = match[-1]
         }
 
         match.method.apply {

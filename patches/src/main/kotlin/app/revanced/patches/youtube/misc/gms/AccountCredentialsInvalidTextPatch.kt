@@ -33,7 +33,7 @@ internal val accountCredentialsInvalidTextPatch = bytecodePatch {
             specificNetworkErrorViewControllerMethodMatch,
             loadingFrameLayoutControllerMethodMatch,
         ).forEach { match ->
-            val index = match.indices.last()
+            val index = match[-1]
             val register = match.method.getInstruction<OneRegisterInstruction>(index).registerA
 
             match.method.addInstructions(

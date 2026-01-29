@@ -15,7 +15,7 @@ val hideExploreFeedPatch = bytecodePatch(
 
     apply {
         exploreResponseJsonParserMethodMatch.method.apply {
-            val targetStringIndex = exploreResponseJsonParserMethodMatch.indices.first()
+            val targetStringIndex = exploreResponseJsonParserMethodMatch[0]
             val targetStringRegister = getInstruction<OneRegisterInstruction>(targetStringIndex).registerA
 
             replaceInstruction(targetStringIndex, "const-string v$targetStringRegister, \"BOGUS\"")

@@ -366,7 +366,7 @@ val addResourcesPatch = resourcePatch(
                         it.writeText("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<resources>\n</resources>")
                     }
                 }
- 
+
                 document("res/$value/$resourceFileName.xml").let { document ->
 
                     // Save the target node here as well

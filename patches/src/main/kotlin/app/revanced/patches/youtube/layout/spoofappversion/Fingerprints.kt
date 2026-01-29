@@ -6,7 +6,7 @@ import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val toolBarButtonMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.toolBarButtonMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     instructions(
@@ -21,7 +21,7 @@ internal val toolBarButtonMethodMatch = firstMethodComposite {
     custom { parameterTypes.count() in 1..2 && parameterTypes.first() == "Landroid/view/MenuItem;" }
 }
 
-internal val spoofAppVersionMethodMatch = firstMethodComposite(
+internal val BytecodePatchContext.spoofAppVersionMethodMatch by composingFirstMethod(
     // Instead of applying a bytecode patch, it might be possible to only rely on code from the extension and
     // manually set the desired version string as this keyed value in the SharedPreferences.
     // But, this bytecode patch is simple and it works.

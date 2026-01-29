@@ -24,7 +24,7 @@ val fixVideoDownloadsPatch = bytecodePatch(
     )
 
     apply {
-        val scanResult = parseRedditVideoNetworkResponseMethodMatch.indices
+        val scanResult = parseRedditVideoNetworkResponseMethodMatch.indices[0]
         val newInstanceIndex = scanResult.first()
         val invokeDirectIndex = scanResult.last() - 1
 

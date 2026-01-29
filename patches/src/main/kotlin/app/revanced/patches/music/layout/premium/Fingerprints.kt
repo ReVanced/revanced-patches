@@ -5,9 +5,9 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val hideGetPremiumMethodMatch = firstMethodComposite(
+internal val BytecodePatchContext.hideGetPremiumMethodMatch by composingFirstMethod(
     "FEmusic_history",
-    "FEmusic_offline"
+    "FEmusic_offline",
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")

@@ -26,12 +26,11 @@ internal fun enableDebuggingPatch(
     executeBlock: BytecodePatchContext.() -> Unit = {},
     hookStringFeatureFlag: Boolean,
     preferenceScreen: BasePreferenceScreen.Screen,
-    additionalDebugPreferences: List<BasePreference> = emptyList()
+    additionalDebugPreferences: List<BasePreference> = emptyList(),
 ) = bytecodePatch(
-    name = "Enable debugging", // TODO
+    name = "Enable debugging",
     description = "Adds options for debugging and exporting ReVanced logs to the clipboard.",
 ) {
-
     dependsOn(
         addResourcesPatch,
         resourcePatch {
@@ -48,11 +47,11 @@ internal fun enableDebuggingPatch(
                         "revanced_settings_arrow_left_double.xml",
                         "revanced_settings_arrow_left_one.xml",
                         "revanced_settings_arrow_right_double.xml",
-                        "revanced_settings_arrow_right_one.xml"
-                    )
+                        "revanced_settings_arrow_right_one.xml",
+                    ),
                 )
             }
-        }
+        },
     )
 
     block()
@@ -75,19 +74,19 @@ internal fun enableDebuggingPatch(
                 NonInteractivePreference(
                     "revanced_debug_export_logs_to_clipboard",
                     tag = "app.revanced.extension.shared.settings.preference.ExportLogToClipboardPreference",
-                    selectable = true
+                    selectable = true,
                 ),
                 NonInteractivePreference(
                     "revanced_debug_logs_clear_buffer",
                     tag = "app.revanced.extension.shared.settings.preference.ClearLogBufferPreference",
-                    selectable = true
+                    selectable = true,
                 ),
                 NonInteractivePreference(
                     "revanced_debug_feature_flags_manager",
                     tag = "app.revanced.extension.shared.settings.preference.FeatureFlagsManagerPreference",
-                    selectable = true
-                )
-            )
+                    selectable = true,
+                ),
+            ),
         )
 
         preferenceScreen.addPreferences(
@@ -95,7 +94,7 @@ internal fun enableDebuggingPatch(
                 key = "revanced_debug_screen",
                 sorting = Sorting.UNSORTED,
                 preferences = preferences,
-            )
+            ),
         )
 
         // Hook the methods that look up if a feature flag is active.
@@ -108,7 +107,7 @@ internal fun enableDebuggingPatch(
                     """
                         invoke-static { v$register, p1 }, $EXTENSION_CLASS_DESCRIPTOR->isBooleanFeatureFlagEnabled(ZLjava/lang/Long;)Z
                         move-result v$register
-                    """
+                    """,
                 )
             }
         }
@@ -123,7 +122,7 @@ internal fun enableDebuggingPatch(
                     invoke-static/range { v0 .. v5 }, $EXTENSION_CLASS_DESCRIPTOR->isDoubleFeatureFlagEnabled(DJD)D
                     move-result-wide v0
                     return-wide v0
-                """
+                """,
             )
         }
 
@@ -137,11 +136,11 @@ internal fun enableDebuggingPatch(
                     invoke-static/range { v0 .. v5 }, $EXTENSION_CLASS_DESCRIPTOR->isLongFeatureFlagEnabled(JJJ)J
                     move-result-wide v0
                     return-wide v0
-                """
+                """,
             )
         }
 
-        if (hookStringFeatureFlag)
+        if (hookStringFeatureFlag) {
             experimentalFeatureFlagParentMethod.immutableClassDef.getExperimentalStringFeatureFlagMethod().apply {
                 val insertIndex = indexOfFirstInstructionReversedOrThrow(Opcode.MOVE_RESULT_OBJECT)
 
@@ -152,9 +151,10 @@ internal fun enableDebuggingPatch(
                         invoke-static { v0, p1, p2, p3 }, $EXTENSION_CLASS_DESCRIPTOR->isStringFeatureFlagEnabled(Ljava/lang/String;JLjava/lang/String;)Ljava/lang/String;
                         move-result-object v0
                         return-object v0
-                    """
+                    """,
                 )
             }
+        }
 
         // There exists other experimental accessor methods for byte[]
         // and wrappers for obfuscated classes, but currently none of those are hooked.

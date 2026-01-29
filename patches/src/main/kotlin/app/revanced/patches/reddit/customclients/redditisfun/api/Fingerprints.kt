@@ -6,17 +6,17 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val basicAuthorizationMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.basicAuthorizationMethodMatch by composingFirstMethod {
     instructions(
         "yyOCBp.RHJhDKd"(),
-        "fJOxVwBUyo*=f:<OoejWs:AqmIJ"() // Encrypted basic authorization string.
+        "fJOxVwBUyo*=f:<OoejWs:AqmIJ"(), // Encrypted basic authorization string.
     )
 }
 
-internal val buildAuthorizationStringMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.buildAuthorizationStringMethodMatch by composingFirstMethod {
     instructions(
         "yyOCBp.RHJhDKd"(),
-        "client_id"()
+        "client_id"(),
     )
 }
 

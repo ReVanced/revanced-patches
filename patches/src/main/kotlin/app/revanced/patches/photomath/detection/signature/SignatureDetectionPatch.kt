@@ -10,7 +10,7 @@ val signatureDetectionPatch = bytecodePatch(
     description = "Disables detection of incorrect signature.",
 ) {
     apply {
-        val replacementIndex = checkSignatureMethodMatch.indices.last()
+        val replacementIndex = checkSignatureMethodMatch[-1]
 
         val checkRegister = checkSignatureMethodMatch.method.getInstruction<OneRegisterInstruction>(replacementIndex)
             .registerA

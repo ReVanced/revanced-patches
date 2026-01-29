@@ -53,7 +53,7 @@ val disableResumingShortsOnStartupPatch = bytecodePatch(
         if (is_20_03_or_greater) {
             userWasInShortsAlternativeMethodMatch.let {
                 it.method.apply {
-                    val insertIndex = it.indices[2] + 1
+                    val insertIndex = it[2] + 1
                     val register = getInstruction<OneRegisterInstruction>(insertIndex).registerA
 
                     addInstructions(

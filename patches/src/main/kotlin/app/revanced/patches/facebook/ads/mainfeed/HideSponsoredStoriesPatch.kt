@@ -64,7 +64,7 @@ val hideSponsoredStoriesPatch = bytecodePatch("Hide 'Sponsored Stories'") {
         // Check if the parameter type is GraphQLStory and if sponsoredDataModelGetter returns a non-null value.
         // If so, hide the story by setting the visibility to StoryVisibility.GONE.
         getStoryVisibilityMethodMatch.method.addInstructionsWithLabels(
-            getStoryVisibilityMethodMatch.indices.first(),
+            getStoryVisibilityMethodMatch[0],
             """
                 instance-of v0, p0, $graphQlStoryClassDescriptor
                 if-eqz v0, :resume_normal

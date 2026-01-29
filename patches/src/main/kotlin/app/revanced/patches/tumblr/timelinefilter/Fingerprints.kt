@@ -21,10 +21,10 @@ internal val BytecodePatchContext.timelineConstructorMethod by gettingFirstMutab
     custom { parameters[0].type == "Ljava/util/List;" }
 }
 
-// This fingerprints the extension TimelineFilterPatch.filterTimeline method.
-// The opcode fingerprint is searching for
+// This gets the extension method TimelineFilterPatch.filterTimeline.
+// Looking for
 //   if ("BLOCKED_OBJECT_DUMMY".equals(elementType)) iterator.remove();
-internal val timelineFilterExtensionMethodMatch = firstMethodComposite("BLOCKED_OBJECT_DUMMY") {
+internal val BytecodePatchContext.timelineFilterExtensionMethodMatch by composingFirstMethod("BLOCKED_OBJECT_DUMMY") {
     definingClass { endsWith("/TimelineFilterPatch;") }
     opcodes(
         Opcode.CONST_STRING, // "BLOCKED_OBJECT_DUMMY"

@@ -49,7 +49,7 @@ val bypassURLRedirectsPatch = bytecodePatch(
             },
             httpUriParserMethodMatch to 0,
         ).forEach { (match, index) ->
-            val insertIndex = match.indices[index]
+            val insertIndex = match[index]
             val uriStringRegister = match.method.getInstruction<FiveRegisterInstruction>(insertIndex).registerC
 
             match.method.replaceInstruction(

@@ -22,7 +22,7 @@ internal val BytecodePatchContext.playerTypeEnumMethod by gettingFirstMethodDecl
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
 }
 
-internal val reelWatchPagerMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.reelWatchPagerMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
     instructions(

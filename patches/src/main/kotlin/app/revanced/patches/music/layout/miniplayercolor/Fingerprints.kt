@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val miniPlayerConstructorMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.miniPlayerConstructorMethodMatch by composingFirstMethod {
     returnType("V")
     instructions(
         ResourceType.ID("mpp_player_bottom_sheet"),
@@ -18,7 +18,7 @@ internal val miniPlayerConstructorMethodMatch = firstMethodComposite {
 /**
  * Matches to the class found in [miniPlayerConstructorMethodMatch].
  */
-internal val switchToggleColorMethodMatch = firstMethodComposite {
+internal val ClassDef.switchToggleColorMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L", "J")

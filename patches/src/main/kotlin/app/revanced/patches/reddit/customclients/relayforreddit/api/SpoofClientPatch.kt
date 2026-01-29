@@ -28,7 +28,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "dbrady://relay") { client
             getLoggedOutBearerTokenMethodMatch,
             getRefreshTokenMethodMatch,
         ).forEach { match ->
-            val clientIdIndex = match.indices.first()
+            val clientIdIndex = match[0]
             val clientIdRegister = match.method.getInstruction<OneRegisterInstruction>(clientIdIndex).registerA
 
             match.method.replaceInstruction(clientIdIndex, "const-string v$clientIdRegister, \"$clientId\"")

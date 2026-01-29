@@ -83,9 +83,9 @@ val spoofAppVersionPatch = bytecodePatch(
          * toolbar when the enum name is UNKNOWN.
          */
         toolBarButtonMethodMatch.let {
-            val imageResourceIndex = it.indices[2]
+            val imageResourceIndex = it[2]
             val register = it.method.getInstruction<OneRegisterInstruction>(imageResourceIndex).registerA
-            val jumpIndex = it.indices.last() + 1
+            val jumpIndex = it[-1] + 1
 
             it.method.addInstructionsWithLabels(
                 imageResourceIndex + 1,
@@ -95,7 +95,7 @@ val spoofAppVersionPatch = bytecodePatch(
         }
 
         spoofAppVersionMethodMatch.let {
-            val index = it.indices.first()
+            val index = it[0]
             val register = it.method.getInstruction<OneRegisterInstruction>(index).registerA
 
             it.method.addInstructions(

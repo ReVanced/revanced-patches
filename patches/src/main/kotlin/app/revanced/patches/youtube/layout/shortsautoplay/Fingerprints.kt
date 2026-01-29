@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val reelEnumConstructorMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.reelEnumConstructorMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
         "REEL_LOOP_BEHAVIOR_UNKNOWN"(),
@@ -35,7 +35,7 @@ internal fun ClassDef.getReelPlaybackRepeatMethod() = firstMutableMethodDeclarat
     instructions(method { toString() == "Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z" })
 }
 
-internal val reelPlaybackMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.reelPlaybackMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("J")
     returnType("V")
@@ -47,7 +47,7 @@ internal val reelPlaybackMethodMatch = firstMethodComposite {
             15,
             method {
                 name == "<init>" &&
-                        parameterTypes.zip(methodParametersPrefix).all { (a, b) -> a.startsWith(b) }
+                    parameterTypes.zip(methodParametersPrefix).all { (a, b) -> a.startsWith(b) }
             },
         ),
         afterAtMost(

@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val playerControlsVisibilityEntityModelMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.playerControlsVisibilityEntityModelMethodMatch by composingFirstMethod {
     name("getPlayerControlsVisibility")
     accessFlags(AccessFlags.PUBLIC)
     returnType("L")
@@ -28,7 +28,7 @@ internal val BytecodePatchContext.youtubeControlsOverlayMethod by gettingFirstMe
     )
 }
 
-internal val motionEventMethodMatch = firstMethodComposite {
+internal val ClassDef.motionEventMethodMatch by ClassDefComposing.composingFirstMethod {
     returnType("V")
     parameterTypes("Landroid/view/MotionEvent;")
     instructions(method("setTranslationY"))
@@ -50,7 +50,7 @@ internal val BytecodePatchContext.playerControlsExtensionHookMethod by gettingFi
     parameterTypes("Z")
 }
 
-internal val playerTopControlsInflateMethod = firstMethodComposite {
+internal val BytecodePatchContext.playerTopControlsInflateMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()
@@ -61,7 +61,7 @@ internal val playerTopControlsInflateMethod = firstMethodComposite {
     )
 }
 
-internal val playerBottomControlsInflateMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.playerBottomControlsInflateMethodMatch by composingFirstMethod {
     returnType("Ljava/lang/Object;")
     parameterTypes()
     instructions(
@@ -71,7 +71,7 @@ internal val playerBottomControlsInflateMethodMatch = firstMethodComposite {
     )
 }
 
-internal val overlayViewInflateMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.overlayViewInflateMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/view/View;")
@@ -83,7 +83,7 @@ internal val overlayViewInflateMethodMatch = firstMethodComposite {
 }
 
 /**
- * Resolves to the class found in [playerTopControlsInflateMethod].
+ * Resolves to the class found in [playerTopControlsInflateMethodMatch].
  */
 context(_: BytecodePatchContext)
 internal fun ClassDef.getControlsOverlayVisibilityMethod() = firstMutableMethodDeclaratively {

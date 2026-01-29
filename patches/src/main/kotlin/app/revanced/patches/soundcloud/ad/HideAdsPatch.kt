@@ -48,7 +48,7 @@ val hideAdsPatch = bytecodePatch("Hide ads") {
 
         // Prevent verification of an HTTP header containing the user's current plan, which would contradict the previous patch.
 
-        val conditionIndex = interceptMethodMatch.indices.last() + 1 // TODO
+        val conditionIndex = interceptMethodMatch[-1] + 1
         interceptMethodMatch.method.addInstruction(
             conditionIndex,
             "return-object p1",

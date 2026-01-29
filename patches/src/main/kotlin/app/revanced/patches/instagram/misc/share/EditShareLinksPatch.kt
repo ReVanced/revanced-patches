@@ -18,7 +18,7 @@ internal fun BytecodePatchContext.editShareLinksPatch(block: MutableMethod.(inde
     for (match in methodsToPatch) {
         match.method.apply {
             val putSharingUrlIndex = indexOfFirstInstruction(
-                match.indices.first(),
+                match[0],
                 Opcode.IPUT_OBJECT,
             )
 

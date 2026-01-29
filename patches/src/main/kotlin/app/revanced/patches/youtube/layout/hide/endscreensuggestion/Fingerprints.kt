@@ -20,7 +20,7 @@ internal fun ClassDef.getAutoNavStatusMethod() = firstMutableMethodDeclaratively
     parameterTypes()
 }
 
-internal val removeOnLayoutChangeListenerMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.removeOnLayoutChangeListenerMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()

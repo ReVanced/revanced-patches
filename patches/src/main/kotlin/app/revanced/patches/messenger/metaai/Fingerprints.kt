@@ -1,20 +1,21 @@
 package app.revanced.patches.messenger.metaai
 
 import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val getMobileConfigBoolMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.getMobileConfigBoolMethodMatch by composingFirstMethod {
     parameterTypes("J")
     returnType("Z")
     opcodes(Opcode.RETURN)
     custom { "Lcom/facebook/mobileconfig/factory/MobileConfigUnsafeContext;" in immutableClassDef.interfaces }
 }
 
-internal val metaAIKillSwitchCheckMethodMatch = firstMethodComposite("SearchAiagentImplementationsKillSwitch") {
+internal val BytecodePatchContext.metaAIKillSwitchCheckMethodMatch by composingFirstMethod("SearchAiagentImplementationsKillSwitch") {
     opcodes(Opcode.CONST_WIDE)
 }
 
-internal val extensionMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.extensionMethodMatch by composingFirstMethod {
     name(EXTENSION_METHOD_NAME)
     definingClass(EXTENSION_CLASS_DESCRIPTOR)
     instructions("REPLACED_BY_PATCH"())

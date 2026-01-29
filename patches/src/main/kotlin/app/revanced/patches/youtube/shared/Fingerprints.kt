@@ -1,17 +1,17 @@
 package app.revanced.patches.youtube.shared
 
+import app.revanced.patcher.ClassDefComposing
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.after
 import app.revanced.patcher.allOf
+import app.revanced.patcher.composingFirstMethod
 import app.revanced.patcher.custom
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.field
 import app.revanced.patcher.firstMethodComposite
-import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.immutableClassDef
-import app.revanced.patcher.instruction
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.method
@@ -24,6 +24,7 @@ import app.revanced.patcher.type
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
 internal const val YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE = "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
 
@@ -39,7 +40,7 @@ internal val BytecodePatchContext.conversionContextToStringMethod by gettingFirs
     instructions("ConversionContext{"(String::startsWith)) // Partial string match.
 }
 
-internal fun getLayoutConstructorMethodMatch() = firstMethodComposite {
+internal fun BytecodePatchContext.getLayoutConstructorMethodMatch() = firstMethodComposite {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()
@@ -78,7 +79,7 @@ internal val BytecodePatchContext.mainActivityOnCreateMethod by gettingFirstMuta
     parameterTypes("Landroid/os/Bundle;")
 }
 
-internal val rollingNumberTextViewAnimationUpdateMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.rollingNumberTextViewAnimationUpdateMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/graphics/Bitmap;")
@@ -112,7 +113,7 @@ internal val BytecodePatchContext.seekbarMethod by gettingFirstMethodDeclarative
 /**
  * Matches to _mutable_ class found in [seekbarMethod].
  */
-internal fun getSeekbarOnDrawMethodMatch() = firstMethodComposite {
+internal val ClassDef.seekbarOnDrawMethodMatch by ClassDefComposing.composingFirstMethod {
     name("onDraw")
     instructions(
         method { toString() == "Ljava/lang/Math;->round(F)I" },
@@ -130,7 +131,7 @@ internal val BytecodePatchContext.subtitleButtonControllerMethod by gettingFirst
     )
 }
 
-internal val videoQualityChangedMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.videoQualityChangedMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes("L")

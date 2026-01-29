@@ -80,7 +80,7 @@ val shortsAutoplayPatch = bytecodePatch(
             reelEnumClass = immutableClassDef.type
 
             method.addInstructions(
-                indices.last(),
+                reelEnumConstructorMethodMatch[-1],
                 """
                     # Pass the first enum value to extension.
                     # Any enum value of this type will work.
@@ -117,9 +117,9 @@ val shortsAutoplayPatch = bytecodePatch(
         if (is_20_09_or_greater) {
             // Variable names are only a rough guess of what these methods do.
             val userActionMethodReference =
-                reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch.indices[1]).methodReference!!
+                reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch[1]).methodReference!!
             val reelSequenceControllerMethodReference =
-                reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch.indices[2]).methodReference!!
+                reelPlaybackMethodMatch.method.getInstruction(reelPlaybackMethodMatch[2]).methodReference!!
 
             reelPlaybackRepeatMethod.apply {
                 // Find the first call modified by extension code above.

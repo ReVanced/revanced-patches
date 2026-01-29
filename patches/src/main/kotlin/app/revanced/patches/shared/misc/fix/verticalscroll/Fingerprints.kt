@@ -1,10 +1,11 @@
 package app.revanced.patches.shared.misc.fix.verticalscroll
 
 import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val canScrollVerticallyMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.canScrollVerticallyMethodMatch by composingFirstMethod {
     definingClass { endsWith("SwipeRefreshLayout;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")

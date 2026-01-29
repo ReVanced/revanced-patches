@@ -11,7 +11,7 @@ val disableVersionCheckPatch = bytecodePatch(
     compatibleWith("com.adobe.lrmobile"("9.3.0"))
 
     apply {
-        val igetIndex = refreshRemoteConfigurationMethodMatch.indices.last()
+        val igetIndex = refreshRemoteConfigurationMethodMatch[-1]
 
         // This value represents the server command to clear all version restrictions.
         val statusForceReset = "-0x2"

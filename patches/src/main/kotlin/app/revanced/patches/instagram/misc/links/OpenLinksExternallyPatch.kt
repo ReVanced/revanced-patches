@@ -23,7 +23,7 @@ val openLinksExternallyPatch = bytecodePatch(
 
     apply {
         inAppBrowserFunctionMethodMatch.let {
-            val stringMatchIndex = it.indices.first()
+            val stringMatchIndex = it[0]
 
             it.method.apply {
                 val urlResultObjIndex = indexOfFirstInstructionOrThrow(

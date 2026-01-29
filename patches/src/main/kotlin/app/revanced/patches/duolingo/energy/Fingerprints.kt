@@ -4,8 +4,9 @@ import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val initializeEnergyConfigMethodMatch = firstMethodComposite {
+internal val ClassDef.initializeEnergyConfigMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(Opcode.RETURN_VOID)
 }

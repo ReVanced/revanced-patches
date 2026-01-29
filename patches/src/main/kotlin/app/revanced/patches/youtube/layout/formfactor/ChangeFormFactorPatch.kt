@@ -61,7 +61,7 @@ val changeFormFactorPatch = bytecodePatch(
 
         createPlayerRequestBodyWithModelMatch.let {
             it.method.apply {
-                val index = it.indices.last()
+                val index = it[-1]
                 val register = getInstruction<TwoRegisterInstruction>(index).registerA
 
                 addInstructions(

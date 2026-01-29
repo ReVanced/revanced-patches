@@ -32,7 +32,7 @@ internal val BytecodePatchContext.serverSideMaxSpeedFeatureFlagMethod by getting
     )
 }
 
-internal val speedArrayGeneratorMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.speedArrayGeneratorMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("[L")
     parameterTypes("Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;")

@@ -15,7 +15,7 @@ internal val BytecodePatchContext.createOkHttpClientMethod by gettingFirstMutabl
     returnType("V")
     parameterTypes()
     custom {
-        // There are four functions (each creating a client) defined in this file with very similar fingerprints.
+        // There are four functions (each creating a client) defined in this file with very similar methods.
         // We're looking for the one that only creates one object (the builder) and sets client options true
         // (thus never reloading the register with a 0).
         immutableClassDef.sourceFile == "OkHttpHelper.java" && instructions.count {

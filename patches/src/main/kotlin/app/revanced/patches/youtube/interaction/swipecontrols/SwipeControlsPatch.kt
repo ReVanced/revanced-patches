@@ -138,7 +138,7 @@ val swipeControlsPatch = bytecodePatch(
         if (is_19_43_or_greater && !is_20_34_or_greater) {
             swipeChangeVideoMethodMatch.let {
                 it.method.insertLiteralOverride(
-                    it.indices.last(),
+                    it[-1],
                     "$EXTENSION_CLASS_DESCRIPTOR->allowSwipeChangeVideo(Z)Z",
                 )
             }

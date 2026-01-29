@@ -87,7 +87,7 @@ internal val BytecodePatchContext.shortsBackgroundPlaybackFeatureFlagMethod by g
 }
 
 // Fix 'E/InputDispatcher: Window handle pip_input_consumer has no registered input channel'
-internal val pipInputConsumerFeatureFlagMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.pipInputConsumerFeatureFlagMethodMatch by composingFirstMethod {
     instructions(
         // PiP input consumer feature flag.
         45638483L(),

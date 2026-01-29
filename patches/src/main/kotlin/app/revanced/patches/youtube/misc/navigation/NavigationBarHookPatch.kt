@@ -28,6 +28,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.util.MethodUtil
@@ -36,9 +37,9 @@ import java.util.logging.Logger
 internal const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/shared/NavigationBar;"
 internal const val EXTENSION_NAVIGATION_BUTTON_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/shared/NavigationBar\$NavigationButton;"
+    $$"Lapp/revanced/extension/youtube/shared/NavigationBar$NavigationButton;"
 private const val EXTENSION_TOOLBAR_INTERFACE =
-    "Lapp/revanced/extension/youtube/shared/NavigationBar${'$'}AppCompatToolbarPatchInterface;"
+    $$"Lapp/revanced/extension/youtube/shared/NavigationBar$AppCompatToolbarPatchInterface;"
 
 lateinit var hookNavigationButtonCreated: (String) -> Unit
 
@@ -47,7 +48,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         sharedExtensionPatch,
         versionCheckPatch,
         playerTypeHookPatch, // Required to detect the search bar in all situations.
-        resourceMappingPatch, // Used by fingerprints
+        resourceMappingPatch, // Used to find methods
         resourcePatch {
             // Copy missing notification icon.
             apply {
@@ -113,7 +114,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         }
 
         pivotBarButtonsViewSetSelectedMethodMatch.method.apply {
-            val index = pivotBarButtonsViewSetSelectedMethodMatch.indices.first()
+            val index = pivotBarButtonsViewSetSelectedMethodMatch[0]
             val instruction = getInstruction<FiveRegisterInstruction>(index)
             val viewRegister = instruction.registerC
             val isSelectedRegister = instruction.registerD
@@ -139,7 +140,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         // so this works regardless which layout is used.
         actionBarSearchResultsMethodMatch.let {
             it.method.apply {
-                val instructionIndex = it.indices.last()
+                val instructionIndex = it[-1]
                 val viewRegister = getInstruction<FiveRegisterInstruction>(instructionIndex).registerC
 
                 addInstruction(
@@ -154,7 +155,7 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
 
         toolbarLayoutMethodMatch.let {
             it.method.apply {
-                val index = it.indices.last()
+                val index = it[-1]
                 val register = getInstruction<OneRegisterInstruction>(index).registerA
 
                 addInstruction(
@@ -212,10 +213,10 @@ val navigationBarHookPatch = bytecodePatch(description = "Hooks the active navig
         // Fix YT bug of notification tab missing the filled icon.
         if (is_19_35_or_greater && !is_20_39_or_greater) { // FIXME: 20.39+ needs this fix.
             val cairoNotificationEnumReference =
-                imageEnumConstructorMethodMatch.method.getInstruction(imageEnumConstructorMethodMatch.indices.last()).reference
+                imageEnumConstructorMethodMatch.method.getInstruction(imageEnumConstructorMethodMatch[-1]).reference
 
             setEnumMapMethodMatch.apply {
-                val setEnumIntegerIndex = setEnumMapMethodMatch.indices.last()
+                val setEnumIntegerIndex = setEnumMapMethodMatch[-1]
                 method.apply {
                     val enumMapRegister = getInstruction<FiveRegisterInstruction>(setEnumIntegerIndex).registerC
                     val insertIndex = setEnumIntegerIndex + 1

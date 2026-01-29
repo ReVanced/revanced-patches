@@ -44,7 +44,7 @@ val customPlayerOverlayOpacityPatch = bytecodePatch(
 
         createPlayerOverviewMethodMatch.let {
             it.method.apply {
-                val viewRegisterIndex = it.indices.last()
+                val viewRegisterIndex = it[-1]
                 val viewRegister = getInstruction<OneRegisterInstruction>(viewRegisterIndex).registerA
 
                 addInstruction(

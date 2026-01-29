@@ -1,6 +1,7 @@
 package app.revanced.patches.music.layout.navigationbar
 
 import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.util.containsLiteralInstruction
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstruction
@@ -9,7 +10,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val tabLayoutTextMethodMatch = firstMethodComposite("FEmusic_search") {
+internal val BytecodePatchContext.tabLayoutTextMethodMatch by composingFirstMethod("FEmusic_search") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")

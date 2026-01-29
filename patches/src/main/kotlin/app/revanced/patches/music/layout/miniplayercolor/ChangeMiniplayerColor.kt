@@ -50,8 +50,8 @@ val changeMiniplayerColorPatch = bytecodePatch(
             SwitchPreference("revanced_music_change_miniplayer_color"),
         )
 
-        switchToggleColorMethodMatch.match(miniPlayerConstructorMethodMatch.immutableClassDef).let {
-            val relativeIndex = it.indices.last() + 1
+        miniPlayerConstructorMethodMatch.immutableClassDef.switchToggleColorMethodMatch.let {
+            val relativeIndex = it[-1] + 1
 
             val invokeVirtualIndex = it.method.indexOfFirstInstructionOrThrow(
                 relativeIndex,

@@ -11,17 +11,17 @@ internal val BytecodePatchContext.mediaRouteButtonMethod by gettingFirstMutableM
     parameterTypes("I")
 }
 
-internal val castButtonPlayerFeatureFlagMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.castButtonPlayerFeatureFlagMethodMatch by composingFirstMethod {
     returnType("Z")
     instructions(45690091L())
 }
 
-internal val castButtonActionFeatureFlagMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.castButtonActionFeatureFlagMethodMatch by composingFirstMethod {
     returnType("Z")
     instructions(45690090L())
 }
 
-internal val inflateControlsGroupLayoutStubMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.inflateControlsGroupLayoutStubMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes()
     returnType("V")

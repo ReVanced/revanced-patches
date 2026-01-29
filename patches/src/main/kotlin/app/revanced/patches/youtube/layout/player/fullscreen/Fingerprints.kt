@@ -8,7 +8,7 @@ import com.android.tools.smali.dexlib2.Opcode
 /**
  * 19.46+
  */
-internal val openVideosFullscreenPortraitMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.openVideosFullscreenPortraitMethodMatch by composingFirstMethod {
     returnType("V")
     parameterTypes("L", "Lj\$/util/Optional;")
     instructions(
@@ -22,7 +22,7 @@ internal val openVideosFullscreenPortraitMethodMatch = firstMethodComposite {
 /**
  * Pre 19.46.
  */
-internal val openVideosFullscreenPortraitLegacyMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.openVideosFullscreenPortraitLegacyMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L", "Lj\$/util/Optional;")

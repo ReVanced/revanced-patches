@@ -7,6 +7,7 @@ import app.revanced.patches.youtube.shared.videoQualityChangedMethodMatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
+import org.stringtemplate.v4.compiler.Bytecode
 
 internal val BytecodePatchContext.createVideoPlayerSeekbarMethod by gettingFirstMethodDeclaratively {
     returnType("V")
@@ -21,15 +22,16 @@ internal val BytecodePatchContext.onPlaybackSpeedItemClickMethod by gettingFirst
     instructions(
         allOf(
             Opcode.IGET_OBJECT(),
-            field { type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;" })
+            field { type == "Lcom/google/android/libraries/youtube/innertube/model/player/PlayerResponseModel;" },
+        ),
     )
 }
 
-internal val playerControllerSetTimeReferenceMethodMatch =
-    firstMethodComposite("Media progress reported outside media playback: ") {
+internal val BytecodePatchContext.playerControllerSetTimeReferenceMethodMatch by
+    composingFirstMethod("Media progress reported outside media playback: ") {
         opcodes(
             Opcode.INVOKE_DIRECT_RANGE,
-            Opcode.IGET_OBJECT
+            Opcode.IGET_OBJECT,
         )
     }
 
@@ -44,7 +46,7 @@ internal fun ClassDef.getSeekMethod() = firstMethodDeclaratively {
     instructions("Attempting to seek during an ad"())
 }
 
-internal val videoLengthMethodMatch = firstMethodComposite {
+internal val ClassDef.videoLengthMethodMatch by ClassDefComposing.composingFirstMethod {
     opcodes(
         Opcode.MOVE_RESULT_WIDE,
         Opcode.CMP_LONG,
@@ -114,7 +116,7 @@ internal fun ClassDef.getSeekRelativeMethod() = firstMutableMethodDeclaratively 
     )
 }
 
-internal val videoEndMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.videoEndMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes("J", "L")
@@ -128,7 +130,7 @@ internal val videoEndMethodMatch = firstMethodComposite {
 /**
  * Matches with the class found in [videoQualityChangedMethodMatch].
  */
-internal val playbackSpeedMenuSpeedChangedMethodMatch = firstMethodComposite {
+internal val ClassDef.playbackSpeedMenuSpeedChangedMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes("L")
@@ -136,14 +138,13 @@ internal val playbackSpeedMenuSpeedChangedMethodMatch = firstMethodComposite {
 }
 
 internal val BytecodePatchContext.playbackSpeedClassMethod by gettingFirstMutableMethodDeclaratively(
-    "PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT"
+    "PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT",
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("L")
     parameterTypes("L")
     opcodes(Opcode.RETURN_OBJECT)
 }
-
 
 internal const val YOUTUBE_VIDEO_QUALITY_CLASS_TYPE =
     "Lcom/google/android/libraries/youtube/innertube/model/media/VideoQuality;"
@@ -158,7 +159,7 @@ internal val BytecodePatchContext.videoQualityLegacyMethod by gettingFirstMutabl
         "I", // Resolution.
         "Ljava/lang/String;", // Human readable resolution: "480p", "1080p Premium", etc
         "Z",
-        "L"
+        "L",
     )
 }
 
@@ -170,12 +171,12 @@ internal val BytecodePatchContext.videoQualityMethod by gettingFirstMutableMetho
         "L",
         "Ljava/lang/String;", // Human readable resolution: "480p", "1080p Premium", etc
         "Z",
-        "L"
+        "L",
     )
 }
 
 internal val BytecodePatchContext.videoQualitySetterMethod by gettingFirstMutableMethodDeclaratively(
-    "menu_item_video_quality"
+    "menu_item_video_quality",
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")

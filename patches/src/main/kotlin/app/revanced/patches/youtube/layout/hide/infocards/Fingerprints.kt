@@ -23,8 +23,8 @@ internal val BytecodePatchContext.infocardsIncognitoParentMethod by gettingFirst
     )
 }
 
-internal val infocardsMethodCallMethodMatch =
-    firstMethodComposite("Missing ControlsOverlayPresenter for InfoCards to work.") {
+internal val BytecodePatchContext.infocardsMethodCallMethodMatch by
+    composingFirstMethod("Missing ControlsOverlayPresenter for InfoCards to work.") {
         opcodes(
             Opcode.INVOKE_VIRTUAL,
             Opcode.IGET_OBJECT,

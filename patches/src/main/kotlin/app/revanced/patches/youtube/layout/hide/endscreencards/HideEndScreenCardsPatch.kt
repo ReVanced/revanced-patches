@@ -76,7 +76,7 @@ val hideEndScreenCardsPatch = bytecodePatch(
             layoutVideoMethodMatch,
         ).forEach { match ->
             match.method.apply {
-                val insertIndex = match.indices.last() + 1
+                val insertIndex = match[-1] + 1
                 val viewRegister = getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
 
                 addInstruction(

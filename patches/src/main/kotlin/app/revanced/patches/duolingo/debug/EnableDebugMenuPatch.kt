@@ -3,6 +3,7 @@ package app.revanced.patches.duolingo.debug
 import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -19,10 +20,8 @@ val enableDebugMenuPatch = bytecodePatch(
         debugCategoryAllowOnReleaseBuildsMethod.returnEarly(true)
 
         // Change build config debug build flag.
-        buildConfigProviderConstructorMethodMatch.match(
-            buildConfigProviderToStringMethod.classDef,
-        ).let {
-            val index = it.indices.first()
+        buildConfigProviderToStringMethod.immutableClassDef.buildConfigProviderConstructorMethodMatch.let {
+            val index = it[0]
 
             val register = it.method.getInstruction<OneRegisterInstruction>(index).registerA
             it.method.addInstruction(index + 1, "const/4 v$register, 0x1")

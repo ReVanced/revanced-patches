@@ -13,7 +13,7 @@ val hideStoriesFromHomePatch = bytecodePatch(
 
     apply {
         getOrCreateAvatarViewMethodMatch.let {
-            val addStoryEndIndex = it.indices.last()
+            val addStoryEndIndex = it[-1]
 
             // Remove addView of Story.
             it.method.removeInstruction(addStoryEndIndex)

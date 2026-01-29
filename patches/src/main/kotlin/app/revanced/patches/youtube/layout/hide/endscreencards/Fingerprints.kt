@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
-internal val layoutCircleMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.layoutCircleMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes()
     returnType("Landroid/view/View;")
@@ -24,7 +24,7 @@ internal val layoutCircleMethodMatch = firstMethodComposite {
     literal { layoutCircle }
 }
 
-internal val layoutIconMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.layoutIconMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes()
     returnType("Landroid/view/View;")
@@ -37,7 +37,7 @@ internal val layoutIconMethodMatch = firstMethodComposite {
     literal { layoutIcon }
 }
 
-internal val layoutVideoMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.layoutVideoMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC)
     parameterTypes()
     returnType("Landroid/view/View;")

@@ -70,11 +70,11 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         // Find the obfuscated method name for PlaybackStartDescriptor.videoId()
         val (videoIdStartMethod, videoIdIndex) = if (is_20_39_or_greater) {
             watchPanelVideoIdMethodMatch.let {
-                it.immutableMethod to it.indices.last()
+                it.immutableMethod to it[-1]
             }
         } else {
             playbackStartFeatureFlagMethodMatch.let {
-                it.immutableMethod to it.indices.first()
+                it.immutableMethod to it[0]
             }
         }
         val playbackStartVideoIdMethodName = navigate(videoIdStartMethod).to(videoIdIndex).stop().name
@@ -103,7 +103,7 @@ val openShortsInRegularPlayerPatch = bytecodePatch(
         } else {
             shortsPlaybackIntentLegacyMethodMatch.let {
                 it.method.apply {
-                    val index = it.indices.first()
+                    val index = it[0]
                     val playbackStartRegister = getInstruction<OneRegisterInstruction>(index + 1).registerA
                     val insertIndex = index + 2
                     val freeRegister = findFreeRegister(insertIndex, playbackStartRegister)

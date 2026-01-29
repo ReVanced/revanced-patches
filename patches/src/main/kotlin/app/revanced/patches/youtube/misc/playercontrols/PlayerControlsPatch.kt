@@ -227,7 +227,7 @@ val playerControlsPatch = bytecodePatch(
     dependsOn(
         playerControlsResourcePatch,
         sharedExtensionPatch,
-        resourceMappingPatch, // Used by fingerprints.
+        resourceMappingPatch, // Used to find methods.
         playerControlsOverlayVisibilityPatch,
         versionCheckPatch,
     )
@@ -236,26 +236,26 @@ val playerControlsPatch = bytecodePatch(
         playerBottomControlsInflateMethodMatch.method.apply {
             inflateBottomControlMethod = this
 
-            val inflateReturnObjectIndex = playerBottomControlsInflateMethodMatch.indices.last()
+            val inflateReturnObjectIndex = playerBottomControlsInflateMethodMatch[-1]
             inflateBottomControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
             inflateBottomControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
-        playerTopControlsInflateMethod.method.apply {
+        playerTopControlsInflateMethodMatch.method.apply {
             inflateTopControlMethod = this
 
-            val inflateReturnObjectIndex = playerTopControlsInflateMethod.indices.last()
+            val inflateReturnObjectIndex = playerTopControlsInflateMethodMatch[-1]
             inflateTopControlRegister = getInstruction<OneRegisterInstruction>(inflateReturnObjectIndex).registerA
             inflateTopControlInsertIndex = inflateReturnObjectIndex + 1
         }
 
         visibilityMethod =
-            playerTopControlsInflateMethod.immutableClassDef.getControlsOverlayVisibilityMethod()
+            playerTopControlsInflateMethodMatch.immutableClassDef.getControlsOverlayVisibilityMethod()
 
         // Hook the fullscreen close button.  Used to fix visibility
         // when seeking and other situations.
         overlayViewInflateMethodMatch.method.apply {
-            val index = overlayViewInflateMethodMatch.indices.last()
+            val index = overlayViewInflateMethodMatch[-1]
             val register = getInstruction<OneRegisterInstruction>(index).registerA
 
             addInstruction(
@@ -268,9 +268,9 @@ val playerControlsPatch = bytecodePatch(
         visibilityImmediateCallbacksExistMethod = playerControlsExtensionHookListenersExistMethod
         visibilityImmediateMethod = playerControlsExtensionHookMethod
 
-        motionEventMethodMatch.match(youtubeControlsOverlayMethod.immutableClassDef).let {
+        youtubeControlsOverlayMethod.immutableClassDef.motionEventMethodMatch.let {
             visibilityNegatedImmediateMethod = it.method
-            visibilityNegatedImmediateInsertIndex = it.indices.first() + 1
+            visibilityNegatedImmediateInsertIndex = it[0] + 1
         }
 
         // A/B test for a slightly different bottom overlay controls,

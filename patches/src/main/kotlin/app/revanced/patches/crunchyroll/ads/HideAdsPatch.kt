@@ -19,7 +19,7 @@ val hideAdsPatch = bytecodePatch("Hide ads") {
     apply {
         // Get obfuscated "enableAds" field from toString method.
         val enableAdsField = videoUrlReadyToStringMethodMatch.method.apply {
-            val stringIndex = videoUrlReadyToStringMethodMatch.indices.last()
+            val stringIndex = videoUrlReadyToStringMethodMatch[-1]
             val fieldIndex = indexOfFirstInstruction(stringIndex, Opcode.IGET_BOOLEAN)
 
             getInstruction<ReferenceInstruction>(fieldIndex).getReference<FieldReference>()!!

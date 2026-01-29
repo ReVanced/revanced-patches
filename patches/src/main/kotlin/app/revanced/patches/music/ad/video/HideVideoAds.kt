@@ -37,7 +37,7 @@ val hideMusicVideoAdsPatch = bytecodePatch(
         )
 
         navigate(showVideoAdsParentMethodMatch.immutableMethod)
-            .to(showVideoAdsParentMethodMatch.indices.first() + 1)
+            .to(showVideoAdsParentMethodMatch[0] + 1)
             .stop()
             .addInstructions(
                 0,

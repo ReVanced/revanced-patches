@@ -40,7 +40,7 @@ internal fun ClassDef.getAllowSwipingUpGestureMethod() = firstMutableMethodDecla
     parameterTypes("L")
 }
 
-internal val disableFastForwardLegacyMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.disableFastForwardLegacyMethodMatch by composingFirstMethod {
     returnType("Z")
     parameterTypes()
     opcodes(Opcode.MOVE_RESULT)
@@ -48,7 +48,7 @@ internal val disableFastForwardLegacyMethodMatch = firstMethodComposite {
     literal { 45411330 }
 }
 
-internal val disableFastForwardGestureMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.disableFastForwardGestureMethodMatch by composingFirstMethod {
     definingClass { endsWith("/NextGenWatchLayout;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
@@ -61,7 +61,7 @@ internal val disableFastForwardGestureMethodMatch = firstMethodComposite {
     custom { instructions.count() > 30 }
 }
 
-internal val customTapAndHoldMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.customTapAndHoldMethodMatch by composingFirstMethod {
     name("run")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
@@ -80,7 +80,7 @@ internal val customTapAndHoldMethodMatch = firstMethodComposite {
     }
 }
 
-internal val onTouchEventHandlerMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.onTouchEventHandlerMethodMatch by composingFirstMethod {
     name("onTouchEvent")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.PUBLIC)
     returnType("Z")
@@ -103,7 +103,7 @@ internal val onTouchEventHandlerMethodMatch = firstMethodComposite {
     )
 }
 
-internal val seekbarTappingMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.seekbarTappingMethodMatch by composingFirstMethod {
     name("onTouchEvent")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
@@ -119,7 +119,7 @@ internal val seekbarTappingMethodMatch = firstMethodComposite {
     )
 }
 
-internal val slideToSeekMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.slideToSeekMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/view/View;", "F")
@@ -141,7 +141,7 @@ internal val BytecodePatchContext.fullscreenSeekbarThumbnailsQualityMethod by ge
     )
 }
 
-internal val fullscreenLargeSeekbarFeatureFlagMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.fullscreenLargeSeekbarFeatureFlagMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

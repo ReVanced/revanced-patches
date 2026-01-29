@@ -18,12 +18,12 @@ val hideAdsPatch = bytecodePatch(
     compatibleWith("com.viber.voip"("25.9.2.0", "26.1.2.0"))
 
     apply {
-        val referenceIndex = findAdStringMethodMatch.indices.first()
+        val referenceIndex = findAdStringMethodMatch[0]
 
         val targetClass =
             findAdStringMethodMatch.immutableMethod.getInstruction<ReferenceInstruction>(referenceIndex).typeReference
 
-        val adFreeFingerprint = firstMutableMethodDeclaratively {
+        val adFreeMethod = firstMutableMethodDeclaratively {
             definingClass(targetClass!!.type)
             returnType("I")
             parameterTypes()

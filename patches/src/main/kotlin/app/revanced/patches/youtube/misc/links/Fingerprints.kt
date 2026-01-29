@@ -1,12 +1,13 @@
 package app.revanced.patches.youtube.misc.links
 
 import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
 /**
  * 20.36 and lower.
  */
-internal val abUriParserLegacyMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.abUriParserLegacyMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/Object;")
     parameterTypes("Ljava/lang/Object;")
@@ -20,13 +21,13 @@ internal val abUriParserLegacyMethodMatch = firstMethodComposite {
 /**
  * 20.37+
  */
-internal val abUriParserMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.abUriParserMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/Object;")
     parameterTypes("Ljava/lang/Object;")
     instructions(
         // Method is a switch statement of unrelated code,
-        // and there's no strings or anything unique to fingerprint.
+        // and there's no strings or anything unique to match to.
         method { toString() == "Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;" },
         method { toString() == "Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;" },
         method { toString() == "Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;" },
@@ -34,7 +35,7 @@ internal val abUriParserMethodMatch = firstMethodComposite {
     )
 }
 
-internal val httpUriParserMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.httpUriParserMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Landroid/net/Uri;")
     parameterTypes("Ljava/lang/String;")

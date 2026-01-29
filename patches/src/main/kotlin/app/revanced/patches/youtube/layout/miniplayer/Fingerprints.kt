@@ -3,6 +3,7 @@
 package app.revanced.patches.youtube.layout.miniplayer
 
 import app.revanced.patcher.*
+import app.revanced.patcher.ClassDefComposing
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -59,7 +60,7 @@ internal fun ClassDef.getMiniplayerModernAddViewListenerMethod() = firstMutableM
 /**
  * Matches using the class found in [miniplayerModernViewParentMethod].
  */
-internal val miniplayerModernCloseButtonMethodMatch = firstMethodComposite {
+internal val ClassDef.miniplayerModernCloseButtonMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes()
@@ -72,7 +73,7 @@ internal val miniplayerModernCloseButtonMethodMatch = firstMethodComposite {
 /**
  * Matches using the class found in [miniplayerModernViewParentMethod].
  */
-internal val miniplayerModernExpandButtonMethodMatch = firstMethodComposite {
+internal val ClassDef.miniplayerModernExpandButtonMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes()
@@ -98,7 +99,7 @@ internal fun ClassDef.getMiniplayerModernExpandCloseDrawablesMethod() = firstMut
 /**
  * Matches using the class found in [miniplayerModernViewParentMethod].
  */
-internal val miniplayerModernForwardButtonMethodMatch = firstMethodComposite {
+internal val ClassDef.miniplayerModernForwardButtonMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes()
@@ -108,7 +109,7 @@ internal val miniplayerModernForwardButtonMethodMatch = firstMethodComposite {
     )
 }
 
-internal val miniplayerModernOverlayViewMethodMatch = firstMethodComposite {
+internal val ClassDef.miniplayerModernOverlayViewMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes()
     instructions(
@@ -120,7 +121,7 @@ internal val miniplayerModernOverlayViewMethodMatch = firstMethodComposite {
 /**
  * Matches using the class found in [miniplayerModernViewParentMethod].
  */
-internal val miniplayerModernRewindButtonMethodMatch = firstMethodComposite {
+internal val ClassDef.miniplayerModernRewindButtonMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes()
@@ -133,7 +134,7 @@ internal val miniplayerModernRewindButtonMethodMatch = firstMethodComposite {
 /**
  * Matches using the class found in [miniplayerModernViewParentMethod].
  */
-internal val miniplayerModernActionButtonMethodMatch = firstMethodComposite {
+internal val ClassDef.miniplayerModernActionButtonMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes()
@@ -143,7 +144,7 @@ internal val miniplayerModernActionButtonMethodMatch = firstMethodComposite {
     )
 }
 
-internal val miniplayerMinimumSizeMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.miniplayerMinimumSizeMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.DIMEN("miniplayer_max_size"),
@@ -152,7 +153,7 @@ internal val miniplayerMinimumSizeMethodMatch = firstMethodComposite {
     )
 }
 
-internal val miniplayerOverrideMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.miniplayerOverrideMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     instructions(
@@ -176,7 +177,7 @@ internal fun ClassDef.getMiniplayerOverrideNoContextMethod() = firstMutableMetho
 /**
  * 20.36 and lower. Codes appears to be removed in 20.37+
  */
-internal val miniplayerResponseModelSizeCheckMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.miniplayerResponseModelSizeCheckMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes("Ljava/lang/Object;", "Ljava/lang/Object;")

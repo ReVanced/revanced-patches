@@ -18,7 +18,7 @@ internal val BytecodePatchContext.playerOverlayChipMethod by gettingFirstMutable
     instructions(playerOverlayChip())
 }
 
-internal val historyMenuItemMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.historyMenuItemMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/view/Menu;")
@@ -32,7 +32,7 @@ internal val historyMenuItemMethodMatch = firstMethodComposite {
     }
 }
 
-internal val historyMenuItemOfflineTabMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.historyMenuItemOfflineTabMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/view/Menu;")
@@ -40,9 +40,9 @@ internal val historyMenuItemOfflineTabMethodMatch = firstMethodComposite {
         Opcode.INVOKE_INTERFACE,
         Opcode.RETURN_VOID,
     )
-    custom {
-        instructions.matchIndexed("literals", items = unorderedAllOf(historyMenuItem(), offlineSettingsMenuItem()))
-    }
+
+    val match = indexedMatcher(items = unorderedAllOf(historyMenuItem(), offlineSettingsMenuItem()))
+    custom { match(instructions) }
 }
 
 internal val BytecodePatchContext.searchActionViewMethod by gettingFirstMutableMethodDeclaratively {

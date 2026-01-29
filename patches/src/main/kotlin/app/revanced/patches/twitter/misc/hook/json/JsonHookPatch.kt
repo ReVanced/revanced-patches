@@ -1,8 +1,8 @@
 package app.revanced.patches.twitter.misc.hook.json
 
-import app.revanced.patcher.firstClassDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstructions
+import app.revanced.patcher.firstClassDef
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -21,7 +21,7 @@ fun BytecodePatchContext.addJsonHook(
     if (jsonHook.added) return
 
     // Insert hooks right before calling buildList.
-    val insertIndex = jsonHookPatchMethodMatch.indices.last()
+    val insertIndex = jsonHookPatchMethodMatch[-1]
 
     jsonHookPatchMethodMatch.method.addInstructions(
         insertIndex,
@@ -35,7 +35,7 @@ fun BytecodePatchContext.addJsonHook(
 }
 
 private const val JSON_HOOK_CLASS_NAMESPACE = "app/revanced/extension/twitter/patches/hook/json"
-private const val JSON_HOOK_PATCH_CLASS_DESCRIPTOR = "L$JSON_HOOK_CLASS_NAMESPACE/JsonHookPatch;"
+internal const val JSON_HOOK_PATCH_CLASS_DESCRIPTOR = "L$JSON_HOOK_CLASS_NAMESPACE/JsonHookPatch;"
 private const val BASE_PATCH_CLASS_NAME = "BaseJsonHook"
 private const val JSON_HOOK_CLASS_DESCRIPTOR = "L$JSON_HOOK_CLASS_NAMESPACE/$BASE_PATCH_CLASS_NAME;"
 
@@ -45,10 +45,8 @@ val jsonHookPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     apply {
-        jsonHookPatchMethodMatch.apply {
-            match(firstClassDef(JSON_HOOK_PATCH_CLASS_DESCRIPTOR)).methodOrNull
-                ?: throw PatchException("Unexpected extension.")
-        }
+        jsonHookPatchMethodMatch.methodOrNull
+            ?: throw PatchException("Unexpected extension.")
 
         val jsonFactoryClassDef =
             loganSquareClassDef // Conveniently find the type to hook a method in, via a named field.
@@ -70,12 +68,11 @@ val jsonHookPatch = bytecodePatch(
 
     afterDependents {
         // Remove hooks.add(dummyHook).
-        val addDummyHookIndex = jsonHookPatchMethodMatch.indices.last()
+        val addDummyHookIndex = jsonHookPatchMethodMatch[-1]
 
         jsonHookPatchMethodMatch.method.removeInstructions(addDummyHookIndex, 2)
     }
 }
-
 
 class JsonHook internal constructor(
     internal val descriptor: String,
@@ -91,9 +88,9 @@ class JsonHook internal constructor(
  * @param descriptor The class descriptor of the hook.
  * @throws ClassNotFoundException If the class could not be found.
  */
-context(_: BytecodePatchContext)
+context(context: BytecodePatchContext)
 fun jsonHook(descriptor: String): JsonHook {
-    firstClassDef(descriptor).let {
+    context.firstClassDef(descriptor).let {
         it.also { classDef ->
             if (
                 classDef.superclass != JSON_HOOK_CLASS_DESCRIPTOR ||

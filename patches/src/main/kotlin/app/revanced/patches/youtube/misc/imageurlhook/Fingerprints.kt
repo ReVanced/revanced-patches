@@ -17,7 +17,7 @@ internal fun ClassDef.getOnFailureMethod() = firstMutableMethodDeclaratively {
     )
 }
 
-// Acts as a parent fingerprint.
+// Acts as a parent method.
 internal val BytecodePatchContext.onResponseStartedMethod by gettingFirstMutableMethodDeclaratively(
     "Content-Length",
     "Content-Type",

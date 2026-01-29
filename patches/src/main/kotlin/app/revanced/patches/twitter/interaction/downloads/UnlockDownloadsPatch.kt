@@ -1,6 +1,6 @@
 package app.revanced.patches.twitter.interaction.downloads
 
-import app.revanced.patcher.MatchBuilder
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
@@ -15,14 +15,14 @@ val unlockDownloadsPatch = bytecodePatch(
     compatibleWith("com.twitter.android")
 
     apply {
-        fun MatchBuilder.patch(getRegisterAndIndex: MatchBuilder.() -> Pair<Int, Int>) {
+        fun Match.patch(getRegisterAndIndex: Match.() -> Pair<Int, Int>) {
             val (index, register) = getRegisterAndIndex()
             method.addInstruction(index, "const/4 v$register, 0x1")
         }
 
         // Allow downloads for non-premium users.
         showDownloadVideoUpsellBottomSheetMethodMatch.patch {
-            val checkIndex = indices.first()
+            val checkIndex = showDownloadVideoUpsellBottomSheetMethodMatch[0]
             val register = method.getInstruction<OneRegisterInstruction>(checkIndex).registerA
 
             checkIndex to register
@@ -39,7 +39,7 @@ val unlockDownloadsPatch = bytecodePatch(
         // Make GIFs downloadable.
         buildMediaOptionsSheetMethodMatch.let {
             it.method.apply {
-                val checkMediaTypeIndex = it.indices.first()
+                val checkMediaTypeIndex = it[0]
                 val checkMediaTypeInstruction = getInstruction<TwoRegisterInstruction>(checkMediaTypeIndex)
 
                 // Treat GIFs as videos.
@@ -49,7 +49,7 @@ val unlockDownloadsPatch = bytecodePatch(
                         const/4 v${checkMediaTypeInstruction.registerB}, 0x2 # GIF
                         if-eq v${checkMediaTypeInstruction.registerA}, v${checkMediaTypeInstruction.registerB}, :video
                     """,
-                    ExternalLabel("video", getInstruction(it.indices.last())),
+                    ExternalLabel("video", getInstruction(it[-1])),
                 )
 
                 // Remove media.isDownloadable check.

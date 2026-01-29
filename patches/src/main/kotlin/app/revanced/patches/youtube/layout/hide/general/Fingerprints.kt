@@ -12,7 +12,7 @@ import com.android.tools.smali.dexlib2.iface.ClassDef
 /**
  * 20.26+
  */
-internal val hideShowMoreButtonMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.hideShowMoreButtonMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL, AccessFlags.SYNTHETIC)
     returnType("V")
     parameterTypes("L", "Ljava/lang/Object;")
@@ -23,7 +23,7 @@ internal val hideShowMoreButtonMethodMatch = firstMethodComposite {
     )
 }
 
-internal val hideShowMoreLegacyButtonMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.hideShowMoreLegacyButtonMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.LAYOUT("expand_button_down"),
@@ -32,7 +32,7 @@ internal val hideShowMoreLegacyButtonMethodMatch = firstMethodComposite {
     )
 }
 
-internal val parseElementFromBufferMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.parseElementFromBufferMethodMatch by composingFirstMethod {
     parameterTypes("L", "L", "[B", "L", "L")
     instructions(
         Opcode.IGET_OBJECT(),
@@ -68,7 +68,7 @@ internal val BytecodePatchContext.yoodlesImageViewMethod by gettingFirstMutableM
     instructions(ResourceType.ID("youtube_logo"))
 }
 
-internal val crowdfundingBoxMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.crowdfundingBoxMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.INVOKE_VIRTUAL,
@@ -78,7 +78,7 @@ internal val crowdfundingBoxMethodMatch = firstMethodComposite {
     literal { crowdfundingBoxId }
 }
 
-internal val albumCardsMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.albumCardsMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.MOVE_RESULT_OBJECT,
@@ -91,7 +91,7 @@ internal val albumCardsMethodMatch = firstMethodComposite {
     literal { albumCardId }
 }
 
-internal val filterBarHeightMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.filterBarHeightMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.CONST,
@@ -102,7 +102,7 @@ internal val filterBarHeightMethodMatch = firstMethodComposite {
     literal { filterBarHeightId }
 }
 
-internal val relatedChipCloudMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.relatedChipCloudMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.CONST,
@@ -112,7 +112,7 @@ internal val relatedChipCloudMethodMatch = firstMethodComposite {
     literal { relatedChipCloudMarginId }
 }
 
-internal val searchResultsChipBarMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.searchResultsChipBarMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     opcodes(
         Opcode.CONST,
@@ -124,7 +124,7 @@ internal val searchResultsChipBarMethodMatch = firstMethodComposite {
     literal { barContainerHeightId }
 }
 
-internal val showFloatingMicrophoneButtonMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.showFloatingMicrophoneButtonMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()
@@ -135,7 +135,7 @@ internal val showFloatingMicrophoneButtonMethodMatch = firstMethodComposite {
     )
 }
 
-internal val hideViewCountMethodMatch = firstMethodComposite(
+internal val BytecodePatchContext.hideViewCountMethodMatch by composingFirstMethod(
     "Has attachmentRuns but drawableRequester is missing.",
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)

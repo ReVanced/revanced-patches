@@ -1,10 +1,11 @@
 package app.revanced.patches.music.layout.compactheader
 
 import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val chipCloudMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.chipCloudMethodMatch by composingFirstMethod {
     returnType("V")
     opcodes(
         Opcode.CONST,

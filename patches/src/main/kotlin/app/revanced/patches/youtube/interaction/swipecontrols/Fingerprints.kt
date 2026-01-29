@@ -1,8 +1,8 @@
 package app.revanced.patches.youtube.interaction.swipecontrols
 
 import app.revanced.patcher.accessFlags
+import app.revanced.patcher.composingFirstMethod
 import app.revanced.patcher.definingClass
-import app.revanced.patcher.firstMethodComposite
 import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
@@ -16,7 +16,7 @@ internal val BytecodePatchContext.swipeControlsHostActivityMethod by gettingFirs
     parameterTypes()
 }
 
-internal val swipeChangeVideoMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.swipeChangeVideoMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         45631116L(), // Swipe to change fullscreen video feature flag.

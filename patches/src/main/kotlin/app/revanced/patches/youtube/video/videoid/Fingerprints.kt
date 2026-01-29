@@ -23,7 +23,7 @@ internal fun ClassDef.getVideoIdMethodMatch() = firstMethodComposite {
     )
 }
 
-internal val videoIdBackgroundPlayMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.videoIdBackgroundPlayMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.DECLARED_SYNCHRONIZED, AccessFlags.FINAL, AccessFlags.PUBLIC)
     returnType("V")
     parameterTypes("L")
@@ -45,7 +45,7 @@ internal val videoIdBackgroundPlayMethodMatch = firstMethodComposite {
     }
 }
 
-internal val videoIdParentMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.videoIdParentMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("[L")
     parameterTypes("L")

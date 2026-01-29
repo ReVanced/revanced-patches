@@ -11,7 +11,7 @@ val lithoColorHookPatch = bytecodePatch(
 ) {
 
     apply {
-        var insertionIndex = lithoOnBoundsChangeMethodMatch.indices.last() - 1
+        var insertionIndex = lithoOnBoundsChangeMethodMatch[-1] - 1
 
         lithoColorOverrideHook = { targetMethodClass, targetMethodName ->
             lithoOnBoundsChangeMethodMatch.method.addInstructions(

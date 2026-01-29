@@ -39,7 +39,7 @@ internal fun spoofVideoStreamsPatch(
     block: BytecodePatchBuilder.() -> Unit,
     executeBlock: BytecodePatchContext.() -> Unit = {},
 ) = bytecodePatch(
-    name = "Spoof video streams", // TODO
+    name = "Spoof video streams",
     description = "Adds options to spoof the client video streams to fix playback.",
 ) {
     block()
@@ -64,8 +64,8 @@ internal fun spoofVideoStreamsPatch(
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
-        buildInitPlaybackRequestMatch.method.apply {
-            val moveUriStringIndex = buildInitPlaybackRequestMatch.indices.first()
+        buildInitPlaybackRequestMethodMatch.method.apply {
+            val moveUriStringIndex = buildInitPlaybackRequestMethodMatch[0]
             val targetRegister = getInstruction<OneRegisterInstruction>(moveUriStringIndex).registerA
 
             addInstructions(
@@ -82,7 +82,7 @@ internal fun spoofVideoStreamsPatch(
         // region Block /get_watch requests to fall back to /player requests.
 
         buildPlayerRequestURIMethodMatch.method.apply {
-            val invokeToStringIndex = buildPlayerRequestURIMethodMatch.indices.first()
+            val invokeToStringIndex = buildPlayerRequestURIMethodMatch[0]
             val uriRegister = getInstruction<FiveRegisterInstruction>(invokeToStringIndex).registerC
 
             addInstructions(
@@ -101,7 +101,7 @@ internal fun spoofVideoStreamsPatch(
         buildRequestMethodMatch.method.apply {
             buildRequestMethod = this
 
-            val newRequestBuilderIndex = buildRequestMethodMatch.indices.first()
+            val newRequestBuilderIndex = buildRequestMethodMatch[0]
             buildRequestMethodUrlRegister = getInstruction<FiveRegisterInstruction>(newRequestBuilderIndex).registerD
             val freeRegister = findFreeRegister(newRequestBuilderIndex, buildRequestMethodUrlRegister)
 
@@ -121,7 +121,7 @@ internal fun spoofVideoStreamsPatch(
         createStreamingDataMethodMatch.method.apply {
             val setStreamDataMethodName = "patch_setStreamingData"
             val resultMethodType = createStreamingDataMethodMatch.classDef.type
-            val videoDetailsIndex = createStreamingDataMethodMatch.indices.last()
+            val videoDetailsIndex = createStreamingDataMethodMatch[-1]
             val videoDetailsRegister = getInstruction<TwoRegisterInstruction>(videoDetailsIndex).registerA
             val videoDetailsClass = getInstruction(videoDetailsIndex).getReference<FieldReference>()!!.type
 
@@ -132,7 +132,7 @@ internal fun spoofVideoStreamsPatch(
             )
 
             val protobufClass = protobufClassParseByteBufferMethod.definingClass
-            val setStreamingDataIndex = createStreamingDataMethodMatch.indices.first()
+            val setStreamingDataIndex = createStreamingDataMethodMatch[0]
 
             val playerProtoClass = getInstruction(setStreamingDataIndex + 1)
                 .getReference<FieldReference>()!!.definingClass
@@ -260,7 +260,7 @@ internal fun spoofVideoStreamsPatch(
         // region Fix iOS livestream current time.
 
         hlsCurrentTimeMethodMatch.method.insertLiteralOverride(
-            hlsCurrentTimeMethodMatch.indices.first(),
+            hlsCurrentTimeMethodMatch[0],
             "$EXTENSION_CLASS_DESCRIPTOR->fixHLSCurrentTime(Z)Z",
         )
 
@@ -270,7 +270,7 @@ internal fun spoofVideoStreamsPatch(
         // If SABR is disabled, it seems 'MediaFetchHotConfig' may no longer need an override (not confirmed).
 
         val (mediaFetchEnumClass, sabrFieldReference) = with(mediaFetchEnumConstructorMethodMatch.method) {
-            val disabledBySABRStreamingUrlString = mediaFetchEnumConstructorMethodMatch.indices.last()
+            val disabledBySABRStreamingUrlString = mediaFetchEnumConstructorMethodMatch[-1]
 
             val mediaFetchEnumClass = definingClass
             val sabrFieldIndex = indexOfFirstInstructionOrThrow(disabledBySABRStreamingUrlString) {
@@ -311,21 +311,21 @@ internal fun spoofVideoStreamsPatch(
 
         if (fixMediaFetchHotConfig()) {
             mediaFetchHotConfigMethodMatch.method.insertLiteralOverride(
-                mediaFetchHotConfigMethodMatch.indices.first(),
+                mediaFetchHotConfigMethodMatch[0],
                 "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z",
             )
         }
 
         if (fixMediaFetchHotConfigAlternative()) {
             mediaFetchHotConfigAlternativeMethodMatch.method.insertLiteralOverride(
-                mediaFetchHotConfigAlternativeMethodMatch.indices.first(),
+                mediaFetchHotConfigAlternativeMethodMatch[0],
                 "$EXTENSION_CLASS_DESCRIPTOR->useMediaFetchHotConfigReplacement(Z)Z",
             )
         }
 
         if (fixParsePlaybackResponseFeatureFlag()) {
             playbackStartDescriptorFeatureFlagMethodMatch.method.insertLiteralOverride(
-                playbackStartDescriptorFeatureFlagMethodMatch.indices.first(),
+                playbackStartDescriptorFeatureFlagMethodMatch[0],
                 "$EXTENSION_CLASS_DESCRIPTOR->usePlaybackStartFeatureFlag(Z)Z",
             )
         }

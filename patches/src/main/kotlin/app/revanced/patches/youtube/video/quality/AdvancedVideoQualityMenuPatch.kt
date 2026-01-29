@@ -57,7 +57,7 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
         // and for the Shorts quality flyout on newer app versions.
         videoQualityMenuViewInflateMethodMatch.let {
             it.method.apply {
-                val checkCastIndex = it.indices.last()
+                val checkCastIndex = it[-1]
                 val listViewRegister = getInstruction<OneRegisterInstruction>(checkCastIndex).registerA
 
                 addInstruction(
@@ -70,8 +70,8 @@ internal val advancedVideoQualityMenuPatch = bytecodePatch {
 
         // Force YT to add the 'advanced' quality menu for Shorts.
         videoQualityMenuOptionsMethodMatch.let {
-            val startIndex = it.indices.first()
-            val insertIndex = it.indices.last()
+            val startIndex = it[0]
+            val insertIndex = it[-1]
 
             if (startIndex != 0) throw PatchException("Unexpected opcode start index: $startIndex")
 

@@ -30,7 +30,7 @@ internal val BytecodePatchContext.getSponsoredDataModelTemplateMethod by getting
         Opcode.RETURN_OBJECT,
     )
 }
-internal val getStoryVisibilityMethodMatch = firstMethodComposite("This should not be called for base class object") {
+internal val BytecodePatchContext.getStoryVisibilityMethodMatch by composingFirstMethod("This should not be called for base class object") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     opcodes(

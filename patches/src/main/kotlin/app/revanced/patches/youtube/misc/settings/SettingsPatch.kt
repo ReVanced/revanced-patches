@@ -241,16 +241,16 @@ val settingsPatch = bytecodePatch(
 
         // Add setting to force Cairo settings fragment on/off.
         cairoFragmentConfigMethodMatch.method.insertLiteralOverride(
-            cairoFragmentConfigMethodMatch.indices.first(),
+            cairoFragmentConfigMethodMatch[0],
             "$YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useCairoSettingsFragment(Z)Z",
         )
 
         // Bold icon resources are found starting in 20.23, but many YT icons are not bold.
         // 20.31 is the first version that seems to have all the bold icons.
         if (is_20_31_or_greater) {
-            boldIconsFeatureFlagMethod.let {
+            boldIconsFeatureFlagMethodMatch.let {
                 it.method.insertLiteralOverride(
-                    it.indices.first(),
+                    it[0],
                     "$YOUTUBE_ACTIVITY_HOOK_CLASS_DESCRIPTOR->useBoldIcons(Z)Z",
                 )
             }

@@ -18,7 +18,7 @@ val playerControlsOverlayVisibilityPatch = bytecodePatch {
     apply {
         playerControlsVisibilityEntityModelMethodMatch.let {
             it.method.apply {
-                val startIndex = it.indices.first()
+                val startIndex = it[0]
                 val iGetReference = getInstruction<ReferenceInstruction>(startIndex).reference
                 val staticReference = getInstruction<ReferenceInstruction>(startIndex + 1).reference
 

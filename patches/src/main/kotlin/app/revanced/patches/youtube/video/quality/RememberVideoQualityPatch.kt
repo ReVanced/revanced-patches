@@ -72,7 +72,7 @@ val rememberVideoQualityPatch = bytecodePatch {
 
         // Inject a call to remember the user selected quality for regular videos.
         videoQualityChangedMethodMatch.let { match ->
-            val index = match.indices[3]
+            val index = match[3]
             val register = match.method.getInstruction<TwoRegisterInstruction>(index).registerA
 
             match.method.addInstruction(

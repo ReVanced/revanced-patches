@@ -44,7 +44,7 @@ val removeViewerDiscretionDialogPatch = bytecodePatch(
 
         createDialogMethodMatch.let {
             it.method.apply {
-                val showDialogIndex = it.indices.last()
+                val showDialogIndex = it[-1]
                 val dialogRegister = getInstruction<FiveRegisterInstruction>(showDialogIndex).registerC
 
                 replaceInstructions(

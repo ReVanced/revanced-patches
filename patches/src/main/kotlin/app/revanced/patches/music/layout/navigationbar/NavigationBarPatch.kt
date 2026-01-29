@@ -100,7 +100,7 @@ val navigationBarPatch = bytecodePatch(
             )
 
             // Set navigation enum and hide navigation buttons.
-            val enumIndex = tabLayoutTextMethodMatch.indices.first() + 3
+            val enumIndex = tabLayoutTextMethodMatch[0] + 3
             val enumRegister = getInstruction<OneRegisterInstruction>(enumIndex).registerA
             val insertEnumIndex = indexOfFirstInstructionOrThrow(Opcode.AND_INT_LIT8) - 2
 

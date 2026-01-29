@@ -27,7 +27,7 @@ val hideAdsPatch = bytecodePatch(
         // Filter injected content from API calls out of lists.
         arrayOf(screenMapperMethodMatch, nextPageRepositoryImplMethodMatch).forEach { match ->
             // Index of instruction moving result of BlockPage;->getBlocks(...).
-            val moveGetBlocksResultObjectIndex = match.indices.first()
+            val moveGetBlocksResultObjectIndex = match[0]
             val moveInstruction = match.method.getInstruction<OneRegisterInstruction>(moveGetBlocksResultObjectIndex)
 
             val listRegister = moveInstruction.registerA

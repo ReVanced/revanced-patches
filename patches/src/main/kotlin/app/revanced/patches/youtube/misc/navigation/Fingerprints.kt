@@ -8,11 +8,12 @@ import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 import app.revanced.patches.shared.misc.mapping.ResourceType
+import app.revanced.patches.youtube.layout.buttons.navigation.navigationButtonsPatch
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val actionBarSearchResultsMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.actionBarSearchResultsMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
     instructions(
@@ -21,14 +22,14 @@ internal val actionBarSearchResultsMethodMatch = firstMethodComposite {
     )
 }
 
-internal val toolbarLayoutMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.toolbarLayoutMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.CONSTRUCTOR)
     instructions(
         ResourceType.ID("toolbar_container"),
         allOf(
             Opcode.CHECK_CAST(),
-            type("Lcom/google/android/apps/youtube/app/ui/actionbar/MainCollapsingToolbarLayout;")
-        )
+            type("Lcom/google/android/apps/youtube/app/ui/actionbar/MainCollapsingToolbarLayout;"),
+        ),
     )
 }
 
@@ -49,9 +50,7 @@ context(_: BytecodePatchContext)
 internal fun ClassDef.getInitializeButtonsMethod() = firstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
-    instructions(
-        ResourceType.LAYOUT("image_only_tab"),
-    )
+    instructions(ResourceType.LAYOUT("image_only_tab"))
 }
 
 /**
@@ -112,7 +111,7 @@ internal val BytecodePatchContext.pivotBarButtonsCreateResourceIntViewMethod by 
     }
 }
 
-internal val pivotBarButtonsViewSetSelectedMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.pivotBarButtonsViewSetSelectedMethodMatch by composingFirstMethod {
     definingClass("Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
@@ -122,12 +121,10 @@ internal val pivotBarButtonsViewSetSelectedMethodMatch = firstMethodComposite {
 
 internal val BytecodePatchContext.pivotBarConstructorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
-    instructions(
-        "com.google.android.apps.youtube.app.endpoint.flags"(),
-    )
+    instructions("com.google.android.apps.youtube.app.endpoint.flags"())
 }
 
-internal val imageEnumConstructorMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.imageEnumConstructorMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
     instructions(
         "TAB_ACTIVITY_CAIRO"(),
@@ -136,13 +133,13 @@ internal val imageEnumConstructorMethodMatch = firstMethodComposite {
     )
 }
 
-internal val setEnumMapMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.setEnumMapMethodMatch by composingFirstMethod {
     instructions(
         ResourceType.DRAWABLE("yt_fill_bell_black_24"),
         afterAtMost(10, method { toString() == "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;" }),
         afterAtMost(
             10,
-            method { toString() == "Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;" }
-        )
+            method { toString() == "Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;" },
+        ),
     )
 }

@@ -4,11 +4,12 @@ import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val initializeMonetizationDebugSettingsMethodMatch = firstMethodComposite {
+internal val ClassDef.initializeMonetizationDebugSettingsMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     returnType("V")
-    // Parameters have not been reliable for fingerprinting between versions.
+    // Parameters have not been reliable for matching between versions.
     opcodes(Opcode.IPUT_BOOLEAN)
 }
 

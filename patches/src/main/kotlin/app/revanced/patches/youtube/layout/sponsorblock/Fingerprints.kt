@@ -1,12 +1,14 @@
 package app.revanced.patches.youtube.layout.sponsorblock
 
 import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.youtube.shared.seekbarMethod
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val appendTimeMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.appendTimeMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;", "Ljava/lang/CharSequence;")
@@ -17,7 +19,7 @@ internal val appendTimeMethodMatch = firstMethodComposite {
     )
 }
 
-internal val controlsOverlayMethodMatch = firstMethodComposite {
+internal val ClassDef.controlsOverlayMethodMatch by ClassDefComposing.composingFirstMethod {
     returnType("V")
     parameterTypes()
     instructions(
@@ -29,13 +31,13 @@ internal val controlsOverlayMethodMatch = firstMethodComposite {
 /**
  * Resolves to the class found in [seekbarMethod].
  */
-internal val rectangleFieldInvalidatorMethodMatch = firstMethodComposite {
+internal val ClassDef.rectangleFieldInvalidatorMethodMatch by ClassDefComposing.composingFirstMethod {
     returnType("V")
     parameterTypes()
     instructions(method("invalidate"))
 }
 
-internal val adProgressTextViewVisibilityMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.adProgressTextViewVisibilityMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Z")

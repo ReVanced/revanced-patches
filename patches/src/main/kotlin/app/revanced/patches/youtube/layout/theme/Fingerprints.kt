@@ -1,13 +1,14 @@
 package app.revanced.patches.youtube.layout.theme
 
 import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patches.youtube.shared.YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE
 
-internal val useGradientLoadingScreenMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.useGradientLoadingScreenMethodMatch by composingFirstMethod {
     instructions(45412406L())
 }
 
-internal val splashScreenStyleMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.splashScreenStyleMethodMatch by composingFirstMethod {
     definingClass(YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE)
     name("onCreate")
     returnType("V")

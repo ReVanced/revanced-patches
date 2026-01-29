@@ -4,6 +4,7 @@ import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.ClassDef
 
 internal val BytecodePatchContext.debugCategoryAllowOnReleaseBuildsMethod by gettingFirstMutableMethodDeclaratively {
     name("getAllowOnReleaseBuilds")
@@ -12,8 +13,7 @@ internal val BytecodePatchContext.debugCategoryAllowOnReleaseBuildsMethod by get
     parameterTypes()
 }
 
-internal val buildConfigProviderConstructorMethodMatch = firstMethodComposite {
-
+internal val ClassDef.buildConfigProviderConstructorMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes()
     opcodes(Opcode.CONST_4)

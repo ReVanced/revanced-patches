@@ -1238,7 +1238,7 @@ internal fun BytecodePatchContext.addStaticFieldToExtension(
 }
 
 /**
- * Set the custom condition for this fingerprint to check for a literal value.
+ * Set the custom condition for this predicate to check for a literal value.
  *
  * @param literalSupplier The supplier for the literal value to check for.
  */

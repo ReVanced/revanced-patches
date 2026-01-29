@@ -1,9 +1,8 @@
 package app.revanced.patches.shared.misc.extension
 
 import app.revanced.patcher.*
-import app.revanced.patcher.firstMutableClassDef
-import app.revanced.patcher.firstMutableMethodDeclaratively
 import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.firstMutableClassDef
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
@@ -85,18 +84,18 @@ fun sharedExtensionPatch(
 class ExtensionHook internal constructor(
     private val getInsertIndex: Method.() -> Int,
     private val getContextRegister: Method.() -> String,
-    private val predicate: DeclarativePredicate<Method>,
+    private val build: context(MutableList<String>) MutablePredicateList<Method>.() -> Unit,
 ) {
-    context(_: BytecodePatchContext)
+    context(context: BytecodePatchContext)
     operator fun invoke(extensionClassDescriptor: String) {
-        val method = firstMutableMethodDeclaratively(predicate = predicate)
+        val method = context.firstMutableMethodDeclaratively(build = build)
         val insertIndex = method.getInsertIndex()
         val contextRegister = method.getContextRegister()
 
         method.addInstruction(
             insertIndex,
             "invoke-static/range { $contextRegister .. $contextRegister }, " +
-                    "$extensionClassDescriptor->setContext(Landroid/content/Context;)V",
+                "$extensionClassDescriptor->setContext(Landroid/content/Context;)V",
         )
     }
 }
@@ -104,8 +103,8 @@ class ExtensionHook internal constructor(
 fun extensionHook(
     getInsertIndex: Method.() -> Int = { 0 },
     getContextRegister: Method.() -> String = { "p0" },
-    predicate: DeclarativePredicate<Method>,
-) = ExtensionHook(getInsertIndex, getContextRegister, predicate)
+    build: context(MutableList<String>) MutablePredicateList<Method>.() -> Unit,
+) = ExtensionHook(getInsertIndex, getContextRegister, build)
 
 /**
  * Creates an extension hook from a non-obfuscated activity, which typically is the main activity
@@ -124,8 +123,11 @@ fun activityOnCreateExtensionHook(activityClassType: String): ExtensionHook {
     return extensionHook {
         name("onCreate")
 
-        if (fullClassType) definingClass(activityClassType)
-        else definingClass { endsWith(activityClassType) }
+        if (fullClassType) {
+            definingClass(activityClassType)
+        } else {
+            definingClass { endsWith(activityClassType) }
+        }
 
         returnType("V")
         parameterTypes("Landroid/os/Bundle;")

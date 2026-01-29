@@ -22,7 +22,7 @@ val removeMetaAIPatch = bytecodePatch(
 
     apply {
         getMobileConfigBoolMethodMatch.let {
-            val returnIndex = it.indices.first()
+            val returnIndex = it[0]
             val returnRegister = it.method.getInstruction<OneRegisterInstruction>(returnIndex).registerA
 
             it.method.addInstructions(
@@ -36,13 +36,13 @@ val removeMetaAIPatch = bytecodePatch(
 
         // Extract the common starting digits of Meta AI flag IDs from a flag found in code.
         val relevantDigits = metaAIKillSwitchCheckMethodMatch.let {
-            it.method.getInstruction<WideLiteralInstruction>(it.indices.first()).wideLiteral
+            it.method.getInstruction<WideLiteralInstruction>(it[0]).wideLiteral
         }.toString().substring(0, 7)
 
         // Replace placeholder in the extension method.
         extensionMethodMatch.let {
             it.method.replaceInstruction(
-                it.indices.first(),
+                it[0],
                 "const-string v1, \"$relevantDigits\"",
             )
         }

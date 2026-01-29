@@ -1,10 +1,11 @@
 package app.revanced.patches.shared.layout.theme
 
 import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val lithoOnBoundsChangeMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.lithoOnBoundsChangeMethodMatch by composingFirstMethod {
     name("onBoundsChange")
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returnType("V")

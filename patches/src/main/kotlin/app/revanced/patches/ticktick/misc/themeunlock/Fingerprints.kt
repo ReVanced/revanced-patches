@@ -5,7 +5,7 @@ import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.name
 import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val BytecodePatchContext.checkLockedThemesFingerprint by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.checkLockedThemesMethod by gettingFirstMutableMethodDeclaratively {
     name("isLockedTheme")
     definingClass { endsWith("Theme;") }
 }

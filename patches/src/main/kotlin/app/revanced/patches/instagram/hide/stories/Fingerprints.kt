@@ -1,9 +1,10 @@
 package app.revanced.patches.instagram.hide.stories
 
 import app.revanced.patcher.*
+import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val getOrCreateAvatarViewMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.getOrCreateAvatarViewMethodMatch by composingFirstMethod {
     definingClass("Lcom/instagram/reels/ui/views/reelavatar/RecyclerReelAvatarView;")
     parameterTypes()
     returnType("L")

@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val shortsBottomBarContainerMethodMatch = firstMethodComposite {
+internal val BytecodePatchContext.shortsBottomBarContainerMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/view/View;", "Landroid/os/Bundle;")
@@ -91,7 +91,7 @@ internal val BytecodePatchContext.renderBottomNavigationBarParentMethod by getti
     )
 }
 
-internal val setPivotBarVisibilityMethodMatch = firstMethodComposite {
+internal val ClassDef.setPivotBarVisibilityMethodMatch by ClassDefComposing.composingFirstMethod {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Z")

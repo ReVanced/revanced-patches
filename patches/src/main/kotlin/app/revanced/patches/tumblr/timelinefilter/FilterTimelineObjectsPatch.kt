@@ -24,7 +24,7 @@ val filterTimelineObjectsPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     apply {
-        val filterInsertIndex = timelineFilterExtensionMethodMatch.indices.first()
+        val filterInsertIndex = timelineFilterExtensionMethodMatch[0]
 
         timelineFilterExtensionMethodMatch.method.apply {
             val addInstruction = getInstruction<BuilderInstruction35c>(filterInsertIndex + 1)

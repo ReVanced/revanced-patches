@@ -130,15 +130,15 @@ val videoInformationPatch = bytecodePatch(
         }
 
         with(createVideoPlayerSeekbarMethod) {
-            val videoLengthMethodMatch = videoLengthMethodMatch.match(immutableClassDef)
+            val videoLengthMethodMatch = immutableClassDef.videoLengthMethodMatch
 
             videoLengthMethodMatch.method.apply {
-                val videoLengthRegisterIndex = videoLengthMethodMatch.indices.last()
+                val videoLengthRegisterIndex = videoLengthMethodMatch[-1]
                 val videoLengthRegister = getInstruction<OneRegisterInstruction>(videoLengthRegisterIndex).registerA
                 val dummyRegisterForLong = videoLengthRegister + 1 // required for long values since they are wide
 
                 addInstruction(
-                    videoLengthMethodMatch.indices.last(),
+                    videoLengthMethodMatch[-1],
                     "invoke-static {v$videoLengthRegister, v$dummyRegisterForLong}, " +
                         "$EXTENSION_CLASS_DESCRIPTOR->setVideoLength(J)V",
                 )
@@ -146,7 +146,7 @@ val videoInformationPatch = bytecodePatch(
         }
 
         videoEndMethod = navigate(videoEndMethodMatch.immutableMethod)
-            .to(videoEndMethodMatch.indices.first()).stop()
+            .to(videoEndMethodMatch[0]).stop()
 
         /*
          * Inject call for video ids
@@ -170,7 +170,7 @@ val videoInformationPatch = bytecodePatch(
          * Set the video time method
          */
         timeMethod = navigate(playerControllerSetTimeReferenceMethodMatch.immutableMethod)
-            .to(playerControllerSetTimeReferenceMethodMatch.indices.first()).stop()
+            .to(playerControllerSetTimeReferenceMethodMatch[0]).stop()
 
         /*
          * Hook the methods which set the time
@@ -270,9 +270,9 @@ val videoInformationPatch = bytecodePatch(
         }
 
         // Handle new playback speed menu.
-        playbackSpeedMenuSpeedChangedMethodMatch.match(videoQualityChangedMethodMatch.immutableClassDef).let {
+        videoQualityChangedMethodMatch.immutableClassDef.playbackSpeedMenuSpeedChangedMethodMatch.let {
             it.method.apply {
-                val index = it.indices.first()
+                val index = it[0]
 
                 speedSelectionInsertMethod = this
                 speedSelectionInsertIndex = index + 1

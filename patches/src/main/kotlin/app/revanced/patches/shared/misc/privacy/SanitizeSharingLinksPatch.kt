@@ -1,6 +1,6 @@
 package app.revanced.patches.shared.misc.privacy
 
-import app.revanced.patcher.MatchBuilder
+import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatchBuilder
@@ -28,7 +28,7 @@ internal fun sanitizeSharingLinksPatch(
     preferenceScreen: BasePreferenceScreen.Screen,
     replaceMusicLinksWithYouTube: Boolean = false,
 ) = bytecodePatch(
-    name = "Sanitize sharing links", // TODO
+    name = "Sanitize sharing links",
     description = "Removes the tracking query parameters from shared links.",
 ) {
     block()
@@ -58,8 +58,9 @@ internal fun sanitizeSharingLinksPatch(
             },
         )
 
-        fun MatchBuilder.hookUrlString(matchIndex: Int) {
-            val index = indices[matchIndex]
+        fun Match.hookUrlString(matchIndex: Int) {
+            val index = get(matchIndex)
+
             val urlRegister = method.getInstruction<OneRegisterInstruction>(index).registerA
 
             method.addInstructions(
@@ -71,8 +72,8 @@ internal fun sanitizeSharingLinksPatch(
             )
         }
 
-        fun MatchBuilder.hookIntentPutExtra(matchIndex: Int) {
-            val index = indices[matchIndex]
+        fun Match.hookIntentPutExtra(matchIndex: Int) {
+            val index = get(matchIndex)
             val urlRegister = method.getInstruction<FiveRegisterInstruction>(index).registerE
 
             method.addInstructionsAtControlFlowLabel(
@@ -85,7 +86,7 @@ internal fun sanitizeSharingLinksPatch(
         }
 
         // YouTube share sheet copy link.
-        youTubeCopyTextFingerprintMethodMatch.hookUrlString(0)
+        youTubeCopyTextMethodMatch.hookUrlString(0)
 
         // YouTube share sheet other apps.
         youTubeShareSheetMethodMatch.hookIntentPutExtra(3)
