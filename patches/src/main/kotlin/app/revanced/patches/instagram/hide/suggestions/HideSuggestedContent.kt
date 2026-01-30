@@ -6,7 +6,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Suppress("unused")
-val hideSuggestedContentPatch = bytecodePatch(
+val hideSuggestedContent = bytecodePatch(
     name = "Hide suggested content",
     description = "Hides suggested stories, reels, threads and survey from feed (Suggested posts will still be shown).",
     use = false,

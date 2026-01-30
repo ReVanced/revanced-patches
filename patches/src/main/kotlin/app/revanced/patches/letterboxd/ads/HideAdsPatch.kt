@@ -11,7 +11,7 @@ val hideAdsPatch = bytecodePatch("Hide ads") {
     apply {
         admobHelperSetShowAdsMethod.addInstruction(0, "const p1, 0x0")
         listOf(admobHelperShouldShowAdsMethod, filmFragmentShowAdsMethod, memberExtensionShowAdsMethod).forEach {
-            it.returnEarly(false)
+            it.returnEarly()
         }
     }
 }

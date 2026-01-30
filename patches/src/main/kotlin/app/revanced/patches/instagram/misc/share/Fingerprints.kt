@@ -20,9 +20,7 @@ internal val BytecodePatchContext.storyUrlResponseJsonParserMethodMatch by compo
     instructions("story_item_to_share_url"())
 }
 
-internal val BytecodePatchContext.profileUrlResponseJsonParserMethodMatch by composingFirstMethod(
-    "ProfileUrlResponse",
-) {
+internal val BytecodePatchContext.profileUrlResponseJsonParserMethodMatch by composingFirstMethod {
     name("parseFromJson")
     instructions("profile_to_share_url"())
 }

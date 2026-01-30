@@ -3,13 +3,16 @@ package app.revanced.extension.youtube.patches.components;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.settings.Setting;
 import app.revanced.extension.shared.spoof.SpoofVideoStreamsPatch;
+import app.revanced.extension.shared.patches.litho.Filter;
+import app.revanced.extension.shared.patches.litho.FilterGroup.*;
+import app.revanced.extension.shared.patches.litho.FilterGroupList.*;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.ShortsPlayerState;
 
 import java.util.List;
 
 @SuppressWarnings("unused")
-public class PlayerFlyoutMenuItemsFilter extends Filter {
+public final class PlayerFlyoutMenuItemsFilter extends Filter {
 
     public static final class HideAudioFlyoutMenuAvailability implements Setting.Availability {
         @Override
@@ -94,7 +97,7 @@ public class PlayerFlyoutMenuItemsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (matchedGroup == videoQualityMenuFooter) {
             return true;

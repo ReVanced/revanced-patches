@@ -1,11 +1,14 @@
 package app.revanced.extension.youtube.patches.components;
 
 import app.revanced.extension.shared.StringTrieSearch;
+import app.revanced.extension.shared.patches.litho.Filter;
+import app.revanced.extension.shared.patches.litho.FilterGroup.*;
+import app.revanced.extension.shared.patches.litho.FilterGroupList.*;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 
 @SuppressWarnings("unused")
-final class DescriptionComponentsFilter extends Filter {
+public final class DescriptionComponentsFilter extends Filter {
 
     private static final String INFOCARDS_SECTION_PATH = "infocards_section.e";
 
@@ -128,8 +131,8 @@ final class DescriptionComponentsFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String identifier, String path, byte[] buffer,
-                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+    public boolean isFiltered(String identifier, String path, byte[] buffer,
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
 
         if (matchedGroup == aiGeneratedVideoSummarySection || matchedGroup == hypePoints) {
             // Only hide if player is open, in case this component is used somewhere else.

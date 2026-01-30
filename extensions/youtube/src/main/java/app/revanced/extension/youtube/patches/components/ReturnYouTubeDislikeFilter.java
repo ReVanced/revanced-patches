@@ -13,6 +13,9 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.youtube.patches.ReturnYouTubeDislikePatch;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.shared.patches.litho.Filter;
+import app.revanced.extension.shared.patches.litho.FilterGroup.*;
+import app.revanced.extension.shared.patches.litho.FilterGroupList.*;
 
 /**
  * Searches for video id's in the proto buffer of Shorts dislike.
@@ -73,13 +76,13 @@ public final class ReturnYouTubeDislikeFilter extends Filter {
     }
 
     @Override
-    boolean isFiltered(String identifier, String path, byte[] buffer,
+    public boolean isFiltered(String identifier, String path, byte[] buffer,
                        StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (!Settings.RYD_ENABLED.get() || !Settings.RYD_SHORTS.get()) {
             return false;
         }
 
-        FilterGroup.FilterGroupResult result = videoIdFilterGroup.check(buffer);
+        FilterGroupResult result = videoIdFilterGroup.check(buffer);
         if (result.isFiltered()) {
             String matchedVideoId = findVideoId(buffer);
             // Matched video will be null if in incognito mode.

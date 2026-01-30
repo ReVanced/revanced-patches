@@ -17,10 +17,5 @@ internal val FEED_ITEM_KEYS_TO_BE_HIDDEN = arrayOf(
 )
 
 internal val BytecodePatchContext.feedItemParseFromJsonMethodMatch by composingFirstMethod("FeedItem") {
-    instructions(
-        predicates = unorderedAllOf(
-            predicates =
-            FEED_ITEM_KEYS_TO_BE_HIDDEN.map { it.invoke() }.toTypedArray(),
-        ),
-    )
+    instructions(predicates = unorderedAllOf(predicates = FEED_ITEM_KEYS_TO_BE_HIDDEN.map { it() }.toTypedArray()))
 }

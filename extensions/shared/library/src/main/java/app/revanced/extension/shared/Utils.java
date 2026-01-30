@@ -341,6 +341,10 @@ public class Utils {
         return getResourceIdentifierOrThrow(getContext(), type, resourceIdentifierName);
     }
 
+    public static String getResourceString(int id) throws Resources.NotFoundException {
+        return getContext().getResources().getString(id);
+    }
+
     public static int getResourceInteger(String resourceIdentifierName) throws Resources.NotFoundException {
         return getContext().getResources().getInteger(getResourceIdentifierOrThrow(ResourceType.INTEGER, resourceIdentifierName));
     }

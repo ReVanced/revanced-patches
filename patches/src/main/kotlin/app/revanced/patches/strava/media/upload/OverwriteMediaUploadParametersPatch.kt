@@ -1,4 +1,4 @@
-package app.revanced.patches.strava.mediaupload
+package app.revanced.patches.strava.media.upload
 
 import app.revanced.patcher.firstClassDef
 import app.revanced.patcher.patch.bytecodePatch
