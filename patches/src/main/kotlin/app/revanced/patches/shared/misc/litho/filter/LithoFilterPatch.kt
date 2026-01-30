@@ -16,12 +16,9 @@ import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
 import app.revanced.patches.youtube.shared.conversionContextToStringMethod
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.findFieldFromToString
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 /**
  * Used to add a hook point to the extension stub.
@@ -34,7 +31,7 @@ lateinit var addLithoFilter: (String) -> Unit
  */
 private var filterCount = 0
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/patches/litho/LithoFilterPatch;"
+internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/patches/litho/LithoFilterPatch;"
 
 /**
  * A patch that allows to filter Litho components based on their identifier or path.
@@ -46,7 +43,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/p
  */
 internal fun lithoFilterPatch(
     componentCreateInsertionIndex: Method.() -> Int,
-    getConversionContextToStringMethod: BytecodePatchContext.() -> Method,
+    insertProtobufHook: BytecodePatchContext.() -> Unit,
     executeBlock: BytecodePatchContext.() -> Unit = {},
     block: BytecodePatchBuilder.() -> Unit = {},
 ) = bytecodePatch(
@@ -112,10 +109,7 @@ internal fun lithoFilterPatch(
         }
 
         // Add an interceptor to steal the protobuf of our component.
-        protobufBufferReferenceMethod.addInstruction(
-            0,
-            "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
-        )
+        insertProtobufHook()
 
         // Hook the method that parses bytes into a ComponentContext.
         // Allow the method to run to completion, and override the
@@ -124,17 +118,8 @@ internal fun lithoFilterPatch(
         // otherwise high memory usage and poor app performance can occur.
 
         // Find the identifier/path fields of the conversion context.
-        val conversionContextIdentifierField = componentContextParserMethodMatch.let {
-            // Identifier field is loaded just before the string declaration.
-            val index = it.method.indexOfFirstInstructionReversedOrThrow(it[0]) {
-                // Our instruction reads a String from a field of the ConversionContext class.
-                val reference = getReference<FieldReference>()
-                reference?.definingClass == conversionContextToStringMethod.immutableClassDef.type &&
-                    reference.type == "Ljava/lang/String;"
-            }
-
-            it.method.getInstruction<ReferenceInstruction>(index).getReference<FieldReference>()!!
-        }
+        val conversionContextIdentifierField = conversionContextToStringMethod
+            .findFieldFromToString("identifierProperty=")
 
         val conversionContextPathBuilderField = conversionContextToStringMethod.immutableClassDef
             .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
@@ -162,7 +147,11 @@ internal fun lithoFilterPatch(
                 insertIndex,
                 """
                     move-object/from16 v$freeRegister, p2 # ConversionContext parameter
-                    check-cast v$freeRegister, ${getConversionContextToStringMethod().immutableClassDef.type} # Check we got the actual ConversionContext
+                    
+                    # In YT 20.41 the field is the abstract superclass.
+                    # Check it's the actual ConversionContext just in case. 
+                    instance-of v$identifierRegister, v$freeRegister, ${conversionContextToStringMethod.immutableClassDef.type}
+                    if-eqz v$identifierRegister, :unfiltered
                     
                     # Get identifier and path from ConversionContext
                     iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField
