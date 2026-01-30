@@ -5,6 +5,7 @@ import app.revanced.patcher.definingClass
 import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
+import app.revanced.patcher.opcodes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
@@ -13,13 +14,13 @@ import com.android.tools.smali.dexlib2.Opcode
 internal val BytecodePatchContext.detectPiracyMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("V")
-    instructions(
-        Opcode.NEW_INSTANCE(),
-        Opcode.CONST_16(),
-        Opcode.CONST_WIDE_16(),
-        Opcode.INVOKE_DIRECT(),
-        Opcode.INVOKE_VIRTUAL(),
-        Opcode.RETURN_VOID(),
+    opcodes(
+        Opcode.NEW_INSTANCE,
+        Opcode.CONST_16,
+        Opcode.CONST_WIDE_16,
+        Opcode.INVOKE_DIRECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.RETURN_VOID,
     )
     definingClass { endsWith("ProcessLifeCyleListener;") }
 }

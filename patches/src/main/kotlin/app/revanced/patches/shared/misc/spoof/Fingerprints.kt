@@ -1,6 +1,7 @@
 package app.revanced.patches.shared.misc.spoof
 
 import app.revanced.patcher.accessFlags
+import app.revanced.patcher.anyField
 import app.revanced.patcher.composingFirstMethod
 import app.revanced.patcher.custom
 import app.revanced.patcher.definingClass
@@ -23,21 +24,21 @@ import com.android.tools.smali.dexlib2.iface.Method
 
 internal val BytecodePatchContext.buildInitPlaybackRequestMethodMatch by composingFirstMethod("Content-Type", "Range") {
     returnType($$"Lorg/chromium/net/UrlRequest$Builder;")
-    instructions(
-        Opcode.MOVE_RESULT_OBJECT(),
-        Opcode.IGET_OBJECT(), // Moves the request URI string to a register to build the request with.
+    opcodes(
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IGET_OBJECT, // Moves the request URI string to a register to build the request with.
     )
 }
 
 internal val BytecodePatchContext.buildPlayerRequestURIMethodMatch by composingFirstMethod("key", "asig") {
     returnType("Ljava/lang/String;")
-    instructions(
-        Opcode.INVOKE_VIRTUAL(), // Register holds player request URI.
-        Opcode.MOVE_RESULT_OBJECT(),
-        Opcode.IPUT_OBJECT(),
-        Opcode.IGET_OBJECT(),
-        Opcode.MONITOR_EXIT(),
-        Opcode.RETURN_OBJECT(),
+    opcodes(
+        Opcode.INVOKE_VIRTUAL, // Register holds player request URI.
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IPUT_OBJECT,
+        Opcode.IGET_OBJECT,
+        Opcode.MONITOR_EXIT,
+        Opcode.RETURN_OBJECT,
     )
 }
 
@@ -101,17 +102,15 @@ internal val BytecodePatchContext.protobufClassParseByteBufferMethod by gettingF
 internal val BytecodePatchContext.createStreamingDataMethodMatch by composingFirstMethod {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes("L")
-    instructions(
-        Opcode.IPUT_OBJECT(),
-        Opcode.IGET_OBJECT(),
-        Opcode.IF_NEZ(),
-        Opcode.SGET_OBJECT(),
-        Opcode.IPUT_OBJECT(),
+    opcodes(
+        Opcode.IPUT_OBJECT,
+        Opcode.IGET_OBJECT,
+        Opcode.IF_NEZ,
+        Opcode.SGET_OBJECT,
+        Opcode.IPUT_OBJECT,
     )
     custom {
-        immutableClassDef.fields.any { field ->
-            field.name == "a" && field.type.endsWith($$"/StreamingDataOuterClass$StreamingData;")
-        }
+        immutableClassDef.anyField { name == "a" && type.endsWith($$"/StreamingDataOuterClass$StreamingData;") }
     }
 }
 

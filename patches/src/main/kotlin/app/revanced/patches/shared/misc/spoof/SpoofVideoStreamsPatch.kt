@@ -290,7 +290,7 @@ internal fun spoofVideoStreamsPatch(
                 Opcode.SGET_OBJECT,
                 Opcode.RETURN_OBJECT,
             )
-            custom { parameterTypes.isEmpty() }
+            custom { !parameterTypes.isEmpty() }
         }
         sabrMethod.addInstructionsWithLabels(
             0,

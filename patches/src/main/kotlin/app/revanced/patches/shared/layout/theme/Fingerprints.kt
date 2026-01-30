@@ -30,7 +30,7 @@ internal val BytecodePatchContext.lithoOnBoundsChangeMethodMatch by composingFir
             5,
             allOf(
                 Opcode.IGET_OBJECT(),
-                field { type == "Landroid/graphics/Path;" && definingClass == methodDefiningClass },
+                field { type == "Landroid/graphics/Paint;" && definingClass == methodDefiningClass },
             ),
         ),
         after(

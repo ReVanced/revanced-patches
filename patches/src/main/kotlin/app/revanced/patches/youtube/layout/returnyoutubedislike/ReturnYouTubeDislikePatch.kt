@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.methodReference
+import app.revanced.patcher.extensions.typeReference
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -153,7 +154,7 @@ val returnYouTubeDislikePatch = bytecodePatch(
             } else {
                 insertIndex = indexOfFirstInstructionOrThrow {
                     opcode == Opcode.NEW_INSTANCE &&
-                        fieldReference?.type == textDataClassType
+                        typeReference?.type == textDataClassType
                 }
 
                 val charSequenceIndex = indexOfFirstInstructionOrThrow(insertIndex) {

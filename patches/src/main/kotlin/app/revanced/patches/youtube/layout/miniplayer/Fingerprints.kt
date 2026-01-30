@@ -66,7 +66,7 @@ internal val ClassDef.miniplayerModernCloseButtonMethodMatch by ClassDefComposin
     parameterTypes()
     instructions(
         ResourceType.ID("modern_miniplayer_close"),
-        allOf(Opcode.CHECK_CAST(), "Landroid/widget/ImageView;"()),
+        allOf(Opcode.CHECK_CAST(), type("Landroid/widget/ImageView;")),
     )
 }
 
@@ -79,7 +79,7 @@ internal val ClassDef.miniplayerModernExpandButtonMethodMatch by ClassDefComposi
     parameterTypes()
     instructions(
         ResourceType.ID("modern_miniplayer_expand"),
-        allOf(Opcode.CHECK_CAST(), "Landroid/widget/ImageView;"()),
+        allOf(Opcode.CHECK_CAST(), type("Landroid/widget/ImageView;")),
     )
 }
 

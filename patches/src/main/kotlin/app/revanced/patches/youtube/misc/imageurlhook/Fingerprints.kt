@@ -57,8 +57,8 @@ internal val BytecodePatchContext.messageDigestImageUrlParentMethod by gettingFi
     parameterTypes()
     instructions(
         anyOf(
-            "@#&=*+-_.,:!?()/~'%;$"(),
-            "@#&=*+-_.,:!?()/~'%;$[]"(), // 20.38+
+            string { equals("@#&=*+-_.,:!?()/~'%;$") },
+            string { equals("@#&=*+-_.,:!?()/~'%;$[]") }, // 20.38+
         ),
     )
 }

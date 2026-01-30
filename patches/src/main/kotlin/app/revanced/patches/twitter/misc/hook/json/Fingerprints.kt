@@ -11,10 +11,10 @@ import kotlin.properties.ReadOnlyProperty
 internal val BytecodePatchContext.jsonHookPatchMethodMatch by ReadOnlyProperty { context, _ ->
     context.firstClassDef(JSON_HOOK_PATCH_CLASS_DESCRIPTOR).firstMethodComposite {
         name("<clinit>")
-        instructions(
-            Opcode.INVOKE_INTERFACE(), // Add dummy hook to hooks list.
+        opcodes(
+            Opcode.INVOKE_INTERFACE, // Add dummy hook to hooks list.
             // Add hooks to the hooks list.
-            Opcode.INVOKE_STATIC(), // Call buildList.
+            Opcode.INVOKE_STATIC, // Call buildList.
         )
     }
 }

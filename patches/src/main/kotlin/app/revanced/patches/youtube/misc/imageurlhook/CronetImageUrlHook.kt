@@ -32,6 +32,7 @@ val cronetImageUrlHookPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch)
 
     apply {
+
         loadImageUrlMethod = messageDigestImageUrlParentMethod.immutableClassDef.getMessageDigestImageUrlMethod()
         loadImageSuccessCallbackMethod = onResponseStartedMethod.immutableClassDef.getOnSucceededMethod()
         loadImageErrorCallbackMethod = onResponseStartedMethod.immutableClassDef.getOnFailureMethod()

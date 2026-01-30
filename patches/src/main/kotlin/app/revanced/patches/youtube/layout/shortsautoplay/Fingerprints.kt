@@ -54,7 +54,7 @@ internal val BytecodePatchContext.reelPlaybackMethodMatch by composingFirstMetho
             5,
             allOf(
                 Opcode.INVOKE_VIRTUAL(),
-                method { returnType == "I" && parameterTypes.count() == 1 && parameterTypes.first() == "L" },
+                method { returnType == "I" && parameterTypes.count() == 1 && parameterTypes.first().startsWith("L") },
             ),
         ),
     )

@@ -9,10 +9,10 @@ internal val BytecodePatchContext.youTubeCopyTextMethodMatch by composingFirstMe
     parameterTypes("L", "Ljava/util/Map;")
     instructions(
         Opcode.IGET_OBJECT(),
-        after(0..2, "text/plain"()),
-        after(0..2, method("newPlainText")),
-        after(0..2, Opcode.MOVE_RESULT_OBJECT()),
-        after(0..2, method("setPrimaryClip")),
+        afterAtMost(2, "text/plain"()),
+        afterAtMost(2, method("newPlainText")),
+        afterAtMost(2, Opcode.MOVE_RESULT_OBJECT()),
+        afterAtMost(2, method("setPrimaryClip")),
     )
 }
 
@@ -21,9 +21,9 @@ internal val BytecodePatchContext.youTubeSystemShareSheetMethodMatch by composin
     parameterTypes("L", "Ljava/util/Map;")
     instructions(
         method("setClassName"),
-        after(0..4, method("iterator")),
-        after(0..15, allOf(Opcode.IGET_OBJECT(), type("Ljava/lang/String;"))),
-        after(0..15, method("putExtra")),
+        afterAtMost(4, method("iterator")),
+        afterAtMost(15, allOf(Opcode.IGET_OBJECT(), field { type == "Ljava/lang/String;" })),
+        afterAtMost(15, method("putExtra")),
     )
 }
 

@@ -96,15 +96,15 @@ val videoInformationPatch = bytecodePatch(
 
             // Find the location of the first invoke-direct call
             // and extract the register storing the 'this' object reference.
-            val initThisIndex = indexOfFirstInstructionOrThrow {
+            val initThisIndex = playerInitMethod.indexOfFirstInstructionOrThrow {
                 opcode == Opcode.INVOKE_DIRECT && getReference<MethodReference>()?.name == "<init>"
             }
-            playerInitInsertRegister = getInstruction<FiveRegisterInstruction>(initThisIndex).registerC
+            playerInitInsertRegister = playerInitMethod.getInstruction<FiveRegisterInstruction>(initThisIndex).registerC
             playerInitInsertIndex = initThisIndex + 1
 
             // Create extension interface methods.
             addSeekInterfaceMethods(
-                playVideoCheckVideoStreamingDataResponseMethod.classDef,
+                playerInitMethod.classDef,
                 classDef.getSeekMethod(),
                 classDef.getSeekRelativeMethod(),
             )
@@ -133,7 +133,7 @@ val videoInformationPatch = bytecodePatch(
             val videoLengthMethodMatch = immutableClassDef.videoLengthMethodMatch
 
             videoLengthMethodMatch.method.apply {
-                val videoLengthRegisterIndex = videoLengthMethodMatch[-1]
+                val videoLengthRegisterIndex = videoLengthMethodMatch[-1] - 2
                 val videoLengthRegister = getInstruction<OneRegisterInstruction>(videoLengthRegisterIndex).registerA
                 val dummyRegisterForLong = videoLengthRegister + 1 // required for long values since they are wide
 

@@ -11,7 +11,7 @@ internal val BytecodePatchContext.toolBarButtonMethodMatch by composingFirstMeth
     returnType("V")
     instructions(
         ResourceType.ID("menu_item_view"),
-        allOf(Opcode.INVOKE_VIRTUAL(), method { returnType == "I" }),
+        allOf(Opcode.INVOKE_INTERFACE(), method { returnType == "I" }),
         after(Opcode.MOVE_RESULT()),
         afterAtMost(6, allOf(Opcode.IGET_OBJECT(), field { type == "Landroid/widget/ImageView;" })),
         afterAtMost(8, method { name == "getDrawable" && definingClass == "Landroid/content/res/Resources;" }),

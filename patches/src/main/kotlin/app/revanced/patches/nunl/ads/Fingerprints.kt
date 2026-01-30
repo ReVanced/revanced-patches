@@ -20,24 +20,22 @@ internal val BytecodePatchContext.screenMapperMethodMatch by composingFirstMetho
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Lnl/nu/android/bff/domain/models/screen/ScreenEntity;")
     parameterTypes("Lnl/nu/performance/api/client/objects/Screen;")
-    instructions(
-        Opcode.MOVE_RESULT_OBJECT(),
-        Opcode.IF_EQZ(),
-        Opcode.CHECK_CAST(),
+    opcodes(
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IF_EQZ,
+        Opcode.CHECK_CAST,
     )
 }
 
 internal val BytecodePatchContext.nextPageRepositoryImplMethodMatch by composingFirstMethod {
+    definingClass("Lnl/nu/android/bff/data/repositories/NextPageRepositoryImpl;")
+    name("mapToPage")
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("Lnl/nu/android/bff/domain/models/Page;")
     parameterTypes("Lnl/nu/performance/api/client/PacResponse;", "Ljava/lang/String;")
-
-    definingClass("Lnl/nu/android/bff/data/repositories/NextPageRepositoryImpl;")
-    name("mapToPage")
-
-    instructions(
-        Opcode.MOVE_RESULT_OBJECT(),
-        Opcode.IF_EQZ(),
-        Opcode.CHECK_CAST(),
+    opcodes(
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IF_EQZ,
+        Opcode.CHECK_CAST,
     )
 }

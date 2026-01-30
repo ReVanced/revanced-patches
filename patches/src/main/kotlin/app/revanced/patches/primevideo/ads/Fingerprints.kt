@@ -12,11 +12,11 @@ internal val BytecodePatchContext.enterServerInsertedAdBreakStateMethod by getti
     accessFlags(AccessFlags.PUBLIC)
     parameterTypes("Lcom/amazon/avod/fsm/Trigger;")
     returnType("V")
-    instructions(
-        Opcode.INVOKE_VIRTUAL(),
-        Opcode.MOVE_RESULT_OBJECT(),
-        Opcode.CONST_4(),
-        Opcode.CONST_4()
+    opcodes(
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.CONST_4,
+        Opcode.CONST_4,
     )
 }
 
@@ -25,9 +25,9 @@ internal val BytecodePatchContext.doTriggerMethod by gettingFirstMutableMethodDe
     definingClass("Lcom/amazon/avod/fsm/StateBase;")
     accessFlags(AccessFlags.PROTECTED)
     returnType("V")
-    instructions(
-        Opcode.IGET_OBJECT(),
-        Opcode.INVOKE_INTERFACE(),
-        Opcode.RETURN_VOID()
+    opcodes(
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_INTERFACE,
+        Opcode.RETURN_VOID,
     )
 }

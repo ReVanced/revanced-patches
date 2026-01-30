@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.name
+import app.revanced.patcher.opcodes
 import app.revanced.patches.shared.misc.extension.extensionHook
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -29,12 +30,12 @@ internal val homeActivityInitHook = extensionHook(
 ) {
     name("onCreate")
     definingClass { endsWith("/HomeActivity;") }
-    instructions(
-        Opcode.CONST_STRING(),
-        Opcode.INVOKE_STATIC(),
-        Opcode.MOVE_RESULT_OBJECT(),
-        Opcode.IF_NEZ(),
-        Opcode.INVOKE_VIRTUAL(), // Calls getApplicationContext().
-        Opcode.MOVE_RESULT_OBJECT(),
+    opcodes(
+        Opcode.CONST_STRING,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.IF_NEZ,
+        Opcode.INVOKE_VIRTUAL, // Calls getApplicationContext().
+        Opcode.MOVE_RESULT_OBJECT,
     )
 }

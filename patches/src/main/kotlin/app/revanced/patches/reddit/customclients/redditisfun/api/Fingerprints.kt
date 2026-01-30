@@ -24,12 +24,12 @@ internal val BytecodePatchContext.getUserAgentMethod by gettingFirstMutableMetho
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     parameterTypes()
-    instructions(
-        Opcode.NEW_ARRAY(),
-        Opcode.CONST_4(),
-        Opcode.INVOKE_STATIC(),
-        Opcode.MOVE_RESULT_OBJECT(),
-        Opcode.APUT_OBJECT(),
-        Opcode.CONST(),
+    opcodes(
+        Opcode.NEW_ARRAY,
+        Opcode.CONST_4,
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.APUT_OBJECT,
+        Opcode.CONST,
     )
 }

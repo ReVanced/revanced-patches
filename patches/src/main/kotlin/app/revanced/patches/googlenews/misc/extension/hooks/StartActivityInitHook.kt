@@ -5,6 +5,7 @@ import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.name
+import app.revanced.patcher.opcodes
 import app.revanced.patches.shared.misc.extension.extensionHook
 import app.revanced.util.getReference
 import app.revanced.util.indexOfFirstInstructionOrThrow
@@ -29,16 +30,16 @@ internal val startActivityInitHook = extensionHook(
 ) {
     name("onCreate")
     definingClass { endsWith("/StartActivity;") }
-    instructions(
-        Opcode.INVOKE_STATIC(),
-        Opcode.MOVE_RESULT(),
-        Opcode.CONST_4(),
-        Opcode.IF_EQZ(),
-        Opcode.CONST(),
-        Opcode.INVOKE_VIRTUAL(),
-        Opcode.IPUT_OBJECT(),
-        Opcode.IPUT_BOOLEAN(),
-        Opcode.INVOKE_VIRTUAL(), // Calls startActivity.getApplicationContext().
-        Opcode.MOVE_RESULT_OBJECT(),
+    opcodes(
+        Opcode.INVOKE_STATIC,
+        Opcode.MOVE_RESULT,
+        Opcode.CONST_4,
+        Opcode.IF_EQZ,
+        Opcode.CONST,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.IPUT_OBJECT,
+        Opcode.IPUT_BOOLEAN,
+        Opcode.INVOKE_VIRTUAL, // Calls startActivity.getApplicationContext().
+        Opcode.MOVE_RESULT_OBJECT,
     )
 }

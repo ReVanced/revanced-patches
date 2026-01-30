@@ -42,7 +42,7 @@ internal val BytecodePatchContext.speedArrayGeneratorMethodMatch by composingFir
         "0.0#"(),
         7L(),
         Opcode.NEW_ARRAY(),
-        field { definingClass == "/PlayerConfigModel;" && type == "[F" },
+        field { definingClass.endsWith("/PlayerConfigModel;") && type == "[F" },
     )
 }
 

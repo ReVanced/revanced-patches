@@ -130,8 +130,8 @@ internal val BytecodePatchContext.showFloatingMicrophoneButtonMethodMatch by com
     parameterTypes()
     instructions(
         ResourceType.ID("fab"),
-        afterAtMost(10, allOf(Opcode.CHECK_CAST(), "/FloatingActionButton;"())),
-        afterAtMost(15, Opcode.IGET_BOOLEAN()),
+        afterAtMost(10, allOf(Opcode.CHECK_CAST(), type { endsWith("/FloatingActionButton;") })),
+        afterAtMost(10, Opcode.IGET_BOOLEAN()),
     )
 }
 

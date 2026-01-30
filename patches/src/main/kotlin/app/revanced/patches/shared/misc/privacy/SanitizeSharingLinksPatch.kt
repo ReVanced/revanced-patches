@@ -1,5 +1,6 @@
 package app.revanced.patches.shared.misc.privacy
 
+import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.patcher.Match
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
@@ -15,6 +16,7 @@ import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/shared/patches/SanitizeSharingLinksPatch;"
@@ -58,40 +60,34 @@ internal fun sanitizeSharingLinksPatch(
             },
         )
 
-        fun Match.hookUrlString(matchIndex: Int) {
-            val index = get(matchIndex)
-
-            val urlRegister = method.getInstruction<OneRegisterInstruction>(index).registerA
+        fun Match.hook(
+            getInsertIndex: List<Int>.() -> Int,
+            getUrlRegister: MutableMethod.(insertIndex: Int) -> Int,
+        ) {
+            val insertIndex = indices[0].getInsertIndex()
+            val urlRegister = method.getUrlRegister(insertIndex)
 
             method.addInstructions(
-                index + 1,
+                insertIndex,
                 """
-                    invoke-static { v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;
+                    invoke-static {v$urlRegister}, $EXTENSION_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$urlRegister
                 """,
             )
         }
 
-        fun Match.hookIntentPutExtra(matchIndex: Int) {
-            val index = get(matchIndex)
-            val urlRegister = method.getInstruction<FiveRegisterInstruction>(index).registerE
-
-            method.addInstructionsAtControlFlowLabel(
-                index,
-                """
-                    invoke-static { v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;
-                    move-result-object v$urlRegister
-                """,
-            )
+        // YouTube share sheet.\
+        youTubeShareSheetMethodMatch.hook(getInsertIndex = { first() + 1 }) { insertIndex ->
+            getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
         }
-
-        // YouTube share sheet copy link.
-        youTubeCopyTextMethodMatch.hookUrlString(0)
-
-        // YouTube share sheet other apps.
-        youTubeShareSheetMethodMatch.hookIntentPutExtra(3)
 
         // Native system share sheet.
-        youTubeSystemShareSheetMethodMatch.hookIntentPutExtra(3)
+        youTubeSystemShareSheetMethodMatch.hook(getInsertIndex = { last() }) { insertIndex ->
+            getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+        }
+
+        youTubeCopyTextMethodMatch.hook(getInsertIndex = { first() + 2 }) { insertIndex ->
+            getInstruction<TwoRegisterInstruction>(insertIndex - 2).registerA
+        }
     }
 }

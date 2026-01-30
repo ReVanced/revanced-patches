@@ -80,11 +80,11 @@ internal val BytecodePatchContext.rollingNumberTextViewMethod by gettingFirstMut
     parameterTypes("L", "F", "F")
     instructions(
         Opcode.IPUT(),
-        anyOf(Opcode.INVOKE_DIRECT(), Opcode.INVOKE_VIRTUAL()),
-        Opcode.IPUT_OBJECT(),
-        Opcode.IGET_OBJECT(),
-        Opcode.INVOKE_VIRTUAL(),
-        Opcode.RETURN_VOID(),
+        after(anyOf(Opcode.INVOKE_DIRECT(), Opcode.INVOKE_VIRTUAL())),
+        after(Opcode.IPUT_OBJECT()),
+        after(Opcode.IGET_OBJECT()),
+        after(Opcode.INVOKE_VIRTUAL()),
+        after(Opcode.RETURN_VOID()),
     )
     custom {
         immutableClassDef.superclass == "Landroid/support/v7/widget/AppCompatTextView;" || immutableClassDef.superclass ==
