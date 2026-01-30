@@ -32,7 +32,7 @@ private val unregisterScreenCaptureCallbackMethodReference = ImmutableMethodRefe
 val preventScreenshotDetectionPatch = bytecodePatch(
     name = "Prevent screenshot detection",
     description = "Removes the registration of all screen capture callbacks. This prevents the app from detecting screenshots.",
-	    use = false,
+	use = false
 ) {
     dependsOn(transformInstructionsPatch(
         filterMap = { _, _, instruction, instructionIndex ->
