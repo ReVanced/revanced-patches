@@ -20,8 +20,9 @@ import app.revanced.util.indexOfFirstInstructionOrThrow
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-lateinit var addLithoFilter: (String) -> Unit
-    private set
+@Deprecated("Use the shared one instead", ReplaceWith("app.revanced.patches.shared.misc.litho.filter.addLithoFilter"))
+//lateinit var addLithoFilter: (String) -> Unit
+//    private set
 
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/components/LithoFilterPatch;"
 
@@ -74,8 +75,11 @@ val lithoFilterPatch = lithoFilterPatch(
                 false,
             )
         }
-
         // endregion
+
+        // Set the addLithoFilter function to the one from the shared patch.
+        // This is done for backwards compatibility.
+//        addLithoFilter = app.revanced.patches.shared.misc.litho.filter.addLithoFilter
     }
 ) {
     dependsOn(sharedExtensionPatch, versionCheckPatch)
@@ -133,17 +137,17 @@ val lithoFilterPatchOld = bytecodePatch(
         lithoFilterMethod.apply {
             removeInstructions(2, 4) // Remove dummy filter.
 
-            addLithoFilter = { classDescriptor ->
-                addInstructions(
-                    2,
-                    """
-                        new-instance v1, $classDescriptor
-                        invoke-direct { v1 }, $classDescriptor-><init>()V
-                        const/16 v2, ${filterCount++}
-                        aput-object v1, v0, v2
-                    """,
-                )
-            }
+//            addLithoFilter = { classDescriptor ->
+//                addInstructions(
+//                    2,
+//                    """
+//                        new-instance v1, $classDescriptor
+//                        invoke-direct { v1 }, $classDescriptor-><init>()V
+//                        const/16 v2, ${filterCount++}
+//                        aput-object v1, v0, v2
+//                    """,
+//                )
+//            }
         }
 
         // region Pass the buffer into extension.
