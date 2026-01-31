@@ -37,7 +37,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/
  * A patch that allows to filter Litho components based on their identifier or path.
  *
  * @param componentCreateInsertionIndex The index to insert the filtering code in the component create method.
- * @param getConversionContextToStringMethod The Method of the conversion context to string method.
+ * @param insertProtobufHook This method injects a setProtoBuffer call in the protobuf decoding logic
  * @param executeBlock The additional execution block of the patch.
  * @param block The additional block to build the patch.
  */
