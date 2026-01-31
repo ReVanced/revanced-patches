@@ -6,7 +6,15 @@ import app.revanced.util.getNode
 import org.w3c.dom.Element
 import java.util.logging.Logger
 
-lateinit var packageNameOption: Option<String>
+private val packageNameOption = stringOption(
+    default = "Default",
+    values = mapOf("Default" to "Default"),
+    name = "Package name",
+    description = "The name of the package to rename the app to.",
+    required = true,
+) {
+    it == "Default" || it!!.matches(Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$"))
+}
 
 /**
  * Set the package name to use.
@@ -33,15 +41,7 @@ val changePackageNamePatch = resourcePatch(
         "Changing the package name of the app can lead to unexpected issues.",
     use = false,
 ) {
-    packageNameOption = stringOption(
-        default = "Default",
-        values = mapOf("Default" to "Default"),
-        name = "Package name",
-        description = "The name of the package to rename the app to.",
-        required = true,
-    ) {
-        it == "Default" || it!!.matches(Regex("^[a-z]\\w*(\\.[a-z]\\w*)+\$"))
-    }
+    packageNameOption()
 
     val updatePermissions by booleanOption(
         default = false,
