@@ -5,7 +5,8 @@ import app.revanced.patcher.patch.bytecodePatch
 
 @Suppress("unused")
 val hideOneDriveMigrationPatch = bytecodePatch(
-    name = "Hide OneDrive Migration",
+    name = "Hide OneDrive migration",
+    description = "Hides the OneDrive migration prompt when opening Microsoft Office Lens.",
 ) {
     compatibleWith("com.microsoft.office.officelens"("16.0.19628.20008"))
 
