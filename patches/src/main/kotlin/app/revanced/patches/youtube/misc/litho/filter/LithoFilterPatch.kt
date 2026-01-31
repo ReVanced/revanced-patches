@@ -14,10 +14,6 @@ import app.revanced.util.insertLiteralOverride
 import app.revanced.util.returnLate
 import com.android.tools.smali.dexlib2.Opcode
 
-@Deprecated("Use the shared one instead", ReplaceWith("app.revanced.patches.shared.misc.litho.filter.addLithoFilter"))
-lateinit var addLithoFilter: (String) -> Unit
-    private set
-
 val lithoFilterPatch = lithoFilterPatch(
     componentCreateInsertionIndex = {
         if (is_19_17_or_greater) {
@@ -68,11 +64,6 @@ val lithoFilterPatch = lithoFilterPatch(
             )
         }
         // endregion
-
-        // Set the addLithoFilter function to the one from the shared patch.
-        // This is done for backwards compatibility.
-        @Suppress("DEPRECATION")
-        addLithoFilter = app.revanced.patches.shared.misc.litho.filter.addLithoFilter
     }
 ) {
     dependsOn(sharedExtensionPatch, versionCheckPatch)
