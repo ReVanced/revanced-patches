@@ -436,6 +436,10 @@ public final class app/revanced/patches/meta/ads/HideAdsPatchKt {
 	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/microsoft/officelens/misc/onedrive/HideOneDriveMigrationPatchKt {
+	public static final fun getHideOneDriveMigrationPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/mifitness/misc/locale/ForceEnglishLocalePatchKt {
 	public static final fun getForceEnglishLocalePatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
