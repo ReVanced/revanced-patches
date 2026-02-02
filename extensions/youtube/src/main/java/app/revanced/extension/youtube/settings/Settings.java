@@ -19,7 +19,7 @@ import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerH
 import static app.revanced.extension.youtube.patches.MiniplayerPatch.MiniplayerType;
 import static app.revanced.extension.youtube.patches.OpenShortsInRegularPlayerPatch.ShortsPlayerType;
 import static app.revanced.extension.youtube.patches.SeekbarThumbnailsPatch.SeekbarThumbnailsHighQualityAvailability;
-import static app.revanced.extension.youtube.patches.components.PlayerFlyoutMenuItemsFilter.HideAudioFlyoutMenuAvailability;
+import static app.revanced.extension.youtube.patches.litho.PlayerFlyoutMenuItemsFilter.HideAudioFlyoutMenuAvailability;
 import static app.revanced.extension.youtube.patches.spoof.SpoofVideoStreamsPatch.SpoofClientAv1Availability;
 import static app.revanced.extension.youtube.patches.theme.ThemePatch.SplashScreenAnimationStyle;
 import static app.revanced.extension.youtube.sponsorblock.SegmentPlaybackController.SponsorBlockDuration;

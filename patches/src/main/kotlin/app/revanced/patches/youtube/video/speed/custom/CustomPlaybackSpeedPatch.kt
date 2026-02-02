@@ -34,7 +34,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 
 private const val FILTER_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/components/PlaybackSpeedMenuFilter;"
+    "Lapp/revanced/extension/youtube/patches/litho/PlaybackSpeedMenuFilter;"
 
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/playback/speed/CustomPlaybackSpeedPatch;"

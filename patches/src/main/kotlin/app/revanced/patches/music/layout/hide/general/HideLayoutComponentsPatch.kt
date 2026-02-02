@@ -9,6 +9,6 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
     lithoFilterPatch = lithoFilterPatch,
     getAddLithoFilter = { addLithoFilter },
     settingsPatch = settingsPatch,
-    filterClasses = setOf("Lapp/revanced/extension/shared/patches/components/CustomFilter;"),
+    filterClasses = setOf("Lapp/revanced/extension/shared/patches/litho/CustomFilter;"),
     compatibleWithPackages = arrayOf("com.google.android.apps.youtube.music" to setOf("7.29.52", "8.10.52")),
 )

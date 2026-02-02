@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.components;
+package app.revanced.extension.youtube.patches.litho;
 
 import static app.revanced.extension.youtube.patches.VersionCheckPatch.IS_20_21_OR_GREATER;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
@@ -8,16 +8,17 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageView;
 
+import android.widget.ImageView;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.StringTrieSearch;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.patches.litho.Filter;
-import app.revanced.extension.shared.patches.litho.FilterGroup.*;
-import app.revanced.extension.shared.patches.litho.FilterGroupList.*;
+import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
+import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
+import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;
 import app.revanced.extension.youtube.patches.ChangeHeaderPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;
@@ -52,7 +53,7 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup compactChannelBarInnerButton;
     private final ByteArrayFilterGroup joinMembershipButton;
     private final StringFilterGroup horizontalShelves;
-    private final ByteArrayFilterGroup ticketShelf;
+    private final ByteArrayFilterGroup ticketShelfBuffer;
     private final StringFilterGroup chipBar;
     private final StringFilterGroup channelProfile;
     private final ByteArrayFilterGroupList channelProfileBuffer;
@@ -347,7 +348,7 @@ public final class LayoutComponentsFilter extends Filter {
 
     @Override
     public boolean isFiltered(String identifier, String path, byte[] buffer,
-                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // This identifier is used not only in players but also in search results:
         // https://github.com/ReVanced/revanced-patches/issues/3245
         // Until 2024, medical information panels such as Covid 19 also used this identifier and were shown in the search results.

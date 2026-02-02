@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.components;
+package app.revanced.extension.youtube.patches.litho;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,7 +12,6 @@ import java.util.Map;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.patches.litho.Filter;
-import app.revanced.extension.shared.patches.litho.FilterGroup;
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.StringTrieSearch;

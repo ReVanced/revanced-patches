@@ -55,15 +55,15 @@ private val hideLayoutComponentsResourcePatch = resourcePatch {
 }
 
 private const val LAYOUT_COMPONENTS_FILTER_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/components/LayoutComponentsFilter;"
+    "Lapp/revanced/extension/youtube/patches/litho/LayoutComponentsFilter;"
 private const val DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME =
-    "Lapp/revanced/extension/youtube/patches/components/DescriptionComponentsFilter;"
+    "Lapp/revanced/extension/youtube/patches/litho/DescriptionComponentsFilter;"
 private const val COMMENTS_FILTER_CLASS_NAME =
-    "Lapp/revanced/extension/youtube/patches/components/CommentsFilter;"
+    "Lapp/revanced/extension/youtube/patches/litho/CommentsFilter;"
 private const val CUSTOM_FILTER_CLASS_NAME =
-    "Lapp/revanced/extension/shared/patches/components/CustomFilter;"
+    "Lapp/revanced/extension/shared/patches/litho/CustomFilter;"
 private const val KEYWORD_FILTER_CLASS_NAME =
-    "Lapp/revanced/extension/youtube/patches/components/KeywordContentFilter;"
+    "Lapp/revanced/extension/youtube/patches/litho/KeywordContentFilter;"
 
 val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
     lithoFilterPatch = lithoFilterPatch,

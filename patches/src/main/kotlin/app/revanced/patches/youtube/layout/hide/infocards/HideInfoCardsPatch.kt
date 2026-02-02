@@ -97,7 +97,7 @@ val hideInfoCardsPatch = bytecodePatch(
         }
 
         // Info cards can also appear as Litho components.
-        val filterClassDescriptor = "Lapp/revanced/extension/youtube/patches/components/HideInfoCardsFilter;"
+        val filterClassDescriptor = "Lapp/revanced/extension/youtube/patches/litho/HideInfoCardsFilter;"
         addLithoFilter(filterClassDescriptor)
     }
 }

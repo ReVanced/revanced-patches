@@ -13,12 +13,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.Objects;
-import java.util.Set;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.settings.BaseSettings;
-import app.revanced.extension.youtube.patches.components.ReturnYouTubeDislikeFilter;
+import app.revanced.extension.youtube.patches.litho.ReturnYouTubeDislikeFilter;
 import app.revanced.extension.youtube.returnyoutubedislike.ReturnYouTubeDislike;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;

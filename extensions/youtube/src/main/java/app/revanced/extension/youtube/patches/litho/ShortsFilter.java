@@ -1,19 +1,23 @@
-package app.revanced.extension.youtube.patches.components;
+package app.revanced.extension.youtube.patches.litho;
 
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;
 
 import android.view.View;
 
+import app.revanced.extension.shared.patches.litho.Filter;
+import app.revanced.extension.shared.patches.litho.FilterGroup.*;
+import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
+import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;
+import app.revanced.extension.shared.settings.BooleanSetting;
 import com.google.android.libraries.youtube.rendering.ui.pivotbar.PivotBar;
 
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.patches.litho.Filter;
-import app.revanced.extension.shared.patches.litho.FilterGroup.*;
-import app.revanced.extension.shared.patches.litho.FilterGroupList.*;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;
@@ -455,6 +459,9 @@ public final class ShortsFilter extends Filter {
         };
     }
 
+    /**
+     * Injection point.
+     */
     public static int getSoundButtonSize(int original) {
         if (Settings.HIDE_SHORTS_SOUND_BUTTON.get()) {
             return 0;
@@ -463,10 +470,16 @@ public final class ShortsFilter extends Filter {
         return original;
     }
 
+    /**
+     * Injection point.
+     */
     public static void setNavigationBar(PivotBar view) {
         pivotBarRef = new WeakReference<>(view);
     }
 
+    /**
+     * Injection point.
+     */
     public static void hideNavigationBar(String tag) {
         if (HIDE_SHORTS_NAVIGATION_BAR) {
             if (REEL_WATCH_FRAGMENT_INIT_PLAYBACK.contains(tag)) {
@@ -481,6 +494,9 @@ public final class ShortsFilter extends Filter {
         }
     }
 
+    /**
+     * Injection point.
+     */
     public static int getNavigationBarHeight(int original) {
         if (HIDE_SHORTS_NAVIGATION_BAR) {
             return HIDDEN_NAVIGATION_BAR_VERTICAL_HEIGHT;

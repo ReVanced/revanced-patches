@@ -29,7 +29,7 @@ internal var adAttributionId = -1L
 internal var fullScreenEngagementAdContainer = -1L
     private set
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/components/AdsFilter;"
+private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/litho/AdsFilter;"
 
 private val hideAdsResourcePatch = resourcePatch {
     dependsOn(
@@ -55,7 +55,7 @@ private val hideAdsResourcePatch = resourcePatch {
             SwitchPreference("revanced_hide_web_search_results"),
         )
 
-        addLithoFilter("Lapp/revanced/extension/youtube/patches/components/AdsFilter;")
+        addLithoFilter("Lapp/revanced/extension/youtube/patches/litho/AdsFilter;")
 
         adAttributionId = ResourceType.ID["ad_attribution"]
         fullScreenEngagementAdContainer = ResourceType.ID["fullscreen_engagement_ad_container"]

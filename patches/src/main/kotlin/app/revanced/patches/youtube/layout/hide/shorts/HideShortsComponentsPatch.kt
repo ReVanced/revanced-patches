@@ -157,7 +157,7 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
     }
 }
 
-private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/components/ShortsFilter;"
+private const val FILTER_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/litho/ShortsFilter;"
 
 @Suppress("unused")
 val hideShortsComponentsPatch = bytecodePatch(
