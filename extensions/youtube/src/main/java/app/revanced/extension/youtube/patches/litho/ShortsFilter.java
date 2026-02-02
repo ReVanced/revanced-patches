@@ -26,12 +26,32 @@ import app.revanced.extension.youtube.shared.PlayerType;
 @SuppressWarnings("unused")
 public final class ShortsFilter extends Filter {
     private static final boolean HIDE_SHORTS_NAVIGATION_BAR = Settings.HIDE_SHORTS_NAVIGATION_BAR.get();
-    private static final String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.e";
+    private static final String COMPONENT_TYPE = "ComponentType";
+    private static final String[] REEL_ACTION_BAR_PATHS = {
+            "reel_action_bar.", // Regular Shorts.
+            "reels_player_overlay_layout." // Shorts ads.
+    };
+    private static final Map<Integer, BooleanSetting> REEL_ACTION_BUTTONS_MAP = new HashMap<>() {
+        {
+            // Like button and Dislike button can be hidden with Litho filter.
+            // put(0, Settings.HIDE_SHORTS_LIKE_BUTTON);
+            // put(1, Settings.HIDE_SHORTS_DISLIKE_BUTTON);
+            put(2, Settings.HIDE_SHORTS_COMMENTS_BUTTON);
+            put(3, Settings.HIDE_SHORTS_SHARE_BUTTON);
+            put(4, Settings.HIDE_SHORTS_REMIX_BUTTON);
+        }
+    };
+    private final String REEL_CHANNEL_BAR_PATH = "reel_channel_bar.e";
 
     /**
      * For paid promotion label and subscribe button that appears in the channel bar.
      */
-    private static final String REEL_METAPANEL_PATH = "reel_metapanel.e";
+    private final String REEL_METAPANEL_PATH = "reel_metapanel.e";
+
+    /**
+     * For paid promotion label and subscribe button that appears in the channel bar.
+     */
+    private final String REEL_PLAYER_OVERLAY_PATH = "reel_player_overlay.e";
 
     /**
      * Tags that appears when opening the Shorts player.
@@ -51,6 +71,8 @@ public final class ShortsFilter extends Filter {
     private final ByteArrayFilterGroup useSoundButtonBuffer;
     private final StringFilterGroup useTemplateButton;
     private final ByteArrayFilterGroup useTemplateButtonBuffer;
+    private final StringFilterGroup reelCarousel;
+    private final ByteArrayFilterGroup reelCarouselBuffer;
 
     private final StringFilterGroup autoDubbedLabel;
     private final StringFilterGroup subscribeButton;
@@ -154,13 +176,15 @@ public final class ShortsFilter extends Filter {
         StringFilterGroup likeButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_LIKE_BUTTON,
                 "shorts_like_button.e",
-                "reel_like_button.e"
+                "reel_like_button.e",
+                "reel_like_toggled_button.e"
         );
 
         StringFilterGroup dislikeButton = new StringFilterGroup(
                 Settings.HIDE_SHORTS_DISLIKE_BUTTON,
                 "shorts_dislike_button.e",
-                "reel_dislike_button.e"
+                "reel_dislike_button.e",
+                "reel_dislike_toggled_button.e"
         );
 
         StringFilterGroup previewComment = new StringFilterGroup(
@@ -179,7 +203,7 @@ public final class ShortsFilter extends Filter {
 
         autoDubbedLabel = new StringFilterGroup(
                 Settings.HIDE_SHORTS_AUTO_DUBBED_LABEL,
-                "badge."
+                "badge.e"
         );
 
         joinButton = new StringFilterGroup(
@@ -202,6 +226,16 @@ public final class ShortsFilter extends Filter {
                 null,
                 "shorts_action_bar.e",
                 "reel_action_bar.e"
+        );
+
+        reelCarousel = new StringFilterGroup(
+                Settings.HIDE_SHORTS_SOUND_METADATA_LABEL,
+                "reel_carousel.e"
+        );
+
+        reelCarouselBuffer = new ByteArrayFilterGroup(
+                null,
+                "FEsfv_audio_pivot"
         );
 
         useSoundButton = new StringFilterGroup(
@@ -245,14 +279,15 @@ public final class ShortsFilter extends Filter {
         );
 
         addPathCallbacks(
-                shortsCompactFeedVideo, joinButton, subscribeButton, paidPromotionLabel, autoDubbedLabel,
-                suggestedAction, pausedOverlayButtons, channelBar, previewComment,
-                fullVideoLinkLabel, videoTitle, useSoundButton, reelSoundMetadata, soundButton, infoPanel,
-                stickers, likeFountain, likeButton, dislikeButton, livePreview
+                shortsCompactFeedVideo, joinButton, subscribeButton, paidPromotionLabel, livePreview,
+                suggestedAction, pausedOverlayButtons, channelBar, previewComment, autoDubbedLabel,
+                fullVideoLinkLabel, videoTitle, useSoundButton, reelSoundMetadata, soundButton, reelCarousel,
+                infoPanel, stickers, likeFountain, likeButton, dislikeButton
         );
 
-        // FIXME: The Shorts buffer is very different with 20.22+ and if any of these filters
-        //        are enabled then all Shorts player vertical buttons are hidden.
+        // Legacy hiding of Shorts action buttons. Because of 20.31+ buffer changes
+        // it's currently not possible to hide these using buffer filtering.
+        // See alternative hiding strategy in hideActionButtons().
         if (!VersionCheckPatch.IS_20_22_OR_GREATER) {
             addPathCallbacks(shortsActionBar);
 
@@ -290,7 +325,8 @@ public final class ShortsFilter extends Filter {
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SHOP_BUTTON,
-                        "yt_outline_bag_"
+                        "yt_outline_bag_",
+                        "yt_outline_experimental_bag_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_TAGGED_PRODUCTS,
@@ -300,31 +336,38 @@ public final class ShortsFilter extends Filter {
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_LOCATION_LABEL,
-                        "yt_outline_location_point_"
+                        "yt_outline_location_point_",
+                        "yt_outline_experimental_location_point_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SAVE_SOUND_BUTTON,
                         "yt_outline_bookmark_",
                         // 'Save sound' button. It seems this has been removed and only 'Save music' is used.
                         // Still hide this in case it's still present.
-                        "yt_outline_list_add_"
+                        "yt_outline_list_add_",
+                        "yt_outline_experimental_list_add_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SEARCH_SUGGESTIONS,
-                        "yt_outline_search_"
+                        "yt_outline_search_",
+                        "yt_outline_experimental_search_"
+
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_SUPER_THANKS_BUTTON,
-                        "yt_outline_dollar_sign_heart_"
+                        "yt_outline_dollar_sign_heart_",
+                        "yt_outline_experimental_dollar_sign_heart_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_USE_TEMPLATE_BUTTON,
                         //  "Use this template" can appear in two different places.
-                        "yt_outline_template_add_"
+                        "yt_outline_template_add_",
+                        "yt_outline_experimental_template_add_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_UPCOMING_BUTTON,
-                        "yt_outline_bell_"
+                        "yt_outline_bell_",
+                        "yt_outline_experimental_bell_"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_EFFECT_BUTTON,
@@ -337,11 +380,13 @@ public final class ShortsFilter extends Filter {
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_NEW_POSTS_BUTTON,
-                        "yt_outline_box_pencil"
+                        "yt_outline_box_pencil",
+                        "yt_outline_experimental_box_pencil"
                 ),
                 new ByteArrayFilterGroup(
                         Settings.HIDE_SHORTS_HASHTAG_BUTTON,
-                        "yt_outline_hashtag_"
+                        "yt_outline_hashtag_",
+                        "yt_outline_experimental_hashtag_"
                 )
         );
     }
@@ -358,12 +403,17 @@ public final class ShortsFilter extends Filter {
 
     @Override
     public boolean isFiltered(String identifier, String path, byte[] buffer,
-                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (contentType == FilterContentType.PATH) {
             if (matchedGroup == subscribeButton || matchedGroup == joinButton
                     || matchedGroup == paidPromotionLabel || matchedGroup == autoDubbedLabel) {
                 // Selectively filter to avoid false positive filtering of other subscribe/join buttons.
-                return path.startsWith(REEL_CHANNEL_BAR_PATH) || path.startsWith(REEL_METAPANEL_PATH);
+                return path.startsWith(REEL_CHANNEL_BAR_PATH) || path.startsWith(REEL_METAPANEL_PATH)
+                        || path.startsWith(REEL_PLAYER_OVERLAY_PATH);
+            }
+
+            if (matchedGroup == reelCarousel) {
+                return reelCarouselBuffer.check(buffer).isFiltered();
             }
 
             if (matchedGroup == useSoundButton) {
