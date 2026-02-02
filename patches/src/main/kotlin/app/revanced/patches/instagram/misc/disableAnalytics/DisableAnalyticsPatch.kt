@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.instagram.shared.replaceStringWithBogus
 
 @Suppress("unused")
-val removeBuildExpiredPopupPatch = bytecodePatch(
+val disableAnalyticsPatch = bytecodePatch(
     name = "Disable analytics",
     description = "Disables analytics that are sent periodically.",
 ) {
