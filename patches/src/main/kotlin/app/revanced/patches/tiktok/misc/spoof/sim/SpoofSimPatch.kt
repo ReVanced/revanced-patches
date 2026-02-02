@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.firstMutableMethod
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
-import app.revanced.patches.tiktok.misc.settings.Settings
+import app.revanced.patches.tiktok.misc.settings.settingsPatch
 import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadMethod
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
@@ -21,7 +21,7 @@ val sIMSpoofPatch = bytecodePatch(
 ) {
     dependsOn(
         sharedExtensionPatch,
-        Settings,
+        settingsPatch,
     )
 
     compatibleWith(

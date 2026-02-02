@@ -13,7 +13,8 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/announcements/AnnouncementsPatch;"
 
 @Suppress("unused")
-val Announcements = bytecodePatch(
+val announcementsPatch = bytecodePatch(
+    name = "Announcements",
     description = "Adds an option to show announcements from ReVanced on app startup.",
 ) {
     dependsOn(

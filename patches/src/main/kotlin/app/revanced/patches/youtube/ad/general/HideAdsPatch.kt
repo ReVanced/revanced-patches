@@ -4,6 +4,7 @@ import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.extensions.wideLiteral
+import app.revanced.patcher.firstMutableMethod
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -94,21 +95,25 @@ val hideAdsPatch = bytecodePatch(
             replaceInstruction(
                 addListIndex,
                 "invoke-static { v$listRegister, v$objectRegister }, $EXTENSION_CLASS_DESCRIPTOR" +
-                    "->hideEndScreenStoreBanner(Ljava/util/List;Ljava/lang/Object;)V",
+                        "->hideEndScreenStoreBanner(Ljava/util/List;Ljava/lang/Object;)V",
             )
         }
 
         // Hide ad views.
 
-        forEachInstructionAsSequence { _, method, index, instruction ->
-            if (instruction.opcode != Opcode.CONST) return@forEachInstructionAsSequence
-            if (instruction.wideLiteral != adAttributionId) return@forEachInstructionAsSequence
+        forEachInstructionAsSequence({ _, method, instruction, index ->
+            if (instruction.opcode != Opcode.CONST) return@forEachInstructionAsSequence null
+            if (instruction.wideLiteral != adAttributionId) return@forEachInstructionAsSequence null
 
             val insertIndex = index + 1
 
-            // Call to get the view with the id adAttribution,
-            if (method.instructions[insertIndex].opcode != Opcode.INVOKE_VIRTUAL) return@forEachInstructionAsSequence
+            // Call to get the view with the id adAttribution.
+            if (method.instructions.elementAt(insertIndex).opcode != Opcode.INVOKE_VIRTUAL) return@forEachInstructionAsSequence null
             val viewRegister = method.getInstruction<FiveRegisterInstruction>(insertIndex).registerC
+
+            return@forEachInstructionAsSequence insertIndex to viewRegister
+
+        }) { method, (insertIndex, viewRegister) ->
             method.injectHideViewCall(insertIndex, viewRegister, EXTENSION_CLASS_DESCRIPTOR, "hideAdAttributionView")
         }
     }

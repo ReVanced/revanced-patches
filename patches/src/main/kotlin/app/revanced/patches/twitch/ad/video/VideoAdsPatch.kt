@@ -12,7 +12,7 @@ import app.revanced.patches.twitch.ad.shared.util.ReturnMethod
 import app.revanced.patches.twitch.ad.shared.util.adPatch
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
-import app.revanced.patches.twitch.misc.settings.Settings
+import app.revanced.patches.twitch.misc.settings.settingsPatch
 
 @Suppress("ObjectPropertyName")
 val blockVideoAdsPatch = bytecodePatch(
@@ -24,7 +24,7 @@ val blockVideoAdsPatch = bytecodePatch(
 
     dependsOn(
         sharedExtensionPatch,
-        Settings,
+        settingsPatch,
         addResourcesPatch,
         adPatch(conditionCall, skipLabelName) { createConditionInstructions, blockMethods ->
 

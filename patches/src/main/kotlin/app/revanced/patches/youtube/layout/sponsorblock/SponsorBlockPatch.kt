@@ -22,7 +22,7 @@ import app.revanced.patches.youtube.misc.settings.PreferenceScreen
 import app.revanced.patches.youtube.misc.settings.settingsPatch
 import app.revanced.patches.youtube.shared.getLayoutConstructorMethodMatch
 import app.revanced.patches.youtube.shared.seekbarMethod
-import app.revanced.patches.youtube.shared.seekbarOnDrawMethodMatch
+import app.revanced.patches.youtube.shared.getSeekbarOnDrawMethodMatch
 import app.revanced.patches.youtube.video.information.onCreateHook
 import app.revanced.patches.youtube.video.information.videoInformationPatch
 import app.revanced.patches.youtube.video.information.videoTimeHook
@@ -111,7 +111,8 @@ private const val EXTENSION_SPONSORBLOCK_VIEW_CONTROLLER_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/sponsorblock/ui/SponsorBlockViewController;"
 
 @Suppress("unused")
-val SponsorBlock = bytecodePatch(
+val sponsorBlockPatch = bytecodePatch(
+    name = "SponsorBlock",
     description = "Adds options to enable and configure SponsorBlock, which can skip undesired video segments such as sponsored content.",
 ) {
     dependsOn(
@@ -164,7 +165,7 @@ val SponsorBlock = bytecodePatch(
 
         // Cannot match using original immutable class because
         // class may have been modified by other patches
-        seekbarMethod.immutableClassDef.seekbarOnDrawMethodMatch.let {
+        seekbarMethod.immutableClassDef.getSeekbarOnDrawMethodMatch().let {
             it.method.apply {
                 // Set seekbar thickness.
                 val thicknessIndex = it[-1]

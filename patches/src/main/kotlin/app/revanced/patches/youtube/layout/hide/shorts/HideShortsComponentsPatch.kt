@@ -3,7 +3,9 @@ package app.revanced.patches.youtube.layout.hide.shorts
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
+import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.wideLiteral
+import app.revanced.patcher.firstMutableMethod
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
@@ -66,9 +68,9 @@ private val hideShortsComponentsResourcePatch = resourcePatch {
             // FIXME: The buffer is very different for 20.22+ and these current cannot be hidden.
             Logger.getLogger(this::class.java.name).warning(
                 "\n!!!" +
-                    "\n!!! Shorts action buttons currently cannot be set hidden when patching 20.22+" +
-                    "\n!!! Patch 20.21.37 or lower if you want to hide Shorts action buttons" +
-                    "\n!!!",
+                        "\n!!! Shorts action buttons currently cannot be set hidden when patching 20.22+" +
+                        "\n!!! Patch 20.21.37 or lower if you want to hide Shorts action buttons" +
+                        "\n!!!",
             )
         } else {
             preferences.addAll(
@@ -188,16 +190,18 @@ val hideShortsComponentsPatch = bytecodePatch(
 
         val id = ResourceType.DIMEN["reel_player_right_pivot_v2_size"]
 
-        forEachInstructionAsSequence { _, method, i, instruction ->
-            if (instruction.wideLiteral != id) return@forEachInstructionAsSequence
+        forEachInstructionAsSequence({ _, method, instruction, index ->
+            if (instruction.wideLiteral != id) return@forEachInstructionAsSequence null
 
-            val targetIndex = method.indexOfFirstInstructionOrThrow(i) {
-                getReference<MethodReference>()?.name == "getDimensionPixelSize"
+            val targetIndex = method.indexOfFirstInstructionOrThrow(index) {
+                methodReference?.name == "getDimensionPixelSize"
             } + 1
 
             val sizeRegister = method.getInstruction<OneRegisterInstruction>(targetIndex).registerA
 
-            method.addInstructions(
+            return@forEachInstructionAsSequence targetIndex to sizeRegister
+        }) { method, (targetIndex, sizeRegister) ->
+            firstMutableMethod(method).addInstructions(
                 targetIndex + 1,
                 """
                     invoke-static { v$sizeRegister }, $FILTER_CLASS_DESCRIPTOR->getSoundButtonSize(I)I
@@ -218,24 +222,24 @@ val hideShortsComponentsPatch = bytecodePatch(
                 addInstruction(
                     insertIndex,
                     "invoke-static {v$viewRegister}," +
-                        " $FILTER_CLASS_DESCRIPTOR->setNavigationBar(Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;)V",
+                            " $FILTER_CLASS_DESCRIPTOR->setNavigationBar(Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;)V",
                 )
             }
         }
 
         // Hook to hide the shared navigation bar when the Shorts player is opened.
         (
-            if (is_20_45_or_greater) {
-                renderBottomNavigationBarParentMethod
-            } else if (is_19_41_or_greater) {
-                renderBottomNavigationBarLegacy1941ParentMethod
-            } else {
-                legacyRenderBottomNavigationBarLegacyParentMethod
-            }
-            ).immutableClassDef.getRenderBottomNavigationBarMethodMatch().addInstruction(
-            0,
-            "invoke-static { p1 }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Ljava/lang/String;)V",
-        )
+                if (is_20_45_or_greater) {
+                    renderBottomNavigationBarParentMethod
+                } else if (is_19_41_or_greater) {
+                    renderBottomNavigationBarLegacy1941ParentMethod
+                } else {
+                    legacyRenderBottomNavigationBarLegacyParentMethod
+                }
+                ).immutableClassDef.getRenderBottomNavigationBarMethodMatch().addInstruction(
+                0,
+                "invoke-static { p1 }, $FILTER_CLASS_DESCRIPTOR->hideNavigationBar(Ljava/lang/String;)V",
+            )
 
         // Hide the bottom bar container of the Shorts player.
         shortsBottomBarContainerMethodMatch.let {

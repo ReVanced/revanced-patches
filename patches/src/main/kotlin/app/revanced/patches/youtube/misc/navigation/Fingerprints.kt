@@ -136,7 +136,9 @@ internal val BytecodePatchContext.imageEnumConstructorMethodMatch by composingFi
 internal val BytecodePatchContext.setEnumMapMethodMatch by composingFirstMethod {
     instructions(
         ResourceType.DRAWABLE("yt_fill_bell_black_24"),
-        afterAtMost(10, method { toString() == "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;" }),
+        afterAtMost(
+            10,
+            method { toString() == "Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;" }),
         afterAtMost(
             10,
             method { toString() == "Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;" },

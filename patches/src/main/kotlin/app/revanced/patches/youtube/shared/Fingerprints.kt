@@ -113,7 +113,7 @@ internal val BytecodePatchContext.seekbarMethod by gettingFirstMethodDeclarative
 /**
  * Matches to _mutable_ class found in [seekbarMethod].
  */
-internal val ClassDef.seekbarOnDrawMethodMatch by ClassDefComposing.composingFirstMethod {
+internal fun ClassDef.getSeekbarOnDrawMethodMatch() = firstMethodComposite {
     name("onDraw")
     instructions(
         method { toString() == "Ljava/lang/Math;->round(F)I" },

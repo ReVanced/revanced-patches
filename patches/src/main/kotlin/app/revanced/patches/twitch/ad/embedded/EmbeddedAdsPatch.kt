@@ -7,7 +7,7 @@ import app.revanced.patches.shared.misc.settings.preference.ListPreference
 import app.revanced.patches.twitch.ad.video.blockVideoAdsPatch
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
-import app.revanced.patches.twitch.misc.settings.Settings
+import app.revanced.patches.twitch.misc.settings.settingsPatch
 
 @Suppress("unused")
 val blockEmbeddedAdsPatch = bytecodePatch(
@@ -17,7 +17,7 @@ val blockEmbeddedAdsPatch = bytecodePatch(
     dependsOn(
         blockVideoAdsPatch,
         sharedExtensionPatch,
-        Settings,
+        settingsPatch,
     )
 
     compatibleWith("tv.twitch.android.app"("16.9.1", "25.3.0"))

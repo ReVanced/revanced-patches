@@ -18,6 +18,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.Opcode.*
 import com.android.tools.smali.dexlib2.analysis.reflection.util.ReflectionUtils
 import com.android.tools.smali.dexlib2.formatter.DexFormatter
+import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.*
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
@@ -27,8 +28,8 @@ import com.android.tools.smali.dexlib2.iface.reference.StringReference
 import com.android.tools.smali.dexlib2.iface.value.*
 import com.android.tools.smali.dexlib2.immutable.ImmutableField
 import com.android.tools.smali.dexlib2.immutable.value.*
-import com.android.tools.smali.dexlib2.util.MethodUtil
 import java.util.*
+import kotlin.collections.ArrayDeque
 
 /**
  * Starting from and including the instruction at index [startIndex],
@@ -89,7 +90,7 @@ fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): In
             // This method is simple and does not follow branching.
             throw IllegalArgumentException(
                 "Encountered a branch statement before " +
-                    "a free register could be found from startIndex: $startIndex",
+                        "a free register could be found from startIndex: $startIndex",
             )
         }
 
@@ -109,7 +110,7 @@ fun Method.findFreeRegister(startIndex: Int, vararg registersToExclude: Int): In
             // In practice this never occurs.
             throw IllegalArgumentException(
                 "Could not find a free register from startIndex: " +
-                    "$startIndex excluding: $registersToExclude",
+                        "$startIndex excluding: $registersToExclude",
             )
         }
     }
@@ -193,7 +194,7 @@ private fun Method.findInstructionIndexFromToString(fieldName: String): Int {
     val stringUsageIndex = indexOfFirstInstruction(stringIndex) {
         val reference = getReference<MethodReference>()
         reference?.definingClass == "Ljava/lang/StringBuilder;" &&
-            (this as? FiveRegisterInstruction)?.registerD == stringRegister
+                (this as? FiveRegisterInstruction)?.registerD == stringRegister
     }
     if (stringUsageIndex < 0) {
         throw IllegalArgumentException("Could not find StringBuilder usage in: $this")
@@ -345,7 +346,8 @@ fun MutableMethod.addInstructionsAtControlFlowLabel(
  * @throws PatchException if the resource cannot be found.
  * @see [indexOfFirstResourceIdOrThrow], [indexOfFirstLiteralInstructionReversed]
  */
-fun Method.indexOfFirstResourceId(resourceName: String): Int = indexOfFirstLiteralInstruction(ResourceType.ID[resourceName])
+fun Method.indexOfFirstResourceId(resourceName: String): Int =
+    indexOfFirstLiteralInstruction(ResourceType.ID[resourceName])
 
 /**
  * Get the index of the first instruction with the id of the given resource name or throw a [PatchException].
@@ -458,7 +460,8 @@ fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Long): Int {
  * @return the last literal instruction with the value, or -1 if not found.
  * @see indexOfFirstLiteralInstructionOrThrow
  */
-fun Method.indexOfFirstLiteralInstructionReversed(literal: Float) = indexOfFirstLiteralInstructionReversed(literal.toRawBits().toLong())
+fun Method.indexOfFirstLiteralInstructionReversed(literal: Float) =
+    indexOfFirstLiteralInstructionReversed(literal.toRawBits().toLong())
 
 /**
  * Find the index of the last wide literal instruction with the given float value,
@@ -478,7 +481,8 @@ fun Method.indexOfFirstLiteralInstructionReversedOrThrow(literal: Float): Int {
  * @return the last literal instruction with the value, or -1 if not found.
  * @see indexOfFirstLiteralInstructionOrThrow
  */
-fun Method.indexOfFirstLiteralInstructionReversed(literal: Double) = indexOfFirstLiteralInstructionReversed(literal.toRawBits())
+fun Method.indexOfFirstLiteralInstructionReversed(literal: Double) =
+    indexOfFirstLiteralInstructionReversed(literal.toRawBits())
 
 /**
  * Find the index of the last wide literal instruction with the given double value,
@@ -550,9 +554,10 @@ fun Method.indexOfFirstInstruction(targetOpcode: Opcode): Int = indexOfFirstInst
  * @return The index of the first opcode specified, or -1 if not found.
  * @see indexOfFirstInstructionOrThrow
  */
-fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): Int = indexOfFirstInstruction(startIndex) {
-    opcode == targetOpcode
-}
+fun Method.indexOfFirstInstruction(startIndex: Int = 0, targetOpcode: Opcode): Int =
+    indexOfFirstInstruction(startIndex) {
+        opcode == targetOpcode
+    }
 
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
@@ -587,9 +592,10 @@ fun Method.indexOfFirstInstructionOrThrow(targetOpcode: Opcode): Int = indexOfFi
  * @throws PatchException
  * @see indexOfFirstInstruction
  */
-fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, targetOpcode: Opcode): Int = indexOfFirstInstructionOrThrow(startIndex) {
-    opcode == targetOpcode
-}
+fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, targetOpcode: Opcode): Int =
+    indexOfFirstInstructionOrThrow(startIndex) {
+        opcode == targetOpcode
+    }
 
 /**
  * Get the index of the first [Instruction] that matches the predicate, starting from [startIndex].
@@ -615,9 +621,10 @@ fun Method.indexOfFirstInstructionOrThrow(startIndex: Int = 0, filter: Instructi
  * @return -1 if the instruction is not found.
  * @see indexOfFirstInstructionReversedOrThrow
  */
-fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode: Opcode): Int = indexOfFirstInstructionReversed(startIndex) {
-    opcode == targetOpcode
-}
+fun Method.indexOfFirstInstructionReversed(startIndex: Int? = null, targetOpcode: Opcode): Int =
+    indexOfFirstInstructionReversed(startIndex) {
+        opcode == targetOpcode
+    }
 
 /**
  * Get the index of matching instruction,
@@ -654,9 +661,10 @@ fun Method.indexOfFirstInstructionReversed(targetOpcode: Opcode): Int = indexOfF
  * @return The index of the instruction.
  * @see indexOfFirstInstructionReversed
  */
-fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targetOpcode: Opcode): Int = indexOfFirstInstructionReversedOrThrow(startIndex) {
-    opcode == targetOpcode
-}
+fun Method.indexOfFirstInstructionReversedOrThrow(startIndex: Int? = null, targetOpcode: Opcode): Int =
+    indexOfFirstInstructionReversedOrThrow(startIndex) {
+        opcode == targetOpcode
+    }
 
 /**
  * Get the index of matching instruction,
@@ -713,7 +721,8 @@ fun Method.findInstructionIndicesReversedOrThrow(filter: Instruction.() -> Boole
  *  _Returns an empty list if no indices are found_
  * @see findInstructionIndicesReversedOrThrow
  */
-fun Method.findInstructionIndicesReversed(opcode: Opcode): List<Int> = findInstructionIndicesReversed { this.opcode == opcode }
+fun Method.findInstructionIndicesReversed(opcode: Opcode): List<Int> =
+    findInstructionIndicesReversed { this.opcode == opcode }
 
 /**
  * @return An immutable list of indices of the opcode in reverse order.
@@ -779,33 +788,30 @@ internal fun MutableMethod.insertLiteralOverride(literalIndex: Int, override: Bo
 
 /**
  * Iterates all instructions as sequence in all methods of all classes in the [BytecodePatchContext].
- * The instructions are provided in reverse order (last to first).
- * The [block] is invoked after collecting all instructions to avoid concurrent modification issues.
+ *
+ * @param match A function that matches instructions. If a match is found, it returns a value of type [T], otherwise null.
+ * @param transform A function that transforms the matched instruction using the mutable method and the matched value
+ * of type [T].
  */
-fun BytecodePatchContext.forEachInstructionAsSequence(
-    block: (classDef: MutableClassDef, method: MutableMethod, matchingIndex: Int, instruction: Instruction) -> Unit,
+fun <T> BytecodePatchContext.forEachInstructionAsSequence(
+    match: (classDef: ClassDef, method: Method, instruction: Instruction, index: Int) -> T?,
+    transform: (MutableMethod, T) -> Unit
 ) {
-    classDefs.asSequence().flatMap { classDef ->
-        val mutableClassDef by lazy { classDefs.getOrReplaceMutable(classDef) }
+    classDefs.flatMap { classDef ->
+        classDef.methods.mapNotNull { method ->
+            val matches = method.instructionsOrNull?.mapIndexedNotNull { index, instruction ->
+                match(classDef, method, instruction, index)
+            } ?: return@mapNotNull null
 
-        classDef.methods.asSequence().flatMap { method ->
-            val instructions =
-                method.instructionsOrNull as? List<Instruction> ?: return@flatMap emptySequence<() -> Unit>()
-
-            val mutableMethod by lazy { mutableClassDef.firstMutableMethod(method) }
-
-            instructions.asReversed().asSequence().mapIndexed { index, instruction ->
-                {
-                    block(
-                        mutableClassDef,
-                        mutableMethod,
-                        instructions.size - 1 - index,
-                        instruction,
-                    )
-                } // Reverse indices again.
-            }
+            if (matches.any()) method to matches else null
         }
-    }.forEach { it() }
+    }.forEach { (method, matches) ->
+
+        val method = firstMutableMethod(method)
+        val matches = matches.toCollection(ArrayDeque())
+
+        while (!matches.isEmpty()) transform(method, matches.removeLast())
+    }
 }
 
 private fun MutableMethod.checkReturnType(expectedTypes: Iterable<Class<*>>) {

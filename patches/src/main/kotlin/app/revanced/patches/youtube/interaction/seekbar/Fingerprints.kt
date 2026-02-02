@@ -112,9 +112,9 @@ internal val BytecodePatchContext.seekbarTappingMethodMatch by composingFirstMet
         Int.MAX_VALUE.toLong()(),
         allOf(Opcode.NEW_INSTANCE(), type("Landroid/graphics/Point;")),
         after(method { toString() == "Landroid/graphics/Point;-><init>(II)V" }),
-        after(method { toString() == "Landroid/view/MotionEvent;->getX()F" }),
+        after(method { toString() == "Lj$/util/Optional;->of(Ljava/lang/Object;)Lj$/util/Optional;" }),
         after(Opcode.MOVE_RESULT_OBJECT()),
-        after(allOf(Opcode.IPUT_OBJECT(), field { type == "Lj\$/util/Optional;" })),
+        after(allOf(Opcode.IPUT_OBJECT(), field { type == "Lj$/util/Optional;" })),
         afterAtMost(10, Opcode.INVOKE_VIRTUAL()),
     )
 }

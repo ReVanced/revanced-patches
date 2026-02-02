@@ -3,6 +3,7 @@ package app.revanced.patches.youtube.layout.branding.header
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.wideLiteral
+import app.revanced.patcher.firstMutableMethod
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -77,12 +78,15 @@ private val changeHeaderBytecodePatch = bytecodePatch {
         ).forEach { resourceName ->
             val id = ResourceType.ATTR[resourceName]
 
-            forEachInstructionAsSequence { _, method, i, instruction ->
-                if (instruction.wideLiteral != id) return@forEachInstructionAsSequence
+            forEachInstructionAsSequence({ _, method, instruction, index ->
+                if (instruction.wideLiteral != id) return@forEachInstructionAsSequence null
 
-                val register = method.getInstruction<OneRegisterInstruction>(i).registerA
+                val register = method.getInstruction<OneRegisterInstruction>(index).registerA
+
+                return@forEachInstructionAsSequence index to register
+            }) { method, (index, register) ->
                 method.addInstructions(
-                    i + 1,
+                    index + 1,
                     """
                         invoke-static { v$register }, $EXTENSION_CLASS_DESCRIPTOR->getHeaderAttributeId(I)I
                         move-result v$register    
@@ -218,14 +222,14 @@ val changeHeaderPatch = resourcePatch(
             if (!customFile.exists()) {
                 throw PatchException(
                     "The custom header path cannot be found: " +
-                        customFile.absolutePath,
+                            customFile.absolutePath,
                 )
             }
 
             if (!customFile.isDirectory) {
                 throw PatchException(
                     "The custom header path must be a folder: " +
-                        customFile.absolutePath,
+                            customFile.absolutePath,
                 )
             }
 
@@ -248,7 +252,7 @@ val changeHeaderPatch = resourcePatch(
                 if (customFiles.isNotEmpty() && customFiles.size != variants.size) {
                     throw PatchException(
                         "Both light/dark mode images " +
-                            "must be specified but only found: " + customFiles.map { it.name },
+                                "must be specified but only found: " + customFiles.map { it.name },
                     )
                 }
 
@@ -263,8 +267,8 @@ val changeHeaderPatch = resourcePatch(
             if (!copiedFiles) {
                 throw PatchException(
                     "Expected to find directories and files: " +
-                        customHeaderResourceFileNames.contentToString() +
-                        "\nBut none were found in the provided option file path: " + customFile.absolutePath,
+                            customHeaderResourceFileNames.contentToString() +
+                            "\nBut none were found in the provided option file path: " + customFile.absolutePath,
                 )
             }
         }

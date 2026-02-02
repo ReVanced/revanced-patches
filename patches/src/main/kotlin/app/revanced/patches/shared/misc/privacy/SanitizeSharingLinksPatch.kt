@@ -60,34 +60,41 @@ internal fun sanitizeSharingLinksPatch(
             },
         )
 
-        fun Match.hook(
-            getInsertIndex: List<Int>.() -> Int,
-            getUrlRegister: MutableMethod.(insertIndex: Int) -> Int,
-        ) {
-            val insertIndex = indices[0].getInsertIndex()
-            val urlRegister = method.getUrlRegister(insertIndex)
+
+        fun Match.hookUrlString(matchIndex: Int) {
+            val index = get(matchIndex)
+            val urlRegister = method.getInstruction<OneRegisterInstruction>(index).registerA
 
             method.addInstructions(
-                insertIndex,
+                index + 1,
                 """
-                    invoke-static {v$urlRegister}, $EXTENSION_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;
+                    invoke-static { v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;
                     move-result-object v$urlRegister
-                """,
+                """
             )
         }
 
-        // YouTube share sheet.\
-        youTubeShareSheetMethodMatch.hook(getInsertIndex = { first() + 1 }) { insertIndex ->
-            getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
+        fun Match.hookIntentPutExtra(matchIndex: Int) {
+            val index = get(matchIndex)
+            val urlRegister = method.getInstruction<FiveRegisterInstruction>(index).registerE
+
+            method.addInstructionsAtControlFlowLabel(
+                index,
+                """
+                    invoke-static { v$urlRegister }, $EXTENSION_CLASS_DESCRIPTOR->sanitize(Ljava/lang/String;)Ljava/lang/String;
+                    move-result-object v$urlRegister
+                """
+            )
         }
+
+
+        // YouTube share sheet copy link.
+        youTubeCopyTextMethodMatch.hookUrlString(0)
+
+        // YouTube share sheet other apps.
+        youTubeShareSheetMethodMatch.hookIntentPutExtra(3)
 
         // Native system share sheet.
-        youTubeSystemShareSheetMethodMatch.hook(getInsertIndex = { last() }) { insertIndex ->
-            getInstruction<OneRegisterInstruction>(insertIndex - 1).registerA
-        }
-
-        youTubeCopyTextMethodMatch.hook(getInsertIndex = { first() + 2 }) { insertIndex ->
-            getInstruction<TwoRegisterInstruction>(insertIndex - 2).registerA
-        }
+        youTubeSystemShareSheetMethodMatch.hookIntentPutExtra(3)
     }
 }
