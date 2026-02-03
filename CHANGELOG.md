@@ -1,10 +1,3 @@
-# [5.50.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.4...v5.50.0-dev.5) (2026-02-01)
-
-
-### Bug Fixes
-
-* Process strings from Crowdin to strip the app/patch prefixes again ([e566efc](https://github.com/ReVanced/revanced-patches/commit/e566efc51fca45c6284406245a360685a8e90d74))
-
 # [5.50.0-dev.4](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.3...v5.50.0-dev.4) (2026-01-27)
 
 
