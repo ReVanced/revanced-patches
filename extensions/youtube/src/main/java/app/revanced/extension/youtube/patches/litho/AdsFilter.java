@@ -8,10 +8,10 @@ import android.view.View;
 
 import java.util.List;
 
+import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.StringTrieSearch;
-import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
 import app.revanced.extension.youtube.settings.Settings;

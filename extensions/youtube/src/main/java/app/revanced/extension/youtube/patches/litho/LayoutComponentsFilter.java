@@ -8,16 +8,17 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageView;
 
+import android.widget.ImageView;
 import androidx.annotation.Nullable;
 
 import app.revanced.extension.shared.Logger;
-import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.StringTrieSearch;
+import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.patches.litho.Filter;
-import app.revanced.extension.shared.patches.litho.FilterGroup.*;
-import app.revanced.extension.shared.patches.litho.FilterGroupList.*;
+import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
+import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
+import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;
 import app.revanced.extension.youtube.patches.ChangeHeaderPatch;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.NavigationBar;
@@ -52,7 +53,7 @@ public final class LayoutComponentsFilter extends Filter {
     private final StringFilterGroup compactChannelBarInnerButton;
     private final ByteArrayFilterGroup joinMembershipButton;
     private final StringFilterGroup horizontalShelves;
-    private final ByteArrayFilterGroup ticketShelf;
+    private final ByteArrayFilterGroup ticketShelfBuffer;
     private final StringFilterGroup chipBar;
     private final StringFilterGroup channelProfile;
     private final ByteArrayFilterGroupList channelProfileBuffer;
@@ -211,7 +212,7 @@ public final class LayoutComponentsFilter extends Filter {
 
         // Playable horizontal shelf header.
         playablesBuffer = new ByteArrayFilterGroup(
-                Settings.HIDE_PLAYABLES,
+                null,
                 "FEmini_app_destination"
         );
 
@@ -297,15 +298,15 @@ public final class LayoutComponentsFilter extends Filter {
         );
 
         horizontalShelves = new StringFilterGroup(
-                Settings.HIDE_HORIZONTAL_SHELVES,
+                null, // Setting is checked in isFiltered()
                 "horizontal_video_shelf.e",
                 "horizontal_shelf.e",
                 "horizontal_shelf_inline.e",
                 "horizontal_tile_shelf.e"
         );
 
-        ticketShelf = new ByteArrayFilterGroup(
-                Settings.HIDE_TICKET_SHELF,
+        ticketShelfBuffer = new ByteArrayFilterGroup(
+                null,
                 "ticket_item.e"
         );
 
@@ -347,7 +348,7 @@ public final class LayoutComponentsFilter extends Filter {
 
     @Override
     public boolean isFiltered(String identifier, String path, byte[] buffer,
-                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         // This identifier is used not only in players but also in search results:
         // https://github.com/ReVanced/revanced-patches/issues/3245
         // Until 2024, medical information panels such as Covid 19 also used this identifier and were shown in the search results.
@@ -387,9 +388,19 @@ public final class LayoutComponentsFilter extends Filter {
         }
 
         if (matchedGroup == horizontalShelves) {
-            return contentIndex == 0 && (hideShelves()
-                    || ticketShelf.check(buffer).isFiltered()
-                    || playablesBuffer.check(buffer).isFiltered());
+            if (contentIndex != 0) return false;
+            final boolean hideShelves = Settings.HIDE_HORIZONTAL_SHELVES.get();
+            final boolean hideTickets = Settings.HIDE_TICKET_SHELF.get();
+            final boolean hidePlayables = Settings.HIDE_PLAYABLES.get();
+
+            if (!hideShelves && !hideTickets && !hidePlayables) return false;
+
+            // Must always check other buffers first, to prevent incorrectly hiding them
+            // if they are set to show but hide horizontal shelves is set to hidden.
+            if (ticketShelfBuffer.check(buffer).isFiltered()) return hideTickets;
+            if (playablesBuffer.check(buffer).isFiltered()) return hidePlayables;
+
+            return hideShelves && hideShelves();
         }
 
         if (matchedGroup == chipBar) {
@@ -524,7 +535,7 @@ public final class LayoutComponentsFilter extends Filter {
                 && !PlayerType.getCurrent().isMaximizedOrFullscreen()) {
             // FIXME: "Show more" button is visible hidden,
             //        but an empty space remains that can be clicked.
-            Utils.hideViewBy0dp(view);
+            Utils.hideViewByLayoutParams(view);
         }
     }
 

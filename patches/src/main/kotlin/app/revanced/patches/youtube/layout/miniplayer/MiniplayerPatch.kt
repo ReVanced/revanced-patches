@@ -62,7 +62,8 @@ private val miniplayerResourcePatch = resourcePatch {
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/youtube/patches/MiniplayerPatch;"
 
 @Suppress("unused")
-val Miniplayer = bytecodePatch(
+val miniplayerPatch = bytecodePatch(
+    name = "Miniplayer",
     description = "Adds options to change the in-app minimized player.",
 ) {
     dependsOn(

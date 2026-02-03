@@ -1,9 +1,9 @@
 package app.revanced.extension.youtube.patches.litho;
 
-import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.shared.patches.litho.Filter;
+import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.shared.patches.litho.FilterGroup.*;
-import app.revanced.extension.shared.patches.litho.FilterGroupList.*;
+import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.youtube.shared.PlayerType;
 

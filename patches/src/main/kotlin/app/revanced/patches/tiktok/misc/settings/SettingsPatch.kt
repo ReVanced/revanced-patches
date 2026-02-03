@@ -12,7 +12,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/tiktok/settings/TikTokActivityHook;"
 
-val Settings = bytecodePatch(
+val settingsPatch = bytecodePatch(
+    name = "Settings",
     description = "Adds ReVanced settings to TikTok.",
 ) {
     dependsOn(sharedExtensionPatch, addBrandLicensePatch)

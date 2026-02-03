@@ -7,13 +7,16 @@ import com.android.tools.smali.dexlib2.iface.ClassDef
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 
+@Deprecated(
+    "Use forEachInstructionAsSequence directly within a bytecodePatch", ReplaceWith(
+        "bytecodePatch { apply { forEachInstructionAsSequence(filterMap, transform) } }",
+        "app.revanced.util.forEachInstructionAsSequence",
+        "app.revanced.patcher.patch.bytecodePatch",
+    )
+)
 fun <T> transformInstructionsPatch(
     filterMap: (ClassDef, Method, Instruction, Int) -> T?,
     transform: (MutableMethod, T) -> Unit,
 ) = bytecodePatch {
-    apply {
-        forEachInstructionAsSequence { classDef, method, i, instruction ->
-            transform(method, filterMap(classDef, method, instruction, i) ?: return@forEachInstructionAsSequence)
-        }
-    }
+    apply { forEachInstructionAsSequence(filterMap, transform) }
 }

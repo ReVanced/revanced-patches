@@ -9,7 +9,7 @@ import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.twitch.misc.extension.sharedExtensionPatch
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
-import app.revanced.patches.twitch.misc.settings.Settings
+import app.revanced.patches.twitch.misc.settings.settingsPatch
 
 @Suppress("unused")
 val blockAudioAdsPatch = bytecodePatch(
@@ -18,7 +18,7 @@ val blockAudioAdsPatch = bytecodePatch(
 ) {
     dependsOn(
         sharedExtensionPatch,
-        Settings,
+        settingsPatch,
         addResourcesPatch,
     )
 

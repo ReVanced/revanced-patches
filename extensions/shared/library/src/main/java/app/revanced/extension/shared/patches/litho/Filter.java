@@ -1,11 +1,11 @@
 package app.revanced.extension.shared.patches.litho;
 
+import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
+import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
-import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
 
 /**
  * Filters litho based components.

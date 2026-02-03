@@ -1,8 +1,8 @@
 package app.revanced.extension.youtube.patches.litho;
 
+import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
 import app.revanced.extension.youtube.settings.Settings;
 import app.revanced.extension.shared.patches.litho.Filter;
-import app.revanced.extension.shared.patches.litho.FilterGroup.*;
 
 @SuppressWarnings("unused")
 public final class HideInfoCardsFilter extends Filter {

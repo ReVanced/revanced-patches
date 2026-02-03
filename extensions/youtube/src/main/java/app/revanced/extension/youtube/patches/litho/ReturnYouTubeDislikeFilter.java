@@ -10,12 +10,12 @@ import java.util.Map;
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.TrieSearch;
 import app.revanced.extension.shared.Utils;
+import app.revanced.extension.shared.patches.litho.Filter;
+import app.revanced.extension.shared.patches.litho.FilterGroup.*;
+import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;
 import app.revanced.extension.youtube.patches.ReturnYouTubeDislikePatch;
 import app.revanced.extension.youtube.patches.VideoInformation;
 import app.revanced.extension.youtube.settings.Settings;
-import app.revanced.extension.shared.patches.litho.Filter;
-import app.revanced.extension.shared.patches.litho.FilterGroup.*;
-import app.revanced.extension.shared.patches.litho.FilterGroupList.*;
 
 /**
  * Searches for video id's in the proto buffer of Shorts dislike.
@@ -77,7 +77,7 @@ public final class ReturnYouTubeDislikeFilter extends Filter {
 
     @Override
     public boolean isFiltered(String identifier, String path, byte[] buffer,
-                       StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
+                              StringFilterGroup matchedGroup, FilterContentType contentType, int contentIndex) {
         if (!Settings.RYD_ENABLED.get() || !Settings.RYD_SHORTS.get()) {
             return false;
         }

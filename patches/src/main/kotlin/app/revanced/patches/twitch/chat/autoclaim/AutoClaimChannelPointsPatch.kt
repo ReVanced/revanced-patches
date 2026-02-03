@@ -9,7 +9,7 @@ import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
 import app.revanced.patches.twitch.misc.settings.PreferenceScreen
-import app.revanced.patches.twitch.misc.settings.Settings
+import app.revanced.patches.twitch.misc.settings.settingsPatch
 
 @Suppress("unused")
 val autoClaimChannelPointsPatch = bytecodePatch(
@@ -17,7 +17,7 @@ val autoClaimChannelPointsPatch = bytecodePatch(
     description = "Automatically claim Channel Points.",
 ) {
     dependsOn(
-        Settings,
+        settingsPatch,
         addResourcesPatch,
     )
 

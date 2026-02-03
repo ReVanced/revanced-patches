@@ -36,7 +36,8 @@ fun addSettingPreference(screen: BasePreference) {
     preferences += screen
 }
 
-val Settings = bytecodePatch(
+val settingsPatch = bytecodePatch(
+    name = "Settings",
     description = "Adds settings menu to Twitch.",
 ) {
     dependsOn(

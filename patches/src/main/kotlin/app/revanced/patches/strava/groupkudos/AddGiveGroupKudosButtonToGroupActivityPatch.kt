@@ -93,7 +93,7 @@ private val addGiveKudosButtonToLayoutPatch = resourcePatch {
 }
 
 @Suppress("unused")
-val addGiveGroupKudosButtonToGroupActivity = bytecodePatch(
+val addGiveGroupKudosButtonToGroupActivityPatch = bytecodePatch(
     name = "Add 'Give Kudos' button to 'Group Activity'",
     description = "Adds a button that triggers the same action as shaking your phone would.",
 ) {

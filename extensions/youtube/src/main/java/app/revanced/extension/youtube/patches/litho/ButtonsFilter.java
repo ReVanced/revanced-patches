@@ -1,8 +1,8 @@
 package app.revanced.extension.youtube.patches.litho;
 
+import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;
-import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.shared.patches.litho.FilterGroup.ByteArrayFilterGroup;
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
 import app.revanced.extension.youtube.settings.Settings;

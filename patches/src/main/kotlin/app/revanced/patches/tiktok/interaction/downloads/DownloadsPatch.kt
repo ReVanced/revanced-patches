@@ -3,7 +3,7 @@ package app.revanced.patches.tiktok.interaction.downloads
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
-import app.revanced.patches.tiktok.misc.settings.Settings
+import app.revanced.patches.tiktok.misc.settings.settingsPatch
 import app.revanced.patches.tiktok.misc.settings.settingsStatusLoadMethod
 import app.revanced.util.findInstructionIndicesReversedOrThrow
 import app.revanced.util.getReference
@@ -15,12 +15,13 @@ import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/tiktok/download/DownloadsPatch;"
 
 @Suppress("unused")
-val Downloads = bytecodePatch(
+val downloadsPatch = bytecodePatch(
+    name = "Downloads",
     description = "Removes download restrictions and changes the default path to download to.",
 ) {
     dependsOn(
         sharedExtensionPatch,
-        Settings,
+        settingsPatch,
     )
 
     compatibleWith(

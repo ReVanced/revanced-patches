@@ -61,7 +61,7 @@ private const val DESCRIPTION_COMPONENTS_FILTER_CLASS_NAME =
 private const val COMMENTS_FILTER_CLASS_NAME =
     "Lapp/revanced/extension/youtube/patches/litho/CommentsFilter;"
 private const val CUSTOM_FILTER_CLASS_NAME =
-    "Lapp/revanced/extension/shared/patches/components/CustomFilter;"
+    "Lapp/revanced/extension/shared/patches/litho/CustomFilter;"
 private const val KEYWORD_FILTER_CLASS_NAME =
     "Lapp/revanced/extension/youtube/patches/litho/KeywordContentFilter;"
 
