@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.components;
+package app.revanced.extension.youtube.patches.litho;
 
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;

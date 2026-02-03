@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.components;
+package app.revanced.extension.youtube.patches.litho;
 
 import static app.revanced.extension.shared.StringRef.str;
 

@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.components;
+package app.revanced.extension.youtube.patches.litho;
 
 import static app.revanced.extension.youtube.patches.VersionCheckPatch.IS_20_21_OR_GREATER;
 import static app.revanced.extension.youtube.shared.NavigationBar.NavigationButton;

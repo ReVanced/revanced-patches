@@ -41,7 +41,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/ReturnYouTubeDislikePatch;"
 
 private const val FILTER_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/components/ReturnYouTubeDislikeFilter;"
+    "Lapp/revanced/extension/youtube/patches/litho/ReturnYouTubeDislikeFilter;"
 
 @Suppress("ObjectPropertyName")
 val returnYouTubeDislikePatch = bytecodePatch(

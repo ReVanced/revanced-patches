@@ -27,7 +27,7 @@ private const val EXTENSION_CLASS_DESCRIPTOR =
     "Lapp/revanced/extension/youtube/patches/playback/quality/AdvancedVideoQualityMenuPatch;"
 
 private const val FILTER_CLASS_DESCRIPTOR =
-    "Lapp/revanced/extension/youtube/patches/components/AdvancedVideoQualityMenuFilter;"
+    "Lapp/revanced/extension/youtube/patches/litho/AdvancedVideoQualityMenuFilter;"
 
 internal val advancedVideoQualityMenuPatch = bytecodePatch {
     dependsOn(

@@ -2,9 +2,9 @@
 
 package app.revanced.patches.shared.misc.litho.filter
 
-import app.revanced.patcher.extensions.addInstruction
+import app.revanced.com.android.tools.smali.dexlib2.iface.value.MutableEncodedValue.Companion.toMutable
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.firstClassDef
@@ -19,6 +19,7 @@ import app.revanced.util.findFreeRegister
 import app.revanced.util.findFieldFromToString
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.Method
+import com.android.tools.smali.dexlib2.immutable.value.ImmutableBooleanEncodedValue
 
 /**
  * Used to add a hook point to the extension stub.
@@ -37,7 +38,8 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/
  * A patch that allows to filter Litho components based on their identifier or path.
  *
  * @param componentCreateInsertionIndex The index to insert the filtering code in the component create method.
- * @param insertProtobufHook This method injects a setProtoBuffer call in the protobuf decoding logic
+ * @param insertProtobufHook This method injects a setProtoBuffer call in the protobuf decoding logic.
+ * @param getExtractIdentifierFromBuffer Whether to extract the identifier from the protobuf buffer.
  * @param executeBlock The additional execution block of the patch.
  * @param block The additional block to build the patch.
  */
@@ -45,6 +47,7 @@ internal fun lithoFilterPatch(
     componentCreateInsertionIndex: Method.() -> Int,
     insertProtobufHook: BytecodePatchContext.() -> Unit,
     executeBlock: BytecodePatchContext.() -> Unit = {},
+    getExtractIdentifierFromBuffer: () -> Boolean = { false },
     block: BytecodePatchBuilder.() -> Unit = {},
 ) = bytecodePatch(
     description = "Hooks the method which parses the bytes into a ComponentContext to filter components.",
@@ -106,6 +109,11 @@ internal fun lithoFilterPatch(
                     """,
                 )
             }
+        }
+
+        if (getExtractIdentifierFromBuffer()) {
+            lithoFilterMethod.classDef.fields.first { it.name == "EXTRACT_IDENTIFIER_FROM_BUFFER" }
+                .initialValue = ImmutableBooleanEncodedValue.forBoolean(true).toMutable()
         }
 
         // Add an interceptor to steal the protobuf of our component.

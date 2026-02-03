@@ -1,4 +1,4 @@
-package app.revanced.extension.shared.patches.components;
+package app.revanced.extension.shared.patches.litho;
 
 import static app.revanced.extension.shared.StringRef.str;
 
@@ -17,7 +17,6 @@ import app.revanced.extension.shared.Utils;
 import app.revanced.extension.shared.ByteTrieSearch;
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
 import app.revanced.extension.shared.settings.YouTubeAndMusicSettings;
-import app.revanced.extension.shared.patches.litho.Filter;
 
 /**
  * Allows custom filtering using a path and optionally a proto buffer string.

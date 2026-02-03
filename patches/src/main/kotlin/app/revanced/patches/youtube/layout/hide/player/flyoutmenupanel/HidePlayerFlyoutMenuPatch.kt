@@ -33,7 +33,7 @@ val hidePlayerFlyoutMenuItemsPatch = bytecodePatch(
     )
 
     apply {
-        val filterClassDescriptor = "Lapp/revanced/extension/youtube/patches/components/PlayerFlyoutMenuItemsFilter;"
+        val filterClassDescriptor = "Lapp/revanced/extension/youtube/patches/litho/PlayerFlyoutMenuItemsFilter;"
 
         addResources("youtube", "layout.hide.player.flyoutmenupanel.hidePlayerFlyoutMenuPatch")
 

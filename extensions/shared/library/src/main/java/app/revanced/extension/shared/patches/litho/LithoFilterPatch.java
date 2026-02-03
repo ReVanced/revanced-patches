@@ -15,7 +15,6 @@ import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.StringTrieSearch;
 import app.revanced.extension.shared.settings.YouTubeAndMusicSettings;
-//import app.revanced.extension.youtube.patches.VersionCheckPatch;
 
 @SuppressWarnings("unused")
 public final class LithoFilterPatch {
@@ -105,13 +104,12 @@ public final class LithoFilterPatch {
     };
 
     /**
-     * 20.22+ cannot use the thread buffer, because frequently the buffer is not correct,
+     * YouTube 20.22+ cannot use the thread buffer, because frequently the buffer is not correct,
      * especially for components that are recreated such as dragging off screen then back on screen.
      * Instead, parse the identifier found near the start of the buffer and use that to
      * identify the correct buffer to use when filtering.
      */
     private static final boolean EXTRACT_IDENTIFIER_FROM_BUFFER = false;
-//    private static final boolean EXTRACT_IDENTIFIER_FROM_BUFFER = VersionCheckPatch.IS_20_22_OR_GREATER;
 
     /**
      * Turns on additional logging, used for development purposes only.

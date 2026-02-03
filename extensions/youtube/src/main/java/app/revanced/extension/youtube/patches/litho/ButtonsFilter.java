@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.components;
+package app.revanced.extension.youtube.patches.litho;
 
 import app.revanced.extension.youtube.patches.VersionCheckPatch;
 import app.revanced.extension.shared.patches.litho.FilterGroupList.ByteArrayFilterGroupList;

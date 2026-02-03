@@ -42,6 +42,7 @@ val lithoFilterPatch = lithoFilterPatch(
             "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
         )
     },
+    getExtractIdentifierFromBuffer = { is_20_21_or_greater },
     executeBlock = {
         // region A/B test of new Litho native code.
 
