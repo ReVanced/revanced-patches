@@ -110,6 +110,8 @@ public final class LithoFilterPatch {
      * especially for components that are recreated such as dragging off-screen then back on screen.
      * Instead, parse the identifier found near the start of the buffer and use that to
      * identify the correct buffer to use when filtering.
+     * <p>
+     * <b>This is set during patching, do not change manually.</b>
      */
     private static final boolean EXTRACT_IDENTIFIER_FROM_BUFFER = false;
 

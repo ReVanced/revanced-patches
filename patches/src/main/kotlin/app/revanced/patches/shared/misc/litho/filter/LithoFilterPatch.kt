@@ -38,6 +38,7 @@ internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/
  *
  * @param componentCreateInsertionIndex The index to insert the filtering code in the component create method.
  * @param insertProtobufHook This method injects a setProtoBuffer call in the protobuf decoding logic.
+ * @param getConversionContextToStringMethod The getter of the conversion context toString method.
  * @param getExtractIdentifierFromBuffer Whether to extract the identifier from the protobuf buffer.
  * @param executeBlock The additional execution block of the patch.
  * @param block The additional block to build the patch.
@@ -111,6 +112,7 @@ internal fun lithoFilterPatch(
             }
         }
 
+        // Tell the extension whether to extract the identifier from the buffer.
         if (getExtractIdentifierFromBuffer()) {
             lithoFilterMethod.classDef.fields.first { it.name == "EXTRACT_IDENTIFIER_FROM_BUFFER" }
                 .initialValue = ImmutableBooleanEncodedValue.forBoolean(true).toMutable()
