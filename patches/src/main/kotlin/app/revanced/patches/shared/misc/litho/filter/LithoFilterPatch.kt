@@ -13,7 +13,6 @@ import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.shared.conversionContextToStringMethod
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
 import app.revanced.util.findFieldFromToString
@@ -47,6 +46,7 @@ internal fun lithoFilterPatch(
     componentCreateInsertionIndex: Method.() -> Int,
     insertProtobufHook: BytecodePatchContext.() -> Unit,
     executeBlock: BytecodePatchContext.() -> Unit = {},
+    getConversionContextToStringMethod: BytecodePatchContext.() -> Method,
     getExtractIdentifierFromBuffer: () -> Boolean = { false },
     block: BytecodePatchBuilder.() -> Unit = {},
 ) = bytecodePatch(
@@ -124,6 +124,8 @@ internal fun lithoFilterPatch(
         // return value with an empty component if it should be filtered.
         // It is important to allow the original code to always run to completion,
         // otherwise high memory usage and poor app performance can occur.
+
+        val conversionContextToStringMethod = getConversionContextToStringMethod()
 
         // Find the identifier/path fields of the conversion context.
         val conversionContextIdentifierField = conversionContextToStringMethod

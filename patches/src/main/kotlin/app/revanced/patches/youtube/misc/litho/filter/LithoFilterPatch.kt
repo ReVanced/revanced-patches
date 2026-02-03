@@ -3,6 +3,8 @@
 package app.revanced.patches.youtube.misc.litho.filter
 
 import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.patch.BytecodePatchContext
+import app.revanced.patches.youtube.shared.conversionContextToStringMethod
 import app.revanced.patches.shared.misc.litho.filter.EXTENSION_CLASS_DESCRIPTOR
 import app.revanced.patches.shared.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.shared.misc.litho.filter.protobufBufferReferenceLegacyMethod
@@ -42,6 +44,7 @@ val lithoFilterPatch = lithoFilterPatch(
             "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
         )
     },
+    getConversionContextToStringMethod = BytecodePatchContext::conversionContextToStringMethod::get,
     getExtractIdentifierFromBuffer = { is_20_21_or_greater },
     executeBlock = {
         // region A/B test of new Litho native code.
