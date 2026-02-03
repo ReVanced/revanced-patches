@@ -37,7 +37,7 @@ public final class LithoFilterPatch {
         public String toString() {
             // Estimate the percentage of the buffer that are Strings.
             StringBuilder builder = new StringBuilder(Math.max(100, buffer.length / 2));
-            builder.append( "ID: ");
+            builder.append("ID: ");
             builder.append(identifier);
             builder.append(" Path: ");
             builder.append(path);
@@ -79,6 +79,16 @@ public final class LithoFilterPatch {
     }
 
     /**
+     * Placeholder for actual filters.
+     */
+    private static final class DummyFilter extends Filter {
+    }
+
+    private static final Filter[] filters = new Filter[]{
+            new DummyFilter() // Replaced during patching, do not touch.
+    };
+
+    /**
      * Litho layout fixed thread pool size override.
      * <p>
      * Unpatched YouTube uses a layout fixed thread pool between 1 and 3 threads:
@@ -95,17 +105,9 @@ public final class LithoFilterPatch {
     private static final int LITHO_LAYOUT_THREAD_POOL_SIZE = 1;
 
     /**
-     * Placeholder for actual filters.
-     */
-    private static final class DummyFilter extends Filter { }
-
-    private static final Filter[] filters = new Filter[] {
-            new DummyFilter() // Replaced during patching, do not touch.
-    };
-
-    /**
-     * YouTube 20.22+ cannot use the thread buffer, because frequently the buffer is not correct,
-     * especially for components that are recreated such as dragging off screen then back on screen.
+     * For YouTube 20.22+, this is set to true by a patch,
+     * because it cannot use the thread buffer due to the buffer frequently not being correct,
+     * especially for components that are recreated such as dragging off-screen then back on screen.
      * Instead, parse the identifier found near the start of the buffer and use that to
      * identify the correct buffer to use when filtering.
      */
