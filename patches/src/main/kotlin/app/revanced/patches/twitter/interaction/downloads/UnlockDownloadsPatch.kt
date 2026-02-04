@@ -1,6 +1,6 @@
 package app.revanced.patches.twitter.interaction.downloads
 
-import app.revanced.patcher.Match
+import app.revanced.patcher.CompositeMatch
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
@@ -15,7 +15,7 @@ val unlockDownloadsPatch = bytecodePatch(
     compatibleWith("com.twitter.android")
 
     apply {
-        fun Match.patch(getRegisterAndIndex: Match.() -> Pair<Int, Int>) {
+        fun CompositeMatch.patch(getRegisterAndIndex: CompositeMatch.() -> Pair<Int, Int>) {
             val (index, register) = getRegisterAndIndex()
             method.addInstruction(index, "const/4 v$register, 0x1")
         }

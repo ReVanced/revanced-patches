@@ -114,7 +114,7 @@ val seekbarColorPatch = bytecodePatch(
             """,
         )
 
-        val playerMatch: Match
+        val playerMatch: CompositeMatch
         val checkGradientCoordinates: Boolean
         if (is_19_49_or_greater) {
             playerMatch = playerLinearGradientMethodMatch

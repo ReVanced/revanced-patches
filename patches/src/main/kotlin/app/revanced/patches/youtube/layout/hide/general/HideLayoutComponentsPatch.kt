@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.hide.general
 
-import app.revanced.patcher.Match
+import app.revanced.patcher.CompositeMatch
 import app.revanced.patcher.extensions.*
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.resourcePatch
@@ -386,11 +386,11 @@ val hideLayoutComponentsPatch = hideLayoutComponentsPatch(
      * Patch a [Method] with a given [instructions].
      *
      * @param RegisterInstruction The type of instruction to get the register from.
-     * @param insertIndexOffset The offset to add to the end index of the [Match.indices].
+     * @param insertIndexOffset The offset to add to the end index of the [CompositeMatch.indices].
      * @param hookRegisterOffset The offset to add to the register of the hook.
      * @param instructions The instructions to add with the register as a parameter.
      */
-    fun <RegisterInstruction : OneRegisterInstruction> Match.patch(
+    fun <RegisterInstruction : OneRegisterInstruction> CompositeMatch.patch(
         insertIndexOffset: Int = 0,
         hookRegisterOffset: Int = 0,
         instructions: (Int) -> String,

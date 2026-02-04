@@ -1,6 +1,6 @@
 package app.revanced.patches.reddit.customclients.baconreader.api
 
-import app.revanced.patcher.Match
+import app.revanced.patcher.CompositeMatch
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patches.reddit.customclients.spoofClientPatch
@@ -22,7 +22,7 @@ val spoofClientPatch = spoofClientPatch(redirectUri = "http://baconreader.com/au
     val clientId by clientIdOption
 
     apply {
-        fun Match.patch(replacementString: String) {
+        fun CompositeMatch.patch(replacementString: String) {
             val clientIdIndex = get(0)
 
             val clientIdRegister = method.getInstruction<OneRegisterInstruction>(clientIdIndex).registerA

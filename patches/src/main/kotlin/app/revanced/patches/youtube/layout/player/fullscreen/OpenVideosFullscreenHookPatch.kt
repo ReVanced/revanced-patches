@@ -1,6 +1,6 @@
 package app.revanced.patches.youtube.layout.player.fullscreen
 
-import app.revanced.patcher.Match
+import app.revanced.patcher.CompositeMatch
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.bytecodePatch
@@ -25,7 +25,7 @@ internal val openVideosFullscreenHookPatch = bytecodePatch {
     )
 
     apply {
-        var match: Match
+        var match: CompositeMatch
         var insertIndex: Int
 
         if (is_19_46_or_greater) {

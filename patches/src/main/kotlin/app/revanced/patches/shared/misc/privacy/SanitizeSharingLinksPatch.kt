@@ -1,7 +1,6 @@
 package app.revanced.patches.shared.misc.privacy
 
-import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
-import app.revanced.patcher.Match
+import app.revanced.patcher.CompositeMatch
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatchBuilder
@@ -61,7 +60,7 @@ internal fun sanitizeSharingLinksPatch(
         )
 
 
-        fun Match.hookUrlString(matchIndex: Int) {
+        fun CompositeMatch.hookUrlString(matchIndex: Int) {
             val index = get(matchIndex)
             val urlRegister = method.getInstruction<OneRegisterInstruction>(index).registerA
 
@@ -74,7 +73,7 @@ internal fun sanitizeSharingLinksPatch(
             )
         }
 
-        fun Match.hookIntentPutExtra(matchIndex: Int) {
+        fun CompositeMatch.hookIntentPutExtra(matchIndex: Int) {
             val index = get(matchIndex)
             val urlRegister = method.getInstruction<FiveRegisterInstruction>(index).registerE
 
