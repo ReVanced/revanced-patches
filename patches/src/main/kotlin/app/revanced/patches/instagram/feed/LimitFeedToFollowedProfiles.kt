@@ -4,7 +4,7 @@ import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.fieldReference
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.name
 import app.revanced.patcher.patch.bytecodePatch
@@ -44,7 +44,7 @@ val limitFeedToFollowedProfilesPatch = bytecodePatch(
             }
         }
 
-        mainFeedRequestClassMethod.immutableClassDef.firstMutableMethodDeclaratively {
+        mainFeedRequestClassMethod.immutableClassDef.firstMethodDeclaratively {
             name("<init>")
         }.apply {
             // Finds the instruction where the map is being initialized in the constructor

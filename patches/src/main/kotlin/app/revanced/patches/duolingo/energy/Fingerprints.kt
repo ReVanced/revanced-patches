@@ -12,7 +12,7 @@ internal val ClassDef.initializeEnergyConfigMethodMatch by ClassDefComposing.com
 }
 
 // Class name currently is not obfuscated, but it may be in the future.
-internal val BytecodePatchContext.energyConfigToStringMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.energyConfigToStringMethod by gettingFirstMethodDeclaratively {
     name("toString")
     parameterTypes()
     returnType("Ljava/lang/String;")

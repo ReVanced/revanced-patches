@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patches.music.shared.YOUTUBE_MUSIC_MAIN_ACTIVITY_CLASS_TYPE
 import app.revanced.patches.shared.misc.mapping.ResourceType
 
-internal val BytecodePatchContext.cairoSplashAnimationConfigMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.cairoSplashAnimationConfigMethod by gettingFirstMethodDeclaratively {
     name("onCreate")
     returnType("V")
     definingClass(YOUTUBE_MUSIC_MAIN_ACTIVITY_CLASS_TYPE)

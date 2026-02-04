@@ -9,12 +9,12 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 import org.stringtemplate.v4.compiler.Bytecode
 
-internal val BytecodePatchContext.createVideoPlayerSeekbarMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.createVideoPlayerSeekbarMethod by gettingFirstImmutableMethodDeclaratively {
     returnType("V")
     instructions("timed_markers_width"())
 }
 
-internal val BytecodePatchContext.onPlaybackSpeedItemClickMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.onPlaybackSpeedItemClickMethod by gettingFirstMethodDeclaratively {
     name("onItemClick")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
@@ -35,14 +35,14 @@ internal val BytecodePatchContext.playerControllerSetTimeReferenceMethodMatch by
         )
     }
 
-internal val BytecodePatchContext.playVideoCheckVideoStreamingDataResponseMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.playVideoCheckVideoStreamingDataResponseMethod by gettingFirstImmutableMethodDeclaratively {
     instructions("playVideo called on player response with no videoStreamingData."())
 }
 
 /**
  * Matched using class found in [playVideoCheckVideoStreamingDataResponseMethod].
  */
-internal fun ClassDef.getSeekMethod() = firstMethodDeclaratively {
+internal fun ClassDef.getSeekMethod() = firstImmutableMethodDeclaratively {
     instructions("Attempting to seek during an ad"())
 }
 
@@ -84,7 +84,7 @@ internal fun ClassDef.getMdxSeekMethod() = firstMethodDeclaratively {
     }
 }
 
-internal val BytecodePatchContext.mdxPlayerDirectorSetVideoStageMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.mdxPlayerDirectorSetVideoStageMethod by gettingFirstImmutableMethodDeclaratively {
     instructions("MdxDirector setVideoStage ad should be null when videoStage is not an Ad state "())
 }
 
@@ -106,7 +106,7 @@ internal fun ClassDef.getMdxSeekRelativeMethod() = firstMethodDeclaratively {
  * Matches using class found in [playVideoCheckVideoStreamingDataResponseMethod].
  */
 context(_: BytecodePatchContext)
-internal fun ClassDef.getSeekRelativeMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getSeekRelativeMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     // Return type is boolean up to 19.39, and void with 19.39+.
     parameterTypes("J", "L")
@@ -137,7 +137,7 @@ internal val ClassDef.playbackSpeedMenuSpeedChangedMethodMatch by ClassDefCompos
     instructions(allOf(Opcode.IGET(), field { type == "F" }))
 }
 
-internal val BytecodePatchContext.playbackSpeedClassMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.playbackSpeedClassMethod by gettingFirstMethodDeclaratively(
     "PLAYBACK_RATE_MENU_BOTTOM_SHEET_FRAGMENT",
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
@@ -152,7 +152,7 @@ internal const val YOUTUBE_VIDEO_QUALITY_CLASS_TYPE =
 /**
  * YouTube 20.19 and lower.
  */
-internal val BytecodePatchContext.videoQualityLegacyMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.videoQualityLegacyMethod by gettingFirstMethodDeclaratively {
     definingClass(YOUTUBE_VIDEO_QUALITY_CLASS_TYPE)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes(
@@ -163,7 +163,7 @@ internal val BytecodePatchContext.videoQualityLegacyMethod by gettingFirstMutabl
     )
 }
 
-internal val BytecodePatchContext.videoQualityMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.videoQualityMethod by gettingFirstMethodDeclaratively {
     definingClass(YOUTUBE_VIDEO_QUALITY_CLASS_TYPE)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes(
@@ -175,7 +175,7 @@ internal val BytecodePatchContext.videoQualityMethod by gettingFirstMutableMetho
     )
 }
 
-internal val BytecodePatchContext.videoQualitySetterMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.videoQualitySetterMethod by gettingFirstMethodDeclaratively(
     "menu_item_video_quality",
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -194,7 +194,7 @@ internal val BytecodePatchContext.videoQualitySetterMethod by gettingFirstMutabl
  * Matches with the class found in [videoQualitySetterMethod].
  */
 context(_: BytecodePatchContext)
-internal fun ClassDef.getSetVideoQualityMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getSetVideoQualityMethod() = firstMethodDeclaratively {
     returnType("V")
     parameterTypes("L")
     opcodes(

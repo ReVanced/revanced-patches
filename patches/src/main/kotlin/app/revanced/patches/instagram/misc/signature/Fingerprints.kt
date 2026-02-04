@@ -5,12 +5,12 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getIsValidSignatureClassMethod() = firstMutableMethodDeclaratively(
+internal fun ClassDef.getIsValidSignatureClassMethod() = firstMethodDeclaratively(
     "The provider for uri '",
     "' is not trusted: ",
 )
 
-internal val BytecodePatchContext.isValidSignatureMethodMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.isValidSignatureMethodMethod by gettingFirstMethodDeclaratively {
     parameterTypes("L", "Z")
     returnType("Z")
     instructions(method("keySet"))

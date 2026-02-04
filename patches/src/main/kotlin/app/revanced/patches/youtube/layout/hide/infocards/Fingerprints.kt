@@ -8,14 +8,14 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getInfocardsIncognitoMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getInfocardsIncognitoMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/Boolean;")
     parameterTypes("L", "J")
     instructions("vibrator"())
 }
 
-internal val BytecodePatchContext.infocardsIncognitoParentMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.infocardsIncognitoParentMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/String;")
     instructions(

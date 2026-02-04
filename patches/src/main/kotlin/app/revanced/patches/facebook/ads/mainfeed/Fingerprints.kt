@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.baseModelMapperMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.baseModelMapperMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Lcom/facebook/graphql/modelutil/BaseModelWithTree;")
     parameterTypes("Ljava/lang/Class", "I", "I")
@@ -17,7 +17,7 @@ internal val BytecodePatchContext.baseModelMapperMethod by gettingFirstMethodDec
         Opcode.IF_EQ,
     )
 }
-internal val BytecodePatchContext.getSponsoredDataModelTemplateMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.getSponsoredDataModelTemplateMethod by gettingFirstImmutableMethodDeclaratively {
     definingClass("Lcom/facebook/graphql/model/GraphQLFBMultiAdsFeedUnit;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")

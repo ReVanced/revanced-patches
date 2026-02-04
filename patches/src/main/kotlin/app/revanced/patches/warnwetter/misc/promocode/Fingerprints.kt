@@ -1,11 +1,11 @@
 package app.revanced.patches.warnwetter.misc.promocode
 
 import app.revanced.patcher.definingClass
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.name
 import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val BytecodePatchContext.promoCodeUnlockMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.promoCodeUnlockMethod by gettingFirstMethodDeclaratively {
     name("isValid")
     definingClass { endsWith("PromoTokenVerification;") }
 }

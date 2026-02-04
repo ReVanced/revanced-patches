@@ -41,7 +41,7 @@ internal val BytecodePatchContext.openVideosFullscreenPortraitLegacyMethodMatch 
     )
 }
 
-internal val BytecodePatchContext.openVideosFullscreenHookPatchExtensionMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.openVideosFullscreenHookPatchExtensionMethod by gettingFirstMethodDeclaratively {
     name("isFullScreenPatchIncluded")
     definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)

@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodRefere
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
 // Located @ ub.i0.h#p (9.5.0)
-internal val BytecodePatchContext.createTabsMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.createTabsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE)
     returnType("Ljava/util/List;")
     instructions(
@@ -20,7 +20,7 @@ internal val BytecodePatchContext.createTabsMethod by gettingFirstMutableMethodD
 }
 
 // Located @ com.sony.songpal.mdr.vim.activity.MdrRemoteBaseActivity.e#run (9.5.0)
-internal val BytecodePatchContext.showNotificationMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.showNotificationMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC)
     returnType("V")
     instructions(method { MethodUtil.methodSignaturesMatch(this, expectedReference) })

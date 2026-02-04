@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.downloadOperationsURLBuilderMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.downloadOperationsURLBuilderMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/String")
     parameterTypes("L", "L")
@@ -16,7 +16,7 @@ internal val BytecodePatchContext.downloadOperationsURLBuilderMethod by gettingF
     )
 }
 
-internal val BytecodePatchContext.downloadOperationsHeaderVerificationMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.downloadOperationsHeaderVerificationMethod by gettingFirstMethodDeclaratively(
     "X-SC-Mime-Type",
     "X-SC-Preset",
     "X-SC-Quality",

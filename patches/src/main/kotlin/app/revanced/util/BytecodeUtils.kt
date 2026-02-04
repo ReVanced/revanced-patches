@@ -528,7 +528,7 @@ fun BytecodePatchContext.traverseClassHierarchy(targetClass: MutableClassDef, ca
 
     targetClass.superclass ?: return
 
-    firstMutableClassDefOrNull(targetClass.superclass!!)?.let {
+    firstClassDefOrNull(targetClass.superclass!!)?.let {
         traverseClassHierarchy(it, callback)
     }
 }
@@ -807,7 +807,7 @@ fun <T> BytecodePatchContext.forEachInstructionAsSequence(
         }
     }.forEach { (method, matches) ->
 
-        val method = firstMutableMethod(method)
+        val method = firstMethod(method)
         val matches = matches.toCollection(ArrayDeque())
 
         while (!matches.isEmpty()) transform(method, matches.removeLast())
@@ -1216,7 +1216,7 @@ internal fun BytecodePatchContext.addStaticFieldToExtension(
     objectClass: String,
     smaliInstructions: String,
 ) {
-    val mutableClass = firstMutableClassDef(type)
+    val mutableClass = firstClassDef(type)
     val objectCall = "$mutableClass->$fieldName:$objectClass"
 
     mutableClass.apply {

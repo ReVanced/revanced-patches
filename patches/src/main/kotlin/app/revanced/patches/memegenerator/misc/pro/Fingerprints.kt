@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.isFreeVersionMethod by gettingFirstMutableMethodDeclaratively("free") {
+internal val BytecodePatchContext.isFreeVersionMethod by gettingFirstMethodDeclaratively("free") {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Ljava/lang/Boolean;")
     parameterTypes("Landroid/content/Context;")

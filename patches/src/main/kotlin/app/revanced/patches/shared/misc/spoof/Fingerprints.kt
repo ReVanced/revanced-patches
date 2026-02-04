@@ -6,8 +6,8 @@ import app.revanced.patcher.composingFirstMethod
 import app.revanced.patcher.custom
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.extensions.methodReference
+import app.revanced.patcher.gettingFirstImmutableMethodDeclaratively
 import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
@@ -86,7 +86,7 @@ internal val BytecodePatchContext.buildRequestMethodMatch by composingFirstMetho
     }
 }
 
-internal val BytecodePatchContext.protobufClassParseByteBufferMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.protobufClassParseByteBufferMethod by gettingFirstImmutableMethodDeclaratively {
     name("parseFrom")
     accessFlags(AccessFlags.PROTECTED, AccessFlags.STATIC)
     returnType("L")
@@ -114,7 +114,7 @@ internal val BytecodePatchContext.createStreamingDataMethodMatch by composingFir
     }
 }
 
-internal val BytecodePatchContext.buildMediaDataSourceMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.buildMediaDataSourceMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes(
         "Landroid/net/Uri;",
@@ -149,7 +149,7 @@ internal val BytecodePatchContext.mediaFetchEnumConstructorMethodMatch by compos
     )
 }
 
-internal val BytecodePatchContext.nerdsStatsVideoFormatBuilderMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.nerdsStatsVideoFormatBuilderMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     parameterTypes("L")
@@ -158,7 +158,7 @@ internal val BytecodePatchContext.nerdsStatsVideoFormatBuilderMethod by gettingF
     )
 }
 
-internal val BytecodePatchContext.patchIncludedExtensionMethodMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.patchIncludedExtensionMethodMethod by gettingFirstMethodDeclaratively {
     name("isPatchIncluded")
     definingClass(EXTENSION_CLASS_DESCRIPTOR)
     returnType("Z")

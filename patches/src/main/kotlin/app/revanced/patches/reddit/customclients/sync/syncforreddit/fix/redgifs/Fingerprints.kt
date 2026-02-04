@@ -2,7 +2,7 @@ package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.redgifs
 
 import app.revanced.patcher.*
 import app.revanced.patcher.extensions.instructions
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.util.indexOfFirstInstruction
 import app.revanced.util.writeRegister
@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 
-internal val BytecodePatchContext.createOkHttpClientMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.createOkHttpClientMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
     returnType("V")
     parameterTypes()
@@ -26,12 +26,12 @@ internal val BytecodePatchContext.createOkHttpClientMethod by gettingFirstMutabl
     }
 }
 
-internal val BytecodePatchContext.getDefaultUserAgentMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.getDefaultUserAgentMethod by gettingFirstMethodDeclaratively {
     name("getDefaultUserAgent")
     definingClass(EXTENSION_CLASS_DESCRIPTOR)
 }
 
-internal val BytecodePatchContext.getOriginalUserAgentMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.getOriginalUserAgentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType { startsWith("Ljava/lang/String;") }
     parameterTypes()

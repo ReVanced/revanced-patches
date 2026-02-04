@@ -12,7 +12,7 @@ internal val BytecodePatchContext.fetchMoreAdsMethod by runMethod(
     fieldValue = $$"AdBucketDataSourceUtil$attemptFetchMoreAds$1",
 )
 
-internal fun runMethod(fieldValue: String) = gettingFirstMutableMethodDeclaratively {
+internal fun runMethod(fieldValue: String) = gettingFirstMethodDeclaratively {
     name("run")
     returnType("V")
     parameterTypes()

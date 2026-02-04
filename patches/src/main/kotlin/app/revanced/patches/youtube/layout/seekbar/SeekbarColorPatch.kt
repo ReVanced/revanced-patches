@@ -208,7 +208,7 @@ val seekbarColorPatch = bytecodePatch(
                     factoryStreamReturnType = it.returnType
                 }
 
-            val lottieAnimationViewSetAnimationStreamMethod = firstMutableMethodDeclaratively {
+            val lottieAnimationViewSetAnimationStreamMethod = firstMethodDeclaratively {
                 definingClass(lottieAnimationViewSetAnimationIntMethod.immutableClassDef.type)
                 accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
                 parameterTypes(factoryStreamReturnType.toString())

@@ -4,7 +4,7 @@ package app.revanced.patches.music.layout.miniplayercolor
 
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.returnType
@@ -78,7 +78,7 @@ val changeMiniplayerColorPatch = bytecodePatch(
             val colorMathPlayerIPutReference = miniPlayerConstructorMethodMatch.immutableMethod
                 .getInstruction<ReferenceInstruction>(iPutIndex).reference
 
-            miniPlayerConstructorMethodMatch.immutableClassDef.firstMutableMethodDeclaratively {
+            miniPlayerConstructorMethodMatch.immutableClassDef.firstMethodDeclaratively {
                 accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
                 returnType("V")
                 parameterTypes(

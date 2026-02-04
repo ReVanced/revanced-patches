@@ -7,7 +7,7 @@ import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.firstClassDef
+import app.revanced.patcher.firstImmutableClassDef
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -143,7 +143,7 @@ internal fun lithoFilterPatch(
             AccessFlags.STATIC.isSet(method.accessFlags)
         }
 
-        val emptyComponentField = firstClassDef {
+        val emptyComponentField = firstImmutableClassDef {
             // Only one field that matches.
             type == builderMethodDescriptor.returnType
         }.fields.single()

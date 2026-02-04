@@ -2,32 +2,32 @@ package app.revanced.patches.tiktok.interaction.downloads
 
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.definingClass
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.name
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val BytecodePatchContext.aclCommonShareMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.aclCommonShareMethod by gettingFirstMethodDeclaratively {
     name("getCode")
     definingClass { endsWith("/ACLCommonShare;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("I")
 }
-internal val BytecodePatchContext.aclCommonShare2Method by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.aclCommonShare2Method by gettingFirstMethodDeclaratively {
     name("getShowType")
     definingClass { endsWith("/ACLCommonShare;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("I")
 }
-internal val BytecodePatchContext.aclCommonShare3Method by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.aclCommonShare3Method by gettingFirstMethodDeclaratively {
     name("getTranscode")
     definingClass { endsWith("/ACLCommonShare;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("I")
 }
-internal val BytecodePatchContext.downloadUriMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.downloadUriMethod by gettingFirstMethodDeclaratively(
     "/",
     "/Camera",
     "/Camera/",

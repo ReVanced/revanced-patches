@@ -24,7 +24,7 @@ internal val BytecodePatchContext.shortsBottomBarContainerMethodMatch by composi
  */
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getRenderBottomNavigationBarMethodMatch() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getRenderBottomNavigationBarMethodMatch() = firstMethodDeclaratively {
     returnType("V")
     parameterTypes("Ljava/lang/String;")
     instructions(
@@ -44,7 +44,7 @@ internal fun ClassDef.getRenderBottomNavigationBarMethodMatch() = firstMutableMe
 /**
  * Less than 19.41.
  */
-internal val BytecodePatchContext.legacyRenderBottomNavigationBarLegacyParentMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.legacyRenderBottomNavigationBarLegacyParentMethod by gettingFirstImmutableMethodDeclaratively {
     parameterTypes(
         "I",
         "I",
@@ -62,7 +62,7 @@ internal val BytecodePatchContext.legacyRenderBottomNavigationBarLegacyParentMet
  * Identical to [legacyRenderBottomNavigationBarLegacyParentMethod]
  * except this has an extra parameter.
  */
-internal val BytecodePatchContext.renderBottomNavigationBarLegacy1941ParentMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.renderBottomNavigationBarLegacy1941ParentMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes(
         "I",
@@ -78,7 +78,7 @@ internal val BytecodePatchContext.renderBottomNavigationBarLegacy1941ParentMetho
     )
 }
 
-internal val BytecodePatchContext.renderBottomNavigationBarParentMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.renderBottomNavigationBarParentMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("[Ljava/lang/Class;")
     parameterTypes(
@@ -101,14 +101,14 @@ internal val ClassDef.setPivotBarVisibilityMethodMatch by ClassDefComposing.comp
     )
 }
 
-internal val BytecodePatchContext.setPivotBarVisibilityParentMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.setPivotBarVisibilityParentMethod by gettingFirstImmutableMethodDeclaratively {
     parameterTypes("Z")
     instructions(
         "FEnotifications_inbox"(),
     )
 }
 
-internal val BytecodePatchContext.shortsExperimentalPlayerFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.shortsExperimentalPlayerFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
@@ -117,7 +117,7 @@ internal val BytecodePatchContext.shortsExperimentalPlayerFeatureFlagMethod by g
     )
 }
 
-internal val BytecodePatchContext.renderNextUIFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.renderNextUIFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

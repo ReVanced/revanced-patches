@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 // This is the constructor of the PostsResponse class.
 // The same applies here as with the TimelineConstructorMethod.
-internal val BytecodePatchContext.postsResponseConstructorMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.postsResponseConstructorMethod by gettingFirstMethodDeclaratively {
     definingClass { endsWith("/PostsResponse;") }
     accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PUBLIC)
     custom { parameters.size == 4 }
@@ -16,7 +16,7 @@ internal val BytecodePatchContext.postsResponseConstructorMethod by gettingFirst
 // This is the constructor of the Timeline class.
 // It receives the List<TimelineObject> as an argument with a @Json annotation, so this should be the first time
 // that the List<TimelineObject> is exposed in non-library code.
-internal val BytecodePatchContext.timelineConstructorMethod by gettingFirstMutableMethodDeclaratively("timelineObjectsList") {
+internal val BytecodePatchContext.timelineConstructorMethod by gettingFirstMethodDeclaratively("timelineObjectsList") {
     definingClass { endsWith("/Timeline;") }
     custom { parameters[0].type == "Ljava/util/List;" }
 }

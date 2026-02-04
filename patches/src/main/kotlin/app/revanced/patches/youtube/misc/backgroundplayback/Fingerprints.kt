@@ -6,7 +6,7 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.backgroundPlaybackManagerMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.backgroundPlaybackManagerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Z")
     parameterTypes("L")
@@ -39,7 +39,7 @@ internal val BytecodePatchContext.backgroundPlaybackManagerMethod by gettingFirs
     )
 }
 
-internal val BytecodePatchContext.backgroundPlaybackSettingsMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.backgroundPlaybackSettingsMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/String;")
     parameterTypes()
@@ -55,7 +55,7 @@ internal val BytecodePatchContext.backgroundPlaybackSettingsMethod by gettingFir
     literal { prefBackgroundAndOfflineCategoryId }
 }
 
-internal val BytecodePatchContext.kidsBackgroundPlaybackPolicyControllerMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.kidsBackgroundPlaybackPolicyControllerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("I", "L", "L")
@@ -72,14 +72,14 @@ internal val BytecodePatchContext.kidsBackgroundPlaybackPolicyControllerMethod b
     literal { 5 }
 }
 
-internal val BytecodePatchContext.backgroundPlaybackManagerShortsMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.backgroundPlaybackManagerShortsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Z")
     parameterTypes("L")
     instructions(151635310L())
 }
 
-internal val BytecodePatchContext.shortsBackgroundPlaybackFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.shortsBackgroundPlaybackFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

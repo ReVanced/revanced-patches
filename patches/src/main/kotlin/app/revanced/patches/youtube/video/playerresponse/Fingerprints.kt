@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 /**
  * For targets 20.46 and later.
  */
-internal val BytecodePatchContext.playerParameterBuilderMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerParameterBuilderMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes(
@@ -33,7 +33,7 @@ internal val BytecodePatchContext.playerParameterBuilderMethod by gettingFirstMu
 /**
  * For targets 20.26 and later.
  */
-internal val BytecodePatchContext.playerParameterBuilder2026Method by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerParameterBuilder2026Method by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes(
@@ -60,7 +60,7 @@ internal val BytecodePatchContext.playerParameterBuilder2026Method by gettingFir
 /**
  * For targets 20.15 to 20.25
  */
-internal val BytecodePatchContext.playerParameterBuilder2015Method by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerParameterBuilder2015Method by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes(
@@ -86,7 +86,7 @@ internal val BytecodePatchContext.playerParameterBuilder2015Method by gettingFir
 /**
  * For targets 20.10 to 20.14.
  */
-internal val BytecodePatchContext.playerParameterBuilder2010Method by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerParameterBuilder2010Method by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes(
@@ -113,7 +113,7 @@ internal val BytecodePatchContext.playerParameterBuilder2010Method by gettingFir
 /**
  * For targets 20.02 to 20.09.
  */
-internal val BytecodePatchContext.playerParameterBuilder2002Method by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerParameterBuilder2002Method by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes(
@@ -139,7 +139,7 @@ internal val BytecodePatchContext.playerParameterBuilder2002Method by gettingFir
 /**
  * For targets 19.25 to 19.50.
  */
-internal val BytecodePatchContext.playerParameterBuilder1925Method by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerParameterBuilder1925Method by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes(
@@ -164,7 +164,7 @@ internal val BytecodePatchContext.playerParameterBuilder1925Method by gettingFir
 /**
  * For targets 19.01 to 19.24.
  */
-internal val BytecodePatchContext.playerParameterBuilderLegacyMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerParameterBuilderLegacyMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     parameterTypes(

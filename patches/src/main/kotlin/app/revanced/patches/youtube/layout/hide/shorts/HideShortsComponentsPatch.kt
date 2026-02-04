@@ -5,7 +5,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.methodReference
 import app.revanced.patcher.extensions.wideLiteral
-import app.revanced.patcher.firstMutableMethod
+import app.revanced.patcher.firstMethod
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
@@ -201,7 +201,7 @@ val hideShortsComponentsPatch = bytecodePatch(
 
             return@forEachInstructionAsSequence targetIndex to sizeRegister
         }) { method, (targetIndex, sizeRegister) ->
-            firstMutableMethod(method).addInstructions(
+            firstMethod(method).addInstructions(
                 targetIndex + 1,
                 """
                     invoke-static { v$sizeRegister }, $FILTER_CLASS_DESCRIPTOR->getSoundButtonSize(I)I

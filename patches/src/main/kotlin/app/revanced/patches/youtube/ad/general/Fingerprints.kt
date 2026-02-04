@@ -9,7 +9,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
-internal val BytecodePatchContext.fullScreenEngagementAdContainerMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.fullScreenEngagementAdContainerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes()

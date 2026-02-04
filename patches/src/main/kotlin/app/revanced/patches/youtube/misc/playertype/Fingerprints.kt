@@ -6,7 +6,7 @@ import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.playerTypeEnumMethod by gettingFirstMethodDeclaratively(
+internal val BytecodePatchContext.playerTypeEnumMethod by gettingFirstImmutableMethodDeclaratively(
     "NONE",
     "HIDDEN",
     "WATCH_WHILE_MINIMIZED",
@@ -31,7 +31,7 @@ internal val BytecodePatchContext.reelWatchPagerMethodMatch by composingFirstMet
     )
 }
 
-internal val BytecodePatchContext.videoStateEnumMethod by gettingFirstMethodDeclaratively(
+internal val BytecodePatchContext.videoStateEnumMethod by gettingFirstImmutableMethodDeclaratively(
     "NEW",
     "PLAYING",
     "PAUSED",
@@ -44,7 +44,7 @@ internal val BytecodePatchContext.videoStateEnumMethod by gettingFirstMethodDecl
 }
 
 // 20.33 and lower class name ControlsState. 20.34+ class name is obfuscated.
-internal val BytecodePatchContext.controlsStateToStringMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.controlsStateToStringMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes()
     returnType("Ljava/lang/String;")

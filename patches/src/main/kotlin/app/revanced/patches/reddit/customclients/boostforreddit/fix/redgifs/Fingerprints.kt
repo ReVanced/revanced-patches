@@ -1,12 +1,12 @@
 package app.revanced.patches.reddit.customclients.boostforreddit.fix.redgifs
 
 import app.revanced.patcher.*
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.createOkHttpClientMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.createOkHttpClientMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE)
     opcodes(
         Opcode.NEW_INSTANCE,

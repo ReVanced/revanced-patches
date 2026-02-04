@@ -7,12 +7,12 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.mediaRouteButtonMethod by gettingFirstMutableMethodDeclaratively("MediaRouteButton") {
+internal val BytecodePatchContext.mediaRouteButtonMethod by gettingFirstMethodDeclaratively("MediaRouteButton") {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("Z")
 }
 
-internal val BytecodePatchContext.playerOverlayChipMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerOverlayChipMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     instructions(playerOverlayChip())
@@ -45,7 +45,7 @@ internal val BytecodePatchContext.historyMenuItemOfflineTabMethodMatch by compos
     custom { match(instructions) }
 }
 
-internal val BytecodePatchContext.searchActionViewMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.searchActionViewMethod by gettingFirstMethodDeclaratively {
     definingClass { endsWith("/SearchActionProvider;") }
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
@@ -53,7 +53,7 @@ internal val BytecodePatchContext.searchActionViewMethod by gettingFirstMutableM
     literal { searchButton }
 }
 
-internal val BytecodePatchContext.topBarMenuItemImageViewMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.topBarMenuItemImageViewMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
     parameterTypes()

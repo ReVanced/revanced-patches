@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.value.StringEncodedValue
 
-internal val BytecodePatchContext.createInboxSubTabsMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.createInboxSubTabsMethod by gettingFirstMethodDeclaratively {
     name("run")
     returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -23,7 +23,7 @@ internal val BytecodePatchContext.createInboxSubTabsMethod by gettingFirstMutabl
     }
 }
 
-internal val BytecodePatchContext.loadInboxAdsMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.loadInboxAdsMethod by gettingFirstMethodDeclaratively(
     "ads_load_begin",
     "inbox_ads_fetch_start"
 ) {

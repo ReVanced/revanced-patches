@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.relatedEndScreenResultsParentMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.relatedEndScreenResultsParentMethod by gettingFirstImmutableMethodDeclaratively {
     returnType("V")
     instructions(
         ResourceType.LAYOUT("app_related_endscreen_results"),
@@ -13,7 +13,7 @@ internal val BytecodePatchContext.relatedEndScreenResultsParentMethod by getting
 }
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getRelatedEndScreenResultsMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getRelatedEndScreenResultsMethod() = firstMethodDeclaratively {
     returnType("V")
     parameterTypes(
         "I",

@@ -12,6 +12,6 @@ internal val BytecodePatchContext.enableSplitTunnelingUiMethodMatch by composing
     )
 }
 
-internal val BytecodePatchContext.initializeSplitTunnelingSettingsUIMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.initializeSplitTunnelingSettingsUIMethod by gettingFirstMethodDeclaratively {
     name("applyRestrictions")
 }

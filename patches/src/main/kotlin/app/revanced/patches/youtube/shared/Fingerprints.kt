@@ -9,8 +9,8 @@ import app.revanced.patcher.custom
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.field
 import app.revanced.patcher.firstMethodComposite
+import app.revanced.patcher.gettingFirstImmutableMethodDeclaratively
 import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
@@ -28,7 +28,7 @@ import com.android.tools.smali.dexlib2.iface.ClassDef
 
 internal const val YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE = "Lcom/google/android/apps/youtube/app/watchwhile/MainActivity;"
 
-internal val BytecodePatchContext.conversionContextToStringMethod by gettingFirstMethodDeclaratively(
+internal val BytecodePatchContext.conversionContextToStringMethod by gettingFirstImmutableMethodDeclaratively(
     ", widthConstraint=",
     ", heightConstraint=",
     ", templateLoggerFactory=",
@@ -58,13 +58,13 @@ internal fun BytecodePatchContext.getLayoutConstructorMethodMatch() = firstMetho
     )
 }
 
-internal val BytecodePatchContext.mainActivityConstructorMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.mainActivityConstructorMethod by gettingFirstImmutableMethodDeclaratively {
     definingClass(YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes()
 }
 
-internal val BytecodePatchContext.mainActivityOnBackPressedMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.mainActivityOnBackPressedMethod by gettingFirstMethodDeclaratively {
     name("onBackPressed")
     definingClass(YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
@@ -72,7 +72,7 @@ internal val BytecodePatchContext.mainActivityOnBackPressedMethod by gettingFirs
     parameterTypes()
 }
 
-internal val BytecodePatchContext.mainActivityOnCreateMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.mainActivityOnCreateMethod by gettingFirstMethodDeclaratively {
     name("onCreate")
     definingClass(YOUTUBE_MAIN_ACTIVITY_CLASS_TYPE)
     returnType("V")
@@ -105,7 +105,7 @@ internal val BytecodePatchContext.rollingNumberTextViewAnimationUpdateMethodMatc
     }
 }
 
-internal val BytecodePatchContext.seekbarMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.seekbarMethod by gettingFirstImmutableMethodDeclaratively {
     returnType("V")
     instructions("timed_markers_width"())
 }
@@ -121,7 +121,7 @@ internal fun ClassDef.getSeekbarOnDrawMethodMatch() = firstMethodComposite {
     )
 }
 
-internal val BytecodePatchContext.subtitleButtonControllerMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.subtitleButtonControllerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Lcom/google/android/libraries/youtube/player/subtitles/model/SubtitleTrack;")

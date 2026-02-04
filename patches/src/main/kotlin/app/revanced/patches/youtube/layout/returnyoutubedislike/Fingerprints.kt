@@ -7,17 +7,17 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.dislikeMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.dislikeMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     instructions("like/dislike"())
 }
 
-internal val BytecodePatchContext.likeMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.likeMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     instructions("like/like"())
 }
 
-internal val BytecodePatchContext.removeLikeMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.removeLikeMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     instructions("like/removelike"())
 }
@@ -55,7 +55,7 @@ internal val ClassDef.rollingNumberMeasureStaticLabelMethodMatch by ClassDefComp
     )
 }
 
-internal val BytecodePatchContext.rollingNumberMeasureStaticLabelParentMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.rollingNumberMeasureStaticLabelParentMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/String;")
     parameterTypes()
@@ -74,7 +74,7 @@ internal val BytecodePatchContext.rollingNumberSetterMethodMatch by composingFir
     custom { match(instructions) }
 }
 
-internal val BytecodePatchContext.rollingNumberTextViewMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.rollingNumberTextViewMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L", "F", "F")
@@ -92,14 +92,14 @@ internal val BytecodePatchContext.rollingNumberTextViewMethod by gettingFirstMut
     }
 }
 
-internal val BytecodePatchContext.textComponentConstructorMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.textComponentConstructorMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.CONSTRUCTOR, AccessFlags.PRIVATE)
     instructions(
         "TextComponent"(),
     )
 }
 
-internal val BytecodePatchContext.textComponentDataMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.textComponentDataMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes("L", "L")
     instructions(
@@ -112,14 +112,14 @@ internal val BytecodePatchContext.textComponentDataMethod by gettingFirstMethodD
  * Matches against the same class found in [textComponentConstructorMethod].
  */
 context(_: BytecodePatchContext)
-internal fun ClassDef.getTextComponentLookupMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getTextComponentLookupMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returnType("L")
     parameterTypes("L")
     instructions("…"())
 }
 
-internal val BytecodePatchContext.textComponentFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.textComponentFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

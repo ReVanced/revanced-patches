@@ -51,7 +51,7 @@ internal val BytecodePatchContext.layoutVideoMethodMatch by composingFirstMethod
     literal { layoutVideo }
 }
 
-internal val BytecodePatchContext.showEndscreenCardsMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.showEndscreenCardsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")

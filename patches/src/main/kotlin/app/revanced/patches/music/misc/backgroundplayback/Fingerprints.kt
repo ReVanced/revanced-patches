@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.backgroundPlaybackDisableMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.backgroundPlaybackDisableMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Z")
     parameterTypes("L")
@@ -22,7 +22,7 @@ internal val BytecodePatchContext.backgroundPlaybackDisableMethod by gettingFirs
     )
 }
 
-internal val BytecodePatchContext.kidsBackgroundPlaybackPolicyControllerMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.kidsBackgroundPlaybackPolicyControllerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("I", "L", "Z")

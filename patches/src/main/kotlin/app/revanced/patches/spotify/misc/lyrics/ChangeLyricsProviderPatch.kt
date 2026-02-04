@@ -5,7 +5,7 @@ import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.replaceInstruction
-import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.method
 import app.revanced.patcher.parameterTypes
@@ -95,7 +95,7 @@ val changeLyricsProviderPatch = bytecodePatch(
 
         // region Replace the call to the HTTP client builder method used exclusively for lyrics by the modified one.
 
-        val getLyricsHttpClientMethod = firstMutableMethodDeclaratively {
+        val getLyricsHttpClientMethod = firstMethodDeclaratively {
             returnType(httpClientBuilderMethod.returnType)
             parameterTypes()
             instructions(method { this == httpClientBuilderMethod })

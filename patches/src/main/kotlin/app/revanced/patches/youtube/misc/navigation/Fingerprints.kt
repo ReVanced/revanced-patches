@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.misc.navigation
 
 import app.revanced.patcher.*
 import app.revanced.patcher.accessFlags
-import app.revanced.patcher.gettingFirstMethodDeclaratively
+import app.revanced.patcher.gettingFirstImmutableMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -36,7 +36,7 @@ internal val BytecodePatchContext.toolbarLayoutMethodMatch by composingFirstMeth
 /**
  * Matches to https://android.googlesource.com/platform/frameworks/support/+/9eee6ba/v7/appcompat/src/android/support/v7/widget/Toolbar.java#963
  */
-internal val BytecodePatchContext.appCompatToolbarBackButtonMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.appCompatToolbarBackButtonMethod by gettingFirstImmutableMethodDeclaratively {
     definingClass("Landroid/support/v7/widget/Toolbar;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/graphics/drawable/Drawable;")
@@ -47,7 +47,7 @@ internal val BytecodePatchContext.appCompatToolbarBackButtonMethod by gettingFir
  * Matches to the class found in [pivotBarConstructorMethod].
  */
 context(_: BytecodePatchContext)
-internal fun ClassDef.getInitializeButtonsMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getInitializeButtonsMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     instructions(ResourceType.LAYOUT("image_only_tab"))
@@ -57,7 +57,7 @@ internal fun ClassDef.getInitializeButtonsMethod() = firstMutableMethodDeclarati
  * Extension method, used for callback into to other patches.
  * Specifically, [navigationButtonsPatch].
  */
-internal val BytecodePatchContext.navigationBarHookCallbackMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.navigationBarHookCallbackMethod by gettingFirstMethodDeclaratively {
     name("navigationTabCreatedCallback")
     definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
@@ -68,7 +68,7 @@ internal val BytecodePatchContext.navigationBarHookCallbackMethod by gettingFirs
 /**
  * Matches to the Enum class that looks up ordinal -> instance.
  */
-internal val BytecodePatchContext.navigationEnumMethod by gettingFirstMethodDeclaratively(
+internal val BytecodePatchContext.navigationEnumMethod by gettingFirstImmutableMethodDeclaratively(
     "PIVOT_HOME",
     "TAB_SHORTS",
     "CREATION_TAB_LARGE",
@@ -81,7 +81,7 @@ internal val BytecodePatchContext.navigationEnumMethod by gettingFirstMethodDecl
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
 }
 
-internal val BytecodePatchContext.pivotBarButtonsCreateDrawableViewMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.pivotBarButtonsCreateDrawableViewMethod by gettingFirstImmutableMethodDeclaratively {
     definingClass("Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
@@ -91,7 +91,7 @@ internal val BytecodePatchContext.pivotBarButtonsCreateDrawableViewMethod by get
     }
 }
 
-internal val BytecodePatchContext.pivotBarButtonsCreateResourceStyledViewMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.pivotBarButtonsCreateResourceStyledViewMethod by gettingFirstImmutableMethodDeclaratively {
     definingClass("Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
@@ -101,7 +101,7 @@ internal val BytecodePatchContext.pivotBarButtonsCreateResourceStyledViewMethod 
 /**
  * 20.21+
  */
-internal val BytecodePatchContext.pivotBarButtonsCreateResourceIntViewMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.pivotBarButtonsCreateResourceIntViewMethod by gettingFirstImmutableMethodDeclaratively {
     definingClass("Lcom/google/android/libraries/youtube/rendering/ui/pivotbar/PivotBar;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
@@ -119,7 +119,7 @@ internal val BytecodePatchContext.pivotBarButtonsViewSetSelectedMethodMatch by c
     instructions(method("setSelected"))
 }
 
-internal val BytecodePatchContext.pivotBarConstructorMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.pivotBarConstructorMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions("com.google.android.apps.youtube.app.endpoint.flags"())
 }

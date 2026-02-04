@@ -4,7 +4,7 @@ import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.firstMutableClassDef
+import app.revanced.patcher.firstClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.shared.getEnterFromMethod
 import app.revanced.patches.tiktok.shared.onRenderFirstFrameMethod

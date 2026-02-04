@@ -4,7 +4,7 @@ import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val BytecodePatchContext.adResolverMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.adResolverMethod by gettingFirstMethodDeclaratively(
     "Google Ad is invalid ",
     "Google Native Ad is invalid ",
     "Criteo Ad is invalid ",
@@ -16,7 +16,7 @@ internal val BytecodePatchContext.adResolverMethod by gettingFirstMutableMethodD
 
 }
 
-internal val BytecodePatchContext.whAdViewInjectorMethod by gettingFirstMutableMethodDeclaratively("successfulAdView") {
+internal val BytecodePatchContext.whAdViewInjectorMethod by gettingFirstMethodDeclaratively("successfulAdView") {
     definingClass("Lat/willhaben/advertising/WHAdView;")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")

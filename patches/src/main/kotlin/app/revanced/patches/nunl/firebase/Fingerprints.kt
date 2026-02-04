@@ -1,7 +1,7 @@
 package app.revanced.patches.nunl.firebase
 
 import app.revanced.patcher.*
-import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
@@ -10,7 +10,7 @@ internal fun BytecodePatchContext.getFingerprintHashForPackageMethods() = arrayO
     "Lcom/google/firebase/remoteconfig/internal/ConfigFetchHttpClient;",
     "Lcom/google/firebase/remoteconfig/internal/ConfigRealtimeHttpClient;"
 ).map {
-    firstMutableMethodDeclaratively {
+    firstMethodDeclaratively {
         name("getFingerprintHashForPackage")
         definingClass(it)
         accessFlags(AccessFlags.PRIVATE)

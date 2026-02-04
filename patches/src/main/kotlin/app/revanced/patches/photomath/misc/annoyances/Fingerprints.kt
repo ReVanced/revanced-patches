@@ -1,12 +1,12 @@
 package app.revanced.patches.photomath.misc.annoyances
 
 import app.revanced.patcher.*
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.hideUpdatePopupMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.hideUpdatePopupMethod by gettingFirstMethodDeclaratively {
     definingClass("Lcom/microblink/photomath/main/activity/MainActivity;")
     accessFlags(AccessFlags.FINAL, AccessFlags.PUBLIC)
     returnType("V")

@@ -17,7 +17,7 @@ internal val BytecodePatchContext.reelEnumConstructorMethodMatch by composingFir
     )
 }
 
-internal val BytecodePatchContext.reelPlaybackRepeatParentMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.reelPlaybackRepeatParentMethod by gettingFirstImmutableMethodDeclaratively {
     returnType("V")
     parameterTypes("Ljava/lang/String;", "J")
     instructions(
@@ -29,7 +29,7 @@ internal val BytecodePatchContext.reelPlaybackRepeatParentMethod by gettingFirst
  * Matches class found in [reelPlaybackRepeatParentMethod].
  */
 context(_: BytecodePatchContext)
-internal fun ClassDef.getReelPlaybackRepeatMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getReelPlaybackRepeatMethod() = firstMethodDeclaratively {
     returnType("V")
     parameterTypes("L")
     instructions(method { toString() == "Lcom/google/common/util/concurrent/ListenableFuture;->isDone()Z" })

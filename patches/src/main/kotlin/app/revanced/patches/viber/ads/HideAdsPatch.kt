@@ -3,7 +3,7 @@ package app.revanced.patches.viber.ads
 import app.revanced.patcher.definingClass
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.typeReference
-import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.returnType
@@ -23,7 +23,7 @@ val hideAdsPatch = bytecodePatch(
         val targetClass =
             findAdStringMethodMatch.immutableMethod.getInstruction<ReferenceInstruction>(referenceIndex).typeReference
 
-        val adFreeMethod = firstMutableMethodDeclaratively {
+        val adFreeMethod = firstMethodDeclaratively {
             definingClass(targetClass!!.type)
             returnType("I")
             parameterTypes()

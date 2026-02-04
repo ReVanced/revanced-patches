@@ -22,14 +22,14 @@ internal const val MINIPLAYER_INITIAL_SIZE_FEATURE_KEY = 45640023L
 internal const val MINIPLAYER_DISABLED_FEATURE_KEY = 45657015L
 internal const val MINIPLAYER_ANIMATED_EXPAND_FEATURE_KEY = 45644360L
 
-internal val BytecodePatchContext.miniplayerModernConstructorMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.miniplayerModernConstructorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     instructions(
         45623000L(), // Magic number found in the constructor.
     )
 }
 
-internal val BytecodePatchContext.miniplayerDimensionsCalculatorParentMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.miniplayerDimensionsCalculatorParentMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")
@@ -38,7 +38,7 @@ internal val BytecodePatchContext.miniplayerDimensionsCalculatorParentMethod by 
     )
 }
 
-internal val BytecodePatchContext.miniplayerModernViewParentMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.miniplayerModernViewParentMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/String;")
     parameterTypes()
@@ -51,7 +51,7 @@ internal val BytecodePatchContext.miniplayerModernViewParentMethod by gettingFir
  * Matches using the class found in [miniplayerModernViewParentMethod].
  */
 context(_: BytecodePatchContext)
-internal fun ClassDef.getMiniplayerModernAddViewListenerMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getMiniplayerModernAddViewListenerMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Landroid/view/View;")
@@ -87,7 +87,7 @@ internal val ClassDef.miniplayerModernExpandButtonMethodMatch by ClassDefComposi
  * Matches using the class found in [miniplayerModernViewParentMethod].
  */
 context(_: BytecodePatchContext)
-internal fun ClassDef.getMiniplayerModernExpandCloseDrawablesMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getMiniplayerModernExpandCloseDrawablesMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")
@@ -166,7 +166,7 @@ internal val BytecodePatchContext.miniplayerOverrideMethodMatch by composingFirs
 }
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getMiniplayerOverrideNoContextMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getMiniplayerOverrideNoContextMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("Z")
     opcodes(
@@ -191,7 +191,7 @@ internal val BytecodePatchContext.miniplayerResponseModelSizeCheckMethodMatch by
     )
 }
 
-internal val BytecodePatchContext.miniplayerOnCloseHandlerMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.miniplayerOnCloseHandlerMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     instructions(
@@ -202,11 +202,11 @@ internal val BytecodePatchContext.miniplayerOnCloseHandlerMethod by gettingFirst
 internal const val YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME =
     "Lcom/google/android/apps/youtube/app/common/player/overlay/YouTubePlayerOverlaysLayout;"
 
-internal val BytecodePatchContext.playerOverlaysLayoutMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.playerOverlaysLayoutMethod by gettingFirstImmutableMethodDeclaratively {
     definingClass(YOUTUBE_PLAYER_OVERLAYS_LAYOUT_CLASS_NAME)
 }
 
-internal val BytecodePatchContext.miniplayerSetIconsMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.miniplayerSetIconsMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     parameterTypes("I", "Ljava/lang/Runnable;")
     instructions(

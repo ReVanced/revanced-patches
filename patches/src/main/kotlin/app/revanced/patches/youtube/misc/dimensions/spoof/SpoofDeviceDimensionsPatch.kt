@@ -2,7 +2,7 @@ package app.revanced.patches.youtube.misc.dimensions.spoof
 
 import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.firstMutableMethod
+import app.revanced.patcher.firstMethod
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
 import app.revanced.patches.all.misc.resources.addResourcesPatch
@@ -42,7 +42,7 @@ val spoofDeviceDimensionsPatch = bytecodePatch(
         )
 
         // Override the parameters containing the dimensions.
-        deviceDimensionsModelToStringMethod.classDef.methods.firstMutableMethod { name == "<init>" }.addInstructions(
+        deviceDimensionsModelToStringMethod.classDef.methods.firstMethod { name == "<init>" }.addInstructions(
             1, // Add after super call.
             arrayOf(
                 1 to "MinHeightOrWidth", // p1 = min height

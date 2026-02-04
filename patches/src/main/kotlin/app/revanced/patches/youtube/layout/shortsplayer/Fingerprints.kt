@@ -73,7 +73,7 @@ internal val BytecodePatchContext.shortsPlaybackIntentLegacyMethodMatch by compo
     )
 }
 
-internal val BytecodePatchContext.shortsPlaybackIntentMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.shortsPlaybackIntentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PROTECTED, AccessFlags.FINAL)
     returnType("V")
     parameterTypes(
@@ -90,7 +90,7 @@ internal val BytecodePatchContext.shortsPlaybackIntentMethod by gettingFirstMuta
     )
 }
 
-internal val BytecodePatchContext.exitVideoPlayerMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.exitVideoPlayerMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     parameterTypes()
     instructions(ResourceType.ID("mdx_drawer_layout"))

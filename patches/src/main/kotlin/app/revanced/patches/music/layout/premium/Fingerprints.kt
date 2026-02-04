@@ -19,7 +19,7 @@ internal val BytecodePatchContext.hideGetPremiumMethodMatch by composingFirstMet
     )
 }
 
-internal val BytecodePatchContext.membershipSettingsMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.membershipSettingsMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/CharSequence;")
     opcodes(

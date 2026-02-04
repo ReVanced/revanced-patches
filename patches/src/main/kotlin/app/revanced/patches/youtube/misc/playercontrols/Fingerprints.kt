@@ -18,7 +18,7 @@ internal val BytecodePatchContext.playerControlsVisibilityEntityModelMethodMatch
     )
 }
 
-internal val BytecodePatchContext.youtubeControlsOverlayMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.youtubeControlsOverlayMethod by gettingFirstImmutableMethodDeclaratively {
     returnType("V")
     parameterTypes()
     instructions(
@@ -34,7 +34,7 @@ internal val ClassDef.motionEventMethodMatch by ClassDefComposing.composingFirst
     instructions(method("setTranslationY"))
 }
 
-internal val BytecodePatchContext.playerControlsExtensionHookListenersExistMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerControlsExtensionHookListenersExistMethod by gettingFirstMethodDeclaratively {
     name("fullscreenButtonVisibilityCallbacksExist")
     definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
@@ -42,7 +42,7 @@ internal val BytecodePatchContext.playerControlsExtensionHookListenersExistMetho
     parameterTypes()
 }
 
-internal val BytecodePatchContext.playerControlsExtensionHookMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerControlsExtensionHookMethod by gettingFirstMethodDeclaratively {
     name("fullscreenButtonVisibilityChanged")
     definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
@@ -86,41 +86,41 @@ internal val BytecodePatchContext.overlayViewInflateMethodMatch by composingFirs
  * Resolves to the class found in [playerTopControlsInflateMethodMatch].
  */
 context(_: BytecodePatchContext)
-internal fun ClassDef.getControlsOverlayVisibilityMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getControlsOverlayVisibilityMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("Z", "Z")
 }
 
-internal val BytecodePatchContext.playerBottomControlsExploderFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerBottomControlsExploderFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
     instructions(45643739L())
 }
 
-internal val BytecodePatchContext.playerTopControlsExperimentalLayoutFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerTopControlsExperimentalLayoutFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("I")
     parameterTypes()
     instructions(45629424L())
 }
 
-internal val BytecodePatchContext.playerControlsLargeOverlayButtonsFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerControlsLargeOverlayButtonsFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
     instructions(45709810L())
 }
 
-internal val BytecodePatchContext.playerControlsFullscreenLargeButtonsFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerControlsFullscreenLargeButtonsFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
     instructions(45686474L())
 }
 
-internal val BytecodePatchContext.playerControlsButtonStrokeFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playerControlsButtonStrokeFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.lithoFilterMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.lithoFilterMethod by gettingFirstMethodDeclaratively {
     definingClass { endsWith("/LithoFilterPatch;") }
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
 }
@@ -33,7 +33,7 @@ internal val BytecodePatchContext.protobufBufferReferenceMethodMatch by composin
 /**
  * Matches a method that use the protobuf of our component.
  */
-internal val BytecodePatchContext.protobufBufferReferenceLegacyMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.protobufBufferReferenceLegacyMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("I", "Ljava/nio/ByteBuffer;")
@@ -44,19 +44,19 @@ internal val BytecodePatchContext.componentContextParserMethodMatch by composing
     instructions("Number of bits must be positive"())
 }
 
-internal val BytecodePatchContext.emptyComponentMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.emptyComponentMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
     parameterTypes()
     instructions("EmptyComponent"())
     custom { immutableClassDef.methods.filter { AccessFlags.STATIC.isSet(it.accessFlags) }.size == 1 }
 }
 
-internal val BytecodePatchContext.componentCreateMethod by gettingFirstMutableMethod(
+internal val BytecodePatchContext.componentCreateMethod by gettingFirstMethod(
     "Element missing correct type extension",
     "Element missing type",
 )
 
-internal val BytecodePatchContext.lithoThreadExecutorMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.lithoThreadExecutorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes("I", "I", "I")
     instructions(1L()) // 1L = default thread timeout.

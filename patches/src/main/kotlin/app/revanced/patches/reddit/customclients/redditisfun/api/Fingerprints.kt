@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.redditisfun.api
 
 import app.revanced.patcher.*
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
@@ -20,7 +20,7 @@ internal val BytecodePatchContext.buildAuthorizationStringMethodMatch by composi
     )
 }
 
-internal val BytecodePatchContext.getUserAgentMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.getUserAgentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     parameterTypes()

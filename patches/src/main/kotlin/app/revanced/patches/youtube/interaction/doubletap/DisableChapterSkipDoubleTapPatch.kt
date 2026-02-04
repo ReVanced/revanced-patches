@@ -54,7 +54,7 @@ val disableDoubleTapActionsPatch = bytecodePatch(
             SwitchPreference("revanced_disable_chapter_skip_double_tap"),
         )
 
-        val doubleTapInfoGetSeekSourceMethod = firstMutableMethodDeclaratively {
+        val doubleTapInfoGetSeekSourceMethod = firstMethodDeclaratively {
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             parameterTypes("Z")
             returnType(seekTypeEnumMethod.immutableClassDef.type)

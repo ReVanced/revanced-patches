@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.RootDetection#isRooted (3.0.1)
-internal val BytecodePatchContext.rootDetectionMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.rootDetectionMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("L")
     parameterTypes("L")

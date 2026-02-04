@@ -4,7 +4,7 @@ import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.custom
 import app.revanced.patcher.extensions.*
-import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -284,7 +284,7 @@ internal fun spoofVideoStreamsPatch(
             )
         }
 
-        val sabrMethod = firstMutableMethodDeclaratively {
+        val sabrMethod = firstMethodDeclaratively {
             returnType(mediaFetchEnumClass)
             opcodes(
                 Opcode.SGET_OBJECT,

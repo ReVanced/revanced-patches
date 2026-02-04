@@ -1,10 +1,10 @@
 package app.revanced.patches.warnwetter.misc.firebasegetcert
 
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
 
-internal val BytecodePatchContext.getMessagingCertMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.getMessagingCertMethod by gettingFirstMethodDeclaratively(
     "ContentValues",
     "Could not get fingerprint hash for package: ",
     "No such package: ",
@@ -12,7 +12,7 @@ internal val BytecodePatchContext.getMessagingCertMethod by gettingFirstMutableM
     returnType("Ljava/lang/String;")
 }
 
-internal val BytecodePatchContext.getRegistrationCertMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.getRegistrationCertMethod by gettingFirstMethodDeclaratively(
     "FirebaseRemoteConfig",
     "Could not get fingerprint hash for package: ",
     "No such package: ",

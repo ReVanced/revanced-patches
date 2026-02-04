@@ -7,7 +7,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.fullscreenSeekbarThumbnailsMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.fullscreenSeekbarThumbnailsMethod by gettingFirstMethodDeclaratively {
     returnType("Z")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes()
@@ -70,7 +70,7 @@ internal val BytecodePatchContext.watchHistoryMenuUseProgressDrawableMethodMatch
     )
 }
 
-internal val BytecodePatchContext.lithoLinearGradientMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.lithoLinearGradientMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.STATIC)
     returnType("Landroid/graphics/LinearGradient;")
     parameterTypes("F", "F", "F", "F", "[I", "[F")
@@ -106,7 +106,7 @@ internal val BytecodePatchContext.playerLinearGradientLegacyMethodMatch by compo
 
 internal const val LOTTIE_ANIMATION_VIEW_CLASS_TYPE = "Lcom/airbnb/lottie/LottieAnimationView;"
 
-internal val BytecodePatchContext.lottieAnimationViewSetAnimationIntMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.lottieAnimationViewSetAnimationIntMethod by gettingFirstImmutableMethodDeclaratively {
     definingClass(LOTTIE_ANIMATION_VIEW_CLASS_TYPE)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("I")
@@ -121,7 +121,7 @@ internal val BytecodePatchContext.lottieAnimationViewSetAnimationIntMethod by ge
     instructions(method { name == "isInEditMode" && definingClass == methodDefiningClass })
 }
 
-internal val BytecodePatchContext.lottieCompositionFactoryZipMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.lottieCompositionFactoryZipMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     parameterTypes("Landroid/content/Context;", "Ljava/util/zip/ZipInputStream;", "Ljava/lang/String;")
     returnType("L")
@@ -137,7 +137,7 @@ internal val BytecodePatchContext.lottieCompositionFactoryZipMethod by gettingFi
  * [Original method](https://github.com/airbnb/lottie-android/blob/26ad8bab274eac3f93dccccfa0cafc39f7408d13/lottie/src/main/java/com/airbnb/lottie/LottieCompositionFactory.java#L386)
  */
 context(_: BytecodePatchContext)
-internal fun ClassDef.getLottieCompositionFactoryFromJsonInputStreamMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getLottieCompositionFactoryFromJsonInputStreamMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     parameterTypes("Ljava/io/InputStream;", "Ljava/lang/String;")
     returnType("L")

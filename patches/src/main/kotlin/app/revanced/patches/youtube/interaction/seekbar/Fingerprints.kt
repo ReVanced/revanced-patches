@@ -11,7 +11,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.swipingUpGestureParentMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.swipingUpGestureParentMethod by gettingFirstImmutableMethodDeclaratively {
     returnType("Z")
     parameterTypes()
     instructions(
@@ -23,7 +23,7 @@ internal val BytecodePatchContext.swipingUpGestureParentMethod by gettingFirstMe
  * Resolves using the class found in [swipingUpGestureParentMethod].
  */
 context(_: BytecodePatchContext)
-internal fun ClassDef.getShowSwipingUpGuideMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getShowSwipingUpGuideMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()
@@ -34,7 +34,7 @@ internal fun ClassDef.getShowSwipingUpGuideMethod() = firstMutableMethodDeclarat
  * Resolves using the class found in [swipingUpGestureParentMethod].
  */
 context(_: BytecodePatchContext)
-internal fun ClassDef.getAllowSwipingUpGestureMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getAllowSwipingUpGestureMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L")
@@ -132,7 +132,7 @@ internal val BytecodePatchContext.slideToSeekMethodMatch by composingFirstMethod
     literal { 67108864 }
 }
 
-internal val BytecodePatchContext.fullscreenSeekbarThumbnailsQualityMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.fullscreenSeekbarThumbnailsQualityMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

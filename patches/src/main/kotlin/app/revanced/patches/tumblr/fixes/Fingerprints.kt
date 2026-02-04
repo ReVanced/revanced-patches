@@ -1,7 +1,7 @@
 package app.revanced.patches.tumblr.fixes
 
 import app.revanced.patcher.composingFirstMethod
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
@@ -10,7 +10,7 @@ import com.android.tools.smali.dexlib2.Opcode
 // Matches the addQueryParam method from retrofit2:
 // https://github.com/square/retrofit/blob/trunk/retrofit/src/main/java/retrofit2/RequestBuilder.java#L186.
 // Injecting here allows modifying dynamically set query parameters.
-internal val BytecodePatchContext.addQueryParamMethod by gettingFirstMutableMethodDeclaratively("Malformed URL. Base: ", ", Relative: ") {
+internal val BytecodePatchContext.addQueryParamMethod by gettingFirstMethodDeclaratively("Malformed URL. Base: ", ", Relative: ") {
     parameterTypes("Ljava/lang/String;", "Ljava/lang/String;", "Z")
 }
 

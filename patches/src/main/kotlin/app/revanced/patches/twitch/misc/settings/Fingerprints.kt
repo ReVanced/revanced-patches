@@ -4,7 +4,7 @@ import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val BytecodePatchContext.menuGroupsOnClickMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.menuGroupsOnClickMethod by gettingFirstMethodDeclaratively {
     name { contains("render") }
     definingClass { endsWith("/SettingsMenuViewDelegate;") }
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC, AccessFlags.FINAL)
@@ -12,17 +12,17 @@ internal val BytecodePatchContext.menuGroupsOnClickMethod by gettingFirstMutable
     parameterTypes("L", "L", "L")
 }
 
-internal val BytecodePatchContext.menuGroupsUpdatedMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.menuGroupsUpdatedMethod by gettingFirstMethodDeclaratively {
     name("<init>")
     definingClass("/SettingsMenuPresenter\$Event\$MenuGroupsUpdated;")
 }
 
-internal val BytecodePatchContext.settingsActivityOnCreateMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.settingsActivityOnCreateMethod by gettingFirstMethodDeclaratively {
     name("onCreate")
     definingClass { endsWith("/SettingsActivity;") }
 }
 
-internal val BytecodePatchContext.settingsMenuItemEnumMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.settingsMenuItemEnumMethod by gettingFirstMethodDeclaratively {
     name("<clinit>")
     definingClass { endsWith("/SettingsMenuItem;") }
 }

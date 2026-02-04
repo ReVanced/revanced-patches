@@ -2,7 +2,7 @@ package app.revanced.patches.shared.misc.extension
 
 import app.revanced.patcher.*
 import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.firstMutableClassDef
+import app.revanced.patcher.firstClassDef
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.util.returnEarly
@@ -39,7 +39,7 @@ fun sharedExtensionPatch(
 
     apply {
         // Verify the extension class exists.
-        firstMutableClassDef(EXTENSION_CLASS_DESCRIPTOR)
+        firstClassDef(EXTENSION_CLASS_DESCRIPTOR)
     }
 
     afterDependents {
@@ -88,7 +88,7 @@ class ExtensionHook internal constructor(
 ) {
     context(context: BytecodePatchContext)
     operator fun invoke(extensionClassDescriptor: String) {
-        val method = context.firstMutableMethodDeclaratively(build = build)
+        val method = context.firstMethodDeclaratively(build = build)
         val insertIndex = method.getInsertIndex()
         val contextRegister = method.getContextRegister()
 

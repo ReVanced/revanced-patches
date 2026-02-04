@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.debugCategoryAllowOnReleaseBuildsMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.debugCategoryAllowOnReleaseBuildsMethod by gettingFirstMethodDeclaratively {
     name("getAllowOnReleaseBuilds")
     definingClass("Lcom/duolingo/debug/DebugCategory;")
     returnType("Z")
@@ -19,7 +19,7 @@ internal val ClassDef.buildConfigProviderConstructorMethodMatch by ClassDefCompo
     opcodes(Opcode.CONST_4)
 }
 
-internal val BytecodePatchContext.buildConfigProviderToStringMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.buildConfigProviderToStringMethod by gettingFirstMethodDeclaratively {
     name("toString")
     parameterTypes()
     returnType("Ljava/lang/String;")

@@ -5,8 +5,8 @@ import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableClassDef
 import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.firstMutableClassDef
-import app.revanced.patcher.firstMutableMethod
+import app.revanced.patcher.firstClassDef
+import app.revanced.patcher.firstMethod
 import app.revanced.patcher.patch.booleanOption
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.strava.misc.extension.sharedExtensionPatch
@@ -95,7 +95,7 @@ val hideDistractionsPatch = bytecodePatch(
     apply {
         // region Write option values into extension class.
 
-        val extensionClass = firstMutableClassDef { type == EXTENSION_CLASS_DESCRIPTOR }.apply {
+        val extensionClass = firstClassDef { type == EXTENSION_CLASS_DESCRIPTOR }.apply {
             options.forEach { (key, option) ->
                 staticFields.first { field -> field.name == key }.initialValue =
                     ImmutableBooleanEncodedValue.forBoolean(option.value == true).toMutable()
@@ -170,7 +170,7 @@ val hideDistractionsPatch = bytecodePatch(
                         } == true
                     } ?: classDef.type
 
-                    mutableClassDef.firstMutableMethod(method).cloneAndIntercept(
+                    mutableClassDef.firstMethod(method).cloneAndIntercept(
                         mutableClassDef,
                         "filter${fingerprint.name}",
                         listOf(parameterType) + fingerprint.parameterTypes,

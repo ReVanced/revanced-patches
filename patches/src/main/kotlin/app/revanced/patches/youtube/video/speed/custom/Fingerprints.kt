@@ -7,24 +7,24 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.getOldPlaybackSpeedsMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.getOldPlaybackSpeedsMethod by gettingFirstMethodDeclaratively(
     "menu_item_playback_speed",
 ) {
     parameterTypes("[L", "I")
 }
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getShowOldPlaybackSpeedMenuMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getShowOldPlaybackSpeedMenuMethod() = firstMethodDeclaratively {
     instructions(
         ResourceType.STRING("varispeed_unavailable_message"),
     )
 }
 
-internal val BytecodePatchContext.showOldPlaybackSpeedMenuExtensionMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.showOldPlaybackSpeedMenuExtensionMethod by gettingFirstMethodDeclaratively {
     name("showOldPlaybackSpeedMenu")
 }
 
-internal val BytecodePatchContext.serverSideMaxSpeedFeatureFlagMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.serverSideMaxSpeedFeatureFlagMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     instructions(
@@ -49,7 +49,7 @@ internal val BytecodePatchContext.speedArrayGeneratorMethodMatch by composingFir
 /**
  * 20.34+
  */
-internal val BytecodePatchContext.speedLimiterMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.speedLimiterMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("F", "Lcom/google/android/libraries/youtube/innertube/model/media/PlayerConfigModel;")
@@ -62,7 +62,7 @@ internal val BytecodePatchContext.speedLimiterMethod by gettingFirstMutableMetho
 /**
  * 20.33 and lower.
  */
-internal val BytecodePatchContext.speedLimiterLegacyMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.speedLimiterLegacyMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("F")

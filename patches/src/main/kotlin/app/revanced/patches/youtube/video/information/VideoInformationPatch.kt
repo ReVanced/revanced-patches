@@ -5,7 +5,7 @@ import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod
 import app.revanced.com.android.tools.smali.dexlib2.mutable.MutableMethod.Companion.toMutable
 import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.*
-import app.revanced.patcher.firstMutableClassDef
+import app.revanced.patcher.firstClassDef
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
@@ -196,7 +196,7 @@ val videoInformationPatch = bytecodePatch(
                 getInstruction<ReferenceInstruction>(indexOfFirstInstructionOrThrow(Opcode.IF_EQZ) - 1).reference as FieldReference
 
             setPlaybackSpeedMethod =
-                firstMutableClassDef(setPlaybackSpeedMethodReference.definingClass)
+                firstClassDef(setPlaybackSpeedMethodReference.definingClass)
                     .methods.first { it.name == setPlaybackSpeedMethodReference.name }
             setPlaybackSpeedMethodIndex = 0
 
@@ -353,7 +353,7 @@ val videoInformationPatch = bytecodePatch(
             val onItemClickListenerClassReference = it.getInstruction<ReferenceInstruction>(0).reference
             val setQualityFieldReference = it.getInstruction<ReferenceInstruction>(1).fieldReference!!
 
-            firstMutableClassDef(setQualityFieldReference.type).apply {
+            firstClassDef(setQualityFieldReference.type).apply {
                 // Add interface and helper methods to allow extension code to call obfuscated methods.
                 interfaces.add(EXTENSION_VIDEO_QUALITY_MENU_INTERFACE)
 

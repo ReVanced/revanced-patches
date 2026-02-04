@@ -13,7 +13,7 @@ internal val ClassDef.initializeMonetizationDebugSettingsMethodMatch by ClassDef
     opcodes(Opcode.IPUT_BOOLEAN)
 }
 
-internal val BytecodePatchContext.monetizationDebugSettingsToStringMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.monetizationDebugSettingsToStringMethod by gettingFirstMethodDeclaratively {
     name("toString")
     instructions(string("MonetizationDebugSettings(", String::contains))
 }

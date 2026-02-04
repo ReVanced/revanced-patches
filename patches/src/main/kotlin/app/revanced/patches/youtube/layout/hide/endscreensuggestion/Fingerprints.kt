@@ -8,13 +8,13 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
-internal val BytecodePatchContext.autoNavConstructorMethod by gettingFirstMethodDeclaratively("main_app_autonav") {
+internal val BytecodePatchContext.autoNavConstructorMethod by gettingFirstImmutableMethodDeclaratively("main_app_autonav") {
     returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
 }
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getAutoNavStatusMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getAutoNavStatusMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

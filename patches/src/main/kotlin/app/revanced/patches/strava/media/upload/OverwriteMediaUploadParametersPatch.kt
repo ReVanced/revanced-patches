@@ -1,6 +1,6 @@
 package app.revanced.patches.strava.media.upload
 
-import app.revanced.patcher.firstClassDef
+import app.revanced.patcher.firstImmutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.intOption
 import app.revanced.patcher.patch.longOption
@@ -29,7 +29,7 @@ val overwriteMediaUploadParametersPatch = bytecodePatch(
     ) { it == null || it in 1..10000 }
 
     apply {
-        val mediaUploadParametersClass = firstClassDef { type.endsWith("/MediaUploadParameters;") }
+        val mediaUploadParametersClass = firstImmutableClassDef { type.endsWith("/MediaUploadParameters;") }
 
         compressionQuality?.let { compressionQuality ->
             mediaUploadParametersClass.getGetCompressionQualityMethod().returnEarly(compressionQuality / 100f)

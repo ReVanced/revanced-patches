@@ -2,12 +2,12 @@ package app.revanced.patches.reddit.customclients.sync.syncforreddit.fix.thumbna
 
 import app.revanced.patcher.accessFlags
 import app.revanced.patcher.definingClass
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.parameterTypes
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val BytecodePatchContext.customImageViewLoadMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.customImageViewLoadMethod by gettingFirstMethodDeclaratively {
     definingClass { endsWith("CustomImageView;") }
     accessFlags(AccessFlags.PUBLIC)
     parameterTypes("Ljava/lang/String;", "Z", "Z", "I", "I")

@@ -4,7 +4,7 @@ import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.intentActionMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.intentActionMethod by gettingFirstMethodDeclaratively(
     "has_handled_intent",
 ) {
     parameterTypes("Landroid/content/Intent;")

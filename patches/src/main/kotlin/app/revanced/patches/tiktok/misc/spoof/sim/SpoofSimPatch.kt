@@ -3,7 +3,7 @@ package app.revanced.patches.tiktok.misc.spoof.sim
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.firstMutableMethod
+import app.revanced.patcher.firstMethod
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.tiktok.misc.extension.sharedExtensionPatch
 import app.revanced.patches.tiktok.misc.settings.settingsPatch
@@ -70,7 +70,7 @@ val sIMSpoofPatch = bytecodePatch(
             }
         }.forEach { (classDef, methods) ->
             methods.forEach { (method, patches) ->
-                with(classDef.firstMutableMethod(method)) {
+                with(classDef.firstMethod(method)) {
                     while (!patches.isEmpty()) {
                         val (index, replacement) = patches.removeLast()
 

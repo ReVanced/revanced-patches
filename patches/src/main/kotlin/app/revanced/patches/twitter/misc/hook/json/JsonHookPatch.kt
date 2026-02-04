@@ -2,7 +2,7 @@ package app.revanced.patches.twitter.misc.hook.json
 
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.removeInstructions
-import app.revanced.patcher.firstClassDef
+import app.revanced.patcher.firstImmutableClassDef
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.bytecodePatch
@@ -53,7 +53,7 @@ val jsonHookPatch = bytecodePatch(
                 .fields
                 .firstOrNull { it.name == "JSON_FACTORY" }
                 ?.type
-                ?.let { type -> firstClassDef(type) }
+                ?.let { type -> firstImmutableClassDef(type) }
                 ?: throw PatchException("Could not find required class.")
 
         // Hook the methods first parameter.
@@ -90,7 +90,7 @@ class JsonHook internal constructor(
  */
 context(context: BytecodePatchContext)
 fun jsonHook(descriptor: String): JsonHook {
-    context.firstClassDef(descriptor).let {
+    context.firstImmutableClassDef(descriptor).let {
         it.also { classDef ->
             if (
                 classDef.superclass != JSON_HOOK_CLASS_DESCRIPTOR ||

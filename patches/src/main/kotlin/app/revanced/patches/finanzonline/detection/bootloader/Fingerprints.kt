@@ -1,7 +1,7 @@
 package app.revanced.patches.finanzonline.detection.bootloader
 
 import app.revanced.patcher.accessFlags
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.opcodes
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.returnType
@@ -9,7 +9,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.AttestationHelper#isBootStateOk (3.0.1)
-internal val BytecodePatchContext.bootStateMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.bootStateMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC)
     returnType("Z")
     opcodes(
@@ -34,7 +34,7 @@ internal val BytecodePatchContext.bootStateMethod by gettingFirstMutableMethodDe
 }
 
 // Located @ at.gv.bmf.bmf2go.taxequalization.tools.utils.AttestationHelper#createKey (3.0.1)
-internal val BytecodePatchContext.createKeyMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.createKeyMethod by gettingFirstMethodDeclaratively(
     "attestation",
     "SHA-256",
     "random",

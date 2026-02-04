@@ -3,7 +3,7 @@ package app.revanced.patches.music.layout.buttons
 import app.revanced.patcher.extensions.addInstruction
 import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.firstMutableMethod
+import app.revanced.patcher.firstMethod
 import app.revanced.patcher.immutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.all.misc.resources.addResources
@@ -110,7 +110,7 @@ val hideButtonsPatch = bytecodePatch(
         }
 
         // Region for hide cast button in the player.
-        mediaRouteButtonMethod.immutableClassDef.firstMutableMethod {
+        mediaRouteButtonMethod.immutableClassDef.firstMethod {
             name == "setVisibility"
         }.addInstructions(
             0,

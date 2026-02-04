@@ -16,7 +16,7 @@ internal val BytecodePatchContext.interceptMethodMatch by composingFirstMethod("
     )
 }
 
-internal val BytecodePatchContext.userConsumerPlanConstructorMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.userConsumerPlanConstructorMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes(
         "Ljava/lang/String;",

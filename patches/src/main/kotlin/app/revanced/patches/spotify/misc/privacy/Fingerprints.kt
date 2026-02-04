@@ -6,7 +6,7 @@ import app.revanced.util.literal
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.shareCopyUrlMethod by gettingFirstMutableMethodDeclarativelyOrNull(
+internal val BytecodePatchContext.shareCopyUrlMethod by gettingFirstMethodDeclarativelyOrNull(
     "clipboard",
     "Spotify Link",
 ) {
@@ -15,7 +15,7 @@ internal val BytecodePatchContext.shareCopyUrlMethod by gettingFirstMutableMetho
     parameterTypes("Ljava/lang/Object;")
 }
 
-internal val BytecodePatchContext.oldShareCopyUrlMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.oldShareCopyUrlMethod by gettingFirstMethodDeclaratively(
     "clipboard",
     "createNewSession failed",
 ) {
@@ -24,7 +24,7 @@ internal val BytecodePatchContext.oldShareCopyUrlMethod by gettingFirstMutableMe
     parameterTypes("Ljava/lang/Object;")
 }
 
-internal val BytecodePatchContext.formatAndroidShareSheetUrlMethod by gettingFirstMutableMethodDeclarativelyOrNull {
+internal val BytecodePatchContext.formatAndroidShareSheetUrlMethod by gettingFirstMethodDeclarativelyOrNull {
     returnType("Ljava/lang/String;")
     parameterTypes("L", "Ljava/lang/String;")
     opcodes(
@@ -37,7 +37,7 @@ internal val BytecodePatchContext.formatAndroidShareSheetUrlMethod by gettingFir
     literal { '\n'.code.toLong() }
 }
 
-internal val BytecodePatchContext.oldFormatAndroidShareSheetUrlMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.oldFormatAndroidShareSheetUrlMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC)
     returnType("Ljava/lang/String;")
     parameterTypes("Lcom/spotify/share/social/sharedata/ShareData;", "Ljava/lang/String;")

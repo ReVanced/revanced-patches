@@ -6,7 +6,7 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getOnFailureMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getOnFailureMethod() = firstMethodDeclaratively {
     name("onFailed")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
@@ -18,7 +18,7 @@ internal fun ClassDef.getOnFailureMethod() = firstMutableMethodDeclaratively {
 }
 
 // Acts as a parent method.
-internal val BytecodePatchContext.onResponseStartedMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.onResponseStartedMethod by gettingFirstMethodDeclaratively(
     "Content-Length",
     "Content-Type",
     "identity",
@@ -31,7 +31,7 @@ internal val BytecodePatchContext.onResponseStartedMethod by gettingFirstMutable
 }
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getOnSucceededMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getOnSucceededMethod() = firstMethodDeclaratively {
     name("onSucceeded")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
@@ -40,18 +40,18 @@ internal fun ClassDef.getOnSucceededMethod() = firstMutableMethodDeclaratively {
 
 internal const val CRONET_URL_REQUEST_CLASS_DESCRIPTOR = "Lorg/chromium/net/impl/CronetUrlRequest;"
 
-internal val BytecodePatchContext.requestMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.requestMethod by gettingFirstMethodDeclaratively {
     definingClass(CRONET_URL_REQUEST_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
 }
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getMessageDigestImageUrlMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getMessageDigestImageUrlMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.CONSTRUCTOR)
     parameterTypes("Ljava/lang/String;", "L")
 }
 
-internal val BytecodePatchContext.messageDigestImageUrlParentMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.messageDigestImageUrlParentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Ljava/lang/String;")
     parameterTypes()

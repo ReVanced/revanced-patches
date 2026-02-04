@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 import com.android.tools.smali.dexlib2.util.MethodUtil
 
-internal val BytecodePatchContext.checkDeviceMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.checkDeviceMethod by gettingFirstMethodDeclaratively {
     returnType("Z")
     instructions(
         predicates = unorderedAllOf(

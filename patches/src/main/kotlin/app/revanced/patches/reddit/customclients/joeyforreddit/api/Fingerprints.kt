@@ -1,19 +1,19 @@
 package app.revanced.patches.reddit.customclients.joeyforreddit.api
 
 import app.revanced.patcher.*
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.authUtilityUserAgentMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.authUtilityUserAgentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("Ljava/lang/String;")
     opcodes(Opcode.APUT_OBJECT)
     custom { immutableClassDef.sourceFile == "AuthUtility.java" }
 }
 
-internal val BytecodePatchContext.getClientIdMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.getClientIdMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
     returnType("L")
     opcodes(

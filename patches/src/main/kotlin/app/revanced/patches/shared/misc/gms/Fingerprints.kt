@@ -4,7 +4,7 @@ import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val BytecodePatchContext.googlePlayUtilityMethod by gettingFirstMutableMethodDeclarativelyOrNull(
+internal val BytecodePatchContext.googlePlayUtilityMethod by gettingFirstMethodDeclarativelyOrNull(
     "This should never happen.",
     "MetadataValueReader",
     "com.google.android.gms",
@@ -14,7 +14,7 @@ internal val BytecodePatchContext.googlePlayUtilityMethod by gettingFirstMutable
     parameterTypes("L", "I")
 }
 
-internal val BytecodePatchContext.serviceCheckMethod by gettingFirstMutableMethodDeclaratively(
+internal val BytecodePatchContext.serviceCheckMethod by gettingFirstMethodDeclaratively(
     "Google Play Services not available",
 ) {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.STATIC)
@@ -22,7 +22,7 @@ internal val BytecodePatchContext.serviceCheckMethod by gettingFirstMutableMetho
     parameterTypes("L", "I")
 }
 
-internal val BytecodePatchContext.gmsCoreSupportMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.gmsCoreSupportMethod by gettingFirstMethodDeclaratively {
     name("getGmsCoreVendorGroupId")
     definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)
@@ -30,7 +30,7 @@ internal val BytecodePatchContext.gmsCoreSupportMethod by gettingFirstMutableMet
     parameterTypes()
 }
 
-internal val BytecodePatchContext.originalPackageNameExtensionMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.originalPackageNameExtensionMethod by gettingFirstMethodDeclaratively {
     name("getOriginalPackageName")
     definingClass(EXTENSION_CLASS_DESCRIPTOR)
     accessFlags(AccessFlags.PRIVATE, AccessFlags.STATIC)

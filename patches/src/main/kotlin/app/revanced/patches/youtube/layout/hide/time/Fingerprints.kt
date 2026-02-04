@@ -5,7 +5,7 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.timeCounterMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.timeCounterMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes()

@@ -3,23 +3,23 @@ package app.revanced.patches.tiktok.misc.settings
 import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
 
-internal val BytecodePatchContext.addSettingsEntryMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.addSettingsEntryMethod by gettingFirstMethodDeclaratively {
     name("initUnitManger")
     definingClass { endsWith("/SettingNewVersionFragment;") }
 }
 
-internal val BytecodePatchContext.adPersonalizationActivityOnCreateMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.adPersonalizationActivityOnCreateMethod by gettingFirstMethodDeclaratively {
     name("onCreate")
     definingClass { endsWith("/AdPersonalizationActivity;") }
 }
 
-internal val BytecodePatchContext.settingsEntryMethod by gettingFirstMethodDeclaratively(
+internal val BytecodePatchContext.settingsEntryMethod by gettingFirstImmutableMethodDeclaratively(
     "pls pass item or extends the EventUnit",
 )
 
-internal val BytecodePatchContext.settingsEntryInfoMethod by gettingFirstMethod("ExposeItem(title=", ", icon=")
+internal val BytecodePatchContext.settingsEntryInfoMethod by gettingFirstImmutableMethod("ExposeItem(title=", ", icon=")
 
-internal val BytecodePatchContext.settingsStatusLoadMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.settingsStatusLoadMethod by gettingFirstMethodDeclaratively {
     name("load")
     definingClass("Lapp/revanced/extension/tiktok/settings/SettingsStatus;")
 }

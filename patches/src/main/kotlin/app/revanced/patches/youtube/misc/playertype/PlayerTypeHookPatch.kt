@@ -20,7 +20,7 @@ val playerTypeHookPatch = bytecodePatch(
     dependsOn(sharedExtensionPatch, resourceMappingPatch)
 
     apply {
-        firstMutableMethodDeclaratively {
+        firstMethodDeclaratively {
             definingClass { endsWith("/YouTubePlayerOverlaysLayout;") }
             accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
             returnType("V")

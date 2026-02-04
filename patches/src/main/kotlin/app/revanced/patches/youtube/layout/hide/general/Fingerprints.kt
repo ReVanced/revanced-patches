@@ -43,7 +43,7 @@ internal val BytecodePatchContext.parseElementFromBufferMethodMatch by composing
     )
 }
 
-internal val BytecodePatchContext.playerOverlayMethod by gettingFirstMethodDeclaratively {
+internal val BytecodePatchContext.playerOverlayMethod by gettingFirstImmutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("L")
     instructions(
@@ -52,7 +52,7 @@ internal val BytecodePatchContext.playerOverlayMethod by gettingFirstMethodDecla
 }
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getShowWatermarkMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getShowWatermarkMethod() = firstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("L", "L")
@@ -61,7 +61,7 @@ internal fun ClassDef.getShowWatermarkMethod() = firstMutableMethodDeclaratively
 /**
  * Matches same method as [wideSearchbarLayoutMethod].
  */
-internal val BytecodePatchContext.yoodlesImageViewMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.yoodlesImageViewMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Landroid/view/View;")
     parameterTypes("L", "L")

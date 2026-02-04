@@ -1,12 +1,12 @@
 package app.revanced.patches.primevideo.ads
 
 import app.revanced.patcher.*
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
-internal val BytecodePatchContext.enterServerInsertedAdBreakStateMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.enterServerInsertedAdBreakStateMethod by gettingFirstMethodDeclaratively {
     name("enter")
     definingClass("Lcom/amazon/avod/media/ads/internal/state/ServerInsertedAdBreakState;")
     accessFlags(AccessFlags.PUBLIC)
@@ -20,7 +20,7 @@ internal val BytecodePatchContext.enterServerInsertedAdBreakStateMethod by getti
     )
 }
 
-internal val BytecodePatchContext.doTriggerMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.doTriggerMethod by gettingFirstMethodDeclaratively {
     name("doTrigger")
     definingClass("Lcom/amazon/avod/fsm/StateBase;")
     accessFlags(AccessFlags.PROTECTED)

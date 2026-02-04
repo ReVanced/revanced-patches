@@ -3,7 +3,7 @@ package app.revanced.patches.twitch.ad.shared.util
 import app.revanced.patcher.extensions.ExternalLabel
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
-import app.revanced.patcher.firstMutableClassDefOrNull
+import app.revanced.patcher.firstClassDefOrNull
 import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
@@ -31,7 +31,7 @@ fun adPatch(
         methodNames: Set<String>,
         returnMethod: ReturnMethod,
     ): Boolean {
-        val classDef = firstMutableClassDefOrNull(classDefType) ?: return false
+        val classDef = firstClassDefOrNull(classDefType) ?: return false
 
         classDef.methods.filter { it.name in methodNames }.forEach { method ->
             val retInstruction = when (returnMethod.returnType) {

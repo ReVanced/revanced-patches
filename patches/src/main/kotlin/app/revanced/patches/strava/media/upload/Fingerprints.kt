@@ -1,25 +1,25 @@
 package app.revanced.patches.strava.media.upload
 
 import app.revanced.patcher.definingClass
-import app.revanced.patcher.firstMutableMethodDeclaratively
+import app.revanced.patcher.firstMethodDeclaratively
 import app.revanced.patcher.name
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.iface.ClassDef
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getGetCompressionQualityMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getGetCompressionQualityMethod() = firstMethodDeclaratively {
     name("getCompressionQuality")
     definingClass { endsWith("/MediaUploadParameters;") }
 }
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getGetMaxDurationMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getGetMaxDurationMethod() = firstMethodDeclaratively {
     name("getMaxDuration")
     definingClass { endsWith("/MediaUploadParameters;") }
 }
 
 context(_: BytecodePatchContext)
-internal fun ClassDef.getGetMaxSizeMethod() = firstMutableMethodDeclaratively {
+internal fun ClassDef.getGetMaxSizeMethod() = firstMethodDeclaratively {
     name("getMaxSize")
     definingClass { endsWith("/MediaUploadParameters;") }
 }

@@ -6,7 +6,7 @@ import app.revanced.patcher.extensions.addInstructions
 import app.revanced.patcher.extensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.instructions
-import app.revanced.patcher.firstClassDef
+import app.revanced.patcher.firstImmutableClassDef
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.mapping.ResourceType
 import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
@@ -35,7 +35,7 @@ val addMediaDownloadPatch = bytecodePatch(
     )
 
     apply {
-        val fragmentClass = firstClassDef { endsWith("/FullscreenMediaFragment;") }
+        val fragmentClass = firstImmutableClassDef { endsWith("/FullscreenMediaFragment;") }
 
         // region Extend menu of `FullscreenMediaFragment` with actions.
 
@@ -86,7 +86,7 @@ val addMediaDownloadPatch = bytecodePatch(
 
         // region Handle new actions.
 
-        val actionClass = firstClassDef {
+        val actionClass = firstImmutableClassDef {
             type == ACTION_CLASS_DESCRIPTOR
         }
         val actionSerializableField = actionClass.instanceFields.first { field ->

@@ -1,11 +1,11 @@
 package app.revanced.patches.primevideo.video.speed
 
 import app.revanced.patcher.*
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.patch.BytecodePatchContext
 import com.android.tools.smali.dexlib2.AccessFlags
 
-internal val BytecodePatchContext.playbackUserControlsInitializeMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playbackUserControlsInitializeMethod by gettingFirstMethodDeclaratively {
     name("initialize")
     definingClass("Lcom/amazon/avod/playbackclient/activity/feature/PlaybackUserControlsFeature;")
     accessFlags(AccessFlags.PUBLIC)
@@ -13,7 +13,7 @@ internal val BytecodePatchContext.playbackUserControlsInitializeMethod by gettin
     returnType("V")
 }
 
-internal val BytecodePatchContext.playbackUserControlsPrepareForPlaybackMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.playbackUserControlsPrepareForPlaybackMethod by gettingFirstMethodDeclaratively {
     name("prepareForPlayback")
     definingClass("Lcom/amazon/avod/playbackclient/activity/feature/PlaybackUserControlsFeature;")
     accessFlags(AccessFlags.PUBLIC)

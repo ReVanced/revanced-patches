@@ -24,7 +24,7 @@ internal val BytecodePatchContext.userWasInShortsAlternativeMethodMatch by compo
 /**
  * Pre 20.02
  */
-internal val BytecodePatchContext.userWasInShortsLegacyMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.userWasInShortsLegacyMethod by gettingFirstMethodDeclaratively {
     returnType("V")
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     parameterTypes("Ljava/lang/Object;")
@@ -36,7 +36,7 @@ internal val BytecodePatchContext.userWasInShortsLegacyMethod by gettingFirstMut
 /**
  * 18.15.40+
  */
-internal val BytecodePatchContext.userWasInShortsConfigMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.userWasInShortsConfigMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("Z")
     parameterTypes()

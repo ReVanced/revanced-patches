@@ -1,7 +1,7 @@
 package app.revanced.patches.reddit.customclients.relayforreddit.api
 
 import app.revanced.patcher.composingFirstMethod
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
+import app.revanced.patcher.gettingFirstMethodDeclaratively
 import app.revanced.patcher.instructions
 import app.revanced.patcher.invoke
 import app.revanced.patcher.parameterTypes
@@ -24,10 +24,10 @@ internal val BytecodePatchContext.getRefreshTokenMethodMatch by baseClientIdMeth
 
 internal val BytecodePatchContext.loginActivityClientIdMethodMatch by baseClientIdMethod("&duration=permanent")
 
-internal val BytecodePatchContext.redditCheckDisableAPIMethod by gettingFirstMutableMethodDeclaratively("Reddit Disabled") {
+internal val BytecodePatchContext.redditCheckDisableAPIMethod by gettingFirstMethodDeclaratively("Reddit Disabled") {
     instructions(Opcode.IF_EQZ())
 }
 
-internal val BytecodePatchContext.setRemoteConfigMethod by gettingFirstMutableMethodDeclaratively("reddit_oauth_url") {
+internal val BytecodePatchContext.setRemoteConfigMethod by gettingFirstMethodDeclaratively("reddit_oauth_url") {
     parameterTypes("Lcom/google/firebase/remoteconfig/FirebaseRemoteConfig;")
 }
