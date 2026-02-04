@@ -2,9 +2,9 @@
 
 package app.revanced.patches.shared.misc.litho.filter
 
-import app.revanced.patcher.extensions.addInstruction
+import app.revanced.com.android.tools.smali.dexlib2.iface.value.MutableEncodedValue.Companion.toMutable
+import app.revanced.patcher.classDef
 import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.getInstruction
 import app.revanced.patcher.extensions.removeInstructions
 import app.revanced.patcher.extensions.replaceInstruction
 import app.revanced.patcher.firstClassDef
@@ -13,15 +13,12 @@ import app.revanced.patcher.patch.BytecodePatchBuilder
 import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patches.shared.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.shared.conversionContextToStringMethod
 import app.revanced.util.addInstructionsAtControlFlowLabel
 import app.revanced.util.findFreeRegister
-import app.revanced.util.getReference
-import app.revanced.util.indexOfFirstInstructionReversedOrThrow
+import app.revanced.util.findFieldFromToString
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.iface.Method
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.immutable.value.ImmutableBooleanEncodedValue
 
 /**
  * Used to add a hook point to the extension stub.
@@ -34,20 +31,24 @@ lateinit var addLithoFilter: (String) -> Unit
  */
 private var filterCount = 0
 
-private const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/patches/litho/LithoFilterPatch;"
+internal const val EXTENSION_CLASS_DESCRIPTOR = "Lapp/revanced/extension/shared/patches/litho/LithoFilterPatch;"
 
 /**
  * A patch that allows to filter Litho components based on their identifier or path.
  *
  * @param componentCreateInsertionIndex The index to insert the filtering code in the component create method.
- * @param getConversionContextToStringMethod The Method of the conversion context to string method.
+ * @param insertProtobufHook This method injects a setProtoBuffer call in the protobuf decoding logic.
+ * @param getConversionContextToStringMethod The getter of the conversion context toString method.
+ * @param getExtractIdentifierFromBuffer Whether to extract the identifier from the protobuf buffer.
  * @param executeBlock The additional execution block of the patch.
  * @param block The additional block to build the patch.
  */
 internal fun lithoFilterPatch(
     componentCreateInsertionIndex: Method.() -> Int,
-    getConversionContextToStringMethod: BytecodePatchContext.() -> Method,
+    insertProtobufHook: BytecodePatchContext.() -> Unit,
     executeBlock: BytecodePatchContext.() -> Unit = {},
+    getConversionContextToStringMethod: BytecodePatchContext.() -> Method,
+    getExtractIdentifierFromBuffer: () -> Boolean = { false },
     block: BytecodePatchBuilder.() -> Unit = {},
 ) = bytecodePatch(
     description = "Hooks the method which parses the bytes into a ComponentContext to filter components.",
@@ -111,11 +112,14 @@ internal fun lithoFilterPatch(
             }
         }
 
+        // Tell the extension whether to extract the identifier from the buffer.
+        if (getExtractIdentifierFromBuffer()) {
+            lithoFilterMethod.classDef.fields.first { it.name == "EXTRACT_IDENTIFIER_FROM_BUFFER" }
+                .initialValue = ImmutableBooleanEncodedValue.forBoolean(true).toMutable()
+        }
+
         // Add an interceptor to steal the protobuf of our component.
-        protobufBufferReferenceMethod.addInstruction(
-            0,
-            "invoke-static { p2 }, $EXTENSION_CLASS_DESCRIPTOR->setProtoBuffer(Ljava/nio/ByteBuffer;)V",
-        )
+        insertProtobufHook()
 
         // Hook the method that parses bytes into a ComponentContext.
         // Allow the method to run to completion, and override the
@@ -123,18 +127,11 @@ internal fun lithoFilterPatch(
         // It is important to allow the original code to always run to completion,
         // otherwise high memory usage and poor app performance can occur.
 
-        // Find the identifier/path fields of the conversion context.
-        val conversionContextIdentifierField = componentContextParserMethodMatch.let {
-            // Identifier field is loaded just before the string declaration.
-            val index = it.method.indexOfFirstInstructionReversedOrThrow(it[0]) {
-                // Our instruction reads a String from a field of the ConversionContext class.
-                val reference = getReference<FieldReference>()
-                reference?.definingClass == conversionContextToStringMethod.immutableClassDef.type &&
-                    reference.type == "Ljava/lang/String;"
-            }
+        val conversionContextToStringMethod = getConversionContextToStringMethod()
 
-            it.method.getInstruction<ReferenceInstruction>(index).getReference<FieldReference>()!!
-        }
+        // Find the identifier/path fields of the conversion context.
+        val conversionContextIdentifierField = conversionContextToStringMethod
+            .findFieldFromToString("identifierProperty=")
 
         val conversionContextPathBuilderField = conversionContextToStringMethod.immutableClassDef
             .fields.single { field -> field.type == "Ljava/lang/StringBuilder;" }
@@ -162,7 +159,11 @@ internal fun lithoFilterPatch(
                 insertIndex,
                 """
                     move-object/from16 v$freeRegister, p2 # ConversionContext parameter
-                    check-cast v$freeRegister, ${getConversionContextToStringMethod().immutableClassDef.type} # Check we got the actual ConversionContext
+                    
+                    # In YT 20.41 the field is the abstract superclass.
+                    # Check it's the actual ConversionContext just in case. 
+                    instance-of v$identifierRegister, v$freeRegister, ${conversionContextToStringMethod.immutableClassDef.type}
+                    if-eqz v$identifierRegister, :unfiltered
                     
                     # Get identifier and path from ConversionContext
                     iget-object v$identifierRegister, v$freeRegister, $conversionContextIdentifierField

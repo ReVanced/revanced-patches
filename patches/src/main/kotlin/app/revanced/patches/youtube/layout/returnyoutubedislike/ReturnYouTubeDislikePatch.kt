@@ -14,8 +14,8 @@ import app.revanced.patches.shared.misc.settings.preference.NonInteractivePrefer
 import app.revanced.patches.shared.misc.settings.preference.PreferenceCategory
 import app.revanced.patches.shared.misc.settings.preference.PreferenceScreenPreference
 import app.revanced.patches.shared.misc.settings.preference.SwitchPreference
+import app.revanced.patches.shared.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.extension.sharedExtensionPatch
-import app.revanced.patches.youtube.misc.litho.filter.addLithoFilter
 import app.revanced.patches.youtube.misc.litho.filter.lithoFilterPatch
 import app.revanced.patches.youtube.misc.playertype.playerTypeHookPatch
 import app.revanced.patches.youtube.misc.playservice.*

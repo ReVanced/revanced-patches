@@ -1,21 +1,7 @@
 package app.revanced.patches.shared.misc.litho.filter
 
-import app.revanced.patcher.accessFlags
-import app.revanced.patcher.composingFirstMethod
-import app.revanced.patcher.custom
-import app.revanced.patcher.definingClass
-import app.revanced.patcher.gettingFirstMethod
-import app.revanced.patcher.gettingFirstMethodDeclaratively
-import app.revanced.patcher.gettingFirstMutableMethod
-import app.revanced.patcher.gettingFirstMutableMethodDeclaratively
-import app.revanced.patcher.immutableClassDef
-import app.revanced.patcher.instructions
-import app.revanced.patcher.invoke
-import app.revanced.patcher.opcodes
-import app.revanced.patcher.parameterTypes
+import app.revanced.patcher.*
 import app.revanced.patcher.patch.BytecodePatchContext
-import app.revanced.patcher.returnType
-import app.revanced.patcher.strings
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
@@ -24,10 +10,30 @@ internal val BytecodePatchContext.lithoFilterMethod by gettingFirstMutableMethod
     accessFlags(AccessFlags.STATIC, AccessFlags.CONSTRUCTOR)
 }
 
+internal val BytecodePatchContext.protobufBufferReferenceMethodMatch by composingFirstMethod {
+    accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
+    returnType("V")
+    parameterTypes("[B")
+
+    var methodDefiningClass = ""
+    custom {
+        methodDefiningClass = definingClass
+        true
+    }
+
+    instructions(
+        allOf(
+            Opcode.IGET_OBJECT(),
+            field { definingClass == methodDefiningClass && type == "Lcom/google/android/libraries/elements/adl/UpbMessage;" },
+        ),
+        method { definingClass == "Lcom/google/android/libraries/elements/adl/UpbMessage;" && name == "jniDecode" },
+    )
+}
+
 /**
  * Matches a method that use the protobuf of our component.
  */
-internal val BytecodePatchContext.protobufBufferReferenceMethod by gettingFirstMutableMethodDeclaratively {
+internal val BytecodePatchContext.protobufBufferReferenceLegacyMethod by gettingFirstMutableMethodDeclaratively {
     accessFlags(AccessFlags.PUBLIC, AccessFlags.FINAL)
     returnType("V")
     parameterTypes("I", "Ljava/nio/ByteBuffer;")
@@ -38,12 +44,11 @@ internal val BytecodePatchContext.componentContextParserMethodMatch by composing
     instructions("Number of bits must be positive"())
 }
 
-internal val BytecodePatchContext.emptyComponentMethod by gettingFirstMethodDeclaratively("EmptyComponent") {
+internal val BytecodePatchContext.emptyComponentMethod by gettingFirstMethodDeclaratively {
     accessFlags(AccessFlags.PRIVATE, AccessFlags.CONSTRUCTOR)
     parameterTypes()
-    custom {
-        immutableClassDef.methods.filter { AccessFlags.STATIC.isSet(it.accessFlags) }.size == 1
-    }
+    instructions("EmptyComponent"())
+    custom { immutableClassDef.methods.filter { AccessFlags.STATIC.isSet(it.accessFlags) }.size == 1 }
 }
 
 internal val BytecodePatchContext.componentCreateMethod by gettingFirstMutableMethod(

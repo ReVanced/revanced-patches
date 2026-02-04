@@ -1,4 +1,4 @@
-package app.revanced.extension.youtube.patches.litho;
+package app.revanced.extension.shared.patches.litho;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,12 +11,10 @@ import java.util.Map;
 
 import app.revanced.extension.shared.Logger;
 import app.revanced.extension.shared.Utils;
-import app.revanced.extension.shared.patches.litho.Filter;
 import app.revanced.extension.shared.patches.litho.FilterGroup.StringFilterGroup;
 import app.revanced.extension.shared.settings.BaseSettings;
 import app.revanced.extension.shared.StringTrieSearch;
-import app.revanced.extension.youtube.patches.VersionCheckPatch;
-import app.revanced.extension.youtube.settings.Settings;
+import app.revanced.extension.shared.settings.YouTubeAndMusicSettings;
 
 @SuppressWarnings("unused")
 public final class LithoFilterPatch {
@@ -39,11 +37,11 @@ public final class LithoFilterPatch {
         public String toString() {
             // Estimate the percentage of the buffer that are Strings.
             StringBuilder builder = new StringBuilder(Math.max(100, buffer.length / 2));
-            builder.append( "ID: ");
+            builder.append("ID: ");
             builder.append(identifier);
             builder.append(" Path: ");
             builder.append(path);
-            if (Settings.DEBUG_PROTOBUFFER.get()) {
+            if (YouTubeAndMusicSettings.DEBUG_PROTOBUFFER.get()) {
                 builder.append(" BufferStrings: ");
                 findAsciiStrings(builder, buffer);
             }
@@ -83,9 +81,10 @@ public final class LithoFilterPatch {
     /**
      * Placeholder for actual filters.
      */
-    private static final class DummyFilter extends Filter { }
+    private static final class DummyFilter extends Filter {
+    }
 
-    private static final Filter[] filters = new Filter[] {
+    private static final Filter[] filters = new Filter[]{
             new DummyFilter() // Replaced during patching, do not touch.
     };
 
@@ -106,12 +105,15 @@ public final class LithoFilterPatch {
     private static final int LITHO_LAYOUT_THREAD_POOL_SIZE = 1;
 
     /**
-     * 20.22+ cannot use the thread buffer, because frequently the buffer is not correct,
-     * especially for components that are recreated such as dragging off screen then back on screen.
+     * For YouTube 20.22+, this is set to true by a patch,
+     * because it cannot use the thread buffer due to the buffer frequently not being correct,
+     * especially for components that are recreated such as dragging off-screen then back on screen.
      * Instead, parse the identifier found near the start of the buffer and use that to
      * identify the correct buffer to use when filtering.
+     * <p>
+     * <b>This is set during patching, do not change manually.</b>
      */
-    private static final boolean EXTRACT_IDENTIFIER_FROM_BUFFER = VersionCheckPatch.IS_20_22_OR_GREATER;
+    private static final boolean EXTRACT_IDENTIFIER_FROM_BUFFER = false;
 
     /**
      * Turns on additional logging, used for development purposes only.
@@ -122,9 +124,11 @@ public final class LithoFilterPatch {
      * String suffix for components.
      * Can be any of: ".eml", ".e-b", ".eml-js", "e-js-b"
      */
-    private static final String LITHO_COMPONENT_EXTENSION = ".e";
-    private static final byte[] LITHO_COMPONENT_EXTENSION_BYTES = LITHO_COMPONENT_EXTENSION.getBytes(StandardCharsets.US_ASCII);
+    private static final byte[] LITHO_COMPONENT_EXTENSION_BYTES = ".e".getBytes(StandardCharsets.US_ASCII);
 
+    /**
+     * Used as placeholder for litho id/path filters that do not use a buffer
+     */
     private static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 
     /**
