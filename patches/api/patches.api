@@ -232,6 +232,10 @@ public final class app/revanced/patches/finanzonline/detection/root/RootDetectio
 	public static final fun getRootDetectionPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
 
+public final class app/revanced/patches/fotmob/ads/HideAdsPatchKt {
+	public static final fun getHideAdsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/googlenews/customtabs/EnableCustomTabsPatchKt {
 	public static final fun getEnableCustomTabsPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
 }
