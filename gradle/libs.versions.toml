@@ -11,25 +11,15 @@ appcompat = "1.7.1"
 okhttp = "5.3.2"
 retrofit = "3.0.0"
 guava = "33.5.0-jre"
-protobuf-javalite = "4.33.2"
-protoc = "4.33.2"
-protobuf = "0.9.6"
-antlr4 = "4.13.2"
-nanohttpd = "2.3.1"
 apksig = "8.12.3"
 
 [libraries]
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
-antlr4 = { module = "org.antlr:antlr4", version.ref = "antlr4" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-nanohttpd = { module = "org.nanohttpd:nanohttpd", version.ref = "nanohttpd" }
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
-protobuf-javalite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protobuf-javalite" }
-protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protoc" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 apksig = { group = "com.android.tools.build", name = "apksig", version.ref = "apksig" }
 
 [plugins]
 android-library = { id = "com.android.library" }
-protobuf = { id = "com.google.protobuf", version.ref = "protobuf" }
