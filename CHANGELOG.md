@@ -1,3 +1,10 @@
+# [5.50.0-dev.6](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.5...v5.50.0-dev.6) (2026-02-06)
+
+
+### Features
+
+* **FotMob:** Add `Hide ads` patch ([#6566](https://github.com/ReVanced/revanced-patches/issues/6566)) ([4b0b737](https://github.com/ReVanced/revanced-patches/commit/4b0b7374f21d13599ef2f1e2f5880e7589b0874e))
+
 # [5.50.0-dev.5](https://github.com/ReVanced/revanced-patches/compare/v5.50.0-dev.4...v5.50.0-dev.5) (2026-02-01)
 
 
