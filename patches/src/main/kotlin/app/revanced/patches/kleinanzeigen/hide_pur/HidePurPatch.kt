@@ -5,8 +5,8 @@ import app.revanced.util.returnEarly
 
 @Suppress("unused")
 val hidePurPatch = bytecodePatch(
-    name = "Hide PUR",
-    description = "Hides PUR (Ad Free Subscription) from Settings Menu.",
+    name = "Hide Pur",
+    description = "Hides Pur (Ad Free Subscription) from Settings Menu.",
 ) {
     compatibleWith("com.ebay.kleinanzeigen")
 
